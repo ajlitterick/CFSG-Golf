@@ -5,10 +5,10 @@ LOG=${1:-/home/alastair/claude-compute/cfsg-baseline-1102a/out.log}
 [ -f "$LOG" ] || { echo "no log at $LOG"; exit 1; }
 echo "log: $LOG  ($(du -h "$LOG" | cut -f1))"
 grep -E '^===' "$LOG" | tail -5
-total=$(grep -oE '\[[0-9]+/[0-9]+\]' "$LOG" | tail -1 | sed 's/.*\///; s/\]//')
-built=$(grep -cE '^✔ \[[0-9]+/[0-9]+\] (Built|Replayed|Fetched)' "$LOG")
-errs=$(grep -cE '^✖|error:' "$LOG")
-echo "built/replayed: $built   of (last seen total): ${total:-?}   error lines: $errs"
+total=$(tr '\r' '\n' < "$LOG" | grep -oE '\[[0-9]+/[0-9]+\]' | tail -1 | sed 's/.*\///; s/\]//')
+built=$(find "$(dirname "$0")/../.lake/build/lib/lean" -name '*.olean' 2>/dev/null | wc -l)
+errs=$(tr '\r' '\n' < "$LOG" | grep -cE '^✖|error:')
+echo "repo oleans built: $built   (lake job counter total: ${total:-?})   error lines: $errs"
 # rate over the last hour from file mtime snapshots kept in /tmp
 snap=/tmp/cfsg-progress-$(id -u).snap
 now=$(date +%s)
@@ -17,9 +17,9 @@ if [ -f "$snap" ]; then
   dt=$((now - t0))
   if [ "$dt" -gt 60 ]; then
     rate=$(( (built - b0) * 3600 / dt ))
-    echo "rate since last call ($((dt/60)) min ago): $rate modules/hour"
+    echo "rate since last call ($((dt/60)) min ago): $rate oleans/hour"
     if [ -n "$total" ] && [ "$rate" -gt 0 ]; then
-      echo "ETA lower bound: $(( (total - built) / rate )) h (ignores the 619-deep critical path)"
+      echo "ETA at this rate for 226885 modules: $(( (226885 - built) / rate )) h"
     fi
   fi
 fi
