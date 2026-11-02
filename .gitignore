@@ -1,2 +1,7 @@
 /.lake
 /.comparator/
+__pycache__/
+*.pyc
+.cache/
+dead_modules.txt
+report.md
