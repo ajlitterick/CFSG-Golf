@@ -1,10 +1,6 @@
 module
 
 public import CFSG.GroupTheory.SylowIntersectionControl.GomiChevLeviFactorInputs
-public import Certificates.Certificate43
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 import CFSG.HardMathSupport.Cooperstein.Coordinator.LieInput.SpinMinusDBlock
 import CFSG.HardMathSupport.Cooperstein.Coordinator.LieInput.SpinMinusModel
 import CFSG.HardMathSupport.Cooperstein.Coordinator.LieInput.SLChev

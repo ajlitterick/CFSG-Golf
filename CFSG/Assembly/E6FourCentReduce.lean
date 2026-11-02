@@ -19,10 +19,6 @@ public import CFSG.HardMathSupport.Solomon.LocalBalance.Prop22
 public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.GenL3.Input252
 public import CFSG.LieType.SteinbergBROddSylowCore
 public import CFSG.Quasithin.Background.GoldschmidtRankOneFacts
-public import Certificates.Certificate10050
-public import Certificates.Certificate13659
-public import Certificates.Certificate13660
-public import Certificates.Certificate8117
 import CFSG.RankThree.Classical2.TwistedE6Phi3Lines
 import CFSG.RankThree.Lattice.SteinbergBIE6Qplus
 import CFSG.RankThree.PartOne.KE6.EqpArith

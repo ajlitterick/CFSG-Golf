@@ -10,8 +10,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.FixedComponentCorrespondence
 public import CFSG.LieType.Steinberg.CentralExt.F4E8Multiplier
 public import CFSG.Walter.Bender1970.S2.TwoSubgroup
 public import CFSG.Walter.PSL2Facts
-public import Certificates.Certificate1
-public import Certificates.Certificate2
 
 public section
 

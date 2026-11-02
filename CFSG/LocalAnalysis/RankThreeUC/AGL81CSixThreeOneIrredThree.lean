@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CSixThreeOneDefs
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CSixThreeOneBasic
-public import Certificates.Certificate8171
-public import Certificates.Certificate8172
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenListCongr
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenG1
 import CFSG.RankThree.PartTwo.Toolkit.Bloom

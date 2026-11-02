@@ -72,7 +72,6 @@ public import CFSG.RankThree.PartTwo.Sec4.Statements423
 public import CFSG.RankThree.PartTwo.Sec6.Item612
 public import CFSG.RankThree.PartTwo.Sec6.Item65Tools
 public import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
-public import Certificates.Certificate9415
 
 public section
 

@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.G3SporRows
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatM24
 public import CFSG.Sporadic.Mathieu.M24
-public import Certificates.Certificate3017
-public import Certificates.Certificate4068
-public import Certificates.Certificate4075
 
 public section
 

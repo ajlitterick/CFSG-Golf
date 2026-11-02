@@ -56,15 +56,6 @@ public import CFSG.Quasithin.Background.A1bGroups
 public import CFSG.RankThree.PartOne.S10.ThetaContract
 public import CFSG.RankThree.PartOne.S12.InputsBase
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970_18
-public import Certificates.Certificate18000
-public import Certificates.Certificate4058
-public import Certificates.Certificate4058Base
-public import Certificates.Certificate4071
-public import Certificates.Certificate4082
-public import Certificates.Certificate4083
-public import Certificates.Certificate4083Base
-public import Certificates.Certificate43
-public import Certificates.Certificate8032
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalGroup.LowRank

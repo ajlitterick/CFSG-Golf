@@ -7,7 +7,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoBlockAsm
 public import CFSG.LocalAnalysis.StandardType.GGQTwoSixFarAsm
 public import CFSG.LocalAnalysis.StandardType.GGQTwoU5Row
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDegFrame
-public import Certificates.Certificate1649001
 
 public section
 

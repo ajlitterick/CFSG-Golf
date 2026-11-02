@@ -2,19 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
 public import CFSG.LocalAnalysis.StandardType.GGOneFiveRank
-public import Certificates.Certificate43
-public import Certificates.Certificate45
-public import Certificates.Certificate49
-public import Certificates.Certificate53
-public import Certificates.Certificate59
-public import Certificates.Certificate68
-public import Certificates.Certificate72
-public import Certificates.Certificate76
-public import Certificates.Certificate77
-public import Certificates.Certificate117
-public import Certificates.Certificate118
-public import Certificates.Certificate122
-public import Certificates.Certificate3951
 
 public section
 

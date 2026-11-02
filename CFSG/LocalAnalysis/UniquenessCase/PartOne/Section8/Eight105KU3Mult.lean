@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22Defs
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight105KFacts
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 import CFSG.GH74.Generic.GKFCover
 import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
 import CFSG.Mathlib.Arithmetic.TwoPowModThree

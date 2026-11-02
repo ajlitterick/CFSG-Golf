@@ -54,9 +54,6 @@ import CFSG.RankThree.PartTwo.Sec17.RouteProvers142
 import CFSG.RankThree.PartTwo.Sec6.Statements
 import CFSG.RankThree.S4Free.SuzukiEight
 import CFSG.Sporadic.HeldB.Common
-import Certificates.Certificate14953
-import Certificates.Certificate7233Base
-import Certificates.Certificate8166
 
 public section
 

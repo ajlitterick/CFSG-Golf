@@ -2,8 +2,6 @@ module
 
 public import CFSG.Sporadic.Fi22.LH.Defs
 public import CFSG.Sporadic.Fi22.Graph
-public import Certificates.Certificate1005
-public import Certificates.Certificate1010
 public import CFSG.Fischer.Polar.Lines
 public import CFSG.Fischer.Uniq.HyperovalFacts
 public import CFSG.Sporadic.Th.F2Spec

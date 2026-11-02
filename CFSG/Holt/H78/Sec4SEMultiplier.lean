@@ -1,10 +1,6 @@
 module
 
 public import CFSG.Holt.H78.Sec4FinalB2
-public import Certificates.Certificate43
-public import Certificates.Certificate113
-public import Certificates.Certificate10007
-public import Certificates.Certificate10008
 import CFSG.Holt.H78.Schur
 import CFSG.Adapters.LinearSmallCatalog
 import CFSG.Adapters.ProjectiveSpecialLinear

@@ -3,17 +3,6 @@ module
 public import CFSG.Monster.B.Final.Assembly
 public import CFSG.Monster.B.Dyadic.A0
 public import CFSG.Monster.B.Gen.PacketGeneration
-public import Certificates.Certificate3014
-public import Certificates.Certificate3017
-public import Certificates.Certificate3019
-public import Certificates.Certificate3025
-public import Certificates.Certificate3026
-public import Certificates.Certificate3028
-public import Certificates.Certificate3049
-public import Certificates.Certificate3050
-public import Certificates.Certificate3051
-public import Certificates.Certificate3109
-public import Certificates.Certificate3027
 public import CFSG.Monster.B.Dyadic.BetaFacts
 public import CFSG.Monster.B.Dyadic.BinElim
 public import CFSG.Monster.B.Dyadic.Jordan

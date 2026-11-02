@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTablePThreeLow2Z
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TwoCompLabCat
 import CFSG.LocalAnalysis.StandardType.KGCoverLift
 import CFSG.LocalAnalysis.StandardType.GGTCJDivLin
-public import Certificates.Certificate707002
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TwoLeafCells
 
 public section

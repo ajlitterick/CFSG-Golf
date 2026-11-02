@@ -1,123 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ElevenElevenOtherCfgOf
-public import Certificates.Certificate43
-public import Certificates.Certificate45
-public import Certificates.Certificate46
-public import Certificates.Certificate47
-public import Certificates.Certificate48
-public import Certificates.Certificate49
-public import Certificates.Certificate50
-public import Certificates.Certificate51
-public import Certificates.Certificate52
-public import Certificates.Certificate53
-public import Certificates.Certificate54
-public import Certificates.Certificate55
-public import Certificates.Certificate56
-public import Certificates.Certificate57
-public import Certificates.Certificate58
-public import Certificates.Certificate59
-public import Certificates.Certificate60
-public import Certificates.Certificate61
-public import Certificates.Certificate62
-public import Certificates.Certificate63
-public import Certificates.Certificate64
-public import Certificates.Certificate65
-public import Certificates.Certificate66
-public import Certificates.Certificate67
-public import Certificates.Certificate68
-public import Certificates.Certificate69
-public import Certificates.Certificate70
-public import Certificates.Certificate71
-public import Certificates.Certificate72
-public import Certificates.Certificate73
-public import Certificates.Certificate74
-public import Certificates.Certificate75
-public import Certificates.Certificate110
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
-public import Certificates.Certificate2168
-public import Certificates.Certificate2170
-public import Certificates.Certificate2171
-public import Certificates.Certificate2172
-public import Certificates.Certificate2173
-public import Certificates.Certificate2174
-public import Certificates.Certificate2176
-public import Certificates.Certificate2177
-public import Certificates.Certificate2178
-public import Certificates.Certificate2179
-public import Certificates.Certificate2180
-public import Certificates.Certificate2181
-public import Certificates.Certificate2182
-public import Certificates.Certificate2183
-public import Certificates.Certificate2218
-public import Certificates.Certificate2219
-public import Certificates.Certificate2240
-public import Certificates.Certificate2241
-public import Certificates.Certificate2242
-public import Certificates.Certificate2243
-public import Certificates.Certificate2244
-public import Certificates.Certificate2245
-public import Certificates.Certificate2261
-public import Certificates.Certificate2262
-public import Certificates.Certificate2263
-public import Certificates.Certificate2264
-public import Certificates.Certificate2265
-public import Certificates.Certificate2266
-public import Certificates.Certificate2267
-public import Certificates.Certificate2268
-public import Certificates.Certificate2269
-public import Certificates.Certificate2270
-public import Certificates.Certificate2272
-public import Certificates.Certificate2274
-public import Certificates.Certificate2284
-public import Certificates.Certificate2285
-public import Certificates.Certificate2288
-public import Certificates.Certificate3017
-public import Certificates.Certificate3029
-public import Certificates.Certificate3084
-public import Certificates.Certificate3120
-public import Certificates.Certificate3170
-public import Certificates.Certificate3951
-public import Certificates.Certificate4003
-public import Certificates.Certificate4008
-public import Certificates.Certificate4016
-public import Certificates.Certificate4017
-public import Certificates.Certificate4200
-public import Certificates.Certificate4201
-public import Certificates.Certificate4202
-public import Certificates.Certificate8033
-public import Certificates.Certificate8129
-public import Certificates.Certificate9123
-public import Certificates.Certificate9125
-public import Certificates.Certificate9126
-public import Certificates.Certificate9212
-public import Certificates.Certificate9215
-public import Certificates.Certificate9216
-public import Certificates.Certificate9357
-public import Certificates.Certificate9516
-public import Certificates.Certificate10095
-public import Certificates.Certificate12601
-public import Certificates.Certificate12602
-public import Certificates.Certificate12603
-public import Certificates.Certificate12604
-public import Certificates.Certificate12605
-public import Certificates.Certificate12606
-public import Certificates.Certificate12607
-public import Certificates.Certificate12608
-public import Certificates.Certificate12609
-public import Certificates.Certificate12630
-public import Certificates.Certificate12631
-public import Certificates.Certificate12632
-public import Certificates.Certificate12680
-public import Certificates.Certificate19760
-public import Certificates.Certificate19761
-public import Certificates.Certificate19764
-public import Certificates.Certificate19765
-public import Certificates.Certificate19766
-public import Certificates.Certificate41721
-public import Certificates.Certificate41722
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.L28TorusNormalizer
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentIrred
 import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.GroupJ4
@@ -171,7 +54,6 @@ public import CFSG.Sporadic.Presentation.J4
 public import CFSG.Sporadic.Presentation.M24Exact
 public import CFSG.Sporadic.Presentation.McLExactData
 public import CFSG.Sporadic.Presentation.McLExactInputs
-public import Certificates.Certificate10095Base
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 import CFSG.LieType.Chevalley.EvenRootCommutatorF4
 import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.NormalizerAction.J4RRepBase
@@ -194,18 +76,6 @@ import CFSG.Walter.FinalRee
 import CFSG.Walter.Ree.Thompson2.BaseFin
 import CFSG.Walter.ReeOrder.WardLocal
 import CFSG.Walter.W67.Section8.Prop83
-import Certificates.Certificate7000
-import Certificates.Certificate7001
-import Certificates.Certificate7002
-import Certificates.Certificate7003
-import Certificates.Certificate7004
-import Certificates.Certificate7005
-import Certificates.Certificate7006
-import Certificates.Certificate7007
-import Certificates.Certificate7008
-import Certificates.Certificate7009
-import Certificates.Certificate7010
-import Certificates.Certificate7011
 import Certificates.Data.HSFiveCheck
 
 public section

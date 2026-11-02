@@ -2,8 +2,6 @@ module
 
 public import CFSG.Blueprint.Catalog
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveF4
-public import Certificates.Certificate3007
-public import Certificates.Certificate10005
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X7Basic
 import CFSG.LocalAnalysis.StandardType.GGSixE6TwoSL3Nat
 import CFSG.LocalAnalysis.StandardType.GGSixE6TwoSL3Cover

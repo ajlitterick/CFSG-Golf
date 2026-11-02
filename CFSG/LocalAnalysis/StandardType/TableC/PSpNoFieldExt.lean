@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixFiveKnownForms
 public import CFSG.Open.StatedDefs
-public import Certificates.Certificate2264
-public import Certificates.Certificate2267
-public import Certificates.Certificate8033
 import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotSetup
 import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotCatTypeDet
 import CFSG.Timmesfeld.Transvection.PresSp

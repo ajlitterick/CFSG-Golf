@@ -17,8 +17,6 @@ public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312HsInputs
 public import CFSG.Quasithin.Background.A312SporHSInputs
 public import CFSG.Quasithin.Background.A312SporE8
 public import CFSG.Quasithin.Background.A3Structure312Defs
-public import Certificates.Certificate3167
-public import Certificates.Certificate4140
 
 public section
 

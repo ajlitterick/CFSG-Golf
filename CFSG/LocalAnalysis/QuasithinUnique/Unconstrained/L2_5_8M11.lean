@@ -4,10 +4,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_8M11Data
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_8L2p
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_6Out
 public import CFSG.Sporadic.Schreier.M11
-public import Certificates.Certificate110
-public import Certificates.Certificate2191
-public import Certificates.Certificate3120
-public import Certificates.Certificate4154
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.CharacterTheory.Semidihedral.ElementStructure
@@ -23,8 +19,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_8Sylow
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2pFacts
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.Defs
-public import Certificates.Certificate1
-public import Certificates.Certificate2
 
 public section
 

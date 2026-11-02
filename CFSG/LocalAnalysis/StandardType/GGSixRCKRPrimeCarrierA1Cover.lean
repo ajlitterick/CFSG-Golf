@@ -151,9 +151,6 @@ import CFSG.Walter.J1Props
 import CFSG.Walter.J1Recog
 import CFSG.Walter.PSL2Facts
 import CFSG.Walter.W67.Statements
-import Certificates.Certificate10050
-import Certificates.Certificate13660
-import Certificates.Certificate8117
 import Certificates.Kernel.J4Count.Prim
 
 public section

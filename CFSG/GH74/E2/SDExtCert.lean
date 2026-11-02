@@ -11,8 +11,6 @@ public import CFSG.GH74.E2.SDExtCertInputs
 public meta import CFSG.GH74.E2.SDExtCertInputs
 public import CFSG.GH74.E2.SDExtCertDataInputs
 public meta import CFSG.GH74.E2.SDExtCertDataInputs
-public import Certificates.Certificate5019
-public import Certificates.Certificate5145
 public import CFSG.GH74.E2.SD16Cert
 
 public section

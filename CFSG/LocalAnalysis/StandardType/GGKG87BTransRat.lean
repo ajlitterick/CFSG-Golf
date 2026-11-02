@@ -5,14 +5,6 @@ public import CFSG.LieType.Chevalley.TwistedE6NormalForm
 public import CFSG.LieType.Chevalley.TwistedE6NormalFormActors
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.TwE6Order3Defs
 public import CFSG.LieType.Chevalley.CoordinateFieldBaseChange
-public import Certificates.Certificate76
-public import Certificates.Certificate77
-public import Certificates.Certificate115
-public import Certificates.Certificate116
-public import Certificates.Certificate118
-public import Certificates.Certificate122
-public import Certificates.Certificate123
-public import Certificates.Certificate13657
 import all CFSG.LocalAnalysis.StandardType.GGKG87BTransRatAux
 import CFSG.LocalAnalysis.StandardType.GGKG87BTransWeyl
 import CFSG.LocalAnalysis.StandardType.GGKG87BTransCent

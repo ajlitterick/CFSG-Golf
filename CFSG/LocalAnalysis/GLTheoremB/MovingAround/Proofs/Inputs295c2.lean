@@ -79,7 +79,6 @@ public import CFSG.RankThree.PartOne.N143.SectionCenter
 public import CFSG.RankThree.PartTwo.KFacts.K71OddChar
 public import CFSG.Sporadic.Schreier.Fi22Schreier
 public import CFSG.Walter.J1Props
-public import Certificates.Certificate9442
 public import Certificates.Kernel.J4Count.Prim
 
 public section

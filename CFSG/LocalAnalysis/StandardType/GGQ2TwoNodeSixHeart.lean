@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2TwoNodeSixCell
-public import Certificates.Certificate10010
-public import Certificates.Certificate10011
 import CFSG.LocalAnalysis.StandardType.GGQ2TwoNodeI1Rank
 import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitarySides
 import CFSG.LocalAnalysis.StandardType.GGTwoNodeRowDimUnitary

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.Asc76BenderFactsAut
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.Lemma37.CoversExclusion
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.Lemma37.CoversSuzuki
-public import Certificates.Certificate113
 import CFSG.Models.BenderSuzuki
 public import CFSG.Assembly.OrderReductions.InvertedSubgroup
 public import CFSG.Assembly.OrderReductions.OddInversion

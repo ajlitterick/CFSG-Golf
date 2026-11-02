@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuotTools
 public import CFSG.LocalAnalysis.ComponentClassification.PrimeComplementQuotientComponents
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedLayerOddCoreQuotient
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec5Std
-public import Certificates.Certificate2022
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec5Lemma53
 
 public section

@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowDefs
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinByType
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveDataResDefs
-public import Certificates.Certificate1952
-public import Certificates.Certificate13657
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaE6PatCox
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaE6PatRows
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaForkCox

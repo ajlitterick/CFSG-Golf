@@ -12,7 +12,6 @@ public import CFSG.Sporadic.Schreier.J4SCols
 public import CFSG.Sporadic.Schreier.J4SFiveBase1
 public import CFSG.Sporadic.Schreier.J4SPointwise
 public meta import CFSG.Sporadic.J4.PrimSpec
-public import Certificates.Certificate2177
 public import CFSG.Sporadic.Schreier.J4SOrbits
 public meta import CFSG.Sporadic.Schreier.J4SOrbits
 public import CFSG.Sporadic.Schreier.J4SPrimes

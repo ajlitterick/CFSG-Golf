@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Certificate13724
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.WeylCharStab
 public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.W2.E6FiveAux.Steinberg
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.F4ThreeLangInner

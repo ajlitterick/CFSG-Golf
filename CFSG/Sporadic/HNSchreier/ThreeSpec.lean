@@ -3,9 +3,6 @@ module
 public import CFSG.Sporadic.HNSchreier.AltCent
 public import CFSG.Sporadic.HNSchreier.ThreeCheck
 public import CFSG.Sporadic.HNSchreier.RankCheck
-public import Certificates.Certificate2100
-public import Certificates.Certificate2102
-public import Certificates.Certificate2109
 
 public noncomputable section
 

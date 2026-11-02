@@ -114,8 +114,6 @@ import CFSG.Sporadic.Schreier.LyChain11
 import CFSG.StronglyEmbedded.MatrixGroups.PSL2
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ConjugatedInvertedSubgroup
 import CFSG.Walter.J1.Inv
-import Certificates.Certificate3085Base
-import Certificates.Certificate5007
 import Certificates.Kernel.J4Count.FixCE
 import Certificates.Kernel.J4Count.FixCPairBase1
 import Certificates.Kernel.J4Count.KFactsBase

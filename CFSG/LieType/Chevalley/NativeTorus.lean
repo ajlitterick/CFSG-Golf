@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LieType.Chevalley.NativeMonomial
-public import Certificates.Certificate113
-public import Certificates.Certificate114
 
 public section
 

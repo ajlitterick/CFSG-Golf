@@ -16,7 +16,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicRep
 public import CFSG.Sporadic.Bridge.J2
 public import CFSG.Sporadic.J2.Simple
 public import CFSG.Sporadic.Th.F2Spec
-public import Certificates.Certificate113
 
 public section
 

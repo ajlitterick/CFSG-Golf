@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNSExclDDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSCornerDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRowMember
-public import Certificates.Certificate117
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSLieEsu
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosAdapter
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosDiag

@@ -4,8 +4,6 @@ public import CFSG.Blueprint.ChevalleyStrings
 public import CFSG.LieType.RootSystem.Parabolic
 public import TauCeti.LinearAlgebra.RootSystem.FiniteType.Classical
 public import TauCeti.LinearAlgebra.RootSystem.FiniteType.Dynkin
-public import Certificates.Certificate113
-public import Certificates.Certificate114
 
 public noncomputable section
 

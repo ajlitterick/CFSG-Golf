@@ -7,7 +7,6 @@ import CFSG.LieType.Chevalley.RootCommutatorData
 import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeFamilies
 import CFSG.LocalAnalysis.AGLEmbedding.JStarReducedDefs
 import CFSG.LocalAnalysis.AGLEmbedding.ResidualTools
-import Certificates.Certificate3951
 
 public section
 

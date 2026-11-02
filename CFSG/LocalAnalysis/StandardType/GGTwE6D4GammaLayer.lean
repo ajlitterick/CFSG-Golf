@@ -93,8 +93,6 @@ public import CFSG.Quasithin.Vol2.Ch9KGFFQR
 public import CFSG.Quasithin.Vol2.Ch9KGFFQRCase
 public import CFSG.RankThree.Chevalley.SteinbergCFEvenF4PointwiseInner
 public import CFSG.Walter.J1Props
-public import Certificates.Certificate10050
-public import Certificates.Certificate8117
 public import Certificates.Kernel.J4Count.Prim
 
 public section

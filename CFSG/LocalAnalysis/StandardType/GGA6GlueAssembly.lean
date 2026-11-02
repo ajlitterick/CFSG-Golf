@@ -8,22 +8,6 @@ public import CFSG.LocalAnalysis.StandardType.GGA6GlueCoreF4
 public import CFSG.LocalAnalysis.StandardType.GGA6GlueCoreNT
 public import CFSG.LocalAnalysis.StandardType.GGA6GlueNoA6
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP5RC0Input
-public import Certificates.Certificate1952
-public import Certificates.Certificate2264
-public import Certificates.Certificate2267
-public import Certificates.Certificate3951
-public import Certificates.Certificate8033
-public import Certificates.Certificate8064
-public import Certificates.Certificate13659
-public import Certificates.Certificate13660
-public import Certificates.Certificate13604
-public import Certificates.Certificate13605
-public import Certificates.Certificate13691
-public import Certificates.Certificate13720
-public import Certificates.Certificate13721
-public import Certificates.Certificate13722
-public import Certificates.Certificate13723
-public import Certificates.Certificate13724
 
 public section
 

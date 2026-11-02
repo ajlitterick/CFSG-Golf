@@ -48,17 +48,6 @@ public import CFSG.Sporadic.ONOddCore.LiftHomCheckInputs
 public import CFSG.Sporadic.Schreier.TitsOther
 public import CFSG.StronglyEmbedded.ParityCriterion
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
-public import Certificates.Certificate2121
-public import Certificates.Certificate2122
-public import Certificates.Certificate2123
-public import Certificates.Certificate2173
-public import Certificates.Certificate2178
-public import Certificates.Certificate2179
-public import Certificates.Certificate2183
-public import Certificates.Certificate2214
-public import Certificates.Certificate2215
-public import Certificates.Certificate2217
-public import Certificates.Certificate7233Base
 
 public noncomputable section
 

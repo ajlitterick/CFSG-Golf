@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Toolkit.BloomMonoStd
-public import Certificates.Certificate8172
 
 public section
 

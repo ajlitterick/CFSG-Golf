@@ -38,36 +38,6 @@ import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.ZJTheorem
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GW1965RemarkDGroup
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29Helpers
-import Certificates.Certificate10
-import Certificates.Certificate100
-import Certificates.Certificate101
-import Certificates.Certificate102
-import Certificates.Certificate103
-import Certificates.Certificate104
-import Certificates.Certificate105
-import Certificates.Certificate106
-import Certificates.Certificate107
-import Certificates.Certificate108
-import Certificates.Certificate109
-import Certificates.Certificate11
-import Certificates.Certificate12
-import Certificates.Certificate3
-import Certificates.Certificate4
-import Certificates.Certificate42
-import Certificates.Certificate44
-import Certificates.Certificate5
-import Certificates.Certificate6
-import Certificates.Certificate7
-import Certificates.Certificate8
-import Certificates.Certificate8026Base
-import Certificates.Certificate8046
-import Certificates.Certificate8049
-import Certificates.Certificate8052
-import Certificates.Certificate9
-import Certificates.Certificate96
-import Certificates.Certificate97
-import Certificates.Certificate98
-import Certificates.Certificate99
 
 public section
 

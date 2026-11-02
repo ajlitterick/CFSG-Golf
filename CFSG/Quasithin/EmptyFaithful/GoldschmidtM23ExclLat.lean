@@ -4,7 +4,6 @@ public import CFSG.Quasithin.Background.HSporLatMathieu
 public import CFSG.Quasithin.Background.E2TwoProofSporM23Inputs
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatIncl
 public import CFSG.GroupTheory.SolvableHallNodes
-public import Certificates.Certificate7123
 
 public section
 

@@ -2,26 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonU3Order
 public import CFSG.LocalAnalysis.ComponentClassification.InnAutDerived
-public import Certificates.Certificate76
-public import Certificates.Certificate77
-public import Certificates.Certificate115
-public import Certificates.Certificate116
-public import Certificates.Certificate118
-public import Certificates.Certificate122
-public import Certificates.Certificate123
-public import Certificates.Certificate1953
-public import Certificates.Certificate1954
-public import Certificates.Certificate2261
-public import Certificates.Certificate2262
-public import Certificates.Certificate2263
-public import Certificates.Certificate2264
-public import Certificates.Certificate2265
-public import Certificates.Certificate2266
-public import Certificates.Certificate2267
-public import Certificates.Certificate2268
-public import Certificates.Certificate2269
-public import Certificates.Certificate2270
-public import Certificates.Certificate3951
 
 import CFSG.LocalAnalysis.GLTheoremA.CatA.I141FDynTri
 import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylE6TwoThree

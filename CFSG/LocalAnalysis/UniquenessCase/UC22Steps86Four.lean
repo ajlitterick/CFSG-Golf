@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22Steps87Four
-public import Certificates.Certificate291400
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S2114R4Holds
 public import CFSG.LocalAnalysis.UniquenessCase.UC22GlobalsYNo
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.U7KFacts
@@ -16,44 +15,9 @@ import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.StrongThree
 import CFSG.LocalAnalysis.RankThreeTheoremC.OutCyclicThree
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.CatalogSchreier
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.CartanTorusU7
-public import Certificates.Certificate9726
-public import Certificates.Certificate17430
-public import Certificates.Certificate431004
 
-public import Certificates.Certificate8058
-public import Certificates.Certificate8059
-public import Certificates.Certificate9542
-public import Certificates.Certificate9543
-public import Certificates.Certificate12610
-public import Certificates.Certificate12612
-public import Certificates.Certificate12613
-public import Certificates.Certificate12614
-public import Certificates.Certificate12623
-public import Certificates.Certificate12635
-public import Certificates.Certificate12636
-public import Certificates.Certificate12641
-public import Certificates.Certificate428001
-public import Certificates.Certificate428004
-public import Certificates.Certificate12611
-public import Certificates.Certificate12617
-public import Certificates.Certificate12618
-public import Certificates.Certificate12619
-public import Certificates.Certificate12620
-public import Certificates.Certificate12634
-public import Certificates.Certificate12637
-public import Certificates.Certificate13513
-public import Certificates.Certificate13659
-public import Certificates.Certificate13660
-public import Certificates.Certificate24945
-public import Certificates.Certificate24946
 
-public import Certificates.Certificate7252
 
-public import Certificates.Certificate1322003
-public import Certificates.Certificate1322004
-public import Certificates.Certificate1322005
-public import Certificates.Certificate1322006
-public import Certificates.Certificate1322007
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanSmallAutFix
 
 public section

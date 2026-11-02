@@ -90,8 +90,6 @@ public import CFSG.RankThree.PartTwo.Sec4.T444.Item434SporThE81Data
 public import CFSG.RankThree.PartTwo.Sec6.Statements
 public import CFSG.RankThree.S4Free.SuzukiEight
 public import CFSG.Sporadic.Co1Block.Perm
-public import Certificates.Certificate14953
-public import Certificates.Certificate8166
 public import Certificates.Data.E27Q2
 
 public section

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TwoDefs
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6CompLabCat
 public import CFSG.LocalAnalysis.StandardType.GGTorsionDefs
-public import Certificates.Certificate707002
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TwoLangComp
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TwoCoset
 import CFSG.LocalAnalysis.StandardType.GGLangRatComp

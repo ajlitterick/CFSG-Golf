@@ -6,8 +6,6 @@ import CFSG.RankThree.PartTwo.Sec13.Item132
 import CFSG.RankThree.PartTwo.Sec13.Naturality
 import CFSG.Milestones.AT_alternating_automorphism_permutation
 import CFSG.RankThree.LocalRank.SolvablePrimeComplementCore
-public import Certificates.Certificate8171
-public import Certificates.Certificate8172
 public import CFSG.Assembly.OrderReductions.InvertedSubgroup
 public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.GroupTheory.LocalCores.Fitting
@@ -19,7 +17,6 @@ public import CFSG.RankThree.PartTwo.Sec6.Statements
 public import CFSG.RankThree.PartTwo.Sec8.Pairs
 public import CFSG.StronglyEmbedded.ParityCriterion
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
-public import Certificates.Certificate43
 import CFSG.Permutation.AlternatingAutomorphism
 
 public section

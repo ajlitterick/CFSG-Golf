@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTorusFieldTransferSh
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylCompDefs
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldCyclic
-public import Certificates.Certificate13659
-public import Certificates.Certificate13660
 import CFSG.LocalAnalysis.StandardType.GGNbrKGF4ThreeAddHolds
 import CFSG.LocalAnalysis.StandardType.GGUSixThreeKGMain
 

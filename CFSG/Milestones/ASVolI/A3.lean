@@ -153,7 +153,6 @@ public import CFSG.RankThree.PartOne.S11d.OutSymplectic
 public import CFSG.Sporadic.Recognition.JankoWongPSLNine
 public import CFSG.Sporadic.Schreier.J4SNoCompCover
 public import CFSG.Timmesfeld.Final.Orders
-public import Certificates.Certificate7233Base
 
 public section
 

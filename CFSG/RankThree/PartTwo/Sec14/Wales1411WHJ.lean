@@ -2,10 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec14.Wales1411WL3
 public import CFSG.RankThree.PartTwo.Sec4.Sporadic.J2Local45
-public import Certificates.Certificate8168
-public import Certificates.Certificate8169
-public import Certificates.Certificate10019
-public import Certificates.Certificate10021
 import CFSG.RankThree.PartTwo.Sec14.Wales1411WPoint
 import CFSG.RankThree.PartTwo.Sec14.Item1411HJ
 import CFSG.RankThree.PartTwo.Sec14.Item14Res6ProofRigid
@@ -18,11 +14,6 @@ public import CFSG.RankThree.Asc83Table.PermTables
 public import CFSG.RankThree.PartTwo.Sec14.Item1413Proof1417
 public import CFSG.RankThree.PartTwo.Sec14.Item1413ProofFrame
 public import CFSG.RankThree.PartTwo.Sec14.Item1413ProofRoute
-public import Certificates.Certificate18952
-public import Certificates.Certificate8115
-public import Certificates.Certificate8165
-public import Certificates.Certificate8170
-public import Certificates.Certificate9950
 import CFSG.Certificates.CentralKernel
 import CFSG.Certificates.CosetTableWalkC
 import CFSG.Certificates.FusionF2
@@ -98,130 +89,6 @@ import CFSG.Sporadic.Schreier.RuZClass
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 import CFSG.YGroups.DCE.B433Check
-import Certificates.Certificate1000
-import Certificates.Certificate1001
-import Certificates.Certificate1001Base
-import Certificates.Certificate1002
-import Certificates.Certificate10027
-import Certificates.Certificate1004
-import Certificates.Certificate1006
-import Certificates.Certificate1007
-import Certificates.Certificate1007Base
-import Certificates.Certificate1008
-import Certificates.Certificate1010
-import Certificates.Certificate10107
-import Certificates.Certificate10108
-import Certificates.Certificate1011
-import Certificates.Certificate10110
-import Certificates.Certificate10111
-import Certificates.Certificate10115
-import Certificates.Certificate10115Base
-import Certificates.Certificate10116
-import Certificates.Certificate10116Base
-import Certificates.Certificate10117
-import Certificates.Certificate10117Base
-import Certificates.Certificate10118
-import Certificates.Certificate10118Base
-import Certificates.Certificate10119
-import Certificates.Certificate10119Base
-import Certificates.Certificate10123
-import Certificates.Certificate10123Base
-import Certificates.Certificate1013
-import Certificates.Certificate1014
-import Certificates.Certificate1014Base
-import Certificates.Certificate1015
-import Certificates.Certificate1017
-import Certificates.Certificate1018
-import Certificates.Certificate1018Base
-import Certificates.Certificate1019
-import Certificates.Certificate14953
-import Certificates.Certificate16018
-import Certificates.Certificate16041
-import Certificates.Certificate2051
-import Certificates.Certificate2053
-import Certificates.Certificate2056
-import Certificates.Certificate2057
-import Certificates.Certificate2058
-import Certificates.Certificate2098
-import Certificates.Certificate2103
-import Certificates.Certificate2108
-import Certificates.Certificate2109
-import Certificates.Certificate2111
-import Certificates.Certificate2112
-import Certificates.Certificate2130
-import Certificates.Certificate2135
-import Certificates.Certificate2136
-import Certificates.Certificate2139
-import Certificates.Certificate2140
-import Certificates.Certificate2145
-import Certificates.Certificate2154
-import Certificates.Certificate2160
-import Certificates.Certificate2166
-import Certificates.Certificate2173
-import Certificates.Certificate2178
-import Certificates.Certificate2179
-import Certificates.Certificate2191
-import Certificates.Certificate2192
-import Certificates.Certificate2198
-import Certificates.Certificate2207
-import Certificates.Certificate2211
-import Certificates.Certificate2213
-import Certificates.Certificate2215
-import Certificates.Certificate2216
-import Certificates.Certificate2216Base
-import Certificates.Certificate2217
-import Certificates.Certificate2224
-import Certificates.Certificate2225
-import Certificates.Certificate2225Base
-import Certificates.Certificate2233
-import Certificates.Certificate2233Base
-import Certificates.Certificate2234
-import Certificates.Certificate2235
-import Certificates.Certificate2238
-import Certificates.Certificate2239
-import Certificates.Certificate2242
-import Certificates.Certificate2243
-import Certificates.Certificate2244
-import Certificates.Certificate2245
-import Certificates.Certificate2246
-import Certificates.Certificate2251
-import Certificates.Certificate2254
-import Certificates.Certificate2254Base
-import Certificates.Certificate2255
-import Certificates.Certificate2261
-import Certificates.Certificate2267
-import Certificates.Certificate2269
-import Certificates.Certificate2274
-import Certificates.Certificate2293
-import Certificates.Certificate2294
-import Certificates.Certificate2304
-import Certificates.Certificate2305
-import Certificates.Certificate2308
-import Certificates.Certificate2323
-import Certificates.Certificate3037
-import Certificates.Certificate3037Base
-import Certificates.Certificate3038
-import Certificates.Certificate3038Base
-import Certificates.Certificate3046
-import Certificates.Certificate3114
-import Certificates.Certificate3119
-import Certificates.Certificate3148
-import Certificates.Certificate3148Base
-import Certificates.Certificate3150
-import Certificates.Certificate3150Base
-import Certificates.Certificate3151
-import Certificates.Certificate3151Base
-import Certificates.Certificate3152
-import Certificates.Certificate3152Base
-import Certificates.Certificate3153
-import Certificates.Certificate3153Base
-import Certificates.Certificate3154
-import Certificates.Certificate3154Base
-import Certificates.Certificate5133
-import Certificates.Certificate6006
-import Certificates.Certificate8033
-import Certificates.Certificate8064
-import Certificates.Certificate9124
 import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension

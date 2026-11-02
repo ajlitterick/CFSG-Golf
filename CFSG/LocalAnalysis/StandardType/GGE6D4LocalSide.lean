@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGE6D4LocalJ
 public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeDefs
-public import Certificates.Certificate113
-public import Certificates.Certificate114
 public import CFSG.LocalAnalysis.StandardType.GGE6D4ReflConj
 import CFSG.LocalAnalysis.StandardType.GGE6D4LocalDatum
 import CFSG.LocalAnalysis.StandardType.GGTBRowE6Equiv

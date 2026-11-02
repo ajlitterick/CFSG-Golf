@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec20.SimsAsc1411Statements
 public import CFSG.RankThree.PartTwo.Sec20.SimsAsc1412L2Skel
-public import Certificates.Certificate43
 import CFSG.RankThree.PartTwo.Sec20.SimsAsc1412L2Max
 import CFSG.RankThree.PartTwo.Sec20.SimsAsc1412L2Tools
 import CFSG.RankThree.PartTwo.Sec20.SimsAsc1411L2Gen

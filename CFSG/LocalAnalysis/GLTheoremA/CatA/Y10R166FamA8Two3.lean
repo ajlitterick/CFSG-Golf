@@ -8,7 +8,6 @@ public import CFSG.LargeExtraspecial.DW37Input
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2EUp
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.TablesHolds
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.UpperShared
-public import Certificates.Certificate63001
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8ExcAction
 public import CFSG.LocalAnalysis.GLTheoremA.S10.Lemma106107
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15ACoreArith

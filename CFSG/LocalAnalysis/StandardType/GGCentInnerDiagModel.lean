@@ -36,7 +36,6 @@ public import CFSG.RankThree.GF2n.Stroth80.Sec7EndDefs
 public import CFSG.RankThree.GF2n.Stroth80.Sec7OmegaSign
 public import CFSG.RankThree.GF2n.Stroth80.SpHomTrivial
 public import CFSG.SignalizerFunctorTheorem.McBride.Prelim.Gaschutz
-public import Certificates.Certificate9530
 
 public section
 

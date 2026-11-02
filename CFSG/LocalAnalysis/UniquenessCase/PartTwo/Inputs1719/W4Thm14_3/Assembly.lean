@@ -183,7 +183,6 @@ public import CFSG.RankThree.PartTwo.Sec3.TwoGroupPrimeFiveAction
 public import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec2.Thm210SetupGlobal
 public import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec2.Thm210SetupOrbit
 public import CFSG.Sporadic.Schreier.J4SCommGenBase1
-public import Certificates.Certificate7095
 public import Certificates.Kernel.J4Count.Fix5
 
 public section

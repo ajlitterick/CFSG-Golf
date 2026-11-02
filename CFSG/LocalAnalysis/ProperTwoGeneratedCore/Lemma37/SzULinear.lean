@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.Lemma37.SzUSetting
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.Lemma37.SzUModels
 public import CFSG.StronglyEmbedded.MatrixGroups.PSU3Model
-public import Certificates.Certificate43
-public import Certificates.Certificate113
 public import CFSG.Assembly.OrderReductions.CharacterInflation
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.LieType.Ree.SuzukiSimple

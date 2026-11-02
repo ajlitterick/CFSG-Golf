@@ -8,18 +8,9 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.I167COrthLabelO
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I167COrthLabelU
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I167COrthRigid
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I167COrthFamRoute
-public import Certificates.Certificate3006
-public import Certificates.Certificate3008
-public import Certificates.Certificate3009
-public import Certificates.Certificate12041
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GClsOrth
 import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 import CFSG.HardMathSupport.Solomon.Coordinator.LieOrderBridgeHolds
-public import Certificates.Certificate10050
-public import Certificates.Certificate13659
-public import Certificates.Certificate13660
-public import Certificates.Certificate1952
-public import Certificates.Certificate8117
 import CFSG.Certificates.CentralKernel
 import CFSG.Certificates.CosetTableWalkC
 import CFSG.Certificates.FusionF2
@@ -49,42 +40,6 @@ import CFSG.Sporadic.Schreier.J1QT
 import CFSG.Sporadic.Schreier.M24
 import CFSG.Sporadic.SuzOddCore.GraphData
 import CFSG.Sporadic.SuzOddCore.SmallActionData
-import Certificates.Certificate16005
-import Certificates.Certificate16041
-import Certificates.Certificate2098
-import Certificates.Certificate2103
-import Certificates.Certificate2108
-import Certificates.Certificate2109
-import Certificates.Certificate2139
-import Certificates.Certificate2140
-import Certificates.Certificate2274
-import Certificates.Certificate2323
-import Certificates.Certificate3044
-import Certificates.Certificate3122
-import Certificates.Certificate3123
-import Certificates.Certificate3130
-import Certificates.Certificate3133
-import Certificates.Certificate3134
-import Certificates.Certificate3136
-import Certificates.Certificate3137
-import Certificates.Certificate3176
-import Certificates.Certificate3179
-import Certificates.Certificate7000
-import Certificates.Certificate7001
-import Certificates.Certificate7002
-import Certificates.Certificate7003
-import Certificates.Certificate7004
-import Certificates.Certificate7005
-import Certificates.Certificate7006
-import Certificates.Certificate7007
-import Certificates.Certificate7008
-import Certificates.Certificate7009
-import Certificates.Certificate7010
-import Certificates.Certificate7011
-import Certificates.Certificate8046
-import Certificates.Certificate8049
-import Certificates.Certificate8052
-import Certificates.Certificate9124
 
 public section
 

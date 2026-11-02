@@ -26,8 +26,6 @@ public import CFSG.RankThree.PartOne.KE6.Phi6Excl
 public import CFSG.RankThree.PartOne.KE6.Phi6Frame
 public import CFSG.RankThree.PartOne.KE6.Phi6Torsion
 public import CFSG.RankThree.PartOne.S8.Statements
-public import Certificates.Certificate1953
-public import Certificates.Certificate1954
 
 public noncomputable section
 

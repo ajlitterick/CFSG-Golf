@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.SubgroupLists.MitchellDickson
 public import CFSG.RankThree.SubgroupLists.MitchellDegenerate
-public import Certificates.Certificate43
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherFactsL2Maximal
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
 

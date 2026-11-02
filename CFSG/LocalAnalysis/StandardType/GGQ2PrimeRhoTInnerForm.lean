@@ -4,9 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeRhoTLiftComm
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeRhoTKer
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeF4Torus
 public import CFSG.RankThree.PartOne.KF.UnitaryTorus
-public import Certificates.Certificate1003
-public import Certificates.Certificate1009
-public import Certificates.Certificate3600
 
 public section
 

@@ -182,7 +182,6 @@ public import CFSG.Sporadic.Presentation.Ly
 public import CFSG.Sporadic.Schreier.J4SNoCompCover
 public import CFSG.Sporadic.Schreier.LyChain11
 public import CFSG.Walter.PSL2Facts
-public import Certificates.Certificate3085Base
 public import Certificates.Kernel.J4Count.Prim
 
 public section

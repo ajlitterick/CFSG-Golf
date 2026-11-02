@@ -124,7 +124,6 @@ import CFSG.LocalAnalysis.SeitzReduction.E6PilotClassesRoots
 import CFSG.LocalAnalysis.SeitzReduction.E6PilotMainSetup
 import CFSG.LocalAnalysis.SeitzReduction.E6PilotSwapCoverConj
 import CFSG.RankThree.PartOne.S9.OddCore.RecognitionBasic
-import Certificates.Certificate41501
 
 public section
 

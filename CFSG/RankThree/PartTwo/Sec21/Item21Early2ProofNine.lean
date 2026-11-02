@@ -1,16 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec21.Item21Early2ProofModels
-public import Certificates.Certificate8018
-public import Certificates.Certificate8019
-public import Certificates.Certificate8020
-public import Certificates.Certificate8021
-public import Certificates.Certificate8024
-public import Certificates.Certificate8026
-public import Certificates.Certificate8029
-public import Certificates.Certificate115
-public import Certificates.Certificate116
-public import Certificates.Certificate123
 import CFSG.RankThree.Asc83Table.M22
 import CFSG.RankThree.Asc83Table.M23
 import CFSG.RankThree.Asc83Table.Reduction
@@ -39,11 +29,6 @@ public import CFSG.RankThree.PartTwo.Sec4.LThreePiSLOn
 public import CFSG.RankThree.PartTwo.Sec7.ThreeTranspositions
 public import CFSG.RankThree.PartTwo.Sec8.Pairs
 public import CFSG.RankThree.PartTwo.Sec8.Statements
-public import Certificates.Certificate3084
-public import Certificates.Certificate3139
-public import Certificates.Certificate3168
-public import Certificates.Certificate3169
-public import Certificates.Certificate8026Base
 import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
 import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 import CFSG.RankThree.Asc83Table.PermTables
@@ -53,7 +38,6 @@ import CFSG.RankThree.PartTwo.Sec13.Item13ResProofA7Z3
 import CFSG.RankThree.PartTwo.Sec4.LThreePiItem411
 import CFSG.RankThree.PartTwo.Sec6.Statements
 import CFSG.Sporadic.Schreier.M22
-import Certificates.Certificate8035
 
 public section
 

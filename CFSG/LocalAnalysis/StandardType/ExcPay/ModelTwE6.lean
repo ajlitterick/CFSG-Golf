@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.ExcPay.Defs
 public import CFSG.LocalAnalysis.StandardType.GGLieBridgeTheta
-public import Certificates.Certificate13723
-public import Certificates.Certificate13724
 
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.TorusAtCore
 import CFSG.LocalAnalysis.StandardType.ExcPay.DatumTwE6

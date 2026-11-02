@@ -2,7 +2,6 @@ module
 
 public import CFSG.Timmesfeld.RankOne.Defs
 public import CFSG.CGT.Timmesfeld75.L2Defs
-public import Certificates.Certificate43
 import CFSG.Timmesfeld.RankOne.Lift
 import CFSG.Timmesfeld.Opposite.Moufang
 import CFSG.GroupTheory.CardMapInfKer

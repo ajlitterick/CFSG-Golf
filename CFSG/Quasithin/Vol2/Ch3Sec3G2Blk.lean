@@ -39,8 +39,6 @@ public import CFSG.Walter.Bender1970.S2.Subnormal
 public import CFSG.Walter.Bender1970.S2.TwoSubgroup
 public import CFSG.Walter.J1
 public import CFSG.Walter.PSL2Facts
-public import Certificates.Certificate1
-public import Certificates.Certificate2
 
 public section
 

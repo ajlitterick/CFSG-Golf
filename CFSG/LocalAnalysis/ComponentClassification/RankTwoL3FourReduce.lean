@@ -13,7 +13,6 @@ public import CFSG.Sporadic.M23.M23Group
 public import CFSG.Sporadic.Th.F2Spec
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.theorem_3_4
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.Defs
-public import Certificates.Certificate8026Base
 
 public section
 

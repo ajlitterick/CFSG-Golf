@@ -11,8 +11,6 @@ public import CFSG.Quasithin.EmptyFaithful.Insp7NumJ
 public import CFSG.Quasithin.EmptyFaithful.Insp7NumR
 public import CFSG.Quasithin.EmptyFaithful.Insp7NumTits
 public import CFSG.Quasithin.EmptyFaithful.Insp7NumW
-public import Certificates.Certificate2199
-public import Certificates.Certificate2267
 
 public section
 

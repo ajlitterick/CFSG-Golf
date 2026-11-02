@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.FS81.S7E7Incl
 public import CFSG.LocalAnalysis.StandardType.FS81.S7CentDefs
 public import CFSG.LocalAnalysis.StandardType.FS81.RootE8Defs
-public import Certificates.Certificate8064
 import CFSG.LocalAnalysis.StandardType.FS81.S7PCoreCentE7
 import CFSG.LocalAnalysis.StandardType.FS81.S7PCoreConjE8
 import CFSG.LocalAnalysis.StandardType.FS81.S7CentRootThree

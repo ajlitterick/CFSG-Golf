@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront10SporHNRank
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront10SporK105In
-public import Certificates.Certificate2089
-public import Certificates.Certificate26777
 import CFSG.LocalAnalysis.UniquenessCase.UCFront10SporK105InThompson
 import CFSG.LocalAnalysis.UniquenessCase.UCFront10SporHNWreath
 import CFSG.LocalAnalysis.UniquenessCase.UCFront10SporHNOdd

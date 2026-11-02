@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGNbrCenterPCyclic
 public import CFSG.HardMathSupport.Timmesfeld.Tables.Multiplier.Arith
 public import CFSG.RankThree.PerfectCover.HopfFormula
 public import CFSG.Milestones.CL_LIT_Griess_Schur_multipliers_Lie_type
-public import Certificates.Certificate8064
 import CFSG.LocalAnalysis.StandardType.GGReverseMarking
 import CFSG.LocalAnalysis.StandardType.Marking
 import CFSG.LocalAnalysis.AGLEmbedding.CompCenterNineOrbit

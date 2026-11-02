@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangS1KGInputs
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 import CFSG.LocalAnalysis.StandardType.KGLangTorAGeneric
 import CFSG.LocalAnalysis.StandardType.KGLangTorAUniLift
 import CFSG.LocalAnalysis.StandardType.KGLangTorAFields

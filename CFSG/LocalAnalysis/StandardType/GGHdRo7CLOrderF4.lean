@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7CDefs
-public import Certificates.Certificate271060
 
 import CFSG.LocalAnalysis.StandardType.GGHdRo7CLCoordAux
 import CFSG.LocalAnalysis.StandardType.GGTableBTransport

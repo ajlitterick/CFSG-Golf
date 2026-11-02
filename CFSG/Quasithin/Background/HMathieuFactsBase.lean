@@ -51,8 +51,6 @@ public import CFSG.Sporadic.Schreier.MathieuOddCoreM24
 public import CFSG.Sporadic.Schreier.M22
 public import CFSG.Sporadic.Schreier.M23
 public import CFSG.Sporadic.Schreier.M24
-public import Certificates.Certificate7071
-public import Certificates.Certificate7074
 
 @[expose] public section
 

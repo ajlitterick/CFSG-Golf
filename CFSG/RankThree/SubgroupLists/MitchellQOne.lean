@@ -3,8 +3,6 @@ module
 public import CFSG.RankThree.SubgroupLists.SymplecticTwoRotations
 public import CFSG.RankThree.SubgroupLists.SymplecticBaseChange
 public import CFSG.RankThree.SubgroupLists.CliffordGeometry
-public import Certificates.Certificate113
-public import Certificates.Certificate43
 
 public section
 

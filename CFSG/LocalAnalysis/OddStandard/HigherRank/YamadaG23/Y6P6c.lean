@@ -34,7 +34,6 @@ public import CFSG.Open.GeneralizedFittingSelfCentralizing
 public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 public import CFSG.Quasithin.Vol2.KGFactC31RuRefBase
 public import CFSG.Sporadic.HeldB.AllFixed
-public import Certificates.Certificate7233Base
 import CFSG.LocalAnalysis.OddStandard.HigherRank.YamadaG23.Y6P6cPack
 
 public section

@@ -100,8 +100,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.UC22P2213e
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S21a
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S21c
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S21rU
-public import Certificates.Certificate7224
-public import Certificates.Certificate7226
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22ud
 import CFSG.LocalAnalysis.UniquenessCase.UCFront78Nar
 import CFSG.LocalAnalysis.UniquenessCase.UC22K147SpUHolds
@@ -129,9 +127,6 @@ public import CFSG.RankThree.SubgroupLists.SymplecticGamma
 import CFSG.LocalAnalysis.UniquenessCase.UC22K318Main
 import CFSG.LocalAnalysis.UniquenessCase.UC22K148Ind
 import CFSG.RankThree.SubgroupLists.MitchellPartThreeProof
-public import Certificates.Certificate188001
-public import Certificates.Certificate188002
-public import Certificates.Certificate419001
 import CFSG.LocalAnalysis.UniquenessCase.UCFront08
 import CFSG.GroupTheory.PGroup.ElemAbelianSq
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section21.ProofsNineteenJ

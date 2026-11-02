@@ -14,7 +14,6 @@ import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.CentralizerLemmas
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Centralizer
 import CFSG.GroupTheory.LocalCores.Fitting
 import CFSG.GroupTheory.LocalCores.Components
-public import Certificates.Certificate43
 public import CFSG.LocalAnalysis.ComponentInitial.SuzukiModelSchreier
 public import CFSG.StronglyEmbedded.ParityCriterion
 public import CFSG.RankThree.PartTwo.Sec4.Census.Interface

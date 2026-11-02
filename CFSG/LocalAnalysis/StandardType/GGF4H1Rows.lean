@@ -6,8 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGPZWeylB
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthWeylOrdD
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoAux
 public import CFSG.LocalAnalysis.StandardType.GGLargeRowCard
-public import Certificates.Certificate113
-public import Certificates.Certificate114
 
 public section
 

@@ -4,13 +4,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.WittDesignWittUnique
 public import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22Actions
 public meta import CFSG.LocalAnalysis.ComponentClassification.WittDesignHyperovals
 public meta import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22Hexads
-public import Certificates.Certificate2028
-public import Certificates.Certificate2037
-public import Certificates.Certificate2038
-public import Certificates.Certificate2195
-public import Certificates.Certificate2031
-public import Certificates.Certificate2033
-public import Certificates.Certificate2034
 
 public noncomputable section
 

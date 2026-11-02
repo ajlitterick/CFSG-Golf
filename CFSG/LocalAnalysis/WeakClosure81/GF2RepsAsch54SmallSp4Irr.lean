@@ -161,7 +161,6 @@ import CFSG.SignalizerFunctorTheorem.McBride.Prelim.Basic
 import CFSG.Sporadic.Schreier.J4SCommGenBase1
 import CFSG.Sporadic.Schreier.J4SProfileNode
 import CFSG.Sporadic.Schreier.TitsInvCheck
-import Certificates.Certificate2265
 import Certificates.Kernel.J4Count.Cent11Base
 import Certificates.Kernel.J4Count.Fix5
 

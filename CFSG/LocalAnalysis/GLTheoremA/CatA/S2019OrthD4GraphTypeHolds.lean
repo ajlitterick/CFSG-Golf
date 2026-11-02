@@ -2,15 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S2019OrthD4GraphReduce
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S2019OrthD4GraphHH
-public import Certificates.Certificate43
-public import Certificates.Certificate78
-public import Certificates.Certificate79
-public import Certificates.Certificate80
-public import Certificates.Certificate81
-public import Certificates.Certificate119
-public import Certificates.Certificate120
-public import Certificates.Certificate121
-public import Certificates.Certificate3951
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S2019OrthD4GraphField
 import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.ClassOdd.Glue
 import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.ClassOdd.Shintani

@@ -5,9 +5,6 @@ public import CFSG.Quasithin.Vol2.GoldschmidtF134OddSporArith
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHe
 import all CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHe
 public import CFSG.Sporadic.He.Simple
-public import Certificates.Certificate3168
-public import Certificates.Certificate4033
-public import Certificates.Certificate4141
 
 public section
 

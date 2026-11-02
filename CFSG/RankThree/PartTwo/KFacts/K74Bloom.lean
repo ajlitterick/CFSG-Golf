@@ -2,8 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.KFacts.K74Normal
 public import CFSG.RankThree.PartTwo.Toolkit.Bloom
-public import Certificates.Certificate8171
-public import Certificates.Certificate8172
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Foundations
 public import CFSG.GroupTheory.HallHigmanPiCore

@@ -4,17 +4,6 @@ public import CFSG.Sporadic.HNOddCore.SylowTwo
 public import CFSG.Sporadic.HNOddCore.ThreeInvol
 public import CFSG.Sporadic.HN.Local.ClassCount
 public import CFSG.Sporadic.HN.Local.AltInvolutions
-public import Certificates.Certificate2083
-public import Certificates.Certificate2084
-public import Certificates.Certificate2087
-public import Certificates.Certificate2091
-public import Certificates.Certificate2094
-public import Certificates.Certificate2096
-public import Certificates.Certificate2099
-public import Certificates.Certificate2100
-public import Certificates.Certificate2102
-public import Certificates.Certificate2104
-public import Certificates.Certificate2107
 
 public noncomputable section
 

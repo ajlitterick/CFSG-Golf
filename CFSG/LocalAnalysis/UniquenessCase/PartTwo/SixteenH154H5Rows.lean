@@ -13,9 +13,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenH154H5RowSL8
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenH154H5RowO4a
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenH154H5RowO4b
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenH154H5RowSt
-public import Certificates.Certificate8952
-public import Certificates.Certificate8953
-public import Certificates.Certificate17028
 public import CFSG.Adapters.StatedClassicalSmallOrders
 public import CFSG.CGT.PushingUpLit.BHS5.FiveFive
 public import CFSG.Goldschmidt.StatementsG3
@@ -122,7 +119,6 @@ public import CFSG.Sporadic.Schreier.Fi22Schreier
 public import CFSG.Sporadic.SuzOddCore.GraphData
 public import CFSG.Sporadic.SuzOddCore.SmallActionData
 public import CFSG.Timmesfeld.CorollaryBOutcome
-public import Certificates.Certificate8160
 public import Certificates.Kernel.J4Count.Prim
 
 public section

@@ -30,7 +30,6 @@ public import CFSG.Quasithin.Vol2.KGFactC31RuRefBase
 public import CFSG.Sporadic.HeldB.Common
 public import CFSG.Sporadic.Schreier.RuPair
 public import CFSG.Sporadic.Schreier.RuSylow
-public import Certificates.Certificate7233Base
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeBasic
 import CFSG.Milestones.CL_LIT_SQTK_simple_list
 import CFSG.Quasithin.Background.A1cModuleCoprime
@@ -38,7 +37,6 @@ import CFSG.Quasithin.Background.B4Statement
 import CFSG.Quasithin.Background.B5Statement
 import CFSG.Quasithin.Background.OrderingMax
 import CFSG.Quasithin.Vol2.Ch1Local
-import Certificates.Certificate8026Base
 
 public section
 

@@ -25,7 +25,6 @@ public import CFSG.Quasithin.EmptyFaithful.S153D25
 public import CFSG.Quasithin.EmptyFaithful.S153D43
 public import CFSG.Sporadic.Schreier.TitsOther
 public import CFSG.Walter.J1
-public import Certificates.Certificate8026Base
 
 public section
 

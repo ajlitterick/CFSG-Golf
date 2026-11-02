@@ -198,7 +198,6 @@ import CFSG.LocalAnalysis.StandardType.GGSixRootCentNbrFlat
 import CFSG.LocalAnalysis.StandardType.GGSixRootCentNbrInputHolds
 public import CFSG.RankThree.PartOne.SPOR.OuterSimple
 public import CFSG.Sporadic.Bridge.Catalogue
-public import Certificates.Certificate9124
 
 public section
 

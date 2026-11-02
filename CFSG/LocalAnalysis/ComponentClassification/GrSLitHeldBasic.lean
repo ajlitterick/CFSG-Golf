@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitLocalBalance
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuotIso
 public import CFSG.Sporadic.He.Simple
-public import Certificates.Certificate3168
 public import CFSG.ClassicalInvolution.Balance.LocalBalance
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 

@@ -6,9 +6,6 @@ public import CFSG.HardMathSupport.Dickson.I271.Support.AmbU4
 public import CFSG.LieType.Multipliers.U42
 public import CFSG.RankThree.PartTwo.Sec4.Census.DoubleCoverRanksU42
 public import CFSG.GH74.SmallRanks.Basic
-public import Certificates.Certificate2012
-public import Certificates.Certificate10010
-public import Certificates.Certificate10011
 public import CFSG.HardMathSupport.Dickson.I271.I202Full
 public import CFSG.HardMathSupport.Solomon.Coordinator.I27_1Fam
 public import CFSG.HardMathSupport.Solomon.Coordinator.L2FldBasic

@@ -2,12 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixDefs
 public import CFSG.LocalAnalysis.StandardType.GGTriD4KnownInputs
-public import Certificates.Certificate80
-public import Certificates.Certificate81
-public import Certificates.Certificate115
-public import Certificates.Certificate116
-public import Certificates.Certificate120
-public import Certificates.Certificate123
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFixGapTriD4
 import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownChevGeom
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylFieldVacOther

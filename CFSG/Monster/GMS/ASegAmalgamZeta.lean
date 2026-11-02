@@ -2,28 +2,7 @@ module
 
 public import CFSG.Monster.GMS.ASegTitsTri
 public import CFSG.Sporadic.Co1.Module.Co2Stab
-public import Certificates.Certificate3015
-public import Certificates.Certificate3016
-public import Certificates.Certificate3017
-public import Certificates.Certificate3018
-public import Certificates.Certificate3019
-public import Certificates.Certificate3020
-public import Certificates.Certificate3021
-public import Certificates.Certificate3024
-public import Certificates.Certificate10032
-public import Certificates.Certificate10033
-public import Certificates.Certificate10034
-public import Certificates.Certificate10035
-public import Certificates.Certificate10064
-public import Certificates.Certificate10069
-public import Certificates.Certificate10070
-public import Certificates.Certificate10073
-public import Certificates.Certificate10074
-public import Certificates.Certificate10075
-public import Certificates.Certificate10077
-public import Certificates.Certificate8955
 public import CFSG.Sporadic.Co1.Module.CoTwoData
-public import Certificates.Certificate10067
 public import Certificates.Kernel.Co1B.Tri2045
 
 public section

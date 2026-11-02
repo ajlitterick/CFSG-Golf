@@ -4,8 +4,6 @@ public import CFSG.RankThree.Asc83Table.MatGroup
 public import CFSG.RankThree.Asc83Table.RuCheck
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.OpsF2Fast
 public import CFSG.Sporadic.Ru
-public import Certificates.Certificate8003
-public import Certificates.Certificate3172
 public import CFSG.Sporadic.Th.F2Spec
 
 public section

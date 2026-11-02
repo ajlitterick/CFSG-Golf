@@ -32,7 +32,6 @@ public import CFSG.RankThree.PartTwo.Sec17.Item17ParaHJ
 public import CFSG.Sporadic.HeldB.Common
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
-public import Certificates.Certificate7233Base
 import CFSG.RankThree.PartTwo.Sec14.Item148Steps
 
 public section

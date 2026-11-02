@@ -50,7 +50,6 @@ public import CFSG.Quasithin.Vol2.Ch1Local
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ProjectiveSemilinear
 public import CFSG.Walter.Defs
-public import Certificates.Certificate8026Base
 
 set_option linter.unusedSectionVars false
 

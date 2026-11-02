@@ -2,8 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec17.Item172Proof
 public import CFSG.RankThree.PartTwo.Sec6.Item641
-public import Certificates.Certificate3029
-public import Certificates.Certificate3086
 import CFSG.RankThree.PartTwo.Sec17.Item17HeadProof
 import CFSG.RankThree.PartTwo.Sec17.Item17TailEnd
 import CFSG.RankThree.PartTwo.Sec15.HypS
@@ -22,11 +20,6 @@ public import CFSG.RankThree.PartTwo.Sec16.Item169HJ
 public import CFSG.RankThree.PartTwo.Sec6.Statements
 public import CFSG.RankThree.S4Free.SuzukiEight
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.FinalTheorem
-public import Certificates.Certificate2326
-public import Certificates.Certificate3139
-public import Certificates.Certificate3171
-public import Certificates.Certificate3171Base
-public import Certificates.Certificate43
 import CFSG.LocalAnalysis.ComponentClassification.J2CoverAut
 import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
 import CFSG.RankThree.PartTwo.Sec5.Hyp
@@ -35,7 +28,6 @@ import CFSG.Sporadic.Schreier.MathieuOddCoreModel
 import CFSG.Sporadic.Schreier.MathieuOddCoreWords
 import CFSG.Sporadic.Th.F2Spec
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
-import Certificates.Certificate8169
 
 public section
 

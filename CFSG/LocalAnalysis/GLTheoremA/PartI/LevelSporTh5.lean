@@ -154,7 +154,6 @@ public import CFSG.RankThree.PartTwo.Sec11.Item1117StepsProofTools
 public import CFSG.RankThree.PartTwo.Sec4.Item424Res2ProofTools
 public import CFSG.Timmesfeld.Orders.ClassicalLinearThree
 public import CFSG.Yardstones.M67c2c3e09a6b.Definitions
-public import Certificates.Certificate12623
 
 public section
 

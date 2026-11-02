@@ -8,8 +8,6 @@ public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallExcC5
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallExcC5E6Nodes
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallExcC5F4Defs
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallExcC6Defs
-public import Certificates.Certificate13657
-public import Certificates.Certificate830101
 import CFSG.LocalAnalysis.StandardType.GGE6InnerDiagBoundThreeProof
 import CFSG.LocalAnalysis.StandardType.GGE7TwoRootAsProof
 import CFSG.LocalAnalysis.StandardType.GGE8TwoRootAsProof

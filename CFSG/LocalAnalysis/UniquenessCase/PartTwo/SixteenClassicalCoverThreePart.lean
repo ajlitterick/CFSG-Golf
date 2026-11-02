@@ -9,9 +9,6 @@ import CFSG.LieType.Steinberg.CentralExt.SpinMinusCentrallyClosed
 import CFSG.LieType.Steinberg.Classical.SpinPlus
 import CFSG.LieType.Steinberg.CentralExt.Families
 public import CFSG.LocalAnalysis.StandardType.GGInnLocalDefs
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 public import CFSG.LocalAnalysis.StandardType.GGK1ScLin
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMonomialIrred
 public import CFSG.Quasithin.Background.B69Iso

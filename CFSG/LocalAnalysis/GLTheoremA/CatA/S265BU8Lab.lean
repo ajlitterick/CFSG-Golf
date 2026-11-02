@@ -2,11 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265QCfg
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265F3Kind
-public import Certificates.Certificate8080
-public import Certificates.Certificate8081
-public import Certificates.Certificate17002
-public import Certificates.Certificate17951
-public import Certificates.Certificate19953
 import CFSG.LocalAnalysis.GLTheoremA.CatA.FRField
 import CFSG.LocalAnalysis.GLTheoremA.CatA.FRResSmall
 import CFSG.LocalAnalysis.GLTheoremA.CatA.FRResTwF4

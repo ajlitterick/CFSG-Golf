@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Certificate43
 public import CFSG.Timmesfeld.Bridge.Asc72Basic
 public import CFSG.Timmesfeld.Bridge.Asc72Triangle
 public import CFSG.Timmesfeld.Bridge.Asc72WreathDefs

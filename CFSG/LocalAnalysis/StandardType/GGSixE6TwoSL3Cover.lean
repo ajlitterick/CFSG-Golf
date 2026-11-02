@@ -2,8 +2,6 @@ module
 
 public import CFSG.Blueprint.Catalog
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveF4
-public import Certificates.Certificate3007
-public import Certificates.Certificate10005
 import CFSG.Quasithin.Vol2.Ch12Sec6P31Kl2
 import CFSG.Adapters.LinearFieldTransport
 public import CFSG.Certificates.CosetTableShort

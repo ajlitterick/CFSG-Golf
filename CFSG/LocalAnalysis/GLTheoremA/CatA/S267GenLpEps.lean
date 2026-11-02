@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267GenDefs
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 import CFSG.HardMathSupport.Timmesfeld.Tables.Multiplier.LinearCover
 import CFSG.HardMathSupport.Solomon.Coordinator.I10_20
 import CFSG.LieType.Steinberg.CentralExt.PSLMultiplier

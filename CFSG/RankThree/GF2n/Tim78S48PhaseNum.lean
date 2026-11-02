@@ -3,7 +3,6 @@ module
 public import CFSG.RankThree.GF2n.Tim78S48PhaseCoord
 public import CFSG.RankThree.GF2n.Tim78S48PhaseFrob
 public import CFSG.RankThree.GF2n.Tim78S48PhaseCartan
-public import Certificates.Certificate43
 import CFSG.CGT.Timmesfeld75.L2Aut
 import CFSG.RankThree.GF2n.Tim78S45Aux
 import CFSG.RankThree.GF2n.Tim78Involution

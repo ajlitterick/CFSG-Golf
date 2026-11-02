@@ -18,7 +18,6 @@ public import CFSG.Sporadic.Th.Max3.Packet
 public import CFSG.Sporadic.Th.Max3.Quotient
 public import CFSG.Sporadic.ThSchreier.GlobalData
 public import CFSG.Sporadic.ThSchreier.LocalOrbitBase1
-public import Certificates.Certificate10091Base
 
 public section
 

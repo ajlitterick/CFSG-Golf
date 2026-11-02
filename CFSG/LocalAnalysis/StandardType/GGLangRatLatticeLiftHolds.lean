@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLangRatLift
 public import CFSG.LocalAnalysis.StandardType.GGLangRatLatticeSurj
-public import Certificates.Certificate13659
 import CFSG.LocalAnalysis.StandardType.GGLangRatCentreSq
 import CFSG.LocalAnalysis.StandardType.GGLangCoroot
 import CFSG.Blueprint.ChevalleyRoots

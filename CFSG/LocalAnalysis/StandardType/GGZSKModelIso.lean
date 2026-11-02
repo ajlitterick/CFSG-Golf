@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveZSInputs
 public import CFSG.LocalAnalysis.StandardType.GGZSHallSoicherInputs
 import all CFSG.LocalAnalysis.StandardType.GGZSHallSoicherInputs
-public import Certificates.Certificate709541
-public import Certificates.Certificate709542
 import CFSG.LocalAnalysis.StandardType.GGZSHallSoicherBound
 import CFSG.LocalAnalysis.StandardType.GGZSKModelSound
 import CFSG.LocalAnalysis.StandardType.GGWitExcModelTransfer

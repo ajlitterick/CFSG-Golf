@@ -101,7 +101,6 @@ public import CFSG.RankThree.PartTwo.Sec8.Item87ProofGamma
 public import CFSG.Sporadic.HeldB.OuterFixed
 public import CFSG.Sporadic.SuzOddCore.SmallActionData
 public import CFSG.Sporadic.ThSchreier.ThSchreierCase
-public import Certificates.Certificate2323
 
 public section
 

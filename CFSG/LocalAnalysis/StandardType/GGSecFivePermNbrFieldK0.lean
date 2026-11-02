@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermLabelDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBRes
-public import Certificates.Certificate13657
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniNbrLabel
 public import CFSG.LocalAnalysis.StandardType.GGMultTableCl
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown

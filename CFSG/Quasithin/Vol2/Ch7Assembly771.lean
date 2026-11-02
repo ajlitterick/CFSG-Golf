@@ -3,11 +3,6 @@ module
 public import CFSG.Quasithin.Vol2.Ch7Sp4PairA6
 public import CFSG.Quasithin.Vol2.Ch7SL3Pair
 public import CFSG.Quasithin.Vol2.Ch7Lem755
-public import Certificates.Certificate113
-public import Certificates.Certificate7022
-public import Certificates.Certificate7024
-public import Certificates.Certificate7026
-public import Certificates.Certificate7067
 public import CFSG.Quasithin.Vol2.Ch7Lem761End
 public import CFSG.Quasithin.Vol2.Ch7Lem771
 public import CFSG.Quasithin.Vol2.Ch7Lem735

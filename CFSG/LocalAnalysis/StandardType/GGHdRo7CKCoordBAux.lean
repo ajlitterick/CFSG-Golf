@@ -9,9 +9,6 @@ public import CFSG.LocalAnalysis.StandardType.GGHdRo7CKCoordBAux5
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7CKCoordAAux2
 import CFSG.Quasithin.EmptyFaithful.S146zMListCl
 import CFSG.Assembly.GL83StatedBridge
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 
 public section
 

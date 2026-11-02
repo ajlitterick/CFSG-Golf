@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenDefs2
 public import CFSG.Quasithin.Background.HSp4A6Pair
-public import Certificates.Certificate7067
 import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.TS16RUA6Inn
 import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.TS16RUA6Def
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setting

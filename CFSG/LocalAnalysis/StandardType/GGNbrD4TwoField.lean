@@ -4,15 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyNbrFieldRows
 public import CFSG.LocalAnalysis.StandardType.GGTCJEnnolaOrthLabel
 public import CFSG.LocalAnalysis.StandardType.GGTCJLabel
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinDict
-public import Certificates.Certificate1952
-public import Certificates.Certificate8080
-public import Certificates.Certificate8081
-public import Certificates.Certificate8117
-public import Certificates.Certificate10050
-public import Certificates.Certificate13659
-public import Certificates.Certificate13660
-public import Certificates.Certificate18000
-public import Certificates.Certificate19953
 import CFSG.LocalAnalysis.StandardType.GGTCJDatum
 import CFSG.LocalAnalysis.StandardType.GGTCJCoverGen
 

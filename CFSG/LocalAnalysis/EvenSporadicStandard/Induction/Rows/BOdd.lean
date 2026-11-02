@@ -25,7 +25,6 @@ public import CFSG.Sporadic.Ly.Simple
 public import CFSG.Sporadic.LyBase
 public import CFSG.Sporadic.Presentation.Ly
 public import CFSG.Sporadic.Schreier.LyFixedSet
-public import Certificates.Certificate3085Base
 
 public section
 

@@ -26,7 +26,6 @@ public import CFSG.Quasithin.Vol2.Ch1Unique
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CPrime
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralAut
-public import Certificates.Certificate8026Base
 
 public section
 

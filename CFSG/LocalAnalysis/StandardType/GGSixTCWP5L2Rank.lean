@@ -35,20 +35,6 @@ import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GW1965RemarkDGroup
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29Helpers
-import Certificates.Certificate2022
-import Certificates.Certificate2022Base
-import Certificates.Certificate2121
-import Certificates.Certificate2122
-import Certificates.Certificate2123
-import Certificates.Certificate2202
-import Certificates.Certificate2214
-import Certificates.Certificate2215
-import Certificates.Certificate2217
-import Certificates.Certificate2283
-import Certificates.Certificate2288
-import Certificates.Certificate3084
-import Certificates.Certificate3171
-import Certificates.Certificate3171Base
 import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 
 public section

@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6PairOneAssembly
-public import Certificates.Certificate1952
-public import Certificates.Certificate13659
-public import Certificates.Certificate13660
 import CFSG.LocalAnalysis.StandardType.GGFamLabelIndex
 import CFSG.LocalAnalysis.StandardType.GGLieCoreSmallSetup
 import CFSG.LocalAnalysis.StandardType.GGLieCorePlane3Pair

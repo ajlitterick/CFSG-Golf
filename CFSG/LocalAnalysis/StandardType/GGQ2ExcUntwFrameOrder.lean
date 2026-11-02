@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcPlacementDefs
-public import Certificates.Certificate1952
 import CFSG.LocalAnalysis.StandardType.GGF4TwoNTFrame
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165ExcE6Two9
 import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTBHalf

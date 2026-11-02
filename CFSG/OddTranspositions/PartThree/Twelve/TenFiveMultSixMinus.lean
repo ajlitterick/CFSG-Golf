@@ -16,9 +16,6 @@ public import CFSG.ClassicalInvolution.SmallCases.UpgradeCoverClassical
 public import CFSG.LieType.Universal.SpinOmega.Center
 public import CFSG.LieType.Universal.Unitary.Clause0
 public import CFSG.LieType.Universal.Unitary.Comparison
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 public import CFSG.ClassicalGroups.Orthogonal.RootGroupFixedCard
 public import CFSG.ClassicalInvolution.WeakCT.SpinMinus
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneSpField

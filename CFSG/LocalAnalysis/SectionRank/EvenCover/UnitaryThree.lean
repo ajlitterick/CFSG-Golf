@@ -6,9 +6,6 @@ public import CFSG.LocalAnalysis.ShultStronglyClosedTI.CentralSylowTransfer
 public import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
 public import Mathlib.FieldTheory.Finite.Extension
 public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 public import CFSG.GroupTheory.LocalCores.Fitting
 
 public section

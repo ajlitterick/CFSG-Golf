@@ -5,30 +5,6 @@ public import CFSG.Milestones.ASVolI.H1
 public import CFSG.Quasithin.Background.B4Models
 public import CFSG.Quasithin.Background.G6Natural
 public import CFSG.Blueprint.NativeSporadic
-public import Certificates.Certificate110
-public import Certificates.Certificate2193
-public import Certificates.Certificate2194
-public import Certificates.Certificate2197
-public import Certificates.Certificate2198
-public import Certificates.Certificate2200
-public import Certificates.Certificate2201
-public import Certificates.Certificate2205
-public import Certificates.Certificate3017
-public import Certificates.Certificate3046
-public import Certificates.Certificate3086
-public import Certificates.Certificate3120
-public import Certificates.Certificate4069
-public import Certificates.Certificate4086
-public import Certificates.Certificate7061
-public import Certificates.Certificate7062
-public import Certificates.Certificate7065
-public import Certificates.Certificate7068
-public import Certificates.Certificate7074
-public import Certificates.Certificate7105
-public import Certificates.Certificate7112
-public import Certificates.Certificate7113
-public import Certificates.Certificate17039
-public import Certificates.Certificate260400
 import CFSG.Quasithin.AppendixH.H11.AutomorphismGroup
 import CFSG.Quasithin.AppendixH.H11.InvolutionRank
 import CFSG.Quasithin.AppendixH.H11.NativeBridge
@@ -38,7 +14,6 @@ public import CFSG.Quasithin.Background.F2Equiv
 public import CFSG.Quasithin.Background.F6Basic
 public import CFSG.Quasithin.Recognition.GoldschmidtTripleQuotient
 public import CFSG.Quasithin.Recognition.M12AmalAutClass
-public import Certificates.Certificate7075Base
 public import Certificates.Kernel.HMathieu.C7075
 import CFSG.Assembly.OrderReductions.InvertedSubgroup
 import CFSG.Assembly.OrderReductions.OddInversion

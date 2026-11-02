@@ -2,11 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec14.Item148RankProofTen
 public import CFSG.RankThree.PartTwo.Sec13.Statements
-public import Certificates.Certificate3029
-public import Certificates.Certificate3086
-public import Certificates.Certificate8168
-public import Certificates.Certificate8169
-public import Certificates.Certificate10019
 import CFSG.RankThree.PartTwo.Sec14.Item148RankProofTenTools
 import CFSG.RankThree.PartTwo.Sec14.Item148Res4ProofA10
 import CFSG.RankThree.PartTwo.Sec14.Item148MainProofKType
@@ -43,12 +38,9 @@ public import CFSG.RankThree.PartTwo.Sec8.Statements
 public import CFSG.Sporadic.J2
 public import CFSG.StronglyEmbedded.ParityCriterion
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
-public import Certificates.Certificate2201
-public import Certificates.Certificate2202
 import CFSG.RankThree.PartTwo.Sec11.Data
 import CFSG.RankThree.PartTwo.Sec6.Statements
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.theorem_3_6
-import Certificates.Certificate43
 
 public section
 

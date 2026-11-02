@@ -22,7 +22,6 @@ public import CFSG.Quasithin.Vol2.Ch11StatementsB
 public import CFSG.Quasithin.Vol2.Ch11StatementsC
 public import CFSG.RankThree.PartTwo.Census.Spin.Main
 public import CFSG.RankThree.PartTwo.Sec4.Census.RankOmegaF4
-public import Certificates.Certificate8171
 
 public section
 

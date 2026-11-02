@@ -6,52 +6,6 @@ public import CFSG.Open.OrderForm
 public import CFSG.Open.StatedDefs
 public import CFSG.Blueprint.Catalog
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotCatTypeDet
-public import Certificates.Certificate45
-public import Certificates.Certificate46
-public import Certificates.Certificate47
-public import Certificates.Certificate48
-public import Certificates.Certificate49
-public import Certificates.Certificate50
-public import Certificates.Certificate51
-public import Certificates.Certificate52
-public import Certificates.Certificate53
-public import Certificates.Certificate54
-public import Certificates.Certificate55
-public import Certificates.Certificate56
-public import Certificates.Certificate57
-public import Certificates.Certificate58
-public import Certificates.Certificate59
-public import Certificates.Certificate60
-public import Certificates.Certificate61
-public import Certificates.Certificate62
-public import Certificates.Certificate63
-public import Certificates.Certificate64
-public import Certificates.Certificate65
-public import Certificates.Certificate66
-public import Certificates.Certificate67
-public import Certificates.Certificate68
-public import Certificates.Certificate69
-public import Certificates.Certificate70
-public import Certificates.Certificate71
-public import Certificates.Certificate72
-public import Certificates.Certificate73
-public import Certificates.Certificate74
-public import Certificates.Certificate75
-public import Certificates.Certificate76
-public import Certificates.Certificate77
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate115
-public import Certificates.Certificate116
-public import Certificates.Certificate117
-public import Certificates.Certificate118
-public import Certificates.Certificate122
-public import Certificates.Certificate123
-public import Certificates.Certificate2264
-public import Certificates.Certificate2267
-public import Certificates.Certificate3951
-public import Certificates.Certificate8033
-public import Certificates.Certificate8064
 import CFSG.LocalAnalysis.StandardType.Marking
 import CFSG.LocalAnalysis.StandardType.MarkingDict
 import CFSG.LocalAnalysis.SeitzReduction.F4PilotCatEvenExcOrders
@@ -212,70 +166,6 @@ import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationT
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2FieldProjectionArithmetic
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2OrderPSubgroupCount
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphReconstruction
-import Certificates.Certificate1
-import Certificates.Certificate10
-import Certificates.Certificate100
-import Certificates.Certificate101
-import Certificates.Certificate102
-import Certificates.Certificate103
-import Certificates.Certificate104
-import Certificates.Certificate105
-import Certificates.Certificate106
-import Certificates.Certificate107
-import Certificates.Certificate108
-import Certificates.Certificate109
-import Certificates.Certificate11
-import Certificates.Certificate12
-import Certificates.Certificate16005
-import Certificates.Certificate16041
-import Certificates.Certificate2
-import Certificates.Certificate2098
-import Certificates.Certificate2103
-import Certificates.Certificate2108
-import Certificates.Certificate2109
-import Certificates.Certificate2139
-import Certificates.Certificate2140
-import Certificates.Certificate2274
-import Certificates.Certificate2323
-import Certificates.Certificate3
-import Certificates.Certificate3044
-import Certificates.Certificate3122
-import Certificates.Certificate3123
-import Certificates.Certificate3130
-import Certificates.Certificate3133
-import Certificates.Certificate3134
-import Certificates.Certificate3136
-import Certificates.Certificate3137
-import Certificates.Certificate3176
-import Certificates.Certificate3179
-import Certificates.Certificate4
-import Certificates.Certificate42
-import Certificates.Certificate44
-import Certificates.Certificate5
-import Certificates.Certificate6
-import Certificates.Certificate7
-import Certificates.Certificate7000
-import Certificates.Certificate7001
-import Certificates.Certificate7002
-import Certificates.Certificate7003
-import Certificates.Certificate7004
-import Certificates.Certificate7005
-import Certificates.Certificate7006
-import Certificates.Certificate7007
-import Certificates.Certificate7008
-import Certificates.Certificate7009
-import Certificates.Certificate7010
-import Certificates.Certificate7011
-import Certificates.Certificate8
-import Certificates.Certificate8046
-import Certificates.Certificate8049
-import Certificates.Certificate8052
-import Certificates.Certificate9
-import Certificates.Certificate9124
-import Certificates.Certificate96
-import Certificates.Certificate97
-import Certificates.Certificate98
-import Certificates.Certificate99
 import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 

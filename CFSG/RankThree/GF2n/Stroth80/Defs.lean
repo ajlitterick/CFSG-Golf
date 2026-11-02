@@ -3,7 +3,6 @@ module
 public import CFSG.RankThree.GF2n.Tim79Main
 public import CFSG.Open.StatedDefs
 public import CFSG.Foundations
-public import Certificates.Certificate43
 
 public section
 

@@ -4,13 +4,8 @@ public import CFSG.Monster.GMS.S4Fusion
 public import CFSG.Monster.GMS.S342
 public import CFSG.Monster.GMS.TwoCentral
 public import CFSG.Monster.GMS.S4FamilyIso
-public import Certificates.Certificate3024
 public import CFSG.Monster.GMS.F1Basic
 public import CFSG.Monster.GMS.NotConj
-public import Certificates.Certificate10032
-public import Certificates.Certificate10033
-public import Certificates.Certificate10034
-public import Certificates.Certificate10035
 
 public section
 

@@ -75,8 +75,6 @@ import CFSG.Quasithin.Vol2.Ch1Local
 import CFSG.RankThree.GF2n.Tim79aSec2
 import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec2.Defs
 import CFSG.Sporadic.Th.Max3.Involutions
-import Certificates.Certificate10089Base
-import Certificates.Certificate10091Base
 import Certificates.Kernel.J4Count.FixCE
 import Certificates.Kernel.J4Count.FixCPairBase1
 import Certificates.Kernel.J4Count.KFactsBase

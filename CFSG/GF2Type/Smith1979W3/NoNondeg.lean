@@ -12,7 +12,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec4Defs
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec4HeldBridge
 public import CFSG.Sporadic.Th.KernelPlanes
 public import CFSG.Sporadic.Th.Local
-public import Certificates.Certificate19780
 
 public section
 

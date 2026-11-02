@@ -3,9 +3,6 @@ module
 public import CFSG.LieType.Steinberg.Adjoint.RankOne
 public import CFSG.LieType.Steinberg.Adjoint.Torus
 public import CFSG.LieType.Chevalley.Canonical
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 
 public noncomputable section
 

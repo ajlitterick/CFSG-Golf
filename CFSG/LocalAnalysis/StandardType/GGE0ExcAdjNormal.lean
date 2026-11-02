@@ -26,13 +26,6 @@ public import CFSG.Quasithin.Vol2.Ch11SecAFacts03
 public import CFSG.RankThree.Chevalley.SteinbergBID4CentralKernel
 public import CFSG.RankThree.PartOne.KE.E7FiveBlock
 public import CFSG.RankThree.PartTwo.Sec8.Item87Proof84
-public import Certificates.Certificate13604
-public import Certificates.Certificate13605
-public import Certificates.Certificate13691
-public import Certificates.Certificate13723
-public import Certificates.Certificate13724
-public import Certificates.Certificate17002
-public import Certificates.Certificate17951
 
 public section
 

@@ -3,7 +3,6 @@ module
 public import CFSG.GF2Type.Smith1979.GammaU.FrameEnum
 public import CFSG.GF2Type.Smith1979.GammaU.Enum
 public import CFSG.GF2Type.Smith1979.GammaU.CensusDefs
-public import Certificates.Certificate16966
 import Certificates.Kernel.GammaU.BaseBridge
 public import CFSG.GF2Type.Smith1979.GammaU.NativeBridge
 public import CFSG.GF2Type.Smith1979.GammaU.StepA2

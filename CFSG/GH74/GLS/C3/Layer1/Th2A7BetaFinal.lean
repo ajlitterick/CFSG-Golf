@@ -42,7 +42,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSpExcl
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherAllInvolutionFourGroup
 public import CFSG.Monster.B.TwoA.Unitary.Orbit1408Points
 public import CFSG.Sporadic.ThSchreier.AutCore
-public import Certificates.Certificate10025
 
 public section
 

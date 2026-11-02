@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.WittDesignSteiner3
 public import CFSG.Monster.B.Classical.PlaneData
 public meta import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22Count
 public meta import CFSG.Monster.B.Classical.PlaneData
-public import Certificates.Certificate2195
 
 public section
 

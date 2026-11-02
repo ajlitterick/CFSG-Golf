@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.Vol2.Ch7Sp4Pair
 public import CFSG.Quasithin.Background.HSp4A6Pair
-public import Certificates.Certificate7067
 public import CFSG.Assembly.OrderReductions.InvertedSubgroup
 public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LieType.Ree.SuzukiSimple

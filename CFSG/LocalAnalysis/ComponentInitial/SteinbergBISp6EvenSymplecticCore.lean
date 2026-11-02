@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.OutcomeLocalCTISpSocle
 public import CFSG.LocalAnalysis.ComponentInitial.SmallLinearIsomorphisms
 public import CFSG.LocalAnalysis.ComponentInitial.BinarySymplecticSixFusionOrbits
-public import Certificates.Certificate113
 import CFSG.LocalAnalysis.ComponentInitial.SteinbergCFOddLinearTwoSocleCore
 public import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 public import CFSG.GroupTheory.LocalCores.Fitting

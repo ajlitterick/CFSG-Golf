@@ -2,19 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1432ClsSpor
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1432LieForkDefs
-public import Certificates.Certificate1952
-public import Certificates.Certificate2012
-public import Certificates.Certificate2266
-public import Certificates.Certificate5133
-public import Certificates.Certificate8032
-public import Certificates.Certificate8064
-public import Certificates.Certificate8080
-public import Certificates.Certificate8081
-public import Certificates.Certificate8117
-public import Certificates.Certificate10050
-public import Certificates.Certificate13659
-public import Certificates.Certificate13660
-public import Certificates.Certificate18000
 import CFSG.LocalAnalysis.GLTheoremA.CatB.H1432LieRed
 import CFSG.LocalAnalysis.GLTheoremA.CatB.H1432LieOutProof
 import CFSG.HardMathSupport.Solomon.Coordinator.LieOrderBridgeHolds

@@ -20,7 +20,6 @@ import CFSG.Certificates.Kernel.Common.SliceRange
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Sporadic.Fi24.Faithful
 public import CFSG.Sporadic.Fi24.SepSpec
-public import Certificates.Certificate1016Base
 
 public section
 

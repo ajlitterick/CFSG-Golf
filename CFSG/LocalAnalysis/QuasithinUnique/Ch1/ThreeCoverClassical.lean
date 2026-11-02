@@ -7,9 +7,6 @@ public import CFSG.LocalAnalysis.SectionRank.OddCover.PrimeThree
 public import CFSG.LocalAnalysis.SectionRank.EvenCover.LinearSplit
 public import CFSG.LocalAnalysis.SectionRank.EvenCover.UnitaryThree
 public import CFSG.LocalAnalysis.SectionRank.ExceptionalEvenCover
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
@@ -32,8 +29,6 @@ public import CFSG.Sporadic.J4Base
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
-public import Certificates.Certificate43
-public import Certificates.Certificate8026Base
 
 public section
 

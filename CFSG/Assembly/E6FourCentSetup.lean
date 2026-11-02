@@ -186,13 +186,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 public import CFSG.Walter.Ree.Model.JTHyp
-public import Certificates.Certificate2121
-public import Certificates.Certificate2122
-public import Certificates.Certificate2123
-public import Certificates.Certificate2214
-public import Certificates.Certificate2215
-public import Certificates.Certificate2217
-public import Certificates.Certificate7233Base
 
 public section
 

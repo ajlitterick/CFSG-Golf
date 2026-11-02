@@ -49,8 +49,6 @@ public import CFSG.Sporadic.Mathieu.M24
 public import CFSG.Sporadic.Schreier.RuPair
 public import CFSG.Sporadic.Schreier.RuSylow
 public import CFSG.Walter.Defs
-public import Certificates.Certificate43
-public import Certificates.Certificate7233Base
 import CFSG.ClassicalInvolution.Balance.PassTwoFinal
 import CFSG.LieType.Ree.SmallReeModelSchreier
 import CFSG.LocalAnalysis.ComponentClassification.BadTwoComponentSubgroup

@@ -8,9 +8,6 @@ import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Sixteen3FCompDispatch
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenAltNineTripleNatural
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenAltTripleThreeNatural
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC1677ThreeNatSmallCounts
-public import Certificates.Certificate431004
-public import Certificates.Certificate17430
-public import Certificates.Certificate9726
 import CFSG.GroupTheory.ThreeTranspositions.Basic
 import CFSG.HardMathSupport.Cooperstein.Proving.KerCommutatorFix
 import CFSG.HardMathSupport.GuralnickMalle.CyclicTwo

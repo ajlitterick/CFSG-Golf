@@ -3,10 +3,6 @@ module
 public import CFSG.Sporadic.HNSchreier.Primitive
 public import CFSG.Sporadic.HNSchreier.Order
 public import CFSG.Sporadic.HN.ConjSimple
-public import Certificates.Certificate2096
-public import Certificates.Certificate2102
-public import Certificates.Certificate2104
-public import Certificates.Certificate2107
 
 public noncomputable section
 

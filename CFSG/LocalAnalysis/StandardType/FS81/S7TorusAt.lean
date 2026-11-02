@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.RootE8Defs
 public import CFSG.LocalAnalysis.StandardType.FS81.S7Model
-public import Certificates.Certificate1952
-public import Certificates.Certificate8064
-public import Certificates.Certificate13691
 import CFSG.LocalAnalysis.StandardType.FS81.RootD6ModelDefs
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.SmallQThreeFactsTwoE
 import CFSG.RankThree.PartOne.KE.E7FiveBlock

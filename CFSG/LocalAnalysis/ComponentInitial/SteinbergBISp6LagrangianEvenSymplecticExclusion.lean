@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.SteinbergBUSp6LagrangianStatem
 public import CFSG.LocalAnalysis.ComponentInitial.SteinbergBISp6EvenSymplecticCore
 public import CFSG.LocalAnalysis.ComponentInitial.SteinbergBISp6ActionParameters
 public import CFSG.Blueprint.EvenStandardExact
-public import Certificates.Certificate113
 import CFSG.LocalAnalysis.ComponentClassification.StandardSubgroupAPI
 import CFSG.Blueprint.LieModelAPI
 

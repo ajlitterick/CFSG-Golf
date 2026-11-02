@@ -49,7 +49,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Basic
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import CFSG.YGroups.DCE.B433Check
-public import Certificates.Certificate9124
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 public import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 import CFSG.LocalAnalysis.AGLEmbedding.D1GlobalU
@@ -63,7 +62,6 @@ import CFSG.RankThree.PartTwo.Sec19.Item194Used
 import CFSG.RankThree.PartTwo.Sec19.Step1915W
 import CFSG.RankThree.PartTwo.Sec19.Step1917ProofDefs
 import CFSG.RankThree.PartTwo.Sec4.LThreePiItem411
-import Certificates.Certificate2201
 
 public section
 

@@ -45,10 +45,6 @@ public import CFSG.Quasithin.Vol2.Ch11SecAFacts02
 public import CFSG.Quasithin.Vol2.Ch11SecAFacts03
 public import CFSG.Quasithin.Vol2.Ch11StatementsB
 public import CFSG.Quasithin.Vol2.Ch11StatementsC
-public import Certificates.Certificate10050
-public import Certificates.Certificate13659
-public import Certificates.Certificate13660
-public import Certificates.Certificate8117
 public import Certificates.Kernel.J4Count.FixCE
 
 public section

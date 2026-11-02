@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.PerfectOddCoverLift
 public import CFSG.LocalAnalysis.SectionRank.EvenCover.UnitaryThree
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.UnitaryModelPointStructure
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 
 public noncomputable section
 

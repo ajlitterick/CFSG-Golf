@@ -13,11 +13,6 @@ public import CFSG.Mathlib.GroupTheory.PComponentProductCard
 public import CFSG.Timmesfeld.Orders.Classical
 public import CFSG.HardMathSupport.Solomon.Coordinator.I19_10FiCover
 public import CFSG.LocalAnalysis.ComponentClassification.LBalancePrimeCore
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
-public import Certificates.Certificate709602
-public import Certificates.Certificate709610
 
 public section
 

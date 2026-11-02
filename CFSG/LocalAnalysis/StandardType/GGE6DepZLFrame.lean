@@ -9,7 +9,6 @@ public import CFSG.LocalAnalysis.StandardType.GGE6DepZLPhiAct
 public import CFSG.LocalAnalysis.StandardType.GGE6DepZLFaith
 public import CFSG.LocalAnalysis.StandardType.GGE6DepModelActs
 public import CFSG.Sporadic.Th.Max3.Quotient
-public import Certificates.Certificate10091Base
 
 public section
 

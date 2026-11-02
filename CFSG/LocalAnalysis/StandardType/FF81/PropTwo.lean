@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FF81.Defs
-public import Certificates.Certificate899051
 import CFSG.LocalAnalysis.StandardType.FF81.LocalSetup
 import CFSG.LocalAnalysis.StandardType.FF81.ModelN
 import CFSG.LocalAnalysis.StandardType.FF81.PropTwoDict

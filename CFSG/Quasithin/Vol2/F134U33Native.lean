@@ -6,9 +6,6 @@ public import CFSG.Quasithin.Recognition.CertU33Psu
 public import CFSG.Quasithin.Recognition.CertU33AutBound
 public import CFSG.Quasithin.Recognition.CertU33Perm
 public import CFSG.Timmesfeld.Final.PSU33
-public import Certificates.Certificate8080
-public import Certificates.Certificate8081
-public import Certificates.Certificate19953
 public import CFSG.Foundations
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups
@@ -36,8 +33,6 @@ public import CFSG.Sporadic.J4Base
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
-public import Certificates.Certificate43
-public import Certificates.Certificate8026Base
 
 public section
 

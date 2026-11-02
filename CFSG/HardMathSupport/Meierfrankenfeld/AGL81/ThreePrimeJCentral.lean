@@ -115,7 +115,6 @@ public import CFSG.Sporadic.SchreierLemmas.FrattiniProfile
 public import CFSG.Sporadic.ThSchreier.Max3Action
 public import CFSG.Sporadic.ThSchreier.Max3ActionBase1
 public import CFSG.Sporadic.ThSchreier.Rigidity
-public import Certificates.Certificate10091Base
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 
 public section

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSporKM5Comp
 public import CFSG.LocalAnalysis.StandardType.GGSporKBMPreds
-public import Certificates.Certificate716201
 import CFSG.LocalAnalysis.StandardType.GGSporKM5Gmat
 import CFSG.LocalAnalysis.StandardType.GGSporKM5Comm
 import CFSG.LocalAnalysis.StandardType.GGSporKBMBridgeZ

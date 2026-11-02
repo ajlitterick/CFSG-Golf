@@ -8,47 +8,6 @@ public import CFSG.Monster.Existence.DLevelRank
 public import CFSG.Monster.Existence.GMSBridge
 public import CFSG.Monster.Existence.InvolutionClasses
 public import CFSG.Monster.GMS.Defs
-public import Certificates.Certificate3014
-public import Certificates.Certificate3015
-public import Certificates.Certificate3016
-public import Certificates.Certificate3017
-public import Certificates.Certificate3018
-public import Certificates.Certificate3019
-public import Certificates.Certificate3020
-public import Certificates.Certificate3021
-public import Certificates.Certificate3022
-public import Certificates.Certificate3025
-public import Certificates.Certificate3026
-public import Certificates.Certificate3028
-public import Certificates.Certificate3045
-public import Certificates.Certificate3048
-public import Certificates.Certificate3049
-public import Certificates.Certificate3050
-public import Certificates.Certificate3051
-public import Certificates.Certificate3053
-public import Certificates.Certificate3101
-public import Certificates.Certificate3102
-public import Certificates.Certificate3103
-public import Certificates.Certificate3106
-public import Certificates.Certificate3107
-public import Certificates.Certificate3108
-public import Certificates.Certificate3109
-public import Certificates.Certificate6006
-public import Certificates.Certificate6007
-public import Certificates.Certificate6009
-public import Certificates.Certificate6010
-public import Certificates.Certificate6011
-public import Certificates.Certificate6012
-public import Certificates.Certificate6013
-public import Certificates.Certificate6014
-public import Certificates.Certificate6015
-public import Certificates.Certificate6016
-public import Certificates.Certificate6017
-public import Certificates.Certificate6018
-public import Certificates.Certificate16018
-public import Certificates.Certificate3024
-public import Certificates.Certificate3027
-public import Certificates.Certificate8955
 
 public section
 

@@ -13,8 +13,6 @@ import CFSG.LocalAnalysis.ComponentClassification.CatalogueBPrimeJoinTransport
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBAlternatingSymmetric
 public import CFSG.GroupTheory.ABGLocalTools.Basic
 public import CFSG.Open.PGLModelDefs
-public import Certificates.Certificate3007
-public import Certificates.Certificate10005
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBPrimeJoinSubnormal
 import CFSG.LocalAnalysis.ComponentInitial.LocalComponents
 import CFSG.GroupTheory.WielandtProductAux

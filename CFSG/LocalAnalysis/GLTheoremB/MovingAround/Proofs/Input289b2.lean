@@ -90,11 +90,6 @@ public import CFSG.RankThree.PartTwo.Sec4.T444.Item434SmallTwoOtherDefs
 public import CFSG.RankThree.PartTwo.Sec6.Statements
 public import CFSG.RankThree.PartTwo.Sec8.Item87Proof84
 public import CFSG.Walter.J1Props
-public import Certificates.Certificate13510
-public import Certificates.Certificate14953
-public import Certificates.Certificate5122
-public import Certificates.Certificate5123
-public import Certificates.Certificate8034
 public import Certificates.Kernel.J4Count.Prim
 
 public section

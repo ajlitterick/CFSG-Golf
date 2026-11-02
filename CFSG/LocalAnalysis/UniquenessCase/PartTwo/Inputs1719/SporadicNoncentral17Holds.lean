@@ -1,24 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.SporadicNoncentral17
-public import Certificates.Certificate43
-public import Certificates.Certificate3029
-public import Certificates.Certificate3086
-public import Certificates.Certificate3167
-public import Certificates.Certificate3172
-public import Certificates.Certificate4034
-public import Certificates.Certificate4053
-public import Certificates.Certificate4079
-public import Certificates.Certificate4102
-public import Certificates.Certificate4140
-public import Certificates.Certificate4143
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312HsKInputs
 import Certificates.Kernel.HSA312.Struct
 import Certificates.Kernel.HSQuot.Final
-public import Certificates.Certificate7122
-public import Certificates.Certificate8018
-public import Certificates.Certificate8026
-public import Certificates.Certificate8029
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.SporadicModelGlue
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.SporadicLocal17
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.M22HexadPairHolds

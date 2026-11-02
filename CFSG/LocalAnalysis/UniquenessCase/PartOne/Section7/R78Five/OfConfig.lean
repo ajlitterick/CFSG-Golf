@@ -49,8 +49,6 @@ public import CFSG.Quasithin.Vol2.Ch11SecAFacts04
 public import CFSG.Quasithin.Vol2.Ch11SecAVi2
 public import CFSG.Quasithin.Vol2.Ch11SecSFacts
 public import CFSG.Quasithin.Vol2.Ch11SecSSetup
-public import Certificates.Certificate2265
-public import Certificates.Certificate2266
 import CFSG.Blueprint.LieModelAPI
 import CFSG.GH74.Uniqueness.Lemma311
 import CFSG.GH74.Uniqueness.Prop38

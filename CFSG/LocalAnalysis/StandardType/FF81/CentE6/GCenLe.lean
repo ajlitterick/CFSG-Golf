@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.FF81.CentE6.Frame
 public import CFSG.LocalAnalysis.StandardType.FF81.CentE6.RadSetting
-public import Certificates.Certificate1953
-public import Certificates.Certificate1954
 import CFSG.LocalAnalysis.StandardType.FF81.CentE6.CentCL
 import CFSG.LocalAnalysis.StandardType.FF81.CentE6.CaseOne
 import CFSG.LocalAnalysis.StandardType.FF81.PropOne.CenbStruct

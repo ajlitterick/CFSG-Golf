@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.L34TypeCover
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.NineSixStar
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.NineSixStarE
 public import CFSG.LocalAnalysis.GLTheoremB.UniqDefs
-public import Certificates.Certificate3007
-public import Certificates.Certificate10005
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.CaseOneInnerAction
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.KSylowTwo
 import CFSG.LocalAnalysis.GLTheoremB.ComponentTools

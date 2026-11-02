@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBDenseDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBJoinDefs
-public import Certificates.Certificate117
 import CFSG.LocalAnalysis.StandardType.GGQTwoSpinEndpoint
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBOm
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBSpSp

@@ -11,10 +11,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowDefs
 public import CFSG.LocalAnalysis.StandardType.GGResidualRk1Frame
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyQSplit
 public import CFSG.LocalAnalysis.StandardType.GGTBRowTwE6Parity
-public import Certificates.Certificate709545
-public import Certificates.Certificate709548
-public import Certificates.Certificate709549
-public import Certificates.Certificate709590
 import CFSG.LocalAnalysis.StandardType.GGNbrReflGenOver
 import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylExcPlusLift
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaExcPlusAux2

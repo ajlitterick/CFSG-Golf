@@ -46,7 +46,6 @@ public import CFSG.Quasithin.Vol2.Ch12Sec2Statements
 public import CFSG.Quasithin.Vol2.Ch12Sec9Lemma6One
 public import CFSG.Quasithin.Vol2.Ch1Faithful
 public import CFSG.Walter.Defs
-public import Certificates.Certificate8026Base
 
 public section
 

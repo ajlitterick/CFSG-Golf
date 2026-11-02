@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGResidualGenFrame
 public import CFSG.LocalAnalysis.StandardType.GGActualQuadraticField
 public import CFSG.LocalAnalysis.StandardType.GGResidualA2Pair
-public import Certificates.Certificate13723
-public import Certificates.Certificate13724
 
 public section
 

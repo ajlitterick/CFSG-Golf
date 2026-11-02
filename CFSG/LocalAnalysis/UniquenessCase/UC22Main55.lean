@@ -81,8 +81,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.UC22P2213e
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S21a
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S21c
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S21rU
-public import Certificates.Certificate7224
-public import Certificates.Certificate7226
 import CFSG.LocalAnalysis.UniquenessCase.UC22P2213f
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22ud
 import CFSG.LocalAnalysis.UniquenessCase.UCFront78Nar

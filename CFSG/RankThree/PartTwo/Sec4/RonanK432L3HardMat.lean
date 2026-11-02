@@ -22,7 +22,6 @@ public import CFSG.RankThree.PartTwo.Sec21.Item211ProofListOf
 public import CFSG.RankThree.PartTwo.Sec4.Item423ResProof432
 public import CFSG.RankThree.PartTwo.Sec4.RonanK432Cover
 public import CFSG.RankThree.PartTwo.Sec4.RonanK432Transport
-public import Certificates.Certificate8166
 
 public section
 

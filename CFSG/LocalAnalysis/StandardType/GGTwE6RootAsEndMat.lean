@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6RootAsCoroot
 public import CFSG.Assembly.LargeEvenDefs
-public import Certificates.Certificate13657
 import CFSG.LocalAnalysis.StandardType.GGTwE6DeltaThreeEndComp
 import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
 import CFSG.LocalAnalysis.GorensteinLyons.SteinbergCBExponentFourLayer

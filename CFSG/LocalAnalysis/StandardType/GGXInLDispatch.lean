@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGXInLUDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoAssemble
-public import Certificates.Certificate1953
-public import Certificates.Certificate1954
 import CFSG.LocalAnalysis.SectionRank.PRank
 import CFSG.LocalAnalysis.StandardType.GGK1ScFinal
 import CFSG.LocalAnalysis.StandardType.GGCSRLabels

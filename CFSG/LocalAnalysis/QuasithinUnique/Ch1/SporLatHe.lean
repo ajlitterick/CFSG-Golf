@@ -13,7 +13,6 @@ public import Certificates.Data.CFSGNative.He.Certificate
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHeKInputs
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatCore
 public import CFSG.Quasithin.EmptyFaithful.S151S9TThreeDFact
-public import Certificates.Certificate4141
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicBase
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicRep
 public import CFSG.Sporadic.He

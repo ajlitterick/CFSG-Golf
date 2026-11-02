@@ -3,11 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSp4F2Model
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog8Sp4q
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallQ3
-public import Certificates.Certificate2007
-public import Certificates.Certificate2012
-public import Certificates.Certificate2013
-public import Certificates.Certificate2014
-public import Certificates.Certificate2015
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalDescentEndpoint
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalFiveStructure

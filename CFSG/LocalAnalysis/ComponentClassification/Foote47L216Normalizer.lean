@@ -38,7 +38,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.FooteLitInputs
 public import CFSG.LocalAnalysis.ComponentClassification.FixedCommutingProduct
 public import CFSG.LocalAnalysis.ComponentClassification.Foote47L216FrobeniusConjugacy
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBShell
-public import Certificates.Certificate43
 import CFSG.LocalAnalysis.ComponentClassification.UnbalancingLocalCorrespondenceTools
 import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCorrSourceChange
 import CFSG.LocalAnalysis.ComponentClassification.CTUMirrorL34
@@ -250,34 +249,6 @@ import CFSG.Sporadic.ThSchreier.ThSchreierCase
 import CFSG.StronglyEmbedded.MatrixGroups.PSL2
 import CFSG.Walter.W67.W2Lemma26A
 import CFSG.YGroups.DCE.B433Check
-import Certificates.Certificate10025
-import Certificates.Certificate10027
-import Certificates.Certificate10107
-import Certificates.Certificate10108
-import Certificates.Certificate10110
-import Certificates.Certificate10111
-import Certificates.Certificate10115
-import Certificates.Certificate10115Base
-import Certificates.Certificate10116
-import Certificates.Certificate10116Base
-import Certificates.Certificate10117
-import Certificates.Certificate10117Base
-import Certificates.Certificate10118
-import Certificates.Certificate10118Base
-import Certificates.Certificate10119
-import Certificates.Certificate10119Base
-import Certificates.Certificate10123
-import Certificates.Certificate10123Base
-import Certificates.Certificate14953
-import Certificates.Certificate16018
-import Certificates.Certificate2098
-import Certificates.Certificate2103
-import Certificates.Certificate2246
-import Certificates.Certificate2323
-import Certificates.Certificate5133
-import Certificates.Certificate6006
-import Certificates.Certificate8171
-import Certificates.Certificate9124
 import Certificates.Kernel.J4Count.FixC
 import Certificates.Kernel.J4Count.FixCPairBase1
 import Certificates.Kernel.J4Count.KFactsBase

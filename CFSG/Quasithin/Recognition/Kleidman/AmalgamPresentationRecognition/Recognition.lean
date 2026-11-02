@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.Recognition.Kleidman.AmalgamPresentationRecognition.Goursat
 public import CFSG.Quasithin.Recognition.Kleidman.AmalgamPresentationRecognition.Presentation
-import Certificates.Certificate272037
 import Certificates.Kernel.Bounds.Family
 import CFSG.Certificates.Kernel.Misc.Coset.MemWalk
 import CFSG.Quasithin.Recognition.Kleidman.AmalgamPresentationRecognition.W4Presentation

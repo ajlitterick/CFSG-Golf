@@ -60,9 +60,6 @@ public import CFSG.Sporadic.Schreier.J1QT
 public import CFSG.Sporadic.Schreier.RuPair
 public import CFSG.Sporadic.Schreier.RuSylow
 public import CFSG.YGroups.DCE.B433Check
-public import Certificates.Certificate7233Base
-public import Certificates.Certificate8026Base
-public import Certificates.Certificate9124
 
 public section
 

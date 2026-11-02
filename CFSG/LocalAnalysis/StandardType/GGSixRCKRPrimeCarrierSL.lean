@@ -18,8 +18,6 @@ public import CFSG.RankThree.PartOne.KE.E8D4Family
 public import CFSG.RankThree.PartOne.KE.ThreeA1Group
 public import CFSG.RankThree.PartOne.KLCE.Sector
 public import CFSG.Sporadic.Schreier.J4SProfileNode
-public import Certificates.Certificate1953
-public import Certificates.Certificate1954
 public import Certificates.Kernel.SporSch.Th.Plane2320
 
 public section

@@ -48,8 +48,6 @@ public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import Certificates.Certificate1
-public import Certificates.Certificate2
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerE8Five
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerFiveTwRigidLang
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwRigidModels

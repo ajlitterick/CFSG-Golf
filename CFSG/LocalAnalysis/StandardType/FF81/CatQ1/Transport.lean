@@ -41,20 +41,6 @@ import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationT
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2FieldProjectionArithmetic
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2OrderPSubgroupCount
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphReconstruction
-import Certificates.Certificate1
-import Certificates.Certificate10
-import Certificates.Certificate11
-import Certificates.Certificate12
-import Certificates.Certificate2
-import Certificates.Certificate3
-import Certificates.Certificate4
-import Certificates.Certificate42
-import Certificates.Certificate44
-import Certificates.Certificate5
-import Certificates.Certificate6
-import Certificates.Certificate7
-import Certificates.Certificate8
-import Certificates.Certificate9
 
 public section
 

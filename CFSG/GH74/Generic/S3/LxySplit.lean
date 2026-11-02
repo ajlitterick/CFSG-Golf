@@ -9,7 +9,6 @@ public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GH74.E2.CaseIINoComp
 public import CFSG.GH74.GLS.Bg.Rank
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.HSFiveCaseTwoTools
-public import Certificates.Certificate5007
 
 public section
 

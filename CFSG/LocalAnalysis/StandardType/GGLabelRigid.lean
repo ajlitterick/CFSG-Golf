@@ -1,13 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
-public import Certificates.Certificate2264
-public import Certificates.Certificate2267
-public import Certificates.Certificate8033
-public import Certificates.Certificate8064
 import CFSG.Adapters.LieModelSmallOrders
 import CFSG.LocalAnalysis.StandardType.GGExclNoIso
 import CFSG.LocalAnalysis.StandardType.Marking
@@ -38,7 +31,6 @@ import CFSG.Quasithin.EmptyFaithful.S146zYFacts
 import CFSG.Quasithin.EmptyFaithful.S146zYRes
 import CFSG.Quasithin.H13.NQCoreP134Main
 import CFSG.Quasithin.Vol2.Ch1Sec3E9Inputs
-import Certificates.Certificate8026Base
 
 public section
 

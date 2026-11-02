@@ -2,9 +2,6 @@ module
 
 public import CFSG.Sporadic.Th.Max3.AllConj
 public import CFSG.Certificates.Kernel.ThDemp.OrbBound
-public import Certificates.Certificate10088Base
-public import Certificates.Certificate10089Base
-public import Certificates.Certificate10091Base
 
 public section
 

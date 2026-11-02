@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermOmKFrameDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniLFrame
 public import CFSG.LocalAnalysis.StandardType.GGAssemblyTwoHypSix
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import Certificates.Certificate117
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBUni
 import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitary
 import CFSG.LocalAnalysis.StandardType.GGResLeviLE3BridgeA2

@@ -32,7 +32,6 @@ public import CFSG.RankThree.PartTwo.Sec20.Alt20
 public import CFSG.RankThree.PartTwo.Sec20.Item20Res5ProofNormal
 public import CFSG.RankThree.PartTwo.Sec20.OneSteps
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
-public import Certificates.Certificate43
 import CFSG.Milestones.CL_LIT_Gorenstein_Walter_L_balance
 import CFSG.RankThree.PartTwo.Sec11.Item118
 import CFSG.RankThree.PartTwo.Sec11.Theorem1134

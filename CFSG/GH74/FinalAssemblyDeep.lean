@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GH74.FinalAssemblyG
-public import Certificates.Certificate9310
 public import CFSG.GH74.E2.Alpha1Core
 public import CFSG.GH74.E2.CaseIInner
 public import CFSG.GH74.E2.OddRank
@@ -159,22 +158,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ConjugatedInvertedSub
 public import CFSG.Walter.Ree.Thompson2.BaseFin
 public import CFSG.Walter.ReeOrder.WardLocal
 public import CFSG.Walter.W67.Section8.Prop83
-public import Certificates.Certificate2111
-public import Certificates.Certificate2117
-public import Certificates.Certificate2329
-public import Certificates.Certificate2329Base
-public import Certificates.Certificate7000
-public import Certificates.Certificate7001
-public import Certificates.Certificate7002
-public import Certificates.Certificate7003
-public import Certificates.Certificate7004
-public import Certificates.Certificate7005
-public import Certificates.Certificate7006
-public import Certificates.Certificate7007
-public import Certificates.Certificate7008
-public import Certificates.Certificate7009
-public import Certificates.Certificate7010
-public import Certificates.Certificate7011
 
 public section
 

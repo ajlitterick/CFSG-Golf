@@ -7,8 +7,6 @@ import CFSG.RankThree.PartTwo.Census.Carrier.SpinDBridge
 import CFSG.RankThree.PartTwo.Census.Carrier.SpinTDBridge
 import CFSG.LocalAnalysis.GLTheoremA.CatB.Bridges
 import CFSG.ClassicalInvolution.SmallCases.UpgradeCoverClassical
-public import Certificates.Certificate9415
-public import Certificates.Certificate19954
 import CFSG.GF2Type.Smith1980Orth.TriD4Rank
 import CFSG.HardMathSupport.Seitz.TrialityEven.TwoThree
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcVacuousTriality

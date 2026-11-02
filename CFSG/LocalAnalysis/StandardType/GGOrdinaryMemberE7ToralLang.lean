@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGOrdinaryMemberOrthogonal
 public import CFSG.LocalAnalysis.StandardType.GGOrdinaryMemberE7RootRecognition
 public import CFSG.LocalAnalysis.StandardType.GGFieldOuterInvLangSetup
-public import Certificates.Certificate1952
 import CFSG.LocalAnalysis.StandardType.GGLieCoreToralInd
 import CFSG.RankThree.PartOne.KE6.EqpA24
 import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTBLang

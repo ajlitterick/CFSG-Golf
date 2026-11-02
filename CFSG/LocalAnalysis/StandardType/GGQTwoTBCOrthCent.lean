@@ -71,8 +71,6 @@ public import CFSG.Sporadic.Recognition.LyonsSimsEndgame
 public import CFSG.Sporadic.Schreier.J1QT
 public import CFSG.Sporadic.Schreier.LyFixedSet
 public import CFSG.YGroups.DCE.B433Check
-public import Certificates.Certificate2323
-public import Certificates.Certificate9124
 
 public section
 

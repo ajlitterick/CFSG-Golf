@@ -3,8 +3,6 @@ module
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co1FiveLeaf
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co1SevenKit
 public import Certificates.Data.CFSGNative.Timmesfeld.Co1Seven
-public import Certificates.Certificate2043
-public import Certificates.Certificate3024
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co1FiveKit
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Plane
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore

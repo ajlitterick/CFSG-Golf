@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutInnerExcHardE6
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutInnerExcHardF4
-public import Certificates.Certificate1952
-public import Certificates.Certificate3951
-public import Certificates.Certificate13604
-public import Certificates.Certificate13724
 import CFSG.GroupTheory.ElemAbelianClosure
 import CFSG.LocalAnalysis.StandardType.GGOrdPToralLang
 import CFSG.LocalAnalysis.StandardType.GGExcElemToralE6
@@ -17,7 +13,6 @@ public import CFSG.Quasithin.Vol2.KGFactC31RuRefBase
 public import CFSG.Sporadic.HeldB.Common
 public import CFSG.Sporadic.Schreier.RuPair
 public import CFSG.Sporadic.Schreier.RuSylow
-public import Certificates.Certificate7233Base
 import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcE8Rank1
 import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Detect.E8.MPart
 import CFSG.HardMathSupport.Lang.AnisoE6.CatBridge

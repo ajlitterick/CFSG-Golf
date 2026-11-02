@@ -8,7 +8,6 @@ import CFSG.StronglyEmbedded.Catalog.Unitary
 import CFSG.StronglyEmbedded.MatrixGroups.PSU3Model
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma114Models
 import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonClassification
-public import Certificates.Certificate43
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Basic
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Compat
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer

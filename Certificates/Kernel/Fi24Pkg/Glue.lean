@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.SporadicPermutesPackage
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatM24
-public import Certificates.Certificate2198
-public import Certificates.Certificate2205
-public import Certificates.Certificate3046
 import Certificates.Kernel.Fi24Pkg.Checks
 import CFSG.Certificates.Kernel.M24QSpan
 import CFSG.Quasithin.Vol2.Ch12Sec5KGM24

@@ -3,8 +3,6 @@ module
 public import CFSG.LieType.Chevalley.NativeRoots
 public import CFSG.Blueprint.ChevalleyInfinitesimals
 public import CFSG.Blueprint.ChevalleyWeyl
-public import Certificates.Certificate113
-public import Certificates.Certificate114
 
 public section
 

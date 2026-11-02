@@ -22,22 +22,6 @@ import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.OmegaOneNormalCyclic
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.SupDecomposition
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.UpperCentralTwo
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.InnerActionOut
-public import Certificates.Certificate2195
-public import Certificates.Certificate2202
-public import Certificates.Certificate2233
-public import Certificates.Certificate2234
-public import Certificates.Certificate2235
-public import Certificates.Certificate3029
-public import Certificates.Certificate3139
-public import Certificates.Certificate3157
-public import Certificates.Certificate5133
-public import Certificates.Certificate8080
-public import Certificates.Certificate8081
-public import Certificates.Certificate8168
-public import Certificates.Certificate8169
-public import Certificates.Certificate10019
-public import Certificates.Certificate14953
-public import Certificates.Certificate19953
 import CFSG.Adapters.LieModelSimple
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight6xBExtraspecial
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.OuterJ2
@@ -85,16 +69,6 @@ import CFSG.LocalAnalysis.SectionRank.Sporadic.LocalWitness
 import CFSG.Blueprint.Catalog
 import CFSG.GH74.KGroups.L33
 import Certificates.Data.CFSGNative.SectionRank.Local
-import Certificates.Certificate3084
-import Certificates.Certificate3168
-import Certificates.Certificate3172
-import Certificates.Certificate3017
-import Certificates.Certificate3086
-public import Certificates.Certificate2264
-public import Certificates.Certificate2267
-public import Certificates.Certificate5171
-public import Certificates.Certificate8033
-public import Certificates.Certificate8117
 import CFSG.RankThree.PartOne.N143X.G2Rank
 import CFSG.LieType.Chevalley.G2TorusRank
 import CFSG.LieType.Chevalley.AdjointCenter
@@ -205,30 +179,6 @@ public import CFSG.Walter.J1Props
 public import CFSG.Walter.J1Recog
 public import CFSG.Walter.PSL2Facts
 public import CFSG.Walter.W67.Statements
-public import Certificates.Certificate10027
-public import Certificates.Certificate10107
-public import Certificates.Certificate10108
-public import Certificates.Certificate10110
-public import Certificates.Certificate10111
-public import Certificates.Certificate13950
-public import Certificates.Certificate16018
-public import Certificates.Certificate16041
-public import Certificates.Certificate2098
-public import Certificates.Certificate2103
-public import Certificates.Certificate2108
-public import Certificates.Certificate2109
-public import Certificates.Certificate2130
-public import Certificates.Certificate2135
-public import Certificates.Certificate2136
-public import Certificates.Certificate2139
-public import Certificates.Certificate2140
-public import Certificates.Certificate2145
-public import Certificates.Certificate2323
-public import Certificates.Certificate6006
-public import Certificates.Certificate8001
-public import Certificates.Certificate8002
-public import Certificates.Certificate8003
-public import Certificates.Certificate9950
 public import Certificates.Kernel.J4Count.Prim
 public import Certificates.Kernel.Sporadic.Fi22.C2068
 public import Certificates.Kernel.Sporadic.Fi22.C3151
@@ -297,8 +247,6 @@ import CFSG.RankThree.PartTwo.Sec4.Census.WiringDoubleCover
 import CFSG.RankThree.PartTwo.Sec6.Statements
 import CFSG.RankThree.S4Free.SuzukiEight
 import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
-import Certificates.Certificate2246
-import Certificates.Certificate8166
 
 public section
 

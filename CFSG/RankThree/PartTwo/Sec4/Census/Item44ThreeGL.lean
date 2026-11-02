@@ -3,7 +3,6 @@ module
 public import CFSG.RankThree.PartTwo.Toolkit.Bloom
 public import Mathlib.GroupTheory.IsPerfect
 import Mathlib.GroupTheory.SpecificGroups.Cyclic.Basic
-public import Certificates.Certificate8171
 
 public section
 

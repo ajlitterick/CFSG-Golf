@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P20o
-public import Certificates.Certificate19954
-public import Certificates.Certificate9415
 import CFSG.LargeExtraspecial.S63CD4Iso
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.D4TwoSylow
 import CFSG.LocalAnalysis.UniquenessCase.Lie.ExcShared

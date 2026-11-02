@@ -4,13 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixStepOne
 public import CFSG.LocalAnalysis.SeitzReduction.PerfectCentralizer
 public import CFSG.LocalAnalysis.ComponentInitial.KProperPumpUpStatement
 public import CFSG.Timmesfeld.Final.Simple
-public import Certificates.Certificate78
-public import Certificates.Certificate79
-public import Certificates.Certificate80
-public import Certificates.Certificate81
-public import Certificates.Certificate119
-public import Certificates.Certificate120
-public import Certificates.Certificate121
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.ClassicalGroups

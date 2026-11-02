@@ -60,7 +60,6 @@ public import CFSG.RankThree.PartTwo.Sec4.T444.Basic
 public import CFSG.RankThree.S4Free.SuzukiEight
 public import CFSG.RankThree.ThinCatalog.MathieuThreeRank
 public import CFSG.Sporadic.Schreier.M11
-public import Certificates.Certificate8166
 
 public section
 

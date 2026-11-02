@@ -44,7 +44,6 @@ public import CFSG.Timmesfeld.ARS.CaseHConnected
 public import CFSG.Timmesfeld.ARS.CaseHU33
 public import CFSG.Timmesfeld.Moufang.Three
 public import CFSG.Walter.J1Props
-public import Certificates.Certificate5007
 
 public section
 

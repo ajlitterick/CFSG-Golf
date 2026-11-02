@@ -5,8 +5,6 @@ public import CFSG.RankThree.GF2n.Parrott.Proposition6IndexTwoModelFacts
 public import CFSG.Sporadic.Co2Smith.GlC0JankoA
 public import CFSG.LocalAnalysis.OddStandard.Solomon75LPlusDefs
 public import CFSG.LieType.HighestRoot.CentChevalleySLThree
-public import Certificates.Certificate2012
-public import Certificates.Certificate946005
 public import CFSG.LocalAnalysis.OddStandard.Solomon75Basic
 
 public section

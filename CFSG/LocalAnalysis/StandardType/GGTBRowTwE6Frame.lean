@@ -8,8 +8,6 @@ public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwenty
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitTwE6Plus
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6Delta
 public import CFSG.LocalAnalysis.StandardType.GGTBRowTwE6FrameAux
-public import Certificates.Certificate13657
-public import Certificates.Certificate3951
 
 public section
 

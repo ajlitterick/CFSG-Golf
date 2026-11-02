@@ -50,11 +50,6 @@ public import CFSG.Sporadic.Presentation.Co2FusionInputs
 public import CFSG.Sporadic.Presentation.McLExactData
 public import CFSG.Sporadic.Presentation.McLExactInputs
 public import CFSG.Sporadic.Schreier.Co1SplitLocalSubgroup
-public import Certificates.Certificate8153
-public import Certificates.Certificate8156
-public import Certificates.Certificate8157
-public import Certificates.Certificate8171
-public import Certificates.Certificate9124
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 
 public section

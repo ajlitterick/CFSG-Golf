@@ -5,9 +5,7 @@ public import CFSG.Monster.B.TwoA.Unitary.PlanesBase
 public import CFSG.Monster.B.TwoA.Unitary.Form
 public meta import CFSG.Monster.B.TwoA.Unitary.Form
 public import CFSG.Monster.B.TwoA.Unitary.PlanesInputs
-public import Certificates.Certificate3175Base
 import all CFSG.Fischer.F4
-public import Certificates.Certificate3080Base
 
 @[expose] public section
 

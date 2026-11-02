@@ -47,17 +47,6 @@ public import CFSG.LieType.Steinberg.CentralExt.GriessClassicalSmall
 public import CFSG.Adapters.ClassicalCatalogReverse
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalUnitSC
 public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
-public import Certificates.Certificate3088
-public import Certificates.Certificate2151
-public import Certificates.Certificate2152
-public import Certificates.Certificate2154
-public import Certificates.Certificate2157
-public import Certificates.Certificate2158
-public import Certificates.Certificate2161
-public import Certificates.Certificate2162
-public import Certificates.Certificate3008
-public import Certificates.Certificate10010
-public import Certificates.Certificate10011
 public import CFSG.GroupTheory.RegularModuleThree
 public import CFSG.LargeExtraspecial.S8CBFCrit
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanSmallBasic

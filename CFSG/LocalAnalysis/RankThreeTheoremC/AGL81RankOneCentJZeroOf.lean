@@ -130,10 +130,6 @@ import CFSG.Sporadic.Presentation.McLExactInputs
 import CFSG.Sporadic.Schreier.J1QT
 import CFSG.Sporadic.Schreier.TitsOther
 import CFSG.YGroups.DCE.B433Check
-import Certificates.Certificate2202
-import Certificates.Certificate2283
-import Certificates.Certificate2288
-import Certificates.Certificate9124
 
 public section
 

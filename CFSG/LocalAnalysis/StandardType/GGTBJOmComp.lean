@@ -27,7 +27,6 @@ import CFSG.LocalAnalysis.RankThreeTheoremC.GL83Generic4_1P3M11Defs
 import CFSG.LocalAnalysis.RankThreeTheoremC.TransitivityKFacts
 import CFSG.RankThree.PartOne.S15K.FixedWitt
 import CFSG.RankThree.PartOne.S15K.LayerModel
-import Certificates.Certificate41501
 
 public section
 

@@ -2,11 +2,6 @@ module
 
 public import CFSG.Sporadic.HNOddCore.FiveA
 public import CFSG.Sporadic.HNOddCore.OddA
-public import Certificates.Certificate2085
-public import Certificates.Certificate2097
-public import Certificates.Certificate2100
-public import Certificates.Certificate2102
-public import Certificates.Certificate16041
 
 public noncomputable section
 

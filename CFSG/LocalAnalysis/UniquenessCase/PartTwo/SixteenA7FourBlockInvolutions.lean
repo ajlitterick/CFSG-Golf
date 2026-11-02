@@ -16,7 +16,6 @@ public import CFSG.Quasithin.Background.FFC6P
 public import CFSG.Quasithin.EmptyFaithful.SzF53MConj
 public import CFSG.Quasithin.H13.A7Nat1233ModAbs
 public import CFSG.Quasithin.Vol2.Ch10SecQ3CK8E
-public import Certificates.Certificate7022
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC13BCAAux
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC1677ThreeTools
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenEightF8Nat

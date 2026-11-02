@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.ModelFacts.E7ModelSign
 public import CFSG.ClassicalInvolution.ModelFacts.E7ModelWeyl
-public import Certificates.Certificate113
 
 public section
 

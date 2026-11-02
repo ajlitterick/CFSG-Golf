@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TwelveNotLeGraphUFourHat
 public import CFSG.Quasithin.Vol2.GoldschmidtF431U42Geom
-public import Certificates.Certificate2012
-public import Certificates.Certificate4161
-public import Certificates.Certificate10010
-public import Certificates.Certificate10011
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TwelveNotLeGraphQuasi
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TwelveLeU42O8U42
 import CFSG.Quasithin.Vol2.GoldschmidtF431U42Syl

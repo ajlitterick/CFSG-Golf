@@ -4,9 +4,6 @@ public import CFSG.LocalAnalysis.SectionRank.EvenCover.Symplectic
 public import CFSG.LocalAnalysis.SectionRank.EvenCover.Orthogonal
 public import CFSG.LocalAnalysis.SectionRank.EvenCover.UnitaryThree
 public import CFSG.LocalAnalysis.SectionRank.QuasisimpleCatalog
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 public import CFSG.ClassicalGroups.Symplectic.Model
 public import CFSG.LocalAnalysis.SectionRank.Framework.SylowRank
 public import CFSG.LocalAnalysis.SectionRank.SporadicCover

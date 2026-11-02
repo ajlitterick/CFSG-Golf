@@ -10,7 +10,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagOrder
 import CFSG.Adapters.LinearFieldTransport
 import CFSG.Adapters.RankTwoModelTransports
 import CFSG.ClassicalInvolution.SmallCases.UpgradeCoverClassical
-public import Certificates.Certificate8151
 public import CFSG.Foundations
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.GroupTheory.LocalCores.Fitting

@@ -2,14 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGKG87BTransDefs
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.TwE6Order3Defs
-public import Certificates.Certificate76
-public import Certificates.Certificate77
-public import Certificates.Certificate115
-public import Certificates.Certificate116
-public import Certificates.Certificate118
-public import Certificates.Certificate122
-public import Certificates.Certificate123
-public import Certificates.Certificate13657
 import CFSG.RankThree.PartOne.KE8F.FamBruhat
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24CentreStab
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompChain

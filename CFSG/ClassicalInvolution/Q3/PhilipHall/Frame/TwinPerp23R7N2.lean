@@ -21,7 +21,6 @@ import CFSG.ClassicalInvolution.Asc77.AscE184Cent
 import CFSG.ClassicalInvolution.Asc77.AscP1ThompsonBasic
 import CFSG.ClassicalInvolution.AschTight.Sec7L714F
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerp23R7Cen3L
-public import Certificates.Certificate393003
 import CFSG.ClassicalInvolution.AschTight.Sec7L714D
 
 public section

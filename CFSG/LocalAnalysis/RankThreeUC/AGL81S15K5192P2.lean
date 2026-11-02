@@ -6,8 +6,6 @@ public import CFSG.LocalAnalysis.AGLEmbeddingD2.GN.AltBig
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.GN.Covered
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.EightFive.Final
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.EightFive.Base8Smith
-public import Certificates.Certificate8063
-public import Certificates.Certificate17023
 public import CFSG.Certificates.Kernel.LocalCompTits.Span
 public import CFSG.GH74.SmallRanks.AltM11
 public import CFSG.GroupTheory.SteinbergCBFTCores

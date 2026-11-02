@@ -28,10 +28,6 @@ public import CFSG.RankThree.Theta.ThreeComponentOrbitCover
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.Walter.Defs
-public import Certificates.Certificate1
-public import Certificates.Certificate2
-public import Certificates.Certificate2267
-public import Certificates.Certificate8033
 
 public section
 

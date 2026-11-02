@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.EvenBN.GMSK.SL2Facts
 public import CFSG.CGT.Timmesfeld75.Lemma27
 public import Mathlib.RingTheory.Polynomial.Cyclotomic.Basic
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonSplitTorus
-public import Certificates.Certificate113
 
 public section
 

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreDefs
 public import CFSG.LocalAnalysis.StandardType.GGL45NtLattice
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.PlanesToral
-public import Certificates.Certificate1952
 import all CFSG.LocalAnalysis.StandardType.GGL45NtLattice
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.SeitzExcOpenRest3
 import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcMonomial

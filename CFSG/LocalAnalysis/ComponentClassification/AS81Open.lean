@@ -86,7 +86,6 @@ public import CFSG.Sporadic.SuzRecog.RootTwistCover
 public import CFSG.Sporadic.SuzRecog.B0TwistExcl
 public import CFSG.Sporadic.SuzRecog.B0Gluing
 public import CFSG.Sporadic.SuzRecog.Holds
-public import Certificates.Certificate15121
 public import CFSG.Certificates.WordSubgroupRel
 public import CFSG.CharacterTheory.SteinbergBYModularRealization
 public import CFSG.GH74.Generic.S45.LSporMathA
@@ -117,30 +116,6 @@ public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.RankThree.PartTwo.Sec4.Census.Item44TwoCoverList
 public import CFSG.Sporadic.Bridge.SuzSurj
 public import CFSG.YGroups.Y322Central
-public import Certificates.Certificate10005
-public import Certificates.Certificate10006
-public import Certificates.Certificate10007
-public import Certificates.Certificate10008
-public import Certificates.Certificate10012
-public import Certificates.Certificate10013
-public import Certificates.Certificate10014
-public import Certificates.Certificate10016
-public import Certificates.Certificate10018
-public import Certificates.Certificate12041
-public import Certificates.Certificate12042
-public import Certificates.Certificate12043
-public import Certificates.Certificate12044
-public import Certificates.Certificate12045
-public import Certificates.Certificate12046
-public import Certificates.Certificate16015
-public import Certificates.Certificate16040
-public import Certificates.Certificate2154
-public import Certificates.Certificate3007
-public import Certificates.Certificate3063
-public import Certificates.Certificate3077
-public import Certificates.Certificate3082
-public import Certificates.Certificate3083
-public import Certificates.Certificate8171
 
 public section
 

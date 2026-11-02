@@ -2,9 +2,6 @@ module
 
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtF146CoverA
 public import CFSG.Quasithin.Background.E2Two
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 import CFSG.LocalAnalysis.SectionRank.EvenCover.UnitaryThree
 import CFSG.LocalAnalysis.SectionRank.EvenCover.CoverMap
 import CFSG.LinearAlgebra.LinearGroups.UnitaryScalarKernel

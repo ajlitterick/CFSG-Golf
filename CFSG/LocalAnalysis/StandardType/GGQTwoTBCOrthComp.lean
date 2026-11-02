@@ -24,8 +24,6 @@ public import CFSG.RankThree.PartOne.S15K.LayerModel
 public import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.Defs
-public import Certificates.Certificate1
-public import Certificates.Certificate2
 
 attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent
   instCommGroupOfIsSimpleGroupOfIsNilpotent

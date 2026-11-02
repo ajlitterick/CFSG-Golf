@@ -66,7 +66,6 @@ import CFSG.LocalAnalysis.QuasithinUnique.SQTK.TypeB2
 import CFSG.LocalAnalysis.QuasithinUnique.SQTK.Unitary
 import CFSG.RankThree.PartTwo.Census.Spin.Main
 import CFSG.RankThree.PartTwo.Sec4.Census.Interface
-import Certificates.Certificate8171
 import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 
 public noncomputable section

@@ -4,8 +4,6 @@ public import CFSG.RankThree.PartTwo.Sec19.Step1914MoreProofMat
 public import CFSG.RankThree.PartTwo.Sec19.Statements
 public import CFSG.RankThree.PartTwo.Sec12.Coordinates
 public import CFSG.RankThree.PartTwo.KFacts.K74Bloom
-public import Certificates.Certificate8171
-public import Certificates.Certificate8172
 import CFSG.RankThree.PartTwo.Sec13.Item13Plane
 import CFSG.RankThree.PartTwo.Sec13.Item133Mono
 import CFSG.RankThree.PartTwo.Sec13.Item138ProofOmega
@@ -18,7 +16,6 @@ import CFSG.RankThree.LocalRank.SelectorCases
 import CFSG.RankThree.PartOne.Assembly
 import CFSG.RankThree.PartTwo.Sec11.Data
 import CFSG.RankThree.PartTwo.Sec6.Statements
-import Certificates.Certificate43
 
 public section
 

@@ -1,8 +1,5 @@
 module
 
-public import Certificates.Certificate13691
-public import Certificates.Certificate13720
-public import Certificates.Certificate13722
 public import CFSG.LocalAnalysis.SeitzReduction.E8PilotAlignLevi
 public import CFSG.LieType.Chevalley.SignKernelSimpleWeyl
 public import CFSG.LieType.AlgebraicGroups.ToralRootCover

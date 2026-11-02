@@ -34,8 +34,6 @@ public import CFSG.RankThree.PartOne.KE6.Phi6Torsion
 public import CFSG.RankThree.PartOne.KF4.KernelTools
 public import CFSG.RankThree.PartOne.S8.Statements
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
-public import Certificates.Certificate1953
-public import Certificates.Certificate1954
 
 public noncomputable section
 

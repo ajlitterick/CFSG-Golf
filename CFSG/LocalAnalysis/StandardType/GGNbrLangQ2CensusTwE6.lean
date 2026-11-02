@@ -11,8 +11,6 @@ import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Inner
 import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcAssemblyTw
 import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcToralityFive
 import CFSG.Fischer.Classification.Recognition.Basic
-public import Certificates.Certificate707001
-public import Certificates.Certificate707002
 public import Certificates.Data.E6TableT
 
 public section

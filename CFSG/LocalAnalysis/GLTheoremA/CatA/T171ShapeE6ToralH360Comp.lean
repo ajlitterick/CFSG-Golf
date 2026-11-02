@@ -17,8 +17,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitPSL
 public import CFSG.LocalAnalysis.ComponentClassification.OutcomeLocalCTILinearSocle
 public import CFSG.LocalAnalysis.ComponentClassification.Sp4RecLinearHigh
 public import CFSG.LocalAnalysis.ComponentClassification.Sp4RecPair
-public import Certificates.Certificate10050
-public import Certificates.Certificate8117
 
 public section
 

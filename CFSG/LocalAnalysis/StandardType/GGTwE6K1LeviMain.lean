@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6K1LeviDefs
-public import Certificates.Certificate115
-public import Certificates.Certificate116
 import CFSG.LocalAnalysis.StandardType.GGTwE6K1LeviBlock
 import CFSG.LocalAnalysis.StandardType.GGTwE6K1LeviCyc
 import CFSG.LocalAnalysis.StandardType.GGTwE6K1LeviCycData
@@ -84,8 +82,6 @@ import CFSG.Quasithin.Vol2.Ch3Sec3Lem3324X
 import CFSG.Quasithin.Vol2.Ch3Sec3Lem3329
 import CFSG.Quasithin.Vol2.Ch3Sec3Lem3330
 import CFSG.RankThree.Chevalley.SteinbergCFEvenF4PointwiseInner
-import Certificates.Certificate10050
-import Certificates.Certificate8117
 
 public section
 

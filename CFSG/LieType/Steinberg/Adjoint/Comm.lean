@@ -3,9 +3,6 @@ module
 public import CFSG.LieType.Steinberg.Adjoint.BaseChange
 public import CFSG.LieType.Steinberg.Adjoint.Pairs
 public import Mathlib.Algebra.MvPolynomial.Eval
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 
 public noncomputable section
 

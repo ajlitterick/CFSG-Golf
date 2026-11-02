@@ -3,49 +3,6 @@ module
 public import CFSG.LocalAnalysis.AGLEmbedding.WeakBlockDefs
 public import CFSG.Open.StatedDefs
 public import CFSG.Open.GriessAllModelsStatement
-public import Certificates.Certificate45
-public import Certificates.Certificate46
-public import Certificates.Certificate47
-public import Certificates.Certificate48
-public import Certificates.Certificate49
-public import Certificates.Certificate50
-public import Certificates.Certificate51
-public import Certificates.Certificate52
-public import Certificates.Certificate53
-public import Certificates.Certificate54
-public import Certificates.Certificate55
-public import Certificates.Certificate56
-public import Certificates.Certificate57
-public import Certificates.Certificate58
-public import Certificates.Certificate59
-public import Certificates.Certificate60
-public import Certificates.Certificate61
-public import Certificates.Certificate62
-public import Certificates.Certificate63
-public import Certificates.Certificate64
-public import Certificates.Certificate65
-public import Certificates.Certificate66
-public import Certificates.Certificate67
-public import Certificates.Certificate68
-public import Certificates.Certificate69
-public import Certificates.Certificate70
-public import Certificates.Certificate71
-public import Certificates.Certificate72
-public import Certificates.Certificate73
-public import Certificates.Certificate74
-public import Certificates.Certificate75
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
-public import Certificates.Certificate2326
-public import Certificates.Certificate4058
-public import Certificates.Certificate4082
-public import Certificates.Certificate4124
-public import Certificates.Certificate4125
-public import Certificates.Certificate4130
-public import Certificates.Certificate5133
-public import Certificates.Certificate8080
-public import Certificates.Certificate8081
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFacts.BlockB.PLElem.Parabolic
 import CFSG.LocalAnalysis.AGLEmbedding.UnitaryParabThreeRank
 import CFSG.HardMathSupport.Curtis.UnitaryLevi.BlockIbGeneric
@@ -66,7 +23,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.MinimalBCenter
 public import CFSG.LocalAnalysis.ComponentClassification.OrdinaryComponentJoins
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
-public import Certificates.Certificate4058Base
 import CFSG.CGT.Timmesfeld75.L2Pair
 import CFSG.CGT.Timmesfeld75.ListWCBasic
 import CFSG.Certificates.WordSubgroupRel
@@ -150,37 +106,6 @@ import CFSG.RankThree.PartTwo.Sec8.Statements
 import CFSG.Sporadic.Presentation.Common
 import CFSG.Sporadic.SmallOddCore.CheckSpec
 import CFSG.YGroups.Y322Central
-import Certificates.Certificate10005
-import Certificates.Certificate10006
-import Certificates.Certificate10007
-import Certificates.Certificate10008
-import Certificates.Certificate10009
-import Certificates.Certificate10010
-import Certificates.Certificate10012
-import Certificates.Certificate10013
-import Certificates.Certificate10014
-import Certificates.Certificate10016
-import Certificates.Certificate10018
-import Certificates.Certificate12041
-import Certificates.Certificate12042
-import Certificates.Certificate12043
-import Certificates.Certificate12044
-import Certificates.Certificate12045
-import Certificates.Certificate12046
-import Certificates.Certificate16015
-import Certificates.Certificate16040
-import Certificates.Certificate2154
-import Certificates.Certificate2157
-import Certificates.Certificate2267
-import Certificates.Certificate3006
-import Certificates.Certificate3007
-import Certificates.Certificate3008
-import Certificates.Certificate3063
-import Certificates.Certificate3077
-import Certificates.Certificate3082
-import Certificates.Certificate3083
-import Certificates.Certificate3951
-import Certificates.Certificate9130
 import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 import TauCeti.LinearAlgebra.QuadraticForm.Prod
 

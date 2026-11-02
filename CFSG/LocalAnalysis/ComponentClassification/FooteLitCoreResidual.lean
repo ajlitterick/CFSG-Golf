@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.FooteLitLBalance
 public import CFSG.GH74.E2.ComponentsShape
 public import CFSG.LinearAlgebra.LinearGroups.CoordinateData
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherTheorem3WeakClosure
-public import Certificates.Certificate5007
 
 public section
 

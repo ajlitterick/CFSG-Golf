@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22Transitive
 public meta import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22Hexads
-public import Certificates.Certificate2195
-public import Certificates.Certificate2031
-public import Certificates.Certificate2035
 
 public noncomputable section
 

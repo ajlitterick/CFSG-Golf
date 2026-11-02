@@ -1,15 +1,6 @@
 module
 
 public import CFSG.Sporadic.Schreier.Co1WeightStab
-public import Certificates.Certificate2133
-public import Certificates.Certificate2146
-public import Certificates.Certificate2147
-public import Certificates.Certificate2150
-public import Certificates.Certificate3024
-public import Certificates.Certificate3086
-public import Certificates.Certificate3120
-public import Certificates.Certificate16013
-public import Certificates.Certificate16017
 public import CFSG.Sporadic.Schreier.Co1SplitLocalSubgroup
 public import CFSG.Sporadic.Schreier.Co1TernaryM12Cover
 

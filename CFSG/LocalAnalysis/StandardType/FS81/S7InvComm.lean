@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.RootE8Defs
-public import Certificates.Certificate3951
-public import Certificates.Certificate8064
 import CFSG.LocalAnalysis.StandardType.FS81.S7R120
 import CFSG.LocalAnalysis.StandardType.FS81.S7AutAt
 import CFSG.LocalAnalysis.StandardType.FS81.S7ModelIdent

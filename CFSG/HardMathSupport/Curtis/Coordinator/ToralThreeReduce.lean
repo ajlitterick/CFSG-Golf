@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallGEVNormalThreeKFacts
 public import CFSG.LocalAnalysis.AGLEmbedding.BlockFoundationsPLType
 public import CFSG.LocalAnalysis.AGLEmbedding.BlockToralCensusDefs
 public import CFSG.Open.StatedDefs
-public import Certificates.Certificate43
 import CFSG.HardMathSupport.Curtis.Coordinator.BlockGlue
 import CFSG.HardMathSupport.Curtis.Coordinator.AutBounds
 import CFSG.LocalAnalysis.AGLEmbedding.BlockFactReductionsIVTypes

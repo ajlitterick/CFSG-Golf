@@ -6,29 +6,6 @@ public import CFSG.GroupTheory.ABGLocalTools.Basic
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TenThreeThreeTwelveCtx
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.NineTwelveKerHolds
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section8.O812sixFi22
-public import Certificates.Certificate2124
-public import Certificates.Certificate2126
-public import Certificates.Certificate8126
-public import Certificates.Certificate17633
-public import Certificates.Certificate19830
-public import Certificates.Certificate19831
-public import Certificates.Certificate19840
-public import Certificates.Certificate19842
-public import Certificates.Certificate19843
-public import Certificates.Certificate19850
-public import Certificates.Certificate19851
-public import Certificates.Certificate19852
-public import Certificates.Certificate31072
-public import Certificates.Certificate465005
-public import Certificates.Certificate753501
-public import Certificates.Certificate753502
-public import Certificates.Certificate753503
-public import Certificates.Certificate753504
-public import Certificates.Certificate753505
-public import Certificates.Certificate753506
-public import Certificates.Certificate753521
-public import Certificates.Certificate753522
-public import Certificates.Certificate1322001
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveFourOneAssembly
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveFourBlockFactsOf
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveFourJLeXSpor

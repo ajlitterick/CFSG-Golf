@@ -81,9 +81,6 @@ public import CFSG.Sporadic.Presentation.Co2Cover
 public import CFSG.Sporadic.Presentation.Co2Fusion
 public import CFSG.Sporadic.Presentation.Co2FusionInputs
 public import CFSG.Sporadic.Schreier.J4SNoCompCover
-public import Certificates.Certificate17002
-public import Certificates.Certificate17951
-public import Certificates.Certificate8160
 
 set_option linter.unusedSectionVars false
 

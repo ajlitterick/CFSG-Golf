@@ -5,7 +5,6 @@ public import CFSG.RankThree.SubgroupLists.SymplecticSkewAxes
 public import CFSG.RankThree.SubgroupLists.DicksonGL2
 public import CFSG.LinearAlgebra.LinearGroups.TameProjectiveSubgroups
 public import Mathlib.LinearAlgebra.Matrix.CharP
-public import Certificates.Certificate43
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherFactsL2Maximal
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
 

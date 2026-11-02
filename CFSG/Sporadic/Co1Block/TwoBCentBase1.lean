@@ -31,7 +31,6 @@ public meta import CFSG.Sporadic.Co1.Module.InvData
 public meta import CFSG.Sporadic.Co1.Module.FormsBase1
 public meta import CFSG.Sporadic.Co1.Module.OrbitsBase
 public import Certificates.Data.CFSGNative.Co1.Data
-public import Certificates.Certificate10070
 public import CFSG.Sporadic.Co1.Module.TwoBFrameInputs
 
 @[expose] public noncomputable section

@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQ2ExcPlacementDefs
 public import CFSG.LocalAnalysis.StandardType.GGQ2NoTwoNodeExc
 public import CFSG.LocalAnalysis.StandardType.GGQ2ClassicalCatalogueU
 public import CFSG.LocalAnalysis.StandardType.GGQ2FrameAmbientDefs
-public import Certificates.Certificate1952
 import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 import CFSG.LocalAnalysis.StandardType.GGSixStepOneDefs
 import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBIrred

@@ -11,8 +11,6 @@ import CFSG.RankThree.Coprime.ThompsonElementaryComplement
 import CFSG.RankThree.PartOne.S11c.CentralWitness
 import CFSG.RankThree.PartOne.CTP.SeitzToral
 import CFSG.LocalAnalysis.RankThreeEvenClassification.InvariantSylow
-public import Certificates.Certificate8007
-public import Certificates.Certificate8008
 
 public section
 

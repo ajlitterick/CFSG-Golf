@@ -13,8 +13,6 @@ public import CFSG.Sporadic.Th.Max3.Involutions
 public import CFSG.Timmesfeld.Moufang.Three
 public import CFSG.Timmesfeld.RankOne
 public import CFSG.Timmesfeld.Special.TwoCore
-public import Certificates.Certificate10089Base
-public import Certificates.Certificate10091Base
 
 public noncomputable section
 

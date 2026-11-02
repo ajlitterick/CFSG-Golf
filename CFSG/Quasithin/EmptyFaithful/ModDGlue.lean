@@ -72,7 +72,6 @@ public import CFSG.Quasithin.H13.L1332Inputs
 public import CFSG.Quasithin.Recognition.ModelBridges
 public import CFSG.Quasithin.Vol2.Ch12Sec2Setting
 public import CFSG.Timmesfeld.Orders.ClassicalLinear
-public import Certificates.Certificate8026Base
 public import Certificates.Data.CFSGNative.MonsterB.Rep4371Model
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1

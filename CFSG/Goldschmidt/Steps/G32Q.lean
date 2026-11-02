@@ -7,8 +7,6 @@ import CFSG.Goldschmidt.Steps.G3NewPair
 import CFSG.Goldschmidt.Steps.GoldTypeBender
 import CFSG.SignalizerFunctorTheorem.McBride.Models.NearSolvable.Orders
 import CFSG.Walter.Bender1970.S2.Inner
-public import Certificates.Certificate43
-public import Certificates.Certificate113
 public import CFSG.Goldschmidt.Statements
 public import CFSG.Goldschmidt.StatementsG
 public import CFSG.Goldschmidt.StatementsG2
@@ -31,34 +29,6 @@ public import CFSG.LocalAnalysis.LargeEvenClassification.SmallCfourProperSubgrou
 public import CFSG.LocalAnalysis.RankTwoShapes.AlperinFusion
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.JRFacts
-public import Certificates.Certificate1
-public import Certificates.Certificate10
-public import Certificates.Certificate100
-public import Certificates.Certificate101
-public import Certificates.Certificate102
-public import Certificates.Certificate103
-public import Certificates.Certificate104
-public import Certificates.Certificate105
-public import Certificates.Certificate106
-public import Certificates.Certificate107
-public import Certificates.Certificate108
-public import Certificates.Certificate109
-public import Certificates.Certificate11
-public import Certificates.Certificate12
-public import Certificates.Certificate2
-public import Certificates.Certificate3
-public import Certificates.Certificate4
-public import Certificates.Certificate42
-public import Certificates.Certificate44
-public import Certificates.Certificate5
-public import Certificates.Certificate6
-public import Certificates.Certificate7
-public import Certificates.Certificate8
-public import Certificates.Certificate9
-public import Certificates.Certificate96
-public import Certificates.Certificate97
-public import Certificates.Certificate98
-public import Certificates.Certificate99
 import CFSG.LocalAnalysis.ComponentClassification.AschbacherTheorem3GoldschmidtFacts
 import CFSG.LocalAnalysis.ComponentClassification.AschbacherTheorem3WeakClosure
 import CFSG.StronglyEmbedded

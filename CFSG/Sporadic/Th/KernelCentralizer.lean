@@ -9,9 +9,6 @@ public import CFSG.Sporadic.Th.Max3.AllConj
 public import CFSG.Sporadic.Th.Max3.Quotient
 public import CFSG.Sporadic.ThSchreier.AutAssembly
 public import Certificates.Kernel.ThCent.Leaves
-public import Certificates.Certificate10088Base
-public import Certificates.Certificate10089Base
-public import Certificates.Certificate10091Base
 
 public section
 

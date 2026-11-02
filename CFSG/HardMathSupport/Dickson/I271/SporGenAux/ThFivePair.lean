@@ -33,19 +33,6 @@ public import CFSG.RankThree.Native.ONSevenRestrict
 public import CFSG.RankThree.PartOne.SPOR.OuterSimple
 public import CFSG.Sporadic.SuzOddCore.GraphData
 public import CFSG.Sporadic.SuzOddCore.SmallActionData
-public import Certificates.Certificate16041
-public import Certificates.Certificate2098
-public import Certificates.Certificate2103
-public import Certificates.Certificate2108
-public import Certificates.Certificate2109
-public import Certificates.Certificate2274
-public import Certificates.Certificate8137
-public import Certificates.Certificate8138
-public import Certificates.Certificate8139
-public import Certificates.Certificate8140
-public import Certificates.Certificate8141
-public import Certificates.Certificate8145
-public import Certificates.Certificate8146
 
 public section
 

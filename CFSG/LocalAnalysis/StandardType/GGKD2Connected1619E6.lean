@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKD2Connected1619Rational
-public import Certificates.Certificate13657
 public import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma514Cover
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T1428CensusFamExcTL
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24CentreKac

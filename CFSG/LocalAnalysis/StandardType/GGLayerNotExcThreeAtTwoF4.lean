@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Certificate13659
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Defs
 public import CFSG.LocalAnalysis.StandardType.GGSixAutKFinerTagsBasic
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.InnerCover
@@ -57,22 +56,6 @@ import CFSG.HardMathSupport.Timmesfeld.LangTorus.RigidField
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.RigidNorm
 import CFSG.HardMathSupport.Timmesfeld.LocalTwo.LangFrame
 import CFSG.RankThree.PartOne.KE.SLnShape
-import Certificates.Certificate10
-import Certificates.Certificate10050
-import Certificates.Certificate11
-import Certificates.Certificate12
-import Certificates.Certificate13660
-import Certificates.Certificate1952
-import Certificates.Certificate3
-import Certificates.Certificate4
-import Certificates.Certificate42
-import Certificates.Certificate44
-import Certificates.Certificate5
-import Certificates.Certificate6
-import Certificates.Certificate7
-import Certificates.Certificate8
-import Certificates.Certificate8117
-import Certificates.Certificate9
 
 public section
 

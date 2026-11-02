@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.EmptyFaithful.S151S9UDef
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312M23E2
-public import Certificates.Certificate4170
 public import CFSG.LieType.SteinbergBROddSylowCore
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication

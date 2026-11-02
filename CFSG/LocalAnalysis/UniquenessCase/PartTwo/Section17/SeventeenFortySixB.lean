@@ -61,27 +61,6 @@ public import CFSG.RankThree.PartOne.RF4.FinalSec66
 public import CFSG.Sporadic.Co1.Module.Co2Stab
 public import CFSG.Sporadic.SuzOddCore.GraphData
 public import CFSG.Sporadic.SuzOddCore.SmallActionData
-public import Certificates.Certificate16005
-public import Certificates.Certificate16041
-public import Certificates.Certificate2098
-public import Certificates.Certificate2103
-public import Certificates.Certificate2108
-public import Certificates.Certificate2109
-public import Certificates.Certificate2136
-public import Certificates.Certificate2139
-public import Certificates.Certificate2140
-public import Certificates.Certificate2145
-public import Certificates.Certificate2323
-public import Certificates.Certificate3044
-public import Certificates.Certificate3122
-public import Certificates.Certificate3123
-public import Certificates.Certificate3130
-public import Certificates.Certificate3133
-public import Certificates.Certificate3134
-public import Certificates.Certificate3136
-public import Certificates.Certificate3137
-public import Certificates.Certificate3176
-public import Certificates.Certificate3179
 import CFSG.CGT.PushingUpLit.CGT6.SixFour
 import CFSG.CGT.PushingUpLit.CGT6.SixSixteen
 import CFSG.CGT.PushingUpLit.Glue.RadicalSylow
@@ -166,7 +145,6 @@ import CFSG.RankThree.PartTwo.Sec4.Census.WiringDoubleCover
 import CFSG.RankThree.PartTwo.Sec8.Item87Proof84
 import CFSG.SignalizerFunctorTheorem.CatalogBridge.NormalFormStabilizer
 import CFSG.SignalizerFunctorTheorem.CatalogBridge.StabilizerLift
-import Certificates.Certificate9530
 
 public section
 

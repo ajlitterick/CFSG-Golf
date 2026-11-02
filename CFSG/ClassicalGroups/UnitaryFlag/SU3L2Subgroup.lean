@@ -20,7 +20,6 @@ import CFSG.LieType.CurtisTits.Conclusion
 import CFSG.StronglyEmbedded.ParityCriterion
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
-import Certificates.Certificate43
 
 public section
 

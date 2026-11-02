@@ -6,7 +6,6 @@ public import CFSG.OddTranspositions.PartThree.Eleven.Minus.Pair
 public import CFSG.OddTranspositions.PartThree.Eleven.Minus.Quandle
 public import CFSG.OddTranspositions.PartThree.Eleven.IsomorphismTransport
 public import CFSG.OddTranspositions.PartThree.EightFive.KBarSetup
-public import Certificates.Certificate2326
 import CFSG.Timmesfeld.Bridge.Asc72LocalImage
 public import CFSG.Certificates.CosetTableShort
 

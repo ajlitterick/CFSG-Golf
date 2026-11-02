@@ -9,8 +9,6 @@ public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83SmallRank65Plane
 public import CFSG.LocalAnalysis.StandardType.GGTableBTransport
 public import CFSG.ClassicalGroups.Unitary.Simple
 public import CFSG.ClassicalGroups.Orthogonal.Simple
-public import Certificates.Certificate1003
-public import Certificates.Certificate1009
 public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83SmallRank614Defs
 public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83SmallRank614PrimeDefs
 

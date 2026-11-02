@@ -10,22 +10,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTPNNarrow
 public import CFSG.LocalAnalysis.StandardType.GGForkA8NotRefl
 public import CFSG.LocalAnalysis.StandardType.GGTBXPlumb
 public import CFSG.LocalAnalysis.StandardType.GGNsq2Cited
-public import Certificates.Certificate1952
-public import Certificates.Certificate1953
-public import Certificates.Certificate1954
-public import Certificates.Certificate2261
-public import Certificates.Certificate2262
-public import Certificates.Certificate2263
-public import Certificates.Certificate2264
-public import Certificates.Certificate2267
-public import Certificates.Certificate2268
-public import Certificates.Certificate2269
-public import Certificates.Certificate2270
-public import Certificates.Certificate3951
-public import Certificates.Certificate8032
-public import Certificates.Certificate8033
-public import Certificates.Certificate8064
-public import Certificates.Certificate13657
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBWeylInfDefs
 
 public section

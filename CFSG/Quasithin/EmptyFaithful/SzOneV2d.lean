@@ -102,9 +102,6 @@ public import CFSG.Sporadic.Schreier.M22
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.JRFacts
 public import CFSG.Walter.PSL2Facts
-public import Certificates.Certificate1
-public import Certificates.Certificate2
-public import Certificates.Certificate8026Base
 
 public section
 

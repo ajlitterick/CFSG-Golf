@@ -5,8 +5,6 @@ public import CFSG.GroupTheory.ABGLocalTools.Basic
 public import CFSG.Milestones.ASVolI.I2
 public import CFSG.RankThree.PartTwo.Sec4.Statements
 public import CFSG.Blueprint.NativeSporadic
-public import Certificates.Certificate3139
-public import Certificates.Certificate8020
 import CFSG.Sporadic.J2
 import CFSG.LocalAnalysis.SectionRank.Sporadic.J2Local
 import CFSG.LocalAnalysis.RankThreeTheoremC.Generic49U3.CenterCard

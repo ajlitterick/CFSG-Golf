@@ -61,7 +61,6 @@ public import CFSG.Quasithin.Recognition.CertTrialityCheckInputs
 public import CFSG.RankThree.PartOne.KEXC.Basic
 public import CFSG.RankThree.PartOne.TCX.Ree.Perm
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434SmallTwoIVDefs
-public import Certificates.Certificate41501
 
 public section
 

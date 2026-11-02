@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec14.Item14Res5ProofGen
 public import CFSG.RankThree.PartTwo.Toolkit.M12Facts
-public import Certificates.Certificate9950
 import CFSG.RankThree.PartTwo.Sec14.Item1413Res2ProofM12Q
 import CFSG.RankThree.PartTwo.Sec14.Concl142NHJM12
 import CFSG.RankThree.PartTwo.Sec14.Concl142NHJInner
@@ -33,14 +32,6 @@ public import CFSG.RankThree.PartTwo.Sec16.Item169HJ
 public import CFSG.RankThree.PartTwo.Sec6.Statements
 public import CFSG.RankThree.S4Free.SuzukiEight
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.FinalTheorem
-public import Certificates.Certificate2201
-public import Certificates.Certificate2202
-public import Certificates.Certificate2326
-public import Certificates.Certificate3171
-public import Certificates.Certificate3171Base
-public import Certificates.Certificate43
-public import Certificates.Certificate8166
-public import Certificates.Certificate8169
 import CFSG.Milestones.CL_LIT_Gorenstein_Walter_L_balance
 import CFSG.RankThree.PartTwo.Sec11.Item118
 import CFSG.RankThree.PartTwo.Sec13.Item131Transport

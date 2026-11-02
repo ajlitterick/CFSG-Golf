@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.Background.HA7
 public import CFSG.Quasithin.Background.HSp4A
-public import Certificates.Certificate7022
 public import CFSG.GH74.SmallRanks.AltM11
 public import CFSG.Quasithin.Background.HPairBridge
 

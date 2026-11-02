@@ -26,7 +26,6 @@ public import CFSG.Sporadic.Presentation.Common
 public import CFSG.Sporadic.Presentation.Ly
 public meta import CFSG.Sporadic.Presentation.Ly
 public meta import Certificates.Certificate3085Base
-public import Certificates.Certificate3085Base
 
 public section
 

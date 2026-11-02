@@ -424,26 +424,6 @@ public import CFSG.Sporadic.Fi23.StarKernel
 public import CFSG.Sporadic.Fi24.Faithful
 public import CFSG.Sporadic.Fi24.SepSpec
 public import CFSG.Sporadic.ON.SimpleBase
-public import Certificates.Certificate1016Base
-public import Certificates.Certificate16005
-public import Certificates.Certificate2053
-public import Certificates.Certificate2056
-public import Certificates.Certificate2057
-public import Certificates.Certificate2058
-public import Certificates.Certificate2136
-public import Certificates.Certificate2139
-public import Certificates.Certificate2140
-public import Certificates.Certificate2145
-public import Certificates.Certificate3044
-public import Certificates.Certificate3122
-public import Certificates.Certificate3123
-public import Certificates.Certificate3130
-public import Certificates.Certificate3133
-public import Certificates.Certificate3134
-public import Certificates.Certificate3136
-public import Certificates.Certificate3137
-public import Certificates.Certificate3176
-public import Certificates.Certificate3179
 
 public section
 

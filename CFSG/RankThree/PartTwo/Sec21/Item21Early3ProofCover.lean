@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec21.Item21Early2ProofCenterOdd
 public import CFSG.RankThree.PartTwo.Sec4.Census.Item44TwoCoverModels
-public import Certificates.Certificate8095
 import CFSG.RankThree.PartTwo.Census.DoubleCoverLift
 import CFSG.RankThree.PartTwo.Census.TransitiveLift
 import CFSG.RankThree.PartTwo.Sec4.Census.DoubleCoverRanks

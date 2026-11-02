@@ -3,8 +3,6 @@ module
 public import CFSG.Assembly.Defs
 public import CFSG.Blueprint.Catalog
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveCommutant
-public import Certificates.Certificate3007
-public import Certificates.Certificate10005
 import CFSG.LocalAnalysis.StandardType.GGSixE6TwoSL3Core
 import CFSG.LocalAnalysis.StandardType.GGSixE6TwoF4Coord
 import Mathlib.LinearAlgebra.Matrix.ToLin

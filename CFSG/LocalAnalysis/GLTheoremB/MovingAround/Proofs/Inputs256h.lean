@@ -150,7 +150,6 @@ import CFSG.RankThree.PartOne.KE6.Phi6Frame
 import CFSG.RankThree.PartOne.S15K.FixedWitt
 import CFSG.RankThree.PartOne.S15K.LayerModel
 import CFSG.RankThree.PartOne.SEITZ2.OmegaSetup
-import Certificates.Certificate81002
 
 public section
 

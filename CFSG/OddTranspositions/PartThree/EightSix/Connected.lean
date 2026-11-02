@@ -8,11 +8,6 @@ import CFSG.OddTranspositions.PartThree.EightSix.TriangleThree
 public import CFSG.OddTranspositions.PartThree.EightFive.Holds
 import CFSG.OddTranspositions.TheoremTwo.Assembly
 import CFSG.Timmesfeld.Bridge.OddLocalCommonBasic
-public import Certificates.Certificate1383006
-public import Certificates.Certificate1383007
-public import Certificates.Certificate1383008
-public import Certificates.Certificate1383009
-public import Certificates.Certificate1430001
 public import CFSG.LinearAlgebra.LinearGroups.CoordinateData
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.AschbacherCanonicalRemaining
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.ExceptionalEightPlaneCentralizer

@@ -54,7 +54,6 @@ public import CFSG.RankThree.PartOne.S9.Sylow.GlobalRelative
 public import CFSG.RankThree.PartOne.S9.Sylow.ResidualLocal
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Basic
-public import Certificates.Certificate43
 public import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 
 open CFSG.Open

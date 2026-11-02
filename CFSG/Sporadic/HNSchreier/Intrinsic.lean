@@ -3,16 +3,6 @@ module
 public import CFSG.Sporadic.HNSchreier.Sylow3
 public import CFSG.Sporadic.HNSchreier.IntrinsicCheck
 public import CFSG.Milestones.AT_alternating_automorphism_permutation
-public import Certificates.Certificate2096
-public import Certificates.Certificate2097
-public import Certificates.Certificate2098
-public import Certificates.Certificate2100
-public import Certificates.Certificate2102
-public import Certificates.Certificate2104
-public import Certificates.Certificate2108
-public import Certificates.Certificate2109
-public import Certificates.Certificate16041
-public import Certificates.Certificate2107
 public import CFSG.Permutation.AlternatingAutomorphism
 
 public noncomputable section

@@ -4,9 +4,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicM11Check
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicCensusW
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_6Out
 public import CFSG.Sporadic.Mathieu.M11
-public import Certificates.Certificate110
-public import Certificates.Certificate3120
-public import Certificates.Certificate8041
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicGenCensus
 public import CFSG.Monster.Code.Weights
 

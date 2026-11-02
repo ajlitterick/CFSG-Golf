@@ -6,10 +6,6 @@ public import CFSG.Adapters.TauCetiExceptional.BigCellPoints
 public import CFSG.Blueprint.ChevalleyWeyl
 public import TauCeti.Algebra.Lie.F4.ShortRoot.Generation
 public import TauCeti.Algebra.Lie.F4.ShortRoot.PrimeField.PointsFunctor
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate70
-public import Certificates.Certificate71
 
 public noncomputable section
 

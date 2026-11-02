@@ -10,9 +10,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Borel
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Lemma83
 public import CFSG.Walter.Bender1970.S2.TwoSubgroup
 public import CFSG.Walter.PSL2Facts
-public import Certificates.Certificate1
-public import Certificates.Certificate2
-public import Certificates.Certificate43
 
 public section
 

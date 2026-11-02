@@ -8,9 +8,6 @@ import CFSG.LocalAnalysis.StandardType.GGHdRo7CoprimeSplit
 import CFSG.CGT.PushingUpLit.SYMB.ProdCard
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordDExclQTwoClDefs
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 
 public section
 

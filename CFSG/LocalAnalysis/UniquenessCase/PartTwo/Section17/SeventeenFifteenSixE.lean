@@ -76,14 +76,6 @@ public import CFSG.Timmesfeld.Bridge.RootSetsGate
 public import CFSG.Timmesfeld.Bridge.RootSetsSyl
 public import CFSG.Timmesfeld.Bridge.RootSetsThird
 public import CFSG.Timmesfeld.Exceptional.CaseTwo
-public import Certificates.Certificate14953
-public import Certificates.Certificate41501
-public import Certificates.Certificate7233Base
-public import Certificates.Certificate8137
-public import Certificates.Certificate8138
-public import Certificates.Certificate8140
-public import Certificates.Certificate8141
-public import Certificates.Certificate8166
 
 public section
 

@@ -10,8 +10,6 @@ public import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
 public import CFSG.Adapters.LinearFieldTransport
 public import CFSG.LieType.BorelTits.Suzuki
 public import CFSG.LieType.Steinberg.CentralExt.PerfectCover
-public import Certificates.Certificate43
-public import Certificates.Certificate113
 
 public section
 

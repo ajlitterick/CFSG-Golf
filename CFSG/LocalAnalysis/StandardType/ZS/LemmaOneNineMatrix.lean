@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.AschbacherFactsL2Orders
 public import Mathlib.LinearAlgebra.Matrix.Notation
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherFactsL2Maximal
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
-public import Certificates.Certificate43
 
 public section
 

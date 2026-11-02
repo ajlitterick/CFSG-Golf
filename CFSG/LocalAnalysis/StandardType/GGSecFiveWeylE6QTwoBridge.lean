@@ -16,7 +16,6 @@ public import CFSG.LargeExtraspecial.BridgeOrder
 public import CFSG.LargeExtraspecial.S14C12RSHolds
 public import CFSG.LargeExtraspecial.AS62EnumInputs
 public import CFSG.LargeExtraspecial.S14Main
-public import Certificates.Certificate19780
 
 public section
 

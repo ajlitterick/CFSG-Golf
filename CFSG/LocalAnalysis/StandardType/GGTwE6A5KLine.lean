@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6A5KTransport
 public import CFSG.LocalAnalysis.StandardType.GGTwE6K1LeviDefs
-public import Certificates.Certificate13659
-public import Certificates.Certificate13660
 import CFSG.LocalAnalysis.StandardType.GGTwE6A5KType
 import CFSG.LocalAnalysis.StandardType.GGTwE6A5KModel
 import CFSG.LocalAnalysis.StandardType.GGTwE6A5KToral

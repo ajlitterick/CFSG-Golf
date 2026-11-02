@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGNSJoinOutWeakPosDefs
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowDefs
 public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
-public import Certificates.Certificate117
 public import CFSG.LocalAnalysis.StandardType.GGOrthFrameCore
 public import CFSG.LocalAnalysis.StandardType.GGOrthFramePairs
 import CFSG.LocalAnalysis.StandardType.GGResOrthogonalExactTwo

@@ -3,8 +3,6 @@ module
 public import CFSG.RankThree.GF2n.Parrott.FusionE16Transport
 public import CFSG.RankThree.GF2n.Parrott.FusionE16Model
 public import CFSG.Sporadic.Co2Smith.GlC0JankoA
-public import Certificates.Certificate946005
-public import Certificates.Certificate946017
 public import CFSG.ClassicalInvolution.Q3.Basic
 public import CFSG.LieType.Universal.Spin.Roots
 public import CFSG.LieType.Universal.Unitary

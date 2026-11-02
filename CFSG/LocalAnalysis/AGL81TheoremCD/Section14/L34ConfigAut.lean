@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.HypC
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.Cases
 public import CFSG.RankThree.PartTwo.KFacts.L34Automizer
-public import Certificates.Certificate5122
-public import Certificates.Certificate8034
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.FourteenFifteenOne
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.L34Lift
 import CFSG.RankThree.PartOne.S11d.FinalLemmas

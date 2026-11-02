@@ -8,7 +8,6 @@ import CFSG.LocalAnalysis.StandardType.Marking
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitDispEA
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitDispUA
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitDispUC
-public import Certificates.Certificate1952
 
 public section
 

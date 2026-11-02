@@ -175,7 +175,6 @@ public import CFSG.Sporadic.Presentation.McLExactInputs
 public import CFSG.Walter.J1Props
 public import CFSG.Walter.J1Recog
 public import CFSG.Walter.PSL2Facts
-public import Certificates.Certificate9530
 
 public section
 

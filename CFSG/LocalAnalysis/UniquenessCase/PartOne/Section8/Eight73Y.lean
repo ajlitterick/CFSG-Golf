@@ -12,7 +12,6 @@ public import CFSG.LocalAnalysis.RankThreeUC.SmallClassTwoGroups.IsExtraspecialE
 import all CFSG.LocalAnalysis.RankThreeUC.SmallClassTwoGroups.IsExtraspecialExpP
 import CFSG.LocalAnalysis.GLTheoremB.SchreierTools
 public import CFSG.GroupTheory.ABGLocalTools.Basic
-public import Certificates.Certificate1005
 import CFSG.GroupTheory.CardMapInfKer
 import CFSG.LocalAnalysis.UniquenessCase.UC6S846b
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Lemmas
@@ -30,7 +29,6 @@ public import CFSG.LocalAnalysis.RankThreeUC.SourceSetting.AschbacherCommon
 public import CFSG.LocalAnalysis.RankThreeUC.WeakModules
 public import CFSG.LocalAnalysis.UniquenessCase.UCKInputs
 public import CFSG.RankThree.OddKernel.CentralCoverComponentModels
-public import Certificates.Certificate8052
 import CFSG.CharacterTheory.Semidihedral.PrimeOrderCyclicConfinementLift
 import CFSG.GroupTheory.SteinbergCBFTCores
 import CFSG.LocalAnalysis.AGLEmbedding.ResidualTools

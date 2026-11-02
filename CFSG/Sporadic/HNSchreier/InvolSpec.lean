@@ -3,9 +3,6 @@ module
 public import CFSG.Sporadic.HNSchreier.PointStab
 public import CFSG.Sporadic.HNSchreier.InvolCheck
 public import CFSG.Sporadic.HNSchreier.Seeds
-public import Certificates.Certificate2099
-public import Certificates.Certificate2100
-public import Certificates.Certificate2102
 
 public noncomputable section
 

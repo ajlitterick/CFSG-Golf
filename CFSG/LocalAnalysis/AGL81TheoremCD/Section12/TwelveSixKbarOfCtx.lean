@@ -75,8 +75,6 @@ public import CFSG.LocalAnalysis.SeitzReduction.SporadicRefineL34HS
 public import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotCatOmegaMinusSporadic
 public import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotCatAssembly
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.KInputsSolvableOf
-public import Certificates.Certificate431009
-public import Certificates.Certificate431010
 
 public section
 

@@ -16,9 +16,6 @@ public import CFSG.RankThree.PerfectCover.HopfCentralCoversSetup
 public import CFSG.Blueprint.LieModelAPI
 public import CFSG.Adapters.LieModelSimple
 public import CFSG.GroupTheory.LocalCores.Components
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 public import CFSG.Blueprint.OddStandardExact
 public import CFSG.CGT.PushingUpLit.BHS5.FiveFive
 public import CFSG.ClassicalGroups.Symplectic.StatedSpTransport
@@ -101,11 +98,6 @@ public import CFSG.Timmesfeld.Bridge.RootSetsGate
 public import CFSG.Timmesfeld.Bridge.RootSetsSyl
 public import CFSG.Timmesfeld.Bridge.RootSetsThird
 public import CFSG.Timmesfeld.Exceptional.CaseTwo
-public import Certificates.Certificate41501
-public import Certificates.Certificate8137
-public import Certificates.Certificate8138
-public import Certificates.Certificate8140
-public import Certificates.Certificate8141
 
 public section
 

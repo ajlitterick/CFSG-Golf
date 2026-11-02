@@ -138,22 +138,6 @@ public import CFSG.Sporadic.Presentation.Co2Fusion
 public import CFSG.Sporadic.Presentation.Co2FusionInputs
 public import CFSG.Sporadic.Presentation.McLExactData
 public import CFSG.Sporadic.Presentation.McLExactInputs
-public import Certificates.Certificate10050
-public import Certificates.Certificate16005
-public import Certificates.Certificate17002
-public import Certificates.Certificate17951
-public import Certificates.Certificate3044
-public import Certificates.Certificate3122
-public import Certificates.Certificate3123
-public import Certificates.Certificate3130
-public import Certificates.Certificate3133
-public import Certificates.Certificate3134
-public import Certificates.Certificate3136
-public import Certificates.Certificate3137
-public import Certificates.Certificate3179
-public import Certificates.Certificate8117
-public import Certificates.Certificate8160
-public import Certificates.Certificate9124
 
 public section
 

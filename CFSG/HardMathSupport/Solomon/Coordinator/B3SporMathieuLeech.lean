@@ -87,37 +87,6 @@ public import CFSG.Sporadic.SuzOddCore.GraphData
 public import CFSG.Sporadic.SuzOddCore.InvCentralizerBounds
 public import CFSG.Sporadic.SuzOddCore.SmallActionData
 public import CFSG.Sporadic.ThSchreier.ThSchreierCase
-public import Certificates.Certificate13636Base
-public import Certificates.Certificate16005
-public import Certificates.Certificate3044
-public import Certificates.Certificate3122
-public import Certificates.Certificate3123
-public import Certificates.Certificate3130
-public import Certificates.Certificate3133
-public import Certificates.Certificate3134
-public import Certificates.Certificate3136
-public import Certificates.Certificate3137
-public import Certificates.Certificate3176
-public import Certificates.Certificate3179
-public import Certificates.Certificate7000
-public import Certificates.Certificate7001
-public import Certificates.Certificate7002
-public import Certificates.Certificate7003
-public import Certificates.Certificate7004
-public import Certificates.Certificate7005
-public import Certificates.Certificate7006
-public import Certificates.Certificate7007
-public import Certificates.Certificate7008
-public import Certificates.Certificate7009
-public import Certificates.Certificate7010
-public import Certificates.Certificate7011
-public import Certificates.Certificate8137
-public import Certificates.Certificate8138
-public import Certificates.Certificate8139
-public import Certificates.Certificate8140
-public import Certificates.Certificate8141
-public import Certificates.Certificate8145
-public import Certificates.Certificate8146
 
 public section
 

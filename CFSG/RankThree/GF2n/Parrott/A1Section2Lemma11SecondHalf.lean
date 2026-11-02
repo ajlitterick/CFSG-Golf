@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.GF2n.Parrott.A1Section2Lemma11FirstHalf
-public import Certificates.Certificate946017
 import all CFSG.RankThree.GF2n.Parrott.A1Section2Lemma11FirstHalf
 import CFSG.RankThree.GF2n.Parrott.QA45SylowFacts
 import CFSG.Monster.Existence.StdOdd.Coprime

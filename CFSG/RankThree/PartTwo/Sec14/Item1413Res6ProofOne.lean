@@ -19,8 +19,6 @@ import CFSG.LocalAnalysis.RankThreeEvenClassification.ThetaRankThree
 import CFSG.Sporadic.Mathieu.M12
 public import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22Hexads
 public import CFSG.RankThree.Asc83Table.PermTables
-public import Certificates.Certificate18952
-public import Certificates.Certificate8165
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHermitianIsometry
 import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
 import CFSG.RankThree.PartTwo.Sec4.Census.Interface

@@ -3,10 +3,6 @@ module
 public import CFSG.Adapters.TauCetiExceptional.MinusculePeel
 public import CFSG.LieType.Steinberg.Minuscule.BruhatExtras
 public import CFSG.LieType.Steinberg.Bruhat
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate115
-public import Certificates.Certificate116
 public import CFSG.Adapters.TauCetiExceptional.BigCellCore
 
 public noncomputable section

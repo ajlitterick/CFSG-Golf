@@ -7,7 +7,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UData
 public import CFSG.HardMathSupport.Solomon.LocalBalance.I1433.F4TwoLang
 public import CFSG.LocalAnalysis.StandardType.GGLangRatCompC
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.HSubTQuot
-public import Certificates.Certificate8064
 public import CFSG.HardMathSupport.Solomon.LocalBalance.I1433.F4TwoModel
 public noncomputable section
 namespace CFSG.StandardType

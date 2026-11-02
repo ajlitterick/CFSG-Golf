@@ -54,7 +54,6 @@ public import CFSG.RankThree.PartOne.KC.OrthogonalSubfieldFixed
 public import CFSG.RankThree.PartOne.KC.PlaneReductionGeneral
 public import CFSG.RankThree.PartOne.KC.UnitaryEndpointStatements
 public import CFSG.RankThree.PartOne.S11d.PSLDescent
-public import Certificates.Certificate8160
 
 public section
 

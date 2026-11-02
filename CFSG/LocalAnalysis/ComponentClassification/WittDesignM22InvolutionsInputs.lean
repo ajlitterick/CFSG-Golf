@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22Hexads
 public meta import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22Count
-public import Certificates.Certificate2195
 
 public section
 

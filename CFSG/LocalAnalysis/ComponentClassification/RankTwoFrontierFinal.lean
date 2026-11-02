@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoFrontierLeaves
-public import Certificates.Certificate15104
-public import Certificates.Certificate15107
-public import Certificates.Certificate15121
 import CFSG.LocalAnalysis.ComponentClassification.GMS78Sec5RuH1Final
 import CFSG.Sporadic.SuzRecog.MixedCell
 import CFSG.Sporadic.SuzRecog.SuzLeaf

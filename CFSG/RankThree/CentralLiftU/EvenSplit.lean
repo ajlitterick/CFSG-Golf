@@ -4,9 +4,6 @@ public import CFSG.RankThree.CentralLiftU.UnitaryThreeEven
 public import CFSG.RankThree.CentralLiftU.EvenTorus
 public import CFSG.LocalAnalysis.SectionRank.EvenCover.Unitary
 public import CFSG.ClassicalGroups.UnitaryFlag.ModelTransport
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 
 public section
 

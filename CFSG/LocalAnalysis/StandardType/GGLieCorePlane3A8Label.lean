@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieCorePlane3Defs
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4Inputs2
-public import Certificates.Certificate2264
-public import Certificates.Certificate2267
-public import Certificates.Certificate8033
 import CFSG.LocalAnalysis.StandardType.GGFamLabelKind
 import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpRestTypeDet
 import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofLieOrder

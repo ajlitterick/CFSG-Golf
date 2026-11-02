@@ -157,9 +157,6 @@ public import CFSG.RankThree.PartTwo.Sec4.Item424Res2ProofTools
 public import CFSG.RankThree.S4Free.SuzukiEight
 public import CFSG.Timmesfeld.Orders.ClassicalLinearThree
 public import CFSG.Yardstones.M67c2c3e09a6b.Definitions
-public import Certificates.Certificate12623
-public import Certificates.Certificate14953
-public import Certificates.Certificate8166
 
 public section
 

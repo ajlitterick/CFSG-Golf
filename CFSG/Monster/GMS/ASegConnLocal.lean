@@ -3,17 +3,7 @@ module
 public import CFSG.Monster.GMS.S4FamilyGroup
 public import CFSG.Monster.GMS.S365
 import CFSG.Monster.GMS.S31Three
-public import Certificates.Certificate3024
-public import Certificates.Certificate10032
-public import Certificates.Certificate10033
-public import Certificates.Certificate10034
-public import Certificates.Certificate10035
-public import Certificates.Certificate10043
-public import Certificates.Certificate10069
-public import Certificates.Certificate10075
-public import Certificates.Certificate10076
 public import CFSG.Monster.GMS.S365Coset
-public import Certificates.Certificate10042Base
 
 public section
 

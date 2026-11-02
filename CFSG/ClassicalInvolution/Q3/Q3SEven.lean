@@ -5,8 +5,6 @@ public import CFSG.ClassicalInvolution.Q3.Q3RSectionalFour
 public import CFSG.ClassicalInvolution.SmallCases.EvenLie
 public import CFSG.ClassicalInvolution.SmallCases.NobqL34
 public import CFSG.LieType.Multipliers.Sz8Matrix
-public import Certificates.Certificate113
-public import Certificates.Certificate2022
 public import CFSG.Adapters.QiuzhenLegacy.BenderSuzuki.BenderLinearBorel
 public import CFSG.CharacterTheory.CyclicBlocks.Family
 public import CFSG.CharacterTheory.PSL2Table.BlocksProduct

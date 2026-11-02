@@ -9,7 +9,6 @@ public import CFSG.RankThree.PartOne.KC.SymplecticInnerPlaneAlt6
 public import CFSG.Quasithin.Background.Harris.IrreducibleModulesAndBounds.CaseM22Dispatch
 public import CFSG.LocalAnalysis.SectionRank.OddCover.PSL2
 public import CFSG.LocalAnalysis.ComponentInitial.SmallLinearIsomorphisms
-public import Certificates.Certificate43
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.Certificates.CosetTableShort

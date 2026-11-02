@@ -4,35 +4,6 @@ public import CFSG.HardMathSupport.Dickson.I271.SporGenAux.Co1Seven
 public import CFSG.HardMathSupport.Dickson.I271.SporGenAux.ThreeKill
 public import CFSG.Sporadic.Schreier.Co1OddInner
 public import CFSG.Sporadic.Co2Schreier.FullAut
-public import Certificates.Certificate2049
-public import Certificates.Certificate2051
-public import Certificates.Certificate2053
-public import Certificates.Certificate2055
-public import Certificates.Certificate2056
-public import Certificates.Certificate2057
-public import Certificates.Certificate2058
-public import Certificates.Certificate2059
-public import Certificates.Certificate2060
-public import Certificates.Certificate2130
-public import Certificates.Certificate2133
-public import Certificates.Certificate2135
-public import Certificates.Certificate2136
-public import Certificates.Certificate2139
-public import Certificates.Certificate2140
-public import Certificates.Certificate2145
-public import Certificates.Certificate2146
-public import Certificates.Certificate2147
-public import Certificates.Certificate2148
-public import Certificates.Certificate2150
-public import Certificates.Certificate3024
-public import Certificates.Certificate3086
-public import Certificates.Certificate3115
-public import Certificates.Certificate3116
-public import Certificates.Certificate3117
-public import Certificates.Certificate3120
-public import Certificates.Certificate16013
-public import Certificates.Certificate16017
-public import Certificates.Certificate2054
 
 public section
 

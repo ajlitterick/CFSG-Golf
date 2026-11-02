@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 public import CFSG.Open.StatedDefs
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 import CFSG.LocalAnalysis.SectionRank.EvenCover.Orthogonal
 import CFSG.LieType.Steinberg.CentralExt.SpinPlusCentrallyClosed
 import CFSG.LieType.Steinberg.CentralExt.SpinMinusCentrallyClosed

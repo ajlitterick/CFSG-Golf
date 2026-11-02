@@ -11,10 +11,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaTwE6Three
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSExcl
 public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrOfEnnola
-public import Certificates.Certificate43
-public import Certificates.Certificate1952
-public import Certificates.Certificate3951
-public import Certificates.Certificate13657
 import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6Holds
 import CFSG.LocalAnalysis.StandardType.GGNbrReflGenTwE6Three

@@ -9,8 +9,6 @@ import CFSG.OddTranspositions.WidthSylow
 public import CFSG.OddTranspositions.PartFour.LineStabilizer
 import CFSG.OddTranspositions.O4PairTenWidth
 import CFSG.OddTranspositions.Width
-import Certificates.Certificate1
-import Certificates.Certificate2
 
 public section
 

@@ -3,18 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGResidualRk1Frame
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmTauOm
 public import CFSG.LocalAnalysis.StandardType.GGOrthFrameCore
-public import Certificates.Certificate13604
-public import Certificates.Certificate13605
-public import Certificates.Certificate13691
-public import Certificates.Certificate13720
-public import Certificates.Certificate13721
-public import Certificates.Certificate13722
-public import Certificates.Certificate13723
-public import Certificates.Certificate13724
-public import Certificates.Certificate709545
-public import Certificates.Certificate709548
-public import Certificates.Certificate709549
-public import Certificates.Certificate709590
 import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySpCoord
 import CFSG.LocalAnalysis.StandardType.GGOmegaPlusRootGenDefs

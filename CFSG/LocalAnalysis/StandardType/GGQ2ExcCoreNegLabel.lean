@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4Inputs2
-public import Certificates.Certificate13659
 import CFSG.LocalAnalysis.StandardType.GGFamLabelKind
 import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreNormGe
 import CFSG.LocalAnalysis.StandardType.GGLangRatNegOne

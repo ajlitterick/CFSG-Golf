@@ -10,9 +10,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.UC6K36ODCCent
 public import CFSG.LocalAnalysis.UniquenessCase.UC6K316Out
 public import CFSG.LieType.SeitzGeneration.SeitzStatus
 public import CFSG.LocalAnalysis.UniquenessCase.UC6K36SporPairs
-public import Certificates.Certificate9726
-public import Certificates.Certificate17430
-public import Certificates.Certificate431004
 public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87L4SvEngLift
 public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87SurvU4Core
 public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87U4SvDefs
@@ -54,7 +51,6 @@ public import CFSG.Quasithin.Vol2.GoldschmidtF431U42LocMain
 public import CFSG.Quasithin.Vol2.GoldschmidtF431U42Trans
 public import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec2.Defs
 public import CFSG.Timmesfeld.CorollaryBOutcome
-public import Certificates.Certificate13501
 
 public section
 

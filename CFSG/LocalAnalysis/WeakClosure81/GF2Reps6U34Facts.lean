@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps6FourFacts
 public import CFSG.Blueprint.Catalog
-public import Certificates.Certificate745101
 import CFSG.LocalAnalysis.WeakClosure81.GF2Reps6U34Wit
 import CFSG.GH74.KGroups.CoverEven
 import CFSG.GH74.Uniqueness.Bender.UnitaryFixed

@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangKGInputs
 public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagProj
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldUnitary
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 import CFSG.LocalAnalysis.StandardType.KGLangTorAGeneric
 import CFSG.LocalAnalysis.StandardType.GGL45TGSU
 import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeThree

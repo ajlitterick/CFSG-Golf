@@ -60,14 +60,6 @@ import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeOrbits
 import CFSG.RankThree.PartOne.S10.ThetaContract
 import CFSG.RankThree.PartOne.S12.InputsBase
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970_18
-import Certificates.Certificate18000
-import Certificates.Certificate4058
-import Certificates.Certificate4058Base
-import Certificates.Certificate4071
-import Certificates.Certificate4082
-import Certificates.Certificate4083
-import Certificates.Certificate4083Base
-import Certificates.Certificate8032
 import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis

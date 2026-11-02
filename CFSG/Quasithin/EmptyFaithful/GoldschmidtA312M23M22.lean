@@ -10,7 +10,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatLat
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312ExtShapesBase
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312RuCases
 public import CFSG.Sporadic.Mathieu.M22
-public import Certificates.Certificate4170
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.Certificates.Kernel.LocalCompTits.Span

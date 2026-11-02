@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeZCase
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeldBasic
 public import CFSG.Sporadic.He.Simple
-public import Certificates.Certificate2022
-public import Certificates.Certificate3168
 public import Certificates.Kernel.ThCent.Leaves
 
 public section

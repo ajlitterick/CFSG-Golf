@@ -66,7 +66,6 @@ public import CFSG.Quasithin.H13.A5S1326
 public import CFSG.Quasithin.H13.A5S1514
 public import CFSG.Quasithin.H13.A5Top
 public import CFSG.Quasithin.H13.GoldschmidtCTKFamCore
-public import Certificates.Certificate8026Base
 public import Certificates.Data.CFSGNative.MonsterB.Rep4371Model
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1

@@ -2,9 +2,6 @@ module
 
 public import CFSG.Quasithin.H13.VolII16Forms
 public import CFSG.Quasithin.Background.JonesParshallG2Field
-public import Certificates.Certificate17028
-public import Certificates.Certificate8952
-public import Certificates.Certificate8953
 public import CFSG.Quasithin.Background.JonesParshallSLn
 
 public section

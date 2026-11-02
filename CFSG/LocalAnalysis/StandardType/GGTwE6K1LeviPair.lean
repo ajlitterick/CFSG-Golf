@@ -129,31 +129,6 @@ import CFSG.Sporadic.Presentation.McLExactInputs
 import CFSG.Sporadic.Schreier.J1QT
 import CFSG.Sporadic.SuzOddCore.GraphData
 import CFSG.Sporadic.SuzOddCore.SmallActionData
-import Certificates.Certificate13657
-import Certificates.Certificate16005
-import Certificates.Certificate16041
-import Certificates.Certificate2098
-import Certificates.Certificate2103
-import Certificates.Certificate2108
-import Certificates.Certificate2109
-import Certificates.Certificate2136
-import Certificates.Certificate2139
-import Certificates.Certificate2140
-import Certificates.Certificate2145
-import Certificates.Certificate2274
-import Certificates.Certificate2323
-import Certificates.Certificate3044
-import Certificates.Certificate3122
-import Certificates.Certificate3123
-import Certificates.Certificate3130
-import Certificates.Certificate3133
-import Certificates.Certificate3134
-import Certificates.Certificate3136
-import Certificates.Certificate3137
-import Certificates.Certificate3176
-import Certificates.Certificate3179
-import Certificates.Certificate8160
-import Certificates.Certificate9124
 
 public section
 

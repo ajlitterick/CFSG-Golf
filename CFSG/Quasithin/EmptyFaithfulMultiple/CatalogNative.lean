@@ -8,7 +8,6 @@ import CFSG.LocalAnalysis.SectionRank.NativeKGroup
 import CFSG.Quasithin.Recognition.ModelBridges
 import CFSG.Quasithin.Recognition.ModelBridgesJ3
 import CFSG.Timmesfeld.Final.PSU33
-public import Certificates.Certificate8085
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups

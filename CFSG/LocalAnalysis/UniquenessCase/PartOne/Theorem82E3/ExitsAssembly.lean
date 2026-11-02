@@ -61,9 +61,6 @@ public import CFSG.HardMathSupport.Solomon.Coordinator.SignalizerFunctorInstance
 public import CFSG.LieType.OutStructureSevenOneSevenHolds
 public import CFSG.RankThree.PartOne.TCB.Final
 public import CFSG.RankThree.PartTwo.KFacts.KS44Sz
-public import Certificates.Certificate9726
-public import Certificates.Certificate17430
-public import Certificates.Certificate431004
 public import CFSG.CGT.PushingUpLit.SolK.Inputs
 public import CFSG.CGT.PushingUpLit.SolKNA.QuatLieLift
 public import CFSG.CGT.PushingUpLit.SolKNA.QuatLieRanges
@@ -234,11 +231,6 @@ public import CFSG.RankThree.PartTwo.Sec4.RonanK432WitArr
 public import CFSG.RankThree.PartTwo.Sec4.RonanKChevTwoDFourThreeA
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item4443SLUsed
 public import CFSG.RankThree.PartTwo.Sec8.Item8KFacts2ProofReeConj
-public import Certificates.Certificate19800
-public import Certificates.Certificate41505
-public import Certificates.Certificate41506
-public import Certificates.Certificate9551
-public import Certificates.Certificate9552
 
 public section
 

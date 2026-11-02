@@ -3,10 +3,6 @@ module
 public import CFSG.LieType.Steinberg.Minuscule.Group
 public import CFSG.LieType.Steinberg.Minuscule.Form
 public import CFSG.LieType.Steinberg.Extras
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate115
-public import Certificates.Certificate116
 
 public noncomputable section
 

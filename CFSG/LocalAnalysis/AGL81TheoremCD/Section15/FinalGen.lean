@@ -7,10 +7,6 @@ public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsSmall
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsLie
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15R1521Defs
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15SecLiftX1Six
-public import Certificates.Certificate5133
-public import Certificates.Certificate8080
-public import Certificates.Certificate8081
-public import Certificates.Certificate214003
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15R1521LB1
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15R1521LB2
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15R1521LB3

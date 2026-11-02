@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267ZUniBlock
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.ThreeCoverBase
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.ThreeCoverClassical

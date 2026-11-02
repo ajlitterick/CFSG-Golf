@@ -35,11 +35,6 @@ public import CFSG.RankThree.PartOne.KE.A1TwistedE6
 public import CFSG.RankThree.PartOne.KE.SigmaPerX
 public import CFSG.RankThree.PartOne.KE.SigmaUntwisted
 public import CFSG.Sporadic.HeldB.OuterFixed
-public import Certificates.Certificate14953
-public import Certificates.Certificate5133
-public import Certificates.Certificate7233Base
-public import Certificates.Certificate8026Base
-public import Certificates.Certificate8064
 
 public noncomputable section
 

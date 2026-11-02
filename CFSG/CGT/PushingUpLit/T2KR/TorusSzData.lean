@@ -4,7 +4,6 @@ public import CFSG.CGT.PushingUpLit.T2KR.TorusSzGrp
 public import CFSG.CGT.Timmesfeld75.BenderInputsBasic
 public import CFSG.LocalAnalysis.ComponentClassification.Asc76BenderFactsBasic
 public import CFSG.SignalizerFunctorTheorem.McBride.Models.NearSolvable.Orders
-public import Certificates.Certificate113
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.LieType.BorelTits.CompleteFlag
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherToolkitBenderSuzuki

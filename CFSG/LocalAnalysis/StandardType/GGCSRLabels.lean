@@ -2,12 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBRank
 public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
-public import Certificates.Certificate2264
-public import Certificates.Certificate2267
-public import Certificates.Certificate3951
-public import Certificates.Certificate8032
-public import Certificates.Certificate8033
-public import Certificates.Certificate8064
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyReflDom
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRanks
 import CFSG.LocalAnalysis.StandardType.GGTableBExcSmall

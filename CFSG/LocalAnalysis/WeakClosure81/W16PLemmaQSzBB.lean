@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.WeakClosure81.W16PLemmaQSzBA
 public import CFSG.RankThree.S4Free.StellmacherSzModule
-public import Certificates.Certificate113
 
 public section
 

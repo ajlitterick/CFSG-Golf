@@ -7,11 +7,6 @@ public import CFSG.LieType.Steinberg.Minuscule.ChevExtras
 public import CFSG.LieType.CurtisTits.Perfect
 public import CFSG.LieType.TitsSimplicity
 public import CFSG.Adapters.SpecialLinearPerfect
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate115
-public import Certificates.Certificate116
-public import Certificates.Certificate123
 
 public noncomputable section
 

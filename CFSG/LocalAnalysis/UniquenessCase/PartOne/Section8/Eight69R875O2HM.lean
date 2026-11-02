@@ -32,7 +32,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.UC6S846d
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront07
 public import CFSG.LocalAnalysis.UniquenessCase.UCR638
 public import CFSG.RankThree.OddKernel.CentralCoverComponentModels
-public import Certificates.Certificate8052
 public import Certificates.Kernel.Sporadic.Fi22.C2068
 public import Certificates.Kernel.Sporadic.Fi22.C3151
 import CFSG.CGT.Timmesfeld75.L2Pair

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2TableBI1Frame
 public import CFSG.LocalAnalysis.StandardType.GGTableBF4Basic
-public import Certificates.Certificate1952
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaExcPlusAux2
 import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylExcPlusLift
 import CFSG.LocalAnalysis.StandardType.GGTBRowExcFrame

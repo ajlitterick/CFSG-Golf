@@ -23,7 +23,6 @@ public import CFSG.RankThree.PartOne.N143.SectionRankSplit
 public import CFSG.RankThree.PartTwo.Sec19.Item194Used
 public import CFSG.RankThree.PartTwo.Sec19.Step1914E
 public import CFSG.RankThree.PartTwo.Sec19.Steps195
-public import Certificates.Certificate19800
 
 public section
 

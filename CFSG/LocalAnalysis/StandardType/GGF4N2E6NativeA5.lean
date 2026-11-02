@@ -114,21 +114,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePS
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2OrderPSubgroupCount
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphReconstruction
 public import CFSG.Walter.JRFacts
-public import Certificates.Certificate10
-public import Certificates.Certificate1016Base
-public import Certificates.Certificate1021
-public import Certificates.Certificate11
-public import Certificates.Certificate12
-public import Certificates.Certificate3
-public import Certificates.Certificate3085Base
-public import Certificates.Certificate4
-public import Certificates.Certificate42
-public import Certificates.Certificate44
-public import Certificates.Certificate5
-public import Certificates.Certificate6
-public import Certificates.Certificate7
-public import Certificates.Certificate8
-public import Certificates.Certificate9
 import CFSG.RankThree.Chevalley.SteinbergBID4CentralKernel
 import CFSG.RankThree.PartOne.KD4T.Certs
 import CFSG.RankThree.PartOne.KE.A1Action

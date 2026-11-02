@@ -3,17 +3,6 @@ module
 public import CFSG.Fischer.Uniq.Fi23Facts
 public import CFSG.Fischer.Uniq.F23Uniq
 public import CFSG.Fischer.Uniq.LHTransport
-public import Certificates.Certificate1001
-public import Certificates.Certificate1002
-public import Certificates.Certificate1003
-public import Certificates.Certificate1004
-public import Certificates.Certificate1005
-public import Certificates.Certificate1006
-public import Certificates.Certificate1009
-public import Certificates.Certificate1010
-public import Certificates.Certificate1011
-public import Certificates.Certificate1012
-public import Certificates.Certificate1000
 public import CFSG.Fischer.Polar.Lines
 public import CFSG.Sporadic.Fi23.Graph
 

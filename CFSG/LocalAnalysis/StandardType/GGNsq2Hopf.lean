@@ -5,15 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSLieCover
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHypCentral
 public import CFSG.LocalAnalysis.ComponentClassification.Foote5CoreGriess
 public import CFSG.LieType.Steinberg.CentralExt.GriessNativeModels
-public import Certificates.Certificate1002
-public import Certificates.Certificate1003
-public import Certificates.Certificate1009
-public import Certificates.Certificate10010
-public import Certificates.Certificate10011
-public import Certificates.Certificate10015
-public import Certificates.Certificate10016
-public import Certificates.Certificate10017
-public import Certificates.Certificate10018
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.QuasiAssembly
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogSchreierCases
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSporadicCasesC
@@ -36,7 +27,6 @@ public import CFSG.YGroups.DCE.MaximalB
 public import CFSG.YGroups.Y443.Native.AlignB
 public import CFSG.YGroups.Y443.Native.AlignW
 public import CFSG.YGroups.Y443.Native.CosetData
-public import Certificates.Certificate8026Base
 
 public section
 

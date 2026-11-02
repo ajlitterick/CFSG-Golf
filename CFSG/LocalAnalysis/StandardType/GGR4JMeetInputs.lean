@@ -9,8 +9,6 @@ public import CFSG.LocalAnalysis.StandardType.GGR4JMeetNoL34
 public import CFSG.LocalAnalysis.StandardType.GGR4JMeetDecomp
 public import CFSG.LocalAnalysis.StandardType.GGR4Lemma47c
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyDichotomy
-public import Certificates.Certificate1002
-public import Certificates.Certificate1003
 
 public section
 

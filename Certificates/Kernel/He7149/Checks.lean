@@ -19,7 +19,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.K1.Interface
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicRep
 public import CFSG.Sporadic.He
 public import CFSG.Sporadic.Th.F2Spec
-public import Certificates.Certificate113
 
 set_option maxRecDepth 100000
 set_option maxHeartbeats 0

@@ -128,7 +128,6 @@ public import CFSG.RankThree.Lattice.SteinbergBIE6OrderThreeTools
 public import CFSG.RankThree.Lattice.SteinbergBIE6Qplus
 public import CFSG.RankThree.PartOne.KE.E8D4Family
 public import CFSG.RankThree.PartOne.S9.OddCore.RecognitionBasic
-public import Certificates.Certificate41501
 
 public section
 

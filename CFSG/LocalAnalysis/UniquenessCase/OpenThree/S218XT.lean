@@ -135,8 +135,6 @@ public import CFSG.RankThree.PartOne.KE6.Phi6Excl
 public import CFSG.RankThree.PartOne.KF4.EvenDescent
 public import CFSG.RankThree.PartOne.SEITZ2.OmegaSetup
 public import CFSG.RankThree.PartTwo.Sec21.Item233
-public import Certificates.Certificate9530
-public import Certificates.Certificate9681
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.DefsHyp13
 import CFSG.LocalAnalysis.UniquenessCase.UC22P21j
 

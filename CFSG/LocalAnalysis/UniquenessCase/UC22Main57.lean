@@ -81,8 +81,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.UC22P2213e
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S21a
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S21c
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S21rU
-public import Certificates.Certificate7224
-public import Certificates.Certificate7226
 import CFSG.LocalAnalysis.UniquenessCase.UC22P2213f
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22ud
 import CFSG.LocalAnalysis.UniquenessCase.UCFront78Nar
@@ -118,8 +116,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.UC22S21rU4Exc
 public import CFSG.RankThree.SubgroupLists.SymplecticGamma
 import CFSG.LocalAnalysis.UniquenessCase.UC22K318Main
 public import CFSG.LocalAnalysis.UniquenessCase.UC7P3ThreeBOC
-public import Certificates.Certificate8034
-public import Certificates.Certificate9720
 import CFSG.LocalAnalysis.AGLEmbedding.CatalogSchreier
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.StrongThree
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.KInputsSolvableHolds

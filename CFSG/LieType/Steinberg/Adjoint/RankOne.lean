@@ -2,9 +2,6 @@ module
 
 public import CFSG.LieType.Steinberg.Adjoint.Unipotent
 public import CFSG.LieType.Steinberg.PartBRankOne
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 
 public noncomputable section
 

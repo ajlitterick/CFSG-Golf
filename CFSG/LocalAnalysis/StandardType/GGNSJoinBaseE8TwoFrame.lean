@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowDefs
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcBasic
 public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
-public import Certificates.Certificate1952
 import CFSG.LocalAnalysis.StandardType.GGQ2PrimeProp1010
 import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLCx
 import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTorus

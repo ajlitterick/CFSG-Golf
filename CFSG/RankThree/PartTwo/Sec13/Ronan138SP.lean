@@ -42,7 +42,6 @@ import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerRestrictionCompl
 import CFSG.RankThree.PartTwo.Sec11.Data
 import CFSG.RankThree.PartTwo.Sec6.Item612Core
 import CFSG.RankThree.PartTwo.Sec6.Statements
-import Certificates.Certificate43
 
 public section
 

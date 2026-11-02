@@ -49,8 +49,6 @@ public import CFSG.Sporadic.SmallOddCore.CheckSpec
 public import CFSG.Sporadic.Th.F2Spec
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
-public import Certificates.Certificate3086
-public import Certificates.Certificate3120
 
 public section
 

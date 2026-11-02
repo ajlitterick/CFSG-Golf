@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.RankThreeUC.AGL81CSixThreeOneDefs
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CSixThreeOneBasic
 public import CFSG.RankThree.SubgroupLists.OrthogonalForms
 public import CFSG.Open.StatedDefs
-public import Certificates.Certificate8052
 import CFSG.RankThree.PartOne.KF.BloomClose
 import CFSG.RankThree.PartOne.S12.LA126
 import CFSG.RankThree.PartOne.KF.F1322OmegaIdx

@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265SGResCls
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.OrthInner
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S265SGEnd
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S265SGOmPCent

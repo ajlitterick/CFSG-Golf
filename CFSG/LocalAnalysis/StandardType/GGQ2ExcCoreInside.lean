@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreDefs
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreInsideWit
-public import Certificates.Certificate712571
-public import Certificates.Certificate712572
-public import Certificates.Certificate712573
 import CFSG.LocalAnalysis.StandardType.GGQ2ExcCensusInsideCode
 import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreInsideA8
 import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreInsideGe

@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenExcTwoSetup
-public import Certificates.Certificate1952
-public import Certificates.Certificate13659
-public import Certificates.Certificate13660
 import CFSG.LocalAnalysis.StandardType.GGLangExhaust
 import CFSG.LocalAnalysis.StandardType.GGLangOrbitTorus
 import CFSG.LocalAnalysis.StandardType.GGTwE6RootKernelCount

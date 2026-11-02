@@ -23,10 +23,6 @@ public import CFSG.Certificates.Kernel.BabyMonster.Sound
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.OpsF2Fast
 public import CFSG.Monster.B.Pinned.GeneratorDeterminants
 public import CFSG.Open.Defs
-public import Certificates.Certificate3101
-public import Certificates.Certificate3103
-public import Certificates.Certificate3106
-public import Certificates.Certificate3109Base
 public import Certificates.Data.CFSGNative.MonsterB.DyadicFile
 public import Certificates.Data.Kernel.BabyMonster.Bridge24
 

@@ -8,7 +8,6 @@ public import CFSG.Walter.J1Props.Elt
 public import CFSG.Open.Defs
 public import CFSG.Open.StatedDefs
 public import CFSG.Open.WalterAbelianSylowTwoMilestoneDefs
-public import Certificates.Certificate110
 public import Mathlib.Algebra.CharP.Lemmas
 public import Mathlib.LinearAlgebra.Matrix.CharP
 public import CFSG.LieType.BorelTits.CompleteFlag

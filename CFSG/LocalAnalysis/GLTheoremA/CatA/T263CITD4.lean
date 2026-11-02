@@ -18,9 +18,6 @@ public import CFSG.Quasithin.Background.B1
 public import CFSG.Quasithin.Background.C22PfH
 public import CFSG.Quasithin.H13.J4Classes
 public import CFSG.Quasithin.Recognition.CertTwoLocalPair
-public import Certificates.Certificate214002
-public import Certificates.Certificate214003
-public import Certificates.Certificate5118
 
 public section
 

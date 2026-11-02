@@ -58,8 +58,6 @@ import CFSG.RankThree.PartOne.S12.Sec15Items
 import CFSG.RankThree.PartOne.S15K.FixedWitt
 import CFSG.RankThree.PartOne.S15K.LayerModel
 import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
-import Certificates.Certificate8046
-import Certificates.Certificate8049
 
 public section
 

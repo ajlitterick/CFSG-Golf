@@ -18,7 +18,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.GMS78Open
 public import CFSG.LocalAnalysis.ComponentClassification.GMS78Sec5RuH1Final
 public import CFSG.Sporadic.SuzRecog.MixedCell
 public import CFSG.Sporadic.SuzRecog.SuzLeaf
-public import Certificates.Certificate431004
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoRu.HypOne
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.L34Size
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.Lemma37

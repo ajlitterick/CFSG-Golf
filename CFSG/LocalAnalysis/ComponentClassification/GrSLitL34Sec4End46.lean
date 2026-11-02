@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4Single
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4Tools46
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4Lemma46
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec5Normal
-public import Certificates.Certificate2022
 public import CFSG.LocalAnalysis.ComponentClassification.Sol78PSp4
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4DiagMem
 import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4End46F

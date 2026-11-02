@@ -2,9 +2,6 @@ module
 
 public import CFSG.RankThree.GF2n.Parrott.GF2nTypeOfParrottCitedT1
 public import CFSG.RankThree.GF2n.Parrott.ParrottFi22Holds
-public import Certificates.Certificate9726
-public import Certificates.Certificate17430
-public import Certificates.Certificate431004
 public import CFSG.CGT.Foote82.T66.Steps
 public import CFSG.ClassicalGroups.Symplectic.TransvectionCentralizer
 public import CFSG.GF2Type.Aschbacher1976Common.DihedralRank

@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTriD4KnownInputs
-public import Certificates.Certificate115
-public import Certificates.Certificate116
-public import Certificates.Certificate117
 import CFSG.LocalAnalysis.StandardType.GGTriD4LineRecogC0
 import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestTri
 

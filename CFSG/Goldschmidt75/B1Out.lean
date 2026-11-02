@@ -7,7 +7,6 @@ public import CFSG.LocalAnalysis.ShultStronglyClosedTI.UnitaryCentralCover
 public import CFSG.LieType.BorelTits.Suzuki
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoAllFields
 public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
-public import Certificates.Certificate113
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.LieType.BorelTits.CompleteFlag
 public import CFSG.LieType.Ree.SuzukiSimple

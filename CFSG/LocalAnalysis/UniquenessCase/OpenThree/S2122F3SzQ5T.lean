@@ -121,8 +121,6 @@ public import CFSG.Sporadic.Fi24
 public import CFSG.Sporadic.Recognition.LyonsAmalgamModelYAut
 public import CFSG.Sporadic.Recognition.LyonsFinalDist2
 public import CFSG.Sporadic.Suz
-public import Certificates.Certificate7095
-public import Certificates.Certificate9415
 public import Certificates.Kernel.J4Count.Cent11Base
 public import Certificates.Kernel.J4Count.Fix5
 

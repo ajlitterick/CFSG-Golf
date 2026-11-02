@@ -7,7 +7,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBUniLeaves
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBOffSpSpQTwoDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBDenseLabelDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBQTwoLinDense
-public import Certificates.Certificate117
 import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBOffSpSpPieces
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBSparseSp

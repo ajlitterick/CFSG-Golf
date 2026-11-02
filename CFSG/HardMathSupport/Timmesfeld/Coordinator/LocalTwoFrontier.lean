@@ -110,7 +110,6 @@ public import CFSG.RankThree.PartTwo.Sec8.Item87Proof84
 public import CFSG.SignalizerFunctorTheorem.CatalogBridge.NormalFormStabilizer
 public import CFSG.SignalizerFunctorTheorem.CatalogBridge.StabilizerLift
 public import CFSG.Sporadic.ThSchreier.ThSchreierCase
-public import Certificates.Certificate8160
 public import Certificates.Data.HSFiveCheck
 
 public section

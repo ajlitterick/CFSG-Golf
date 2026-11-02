@@ -10,7 +10,6 @@ import CFSG.GroupTheory.ElementaryAbelianTransport
 import CFSG.RankThree.Asc83Table.Automizer
 import CFSG.RankThree.PartTwo.Sec11.Data
 import CFSG.RankThree.PartTwo.Sec6.Statements
-import Certificates.Certificate43
 
 public section
 

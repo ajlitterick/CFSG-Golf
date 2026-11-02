@@ -7,8 +7,6 @@ import CFSG.Fischer.Classification.SRG.Conference
 import CFSG.OddTranspositions.O4PairCommSet
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 import CFSG.Walter.Defs
-import Certificates.Certificate1
-import Certificates.Certificate2
 
 public section
 

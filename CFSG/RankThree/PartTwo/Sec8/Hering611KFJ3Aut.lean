@@ -1,14 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec8.Hering611KFRank
-public import Certificates.Certificate2236
-public import Certificates.Certificate2237
-public import Certificates.Certificate2238
-public import Certificates.Certificate2239
-public import Certificates.Certificate2281
-public import Certificates.Certificate2283
-public import Certificates.Certificate3169
-public import Certificates.Certificate8004
 import CFSG.Sporadic.SmallOddCore.J3Aut
 import CFSG.Sporadic.Schreier.PairJ3Faithful
 import CFSG.RankThree.Asc83Table.J3
@@ -31,10 +23,6 @@ public import CFSG.RankThree.PartTwo.Sec8.Hering611KFBridge
 public import CFSG.RankThree.PartTwo.Sec8.Item812Res12ProofPSL2
 public import CFSG.RankThree.PartTwo.Sec8.Item86ResProofTwo
 public import CFSG.RankThree.PartTwo.Sec8.Steps
-public import Certificates.Certificate3029
-public import Certificates.Certificate3086
-public import Certificates.Certificate43
-public import Certificates.Certificate8169
 import CFSG.RankThree.PartTwo.Sec4.Item426A6Inner
 
 public section

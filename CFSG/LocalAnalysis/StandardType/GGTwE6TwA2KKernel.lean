@@ -132,9 +132,6 @@ public import CFSG.Walter.J1Props
 public import CFSG.Walter.J1Recog
 public import CFSG.Walter.PSL2Facts
 public import CFSG.Walter.W67.Statements
-public import Certificates.Certificate13660
-public import Certificates.Certificate1953
-public import Certificates.Certificate1954
 public import Certificates.Kernel.J4Count.Prim
 public import Certificates.Kernel.SporSch.Th.Plane2320
 

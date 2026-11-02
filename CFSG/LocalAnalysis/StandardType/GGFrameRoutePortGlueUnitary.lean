@@ -29,12 +29,6 @@ import CFSG.RankThree.PartOne.N143.SectionRankBound
 import CFSG.RankThree.PartOne.N143.SectionRankProof
 import CFSG.RankThree.PartOne.N143.SectionRankSplit
 import CFSG.RankThree.PartTwo.Sec19.Item194Used
-import Certificates.Certificate19800
-import Certificates.Certificate9591
-import Certificates.Certificate9594
-import Certificates.Certificate9595
-import Certificates.Certificate9597
-import Certificates.Certificate9602
 
 public section
 

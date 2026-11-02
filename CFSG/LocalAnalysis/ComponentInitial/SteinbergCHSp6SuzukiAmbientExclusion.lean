@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentInitial.SteinbergBUSp6LagrangianStatements
 public import CFSG.LocalAnalysis.ComponentInitial.SteinbergCHSp6SuzukiLayerCore
 public import CFSG.Blueprint.EvenStandardExact
-public import Certificates.Certificate113
 import CFSG.Blueprint.LieModelAPI
 public import CFSG.Assembly.OrderReductions.InvertedSubgroup
 public import CFSG.Assembly.OrderReductions.OddInversion

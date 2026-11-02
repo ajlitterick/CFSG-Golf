@@ -4,7 +4,6 @@ public import CFSG.RankThree.GF2n.Parrott.Basic
 public import CFSG.GF2Type.Aschbacher1977.SymplecticExclusions
 public import CFSG.LocalAnalysis.EvenSporadicStandard.M22Std.OutU42Aut
 public import Mathlib.GroupTheory.Coset.Card
-public import Certificates.Certificate2012
 public import CFSG.LargeExtraspecial.Types
 public import CFSG.RankThree.GroupTheory.ClassTwoThree
 public import CFSG.RankThree.OrthogonalInvolutions.SuzukiTypes

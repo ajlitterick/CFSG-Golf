@@ -73,7 +73,6 @@ public import CFSG.RankThree.S4Free.Statement
 public import CFSG.Sporadic.Schreier.J4SCommGenBase1
 public import CFSG.Sporadic.Schreier.J4SProfileNode
 public import CFSG.StronglyEmbedded.MatrixGroups.PSL2
-public import Certificates.Certificate8026Base
 public import Certificates.Data.CFSGNative.MonsterB.Rep4371Model
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1

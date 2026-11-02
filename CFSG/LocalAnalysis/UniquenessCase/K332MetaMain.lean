@@ -6,9 +6,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.UC6K332Main
 public import CFSG.LocalAnalysis.UniquenessCase.UC6K332Lists
 public import CFSG.LocalAnalysis.UniquenessCase.UC6N588A2
 public import CFSG.CharacterTheory.Semidihedral.Local.FourGroupCyclingOddControlSupport
-public import Certificates.Certificate431004
-public import Certificates.Certificate17430
-public import Certificates.Certificate9726
 public import CFSG.CGT.Timmesfeld75.OddCenter
 public import CFSG.CGT.Timmesfeld75.Sec5FiveEng
 public import CFSG.CGT.Timmesfeld75.Sec5Nine
@@ -113,7 +110,6 @@ public import CFSG.RankThree.PartTwo.Sec4.RonanK432RowsBridge
 public import CFSG.RankThree.PartTwo.Sec4.RonanK432WitArr
 public import CFSG.RankThree.PartTwo.Sec4.RonanKChevTwoDFourThreeA
 public import CFSG.RankThree.PartTwo.Sec8.Item8KFacts2ProofReeConj
-public import Certificates.Certificate19800
 
 public section
 

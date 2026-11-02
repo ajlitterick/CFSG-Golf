@@ -7,7 +7,6 @@ public import CFSG.Quasithin.H13.J4Core
 public import CFSG.Quasithin.H13.J4Order
 public import CFSG.Sporadic.Schreier.J4SOrder
 public import CFSG.Sporadic.Th.Max3.Quotient
-public import Certificates.Certificate10091Base
 
 open Subgroup CFSG.Open CFSG.Blueprint CFSG.Blueprint.Chevalley CFSG.LieType.Chevalley
 open CFSG.ComponentClassification.UnbalancedCatalog CFSG.ComponentClassification.RankTwoExceptional

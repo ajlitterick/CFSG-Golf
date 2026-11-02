@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.Defs
-public import Certificates.Certificate431004
-public import Certificates.Certificate17430
-public import Certificates.Certificate9726
 public import CFSG.LocalAnalysis.AGLEmbedding.CZeroDefs
 public import CFSG.LocalAnalysis.AGLEmbedding.WeakBlockDefs
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThreeThreeCasesN

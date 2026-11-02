@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBOffQTwoDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBDenseDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePermNbrLabelOfJDefs
-public import Certificates.Certificate117
 public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 public import CFSG.LocalAnalysis.StandardType.GGNsq2Cited
 public import CFSG.LocalAnalysis.StandardType.GGQTwoOrthFourHomDefs
@@ -37,7 +36,6 @@ import CFSG.LocalAnalysis.StandardType.GGSecFiveUnitarySixCentralizer
 import CFSG.LocalAnalysis.StandardType.GGHdRo7DStab
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBProperRootRed
 import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitarySixCover
-public import Certificates.Certificate4091
 
 public section
 

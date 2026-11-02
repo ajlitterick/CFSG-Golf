@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeakNbr
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowNFrame
-public import Certificates.Certificate2267
-public import Certificates.Certificate8033
 import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowNBCells
 import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowNTwAMCells
 import CFSG.LocalAnalysis.StandardType.GGLabelRigid

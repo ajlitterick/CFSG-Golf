@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeDeltaCentAutBlock
 public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.YamadaHAutModel
 public import CFSG.Fischer.Polar.Delta
-public import Certificates.Certificate3600
 import all CFSG.Fischer.F4
 public import CFSG.GroupTheory.ABGLocalTools.CoreLemmas
 public import CFSG.LieType.Chevalley.C2E6StandardFixedData

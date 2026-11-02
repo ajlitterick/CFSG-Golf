@@ -21,9 +21,6 @@ public import CFSG.Sporadic.Fi22.Simple
 public import CFSG.Sporadic.Presentation.Fi22Exact
 public import CFSG.Sporadic.Presentation.Fi22ExactCover
 public import CFSG.Sporadic.Presentation.Fi22ExactTop
-public import Certificates.Certificate13501
-public import Certificates.Certificate9205
-public import Certificates.Certificate9595
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 
 public section

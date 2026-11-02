@@ -21,10 +21,6 @@ public import CFSG.Quasithin.Background.HModelTransp
 public import CFSG.Quasithin.EmptyFaithfulMultiple.InputB19Proof
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.JRFacts
-public import Certificates.Certificate490011
-public import Certificates.Certificate490012
-public import Certificates.Certificate490013
-public import Certificates.Certificate7247
 
 public section
 

@@ -60,7 +60,6 @@ public import CFSG.Quasithin.Vol2.Ch3Sec1Thm311
 public import CFSG.Sporadic.Schreier.TitsOther
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Timmesfeld.Orders.ClassicalLinear
-public import Certificates.Certificate8026Base
 
 public section
 

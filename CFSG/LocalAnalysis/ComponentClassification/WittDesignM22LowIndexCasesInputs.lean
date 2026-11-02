@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22LowIndex
 public meta import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22LowIndex
-public import Certificates.Certificate2037
-public import Certificates.Certificate2038
-public import Certificates.Certificate2195
 
 public noncomputable section
 

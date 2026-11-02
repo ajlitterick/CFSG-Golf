@@ -2,38 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicFi24TwoBJ
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicFi24Census
-public import Certificates.Certificate1004
-public import Certificates.Certificate1005
-public import Certificates.Certificate1011
-public import Certificates.Certificate1012
-public import Certificates.Certificate1013
-public import Certificates.Certificate1014
-public import Certificates.Certificate1016
-public import Certificates.Certificate1018
-public import Certificates.Certificate1019
-public import Certificates.Certificate2065
-public import Certificates.Certificate2066
-public import Certificates.Certificate2067
-public import Certificates.Certificate2068
-public import Certificates.Certificate2069
-public import Certificates.Certificate2070
-public import Certificates.Certificate2071
-public import Certificates.Certificate2073
-public import Certificates.Certificate2074
-public import Certificates.Certificate2075
-public import Certificates.Certificate2076
-public import Certificates.Certificate2077
-public import Certificates.Certificate2078
-public import Certificates.Certificate3037
-public import Certificates.Certificate3038
-public import Certificates.Certificate3039
-public import Certificates.Certificate3147
-public import Certificates.Certificate3148
-public import Certificates.Certificate3150
-public import Certificates.Certificate3151
-public import Certificates.Certificate3152
-public import Certificates.Certificate3153
-public import Certificates.Certificate3154
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicFi24TwoBK
 
 public section

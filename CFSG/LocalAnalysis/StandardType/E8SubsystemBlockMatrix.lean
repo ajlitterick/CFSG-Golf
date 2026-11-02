@@ -21,7 +21,6 @@ public import CFSG.RankThree.PartOne.KE6.Phi3Arith
 public import CFSG.RankThree.PartOne.KE6.Phi6Arith
 public import CFSG.RankThree.PartOne.KF4.KernelTools
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
-public import Certificates.Certificate1952
 
 public section
 

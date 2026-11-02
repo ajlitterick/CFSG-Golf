@@ -19,7 +19,6 @@ import CFSG.LieType.Ree.SuzukiUnipotentStructure
 import CFSG.LieType.Ree.SuzukiSimple
 import CFSG.LieType.Ree.SuzukiPerfect
 import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
-public import Certificates.Certificate43
 public import CFSG.Assembly.OrderReductions.InvertedSubgroup
 public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LieType.Ree.SuzukiBruhatNormalForm

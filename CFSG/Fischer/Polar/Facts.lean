@@ -3,11 +3,6 @@ module
 public import CFSG.Fischer.Polar.Xi22
 public import CFSG.Fischer.Uniq.PolarFacts
 public import CFSG.Fischer.Uniq.HyperovalFacts
-public import Certificates.Certificate1000
-public import Certificates.Certificate1001
-public import Certificates.Certificate1002
-public import Certificates.Certificate1003
-public import Certificates.Certificate1009
 public import CFSG.Fischer.Uniq.Hyperoval
 
 public section

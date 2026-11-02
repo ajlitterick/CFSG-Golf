@@ -59,8 +59,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264Alt
 public import CFSG.LocalAnalysis.GLTheoremA.PartI.LevelSporFi24
 public import CFSG.LocalAnalysis.GLTheoremA.PartI.LevelSporHe7
 public import CFSG.Quasithin.SteinbergCBGDTrace
-public import Certificates.Certificate8007
-public import Certificates.Certificate8008
 public import Certificates.Data.TabCo1ThreeE
 
 public section

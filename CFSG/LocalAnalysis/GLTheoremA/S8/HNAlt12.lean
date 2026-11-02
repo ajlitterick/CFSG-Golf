@@ -211,28 +211,6 @@ public import CFSG.Walter.Bender1970.S2
 public import CFSG.Walter.PSL2Facts
 public import CFSG.Walter.W67.Section5.Lemma57
 public import CFSG.YGroups.DCE.B433Check
-public import Certificates.Certificate10027
-public import Certificates.Certificate10107
-public import Certificates.Certificate10108
-public import Certificates.Certificate10110
-public import Certificates.Certificate10111
-public import Certificates.Certificate16018
-public import Certificates.Certificate2098
-public import Certificates.Certificate2103
-public import Certificates.Certificate2108
-public import Certificates.Certificate2109
-public import Certificates.Certificate2274
-public import Certificates.Certificate2323
-public import Certificates.Certificate6006
-public import Certificates.Certificate7233Base
-public import Certificates.Certificate8137
-public import Certificates.Certificate8138
-public import Certificates.Certificate8139
-public import Certificates.Certificate8140
-public import Certificates.Certificate8141
-public import Certificates.Certificate8145
-public import Certificates.Certificate8146
-public import Certificates.Certificate9124
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 
 public section

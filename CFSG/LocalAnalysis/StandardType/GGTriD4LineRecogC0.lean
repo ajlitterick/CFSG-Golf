@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LieType.Chevalley.GraphFixedData
-public import Certificates.Certificate115
-public import Certificates.Certificate116
-public import Certificates.Certificate117
 import CFSG.LocalAnalysis.StandardType.GGTriD4LineSL2
 import CFSG.RankThree.PartTwo.Sec11.KS11Lie6Proof
 import CFSG.RankThree.PartTwo.Sec11.KS11Lie6ProofBCent

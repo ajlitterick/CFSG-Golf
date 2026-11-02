@@ -5,9 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGNbrFrameOneCoordModel
 public import CFSG.LocalAnalysis.StandardType.GGNbrFrameOneTransfer
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorus
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowDefs
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaOrthCoord
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaOrthRefl
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaOrthRelA

@@ -158,7 +158,6 @@ public import CFSG.RankThree.PartOne.TCX.LayerEngineG
 public import CFSG.RankThree.PartTwo.Sec11.KS11LieProofAut
 public import CFSG.RankThree.PartTwo.Sec15.ONanKS1424Model
 public import CFSG.Walter.W67.W2Lemma26A
-public import Certificates.Certificate17632Base
 public import Certificates.Data.TabCo1ThreeE
 
 public section

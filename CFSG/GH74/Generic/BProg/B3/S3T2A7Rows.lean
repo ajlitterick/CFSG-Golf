@@ -10,7 +10,6 @@ public import CFSG.GH74.GLS.Bg.Iii2.L41Comp
 public import CFSG.GH74.GLS.C3.Layer1.Th2V2Core
 public import CFSG.GH74.Generic.BProg.B3.ObsPump
 public import CFSG.GroupTheory.ElementaryAbelianBasis
-public import Certificates.Certificate5007
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs295d2
-public import Certificates.Certificate2012
 import CFSG.LocalAnalysis.EvenSporadicStandard.M22Std.OutU42Aut
 import CFSG.GH74.GLS.Stage2.Signalizer.Odd87U4SvNine
 import CFSG.LocalAnalysis.QuasithinUnique.SQTK.UnitaryTauCeti

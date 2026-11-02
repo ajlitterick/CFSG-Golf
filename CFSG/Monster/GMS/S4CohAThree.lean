@@ -9,7 +9,6 @@ public import CFSG.Monster.GMS.S46Basic
 public import CFSG.Monster.GMS.S46A12
 public import CFSG.Monster.GMS.Facts.Interfaces
 import CFSG.Monster.GMS.NotConj
-public import Certificates.Certificate3024
 
 public section
 

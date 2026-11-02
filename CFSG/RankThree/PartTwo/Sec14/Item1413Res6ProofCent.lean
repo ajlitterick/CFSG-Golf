@@ -12,8 +12,6 @@ import CFSG.Sporadic.Mathieu.M22
 public import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22Hexads
 public import CFSG.RankThree.Asc83Table.PermTables
 public import CFSG.RankThree.PartTwo.Sec14.Item1413Res3ProofPoints
-public import Certificates.Certificate18952
-public import Certificates.Certificate8165
 import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 
 public section

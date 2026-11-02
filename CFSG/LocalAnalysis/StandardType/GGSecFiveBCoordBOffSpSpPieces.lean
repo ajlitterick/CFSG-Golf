@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBOffSpSpQTwoDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBDenseLabelDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBJoinDefs
-public import Certificates.Certificate117
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBQTwoSpVacuous
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBOmCharts
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBDense

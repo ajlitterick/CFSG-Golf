@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267P3Field
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267P3FieldU
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherAntiunitaryTransport
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S267P3Iso
 import CFSG.LocalAnalysis.QuasithinUnique.SQTK.UnitaryTauCeti
 import CFSG.LieType.Steinberg.CentralExt.PSUMultiplier
@@ -71,7 +68,6 @@ public import CFSG.Sporadic.Mathieu.M24
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
-public import Certificates.Certificate43
 import CFSG.GH74.GLS.IVK.Proofs2.OddTools
 import CFSG.GH74.GLS.Stage2.Local.P34Main
 import CFSG.GH74.GLS.Stage2.Local.P34S5A

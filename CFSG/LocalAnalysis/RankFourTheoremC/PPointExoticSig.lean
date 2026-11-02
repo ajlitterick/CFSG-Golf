@@ -32,12 +32,6 @@ public import CFSG.Sporadic.J4.QT2LocCntProof
 public import CFSG.Sporadic.Presentation.McLExactData
 public import CFSG.Sporadic.Presentation.McLExactInputs
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
-public import Certificates.Certificate2265
-public import Certificates.Certificate2266
-public import Certificates.Certificate2267
-public import Certificates.Certificate2269
-public import Certificates.Certificate3951
-public import Certificates.Certificate8033
 public import Certificates.Data.HSFiveCheck
 
 public section

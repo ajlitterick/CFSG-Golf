@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGLHyp111SizeMax
-public import Certificates.Certificate2022
-public import Certificates.Certificate465003
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGLHyp111E16
 import CFSG.LocalAnalysis.StandardType.L34OvergroupInput
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.L34ModelS

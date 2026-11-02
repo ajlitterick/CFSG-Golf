@@ -3,13 +3,6 @@ module
 import Lean
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSQ2CellsDefs
 public import CFSG.LocalAnalysis.StandardType.GGNsq2Cited
-public import Certificates.Certificate1002
-public import Certificates.Certificate1003
-public import Certificates.Certificate1009
-public import Certificates.Certificate10015
-public import Certificates.Certificate10016
-public import Certificates.Certificate10017
-public import Certificates.Certificate10018
 import CFSG.LocalAnalysis.StandardType.GGNsq2QuotActs
 import CFSG.LocalAnalysis.StandardType.GGNsq2Hopf
 import CFSG.LocalAnalysis.StandardType.GGNsq2RankOne

@@ -27,7 +27,6 @@ public import CFSG.Sporadic.SuzOddCore.SmallActionData
 public import CFSG.YGroups.DCE.MaximalB
 public import CFSG.YGroups.Y443.Native.Parabolic2CheckB
 public import CFSG.YGroups.Y443.Native.Parabolic2CheckW
-public import Certificates.Certificate10025
 public import Certificates.Kernel.J4Count.FixC
 public import Certificates.Kernel.J4Count.FixCPairBase1
 public import Certificates.Kernel.J4Count.KFactsBase

@@ -75,8 +75,6 @@ public import CFSG.Quasithin.Vol2.Ch3Sec3Lem3324X
 public import CFSG.Quasithin.Vol2.Ch3Sec3Lem3329
 public import CFSG.Quasithin.Vol2.Ch3Sec3Lem3330
 public import CFSG.RankThree.Chevalley.SteinbergCFEvenF4PointwiseInner
-public import Certificates.Certificate10050
-public import Certificates.Certificate8117
 
 public section
 

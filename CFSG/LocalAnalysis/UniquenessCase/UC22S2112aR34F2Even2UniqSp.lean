@@ -2,19 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Intrinsic
 public import CFSG.LocalAnalysis.UniquenessCase.FundamentalLie
-public import Certificates.Certificate76
-public import Certificates.Certificate77
-public import Certificates.Certificate78
-public import Certificates.Certificate79
-public import Certificates.Certificate118
-public import Certificates.Certificate119
-public import Certificates.Certificate121
-public import Certificates.Certificate122
-public import Certificates.Certificate3951
-public import Certificates.Certificate3952
-public import Certificates.Certificate2264
-public import Certificates.Certificate2267
-public import Certificates.Certificate8033
 import CFSG.ClassicalInvolution.ModelFacts.TG3VacPSp
 import CFSG.ClassicalInvolution.Models.SymplecticPairs.TypeCModel
 import CFSG.ClassicalInvolution.Q3.Q3ZFraFrame

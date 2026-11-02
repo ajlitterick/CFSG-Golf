@@ -4,14 +4,10 @@ public import CFSG.Quasithin.Vol2.GoldschmidtF134OddSporArith
 public import CFSG.Quasithin.Background.E2TwoProofSporJ2
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatExport
 public import CFSG.Sporadic.J2
-public import Certificates.Certificate3139
-public import Certificates.Certificate4142
-public import Certificates.Certificate7125
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeBasic
 public import CFSG.Milestones.CL_LIT_SQTK_simple_list
 public import CFSG.Quasithin.Background.B5Statement
 public import CFSG.Quasithin.Vol2.Ch1Sec3E9Inputs
-public import Certificates.Certificate8026Base
 
 public section
 

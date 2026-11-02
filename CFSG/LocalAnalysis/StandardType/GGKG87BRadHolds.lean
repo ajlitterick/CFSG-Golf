@@ -2,11 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGKG87BRadInner
 public import CFSG.LocalAnalysis.StandardType.GGKG87BRad
-public import Certificates.Certificate1952
-public import Certificates.Certificate3951
-public import Certificates.Certificate8064
-public import Certificates.Certificate13659
-public import Certificates.Certificate13660
 import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangTwisted
 import CFSG.LocalAnalysis.StandardType.GGTableBOutdiag
 

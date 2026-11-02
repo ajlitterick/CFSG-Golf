@@ -8,7 +8,6 @@ public import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagModel
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2OmegaSelect
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2OrthogonalSmall
 import CFSG.GroupTheory.IsComponentOfMap
-public import Certificates.Certificate7050Base
 
 public section
 

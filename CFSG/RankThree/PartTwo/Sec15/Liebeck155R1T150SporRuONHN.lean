@@ -1,58 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec15.Liebeck155R1T150SporCore
-public import Certificates.Certificate2022
-public import Certificates.Certificate2096
-public import Certificates.Certificate2097
-public import Certificates.Certificate2098
-public import Certificates.Certificate2099
-public import Certificates.Certificate2100
-public import Certificates.Certificate2102
-public import Certificates.Certificate2103
-public import Certificates.Certificate2104
-public import Certificates.Certificate2107
-public import Certificates.Certificate2108
-public import Certificates.Certificate2109
-public import Certificates.Certificate2120
-public import Certificates.Certificate2121
-public import Certificates.Certificate2122
-public import Certificates.Certificate2123
-public import Certificates.Certificate2125
-public import Certificates.Certificate2127
-public import Certificates.Certificate2211
-public import Certificates.Certificate2212
-public import Certificates.Certificate2213
-public import Certificates.Certificate2214
-public import Certificates.Certificate2215
-public import Certificates.Certificate2216
-public import Certificates.Certificate2217
-public import Certificates.Certificate2247
-public import Certificates.Certificate2249
-public import Certificates.Certificate2250
-public import Certificates.Certificate2251
-public import Certificates.Certificate2252
-public import Certificates.Certificate2253
-public import Certificates.Certificate2254
-public import Certificates.Certificate2255
-public import Certificates.Certificate2256
-public import Certificates.Certificate2258
-public import Certificates.Certificate2259
-public import Certificates.Certificate2260
-public import Certificates.Certificate3166
-public import Certificates.Certificate3171
-public import Certificates.Certificate3172
-public import Certificates.Certificate8139
-public import Certificates.Certificate9114
-public import Certificates.Certificate9127
-public import Certificates.Certificate9129
-public import Certificates.Certificate9208
-public import Certificates.Certificate9217
-public import Certificates.Certificate9218
-public import Certificates.Certificate9590
-public import Certificates.Certificate9702
-public import Certificates.Certificate16041
-public import Certificates.Certificate24945
-public import Certificates.Certificate24946
 import CFSG.GroupTheory.CentralizerSup
 import CFSG.LocalAnalysis.EvenSporadicStandard.RuStd.S2.RuThreeCent
 import CFSG.RankThree.Native.ONThreeCentralizer
@@ -95,8 +43,6 @@ public import CFSG.Sporadic.Schreier.RuLOdd
 public import CFSG.Sporadic.Schreier.RuZClass
 public import CFSG.StronglyEmbedded.ParityCriterion
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
-public import Certificates.Certificate2022Base
-public import Certificates.Certificate2254Base
 import CFSG.GH74.GLS.Balance.SolvAPIDefs
 import CFSG.Mathlib.LinearAlgebra.BilinForm.Determinant
 import CFSG.Open.SplitBNPair
@@ -114,7 +60,6 @@ import CFSG.RankThree.PartTwo.Sec20.OneSteps
 import CFSG.RankThree.PartTwo.Sec21.Item211ProofListOf
 import CFSG.RankThree.PartTwo.Sec4.Item41NarrowGriess
 import CFSG.Walter.J1Props
-import Certificates.Certificate8166
 
 public section
 

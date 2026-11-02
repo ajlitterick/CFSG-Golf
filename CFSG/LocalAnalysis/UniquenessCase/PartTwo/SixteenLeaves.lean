@@ -63,8 +63,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC1677R1621
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Sixteen67NeL
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC56Close
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC165Main
-public import Certificates.Certificate7224
-public import Certificates.Certificate7226
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven3GapM
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven3GapInspBC
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven3GapInspA

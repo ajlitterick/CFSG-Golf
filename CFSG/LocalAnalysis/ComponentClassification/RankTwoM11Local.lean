@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoM11LocalCheck
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239InspM11Check
-public import Certificates.Certificate110
 
 public section
 

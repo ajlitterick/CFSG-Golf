@@ -6,9 +6,6 @@ public import CFSG.Timmesfeld.Transvection.PresSUModel
 public import CFSG.LocalAnalysis.UniquenessCase.Lie.SU3Torus
 public import CFSG.LieType.Steinberg.CentralExt.SUOddCover
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.LieInput.SUEmbed
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 import CFSG.Timmesfeld.ARS.BasicTwoGroup
 import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
 import CFSG.LieType.Steinberg.CentralExt.UnitaryRankOneLast

@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec21.Item211ResProofLStarAlg
 public import CFSG.RankThree.PartTwo.Sec21.Item211ProofList
-public import Certificates.Certificate3169
 import CFSG.RankThree.PartTwo.Sec13.Item133Mono
 import CFSG.RankThree.PartTwo.Sec13.Item13Plane
 import CFSG.LieType.CurtisTits.Recognition
@@ -31,7 +30,6 @@ public import CFSG.RankThree.PartTwo.Sec7.ThreeTranspositions
 public import CFSG.RankThree.PartTwo.Sec8.Pairs
 public import CFSG.StronglyEmbedded.ParityCriterion
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
-public import Certificates.Certificate43
 
 public section
 

@@ -5,8 +5,6 @@ import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompIdxExc
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CompsPTwoDMain
 import CFSG.LocalAnalysis.StandardType.GGExclNoIso
 import CFSG.RankThree.PartOne.KD4T.Certs
-import Certificates.Certificate115
-import Certificates.Certificate116
 import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcE8Rank1
 import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcA2Generic
 import CFSG.ClassicalInvolution.Models.TwistedPairs

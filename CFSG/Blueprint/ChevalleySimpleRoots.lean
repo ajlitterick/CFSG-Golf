@@ -2,8 +2,6 @@ module
 
 public import CFSG.Blueprint.ChevalleyStrings
 public import CFSG.Blueprint.ChevalleyParameterAddition
-public import Certificates.Certificate113
-public import Certificates.Certificate114
 
 public section
 

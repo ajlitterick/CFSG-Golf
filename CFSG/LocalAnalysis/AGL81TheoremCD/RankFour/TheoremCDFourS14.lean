@@ -4,89 +4,6 @@ public import CFSG.LocalAnalysis.AGL81TheoremCD.RankFour.TheoremCFourOpenInputs
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.S14Facts
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section8.KFact76RankThree
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RankTwoBaumPowerHolds
-public import Certificates.Certificate2085
-public import Certificates.Certificate6950
-public import Certificates.Certificate8059
-public import Certificates.Certificate8099
-public import Certificates.Certificate8122
-public import Certificates.Certificate8136
-public import Certificates.Certificate8137
-public import Certificates.Certificate8138
-public import Certificates.Certificate8140
-public import Certificates.Certificate8141
-public import Certificates.Certificate8145
-public import Certificates.Certificate8146
-public import Certificates.Certificate9458
-public import Certificates.Certificate9542
-public import Certificates.Certificate9543
-public import Certificates.Certificate9544
-public import Certificates.Certificate9545
-public import Certificates.Certificate9546
-public import Certificates.Certificate9548
-public import Certificates.Certificate9549
-public import Certificates.Certificate9562
-public import Certificates.Certificate9563
-public import Certificates.Certificate9564
-public import Certificates.Certificate9565
-public import Certificates.Certificate9702
-public import Certificates.Certificate9715
-public import Certificates.Certificate10050
-public import Certificates.Certificate10051
-public import Certificates.Certificate12622
-public import Certificates.Certificate12624
-public import Certificates.Certificate12638
-public import Certificates.Certificate13602
-public import Certificates.Certificate13606
-public import Certificates.Certificate13607
-public import Certificates.Certificate13608
-public import Certificates.Certificate13609
-public import Certificates.Certificate13635
-public import Certificates.Certificate13636
-public import Certificates.Certificate13637
-public import Certificates.Certificate13650
-public import Certificates.Certificate13651
-public import Certificates.Certificate13720
-public import Certificates.Certificate13721
-public import Certificates.Certificate14963
-public import Certificates.Certificate14964
-public import Certificates.Certificate14965
-public import Certificates.Certificate14969
-public import Certificates.Certificate14976
-public import Certificates.Certificate14977
-public import Certificates.Certificate14980
-public import Certificates.Certificate16948
-public import Certificates.Certificate16949
-public import Certificates.Certificate17253
-public import Certificates.Certificate17301
-public import Certificates.Certificate17303
-public import Certificates.Certificate17304
-public import Certificates.Certificate17371
-public import Certificates.Certificate17525
-public import Certificates.Certificate17526
-public import Certificates.Certificate17560
-public import Certificates.Certificate17627
-public import Certificates.Certificate17628
-public import Certificates.Certificate17629
-public import Certificates.Certificate18004
-public import Certificates.Certificate36151
-public import Certificates.Certificate36152
-public import Certificates.Certificate36153
-public import Certificates.Certificate188001
-public import Certificates.Certificate188002
-public import Certificates.Certificate188007
-public import Certificates.Certificate188008
-public import Certificates.Certificate452201
-public import Certificates.Certificate12610
-public import Certificates.Certificate12612
-public import Certificates.Certificate12613
-public import Certificates.Certificate12614
-public import Certificates.Certificate12623
-public import Certificates.Certificate12635
-public import Certificates.Certificate12636
-public import Certificates.Certificate12641
-public import Certificates.Certificate76001
-public import Certificates.Certificate428001
-public import Certificates.Certificate428004
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.FiveFourteenA11UseHolds
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.FiveTwentyFiveS11UseHolds
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section15.O1521Gen
@@ -261,21 +178,6 @@ public import CFSG.RankThree.PartTwo.Sec4.RonanK432WitArr
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434O8pE9Local
 public import CFSG.SignalizerFunctorTheorem.CatalogBridge.FixedFieldCard
 public import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec2.Defs
-public import Certificates.Certificate14973
-public import Certificates.Certificate19800
-public import Certificates.Certificate232403
-public import Certificates.Certificate295200
-public import Certificates.Certificate310101
-public import Certificates.Certificate41721
-public import Certificates.Certificate8036
-public import Certificates.Certificate9461
-public import Certificates.Certificate9551
-public import Certificates.Certificate9552
-public import Certificates.Certificate9553
-public import Certificates.Certificate9554
-public import Certificates.Certificate9555
-public import Certificates.Certificate9556
-public import Certificates.Certificate9567
 import CFSG.CGT.PushingUpLit.BHS.ThreeEight
 import CFSG.CGT.PushingUpLit.BHS6.ThreeEightComm
 import CFSG.CGT.Timmesfeld75.Forms
@@ -396,7 +298,6 @@ import CFSG.RankThree.PartTwo.Sec4.RonanK432Cover
 import CFSG.RankThree.PartTwo.Sec4.RonanK432RowsBridge
 import CFSG.RankThree.PartTwo.Sec4.RonanKChevTwoDFourThreeA
 import CFSG.RankThree.PartTwo.Sec8.Item8KFacts2ProofReeConj
-import Certificates.Certificate41501
 
 public section
 

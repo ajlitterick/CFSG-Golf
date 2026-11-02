@@ -6,7 +6,6 @@ import all CFSG.Sporadic.ThSchreier.PlaneFactsBase
 import all CFSG.Sporadic.ThSchreier.PlaneFactsBase1
 
 public import CFSG.Sporadic.ThSchreier.GlobalIndex
-public import Certificates.Certificate2317
 public import CFSG.Sporadic.ThSchreier.CentralizerDataInputs
 public meta import CFSG.Sporadic.ThSchreier.Text
 public import CFSG.Sporadic.ThSchreier.GlobalData

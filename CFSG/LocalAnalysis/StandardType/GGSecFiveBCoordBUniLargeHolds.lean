@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBUniLeaves
-public import Certificates.Certificate117
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBUniFrames
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniOm
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniOmJoin

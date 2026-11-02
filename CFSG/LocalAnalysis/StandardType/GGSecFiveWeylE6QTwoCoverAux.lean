@@ -14,9 +14,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTableBUnitDvdAct
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoTransvection
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoModuleTorus
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoCoverTorusAux
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 
 public section
 

@@ -112,8 +112,6 @@ public import CFSG.RankThree.PartTwo.Census.Classical.EvenUnitary
 public import CFSG.Sporadic.SchreierLemmas.FrattiniProfile
 public import CFSG.Sporadic.SuzOddCore.SmallActionData
 public import CFSG.Walter.J1
-public import Certificates.Certificate10025
-public import Certificates.Certificate2323
 public import Certificates.Kernel.J4Count.FixC
 public import Certificates.Kernel.J4Count.FixCPairBase1
 public import Certificates.Kernel.J4Count.KFactsBase

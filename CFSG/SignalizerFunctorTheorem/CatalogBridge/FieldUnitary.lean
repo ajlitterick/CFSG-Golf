@@ -13,7 +13,6 @@ import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherPrimeFormRealization
 import CFSG.LocalAnalysis.ComponentInitial.UnitaryModelOuterTwoPart
 import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
 import CFSG.SignalizerFunctorTheorem.Inheritance.TransportA.NearPSolvable
-public import Certificates.Certificate43
 public import CFSG.Assembly.OrderReductions.InvertedSubgroup
 public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LieType.Ree.SuzukiBruhatNormalForm

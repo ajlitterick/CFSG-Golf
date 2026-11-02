@@ -20,7 +20,6 @@ public import CFSG.Quasithin.Vol2.Ch5Sec2LocalLem522NeEqCartanFour
 public import CFSG.Quasithin.Vol2.Ch5Sec1Lem5112Emb
 public import CFSG.Quasithin.Vol2.Ch5Sec1Lem5113F5113
 public import CFSG.Quasithin.Vol2.Ch5Sec2LocalLem522D42Main
-public import Certificates.Certificate19954
 public import CFSG.Quasithin.Vol2.Ch5Sec2LocalLem522BotCanon
 public import CFSG.Quasithin.Vol2.Ch5Assembly
 public import CFSG.Quasithin.Vol2.Ch5LieQuot
@@ -372,19 +371,6 @@ public import CFSG.Walter.Ree.Thompson2.BaseFin
 public import CFSG.Walter.ReeOrder.WardLocal
 public import CFSG.Walter.W67.Section8.Prop83
 public import CFSG.Walter.W67.W2Lemma26A
-public import Certificates.Certificate7000
-public import Certificates.Certificate7001
-public import Certificates.Certificate7002
-public import Certificates.Certificate7003
-public import Certificates.Certificate7004
-public import Certificates.Certificate7005
-public import Certificates.Certificate7006
-public import Certificates.Certificate7007
-public import Certificates.Certificate7008
-public import Certificates.Certificate7009
-public import Certificates.Certificate7010
-public import Certificates.Certificate7011
-public import Certificates.Certificate7056
 
 public section
 

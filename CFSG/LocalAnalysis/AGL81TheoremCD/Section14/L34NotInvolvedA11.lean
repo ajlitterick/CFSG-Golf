@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.ChoiceExists
-public import Certificates.Certificate2022
 import CFSG.Models.PGLSimple
 import CFSG.Open.StatedDefs
 import CFSG.LocalAnalysis.ComponentClassification.PSL3FourAlternatingExclusion

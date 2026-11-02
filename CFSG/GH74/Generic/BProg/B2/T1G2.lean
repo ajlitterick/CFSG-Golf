@@ -16,7 +16,6 @@ public import CFSG.GH74.AS16.Defs
 public import CFSG.GH74.E2.OddRankG
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk94G4Defs
 public import CFSG.Sporadic.Schreier.LyFixedSet
-public import Certificates.Certificate5007
 
 public section
 

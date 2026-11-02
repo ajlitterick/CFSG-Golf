@@ -4,7 +4,6 @@ public import CFSG.RankThree.SubgroupLists.SymplecticReducible
 public import Mathlib.LinearAlgebra.Eigenspace.Basic
 import CFSG.CharacterTheory.Wreathed.OddLinearThreeCentralizerCore
 import CFSG.RankThree.PartTwo.Sec4.Census.Item44Groups
-public import Certificates.Certificate43
 
 public section
 

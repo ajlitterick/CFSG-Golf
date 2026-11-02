@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThirteenAltTenBlockOne
 public import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockAFiveCensus
-public import Certificates.Certificate43
-public import Certificates.Certificate7067
-public import Certificates.Certificate2326
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThirteenAltTenBlockTwoTypes
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThirteenAltTenBlockTwoSL
 import CFSG.HardMathSupport.Curtis.UnitaryLevi.PLTypeHolds

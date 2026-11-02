@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.S7Rel
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.AppCOffender
-public import Certificates.Certificate17027
-public import Certificates.Certificate5952
 public import CFSG.Sporadic.Schreier.J4SOrder
 public import CFSG.Sporadic.Schreier.J4SSylow
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Stage6

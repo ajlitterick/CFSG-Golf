@@ -102,10 +102,6 @@ import CFSG.Sporadic.ON.SimpleBase
 import CFSG.Sporadic.Presentation.Ly
 import CFSG.Sporadic.Schreier.LyChain11
 import CFSG.Sporadic.Schreier.TitsOther
-import Certificates.Certificate1016Base
-import Certificates.Certificate1021
-import Certificates.Certificate3085Base
-import Certificates.Certificate8026Base
 
 public section
 

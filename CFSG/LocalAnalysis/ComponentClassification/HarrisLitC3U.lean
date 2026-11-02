@@ -39,7 +39,6 @@ public import CFSG.LocalAnalysis.SectionRank.LargeReeCover
 public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeGroup
 public import CFSG.Sporadic.ThSchreier.LocalOrbitBase1
 public import CFSG.Sporadic.ThSchreier.Rigidity
-public import Certificates.Certificate10091Base
 
 public noncomputable section
 

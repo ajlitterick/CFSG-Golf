@@ -33,9 +33,6 @@ public import CFSG.Quasithin.Vol2.KGFactC31RuRefBase
 public import CFSG.Sporadic.Ly.Simple
 public import CFSG.Sporadic.McL
 public import CFSG.Walter.J1Recog
-public import Certificates.Certificate10025
-public import Certificates.Certificate5007
-public import Certificates.Certificate7233Base
 
 public section
 

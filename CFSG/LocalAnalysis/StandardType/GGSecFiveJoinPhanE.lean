@@ -16,8 +16,6 @@ import CFSG.LocalAnalysis.StandardType.GGNSJoinRealized
 import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 import CFSG.LocalAnalysis.StandardType.GGTBE6
 import CFSG.LocalAnalysis.StandardType.GGTBTorLiftRowsHolds
-public import Certificates.Certificate13659
-public import Certificates.Certificate13660
 
 public section
 

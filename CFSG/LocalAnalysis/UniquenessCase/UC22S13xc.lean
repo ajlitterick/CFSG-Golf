@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P2121e
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S13a
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront13
-public import Certificates.Certificate114
-public import Certificates.Certificate117
-public import Certificates.Certificate3119
 import CFSG.LocalAnalysis.UniquenessCase.UC22P21c
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenSixtyFour
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.ShapeDisjoint

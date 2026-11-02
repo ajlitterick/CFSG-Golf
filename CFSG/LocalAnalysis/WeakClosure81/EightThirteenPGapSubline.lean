@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.WeakClosure81.EightThirteenPGapF4Data
-public import Certificates.Certificate43
 import CFSG.GroupTheory.AlternatingFive.SylowTwo
 public import CFSG.CGT.Timmesfeld75.Cfg214Gen
 public import CFSG.LargeExtraspecial.S9TIXC

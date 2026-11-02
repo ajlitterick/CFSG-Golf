@@ -71,10 +71,6 @@ import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
 import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
 import CFSG.Sporadic.Schreier.J4SProfileNode
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-import Certificates.Certificate1
-import Certificates.Certificate1953
-import Certificates.Certificate1954
-import Certificates.Certificate2
 import Certificates.Kernel.SporSch.Th.Plane2320
 
 public section

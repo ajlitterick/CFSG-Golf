@@ -7,7 +7,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoDNbr6Main
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDL1
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDL1Odd
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDNbrSixFrame
-public import Certificates.Certificate3143
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDL1Edge
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDNbrSixEdge
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDSelCore

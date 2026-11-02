@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.FS81.RootE8Defs
 public import CFSG.LocalAnalysis.StandardType.FS81.S7Model
 public import CFSG.LocalAnalysis.SeitzReduction.E8PilotMainLift
-public import Certificates.Certificate8064
 public import CFSG.LocalAnalysis.StandardType.FS81.S7E7Incl
 import CFSG.LocalAnalysis.StandardType.FS81.S7E7InclRange
 import CFSG.LocalAnalysis.StandardType.FS81.Realized
@@ -95,18 +94,6 @@ import CFSG.Sporadic.Presentation.Co2Fusion
 import CFSG.Sporadic.Presentation.Co2FusionInputs
 import CFSG.Sporadic.Presentation.McLExactData
 import CFSG.Sporadic.Presentation.McLExactInputs
-import Certificates.Certificate16005
-import Certificates.Certificate3044
-import Certificates.Certificate3122
-import Certificates.Certificate3123
-import Certificates.Certificate3130
-import Certificates.Certificate3133
-import Certificates.Certificate3134
-import Certificates.Certificate3136
-import Certificates.Certificate3137
-import Certificates.Certificate3179
-import Certificates.Certificate8160
-import Certificates.Certificate9124
 
 public section
 

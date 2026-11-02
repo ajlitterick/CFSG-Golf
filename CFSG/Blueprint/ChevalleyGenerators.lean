@@ -2,7 +2,6 @@ module
 
 public import CFSG.Blueprint.ChevalleyRoots
 public import CFSG.Blueprint.ChevalleyUnits
-public import Certificates.Certificate113
 
 public section
 

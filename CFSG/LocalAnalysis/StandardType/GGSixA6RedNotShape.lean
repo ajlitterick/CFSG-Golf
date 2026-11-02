@@ -42,8 +42,6 @@ public import CFSG.LocalAnalysis.SeitzReduction.RankOneHypStarDef
 public import CFSG.Quasithin.Vol2.Ch5Sec1L34FiveA7
 public import CFSG.Quasithin.Vol2.Ch6Sec1Lem4SpA
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434SmallTwoIVDefs
-public import Certificates.Certificate8007
-public import Certificates.Certificate8008
 
 public section
 

@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2UniCover
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1Regimes
-public import Certificates.Certificate13723
-public import Certificates.Certificate13724
 import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1Holds
 import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel

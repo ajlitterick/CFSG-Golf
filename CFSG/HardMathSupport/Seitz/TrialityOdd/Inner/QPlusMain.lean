@@ -5,7 +5,6 @@ public import CFSG.HardMathSupport.Seitz.TrialityOdd.Inner.QPlusCommute
 public import CFSG.LieType.Steinberg.TwistedD4.Weyl
 public import CFSG.LieType.Steinberg.TwistedD4.Local
 public import CFSG.LieType.Steinberg.TwistedD4.RankOne
-public import Certificates.Certificate117
 public import CFSG.HardMathSupport.Seitz.TrialityOdd.Inner.PlaneAbstract
 public import CFSG.HardMathSupport.Seitz.TrialityOdd.Inner.G2OddQPlusAll
 public import CFSG.LieType.Steinberg.CentralExt.SUTwo

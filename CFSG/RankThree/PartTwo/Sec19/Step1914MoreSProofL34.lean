@@ -3,9 +3,6 @@ module
 public import CFSG.RankThree.PartTwo.Sec19.Step1914MoreProof
 public import CFSG.RankThree.PartTwo.Sec13.Item138ProofOmega
 public import CFSG.RankThree.PartTwo.Sec13.Item138ProofMain
-public import Certificates.Certificate3029
-public import Certificates.Certificate3086
-public import Certificates.Certificate3139
 import CFSG.RankThree.PartTwo.Sec19.Step1914MoreSProofCore
 import CFSG.RankThree.PartTwo.Sec19.Step1914Tri
 import CFSG.RankThree.PartTwo.Sec19.O2Centralizer
@@ -19,10 +16,6 @@ import CFSG.RankThree.PartTwo.Sec13.Item137ProofOrbit
 import CFSG.RankThree.PartTwo.Sec6.Item612Plus
 import CFSG.RankThree.PartTwo.KFacts.KS14Orders
 import CFSG.RankThree.CentralCover.FourGroupWitness
-public import Certificates.Certificate2201
-public import Certificates.Certificate8171
-public import Certificates.Certificate8172
-public import Certificates.Certificate9950
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHermitianIsometry
 import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
 import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerImageCompletion
@@ -36,7 +29,6 @@ import CFSG.RankThree.PartTwo.Sec6.Item612Core
 import CFSG.RankThree.PartTwo.Sec6.Statements
 import CFSG.Sporadic.Schreier.J4SProfileNode
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
-import Certificates.Certificate43
 
 public section
 

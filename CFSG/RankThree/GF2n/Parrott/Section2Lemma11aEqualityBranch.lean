@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.GF2n.Parrott.HPrimeJ1
 public import CFSG.GroupTheory.ABGLocalTools.Basic
-public import Certificates.Certificate946017
 import CFSG.RankThree.GF2n.Parrott.DerivedInterJEqBranch
 import CFSG.RankThree.GF2n.Parrott.MemJOfIndexTwo
 import CFSG.RankThree.GF2n.Parrott.WAction

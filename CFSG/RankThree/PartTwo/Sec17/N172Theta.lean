@@ -35,8 +35,6 @@ import CFSG.LocalAnalysis.RankThreeEvenClassification.ThetaSolvableQuotient
 public import CFSG.RankThree.PartTwo.Sec14.Item148StepCases
 public import CFSG.RankThree.PartTwo.Sec14.Item148StepOne
 public import CFSG.RankThree.PartTwo.Sec14.Item148StepPoint
-public import Certificates.Certificate2201
-public import Certificates.Certificate2202
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHermitianIsometry
 import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 import CFSG.LocalAnalysis.ComponentClassification.LayerMultiplication

@@ -4,15 +4,6 @@ public import CFSG.Yardstones.Md0ec50421ce4.Definitions
 public import CFSG.LocalAnalysis.StandardType.ChevTwoLieModel
 public import CFSG.LocalAnalysis.StandardType.GGReverseMarking
 public import CFSG.LocalAnalysis.StandardType.MarkingSmall
-public import Certificates.Certificate43
-public import Certificates.Certificate78
-public import Certificates.Certificate79
-public import Certificates.Certificate80
-public import Certificates.Certificate81
-public import Certificates.Certificate119
-public import Certificates.Certificate120
-public import Certificates.Certificate121
-public import Certificates.Certificate8064
 import CFSG.Adapters.TauCetiLieModels
 import CFSG.Adapters.LinearSmallCatalog
 import CFSG.Adapters.StatedPSLTwoSeven

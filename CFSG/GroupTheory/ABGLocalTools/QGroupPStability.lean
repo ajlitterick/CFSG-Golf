@@ -6,10 +6,6 @@ import CFSG.GroupTheory.ABGLocalTools.PStabilityQChoice
 import CFSG.GroupTheory.ABGLocalTools.PStabilityQDickson
 import CFSG.GroupTheory.ABGLocalTools.PStabilityQOuter
 import CFSG.GroupTheory.ABGLocalTools.SL2FieldAut
-public import Certificates.Certificate8
-public import Certificates.Certificate9
-public import Certificates.Certificate42
-public import Certificates.Certificate43
 public import CFSG.Assembly.OrderReductions.InvertedSubgroup
 public import CFSG.CharacterTheory.Blocks.BrauerInduction
 public import CFSG.CharacterTheory.TwoRankLowerBound.BrauerCharacterCriterion

@@ -138,8 +138,6 @@ public import CFSG.RankThree.PartTwo.Sec17.Item17TailSteps
 public import CFSG.RankThree.PartTwo.Sec17.RouteProvers
 public import CFSG.RankThree.PartTwo.Sec17.RouteProvers142
 public import CFSG.RankThree.S4Free.SuzukiEight
-public import Certificates.Certificate14953
-public import Certificates.Certificate8166
 
 public section
 

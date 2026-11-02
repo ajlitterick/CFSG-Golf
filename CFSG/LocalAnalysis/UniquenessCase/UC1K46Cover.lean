@@ -23,7 +23,6 @@ public import CFSG.RankThree.PartOne.CTP.SeitzOrthModel
 public import CFSG.RankThree.PartOne.CTP.StrongPBridgeRest
 public import CFSG.RankThree.PartOne.CTP.StrongPFinal
 public import CFSG.RankThree.PartTwo.KFacts.KS14SzLie
-public import Certificates.Certificate5007
 
 public section
 

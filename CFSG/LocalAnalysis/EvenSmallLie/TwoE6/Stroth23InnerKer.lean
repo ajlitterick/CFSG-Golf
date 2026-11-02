@@ -5,23 +5,6 @@ public import CFSG.Monster.B.GSide.TriangleData
 public import CFSG.Monster.B.GSide.HSylowBetaRank
 public import CFSG.Monster.B.GSide.EdgeHom
 public import CFSG.Monster.B.TwoA.Amalgam.TriangleCore
-public import Certificates.Certificate16003
-public import Certificates.Certificate16010
-public import Certificates.Certificate16023
-public import Certificates.Certificate16042
-public import Certificates.Certificate3029
-public import Certificates.Certificate3030
-public import Certificates.Certificate3031
-public import Certificates.Certificate3033
-public import Certificates.Certificate3034
-public import Certificates.Certificate3035
-public import Certificates.Certificate3036
-public import Certificates.Certificate3065
-public import Certificates.Certificate3066
-public import Certificates.Certificate3067
-public import Certificates.Certificate3032
-public import Certificates.Certificate3068
-public import Certificates.Certificate3069
 
 public section
 

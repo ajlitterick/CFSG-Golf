@@ -156,20 +156,6 @@ public import CFSG.RankThree.PartTwo.KFacts.K71OddChar
 public import CFSG.RankThree.PartTwo.Sec4.Item424Res2ProofTools
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434O8pE9Local
 public import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec2.Defs
-public import Certificates.Certificate12623
-public import Certificates.Certificate14973
-public import Certificates.Certificate19800
-public import Certificates.Certificate295200
-public import Certificates.Certificate310101
-public import Certificates.Certificate41501
-public import Certificates.Certificate9461
-public import Certificates.Certificate9551
-public import Certificates.Certificate9552
-public import Certificates.Certificate9553
-public import Certificates.Certificate9554
-public import Certificates.Certificate9555
-public import Certificates.Certificate9556
-public import Certificates.Certificate9567
 
 public section
 

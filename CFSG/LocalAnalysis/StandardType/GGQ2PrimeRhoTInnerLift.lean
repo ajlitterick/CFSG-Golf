@@ -6,9 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeL81Coords
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeF4CubeScalar
 public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.YamadaHAutModel
 public import CFSG.Certificates.Kernel.U62PairGrp
-public import Certificates.Certificate1003
-public import Certificates.Certificate1009
-public import Certificates.Certificate3600
 public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.YamadaNativeData
 
 public section

@@ -4,8 +4,6 @@ public import CFSG.Quasithin.Background.JonesParshallG2Two
 public import CFSG.Quasithin.Background.P3G2Zorn
 public import CFSG.Quasithin.Background.FFC4CaseI
 public import CFSG.Quasithin.Background.FFC4Ext
-public import Certificates.Certificate8953
-public import Certificates.Certificate17001
 public import CFSG.GroupTheory.Fitting.CharacteristicP
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 public import CFSG.LocalAnalysis.ComponentClassification.LayerMultiplication

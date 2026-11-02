@@ -22,7 +22,6 @@ public import CFSG.Quasithin.Vol2.Ch1Local
 public import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec2.Thm210
 public import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec2.Thm211
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
-public import Certificates.Certificate8026Base
 
 @[expose] public section
 

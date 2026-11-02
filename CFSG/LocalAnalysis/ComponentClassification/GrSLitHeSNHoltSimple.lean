@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeSNFinal
 public import CFSG.RankThree.PartTwo.Sec21.HoltCatalog
-public import Certificates.Certificate43
-public import Certificates.Certificate113
 import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeSNAlt
 import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeSNBender
 public import Certificates.Kernel.ThCent.Leaves

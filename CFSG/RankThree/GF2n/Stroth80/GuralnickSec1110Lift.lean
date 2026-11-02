@@ -15,9 +15,6 @@ import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Coordinator.PerfectCoreCov
 import CFSG.LocalAnalysis.ComponentClassification.OutcomeLocalCTILinear
 import CFSG.Certificates.CosetTableShort
 import CFSG.LocalAnalysis.EvenSmallLie.Sp6JCondition
-import Certificates.Certificate2154
-import Certificates.Certificate2157
-import Certificates.Certificate3008
 
 public section
 

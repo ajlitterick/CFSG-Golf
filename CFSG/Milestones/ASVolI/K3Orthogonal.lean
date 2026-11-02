@@ -12,7 +12,6 @@ public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 public import CFSG.Quasithin.Background.C1PackClassG
 public import CFSG.Quasithin.Background.C1PackSolvP
 public import CFSG.Quasithin.Vol2.KGFactC31RuRefBase
-public import Certificates.Certificate7233Base
 
 public section
 

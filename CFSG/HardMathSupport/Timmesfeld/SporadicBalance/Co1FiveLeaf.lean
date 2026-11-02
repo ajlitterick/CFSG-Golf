@@ -4,8 +4,6 @@ public import CFSG.Sporadic.Co1Block.Perm
 public import CFSG.Sporadic.Co1Block.Tools
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co3ThreeKit
 public import Certificates.Data.CFSGNative.Timmesfeld.Co1Five
-public import Certificates.Certificate2043
-public import Certificates.Certificate3024
 public import CFSG.HardMathSupport.Timmesfeld.Coordinator.LocalThreeSporadicRank
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Core
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Reduction

@@ -5,14 +5,6 @@ public import CFSG.Sporadic.Schreier.J4SRealGen
 public import CFSG.Sporadic.Schreier.J4SForm
 public import CFSG.Sporadic.Schreier.J4SNChar
 public import CFSG.LinearAlgebra.DistinctSubdegreesLinearization
-public import Certificates.Certificate2168
-public import Certificates.Certificate2171
-public import Certificates.Certificate2172
-public import Certificates.Certificate2174
-public import Certificates.Certificate2177
-public import Certificates.Certificate2181
-public import Certificates.Certificate2182
-public import Certificates.Certificate3084
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 public import CFSG.LocalAnalysis.ComponentClassification.LayerMultiplication

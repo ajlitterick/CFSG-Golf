@@ -55,9 +55,6 @@ public import CFSG.RankThree.PartOne.S10.PlaneLocalRankContract
 public import CFSG.RankThree.PartOne.S15K.FixedWitt
 public import CFSG.RankThree.PartOne.S15K.LayerModel
 public import CFSG.RankThree.PartTwo.Sec4.Item424Res2ProofTools
-public import Certificates.Certificate12623
-public import Certificates.Certificate19800
-public import Certificates.Certificate41501
 
 public section
 

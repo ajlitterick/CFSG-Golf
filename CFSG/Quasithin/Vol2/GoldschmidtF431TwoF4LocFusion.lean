@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.GoldschmidtF431TwoF4LocChain
-public import Certificates.Certificate7050Base
 
 public section
 

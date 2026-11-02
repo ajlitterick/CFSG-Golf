@@ -44,8 +44,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.CoprimeActio
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseComponentData
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character
 public import CFSG.Walter.J1
-public import Certificates.Certificate1
-public import Certificates.Certificate2
 
 public section
 

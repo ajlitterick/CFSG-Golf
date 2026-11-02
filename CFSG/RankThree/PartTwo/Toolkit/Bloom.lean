@@ -4,8 +4,6 @@ public import CFSG.RankThree.PartTwo.Toolkit.BloomMono
 public import CFSG.RankThree.PartTwo.Toolkit.Bloom13
 public import CFSG.RankThree.PartTwo.Toolkit.BloomGamma
 public import CFSG.CharacterTheory.Burnside
-public import Certificates.Certificate8171
-public import Certificates.Certificate8172
 
 public section
 

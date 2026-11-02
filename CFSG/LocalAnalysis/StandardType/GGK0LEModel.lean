@@ -17,8 +17,6 @@ public import CFSG.RankThree.PartOne.KE.A1Levi
 public import CFSG.RankThree.PartOne.KE.D4LayerAlgebraic
 public import CFSG.RankThree.PartOne.KE.E8D4Family
 public import CFSG.RankThree.PartOne.KE.ThreeA1Group
-public import Certificates.Certificate1953
-public import Certificates.Certificate1954
 
 public section
 

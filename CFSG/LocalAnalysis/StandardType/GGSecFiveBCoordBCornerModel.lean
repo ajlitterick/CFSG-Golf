@@ -1,8 +1,5 @@
 module
 
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 public import CFSG.LocalAnalysis.StandardType.GGSpTwoPlaneTorusConj
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBLabelDefs
 public import CFSG.LocalAnalysis.StandardType.GGSignedCoordFix
@@ -93,9 +90,6 @@ import CFSG.Sporadic.ON.SimpleBase
 import CFSG.Sporadic.Presentation.Ly
 import CFSG.Sporadic.Schreier.LyChain11
 import CFSG.Sporadic.Schreier.TitsOther
-import Certificates.Certificate1016Base
-import Certificates.Certificate1021
-import Certificates.Certificate3085Base
 
 public section
 

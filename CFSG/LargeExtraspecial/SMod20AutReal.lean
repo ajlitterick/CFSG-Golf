@@ -57,7 +57,6 @@ public import CFSG.Sporadic.ThSchreier.Max3Action
 public import CFSG.Sporadic.ThSchreier.Max3ActionBase1
 public import CFSG.Sporadic.ThSchreier.Rigidity
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970_18
-public import Certificates.Certificate10091Base
 
 public section
 

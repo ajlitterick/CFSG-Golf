@@ -3,7 +3,6 @@ module
 public import CFSG.Monster.B.TwoA.Sp8.P0LCoord
 public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentInitial.LinearCoverFour
-public import Certificates.Certificate812461Base
 
 set_option linter.unusedSectionVars false
 

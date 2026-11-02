@@ -13,9 +13,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight102Syl3Hol
 public import CFSG.LocalAnalysis.UniquenessCase.UC6K332THolds
 public import CFSG.LocalAnalysis.UniquenessCase.UC1K32
 public import CFSG.LocalAnalysis.AGLEmbedding.CatalogSchreier
-public import Certificates.Certificate431004
-public import Certificates.Certificate17430
-public import Certificates.Certificate9726
 public import CFSG.HardMathSupport.Foote.E27.OrbitF3
 public import CFSG.HardMathSupport.Foote.E27.TableSylow
 public import CFSG.HardMathSupport.Lang.Coordinator.OuterFixedOrderE6Order
@@ -71,25 +68,6 @@ public import CFSG.Sporadic.Fi24
 public import CFSG.Sporadic.Recognition.LyonsAmalgamModelYAut
 public import CFSG.Sporadic.Recognition.LyonsFinalDist2
 public import CFSG.Sporadic.Suz
-public import Certificates.Certificate125502
-public import Certificates.Certificate13635
-public import Certificates.Certificate13636
-public import Certificates.Certificate13636Base
-public import Certificates.Certificate13696
-public import Certificates.Certificate19760
-public import Certificates.Certificate19761
-public import Certificates.Certificate19800
-public import Certificates.Certificate19954
-public import Certificates.Certificate41505
-public import Certificates.Certificate41506
-public import Certificates.Certificate41507
-public import Certificates.Certificate41508
-public import Certificates.Certificate6109
-public import Certificates.Certificate8000
-public import Certificates.Certificate9415
-public import Certificates.Certificate9550
-public import Certificates.Certificate9551
-public import Certificates.Certificate9552
 
 public section
 

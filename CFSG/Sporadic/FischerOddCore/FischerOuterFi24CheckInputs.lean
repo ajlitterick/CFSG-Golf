@@ -2,7 +2,6 @@ module
 
 public import CFSG.Sporadic.FischerOddCore.Fi24WitCheck
 public meta import CFSG.Sporadic.FischerOddCore.Fi24WitCheck
-public import Certificates.Certificate2078Base
 public meta import Certificates.Certificate2078Base
 public import Certificates.Kernel.Sporadic.Fi24OrbL.Facts
 public meta import Certificates.Kernel.Sporadic.Fi24OrbL.Facts

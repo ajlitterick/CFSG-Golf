@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveInputs
 public import CFSG.LocalAnalysis.StandardType.GGAssemblyTwoHypSix
-public import Certificates.Certificate2264
-public import Certificates.Certificate2267
-public import Certificates.Certificate8033
-public import Certificates.Certificate8064
 import CFSG.GroupTheory.ElemAbelianClosure
 import CFSG.LocalAnalysis.StandardType.GGB48OmReduce
 import CFSG.LocalAnalysis.StandardType.GGB48OmLift

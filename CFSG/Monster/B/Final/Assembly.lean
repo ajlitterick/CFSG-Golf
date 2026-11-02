@@ -5,15 +5,6 @@ public import CFSG.Monster.B.Gen.Transfer
 public import CFSG.Monster.B.Gen.Generation
 public import CFSG.Monster.B.Gen.Max2Assembly
 public import CFSG.Monster.B.Gen.EbarPairing
-public import Certificates.Certificate3014
-public import Certificates.Certificate3017
-public import Certificates.Certificate3019
-public import Certificates.Certificate3025
-public import Certificates.Certificate3026
-public import Certificates.Certificate3028
-public import Certificates.Certificate3049
-public import Certificates.Certificate3109
-public import Certificates.Certificate3027
 
 public section
 

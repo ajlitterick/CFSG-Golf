@@ -31,7 +31,6 @@ public import CFSG.RankThree.PartTwo.Sec12.Notation
 public import CFSG.RankThree.PartTwo.Sec8.Pairs
 public import CFSG.RankThree.PartTwo.Sec8.Statements
 public import CFSG.Sporadic.Schreier.J4SProfileNode
-public import Certificates.Certificate8026Base
 
 public section
 

@@ -8,7 +8,6 @@ public import CFSG.Sporadic.ThSchreier.Words
 public meta import CFSG.Sporadic.ThSchreier.CentralizerData
 public meta import CFSG.Sporadic.ThSchreier.Words
 public import CFSG.Sporadic.ThSchreier.UASpaceInputs
-public import Certificates.Certificate2325
 public import Mathlib
 public import CFSG.Blueprint.NativeSporadic
 public import CFSG.Blueprint.MatrixSeedIdentification
@@ -21,10 +20,7 @@ public import CFSG.Sporadic.Th.Chain
 public meta import CFSG.Sporadic.ThSchreier.AutCore
 public import CFSG.Sporadic.ThSchreier.AutCore
 public meta import Certificates.Certificate10088Base
-public import Certificates.Certificate10088Base
-public import Certificates.Certificate10089Base
 public meta import Certificates.Certificate10089Base
-public import Certificates.Certificate10091Base
 public meta import Certificates.Certificate10091Base
 
 public section

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Statements
-public import Certificates.Certificate43
-public import Certificates.Certificate113
 import CFSG.OddTranspositions.PartThree.EightNine.Tools
 import CFSG.OddTranspositions.PartThree.EightNine.O4
 import CFSG.OddTranspositions.FiveThreeQZ

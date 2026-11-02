@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentInitial.ChevSp6EpsOneNormalizerStatements
 public import CFSG.LocalAnalysis.ComponentInitial.BinarySymplecticSixDegree64LagrangianCompletion
 public import CFSG.LocalAnalysis.ComponentInitial.ChevSp6EpsOneCoordsDefs
-public import Certificates.Certificate3362
 import CFSG.LocalAnalysis.ComponentInitial.ChevSp6EpsOneVCoordsBase
 
 public noncomputable section

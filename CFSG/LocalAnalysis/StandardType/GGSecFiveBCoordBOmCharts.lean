@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBOmDefs
 public import CFSG.LocalAnalysis.StandardType.GGAssemblyTwoHypSix
-public import Certificates.Certificate117
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermLinOmKFrameMp
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermLinOmKTorus
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermOmFrame

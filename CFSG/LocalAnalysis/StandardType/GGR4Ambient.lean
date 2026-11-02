@@ -7,8 +7,6 @@ public import CFSG.LocalAnalysis.StandardType.GGR4AmbExclE78
 public import CFSG.LocalAnalysis.StandardType.GGR4AmbExclSmall
 public import CFSG.LocalAnalysis.StandardType.GGR4AmbExclClassBig
 public import CFSG.LocalAnalysis.StandardType.GGR4AmbExclClassSmall
-public import Certificates.Certificate13657
-public import Certificates.Certificate3951
 
 public section
 

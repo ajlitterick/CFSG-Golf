@@ -55,12 +55,6 @@ public import CFSG.Quasithin.Vol2.Ch12Sec6KGCompSL3B
 public import CFSG.RankThree.PartTwo.KFacts.K71OddChar
 public import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec2.Defs
 public import CFSG.Walter.W67.W2Lemma26A
-public import Certificates.Certificate12632
-public import Certificates.Certificate12680
-public import Certificates.Certificate17633
-public import Certificates.Certificate19764
-public import Certificates.Certificate19766
-public import Certificates.Certificate34002
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.WeakBlockThree
 import CFSG.LocalAnalysis.ComponentClassification.AutL2FactsFooteRankThree
 import CFSG.LocalAnalysis.ComponentClassification.AutL2FactsSquareProd

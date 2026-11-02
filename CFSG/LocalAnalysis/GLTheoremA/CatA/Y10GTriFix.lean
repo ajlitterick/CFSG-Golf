@@ -68,13 +68,6 @@ public import CFSG.Sporadic.Presentation.Co2Base
 public import CFSG.Sporadic.Presentation.Co2Cover
 public import CFSG.Sporadic.Presentation.Co2Fusion
 public import CFSG.Sporadic.Presentation.Co2FusionInputs
-public import Certificates.Certificate10050
-public import Certificates.Certificate13659
-public import Certificates.Certificate13660
-public import Certificates.Certificate17002
-public import Certificates.Certificate17951
-public import Certificates.Certificate8117
-public import Certificates.Certificate8160
 
 public section
 

@@ -21,7 +21,6 @@ public import CFSG.GroupTheory.ABGDGroups.LinearCentralizers
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2InnerAction
 public import Mathlib.LinearAlgebra.Projectivization.PSL.PSL2
 public import CFSG.LocalAnalysis.EvenBN.Tits.Prelim.FixedCount
-public import Certificates.Certificate7050Base
 public import CFSG.Certificates.Kernel.LocalCompTits.Span
 public import CFSG.LieType.Ree.SuzukiSimple
 public import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeFamilies
@@ -93,7 +92,6 @@ public import CFSG.RankThree.PartOne.CTP.StrongPSylow
 public import CFSG.RankThree.PartOne.S10.ThetaContract
 public import CFSG.RankThree.PartOne.S12.InputsBase
 public import CFSG.Walter.JRFacts
-public import Certificates.Certificate3951
 public import Certificates.Data.CFSGNative.MonsterB.Rep4371Model
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1

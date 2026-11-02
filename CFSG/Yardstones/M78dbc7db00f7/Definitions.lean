@@ -124,15 +124,6 @@ public import CFSG.RankThree.PartTwo.Sec21.Hering214KHS
 public import CFSG.RankThree.PartTwo.Sec21.Item21Early3ProofExists
 public import CFSG.RankThree.S4Free.SuzukiEight
 public import CFSG.Sporadic.ONOddCore.FixedRankOne
-public import Certificates.Certificate2329
-public import Certificates.Certificate2329Base
-public import Certificates.Certificate41501
-public import Certificates.Certificate7233Base
-public import Certificates.Certificate8137
-public import Certificates.Certificate8138
-public import Certificates.Certificate8140
-public import Certificates.Certificate8141
-public import Certificates.Certificate8166
 
 public section
 

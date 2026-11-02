@@ -2,11 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec15.Item1515StepsProofPoints
 public import CFSG.RankThree.PartTwo.Sec15.Item1515StepsProofA10
-public import Certificates.Certificate2195
-public import Certificates.Certificate2202
-public import Certificates.Certificate3029
-public import Certificates.Certificate3086
-public import Certificates.Certificate3157
 import CFSG.RankThree.PartTwo.Sec15.Item1514StepsQuot
 import CFSG.RankThree.PartTwo.Sec15.Item156ProofType
 import CFSG.RankThree.PartTwo.Sec13.Item131Facts
@@ -31,11 +26,6 @@ public import CFSG.RankThree.PartTwo.Sec16.Item169HJ
 public import CFSG.RankThree.PartTwo.Sec6.Statements
 public import CFSG.RankThree.S4Free.SuzukiEight
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.FinalTheorem
-public import Certificates.Certificate2326
-public import Certificates.Certificate3171
-public import Certificates.Certificate3171Base
-public import Certificates.Certificate43
-public import Certificates.Certificate8166
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHermitianIsometry
 import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 import CFSG.LocalAnalysis.ComponentClassification.LayerMultiplication

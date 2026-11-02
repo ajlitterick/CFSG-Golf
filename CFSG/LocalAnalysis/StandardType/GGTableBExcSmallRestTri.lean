@@ -23,8 +23,6 @@ public import CFSG.RankThree.PartOne.S12.Sec137
 public import CFSG.RankThree.PartOne.S9.Sylow.ExclusionBasic
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.CommutatorNormalizer
-public import Certificates.Certificate1
-public import Certificates.Certificate2
 
 public section
 

@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentInnerDefs
 import CFSG.LocalAnalysis.StandardType.GGD4OddCentA2NotInnDiag
-public import Certificates.Certificate3006
-public import Certificates.Certificate3008
-public import Certificates.Certificate3009
-public import Certificates.Certificate12041
 import CFSG.LocalAnalysis.StandardType.GGD4OddCentFieldSchur
 import CFSG.LocalAnalysis.StandardType.GGD4OddCentFieldMark
 import CFSG.LocalAnalysis.StandardType.GGD4OddCentFieldFixed

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGK0StageDefs
 public import CFSG.LocalAnalysis.StandardType.GGFinModelRat
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangPow
-public import Certificates.Certificate1952
 import CFSG.LocalAnalysis.StandardType.GGK0KacRow
 import CFSG.LocalAnalysis.StandardType.GGK0LangModel
 import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExc

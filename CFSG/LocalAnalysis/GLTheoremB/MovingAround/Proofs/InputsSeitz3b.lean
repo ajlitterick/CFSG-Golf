@@ -102,7 +102,6 @@ public import CFSG.RankThree.PartOne.S9.OddCore.RecognitionBasic
 public import CFSG.RankThree.PartOne.SEITZ4.SpPair
 public import CFSG.RankThree.PartOne.SPOR.OuterSimple
 public import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.UniversalCoverMonster.KernelTrivialBridge
-public import Certificates.Certificate5007
 
 public section
 

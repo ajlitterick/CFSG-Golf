@@ -16,13 +16,6 @@ public import CFSG.RankThree.Asc83Table.PermTables
 public import CFSG.RankThree.PartTwo.Sec21.Item223CensusProofSymp
 public import CFSG.Sporadic.ON.SimpleBase
 public import CFSG.Sporadic.Schreier.TitsOther
-public import Certificates.Certificate2237
-public import Certificates.Certificate2239
-public import Certificates.Certificate2241
-public import Certificates.Certificate2244
-public import Certificates.Certificate8057
-public import Certificates.Certificate8058
-public import Certificates.Certificate8059
 
 public section
 

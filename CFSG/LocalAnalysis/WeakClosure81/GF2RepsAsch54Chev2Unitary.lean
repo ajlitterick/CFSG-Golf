@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.WeakClosure81.GF2RepsAsch54Chev2Defs
 public import CFSG.Open.StatedDefs
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 
 import CFSG.Adapters.LieModelSimple
 import CFSG.LocalAnalysis.GL83PartI.I713.UnitaryDiag

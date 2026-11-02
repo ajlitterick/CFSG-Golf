@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.AGL81I.Section3.ThreeNineSocleCore
 public import CFSG.LocalAnalysis.AGL81I.Section3.ThreeNineSporON
-public import Certificates.Certificate5185
 import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.MaximalityAmbient.KS1523ON.CentralizerM
 
 public section

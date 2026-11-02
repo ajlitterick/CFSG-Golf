@@ -69,7 +69,6 @@ public import CFSG.Quasithin.Vol2.Ch1Local
 public import CFSG.RankThree.PartOne.S11d.OutLinear
 public import CFSG.Sporadic.SuzRecog.C1ModelCent
 public import CFSG.Sporadic.SuzRecog.ChartGluing
-public import Certificates.Certificate15088Base
 public import Certificates.Data.CFSGNative.MonsterB.Rep4371Model
 public import Certificates.Kernel.J4Count.FixCPairBase1
 public import Certificates.Kernel.J4Count.KFactsBase

@@ -5,8 +5,6 @@ public import CFSG.ClassicalInvolution.Q3.Q3VF4SAdaptModel
 public import CFSG.ClassicalInvolution.Q3.Q3VF4SRow
 public import CFSG.ClassicalInvolution.Q3.Q3VF4SPart
 public import CFSG.ClassicalInvolution.Q3.Q3VF4CClose
-public import Certificates.Certificate3951
-public import Certificates.Certificate3952
 
 public section
 

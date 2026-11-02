@@ -4,7 +4,6 @@ public import CFSG.OddTranspositions.PartThree.LocalBenderCenter
 public import CFSG.OddTranspositions.PartThree.LocalBenderInvolutions
 public import CFSG.OddTranspositions.PartThree.WidthThree
 public import CFSG.OddTranspositions.PartThree.WidthKind
-public import Certificates.Certificate113
 
 public section
 

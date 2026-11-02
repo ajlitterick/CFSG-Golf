@@ -2,14 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNsq2Cited
 public import CFSG.Blueprint.Catalog
-public import Certificates.Certificate1002
-public import Certificates.Certificate1003
-public import Certificates.Certificate1009
-public import Certificates.Certificate3143
-public import Certificates.Certificate10015
-public import Certificates.Certificate10016
-public import Certificates.Certificate10017
-public import Certificates.Certificate10018
 import CFSG.LocalAnalysis.StandardType.GGNsq2U62Lift
 import CFSG.LocalAnalysis.StandardType.GGQ2PrimeL81Cover
 import CFSG.LocalAnalysis.StandardType.GGNsq2QuotActs

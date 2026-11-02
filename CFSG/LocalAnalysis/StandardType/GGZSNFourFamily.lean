@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveZSInputs
 public import CFSG.LocalAnalysis.StandardType.ZS.ExcMatrices
-public import Certificates.Certificate709543
-public import Certificates.Certificate709544
 import CFSG.LocalAnalysis.StandardType.GGZSNFourBound
 import CFSG.LocalAnalysis.StandardType.GGZSNFourSound
 import CFSG.LocalAnalysis.StandardType.ZS.ExcMatricesRefl

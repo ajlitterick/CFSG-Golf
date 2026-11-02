@@ -45,8 +45,6 @@ public import CFSG.Sporadic.Schreier.LyFixedSet
 public import CFSG.Sporadic.Schreier.M23
 public import CFSG.Sporadic.Schreier.PairJ3Order
 public import CFSG.Walter.J1Recog
-public import Certificates.Certificate5007
-public import Certificates.Certificate9300
 
 public section
 

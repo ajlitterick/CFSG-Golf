@@ -49,8 +49,6 @@ public import CFSG.RankThree.PartTwo.Sec21.Item211ProofListOf
 public import CFSG.RankThree.PartTwo.Sec4.Item423ResProof432
 public import CFSG.RankThree.PartTwo.Sec4.RonanK432Transport
 public import CFSG.RankThree.S4Free.SuzukiEight
-public import Certificates.Certificate14953
-public import Certificates.Certificate8166
 
 public section
 

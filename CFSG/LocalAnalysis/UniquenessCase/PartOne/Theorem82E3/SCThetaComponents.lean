@@ -4,9 +4,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.CaseTwoSylow
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.CaseTwoFixedEnd
 public import CFSG.LocalAnalysis.QuasithinUnique.ComponentNormalization
 public import CFSG.Walter.AStar.Subnormal
-public import Certificates.Certificate431004
-public import Certificates.Certificate17430
-public import Certificates.Certificate9726
 public import CFSG.RankThree.GroupTheory.ThetaQuotientTransport
 public import CFSG.RankThree.PartTwo.Sec4.Notation
 public import CFSG.RankThree.LocalRank.ThetaCoreQuotients

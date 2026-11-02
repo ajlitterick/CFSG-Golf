@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Certificate43
 public import CFSG.Foundations.Basic
 public import CFSG.Open.LocalVocabulary
 public import CFSG.GroupTheory.ABGLocalTools.Basic

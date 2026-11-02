@@ -1,11 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec19.Statements
-public import Certificates.Certificate2193
-public import Certificates.Certificate2194
-public import Certificates.Certificate2200
-public import Certificates.Certificate2201
-public import Certificates.Certificate3086
 import CFSG.RankThree.PartTwo.Sec19.Step1914Tri
 import CFSG.RankThree.PartTwo.Sec19.Step1914E
 import CFSG.RankThree.PartTwo.Sec19.O2Centralizer

@@ -16,8 +16,6 @@ public import CFSG.RankThree.Lattice.SteinbergBIE6OrderThreeTools
 public import CFSG.RankThree.Lattice.SteinbergBIE6Qplus
 public import CFSG.RankThree.Lattice.SteinbergBIGenPerfect
 public import CFSG.RankThree.Lattice.SteinbergBIGenQuasisimple
-public import Certificates.Certificate10050
-public import Certificates.Certificate13660
 
 public section
 

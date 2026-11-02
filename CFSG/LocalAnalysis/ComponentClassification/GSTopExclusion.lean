@@ -9,7 +9,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.FooteLitInputs
 public import CFSG.LocalAnalysis.ComponentClassification.FixedCommutingProduct
 public import CFSG.LocalAnalysis.ComponentClassification.Foote47L216FrobeniusConjugacy
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBShell
-public import Certificates.Certificate43
 import CFSG.LocalAnalysis.ComponentClassification.UnbalancingLocalCorrespondenceTools
 import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCorrSourceChange
 import CFSG.LocalAnalysis.ComponentClassification.FooteLitSolomonFamily
@@ -121,57 +120,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.Sol76RankOneClassPoint
 public import CFSG.LocalAnalysis.ComponentClassification.Foote5SolType
 public import CFSG.LocalAnalysis.ComponentClassification.Sol76Lemma313Star
 public import CFSG.LocalAnalysis.ComponentClassification.FooteLitLemma412Pair
-import Certificates.Certificate1
-import Certificates.Certificate2
-import Certificates.Certificate3
-import Certificates.Certificate4
-import Certificates.Certificate5
-import Certificates.Certificate6
-import Certificates.Certificate7
-import Certificates.Certificate8
-import Certificates.Certificate9
-import Certificates.Certificate10
-import Certificates.Certificate11
-import Certificates.Certificate12
-import Certificates.Certificate42
-import Certificates.Certificate44
-import Certificates.Certificate45
-import Certificates.Certificate49
-import Certificates.Certificate53
-import Certificates.Certificate59
-import Certificates.Certificate68
-import Certificates.Certificate72
-import Certificates.Certificate96
-import Certificates.Certificate97
-import Certificates.Certificate98
-import Certificates.Certificate99
-import Certificates.Certificate100
-import Certificates.Certificate101
-import Certificates.Certificate102
-import Certificates.Certificate103
-import Certificates.Certificate104
-import Certificates.Certificate105
-import Certificates.Certificate106
-import Certificates.Certificate107
-import Certificates.Certificate108
-import Certificates.Certificate109
-import Certificates.Certificate110
-import Certificates.Certificate117
-import Certificates.Certificate7000
-import Certificates.Certificate7001
-import Certificates.Certificate7002
-import Certificates.Certificate7003
-import Certificates.Certificate7004
-import Certificates.Certificate7005
-import Certificates.Certificate7006
-import Certificates.Certificate7007
-import Certificates.Certificate7008
-import Certificates.Certificate7009
-import Certificates.Certificate7010
-import Certificates.Certificate7011
-import Certificates.Certificate8046
-import Certificates.Certificate8049
-import Certificates.Certificate8052
 import CFSG.LocalAnalysis.ComponentClassification.RankTwoFoundationFinal
 import CFSG.CGT.Timmesfeld75.BenderInputs6
 import CFSG.LocalAnalysis.EvenBN.GMS.GoldschmidtTypeInvolution
@@ -405,9 +353,6 @@ public import CFSG.Sporadic.SuzOddCore.InvCentralizerBounds
 public import CFSG.Sporadic.SuzOddCore.SmallActionData
 public import CFSG.Sporadic.ThSchreier.ThSchreierCase
 public import CFSG.YGroups.DCE.B433Check
-public import Certificates.Certificate10025
-public import Certificates.Certificate8171
-public import Certificates.Certificate9124
 import CFSG.ClassicalInvolution.Asc77.HypOmegaBasic
 import CFSG.ClassicalInvolution.Asc77.Lemma310
 import CFSG.ClassicalInvolution.Asc77.ThmEStatement
@@ -547,7 +492,6 @@ import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
 import CFSG.Timmesfeld.Moufang.Three
 import CFSG.Timmesfeld.RankOne
 import CFSG.Timmesfeld.Special.TwoCore
-import Certificates.Certificate7233Base
 
 public section
 

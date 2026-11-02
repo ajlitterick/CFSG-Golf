@@ -6,8 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGKGAF4Aut
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLine
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcBasic
 public import CFSG.LocalAnalysis.StandardType.GGLayerCenterCyclicExcSix
-public import Certificates.Certificate1002
-public import Certificates.Certificate1003
 
 public section
 

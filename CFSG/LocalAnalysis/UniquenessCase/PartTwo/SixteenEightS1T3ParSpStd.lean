@@ -128,22 +128,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphRecons
 public import CFSG.Timmesfeld.RankOne
 public import CFSG.Timmesfeld.Transvection.Statement
 public import CFSG.Walter.JRFacts
-public import Certificates.Certificate10
-public import Certificates.Certificate1016Base
-public import Certificates.Certificate1021
-public import Certificates.Certificate11
-public import Certificates.Certificate12
-public import Certificates.Certificate3
-public import Certificates.Certificate3085Base
-public import Certificates.Certificate4
-public import Certificates.Certificate42
-public import Certificates.Certificate44
-public import Certificates.Certificate5
-public import Certificates.Certificate6
-public import Certificates.Certificate7
-public import Certificates.Certificate8
-public import Certificates.Certificate8026Base
-public import Certificates.Certificate9
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 
 public section

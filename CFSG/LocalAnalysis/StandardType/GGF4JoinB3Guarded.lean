@@ -11,7 +11,6 @@ import CFSG.LocalAnalysis.StandardType.GGTBTorLiftRowsHolds
 import CFSG.LocalAnalysis.StandardType.GGPZWeylB
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBWeylInfDefs
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNativeImageDefs
-import Certificates.Certificate709551
 
 public section
 

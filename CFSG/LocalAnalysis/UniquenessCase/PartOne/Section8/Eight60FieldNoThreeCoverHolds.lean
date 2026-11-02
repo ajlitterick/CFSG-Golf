@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight60FieldAssembly
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 import CFSG.Adapters.ProjectiveSpecialLinear
 import CFSG.LieType.Steinberg.CentralExt.PSLMultiplier
 import CFSG.LieType.Steinberg.CentralExt.SUOddClosed

@@ -14,7 +14,6 @@ public import CFSG.Sporadic.Ly.Simple
 public import CFSG.LocalAnalysis.QuasithinUnique.Setting
 public import CFSG.Sporadic.LyBase
 public import CFSG.Sporadic.Ly.CertificateBase
-public import Certificates.Certificate3085Base
 public import CFSG.Sporadic.McL
 public import CFSG.Sporadic.Ly.ActionBase
 public import CFSG.Sporadic.HN.LevelChainSpec

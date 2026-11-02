@@ -41,19 +41,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.lemma_4_5_a
 public import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherEvenOrthogonalModel
 public import CFSG.Sporadic.Recognition.HNMultiplier
-public import Certificates.Certificate1004
-public import Certificates.Certificate1011
-public import Certificates.Certificate1018
-public import Certificates.Certificate1018Base
-public import Certificates.Certificate8086
-public import Certificates.Certificate8087
-public import Certificates.Certificate8088
-public import Certificates.Certificate8089
-public import Certificates.Certificate8090
-public import Certificates.Certificate8091
-public import Certificates.Certificate8092
-public import Certificates.Certificate8126
-public import Certificates.Certificate8152
 
 public section
 

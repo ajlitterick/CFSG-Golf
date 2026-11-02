@@ -79,16 +79,6 @@ public import CFSG.RankThree.PartTwo.Sec21.LangTwistedProofD4Tor
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
 public import CFSG.Sporadic.HeldB.Common
 public import CFSG.Sporadic.ONOddCore.LiftHomCheckInputs
-public import Certificates.Certificate2121
-public import Certificates.Certificate2122
-public import Certificates.Certificate2123
-public import Certificates.Certificate2173
-public import Certificates.Certificate2178
-public import Certificates.Certificate2183
-public import Certificates.Certificate2214
-public import Certificates.Certificate2215
-public import Certificates.Certificate2217
-public import Certificates.Certificate7233Base
 
 public section
 

@@ -8,8 +8,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2KleinFourSelfCent
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.PSL2ReflectedTorusCard
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.LinearThreeEquiv
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.LinearRingEquiv
-public import Certificates.Certificate1
-public import Certificates.Certificate2
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2S0LeQuotientTorus
 
 public noncomputable section

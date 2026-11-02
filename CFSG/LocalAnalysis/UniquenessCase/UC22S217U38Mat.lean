@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.UC6S846e
 public import CFSG.LieType.Universal.Unitary.Basic
 public import CFSG.LieType.BorelTits.UnitaryForm
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 import Mathlib.LinearAlgebra.Matrix.Notation
 import CFSG.LocalAnalysis.UniquenessCase.UC22S217U38
 import CFSG.LocalAnalysis.UniquenessCase.Lie.SU3Cover

@@ -2,8 +2,6 @@ module
 
 public import CFSG.Blueprint.ChevalleyWeyl
 public import CFSG.LocalAnalysis.ComponentInitial.FourGroupCommuting
-public import Certificates.Certificate113
-public import Certificates.Certificate114
 
 public section
 

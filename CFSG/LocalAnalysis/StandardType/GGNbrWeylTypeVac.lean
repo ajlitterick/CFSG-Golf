@@ -11,7 +11,6 @@ import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBVac
 import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrSmallRank
 import CFSG.LocalAnalysis.StandardType.GGNbrTableBExcInduced
 import CFSG.LocalAnalysis.StandardType.GGTableBTypeATorus
-import Certificates.Certificate8032
 
 public section
 

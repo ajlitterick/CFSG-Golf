@@ -3,12 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.D3ZQ4
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.D3ZQ4CRoots
 public import CFSG.LieType.Chevalley.RootCommutator
-public import Certificates.Certificate116
-public import Certificates.Certificate119
-public import Certificates.Certificate122
-public import Certificates.Certificate123
-public import Certificates.Certificate3951
-public import Certificates.Certificate43
 
 set_option linter.unusedSectionVars false
 

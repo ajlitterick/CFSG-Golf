@@ -51,8 +51,6 @@ public import CFSG.RankThree.PartOne.N143.Weyl613Defs
 public import CFSG.RankThree.PartOne.N143X.KF64WSimple
 public import CFSG.RankThree.PartOne.S11d.OddOutPSL2
 public import CFSG.RankThree.PartOne.S11d.OutEsix
-public import Certificates.Certificate1953
-public import Certificates.Certificate1954
 
 public section
 

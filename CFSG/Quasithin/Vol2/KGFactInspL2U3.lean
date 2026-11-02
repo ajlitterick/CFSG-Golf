@@ -5,7 +5,6 @@ public import CFSG.SignalizerFunctorTheorem.CatalogBridge.DicksonNonLocal
 public import CFSG.Quasithin.Vol2.GoldschmidtCor332Bender
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
 public import CFSG.Adapters.ProjectiveSpecialLinear
-public import Certificates.Certificate43
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.SectionRank.EvenCover.Catalog

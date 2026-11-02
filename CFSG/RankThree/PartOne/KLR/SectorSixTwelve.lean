@@ -4,8 +4,6 @@ public import CFSG.RankThree.PartOne.RF4.Basic
 public import CFSG.LieType.Ree.LargeReeInvolutionTwoCentralizers
 public import CFSG.LieType.Ree.LargeReeInvolutionFusion
 public import CFSG.LieType.Ree.LargeReeInvolutionFusionWord
-public import Certificates.Certificate3951
-public import Certificates.Certificate18000
 public import CFSG.Assembly.OrderReductions.InvertedSubgroup
 public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LieType.Ree.LargeReeEightTorus

@@ -49,16 +49,6 @@ public import CFSG.Sporadic.SchreierLemmas.FrattiniProfile
 public import CFSG.Sporadic.SmallOddCore.CentSpec
 public import CFSG.Sporadic.ThSchreier.ThSchreierCase
 public import CFSG.YGroups.DCE.B433Check
-public import Certificates.Certificate10027
-public import Certificates.Certificate10107
-public import Certificates.Certificate10108
-public import Certificates.Certificate10110
-public import Certificates.Certificate10111
-public import Certificates.Certificate16018
-public import Certificates.Certificate2323
-public import Certificates.Certificate6006
-public import Certificates.Certificate8026Base
-public import Certificates.Certificate9124
 
 public section
 

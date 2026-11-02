@@ -9,13 +9,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.K6L4CentPSL
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.K6L4CentPSU
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.K6L4SubPSL
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.K6L4SubPSU
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
-public import Certificates.Certificate43
-public import Certificates.Certificate3007
-public import Certificates.Certificate10005
-public import Certificates.Certificate2326
 import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4Mult
 import CFSG.LocalAnalysis.SectionRank.AmbientRank
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.L6LeavesKD291DefCharXfer

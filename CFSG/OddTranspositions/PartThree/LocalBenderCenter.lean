@@ -5,7 +5,6 @@ public import CFSG.GroupTheory.PCore.SolvableRadical
 public import CFSG.GroupTheory.OddCoreQuotient
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Comparator.Defs
 public import CFSG.Timmesfeld.Bridge.OddTranspDefs
-public import Certificates.Certificate113
 
 import CFSG.Timmesfeld.Bridge.Asc72Central
 import CFSG.Timmesfeld.Bridge.Asc72ElemCompQuot
@@ -14,8 +13,6 @@ import CFSG.GroupTheory.ABGLocalTools.Constraint
 public import CFSG.OddTranspositions.O4PairTenWidth
 public import CFSG.OddTranspositions.Width
 public import CFSG.Walter.Defs
-public import Certificates.Certificate1
-public import Certificates.Certificate2
 import CFSG.CGT.Timmesfeld75.Derivations
 import CFSG.CGT.Timmesfeld75.Targets
 import CFSG.LocalAnalysis.ComponentClassification.Asc76BenderFacts

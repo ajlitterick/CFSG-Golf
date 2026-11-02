@@ -28,7 +28,6 @@ public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabBThreeL1Orb
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34SporAux.BMDownMGmat
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I1416SporAut168
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.YS10I1416Pass
-public import Certificates.Certificate17632Base
 public import Certificates.Data.TabCo1ThreeE
 
 public section

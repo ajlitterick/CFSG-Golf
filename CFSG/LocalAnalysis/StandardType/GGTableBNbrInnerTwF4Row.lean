@@ -1,14 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerRound13Label
-public import Certificates.Certificate76
-public import Certificates.Certificate77
-public import Certificates.Certificate115
-public import Certificates.Certificate116
-public import Certificates.Certificate118
-public import Certificates.Certificate122
-public import Certificates.Certificate1953
-public import Certificates.Certificate1954
 import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerRestCore
 import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRanks
 import CFSG.LocalAnalysis.StandardType.GGTwF4SUThreeRank

@@ -481,8 +481,6 @@ public import CFSG.Sporadic.Co2Smith.CClosure
 public import CFSG.Sporadic.Co2Smith.GlRootW1
 public import CFSG.Sporadic.Co2Smith.GlSteinG
 public import CFSG.Sporadic.Co2Smith.GlU62Gen
-public import Certificates.Certificate431010
-public import Certificates.Certificate9630
 public import Certificates.Data.E27Q2
 public import Certificates.Data.Fi23TwistCore
 

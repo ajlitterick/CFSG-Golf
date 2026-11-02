@@ -100,19 +100,6 @@ public import CFSG.SignalizerFunctorTheorem.CatalogBridge.NormalFormStabilizer
 public import CFSG.SignalizerFunctorTheorem.CatalogBridge.StabilizerLift
 public import CFSG.Sporadic.Co1.Module.Co2Stab
 public import CFSG.Sporadic.J4.QT2LocProof
-public import Certificates.Certificate16005
-public import Certificates.Certificate188005
-public import Certificates.Certificate3044
-public import Certificates.Certificate3122
-public import Certificates.Certificate3123
-public import Certificates.Certificate3130
-public import Certificates.Certificate3133
-public import Certificates.Certificate3134
-public import Certificates.Certificate3136
-public import Certificates.Certificate3137
-public import Certificates.Certificate3176
-public import Certificates.Certificate3179
-public import Certificates.Certificate8160
 
 public section
 

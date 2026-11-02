@@ -39,7 +39,6 @@ public import CFSG.Quasithin.H13.A5S1326
 public import CFSG.Quasithin.H13.A5Top
 public import CFSG.Quasithin.H13.StatementsL3
 public import CFSG.Sporadic.J4Base
-public import Certificates.Certificate8026Base
 
 public section
 

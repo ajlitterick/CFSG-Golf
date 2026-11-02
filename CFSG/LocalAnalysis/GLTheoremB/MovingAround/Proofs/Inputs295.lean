@@ -8,10 +8,6 @@ import CFSG.LocalAnalysis.AGLEmbeddingD2.McLaughlin.TightPairAndPureRank.CoverOn
 public import CFSG.HardMathSupport.Solomon.Coordinator.GFR1Basic
 public import CFSG.HardMathSupport.Solomon.Coordinator.GFR2Layer
 public import CFSG.RankThree.PartOne.SPOR.OuterSimple
-public import Certificates.Certificate8137
-public import Certificates.Certificate8138
-public import Certificates.Certificate8140
-public import Certificates.Certificate8141
 
 public section
 

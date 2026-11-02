@@ -62,7 +62,6 @@ public import CFSG.Quasithin.Vol2.Ch3Sec3KGSylow
 public import CFSG.Quasithin.Vol2.Ch3Sec3Setup
 public import CFSG.Sporadic.Schreier.J4SNoCompCover
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import Certificates.Certificate8026Base
 public import Certificates.Data.CFSGNative.MonsterB.Rep4371Model
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1

@@ -6,8 +6,6 @@ public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionDenominato
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.OddPrimeInvertersSuzuki
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructureTransport
 public import CFSG.LieType.Ree.SuzukiFrobeniusExponents
-public import Certificates.Certificate43
-public import Certificates.Certificate113
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure
 public import CFSG.StronglyEmbedded.ParityCriterion
 

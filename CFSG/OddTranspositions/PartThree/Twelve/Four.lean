@@ -7,8 +7,6 @@ import CFSG.OddTranspositions.PartThree.Ten.DalphaBlocks
 import CFSG.Timmesfeld.RootSubgroupBasic
 import CFSG.OddTranspositions.O4PairTenWidth
 import CFSG.OddTranspositions.Width
-import Certificates.Certificate1
-import Certificates.Certificate2
 
 public section
 

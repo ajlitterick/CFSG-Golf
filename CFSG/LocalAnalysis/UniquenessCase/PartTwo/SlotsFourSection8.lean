@@ -12,7 +12,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.UC6Inst
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront08
 public import CFSG.Open.UniquenessExclusionRankFourMilestoneDefs
 public import CFSG.Yardstones.Mf4cdcdf2e013.Definitions
-public import Certificates.Certificate12617
 import CFSG.LocalAnalysis.AGLEmbedding.CatalogSchreier
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.StrongThree
 import CFSG.LocalAnalysis.RankThreeTheoremC.SmallRankE3.P622KDEvenHolds
@@ -57,10 +56,6 @@ import CFSG.LocalAnalysis.UniquenessCase.UC7P3ThreeKIBSmall
 import CFSG.LocalAnalysis.UniquenessCase.UC7R76Four
 import CFSG.LocalAnalysis.UniquenessCase.UCK35wHolds
 import CFSG.Milestones.CL_LIT_Griess_Schur_multipliers_Lie_type
-public import Certificates.Certificate5171
-public import Certificates.Certificate8176
-public import Certificates.Certificate10050
-public import Certificates.Certificate1015335
 public import CFSG.GroupTheory.PRankQuotientLift
 public import CFSG.HardMathSupport.Solomon.Coordinator.L5Conj
 public import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma28b
@@ -105,15 +100,6 @@ public import CFSG.RankThree.PartTwo.Sec4.RonanK432RowsBridge
 public import CFSG.RankThree.PartTwo.Sec4.RonanK432WitArr
 public import CFSG.RankThree.PartTwo.Sec4.RonanKChevTwoDFourThreeA
 public import CFSG.RankThree.PartTwo.Sec8.Item8KFacts2ProofReeConj
-public import Certificates.Certificate14959
-public import Certificates.Certificate24510
-public import Certificates.Certificate24511
-public import Certificates.Certificate24512
-public import Certificates.Certificate25170
-public import Certificates.Certificate25171
-public import Certificates.Certificate25172
-public import Certificates.Certificate26683
-public import Certificates.Certificate26991
 import CFSG.CGT.PushingUpLit.LIT.Foote.GroupAux2
 import CFSG.ClassicalGroups.SpecialLinear.DiagonalTorusRank
 import CFSG.ClassicalGroups.SpecialLinear.QuasisimpleCartanRank

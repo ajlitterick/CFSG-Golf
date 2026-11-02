@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.OddStandard.ChengHeldSec2Open
 public import CFSG.LocalAnalysis.OddStandard.ChengHeldSec2Img
-public import Certificates.Certificate6137
-public import Certificates.Certificate6138
-public import Certificates.Certificate6139
 public import CFSG.LocalAnalysis.OddStandard.ChengHeldModelNormalizer
 public import CFSG.LocalAnalysis.OddStandard.ChengHeldSec1Basic
 public import CFSG.LocalAnalysis.OddStandard.ChengHeldSetupZStar

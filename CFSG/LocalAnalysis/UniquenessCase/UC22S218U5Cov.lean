@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalGroups.UnitaryFlag.HyperbolicData
 public import CFSG.LocalAnalysis.UniquenessCase.UC22Defs
-public import Certificates.Certificate117
 import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
 import CFSG.LocalAnalysis.UniquenessCase.Lie.Cover
 import CFSG.LocalAnalysis.UniquenessCase.UC22S218U5

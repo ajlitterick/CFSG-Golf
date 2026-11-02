@@ -57,8 +57,6 @@ public import CFSG.RankThree.PartOne.S11d.OutEsix
 public import CFSG.RankThree.PartTwo.Sec8.Item87Proof84
 public import CFSG.SignalizerFunctorTheorem.CatalogBridge.NormalFormStabilizer
 public import CFSG.SignalizerFunctorTheorem.CatalogBridge.StabilizerLift
-public import Certificates.Certificate17002
-public import Certificates.Certificate17951
 public import Certificates.Kernel.SporSch.Th.Plane2320
 
 public section

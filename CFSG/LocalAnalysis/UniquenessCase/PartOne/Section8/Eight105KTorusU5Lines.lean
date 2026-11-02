@@ -42,7 +42,6 @@ public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
-public import Certificates.Certificate43
 import CFSG.Assembly.OrderReductions.InvertedSubgroup
 import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.GroupTheory.ABGLocalTools.Constraint

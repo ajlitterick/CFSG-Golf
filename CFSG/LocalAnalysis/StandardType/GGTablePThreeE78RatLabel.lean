@@ -10,8 +10,6 @@ import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.KacEAll
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.RecogE
 import CFSG.LocalAnalysis.StandardType.GGExclNoIso
 import CFSG.RankThree.PartOne.KD4T.Certs
-import Certificates.Certificate115
-import Certificates.Certificate116
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Certs
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcInnerLang
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUFrame

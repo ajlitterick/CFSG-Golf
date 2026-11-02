@@ -56,7 +56,6 @@ import CFSG.RankThree.PartTwo.Sec11.Item1117StepsProofTools
 import CFSG.RankThree.PartTwo.Sec11.Item118
 import CFSG.RankThree.PartTwo.Sec4.Item426A6
 import CFSG.RankThree.PartTwo.Sec4.Statements423
-import Certificates.Certificate41501
 
 public section
 

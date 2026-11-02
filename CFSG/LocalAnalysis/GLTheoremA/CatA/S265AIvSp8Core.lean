@@ -62,9 +62,6 @@ public import CFSG.RankThree.PartTwo.Sec11.Item1117ProofSwap
 public import CFSG.RankThree.PartTwo.Sec11.Item1117StepsProofCube
 public import CFSG.RankThree.PartTwo.Sec11.Item1117StepsProofTools
 public import CFSG.RankThree.PartTwo.Sec4.Item426A6
-public import Certificates.Certificate41501
-public import Certificates.Certificate8007
-public import Certificates.Certificate8008
 
 public section
 

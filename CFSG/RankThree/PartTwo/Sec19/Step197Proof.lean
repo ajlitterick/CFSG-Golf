@@ -33,13 +33,9 @@ public import CFSG.RankThree.PartTwo.Sec14.Item145Bot
 public import CFSG.RankThree.PartTwo.Sec15.Item15Statements
 public import CFSG.RankThree.PartTwo.Sec4.LThreePiSLOn
 public import CFSG.RankThree.PartTwo.Sec6.Statements
-public import Certificates.Certificate2202
-public import Certificates.Certificate43
 import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerImageCompletion
 import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerPreimages
 import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerRestrictionCompletion
-import Certificates.Certificate3086
-import Certificates.Certificate3139
 
 public section
 

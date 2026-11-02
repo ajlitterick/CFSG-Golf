@@ -5,9 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.KGLangT3Glue
 public import CFSG.LocalAnalysis.StandardType.KGLangT3Lift
 public import CFSG.LocalAnalysis.StandardType.KGLangT3Data
 public import CFSG.LocalAnalysis.StandardType.KGLangT3Transport
-public import Certificates.Certificate2264
-public import Certificates.Certificate2267
-public import Certificates.Certificate8033
 
 public section
 

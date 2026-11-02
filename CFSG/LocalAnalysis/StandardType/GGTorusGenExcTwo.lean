@@ -7,7 +7,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTableBExcCoverRows
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTorus
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLineE7
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLine
-public import Certificates.Certificate1952
 
 public section
 

@@ -73,10 +73,6 @@ public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Schreier.RuPair
 public import CFSG.Sporadic.Schreier.RuSylow
-public import Certificates.Certificate2195
-public import Certificates.Certificate3157
-public import Certificates.Certificate3164
-public import Certificates.Certificate7233Base
 
 public section
 

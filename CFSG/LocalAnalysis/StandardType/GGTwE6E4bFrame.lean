@@ -66,17 +66,6 @@ public import CFSG.RankThree.PartTwo.Sec4.Item4Res6ProofSeitzOther
 public import CFSG.RankThree.PartTwo.Sec4.Item4Res6ProofSeitzRest
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434RowsProofSeitzSz
 public import CFSG.Sporadic.Co1.Module.Co2Stab
-public import Certificates.Certificate16005
-public import Certificates.Certificate3044
-public import Certificates.Certificate3122
-public import Certificates.Certificate3123
-public import Certificates.Certificate3130
-public import Certificates.Certificate3133
-public import Certificates.Certificate3134
-public import Certificates.Certificate3136
-public import Certificates.Certificate3137
-public import Certificates.Certificate3179
-public import Certificates.Certificate8160
 
 public noncomputable section
 

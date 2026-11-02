@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog7U4AntiMain
 public import CFSG.LocalAnalysis.ComponentClassification.Sp4RecAssembly
-public import Certificates.Certificate43
 public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GH74.GLS.Classes
 public import CFSG.GH74.Generic.Shapes

@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGF4LabelH1
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveCompatJoinF4
 public import CFSG.LocalAnalysis.StandardType.GGStdPosLocalDefs
 public import CFSG.LocalAnalysis.StandardType.GGTypeACompatFar
-public import Certificates.Certificate2012
-public import Certificates.Certificate26122
 import CFSG.LocalAnalysis.StandardType.GGF4QGeFourEndsA3Uni
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosPerm
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosPermAux4

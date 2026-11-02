@@ -3,17 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicHNTests
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicHNLocal
 public import CFSG.Sporadic.HNOddCore.SylD
-public import Certificates.Certificate2107
-public import Certificates.Certificate2096
-public import Certificates.Certificate2087
-public import Certificates.Certificate2099
-public import Certificates.Certificate2083
-public import Certificates.Certificate2084
-public import Certificates.Certificate2094
-public import Certificates.Certificate2100
-public import Certificates.Certificate2102
-public import Certificates.Certificate2089
-public import Certificates.Certificate2104
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bDefs
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 public import CFSG.LocalAnalysis.ComponentClassification.GeneralizedFitting

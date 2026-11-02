@@ -14,8 +14,6 @@ public import CFSG.GroupTheory.ElementaryAbelianBasis
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalSixStructure
 public import CFSG.Sporadic.Th.Max3.Packet
 public import CFSG.Sporadic.Th.Max3.Quotient
-public import Certificates.Certificate10091Base
-public import Certificates.Certificate5007
 
 public section
 

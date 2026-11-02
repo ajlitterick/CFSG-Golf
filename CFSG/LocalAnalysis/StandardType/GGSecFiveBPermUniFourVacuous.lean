@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniDefs
-public import Certificates.Certificate117
 import CFSG.LocalAnalysis.StandardType.GGStdUnitaryFourExcl
 
 public section

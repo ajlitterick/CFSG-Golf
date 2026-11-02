@@ -17,11 +17,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.OuterJ2
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.OuterLie
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.OuterSpor
 public import CFSG.Sporadic.ONOddCore.LiftHomCheckInputs
-public import Certificates.Certificate2121
-public import Certificates.Certificate2122
-public import Certificates.Certificate2123
-public import Certificates.Certificate2214
-public import Certificates.Certificate2215
 import CFSG.Adapters.Certificate43Check
 import CFSG.Adapters.StatedClassicalSmallOrders
 import CFSG.CGT.PushingUpLit.BHS.NaturalDefs
@@ -162,60 +157,6 @@ import CFSG.RankThree.PartTwo.Sec6.Statements
 import CFSG.RankThree.PartTwo.Toolkit.M12Local
 import CFSG.RankThree.S4Free.SuzukiEight
 import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
-import Certificates.Certificate1000
-import Certificates.Certificate1001
-import Certificates.Certificate1001Base
-import Certificates.Certificate1006
-import Certificates.Certificate1007
-import Certificates.Certificate1007Base
-import Certificates.Certificate1008
-import Certificates.Certificate1010
-import Certificates.Certificate1013
-import Certificates.Certificate1014
-import Certificates.Certificate1014Base
-import Certificates.Certificate1015
-import Certificates.Certificate1017
-import Certificates.Certificate1019
-import Certificates.Certificate14953
-import Certificates.Certificate16041
-import Certificates.Certificate2051
-import Certificates.Certificate2053
-import Certificates.Certificate2056
-import Certificates.Certificate2057
-import Certificates.Certificate2058
-import Certificates.Certificate2098
-import Certificates.Certificate2103
-import Certificates.Certificate2108
-import Certificates.Certificate2109
-import Certificates.Certificate2111
-import Certificates.Certificate2130
-import Certificates.Certificate2135
-import Certificates.Certificate2136
-import Certificates.Certificate2139
-import Certificates.Certificate2140
-import Certificates.Certificate2145
-import Certificates.Certificate2160
-import Certificates.Certificate2207
-import Certificates.Certificate2224
-import Certificates.Certificate2225
-import Certificates.Certificate2225Base
-import Certificates.Certificate2238
-import Certificates.Certificate2242
-import Certificates.Certificate2243
-import Certificates.Certificate2244
-import Certificates.Certificate2245
-import Certificates.Certificate2246
-import Certificates.Certificate2274
-import Certificates.Certificate2293
-import Certificates.Certificate2294
-import Certificates.Certificate2304
-import Certificates.Certificate2305
-import Certificates.Certificate2308
-import Certificates.Certificate2323
-import Certificates.Certificate3114
-import Certificates.Certificate3151
-import Certificates.Certificate3151Base
-import Certificates.Certificate8166
 
 public section
 

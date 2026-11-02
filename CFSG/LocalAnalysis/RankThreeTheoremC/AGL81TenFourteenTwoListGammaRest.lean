@@ -61,11 +61,6 @@ public import CFSG.Sporadic.Presentation.M24Exact
 public import CFSG.Sporadic.Presentation.McLExactData
 public import CFSG.Sporadic.Presentation.McLExactInputs
 public import CFSG.Sporadic.Schreier.J4SProfileNode
-public import Certificates.Certificate10095
-public import Certificates.Certificate10095Base
-public import Certificates.Certificate9125
-public import Certificates.Certificate9212
-public import Certificates.Certificate9215
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 
 public section

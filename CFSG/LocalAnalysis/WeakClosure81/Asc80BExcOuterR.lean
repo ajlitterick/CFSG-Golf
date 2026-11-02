@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.SeitzGeneration.ExcOuterLeOne.FixedGroup
 public import CFSG.Open.LocalVocabulary
-public import Certificates.Certificate3952
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.PlanesToralTwo
 import CFSG.LocalAnalysis.WeakClosure81.Asc80BExcKilled
 import CFSG.LieType.SeitzGeneration.ExcHighThree.KillsRootE6

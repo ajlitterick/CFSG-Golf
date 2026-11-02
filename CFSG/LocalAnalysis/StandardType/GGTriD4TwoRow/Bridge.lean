@@ -91,13 +91,6 @@ public import CFSG.RankThree.PartOne.SPOR.OuterSimple
 public import CFSG.Walter.Bender1970.S1
 public import CFSG.Walter.Bender1970.S2
 public import CFSG.Walter.PSL2Facts
-public import Certificates.Certificate8137
-public import Certificates.Certificate8138
-public import Certificates.Certificate8139
-public import Certificates.Certificate8140
-public import Certificates.Certificate8141
-public import Certificates.Certificate8145
-public import Certificates.Certificate8146
 
 public section
 

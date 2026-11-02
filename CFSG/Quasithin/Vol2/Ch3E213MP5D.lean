@@ -12,7 +12,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.EvenClassicalFamily
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.EvenClassicalLinearStrong
-public import Certificates.Certificate113
 
 public section
 

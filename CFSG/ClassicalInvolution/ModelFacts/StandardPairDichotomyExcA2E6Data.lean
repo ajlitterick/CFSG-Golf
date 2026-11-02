@@ -2,8 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcE6Main
 public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcA2Generic
-public import Certificates.Certificate113
-public import Certificates.Certificate114
 public import CFSG.ClassicalInvolution.ModelFacts.OddCover
 public import CFSG.ClassicalInvolution.Models.UnitaryFrames
 

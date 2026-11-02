@@ -3,9 +3,6 @@ module
 public import CFSG.Quasithin.H13.VolIAltCoverG2Dual
 public import CFSG.Quasithin.H13.VolIAltCoverG2Field
 public import CFSG.Quasithin.Vol2.Ch12Sec2OrbitStmts
-public import Certificates.Certificate17028
-public import Certificates.Certificate8952
-public import Certificates.Certificate8953
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public import CFSG.LocalAnalysis.QuasithinUnique.Setting
 public import CFSG.LocalAnalysis.RankThreeCoreUniqueness.CharacteristicPrimeLocal

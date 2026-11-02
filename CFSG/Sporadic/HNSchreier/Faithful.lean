@@ -5,7 +5,6 @@ public import CFSG.Sporadic.HNSchreier.OrbitCheck
 public import CFSG.Sporadic.HN.F5Group
 import all CFSG.Blueprint.NativeSporadic
 import all CFSG.Sporadic.HN.F5Group
-public import Certificates.Certificate2102
 public import CFSG.Sporadic.Th.F2Spec
 
 public section

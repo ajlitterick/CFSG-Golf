@@ -1,9 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Census.Carrier.ReeF4Points
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate71
 
 public noncomputable section
 

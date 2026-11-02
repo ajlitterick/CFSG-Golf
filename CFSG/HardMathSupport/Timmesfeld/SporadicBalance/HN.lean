@@ -45,8 +45,6 @@ public import CFSG.Sporadic.Presentation.McLExactInputs
 public import CFSG.Sporadic.Schreier.J1QT
 public import CFSG.Sporadic.Schreier.MathieuOddCoreModel
 public import CFSG.YGroups.DCE.B433Check
-public import Certificates.Certificate8026Base
-public import Certificates.Certificate9124
 
 public section
 

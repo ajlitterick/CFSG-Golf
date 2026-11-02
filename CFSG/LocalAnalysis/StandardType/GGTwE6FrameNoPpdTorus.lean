@@ -40,8 +40,6 @@ public import CFSG.RankThree.PartOne.KE.PlaneToral
 public import CFSG.RankThree.PartOne.KGD.D4QA1
 public import CFSG.RankThree.PartOne.SLB4A.ClassExcRest
 public import CFSG.Walter.JRFacts
-public import Certificates.Certificate1953
-public import Certificates.Certificate1954
 
 public section
 

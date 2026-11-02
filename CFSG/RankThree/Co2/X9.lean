@@ -4,27 +4,6 @@ public import CFSG.RankThree.Co2.Exclude
 public import CFSG.RankThree.Co2.Sqrt
 public import CFSG.RankThree.Co2.CrMat
 public import CFSG.RankThree.Co2.X9Cert
-public import Certificates.Certificate3054
-public import Certificates.Certificate8101
-public import Certificates.Certificate8102
-public import Certificates.Certificate8108
-public import Certificates.Certificate8111
-public import Certificates.Certificate8113
-public import Certificates.Certificate16022
-public import Certificates.Certificate3014
-public import Certificates.Certificate3017
-public import Certificates.Certificate3019
-public import Certificates.Certificate3025
-public import Certificates.Certificate3026
-public import Certificates.Certificate3028
-public import Certificates.Certificate3055
-public import Certificates.Certificate3056
-public import Certificates.Certificate16000
-public import Certificates.Certificate3114
-public import Certificates.Certificate3115
-public import Certificates.Certificate3116
-public import Certificates.Certificate3117
-public import Certificates.Certificate3138
 
 public noncomputable section
 

@@ -9,7 +9,6 @@ public import CFSG.Timmesfeld.Bridge.OddTranspDefs
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
 public import CFSG.Foundations.Basic
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Comparator.Defs
-public import Certificates.Certificate113
 
 import CFSG.OddTranspositions.PartThree.EightFour
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
@@ -24,7 +23,6 @@ public import CFSG.Timmesfeld.Bridge.Asc73Quotient
 public import CFSG.Timmesfeld.Moufang.Three
 public import CFSG.Timmesfeld.RankOne
 public import CFSG.Timmesfeld.Special.TwoCore
-public import Certificates.Certificate43
 
 public section
 

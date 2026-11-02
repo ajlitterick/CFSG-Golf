@@ -9,8 +9,6 @@ public import CFSG.StronglyEmbedded.BenderBorelTransport
 public import CFSG.SignalizerFunctorTheorem.McBride.Models.Suzuki.Local
 public import CFSG.CGT.T75E.RootOrders
 public import CFSG.RankThree.S4Free.SuzukiEight
-public import Certificates.Certificate43
-public import Certificates.Certificate113
 import CFSG.Adapters.QiuzhenLegacy.BenderSuzuki.BenderSuzukiBorel
 public import CFSG.CGT.T75E.Reduce
 public import CFSG.CGT.Timmesfeld75.Sec3TenCaseA

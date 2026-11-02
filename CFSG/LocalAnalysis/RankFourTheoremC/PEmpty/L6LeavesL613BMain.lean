@@ -103,10 +103,6 @@ public import CFSG.Sporadic.Recognition.LyonsAmalgamModelYAut
 public import CFSG.Sporadic.Recognition.LyonsFinalDist2
 public import CFSG.Sporadic.Suz
 public import CFSG.Walter.J1Props
-public import Certificates.Certificate8153
-public import Certificates.Certificate8156
-public import Certificates.Certificate8157
-public import Certificates.Certificate8160
 
 public section
 

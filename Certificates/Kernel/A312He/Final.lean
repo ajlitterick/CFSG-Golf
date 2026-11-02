@@ -8,7 +8,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHe
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312WordsIdx
 public import CFSG.Quasithin.Background.A3StructureDefs
 import CFSG.Certificates.Kernel.Common.ForallTree
-public import Certificates.Certificate4167Base
 
 set_option maxRecDepth 100000
 

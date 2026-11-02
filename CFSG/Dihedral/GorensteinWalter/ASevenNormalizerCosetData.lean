@@ -6,7 +6,6 @@ public import CFSG.GroupTheory.FixedCosetCard
 public meta import Mathlib.GroupTheory.SpecificGroups.Alternating
 public meta import CFSG.Dihedral.GorensteinWalter.ASevenInvariantOddPSubgroupCertificateDefs
 import Mathlib.Tactic
-public import Certificates.Certificate7
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.A7SylowCentralizer
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ASevenInvolutionCount
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs

@@ -2,9 +2,6 @@ module
 
 public import CFSG.LieType.Steinberg.Adjoint.Cert
 public import Mathlib.Data.Nat.Digits.Defs
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 
 public section
 

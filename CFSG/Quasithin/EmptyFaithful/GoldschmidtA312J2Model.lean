@@ -32,7 +32,6 @@ public import CFSG.Sporadic.McL
 public import CFSG.Sporadic.Presentation.Common
 public import CFSG.Sporadic.Presentation.Ly
 public import CFSG.Sporadic.Schreier.LyChain11
-public import Certificates.Certificate3085Base
 
 public section
 

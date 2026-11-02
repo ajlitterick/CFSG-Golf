@@ -18,7 +18,6 @@ public import CFSG.RankThree.PartOne.KE.CTCasesCycloGlue
 public import CFSG.RankThree.PartOne.KE.E8FiveArith
 public import CFSG.RankThree.PartOne.KE6.E8T3Data
 public import CFSG.RankThree.PartOne.KF4.KernelTools
-public import Certificates.Certificate1952
 
 public noncomputable section
 

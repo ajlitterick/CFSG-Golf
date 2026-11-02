@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.ExcPay.CoverTwE6
 public import CFSG.LocalAnalysis.StandardType.ExcPay.SquareTwE6
-public import Certificates.Certificate13723
-public import Certificates.Certificate13724
 
 import CFSG.LocalAnalysis.StandardType.ExcPay.CardTwE6
 import CFSG.LocalAnalysis.StandardType.ExcPay.CoreGen

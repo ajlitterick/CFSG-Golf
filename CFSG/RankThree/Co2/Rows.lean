@@ -6,20 +6,6 @@ public import CFSG.Monster.B.TwoA.Census.NatCert
 public meta import CFSG.Monster.B.TwoA.Co2Inv.Data
 public meta import CFSG.Monster.B.TwoA.Census.NatCert
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Matrix
-public import Certificates.Certificate3054
-public import Certificates.Certificate3014
-public import Certificates.Certificate3017
-public import Certificates.Certificate3019
-public import Certificates.Certificate3025
-public import Certificates.Certificate3026
-public import Certificates.Certificate3028
-public import Certificates.Certificate3055
-public import Certificates.Certificate16022
-public import Certificates.Certificate3114
-public import Certificates.Certificate3115
-public import Certificates.Certificate3116
-public import Certificates.Certificate3117
-public import Certificates.Certificate3138
 public import CFSG.Monster.B.TwoA.Unitary.Orbit1408Points
 public import CFSG.Monster.B.TwoA.Unitary.Semilinear
 

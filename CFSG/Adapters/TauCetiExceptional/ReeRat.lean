@@ -3,8 +3,6 @@ module
 public import CFSG.Adapters.TauCetiExceptional.ReePoly
 public import CFSG.Adapters.TauCetiExceptional.ReeVanish
 public import CFSG.Adapters.TauCetiExceptional.BigCellPoints
-public import Certificates.Certificate113
-public import Certificates.Certificate114
 public import CFSG.Adapters.TauCetiExceptional.ReeAdHom
 
 public noncomputable section

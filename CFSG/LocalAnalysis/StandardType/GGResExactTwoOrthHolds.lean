@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResExactTwoOrth
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 import CFSG.LocalAnalysis.StandardType.GGResExactTwoOrthSmall
 import CFSG.LocalAnalysis.StandardType.GGResExactTwoOrthSel
 import CFSG.LocalAnalysis.StandardType.GGResExactTwoOrthTransfer

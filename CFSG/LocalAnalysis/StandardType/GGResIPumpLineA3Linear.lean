@@ -70,13 +70,6 @@ import CFSG.RankThree.PartTwo.Sec4.T444.Item434SmallTwoOtherDefs
 import CFSG.RankThree.PartTwo.Sec6.Statements
 import CFSG.RankThree.PartTwo.Sec8.Item87Proof84
 import CFSG.RankThree.S4Free.SuzukiEight
-import Certificates.Certificate13659
-import Certificates.Certificate13660
-import Certificates.Certificate8137
-import Certificates.Certificate8138
-import Certificates.Certificate8140
-import Certificates.Certificate8141
-import Certificates.Certificate8166
 
 public section
 

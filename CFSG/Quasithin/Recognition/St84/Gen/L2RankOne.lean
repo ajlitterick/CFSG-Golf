@@ -59,7 +59,6 @@ import CFSG.Quasithin.Vol2.Ch1Local
 import CFSG.Quasithin.Vol2.KGNatCoord
 import CFSG.Sporadic.Schreier.J4SSylow
 import CFSG.Walter.Defs
-import Certificates.Certificate8026Base
 import Certificates.Data.CFSGNative.MonsterB.Rep4371Model
 import Certificates.Kernel.J4Count.FixCE
 import Certificates.Kernel.J4Count.FixCPairBase1

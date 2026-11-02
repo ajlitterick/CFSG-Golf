@@ -132,12 +132,6 @@ public import CFSG.Sporadic.Recognition.LyonsAS44Quat
 public import CFSG.Sporadic.Recognition.LyonsLocalEdge
 public import CFSG.Sporadic.SuzOddCore.InvCentralizerBounds
 public import CFSG.Timmesfeld.Orders.ClassicalLinearThree
-public import Certificates.Certificate13622Base
-public import Certificates.Certificate13659
-public import Certificates.Certificate13660
-public import Certificates.Certificate17002
-public import Certificates.Certificate17951
-public import Certificates.Certificate8160
 public import Certificates.Data.Fi22PairSize
 
 public section

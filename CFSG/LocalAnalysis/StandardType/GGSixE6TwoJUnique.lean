@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoModel
-public import Certificates.Certificate3007
-public import Certificates.Certificate10005
 import CFSG.LocalAnalysis.StandardType.GGSixE6TwoTransport
 import CFSG.LocalAnalysis.StandardType.GGSixE6TwoConjSL3
 import CFSG.LocalAnalysis.StandardType.GGSixE6TwoJEq

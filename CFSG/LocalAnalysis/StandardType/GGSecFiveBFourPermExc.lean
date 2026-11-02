@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBFourPermExcDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRestOriginalWeyl
-public import Certificates.Certificate709540
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBFourPermExcCoord
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBFourPermExcWit
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBFourPermExcLabel

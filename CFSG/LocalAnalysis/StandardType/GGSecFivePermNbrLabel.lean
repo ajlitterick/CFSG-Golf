@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermLabelDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBRes
-public import Certificates.Certificate13657
 import CFSG.LocalAnalysis.StandardType.GGForkA8NotReflHolds
 import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpStdAssembly
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermLabel
@@ -38,7 +37,6 @@ import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordDExclReal
 import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
 import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowNFrame
-public import Certificates.Certificate7769
 
 public section
 

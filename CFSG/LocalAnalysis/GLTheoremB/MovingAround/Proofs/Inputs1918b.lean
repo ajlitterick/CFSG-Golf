@@ -82,11 +82,6 @@ public import CFSG.RankThree.PartOne.S9.Sylow.GlobalLemmas
 public import CFSG.RankThree.PartOne.S9.Sylow.GlobalRelative
 public import CFSG.RankThree.PartOne.S9.Sylow.ResidualLocal
 public import CFSG.RankThree.PartOne.SPOR.OuterSimple
-public import Certificates.Certificate41501
-public import Certificates.Certificate8137
-public import Certificates.Certificate8138
-public import Certificates.Certificate8140
-public import Certificates.Certificate8141
 public import Certificates.Data.HSFiveCheck
 
 public section

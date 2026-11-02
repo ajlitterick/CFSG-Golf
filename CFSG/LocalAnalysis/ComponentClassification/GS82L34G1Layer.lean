@@ -55,7 +55,6 @@ public import CFSG.Sporadic.Suz.Setup
 public import CFSG.Sporadic.Suz.W64Spec
 public import CFSG.Sporadic.ThSchreier.Max3ActionBase1
 public import CFSG.Sporadic.ThSchreier.Rigidity
-public import Certificates.Certificate10091Base
 
 public section
 

@@ -74,8 +74,6 @@ public import CFSG.RankThree.PartOne.KLR.Master
 public import CFSG.RankThree.PartOne.KLR.SectorAssembly
 public import CFSG.Sporadic.Schreier.J4SProfileNode
 public import CFSG.Sporadic.Schreier.TitsOther
-public import Certificates.Certificate1
-public import Certificates.Certificate2
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 
 public section

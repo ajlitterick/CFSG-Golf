@@ -1,13 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermOffSpCaseDefs
-public import Certificates.Certificate1952
-public import Certificates.Certificate1953
-public import Certificates.Certificate1954
-public import Certificates.Certificate2261
-public import Certificates.Certificate2269
-public import Certificates.Certificate8032
-public import Certificates.Certificate13657
 import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowSA
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpBstar
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermLabel

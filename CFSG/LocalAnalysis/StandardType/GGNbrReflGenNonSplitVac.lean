@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitFamilies
-public import Certificates.Certificate8032
 import CFSG.FeitThompson.OddOrderTheorem
 import CFSG.LocalAnalysis.StandardType.GGNbrLangWeylRestVac
 import CFSG.LocalAnalysis.StandardType.GGCorFourTwoRestSmall

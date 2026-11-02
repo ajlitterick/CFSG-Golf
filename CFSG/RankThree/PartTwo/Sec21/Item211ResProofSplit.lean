@@ -4,9 +4,6 @@ public import CFSG.RankThree.PartTwo.Sec21.Item211ResProofSplitBloomA
 public import CFSG.RankThree.PartTwo.Sec21.Item211ResProofSplitBloomB
 public import CFSG.RankThree.PartTwo.Sec21.Item211ResProofSplitBloomC
 public import CFSG.RankThree.PartTwo.Toolkit.Bloom
-public import Certificates.Certificate8171
-public import Certificates.Certificate8172
-public import Certificates.Certificate8173
 public import CFSG.Assembly.OrderReductions.InvertedSubgroup
 public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.GroupTheory.LocalCores.Fitting

@@ -30,7 +30,6 @@ import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.I294KDOutTwE6
 import CFSG.Quasithin.Vol2.GoldschmidtSec53FactsBorLie
 import CFSG.Quasithin.Vol2.GoldschmidtSec53FactsThree
 import CFSG.RankThree.PartTwo.Sec11.KS11Lie6ProofKFacts
-import Certificates.Certificate9530
 
 public section
 

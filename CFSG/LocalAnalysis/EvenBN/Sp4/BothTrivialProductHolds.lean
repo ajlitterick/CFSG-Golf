@@ -71,15 +71,6 @@ public import CFSG.Sporadic.ThSchreier.KernelAutBase1
 public import CFSG.Sporadic.ThSchreier.ThSchreierCase
 public import CFSG.YGroups.Y443.Native.Parabolic2CheckB
 public import CFSG.YGroups.Y443.Native.Parabolic2CheckW
-public import Certificates.Certificate10095
-public import Certificates.Certificate10095Base
-public import Certificates.Certificate10100
-public import Certificates.Certificate10101
-public import Certificates.Certificate10102
-public import Certificates.Certificate10104
-public import Certificates.Certificate2323
-public import Certificates.Certificate3085Base
-public import Certificates.Certificate9201
 
 public section
 

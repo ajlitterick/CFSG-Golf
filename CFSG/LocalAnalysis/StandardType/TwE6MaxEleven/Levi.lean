@@ -74,9 +74,6 @@ public import CFSG.Sporadic.LyBase
 public import CFSG.Sporadic.ON.SimpleBase
 public import CFSG.Sporadic.Presentation.Ly
 public import CFSG.Sporadic.Schreier.LyChain11
-public import Certificates.Certificate1016Base
-public import Certificates.Certificate1021
-public import Certificates.Certificate3085Base
 
 public section
 

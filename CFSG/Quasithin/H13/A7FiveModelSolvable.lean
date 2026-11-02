@@ -10,9 +10,6 @@ public import CFSG.Timmesfeld.Orders.ClassicalLinear
 public import CFSG.Timmesfeld.Final.PSU33
 public import CFSG.Quasithin.Recognition.CertU33Psu
 public import CFSG.Quasithin.Recognition.CertU33DcPG
-public import Certificates.Certificate8080
-public import Certificates.Certificate8081
-public import Certificates.Certificate19953
 public import CFSG.Foundations
 public import CFSG.LinearAlgebra.LinearGroups.CoordinateData
 public import CFSG.LocalAnalysis.ComponentClassification.BlockTwoProductAction

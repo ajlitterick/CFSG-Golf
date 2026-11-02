@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.TabBigKlein
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239InspM11
 import Mathlib.Tactic.Group
-public import Certificates.Certificate110
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.ClassicalGroups

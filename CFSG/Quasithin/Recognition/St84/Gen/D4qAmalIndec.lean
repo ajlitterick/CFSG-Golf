@@ -116,7 +116,6 @@ import CFSG.Quasithin.Vol2.Ch11StatementsInputsAS3
 import CFSG.Quasithin.Vol2.Ch3Sec3InspF618
 import CFSG.Quasithin.Vol2.GoldschmidtF112SliceDS
 import CFSG.RankThree.S4Free.Statement
-import Certificates.Certificate8026Base
 import Certificates.Data.CFSGNative.MonsterB.Rep4371Model
 import Certificates.Kernel.J4Count.FixCE
 import Certificates.Kernel.J4Count.FixCPairBase1

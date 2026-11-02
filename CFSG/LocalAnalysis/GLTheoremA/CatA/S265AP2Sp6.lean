@@ -46,7 +46,6 @@ public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotHR14PartnerSp
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotHR14Transfer
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotKindOmegaNormal
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotOmegaRowUniqueStep
-public import Certificates.Certificate41501
 
 public section
 

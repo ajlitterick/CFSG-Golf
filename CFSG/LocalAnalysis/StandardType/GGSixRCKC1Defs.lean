@@ -8,7 +8,6 @@ public import CFSG.LieType.Universal.Catalog
 public import CFSG.LieType.Universal.Spin.Action
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKSmallDefs
-public import Certificates.Certificate8064
 
 public section
 

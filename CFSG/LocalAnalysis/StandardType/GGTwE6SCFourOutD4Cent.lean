@@ -1,8 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24LineLang
-public import Certificates.Certificate3951
-public import Certificates.Certificate13657
 import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.W2.E6HeisenbergAux.Reg
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24D4T2Inner
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeSc
@@ -80,8 +78,6 @@ public import CFSG.Quasithin.Vol2.Ch3Sec3Lem3324X
 public import CFSG.Quasithin.Vol2.Ch3Sec3Lem3329
 public import CFSG.Quasithin.Vol2.Ch3Sec3Lem3330
 public import CFSG.RankThree.Chevalley.SteinbergCFEvenF4PointwiseInner
-public import Certificates.Certificate10050
-public import Certificates.Certificate8117
 import CFSG.Goldschmidt.Steps.G37Core
 import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.Basic
 import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.InnExcLang

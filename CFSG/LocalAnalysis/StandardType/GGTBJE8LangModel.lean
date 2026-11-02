@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFinModelExists
-public import Certificates.Certificate1952
-public import Certificates.Certificate13691
-public import Certificates.Certificate13720
-public import Certificates.Certificate13722
 import CFSG.LocalAnalysis.StandardType.GGExcElemToralLangStep
 import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfSylow
 import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcInnerLang

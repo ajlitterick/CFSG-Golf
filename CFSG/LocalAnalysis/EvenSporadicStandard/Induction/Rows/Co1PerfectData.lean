@@ -58,7 +58,6 @@ public import CFSG.Sporadic.Presentation.Ly
 public import CFSG.Sporadic.Schreier.J1QT
 public import CFSG.Sporadic.Schreier.LyFixedSet
 public import CFSG.Sporadic.SchreierLemmas.FrattiniProfile
-public import Certificates.Certificate3085Base
 
 public section
 

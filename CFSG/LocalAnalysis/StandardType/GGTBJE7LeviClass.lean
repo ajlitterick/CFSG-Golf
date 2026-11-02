@@ -1,8 +1,5 @@
 module
 
-public import Certificates.Certificate13605
-public import Certificates.Certificate13721
-public import Certificates.Certificate13723
 public import CFSG.LocalAnalysis.StandardType.GGTBJE8LeviClass
 public import CFSG.LocalAnalysis.StandardType.GGTBJE8LeviStab
 public import CFSG.LocalAnalysis.SeitzReduction.E7PilotAlignLevi

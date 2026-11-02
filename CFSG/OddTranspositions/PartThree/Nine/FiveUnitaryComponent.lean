@@ -50,19 +50,6 @@ import CFSG.Walter.Ree.Thompson2.BaseFin
 import CFSG.Walter.ReeOrder.WardLocal
 import CFSG.Walter.W67.Section8.Prop83
 import CFSG.Walter.W67.W2Lemma26A
-import Certificates.Certificate7000
-import Certificates.Certificate7001
-import Certificates.Certificate7002
-import Certificates.Certificate7003
-import Certificates.Certificate7004
-import Certificates.Certificate7005
-import Certificates.Certificate7006
-import Certificates.Certificate7007
-import Certificates.Certificate7008
-import Certificates.Certificate7009
-import Certificates.Certificate7010
-import Certificates.Certificate7011
-import Certificates.Certificate8026Base
 
 public section
 

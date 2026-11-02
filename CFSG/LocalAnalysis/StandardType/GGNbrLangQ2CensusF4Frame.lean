@@ -1,7 +1,5 @@
 module
 
-public import Certificates.Certificate113
-public import Certificates.Certificate114
 public import CFSG.LieType.Steinberg.Adjoint.Pairs
 
 public section

@@ -91,7 +91,6 @@ public import CFSG.Sporadic.Schreier.J1QT
 public import CFSG.Sporadic.Schreier.LyFixedSet
 public import CFSG.Sporadic.ThSchreier.AutCore
 public import CFSG.Walter.JRFacts
-public import Certificates.Certificate3085Base
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalGroup.LowRank

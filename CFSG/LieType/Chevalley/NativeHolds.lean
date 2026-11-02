@@ -4,8 +4,6 @@ public import CFSG.LieType.Chevalley.Assembly
 public import CFSG.LieType.Chevalley.NativeRoots
 public import CFSG.LieType.Chevalley.NativeTorus
 public import CFSG.LieType.Chevalley.WeylSpace
-public import Certificates.Certificate113
-public import Certificates.Certificate114
 
 public section
 

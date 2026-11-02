@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GSYard02Simple
-public import Certificates.Certificate113
 import CFSG.LocalAnalysis.ComponentInitial.LinearFlagOrder
 import CFSG.GH74.GLS.IVK.Proofs2.Lemma41dL3Mat
 import CFSG.Adapters.ProjectiveSpecialLinear
@@ -11,7 +10,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSp4OneComp
 public import CFSG.LocalAnalysis.ComponentClassification.Sol76RankOneClassPoint
 public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 public import CFSG.Quasithin.Vol2.KGFactC31RuRefBase
-public import Certificates.Certificate7233Base
 
 public section
 

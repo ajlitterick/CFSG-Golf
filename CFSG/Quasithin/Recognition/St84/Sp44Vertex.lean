@@ -5,7 +5,6 @@ public import CFSG.Quasithin.Recognition.St84.Sp44Torus
 public import CFSG.GH74.QTGen4.DSGen4.Leaf.L34LocalC
 public import CFSG.RankThree.PartOne.KC.EvenSymplecticFourRootAxisStructure
 public import CFSG.Quasithin.SteinbergBSSymplecticRoots
-public import Certificates.Certificate320030
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.Certificates.Kernel.LocalCompTits.Span

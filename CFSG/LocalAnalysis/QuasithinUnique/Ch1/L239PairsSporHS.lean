@@ -4,10 +4,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporHSCheck
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporLat
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporModel
 import all CFSG.Blueprint.NativeSporadic
-public import Certificates.Certificate3167
-public import Certificates.Certificate4089
-public import Certificates.Certificate4102
-public import Certificates.Certificate4140
 
 public section
 

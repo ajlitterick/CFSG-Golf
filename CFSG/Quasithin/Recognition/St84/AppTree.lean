@@ -21,7 +21,6 @@ public import CFSG.Quasithin.Recognition.GoldschmidtFan86UnivTransl
 public import CFSG.Quasithin.Recognition.GoldschmidtF112RSt84HypA
 public import CFSG.Quasithin.EmptyFaithful.S1422Local
 public import CFSG.HardMathSupport.Solomon.Coordinator.WeakBalance
-public import Certificates.Certificate113
 import CFSG.Quasithin.Recognition.St84.Gen.L2RankOne
 public import CFSG.Quasithin.EmptyFaithful.F112HypW
 public import CFSG.CGT.Timmesfeld75.L2Pair

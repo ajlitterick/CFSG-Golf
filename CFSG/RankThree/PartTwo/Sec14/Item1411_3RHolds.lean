@@ -1,31 +1,7 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec14.Ronan143QRoute1723N
-public import Certificates.Certificate724810
-public import Certificates.Certificate724101
-public import Certificates.Certificate428004
-public import Certificates.Certificate428003
-public import Certificates.Certificate428002
-public import Certificates.Certificate428001
-public import Certificates.Certificate320004
-public import Certificates.Certificate320002
-public import Certificates.Certificate320001
-public import Certificates.Certificate291442
-public import Certificates.Certificate291441
-public import Certificates.Certificate291440
-public import Certificates.Certificate291420
-public import Certificates.Certificate291403
-public import Certificates.Certificate291402
-public import Certificates.Certificate291401
-public import Certificates.Certificate291400
-public import Certificates.Certificate291390
 public import CFSG.RankThree.PartTwo.Sec13.Item134Unconditional
-public import Certificates.Certificate291381
-public import Certificates.Certificate142200
-public import Certificates.Certificate14959
-public import Certificates.Certificate8036
-public import Certificates.Certificate8176
-public import Certificates.Certificate8175
 public import CFSG.RankThree.PartTwo.Sec13.G131Holds
 public import CFSG.RankThree.PartTwo.Sec11.Item11CloseChain
 public import CFSG.RankThree.PartTwo.Sec4.Item426A6
@@ -42,10 +18,6 @@ public import CFSG.RankThree.PartTwo.Sec13.Item134Arg128FailAssembly
 public import CFSG.RankThree.PartTwo.Sec13.Item134SylowBarProof
 public import CFSG.RankThree.PartTwo.Sec13.Item134Sylow
 public import CFSG.RankThree.PartTwo.Sec13.Item134
-public import Certificates.Certificate10019
-public import Certificates.Certificate8168
-public import Certificates.Certificate8169
-public import Certificates.Certificate3139
 public import CFSG.RankThree.PartTwo.Sec14.Item14Res3ProofPGL
 public import CFSG.RankThree.PartTwo.Sec14.Item142ResProof
 public import CFSG.RankThree.PartTwo.Sec14.Concl142NHJRoute
@@ -512,9 +484,6 @@ public import CFSG.RankThree.PartTwo.Sec8.Hering418FU
 public import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec2.Defs
 public import CFSG.Timmesfeld.CorollaryBOutcome
 public import CFSG.Walter.W67.W2Lemma26A
-public import Certificates.Certificate14950
-public import Certificates.Certificate152301
-public import Certificates.Certificate41501
 import CFSG.HardMathSupport.Dickson.Bal207.LocalBalClassical
 import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabBThreeALocalBase
 import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabBThreeL1Orb

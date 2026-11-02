@@ -8,9 +8,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenCoverConjugateCar
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenStdSevenDonors
 public import CFSG.LocalAnalysis.UniquenessCase.UC22InE229CongD
 public import CFSG.LocalAnalysis.UniquenessCase.UC6R77Three
-public import Certificates.Certificate431004
-public import Certificates.Certificate17430
-public import Certificates.Certificate9726
 public import CFSG.CGT.Timmesfeld75.Main
 public import CFSG.ClassicalGroups.Orthogonal.DiagonalTorusRankOddMinus
 public import CFSG.ClassicalGroups.UnitaryFlag.PointSylow
@@ -104,7 +101,6 @@ public import CFSG.RankThree.PartTwo.Sec14.Item148PointProofHJ
 public import CFSG.RankThree.PartTwo.Sec14.Item14Res2ProofLBal
 public import CFSG.RankThree.PartTwo.Sec14.Item14Res2ProofLBalComp
 public import CFSG.RankThree.PartTwo.Sec14.Item14Res7ProofDescFix
-public import Certificates.Certificate7095
 
 public section
 

@@ -58,8 +58,6 @@ public import CFSG.Sporadic.ThSchreier.LocalOrbitBase1
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
-public import Certificates.Certificate1953
-public import Certificates.Certificate1954
 
 public noncomputable section
 

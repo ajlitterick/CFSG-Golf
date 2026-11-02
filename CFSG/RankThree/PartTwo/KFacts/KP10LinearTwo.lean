@@ -5,7 +5,6 @@ public import CFSG.LinearAlgebra.LinearGroups.TameProjectiveSubgroups
 public import CFSG.LinearAlgebra.LinearGroups.Perfect
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.Defs
 public import CFSG.RankThree.Coprime.ThompsonElementaryComplement
-public import Certificates.Certificate43
 
 public section
 

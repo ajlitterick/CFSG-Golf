@@ -3,8 +3,6 @@ module
 public import CFSG.Assembly.Defs
 public import CFSG.Blueprint.Catalog
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveF4
-public import Certificates.Certificate3007
-public import Certificates.Certificate10005
 import CFSG.Quasithin.Background.SL3SmallNat
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X7Basic
 import CFSG.LocalAnalysis.StandardType.GGSixE6TwoSL3Section

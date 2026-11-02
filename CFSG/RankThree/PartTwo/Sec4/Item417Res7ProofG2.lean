@@ -34,7 +34,6 @@ public import CFSG.RankThree.LocalRank.SelectorCases
 public import CFSG.RankThree.PartOne.S10.Defs
 public import CFSG.RankThree.PartTwo.Sec4.StatementsSporadic
 public import CFSG.Sporadic.Schreier.J4SProfileNode
-public import Certificates.Certificate8026Base
 
 public section
 

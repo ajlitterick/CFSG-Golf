@@ -3,9 +3,6 @@ module
 public import CFSG.ClassicalInvolution.ModelFacts.LinearAutFrame
 public import CFSG.ClassicalInvolution.ModelFacts.LinearAutLift
 public import CFSG.ClassicalInvolution.RouteD.GapsD4A
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 
 public section
 

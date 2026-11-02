@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGLieSU3FixedOn
 public import CFSG.LocalAnalysis.StandardType.GGLieSU3FixedCore
 public import CFSG.LocalAnalysis.StandardType.GGLieSU3FixedLift
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 
 import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotKindUnitaryGlobal
 import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestUnitaryCenter

@@ -14,60 +14,12 @@ import CFSG.RankThree.PartTwo.Sec4.Item47CasesEven
 import CFSG.RankThree.PartTwo.Sec4.Item47Bridges
 import CFSG.RankThree.PartTwo.Sec4.Item419ThetaProofTools
 import CFSG.RankThree.PartTwo.Sec13.Item13Models
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
-public import Certificates.Certificate45
-public import Certificates.Certificate46
-public import Certificates.Certificate47
-public import Certificates.Certificate48
-public import Certificates.Certificate49
-public import Certificates.Certificate50
-public import Certificates.Certificate51
-public import Certificates.Certificate52
-public import Certificates.Certificate53
-public import Certificates.Certificate54
-public import Certificates.Certificate55
-public import Certificates.Certificate56
-public import Certificates.Certificate57
-public import Certificates.Certificate58
-public import Certificates.Certificate59
-public import Certificates.Certificate60
-public import Certificates.Certificate61
-public import Certificates.Certificate62
-public import Certificates.Certificate63
-public import Certificates.Certificate64
-public import Certificates.Certificate65
-public import Certificates.Certificate66
-public import Certificates.Certificate67
-public import Certificates.Certificate68
-public import Certificates.Certificate69
-public import Certificates.Certificate70
-public import Certificates.Certificate71
-public import Certificates.Certificate72
-public import Certificates.Certificate73
-public import Certificates.Certificate74
-public import Certificates.Certificate75
-public import Certificates.Certificate80
-public import Certificates.Certificate81
-public import Certificates.Certificate120
-public import Certificates.Certificate2264
-public import Certificates.Certificate2267
-public import Certificates.Certificate2326
-public import Certificates.Certificate3951
-public import Certificates.Certificate8033
-public import Certificates.Certificate9130
-public import Certificates.Certificate10009
-public import Certificates.Certificate12044
-public import Certificates.Certificate12045
 public import CFSG.Milestones.CL_LIT_Gorenstein_Walter_L_balance
 public import CFSG.RankThree.PartTwo.Sec4.Item4Res3Proof419
 public import CFSG.RankThree.PartTwo.Sec6.Item612
 public import CFSG.RankThree.PartTwo.Sec6.Item65One
 public import CFSG.RankThree.PartTwo.Sec8.Item812Res4ProofAssembly
 public import CFSG.RankThree.PartTwo.Sec8.Item87Proof84
-public import Certificates.Certificate17002
-public import Certificates.Certificate17951
 import CFSG.LieType.Multipliers.U62Sylow
 import CFSG.LieType.Steinberg.CentralExt.GriessNativeModels
 

@@ -82,8 +82,6 @@ public import CFSG.RankThree.PartOne.S11d.OutSymplectic
 public import CFSG.RankThree.PartOne.S11d.OutUnitary
 public import CFSG.RankThree.PartOne.S9.Sylow.ExclusionBasic
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
-public import Certificates.Certificate2265
-public import Certificates.Certificate2266
 import CFSG.LocalAnalysis.ComponentClassification.BurgoyneSpField
 import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddAssembly
 import CFSG.LocalAnalysis.ComponentClassification.OddSelectorInner

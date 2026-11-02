@@ -75,9 +75,6 @@ public import CFSG.RankThree.PartTwo.Sec4.Item423Res2ProofHelpers
 public import CFSG.RankThree.PartTwo.Sec4.Item424Res2ProofTools
 public import CFSG.RankThree.PartTwo.Sec4.Item426A6
 public import CFSG.RankThree.PartTwo.Sec4.Item4Res7ProofPairing
-public import Certificates.Certificate13951
-public import Certificates.Certificate17002
-public import Certificates.Certificate17951
 import CFSG.GH74.GLS.C3.Layer1.Back112Iv2
 import CFSG.GH74.GLS.C3.Layer1.Th2Cent5
 import CFSG.GH74.GLS.C3.Layer1.Th2Sig10
@@ -99,7 +96,6 @@ import CFSG.Quasithin.EmptyFaithful.S145Basic
 import CFSG.RankThree.PartOne.S9.OddCore.RecognitionBasic
 import CFSG.RankThree.PartTwo.Sec14.Item145Bot
 import CFSG.RankThree.PartTwo.Sec8.Item86ResProofTwo
-import Certificates.Certificate5007
 
 public section
 

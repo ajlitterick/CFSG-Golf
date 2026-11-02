@@ -6,10 +6,6 @@ public import CFSG.LieType.Steinberg.Minuscule.Datum
 public import CFSG.LieType.Steinberg.Bruhat
 public import CFSG.ClassicalInvolution.Generic.Frame
 public import CFSG.Timmesfeld.RankTwo.LevisExceptional
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate115
-public import Certificates.Certificate116
 public import CFSG.Assembly.OrderReductions.InvertedSubgroup
 public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.ClassicalInvolution.Balance.BootstrapDischarge

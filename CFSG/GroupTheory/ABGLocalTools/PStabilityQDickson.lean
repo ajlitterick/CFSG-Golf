@@ -15,7 +15,6 @@ import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.LinearThreeEquiv
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.LinearRingEquiv
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.NormalOddPSubgroupPSL2
 import Mathlib.LinearAlgebra.Projectivization.PSL.PSL2
-public import Certificates.Certificate43
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import Mathlib.FieldTheory.Finite.Trace

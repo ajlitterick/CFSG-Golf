@@ -119,7 +119,6 @@ public import CFSG.Sporadic.Schreier.J4SNoCompCover
 public import CFSG.Sporadic.Schreier.TitsOther
 public import CFSG.StronglyEmbedded.TheoremSE.BenderLowRank
 public import CFSG.Walter.W67.W2Lemma26A
-public import Certificates.Certificate1016Base
 
 public section
 

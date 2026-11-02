@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherPrimeForm
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 public import Mathlib.GroupTheory.IsPerfect
 import CFSG.LieType.Steinberg.CentralExt.PerfectLift
 import CFSG.LieType.Steinberg.CentralExt.SUOddClosed

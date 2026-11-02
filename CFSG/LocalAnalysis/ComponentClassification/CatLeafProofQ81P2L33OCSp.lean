@@ -1,11 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofQ81P2L33OCTools
-public import Certificates.Certificate2007
-public import Certificates.Certificate2012
-public import Certificates.Certificate2013
-public import Certificates.Certificate2014
-public import Certificates.Certificate2015
 public import CFSG.ClassicalInvolution.Models.LinearPairs
 public import CFSG.ClassicalInvolution.SubnormalClosure
 public import CFSG.ClassicalInvolution.WeakCT.Main
@@ -60,8 +55,6 @@ public import CFSG.Sporadic.Schreier.J1QT
 public import CFSG.Sporadic.Schreier.LyChain11
 public import CFSG.Sporadic.SmallOddCore.HSAut
 public import CFSG.Sporadic.SmallOddCore.J3Aut
-public import Certificates.Certificate3085Base
-public import Certificates.Certificate5007
 
 public section
 

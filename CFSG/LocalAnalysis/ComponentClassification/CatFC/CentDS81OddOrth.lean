@@ -41,7 +41,6 @@ public import CFSG.Sporadic.LyBase
 public import CFSG.Sporadic.McL
 public import CFSG.Sporadic.Presentation.Ly
 public import CFSG.Sporadic.Schreier.LyChain11
-public import Certificates.Certificate3085Base
 public import Certificates.Kernel.J4Count.FixC
 public import Certificates.Kernel.J4Count.FixCPairBase1
 public import Certificates.Kernel.J4Count.KFactsBase

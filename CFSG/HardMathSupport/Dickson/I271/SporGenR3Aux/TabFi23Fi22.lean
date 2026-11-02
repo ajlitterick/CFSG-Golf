@@ -24,8 +24,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.S6.InputsAlt72
 public import CFSG.Sporadic.Fi22
 public import CFSG.Sporadic.FischerOddCore.Fi23T2Card
 public import CFSG.Sporadic.Schreier.J4SRank
-public import Certificates.Certificate131101Base
-public import Certificates.Certificate13620Base
 public import Certificates.Data.Fi22PairSize
 
 public section

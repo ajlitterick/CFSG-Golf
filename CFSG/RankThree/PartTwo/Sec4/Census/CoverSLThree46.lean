@@ -1,9 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec4.Census.Open46
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.ThreeCoverBase
 import CFSG.LocalAnalysis.SectionRank.OddCover.ScalarCover
 import CFSG.LocalAnalysis.SectionRank.OddCover.PrimeThree

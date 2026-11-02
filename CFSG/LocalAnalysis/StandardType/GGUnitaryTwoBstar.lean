@@ -5,9 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUDefs
 public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowDefs
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 import CFSG.LocalAnalysis.StandardType.GGTableBUnitDvdCent
 import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeRestOuter
 import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeRestMult

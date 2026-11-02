@@ -25,8 +25,6 @@ public import CFSG.Sporadic.Schreier.J4SOrder
 public import CFSG.Sporadic.Schreier.LyFixedSet
 public import CFSG.Sporadic.Th.Max3.Packet
 public import CFSG.Sporadic.Th.Max3.Quotient
-public import Certificates.Certificate10091Base
-public import Certificates.Certificate5007
 import CFSG.LocalAnalysis.ComponentClassification.BurgoyneSpField
 import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddInnerLift
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearFieldDeterminant

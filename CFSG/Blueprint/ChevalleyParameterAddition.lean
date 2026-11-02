@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Blueprint.ChevalleyRoots
-public import Certificates.Certificate113
 
 public noncomputable section
 

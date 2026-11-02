@@ -71,10 +71,6 @@ public import CFSG.Sporadic.Recognition.LyonsAS44Quat
 public import CFSG.Sporadic.Recognition.LyonsAmalgamModelYAut
 public import CFSG.Sporadic.Recognition.LyonsFinalDist2
 public import CFSG.Sporadic.Suz
-public import Certificates.Certificate131101Base
-public import Certificates.Certificate13620Base
-public import Certificates.Certificate13622Base
-public import Certificates.Certificate7233Base
 
 public section
 

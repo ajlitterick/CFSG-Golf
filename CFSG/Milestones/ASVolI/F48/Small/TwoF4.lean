@@ -2,7 +2,6 @@ module
 
 public import CFSG.Milestones.ASVolI.F48.Small.Trans
 public import CFSG.Quasithin.Vol2.TwoF4F48Eqv
-public import Certificates.Certificate15080
 public import CFSG.Milestones.ASVolI.F4K.Main
 import all CFSG.Milestones.ASVolI.F4
 import all CFSG.Milestones.ASVolI.F4Reductions

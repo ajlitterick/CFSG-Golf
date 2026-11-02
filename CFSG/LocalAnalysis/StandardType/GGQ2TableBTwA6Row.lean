@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2TableBTwA3Row
-public import Certificates.Certificate1952
 import CFSG.LocalAnalysis.StandardType.GGTBTorAIndUFourTwo
 import CFSG.LocalAnalysis.StandardType.GGTDLabels
 import CFSG.LocalAnalysis.StandardType.GGTBTorCHolds

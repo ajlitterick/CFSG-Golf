@@ -22,8 +22,6 @@ public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure
 public import CFSG.OddTranspositions.O4PairTenWidth
 public import CFSG.Permutation.BurnsideSchur
 public import CFSG.Walter.Defs
-public import Certificates.Certificate1
-public import Certificates.Certificate2
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.Ch10SecB5EvL2
-public import Certificates.Certificate43
 
 public section
 

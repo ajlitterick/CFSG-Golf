@@ -3,10 +3,6 @@ module
 public import CFSG.LieType.Steinberg.Minuscule.Datum
 public import CFSG.LieType.Steinberg.PartBProof
 public import CFSG.LieType.Steinberg.Presentation
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate115
-public import Certificates.Certificate116
 
 public noncomputable section
 

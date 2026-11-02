@@ -4,9 +4,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeExcAdjDefs
 public import CFSG.LocalAnalysis.ComponentInitial.RootDiagonalConjugation
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeE6ToralCoreUntwDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeE6ToralCoreDefs
-public import Certificates.Certificate1952
-public import Certificates.Certificate13659
-public import Certificates.Certificate13660
 public import CFSG.Goldschmidt.Steps.G37Core
 public import CFSG.HardMathSupport.Dickson.Sec6.I923Fam.PsuGoodAux.Descent
 public import CFSG.HardMathSupport.Solomon.Coordinator.I14_20Alt

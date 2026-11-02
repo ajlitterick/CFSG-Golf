@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.Chevalley.EvenCanonicalFieldCentralizerF4
-public import Certificates.Certificate8064
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.FieldCopy
 public import CFSG.LieType.Chevalley.EvenRootCommutatorF4
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenCanonicalField
@@ -95,28 +94,6 @@ import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.ZJTheorem
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GW1965RemarkDGroup
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29Helpers
-import Certificates.Certificate1
-import Certificates.Certificate10
-import Certificates.Certificate10050
-import Certificates.Certificate11
-import Certificates.Certificate12
-import Certificates.Certificate13659
-import Certificates.Certificate13660
-import Certificates.Certificate18000
-import Certificates.Certificate1952
-import Certificates.Certificate2
-import Certificates.Certificate2265
-import Certificates.Certificate3
-import Certificates.Certificate3952
-import Certificates.Certificate4
-import Certificates.Certificate42
-import Certificates.Certificate44
-import Certificates.Certificate5
-import Certificates.Certificate6
-import Certificates.Certificate7
-import Certificates.Certificate8
-import Certificates.Certificate8117
-import Certificates.Certificate9
 import Certificates.Data.CFSGNative.MonsterB.Rep4371Model
 import Certificates.Kernel.J4Count.FixCE
 import Certificates.Kernel.J4Count.FixCPairBase1

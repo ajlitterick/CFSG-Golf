@@ -77,8 +77,6 @@ public import CFSG.RankThree.PartTwo.Sec4.Item4Res6ProofSeitzRest
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434RowsProofSeitzSz
 public import CFSG.RankThree.PartTwo.Sec8.Steps
 public import CFSG.Sporadic.HeldB.Common
-public import Certificates.Certificate7233Base
-public import Certificates.Certificate8160
 
 public section
 

@@ -30,18 +30,6 @@ public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.ExceptionalEightPlaneCen
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.UnitaryRootAutomorphism
 public import CFSG.Permutation.BurnsideSchur
 public import CFSG.Walter.PSL2Facts
-public import Certificates.Certificate7000
-public import Certificates.Certificate7001
-public import Certificates.Certificate7002
-public import Certificates.Certificate7003
-public import Certificates.Certificate7004
-public import Certificates.Certificate7005
-public import Certificates.Certificate7006
-public import Certificates.Certificate7007
-public import Certificates.Certificate7008
-public import Certificates.Certificate7009
-public import Certificates.Certificate7010
-public import Certificates.Certificate7011
 
 public section
 

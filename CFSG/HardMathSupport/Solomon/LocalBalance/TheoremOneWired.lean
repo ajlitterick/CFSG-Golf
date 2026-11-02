@@ -152,8 +152,6 @@ public import CFSG.Quasithin.Vol2.KGFactC31RuRefBase
 public import CFSG.RankThree.Native.Fi22FiveCheckInputs
 public import CFSG.RankThree.PartOne.S11b.OuterPrimeTwoSporadicOpen
 public import CFSG.RankThree.PartTwo.KFacts.OutFixCentralThree46
-public import Certificates.Certificate14953
-public import Certificates.Certificate7233Base
 
 public section
 

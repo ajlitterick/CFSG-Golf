@@ -112,8 +112,6 @@ public import CFSG.RankThree.PartTwo.Sec4.RonanK429RowVTools
 public import CFSG.RankThree.PartTwo.Sec4.RonanK429RowsS
 public import CFSG.RankThree.S4Free.SuzukiEight
 public import CFSG.Walter.J1Props
-public import Certificates.Certificate14953
-public import Certificates.Certificate8166
 public import Certificates.Kernel.J4Count.Prim
 
 public section

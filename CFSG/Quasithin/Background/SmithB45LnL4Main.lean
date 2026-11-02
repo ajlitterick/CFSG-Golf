@@ -6,7 +6,6 @@ public import CFSG.Quasithin.Background.SmithB45Families
 public import CFSG.Milestones.CL_LIT_SQTK_simple_list
 public import CFSG.Quasithin.Background.F9G2
 public import CFSG.Quasithin.Background.F9Geometry
-public import Certificates.Certificate8026Base
 
 public section
 

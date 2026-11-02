@@ -4,7 +4,6 @@ public import CFSG.CGT.PushingUpLit.SolKNA.R4.TwinLeafAut
 public import CFSG.ClassicalInvolution.SmallCases.NobqSz
 public import CFSG.LieType.Suzuki.SuzukiOuterCyclic
 public import CFSG.LieType.Ree.SuzukiSimple
-public import Certificates.Certificate113
 public import CFSG.CGT.PushingUpLit.SolKNA.R4.TwinEdgeDefs
 public import CFSG.CGT.PushingUpLit.SolKNA.R4.TwinEdgeSocCyc4
 public import CFSG.CGT.PushingUpLit.SolKNA.R4.TwinLeafLocal

@@ -33,7 +33,6 @@ public import CFSG.Models.Transport
 public import CFSG.RankThree.PartTwo.Census.Spin.Main
 public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.RankThree.PartTwo.Sec4.Census.RankOmegaF4
-public import Certificates.Certificate8171
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 
 public section

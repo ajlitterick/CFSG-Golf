@@ -5,9 +5,6 @@ public import CFSG.RankThree.PartTwo.Sec15.HypR
 public import CFSG.RankThree.PartTwo.Sec4.Statements
 public import CFSG.RankThree.PartTwo.Sec4.Notation
 public import CFSG.RankThree.PartTwo.Sec14.Item14ListStatements
-public import Certificates.Certificate3029
-public import Certificates.Certificate3086
-public import Certificates.Certificate3139
 import CFSG.RankThree.PartTwo.Sec13.Item13Basic
 import CFSG.RankThree.PartTwo.Sec13.Item13SetupAt
 import CFSG.RankThree.PartTwo.Sec13.Item133
@@ -33,8 +30,6 @@ import CFSG.RankThree.PartOne.S12.InputsBase
 import CFSG.RankThree.PartTwo.Sec14.Item148StepCases
 import CFSG.RankThree.PartTwo.Sec14.Item148StepOne
 import CFSG.RankThree.PartTwo.Sec4.Census.Interface46
-import Certificates.Certificate2201
-import Certificates.Certificate2202
 
 public section
 

@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGNSJoinOrthExcl
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinByType
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinRankOneOfRk1
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseLabel
-public import Certificates.Certificate1952
 import CFSG.LocalAnalysis.StandardType.GGTBE6
 import CFSG.LocalAnalysis.StandardType.GGTBTorLiftRowsHolds
 

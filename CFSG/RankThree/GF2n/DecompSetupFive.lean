@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.GF2n.DecompSetupSz
-public import Certificates.Certificate113
 
 public section
 
