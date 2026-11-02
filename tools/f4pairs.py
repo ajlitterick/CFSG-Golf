@@ -53,7 +53,7 @@ def main() -> None:
                 continue
             copy = os.path.join(dp, f)
             rel = os.path.relpath(copy, root)
-            orig = os.path.join(a.repo, rel)
+            orig = os.path.join(a.repo, "CFSG", rel)
             with open(copy, encoding="utf-8") as fh:
                 ctext = fh.read()
             uses_gen4 = "gen4" in ctext or "Gen4" in ctext.replace("QTGen4", "")
