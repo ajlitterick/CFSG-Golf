@@ -330,18 +330,6 @@ public import CFSG.RankThree.PartTwo.Sec8.Item87Proof84
 public import CFSG.SignalizerFunctorTheorem.CatalogBridge.FixedFieldCard
 public import CFSG.SignalizerFunctorTheorem.CatalogBridge.NormalFormStabilizer
 public import CFSG.Sporadic.Recognition.LyonsFinalDist2
-public import Certificates.Certificate19780
-public import Certificates.Certificate19800
-public import Certificates.Certificate295200
-public import Certificates.Certificate310101
-public import Certificates.Certificate490011
-public import Certificates.Certificate490012
-public import Certificates.Certificate490013
-public import Certificates.Certificate490031
-public import Certificates.Certificate7066
-public import Certificates.Certificate7227
-public import Certificates.Certificate7247
-public import Certificates.Certificate7260
 public import Certificates.Data.CFSGNative.J4Tree.Top
 
 public section

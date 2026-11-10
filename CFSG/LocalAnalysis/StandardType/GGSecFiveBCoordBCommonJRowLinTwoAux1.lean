@@ -20,7 +20,6 @@ import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Lemma1314b
 import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Lemma1314c
 import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Prop1310a5b
 import CFSG.LocalAnalysis.RankThreeTheoremC.GL83Generic4_1P3M11Defs
-import Certificates.Certificate41501
 
 public section
 

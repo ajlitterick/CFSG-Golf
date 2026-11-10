@@ -17,8 +17,6 @@ public import CFSG.OddTranspositions.O4PairTenWidth
 public import CFSG.OddTranspositions.Width
 public import CFSG.Permutation.BurnsideSchur
 public import CFSG.Timmesfeld.Bridge.Asc72Lift
-public import Certificates.Certificate1
-public import Certificates.Certificate2
 
 public section
 

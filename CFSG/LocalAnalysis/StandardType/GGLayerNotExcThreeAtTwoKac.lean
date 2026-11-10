@@ -44,8 +44,6 @@ public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
-public import Certificates.Certificate1953
-public import Certificates.Certificate1954
 
 public section
 

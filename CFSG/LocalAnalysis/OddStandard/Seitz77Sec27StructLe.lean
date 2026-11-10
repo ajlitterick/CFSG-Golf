@@ -63,7 +63,6 @@ public import CFSG.Sporadic.Schreier.LyChain11
 public import CFSG.Sporadic.Schreier.MathieuOddCoreModel
 public import CFSG.Sporadic.Schreier.MathieuOddCoreWords
 public import CFSG.Sporadic.Schreier.TitsOther
-public import Certificates.Certificate3085Base
 
 public section
 

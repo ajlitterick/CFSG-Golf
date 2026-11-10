@@ -109,7 +109,6 @@ public import CFSG.RankThree.PartTwo.Sec4.Item423ResProof432
 public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Defs
 public import CFSG.SignalizerFunctorTheorem.McBride.Prelim.Projection
 public import CFSG.Yardstones.M67c2c3e09a6b.Definitions
-public import Certificates.Certificate8166
 public import Certificates.Kernel.J4Count.Prim
 
 public section

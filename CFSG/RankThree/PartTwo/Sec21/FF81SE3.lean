@@ -20,7 +20,6 @@ public import CFSG.LieType.Universal.Spin.Roots
 public import CFSG.LieType.Universal.Unitary
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 public import CFSG.RankThree.PartTwo.Sec21.HoltCatalog
-public import Certificates.Certificate43
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus

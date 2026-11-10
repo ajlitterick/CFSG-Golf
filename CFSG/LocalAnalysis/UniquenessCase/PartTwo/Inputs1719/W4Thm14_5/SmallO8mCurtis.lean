@@ -106,9 +106,6 @@ public import CFSG.Sporadic.ON.SimpleBase
 public import CFSG.Sporadic.Presentation.Ly
 public import CFSG.Sporadic.Schreier.LyChain11
 public import CFSG.Sporadic.Schreier.TitsOther
-public import Certificates.Certificate1016Base
-public import Certificates.Certificate1021
-public import Certificates.Certificate3085Base
 import CFSG.CGT.Timmesfeld75.Forms
 import CFSG.ClassicalGroups.Orthogonal.RootGroupSwap
 import CFSG.HardMathSupport.GuralnickMalle.CyclicTwo

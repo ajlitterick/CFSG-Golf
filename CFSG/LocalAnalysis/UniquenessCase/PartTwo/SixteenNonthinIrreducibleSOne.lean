@@ -29,9 +29,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenThreeL5Conjugates
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenThreeL5S1
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenThreeM22Exclusion
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenTripleA6Row
-public import Certificates.Certificate431004
-public import Certificates.Certificate17430
-public import Certificates.Certificate9726
 public import CFSG.ClassicalGroups.UnitaryFlag.PointSylow
 public import CFSG.Dihedral.DisconnectedInvolutionGraph.CoprimeFixedSylow
 public import CFSG.GroupTheory.Fitting.QuasisimpleNormalFstar

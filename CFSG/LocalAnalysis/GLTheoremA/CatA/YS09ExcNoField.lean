@@ -23,13 +23,6 @@ public import CFSG.Adapters.ProjectiveSpecialLinear
 public import CFSG.Models.Blueprint
 public import CFSG.Sporadic.Mathieu.M22
 public import CFSG.Sporadic.Bridge.Catalogue
-public import Certificates.Certificate6001
-public import Certificates.Certificate6002
-public import Certificates.Certificate6003
-public import Certificates.Certificate6004
-public import Certificates.Certificate6005
-public import Certificates.Certificate6007
-public import Certificates.Certificate16026
 public import CFSG.Blueprint.LieModelAPI
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
@@ -67,7 +60,6 @@ public import CFSG.Sporadic.Presentation.Co2FusionInputs
 public import CFSG.Sporadic.Presentation.McLExactData
 public import CFSG.Sporadic.Presentation.McLExactInputs
 public import CFSG.YGroups.DCE.B433Check
-public import Certificates.Certificate9124
 
 public section
 

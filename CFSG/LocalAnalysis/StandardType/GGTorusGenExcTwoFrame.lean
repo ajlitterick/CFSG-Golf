@@ -5,9 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTorusGenExcTwoCent
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenExcTwoComp
 public import CFSG.LocalAnalysis.StandardType.GGIrred937ExcLang
 public import CFSG.LocalAnalysis.StandardType.GGIrred937ExcMain
-public import Certificates.Certificate1952
-public import Certificates.Certificate13659
-public import Certificates.Certificate13660
 import CFSG.GroupTheory.ConjClassGeneration
 
 public section

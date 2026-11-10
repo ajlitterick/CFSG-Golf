@@ -102,8 +102,6 @@ public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import CFSG.Quasithin.Vol2.Ch1Local
 public import CFSG.RankThree.PartTwo.KFacts.K72OmegaL2
 public import CFSG.Sporadic.J4.QT2LocProof
-public import Certificates.Certificate3953
-public import Certificates.Certificate5022
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
 public import Certificates.Kernel.J4Count.KFactsBase

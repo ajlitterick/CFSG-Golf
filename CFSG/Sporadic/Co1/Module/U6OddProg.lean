@@ -5,10 +5,8 @@ public import Certificates.Data.CFSGNative.Co1.U6OddData
 public meta import CFSG.Sporadic.Co1.Module.Orbits
 public meta import Certificates.Data.CFSGNative.Co1.Odd
 public meta import Certificates.Data.CFSGNative.Co1.U6OddData
-public import Certificates.Certificate3024
 public import CFSG.Sporadic.Co1.Module.CoTwoData
 public import CFSG.Sporadic.Co1.Module.OddFacts
-public import Certificates.Certificate10067
 public import Certificates.Kernel.Co1B.Tri2045
 
 public section

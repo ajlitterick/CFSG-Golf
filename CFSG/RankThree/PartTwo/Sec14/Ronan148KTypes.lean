@@ -26,9 +26,6 @@ public import CFSG.RankThree.PartTwo.Sec8.Pairs
 public import CFSG.RankThree.PartTwo.Sec8.Statements
 public import CFSG.StronglyEmbedded.ParityCriterion
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
-public import Certificates.Certificate3029
-public import Certificates.Certificate3086
-public import Certificates.Certificate3139
 import CFSG.ClassicalGroups.Symplectic.Simple
 import CFSG.LinearAlgebra.LinearGroups.ProjectiveSimple
 import CFSG.RankThree.PartTwo.KFacts.KS12MovesSL

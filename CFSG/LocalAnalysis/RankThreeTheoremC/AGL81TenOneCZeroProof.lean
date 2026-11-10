@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGLHyp111ElevenTwentySeven
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThreeThreeTransfer
-public import Certificates.Certificate43
-public import Certificates.Certificate7067
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThreeThreeASix
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThreeThreeCfg
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThreeThreeCore

@@ -14,37 +14,6 @@ public import CFSG.LocalAnalysis.LargeEvenClassification.MacWilliamsReduction
 public import CFSG.LocalAnalysis.LargeEvenClassification.SmallCfourFullObstruction
 public import CFSG.LocalAnalysis.LargeEvenClassification.SmallCfourProperSubgroups
 public import CFSG.LocalAnalysis.SectionRank.Framework.SylowRank
-public import Certificates.Certificate1
-public import Certificates.Certificate10
-public import Certificates.Certificate100
-public import Certificates.Certificate101
-public import Certificates.Certificate102
-public import Certificates.Certificate103
-public import Certificates.Certificate104
-public import Certificates.Certificate105
-public import Certificates.Certificate106
-public import Certificates.Certificate107
-public import Certificates.Certificate108
-public import Certificates.Certificate109
-public import Certificates.Certificate11
-public import Certificates.Certificate12
-public import Certificates.Certificate2
-public import Certificates.Certificate3
-public import Certificates.Certificate4
-public import Certificates.Certificate42
-public import Certificates.Certificate44
-public import Certificates.Certificate5
-public import Certificates.Certificate6
-public import Certificates.Certificate7
-public import Certificates.Certificate8
-public import Certificates.Certificate8046
-public import Certificates.Certificate8049
-public import Certificates.Certificate8052
-public import Certificates.Certificate9
-public import Certificates.Certificate96
-public import Certificates.Certificate97
-public import Certificates.Certificate98
-public import Certificates.Certificate99
 
 public noncomputable section
 

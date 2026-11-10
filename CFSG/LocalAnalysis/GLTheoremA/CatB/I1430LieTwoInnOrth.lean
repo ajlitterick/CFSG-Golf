@@ -24,7 +24,6 @@ import CFSG.HardMathSupport.Dickson.Bal207.LocalBalRows
 import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.W2.SpTwo
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.I294KDOutTwE6
 import CFSG.Quasithin.EmptyFaithful.GoldschmidtX1512DeltaA
-import Certificates.Certificate9530
 
 public section
 

@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I2015NLCore
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I2015NLTD4NE
-public import Certificates.Certificate5133
-public import Certificates.Certificate8080
-public import Certificates.Certificate8081
-public import Certificates.Certificate14953
 import CFSG.LocalAnalysis.GLTheoremA.CatA.I2015NLLinear
 import CFSG.LocalAnalysis.GLTheoremA.CatA.I2015NLDerived
 import CFSG.LocalAnalysis.GLTheoremA.CatA.I2015NLUnitary

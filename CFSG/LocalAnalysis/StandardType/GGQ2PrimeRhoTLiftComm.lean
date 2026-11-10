@@ -6,9 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelTypeABridge
 public import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofCoxeter
 public import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofRefl
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeProp1010
-public import Certificates.Certificate1003
-public import Certificates.Certificate1009
-public import Certificates.Certificate3600
 
 public section
 

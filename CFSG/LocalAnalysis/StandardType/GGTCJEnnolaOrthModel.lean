@@ -43,10 +43,6 @@ import CFSG.RankThree.PartOne.S9.Sylow.ExclusionBasic
 import CFSG.RankThree.Theta.ThreeComponentOrbitCover
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
-import Certificates.Certificate116
-import Certificates.Certificate119
-import Certificates.Certificate122
-import Certificates.Certificate123
 import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 
 public section

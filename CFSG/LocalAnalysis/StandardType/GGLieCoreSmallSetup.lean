@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGLieCoreStruct
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.TwistedE6Base
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleSplit
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleCycle
-public import Certificates.Certificate13659
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.UntwistOuter
 import CFSG.HardMathSupport.Timmesfeld.RootAut.Main
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.FrobeniusOnRoots

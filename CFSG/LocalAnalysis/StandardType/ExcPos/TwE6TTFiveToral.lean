@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGFinModelRootCompatDefs
 public import CFSG.LocalAnalysis.StandardType.GGTwE6KGA1Defs
-public import Certificates.Certificate115
-public import Certificates.Certificate116
 import CFSG.LocalAnalysis.StandardType.GGLieCoreToralInd
 import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcToralityFive
 import CFSG.RankThree.Chevalley.SteinbergBID4CentralKernel

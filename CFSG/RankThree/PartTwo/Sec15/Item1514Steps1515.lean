@@ -15,14 +15,9 @@ import CFSG.RankThree.PartTwo.Sec13.Item136PGL
 import CFSG.RankThree.PartTwo.Sec13.Item134SylowBarT
 import CFSG.RankThree.PartTwo.Sec14.Item1446
 import CFSG.RankThree.PartTwo.KFacts.KS14Orders
-public import Certificates.Certificate3029
-public import Certificates.Certificate3086
-public import Certificates.Certificate3139
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHermitianIsometry
 import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
-import Certificates.Certificate10019
-import Certificates.Certificate10019Base
 
 public section
 

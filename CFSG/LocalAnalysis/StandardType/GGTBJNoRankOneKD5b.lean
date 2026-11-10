@@ -13,8 +13,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.SuzukiModelSchreier
 public import CFSG.RankThree.PartTwo.Sec12.Notation
 public import CFSG.RankThree.PartTwo.Sec4.LThreePiTypes
 public import CFSG.RankThree.PartTwo.Sec8.Statements
-public import Certificates.Certificate1
-public import Certificates.Certificate2
 
 public section
 

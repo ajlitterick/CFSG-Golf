@@ -70,10 +70,6 @@ public import CFSG.Quasithin.Background.GoldschmidtAmalgamLargeHolds
 public import CFSG.Quasithin.Background.GoldschmidtAmalgamPairCentral
 public import CFSG.Quasithin.Vol2.Ch5Sec1L34Lem516
 public import CFSG.RankThree.OddKernel.CentralCoverComponentModels
-public import Certificates.Certificate19762
-public import Certificates.Certificate19763
-public import Certificates.Certificate9530
-public import Certificates.Certificate9681
 import CFSG.Quasithin.H13.QRCThreeFreeRankOneStep
 import CFSG.Quasithin.SteinbergBKHigherElementaryThompson
 

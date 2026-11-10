@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBDenseLabelDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBRes
-public import Certificates.Certificate13657
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBQTwoLinDense
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePermNbrLabelOfJ
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBDenseCoords
@@ -12,7 +11,6 @@ import CFSG.LocalAnalysis.StandardType.GGSecFiveBFixLine
 import CFSG.LocalAnalysis.StandardType.GGRowKFrame
 import CFSG.LocalAnalysis.StandardType.GGSignedCoordFix
 import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import Certificates.Certificate12621
 
 public section
 

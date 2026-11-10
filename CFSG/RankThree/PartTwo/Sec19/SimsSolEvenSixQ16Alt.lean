@@ -26,11 +26,6 @@ import CFSG.RankThree.PartTwo.Sec17.RouteProvers
 import CFSG.RankThree.PartTwo.Sec17.RouteProvers142
 import CFSG.RankThree.PartTwo.Toolkit.M12Local
 import CFSG.RankThree.S4Free.SuzukiEight
-import Certificates.Certificate14953
-import Certificates.Certificate2246
-import Certificates.Certificate5133
-import Certificates.Certificate8166
-import Certificates.Certificate8169
 import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 
 public section

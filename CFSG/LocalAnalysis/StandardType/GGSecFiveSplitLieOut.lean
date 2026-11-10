@@ -11,7 +11,6 @@ import CFSG.Quasithin.Background.A1cModuleCoprime
 import CFSG.Quasithin.Background.A3Structure312Facts
 import CFSG.Quasithin.Background.OrderingMax
 import CFSG.Quasithin.Vol2.Ch1Local
-import Certificates.Certificate8026Base
 
 public section
 

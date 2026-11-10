@@ -10,21 +10,6 @@ public meta import Certificates.Data.CFSGNative.YGroups.Y443.MonsterWords
 public meta import Certificates.Data.CFSGNative.YGroups.Y443.Witness
 public meta import Certificates.Data.CFSGNative.YGroups.Y443.AlignWords
 public import CFSG.YGroups.Y443.Native.AlignConj
-public import Certificates.Certificate6007
-public import Certificates.Certificate10093
-public import Certificates.Certificate10098
-public import Certificates.Certificate10103
-public import Certificates.Certificate10107
-public import Certificates.Certificate10108
-public import Certificates.Certificate10110
-public import Certificates.Certificate10112
-public import Certificates.Certificate10115
-public import Certificates.Certificate10116
-public import Certificates.Certificate10117
-public import Certificates.Certificate10118
-public import Certificates.Certificate10119
-public import Certificates.Certificate10123
-public import Certificates.Certificate10127
 public import CFSG.YGroups.Y443.Native.AlignB
 public import CFSG.YGroups.Y443.Native.AlignW
 public import CFSG.YGroups.Y443.Native.EdgeNoncomm

@@ -222,7 +222,6 @@ public import CFSG.Timmesfeld.Bridge.RootSets
 public import CFSG.Timmesfeld.Bridge.RootSetsGate
 public import CFSG.Timmesfeld.Bridge.RootSetsSyl
 public import CFSG.Timmesfeld.Exceptional.CaseTwo
-public import Certificates.Certificate8160
 
 public section
 

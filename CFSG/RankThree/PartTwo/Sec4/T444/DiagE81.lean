@@ -8,8 +8,6 @@ public import CFSG.RankThree.OddKernel.EightGroupDims
 public import CFSG.RankThree.PartOne.S10.PlaneLocalRankContract
 public import CFSG.RankThree.PartTwo.Sec4.Item426A6
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item4443SLUsed
-public import Certificates.Certificate8058
-public import Certificates.Certificate8059
 
 public section
 

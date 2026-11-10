@@ -35,7 +35,6 @@ public import CFSG.LocalAnalysis.GLTheoremB.SchreierTools
 public import CFSG.Models.Transport
 public import CFSG.Sporadic.ThSchreier.Perfect
 public import CFSG.Sporadic.ThSchreier.Rigidity
-public import Certificates.Certificate10091Base
 import CFSG.CGT.Timmesfeld75.Statements
 import CFSG.LocalAnalysis.RankThreeUC.CatalogClosureOddBasic
 import CFSG.RankThree.PartOne.S12.InputsBase

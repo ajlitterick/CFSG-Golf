@@ -18,7 +18,6 @@ public import CFSG.HardMathSupport.Dickson.Sec6.I1431SporAux.BMNo65Monster
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431SporAux.CentralizerCFive
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I1416SporAut168
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.YS10I1416Pass
-public import Certificates.Certificate17632Base
 import CFSG.Assembly.OpenBridges
 
 public section

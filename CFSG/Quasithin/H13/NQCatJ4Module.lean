@@ -5,9 +5,6 @@ public import CFSG.LinearAlgebra.ExtraspecialCyclotomicModule
 public import CFSG.LieType.BorelTits.Flag
 public import CFSG.LocalAnalysis.SectionRank.Ccomm.ElementaryAut
 public import CFSG.RankThree.GroupTheory.SteinbergBKFrattiniOuterPrimeBound
-public import Certificates.Certificate7020
-public import Certificates.Certificate3084
-public import Certificates.Certificate8024
 public import CFSG.Assembly.OrderReductions.InvertedSubgroup
 public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.GroupActions.SelfCentralizingCoreOuterPrimeBound

@@ -22,7 +22,6 @@ public import CFSG.LocalAnalysis.SeitzReduction.E6PilotCTFieldCenter
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotClassesRoots
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotMainSetup
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotSwapCoverConj
-public import Certificates.Certificate41501
 
 public section
 

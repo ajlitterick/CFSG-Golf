@@ -60,8 +60,6 @@ import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
 import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-import Certificates.Certificate1
-import Certificates.Certificate2
 
 public section
 

@@ -1,77 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FF81.Defs
-public import Certificates.Certificate43
-public import Certificates.Certificate45
-public import Certificates.Certificate46
-public import Certificates.Certificate47
-public import Certificates.Certificate48
-public import Certificates.Certificate49
-public import Certificates.Certificate50
-public import Certificates.Certificate51
-public import Certificates.Certificate52
-public import Certificates.Certificate53
-public import Certificates.Certificate54
-public import Certificates.Certificate55
-public import Certificates.Certificate56
-public import Certificates.Certificate57
-public import Certificates.Certificate58
-public import Certificates.Certificate59
-public import Certificates.Certificate60
-public import Certificates.Certificate61
-public import Certificates.Certificate62
-public import Certificates.Certificate63
-public import Certificates.Certificate64
-public import Certificates.Certificate65
-public import Certificates.Certificate66
-public import Certificates.Certificate67
-public import Certificates.Certificate68
-public import Certificates.Certificate69
-public import Certificates.Certificate70
-public import Certificates.Certificate71
-public import Certificates.Certificate72
-public import Certificates.Certificate73
-public import Certificates.Certificate74
-public import Certificates.Certificate75
-public import Certificates.Certificate76
-public import Certificates.Certificate77
-public import Certificates.Certificate82
-public import Certificates.Certificate83
-public import Certificates.Certificate84
-public import Certificates.Certificate85
-public import Certificates.Certificate86
-public import Certificates.Certificate87
-public import Certificates.Certificate88
-public import Certificates.Certificate89
-public import Certificates.Certificate90
-public import Certificates.Certificate91
-public import Certificates.Certificate92
-public import Certificates.Certificate93
-public import Certificates.Certificate94
-public import Certificates.Certificate95
-public import Certificates.Certificate96
-public import Certificates.Certificate97
-public import Certificates.Certificate98
-public import Certificates.Certificate99
-public import Certificates.Certificate100
-public import Certificates.Certificate101
-public import Certificates.Certificate102
-public import Certificates.Certificate103
-public import Certificates.Certificate104
-public import Certificates.Certificate105
-public import Certificates.Certificate106
-public import Certificates.Certificate107
-public import Certificates.Certificate108
-public import Certificates.Certificate109
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate115
-public import Certificates.Certificate116
-public import Certificates.Certificate117
-public import Certificates.Certificate118
-public import Certificates.Certificate122
-public import Certificates.Certificate10007
-public import Certificates.Certificate10008
 import CFSG.Holt.H78.Theorem1
 import CFSG.Holt.H78.Bridge
 import CFSG.Holt.General.DLineTools
@@ -143,19 +72,6 @@ import CFSG.RankThree.Holt.Basic
 import CFSG.RankThree.PartTwo.Sec6.Statements
 import CFSG.Sporadic.Schreier.J4SNoCompCover
 import CFSG.Sporadic.ThSchreier.AutCore
-import Certificates.Certificate7000
-import Certificates.Certificate7001
-import Certificates.Certificate7002
-import Certificates.Certificate7003
-import Certificates.Certificate7004
-import Certificates.Certificate7005
-import Certificates.Certificate7006
-import Certificates.Certificate7007
-import Certificates.Certificate7008
-import Certificates.Certificate7009
-import Certificates.Certificate7010
-import Certificates.Certificate7011
-import Certificates.Certificate8026Base
 
 public section
 

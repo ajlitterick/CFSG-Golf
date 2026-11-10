@@ -46,7 +46,6 @@ import CFSG.Sporadic.McL
 import CFSG.Sporadic.Presentation.Common
 import CFSG.Sporadic.Presentation.Ly
 import CFSG.Sporadic.Schreier.LyChain11
-import Certificates.Certificate3085Base
 import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 

@@ -7,9 +7,6 @@ public import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.InnExcLang
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotAlignTori
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.TwistedE6Base
 public import CFSG.LocalAnalysis.ComponentClassification.ExcSelectorOddToral
-public import Certificates.Certificate1952
-public import Certificates.Certificate13659
-public import Certificates.Certificate13660
 public import CFSG.GH74.Statements
 public import CFSG.Goldschmidt.Statements
 public import CFSG.Goldschmidt.StatementsG2
@@ -138,8 +135,6 @@ public import CFSG.Walter.J1Props
 public import CFSG.Walter.J1Recog
 public import CFSG.Walter.PSL2Facts
 public import CFSG.Walter.W67.Statements
-public import Certificates.Certificate1953
-public import Certificates.Certificate1954
 public import Certificates.Kernel.J4Count.Prim
 
 public section

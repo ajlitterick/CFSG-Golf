@@ -4,21 +4,6 @@ public import CFSG.Sporadic.SuzRecog.RootTwistCentre
 public import CFSG.Sporadic.SuzRecog.LevelTwoCoverMaps
 public import CFSG.Sporadic.SuzRecog.LevelTwoCover
 public import CFSG.Sporadic.SuzRecog.Rigid
-public import Certificates.Certificate15090
-public import Certificates.Certificate15112
-public import Certificates.Certificate15113
-public import Certificates.Certificate2289
-public import Certificates.Certificate2293
-public import Certificates.Certificate2296
-public import Certificates.Certificate2297
-public import Certificates.Certificate2298
-public import Certificates.Certificate2299
-public import Certificates.Certificate2300
-public import Certificates.Certificate2301
-public import Certificates.Certificate2302
-public import Certificates.Certificate2305
-public import Certificates.Certificate2306
-public import Certificates.Certificate3173
 
 public noncomputable section
 

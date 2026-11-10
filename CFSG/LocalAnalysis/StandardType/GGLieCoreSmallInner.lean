@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreStruct
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleField
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleCycle
-public import Certificates.Certificate8064
-public import Certificates.Certificate13659
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeExcKernelSmall
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerSmall
 import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTame.SmallField

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ElevenElevenRankOneDefs
-public import Certificates.Certificate113
-public import Certificates.Certificate43
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.CaseTwoSylow
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.L28AutThree
 import CFSG.RankThree.PartOne.K159F.SzAbs

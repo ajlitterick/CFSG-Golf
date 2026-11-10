@@ -15,7 +15,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec5Lemma55
 public import CFSG.LocalAnalysis.ComponentClassification.Sol76LayerFix
 public import CFSG.LocalAnalysis.ComponentClassification.Sol78Family
 public import CFSG.Open.QuasithinDefs
-public import Certificates.Certificate22705
 
 public section
 

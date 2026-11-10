@@ -30,9 +30,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theor
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.Timmesfeld.RankOne
 public import CFSG.Walter.Defs
-public import Certificates.Certificate1
-public import Certificates.Certificate2
-public import Certificates.Certificate8026Base
 
 public section
 

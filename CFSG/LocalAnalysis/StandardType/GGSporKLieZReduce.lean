@@ -9,8 +9,6 @@ import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.PCoreFreeFixedPointsCentralize
 import CFSG.Walter.Bender1970.S2.TwoSubgroup
 import CFSG.Walter.PSL2Facts
-import Certificates.Certificate1
-import Certificates.Certificate2
 
 public section
 

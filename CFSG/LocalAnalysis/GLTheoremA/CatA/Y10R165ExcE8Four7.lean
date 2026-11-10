@@ -28,8 +28,6 @@ public import CFSG.RankThree.PartOne.KE6.Phi6Decomp
 public import CFSG.RankThree.PartOne.KE6.Phi6Excl
 public import CFSG.RankThree.PartOne.KE6.Phi6Frame
 public import CFSG.RankThree.PartOne.KF4.KernelTools
-public import Certificates.Certificate1953
-public import Certificates.Certificate1954
 
 public noncomputable section
 

@@ -8,9 +8,6 @@ public import CFSG.LocalAnalysis.SectionRank.EvenCover.UnitaryThree
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X5bModel
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X5bAut
 public import CFSG.ClassicalGroups.UnitaryFlag.GroupData
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 public import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 public import CFSG.LinearAlgebra.LinearGroups.UnitaryThreeOverNine
 public import CFSG.LinearAlgebra.LinearGroups.UnitaryThreeOverNineInvolutions

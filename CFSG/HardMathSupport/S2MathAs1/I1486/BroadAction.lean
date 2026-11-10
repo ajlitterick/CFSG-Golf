@@ -128,7 +128,6 @@ public import CFSG.RankThree.PartOne.S9.OddCore.RecognitionBasic
 public import CFSG.SignalizerFunctorTheorem.NonLocal.Cross
 public import CFSG.SignalizerFunctorTheorem.NonLocal.SpData
 public import CFSG.SignalizerFunctorTheorem.NonLocal.SpTwoTwo
-public import Certificates.Certificate41501
 
 public section
 

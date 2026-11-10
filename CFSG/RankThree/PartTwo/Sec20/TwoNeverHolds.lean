@@ -99,8 +99,6 @@ public import CFSG.RankThree.PartTwo.Sec17.Item176ProofTwo
 public import CFSG.RankThree.PartTwo.Sec4.Ronan148LL34Facts
 public import CFSG.RankThree.PartTwo.Sec4.RonanEpsCfgForward
 public import CFSG.RankThree.PartTwo.Sec4.RonanK432WitArr
-public import Certificates.Certificate14950
-public import Certificates.Certificate19800
 
 public section
 

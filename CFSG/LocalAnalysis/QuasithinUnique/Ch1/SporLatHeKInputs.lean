@@ -16,7 +16,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.K1.Interface
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicRep
 public import CFSG.Sporadic.He
 public import CFSG.Sporadic.Th.F2Spec
-public import Certificates.Certificate113
 
 #kc_repo #kc_json_gz CFSG.QuasithinUnique.Ch1.SporLat.He.HeK
   "CFSG/LocalAnalysis/QuasithinUnique/Ch1/data/heLatK.json.gz" 403056 8911501554168263455

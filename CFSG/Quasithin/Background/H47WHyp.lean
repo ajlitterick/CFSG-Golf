@@ -8,8 +8,6 @@ public import CFSG.GroupTheory.LocalCores.Components
 public import CFSG.LinearAlgebra.LinearGroups.ProjectiveSimple
 public import CFSG.Adapters.ProjectiveSpecialLinear
 public import CFSG.Open.StatedDefs
-public import Certificates.Certificate7241
-public import Certificates.Certificate7252
 public import CFSG.CharacterTheory.Semidihedral.FixedFieldData
 public import CFSG.Foundations
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound

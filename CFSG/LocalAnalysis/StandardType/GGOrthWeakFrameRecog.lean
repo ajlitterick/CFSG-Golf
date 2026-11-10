@@ -65,10 +65,6 @@ import CFSG.RankThree.Theta.ThreeComponentOrbitCover
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 import CFSG.Walter.Defs
-import Certificates.Certificate1
-import Certificates.Certificate119
-import Certificates.Certificate122
-import Certificates.Certificate2
 import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 

@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7CCoordDefs
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 import CFSG.LocalAnalysis.StandardType.GGHdRo7CLCoordAux
 import CFSG.LocalAnalysis.StandardType.GGHdRo7CLCoordModelC
 import CFSG.LocalAnalysis.StandardType.GGSpFrameRank

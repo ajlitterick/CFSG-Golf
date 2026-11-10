@@ -4,9 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6Row
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6ThreeRow
 public import CFSG.LocalAnalysis.StandardType.GGTBJRowR5O2
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinRMDefs
-public import Certificates.Certificate1952
-public import Certificates.Certificate13659
-public import Certificates.Certificate13660
 import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
 import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrCoxOrder

@@ -2,13 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermLabelDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBLabelDefs
-public import Certificates.Certificate1952
-public import Certificates.Certificate1953
-public import Certificates.Certificate1954
-public import Certificates.Certificate2261
-public import Certificates.Certificate2269
-public import Certificates.Certificate8032
-public import Certificates.Certificate13657
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBLabelCore
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBRes
 import CFSG.LocalAnalysis.StandardType.GGResNonsingF4Three

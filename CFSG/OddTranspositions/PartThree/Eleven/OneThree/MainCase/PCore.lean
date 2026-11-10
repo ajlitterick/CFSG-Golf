@@ -1,7 +1,6 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Eleven.OneThree.MainCase.Defs
-public import Certificates.Certificate113
 import CFSG.GroupTheory.CentralSylowComplement
 import CFSG.OddTranspositions.PartThree.Eleven.OneThree.MainCase.Involution
 

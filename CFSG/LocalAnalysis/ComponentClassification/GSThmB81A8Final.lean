@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB81A8Dih
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB81Frontier
-public import Certificates.Certificate2007
-public import Certificates.Certificate2013
-public import Certificates.Certificate2014
-public import Certificates.Certificate2019
 
 public section
 

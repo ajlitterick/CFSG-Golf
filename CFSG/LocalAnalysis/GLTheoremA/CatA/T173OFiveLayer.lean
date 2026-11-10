@@ -40,10 +40,6 @@ public import CFSG.LocalAnalysis.GLTheoremB.SchreierTools
 public import CFSG.RankThree.Chevalley.SteinbergBID4CentralKernel
 public import CFSG.RankThree.PartOne.KE.E7FiveBlock
 public import CFSG.RankThree.PartTwo.Sec8.Item87Proof84
-public import Certificates.Certificate13659
-public import Certificates.Certificate13660
-public import Certificates.Certificate17002
-public import Certificates.Certificate17951
 
 public section
 

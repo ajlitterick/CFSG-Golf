@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Certificate3951
 public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoModel
 public import CFSG.LocalAnalysis.SeitzReduction.EPilotCentralizerHigh
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotLeviHom

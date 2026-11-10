@@ -62,7 +62,6 @@ public import CFSG.RankThree.PartOne.RF4.Basic
 public import CFSG.RankThree.PartOne.S12.InputsBase
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Schreier.TitsOther
-public import Certificates.Certificate8026Base
 
 public section
 

@@ -8,7 +8,6 @@ public import CFSG.Sporadic.Bridge.BSurj
 public import CFSG.Monster.B.Pinned.Primes.SixPrimes
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.BCoxeterRels
 public import CFSG.RankThree.PartOne.CTP.FusionSound
-public import Certificates.Certificate9650
 public import CFSG.LocalAnalysis.AGLEmbedding.CoverWeakGenData
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.SporCaseThreeGen
 

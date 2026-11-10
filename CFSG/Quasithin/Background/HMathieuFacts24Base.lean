@@ -19,7 +19,6 @@ public import CFSG.Quasithin.Background.HMathieuPT24
 public import CFSG.Quasithin.Background.HMathieuAvoid
 public import CFSG.Quasithin.Background.HMathieuEnumAll
 public import CFSG.Quasithin.Background.HMathieuSyl24
-public import Certificates.Certificate7074
 
 @[expose] public section
 

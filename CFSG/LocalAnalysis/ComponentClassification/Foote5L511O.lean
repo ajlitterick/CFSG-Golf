@@ -68,9 +68,6 @@ public import CFSG.Sporadic.Ly.Simple
 public import CFSG.Sporadic.McL
 public import CFSG.Walter.J1
 public import CFSG.Walter.W67.Section5.Lemma57
-public import Certificates.Certificate3953
-public import Certificates.Certificate5007
-public import Certificates.Certificate5022
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
 public import Certificates.Kernel.J4Count.KFactsBase

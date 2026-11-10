@@ -116,8 +116,6 @@ public import CFSG.RankThree.PartTwo.Sec17.RouteProvers142
 public import CFSG.RankThree.PartTwo.Sec8.Item87Proof84
 public import CFSG.RankThree.S4Free.SuzukiEight
 public import CFSG.Walter.J1Props
-public import Certificates.Certificate14953
-public import Certificates.Certificate8166
 public import Certificates.Kernel.J4Count.Prim
 import CFSG.RankThree.PartTwo.Sec11.Theorem1134
 import CFSG.RankThree.PartTwo.Sec21.Item211Res2ProofLie

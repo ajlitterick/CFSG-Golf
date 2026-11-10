@@ -12,7 +12,6 @@ import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicMathieuInputs
 import CFSG.Quasithin.Background.HSporLatInputs
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatFactsK
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatCode
-public import Certificates.Certificate4170Base
 
 public section
 

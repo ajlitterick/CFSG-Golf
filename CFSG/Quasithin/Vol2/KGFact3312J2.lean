@@ -14,7 +14,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theor
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CPrime
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralAut
-public import Certificates.Certificate8026Base
 
 public section
 

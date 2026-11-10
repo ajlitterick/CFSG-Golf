@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ElevenNineFieldIndexW
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ElevenNineOddInnWPerm
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.BlockFieldIndexFiveAbstract
-public import Certificates.Certificate43
-public import Certificates.Certificate7067
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ElevenNineOddInnWSmall
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.BlockFieldIndexFiveTypes
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.BlockFieldIndexFiveInner
@@ -53,7 +51,6 @@ import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerRestrictionCompl
 import CFSG.Mathlib.LinearAlgebra.BilinForm.Determinant
 import CFSG.RankThree.OddKernel.CompleteRankComparison
 import CFSG.RankThree.PartTwo.Sec18.Transport
-import Certificates.Certificate8052
 
 public section
 

@@ -88,7 +88,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.RankTwoFoundation
 public import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedGraphSymm
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.Basic
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2pFactsPSL2More
-public import Certificates.Certificate55111
 
 public section
 

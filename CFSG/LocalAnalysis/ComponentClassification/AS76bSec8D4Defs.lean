@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.RankTwoExceptionalDefs
 public import CFSG.LieType.Chevalley.EvenTrialityTorusCoordinates
 public import CFSG.LieType.Chevalley.GraphFixedSimpleComplement
 public import CFSG.LieType.Chevalley.GraphFixedSimplePairs
-public import Certificates.Certificate113
-public import Certificates.Certificate114
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.GroupTheory.LocalCores.MinimalNormal
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bHypII

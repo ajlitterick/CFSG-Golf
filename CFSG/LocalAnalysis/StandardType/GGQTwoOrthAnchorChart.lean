@@ -4,9 +4,6 @@ public import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.Defs
 public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermOmKFrameDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBLabelDefs
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 public import CFSG.LocalAnalysis.StandardType.GGSignedCoordBlocks
 import CFSG.LocalAnalysis.StandardType.GGQTwoXInLFrameFOmNorm
 import CFSG.LocalAnalysis.StandardType.GGQTwoOrthAnchorCalib

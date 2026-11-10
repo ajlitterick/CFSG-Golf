@@ -3,8 +3,6 @@ module
 public import CFSG.Sporadic.Schreier.Co1CertData
 public import CFSG.Sporadic.Schreier.Co1ChainCheck
 public import CFSG.Sporadic.Co2Cert.CheckInputs
-import Certificates.Certificate2043
-import Certificates.Certificate2144
 import Certificates.Kernel.Co1B.C2043
 import CFSG.Sporadic.Schreier.Co1CertRecData
 import CFSG.Certificates.Kernel.Common.Harness
@@ -15,8 +13,6 @@ import CFSG.Certificates.Kernel.Enum.Defs
 public import CFSG.Sporadic.Schreier.Co1StabLift
 public import CFSG.Sporadic.Schreier.Co1Chain
 import all CFSG.Blueprint.NativeSporadic
-public import Certificates.Certificate3024
-public import Certificates.Certificate3115
 public import CFSG.Certificates.InvariantMerge
 
 public section

@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Certificate810302
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec3B0Model
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabSuzA
 public import CFSG.Sporadic.SuzI301.SpecAux

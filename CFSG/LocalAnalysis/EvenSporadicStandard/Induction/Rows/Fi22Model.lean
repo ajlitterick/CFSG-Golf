@@ -44,7 +44,6 @@ public import CFSG.Sporadic.Presentation.Ly
 public import CFSG.Sporadic.Schreier.LyFixedSet
 public import CFSG.Sporadic.ThSchreier.AutCore
 public import CFSG.Walter.JRFacts
-public import Certificates.Certificate3085Base
 
 public section
 

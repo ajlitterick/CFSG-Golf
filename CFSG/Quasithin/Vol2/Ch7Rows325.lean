@@ -11,8 +11,6 @@ public import CFSG.LocalAnalysis.SectionRank.OddCover.DegreeThree
 public import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagOrder
 public import CFSG.LocalAnalysis.ComponentInitial.BinarySymplecticSixCoverModel
 public import CFSG.Adapters.ProjectiveSpecialLinear
-public import Certificates.Certificate7022
-public import Certificates.Certificate7067
 
 public section
 

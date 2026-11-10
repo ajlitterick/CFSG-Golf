@@ -1,10 +1,6 @@
 module
 
 public import CFSG.Quasithin.EmptyFaithfulMultiple.Lemma15422Cat
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
-public import Certificates.Certificate4952
 
 public section
 

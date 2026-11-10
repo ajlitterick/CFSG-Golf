@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermOmFrameDefs
-public import Certificates.Certificate117
 import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerMinus
 import CFSG.LocalAnalysis.StandardType.GGSixLSixFiveKnownComp
 import CFSG.LocalAnalysis.EvenBN.U4.Model.Perfect

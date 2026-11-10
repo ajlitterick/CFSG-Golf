@@ -27,7 +27,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.GSThmBAschbacherFive
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherKnownGroupFactsAssembly
 public import CFSG.Open.CTRankTwoStandardTauCeti
 public import CFSG.RankThree.PartOne.TCB.Final
-public import Certificates.Certificate431004
 public import CFSG.Adapters.WholeGroupLayer
 public import CFSG.CGT.T75P.A8ExclCfg
 public import CFSG.CGT.T75P.Aut
@@ -149,8 +148,6 @@ public import CFSG.Sporadic.Presentation.McLExactData
 public import CFSG.Sporadic.Presentation.McLExactInputs
 public import CFSG.Sporadic.Schreier.J1QT
 public import CFSG.Sporadic.SuzOddCore.SmallActionData
-public import Certificates.Certificate9124
-public import Certificates.Certificate919008
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 
 public section

@@ -103,7 +103,6 @@ public import CFSG.RankThree.PartOne.KE.E7FourPlane
 public import CFSG.RankThree.PartOne.KE.E7ThreeFinal
 public import CFSG.RankThree.PartTwo.KFacts.K72OutL2
 public import CFSG.Sporadic.Co2Schreier.ThirdChain
-public import Certificates.Certificate13660
 public import Certificates.Kernel.J4Count.Prim
 
 public noncomputable section

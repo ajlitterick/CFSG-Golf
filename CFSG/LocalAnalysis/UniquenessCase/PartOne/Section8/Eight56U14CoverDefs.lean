@@ -13,7 +13,6 @@ public import CFSG.LocalAnalysis.RankThreeUC.Section5.ExtraspecialOrder
 public import CFSG.LocalAnalysis.RankThreeUC.SourceSetting.AschbacherCommon
 public import CFSG.LocalAnalysis.RankThreeUC.WeakModules
 public import CFSG.RankThree.OddKernel.CentralCoverComponentModels
-public import Certificates.Certificate8052
 public import Certificates.Kernel.Sporadic.Fi22.C2068
 public import Certificates.Kernel.Sporadic.Fi22.C3151
 

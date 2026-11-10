@@ -4,10 +4,6 @@ public import CFSG.RankThree.SubgroupLists.SymplecticFischerPair
 public import CFSG.RankThree.SubgroupLists.TransvectionRecognition
 public import CFSG.RankThree.SubgroupLists.SymplecticSkewElations
 public import CFSG.RankThree.SubgroupLists.SymplecticSqZero
-public import Certificates.Certificate42
-public import Certificates.Certificate43
-public import Certificates.Certificate8
-public import Certificates.Certificate9
 
 public section
 

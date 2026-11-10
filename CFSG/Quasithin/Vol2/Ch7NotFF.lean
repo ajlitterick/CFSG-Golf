@@ -3,7 +3,6 @@ module
 public import CFSG.Quasithin.Vol2.Ch7Sp4PairA6
 public import CFSG.Quasithin.Vol2.Ch7SL3Pair
 public import CFSG.Quasithin.Background.HSp4AlphaBridge
-public import Certificates.Certificate7067
 
 public section
 

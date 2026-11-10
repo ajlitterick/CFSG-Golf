@@ -41,8 +41,6 @@ import CFSG.LocalAnalysis.ComponentClassification.UnbalancedLayerOddCoreUnbalanc
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X7bPairs
 import CFSG.OddTranspositions.O4PairTenWidth
 import CFSG.OddTranspositions.Width
-import Certificates.Certificate1
-import Certificates.Certificate2
 import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 

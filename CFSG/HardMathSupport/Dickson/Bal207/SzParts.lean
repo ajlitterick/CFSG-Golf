@@ -4,7 +4,6 @@ public import CFSG.HardMathSupport.Dickson.Bal207.Sz
 public import CFSG.HardMathSupport.Dickson.Bal207.Center
 public import CFSG.Blueprint.Catalog
 public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
-public import Certificates.Certificate113
 import CFSG.LieType.Suzuki.SuzukiOuterCyclic
 import CFSG.LieType.Ree.SuzukiOrder
 import CFSG.StronglyEmbedded.Catalog.Suzuki

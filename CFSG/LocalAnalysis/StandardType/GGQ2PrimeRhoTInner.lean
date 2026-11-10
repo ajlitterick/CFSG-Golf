@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeRhoTInnerForm
-public import Certificates.Certificate1003
-public import Certificates.Certificate1009
-public import Certificates.Certificate3600
 
 public section
 

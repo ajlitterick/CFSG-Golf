@@ -1,11 +1,6 @@
 module
 
 public import CFSG.Open.StatedDefs
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
-public import Certificates.Certificate10010
-public import Certificates.Certificate10011
 import CFSG.LieType.Steinberg.CentralExt.SUCentrallyClosed
 import CFSG.LieType.Steinberg.CentralExt.SL2CentrallyClosed
 import CFSG.LocalAnalysis.SectionRank.EvenCover.Unitary

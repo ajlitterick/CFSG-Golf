@@ -21,7 +21,6 @@ public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Prop115b
 public import CFSG.LocalAnalysis.OddStandard.AltStdSecLookupEven
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434SmallTwoIVDefs
 public import CFSG.RankThree.ThinCatalog.EvenLinearTwoLocal
-public import Certificates.Certificate17632Base
 public import Certificates.Data.TabCo1ThreeE
 
 public section

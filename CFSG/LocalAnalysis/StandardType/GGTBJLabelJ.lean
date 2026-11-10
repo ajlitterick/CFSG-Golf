@@ -13,9 +13,6 @@ import CFSG.LocalAnalysis.StandardType.GGTCJDivUni
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBLabelCore
 import CFSG.RankThree.PartOne.Q1327T.Item7UBasic
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GNegBCSymp
-public import Certificates.Certificate1952
-public import Certificates.Certificate13659
-public import Certificates.Certificate13660
 
 public section
 

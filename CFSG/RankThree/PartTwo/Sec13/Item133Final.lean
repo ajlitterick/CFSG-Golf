@@ -6,11 +6,6 @@ import CFSG.RankThree.PartTwo.Sec13.Item13NotSLTwo
 import CFSG.RankThree.PartTwo.Sec13.Item13SetupAt
 import CFSG.RankThree.PartTwo.Sec13.Item13SLTwo
 import CFSG.RankThree.PartTwo.Sec13.Item13Sporadic
-public import Certificates.Certificate8171
-public import Certificates.Certificate8172
-public import Certificates.Certificate3029
-public import Certificates.Certificate3086
-public import Certificates.Certificate3139
 import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
 
 public section

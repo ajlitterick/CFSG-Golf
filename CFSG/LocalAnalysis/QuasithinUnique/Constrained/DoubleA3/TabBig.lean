@@ -4,9 +4,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.TabBigKlei
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.TabBigL217
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.TabBigL33
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.TabBigM11
-public import Certificates.Certificate1
-public import Certificates.Certificate2
-public import Certificates.Certificate110
 public import CFSG.Assembly.OrderReductions.CharacterInflation
 public import CFSG.GroupTheory.PerfectResidualNodes
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierAlternatingSix
@@ -16,7 +13,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_6A312Rank2
 public import CFSG.Quasithin.Background.A3Structure312
 public import CFSG.StronglyEmbedded.ParityCriterion
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import Certificates.Certificate8026Base
 
 public section
 

@@ -8,7 +8,6 @@ public import CFSG.Timmesfeld.Final.PSU33
 public import CFSG.LieType.Steinberg.CentralExt.Model
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.FamilySmall
 public import Mathlib.GroupTheory.SpecificGroups.Alternating.Simple
-public import Certificates.Certificate8064
 public import CFSG.Foundations
 public import CFSG.LinearAlgebra.LinearGroups.CoordinateData
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoAllFields

@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoOrthFourHomDefs
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 import CFSG.LocalAnalysis.StandardType.GGQTwoOrthRTwo
 import CFSG.LocalAnalysis.StandardType.GGQTwoOrthAnchorExt
 import CFSG.LocalAnalysis.StandardType.GGQTwoOrthogonalBlocks

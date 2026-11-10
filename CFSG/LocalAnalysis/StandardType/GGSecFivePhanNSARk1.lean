@@ -18,10 +18,6 @@ import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNbrRefl
 import CFSG.LocalAnalysis.StandardType.GGRankOneRootMatch
 import CFSG.LocalAnalysis.StandardType.GGRankOneTags
 import CFSG.LocalAnalysis.StandardType.GGRootInvolutionRank
-public import Certificates.Certificate2264
-public import Certificates.Certificate2267
-public import Certificates.Certificate8033
-public import Certificates.Certificate8064
 import CFSG.ClassicalInvolution.Models.LinearFrames.Frame
 import CFSG.ClassicalInvolution.Models.LinearPairs
 import CFSG.ClassicalInvolution.Models.UnitaryPairs

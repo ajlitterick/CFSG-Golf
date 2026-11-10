@@ -6,7 +6,6 @@ public import CFSG.OddTranspositions.PartThree.Eleven.OneOne.ConjShared
 public import CFSG.OddTranspositions.PartThree.Eleven.Minus.Pair
 public import CFSG.OddTranspositions.PartThree.Eleven.Minus.Quandle
 public import CFSG.OddTranspositions.PartThree.EightFive.KBarSetup
-public import Certificates.Certificate2326
 public import CFSG.OddTranspositions.PartThree.Eleven.OneTwo.Radical
 import CFSG.OddTranspositions.SixNineUnconditional
 import CFSG.OddTranspositions.PartFour.LineTransport

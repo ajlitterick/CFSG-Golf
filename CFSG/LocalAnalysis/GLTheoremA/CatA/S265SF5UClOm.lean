@@ -79,11 +79,6 @@ public import CFSG.RankThree.PartTwo.Sec4.Item4Res6ProofSeitzRest
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434RowsProofSeitzSz
 public import CFSG.RankThree.PartTwo.Sec8.Item87Proof84
 public import CFSG.Sporadic.Schreier.J4SNoCompCover
-public import Certificates.Certificate10050
-public import Certificates.Certificate13659
-public import Certificates.Certificate13660
-public import Certificates.Certificate8117
-public import Certificates.Certificate8160
 import CFSG.CGT.Timmesfeld75.Main
 import CFSG.GroupTheory.PCore.SubgroupCore
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.OuterHighClassical

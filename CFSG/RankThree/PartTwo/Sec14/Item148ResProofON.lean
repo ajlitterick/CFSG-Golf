@@ -13,9 +13,6 @@ public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.RankThree.PartTwo.Sec8.Pairs
 public import CFSG.RankThree.PartTwo.Sec8.Statements
-public import Certificates.Certificate2201
-public import Certificates.Certificate2202
-public import Certificates.Certificate8169
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHermitianIsometry
 import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
 import CFSG.RankThree.PartTwo.KFacts.KS12MovesSL

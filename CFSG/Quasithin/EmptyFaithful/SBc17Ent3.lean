@@ -4,9 +4,6 @@ public import CFSG.Quasithin.EmptyFaithful.SBc17Ent2
 public import CFSG.Quasithin.EmptyFaithful.SBc11List
 public import CFSG.Quasithin.Recognition.CertU33AutBound
 public import CFSG.Timmesfeld.Final.PSU33
-public import Certificates.Certificate8080
-public import Certificates.Certificate8081
-public import Certificates.Certificate19953
 public import CFSG.GH74.SmallRanks.AltM11
 public import CFSG.LieType.SteinbergBROddSylowCore
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherTightEmbeddingAction
@@ -62,9 +59,6 @@ public import CFSG.Quasithin.EmptyFaithful.T1515Der3
 public import CFSG.Quasithin.SteinbergOuterPrimeControl
 public import CFSG.Sporadic.Schreier.J4SThree
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import Certificates.Certificate1
-public import Certificates.Certificate2
-public import Certificates.Certificate8026Base
 
 public section
 

@@ -83,8 +83,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theor
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import CFSG.Walter.Defs
-public import Certificates.Certificate1
-public import Certificates.Certificate2
 public import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis

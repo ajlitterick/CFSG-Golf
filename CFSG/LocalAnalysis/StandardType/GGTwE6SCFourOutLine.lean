@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourOutTransport
 public import CFSG.LocalAnalysis.StandardType.GGTwE6K1LeviDefs
-public import Certificates.Certificate13659
-public import Certificates.Certificate13660
 import CFSG.Assembly.Subnormal
 import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourOutAd
 import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourOutD4

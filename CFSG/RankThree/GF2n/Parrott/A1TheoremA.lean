@@ -20,7 +20,6 @@ public import CFSG.Quasithin.Background.E2NParamStar
 public import CFSG.Quasithin.Vol2.Ch11StatementsInputsAS2
 public import CFSG.Quasithin.Vol2.Ch11StatementsInputsAS3
 public import CFSG.Quasithin.Vol2.E2TenEight
-public import Certificates.Certificate19780
 
 public section
 

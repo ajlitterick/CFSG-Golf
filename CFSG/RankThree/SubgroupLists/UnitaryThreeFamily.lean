@@ -5,7 +5,6 @@ public import CFSG.LieType.Steinberg.CentralExt.SUTwo
 public import CFSG.LieType.Universal.Unitary.Comparison
 public import CFSG.Timmesfeld.Orders.ClassicalLinear
 public import CFSG.GroupTheory.ABGLocalTools.PStabilityQSL2
-public import Certificates.Certificate43
 public import CFSG.CharacterTheory.CyclicBlocks.Family
 public import CFSG.CharacterTheory.PSL2Table.BlocksProduct
 public import CFSG.CharacterTheory.Semidihedral.Principal.LargePrimeTorusSylowCentralizers

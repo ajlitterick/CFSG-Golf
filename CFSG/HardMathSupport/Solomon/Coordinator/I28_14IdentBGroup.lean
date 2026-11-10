@@ -35,7 +35,6 @@ import CFSG.Sporadic.J4.Simple
 import CFSG.Sporadic.J4Base
 import CFSG.Sporadic.Mathieu.M12
 import CFSG.Sporadic.Mathieu.M24
-import Certificates.Certificate43
 
 public section
 

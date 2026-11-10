@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGE0ShapeContextToral
 public import CFSG.LocalAnalysis.StandardType.GGE0ShapeContextRank
 public import CFSG.LocalAnalysis.StandardType.GGE0ShapeKernelLarge
 public import CFSG.LocalAnalysis.StandardType.GGE0ShapePairWeyl
-public import Certificates.Certificate716800
 
 public section
 

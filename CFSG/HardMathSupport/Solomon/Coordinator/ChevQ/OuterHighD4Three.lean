@@ -39,8 +39,6 @@ public import CFSG.Quasithin.Background.GoldschmidtRankOneFacts
 public import CFSG.RankThree.PartOne.CTP.StdSub
 public import CFSG.RankThree.PartOne.SEITZ2.OmegaSetup
 public import CFSG.RankThree.PartTwo.Sec4.E27.Core
-public import Certificates.Certificate10050
-public import Certificates.Certificate8117
 
 public section
 

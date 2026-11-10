@@ -24,19 +24,6 @@ public import CFSG.Sporadic.Presentation.M23
 public import CFSG.Sporadic.Presentation.M24Exact
 public import CFSG.Sporadic.Presentation.ONan
 public import CFSG.Sporadic.Schreier.M23
-public import Certificates.Certificate3171
-public import Certificates.Certificate3171Base
-public import Certificates.Certificate8153
-public import Certificates.Certificate8156
-public import Certificates.Certificate8157
-public import Certificates.Certificate9210
-public import Certificates.Certificate9211
-public import Certificates.Certificate9212
-public import Certificates.Certificate9214
-public import Certificates.Certificate9215
-public import Certificates.Certificate9216
-public import Certificates.Certificate9217
-public import Certificates.Certificate9217Base
 
 public section
 

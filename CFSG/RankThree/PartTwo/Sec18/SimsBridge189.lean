@@ -11,7 +11,6 @@ import CFSG.RankThree.PartTwo.Sec18.Transport
 import CFSG.RankThree.PartTwo.Sec20.SimsAsc1411L2
 import CFSG.RankThree.PartTwo.Sec20.SimsAsc1411L3
 import CFSG.RankThree.PartTwo.Sec20.SimsAsc1411U3
-public import Certificates.Certificate43
 import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHeldSmallCorePrimeCore

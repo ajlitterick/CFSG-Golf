@@ -2,11 +2,6 @@ module
 
 public import CFSG.OddTranspositions.PartThree.EightSix.Generated
 public import CFSG.OddTranspositions.PartThree.EightFive.Holds
-public import Certificates.Certificate1383006
-public import Certificates.Certificate1383007
-public import Certificates.Certificate1383008
-public import Certificates.Certificate1383009
-public import Certificates.Certificate1430001
 
 import CFSG.OddTranspositions.PartThree.EightSix.AlmostSimple
 import CFSG.OddTranspositions.PartThree.EightSix.AlmostSimpleQuot

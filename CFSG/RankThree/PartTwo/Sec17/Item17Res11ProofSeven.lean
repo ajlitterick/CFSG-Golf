@@ -13,8 +13,6 @@ import CFSG.RankThree.PartTwo.Sec14.Item1411
 import CFSG.RankThree.PartTwo.Sec14.Concl142NHJInner
 import CFSG.RankThree.PartTwo.Sec5.Tools
 public import CFSG.RankThree.PartTwo.Sec17.Item17Res4ProofSeven
-public import Certificates.Certificate8166
-public import Certificates.Certificate8169
 import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 import CFSG.LocalAnalysis.ComponentClassification.LayerMultiplication
 import CFSG.LocalAnalysis.ComponentClassification.MinimalBCenter

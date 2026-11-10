@@ -14,13 +14,6 @@ import CFSG.LocalAnalysis.GorensteinLyons.SteinbergBQSL2RootCommutator
 import CFSG.Quasithin.Vol2.Ch11SecOE2D
 import CFSG.Quasithin.Vol2.Ch12Sec2GlueHatA6
 import CFSG.Quasithin.Background.JonesParshallCurtisClassify
-public import Certificates.Certificate8952
-public import Certificates.Certificate8953
-public import Certificates.Certificate17000
-public import Certificates.Certificate17001
-public import Certificates.Certificate17022
-public import Certificates.Certificate17026
-public import Certificates.Certificate17028
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC11V1Restrict
 public import CFSG.Quasithin.Background.B5Inputs
 public import CFSG.Quasithin.Background.JonesParshallCurtisWeyl

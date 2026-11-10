@@ -26,7 +26,6 @@ public import CFSG.Sporadic.Schreier.MathieuOddCoreWords
 public import CFSG.Sporadic.Th.F2Spec
 public import CFSG.StronglyEmbedded.ParityCriterion
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
-public import Certificates.Certificate8169
 
 public section
 

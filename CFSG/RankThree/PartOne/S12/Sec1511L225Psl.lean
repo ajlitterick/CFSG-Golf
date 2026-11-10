@@ -40,8 +40,6 @@ public import CFSG.RankThree.PartOne.S12.Sec1511Y1
 public import CFSG.RankThree.PartOne.S12.Sec15Items
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.Defs
-public import Certificates.Certificate1
-public import Certificates.Certificate2
 
 public section
 

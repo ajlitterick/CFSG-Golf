@@ -5,14 +5,6 @@ public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeDiagTwisted
 public import CFSG.LieType.Seitz.Defs
 public import CFSG.Open.Defs
 public import CFSG.Open.LocalVocabulary
-public import Certificates.Certificate76
-public import Certificates.Certificate77
-public import Certificates.Certificate115
-public import Certificates.Certificate116
-public import Certificates.Certificate118
-public import Certificates.Certificate122
-public import Certificates.Certificate123
-public import Certificates.Certificate3951
 import CFSG.LocalAnalysis.StandardType.GGTwE6K1A2InnerComp
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwInnerLine
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwA2Conj
@@ -146,31 +138,6 @@ public import CFSG.Sporadic.Presentation.McLExactInputs
 public import CFSG.Sporadic.Schreier.J1QT
 public import CFSG.Sporadic.SuzOddCore.GraphData
 public import CFSG.Sporadic.SuzOddCore.SmallActionData
-public import Certificates.Certificate13657
-public import Certificates.Certificate16005
-public import Certificates.Certificate16041
-public import Certificates.Certificate2098
-public import Certificates.Certificate2103
-public import Certificates.Certificate2108
-public import Certificates.Certificate2109
-public import Certificates.Certificate2136
-public import Certificates.Certificate2139
-public import Certificates.Certificate2140
-public import Certificates.Certificate2145
-public import Certificates.Certificate2274
-public import Certificates.Certificate2323
-public import Certificates.Certificate3044
-public import Certificates.Certificate3122
-public import Certificates.Certificate3123
-public import Certificates.Certificate3130
-public import Certificates.Certificate3133
-public import Certificates.Certificate3134
-public import Certificates.Certificate3136
-public import Certificates.Certificate3137
-public import Certificates.Certificate3176
-public import Certificates.Certificate3179
-public import Certificates.Certificate8160
-public import Certificates.Certificate9124
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.SmallQThreeTwE6TwoCore
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.BigAnyDefs
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.CentralizerTrivialPoly

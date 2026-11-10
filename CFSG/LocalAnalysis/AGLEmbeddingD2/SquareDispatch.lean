@@ -77,8 +77,6 @@ public import CFSG.RankThree.PartOne.S8.Statements
 public import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
-public import Certificates.Certificate1
-public import Certificates.Certificate2
 public import Certificates.Data.CFSGNative.MonsterB.Rep4371Model
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1

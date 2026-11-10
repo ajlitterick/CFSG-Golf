@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGMemberE7TwoTorus
-public import Certificates.Certificate3951
 import CFSG.LocalAnalysis.StandardType.GGLtBstarOfInner
 import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortGlueTwo
 import CFSG.LocalAnalysis.StandardType.GGMemberE7TwoRankOne

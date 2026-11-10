@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSporKRestDefs
-public import Certificates.Certificate9124
-public import Certificates.Certificate9357
 import CFSG.GroupTheory.Fitting.CharacteristicP
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Core
 import CFSG.GroupTheory.LocalCores.Components

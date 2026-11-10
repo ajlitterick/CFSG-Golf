@@ -107,7 +107,6 @@ import CFSG.RankThree.PartTwo.Sec4.Census.WiringDoubleCover
 import CFSG.RankThree.PartTwo.Sec8.Item87Proof84
 import CFSG.SignalizerFunctorTheorem.CatalogBridge.NormalFormStabilizer
 import CFSG.SignalizerFunctorTheorem.CatalogBridge.StabilizerLift
-import Certificates.Certificate9530
 
 public section
 

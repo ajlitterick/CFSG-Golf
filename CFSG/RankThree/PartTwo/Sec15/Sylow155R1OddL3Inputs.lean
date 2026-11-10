@@ -47,8 +47,6 @@ import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.Remaining
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.theorem_3_6
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 import CFSG.Walter.Defs
-import Certificates.Certificate1
-import Certificates.Certificate2
 import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis

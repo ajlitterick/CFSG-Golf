@@ -1,12 +1,5 @@
 module
 
-public import Certificates.Certificate1952
-public import Certificates.Certificate2264
-public import Certificates.Certificate2267
-public import Certificates.Certificate8033
-public import Certificates.Certificate8064
-public import Certificates.Certificate13659
-public import Certificates.Certificate13660
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwRigid
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimple
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleLang

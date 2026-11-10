@@ -16,8 +16,6 @@ import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerPreimages
 import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerRestrictionCompletion
 import CFSG.RankThree.PartTwo.Sec6.Item612Core
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
-import Certificates.Certificate8166
-import Certificates.Certificate8169
 
 public section
 

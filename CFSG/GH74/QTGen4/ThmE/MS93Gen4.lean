@@ -17,8 +17,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNorm
 public import CFSG.GH74.QTGen4.ThmE.Gen4Vacuity
 public import CFSG.Quasithin.MS93.RedHyp
 public import CFSG.Quasithin.MS93.S46I468
-public import Certificates.Certificate4129
-public import Certificates.Certificate431004
 public import CFSG.Quasithin.MS93.S46R468B
 public import CFSG.Quasithin.MS93.S46R468B2
 public import CFSG.Quasithin.MS93.S46I469

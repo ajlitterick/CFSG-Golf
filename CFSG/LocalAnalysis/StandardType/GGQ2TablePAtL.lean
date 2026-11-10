@@ -7,9 +7,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTPNPCompDefs
 public import CFSG.LocalAnalysis.StandardType.GGK0ExcB3
 public import CFSG.LocalAnalysis.StandardType.GGQ2TwoNodeSixHeart
 public import CFSG.LocalAnalysis.StandardType.GGTPNNarrowC6
-public import Certificates.Certificate1952
-public import Certificates.Certificate13659
-public import Certificates.Certificate13660
 import CFSG.LocalAnalysis.StandardType.GGTPNAtL
 import CFSG.LocalAnalysis.StandardType.GGTPNLineFinal
 import CFSG.LocalAnalysis.StandardType.GGB36StepOneK0

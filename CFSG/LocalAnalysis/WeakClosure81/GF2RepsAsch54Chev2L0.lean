@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.WeakClosure81.EightEightDefs
 public import CFSG.Models
 public import CFSG.Adapters.TauCetiExceptional.EvenAll
-public import Certificates.Certificate18000
 
 import CFSG.Adapters.TauCetiExceptional.EvenB1
 import CFSG.HardMathSupport.Timmesfeld.Tables.Census.ExcLargeRee

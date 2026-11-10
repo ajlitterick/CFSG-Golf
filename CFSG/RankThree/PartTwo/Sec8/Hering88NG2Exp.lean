@@ -24,9 +24,6 @@ public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
 public import CFSG.Sporadic.HeldB.Common
 public import CFSG.Sporadic.Schreier.RuPair
 public import CFSG.Sporadic.Schreier.RuSylow
-public import Certificates.Certificate17002
-public import Certificates.Certificate17951
-public import Certificates.Certificate7233Base
 
 public section
 

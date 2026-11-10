@@ -25,7 +25,6 @@ public import CFSG.LocalAnalysis.ShultStronglyClosedTI.UnitaryRootAutomorphism
 public import CFSG.RankThree.GroupTheory.SteinbergCEPrimeDimScalarCentralizer
 public import CFSG.RankThree.PartOne.S9.MinTwoAction.QuotientRep
 public import CFSG.Walter.W67.Section5.Lemma57
-public import Certificates.Certificate5007
 
 public section
 

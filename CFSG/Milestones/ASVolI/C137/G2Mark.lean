@@ -117,18 +117,6 @@ public import CFSG.Walter.Ree.Thompson2.BaseFin
 public import CFSG.Walter.ReeOrder.WardLocal
 public import CFSG.Walter.W67.Section8.Prop83
 public import CFSG.Walter.W67.W2Lemma26A
-public import Certificates.Certificate7000
-public import Certificates.Certificate7001
-public import Certificates.Certificate7002
-public import Certificates.Certificate7003
-public import Certificates.Certificate7004
-public import Certificates.Certificate7005
-public import Certificates.Certificate7006
-public import Certificates.Certificate7007
-public import Certificates.Certificate7008
-public import Certificates.Certificate7009
-public import Certificates.Certificate7010
-public import Certificates.Certificate7011
 public import Certificates.Kernel.J4Count.Prim
 
 public section

@@ -107,7 +107,6 @@ public import CFSG.Sporadic.Schreier.LyChain11
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ConjugatedInvertedSubgroup
 public import CFSG.Walter.ReeOrder.JT.Section7C
 public import CFSG.Walter.ReeOrder.JT.Section7D
-public import Certificates.Certificate3085Base
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
 public import Certificates.Kernel.J4Count.KFactsBase

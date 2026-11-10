@@ -22,7 +22,6 @@ public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Prop1310a5b
 public import CFSG.LocalAnalysis.GLTheoremB.Prop95Input18
 public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83Generic4_1P3M11Defs
 public import CFSG.LocalAnalysis.RankThreeTheoremC.TransitivityKFacts
-public import Certificates.Certificate41501
 public import Certificates.Kernel.J4Count.Cent11Base
 public import Certificates.Kernel.J4Count.Fix11
 

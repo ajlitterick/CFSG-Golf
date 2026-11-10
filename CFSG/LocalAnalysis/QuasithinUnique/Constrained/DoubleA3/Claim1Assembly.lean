@@ -6,8 +6,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.Lemma33
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.Remark31Fstar
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.BlockRank1
 import Mathlib.Tactic.Group
-public import Certificates.Certificate1
-public import Certificates.Certificate2
 public import CFSG.Certificates.Kernel.LocalCompTits.Span
 public import CFSG.CharacterTheory.PSL2Table.Halves
 public import CFSG.CharacterTheory.Semidihedral.Local.FourQuaternionAutomorphisms
@@ -87,18 +85,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePS
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2OrderPSubgroupCount
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphReconstruction
 public import CFSG.Walter.Defs
-public import Certificates.Certificate10
-public import Certificates.Certificate11
-public import Certificates.Certificate12
-public import Certificates.Certificate3
-public import Certificates.Certificate4
-public import Certificates.Certificate42
-public import Certificates.Certificate44
-public import Certificates.Certificate5
-public import Certificates.Certificate6
-public import Certificates.Certificate7
-public import Certificates.Certificate8
-public import Certificates.Certificate9
 public import Certificates.Data.CFSGNative.MonsterB.Rep4371Model
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1

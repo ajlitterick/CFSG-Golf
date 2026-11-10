@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173Facts
 public import CFSG.LocalAnalysis.StandardType.ChevTwoMarking
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import Certificates.Certificate8064
 import CFSG.ClassicalInvolution.SmallCases.UpgradeCoverClassical
 public import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
 public import CFSG.CharacterTheory.Wreathed.WreathCentralSquare

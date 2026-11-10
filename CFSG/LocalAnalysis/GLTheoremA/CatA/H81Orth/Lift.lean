@@ -58,8 +58,6 @@ public import CFSG.Sporadic.Schreier.J1QT
 public import CFSG.Sporadic.Schreier.LyChain11
 public import CFSG.Sporadic.SmallOddCore.HSAut
 public import CFSG.Sporadic.SmallOddCore.J3Aut
-public import Certificates.Certificate3085Base
-public import Certificates.Certificate5007
 
 public section
 

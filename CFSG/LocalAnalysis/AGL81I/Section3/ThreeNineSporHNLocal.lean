@@ -1,24 +1,6 @@
 module
 
 public import CFSG.Blueprint.NativeSporadic
-public import Certificates.Certificate2081
-public import Certificates.Certificate14985
-public import Certificates.Certificate2102
-public import Certificates.Certificate3166
-public import Certificates.Certificate2085
-public import Certificates.Certificate2096
-public import Certificates.Certificate2097
-public import Certificates.Certificate2098
-public import Certificates.Certificate2100
-public import Certificates.Certificate2104
-public import Certificates.Certificate2107
-public import Certificates.Certificate2108
-public import Certificates.Certificate2109
-public import Certificates.Certificate14980
-public import Certificates.Certificate16041
-public import Certificates.Certificate13607
-public import Certificates.Certificate13608
-public import Certificates.Certificate13609
 import CFSG.RankThree.PartOne.KS.HNFiveLocal
 import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.HNFiveOrders
 import CFSG.RankThree.PartOne.Q1327S.HNCenter

@@ -30,7 +30,6 @@ public import CFSG.Quasithin.Background.A3Structure312
 public import CFSG.Quasithin.Background.OrderingMax
 public import CFSG.Quasithin.Vol2.Ch1Local
 public import CFSG.Sporadic.J4Base
-public import Certificates.Certificate8026Base
 
 public section
 

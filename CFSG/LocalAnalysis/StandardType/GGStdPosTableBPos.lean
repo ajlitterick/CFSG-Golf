@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdPosLocalDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosDefs
-public import Certificates.Certificate80
-public import Certificates.Certificate81
-public import Certificates.Certificate117
-public import Certificates.Certificate120
 import CFSG.LocalAnalysis.StandardType.GGStdPosAutHolds
 import CFSG.LocalAnalysis.StandardType.GGStdPosLeviHolds
 import CFSG.LocalAnalysis.StandardType.GGStdPosCardHolds

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.FS81.RootE8Defs
 public import CFSG.LocalAnalysis.StandardType.FS81.S7Model
 public import CFSG.LocalAnalysis.SeitzReduction.E8PilotMainLift
-public import Certificates.Certificate8064
 import CFSG.LocalAnalysis.StandardType.FS81.S79Radical
 import CFSG.LocalAnalysis.StandardType.FS81.RootE8Setting
 import CFSG.LocalAnalysis.StandardType.FS81.RootE8A

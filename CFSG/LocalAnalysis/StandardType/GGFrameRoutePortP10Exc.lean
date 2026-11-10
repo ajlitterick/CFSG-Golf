@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcBasic
 public import CFSG.LocalAnalysis.StandardType.GGTableBRank
-public import Certificates.Certificate1952
 import CFSG.LocalAnalysis.StandardType.GGTorusE7Lang
 import CFSG.LocalAnalysis.StandardType.GGTorusE8Scalar
 import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTorus

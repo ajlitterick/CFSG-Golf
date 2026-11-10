@@ -36,35 +36,6 @@ public import CFSG.Quasithin.Background.A3Structure36BBasic
 public import CFSG.Quasithin.Background.A3Structure36BPrime
 public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
-public import Certificates.Certificate100
-public import Certificates.Certificate101
-public import Certificates.Certificate102
-public import Certificates.Certificate103
-public import Certificates.Certificate104
-public import Certificates.Certificate105
-public import Certificates.Certificate106
-public import Certificates.Certificate107
-public import Certificates.Certificate108
-public import Certificates.Certificate109
-public import Certificates.Certificate7000
-public import Certificates.Certificate7001
-public import Certificates.Certificate7002
-public import Certificates.Certificate7003
-public import Certificates.Certificate7004
-public import Certificates.Certificate7005
-public import Certificates.Certificate7006
-public import Certificates.Certificate7007
-public import Certificates.Certificate7008
-public import Certificates.Certificate7009
-public import Certificates.Certificate7010
-public import Certificates.Certificate7011
-public import Certificates.Certificate8046
-public import Certificates.Certificate8049
-public import Certificates.Certificate8052
-public import Certificates.Certificate96
-public import Certificates.Certificate97
-public import Certificates.Certificate98
-public import Certificates.Certificate99
 
 public section
 

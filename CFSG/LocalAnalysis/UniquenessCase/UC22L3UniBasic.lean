@@ -10,7 +10,6 @@ public import CFSG.GH74.Generic.S45.LUniLift
 public import CFSG.GH74.KGroups.L3EpsUniGraph
 public import CFSG.Sporadic.Th.Max3.Packet
 public import CFSG.Sporadic.Th.Max3.Quotient
-public import Certificates.Certificate10091Base
 
 public noncomputable section
 

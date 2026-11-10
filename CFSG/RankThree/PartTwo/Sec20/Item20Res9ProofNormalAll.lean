@@ -25,40 +25,6 @@ import CFSG.RankThree.PartTwo.Sec20.OneBasics
 import CFSG.RankThree.PartTwo.Sec3.TwoOfThreeNormal
 import CFSG.RankThree.PartTwo.Sec18.Item181ThreeProofThompson
 import CFSG.RankThree.PartTwo.Sec3.ThompsonFamilyG
-public import Certificates.Certificate45
-public import Certificates.Certificate46
-public import Certificates.Certificate47
-public import Certificates.Certificate48
-public import Certificates.Certificate49
-public import Certificates.Certificate50
-public import Certificates.Certificate51
-public import Certificates.Certificate52
-public import Certificates.Certificate53
-public import Certificates.Certificate54
-public import Certificates.Certificate55
-public import Certificates.Certificate56
-public import Certificates.Certificate57
-public import Certificates.Certificate58
-public import Certificates.Certificate59
-public import Certificates.Certificate60
-public import Certificates.Certificate61
-public import Certificates.Certificate62
-public import Certificates.Certificate63
-public import Certificates.Certificate64
-public import Certificates.Certificate65
-public import Certificates.Certificate66
-public import Certificates.Certificate67
-public import Certificates.Certificate68
-public import Certificates.Certificate69
-public import Certificates.Certificate70
-public import Certificates.Certificate71
-public import Certificates.Certificate72
-public import Certificates.Certificate73
-public import Certificates.Certificate74
-public import Certificates.Certificate75
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHeldSmallCorePrimeCore
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalDescentEndpoint
@@ -96,7 +62,6 @@ public import CFSG.RankThree.PartTwo.Sec20.Alt20
 public import CFSG.RankThree.PartTwo.Sec20.Item203OneProof
 public import CFSG.RankThree.PartTwo.Sec20.Item20Res8ProofAutQ8
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
-public import Certificates.Certificate43
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalGroup.LowRank
@@ -189,132 +154,6 @@ import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 import CFSG.YGroups.DCE.B433Check
-import Certificates.Certificate1000
-import Certificates.Certificate1001
-import Certificates.Certificate1001Base
-import Certificates.Certificate1002
-import Certificates.Certificate10027
-import Certificates.Certificate1004
-import Certificates.Certificate1006
-import Certificates.Certificate1007
-import Certificates.Certificate1007Base
-import Certificates.Certificate1008
-import Certificates.Certificate1010
-import Certificates.Certificate10107
-import Certificates.Certificate10108
-import Certificates.Certificate1011
-import Certificates.Certificate10110
-import Certificates.Certificate10111
-import Certificates.Certificate10115
-import Certificates.Certificate10115Base
-import Certificates.Certificate10116
-import Certificates.Certificate10116Base
-import Certificates.Certificate10117
-import Certificates.Certificate10117Base
-import Certificates.Certificate10118
-import Certificates.Certificate10118Base
-import Certificates.Certificate10119
-import Certificates.Certificate10119Base
-import Certificates.Certificate10123
-import Certificates.Certificate10123Base
-import Certificates.Certificate1013
-import Certificates.Certificate1014
-import Certificates.Certificate1014Base
-import Certificates.Certificate1015
-import Certificates.Certificate1017
-import Certificates.Certificate1018
-import Certificates.Certificate1018Base
-import Certificates.Certificate1019
-import Certificates.Certificate14953
-import Certificates.Certificate16018
-import Certificates.Certificate16041
-import Certificates.Certificate2051
-import Certificates.Certificate2053
-import Certificates.Certificate2056
-import Certificates.Certificate2057
-import Certificates.Certificate2058
-import Certificates.Certificate2098
-import Certificates.Certificate2103
-import Certificates.Certificate2108
-import Certificates.Certificate2109
-import Certificates.Certificate2111
-import Certificates.Certificate2112
-import Certificates.Certificate2130
-import Certificates.Certificate2135
-import Certificates.Certificate2136
-import Certificates.Certificate2139
-import Certificates.Certificate2140
-import Certificates.Certificate2145
-import Certificates.Certificate2154
-import Certificates.Certificate2160
-import Certificates.Certificate2166
-import Certificates.Certificate2173
-import Certificates.Certificate2178
-import Certificates.Certificate2179
-import Certificates.Certificate2191
-import Certificates.Certificate2192
-import Certificates.Certificate2198
-import Certificates.Certificate2202
-import Certificates.Certificate2207
-import Certificates.Certificate2211
-import Certificates.Certificate2213
-import Certificates.Certificate2215
-import Certificates.Certificate2216
-import Certificates.Certificate2216Base
-import Certificates.Certificate2217
-import Certificates.Certificate2224
-import Certificates.Certificate2225
-import Certificates.Certificate2225Base
-import Certificates.Certificate2233
-import Certificates.Certificate2233Base
-import Certificates.Certificate2234
-import Certificates.Certificate2235
-import Certificates.Certificate2238
-import Certificates.Certificate2239
-import Certificates.Certificate2242
-import Certificates.Certificate2243
-import Certificates.Certificate2244
-import Certificates.Certificate2245
-import Certificates.Certificate2246
-import Certificates.Certificate2251
-import Certificates.Certificate2254
-import Certificates.Certificate2254Base
-import Certificates.Certificate2255
-import Certificates.Certificate2261
-import Certificates.Certificate2267
-import Certificates.Certificate2269
-import Certificates.Certificate2274
-import Certificates.Certificate2293
-import Certificates.Certificate2294
-import Certificates.Certificate2304
-import Certificates.Certificate2305
-import Certificates.Certificate2308
-import Certificates.Certificate2323
-import Certificates.Certificate2326
-import Certificates.Certificate3037
-import Certificates.Certificate3037Base
-import Certificates.Certificate3038
-import Certificates.Certificate3038Base
-import Certificates.Certificate3046
-import Certificates.Certificate3114
-import Certificates.Certificate3148
-import Certificates.Certificate3148Base
-import Certificates.Certificate3150
-import Certificates.Certificate3150Base
-import Certificates.Certificate3151
-import Certificates.Certificate3151Base
-import Certificates.Certificate3152
-import Certificates.Certificate3152Base
-import Certificates.Certificate3153
-import Certificates.Certificate3153Base
-import Certificates.Certificate3154
-import Certificates.Certificate3154Base
-import Certificates.Certificate5133
-import Certificates.Certificate6006
-import Certificates.Certificate8064
-import Certificates.Certificate8166
-import Certificates.Certificate8169
-import Certificates.Certificate9124
 import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 
 public section

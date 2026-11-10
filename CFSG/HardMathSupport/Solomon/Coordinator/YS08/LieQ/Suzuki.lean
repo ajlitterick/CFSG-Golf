@@ -2,7 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.YS08.LieQ.RankOne
 public import CFSG.Blueprint.Catalog
-public import Certificates.Certificate43
 import CFSG.Goldschmidt.Steps.G3aBorel
 import CFSG.StronglyEmbedded.Catalog.Suzuki
 import CFSG.Models.BenderSuzuki
@@ -23,34 +22,6 @@ import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 import CFSG.Walter.Bender1970.S3.Setup
 import CFSG.Walter.JRFacts
-import Certificates.Certificate1
-import Certificates.Certificate10
-import Certificates.Certificate100
-import Certificates.Certificate101
-import Certificates.Certificate102
-import Certificates.Certificate103
-import Certificates.Certificate104
-import Certificates.Certificate105
-import Certificates.Certificate106
-import Certificates.Certificate107
-import Certificates.Certificate108
-import Certificates.Certificate109
-import Certificates.Certificate11
-import Certificates.Certificate12
-import Certificates.Certificate2
-import Certificates.Certificate3
-import Certificates.Certificate4
-import Certificates.Certificate42
-import Certificates.Certificate44
-import Certificates.Certificate5
-import Certificates.Certificate6
-import Certificates.Certificate7
-import Certificates.Certificate8
-import Certificates.Certificate9
-import Certificates.Certificate96
-import Certificates.Certificate97
-import Certificates.Certificate98
-import Certificates.Certificate99
 
 public section
 

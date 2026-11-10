@@ -14,10 +14,6 @@ import CFSG.RankThree.Classical2.SLnRootPermutingFixedGroups
 import CFSG.RankThree.PartTwo.Sec21.Item219LieProofSL3
 import CFSG.RankThree.PartTwo.Sec21.Item219LieProofLayer
 public import CFSG.RankThree.PartTwo.Sec7.ThreeTranspositions
-public import Certificates.Certificate2197
-public import Certificates.Certificate3084
-public import Certificates.Certificate3169
-public import Certificates.Certificate6103
 import CFSG.ClassicalInvolution.Balance.PassTwoFinal
 import CFSG.LieType.Ree.SmallReeModelSchreier
 import CFSG.LocalAnalysis.ComponentClassification.BadTwoComponentSubgroup

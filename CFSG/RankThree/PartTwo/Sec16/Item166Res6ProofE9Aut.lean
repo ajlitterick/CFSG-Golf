@@ -6,8 +6,6 @@ import CFSG.RankThree.PartTwo.Sec16.Item166Res6ProofE9U
 import CFSG.RankThree.PartTwo.KFacts.K72L3Linear
 import CFSG.RankThree.PartTwo.KFacts.K72L3Unitary
 public import CFSG.RankThree.PartTwo.Sec15.Item15Steps
-public import Certificates.Certificate8166
-public import Certificates.Certificate8169
 import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
 
 public section

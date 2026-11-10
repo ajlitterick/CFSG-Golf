@@ -11,7 +11,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.propos
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import CFSG.Timmesfeld.Opposite.Moufang
 public import CFSG.Timmesfeld.RankOne
-public import Certificates.Certificate43
 public import Mathlib
 import CFSG.Timmesfeld.Moufang.Three
 import CFSG.Timmesfeld.Special.TwoCore

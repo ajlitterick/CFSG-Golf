@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.Claim1Assembly
 import Mathlib.Tactic.Group
-public import Certificates.Certificate1
-public import Certificates.Certificate2
 
 public section
 

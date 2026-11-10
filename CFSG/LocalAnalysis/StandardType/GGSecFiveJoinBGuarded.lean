@@ -3,10 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinSelected
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBLabelDefs
 public import CFSG.LocalAnalysis.StandardType.GGTBXPlumb
-public import Certificates.Certificate1953
-public import Certificates.Certificate1954
-public import Certificates.Certificate8032
-public import Certificates.Certificate13657
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPosition
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBFixLine
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBWeylInfType

@@ -2,9 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.RouteD.GapsFrMinusFix
 public import CFSG.ClassicalInvolution.RouteD.TwinSmallSixGeo
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 
 public section
 

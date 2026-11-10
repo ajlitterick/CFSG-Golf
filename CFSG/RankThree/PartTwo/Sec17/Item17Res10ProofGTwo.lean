@@ -11,9 +11,6 @@ public import CFSG.RankThree.PartTwo.Sec16.Item164Proof
 public import CFSG.RankThree.PartTwo.Sec16.Item169HJ
 public import CFSG.RankThree.PartTwo.Sec17.Item17ParaHJ
 public import CFSG.RankThree.S4Free.SuzukiEight
-public import Certificates.Certificate2202
-public import Certificates.Certificate8166
-public import Certificates.Certificate8169
 
 public section
 

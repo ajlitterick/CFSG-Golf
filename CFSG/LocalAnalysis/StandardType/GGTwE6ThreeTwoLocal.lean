@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTwE6RootKillDefs
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelCentE
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelTFrame
-public import Certificates.Certificate13657
 import CFSG.LocalAnalysis.StandardType.GGTwE6LeviSplit
 import CFSG.LocalAnalysis.StandardType.GGTwE6EnnolaSplit
 import CFSG.LocalAnalysis.StandardType.GGTwE6FieldDescent

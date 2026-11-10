@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeReturnSpecs
-public import Certificates.Certificate1952
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCarrierSUCover
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUAll
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.G2LongFrame

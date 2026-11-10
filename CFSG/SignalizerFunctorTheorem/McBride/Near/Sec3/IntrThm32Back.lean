@@ -25,7 +25,6 @@ public import CFSG.StronglyEmbedded.ParityCriterion
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.theorem_4_18_b
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
-public import Certificates.Certificate43
 
 public section
 

@@ -11,10 +11,6 @@ public import CFSG.Sporadic.Schreier.MathieuOddCoreM22
 public import CFSG.Sporadic.Schreier.M22
 public import CFSG.Monster.B.TwoA.Base.PairStab
 public import CFSG.Quasithin.Background.H132Irr
-public import Certificates.Certificate260402
-public import Certificates.Certificate260431
-public import Certificates.Certificate260433
-public import Certificates.Certificate7061
 
 public section
 

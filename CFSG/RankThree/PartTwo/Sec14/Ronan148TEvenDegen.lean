@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148TEvenL3
-public import Certificates.Certificate43
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Comparator.Defs
 public import CFSG.RankThree.FFModules.Transvections
 import CFSG.StronglyEmbedded

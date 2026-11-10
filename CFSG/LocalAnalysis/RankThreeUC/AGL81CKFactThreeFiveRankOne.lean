@@ -78,9 +78,6 @@ public import CFSG.Sporadic.Recognition.HNMultiplier
 public import CFSG.Sporadic.Recognition.LyonsAmalgamModelYAut
 public import CFSG.Sporadic.Recognition.LyonsFinalDist2
 public import CFSG.Sporadic.Suz
-public import Certificates.Certificate19800
-public import Certificates.Certificate232403
-public import Certificates.Certificate8035
 
 public section
 

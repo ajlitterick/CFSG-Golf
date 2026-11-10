@@ -21,10 +21,6 @@ public import CFSG.LieType.SeitzGeneration.ExcWideThree.TwE6LeviCatalogue
 public import CFSG.LieType.Chevalley.GraphFixedCenterTrivial
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.TwE6InnerTwoFixedRootMono
 public import CFSG.LieType.SeitzGeneration.CubeCoverE6Bad
-public import Certificates.Certificate214104
-public import Certificates.Certificate214105
-public import Certificates.Certificate214106
-public import Certificates.Certificate214107
 
 public section
 

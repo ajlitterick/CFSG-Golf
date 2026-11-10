@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Stage3Rho
-public import Certificates.Certificate17027
-public import Certificates.Certificate5952
-public import Certificates.Certificate12952
-public import Certificates.Certificate14951
 public import Certificates.Kernel.J4Count.FixCE
 public import CFSG.Certificates.Kernel.LocalCompTits.Span
 public import CFSG.LocalAnalysis.ComponentInitial.PGroupRankOneClassification

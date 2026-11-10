@@ -15,9 +15,6 @@ public import CFSG.Timmesfeld.Moufang.Three
 public import CFSG.Timmesfeld.RankOne
 public import CFSG.Timmesfeld.Special.TwoCore
 public import CFSG.Walter.Defs
-public import Certificates.Certificate1
-public import Certificates.Certificate2
-public import Certificates.Certificate43
 import CFSG.Timmesfeld.Exceptional.Residual
 
 public section

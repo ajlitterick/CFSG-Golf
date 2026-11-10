@@ -6,9 +6,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.LinearCoverModel
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.CenterHopf
 public import CFSG.LieType.Steinberg.CentralExt.PSLMultiplier
 public import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylFieldVacOther
 
 public section

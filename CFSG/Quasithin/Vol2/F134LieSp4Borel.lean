@@ -31,8 +31,6 @@ public import CFSG.Sporadic.J4Base
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
-public import Certificates.Certificate43
-public import Certificates.Certificate8026Base
 
 public section
 

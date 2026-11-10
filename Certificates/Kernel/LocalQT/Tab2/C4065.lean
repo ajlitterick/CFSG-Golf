@@ -8,7 +8,6 @@ import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Reduce
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_2
 public import CFSG.Sporadic.Mathieu.M22
-public import Certificates.Certificate113
 
 set_option maxRecDepth 400000
 set_option maxHeartbeats 0

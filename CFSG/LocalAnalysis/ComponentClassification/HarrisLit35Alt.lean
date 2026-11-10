@@ -47,7 +47,6 @@ public import CFSG.Sporadic.SmallOddCore.HSAut
 public import CFSG.Sporadic.SmallOddCore.J3Aut
 public import CFSG.Sporadic.ThSchreier.GlobalData
 public import CFSG.Sporadic.ThSchreier.LocalOrbitBase1
-public import Certificates.Certificate3085Base
 
 public noncomputable section
 

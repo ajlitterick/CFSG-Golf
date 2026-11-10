@@ -29,8 +29,6 @@ import CFSG.Sporadic.Mathieu.M12
 import CFSG.Sporadic.Mathieu.M24
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 import CFSG.Walter.Defs
-import Certificates.Certificate1
-import Certificates.Certificate2
 
 public section
 

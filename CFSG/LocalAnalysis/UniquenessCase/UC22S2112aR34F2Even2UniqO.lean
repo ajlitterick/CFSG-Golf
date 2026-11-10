@@ -2,19 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Models.OrthogonalPairs.Fundamental
 public import CFSG.LocalAnalysis.UniquenessCase.FundamentalLie
-public import Certificates.Certificate76
-public import Certificates.Certificate77
-public import Certificates.Certificate78
-public import Certificates.Certificate79
-public import Certificates.Certificate118
-public import Certificates.Certificate119
-public import Certificates.Certificate121
-public import Certificates.Certificate122
-public import Certificates.Certificate2264
-public import Certificates.Certificate2267
-public import Certificates.Certificate8033
-public import Certificates.Certificate3951
-public import Certificates.Certificate3952
 import CFSG.ClassicalInvolution.Asc77.AscT7TTrace
 import CFSG.ClassicalInvolution.SmallCases.UpgradeCover
 import CFSG.ClassicalInvolution.Orders.Classical

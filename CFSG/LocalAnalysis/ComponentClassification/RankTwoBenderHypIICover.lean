@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoBenderHypIIQuot
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicOddCore
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherTightEmbeddingSylow
-public import Certificates.Certificate113
 import CFSG.LocalAnalysis.ComponentClassification.TightEmbeddingConjugate
 public import CFSG.LocalAnalysis.ComponentClassification.Asc76BenderFacts
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherKnownGroupFacts

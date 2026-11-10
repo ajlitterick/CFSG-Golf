@@ -59,7 +59,6 @@ public import CFSG.Sporadic.McL
 public import CFSG.Sporadic.Presentation.Ly
 public import CFSG.Sporadic.SmallOddCore.HSAut
 public import CFSG.Sporadic.SmallOddCore.J3Aut
-public import Certificates.Certificate3085Base
 
 public noncomputable section
 

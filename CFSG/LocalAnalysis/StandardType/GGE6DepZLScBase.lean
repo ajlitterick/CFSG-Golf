@@ -3,7 +3,6 @@ module
 public import CFSG.LieType.Steinberg.Isogeny.E6
 public import CFSG.LieType.Chevalley.CoordinateFieldBaseChange
 public import CFSG.LieType.Chevalley.PinnedBridge
-public import Certificates.Certificate123
 
 public noncomputable section
 

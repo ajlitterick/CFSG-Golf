@@ -1,8 +1,6 @@
 module
 
 public import CFSG.RankThree.GF2n.Parrott.HPrimeJ1
-public import Certificates.Certificate946016
-public import Certificates.Certificate946017
 
 import CFSG.RankThree.GF2n.Parrott.Section2J0NormalFinal
 import CFSG.RankThree.GF2n.Parrott.Section3Commutator

@@ -6,7 +6,6 @@ public import CFSG.OddTranspositions.PartThree.Eleven.OneOne.Hyp
 public import CFSG.OddTranspositions.PartThree.Eleven.Minus.Pair
 public import CFSG.OddTranspositions.PartThree.Eleven.Minus.Quandle
 public import CFSG.OddTranspositions.PartThree.EightFive.KBarSetup
-public import Certificates.Certificate2326
 public import CFSG.Timmesfeld.Bridge.Asc72WreathConn
 public import CFSG.Timmesfeld.Bridge.OddTranspGenL2
 public import Mathlib.GroupTheory.IsPerfect

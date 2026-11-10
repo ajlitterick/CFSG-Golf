@@ -13,7 +13,6 @@ public import CFSG.Quasithin.Background.A3Components
 public import CFSG.Quasithin.Background.A3Structure312Facts
 public import CFSG.Quasithin.Background.OrderingMax
 public import CFSG.Quasithin.Vol2.Ch1Local
-public import Certificates.Certificate8026Base
 
 public section
 

@@ -5,7 +5,6 @@ public import CFSG.Quasithin.Background.HSp4Bridge
 public import CFSG.Quasithin.Background.HPairBridge
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierAlternatingSixCount
 public import Mathlib.GroupTheory.SpecificGroups.Alternating.Centralizer
-public import Certificates.Certificate7067
 
 public section
 

@@ -129,7 +129,6 @@ public import CFSG.Quasithin.SteinbergCCLocalSylowAction
 public import CFSG.Quasithin.Vol2.Ch1Faithful
 public import CFSG.Sporadic.Schreier.J4SProfileNode
 public import CFSG.Sporadic.ThSchreier.AutCore
-public import Certificates.Certificate8026Base
 
 public section
 

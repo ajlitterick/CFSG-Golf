@@ -44,15 +44,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.OutcomeLocalOddCentrali
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCorrCriticalStandard
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.BRow
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.LocalWitness
-public import Certificates.Certificate1016
-public import Certificates.Certificate1016Base
-public import Certificates.Certificate3084
-public import Certificates.Certificate3091
-public import Certificates.Certificate3167
-public import Certificates.Certificate3169
-public import Certificates.Certificate3171
-public import Certificates.Certificate3171Base
-public import Certificates.Certificate3172
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 

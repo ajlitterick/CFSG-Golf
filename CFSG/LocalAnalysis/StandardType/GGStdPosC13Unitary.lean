@@ -3,9 +3,6 @@ module
 public import CFSG.Assembly.GL83LieDefs
 public import CFSG.LocalAnalysis.StandardType.GGTableBRank
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 import CFSG.LocalAnalysis.StandardType.GGStdPosC13PermConv
 import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitaryOutdiag
 import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestUnitaryCenter

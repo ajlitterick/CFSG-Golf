@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.CaseOneSetup
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.QuotientCentralizer
 public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6FDefs
-public import Certificates.Certificate3007
-public import Certificates.Certificate10005
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.L34TypeCover
 import CFSG.ClassicalInvolution.Sp62Rec.EOdd
 import CFSG.GroupTheory.Commutator.JoinNormalizer

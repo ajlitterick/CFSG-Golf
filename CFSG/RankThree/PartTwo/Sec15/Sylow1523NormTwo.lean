@@ -31,7 +31,6 @@ import CFSG.RankThree.PartTwo.Sec13.Item131Assembly
 import CFSG.RankThree.PartTwo.Sec13.Item131bProofK
 import CFSG.RankThree.PartTwo.Sec13.Item131bProofOmega
 import CFSG.RankThree.PartTwo.Sec4.Census.Interface46
-import Certificates.Certificate13951
 
 public section
 

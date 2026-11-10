@@ -2,8 +2,6 @@ module
 
 public import CFSG.OddTranspositions.PartThree.EightFive.CaseTwoStatement
 public import CFSG.OddTranspositions.HypothesisC
-public import Certificates.Certificate43
-public import Certificates.Certificate113
 
 import CFSG.OddTranspositions.PartThree.EightFive.CaseTwoBlocks
 import CFSG.OddTranspositions.PartThree.EightFive.CaseTwoWreath

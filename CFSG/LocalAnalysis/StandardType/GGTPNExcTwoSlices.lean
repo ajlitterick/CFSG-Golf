@@ -118,20 +118,6 @@ public import CFSG.Sporadic.Co2Schreier.ThirdChain
 public import CFSG.Sporadic.SuzOddCore.GraphData
 public import CFSG.Sporadic.SuzOddCore.SmallActionData
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
-public import Certificates.Certificate10027
-public import Certificates.Certificate10107
-public import Certificates.Certificate10108
-public import Certificates.Certificate10110
-public import Certificates.Certificate10111
-public import Certificates.Certificate16018
-public import Certificates.Certificate16041
-public import Certificates.Certificate2098
-public import Certificates.Certificate2103
-public import Certificates.Certificate2108
-public import Certificates.Certificate2109
-public import Certificates.Certificate2274
-public import Certificates.Certificate2323
-public import Certificates.Certificate6006
 
 public section
 

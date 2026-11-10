@@ -4,7 +4,6 @@ public import CFSG.Foundations.Basic
 public import CFSG.GroupTheory.PCore.Construction
 public import CFSG.Open.StatedDefs
 public import CFSG.StronglyEmbedded.MatrixGroups.PSL2
-public import Certificates.Certificate43
 import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonClassification
 import CFSG.Adapters.ProjectiveSpecialLinear
 import CFSG.Walter.Bender1970.S2.PSL2Overgroups
@@ -37,8 +36,6 @@ import CFSG.RankThree.PartTwo.Sec6.Statements
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 import CFSG.Walter.JRFacts
 import CFSG.Walter.PSL2Facts
-import Certificates.Certificate1
-import Certificates.Certificate2
 
 public section
 

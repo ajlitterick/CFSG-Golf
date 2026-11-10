@@ -10,9 +10,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.R72.RankThree
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.R72.ReeThreeType
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.Theorem76
 public import CFSG.LocalAnalysis.UniquenessCase.UC7P3Theorem76
-public import Certificates.Certificate17430
-public import Certificates.Certificate9726
-public import Certificates.Certificate9530
 
 public section
 

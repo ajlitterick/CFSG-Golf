@@ -46,7 +46,6 @@ public import CFSG.RankThree.PartOne.KC.OrthogonalFieldDescentTags
 public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeOrbits
 public import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
 public import CFSG.Sporadic.Schreier.TitsOther
-public import Certificates.Certificate5007
 
 public section
 

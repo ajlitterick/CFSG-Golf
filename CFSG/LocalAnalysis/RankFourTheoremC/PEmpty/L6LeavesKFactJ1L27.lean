@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.L6LeavesKxDefs
-public import Certificates.Certificate3119
-public import Certificates.Certificate7124
 public import CFSG.Sporadic.J1.Setup
 public import CFSG.Quasithin.Background.A312SporJ1
 import CFSG.Quasithin.H13.NQCatA314J1

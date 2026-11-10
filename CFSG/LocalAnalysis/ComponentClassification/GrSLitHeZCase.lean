@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeZProj
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeZL34
-public import Certificates.Certificate2022
 public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LieType.Universal.SpinOmega.Range
 public import CFSG.LinearAlgebra.LinearGroups.CoordinateData

@@ -2,7 +2,6 @@ module
 
 public import CFSG.Open.Catalog
 public import CFSG.Open.LocalVocabulary
-public import Certificates.Certificate113
 public import CFSG.LocalAnalysis.WeakClosure81.SuzukiGen
 public import CFSG.LocalAnalysis.WeakClosure81.W16PLemmaQSzBA
 public import CFSG.LocalAnalysis.WeakClosure81.W16PLemmaQSzBB
@@ -40,7 +39,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.Walter.Defs
-public import Certificates.Certificate43
 
 public section
 

@@ -7,7 +7,6 @@ public import CFSG.LieType.Universal.Spin.Roots
 public import CFSG.LieType.Universal.Unitary
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 public import CFSG.RankThree.PartTwo.Sec21.HoltCatalog
-public import Certificates.Certificate43
 
 attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent
 

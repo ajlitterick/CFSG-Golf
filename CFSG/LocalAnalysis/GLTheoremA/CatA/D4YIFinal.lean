@@ -20,10 +20,6 @@ public import CFSG.Quasithin.H13.J4Order
 public import CFSG.RankThree.Native.ONTripleRed
 public import CFSG.RankThree.PartOne.SPOR.OuterSimple
 public import CFSG.RankThree.PartTwo.KFacts.OutFixCentralThree46
-public import Certificates.Certificate8137
-public import Certificates.Certificate8138
-public import Certificates.Certificate8140
-public import Certificates.Certificate8141
 
 public section
 

@@ -7,8 +7,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.KIZHolds
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight73Y
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.OuterJ4
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.K33PartialRanks
-public import Certificates.Certificate9726
-public import Certificates.Certificate17430
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight6xBExtraspecial
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight56Residual
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight56SpineChain
@@ -218,8 +216,6 @@ public import CFSG.Sporadic.Recognition.McLASThreeCount
 public import CFSG.Sporadic.Schreier.Fi22Schreier
 public import CFSG.Sporadic.Schreier.J4SNoCompCover
 public import CFSG.Walter.J1Props
-public import Certificates.Certificate8160
-public import Certificates.Certificate9530
 public import Certificates.Data.HSFiveCheck
 public import Certificates.Kernel.J4Count.Prim
 import CFSG.LieType.Simplicity.Basic
@@ -264,9 +260,6 @@ import CFSG.RankThree.PartTwo.Sec20.Step2051SylowProof
 import CFSG.RankThree.PartTwo.Sec20.Step2053Proof
 import CFSG.RankThree.PartTwo.Sec6.Statements
 import CFSG.RankThree.S4Free.SuzukiEight
-import Certificates.Certificate14953
-import Certificates.Certificate8166
-import Certificates.Certificate9950
 
 public section
 

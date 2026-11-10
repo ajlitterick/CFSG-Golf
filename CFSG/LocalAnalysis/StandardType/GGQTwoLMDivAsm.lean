@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMHelp
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivKind
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivLinkLift

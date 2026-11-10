@@ -24,7 +24,6 @@ public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Lemma1314c
 public import CFSG.LocalAnalysis.GLTheoremB.Prop95Input18
 public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83Generic4_1P3M11Defs
 public import CFSG.Quasithin.EmptyFaithfulMultiple.Lemma15421
-public import Certificates.Certificate41501
 
 public section
 

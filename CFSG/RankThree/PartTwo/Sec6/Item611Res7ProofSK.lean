@@ -54,7 +54,6 @@ public import CFSG.Sporadic.Presentation.Co2FusionInputs
 public import CFSG.Sporadic.Presentation.McLExactData
 public import CFSG.Sporadic.Presentation.McLExactInputs
 public import CFSG.Sporadic.Recognition.McLASThreeCount
-public import Certificates.Certificate7233Base
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearFieldDeterminant
 import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenCanonicalField
 import CFSG.RankThree.LocalRank.SelectorCases

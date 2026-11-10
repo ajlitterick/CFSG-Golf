@@ -41,8 +41,6 @@ public import CFSG.RankThree.PartOne.KE6.Phi3Transport
 public import CFSG.RankThree.PartOne.KE6.Phi6Arith
 public import CFSG.RankThree.PartOne.KF4.KernelTools
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
-public import Certificates.Certificate1953
-public import Certificates.Certificate1954
 
 @[expose] public section
 

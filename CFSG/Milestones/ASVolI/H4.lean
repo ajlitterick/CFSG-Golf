@@ -42,7 +42,6 @@ public import CFSG.Sporadic.Schreier.J4SNative
 public import CFSG.Sporadic.Schreier.J4SCols
 public import CFSG.Sporadic.Schreier.J4SOrbits
 public import CFSG.Sporadic.Schreier.J4SCommGenInputs
-public import Certificates.Certificate2169
 public import CFSG.Sporadic.J4.Local
 public import CFSG.Certificates.Kernel.LocalCompTits.Span
 public import CFSG.GH74.GLS.IVK.L2.Hilbert90Core

@@ -98,7 +98,6 @@ public import CFSG.RankThree.GF2n.Tim81.Sec2.NatSumRecog
 public import CFSG.RankThree.GF2n.Tim81.Sec4.Sec41Split
 public import CFSG.Sporadic.Schreier.J4SProfileNode
 public import CFSG.Timmesfeld.Bridge.Asc72Defs
-public import Certificates.Certificate8026Base
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 import CFSG.Blueprint.SourceExceptionalModels
@@ -133,18 +132,6 @@ import CFSG.Walter.Bender1970.S2
 import CFSG.Walter.Bender1970.S3.Basic
 import CFSG.Walter.Bender1970.S3.OStar
 import CFSG.Walter.PSL2Facts
-import Certificates.Certificate7000
-import Certificates.Certificate7001
-import Certificates.Certificate7002
-import Certificates.Certificate7003
-import Certificates.Certificate7004
-import Certificates.Certificate7005
-import Certificates.Certificate7006
-import Certificates.Certificate7007
-import Certificates.Certificate7008
-import Certificates.Certificate7009
-import Certificates.Certificate7010
-import Certificates.Certificate7011
 
 public section
 

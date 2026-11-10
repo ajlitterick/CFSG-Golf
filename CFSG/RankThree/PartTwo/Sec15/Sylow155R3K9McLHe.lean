@@ -1,31 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec15.Sylow155R3K9Core
-public import Certificates.Certificate2111
-public import Certificates.Certificate2112
-public import Certificates.Certificate2118
-public import Certificates.Certificate2223
-public import Certificates.Certificate2224
-public import Certificates.Certificate2225
-public import Certificates.Certificate2240
-public import Certificates.Certificate2241
-public import Certificates.Certificate2242
-public import Certificates.Certificate2243
-public import Certificates.Certificate2244
-public import Certificates.Certificate2245
-public import Certificates.Certificate2284
-public import Certificates.Certificate2285
-public import Certificates.Certificate2288
-public import Certificates.Certificate3168
-public import Certificates.Certificate3170
-public import Certificates.Certificate8057
-public import Certificates.Certificate9118
-public import Certificates.Certificate9125
-public import Certificates.Certificate9126
-public import Certificates.Certificate9210
-public import Certificates.Certificate9216
-public import Certificates.Certificate12635
-public import Certificates.Certificate12636
 import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.ThetaSpor.HeThree
 import CFSG.Quasithin.Background.A318POutHe
 import CFSG.RankThree.PartTwo.KFacts.K426RestMcL
@@ -66,7 +41,6 @@ public import CFSG.Sporadic.Presentation.McLExactData
 public import CFSG.Sporadic.Presentation.McLExactInputs
 public import CFSG.StronglyEmbedded.ParityCriterion
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
-public import Certificates.Certificate2225Base
 import CFSG.GH74.GLS.Balance.SolvAPIDefs
 import CFSG.Mathlib.LinearAlgebra.BilinForm.Determinant
 import CFSG.Open.SplitBNPair
@@ -84,7 +58,6 @@ import CFSG.RankThree.PartTwo.Sec20.OneSteps
 import CFSG.RankThree.PartTwo.Sec21.Item211ProofListOf
 import CFSG.RankThree.PartTwo.Sec4.Item41NarrowGriess
 import CFSG.Walter.J1Props
-import Certificates.Certificate8166
 
 public section
 

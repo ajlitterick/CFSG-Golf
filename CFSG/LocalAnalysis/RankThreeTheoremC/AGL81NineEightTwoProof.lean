@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGLHyp111SizeMax
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGLHyp111B3
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ICitedHyp111K
-public import Certificates.Certificate113
-public import Certificates.Certificate43
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGLHyp111E16
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneSylow
 import CFSG.LocalAnalysis.RankThreeTheoremC.D2Ambient3

@@ -62,8 +62,6 @@ public import CFSG.RankThree.PartTwo.Sec8.Item87Proof84
 public import CFSG.SignalizerFunctorTheorem.CatalogBridge.NormalFormStabilizer
 public import CFSG.SignalizerFunctorTheorem.CatalogBridge.StabilizerLift
 public import CFSG.Sporadic.J4.QT2LocProof
-public import Certificates.Certificate17002
-public import Certificates.Certificate17951
 
 public section
 

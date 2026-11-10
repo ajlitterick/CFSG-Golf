@@ -57,7 +57,6 @@ public import CFSG.RankThree.PartTwo.Sec21.FF84S3T0
 public import CFSG.RankThree.PartTwo.Sec21.FF84S4Inputs
 public import CFSG.RankThree.PartTwo.Sec21.FF84S4PreModel
 public import CFSG.Sporadic.Schreier.J4SThree
-public import Certificates.Certificate8026Base
 
 public section
 

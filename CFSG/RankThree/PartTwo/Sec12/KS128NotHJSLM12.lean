@@ -1,11 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec12.KS128NotHJSLPGL
-public import Certificates.Certificate9950
-public import Certificates.Certificate3086
-public import Certificates.Certificate8174
-public import Certificates.Certificate3139
-public import Certificates.Certificate3029
 import CFSG.RankThree.PartTwo.Sec12.KS128NotHJM12
 import CFSG.RankThree.PartTwo.Sec12.Item128BarProofBar
 import CFSG.RankThree.PartTwo.Sec12.Item128BarProofTools
@@ -47,11 +42,9 @@ public import CFSG.RankThree.PartTwo.Sec8.Statements
 public import CFSG.StronglyEmbedded.ParityCriterion
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
-public import Certificates.Certificate2202
 import CFSG.RankThree.PartTwo.Sec11.Data
 import CFSG.RankThree.PartTwo.Sec6.Statements
 import CFSG.Sporadic.Th.F2Spec
-import Certificates.Certificate43
 
 public section
 

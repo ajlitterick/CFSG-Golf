@@ -5,29 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.ZS.ReflQuotient
 public import CFSG.Fischer.Classification.Orthogonal3.Model
 public import CFSG.Fischer.Classification.PartIII.Beta.Forms
 public import CFSG.Fischer.Classification.Unitary.Model
-public import Certificates.Certificate1000
-public import Certificates.Certificate1001
-public import Certificates.Certificate1002
-public import Certificates.Certificate1003
-public import Certificates.Certificate1004
-public import Certificates.Certificate1005
-public import Certificates.Certificate1006
-public import Certificates.Certificate1008
-public import Certificates.Certificate1009
-public import Certificates.Certificate1010
-public import Certificates.Certificate1011
-public import Certificates.Certificate1012
-public import Certificates.Certificate1013
-public import Certificates.Certificate1015
-public import Certificates.Certificate1016
-public import Certificates.Certificate1018
-public import Certificates.Certificate1019
-public import Certificates.Certificate1022
-public import Certificates.Certificate7023
-public import Certificates.Certificate7059
-public import Certificates.Certificate709540
-public import Certificates.Certificate709541
-public import Certificates.Certificate709542
 import CFSG.Fischer.Classification.Final
 import CFSG.Fischer.Classification.PartII.O2G.ThreeFinal
 import CFSG.Fischer.Classification.Orthogonal2.SpModel

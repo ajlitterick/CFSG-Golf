@@ -73,9 +73,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.ZJTheorem
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GW1965RemarkDGroup
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29Helpers
-public import Certificates.Certificate13659
-public import Certificates.Certificate13660
-public import Certificates.Certificate1952
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcField
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerSplit
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.Assembly

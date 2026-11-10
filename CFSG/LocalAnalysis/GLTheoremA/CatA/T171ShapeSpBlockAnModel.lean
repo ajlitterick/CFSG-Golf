@@ -17,10 +17,6 @@ public import CFSG.HardMathSupport.Solomon.Coordinator.I271HoldsAlt
 public import CFSG.HardMathSupport.Solomon.Coordinator.I271HoldsHatSixCore
 public import CFSG.HardMathSupport.Solomon.Coordinator.ONCOut
 public import CFSG.HardMathSupport.Solomon.LocalBalance.ONFacts
-public import Certificates.Certificate8137
-public import Certificates.Certificate8138
-public import Certificates.Certificate8140
-public import Certificates.Certificate8141
 
 public section
 

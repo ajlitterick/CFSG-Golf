@@ -46,7 +46,6 @@ public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.InputsL33c2
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Lemma1313Z
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Lemma138b
 public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83Generic4_1P3M11Defs
-public import Certificates.Certificate41501
 public import Certificates.Kernel.J4Count.Cent11Base
 public import Certificates.Kernel.J4Count.Fix11
 import CFSG.Holt.Centralizer

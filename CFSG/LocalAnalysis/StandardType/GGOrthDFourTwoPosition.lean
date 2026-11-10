@@ -6,9 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.Rank3Sp
 public import CFSG.RankThree.Classical2.OrthogonalIsotropicUnipotent
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 import CFSG.LocalAnalysis.StandardType.GGResOrthogonalExactTwo
 import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorusCore
 import CFSG.LocalAnalysis.StandardType.GGOrthWeakFrameCharSum

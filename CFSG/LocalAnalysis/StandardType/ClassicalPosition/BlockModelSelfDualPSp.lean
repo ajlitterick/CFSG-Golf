@@ -57,7 +57,6 @@ public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotOmegaRowUniqueSte
 public import CFSG.RankThree.PartTwo.Sec21.Item226Steps
 public import CFSG.RankThree.PartTwo.Sec21.Item229
 public import CFSG.Timmesfeld.Transvection.ModelPoints
-public import Certificates.Certificate41501
 
 public section
 

@@ -49,7 +49,6 @@ public import CFSG.RankThree.GF2n.SupIndepDecomp
 public import CFSG.RankThree.GF2n.Tim79CentC
 public import CFSG.RankThree.GF2n.Tim79CentL
 public import CFSG.RankThree.GF2n.Tim79Mod
-public import Certificates.Certificate9530
 
 public section
 

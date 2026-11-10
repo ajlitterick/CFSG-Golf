@@ -2,35 +2,6 @@ module
 
 public import CFSG.Monster.GMS.ASegAmalgamZeta
 public import CFSG.Monster.GMS.S365Center
-public import Certificates.Certificate3015
-public import Certificates.Certificate3016
-public import Certificates.Certificate3017
-public import Certificates.Certificate3018
-public import Certificates.Certificate3019
-public import Certificates.Certificate3020
-public import Certificates.Certificate3021
-public import Certificates.Certificate3024
-public import Certificates.Certificate10032
-public import Certificates.Certificate10033
-public import Certificates.Certificate10034
-public import Certificates.Certificate10035
-public import Certificates.Certificate10037
-public import Certificates.Certificate10038
-public import Certificates.Certificate10039
-public import Certificates.Certificate10040
-public import Certificates.Certificate10041
-public import Certificates.Certificate10042
-public import Certificates.Certificate10043
-public import Certificates.Certificate10044
-public import Certificates.Certificate10045
-public import Certificates.Certificate10069
-public import Certificates.Certificate10070
-public import Certificates.Certificate10072
-public import Certificates.Certificate10073
-public import Certificates.Certificate10074
-public import Certificates.Certificate10075
-public import Certificates.Certificate10076
-public import Certificates.Certificate8955
 public import CFSG.Monster.GMS.Facts.Section4Coh
 
 public section

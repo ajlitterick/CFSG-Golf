@@ -6,10 +6,6 @@ import CFSG.LocalAnalysis.SeitzReduction.HypothesisOneClassD4Torus
 import CFSG.LieType.Steinberg.Minuscule.ChevExtras
 import CFSG.LieType.Steinberg.TwistedE6.Roots
 import CFSG.LieType.Steinberg.Adjoint.Presentation
-public import Certificates.Certificate80
-public import Certificates.Certificate81
-public import Certificates.Certificate117
-public import Certificates.Certificate120
 
 public section
 

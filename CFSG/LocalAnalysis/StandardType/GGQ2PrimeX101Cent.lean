@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeRhoTKer
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeDeltaCentAut
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeRhoTOrderThree
-public import Certificates.Certificate3600
 
 public section
 

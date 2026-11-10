@@ -3,11 +3,6 @@ module
 public import Mathlib
 public import CFSG.ClassicalInvolution.Balance.LayerGenerationPairF4Data
 public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalTwistedE6Roots
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate115
-public import Certificates.Certificate116
-public import Certificates.Certificate123
 public import CFSG.Assembly.OrderReductions.InvertedSubgroup
 public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalIsogeny

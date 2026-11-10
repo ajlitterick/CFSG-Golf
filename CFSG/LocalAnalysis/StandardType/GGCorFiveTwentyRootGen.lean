@@ -27,38 +27,6 @@ public import CFSG.Sporadic.Presentation.Common
 public import CFSG.Sporadic.SmallOddCore.CheckSpec
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.ControlCore
 public import CFSG.YGroups.Y322Central
-public import Certificates.Certificate10005
-public import Certificates.Certificate10006
-public import Certificates.Certificate10007
-public import Certificates.Certificate10008
-public import Certificates.Certificate10009
-public import Certificates.Certificate10010
-public import Certificates.Certificate10012
-public import Certificates.Certificate10013
-public import Certificates.Certificate10014
-public import Certificates.Certificate10016
-public import Certificates.Certificate10018
-public import Certificates.Certificate12041
-public import Certificates.Certificate12042
-public import Certificates.Certificate12043
-public import Certificates.Certificate12044
-public import Certificates.Certificate12045
-public import Certificates.Certificate12046
-public import Certificates.Certificate16015
-public import Certificates.Certificate16040
-public import Certificates.Certificate2154
-public import Certificates.Certificate2157
-public import Certificates.Certificate2267
-public import Certificates.Certificate2326
-public import Certificates.Certificate3006
-public import Certificates.Certificate3007
-public import Certificates.Certificate3008
-public import Certificates.Certificate3063
-public import Certificates.Certificate3077
-public import Certificates.Certificate3082
-public import Certificates.Certificate3083
-public import Certificates.Certificate8033
-public import Certificates.Certificate9130
 
 public section
 

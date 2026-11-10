@@ -4,9 +4,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.G3SporRows
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHS
 import all CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHS
 public import CFSG.Sporadic.HS
-public import Certificates.Certificate3167
-public import Certificates.Certificate4102
-public import Certificates.Certificate4140
 
 public section
 

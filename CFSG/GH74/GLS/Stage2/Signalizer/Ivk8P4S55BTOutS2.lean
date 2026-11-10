@@ -6,8 +6,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.LinearModelOuterTwoPart
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryModelOuterTwoPart
 public import CFSG.RankThree.SteinbergR3ESuzukiFieldSplitting
 public import CFSG.RankThree.PartOne.S11c.Sec66TModelsTw
-public import Certificates.Certificate113
-public import Certificates.Certificate2022
 public import CFSG.GH74.GLS.IVK.Lifted.GroupAux
 public import CFSG.GH74.GLS.IVK.Lifted.IIAutB
 public import CFSG.GH74.GLS.IVK.Lifted.Outer14

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.TwoF4F48Holds
-public import Certificates.Certificate15080
 
 public section
 

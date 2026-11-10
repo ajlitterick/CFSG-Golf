@@ -52,33 +52,6 @@ import CFSG.RankThree.GF2n.Stroth80.Sec78QB
 import CFSG.RankThree.GF2n.Stroth80.Sec78ZtOmega
 import CFSG.RankThree.GF2n.Stroth80.Sec79Split
 import CFSG.RankThree.GF2n.Stroth80.SpHomTrivial
-import Certificates.Certificate10021
-import Certificates.Certificate14982
-import Certificates.Certificate14983
-import Certificates.Certificate14984
-import Certificates.Certificate14988
-import Certificates.Certificate14989
-import Certificates.Certificate21102
-import Certificates.Certificate21190
-import Certificates.Certificate21191
-import Certificates.Certificate21192
-import Certificates.Certificate21193
-import Certificates.Certificate21194
-import Certificates.Certificate21195
-import Certificates.Certificate21196
-import Certificates.Certificate21197
-import Certificates.Certificate21198
-import Certificates.Certificate21199
-import Certificates.Certificate271010
-import Certificates.Certificate271011
-import Certificates.Certificate271015
-import Certificates.Certificate271030
-import Certificates.Certificate271031
-import Certificates.Certificate271032
-import Certificates.Certificate271033
-import Certificates.Certificate5124
-import Certificates.Certificate5150
-import Certificates.Certificate5153
 
 public section
 

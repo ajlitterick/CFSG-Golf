@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22f
 public import CFSG.Goldschmidt.BasicG
-public import Certificates.Certificate43
-public import Certificates.Certificate113
 import CFSG.Goldschmidt.Steps.G3aBorel
 import CFSG.LocalAnalysis.QuasithinUnique.RankOneRecognitionCover
 import CFSG.GH74.KGroups.CoverEven

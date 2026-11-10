@@ -63,7 +63,6 @@ public import CFSG.SignalizerFunctorTheorem.McBride.Prelim.Basic
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
 public import CFSG.Sporadic.Schreier.M11
 public import CFSG.Sporadic.Schreier.M22
-public import Certificates.Certificate8026Base
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 
 public section

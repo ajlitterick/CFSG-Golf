@@ -3,7 +3,6 @@ module
 public import CFSG.RankThree.PartTwo.Sec8.Hering88Swap
 public import CFSG.RankThree.PartTwo.Sec8.Item87Proof84
 public import CFSG.RankThree.PartTwo.KFacts.KS6OuterIndexProof
-public import Certificates.Certificate3951
 import CFSG.RankThree.PartTwo.Sec8.Item86ResProofChoice
 import CFSG.RankThree.PartTwo.Sec10.Sec10XProofSym
 public import Certificates.Kernel.ThCent.Leaves
@@ -104,35 +103,6 @@ import CFSG.Sporadic.SmallOddCore.CheckSpec
 import CFSG.Sporadic.Th.KernelSimple
 import CFSG.Sporadic.ThSchreier.AutCore
 import CFSG.YGroups.Y322Central
-import Certificates.Certificate10005
-import Certificates.Certificate10006
-import Certificates.Certificate10007
-import Certificates.Certificate10008
-import Certificates.Certificate10009
-import Certificates.Certificate10010
-import Certificates.Certificate10016
-import Certificates.Certificate10018
-import Certificates.Certificate12041
-import Certificates.Certificate12042
-import Certificates.Certificate12043
-import Certificates.Certificate12044
-import Certificates.Certificate12045
-import Certificates.Certificate12046
-import Certificates.Certificate16015
-import Certificates.Certificate16040
-import Certificates.Certificate2154
-import Certificates.Certificate2157
-import Certificates.Certificate2267
-import Certificates.Certificate2326
-import Certificates.Certificate3006
-import Certificates.Certificate3007
-import Certificates.Certificate3008
-import Certificates.Certificate3063
-import Certificates.Certificate3077
-import Certificates.Certificate3082
-import Certificates.Certificate3083
-import Certificates.Certificate8033
-import Certificates.Certificate8171
 import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 
 public section

@@ -30,7 +30,6 @@ public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpSmSp2J1
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpSmSp2Bender
 public import CFSG.CGT.PushingUpLit.SolKNA.R4.TwinEdgeGH
 public import CFSG.Milestones.CL_LIT_GH74_sectional_two_rank_four
-public import Certificates.Certificate431004
 public import CFSG.CGT.PushingUpLit.SolKNA.R4.SmallParts
 public import CFSG.CGT.PushingUpLit.SolKNA.R4.SmallQ3
 public import CFSG.ClassicalInvolution.Asc77.AscS22B

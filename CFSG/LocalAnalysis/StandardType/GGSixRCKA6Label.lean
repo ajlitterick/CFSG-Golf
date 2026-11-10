@@ -7,26 +7,6 @@ public import CFSG.LocalAnalysis.StandardType.GGInterfaceFive
 public import CFSG.LocalAnalysis.StandardType.GGExclNoIso
 public import CFSG.LocalAnalysis.StandardType.Marking
 public import CFSG.LocalAnalysis.StandardType.MarkingSmall
-public import Certificates.Certificate76
-public import Certificates.Certificate77
-public import Certificates.Certificate78
-public import Certificates.Certificate79
-public import Certificates.Certificate80
-public import Certificates.Certificate81
-public import Certificates.Certificate117
-public import Certificates.Certificate118
-public import Certificates.Certificate119
-public import Certificates.Certificate120
-public import Certificates.Certificate121
-public import Certificates.Certificate122
-public import Certificates.Certificate1952
-public import Certificates.Certificate2264
-public import Certificates.Certificate2267
-public import Certificates.Certificate3951
-public import Certificates.Certificate8033
-public import Certificates.Certificate8064
-public import Certificates.Certificate13659
-public import Certificates.Certificate13660
 
 public section
 

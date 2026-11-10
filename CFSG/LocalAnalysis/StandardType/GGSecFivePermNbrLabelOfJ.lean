@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermLabelDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePermNbrLabelOfJDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBRes
-public import Certificates.Certificate13657
 import CFSG.LocalAnalysis.StandardType.GGSecFivePermNbrLabel
 import CFSG.LocalAnalysis.StandardType.GGSecFivePermNbrFieldK0
 import CFSG.LocalAnalysis.StandardType.GGSecFivePermNbrFieldRA

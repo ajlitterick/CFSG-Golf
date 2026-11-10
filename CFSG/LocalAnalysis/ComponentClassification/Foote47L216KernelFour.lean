@@ -35,7 +35,6 @@ public import CFSG.LocalAnalysis.RankThreeTheoremC.InvariantTwoBalanceThree
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Signalizers
 public import CFSG.Permutation.AlternatingAutomorphism
 public import CFSG.StronglyEmbedded.MatrixGroups.PSL2
-public import Certificates.Certificate5007
 
 public section
 

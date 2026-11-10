@@ -4,7 +4,6 @@ public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87L34Transport
 public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87L34Out
 public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourAutomorphisms
 public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
-public import Certificates.Certificate2022
 public import CFSG.GH74.GLS.IVK.Proofs2.OddTools
 public import CFSG.GH74.GLS.Stage2.Local.P34Main
 public import CFSG.GH74.GLS.Stage2.Local.P34S5A

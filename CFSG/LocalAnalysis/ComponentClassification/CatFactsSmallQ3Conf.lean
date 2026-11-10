@@ -3,13 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallConfA8
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallConfP45
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallQ3
-public import Certificates.Certificate2007
-public import Certificates.Certificate2008
-public import Certificates.Certificate2009
-public import Certificates.Certificate2012
-public import Certificates.Certificate2013
-public import Certificates.Certificate2014
-public import Certificates.Certificate2015
 
 public section
 

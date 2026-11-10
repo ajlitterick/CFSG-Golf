@@ -1,17 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section7.KFact76G2Model
-public import Certificates.Certificate76
-public import Certificates.Certificate77
-public import Certificates.Certificate80
-public import Certificates.Certificate81
-public import Certificates.Certificate115
-public import Certificates.Certificate116
-public import Certificates.Certificate118
-public import Certificates.Certificate120
-public import Certificates.Certificate122
-public import Certificates.Certificate123
-public import Certificates.Certificate3951
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section7.KFact76G2Minus
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section7.KFact76G2Plus
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section7.KFact76G2LongRoot
@@ -78,8 +67,6 @@ import CFSG.RankThree.PartTwo.Sec21.Item218Res2ProofAssembly
 import CFSG.RankThree.PartTwo.Sec4.Item423Res2ProofHelpers
 import CFSG.RankThree.PartTwo.Sec4.Item424Res2ProofTools
 import CFSG.RankThree.PartTwo.Sec4.Item4Res7ProofPairing
-import Certificates.Certificate17002
-import Certificates.Certificate17951
 
 public section
 

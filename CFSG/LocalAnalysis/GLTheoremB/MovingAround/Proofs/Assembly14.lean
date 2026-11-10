@@ -361,11 +361,6 @@ public import CFSG.RankThree.PartOne.KF.F128Count
 public import CFSG.RankThree.PartOne.KLAY.Frames
 public import CFSG.RankThree.PartTwo.Sec4.T444.Basic
 public import CFSG.SignalizerFunctorTheorem.Glauberman.Basic
-public import Certificates.Certificate17254
-public import Certificates.Certificate214101
-public import Certificates.Certificate214103
-public import Certificates.Certificate214108
-public import Certificates.Certificate214109
 
 public section
 

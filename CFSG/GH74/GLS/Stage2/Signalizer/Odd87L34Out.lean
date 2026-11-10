@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourAutomorphisms
 public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallL34Out
 import all CFSG.LocalAnalysis.ComponentClassification.PSL3FourActionData
-public import Certificates.Certificate2022
 public import CFSG.LinearAlgebra.LinearGroups.LinearTwo
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwo
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueUStatement

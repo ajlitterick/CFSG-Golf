@@ -54,7 +54,6 @@ public import CFSG.RankThree.PartTwo.Sec19.Steps195
 public import CFSG.SignalizerFunctorTheorem.NonLocal.Cross
 public import CFSG.SignalizerFunctorTheorem.NonLocal.SpData
 public import CFSG.SignalizerFunctorTheorem.NonLocal.SpTwoTwo
-public import Certificates.Certificate19800
 
 public section
 

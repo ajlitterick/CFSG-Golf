@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitFamilies
-public import Certificates.Certificate1952
 
 import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeExcPlusAux2
 

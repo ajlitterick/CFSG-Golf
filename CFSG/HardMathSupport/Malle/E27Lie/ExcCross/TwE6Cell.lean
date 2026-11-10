@@ -77,13 +77,6 @@ public import CFSG.Sporadic.Presentation.Co2Base
 public import CFSG.Sporadic.Presentation.Co2Cover
 public import CFSG.Sporadic.Presentation.Co2Fusion
 public import CFSG.Sporadic.Presentation.Co2FusionInputs
-public import Certificates.Certificate1
-public import Certificates.Certificate2
-public import Certificates.Certificate8153
-public import Certificates.Certificate8156
-public import Certificates.Certificate8157
-public import Certificates.Certificate8160
-public import Certificates.Certificate8171
 
 public noncomputable section
 

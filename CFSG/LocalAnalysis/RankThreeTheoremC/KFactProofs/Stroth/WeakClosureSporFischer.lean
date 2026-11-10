@@ -3,29 +3,6 @@ module
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.WeakClosureSporLines
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.WeakClosureSporModule
 public import CFSG.Permutation.SymmetricCoxeter
-public import Certificates.Certificate1005
-public import Certificates.Certificate1012
-public import Certificates.Certificate1016
-public import Certificates.Certificate1018
-public import Certificates.Certificate2070
-public import Certificates.Certificate3037
-public import Certificates.Certificate3039
-public import Certificates.Certificate3147
-public import Certificates.Certificate3152
-public import Certificates.Certificate3153
-public import Certificates.Certificate9107
-public import Certificates.Certificate9108
-public import Certificates.Certificate9109
-public import Certificates.Certificate9110
-public import Certificates.Certificate9205
-public import Certificates.Certificate9486
-public import Certificates.Certificate9507
-public import Certificates.Certificate9550
-public import Certificates.Certificate9551
-public import Certificates.Certificate9552
-public import Certificates.Certificate9595
-public import Certificates.Certificate9602
-public import Certificates.Certificate10087
 import CFSG.HardMathSupport.Foote.E27.SporFi23
 import CFSG.HardMathSupport.Timmesfeld.SporadicRank.Fi22
 import CFSG.HardMathSupport.Timmesfeld.SporadicRank.Fi24
@@ -82,9 +59,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Basic
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import CFSG.YGroups.DCE.B433Check
-public import Certificates.Certificate1018Base
-public import Certificates.Certificate3152Base
-public import Certificates.Certificate9124
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 public import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 import CFSG.LocalAnalysis.AGLEmbedding.ResidualTools

@@ -147,7 +147,6 @@ public import CFSG.RankThree.PartOne.SPOR.OuterSimple
 public import CFSG.RankThree.PartTwo.KFacts.K72OutL2
 public import CFSG.RankThree.PartTwo.KFacts.OutFixCentralThree46
 public import CFSG.Walter.J1Props
-public import Certificates.Certificate19800
 public import Certificates.Kernel.J4Count.Prim
 
 public section

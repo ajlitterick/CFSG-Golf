@@ -5,9 +5,6 @@ public import CFSG.LocalAnalysis.SectionRank.EvenCover.Unitary
 public import CFSG.LocalAnalysis.SectionRank.EvenCover.CoverMap
 public import CFSG.LocalAnalysis.SectionRank.ClassicalOdd.Basic
 public import CFSG.RankThree.PartOne.S12.ModelTransport
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 public import CFSG.Foundations
 public import CFSG.GroupTheory.Fitting.CharacteristicP
 public import CFSG.LocalAnalysis.AGLEmbedding.BlockToralCensusDispatch

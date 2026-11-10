@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec4.Item424ProofInnerBack
 public import CFSG.RankThree.PartTwo.Sec4.Item47WStatement
-public import Certificates.Certificate43
 import CFSG.RankThree.PartTwo.Sec4.ProjSLEquiv
 import CFSG.RankThree.PartTwo.KFacts.K72SylowL3
 import CFSG.RankThree.ThinCatalog.FiveModels

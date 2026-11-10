@@ -15,7 +15,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.K1.Interface
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
-public import Certificates.Certificate113
 
 public section
 

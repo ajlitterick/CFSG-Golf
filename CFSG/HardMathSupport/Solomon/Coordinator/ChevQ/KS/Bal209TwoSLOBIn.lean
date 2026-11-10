@@ -140,8 +140,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 public import CFSG.Timmesfeld.Outcome
-public import Certificates.Certificate1953
-public import Certificates.Certificate1954
 
 public section
 

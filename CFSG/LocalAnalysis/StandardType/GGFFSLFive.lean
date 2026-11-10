@@ -21,7 +21,6 @@ import CFSG.RankThree.PartTwo.Sec20.OneSteps
 import CFSG.RankThree.PartTwo.Sec21.Item211ProofListOf
 import CFSG.RankThree.PartTwo.Sec4.Item41NarrowGriess
 import CFSG.Walter.J1Props
-import Certificates.Certificate8166
 
 attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent
 

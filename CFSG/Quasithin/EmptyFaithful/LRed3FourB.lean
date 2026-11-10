@@ -6,16 +6,6 @@ public import CFSG.Quasithin.Vol2.Ch3Sec2Lem328Cases
 public import CFSG.Quasithin.Background.B5FinG2U33
 public import CFSG.Quasithin.Recognition.CertU33Psu
 public import CFSG.Timmesfeld.Final.PSU33
-public import Certificates.Certificate3017
-public import Certificates.Certificate3029
-public import Certificates.Certificate19953
-public import Certificates.Certificate8952
-public import Certificates.Certificate8953
-public import Certificates.Certificate17951
-public import Certificates.Certificate17028
-public import Certificates.Certificate17002
-public import Certificates.Certificate8080
-public import Certificates.Certificate8081
 public import CFSG.Assembly.OrderReductions.InvertedSubgroup
 public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CGT.Timmesfeld75.L2Pair

@@ -65,9 +65,6 @@ import CFSG.RankThree.PartTwo.Sec4.Census.Open43
 import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
 import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
 import CFSG.Sporadic.Schreier.TitsOther
-import Certificates.Certificate10019
-import Certificates.Certificate10019Base
-import Certificates.Certificate2202
 
 public section
 

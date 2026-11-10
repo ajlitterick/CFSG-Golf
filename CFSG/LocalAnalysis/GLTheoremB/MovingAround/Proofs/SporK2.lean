@@ -6,10 +6,6 @@ public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs255r
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Claims1314
 public import CFSG.HardMathSupport.Dickson.BMRows.M13L33
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.SporTables3b
-public import Certificates.Certificate10136
-public import Certificates.Certificate17632Base
-public import Certificates.Certificate17700
-public import Certificates.Certificate17701
 
 public section
 

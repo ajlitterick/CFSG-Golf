@@ -78,18 +78,6 @@ public import CFSG.Sporadic.Presentation.McLExactData
 public import CFSG.Sporadic.Presentation.McLExactInputs
 public import CFSG.Sporadic.SuzOddCore.GraphData
 public import CFSG.Sporadic.SuzOddCore.SmallActionData
-public import Certificates.Certificate16041
-public import Certificates.Certificate2098
-public import Certificates.Certificate2103
-public import Certificates.Certificate2108
-public import Certificates.Certificate2109
-public import Certificates.Certificate2136
-public import Certificates.Certificate2139
-public import Certificates.Certificate2140
-public import Certificates.Certificate2145
-public import Certificates.Certificate2323
-public import Certificates.Certificate8160
-public import Certificates.Certificate9124
 
 public section
 

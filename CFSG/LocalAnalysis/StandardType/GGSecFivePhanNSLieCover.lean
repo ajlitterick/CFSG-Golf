@@ -5,9 +5,6 @@ public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanFixedThreeLinCover
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSADefs
 public import CFSG.LieType.Steinberg.CentralExt.GriessAllModels
 import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylUnitaryCover
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 public import CFSG.Certificates.Kernel.Spor.ONKSound
 public import CFSG.CharacterTheory.BrauerThirdMainTheorem.CentralResidueMaps
 public import CFSG.CharacterTheory.BrauerThirdMainTheorem.NormalizerClassLifting

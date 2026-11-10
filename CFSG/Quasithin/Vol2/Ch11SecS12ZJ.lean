@@ -30,7 +30,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.OrdinaryComponentJoins
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
-public import Certificates.Certificate43
 public import Mathlib.Algebra.BigOperators.Group.Finset.Lemmas
 public import Mathlib.Algebra.BigOperators.Ring.Finset
 public import Mathlib.Algebra.CharP.Frobenius

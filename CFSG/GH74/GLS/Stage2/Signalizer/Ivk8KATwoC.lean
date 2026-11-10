@@ -2,7 +2,6 @@ module
 
 public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87L34Facts
 public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87L34Out
-public import Certificates.Certificate2022
 
 public section
 

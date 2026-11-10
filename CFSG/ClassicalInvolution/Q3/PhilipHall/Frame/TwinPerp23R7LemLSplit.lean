@@ -2,11 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerp23R7LemL
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerp23R7E64Pres
-public import Certificates.Certificate255001
-public import Certificates.Certificate393003
-public import Certificates.Certificate550841
-public import Certificates.Certificate550871
-public import Certificates.Certificate550872
 import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerp23R7E8
 import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerp23R7Cover
 import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerp23R7LL1

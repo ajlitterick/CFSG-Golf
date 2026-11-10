@@ -4,9 +4,6 @@ public import CFSG.RankThree.CentralLiftU.UnitaryThreeLift
 public import CFSG.LocalAnalysis.SectionRank.EvenCover.UnitaryThree
 public import CFSG.RankThree.CentralLift.LinearTwoLifting
 public import CFSG.LinearAlgebra.LinearGroups.UnitaryOrder
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 
 public section
 

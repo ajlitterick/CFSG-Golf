@@ -38,7 +38,6 @@ public import CFSG.Sporadic.Presentation.Co2Fusion
 public import CFSG.Sporadic.Presentation.Co2FusionInputs
 public import CFSG.Sporadic.Presentation.McLExactData
 public import CFSG.Sporadic.Presentation.McLExactInputs
-public import Certificates.Certificate9124
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 
 public section

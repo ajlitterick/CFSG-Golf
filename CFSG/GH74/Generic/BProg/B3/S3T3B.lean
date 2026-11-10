@@ -17,7 +17,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitPSL
 public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeOrbits
 public import CFSG.Sporadic.Th.Max3.Packet
 public import CFSG.Sporadic.Th.Max3.Quotient
-public import Certificates.Certificate10091Base
 
 public section
 

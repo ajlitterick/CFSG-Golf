@@ -7,7 +7,6 @@ import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestThreeVac
 import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNineSmall
 import CFSG.LocalAnalysis.StandardType.GGCSRLabels
 import CFSG.LocalAnalysis.StandardType.GGAssemblyThreeHypSix
-public import Certificates.Certificate8032
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.TitsOrder
 
 public section

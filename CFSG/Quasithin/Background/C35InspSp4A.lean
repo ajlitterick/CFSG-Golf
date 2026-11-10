@@ -54,7 +54,6 @@ public import CFSG.Quasithin.Vol2.Ch1Local
 public import CFSG.Sporadic.J4.QTOutChar
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
 public import CFSG.Walter.Defs
-public import Certificates.Certificate8026Base
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermLabelDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBRes
-public import Certificates.Certificate13657
 import CFSG.LocalAnalysis.StandardType.GGTPNThmRACore
 import CFSG.LocalAnalysis.StandardType.GGTPNNarrowC6
 import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylInputHolds

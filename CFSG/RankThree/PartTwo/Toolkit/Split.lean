@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Toolkit.H1
-public import Certificates.Certificate8173
 
 public section
 

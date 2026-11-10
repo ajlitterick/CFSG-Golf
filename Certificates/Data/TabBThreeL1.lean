@@ -2,7 +2,6 @@ module
 
 public import CFSG.Monster.B.Classical.E6AdjointTable
 public import CFSG.Fischer.F4
-public import Certificates.Certificate114
 
 public section
 

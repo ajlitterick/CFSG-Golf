@@ -10,7 +10,6 @@ public import CFSG.RankThree.GF2n.Statements
 public import CFSG.RankThree.GF2n.Tim77TI
 public import CFSG.RankThree.GF2n.Tim78S4Basic
 public import CFSG.RankThree.GF2n.Tim79aSec2Defs
-public import Certificates.Certificate43
 
 public section
 

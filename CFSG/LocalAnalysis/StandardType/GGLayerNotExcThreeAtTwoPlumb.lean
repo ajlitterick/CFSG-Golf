@@ -3,10 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGLayerNotExcThreeAtTwo
 public import CFSG.LocalAnalysis.StandardType.GGSixAutKFinerTagsBasic
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Defs
-public import Certificates.Certificate1952
-public import Certificates.Certificate8064
-public import Certificates.Certificate13659
-public import Certificates.Certificate13660
 import CFSG.LocalAnalysis.StandardType.GGSixAutKFinerTagsExcBasic
 import CFSG.LocalAnalysis.StandardType.GGSixFieldFiveTagsRank
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Inner
@@ -83,8 +79,6 @@ import CFSG.Quasithin.Vol2.Ch11StatementsC
 import CFSG.RankThree.Chevalley.SteinbergBID4CentralKernel
 import CFSG.RankThree.PartOne.KE.E7FiveBlock
 import CFSG.RankThree.PartOne.KE.ThreeA1Group
-import Certificates.Certificate10050
-import Certificates.Certificate8117
 import Certificates.Kernel.J4Count.FixCE
 
 public section

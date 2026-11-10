@@ -42,7 +42,6 @@ public import CFSG.StronglyEmbedded
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ProjectiveSemilinear
 public import CFSG.Walter.Defs
-public import Certificates.Certificate43
 
 public section
 

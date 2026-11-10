@@ -99,7 +99,6 @@ public import CFSG.Sporadic.Schreier.MathieuOddCoreModel
 public import CFSG.Sporadic.Schreier.TitsOther
 public import CFSG.YGroups.DCE.B433Check
 public import CFSG.Yardstones.M67c2c3e09a6b.Definitions
-public import Certificates.Certificate9124
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis

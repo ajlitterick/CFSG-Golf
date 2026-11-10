@@ -15,8 +15,6 @@ public import CFSG.GH74.GLS.Bg.TwoGroups.Statements
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 import CFSG.Walter.ReeOrder.JT.Defs
-import Certificates.Certificate1
-import Certificates.Certificate2
 
 public section
 

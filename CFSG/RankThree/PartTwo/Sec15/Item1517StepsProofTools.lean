@@ -2,12 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec15.Item1514Steps1518
 public import CFSG.RankThree.PartTwo.Sec13.Item135Simple
-public import Certificates.Certificate10019
-public import Certificates.Certificate3139
-public import Certificates.Certificate8166
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 import CFSG.RankThree.PartTwo.Sec19.Step1913
 import CFSG.RankThree.PartTwo.KFacts.KS18MultProof
 import CFSG.RankThree.PartTwo.Sec14.Item1411
@@ -52,39 +46,6 @@ import CFSG.Sporadic.Presentation.Common
 import CFSG.Sporadic.SmallOddCore.CheckSpec
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 import CFSG.YGroups.Y322Central
-import Certificates.Certificate10005
-import Certificates.Certificate10006
-import Certificates.Certificate10007
-import Certificates.Certificate10008
-import Certificates.Certificate10009
-import Certificates.Certificate10010
-import Certificates.Certificate10012
-import Certificates.Certificate10013
-import Certificates.Certificate10014
-import Certificates.Certificate10016
-import Certificates.Certificate10018
-import Certificates.Certificate12041
-import Certificates.Certificate12042
-import Certificates.Certificate12043
-import Certificates.Certificate12044
-import Certificates.Certificate12045
-import Certificates.Certificate12046
-import Certificates.Certificate16015
-import Certificates.Certificate16040
-import Certificates.Certificate2154
-import Certificates.Certificate2157
-import Certificates.Certificate2267
-import Certificates.Certificate2326
-import Certificates.Certificate3006
-import Certificates.Certificate3007
-import Certificates.Certificate3008
-import Certificates.Certificate3063
-import Certificates.Certificate3077
-import Certificates.Certificate3082
-import Certificates.Certificate3083
-import Certificates.Certificate3951
-import Certificates.Certificate8033
-import Certificates.Certificate9130
 
 public section
 

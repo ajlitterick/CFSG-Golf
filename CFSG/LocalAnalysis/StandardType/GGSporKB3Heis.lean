@@ -135,19 +135,6 @@ public import CFSG.Sporadic.SuzOddCore.SmallActionData
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ConjugatedInvertedSubgroup
 public import CFSG.Walter.J1
 public import CFSG.Walter.W67.Section5.Lemma57
-public import Certificates.Certificate16041
-public import Certificates.Certificate2098
-public import Certificates.Certificate2103
-public import Certificates.Certificate2108
-public import Certificates.Certificate2109
-public import Certificates.Certificate2274
-public import Certificates.Certificate8137
-public import Certificates.Certificate8138
-public import Certificates.Certificate8139
-public import Certificates.Certificate8140
-public import Certificates.Certificate8141
-public import Certificates.Certificate8145
-public import Certificates.Certificate8146
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 
 public section

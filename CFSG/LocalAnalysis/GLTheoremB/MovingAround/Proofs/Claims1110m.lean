@@ -15,7 +15,6 @@ public import CFSG.HardMathSupport.Solomon.Coordinator.I24_7Defs
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.Fi22FiveSetOrbit
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Claims1110fb
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Claims1110k2
-public import Certificates.Certificate13502
 
 public section
 

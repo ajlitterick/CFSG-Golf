@@ -7,7 +7,6 @@ import CFSG.LieType.SeitzGeneration.OuterSpData
 import CFSG.HardMathSupport.Curtis.Coordinator.PLTypeAltOrder
 import CFSG.LocalAnalysis.EvenSmallLie.CatalogOrdersLie
 public import CFSG.HardMathSupport.Curtis.UnitaryLevi.PLTypeHolds
-public import Certificates.Certificate7067
 import CFSG.LocalAnalysis.AGLEmbedding.BlockAltSevenPL
 public import CFSG.CGT.PushingUpLit.BHS.NaturalDefs
 public import CFSG.CGT.PushingUpLit.BHS.SymNatDefs
@@ -81,8 +80,6 @@ import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 import CFSG.RankThree.Theta.ThreeComponentOrbitCover
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 import CFSG.Walter.Defs
-import Certificates.Certificate1
-import Certificates.Certificate2
 
 public section
 

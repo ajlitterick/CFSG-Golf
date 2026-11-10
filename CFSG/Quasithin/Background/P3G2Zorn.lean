@@ -3,9 +3,6 @@ module
 public import CFSG.Quasithin.Background.B4ModelsAction
 public import CFSG.Quasithin.Background.JonesParshallG2Field
 public import CFSG.Quasithin.Background.JonesParshallG2Two
-public import Certificates.Certificate17028
-public import Certificates.Certificate8952
-public import Certificates.Certificate8953
 
 public section
 

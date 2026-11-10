@@ -85,17 +85,6 @@ import CFSG.RankThree.PartTwo.Sec17.RouteProvers142
 import CFSG.RankThree.PartTwo.Sec6.Statements
 import CFSG.RankThree.PartTwo.Sec8.Item87Proof84
 import CFSG.RankThree.S4Free.SuzukiEight
-import Certificates.Certificate131101Base
-import Certificates.Certificate13620Base
-import Certificates.Certificate13659
-import Certificates.Certificate13660
-import Certificates.Certificate14953
-import Certificates.Certificate41501
-import Certificates.Certificate8137
-import Certificates.Certificate8138
-import Certificates.Certificate8140
-import Certificates.Certificate8141
-import Certificates.Certificate8166
 import Certificates.Data.Fi22PairSize
 
 public section

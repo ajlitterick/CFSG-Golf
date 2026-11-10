@@ -17,7 +17,6 @@ public import CFSG.LocalAnalysis.PreuniquenessRankFour.PrimeCore
 public import CFSG.LocalAnalysis.SteinbergCCSQTKTwoCoreQuotient
 public import CFSG.GroupTheory.PRankCommutingSup
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.BorelTorusAbelianHolds
-public import Certificates.Certificate8076
 public import CFSG.Adapters.StatedClassicalSmallOrders
 public import CFSG.ClassicalGroups.Orthogonal.RootGroupFixedCard
 public import CFSG.GH74.GLS.Stage2.Final.LayerFDerive
@@ -120,7 +119,6 @@ public import CFSG.RankThree.PartTwo.Sec13.Item131Transport
 public import CFSG.RankThree.PartTwo.Sec4.Statements423
 public import CFSG.RankThree.PartTwo.Sec6.Item612
 public import CFSG.RankThree.PartTwo.Sec6.Item65Tools
-public import Certificates.Certificate9415
 
 public section
 

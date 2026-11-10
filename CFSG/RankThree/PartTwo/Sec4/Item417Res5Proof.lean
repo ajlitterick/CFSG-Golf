@@ -30,8 +30,6 @@ public import CFSG.RankThree.PartTwo.Sec4.Item417Res5ProofCharThree
 public import CFSG.RankThree.PartTwo.Sec4.Item417Res5ProofChevTwo
 public import CFSG.RankThree.PartTwo.Sec4.Item417Res5ProofCover
 public import CFSG.RankThree.PartTwo.Sec4.Item417Res5ProofU43
-public import Certificates.Certificate8007
-public import Certificates.Certificate8008
 public import Certificates.Kernel.J4Count.Cent11Base
 public import Certificates.Kernel.J4Count.Fix11
 

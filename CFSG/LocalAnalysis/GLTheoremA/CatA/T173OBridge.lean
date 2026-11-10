@@ -61,8 +61,6 @@ public import CFSG.RankThree.PartTwo.Sec4.T444.Item434SmallTwoIVDefs
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434U38K0
 public import CFSG.RankThree.S4Free.SuzukiEight
 public import CFSG.RankThree.ThinCatalog.EvenLinearTwoLocal
-public import Certificates.Certificate14953
-public import Certificates.Certificate8166
 
 public section
 

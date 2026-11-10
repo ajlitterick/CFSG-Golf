@@ -6,11 +6,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Sixteen4FNtM22Mod
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Sixteen4FNtM22Class
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs16a
 public import CFSG.Blueprint.NativeSporadic
-public import Certificates.Certificate3017
-public import Certificates.Certificate3029
-public import Certificates.Certificate2195
-public import Certificates.Certificate260402
-public import Certificates.Certificate260403
 public import CFSG.Assembly.OrderReductions.InvertedSubgroup
 public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CGT.Timmesfeld75.L2Pair

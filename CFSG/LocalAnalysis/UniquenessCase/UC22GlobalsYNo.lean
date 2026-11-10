@@ -182,9 +182,6 @@ public import CFSG.SignalizerFunctorTheorem.CatalogBridge.FixedFieldCard
 public import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec2.Defs
 public import CFSG.Sporadic.Ly.ThreeBSpec
 public import CFSG.Sporadic.Recognition.LyonsFinalDist2
-public import Certificates.Certificate13636Base
-public import Certificates.Certificate19800
-public import Certificates.Certificate310101
 public import Certificates.Kernel.J4Count.Prim
 import CFSG.CGT.PushingUpLit.CGT6.SixFiveJ
 import CFSG.CGT.PushingUpLit.CGT6.SixSixteenPR

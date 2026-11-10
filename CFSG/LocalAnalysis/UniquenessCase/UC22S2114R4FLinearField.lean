@@ -183,19 +183,6 @@ import CFSG.Sporadic.SuzOddCore.SmallActionData
 import CFSG.Walter.J1Props
 import CFSG.Walter.J1Recog
 import CFSG.Walter.PSL2Facts
-import Certificates.Certificate16041
-import Certificates.Certificate2098
-import Certificates.Certificate2103
-import Certificates.Certificate2108
-import Certificates.Certificate2109
-import Certificates.Certificate2130
-import Certificates.Certificate2135
-import Certificates.Certificate2136
-import Certificates.Certificate2139
-import Certificates.Certificate2140
-import Certificates.Certificate2145
-import Certificates.Certificate2323
-import Certificates.Certificate7233Base
 import Certificates.Kernel.J4Count.Prim
 
 public section

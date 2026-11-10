@@ -2,7 +2,6 @@ module
 
 public import CFSG.Sporadic.HNSchreier.ArchCheck
 public import CFSG.Sporadic.HNSchreier.Faithful
-public import Certificates.Certificate2095
 
 public noncomputable section
 

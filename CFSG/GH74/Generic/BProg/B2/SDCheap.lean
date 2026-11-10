@@ -67,7 +67,6 @@ public import CFSG.Sporadic.Th.Simple
 public import CFSG.Sporadic.ThSchreier.AutCore
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ConjugatedInvertedSubgroup
 public import CFSG.Walter.W67.Section5.Lemma57
-public import Certificates.Certificate5125
 import CFSG.ClassicalInvolution.Models.OrthogonalPairs
 import CFSG.ClassicalInvolution.Models.Transfer
 import CFSG.ClassicalInvolution.Models.UnitaryPairs
@@ -123,7 +122,6 @@ import CFSG.Quasithin.Background.E3Cent
 import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 import CFSG.Quasithin.Vol2.Ch1Local
 import CFSG.Sporadic.Schreier.LyFixedSet
-import Certificates.Certificate5007
 import Certificates.Kernel.J4Count.FixCE
 
 public section

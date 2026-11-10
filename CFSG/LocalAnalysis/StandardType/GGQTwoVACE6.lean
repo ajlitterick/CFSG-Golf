@@ -23,8 +23,6 @@ public import CFSG.LocalAnalysis.StandardType.GGR4JMeetNoL34
 public import CFSG.LocalAnalysis.StandardType.GGE6OppOrderThreeLayer
 public import CFSG.LocalAnalysis.StandardType.GGTorDNsFrame
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TwelveNotLeGraphSymCore
-public import Certificates.Certificate1953
-public import Certificates.Certificate1954
 
 public section
 

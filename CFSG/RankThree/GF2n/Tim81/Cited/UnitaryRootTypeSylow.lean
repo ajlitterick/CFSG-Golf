@@ -100,7 +100,6 @@ public import CFSG.RankThree.GF2n.Tim81.Recog.L2Gen
 public import CFSG.RankThree.GF2n.Tim81.Sec4.Sec41Split
 public import CFSG.Sporadic.Schreier.J4SProfileNode
 public import CFSG.StronglyEmbedded
-public import Certificates.Certificate8026Base
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 import CFSG.Timmesfeld.ARS.CaseEFrame

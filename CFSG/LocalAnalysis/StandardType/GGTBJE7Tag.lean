@@ -9,9 +9,6 @@ public import CFSG.LocalAnalysis.StandardType.GGMaxRankJModel
 public import CFSG.HardMathSupport.Meierfrankenfeld.Proving.E7Curtis.E7Arith
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUE7
 public import CFSG.LocalAnalysis.StandardType.GGTBJE8Tag
-public import Certificates.Certificate13605
-public import Certificates.Certificate13721
-public import Certificates.Certificate13723
 public import CFSG.LocalAnalysis.StandardType.GGTBJE7LeviCore
 public import CFSG.LocalAnalysis.StandardType.GGTBJE7Levi
 public import CFSG.LocalAnalysis.StandardType.GGTBJE7LeviEnnola

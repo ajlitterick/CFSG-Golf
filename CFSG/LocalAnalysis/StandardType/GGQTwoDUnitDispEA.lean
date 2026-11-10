@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTorusMaxStructAux2
 public import CFSG.LocalAnalysis.StandardType.GGAutomizerMap
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7ExcLin
 import CFSG.CGT.Stroth77.Section223Sylow
-public import Certificates.Certificate1952
 import CFSG.CGT.Stroth77.AmbientSplit
 import CFSG.Quasithin.H13.Sp62D3
 

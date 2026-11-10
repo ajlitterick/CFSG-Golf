@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.UC22S22a
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront78Nar
 public import CFSG.LocalAnalysis.UniquenessCase.UC22InE229N
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22ud
-public import Certificates.Certificate113
 import CFSG.LocalAnalysis.UniquenessCase.UC22P2213a
 import CFSG.LocalAnalysis.UniquenessCase.UC22P21j
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22a

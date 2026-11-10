@@ -13,7 +13,6 @@ import CFSG.LocalAnalysis.StandardType.GGTriD4NoneMarking
 import CFSG.LocalAnalysis.StandardType.GGNbrLangRestRank
 import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylRest5
 import CFSG.LocalAnalysis.StandardType.MarkingClassical
-import Certificates.Certificate8064
 
 public section
 

@@ -64,7 +64,6 @@ public import CFSG.Quasithin.Vol2.Ch11SecAFacts03
 public import CFSG.Quasithin.Vol2.Ch11SecAFacts04
 public import CFSG.Quasithin.Vol2.Ch11StatementsC
 public import CFSG.Quasithin.Vol2.Ch3Sec1Thm311
-public import Certificates.Certificate8026Base
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalGroup.LowRank

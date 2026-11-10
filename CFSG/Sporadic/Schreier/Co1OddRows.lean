@@ -3,7 +3,6 @@ module
 public import CFSG.Sporadic.Schreier.Co1OddACCheck
 public import CFSG.Sporadic.Schreier.Co1FullOrbits
 public import CFSG.Sporadic.Co1.Module.OddNative
-public import Certificates.Certificate2135
 
 public section
 

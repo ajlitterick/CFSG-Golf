@@ -9,8 +9,6 @@ import CFSG.Timmesfeld.Bridge.Asc72YWidth
 import CFSG.RankThree.PartOne.S12.ZStarStep
 public import CFSG.OddTranspositions.O4PairTenWidth
 public import CFSG.Walter.Defs
-public import Certificates.Certificate1
-public import Certificates.Certificate2
 import CFSG.Assembly.QuasithinDefs
 import CFSG.LinearAlgebra.LinearGroups.CoordinateData
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper

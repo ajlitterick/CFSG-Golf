@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThreeThreeTransvThree
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThreeThreeTransvSmall
-public import Certificates.Certificate2012
-public import Certificates.Certificate26121
-public import Certificates.Certificate26122
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThreeThreeTransvOmega
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThreeThreeTransvU42
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ElevenTwelveRanksNotLe

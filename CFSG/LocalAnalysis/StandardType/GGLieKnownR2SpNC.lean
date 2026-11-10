@@ -71,8 +71,6 @@ public import CFSG.RankThree.GF2n.Tim79aSec2
 public import CFSG.RankThree.GF2n.Tim79aWCQInputs
 public import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec2.Defs
 public import CFSG.Sporadic.Th.Max3.Involutions
-public import Certificates.Certificate10089Base
-public import Certificates.Certificate10091Base
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
 public import Certificates.Kernel.J4Count.KFactsBase

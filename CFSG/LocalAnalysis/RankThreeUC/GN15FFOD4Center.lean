@@ -9,10 +9,6 @@ public import CFSG.LieType.Steinberg.CentralExt.POmegaPlusMultiplier
 public import CFSG.LieType.Steinberg.CentralExt.GriessOmegaEightTwo
 public import CFSG.HardMathSupport.Meierfrankenfeld.FFToolkit.OffenderBound
 public import CFSG.HardMathSupport.Solomon.Coordinator.I10_21Hopf
-public import Certificates.Certificate3006
-public import Certificates.Certificate3008
-public import Certificates.Certificate3009
-public import Certificates.Certificate12041
 public import CFSG.Foundations
 public import CFSG.LinearAlgebra.LinearGroups.CoordinateData
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoProjectiveFormulas

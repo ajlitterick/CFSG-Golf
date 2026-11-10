@@ -21,7 +21,6 @@ public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Open
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.Chain
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.GlobSetting
 public import CFSG.Walter.JRFacts
-public import Certificates.Certificate3120
 
 public section
 

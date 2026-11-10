@@ -7,54 +7,6 @@ public import CFSG.CGT.PushingUpLit.ThmOne.SectionThreeInputs
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.Coordinator.J4Eleven
 public import CFSG.HardMathSupport.Curtis.UnitaryLevi.PLTypeHolds
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.LeavesTwoK
-public import Certificates.Certificate2024
-public import Certificates.Certificate2072
-public import Certificates.Certificate2142
-public import Certificates.Certificate2143
-public import Certificates.Certificate2334
-public import Certificates.Certificate2335
-public import Certificates.Certificate5148
-public import Certificates.Certificate5150
-public import Certificates.Certificate7067
-public import Certificates.Certificate11003
-public import Certificates.Certificate11004
-public import Certificates.Certificate125210
-public import Certificates.Certificate125211
-public import Certificates.Certificate125212
-public import Certificates.Certificate125502
-public import Certificates.Certificate125503
-public import Certificates.Certificate125504
-public import Certificates.Certificate125505
-public import Certificates.Certificate125506
-public import Certificates.Certificate125507
-public import Certificates.Certificate125508
-public import Certificates.Certificate125509
-public import Certificates.Certificate125510
-public import Certificates.Certificate125511
-public import Certificates.Certificate125512
-public import Certificates.Certificate125513
-public import Certificates.Certificate125530
-public import Certificates.Certificate125531
-public import Certificates.Certificate125532
-public import Certificates.Certificate125533
-public import Certificates.Certificate125534
-public import Certificates.Certificate125535
-public import Certificates.Certificate125536
-public import Certificates.Certificate125537
-public import Certificates.Certificate125538
-public import Certificates.Certificate125539
-public import Certificates.Certificate125540
-public import Certificates.Certificate125541
-public import Certificates.Certificate125542
-public import Certificates.Certificate125552
-public import Certificates.Certificate125553
-public import Certificates.Certificate125554
-public import Certificates.Certificate125555
-public import Certificates.Certificate125556
-public import Certificates.Certificate125557
-public import Certificates.Certificate125558
-public import Certificates.Certificate125559
-public import Certificates.Certificate125561
 import CFSG.HardMathSupport.Foote.Coordinator.Final
 import CFSG.LocalAnalysis.AGLEmbeddingD2.SquareParabolic
 import CFSG.LocalAnalysis.AGLEmbeddingD2.HeisParabolic
@@ -166,7 +118,6 @@ public import CFSG.Sporadic.ThSchreier.ThSchreierCase
 public import CFSG.Walter.W67.W2Lemma26A
 public import CFSG.YGroups.Y443.Native.Parabolic2CheckB
 public import CFSG.YGroups.Y443.Native.Parabolic2CheckW
-public import Certificates.Certificate9530
 import CFSG.GH74.GLS.C3.Layer1.BkIvk73Q
 import CFSG.GH74.GLS.C3.Layer2.L5C19
 import CFSG.GH74.GLS.C3.Layer2.L5C5c
@@ -215,7 +166,6 @@ import CFSG.Quasithin.Vol2.Ch11SecSSym5
 import CFSG.RankThree.PartOne.KC.OrthogonalFieldDescentCore
 import CFSG.RankThree.PartOne.KC.OrthogonalFieldDescentTags
 import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.UniversalCoverMonster.KernelTrivialBridge
-import Certificates.Certificate10025
 import Certificates.Kernel.J4Count.Prim
 
 public section

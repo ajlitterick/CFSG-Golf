@@ -14,10 +14,6 @@ import CFSG.RankThree.LocalRank.SelectorCases
 import CFSG.RankThree.PartOne.Assembly
 import CFSG.RankThree.PartOne.S9.Sylow.ExclusionBasic
 import CFSG.RankThree.Theta.ThreeComponentOrbitCover
-import Certificates.Certificate116
-import Certificates.Certificate119
-import Certificates.Certificate122
-import Certificates.Certificate123
 
 public section
 

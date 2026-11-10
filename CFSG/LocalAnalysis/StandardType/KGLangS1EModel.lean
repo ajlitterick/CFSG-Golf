@@ -4,15 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.KGLangS1EBridgeFix
 public import CFSG.LocalAnalysis.StandardType.KGLangS1ECover
 public import CFSG.LocalAnalysis.StandardType.KGLangS1ENormalForm
 public import CFSG.LocalAnalysis.StandardType.GGL45NtDefs
-public import Certificates.Certificate78
-public import Certificates.Certificate79
-public import Certificates.Certificate80
-public import Certificates.Certificate81
-public import Certificates.Certificate115
-public import Certificates.Certificate116
-public import Certificates.Certificate119
-public import Certificates.Certificate120
-public import Certificates.Certificate121
 
 import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownChevModel
 import CFSG.LocalAnalysis.StandardType.MarkingChevalley

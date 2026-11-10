@@ -3,19 +3,6 @@ module
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Defs
 public import CFSG.LieType.Chevalley.ToralCentralizerQuotient
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutOutdiagExcPpd
-public import Certificates.Certificate76
-public import Certificates.Certificate77
-public import Certificates.Certificate115
-public import Certificates.Certificate116
-public import Certificates.Certificate118
-public import Certificates.Certificate122
-public import Certificates.Certificate123
-public import Certificates.Certificate1952
-public import Certificates.Certificate2264
-public import Certificates.Certificate2267
-public import Certificates.Certificate3951
-public import Certificates.Certificate8033
-public import Certificates.Certificate13657
 import CFSG.LocalAnalysis.StandardType.GGE6OutdiagPpdKernel
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T158MShE6D4T2
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T158MShE6D4T2Shift

@@ -4,10 +4,6 @@ public import CFSG.LinearAlgebra.LinearGroups.QuadraticActions
 public import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
 public import Mathlib.Algebra.Field.ZMod
 import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Lemma6_2
-public import Certificates.Certificate8
-public import Certificates.Certificate9
-public import Certificates.Certificate42
-public import Certificates.Certificate43
 
 public section
 

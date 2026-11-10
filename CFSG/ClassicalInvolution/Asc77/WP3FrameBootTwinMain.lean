@@ -11,10 +11,6 @@ import CFSG.ClassicalInvolution.ModelFacts.ClauseZero
 import CFSG.ClassicalInvolution.Balance.PassTwoModelFacts
 public import CFSG.ClassicalInvolution.MilestoneAssemblyCore
 public import CFSG.Sporadic.Bridge.M11CheckInputs
-public import Certificates.Certificate110
-public import Certificates.Certificate8046
-public import Certificates.Certificate8049
-public import Certificates.Certificate8052
 import CFSG.ClassicalInvolution.Asc77.AscE187Basic
 import CFSG.ClassicalInvolution.Asc77.AscE187Cop
 import CFSG.ClassicalInvolution.Asc77.AscThmABasic

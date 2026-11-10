@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34RInputs
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafAlt
 public import CFSG.LocalAnalysis.ComponentInitial.QuasisimpleOddCenterFourGroup
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuotIso
-public import Certificates.Certificate2022
 public import CFSG.Assembly.OrderReductions.InvertedSubgroup
 public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.BrauerThirdMainTheorem.CentralResidueMaps
@@ -58,20 +57,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEq
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2FieldProjectionArithmetic
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2OrderPSubgroupCount
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphReconstruction
-public import Certificates.Certificate1
-public import Certificates.Certificate10
-public import Certificates.Certificate11
-public import Certificates.Certificate12
-public import Certificates.Certificate2
-public import Certificates.Certificate3
-public import Certificates.Certificate4
-public import Certificates.Certificate42
-public import Certificates.Certificate44
-public import Certificates.Certificate5
-public import Certificates.Certificate6
-public import Certificates.Certificate7
-public import Certificates.Certificate8
-public import Certificates.Certificate9
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 

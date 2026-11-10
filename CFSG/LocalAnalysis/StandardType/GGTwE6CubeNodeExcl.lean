@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTwE6CubeNodeFinite
 public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Defs
-public import Certificates.Certificate13659
-public import Certificates.Certificate13660
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Inner
 import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTamePrime
 import CFSG.LocalAnalysis.StandardType.GGTwE6RootKernelCount
@@ -35,8 +33,6 @@ import CFSG.Quasithin.Vol2.Ch11SecAFacts02
 import CFSG.Quasithin.Vol2.Ch11SecAFacts03
 import CFSG.Quasithin.Vol2.Ch11StatementsB
 import CFSG.Quasithin.Vol2.Ch11StatementsC
-import Certificates.Certificate10050
-import Certificates.Certificate8117
 
 public section
 

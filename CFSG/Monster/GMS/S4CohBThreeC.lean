@@ -9,7 +9,6 @@ import CFSG.Monster.GMS.NotConj
 import CFSG.Monster.GMS.S341
 import CFSG.Monster.GMS.S342
 import CFSG.Monster.GMS.Coxeter
-public import Certificates.Certificate3024
 
 public section
 

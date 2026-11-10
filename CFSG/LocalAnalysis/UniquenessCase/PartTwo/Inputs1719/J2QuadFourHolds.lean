@@ -81,23 +81,6 @@ public import CFSG.RankThree.Chevalley.SteinbergCEF4EvenQPlusWeyl
 public import CFSG.RankThree.Chevalley.SteinbergCFEvenF4PointwiseInner
 public import CFSG.RankThree.Classical.SteinbergBJSymplecticSquareZeroCentralizer
 public import CFSG.RankThree.PartTwo.Census.Classical.EvenUnitary
-public import Certificates.Certificate16041
-public import Certificates.Certificate2051
-public import Certificates.Certificate2053
-public import Certificates.Certificate2056
-public import Certificates.Certificate2057
-public import Certificates.Certificate2058
-public import Certificates.Certificate2098
-public import Certificates.Certificate2103
-public import Certificates.Certificate2108
-public import Certificates.Certificate2109
-public import Certificates.Certificate2130
-public import Certificates.Certificate2135
-public import Certificates.Certificate2136
-public import Certificates.Certificate2139
-public import Certificates.Certificate2140
-public import Certificates.Certificate2145
-public import Certificates.Certificate2323
 public import Certificates.Kernel.J4Count.Cent11Base
 public import Certificates.Kernel.J4Count.Fix11
 

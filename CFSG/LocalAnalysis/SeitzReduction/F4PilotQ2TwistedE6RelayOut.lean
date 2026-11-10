@@ -54,7 +54,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.BlockFourFactorSupport
 public import CFSG.LocalAnalysis.ComponentClassification.BlockLargeProductInvolutions
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotLeviPerp
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.MinimalLocalFailureProperPair
-public import Certificates.Certificate1021
 public import CFSG.LocalAnalysis.ComponentClassification.BlockStrictFullSylowAbelian
 public import CFSG.LocalAnalysis.ComponentClassification.BlockMovedFactorSylowCentral
 public import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
@@ -92,7 +91,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.BlockPermutationSylowLi
 public import CFSG.Sporadic.LyBase
 public import CFSG.GH74.Statements
 public import CFSG.Sporadic.Ly.CertificateBase
-public import Certificates.Certificate3085Base
 public import CFSG.ClassicalGroups
 public import CFSG.CharacterTheory.BrauerThirdMainTheorem.NormalizerClassLifting
 public import CFSG.Sporadic.Ly.ActionBase
@@ -117,20 +115,8 @@ public import CFSG.LocalAnalysis.SectionRank.BruhatLift
 public import CFSG.LocalAnalysis.ComponentClassification.KProper
 public import CFSG.Sporadic.Bridge.LyData
 public import CFSG.RankThree.LocalRank.SelectorCases
-public import Certificates.Certificate10
-public import Certificates.Certificate8
-public import Certificates.Certificate9
-public import Certificates.Certificate7
 public import CFSG.GH74.GLS.Stage1.Thm6.Sec12.Defs
-public import Certificates.Certificate11
-public import Certificates.Certificate12
 public import CFSG.GH74.GLS.Stage1.Thm6.Sec12.Ext
-public import Certificates.Certificate3
-public import Certificates.Certificate4
-public import Certificates.Certificate42
-public import Certificates.Certificate44
-public import Certificates.Certificate5
-public import Certificates.Certificate6
 public import Lean.Data.Json
 public import Mathlib.Algebra.AffineMonoid.Basic
 public import Mathlib.Algebra.Algebra.Subalgebra.Basic

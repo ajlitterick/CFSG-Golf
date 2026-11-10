@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.FF81.Defs
 public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoModel
-public import Certificates.Certificate1953
-public import Certificates.Certificate1954
 import CFSG.LocalAnalysis.StandardType.FF81.CentE6.ConjModel
 import CFSG.LocalAnalysis.StandardType.FF81.E6Position
 

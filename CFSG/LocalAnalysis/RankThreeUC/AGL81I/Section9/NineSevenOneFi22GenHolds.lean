@@ -37,7 +37,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.UC6C621Glue
 public import CFSG.LocalAnalysis.UniquenessCase.UC6C636a
 public import CFSG.Milestones.CL_LIT_Gorenstein_Walter_L_balance
 public import CFSG.RankThree.PartOne.K159.AutSzIso
-public import Certificates.Certificate13501
 
 public section
 

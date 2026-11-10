@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.SectionRank.EvenCover.LinearStep
 public import CFSG.LieType.Steinberg.CentralExt.UnitaryHigher
 public import CFSG.LocalAnalysis.SectionRank.ClassicalEven.Torus
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 public import CFSG.Assembly.Subnormal
 public import CFSG.LieType.Steinberg.CentralExt.Families
 public import CFSG.LieType.Steinberg.Classical.SpinFrame

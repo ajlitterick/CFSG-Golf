@@ -54,7 +54,6 @@ public import CFSG.RankThree.PartTwo.Sec5.Hyp
 public import CFSG.StronglyEmbedded.BenderUnitaryCenter
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_1_12
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
-public import Certificates.Certificate2201
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 
 public noncomputable section

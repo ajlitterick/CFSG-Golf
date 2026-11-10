@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.ModelFacts.E7ModelFrameData
 public import CFSG.ClassicalInvolution.ModelFacts.E8ExclRoots
-public import Certificates.Certificate113
 
 public section
 

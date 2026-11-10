@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Certificate43
 public import CFSG.Open.StatedDefs
 public import CFSG.Open.LocalVocabulary
 public import CFSG.RankThree.PartOne.CTP.SeitzField
@@ -71,8 +70,6 @@ import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
 import CFSG.Sporadic.Th.F2Spec
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 import CFSG.Walter.Defs
-import Certificates.Certificate1
-import Certificates.Certificate2
 
 public section
 

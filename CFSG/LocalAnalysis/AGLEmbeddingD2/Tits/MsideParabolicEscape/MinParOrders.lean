@@ -78,7 +78,6 @@ public import CFSG.RankThree.PartTwo.Sec4.T444.Basic
 public import CFSG.RankThree.PartTwo.Sec4.T444.Statement
 public import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
 public import CFSG.StronglyEmbedded.BenderNormalSeries
-public import Certificates.Certificate2326
 public import Certificates.Data.CFSGNative.MonsterB.Rep4371Model
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1

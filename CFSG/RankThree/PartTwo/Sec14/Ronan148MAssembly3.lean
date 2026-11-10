@@ -21,22 +21,6 @@ public import CFSG.RankThree.PartTwo.Sec4.Item426A6
 public import CFSG.RankThree.PartTwo.Sec4.Ronan148COpenLie
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148DInvSyl
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148DTwoON
-public import Certificates.Certificate2212
-public import Certificates.Certificate2217
-public import Certificates.Certificate3171
-public import Certificates.Certificate8136
-public import Certificates.Certificate8137
-public import Certificates.Certificate8138
-public import Certificates.Certificate8139
-public import Certificates.Certificate8140
-public import Certificates.Certificate8141
-public import Certificates.Certificate8142
-public import Certificates.Certificate8143
-public import Certificates.Certificate8144
-public import Certificates.Certificate8146
-public import Certificates.Certificate9127
-public import Certificates.Certificate9217
-public import Certificates.Certificate8166
 import CFSG.RankThree.PartTwo.Sec6.Item68
 import CFSG.RankThree.PartTwo.Sec6.Item612Local
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148JHJ
@@ -64,9 +48,6 @@ public import CFSG.RankThree.PartTwo.Sec14.Ronan148APGLConj
 public import CFSG.RankThree.PartTwo.Sec14.Item148Res6ProofFieldTop
 public import CFSG.RankThree.PartTwo.Sec17.RouteForms
 public import CFSG.RankThree.PartTwo.Sec14.Item148StepPoint
-public import Certificates.Certificate3029
-public import Certificates.Certificate3086
-public import Certificates.Certificate3139
 import CFSG.RankThree.PartTwo.Sec14.Ronan148JGen
 import CFSG.RankThree.PartTwo.Sec14.Concl142Item
 import CFSG.RankThree.PartTwo.Sec14.Item148StepQuot

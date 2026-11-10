@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_6Sharp
 public import CFSG.Sporadic.Schreier.Enumeration
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_6
-public import Certificates.Certificate110
 
 public section
 

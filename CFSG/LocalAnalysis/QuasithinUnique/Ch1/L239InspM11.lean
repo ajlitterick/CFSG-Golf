@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239ListedInputs
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239InspM11Check
-public import Certificates.Certificate110
 public import CFSG.Sporadic.Schreier.J4SOddCheck
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups
@@ -60,7 +59,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2RootGroups
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ProjectiveSemilinear
-public import Certificates.Certificate43
 
 public section
 

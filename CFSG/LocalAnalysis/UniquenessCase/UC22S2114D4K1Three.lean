@@ -92,10 +92,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.UC6S846d
 public import CFSG.Quasithin.Background.GoldschmidtAmalgamLargeHolds
 public import CFSG.Quasithin.Background.GoldschmidtAmalgamPairCentral
 public import CFSG.Quasithin.Vol2.Ch5Sec1L34Lem516
-public import Certificates.Certificate19762
-public import Certificates.Certificate19763
-public import Certificates.Certificate9530
-public import Certificates.Certificate9681
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs12b
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section19.Statements
 import CFSG.Quasithin.Vol2.Ch11SecSMain

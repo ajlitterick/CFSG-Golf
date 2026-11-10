@@ -5,16 +5,6 @@ public import CFSG.RankThree.Native.ONTripleA6
 public import CFSG.RankThree.PartTwo.Sec4.Sporadic.SetAction
 public import CFSG.RankThree.PartTwo.Sec4.Sporadic.J2Local3
 public meta import CFSG.RankThree.Native.ONTripleCent
-public import Certificates.Certificate8136
-public import Certificates.Certificate8139
-public import Certificates.Certificate8142
-public import Certificates.Certificate8143
-public import Certificates.Certificate8144
-public import Certificates.Certificate2212
-public import Certificates.Certificate2217
-public import Certificates.Certificate3171
-public import Certificates.Certificate9127
-public import Certificates.Certificate9217
 public import CFSG.Assembly.OrderReductions.InvertedSubgroup
 public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.GroupTheory.HallHigmanPiCore

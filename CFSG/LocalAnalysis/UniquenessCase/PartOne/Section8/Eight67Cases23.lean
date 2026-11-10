@@ -112,7 +112,6 @@ public import CFSG.RankThree.PartTwo.Sec17.Item1726Proof
 public import CFSG.RankThree.PartTwo.Sec6.Statements
 public import CFSG.RankThree.S4Free.SuzukiEight
 public import CFSG.Walter.PSL2Facts
-public import Certificates.Certificate8166
 
 public section
 

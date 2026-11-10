@@ -14,8 +14,6 @@ public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.Basic
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import Certificates.Certificate1
-public import Certificates.Certificate2
 
 public section
 

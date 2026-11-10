@@ -51,7 +51,6 @@ public import CFSG.Sporadic.ThSchreier.Max3Action
 public import CFSG.Sporadic.ThSchreier.Max3ActionBase1
 public import CFSG.Sporadic.ThSchreier.Rigidity
 public import CFSG.StronglyEmbedded.BenderNormalSeries
-public import Certificates.Certificate10091Base
 public import Certificates.Data.CFSGNative.MonsterB.Rep4371Model
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1

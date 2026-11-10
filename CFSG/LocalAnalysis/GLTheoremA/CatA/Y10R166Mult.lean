@@ -148,8 +148,6 @@ public import CFSG.RankThree.PartTwo.Sec4.Item426A6
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434O8pE9Local
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434U38K0
 public import CFSG.Timmesfeld.Orders.ClassicalLinearThree
-public import Certificates.Certificate8007
-public import Certificates.Certificate8008
 public import Certificates.Data.U62Rank.Check
 
 public section

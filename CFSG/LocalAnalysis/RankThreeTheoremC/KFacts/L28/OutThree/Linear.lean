@@ -50,16 +50,6 @@ import CFSG.Sporadic.Fi24.Simple
 import CFSG.Sporadic.Presentation.Fi24PrimeExact
 import CFSG.StronglyEmbedded.BenderNormalSeries
 import CFSG.Walter.Defs
-import Certificates.Certificate1
-import Certificates.Certificate1016Base
-import Certificates.Certificate19800
-import Certificates.Certificate2
-import Certificates.Certificate9207
-import Certificates.Certificate9591
-import Certificates.Certificate9594
-import Certificates.Certificate9595
-import Certificates.Certificate9597
-import Certificates.Certificate9602
 
 public section
 

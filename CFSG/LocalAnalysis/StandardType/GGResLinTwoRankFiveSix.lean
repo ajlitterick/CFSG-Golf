@@ -6,16 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTableBLinTwoTBMain
 public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7CLCoordAux
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7CLCoordModelD
-public import Certificates.Certificate1
-public import Certificates.Certificate13604
-public import Certificates.Certificate13605
-public import Certificates.Certificate13657
-public import Certificates.Certificate13691
-public import Certificates.Certificate13720
-public import Certificates.Certificate13721
-public import Certificates.Certificate13722
-public import Certificates.Certificate13723
-public import Certificates.Certificate13724
 
 public section
 

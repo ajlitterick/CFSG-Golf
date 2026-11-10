@@ -2,8 +2,6 @@ module
 
 public import CFSG.LieType.Chevalley.Covering
 public import CFSG.LieType.Chevalley.WeylRoots
-public import Certificates.Certificate113
-public import Certificates.Certificate114
 
 public section
 

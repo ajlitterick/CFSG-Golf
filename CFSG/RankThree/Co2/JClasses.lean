@@ -4,23 +4,6 @@ public import CFSG.RankThree.Co2.Census
 public import CFSG.RankThree.Co2.JUnique
 public import CFSG.RankThree.Co2.CrMatConj
 public import CFSG.RankThree.Co2.JClassesCert
-public import Certificates.Certificate8102
-public import Certificates.Certificate8104
-public import Certificates.Certificate8106
-public import Certificates.Certificate3014
-public import Certificates.Certificate3017
-public import Certificates.Certificate3019
-public import Certificates.Certificate3025
-public import Certificates.Certificate3026
-public import Certificates.Certificate3028
-public import Certificates.Certificate3054
-public import Certificates.Certificate3055
-public import Certificates.Certificate16022
-public import Certificates.Certificate3114
-public import Certificates.Certificate3115
-public import Certificates.Certificate3116
-public import Certificates.Certificate3117
-public import Certificates.Certificate3138
 
 public noncomputable section
 

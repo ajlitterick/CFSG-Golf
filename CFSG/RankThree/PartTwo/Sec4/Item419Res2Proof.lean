@@ -1,8 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec4.Item419Res2ProofTools
-public import Certificates.Certificate3169
-public import Certificates.Certificate8036
 import CFSG.RankThree.PartTwo.Sec4.Item419Res2ProofCensus
 public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.Assembly.OrderReductions.InvertedSubgroup
@@ -27,8 +25,6 @@ public import CFSG.RankThree.PartTwo.Sec8.Pairs
 public import CFSG.RankThree.PartTwo.Sec8.Statements
 public import CFSG.StronglyEmbedded.ParityCriterion
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
-public import Certificates.Certificate2267
-public import Certificates.Certificate8033
 import Certificates.Kernel.SporSch.Th.Orb2315
 import Certificates.Kernel.SporSch.Th.Plane2320
 

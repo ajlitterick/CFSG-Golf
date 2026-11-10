@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps6Props
-public import Certificates.Certificate745101
-public import Certificates.Certificate2022
-public import Certificates.Certificate23204
 import CFSG.LocalAnalysis.WeakClosure81.GF2Reps6FourReduce
 import CFSG.LocalAnalysis.WeakClosure81.GF2Reps6U34Facts
 import CFSG.LocalAnalysis.WeakClosure81.GF2Reps6L34Facts

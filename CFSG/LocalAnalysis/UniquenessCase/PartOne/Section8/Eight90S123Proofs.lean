@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight90S123
-public import Certificates.Certificate113
-public import Certificates.Certificate3139
-public import Certificates.Certificate8020
 public import CFSG.LocalAnalysis.RankThreeCoreUniqueness.LocalCore
 public import CFSG.LocalAnalysis.RankThreeCoreUniqueness.PerfectResiduals
 import CFSG.Adapters.GeneralizedFitting

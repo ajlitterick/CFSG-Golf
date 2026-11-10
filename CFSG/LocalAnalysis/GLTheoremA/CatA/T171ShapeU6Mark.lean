@@ -23,7 +23,6 @@ public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Prop1310a5b
 public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83Generic4_1P3L28Residues
 public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83P3KFacts
 public import CFSG.LocalAnalysis.SteinbergSFSingleCommModel3UnitaryGen
-public import Certificates.Certificate41501
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FRResAll
 
 public section

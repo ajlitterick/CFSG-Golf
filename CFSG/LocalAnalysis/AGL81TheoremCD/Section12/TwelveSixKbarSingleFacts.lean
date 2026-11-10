@@ -7,8 +7,6 @@ public import CFSG.RankThree.PartOne.Census3.Interface
 public import Mathlib.GroupTheory.SpecificGroups.Alternating
 public import CFSG.Foundations.Basic
 public import CFSG.Open.LocalVocabulary
-public import Certificates.Certificate113
-public import Certificates.Certificate43
 import CFSG.GF2Type.Smith1979.WidthFourKP.OmegaPlus.Groups.PSL2
 import CFSG.RankThree.PartOne.K159F.SzAbs
 import CFSG.GF2Type.Smith1979.W4AsSurvL28
@@ -190,21 +188,6 @@ import CFSG.Timmesfeld.Special.TwoCore
 import CFSG.Walter.Ree.Thompson2.BaseFin
 import CFSG.Walter.ReeOrder.WardLocal
 import CFSG.Walter.W67.Section8.Prop83
-import Certificates.Certificate1953
-import Certificates.Certificate1954
-import Certificates.Certificate7000
-import Certificates.Certificate7001
-import Certificates.Certificate7002
-import Certificates.Certificate7003
-import Certificates.Certificate7004
-import Certificates.Certificate7005
-import Certificates.Certificate7006
-import Certificates.Certificate7007
-import Certificates.Certificate7008
-import Certificates.Certificate7009
-import Certificates.Certificate7010
-import Certificates.Certificate7011
-import Certificates.Certificate9530
 
 public section
 

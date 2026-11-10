@@ -5,15 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoDNbr6Defs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDNbrEsu
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDNbrU6
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDNbrUnit
-public import Certificates.Certificate1002
-public import Certificates.Certificate1003
-public import Certificates.Certificate1009
-public import Certificates.Certificate10010
-public import Certificates.Certificate10011
-public import Certificates.Certificate10015
-public import Certificates.Certificate10016
-public import Certificates.Certificate10017
-public import Certificates.Certificate10018
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSLieEsuAux
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosAdapterAux
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpBstar

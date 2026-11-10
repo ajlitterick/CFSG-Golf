@@ -4,9 +4,6 @@ public import CFSG.Quasithin.Vol2.GoldschmidtF134OddSporArith
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHS
 import all CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHS
 public import CFSG.Sporadic.HS
-public import Certificates.Certificate3167
-public import Certificates.Certificate4102
-public import Certificates.Certificate4140
 public import CFSG.Monster.Code.Weights
 public import CFSG.Quasithin.Background.B4Statement
 public import CFSG.Quasithin.Background.B5Statement

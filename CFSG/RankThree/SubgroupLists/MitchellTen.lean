@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.SubgroupLists.MitchellIcosaSecond
-public import Certificates.Certificate43
 import CFSG.RankThree.SubgroupLists.MitchellIcosaIso
 import CFSG.RankThree.SubgroupLists.MitchellIcosaPair
 import CFSG.RankThree.SubgroupLists.MitchellNondegenerate

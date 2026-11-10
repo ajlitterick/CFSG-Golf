@@ -64,7 +64,6 @@ import CFSG.Sporadic.Presentation.McLExactInputs
 import CFSG.Sporadic.Schreier.J1QT
 import CFSG.Sporadic.Schreier.TitsOther
 import CFSG.YGroups.DCE.B433Check
-import Certificates.Certificate9124
 
 public section
 

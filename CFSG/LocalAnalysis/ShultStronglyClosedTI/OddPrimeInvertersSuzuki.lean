@@ -9,7 +9,6 @@ public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiCentralCover
 public import CFSG.LieType.BorelTits.Suzuki
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Models
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma114Models
-public import Certificates.Certificate43
 
 public noncomputable section
 

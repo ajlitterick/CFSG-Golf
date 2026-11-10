@@ -3,10 +3,6 @@ module
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.S10J
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Stage7
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Statements
-public import Certificates.Certificate12952
-public import Certificates.Certificate14951
-public import Certificates.Certificate5952
-public import Certificates.Certificate17027
 
 public section
 

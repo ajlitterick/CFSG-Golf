@@ -7,9 +7,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTriD4LineWeylOuter
 public import CFSG.LocalAnalysis.StandardType.GGTriD4LineWeylStruct
 public import CFSG.LocalAnalysis.StandardType.KGLangS1ALinTransfer
 public import CFSG.LocalAnalysis.StandardType.KGLangS1ALinTypeDet
-public import Certificates.Certificate2264
-public import Certificates.Certificate2267
-public import Certificates.Certificate8033
 
 public section
 

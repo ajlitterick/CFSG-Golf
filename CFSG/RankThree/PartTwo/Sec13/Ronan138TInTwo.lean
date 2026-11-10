@@ -64,7 +64,6 @@ import CFSG.RankThree.PartTwo.Sec4.ProjSLEquiv
 import CFSG.RankThree.PartTwo.Sec6.Item612
 import CFSG.RankThree.PartTwo.Sec8.Item812Res2ProofCenter
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
-import Certificates.Certificate43
 import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalGroup.LowRank

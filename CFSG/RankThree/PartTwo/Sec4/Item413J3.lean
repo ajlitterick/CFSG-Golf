@@ -3,12 +3,6 @@ module
 public import CFSG.RankThree.PartTwo.Sec4.Item47Native
 public import CFSG.RankThree.Asc83Table.J3
 import Mathlib
-public import Certificates.Certificate2202
-public import Certificates.Certificate3169
-public import Certificates.Certificate8004
-public import Certificates.Certificate3029
-public import Certificates.Certificate3170
-public import Certificates.Certificate3171
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LieType.Chevalley.LangRootArithmetic
 public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions

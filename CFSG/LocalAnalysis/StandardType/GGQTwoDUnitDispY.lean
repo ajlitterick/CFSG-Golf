@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitDispO
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitDispBig
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitDispU
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitDispE
-public import Certificates.Certificate1952
 
 public section
 

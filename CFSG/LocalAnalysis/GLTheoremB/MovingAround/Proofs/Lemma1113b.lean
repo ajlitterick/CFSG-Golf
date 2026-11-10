@@ -177,7 +177,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 public import CFSG.YGroups.DCE.B433Check
 public import CFSG.Yardstones.M67c2c3e09a6b.Definitions
-public import Certificates.Certificate9124
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis

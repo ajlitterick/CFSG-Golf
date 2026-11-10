@@ -72,8 +72,6 @@ public import CFSG.Sporadic.Th.Simple
 public import CFSG.Sporadic.ThSchreier.AutCore
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ConjugatedInvertedSubgroup
 public import CFSG.Walter.W67.Section5.Lemma57
-public import Certificates.Certificate5007
-public import Certificates.Certificate5125
 
 public section
 

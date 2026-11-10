@@ -6,15 +6,6 @@ public import CFSG.Quasithin.Vol2.Ch12Sec2Statements
 public import CFSG.Quasithin.Background.B5FinG2U33
 public import CFSG.GroupTheory.LocalCores.Components
 public import CFSG.LocalAnalysis.ComponentInitial.QuasisimpleOddCenterFourGroup
-public import Certificates.Certificate8080
-public import Certificates.Certificate8081
-public import Certificates.Certificate17002
-public import Certificates.Certificate17004
-public import Certificates.Certificate17006
-public import Certificates.Certificate17951
-public import Certificates.Certificate16950
-public import Certificates.Certificate18950
-public import Certificates.Certificate19953
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Quasithin.Background.A1bGroups

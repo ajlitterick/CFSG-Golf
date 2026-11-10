@@ -30,7 +30,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.propos
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
 public import CFSG.Walter.Defs
-public import Certificates.Certificate8026Base
 
 public section
 

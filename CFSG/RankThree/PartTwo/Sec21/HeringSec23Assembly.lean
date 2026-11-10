@@ -416,26 +416,6 @@ public import CFSG.RankThree.PartTwo.Sec4.RonanKChevTwoDFourThreeA
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434RemTits
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item4443SLUsed
 public import CFSG.Walter.W67.W2Lemma26A
-public import Certificates.Certificate125340
-public import Certificates.Certificate125341
-public import Certificates.Certificate125342
-public import Certificates.Certificate125343
-public import Certificates.Certificate125344
-public import Certificates.Certificate125345
-public import Certificates.Certificate125346
-public import Certificates.Certificate125347
-public import Certificates.Certificate125348
-public import Certificates.Certificate125349
-public import Certificates.Certificate125350
-public import Certificates.Certificate125351
-public import Certificates.Certificate14950
-public import Certificates.Certificate19760
-public import Certificates.Certificate19761
-public import Certificates.Certificate41505
-public import Certificates.Certificate41506
-public import Certificates.Certificate9550
-public import Certificates.Certificate9551
-public import Certificates.Certificate9552
 
 public section
 

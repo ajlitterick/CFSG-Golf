@@ -9,9 +9,6 @@ public import CFSG.Quasithin.Background.Harris.F112S3Big.Defs
 public import CFSG.Quasithin.Background.GoldschmidtRankOneFacts
 public import CFSG.Quasithin.EmptyFaithful.S1421F112
 public import CFSG.Quasithin.Recognition.GoldschmidtF112RY9
-public import Certificates.Certificate113
-public import Certificates.Certificate4161
-public import Certificates.Certificate2012
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.ClassicalGroups

@@ -40,9 +40,6 @@ public import CFSG.Sporadic.Th.CertificateBase1
 public import CFSG.Sporadic.ThSchreier.KernelAut
 public import CFSG.Sporadic.ThSchreier.KernelAutBase
 public import CFSG.Sporadic.ThSchreier.KernelAutBase1
-public import Certificates.Certificate1016Base
-public import Certificates.Certificate3085Base
-public import Certificates.Certificate8026Base
 
 public section
 

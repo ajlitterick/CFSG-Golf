@@ -164,7 +164,6 @@ public import CFSG.SignalizerFunctorTheorem.CatalogBridge.NormalFormStabilizer
 public import CFSG.SignalizerFunctorTheorem.CatalogBridge.StabilizerLift
 public import CFSG.Walter.J1Props
 public import CFSG.Walter.J1Recog
-public import Certificates.Certificate9530
 
 public section
 

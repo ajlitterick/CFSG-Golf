@@ -97,7 +97,6 @@ public import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
 public import CFSG.Sporadic.Co1.Module.Co2Stab
 public import CFSG.Sporadic.SchreierLemmas.FrattiniProfile
 public import CFSG.Sporadic.SuzOddCore.SmallActionData
-public import Certificates.Certificate2323
 import CFSG.GH74.GLS.IVK.Lifted.Outer14
 import CFSG.GH74.GLS.IVK.Proofs2.Lemma12hb
 import CFSG.GH74.GLS.IVK.Proofs2.Lemma13d

@@ -35,33 +35,6 @@ public import CFSG.Quasithin.Background.B69Iso
 public import CFSG.Quasithin.Background.B69Lift
 public import CFSG.Quasithin.Background.B69Simple
 public import CFSG.Quasithin.EmptyFaithfulMultiple.InputD15Proof
-public import Certificates.Certificate129001
-public import Certificates.Certificate129003
-public import Certificates.Certificate129004
-public import Certificates.Certificate129005
-public import Certificates.Certificate129006
-public import Certificates.Certificate129007
-public import Certificates.Certificate129008
-public import Certificates.Certificate129009
-public import Certificates.Certificate129020
-public import Certificates.Certificate129021
-public import Certificates.Certificate129030
-public import Certificates.Certificate129040
-public import Certificates.Certificate129041
-public import Certificates.Certificate129060
-public import Certificates.Certificate129061
-public import Certificates.Certificate129062
-public import Certificates.Certificate129070
-public import Certificates.Certificate129071
-public import Certificates.Certificate129072
-public import Certificates.Certificate129073
-public import Certificates.Certificate129080
-public import Certificates.Certificate129081
-public import Certificates.Certificate129082
-public import Certificates.Certificate13005
-public import Certificates.Certificate21140
-public import Certificates.Certificate3961
-public import Certificates.Certificate3962
 
 public section
 

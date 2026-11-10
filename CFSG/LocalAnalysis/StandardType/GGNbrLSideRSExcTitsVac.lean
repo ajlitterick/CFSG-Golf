@@ -6,8 +6,6 @@ import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Tits
 import CFSG.LocalAnalysis.StandardType.Marking
 import CFSG.Sporadic.Schreier.TitsIso
 import CFSG.Sporadic.Schreier.TitsOuter
-public import Certificates.Certificate10050
-public import Certificates.Certificate8117
 import CFSG.HardMathSupport.Solomon.Coordinator.I14_20Alt
 import CFSG.HardMathSupport.Solomon.Coordinator.L3C143AltMain
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Certs
@@ -45,8 +43,6 @@ import CFSG.Quasithin.Vol2.Ch11SecAFacts02
 import CFSG.Quasithin.Vol2.Ch11SecAFacts03
 import CFSG.Quasithin.Vol2.Ch11StatementsB
 import CFSG.Quasithin.Vol2.Ch11StatementsC
-import Certificates.Certificate13659
-import Certificates.Certificate13660
 import Certificates.Kernel.J4Count.FixCE
 
 public section

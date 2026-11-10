@@ -11,7 +11,6 @@ public import CFSG.RankThree.PartOne.KE.A1Action
 public import CFSG.RankThree.PartOne.KE.A1Levi
 public import CFSG.RankThree.PartOne.KE.E8D4Family
 public import CFSG.RankThree.PartOne.KE.ThreeA1Group
-public import Certificates.Certificate1952
 
 public section
 

@@ -2,13 +2,6 @@ module
 
 public import CFSG.Sporadic.HNSchreier.Sylow3
 public import CFSG.Sporadic.HNSchreier.PointwiseCheck
-public import Certificates.Certificate2096
-public import Certificates.Certificate2100
-public import Certificates.Certificate2102
-public import Certificates.Certificate2103
-public import Certificates.Certificate2104
-public import Certificates.Certificate2108
-public import Certificates.Certificate2107
 
 public noncomputable section
 

@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Certificate3951
 public import CFSG.LocalAnalysis.StandardType.FF81.Defs
 public import CFSG.LocalAnalysis.SeitzReduction.EPilotFusionEntrywise
 public import CFSG.LocalAnalysis.SeitzReduction.LongRootPairsRoots

@@ -16,9 +16,6 @@ public import CFSG.LocalAnalysis.EvenSporadicStandard.M22Std.OutU42Aut
 public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.HardMathSupport.Timmesfeld.Tables.Multiplier.Aut
 public import CFSG.GroupTheory.E3Params
-public import Certificates.Certificate10010
-public import Certificates.Certificate10011
-public import Certificates.Certificate2012
 public import CFSG.GroupTheory.PRankZeroOfPrimeNotDvd
 public import CFSG.LargeExtraspecial.S6Seven
 public import CFSG.LargeExtraspecial.S6SixB

@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrSmallRank
-public import Certificates.Certificate2264
-public import Certificates.Certificate2267
-public import Certificates.Certificate8032
-public import Certificates.Certificate8033
 import CFSG.LocalAnalysis.StandardType.GGTableB
 import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNineSmall
 import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNineTwF4

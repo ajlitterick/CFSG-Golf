@@ -37,7 +37,6 @@ import CFSG.RankThree.PartOne.K133H.G2Plane
 import CFSG.RankThree.PartOne.KE.E8D4Family
 import CFSG.RankThree.PartTwo.Sec8.Item87Proof84
 import CFSG.SignalizerFunctorTheorem.CatalogBridge.NormalFormStabilizer
-import Certificates.Certificate9530
 
 public section
 

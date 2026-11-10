@@ -19,8 +19,6 @@ public import CFSG.Quasithin.Background.TwoReduced
 public import CFSG.LocalAnalysis.QuasithinUnique.Defs
 public import CFSG.Quasithin.Vol2.Ch12Sec5KGM24Inputs
 public import CFSG.Quasithin.H13.KGFactT3J4Inputs
-public import Certificates.Certificate4075
-public import Certificates.Certificate3017
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatQuot
 
 public section

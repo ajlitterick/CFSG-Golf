@@ -49,7 +49,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2RootGroups
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ProjectiveSemilinear
-public import Certificates.Certificate43
 
 set_option maxRecDepth 400000
 set_option maxHeartbeats 0

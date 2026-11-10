@@ -2,14 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNSQ2DCellsDefs
 public import CFSG.LocalAnalysis.StandardType.GGNsq2Cited
-public import Certificates.Certificate117
-public import Certificates.Certificate1002
-public import Certificates.Certificate1003
-public import Certificates.Certificate1009
-public import Certificates.Certificate10015
-public import Certificates.Certificate10016
-public import Certificates.Certificate10017
-public import Certificates.Certificate10018
 import CFSG.LocalAnalysis.StandardType.GGNsq2Main
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSQ2U62Setup
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge

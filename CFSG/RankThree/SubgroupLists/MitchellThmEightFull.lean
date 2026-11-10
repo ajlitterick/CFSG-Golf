@@ -3,8 +3,6 @@ module
 public import CFSG.RankThree.SubgroupLists.MitchellThmEightSplit
 public import CFSG.RankThree.SubgroupLists.SymplecticBaseChange
 public import CFSG.RankThree.SubgroupLists.MitchellQOne
-public import Certificates.Certificate113
-public import Certificates.Certificate43
 
 public section
 

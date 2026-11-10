@@ -17,8 +17,6 @@ public import CFSG.LocalAnalysis.StandardType.GGForkA8NotRefl
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseNoBL5Aut
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL4546Defs
 public import CFSG.LocalAnalysis.StandardType.GGFieldNbr
-public import Certificates.Certificate1953
-public import Certificates.Certificate1954
 import CFSG.LocalAnalysis.StandardType.GGTBTorDatum
 import CFSG.LocalAnalysis.StandardType.GGResCentBoundNbrConj
 

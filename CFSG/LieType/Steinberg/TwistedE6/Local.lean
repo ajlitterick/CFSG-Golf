@@ -3,11 +3,6 @@ module
 public import CFSG.LieType.Steinberg.TwistedE6.Roots
 public import CFSG.LieType.Steinberg.Minuscule.RankOne
 public import CFSG.LieType.Steinberg.Minuscule.Unipotent
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate115
-public import Certificates.Certificate116
-public import Certificates.Certificate123
 
 public noncomputable section
 

@@ -4,8 +4,6 @@ public import CFSG.LieType.Chevalley.Monomial
 public import CFSG.LieType.Chevalley.WeylRoots
 public import CFSG.Blueprint.ChevalleyWeyl
 public import CFSG.LieType.BorelTits.WeightedMatrix
-public import Certificates.Certificate113
-public import Certificates.Certificate114
 
 public section
 

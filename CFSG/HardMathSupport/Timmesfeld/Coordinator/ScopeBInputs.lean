@@ -127,7 +127,6 @@ public import CFSG.Sporadic.Recognition.LyonsFinalDist2
 public import CFSG.Sporadic.Schreier.J4SNoCompCover
 public import CFSG.Sporadic.Suz
 public import CFSG.Sporadic.ThSchreier.ThSchreierCase
-public import Certificates.Certificate8160
 
 public section
 

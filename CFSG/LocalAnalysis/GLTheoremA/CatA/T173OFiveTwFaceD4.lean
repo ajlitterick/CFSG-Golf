@@ -159,7 +159,6 @@ public import CFSG.SignalizerFunctorTheorem.CatalogBridge.NormalFormStabilizer
 public import CFSG.SignalizerFunctorTheorem.NonLocal.Cross
 public import CFSG.SignalizerFunctorTheorem.NonLocal.SpData
 public import CFSG.Sporadic.J4.QT2LocProof
-public import Certificates.Certificate8160
 
 public section
 

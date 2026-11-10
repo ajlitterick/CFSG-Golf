@@ -17,7 +17,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.EvenClassicalFamily
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.EvenClassicalLinearStrong
-public import Certificates.Certificate113
 import CFSG.ClassicalInvolution.WeakCT.StandardPair
 import CFSG.ClassicalInvolution.WeakCT.TorusAgree
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs

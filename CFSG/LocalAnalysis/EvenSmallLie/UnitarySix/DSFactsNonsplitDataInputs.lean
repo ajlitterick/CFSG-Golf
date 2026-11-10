@@ -8,7 +8,6 @@ public meta import CFSG.LieType.Multipliers.U62Bridge
 public meta import CFSG.LieType.Multipliers.U62Kernel
 public meta import Certificates.Data.CFSGNative.F4.T46Simple
 public meta import Certificates.Data.CFSGNative.Fi22.Local
-public import Certificates.Certificate3180
 
 public section
 

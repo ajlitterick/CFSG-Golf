@@ -79,11 +79,6 @@ public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.Bal3Defs
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.Bal3Transitive
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.I294Inputs
 public import CFSG.RankThree.Native.Fi22FiveCheckInputs
-public import Certificates.Certificate41501
-public import Certificates.Certificate8137
-public import Certificates.Certificate8138
-public import Certificates.Certificate8140
-public import Certificates.Certificate8141
 
 public section
 

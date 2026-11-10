@@ -2,8 +2,6 @@ module
 
 public import CFSG.Blueprint.Catalog
 public import CFSG.LieType.Ree.Intertwiner
-public import Certificates.Certificate113
-public import Certificates.Certificate114
 
 public section
 

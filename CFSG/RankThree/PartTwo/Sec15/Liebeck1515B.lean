@@ -37,10 +37,6 @@ public import CFSG.RankThree.PartTwo.Sec15.Item15Res3Proof159W
 public import CFSG.RankThree.PartTwo.Sec15.Item15Res3ProofInner
 public import CFSG.RankThree.PartTwo.Sec15.Item15Res3ProofY0Gen
 public import CFSG.RankThree.PartTwo.Sec19.Item194Used
-public import Certificates.Certificate10021
-public import Certificates.Certificate14995
-public import Certificates.Certificate8136
-public import Certificates.Certificate9566
 public import Certificates.Data.Item434SporWords
 import CFSG.CharacterTheory.Wreathed.SmallerRecognitionOriginalFieldQuaternionConjugation
 import CFSG.Dihedral.FourgroupCycleControl
@@ -117,8 +113,6 @@ import CFSG.Sporadic.Schreier.M11
 import CFSG.Walter.J1
 import CFSG.Walter.JRFacts
 import CFSG.Walter.PSL2Facts
-import Certificates.Certificate12642
-import Certificates.Certificate12643
 import Certificates.Kernel.J4Count.Prim
 
 public section

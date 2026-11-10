@@ -5,11 +5,6 @@ public import CFSG.RankThree.PartTwo.Sec12.KS128NotHJSLM12
 public import CFSG.RankThree.PartTwo.Sec12.KS128NotHJSLFree
 public import CFSG.RankThree.PartTwo.Sec12.Item125DiagSU
 public import CFSG.RankThree.PartTwo.Sec12.ONanKS128
-public import Certificates.Certificate9950
-public import Certificates.Certificate3086
-public import Certificates.Certificate8174
-public import Certificates.Certificate3139
-public import Certificates.Certificate3029
 import CFSG.RankThree.PartTwo.Sec12.KS128NotHJM12
 import CFSG.RankThree.PartTwo.Sec12.KS128NotHJPGL
 import CFSG.RankThree.PartTwo.Sec12.Item128BarProofBar
@@ -37,7 +32,6 @@ public import CFSG.RankThree.PartTwo.KFacts.KP4Aut
 public import CFSG.RankThree.PartTwo.KFacts.KP4Gen
 public import CFSG.RankThree.PartTwo.Sec14.Notation
 public import CFSG.RankThree.PartTwo.Sec4.StatementsSporadic
-public import Certificates.Certificate13951
 import CFSG.RankThree.PartTwo.Sec11.Data
 import CFSG.RankThree.PartTwo.Sec6.Statements
 

@@ -14,8 +14,6 @@ public import CFSG.RankThree.PartOne.S11d.OutUnitary
 public import CFSG.RankThree.PartOne.S11d.PSLDescent
 public import CFSG.RankThree.PartOne.S9.Sylow.ExclusionBasic
 public import CFSG.RankThree.Theta.ThreeComponentOrbitCover
-public import Certificates.Certificate1
-public import Certificates.Certificate2
 
 public section
 

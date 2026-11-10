@@ -6,8 +6,6 @@ public import CFSG.LocalAnalysis.WeakClosure81.W183B2Fin
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk73G4L34
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallL34Out
 public import CFSG.Sporadic.SmallOddCore.Assembly
-public import Certificates.Certificate22200
-public import Certificates.Certificate2022
 public import CFSG.Adapters.LieModelSimple
 public import CFSG.CGT.Timmesfeld75.Cfg214Gen
 public import CFSG.GH74.KGroups.L3EpsNoNormalThree

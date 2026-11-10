@@ -20,8 +20,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theor
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Borel
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Lemma83
 public import CFSG.Walter.PSL2Facts
-public import Certificates.Certificate1
-public import Certificates.Certificate2
 
 public section
 

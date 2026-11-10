@@ -143,7 +143,6 @@ import CFSG.SignalizerFunctorTheorem.CatalogBridge.NormalFormStabilizer
 import CFSG.SignalizerFunctorTheorem.CatalogBridge.StabilizerLift
 import CFSG.Walter.J1Props
 import CFSG.Walter.J1Recog
-import Certificates.Certificate9530
 
 public section
 

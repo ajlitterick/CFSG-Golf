@@ -30,7 +30,6 @@ import CFSG.RankThree.PartOne.Assembly
 import CFSG.RankThree.PartTwo.Sec11.Item118
 import CFSG.RankThree.PartTwo.Sec13.Item131Transport
 import CFSG.RankThree.PartTwo.Sec6.Item612
-import Certificates.Certificate43
 
 public section
 

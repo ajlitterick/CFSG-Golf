@@ -25,7 +25,6 @@ public import CFSG.LocalAnalysis.ShultStronglyClosedTI.MinimalLocalFailureProper
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.StronglyEmbedded
-public import Certificates.Certificate43
 
 public noncomputable section
 

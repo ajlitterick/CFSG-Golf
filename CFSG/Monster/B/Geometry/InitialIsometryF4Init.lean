@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Monster.B.Geometry.InitialIsometryF4
-public import Certificates.Certificate113
-public import Certificates.Certificate114
 
 public noncomputable section
 

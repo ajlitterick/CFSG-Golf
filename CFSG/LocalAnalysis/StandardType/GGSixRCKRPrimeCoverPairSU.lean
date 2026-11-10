@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeShapeLeaves
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePairFix
-public import Certificates.Certificate1952
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCarrierSUCover
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCoverPairSUTop
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCoverPairSUWitt

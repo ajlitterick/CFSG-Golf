@@ -22,9 +22,6 @@ import CFSG.RankThree.PartTwo.Sec8.Pairs
 import CFSG.RankThree.PartTwo.Sec8.Statements
 import CFSG.StronglyEmbedded.ParityCriterion
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
-import Certificates.Certificate3029
-import Certificates.Certificate3086
-import Certificates.Certificate3139
 
 public section
 

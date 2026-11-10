@@ -4,9 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 import CFSG.LocalAnalysis.StandardType.GGTableBTypeATorus
 import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
 import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 
 public section
 

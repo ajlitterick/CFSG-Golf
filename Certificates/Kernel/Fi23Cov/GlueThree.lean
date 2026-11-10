@@ -17,9 +17,6 @@ public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.OuterRowFusion
 public import CFSG.Sporadic.Co2Schreier.ThirdChain
 public import CFSG.Sporadic.FischerOddCore.Fi23T2Card
 public import CFSG.Walter.JRFacts
-public import Certificates.Certificate131101Base
-public import Certificates.Certificate13620Base
-public import Certificates.Certificate13622Base
 
 public section
 

@@ -35,8 +35,6 @@ public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83Generic4_1P3M11Defs
 public import CFSG.LocalAnalysis.RankThreeTheoremC.TransitivityKFacts
 public import CFSG.Quasithin.Vol2.KGFactC31RuRefBase
 public import CFSG.Sporadic.HeldB.Common
-public import Certificates.Certificate41501
-public import Certificates.Certificate7233Base
 
 public section
 

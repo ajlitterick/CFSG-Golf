@@ -6,18 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGResidualRk1ExcTops
 public import CFSG.LocalAnalysis.StandardType.GGResidualGenFrame
 public import CFSG.LocalAnalysis.StandardType.GGMemberRowsDefs
 public import CFSG.LocalAnalysis.StandardType.ExcPay.Defs
-public import Certificates.Certificate2264
-public import Certificates.Certificate2267
-public import Certificates.Certificate8033
-public import Certificates.Certificate8064
-public import Certificates.Certificate13604
-public import Certificates.Certificate13605
-public import Certificates.Certificate13691
-public import Certificates.Certificate13720
-public import Certificates.Certificate13721
-public import Certificates.Certificate13722
-public import Certificates.Certificate13723
-public import Certificates.Certificate13724
 import CFSG.LocalAnalysis.StandardType.ExcPay.E7
 import CFSG.LocalAnalysis.StandardType.ExcPay.RouteE7Three
 import CFSG.LocalAnalysis.StandardType.ExcPay.CoverE7

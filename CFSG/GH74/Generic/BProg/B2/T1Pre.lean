@@ -82,7 +82,6 @@ import CFSG.GH74.E2.Components
 import CFSG.GH74.E2.OddRankG
 import CFSG.GH74.GLS.IVK.Proofs2.Ivk94G4Defs
 import CFSG.Sporadic.Schreier.LyFixedSet
-import Certificates.Certificate5007
 
 public section
 

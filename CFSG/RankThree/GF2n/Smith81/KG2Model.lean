@@ -64,8 +64,6 @@ public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
 public import CFSG.Sporadic.Th.Max3.Involutions
-public import Certificates.Certificate10089Base
-public import Certificates.Certificate10091Base
 
 public noncomputable section
 

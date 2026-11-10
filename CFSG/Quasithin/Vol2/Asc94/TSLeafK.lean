@@ -31,8 +31,6 @@ public import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec2.Defs
 public import CFSG.SignalizerFunctorTheorem.McBride.Prelim.Generation
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
 public import CFSG.Sporadic.Th.Max3.Involutions
-public import Certificates.Certificate10089Base
-public import Certificates.Certificate10091Base
 
 public section
 

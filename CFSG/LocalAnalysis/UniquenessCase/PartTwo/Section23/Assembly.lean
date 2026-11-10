@@ -360,7 +360,6 @@ public import CFSG.RankThree.PartTwo.Sec3.TwoGroupPrimeFiveAction
 public import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec2.Thm210SetupGlobal
 public import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec2.Thm210SetupOrbit
 public import CFSG.Walter.W67.W2Lemma26A
-public import Certificates.Certificate41501
 public import Certificates.Data.E27Q2O
 public import TauCeti.GroupTheory.SemidirectProduct
 import CFSG.GroupTheory.IndexFourQuotientKernel

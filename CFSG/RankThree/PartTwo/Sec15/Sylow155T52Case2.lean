@@ -3,8 +3,6 @@ module
 public import CFSG.RankThree.PartTwo.Sec15.Sylow155T51
 public import CFSG.RankThree.PartTwo.Sec13.Item133Mono
 public import CFSG.RankThree.PartTwo.Sec13.Item13Inputs
-public import Certificates.Certificate8171
-public import Certificates.Certificate8172
 import CFSG.RankThree.PartTwo.Sec15.Sylow155T52
 import CFSG.RankThree.PartTwo.Sec15.Sylow155T52Coord
 import CFSG.RankThree.PartTwo.Sec13.Item133

@@ -197,18 +197,6 @@ public import CFSG.Timmesfeld.Moufang.Three
 public import CFSG.Timmesfeld.RankOne
 public import CFSG.Timmesfeld.Special.TwoCore
 public import CFSG.Timmesfeld.Transvection.Statement
-public import Certificates.Certificate7000
-public import Certificates.Certificate7001
-public import Certificates.Certificate7002
-public import Certificates.Certificate7003
-public import Certificates.Certificate7004
-public import Certificates.Certificate7005
-public import Certificates.Certificate7006
-public import Certificates.Certificate7007
-public import Certificates.Certificate7008
-public import Certificates.Certificate7009
-public import Certificates.Certificate7010
-public import Certificates.Certificate7011
 
 public section
 

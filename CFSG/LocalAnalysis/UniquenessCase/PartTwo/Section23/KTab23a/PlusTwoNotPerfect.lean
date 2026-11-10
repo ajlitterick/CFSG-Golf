@@ -74,7 +74,6 @@ import CFSG.Sporadic.Mathieu.M12
 import CFSG.Sporadic.Mathieu.M24
 import CFSG.StronglyEmbedded.ParityCriterion
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
-import Certificates.Certificate43
 import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 import TauCeti.LinearAlgebra.QuadraticForm.Prod
 

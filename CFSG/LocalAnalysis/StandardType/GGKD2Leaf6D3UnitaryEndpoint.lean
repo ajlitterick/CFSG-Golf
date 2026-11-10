@@ -16,9 +16,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GField
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinPieces
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.YS1011U64Types
 public import CFSG.LocalAnalysis.GLTheoremA.S11.Inputs119
-public import Certificates.Certificate8046
-public import Certificates.Certificate8049
-public import Certificates.Certificate8052
 
 public section
 

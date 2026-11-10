@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T158MShE6Defs
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeHat
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.PlanesToral
-public import Certificates.Certificate1952
 import all CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeE6Mark
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeE6MarkLie
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeFamOutBase

@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelHoldsT
 public import CFSG.LocalAnalysis.StandardType.GGTwE6CorootTorus
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelModuleMT
-public import Certificates.Certificate1952
-public import Certificates.Certificate13659
-public import Certificates.Certificate13660
 
 public section
 

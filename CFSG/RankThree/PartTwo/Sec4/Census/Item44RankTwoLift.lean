@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec4.Census.Item44EndLift
 import CFSG.RankThree.SubgroupLists.SymplecticReducible
-public import Certificates.Certificate43
 public import CFSG.Assembly.OrderReductions.InvertedSubgroup
 public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.GroupTheory.HallHigmanPiCore

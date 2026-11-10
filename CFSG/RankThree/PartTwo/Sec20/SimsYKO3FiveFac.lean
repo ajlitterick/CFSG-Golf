@@ -121,7 +121,6 @@ public import CFSG.Sporadic.ThSchreier.Max3ActionBase1
 public import CFSG.Sporadic.ThSchreier.Rigidity
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 public import CFSG.Walter.JRFacts
-public import Certificates.Certificate10091Base
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 

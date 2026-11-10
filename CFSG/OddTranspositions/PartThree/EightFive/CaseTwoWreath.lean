@@ -4,8 +4,6 @@ public import CFSG.OddTranspositions.PartThree.EightFive.CaseTwoStatement
 public import CFSG.OddTranspositions.HypothesisC
 public import CFSG.OddTranspositions.FaithfulBlocks
 public import CFSG.OddTranspositions.PartThree.Ten.SwapBlocks
-public import Certificates.Certificate43
-public import Certificates.Certificate113
 
 import CFSG.OddTranspositions.PartThree.Ten.Assembly
 import CFSG.OddTranspositions.PartThree.Ten.CentralSymSplit

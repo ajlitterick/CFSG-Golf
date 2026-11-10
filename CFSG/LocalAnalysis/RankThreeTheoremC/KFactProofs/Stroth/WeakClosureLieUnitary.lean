@@ -48,7 +48,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Basic
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import CFSG.YGroups.DCE.B433Check
-public import Certificates.Certificate9124
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 public import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 

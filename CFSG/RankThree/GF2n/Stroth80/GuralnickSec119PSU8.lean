@@ -52,9 +52,6 @@ public import CFSG.RankThree.GF2n.Tim81.Components
 public import CFSG.SignalizerFunctorTheorem.McBride.Prelim.Basic
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
 public import CFSG.Timmesfeld.RankOne
-public import Certificates.Certificate2154
-public import Certificates.Certificate2157
-public import Certificates.Certificate3008
 import CFSG.HardMathSupport.Timmesfeld.DFour.FixParity
 import CFSG.LocalAnalysis.ComponentClassification.BlockTwoProductAction
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound

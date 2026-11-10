@@ -5,7 +5,6 @@ public import CFSG.OddTranspositions.PartThree.Eleven.OneOne.Hyp
 public import CFSG.OddTranspositions.PartThree.Eleven.Minus.Pair
 public import CFSG.OddTranspositions.PartThree.Eleven.Minus.Quandle
 public import CFSG.OddTranspositions.PartThree.EightFive.KBarSetup
-public import Certificates.Certificate2326
 public import CFSG.OddTranspositions.PartThree.Eleven.OneTwo.LocalHypC
 public import CFSG.OddTranspositions.PartThree.Eleven.OneTwo.ConnLemmas
 public import CFSG.OddTranspositions.PartThree.Eleven.OneTwo.Wreath

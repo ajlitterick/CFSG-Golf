@@ -4,10 +4,6 @@ public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TwelveLeDefs
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TwelveLeU42O8U42
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TwelveLeU42O8Omega
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TwelveLeU42O8Levi
-public import Certificates.Certificate2012
-public import Certificates.Certificate4161
-public import Certificates.Certificate10010
-public import Certificates.Certificate10011
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Pairs
 public import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockOrthMinusHas
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherEvenOrthogonalModel

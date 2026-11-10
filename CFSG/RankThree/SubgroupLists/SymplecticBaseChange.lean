@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.SubgroupLists.SymplecticPartThreeBase
-public import Certificates.Certificate113
 
 public section
 

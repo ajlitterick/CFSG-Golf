@@ -20,7 +20,6 @@ public import CFSG.Timmesfeld.Bridge.Asc73Quotient
 public import CFSG.Timmesfeld.Moufang.Three
 public import CFSG.Timmesfeld.RankOne
 public import CFSG.Timmesfeld.Special.TwoCore
-public import Certificates.Certificate43
 import CFSG.LinearAlgebra.LinearGroups.CoordinateData
 import CFSG.LocalAnalysis.ProperTwoGeneratedCore.AschbacherCanonicalRemaining
 import CFSG.LocalAnalysis.ProperTwoGeneratedCore.ExceptionalEightPlaneCentralizer

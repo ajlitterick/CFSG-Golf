@@ -2,20 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.WeakClosureSporLines
 public import CFSG.RankThree.Asc83Table.MatGroup
-public import Certificates.Certificate3084
-public import Certificates.Certificate3119
-public import Certificates.Certificate3167
-public import Certificates.Certificate3168
-public import Certificates.Certificate3169
-public import Certificates.Certificate3172
-public import Certificates.Certificate8000
-public import Certificates.Certificate8019
-public import Certificates.Certificate8024
-public import Certificates.Certificate8029
-public import Certificates.Certificate8018
-public import Certificates.Certificate9119
-public import Certificates.Certificate9211
-public import Certificates.Certificate9435
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.J3Sylow
 import CFSG.LocalAnalysis.SectionRank.Sporadic.HSLocal
 import CFSG.LocalAnalysis.SectionRank.Sporadic.OpsF2Fast
@@ -74,7 +60,6 @@ public import CFSG.Sporadic.Presentation.McLExactInputs
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import CFSG.YGroups.DCE.B433Check
-public import Certificates.Certificate9124
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 public import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.J3SylowPrim

@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.RankTwoM11Aut
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoM11Local
 public import CFSG.GH74.E2.BlackBoxesStdM11
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bBasic
-public import Certificates.Certificate110
 import CFSG.LocalAnalysis.ComponentClassification.StandardSubgroupAPI
 public import CFSG.GH74.SectionalRank
 public import CFSG.GH74.Statements

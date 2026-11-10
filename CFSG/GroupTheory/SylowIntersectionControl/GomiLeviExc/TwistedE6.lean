@@ -4,12 +4,6 @@ public import CFSG.GroupTheory.SylowIntersectionControl.GomiLeviExc.Transfer
 public import CFSG.GroupTheory.SylowIntersectionControl.GomiLeviExc.SLChevTwo
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.ParabLeviComponents
 public import CFSG.LieType.Steinberg.TwistedE6.Defs
-public import Certificates.Certificate43
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate115
-public import Certificates.Certificate116
-public import Certificates.Certificate123
 import CFSG.ClassicalInvolution.ModelFacts.LinearAutLift
 import CFSG.LocalAnalysis.AGLEmbeddingD2.SquareUnitary
 import CFSG.LieType.Steinberg.CentralExt.FieldFourMultiplier

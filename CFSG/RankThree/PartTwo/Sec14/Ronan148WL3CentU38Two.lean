@@ -24,7 +24,6 @@ import CFSG.RankThree.PartTwo.Sec20.OneSteps
 import CFSG.RankThree.PartTwo.Sec21.Item211ProofListOf
 import CFSG.RankThree.PartTwo.Sec4.Item423ResProof432
 import CFSG.RankThree.PartTwo.Sec4.RonanK432Transport
-import Certificates.Certificate8166
 
 public section
 

@@ -9,7 +9,6 @@ public meta import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutData
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporHash
 public meta import CFSG.Sporadic.Schreier.Enumeration
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
-public import Certificates.Certificate10019
 public import CFSG.Sporadic.J2
 public import CFSG.Sporadic.Th.F2Spec
 public meta import Mathlib.Data.Nat.Digits.Lemmas

@@ -50,8 +50,6 @@ public import CFSG.Quasithin.H13.QTESylowStmt
 public import CFSG.Quasithin.SteinbergCDExactPlaneWreathAggregate
 public import CFSG.RankThree.GroupTheory.SteinbergBYRelativeCores
 public import CFSG.Sporadic.Schreier.TitsOther
-public import Certificates.Certificate1
-public import Certificates.Certificate2
 public import Certificates.Data.CFSGNative.MonsterB.Rep4371Model
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1

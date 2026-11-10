@@ -2,10 +2,6 @@ module
 
 public import CFSG.LieType.Steinberg.Presentation
 public import CFSG.LieType.Steinberg.Minuscule.ChevExtras
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate115
-public import Certificates.Certificate116
 
 public section
 

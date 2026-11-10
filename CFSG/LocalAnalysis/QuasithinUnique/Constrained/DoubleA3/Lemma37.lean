@@ -7,8 +7,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.Claim1Asse
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.Lemma35
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115CharTwoTools
 import Mathlib.Tactic.Group
-public import Certificates.Certificate1
-public import Certificates.Certificate2
 public import CFSG.Sporadic.Schreier.J4SSylow
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Reduce
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.GammaLemmas

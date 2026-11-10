@@ -97,9 +97,6 @@ public import CFSG.RankThree.PartTwo.Sec14.Item148StepOne
 public import CFSG.RankThree.PartTwo.Sec14.Item148StepPoint
 public import CFSG.RankThree.PartTwo.Sec16.Item16Tail14Defs
 public import CFSG.Sporadic.HeldB.Common
-public import Certificates.Certificate2201
-public import Certificates.Certificate2202
-public import Certificates.Certificate7233Base
 import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasFive
 import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasSix
 import CFSG.LocalAnalysis.ComponentInitial.OrthogonalReflectionSplitting
@@ -118,13 +115,6 @@ import CFSG.RankThree.PartTwo.Sec4.Census.Interface46
 import CFSG.RankThree.PartTwo.Sec7.ThreeTranspositions
 import CFSG.Sporadic.ONOddCore.LiftHomCheckInputs
 import CFSG.Sporadic.Schreier.J4SProfileNode
-import Certificates.Certificate2121
-import Certificates.Certificate2122
-import Certificates.Certificate2123
-import Certificates.Certificate2214
-import Certificates.Certificate2283
-import Certificates.Certificate2288
-import Certificates.Certificate3164
 
 public section
 

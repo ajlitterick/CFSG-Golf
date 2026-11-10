@@ -16,19 +16,6 @@ public import CFSG.Sporadic.HS
 public import CFSG.Sporadic.He.Simple
 public import CFSG.Sporadic.Ru
 public import CFSG.Sporadic.Mathieu.M24
-public import Certificates.Certificate3017
-public import Certificates.Certificate3167
-public import Certificates.Certificate3168
-public import Certificates.Certificate3172
-public import Certificates.Certificate4033
-public import Certificates.Certificate4034
-public import Certificates.Certificate4068
-public import Certificates.Certificate4075
-public import Certificates.Certificate4080
-public import Certificates.Certificate4102
-public import Certificates.Certificate4140
-public import Certificates.Certificate4141
-public import Certificates.Certificate4143
 
 public section
 

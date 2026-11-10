@@ -6,8 +6,6 @@ public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K21dRed
 public import CFSG.Quasithin.Vol2.GoldschmidtF431U42Model
 public import CFSG.RankThree.PartTwo.Sec4.Ronan148RH1D4
 public import CFSG.Open.PGLModelStated
-public import Certificates.Certificate2012
-public import Certificates.Certificate409001
 public import CFSG.ClassicalInvolution.Asc77.AscE184Basic
 public import CFSG.ClassicalInvolution.Asc77.AscE184Graph
 public import CFSG.ClassicalInvolution.Asc77.AscSixZW

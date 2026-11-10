@@ -77,7 +77,6 @@ public import CFSG.RankThree.PartTwo.Sec21.FF81FS79R34
 public import CFSG.RankThree.PartTwo.Sec21.Item211ProofListOf
 public import CFSG.RankThree.PartTwo.Sec4.Item423ResProof432
 public import CFSG.RankThree.PartTwo.Sec4.RonanK432Sylow
-public import Certificates.Certificate8166
 import CFSG.GH74.GLS.Balance.SolvAPIDefs
 import CFSG.RankThree.PartTwo.Sec4.Item41NarrowGriess
 import CFSG.Walter.J1Props

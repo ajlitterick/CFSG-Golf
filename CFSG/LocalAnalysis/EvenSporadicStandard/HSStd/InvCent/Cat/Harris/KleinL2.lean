@@ -54,30 +54,6 @@ public import CFSG.Sporadic.ThSchreier.KernelAut
 public import CFSG.Sporadic.ThSchreier.KernelAutBase
 public import CFSG.Sporadic.ThSchreier.KernelAutBase1
 public import CFSG.Walter.JRFacts
-public import Certificates.Certificate10027
-public import Certificates.Certificate10095
-public import Certificates.Certificate10095Base
-public import Certificates.Certificate10100
-public import Certificates.Certificate10101
-public import Certificates.Certificate10102
-public import Certificates.Certificate10104
-public import Certificates.Certificate10107
-public import Certificates.Certificate10108
-public import Certificates.Certificate10110
-public import Certificates.Certificate10111
-public import Certificates.Certificate1016Base
-public import Certificates.Certificate2051
-public import Certificates.Certificate2053
-public import Certificates.Certificate2056
-public import Certificates.Certificate2057
-public import Certificates.Certificate2058
-public import Certificates.Certificate2130
-public import Certificates.Certificate2135
-public import Certificates.Certificate2136
-public import Certificates.Certificate2139
-public import Certificates.Certificate2140
-public import Certificates.Certificate2145
-public import Certificates.Certificate9201
 import CFSG.LocalAnalysis.ComponentClassification.CatFC.CentA6ClPSLSmallInner4
 import CFSG.LocalAnalysis.ComponentClassification.ExcSelectorOddE6
 import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenCanonicalField

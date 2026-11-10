@@ -65,7 +65,6 @@ import CFSG.Quasithin.Background.E3Cent
 import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 import CFSG.Quasithin.Vol2.Ch1Local
 import CFSG.Sporadic.Schreier.LyFixedSet
-import Certificates.Certificate5007
 import Certificates.Kernel.J4Count.FixCE
 
 public section

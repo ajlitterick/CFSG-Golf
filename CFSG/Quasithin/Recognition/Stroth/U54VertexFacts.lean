@@ -69,7 +69,6 @@ public import CFSG.Sporadic.Schreier.RuSylow
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
-public import Certificates.Certificate7233Base
 
 public section
 

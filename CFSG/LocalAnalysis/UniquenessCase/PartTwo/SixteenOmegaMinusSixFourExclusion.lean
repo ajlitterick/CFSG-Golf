@@ -17,9 +17,6 @@ import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight102AltTenHolds
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight102U45AltFiveHolds
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KStrongEmbedded72Holds
 import CFSG.LieType.BorelTits.Basic
-public import Certificates.Certificate431004
-public import Certificates.Certificate17430
-public import Certificates.Certificate9726
 import CFSG.GH74.GLS.IVK.Proofs2.Ivk73G4U3Out
 import CFSG.GH74.GLS.IVK.Proofs2.Ivk93Cfg2
 import CFSG.GH74.GLS.IVK.Proofs2.Ivk93Field
@@ -50,7 +47,6 @@ import CFSG.Quasithin.Background.SmithB42L2L32
 import CFSG.Quasithin.Background.SmithB42L2Nat
 import CFSG.Quasithin.Background.SmithB51LnRealB
 import CFSG.Quasithin.SteinbergBNA7ThreeRankClosure
-import Certificates.Certificate9681
 
 public section
 

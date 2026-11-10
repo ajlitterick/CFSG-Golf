@@ -34,11 +34,6 @@ import CFSG.RankThree.PartOne.FOC.ListBridge
 import CFSG.RankThree.PartOne.FOC.PSUModel
 import CFSG.RankThree.PartOne.S11d.LayerDecomp
 import CFSG.RankThree.PartTwo.Census.Spin.Main
-import Certificates.Certificate8153
-import Certificates.Certificate8156
-import Certificates.Certificate8157
-import Certificates.Certificate8160
-import Certificates.Certificate8171
 
 public section
 

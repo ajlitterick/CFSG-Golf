@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.Lemma37.CoversLinear
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.Lemma37.CoversSuzuki
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.Lemma37.CoversUnitary
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.TheoremC.BorelHold
-public import Certificates.Certificate113
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.LieType.BorelTits.CompleteFlag
 public import CFSG.Walter.Defs

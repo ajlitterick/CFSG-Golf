@@ -3,10 +3,6 @@ module
 public import CFSG.LocalAnalysis.WeakClosure81.OddTranspListTriality
 public import CFSG.Open.StatedDefs
 public import CFSG.RankThree.PerfectCover.HopfCover
-public import Certificates.Certificate3006
-public import Certificates.Certificate3008
-public import Certificates.Certificate3009
-public import Certificates.Certificate12041
 import CFSG.LocalAnalysis.WeakClosure81.W18ASNineOrthBridge
 import CFSG.ClassicalGroups.Orthogonal.Matrix
 import CFSG.RankThree.PartOne.S11d.OrthModels

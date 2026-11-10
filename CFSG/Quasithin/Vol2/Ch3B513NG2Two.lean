@@ -8,9 +8,6 @@ public import CFSG.Quasithin.Background.B5Models
 public import CFSG.Quasithin.Background.SmithB51G2DExcl
 public import CFSG.Quasithin.Background.G64NatSec
 public import CFSG.Quasithin.Background.JonesParshallG2TwoH1
-public import Certificates.Certificate17028
-public import Certificates.Certificate8952
-public import Certificates.Certificate8953
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.Certificates.Kernel.LocalCompTits.Span
@@ -68,8 +65,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma
 public import CFSG.Timmesfeld.RankOne
 public import CFSG.Timmesfeld.Transvection.Statement
 public import CFSG.Walter.Defs
-public import Certificates.Certificate1
-public import Certificates.Certificate2
 public import Certificates.Data.CFSGNative.MonsterB.Rep4371Model
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1

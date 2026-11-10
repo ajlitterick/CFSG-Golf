@@ -5,11 +5,6 @@ public import CFSG.LieType.Steinberg.BruhatTwistBasic
 public import CFSG.LieType.Steinberg.BruhatWeyl
 import CFSG.LieType.Steinberg.PartBHalfSpace
 import Mathlib.Tactic.Group
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate115
-public import Certificates.Certificate116
-public import Certificates.Certificate123
 
 public noncomputable section
 

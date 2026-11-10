@@ -9,12 +9,6 @@ public import CFSG.CharacterTheory.Semidihedral.OddProjectiveCoverKernel
 public import CFSG.LocalAnalysis.ComponentInitial.LinearFlagOrder
 public import CFSG.Adapters.RankTwoModelTransports
 public import CFSG.CharacterTheory.Semidihedral.GL2Recognition.M11Order
-public import Certificates.Certificate110
-public import Certificates.Certificate8080
-public import Certificates.Certificate8081
-public import Certificates.Certificate17002
-public import Certificates.Certificate17951
-public import Certificates.Certificate19953
 import CFSG.Adapters.QiuzhenLegacy.BenderSuzuki.BenderLinearBorel
 import CFSG.Adapters.QiuzhenLegacy.BenderSuzuki.BenderSuzukiBorel
 public import CFSG.CharacterTheory.Semidihedral.ElementStructure

@@ -134,7 +134,6 @@ public import CFSG.RankThree.PartTwo.Sec19.Item194Used
 public import CFSG.Sporadic.Bridge.Catalogue
 public import CFSG.Sporadic.SuzOddCore.GraphData
 public import CFSG.Sporadic.SuzOddCore.SmallActionData
-public import Certificates.Certificate9124
 
 public section
 

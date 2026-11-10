@@ -4,8 +4,6 @@ public import CFSG.Sporadic.HNSchreier.SchreierData
 public import CFSG.Sporadic.HNSchreier.SepCheck
 public import CFSG.Sporadic.HNSchreier.Algebra
 public import CFSG.Certificates.Kernel.StabChainBot
-public import Certificates.Certificate2102
-public import Certificates.Certificate2107
 import Mathlib.Tactic.IntervalCases
 
 public noncomputable section

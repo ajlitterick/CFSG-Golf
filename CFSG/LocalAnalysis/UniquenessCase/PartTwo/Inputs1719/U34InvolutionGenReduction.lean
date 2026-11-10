@@ -42,13 +42,6 @@ import CFSG.StronglyEmbedded.ParityCriterion
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_1_12
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 import CFSG.Walter.Defs
-import Certificates.Certificate1
-import Certificates.Certificate10019
-import Certificates.Certificate10019Base
-import Certificates.Certificate2
-import Certificates.Certificate2201
-import Certificates.Certificate2202
-import Certificates.Certificate3139
 
 public section
 

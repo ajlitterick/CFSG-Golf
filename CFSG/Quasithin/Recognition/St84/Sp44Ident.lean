@@ -9,8 +9,6 @@ public import CFSG.Quasithin.Vol2.GoldschmidtF431SpModel
 public import CFSG.Quasithin.Vol2.GoldschmidtF431SpBorel
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_7FinSp4
 public import CFSG.Quasithin.Background.F1AmalgamRestrict
-public import Certificates.Certificate113
-public import Certificates.Certificate320030
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115EvenLie
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.EvenClassical
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.ExceptionalCat

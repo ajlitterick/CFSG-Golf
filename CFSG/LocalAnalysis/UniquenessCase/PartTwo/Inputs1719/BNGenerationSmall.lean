@@ -4,9 +4,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.BNGenerationO
 public import CFSG.LocalAnalysis.UniquenessCase.UC22Defs
 public import CFSG.Quasithin.EmptyFaithful.SBd8Trio
 public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
-public import Certificates.Certificate19953
-public import Certificates.Certificate8080
-public import Certificates.Certificate8081
 import CFSG.Quasithin.EmptyFaithful.SBd8SmallA6
 import CFSG.Quasithin.EmptyFaithful.SBd8SmallU33
 import CFSG.Quasithin.EmptyFaithful.SzN22Rig

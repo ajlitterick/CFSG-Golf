@@ -3,15 +3,6 @@ module
 public import CFSG.YGroups.Y443.EdgeIntersection
 public import CFSG.YGroups.Y443.Tri.Parabolic2
 public import CFSG.YGroups.DCE.B433Y333Check
-public import Certificates.Certificate10093
-public import Certificates.Certificate10095
-public import Certificates.Certificate10098
-public import Certificates.Certificate10100
-public import Certificates.Certificate10101
-public import Certificates.Certificate10102
-public import Certificates.Certificate10103
-public import Certificates.Certificate10104
-public import Certificates.Certificate9355
 
 public section
 

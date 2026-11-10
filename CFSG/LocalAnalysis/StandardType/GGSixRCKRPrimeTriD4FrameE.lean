@@ -16,8 +16,6 @@ public import CFSG.RankThree.PartOne.KE.E8D4Family
 public import CFSG.RankThree.PartOne.KE.SigmaPerX
 public import CFSG.RankThree.PartOne.KE.ThreeA1Group
 public import CFSG.RankThree.PartOne.KGD.D4Frame
-public import Certificates.Certificate1953
-public import Certificates.Certificate1954
 
 public section
 

@@ -27,9 +27,6 @@ import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedGraphSymm
 import CFSG.Quasithin.Vol2.KGFactC31RuRef
 import CFSG.Quasithin.Vol2.KGFactC31RuRefBase
 import CFSG.Walter.J1Recog
-import Certificates.Certificate10025
-import Certificates.Certificate5007
-import Certificates.Certificate7233Base
 
 public section
 

@@ -1,8 +1,5 @@
 module
 
-public import Certificates.Certificate13605
-public import Certificates.Certificate13721
-public import Certificates.Certificate13723
 public import CFSG.LocalAnalysis.StandardType.GGTBJE8LeviEnnola
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUE7
 public import CFSG.HardMathSupport.Meierfrankenfeld.Proving.E7Curtis.E7Arith

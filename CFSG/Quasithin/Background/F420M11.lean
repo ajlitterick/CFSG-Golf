@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.Background.F420Basic
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_6Out
-public import Certificates.Certificate110
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.Background.HA7Pair
 public import CFSG.Quasithin.Background.HSp4Alpha
-public import Certificates.Certificate7022
 
 public section
 

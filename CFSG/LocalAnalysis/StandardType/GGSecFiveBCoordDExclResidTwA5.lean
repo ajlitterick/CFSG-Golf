@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordDExclWeyl
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordDExclCensus
 public import CFSG.LocalAnalysis.StandardType.GGTwA5ThreeFrame
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 
 public section
 

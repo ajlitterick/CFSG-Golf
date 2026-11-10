@@ -4,11 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherExcTwF4EightCore
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherExcTwF4Row
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherExcTwF4WeylThree
 public import CFSG.LieType.Ree.ReeHolds
-public import Certificates.Certificate117
-public import Certificates.Certificate2264
-public import Certificates.Certificate2267
-public import Certificates.Certificate8033
-public import Certificates.Certificate10009
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFixGapTwF4
 import CFSG.LieType.Multipliers.Tits
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.CenterHopf

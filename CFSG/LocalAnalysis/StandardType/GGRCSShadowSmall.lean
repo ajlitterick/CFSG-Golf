@@ -8,7 +8,6 @@ public import CFSG.GroupTheory.OrderBelowSixtySolvable
 public import CFSG.Timmesfeld.Orders.Classical
 public import CFSG.HardMathSupport.Solomon.Coordinator.I22_4Glue
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.I294KDOutTwE6
-public import Certificates.Certificate9530
 
 public section
 

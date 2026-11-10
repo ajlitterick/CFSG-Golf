@@ -4,15 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGKG87BRadDefs
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaOutdiag
 public import CFSG.LocalAnalysis.StandardType.GGLFourFourThreeMarking
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24D4T2Plumb
-public import Certificates.Certificate76
-public import Certificates.Certificate77
-public import Certificates.Certificate115
-public import Certificates.Certificate116
-public import Certificates.Certificate117
-public import Certificates.Certificate118
-public import Certificates.Certificate122
-public import Certificates.Certificate123
-public import Certificates.Certificate13657
 import CFSG.LocalAnalysis.StandardType.GGKG87BFieldForm
 import CFSG.LocalAnalysis.StandardType.GGKG87BWeyl
 import CFSG.LocalAnalysis.StandardType.GGKG87BTransvection
@@ -95,8 +86,6 @@ public import CFSG.Quasithin.Vol2.Ch3Sec3Lem3324X
 public import CFSG.Quasithin.Vol2.Ch3Sec3Lem3329
 public import CFSG.Quasithin.Vol2.Ch3Sec3Lem3330
 public import CFSG.RankThree.Chevalley.SteinbergCFEvenF4PointwiseInner
-public import Certificates.Certificate10050
-public import Certificates.Certificate8117
 import CFSG.LocalAnalysis.GLTheoremA.S10.Inputs
 import CFSG.LocalAnalysis.GLTheoremA.S10.Inputs105
 import CFSG.LocalAnalysis.GLTheoremA.S3.Inputs

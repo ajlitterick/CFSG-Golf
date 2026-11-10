@@ -2,8 +2,6 @@ module
 
 public import CFSG.LieType.Chevalley.RootOps.Family
 public import CFSG.LieType.Chevalley.NativeHolds
-public import Certificates.Certificate113
-public import Certificates.Certificate114
 
 public section
 

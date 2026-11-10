@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldDefs
-public import Certificates.Certificate113
 public import CFSG.Blueprint.Catalog
 import CFSG.LocalAnalysis.StandardType.MarkingSmall
 import CFSG.RankThree.PartTwo.KFacts.AutSz

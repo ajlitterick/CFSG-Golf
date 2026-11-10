@@ -31,7 +31,6 @@ public import CFSG.Quasithin.Vol2.Ch1Sec3E9Inputs
 public import CFSG.Sporadic.Co2Smith.Defs
 public import CFSG.Sporadic.Recognition.LyonsSimsEndgame
 public import CFSG.Sporadic.Schreier.LyFixedSet
-public import Certificates.Certificate2323
 
 public section
 

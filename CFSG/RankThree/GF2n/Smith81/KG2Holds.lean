@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.GF2n.Smith81.KG2Transport
-public import Certificates.Certificate3951
 public import CFSG.RankThree.GF2n.Smith81.LinSmallInspect
 import CFSG.Fischer.Pairs
 import CFSG.LieType.Chevalley.ExceptionalG2F4ModelSchreier
@@ -66,11 +65,6 @@ public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
 public import CFSG.Sporadic.Th.Max3.Involutions
-public import Certificates.Certificate10007
-public import Certificates.Certificate10008
-public import Certificates.Certificate10089Base
-public import Certificates.Certificate10091Base
-public import Certificates.Certificate19953
 
 public section
 

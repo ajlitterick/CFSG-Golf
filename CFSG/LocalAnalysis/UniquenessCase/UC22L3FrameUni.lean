@@ -8,7 +8,6 @@ import CFSG.LocalAnalysis.UniquenessCase.UC22L3UniRho
 import CFSG.LocalAnalysis.UniquenessCase.UC22L3UniUnipotent
 import CFSG.LocalAnalysis.UniquenessCase.UC22L3UniLinear
 import CFSG.GH74.KGroups.L3EpsUni
-public import Certificates.Certificate43
 
 public section
 

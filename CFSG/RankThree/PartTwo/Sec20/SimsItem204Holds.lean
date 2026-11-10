@@ -33,9 +33,6 @@ public import CFSG.RankThree.PartTwo.Sec18.Item189QProof
 import CFSG.RankThree.PartTwo.Sec18.Item189StepProofO3
 import CFSG.RankThree.PartTwo.Sec18.Item189StepProofO2Direct
 import CFSG.RankThree.PartTwo.Sec18.Item189StepInspectI
-import Certificates.Certificate43
-import Certificates.Certificate3119
-public import Certificates.Certificate310101
 import CFSG.RankThree.PartTwo.Sec18.Item189StepInspectIJ1
 import CFSG.RankThree.PartTwo.Sec18.Item189StepInspectIL2Even
 import CFSG.RankThree.PartTwo.Sec18.Item189StepInspectIL2Odd
@@ -289,7 +286,6 @@ public import CFSG.RankThree.PartTwo.Sec8.Item812Res12ProofTools
 public import CFSG.RankThree.PartTwo.Sec8.Item8KFacts3ProofE27
 public import CFSG.RankThree.PartTwo.Sec8.Standing
 public import CFSG.SignalizerFunctorTheorem.CatalogBridge.FixedFieldCard
-public import Certificates.Certificate14950
 public import Certificates.Kernel.J4Count.Prim
 import CFSG.Assembly.CompletedOddCoreElimination
 import CFSG.CGT.Foote81L6.TStruct.DihSub
@@ -316,7 +312,6 @@ import CFSG.LocalAnalysis.ComponentClassification.GrSLitGWBridge
 import CFSG.LocalAnalysis.ComponentClassification.GrSLitWGroup
 import CFSG.LocalAnalysis.UniquenessCase.UCK461
 import CFSG.LocalAnalysis.UniquenessCase.UCKInputs2
-import Certificates.Certificate5007
 
 public section
 

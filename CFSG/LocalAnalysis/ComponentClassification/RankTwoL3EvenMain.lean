@@ -10,8 +10,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.KProperSubgroup
 public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.Walter.PSL2Facts.Even
 public import CFSG.LieType.Ree.SuzukiOrder
-public import Certificates.Certificate43
-public import Certificates.Certificate113
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherToolkitBenderAutLinear
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherToolkitBenderSuzuki
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherToolkitBenderUnitary
@@ -43,8 +41,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalReflectionSplitting
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalStandardFormsRegular
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherAntiunitaryDescent
 public import CFSG.RankThree.PartOne.S11d.OutLinear
-public import Certificates.Certificate1
-public import Certificates.Certificate2
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalGroup.LowRank

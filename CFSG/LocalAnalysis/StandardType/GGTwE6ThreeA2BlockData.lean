@@ -27,8 +27,6 @@ public import CFSG.RankThree.PartOne.KE.ThreeA1Group
 public import CFSG.RankThree.PartOne.KLCE.Sector
 public import CFSG.RankThree.PartOne.KLR.SL2Gen
 public import CFSG.RankThree.PartOne.SLB4A.ClassExcRest
-public import Certificates.Certificate1953
-public import Certificates.Certificate1954
 
 public noncomputable section
 

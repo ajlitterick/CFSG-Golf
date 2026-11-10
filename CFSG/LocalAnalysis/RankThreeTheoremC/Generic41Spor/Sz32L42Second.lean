@@ -46,12 +46,6 @@ public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.PointConfig
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.TitsGen
 public import CFSG.Perm.ChainSpec
 public import CFSG.RankThree.PartOne.CTP.StrongPSylow
-public import Certificates.Certificate2265
-public import Certificates.Certificate2266
-public import Certificates.Certificate2267
-public import Certificates.Certificate2269
-public import Certificates.Certificate3951
-public import Certificates.Certificate8033
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionDenominatorSuzukiFamilyNormalizer
-public import Certificates.Certificate43
 
 public noncomputable section
 

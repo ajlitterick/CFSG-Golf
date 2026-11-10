@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24LineLang
-public import Certificates.Certificate13657
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24CentreKac
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24CentrePerm
 import CFSG.LocalAnalysis.GLTheoremA.CatA.KD147cMat
@@ -75,8 +74,6 @@ public import CFSG.Quasithin.Vol2.Ch3Sec3Lem3324X
 public import CFSG.Quasithin.Vol2.Ch3Sec3Lem3329
 public import CFSG.Quasithin.Vol2.Ch3Sec3Lem3330
 public import CFSG.RankThree.Chevalley.SteinbergCFEvenF4PointwiseInner
-public import Certificates.Certificate10050
-public import Certificates.Certificate8117
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24CentreLang
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.KacDAll
 

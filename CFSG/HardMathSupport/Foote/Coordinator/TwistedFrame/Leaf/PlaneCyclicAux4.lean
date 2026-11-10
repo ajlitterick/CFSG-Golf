@@ -32,8 +32,6 @@ public import CFSG.RankThree.PartOne.KLCE.Sector
 public import CFSG.RankThree.PartOne.S9.Sylow.ExclusionBasic
 public import CFSG.RankThree.PartOne.TCX.E.D4Triality
 public import CFSG.RankThree.Theta.ThreeComponentOrbitCover
-public import Certificates.Certificate1953
-public import Certificates.Certificate1954
 
 public noncomputable section
 

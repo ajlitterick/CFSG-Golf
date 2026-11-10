@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.FS81.RootE8Defs
 public import CFSG.LocalAnalysis.StandardType.FS81.S7BetaCentGrp
 public import CFSG.LocalAnalysis.StandardType.FS81.S7CentDefs
 public import CFSG.LocalAnalysis.StandardType.FS81.S7E7Incl
-public import Certificates.Certificate8064
 import CFSG.LocalAnalysis.StandardType.FS81.RootE8A
 import CFSG.LocalAnalysis.StandardType.FS81.S7AutAt
 import CFSG.LocalAnalysis.StandardType.FS81.S7BetaACent

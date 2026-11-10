@@ -353,16 +353,6 @@ public import CFSG.LocalAnalysis.StandardType.GGLieCoreE6NonToral
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreStruct
 public import CFSG.Blueprint.Catalog
 public import CFSG.LocalAnalysis.StandardType.GGLieCorePlane3Defs
-public import Certificates.Certificate9440
-public import Certificates.Certificate9441
-public import Certificates.Certificate9442
-public import Certificates.Certificate9443
-public import Certificates.Certificate9550
-public import Certificates.Certificate9551
-public import Certificates.Certificate9552
-public import Certificates.Certificate465001
-public import Certificates.Certificate465002
-public import Certificates.Certificate465003
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalResidualDefs
 public import CFSG.LocalAnalysis.StandardType.GGB36Defs

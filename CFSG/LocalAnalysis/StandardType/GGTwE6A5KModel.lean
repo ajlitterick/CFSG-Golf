@@ -23,7 +23,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeNbrKnownDefs
 public import CFSG.RankThree.Classical2.SLnRootAutomorphism
 public import CFSG.RankThree.PartTwo.Sec11.KS11Lie4ProofSL2
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24ConnGenActs
-public import Certificates.Certificate13657
 import CFSG.ClassicalGroups.Unitary.Finite
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24CentreStab
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24ConnGenUni
@@ -112,8 +111,6 @@ public import CFSG.Quasithin.Vol2.Ch3Sec3Lem3324X
 public import CFSG.Quasithin.Vol2.Ch3Sec3Lem3329
 public import CFSG.Quasithin.Vol2.Ch3Sec3Lem3330
 public import CFSG.RankThree.PartOne.KLR.SL2Gen
-public import Certificates.Certificate10050
-public import Certificates.Certificate8117
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165ExcTwE6One14
 
 public section

@@ -22,8 +22,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1WeylE
 public import CFSG.LocalAnalysis.StandardType.GGStdSubExist
 public import CFSG.LocalAnalysis.StandardType.GGCoxReflConv
 public import CFSG.LocalAnalysis.StandardType.GGFrameE78Facts
-public import Certificates.Certificate1952
-public import Certificates.Certificate709590
 public import CFSG.LocalAnalysis.StandardType.GGTorusMaxThreaded
 import CFSG.LocalAnalysis.StandardType.GGFrameTBHolds
 import CFSG.LocalAnalysis.StandardType.GGTorusMaxOverProof

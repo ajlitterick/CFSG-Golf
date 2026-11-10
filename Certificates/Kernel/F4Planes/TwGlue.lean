@@ -9,7 +9,6 @@ import all CFSG.LieType.SeitzGeneration.ExcHighThree.TwE6TwoBase
 public import CFSG.Sporadic.ThSchreier.GlobalData
 public import CFSG.LieType.SeitzGeneration.ExcHighThree.E6Two
 public import CFSG.Sporadic.ThSchreier.LocalOrbitBase1
-public import Certificates.Certificate14949Base
 
 public section
 

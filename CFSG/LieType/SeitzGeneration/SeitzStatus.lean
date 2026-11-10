@@ -75,8 +75,6 @@ public import CFSG.RankThree.PartTwo.Sec19.SeitzTrialityFinal
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.F4Phi3
 public import CFSG.HardMathSupport.Foote.Coordinator.TwistedFrame.Final
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.E8Phi5
-public import Certificates.Certificate452201
-public import Certificates.Certificate18004
 public import CFSG.LieType.SeitzGeneration.ExcHigh.E8FiveFourFrame
 import CFSG.LieType.SeitzGeneration.ExcHighThree.TwE6InF4ZHolds
 import CFSG.LieType.SeitzGeneration.ExcWideThree.TwE6RegularOpen
@@ -208,9 +206,6 @@ public import CFSG.RankThree.S4Free.SuzukiEight
 public import CFSG.SignalizerFunctorTheorem.CatalogBridge.NormalFormStabilizer
 public import CFSG.SignalizerFunctorTheorem.CatalogBridge.StabilizerLift
 public import CFSG.Sporadic.J4.QT2LocProof
-public import Certificates.Certificate17002
-public import Certificates.Certificate17951
-public import Certificates.Certificate8166
 import CFSG.LieType.SeitzGeneration.ExcWideThree.TwE6RegularCentralizer
 import Certificates.Data.E6DiagRegular
 

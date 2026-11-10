@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalRk2LU4Weyl
 public import CFSG.ClassicalGroups.UnitaryFlag.GroupData
 public import CFSG.RankThree.PartOne.K1214.SylowShape
 public import CFSG.LieType.Ree.FixedSubgroupData
-public import Certificates.Certificate117
 import CFSG.LocalAnalysis.StandardType.GGTwF4SUThree
 import CFSG.RankThree.PartOne.K128.ReeShape
 import CFSG.RankThree.PartOne.SEITZ3.PlaneCount

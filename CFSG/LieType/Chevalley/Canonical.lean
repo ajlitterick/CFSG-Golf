@@ -3,8 +3,6 @@ module
 public import CFSG.LieType.Chevalley.Braid
 public import CFSG.LieType.RootSystem.Basic
 public import TauCeti.GroupTheory.Coxeter.Matsumoto
-public import Certificates.Certificate113
-public import Certificates.Certificate114
 
 public section
 

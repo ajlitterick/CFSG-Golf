@@ -4,23 +4,6 @@ public import CFSG.Monster.B.TwoA.Sp8.Par1
 public import CFSG.Monster.B.Short.InvolutionCentralizer
 public import CFSG.Monster.B.Cbar.LocalStructure
 public import CFSG.Monster.B.Recog.GenericParity
-public import Certificates.Certificate3014
-public import Certificates.Certificate3017
-public import Certificates.Certificate3019
-public import Certificates.Certificate3025
-public import Certificates.Certificate3026
-public import Certificates.Certificate3028
-public import Certificates.Certificate3041
-public import Certificates.Certificate3042
-public import Certificates.Certificate3057
-public import Certificates.Certificate3058
-public import Certificates.Certificate3060
-public import Certificates.Certificate3061
-public import Certificates.Certificate3062
-public import Certificates.Certificate3175
-public import Certificates.Certificate16016
-public import Certificates.Certificate16022
-public import Certificates.Certificate16951
 
 public noncomputable section
 

@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGCentDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveL1CitedDefs
-public import Certificates.Certificate2264
-public import Certificates.Certificate2267
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosHolds
 import CFSG.LocalAnalysis.StandardType.GGStdPosLocalConj
 

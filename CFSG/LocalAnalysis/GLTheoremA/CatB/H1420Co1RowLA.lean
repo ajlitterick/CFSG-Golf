@@ -40,13 +40,6 @@ public import CFSG.RankThree.PartTwo.Sec17.RouteProvers142
 public import CFSG.RankThree.PartTwo.Sec6.Statements
 public import CFSG.RankThree.S4Free.SuzukiEight
 public import CFSG.Sporadic.HeldB.Common
-public import Certificates.Certificate14953
-public import Certificates.Certificate7233Base
-public import Certificates.Certificate8137
-public import Certificates.Certificate8138
-public import Certificates.Certificate8140
-public import Certificates.Certificate8141
-public import Certificates.Certificate8166
 import CFSG.GH74.KGroups.L34Aut
 import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabCo1ThreeAFinal
 import CFSG.HardMathSupport.Solomon.Coordinator.B3Spor3All

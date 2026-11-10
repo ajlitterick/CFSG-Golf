@@ -104,7 +104,6 @@ public import CFSG.Sporadic.Schreier.J1QT
 public import CFSG.Sporadic.Schreier.MathieuOddCoreModel
 public import CFSG.Sporadic.Schreier.TitsOther
 public import CFSG.YGroups.DCE.B433Check
-public import Certificates.Certificate9124
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis

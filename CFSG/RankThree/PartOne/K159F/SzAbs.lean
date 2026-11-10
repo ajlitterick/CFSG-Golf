@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
 public import CFSG.RankThree.PartOne.CTP.SeitzExcModels
 public import CFSG.LieType.Suzuki.SuzukiOuterCyclic
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ElementaryAbelian
-public import Certificates.Certificate113
 import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.Assembly.OrderReductions.InvertedSubgroup
 public import CFSG.Assembly.OrderReductions.OddInversion

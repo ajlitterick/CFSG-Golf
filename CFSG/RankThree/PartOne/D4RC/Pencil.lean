@@ -6,7 +6,6 @@ public import CFSG.Timmesfeld.ARS.LinearMain
 public import CFSG.Timmesfeld.ARS.Sec8Projection
 public import CFSG.Timmesfeld.RankOne
 public import CFSG.Timmesfeld.Special.TwoCore
-public import Certificates.Certificate43
 
 public noncomputable section
 

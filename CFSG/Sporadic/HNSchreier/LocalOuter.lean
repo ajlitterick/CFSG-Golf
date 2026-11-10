@@ -5,7 +5,6 @@ public import CFSG.Sporadic.HNSchreier.LocalCheck
 public import CFSG.Sporadic.HNSchreier.StrongSpec
 public import CFSG.Sporadic.HNSchreier.MaskSpec
 public import CFSG.Sporadic.HN.Local.AltAbstract
-public import Certificates.Certificate2100
 
 public noncomputable section
 

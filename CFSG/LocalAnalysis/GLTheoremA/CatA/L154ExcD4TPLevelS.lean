@@ -28,11 +28,6 @@ import CFSG.RankThree.Chevalley.SteinbergBID4CentralKernel
 import CFSG.RankThree.PartOne.KE.E8D4Family
 import CFSG.RankThree.PartOne.KE.SLnShape
 import CFSG.RankThree.PartOne.KE.ThreeA1Group
-import Certificates.Certificate10050
-import Certificates.Certificate13660
-import Certificates.Certificate1953
-import Certificates.Certificate1954
-import Certificates.Certificate8117
 
 public section
 

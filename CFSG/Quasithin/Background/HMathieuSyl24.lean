@@ -11,7 +11,6 @@ public meta import CFSG.Quasithin.Background.HMathieuAvoid
 public meta import CFSG.Quasithin.Background.HMathieuEnumAll
 public meta import CFSG.Monster.Code.Basis
 public import CFSG.Quasithin.Background.HMathieuSyl24Inputs
-public import Certificates.Certificate7074
 
 public section
 

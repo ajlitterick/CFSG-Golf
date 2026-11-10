@@ -106,8 +106,6 @@ public import CFSG.RankThree.PartTwo.Sec4.Item4Res6ProofSeitzRest
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434RowsProofSeitzSz
 public import CFSG.RankThree.PartTwo.Sec8.Item87Proof84
 public import CFSG.RankThree.S4Free.SuzukiEight
-public import Certificates.Certificate14953
-public import Certificates.Certificate8166
 
 public section
 

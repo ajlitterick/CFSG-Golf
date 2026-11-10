@@ -12,7 +12,6 @@ public import Certificates.Data.CFSGNative.Bridge.ONGPL
 public meta import Certificates.Data.CFSGNative.Bridge.ONGPL
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 public import CFSG.Sporadic.Presentation.ONanInputs
-public import Certificates.Certificate9217
 public import Certificates.Data.CFSGNative.ON.Certificate
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 

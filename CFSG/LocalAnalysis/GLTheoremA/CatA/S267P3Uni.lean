@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267P3UniModel
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267P3Iso
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 import CFSG.LocalAnalysis.QuasithinUnique.SQTK.UnitaryTauCeti
 import CFSG.LieType.Steinberg.CentralExt.PSUMultiplier
 import CFSG.LieType.Steinberg.CentralExt.SUOddClosed

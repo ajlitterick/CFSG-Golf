@@ -10,14 +10,6 @@ public import CFSG.Quasithin.Background.A3FactsRank
 public import CFSG.Quasithin.Background.G64ExtSq
 public import CFSG.LocalAnalysis.SectionRank.Framework.SylowRank
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.FamilyLinearBinary
-public import Certificates.Certificate8080
-public import Certificates.Certificate8081
-public import Certificates.Certificate17002
-public import Certificates.Certificate17028
-public import Certificates.Certificate17951
-public import Certificates.Certificate8952
-public import Certificates.Certificate8953
-public import Certificates.Certificate19953
 public import CFSG.Assembly.OrderReductions.InvertedSubgroup
 public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CGT.Timmesfeld75.L2Pair

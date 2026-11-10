@@ -1,12 +1,6 @@
 module
 
 public import CFSG.Fischer.Uniq.F23Uniq
-public import Certificates.Certificate1001
-public import Certificates.Certificate1002
-public import Certificates.Certificate1003
-public import Certificates.Certificate1004
-public import Certificates.Certificate1005
-public import Certificates.Certificate1009
 public import CFSG.Fischer.Polar.Lines
 
 public section

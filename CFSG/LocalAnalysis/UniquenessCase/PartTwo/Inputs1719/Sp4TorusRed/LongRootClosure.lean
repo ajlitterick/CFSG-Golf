@@ -92,7 +92,6 @@ public import CFSG.StronglyEmbedded.ParityCriterion
 public import CFSG.Walter.J1
 public import CFSG.Walter.JRFacts
 public import CFSG.Walter.PSL2Facts
-public import Certificates.Certificate8026Base
 
 public section
 

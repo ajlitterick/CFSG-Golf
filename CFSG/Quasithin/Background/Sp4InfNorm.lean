@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.Background.Sp4InfDer
 public import CFSG.Quasithin.Background.HSp4Pair
-public import Certificates.Certificate8068
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setting
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.LayerNilp
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.LayerQuad

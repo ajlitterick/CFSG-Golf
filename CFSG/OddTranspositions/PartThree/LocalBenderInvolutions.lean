@@ -12,8 +12,6 @@ public import CFSG.Adapters.QiuzhenLegacy.BenderSuzuki.Models
 import CFSG.OddTranspositions.O4PairTenWidth
 import CFSG.OddTranspositions.Width
 import CFSG.Walter.Defs
-import Certificates.Certificate1
-import Certificates.Certificate2
 
 public section
 

@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4LabelPieces
-public import Certificates.Certificate2012
-public import Certificates.Certificate8064
-public import Certificates.Certificate26122
 import CFSG.Adapters.LieModelSimple
 import CFSG.LocalAnalysis.EvenSporadicStandard.M22Std.OutU42Aut
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThreeThreeTransvU42

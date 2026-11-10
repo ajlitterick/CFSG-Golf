@@ -33,7 +33,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSp4OutCard
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverModels
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenCanonicalField
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19IdentLieAlt
-public import Certificates.Certificate10025
 
 public section
 

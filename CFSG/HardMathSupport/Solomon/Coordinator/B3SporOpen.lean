@@ -211,16 +211,6 @@ public import CFSG.Sporadic.Recognition.LyonsAmalgamModelYAut
 public import CFSG.Sporadic.Recognition.LyonsFinalDist2
 public import CFSG.Sporadic.Schreier.J4SNoCompCover
 public import CFSG.Sporadic.Suz
-public import Certificates.Certificate131101Base
-public import Certificates.Certificate13620Base
-public import Certificates.Certificate13622Base
-public import Certificates.Certificate8137
-public import Certificates.Certificate8138
-public import Certificates.Certificate8140
-public import Certificates.Certificate8141
-public import Certificates.Certificate8145
-public import Certificates.Certificate8146
-public import Certificates.Certificate8160
 
 public section
 

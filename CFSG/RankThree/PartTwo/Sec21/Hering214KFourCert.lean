@@ -13,8 +13,6 @@ public import CFSG.RankThree.PartTwo.Sec21.Item21Early3ProofExists
 public import CFSG.RankThree.PartTwo.Sec4.LThreePiSLOn
 public import CFSG.RankThree.PartTwo.Sec7.ThreeTranspositions
 public import CFSG.RankThree.PartTwo.Sec8.Pairs
-public import Certificates.Certificate3084
-public import Certificates.Certificate3169
 
 public section
 

@@ -7,7 +7,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfE6Toral
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfE7Three
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfE8Three
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfE7E8Five
-public import Certificates.Certificate1952
 
 public section
 

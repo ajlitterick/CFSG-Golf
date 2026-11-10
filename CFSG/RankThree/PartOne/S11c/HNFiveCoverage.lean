@@ -30,31 +30,6 @@ public import CFSG.Sporadic.ThSchreier.GlobalIndexBase
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Basic
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
-public import Certificates.Certificate10090
-public import Certificates.Certificate10090Base
-public import Certificates.Certificate1021
-public import Certificates.Certificate2051
-public import Certificates.Certificate2053
-public import Certificates.Certificate2056
-public import Certificates.Certificate2057
-public import Certificates.Certificate2058
-public import Certificates.Certificate2130
-public import Certificates.Certificate2135
-public import Certificates.Certificate2136
-public import Certificates.Certificate2139
-public import Certificates.Certificate2140
-public import Certificates.Certificate2145
-public import Certificates.Certificate2309
-public import Certificates.Certificate2311
-public import Certificates.Certificate2313
-public import Certificates.Certificate2314
-public import Certificates.Certificate2315
-public import Certificates.Certificate2317
-public import Certificates.Certificate2323
-public import Certificates.Certificate2324
-public import Certificates.Certificate2325
-public import Certificates.Certificate3085
-public import Certificates.Certificate3085Base
 
 public section
 

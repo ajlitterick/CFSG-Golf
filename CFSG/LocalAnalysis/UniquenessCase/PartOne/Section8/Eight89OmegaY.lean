@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight89Defs
-public import Certificates.Certificate2233
-public import Certificates.Certificate2234
-public import Certificates.Certificate2235
-public import Certificates.Certificate3139
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight89Basic
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.OuterJ2
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight8xK85
@@ -26,7 +22,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.UC22P2214a
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront08Use
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront78Nar
 public import CFSG.RankThree.OddKernel.CentralCoverComponentModels
-public import Certificates.Certificate2233Base
 import CFSG.CGT.PushingUp.BenderBridge
 import CFSG.CGT.PushingUp.BlockOrder
 import CFSG.CGT.PushingUpLit.BHS.SymNatOrbitsSL

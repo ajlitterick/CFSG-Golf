@@ -3,14 +3,6 @@ module
 public import CFSG.Quasithin.Background.B5FinG2U33
 public import CFSG.Quasithin.Background.JonesParshallG2Field
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L238BridgeAlt57G2Eq
-public import Certificates.Certificate8080
-public import Certificates.Certificate8081
-public import Certificates.Certificate17002
-public import Certificates.Certificate17028
-public import Certificates.Certificate17951
-public import Certificates.Certificate8952
-public import Certificates.Certificate8953
-public import Certificates.Certificate19953
 public import CFSG.Foundations
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L238BridgeAlt57ModelBasic

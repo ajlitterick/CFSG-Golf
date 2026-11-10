@@ -11,16 +11,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSp4Sec8
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSp4F2
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSp4Sec8L2Inv
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSp4Layer
-public import Certificates.Certificate43
-public import Certificates.Certificate2006
-public import Certificates.Certificate2007
-public import Certificates.Certificate2008
-public import Certificates.Certificate2009
-public import Certificates.Certificate2012
-public import Certificates.Certificate2013
-public import Certificates.Certificate2014
-public import Certificates.Certificate2015
-public import Certificates.Certificate5108
 public import CFSG.LieType.Universal.SpinOmega.Range
 public import CFSG.LocalAnalysis.ComponentClassification.AutL2FactsCentModel
 

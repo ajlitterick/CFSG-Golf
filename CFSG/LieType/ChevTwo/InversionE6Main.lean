@@ -3,14 +3,6 @@ module
 public import CFSG.LieType.ChevTwo.InversionE6
 public import CFSG.LieType.ChevTwo.InversionCases
 public import CFSG.LieType.Chevalley.ExactNormalFormE
-public import Certificates.Certificate76
-public import Certificates.Certificate77
-public import Certificates.Certificate115
-public import Certificates.Certificate116
-public import Certificates.Certificate118
-public import Certificates.Certificate122
-public import Certificates.Certificate123
-public import Certificates.Certificate3951
 import CFSG.LieType.ChevTwo.InversionKlein
 import CFSG.LieType.ChevTwo.InversionFamilies
 import CFSG.LieType.Chevalley.EvenQuadraticGraphFieldDescent

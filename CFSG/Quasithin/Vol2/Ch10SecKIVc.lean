@@ -2,8 +2,6 @@ module
 
 public import CFSG.Quasithin.Vol2.Ch10SecKIVb
 public import CFSG.Quasithin.Background.A312SporJ1
-public import Certificates.Certificate3119
-public import Certificates.Certificate7124
 public import CFSG.Quasithin.Vol2.Ch10SecKITa
 public import CFSG.Quasithin.Vol2.Ch10SecKRefA312
 public import CFSG.StronglyEmbedded.MatrixGroups.PSL2

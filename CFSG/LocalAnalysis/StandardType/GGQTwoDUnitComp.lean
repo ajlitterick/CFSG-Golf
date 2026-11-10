@@ -3,9 +3,6 @@ module
 public import CFSG.Assembly.LargeEvenDefs
 public import CFSG.ClassicalInvolution.Phan.Defs
 public import CFSG.Open.LocalVocabulary
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitCompA2
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitCompC1
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitCompC2

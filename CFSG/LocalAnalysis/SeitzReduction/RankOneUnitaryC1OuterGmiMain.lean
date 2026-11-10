@@ -67,8 +67,6 @@ public import CFSG.Sporadic.ThSchreier.KernelAutBase1
 public import CFSG.YGroups.DCE.MaximalB
 public import CFSG.YGroups.Y443.Native.Parabolic2CheckB
 public import CFSG.YGroups.Y443.Native.Parabolic2CheckW
-public import Certificates.Certificate1016Base
-public import Certificates.Certificate3085Base
 public import Certificates.Kernel.J4Count.Cent11Base
 public import Certificates.Kernel.J4Count.Fix11
 public import Certificates.Kernel.J4Count.KFactsBase

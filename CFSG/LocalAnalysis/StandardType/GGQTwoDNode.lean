@@ -72,7 +72,6 @@ import CFSG.Sporadic.HeldB.Common
 import CFSG.Sporadic.Recognition.JankoWongPSLNine
 import CFSG.Sporadic.Schreier.RuPair
 import CFSG.Sporadic.Schreier.RuSylow
-import Certificates.Certificate7233Base
 
 public section
 

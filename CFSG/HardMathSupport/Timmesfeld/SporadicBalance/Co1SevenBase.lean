@@ -6,8 +6,6 @@ public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co1FiveKit
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co3ThreeKit
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Reduction
 public import Certificates.Data.CFSGNative.Timmesfeld.Co1Seven
-public import Certificates.Certificate2043
-public import Certificates.Certificate3024
 
 public section
 

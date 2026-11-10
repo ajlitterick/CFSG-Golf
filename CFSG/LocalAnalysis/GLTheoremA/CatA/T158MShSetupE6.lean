@@ -42,9 +42,6 @@ public import CFSG.RankThree.PartTwo.Sec17.RouteProvers142
 public import CFSG.RankThree.PartTwo.Sec6.Statements
 public import CFSG.RankThree.S4Free.SuzukiEight
 public import CFSG.Sporadic.HeldB.Common
-public import Certificates.Certificate14953
-public import Certificates.Certificate7233Base
-public import Certificates.Certificate8166
 import CFSG.GH74.GLS.IVK.Proofs2.Lemma12hb
 import CFSG.GH74.GLS.IVK.Proofs2.Lemma13d
 import CFSG.GH74.GLS.IVK.Proofs2.Lemma13e
@@ -67,8 +64,6 @@ import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec2.Defs
 import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec2.Thm210Aux
 import CFSG.SignalizerFunctorTheorem.McBride.Prelim.Projection
 import CFSG.SignalizerFunctorTheorem.McBride.Prelim.SemisimpleFactors
-import Certificates.Certificate10050
-import Certificates.Certificate8117
 
 public section
 

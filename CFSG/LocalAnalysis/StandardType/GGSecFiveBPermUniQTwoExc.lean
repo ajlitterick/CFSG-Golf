@@ -3,17 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniQTwoExcDefs
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitDvdAct
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import Certificates.Certificate45
-public import Certificates.Certificate49
-public import Certificates.Certificate53
-public import Certificates.Certificate59
-public import Certificates.Certificate68
-public import Certificates.Certificate72
-public import Certificates.Certificate117
-public import Certificates.Certificate2264
-public import Certificates.Certificate2267
-public import Certificates.Certificate8033
-public import Certificates.Certificate8064
 import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitary
 import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim

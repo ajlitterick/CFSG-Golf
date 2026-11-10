@@ -9,7 +9,6 @@ public import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.UnitaryCentralCover
 public import CFSG.LieType.BorelTits.Suzuki
 public import CFSG.Adapters.ProjectiveSpecialLinear
-public import Certificates.Certificate113
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.Foundations
 public import CFSG.LieType.BorelTits.CompleteFlag

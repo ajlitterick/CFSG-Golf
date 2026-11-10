@@ -5,8 +5,6 @@ public import CFSG.RankThree.PartTwo.KFacts.K74Bloom
 public import CFSG.RankThree.PartTwo.KFacts.K74Normal
 public import CFSG.RankThree.PartTwo.KFacts.K74Irreducible
 public import CFSG.RankThree.PartTwo.KFacts.K74Plane
-public import Certificates.Certificate8171
-public import Certificates.Certificate8172
 
 public section
 

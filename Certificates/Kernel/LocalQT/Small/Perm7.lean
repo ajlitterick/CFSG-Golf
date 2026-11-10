@@ -17,7 +17,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L246C123Alt7Base
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X35Basic
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_2
 public import CFSG.Permutation.AlternatingAutomorphism.Conjugation
-public import Certificates.Certificate113
 
 set_option maxRecDepth 100000
 

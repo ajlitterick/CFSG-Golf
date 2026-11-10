@@ -31,7 +31,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.Compl
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
-public import Certificates.Certificate43
 
 public section
 

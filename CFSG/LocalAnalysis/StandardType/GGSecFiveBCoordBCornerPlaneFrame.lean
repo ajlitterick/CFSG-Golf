@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Certificate117
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCornerDenseDefs
 import CFSG.LocalAnalysis.ComponentInitial.BinarySymplecticSixCoverModel
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCornerModel

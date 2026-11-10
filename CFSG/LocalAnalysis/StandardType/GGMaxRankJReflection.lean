@@ -10,7 +10,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.BlockCentralQuotient
 public import CFSG.LocalAnalysis.ComponentInitial.EscapingNotAlternating
 import CFSG.RankThree.PartOne.K133H.WeylKey
 import CFSG.HardMathSupport.Timmesfeld.Steinberg.ThreeCharE8
-public import Certificates.Certificate13691
 import CFSG.LieType.AlgebraicGroups.ToralCentralizerIdentity
 
 public import CFSG.Alternating.Multipliers.OddKernel

@@ -30,8 +30,6 @@ public import CFSG.LocalAnalysis.GLTheoremB.Lemma99Inputs
 public import CFSG.Quasithin.Background.GoldschmidtRankOneFacts
 public import CFSG.Quasithin.H13.J4Order
 public import CFSG.RankThree.PartOne.KE.E8D4Family
-public import Certificates.Certificate1953
-public import Certificates.Certificate1954
 public import Certificates.Kernel.SporSch.Th.Plane2320
 
 public section

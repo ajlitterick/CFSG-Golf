@@ -39,7 +39,6 @@ public import CFSG.Sporadic.Suz.Setup
 public import CFSG.Sporadic.Suz.W64Spec
 public import CFSG.Sporadic.Th.Chain
 public import CFSG.Sporadic.ThSchreier.AutCore
-public import Certificates.Certificate10025
 public import Certificates.Kernel.SporSch.Th.Key2311
 public import Certificates.Kernel.SporSch.Th.Orb2315
 public import Certificates.Kernel.SporSch.Th.Plane2320

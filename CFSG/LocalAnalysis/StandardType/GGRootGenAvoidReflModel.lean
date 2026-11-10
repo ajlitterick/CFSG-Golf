@@ -18,20 +18,6 @@ public import CFSG.Walter.Bender1970.S2
 public import CFSG.Walter.Bender1970.S3.Basic
 public import CFSG.Walter.Bender1970.S3.Tools
 public import CFSG.Walter.PSL2Facts
-public import Certificates.Certificate100
-public import Certificates.Certificate101
-public import Certificates.Certificate102
-public import Certificates.Certificate103
-public import Certificates.Certificate104
-public import Certificates.Certificate105
-public import Certificates.Certificate106
-public import Certificates.Certificate107
-public import Certificates.Certificate108
-public import Certificates.Certificate109
-public import Certificates.Certificate96
-public import Certificates.Certificate97
-public import Certificates.Certificate98
-public import Certificates.Certificate99
 
 public section
 

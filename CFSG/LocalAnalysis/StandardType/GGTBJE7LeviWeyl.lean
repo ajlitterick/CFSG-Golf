@@ -36,8 +36,6 @@ public import CFSG.RankThree.PartOne.N143X.KF64WSimple
 public import CFSG.RankThree.PartOne.S11d.OutExceptional
 public import CFSG.RankThree.PartTwo.KFacts.KS14SzLie
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
-public import Certificates.Certificate1953
-public import Certificates.Certificate1954
 
 public section
 

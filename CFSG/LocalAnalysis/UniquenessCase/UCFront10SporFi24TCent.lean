@@ -15,7 +15,6 @@ public import CFSG.Monster.B.TwoA.Co2Inv.ConjCertBase
 public import CFSG.Monster.B.TwoA.Co2Inv.FrameCertBase
 public import CFSG.Monster.B.TwoA.Co2Inv.MrBase
 public import CFSG.Monster.B.TwoA.Par3.MainBase
-public import Certificates.Certificate3055Base
 
 public section
 

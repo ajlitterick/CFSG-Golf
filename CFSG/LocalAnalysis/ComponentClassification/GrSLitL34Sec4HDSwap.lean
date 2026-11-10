@@ -40,20 +40,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.Walter.Bender1970.S3.Setup
 public import CFSG.Walter.J1
 public import CFSG.Walter.JRFacts
-public import Certificates.Certificate3085Base
-public import Certificates.Certificate7000
-public import Certificates.Certificate7001
-public import Certificates.Certificate7002
-public import Certificates.Certificate7003
-public import Certificates.Certificate7004
-public import Certificates.Certificate7005
-public import Certificates.Certificate7006
-public import Certificates.Certificate7007
-public import Certificates.Certificate7008
-public import Certificates.Certificate7009
-public import Certificates.Certificate7010
-public import Certificates.Certificate7011
-public import Certificates.Certificate8052
 
 public section
 

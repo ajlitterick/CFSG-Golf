@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.S10D
-public import Certificates.Certificate17027
-public import Certificates.Certificate5952
 
 public section
 

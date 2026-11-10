@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LieType.Ree.Duality
-public import Certificates.Certificate113
-public import Certificates.Certificate114
 
 public noncomputable section
 

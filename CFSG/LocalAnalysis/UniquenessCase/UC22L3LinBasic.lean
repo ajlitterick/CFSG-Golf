@@ -12,8 +12,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalSix
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherScalarSquareSplit
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 import CFSG.Walter.Defs
-import Certificates.Certificate1
-import Certificates.Certificate2
 
 public section
 

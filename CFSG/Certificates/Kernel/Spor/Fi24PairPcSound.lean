@@ -5,7 +5,6 @@ public import CFSG.Certificates.Kernel.Common.PcPrimes
 public import CFSG.Sporadic.Fi24.Simple
 public import CFSG.Sporadic.Fi24.Faithful
 public import CFSG.Sporadic.Fi24.SepSpec
-public import Certificates.Certificate1016Base
 
 public section
 

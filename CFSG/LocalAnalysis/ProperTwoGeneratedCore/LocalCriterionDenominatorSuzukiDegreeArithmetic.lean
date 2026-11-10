@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionDenominatorSuzukiHall
-public import Certificates.Certificate43
 
 public noncomputable section
 

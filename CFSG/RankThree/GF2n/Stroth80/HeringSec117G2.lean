@@ -43,12 +43,6 @@ public import CFSG.SignalizerFunctorTheorem.McBride.Prelim.Basic
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
 public import CFSG.Sporadic.Presentation.Common
 public import CFSG.Timmesfeld.RankOne
-public import Certificates.Certificate12044
-public import Certificates.Certificate12045
-public import Certificates.Certificate2154
-public import Certificates.Certificate2157
-public import Certificates.Certificate3008
-public import Certificates.Certificate9130
 
 public section
 

@@ -6,29 +6,6 @@ public import CFSG.Sporadic.Co2Schreier.OddCore
 public import CFSG.Sporadic.HNOddCore.Fusion
 public import CFSG.Sporadic.HNOddCore.ThreeInvol
 public import CFSG.Sporadic.HNOddCore.OuterFix
-public import Certificates.Certificate2083
-public import Certificates.Certificate2084
-public import Certificates.Certificate2086
-public import Certificates.Certificate2087
-public import Certificates.Certificate2088
-public import Certificates.Certificate2089
-public import Certificates.Certificate2090
-public import Certificates.Certificate2091
-public import Certificates.Certificate2093
-public import Certificates.Certificate2094
-public import Certificates.Certificate2096
-public import Certificates.Certificate2097
-public import Certificates.Certificate2098
-public import Certificates.Certificate2099
-public import Certificates.Certificate2100
-public import Certificates.Certificate2102
-public import Certificates.Certificate2103
-public import Certificates.Certificate2104
-public import Certificates.Certificate2107
-public import Certificates.Certificate2108
-public import Certificates.Certificate2109
-public import Certificates.Certificate3166
-public import Certificates.Certificate16041
 public import CFSG.ClassicalInvolution.Models.LinearPairs
 public import CFSG.ClassicalInvolution.SubnormalClosure
 public import CFSG.ClassicalInvolution.WeakCT.Main
@@ -70,7 +47,6 @@ public import CFSG.Sporadic.Schreier.J1QT
 public import CFSG.Sporadic.Schreier.LyChain11
 public import CFSG.Sporadic.SmallOddCore.HSAut
 public import CFSG.Sporadic.SmallOddCore.J3Aut
-public import Certificates.Certificate3085Base
 
 public section
 

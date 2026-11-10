@@ -1,13 +1,5 @@
 module
 
-public import Certificates.Certificate76
-public import Certificates.Certificate77
-public import Certificates.Certificate118
-public import Certificates.Certificate122
-public import Certificates.Certificate123
-public import Certificates.Certificate2264
-public import Certificates.Certificate2267
-public import Certificates.Certificate8033
 public import CFSG.Blueprint.Catalog
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24LineLang
 import CFSG.Adapters.TauCetiExceptional.EvenAll
@@ -83,8 +75,6 @@ public import CFSG.Quasithin.Vol2.Ch3Sec3Lem3324X
 public import CFSG.Quasithin.Vol2.Ch3Sec3Lem3329
 public import CFSG.Quasithin.Vol2.Ch3Sec3Lem3330
 public import CFSG.RankThree.Chevalley.SteinbergCFEvenF4PointwiseInner
-public import Certificates.Certificate10050
-public import Certificates.Certificate8117
 import CFSG.Goldschmidt.Steps.G37Core
 import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.Basic
 import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.InnExcLang

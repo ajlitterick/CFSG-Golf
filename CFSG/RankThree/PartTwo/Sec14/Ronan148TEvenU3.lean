@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148TEvenDefs
-public import Certificates.Certificate43
 import CFSG.StronglyEmbedded
 import CFSG.StronglyEmbedded.BenderUnitaryBorel
 import CFSG.StronglyEmbedded.BenderBorelTransport
@@ -41,13 +40,6 @@ public import CFSG.RankThree.PartTwo.Sec4.LThreePiItem411
 public import CFSG.RankThree.PartTwo.Sec4.ProjSLEquiv
 public import CFSG.RankThree.PartTwo.Sec6.Statements
 public import CFSG.RankThree.S4Free.SuzukiEight
-public import Certificates.Certificate2201
-public import Certificates.Certificate2202
-public import Certificates.Certificate2326
-public import Certificates.Certificate3171
-public import Certificates.Certificate3171Base
-public import Certificates.Certificate8166
-public import Certificates.Certificate8169
 import CFSG.CGT.Timmesfeld75.L2Pair
 import CFSG.CGT.Timmesfeld75.ListWCBasic
 

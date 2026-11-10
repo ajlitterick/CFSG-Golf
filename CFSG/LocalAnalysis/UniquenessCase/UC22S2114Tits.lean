@@ -80,8 +80,6 @@ public import CFSG.SignalizerFunctorTheorem.McBride.Prelim.Basic
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
 public import CFSG.Sporadic.Schreier.J4SProfileNode
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
-public import Certificates.Certificate2265
-public import Certificates.Certificate2266
 import CFSG.GroupTheory.CoprimeActionSupport.AbelianEquivalence
 import CFSG.GroupTheory.CoprimeActionSupport.Geometry
 import CFSG.LocalAnalysis.RankThreeUC.Notation

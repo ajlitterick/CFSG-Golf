@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIE6Seven
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutE6Two
 public import CFSG.LocalAnalysis.StandardType.GGSixRCK1416Defs
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeStepA
-public import Certificates.Certificate14972
 import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIE8Transport
 import CFSG.LocalAnalysis.StandardType.GGSixRCKC1CentralCover
 import CFSG.LocalAnalysis.StandardType.GGE6TwoSevenComp

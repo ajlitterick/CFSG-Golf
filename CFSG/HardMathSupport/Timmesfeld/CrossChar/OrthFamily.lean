@@ -36,9 +36,6 @@ public import CFSG.RankThree.PartOne.S12.Sec15Items
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.CommutatorNormalizer
-public import Certificates.Certificate119
-public import Certificates.Certificate122
-public import Certificates.Certificate123
 
 public section
 

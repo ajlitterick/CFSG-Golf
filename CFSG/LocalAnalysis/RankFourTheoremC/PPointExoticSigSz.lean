@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.RankFourTheoremC.PPointExoticDefs
-public import Certificates.Certificate113
-public import Certificates.Certificate43
-public import Certificates.Certificate9530
 import CFSG.LocalAnalysis.RankFourTheoremC.PPointExoticSigSzCore
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanSz32Local
 public import CFSG.GroupTheory.LocalCores.Fitting

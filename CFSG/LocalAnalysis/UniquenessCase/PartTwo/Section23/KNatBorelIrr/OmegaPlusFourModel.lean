@@ -75,7 +75,6 @@ public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
 public import CFSG.StronglyEmbedded.ParityCriterion
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
-public import Certificates.Certificate43
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 public import TauCeti.LinearAlgebra.QuadraticForm.Prod
 import CFSG.LocalAnalysis.UniquenessCase.UC22Bridge

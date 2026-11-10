@@ -37,7 +37,6 @@ import CFSG.Sporadic.Schreier.J4SBinary
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
-import Certificates.Certificate43
 
 public section
 

@@ -4,19 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.KGLangS1EBridgeFix
 public import CFSG.LocalAnalysis.StandardType.KGLangS1ECover
 public import CFSG.LocalAnalysis.StandardType.KGLangS1ENormalFormE6Diag
 public import CFSG.LocalAnalysis.StandardType.GGL45NtDefs
-public import Certificates.Certificate76
-public import Certificates.Certificate77
-public import Certificates.Certificate78
-public import Certificates.Certificate79
-public import Certificates.Certificate80
-public import Certificates.Certificate81
-public import Certificates.Certificate115
-public import Certificates.Certificate116
-public import Certificates.Certificate118
-public import Certificates.Certificate119
-public import Certificates.Certificate120
-public import Certificates.Certificate121
-public import Certificates.Certificate122
 
 import CFSG.LocalAnalysis.StandardType.KGLangS1EModelDerived
 

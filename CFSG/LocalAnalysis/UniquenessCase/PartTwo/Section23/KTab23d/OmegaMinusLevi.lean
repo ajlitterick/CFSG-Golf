@@ -52,7 +52,6 @@ import CFSG.Quasithin.Background.A3Structure312
 import CFSG.Quasithin.Background.OrderingMax
 import CFSG.Quasithin.Vol2.Ch1Local
 import CFSG.Sporadic.J4Base
-import Certificates.Certificate8026Base
 import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 
 public section

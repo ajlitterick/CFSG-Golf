@@ -2,15 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowNInvol
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaOutdiag
-public import Certificates.Certificate2261
-public import Certificates.Certificate2262
-public import Certificates.Certificate2263
-public import Certificates.Certificate2264
-public import Certificates.Certificate2267
-public import Certificates.Certificate2268
-public import Certificates.Certificate2269
-public import Certificates.Certificate2270
-public import Certificates.Certificate8033
 import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowNF4Frame
 import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowNE6Frame
 import CFSG.LocalAnalysis.StandardType.GGIrred937TwE6

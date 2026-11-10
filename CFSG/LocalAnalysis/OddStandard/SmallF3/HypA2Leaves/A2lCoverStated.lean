@@ -83,20 +83,6 @@ public import CFSG.Sporadic.SuzOddCore.SmallActionData
 public import CFSG.YGroups.DCE.MaximalB
 public import CFSG.YGroups.Y443.Native.Parabolic2CheckB
 public import CFSG.YGroups.Y443.Native.Parabolic2CheckW
-public import Certificates.Certificate7000
-public import Certificates.Certificate7001
-public import Certificates.Certificate7002
-public import Certificates.Certificate7003
-public import Certificates.Certificate7004
-public import Certificates.Certificate7005
-public import Certificates.Certificate7006
-public import Certificates.Certificate7007
-public import Certificates.Certificate7008
-public import Certificates.Certificate7009
-public import Certificates.Certificate7010
-public import Certificates.Certificate7011
-public import Certificates.Certificate9310
-public import Certificates.Certificate9314
 
 public section
 

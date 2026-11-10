@@ -25,10 +25,6 @@ public import CFSG.Quasithin.Background.A3Components
 public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 public import CFSG.Quasithin.Vol2.KGFactC31RuRefBase
-public import Certificates.Certificate14953
-public import Certificates.Certificate2246
-public import Certificates.Certificate5133
-public import Certificates.Certificate7233Base
 
 public section
 

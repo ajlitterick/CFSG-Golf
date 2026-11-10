@@ -34,9 +34,6 @@ import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 import CFSG.Walter.Defs
-import Certificates.Certificate1
-import Certificates.Certificate2
-import Certificates.Certificate8026Base
 
 public section
 

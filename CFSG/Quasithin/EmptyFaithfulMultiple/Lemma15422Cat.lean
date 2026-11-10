@@ -3,10 +3,6 @@ module
 public import CFSG.Quasithin.EmptyFaithfulMultiple.Lemma15422Quot
 public import CFSG.Quasithin.Background.F6Cat
 public import Mathlib.FieldTheory.Finite.GaloisField
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
-public import Certificates.Certificate4952
 public import CFSG.Foundations
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LinearAlgebra.LinearGroups.CoordinateData

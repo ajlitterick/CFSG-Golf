@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutInnerExcCore
-public import Certificates.Certificate13720
-public import Certificates.Certificate1952
 public import CFSG.LocalAnalysis.StandardType.GGOrdPToralE8Holds
 import CFSG.LocalAnalysis.StandardType.GGOrdPToralE8FiveWeyl
 import CFSG.LocalAnalysis.StandardType.GGSixBstarE8FiveConjClass

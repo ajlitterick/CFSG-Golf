@@ -2,9 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec15.Item1514Steps1515
 public import CFSG.RankThree.PartTwo.KFacts.KS1515M12Cover
-public import Certificates.Certificate3029
-public import Certificates.Certificate3086
-public import Certificates.Certificate3139
 import CFSG.RankThree.PartTwo.Sec13.Item137Delta
 import CFSG.RankThree.PartTwo.Sec13.Item133
 import CFSG.RankThree.PartTwo.Sec13.Item13Sporadic
@@ -12,9 +9,6 @@ import CFSG.RankThree.PartTwo.Sec15.Item152Proof
 import CFSG.RankThree.LocalRank.SolvablePrimeComplementCore
 import CFSG.Certificates.CosetTableShort
 import CFSG.RankThree.S4Free.SuzukiEight
-import Certificates.Certificate2326
-import Certificates.Certificate3171
-import Certificates.Certificate3171Base
 
 public section
 

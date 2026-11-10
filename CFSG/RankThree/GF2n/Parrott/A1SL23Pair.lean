@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.GF2n.Parrott.Section3Remarks
-public import Certificates.Certificate946017
 import CFSG.RankThree.GF2n.Parrott.Section3RemarksE9
 import CFSG.RankThree.GF2n.Parrott.A1ModelFacts
 import CFSG.RankThree.GF2n.Parrott.A1LocalData

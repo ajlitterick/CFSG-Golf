@@ -45,7 +45,6 @@ import CFSG.RankThree.GF2n.Tim79CentC
 import CFSG.RankThree.GF2n.Tim79CentL
 import CFSG.RankThree.GF2n.Tim79Mod
 import CFSG.SignalizerFunctorTheorem.McBride.Prelim.Gaschutz
-import Certificates.Certificate9530
 
 public section
 

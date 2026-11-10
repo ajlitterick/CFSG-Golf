@@ -8,7 +8,6 @@ public import CFSG.GroupTheory.LocalCores.Components
 public import CFSG.Walter.W67.CentralExt
 public import Mathlib.LinearAlgebra.BilinearForm.Orthogonal
 public import Mathlib.LinearAlgebra.Matrix.BilinearForm
-public import Certificates.Certificate43
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.GroupTheory.LocalCores.Fitting
 

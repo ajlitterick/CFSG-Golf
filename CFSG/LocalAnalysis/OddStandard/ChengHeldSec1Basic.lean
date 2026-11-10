@@ -24,8 +24,6 @@ public import CFSG.Monster.Code.Weights
 public import CFSG.Permutation.AlternatingAutomorphism
 public import CFSG.StronglyEmbedded.ParityCriterion
 public import CFSG.Walter.J1
-public import Certificates.Certificate8046
-public import Certificates.Certificate8049
 
 public section
 

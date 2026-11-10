@@ -6,9 +6,6 @@ public import CFSG.RankThree.CentralLiftU.EvenSplit
 public import CFSG.LocalAnalysis.SectionRank.EvenCover.LinearSplit
 public import CFSG.LocalAnalysis.SectionRank.OddCover.ScalarCover
 public import CFSG.LinearAlgebra.LinearGroups.UnitaryScalarKernel
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 
 public section
 

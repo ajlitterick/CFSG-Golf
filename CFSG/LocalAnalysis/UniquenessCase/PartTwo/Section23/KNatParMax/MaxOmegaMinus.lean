@@ -39,7 +39,6 @@ public import CFSG.Sporadic.Mathieu.M24
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
-public import Certificates.Certificate43
 import CFSG.Adapters.Certificate43Check
 import CFSG.ClassicalGroups.UnitaryFlag.PointSylow
 import CFSG.GroupTheory.CommutatorCentralizerIn

@@ -18,8 +18,6 @@ public import CFSG.LinearAlgebra.LinearGroups.UnitaryThreeOverNine
 public import CFSG.LinearAlgebra.LinearGroups.UnitaryThreeOverNineInvolutions
 public import CFSG.Sporadic.Th.Max3.Involutions
 public import CFSG.Timmesfeld.ARSInputThm
-public import Certificates.Certificate10089Base
-public import Certificates.Certificate10091Base
 
 public noncomputable section
 

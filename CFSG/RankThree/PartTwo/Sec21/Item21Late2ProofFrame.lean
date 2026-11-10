@@ -44,13 +44,6 @@ public import CFSG.RankThree.PartTwo.Sec8.Pairs
 public import CFSG.RankThree.PartTwo.Sec8.Statements
 public import CFSG.StronglyEmbedded.ParityCriterion
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
-public import Certificates.Certificate2197
-public import Certificates.Certificate3017
-public import Certificates.Certificate3084
-public import Certificates.Certificate3167
-public import Certificates.Certificate3168
-public import Certificates.Certificate3169
-public import Certificates.Certificate3172
 import CFSG.LocalAnalysis.ComponentInitial.LayerComponentOrbit
 import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerImageCompletion
 import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerPreimages
@@ -58,7 +51,6 @@ import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerRestrictionCompl
 import CFSG.RankThree.LocalRank.SelectorCases
 import CFSG.RankThree.PartOne.S12.InputsBase
 import CFSG.RankThree.PartTwo.Sec11.Data
-import Certificates.Certificate3139
 
 public section
 

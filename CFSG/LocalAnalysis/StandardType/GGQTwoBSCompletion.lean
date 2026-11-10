@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoBSDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoPhanDefs
 import all CFSG.LocalAnalysis.StandardType.GGQTwoPhanDefs
-public import Certificates.Certificate1649001
-public import Certificates.Certificate725008
 import CFSG.LocalAnalysis.StandardType.GGQTwoBSFamily
 import CFSG.LocalAnalysis.StandardType.GGQTwoBSFive
 import CFSG.LocalAnalysis.StandardType.GGQTwoBSStep

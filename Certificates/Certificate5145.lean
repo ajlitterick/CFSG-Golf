@@ -7,7 +7,6 @@ public meta import Mathlib
 public meta import CFSG.CharacterTheory.Semidihedral.Model
 public import CFSG.GH74.E2.SDExtCertInputs
 public import CFSG.GH74.E2.SDExtCertDataInputs
-public import Certificates.Certificate5019
 import CFSG.Certificates.Kernel.SD16Ext
 import CFSG.Certificates.Kernel.Common.Loop
 meta import CFSG.Certificates.Kernel.Common.Harness

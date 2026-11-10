@@ -14,8 +14,6 @@ public import CFSG.HardMathSupport.Seitz.TrialityOdd.Coordinator.TrialityThreeAs
 public import CFSG.HardMathSupport.Seitz.TrialityEven.Assembly
 public import CFSG.HardMathSupport.Seitz.TrialityEven.TwoThree
 public import CFSG.LieType.SeitzGeneration.ExcAnisotropicReeF4ThreeProved
-public import Certificates.Certificate1952
-public import Certificates.Certificate81002
 import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.F4Phi3
 import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.E8Phi5
 import CFSG.HardMathSupport.Foote.Coordinator.TwistedFrame.Final
@@ -112,7 +110,6 @@ public import CFSG.RankThree.PartOne.SEITZ4.SpPair
 public import CFSG.Sporadic.Co1.Module.Co2Stab
 public import CFSG.Sporadic.Presentation.McLExactData
 public import CFSG.Sporadic.Presentation.McLExactInputs
-public import Certificates.Certificate9124
 import CFSG.RankThree.PartOne.KE.D4LayerAlgebraic
 import CFSG.RankThree.PartOne.KF4.EvenDescent
 

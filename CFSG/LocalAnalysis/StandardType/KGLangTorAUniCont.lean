@@ -11,9 +11,6 @@ public import CFSG.LocalAnalysis.StandardType.GGNbrGraphFieldLinear
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldUnitary
 public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismData
 public import CFSG.GroupTheory.SteinbergBKSemilinearFixedBasis
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 import CFSG.LocalAnalysis.StandardType.KGLangTorAGeneric
 import CFSG.LocalAnalysis.StandardType.KGLangTorAFields
 import CFSG.LocalAnalysis.StandardType.KGLangTorALangElt

@@ -36,7 +36,6 @@ import Certificates.Kernel.Sporadic.HS.L2273F
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.LocalAnalysis.OddStandard.AltStdSecTenHSActualSupplier
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.HSCoverMain
-public import Certificates.Certificate4081
 public import CFSG.Sporadic.Recognition.HSMultiplierCert
 public import CFSG.Walter.JRFacts
 public import CFSG.LargeExtraspecial.OutSixBasic
@@ -108,7 +107,6 @@ public import CFSG.Walter.J1Recog
 public import CFSG.Walter.Ree.Thompson2.BaseFin
 public import CFSG.Walter.ReeOrder.WardLocal
 public import CFSG.Walter.W67.Section8.Prop83
-public import Certificates.Certificate8171
 public import Certificates.Kernel.J4Count.FixC
 public import Certificates.Kernel.J4Count.FixCPairBase1
 public import Certificates.Kernel.J4Count.KFactsBase

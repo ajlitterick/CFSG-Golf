@@ -27,9 +27,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.BMTypeB3
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I1431ZMathHS5
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1420Main
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434O8pE9Local
-public import Certificates.Certificate17579
-public import Certificates.Certificate17580
-public import Certificates.Certificate17581
 public import Certificates.Data.U62Rank.Check
 
 public section

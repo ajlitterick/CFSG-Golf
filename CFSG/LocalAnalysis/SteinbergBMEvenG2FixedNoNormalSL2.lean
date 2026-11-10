@@ -16,7 +16,6 @@ import CFSG.LocalAnalysis.ComponentInitial.FieldFiniteAutomorphism
 import CFSG.LocalAnalysis.ComponentInitial.SuzukiTwoAAutomorphisms
 import CFSG.LocalAnalysis.ComponentInitial.BasicFacts
 import CFSG.LocalAnalysis.SteinbergCDEvenClassicalOrderFour
-public import Certificates.Certificate3951
 import CFSG.GroupTheory.LocalCores.Fitting
 import CFSG.LieType.Chevalley.SignKernelComponentPerfect
 

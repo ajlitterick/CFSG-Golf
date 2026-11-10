@@ -2,12 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdPosLocalDefs
 public import CFSG.LocalAnalysis.StandardType.GGTableBRank
-public import Certificates.Certificate45
-public import Certificates.Certificate49
-public import Certificates.Certificate53
-public import Certificates.Certificate59
-public import Certificates.Certificate68
-public import Certificates.Certificate72
 import CFSG.LocalAnalysis.StandardType.GGReverseMarkingRaw
 import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
 import CFSG.LocalAnalysis.StandardType.GGTableBTypeATorus

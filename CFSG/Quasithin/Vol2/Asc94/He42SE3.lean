@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourExactModel
 public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
 public import CFSG.LinearAlgebra.LinearGroups.ProjectiveSimple
 public import CFSG.LocalAnalysis.ComponentInitial.LinearCoverModel
-public import Certificates.Certificate2022
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 public import CFSG.LocalAnalysis.ComponentClassification.GeneralizedFitting
 public import CFSG.LocalAnalysis.ComponentClassification.LayerMultiplication

@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitExcPlusLift
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesE6QPlusThreeFrameData
-public import Certificates.Certificate1953
-public import Certificates.Certificate1954
 import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesE6QPlusThreeFrame
 import CFSG.LocalAnalysis.StandardType.GGTableBE6TwoPilotToral
 import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylE6TwoThree

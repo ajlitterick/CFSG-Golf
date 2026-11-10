@@ -2,8 +2,6 @@ module
 
 public import CFSG.Sporadic.HNSchreier.ArchData
 public import CFSG.Sporadic.HNSchreier.StrongSpec
-public import Certificates.Certificate2095
-public import Certificates.Certificate2102
 
 public noncomputable section
 

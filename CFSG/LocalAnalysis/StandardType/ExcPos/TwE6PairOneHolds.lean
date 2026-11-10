@@ -4,13 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6PairDictHolds
 public import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6RootTransportHolds
 public import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6FrameHolds
 public import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6PairTwo
-public import Certificates.Certificate1952
-public import Certificates.Certificate2264
-public import Certificates.Certificate2267
-public import Certificates.Certificate8033
-public import Certificates.Certificate8064
-public import Certificates.Certificate13659
-public import Certificates.Certificate13660
 import CFSG.GroupTheory.OddKernelImage
 import CFSG.LocalAnalysis.StandardType.ExcPos.U1aPairInner
 import CFSG.LocalAnalysis.StandardType.ExcPos.U1aPairOuter

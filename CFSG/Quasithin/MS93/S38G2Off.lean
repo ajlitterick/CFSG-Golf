@@ -47,8 +47,6 @@ public import CFSG.Quasithin.Recognition.GoldschmidtFan86UnivStab
 public import CFSG.Sporadic.Schreier.J4SProfileNode
 public import CFSG.Sporadic.Schreier.TitsOther
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2PureSemilinear
-public import Certificates.Certificate1
-public import Certificates.Certificate2
 
 public section
 

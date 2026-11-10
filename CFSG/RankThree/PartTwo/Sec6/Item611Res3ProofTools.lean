@@ -46,7 +46,6 @@ import CFSG.RankThree.PartOne.Assembly
 import CFSG.RankThree.PartTwo.Sec4.Item47
 import CFSG.RankThree.PartTwo.Sec4.LThreePiItem411
 import CFSG.RankThree.PartTwo.Sec5.Hyp
-import Certificates.Certificate43
 
 public section
 

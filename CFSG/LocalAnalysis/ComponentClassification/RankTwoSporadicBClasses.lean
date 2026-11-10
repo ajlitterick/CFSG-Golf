@@ -2,37 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicBReduce
 public import CFSG.Monster.B.CTIB.FourClasses
-public import Certificates.Certificate3011
-public import Certificates.Certificate3012
-public import Certificates.Certificate3014
-public import Certificates.Certificate3017
-public import Certificates.Certificate3019
-public import Certificates.Certificate3025
-public import Certificates.Certificate3026
-public import Certificates.Certificate3027
-public import Certificates.Certificate3028
-public import Certificates.Certificate3045
-public import Certificates.Certificate3048
-public import Certificates.Certificate3049
-public import Certificates.Certificate3050
-public import Certificates.Certificate3051
-public import Certificates.Certificate3098
-public import Certificates.Certificate3099
-public import Certificates.Certificate3100
-public import Certificates.Certificate3101
-public import Certificates.Certificate3102
-public import Certificates.Certificate3103
-public import Certificates.Certificate3106
-public import Certificates.Certificate3107
-public import Certificates.Certificate3108
-public import Certificates.Certificate3109
-public import Certificates.Certificate3110
-public import Certificates.Certificate3111
-public import Certificates.Certificate3114
-public import Certificates.Certificate3115
-public import Certificates.Certificate3116
-public import Certificates.Certificate3117
-public import Certificates.Certificate3118
 public import CFSG.ClassicalInvolution.ModelFacts.FundPerfectMain
 public import CFSG.ClassicalInvolution.ModelFacts.OddCover
 public import CFSG.ClassicalInvolution.Models.LinearFrames
@@ -70,18 +39,6 @@ public import CFSG.Walter.J1Recog
 public import CFSG.Walter.Ree.Thompson2.BaseFin
 public import CFSG.Walter.ReeOrder.WardLocal
 public import CFSG.Walter.W67.Section8.Prop83
-public import Certificates.Certificate7000
-public import Certificates.Certificate7001
-public import Certificates.Certificate7002
-public import Certificates.Certificate7003
-public import Certificates.Certificate7004
-public import Certificates.Certificate7005
-public import Certificates.Certificate7006
-public import Certificates.Certificate7007
-public import Certificates.Certificate7008
-public import Certificates.Certificate7009
-public import Certificates.Certificate7010
-public import Certificates.Certificate7011
 
 public section
 

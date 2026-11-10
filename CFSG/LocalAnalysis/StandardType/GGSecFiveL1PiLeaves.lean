@@ -11,7 +11,6 @@ public import CFSG.Quasithin.Background.A3Structure312Facts
 public import CFSG.Quasithin.Vol2.Ch4Sec4L443E3Conj
 public import CFSG.Quasithin.Vol2.Ch4Sec4L443EIn
 public import CFSG.Quasithin.Vol2.Ch4Sec4W446
-public import Certificates.Certificate8026Base
 
 public section
 

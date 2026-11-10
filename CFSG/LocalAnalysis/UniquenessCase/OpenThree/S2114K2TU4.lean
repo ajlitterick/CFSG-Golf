@@ -73,9 +73,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.UC6R640Cert
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsGroup
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KStrongEmbedded72Holds
 public import CFSG.HardMathSupport.Foote.FamilyReduction.ClassicalFive
-public import Certificates.Certificate8176
-public import Certificates.Certificate1015335
-public import Certificates.Certificate1567001
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk73G4U3Out
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk93Cfg2
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk93Field
@@ -129,8 +126,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.UC22P22p
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22qx
 public import CFSG.LocalAnalysis.UniquenessCase.UC6R869M
 public import CFSG.Quasithin.SteinbergBNA7ThreeRankClosure
-public import Certificates.Certificate1089001
-public import Certificates.Certificate9681
 import CFSG.HardMathSupport.Timmesfeld.LocalTwo.CrossSp
 import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog8L4
 

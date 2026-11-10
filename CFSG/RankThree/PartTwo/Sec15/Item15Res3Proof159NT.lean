@@ -41,32 +41,6 @@ import CFSG.RankThree.PartTwo.Sec15.Item1513StepsProofEven
 import CFSG.RankThree.PartTwo.Sec15.Item1515StepsProofM22
 import CFSG.RankThree.PartTwo.Sec19.Item1912
 import CFSG.RankThree.PartTwo.Sec21.Item22Statements
-import Certificates.Certificate10005
-import Certificates.Certificate10006
-import Certificates.Certificate10007
-import Certificates.Certificate10008
-import Certificates.Certificate10009
-import Certificates.Certificate10010
-import Certificates.Certificate10012
-import Certificates.Certificate10013
-import Certificates.Certificate10014
-import Certificates.Certificate10016
-import Certificates.Certificate10018
-import Certificates.Certificate12041
-import Certificates.Certificate12042
-import Certificates.Certificate12043
-import Certificates.Certificate12044
-import Certificates.Certificate12045
-import Certificates.Certificate12046
-import Certificates.Certificate16015
-import Certificates.Certificate16040
-import Certificates.Certificate3006
-import Certificates.Certificate3007
-import Certificates.Certificate3008
-import Certificates.Certificate3063
-import Certificates.Certificate3077
-import Certificates.Certificate3082
-import Certificates.Certificate3083
 
 public section
 

@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveThreeData
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveFourSteps
-public import Certificates.Certificate17430
-public import Certificates.Certificate9726
 public import CFSG.LocalAnalysis.AGLEmbedding.CZeroDefs
 public import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockRankFree
 public import CFSG.HardMathSupport.Foote.Coordinator.Downstream

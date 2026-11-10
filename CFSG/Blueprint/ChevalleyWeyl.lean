@@ -3,8 +3,6 @@ module
 public import CFSG.Blueprint.ChevalleySimpleRoots
 public import CFSG.Blueprint.ChevalleyBinomial
 public import CFSG.Blueprint.ChevalleyGenerators
-public import Certificates.Certificate113
-public import Certificates.Certificate114
 
 public noncomputable section
 

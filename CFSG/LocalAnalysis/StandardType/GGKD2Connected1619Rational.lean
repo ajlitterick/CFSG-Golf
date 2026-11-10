@@ -4,9 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGKD2Connected1619Contracts
 public import CFSG.LocalAnalysis.StandardType.GGK0MarkedKacIface1587
 public import CFSG.LocalAnalysis.StandardType.GGK0RationalProducerHolds
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeCentralizer1585
-public import Certificates.Certificate1952
-public import Certificates.Certificate13659
-public import Certificates.Certificate13660
 import CFSG.LocalAnalysis.StandardType.GGK0MarkedComponents
 import CFSG.LocalAnalysis.StandardType.GGKD2ConnectedNativeHolds
 import CFSG.LocalAnalysis.StandardType.GGKD2A1EightHolds

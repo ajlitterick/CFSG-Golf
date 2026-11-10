@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowNInvol
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcThreeAct
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcBasic
-public import Certificates.Certificate1953
-public import Certificates.Certificate1954
 import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcWeylTorusAut
 import CFSG.LocalAnalysis.StandardType.GGTwE6WeylRealize
 import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesE6QPlusThreeFrame

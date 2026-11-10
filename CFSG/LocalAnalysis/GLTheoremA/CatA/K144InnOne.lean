@@ -173,8 +173,6 @@ import CFSG.RankThree.PartTwo.Sec17.RouteProvers
 import CFSG.RankThree.PartTwo.Sec17.RouteProvers142
 import CFSG.RankThree.S4Free.SuzukiEight
 import CFSG.Yardstones.M67c2c3e09a6b.Definitions
-import Certificates.Certificate14953
-import Certificates.Certificate8166
 
 public section
 

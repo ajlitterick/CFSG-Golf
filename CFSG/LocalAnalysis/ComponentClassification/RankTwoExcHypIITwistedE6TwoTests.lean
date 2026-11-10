@@ -5,7 +5,6 @@ public import CFSG.Monster.B.Classical.E6AdjointTable
 public meta import Certificates.Data.CFSGNative.Chevalley.C2E6StdMatrix
 public meta import CFSG.Monster.B.Classical.E6AdjointTable
 public meta import Certificates.Certificate114
-public import Certificates.Certificate114
 
 public section
 

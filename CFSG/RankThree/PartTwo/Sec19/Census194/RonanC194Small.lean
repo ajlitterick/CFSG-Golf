@@ -4,13 +4,6 @@ public import CFSG.RankThree.PartTwo.Sec19.Census194.Defs
 public import CFSG.Open.StatedDefs
 public import CFSG.Open.PGLModelDefs
 public import CFSG.Blueprint.MultiplierDefs
-public import Certificates.Certificate43
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
-public import Certificates.Certificate2326
-public import Certificates.Certificate3007
-public import Certificates.Certificate10005
 import CFSG.RankThree.PartTwo.Sec19.Census194.RonanC194RankOne
 import CFSG.RankThree.PartTwo.Sec19.Census194.RonanC194Mult
 import CFSG.LieType.Steinberg.CentralExt.GriessClassical

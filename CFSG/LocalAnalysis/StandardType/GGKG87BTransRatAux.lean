@@ -73,20 +73,6 @@ import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec2.Thm210Aux
 import CFSG.SignalizerFunctorTheorem.McBride.Prelim.Projection
 import CFSG.SignalizerFunctorTheorem.McBride.Prelim.SemisimpleFactors
 import CFSG.Walter.Bender1970.S3.Setup
-import Certificates.Certificate100
-import Certificates.Certificate101
-import Certificates.Certificate102
-import Certificates.Certificate103
-import Certificates.Certificate104
-import Certificates.Certificate105
-import Certificates.Certificate106
-import Certificates.Certificate107
-import Certificates.Certificate108
-import Certificates.Certificate109
-import Certificates.Certificate96
-import Certificates.Certificate97
-import Certificates.Certificate98
-import Certificates.Certificate99
 
 public section
 

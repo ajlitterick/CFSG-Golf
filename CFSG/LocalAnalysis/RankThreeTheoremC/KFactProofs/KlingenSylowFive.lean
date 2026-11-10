@@ -30,9 +30,7 @@ public import CFSG.StronglyEmbedded
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
-public import Certificates.Certificate43
 import CFSG.LieType.Multipliers.U42Bridge
-import Certificates.Certificate10010
 
 public section
 

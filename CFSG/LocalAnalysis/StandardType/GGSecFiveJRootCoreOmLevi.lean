@@ -44,10 +44,6 @@ public import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
 public import CFSG.RankThree.Theta.ThreeComponentOrbitCover
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
-public import Certificates.Certificate116
-public import Certificates.Certificate119
-public import Certificates.Certificate122
-public import Certificates.Certificate123
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.OrthBlocksComp

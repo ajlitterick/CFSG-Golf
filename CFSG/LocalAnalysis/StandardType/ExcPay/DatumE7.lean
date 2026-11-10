@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.ExcPay.Defs
-public import Certificates.Certificate13723
-public import Certificates.Certificate13724
 import CFSG.LocalAnalysis.StandardType.GGLieCoreToralHolds
 import CFSG.LocalAnalysis.StandardType.GGLieCoreLang
 import CFSG.LocalAnalysis.StandardType.GGLieCoreRatFinite

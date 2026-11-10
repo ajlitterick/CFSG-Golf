@@ -50,7 +50,6 @@ public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
-public import Certificates.Certificate43
 import CFSG.Assembly.OrderReductions.InvertedSubgroup
 import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.CGT.PushingUp.BenderBridge
@@ -120,20 +119,6 @@ import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2Order
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphReconstruction
 import CFSG.Walter.JRFacts
 import CFSG.Walter.PSL2Facts
-import Certificates.Certificate1
-import Certificates.Certificate10
-import Certificates.Certificate11
-import Certificates.Certificate12
-import Certificates.Certificate2
-import Certificates.Certificate3
-import Certificates.Certificate4
-import Certificates.Certificate42
-import Certificates.Certificate44
-import Certificates.Certificate5
-import Certificates.Certificate6
-import Certificates.Certificate7
-import Certificates.Certificate8
-import Certificates.Certificate9
 
 public section
 

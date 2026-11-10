@@ -3,8 +3,6 @@ module
 public import CFSG.Monster.B.Geometry.InitialIsometryModels
 public import CFSG.Monster.B.Geometry.F4Extension
 public import CFSG.Monster.B.Geometry.F4Stabilizer
-public import Certificates.Certificate113
-public import Certificates.Certificate114
 public import CFSG.LieType.Chevalley.C2E6MinusSixStabilizer
 public import CFSG.Monster.B.Geometry.InitialIsometryGlue
 public import TauCeti.GroupTheory.Coxeter.Matsumoto

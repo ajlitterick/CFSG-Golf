@@ -5,39 +5,6 @@ public import CFSG.LocalAnalysis.SectionRank.QTK.CentreFact.LayerDefs
 public import CFSG.Blueprint.NativeSporadic
 public import CFSG.Blueprint.Catalog
 public import CFSG.Open.StatedDefs
-public import Certificates.Certificate45
-public import Certificates.Certificate46
-public import Certificates.Certificate47
-public import Certificates.Certificate48
-public import Certificates.Certificate49
-public import Certificates.Certificate50
-public import Certificates.Certificate51
-public import Certificates.Certificate52
-public import Certificates.Certificate53
-public import Certificates.Certificate54
-public import Certificates.Certificate55
-public import Certificates.Certificate56
-public import Certificates.Certificate57
-public import Certificates.Certificate58
-public import Certificates.Certificate59
-public import Certificates.Certificate60
-public import Certificates.Certificate61
-public import Certificates.Certificate62
-public import Certificates.Certificate63
-public import Certificates.Certificate64
-public import Certificates.Certificate65
-public import Certificates.Certificate66
-public import Certificates.Certificate67
-public import Certificates.Certificate68
-public import Certificates.Certificate69
-public import Certificates.Certificate70
-public import Certificates.Certificate71
-public import Certificates.Certificate72
-public import Certificates.Certificate73
-public import Certificates.Certificate74
-public import Certificates.Certificate75
-public import Certificates.Certificate113
-public import Certificates.Certificate114
 import CFSG.LocalAnalysis.SectionRank.QTK.CentreFact.LayerT
 import CFSG.LocalAnalysis.SectionRank.QTK.CoverBA134Basic
 import CFSG.LocalAnalysis.SectionRank.QTK.CoverBMain
@@ -66,7 +33,6 @@ public import CFSG.Sporadic.Mathieu.M24
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
-public import Certificates.Certificate43
 import CFSG.Adapters.TauCetiExceptional.BridgeTransport
 import CFSG.Certificates.CentralKernel
 import CFSG.Certificates.CosetTableWalkC
@@ -142,99 +108,6 @@ import CFSG.Sporadic.Th.KernelSimpleBase
 import CFSG.Sporadic.ThSchreier.FullAutCoreBase
 import CFSG.Sporadic.ThSchreier.KernelAutBase
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
-import Certificates.Certificate10005
-import Certificates.Certificate10006
-import Certificates.Certificate10007
-import Certificates.Certificate10008
-import Certificates.Certificate10009
-import Certificates.Certificate10010
-import Certificates.Certificate10016
-import Certificates.Certificate10018
-import Certificates.Certificate10027
-import Certificates.Certificate1004
-import Certificates.Certificate1005
-import Certificates.Certificate10095
-import Certificates.Certificate10095Base
-import Certificates.Certificate10100
-import Certificates.Certificate10101
-import Certificates.Certificate10102
-import Certificates.Certificate10104
-import Certificates.Certificate10107
-import Certificates.Certificate10108
-import Certificates.Certificate1011
-import Certificates.Certificate10110
-import Certificates.Certificate10111
-import Certificates.Certificate10115
-import Certificates.Certificate10115Base
-import Certificates.Certificate10116
-import Certificates.Certificate10116Base
-import Certificates.Certificate10117
-import Certificates.Certificate10117Base
-import Certificates.Certificate10118
-import Certificates.Certificate10118Base
-import Certificates.Certificate10119
-import Certificates.Certificate10119Base
-import Certificates.Certificate10123
-import Certificates.Certificate10123Base
-import Certificates.Certificate1016
-import Certificates.Certificate1016Base
-import Certificates.Certificate1018
-import Certificates.Certificate1018Base
-import Certificates.Certificate1021
-import Certificates.Certificate12041
-import Certificates.Certificate12042
-import Certificates.Certificate12043
-import Certificates.Certificate12044
-import Certificates.Certificate12045
-import Certificates.Certificate12046
-import Certificates.Certificate16015
-import Certificates.Certificate16018
-import Certificates.Certificate16040
-import Certificates.Certificate2154
-import Certificates.Certificate2157
-import Certificates.Certificate2267
-import Certificates.Certificate2326
-import Certificates.Certificate3006
-import Certificates.Certificate3007
-import Certificates.Certificate3008
-import Certificates.Certificate3063
-import Certificates.Certificate3077
-import Certificates.Certificate3082
-import Certificates.Certificate3083
-import Certificates.Certificate3085
-import Certificates.Certificate3085Base
-import Certificates.Certificate3166
-import Certificates.Certificate3951
-import Certificates.Certificate6006
-import Certificates.Certificate6950
-import Certificates.Certificate7261
-import Certificates.Certificate8006
-import Certificates.Certificate8026Base
-import Certificates.Certificate8086
-import Certificates.Certificate8087
-import Certificates.Certificate8088
-import Certificates.Certificate8089
-import Certificates.Certificate8090
-import Certificates.Certificate8091
-import Certificates.Certificate8092
-import Certificates.Certificate8097
-import Certificates.Certificate8098
-import Certificates.Certificate8126
-import Certificates.Certificate9101
-import Certificates.Certificate9102
-import Certificates.Certificate9103
-import Certificates.Certificate9104
-import Certificates.Certificate9130
-import Certificates.Certificate9131
-import Certificates.Certificate9131Base
-import Certificates.Certificate9201
-import Certificates.Certificate9203
-import Certificates.Certificate9204
-import Certificates.Certificate9208
-import Certificates.Certificate9213
-import Certificates.Certificate9213Base
-import Certificates.Certificate9219
-import Certificates.Certificate9220
 
 public section
 

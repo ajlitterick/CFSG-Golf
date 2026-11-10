@@ -16,38 +16,11 @@ import CFSG.RankThree.PartTwo.Sec6.Item65Tools
 import CFSG.RankThree.PartTwo.Sec6.Item612Local
 import CFSG.RankThree.PartTwo.Sec16.Item16Tail13
 import CFSG.Quasithin.Vol2.Ch8Sec2L828TNQuasi
-public import Certificates.Certificate2012
-public import Certificates.Certificate4042
-public import Certificates.Certificate5118
-public import Certificates.Certificate6950
-public import Certificates.Certificate8057
-public import Certificates.Certificate8058
-public import Certificates.Certificate8126
-public import Certificates.Certificate8127
-public import Certificates.Certificate8150
-public import Certificates.Certificate17251
-public import Certificates.Certificate17252
-public import Certificates.Certificate17305
-public import Certificates.Certificate17306
-public import Certificates.Certificate17307
-public import Certificates.Certificate17308
-public import Certificates.Certificate17320
-public import Certificates.Certificate17321
-public import Certificates.Certificate17322
-public import Certificates.Certificate17350
-public import Certificates.Certificate17351
-public import Certificates.Certificate17370
-public import Certificates.Certificate17371
-public import Certificates.Certificate36903
-public import Certificates.Certificate320001
-public import Certificates.Certificate320002
-public import Certificates.Certificate320004
 public import CFSG.Adapters.QiuzhenLegacy.FeitThompson.GroupAction.Quotient
 public import CFSG.RankThree.PartTwo.Sec15.Item15More
 public import CFSG.RankThree.PartTwo.Sec15.Item15Steps
 public import CFSG.RankThree.PartTwo.Sec6.Item612
 public import CFSG.RankThree.PartTwo.Sec6.Item65One
-public import Certificates.Certificate8166
 import CFSG.GH74.GLS.IVK.Proofs2.Ivk714A7
 import CFSG.GH74.GLS.IVK.Proofs2.Ivk714Ord
 import CFSG.GH74.Generic.BarSubnormal
@@ -179,7 +152,6 @@ import CFSG.RankThree.PartTwo.Sec21.Item229
 import CFSG.RankThree.PartTwo.Sec4.HeringK419UnitaryTools
 import CFSG.RankThree.PartTwo.Sec4.T444.Item434CharThreeAssembly
 import CFSG.RankThree.S4Free.SuzukiEight
-import Certificates.Certificate14953
 import Certificates.Kernel.J4Count.Prim
 
 public section

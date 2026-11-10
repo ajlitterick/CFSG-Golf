@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Certificate43
 public import CFSG.RankThree.FFModules.Offenders
 public import CFSG.RankThree.PartTwo.KFacts.KS14Sz
 import CFSG.Adapters.LieModelSimple
@@ -62,8 +61,6 @@ import CFSG.Quasithin.Background.B1MoreNineG
 import CFSG.Sporadic.M23.M23Group
 import CFSG.Sporadic.Th.F2Spec
 import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonSplitTorus
-import Certificates.Certificate1
-import Certificates.Certificate2
 
 public section
 

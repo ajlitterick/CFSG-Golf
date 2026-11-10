@@ -15,7 +15,6 @@ public import CFSG.RankThree.PartOne.KLAY.SL2
 public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 public import CFSG.Quasithin.Vol2.KGFactC31RuRefBase
 public import CFSG.Sporadic.HeldB.Common
-public import Certificates.Certificate7233Base
 
 public section
 

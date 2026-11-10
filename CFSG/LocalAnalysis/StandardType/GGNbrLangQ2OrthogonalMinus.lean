@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGLayerCycModelOmegaSec
 public import CFSG.LocalAnalysis.StandardType.GGOmegaMinusRootGenIso
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2OffRows
 import CFSG.GroupTheory.IsComponentOfMap
-public import Certificates.Certificate7050Base
 
 public section
 

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.GN.AltSeven
-public import Certificates.Certificate8063
-public import Certificates.Certificate17023
 import CFSG.LocalAnalysis.AGLEmbeddingD2.GN.AltSevenA1Perm
 import CFSG.LocalAnalysis.AGLEmbeddingD2.GN.AltSevenA1Four
 import CFSG.LocalAnalysis.AGLEmbeddingD2.GN.Covered
@@ -63,7 +61,6 @@ public import CFSG.Quasithin.Background.E3Cent
 public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeGroup
 public import CFSG.RankThree.PartTwo.Sec19.Item194Used
 public import CFSG.StronglyEmbedded.BenderNormalSeries
-public import Certificates.Certificate2326
 import CFSG.Certificates.Kernel.LocalCompTits.Span
 import CFSG.GH74.SmallRanks.AltM11
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporJ4Quot

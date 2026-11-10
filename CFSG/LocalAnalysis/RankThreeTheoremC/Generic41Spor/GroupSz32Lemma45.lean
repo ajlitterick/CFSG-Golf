@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.GroupDefs
-public import Certificates.Certificate43
-public import Certificates.Certificate113
-public import Certificates.Certificate9530
 import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.GroupSz32
 import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.GroupSz32Loc
 import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.GroupBridge

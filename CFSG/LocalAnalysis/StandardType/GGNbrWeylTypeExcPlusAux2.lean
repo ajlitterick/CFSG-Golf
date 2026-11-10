@@ -7,7 +7,6 @@ public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitExcPlusLarge
 public import CFSG.LocalAnalysis.StandardType.GGFrameRouteA4Thm
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutInnerExcF4TwoTorus
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLine
-public import Certificates.Certificate1952
 
 public section
 

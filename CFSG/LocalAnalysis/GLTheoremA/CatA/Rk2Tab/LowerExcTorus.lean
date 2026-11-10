@@ -55,7 +55,6 @@ public import CFSG.Quasithin.Vol2.Ch1Sec3E9Inputs
 public import CFSG.RankThree.PartOne.KE.A1SL2
 public import CFSG.RankThree.PartOne.KE.A1Torus
 public import CFSG.RankThree.PartOne.KE.A1Untwisted
-public import Certificates.Certificate8026Base
 
 public section
 

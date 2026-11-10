@@ -8,9 +8,6 @@ import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSLTwoFourRow
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSLTwoEightRow
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenOmegaFourMinusFourRow
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenOmegaFourMinusEightStd
-public import Certificates.Certificate431004
-public import Certificates.Certificate17430
-public import Certificates.Certificate9726
 import CFSG.GroupTheory.CommutatorCentralizerIn
 import CFSG.LocalAnalysis.ComponentClassification.Foote5CoreEven
 import CFSG.LocalAnalysis.ComponentClassification.Foote5CoreL34

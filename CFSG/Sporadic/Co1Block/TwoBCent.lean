@@ -31,7 +31,6 @@ public meta import CFSG.Sporadic.Co1.Module.InvData
 public meta import CFSG.Sporadic.Co1.Module.Forms
 public meta import CFSG.Sporadic.Co1.Module.Orbits
 public import Certificates.Data.CFSGNative.Co1.Data
-public import Certificates.Certificate10070
 public import CFSG.Sporadic.Co1.Module.TwoBFrameInputs
 public import CFSG.Sporadic.Co1Block.TwoBCheck
 

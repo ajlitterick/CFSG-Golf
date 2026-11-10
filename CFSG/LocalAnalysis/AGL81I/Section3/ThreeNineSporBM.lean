@@ -31,57 +31,12 @@ public import CFSG.HardMathSupport.Solomon.Coordinator.LieOrderBridgeHolds
 public import CFSG.HardMathSupport.Solomon.Coordinator.SporOrders
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.B113K.DetCatalog
 public import CFSG.LocalAnalysis.AGL81I.Section3.ThreeNineSporBigOvergroup
-public import Certificates.Certificate2042
-public import Certificates.Certificate2043
-public import Certificates.Certificate2083
-public import Certificates.Certificate2084
-public import Certificates.Certificate2085
-public import Certificates.Certificate2086
-public import Certificates.Certificate2087
-public import Certificates.Certificate2088
-public import Certificates.Certificate2089
-public import Certificates.Certificate2090
-public import Certificates.Certificate2091
-public import Certificates.Certificate2093
-public import Certificates.Certificate2094
 public import CFSG.Sporadic.Schreier.LyCheckSep
 public import CFSG.Sporadic.Ly.KeySpec
 public import CFSG.Sporadic.He.FpSpec
 import Certificates.Kernel.SporSch.Ly.SepGlue
-public import Certificates.Certificate8130
-public import Certificates.Certificate8131
-public import Certificates.Certificate8136
-public import Certificates.Certificate8139
-public import Certificates.Certificate8140
-public import Certificates.Certificate8141
-public import Certificates.Certificate8146
-public import Certificates.Certificate9310
-public import Certificates.Certificate13607
-public import Certificates.Certificate13608
-public import Certificates.Certificate13609
-public import Certificates.Certificate13670
-public import Certificates.Certificate13671
-public import Certificates.Certificate14962
-public import Certificates.Certificate14963
-public import Certificates.Certificate14964
-public import Certificates.Certificate14965
 public import CFSG.Sporadic.Ly.FiveFacts
 import CFSG.Sporadic.Ly.Certificate
-import Certificates.Certificate3085
-public import Certificates.Certificate14967
-public import Certificates.Certificate14968
-public import Certificates.Certificate14970
-public import Certificates.Certificate14980
-public import Certificates.Certificate16956
-public import Certificates.Certificate17324
-public import Certificates.Certificate17325
-public import Certificates.Certificate17326
-public import Certificates.Certificate17327
-public import Certificates.Certificate1322008
-public import Certificates.Certificate1322030
-public import Certificates.Certificate1322031
-public import Certificates.Certificate1322150
-public import Certificates.Certificate1322151
 import CFSG.LocalAnalysis.AGL81I.Section3.ThreeNineONTripleCover
 import CFSG.LocalAnalysis.AGL81I.Section3.ThreeNineSporCo1
 import CFSG.LocalAnalysis.AGL81I.Section3.ThreeNineSporHN
@@ -133,10 +88,6 @@ public import CFSG.Quasithin.Vol2.Ch11StatementsInputsAS3
 public import CFSG.Quasithin.Vol2.Ch12Sec6KGComp
 public import CFSG.Quasithin.Vol2.Ch12Sec6KGCompSL3B
 public import CFSG.RankThree.PartOne.N143.Inspect613
-public import Certificates.Certificate17633
-public import Certificates.Certificate34002
-public import Certificates.Certificate431009
-public import Certificates.Certificate431010
 import Certificates.Data.CFSGNative.D42Over.Check
 
 public section

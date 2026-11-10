@@ -21,7 +21,6 @@ public import CFSG.RankThree.PartTwo.Sec21.Item211ProofListOf
 public import CFSG.RankThree.PartTwo.Sec4.Item41NarrowGriess
 public import CFSG.RankThree.PartTwo.Sec4.RonanK429RowVQuasi
 public import CFSG.Walter.J1Props
-public import Certificates.Certificate8166
 import CFSG.LocalAnalysis.GLTheoremA.CatA.K144FieldConj
 import CFSG.LocalAnalysis.GLTheoremA.CatA.K144IInn
 import CFSG.LocalAnalysis.GLTheoremA.CatA.K144OutFalse

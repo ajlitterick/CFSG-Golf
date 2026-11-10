@@ -40,7 +40,6 @@ public import CFSG.Sporadic.Schreier.J4SSylow
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ProjectiveSemilinear
 public import CFSG.Walter.Defs
-public import Certificates.Certificate8026Base
 
 public section
 

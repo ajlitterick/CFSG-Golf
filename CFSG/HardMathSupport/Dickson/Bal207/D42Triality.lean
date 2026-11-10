@@ -4,12 +4,6 @@ public import CFSG.HardMathSupport.Dickson.Bal207.OrthShapeIdx
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.NativeModel
 public import CFSG.Quasithin.Recognition.CertU33PresInputs
 public import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
-public import Certificates.Certificate8080
-public import Certificates.Certificate8081
-public import Certificates.Certificate17627
-public import Certificates.Certificate17628
-public import Certificates.Certificate17629
-public import Certificates.Certificate19953
 import CFSG.Assembly.Subnormal
 import CFSG.HardMathSupport.Dickson.Bal207.D42TriModel
 import CFSG.HardMathSupport.Meierfrankenfeld.AGL81.I542.AutFactsU33

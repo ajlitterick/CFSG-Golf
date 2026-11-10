@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Background.HSp4A6
-public import Certificates.Certificate7067
 
 public section
 

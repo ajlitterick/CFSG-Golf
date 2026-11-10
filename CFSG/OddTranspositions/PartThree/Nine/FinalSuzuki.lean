@@ -36,21 +36,6 @@ public import CFSG.Walter.Bender1970.S3.Basic
 public import CFSG.Walter.Bender1970.S3.OStar
 public import CFSG.Walter.PSL2Facts
 public import CFSG.Walter.W67.W2Lemma26A
-public import Certificates.Certificate7000
-public import Certificates.Certificate7001
-public import Certificates.Certificate7002
-public import Certificates.Certificate7003
-public import Certificates.Certificate7004
-public import Certificates.Certificate7005
-public import Certificates.Certificate7006
-public import Certificates.Certificate7007
-public import Certificates.Certificate7008
-public import Certificates.Certificate7009
-public import Certificates.Certificate7010
-public import Certificates.Certificate7011
-public import Certificates.Certificate8046
-public import Certificates.Certificate8049
-public import Certificates.Certificate8052
 
 public section
 

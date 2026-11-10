@@ -71,13 +71,6 @@ import CFSG.RankThree.PartTwo.Sec4.ProjSLEquiv
 import CFSG.RankThree.PartTwo.Sec4.T444.Item434SmallTwoOtherDefs
 import CFSG.Sporadic.Bridge.Fi24Data
 import CFSG.Sporadic.Presentation.Fi24PrimeExact
-import Certificates.Certificate19800
-import Certificates.Certificate9207
-import Certificates.Certificate9591
-import Certificates.Certificate9594
-import Certificates.Certificate9595
-import Certificates.Certificate9597
-import Certificates.Certificate9602
 
 public section
 

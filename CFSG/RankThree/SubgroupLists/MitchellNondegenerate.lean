@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.SubgroupLists.MitchellDegenerate
 public import CFSG.RankThree.SubgroupLists.MitchellQOne
-public import Certificates.Certificate113
 
 public section
 

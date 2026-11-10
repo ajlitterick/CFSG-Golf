@@ -34,11 +34,6 @@ public import CFSG.RankThree.PartOne.CTP.StrongPSylow
 public import CFSG.RankThree.PartOne.S10.ThetaContract
 public import CFSG.RankThree.PartOne.S12.InputsBase
 public import CFSG.Sporadic.Bridge.M11CheckInputs
-public import Certificates.Certificate110
-public import Certificates.Certificate19762
-public import Certificates.Certificate19763
-public import Certificates.Certificate2191
-public import Certificates.Certificate2192
 
 public section
 

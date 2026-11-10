@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267HqRankLift
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 import CFSG.RankThree.PartOne.Census3.LinearWitness
 import CFSG.RankThree.PartTwo.Census.OddClassical.UnitaryWitness
 import CFSG.RankThree.PartTwo.Census.Criteria

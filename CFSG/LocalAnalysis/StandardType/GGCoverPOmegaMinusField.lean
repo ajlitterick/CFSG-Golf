@@ -29,7 +29,6 @@ import CFSG.Quasithin.Vol2.Ch11StatementsF
 import CFSG.Quasithin.Vol2.Ch11StatementsG
 import CFSG.Quasithin.Vol2.Ch11StatementsH
 import CFSG.Quasithin.Vol2.Ch11StatementsInputs
-import Certificates.Certificate8026Base
 
 public section
 

@@ -100,22 +100,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePS
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2S0LeQuotientTorus
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphReconstruction
 public import CFSG.YGroups.DCE.B433Check
-public import Certificates.Certificate1
-public import Certificates.Certificate10
-public import Certificates.Certificate11
-public import Certificates.Certificate12
-public import Certificates.Certificate2
-public import Certificates.Certificate3
-public import Certificates.Certificate4
-public import Certificates.Certificate42
-public import Certificates.Certificate44
-public import Certificates.Certificate5
-public import Certificates.Certificate6
-public import Certificates.Certificate7
-public import Certificates.Certificate8
-public import Certificates.Certificate8026Base
-public import Certificates.Certificate9
-public import Certificates.Certificate9124
 import CFSG.LieType.Chevalley.EvenRootCommutatorF4
 import CFSG.LieType.Universal.Spin.Roots
 import CFSG.LieType.Universal.SpinOmega

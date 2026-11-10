@@ -149,7 +149,6 @@ public import CFSG.RankThree.PartOne.KE.E8D4Family
 public import CFSG.RankThree.PartOne.KEXC.Basic
 public import CFSG.RankThree.PartOne.S9.OddCore.RecognitionBasic
 public import CFSG.RankThree.PartOne.TCX.Ree.Perm
-public import Certificates.Certificate41501
 public import Certificates.Data.Fi22PairSize
 import CFSG.RankThree.Chevalley.SteinbergBNNoninnerComponentNodes
 import CFSG.RankThree.Chevalley.SteinbergCFOddE7E8NoninnerComponent

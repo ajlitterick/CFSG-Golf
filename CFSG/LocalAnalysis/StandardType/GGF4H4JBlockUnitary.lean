@@ -20,7 +20,6 @@ import CFSG.LocalAnalysis.StandardType.GGSixRootFusionSURepFrame
 import CFSG.LocalAnalysis.StandardType.GGSixRootFusionSURepResidual
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniLabelPSU
 import CFSG.RankThree.PartOne.KFOUT3.L12Levi
-import Certificates.Certificate117
 import CFSG.GroupTheory.HallHigmanPiCore
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FBase2
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GField

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDNbrSixFrame
 public import CFSG.LocalAnalysis.StandardType.GGNsq2RankOne
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDShared
-public import Certificates.Certificate3143
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitRankTwo
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBlock
 import CFSG.LocalAnalysis.StandardType.GGQTwoDL1Edge

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Blueprint.ChevalleyPinnedBridge
-public import Certificates.Certificate113
-public import Certificates.Certificate114
 
 public section
 

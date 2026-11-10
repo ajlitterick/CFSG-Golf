@@ -18,9 +18,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSignedCoordBlocks
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBLabelDefs
 public import CFSG.LocalAnalysis.StandardType.GGSkeleton
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.BlockCast
 import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.BlockCentralizer
 import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.Simple

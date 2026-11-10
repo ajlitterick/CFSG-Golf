@@ -41,7 +41,6 @@ import CFSG.RankThree.PartTwo.Sec4.StatementsGraphField
 import CFSG.StronglyEmbedded.ParityCriterion
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
-import Certificates.Certificate43
 
 public section
 

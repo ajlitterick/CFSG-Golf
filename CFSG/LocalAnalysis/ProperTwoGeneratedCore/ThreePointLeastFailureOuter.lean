@@ -9,7 +9,6 @@ public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiCentralCover
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionClassFreeAffineHullAutomorphisms
 public import CFSG.LieType.BorelTits.Suzuki
 public import CFSG.StronglyEmbedded.MatrixGroups.PSU3Model
-public import Certificates.Certificate113
 import CFSG.Models.BenderSuzuki
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.LieType.BorelTits.CompleteFlag

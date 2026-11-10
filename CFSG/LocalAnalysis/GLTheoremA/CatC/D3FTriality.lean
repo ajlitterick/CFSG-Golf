@@ -5,13 +5,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatC.YS04D3
 public import CFSG.HardMathSupport.Dickson.Bal207.D4GraphBridgeIso
 public import CFSG.HardMathSupport.Timmesfeld.DefChar.CoreDFour
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointDataModelWitness
-public import Certificates.Certificate76
-public import Certificates.Certificate77
-public import Certificates.Certificate115
-public import Certificates.Certificate116
-public import Certificates.Certificate118
-public import Certificates.Certificate122
-public import Certificates.Certificate123
 
 set_option linter.unusedSectionVars false
 

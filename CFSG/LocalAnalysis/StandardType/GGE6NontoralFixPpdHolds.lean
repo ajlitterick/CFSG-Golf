@@ -1,12 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutOutdiagE6Glue
-public import Certificates.Certificate1952
-public import Certificates.Certificate2264
-public import Certificates.Certificate2267
-public import Certificates.Certificate3951
-public import Certificates.Certificate8033
-public import Certificates.Certificate13657
 import CFSG.LocalAnalysis.StandardType.GGE6OutdiagPpdToral
 import CFSG.LocalAnalysis.StandardType.GGE6OutdiagPpdKernel
 import CFSG.LocalAnalysis.StandardType.GGE6OutdiagPpdComp

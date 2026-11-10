@@ -7,9 +7,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenStdNineTwentyFour
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC165Model
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenFiveTen
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenInputs
-public import Certificates.Certificate431004
-public import Certificates.Certificate17430
-public import Certificates.Certificate9726
 public import CFSG.Adapters.Certificate43Check
 public import CFSG.ClassicalGroups.Orthogonal.DiagonalTorusRankOddMinus
 public import CFSG.ClassicalGroups.SpecialLinear.ComponentBorelQuotient

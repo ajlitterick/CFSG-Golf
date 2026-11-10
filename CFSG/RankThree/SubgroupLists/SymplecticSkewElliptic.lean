@@ -2,10 +2,6 @@ module
 
 public import CFSG.RankThree.SubgroupLists.SymplecticRegulus
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonTwoTransvectionsClassification
-public import Certificates.Certificate42
-public import Certificates.Certificate43
-public import Certificates.Certificate8
-public import Certificates.Certificate9
 
 public section
 

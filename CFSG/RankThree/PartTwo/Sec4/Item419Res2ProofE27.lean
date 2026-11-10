@@ -1,9 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec4.Item419Res2Proof
-public import Certificates.Certificate80
-public import Certificates.Certificate81
-public import Certificates.Certificate120
 import CFSG.RankThree.PartTwo.Sec4.Item419Res2ProofCensus
 import CFSG.RankThree.PartTwo.Sec5.Tools
 import CFSG.LieType.Simplicity.Exceptional

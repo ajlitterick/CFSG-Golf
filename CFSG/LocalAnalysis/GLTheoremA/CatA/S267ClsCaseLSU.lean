@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267ClsCaseLBar
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267ClsAutFieldUni
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 import CFSG.RankThree.SteinbergR3EUnitaryFieldDescent
 import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherIsotropicRadical
 import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherPrimeFormRealization

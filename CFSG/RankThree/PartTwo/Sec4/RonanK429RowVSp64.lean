@@ -19,7 +19,6 @@ public import CFSG.RankThree.PartTwo.Sec11.Item119K
 public import CFSG.RankThree.PartTwo.Sec14.Item142ResProofPGL
 public import CFSG.RankThree.PartTwo.Sec20.OneSteps
 public import CFSG.RankThree.PartTwo.Sec21.Item211ProofListOf
-public import Certificates.Certificate8166
 
 public section
 

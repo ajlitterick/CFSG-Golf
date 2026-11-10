@@ -121,7 +121,6 @@ public import CFSG.Walter.Bender1970.S3.Basic
 public import CFSG.Walter.Bender1970.S3.OStar
 public import CFSG.Walter.PSL2Facts
 public import CFSG.Walter.W67.Section5.Lemma57
-public import Certificates.Certificate5007
 
 public section
 

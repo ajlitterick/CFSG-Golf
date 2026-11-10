@@ -7,9 +7,6 @@ import Init.Data.Nat.Fold
 import Init.Data.Array.Basic
 import Init.Data.Range.Basic
 public import CFSG.Sporadic.Schreier.Co1EigenPlanes
-public import Certificates.Certificate2133
-public import Certificates.Certificate2150
-public import Certificates.Certificate3024
 
 public section
 

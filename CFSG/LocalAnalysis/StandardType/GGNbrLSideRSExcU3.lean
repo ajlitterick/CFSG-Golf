@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNbrLSideRSExcDefs
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.FrameAct
 public import CFSG.LieType.Chevalley.CoordinateFieldFixedSubgroup
-public import Certificates.Certificate13659
 import CFSG.RankThree.PartTwo.Sec4.E27.D4StepALeavesAuxL1Alg
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUStd
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentPerm

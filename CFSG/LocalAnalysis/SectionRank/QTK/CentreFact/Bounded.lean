@@ -4,46 +4,6 @@ public import CFSG.LocalAnalysis.SectionRank.QTK.CentreFact.Defs
 public import CFSG.Assembly.RankThreeEvenDefs
 public import CFSG.Blueprint.Catalog
 public import CFSG.Open.StatedDefs
-public import Certificates.Certificate45
-public import Certificates.Certificate46
-public import Certificates.Certificate47
-public import Certificates.Certificate48
-public import Certificates.Certificate49
-public import Certificates.Certificate50
-public import Certificates.Certificate51
-public import Certificates.Certificate52
-public import Certificates.Certificate53
-public import Certificates.Certificate54
-public import Certificates.Certificate55
-public import Certificates.Certificate56
-public import Certificates.Certificate57
-public import Certificates.Certificate58
-public import Certificates.Certificate59
-public import Certificates.Certificate60
-public import Certificates.Certificate61
-public import Certificates.Certificate62
-public import Certificates.Certificate63
-public import Certificates.Certificate64
-public import Certificates.Certificate65
-public import Certificates.Certificate66
-public import Certificates.Certificate67
-public import Certificates.Certificate68
-public import Certificates.Certificate69
-public import Certificates.Certificate70
-public import Certificates.Certificate71
-public import Certificates.Certificate72
-public import Certificates.Certificate73
-public import Certificates.Certificate74
-public import Certificates.Certificate75
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
-public import Certificates.Certificate2236
-public import Certificates.Certificate2237
-public import Certificates.Certificate2239
-public import Certificates.Certificate2281
-public import Certificates.Certificate3169
-public import Certificates.Certificate8150
 import CFSG.LocalAnalysis.SectionRank.QTK.CentreFact.Small
 import CFSG.LocalAnalysis.SectionRank.SporadicCover
 import CFSG.RankThree.PartTwo.Census.Carrier.G2Three
@@ -72,7 +32,6 @@ public import CFSG.Sporadic.Mathieu.M24
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
-public import Certificates.Certificate43
 import CFSG.GroupTheory.Fitting.CharacteristicP
 import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 import CFSG.LocalAnalysis.ComponentClassification.LayerMultiplication

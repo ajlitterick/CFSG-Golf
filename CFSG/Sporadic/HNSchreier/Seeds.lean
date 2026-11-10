@@ -3,7 +3,6 @@ module
 public import CFSG.Sporadic.HNSchreier.SeedsCheck
 public import CFSG.Sporadic.He.FpSpec
 import all CFSG.Blueprint.NativeSporadic
-public import Certificates.Certificate2106
 
 public section
 

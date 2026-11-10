@@ -30,16 +30,6 @@ public import CFSG.RankThree.PartOne.S12.Sec15Items
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.theorem_3_6
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.CommutatorNormalizer
-public import Certificates.Certificate116
-public import Certificates.Certificate119
-public import Certificates.Certificate122
-public import Certificates.Certificate123
-public import Certificates.Certificate45
-public import Certificates.Certificate49
-public import Certificates.Certificate53
-public import Certificates.Certificate59
-public import Certificates.Certificate68
-public import Certificates.Certificate72
 
 public section
 

@@ -24,5 +24,6 @@ to use field inverses.
 
 All upstream sources use Apache-2.0; each folder includes its upstream license.
 
-Qiuzhen CFSG includes a proof of Feit–Thompson, but we use our own entirely self-contained
-[Feit–Thompson proof](../FeitThompson).
+Qiuzhen CFSG includes a proof of Feit–Thompson (`CFSG.odd_order_theorem`), which
+[`CFSG/FeitThompson/OddOrderTheorem.lean`](../FeitThompson/OddOrderTheorem.lean) re-exports. Its sections
+are needed by other parts of the classification in any case, so a second proof is not kept.

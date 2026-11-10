@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentInitial.SteinbergBXSevenTransvectionE7
 public import CFSG.LocalAnalysis.ComponentInitial.BinarySymplecticSixCover
-public import Certificates.Certificate10093
-public import Certificates.Certificate10097
 
 public section
 

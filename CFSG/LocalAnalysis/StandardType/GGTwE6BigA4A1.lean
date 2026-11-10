@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTwE6BigLineDefs
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24LineLang
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.KS.TwE6UniqA1
-public import Certificates.Certificate13657
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24CentreKac
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24CentrePerm
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.KS.ExactSU

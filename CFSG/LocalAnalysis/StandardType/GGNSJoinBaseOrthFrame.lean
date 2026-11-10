@@ -8,14 +8,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTBFixDefs
 public import CFSG.LocalAnalysis.StandardType.GGNsq2Cited
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinRMDefs
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyQSplit
-public import Certificates.Certificate1002
-public import Certificates.Certificate1003
-public import Certificates.Certificate1009
-public import Certificates.Certificate1952
-public import Certificates.Certificate10015
-public import Certificates.Certificate10016
-public import Certificates.Certificate10017
-public import Certificates.Certificate10018
 import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
 import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
 import CFSG.LocalAnalysis.StandardType.GGOrthWeakFrameOfMarking

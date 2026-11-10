@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22SP207Defs
-public import Certificates.Certificate113
 import CFSG.LocalAnalysis.UniquenessCase.UC22SP207Tits
 import CFSG.LocalAnalysis.UniquenessCase.UC22SP207Transfer
 import CFSG.Milestones.ASVolI.I2

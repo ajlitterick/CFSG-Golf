@@ -31,9 +31,6 @@ import CFSG.Quasithin.Background.A3Structure312
 import CFSG.Quasithin.Background.OrderingMax
 import CFSG.Quasithin.Vol2.Ch1Local
 import CFSG.Sporadic.J4Base
-import Certificates.Certificate10005
-import Certificates.Certificate3007
-import Certificates.Certificate8026Base
 
 public section
 

@@ -12,7 +12,6 @@ public import CFSG.Sporadic.Bridge.LyData
 public import CFSG.Sporadic.Bridge.TableSurj
 public import CFSG.Sporadic.Presentation.Common
 public import CFSG.Sporadic.Presentation.Ly
-public import Certificates.Certificate3085Base
 
 public section
 

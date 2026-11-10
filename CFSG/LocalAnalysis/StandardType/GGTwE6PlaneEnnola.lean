@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6FieldThreeFourHolds
-public import Certificates.Certificate830101
 import CFSG.LocalAnalysis.StandardType.GGTwE6PlaneEnnolaWeyl
 import CFSG.LocalAnalysis.StandardType.GGTwE6LeviLang
 

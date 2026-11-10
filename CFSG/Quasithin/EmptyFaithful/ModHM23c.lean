@@ -8,12 +8,6 @@ public import CFSG.Quasithin.EmptyFaithful.ModHRho
 public import CFSG.Quasithin.EmptyFaithful.ModHInn
 public import CFSG.Quasithin.EmptyFaithful.ModHSolv
 public import CFSG.Sporadic.Schreier.MathieuOddCoreM23
-public import Certificates.Certificate2196
-public import Certificates.Certificate2197
-public import Certificates.Certificate2204
-public import Certificates.Certificate4075
-public import Certificates.Certificate7118
-public import Certificates.Certificate7123
 
 public section
 

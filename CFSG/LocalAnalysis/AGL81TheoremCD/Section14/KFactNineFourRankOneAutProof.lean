@@ -1,64 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.FourteenFiveThreeKFacts
-public import Certificates.Certificate43
-public import Certificates.Certificate45
-public import Certificates.Certificate46
-public import Certificates.Certificate47
-public import Certificates.Certificate48
-public import Certificates.Certificate49
-public import Certificates.Certificate50
-public import Certificates.Certificate51
-public import Certificates.Certificate52
-public import Certificates.Certificate53
-public import Certificates.Certificate54
-public import Certificates.Certificate55
-public import Certificates.Certificate56
-public import Certificates.Certificate57
-public import Certificates.Certificate58
-public import Certificates.Certificate59
-public import Certificates.Certificate60
-public import Certificates.Certificate61
-public import Certificates.Certificate62
-public import Certificates.Certificate63
-public import Certificates.Certificate64
-public import Certificates.Certificate65
-public import Certificates.Certificate66
-public import Certificates.Certificate67
-public import Certificates.Certificate68
-public import Certificates.Certificate69
-public import Certificates.Certificate70
-public import Certificates.Certificate71
-public import Certificates.Certificate72
-public import Certificates.Certificate73
-public import Certificates.Certificate74
-public import Certificates.Certificate75
-public import Certificates.Certificate76
-public import Certificates.Certificate77
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate115
-public import Certificates.Certificate116
-public import Certificates.Certificate117
-public import Certificates.Certificate118
-public import Certificates.Certificate122
-public import Certificates.Certificate123
-public import Certificates.Certificate3017
-public import Certificates.Certificate3084
-public import Certificates.Certificate3170
-public import Certificates.Certificate3951
-public import Certificates.Certificate8024
-public import Certificates.Certificate8032
-public import Certificates.Certificate8033
-public import Certificates.Certificate9123
-public import Certificates.Certificate9125
-public import Certificates.Certificate9126
-public import Certificates.Certificate9212
-public import Certificates.Certificate9215
-public import Certificates.Certificate9216
-public import Certificates.Certificate9357
-public import Certificates.Certificate10095
-public import Certificates.Certificate14954
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFactNineThreeListRankOneProof
 import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.GroupSz32
 import CFSG.Sporadic.Presentation.McLExact
@@ -112,7 +54,6 @@ public import CFSG.Sporadic.Presentation.M24Exact
 public import CFSG.Sporadic.Presentation.McLExactData
 public import CFSG.Sporadic.Presentation.McLExactInputs
 public import CFSG.Sporadic.Schreier.J4SProfileNode
-public import Certificates.Certificate10095Base
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 import CFSG.Certificates.CosetTableCompactPresented
 import CFSG.LieType.Chevalley.EvenRootCommutatorF4
@@ -138,17 +79,6 @@ import CFSG.Sporadic.ON.SimpleBase
 import CFSG.Sporadic.Presentation.Fi24PrimeExact
 import CFSG.Sporadic.Presentation.HeExact
 import CFSG.Sporadic.Presentation.ONan
-import Certificates.Certificate1016Base
-import Certificates.Certificate291111
-import Certificates.Certificate3171
-import Certificates.Certificate3171Base
-import Certificates.Certificate9207
-import Certificates.Certificate9209
-import Certificates.Certificate9210
-import Certificates.Certificate9211
-import Certificates.Certificate9217
-import Certificates.Certificate9217Base
-import Certificates.Certificate9218
 
 public section
 

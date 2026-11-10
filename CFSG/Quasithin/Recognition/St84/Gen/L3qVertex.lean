@@ -93,7 +93,6 @@ public import CFSG.Quasithin.Vol2.GoldschmidtF431Main
 public import CFSG.Quasithin.Vol2.GoldschmidtF431SpTrans
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
-public import Certificates.Certificate8026Base
 public import Certificates.Data.CFSGNative.MonsterB.Rep4371Model
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1

@@ -4,11 +4,6 @@ public import CFSG.LieType.CurtisTits.Conclusion
 public import CFSG.LieType.CurtisTits.ExceptionalModel
 public import CFSG.LieType.Steinberg.TwistedE6.Clause0
 public import CFSG.LieType.Steinberg.Exceptional.Fields
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate115
-public import Certificates.Certificate116
-public import Certificates.Certificate123
 
 public section
 

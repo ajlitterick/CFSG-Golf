@@ -2,8 +2,6 @@ module
 
 public import CFSG.Quasithin.Vol2.Ch7NotFFTwo
 public import CFSG.Quasithin.Background.HA7Alpha
-public import Certificates.Certificate7022
-public import Certificates.Certificate7067
 
 public section
 

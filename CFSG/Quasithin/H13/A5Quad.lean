@@ -4,9 +4,6 @@ public import CFSG.Quasithin.H13.A5Quad8
 public import CFSG.Quasithin.Background.B5FinG2U33
 public import CFSG.Quasithin.Background.P3G2Zorn
 public import CFSG.Quasithin.Background.B5Models
-public import Certificates.Certificate17028
-public import Certificates.Certificate8952
-public import Certificates.Certificate8953
 public import CFSG.Adapters.GeneralizedFitting
 public import CFSG.Fischer.Pairs
 public import CFSG.Foundations
@@ -62,7 +59,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970_18
 public import CFSG.Timmesfeld.RankOne
 public import CFSG.Timmesfeld.Transvection.Statement
-public import Certificates.Certificate8026Base
 
 public section
 

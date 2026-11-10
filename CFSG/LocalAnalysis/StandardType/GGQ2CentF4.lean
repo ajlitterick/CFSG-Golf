@@ -2,11 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2CentralizerPort
 public import CFSG.LocalAnalysis.StandardType.GGQTwoTBCF4Cent
-public import Certificates.Certificate2264
-public import Certificates.Certificate2267
-public import Certificates.Certificate3951
-public import Certificates.Certificate8033
-public import Certificates.Certificate8064
 
 import CFSG.LocalAnalysis.StandardType.GGQTwoAssemble
 import CFSG.LocalAnalysis.StandardType.GGQTwoCavImage

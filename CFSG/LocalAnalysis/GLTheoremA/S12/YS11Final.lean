@@ -178,8 +178,6 @@ public import CFSG.Quasithin.H13.L32NLem1444a
 public import CFSG.RankThree.PartOne.N143.HighEvenU
 public import CFSG.RankThree.PartTwo.Sec19.SimsTheoremCTypes
 public import CFSG.SignalizerFunctorTheorem.NearModels.PSLTwo.Arithmetic
-public import Certificates.Certificate17632Base
-public import Certificates.Certificate830101
 
 public section
 

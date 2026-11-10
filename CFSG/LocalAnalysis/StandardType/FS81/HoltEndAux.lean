@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.Marking
 public import CFSG.RankThree.PartTwo.Census.Alternating
 public import CFSG.LargeExtraspecial.A2ModOrdCard
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionMaximalPrimeNormalizer
-public import Certificates.Certificate8064
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.LieType.Steinberg.Classical.SpinFrame
 public import CFSG.LieType.Steinberg.Families

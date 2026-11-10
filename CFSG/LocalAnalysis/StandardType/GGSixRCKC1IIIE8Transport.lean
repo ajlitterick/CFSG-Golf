@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeConfigID
-public import Certificates.Certificate14972
 import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerAdj
 import CFSG.LocalAnalysis.StandardType.E8SevenCentralizerComponent
 import CFSG.LieType.Chevalley.AdjointCenter

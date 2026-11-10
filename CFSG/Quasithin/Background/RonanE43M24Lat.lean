@@ -3,10 +3,6 @@ module
 public import CFSG.Quasithin.Background.RonanE43Basic
 public import CFSG.Quasithin.EmptyFaithful.S151S9TM24
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatM24
-public import Certificates.Certificate3017
-public import Certificates.Certificate4068
-public import Certificates.Certificate4075
-public import Certificates.Certificate4194
 
 public section
 

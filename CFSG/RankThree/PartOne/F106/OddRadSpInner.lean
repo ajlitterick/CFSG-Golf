@@ -23,8 +23,6 @@ public import CFSG.RankThree.GroupTheory.SteinbergBYSectionNineResidual
 public import CFSG.RankThree.LocalRank.SelectorCases
 public import CFSG.RankThree.PartOne.N143.Weyl613Defs
 public import CFSG.RankThree.PartOne.N143X.KF64WSimple
-public import Certificates.Certificate2267
-public import Certificates.Certificate8033
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHeldSmallCorePrimeCore
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearFieldDeterminant
@@ -61,8 +59,6 @@ import CFSG.RankThree.Theta.ThreeComponentOrbitCover
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 import CFSG.Walter.Defs
-import Certificates.Certificate1
-import Certificates.Certificate2
 import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalGroup.LowRank

@@ -6,39 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGNbrLang
 public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 public import CFSG.LocalAnalysis.StandardType.GGTBXPlumb
 public import CFSG.LocalAnalysis.StandardType.GGTBXDatumResRest2Defs
-public import Certificates.Certificate45
-public import Certificates.Certificate49
-public import Certificates.Certificate53
-public import Certificates.Certificate59
-public import Certificates.Certificate68
-public import Certificates.Certificate72
-public import Certificates.Certificate76
-public import Certificates.Certificate77
-public import Certificates.Certificate78
-public import Certificates.Certificate79
-public import Certificates.Certificate80
-public import Certificates.Certificate81
-public import Certificates.Certificate117
-public import Certificates.Certificate118
-public import Certificates.Certificate119
-public import Certificates.Certificate120
-public import Certificates.Certificate121
-public import Certificates.Certificate122
-public import Certificates.Certificate1952
-public import Certificates.Certificate2261
-public import Certificates.Certificate2262
-public import Certificates.Certificate2263
-public import Certificates.Certificate2264
-public import Certificates.Certificate2265
-public import Certificates.Certificate2266
-public import Certificates.Certificate2267
-public import Certificates.Certificate2268
-public import Certificates.Certificate2269
-public import Certificates.Certificate2270
-public import Certificates.Certificate3951
-public import Certificates.Certificate8032
-public import Certificates.Certificate8033
-public import Certificates.Certificate8064
 import CFSG.LocalAnalysis.StandardType.GGF4SmallBook
 import CFSG.LocalAnalysis.StandardType.GGNbrReflGenTables
 import CFSG.LocalAnalysis.StandardType.GGLabelRigid

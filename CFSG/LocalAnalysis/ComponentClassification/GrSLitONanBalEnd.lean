@@ -8,8 +8,6 @@ public import CFSG.Timmesfeld.Bridge.Asc72Bender
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
-public import Certificates.Certificate113
-public import Certificates.Certificate43
 
 public section
 

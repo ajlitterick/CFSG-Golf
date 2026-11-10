@@ -11,19 +11,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34TwUU
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34TwBounds
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34TwProp41
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34TwProp42
-public import Certificates.Certificate2022
-public import Certificates.Certificate3007
-public import Certificates.Certificate10005
-public import Certificates.Certificate22200
-public import Certificates.Certificate22201
-public import Certificates.Certificate22202
-public import Certificates.Certificate33001
-public import Certificates.Certificate33002
-public import Certificates.Certificate33101
-public import Certificates.Certificate33102
-public import Certificates.Certificate33201
-public import Certificates.Certificate33209
-public import Certificates.Certificate33211
 public import Certificates.Kernel.ThCent.Leaves
 
 public section

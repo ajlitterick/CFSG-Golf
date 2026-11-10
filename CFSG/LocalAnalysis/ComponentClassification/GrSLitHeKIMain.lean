@@ -5,31 +5,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeKPInputs
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsInvCent
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4Basic
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitFixedL34
-public import Certificates.Certificate2020
-public import Certificates.Certificate2022
-public import Certificates.Certificate2110
-public import Certificates.Certificate2111
-public import Certificates.Certificate2112
-public import Certificates.Certificate2114
-public import Certificates.Certificate2115
-public import Certificates.Certificate2116
-public import Certificates.Certificate2117
-public import Certificates.Certificate2118
-public import Certificates.Certificate2223
-public import Certificates.Certificate2224
-public import Certificates.Certificate2225
-public import Certificates.Certificate2275
-public import Certificates.Certificate2276
-public import Certificates.Certificate3007
-public import Certificates.Certificate3168
-public import Certificates.Certificate10005
-public import Certificates.Certificate22200
-public import Certificates.Certificate22201
-public import Certificates.Certificate22203
-public import Certificates.Certificate22205
-public import Certificates.Certificate22701
-public import Certificates.Certificate22703
-public import Certificates.Certificate22704
 public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitFixedHe
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeGS36
@@ -44,7 +19,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.Sol76LayerFix
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.StrongEmbedding
 public import CFSG.Open.QuasithinDefs
 public import CFSG.Walter.J1
-public import Certificates.Certificate22705
 
 public section
 

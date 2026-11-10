@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.UCFront09R917A5
 import CFSG.LocalAnalysis.UniquenessCase.UCFront09R922A5Proof
 import CFSG.RankThree.PartTwo.KFacts.KS44Sz
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront09R912A5
-import Certificates.Certificate43
 public import CFSG.CGT.PushingUpLit.CGT6.SixThreeCore
 import CFSG.LocalAnalysis.UniquenessCase.UC6R2
 import CFSG.LocalAnalysis.UniquenessCase.UCFront09R911

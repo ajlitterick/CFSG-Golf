@@ -28,7 +28,6 @@ public import CFSG.RankThree.PartTwo.Sec20.Item203OneProof
 public import CFSG.RankThree.PartTwo.Sec20.Item20Res5ProofNormal
 public import CFSG.RankThree.PartTwo.Sec20.OneSteps
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
-public import Certificates.Certificate43
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointActionModels
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointDataModelWitness

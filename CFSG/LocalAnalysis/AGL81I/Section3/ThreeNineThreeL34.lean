@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.AGL81I.Section3.ThreeNineOrders
 public import CFSG.LocalAnalysis.AGL81I.Section3.ThreeNineExclude
 public import CFSG.LocalAnalysis.AGL81I.Section3.ThreeNineThreeFamilies
 public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6KI2320Main
-public import Certificates.Certificate2022
-public import Certificates.Certificate465003
 import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6DSylow
 import CFSG.GH74.GLS.Stage2.Signalizer.L46EAutD1Aut
 import CFSG.Adapters.StatedClassicalSmallOrders

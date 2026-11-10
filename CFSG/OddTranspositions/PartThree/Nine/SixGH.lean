@@ -52,7 +52,6 @@ import CFSG.Sporadic.Presentation.Common
 import CFSG.Sporadic.Presentation.Ly
 import CFSG.Sporadic.Schreier.LyFixedSet
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
-import Certificates.Certificate3085Base
 
 public section
 

@@ -21,7 +21,6 @@ public import CFSG.Quasithin.EmptyFaithful.S146zYFacts
 public import CFSG.Quasithin.EmptyFaithful.S146zYRes
 public import CFSG.Quasithin.H13.NQCoreP134Main
 public import CFSG.Quasithin.Vol2.Ch1Sec3E9Inputs
-public import Certificates.Certificate8026Base
 
 public section
 

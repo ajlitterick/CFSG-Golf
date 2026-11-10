@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLangRatCentreStmts
 public import CFSG.LocalAnalysis.StandardType.GGLangRatFixedChassis
-public import Certificates.Certificate13659
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleOrbit
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcRoots
 import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcLang

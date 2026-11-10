@@ -6,7 +6,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Cardinality
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2Cardinality
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherFactsL2Orders
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherFactsL2Maximal
-public import Certificates.Certificate43
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
 
 public section

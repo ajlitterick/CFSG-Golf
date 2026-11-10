@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.Claim1A4
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.Claim1Assembly
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.A8Table
 import Mathlib.Tactic.Group
-public import Certificates.Certificate1
-public import Certificates.Certificate2
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.ClassicalGroups

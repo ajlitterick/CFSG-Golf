@@ -8,20 +8,6 @@ import CFSG.LocalAnalysis.StandardType.KGLangS1EModelDerived
 import CFSG.LieType.Chevalley.GraphFixedFinitePerfect
 import CFSG.LieType.Chevalley.TrialityFullAmbientFixedGroup
 import CFSG.LocalAnalysis.StandardType.GGTableBTwE6Dvd
-public import Certificates.Certificate76
-public import Certificates.Certificate77
-public import Certificates.Certificate78
-public import Certificates.Certificate79
-public import Certificates.Certificate80
-public import Certificates.Certificate81
-public import Certificates.Certificate115
-public import Certificates.Certificate116
-public import Certificates.Certificate118
-public import Certificates.Certificate119
-public import Certificates.Certificate120
-public import Certificates.Certificate121
-public import Certificates.Certificate122
-public import Certificates.Certificate123
 
 public section
 

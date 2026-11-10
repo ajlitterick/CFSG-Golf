@@ -65,9 +65,6 @@ public import CFSG.Quasithin.Background.E1Twelve
 public import CFSG.Quasithin.Background.E3Cent
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import CFSG.Quasithin.Vol2.Ch1Local
-public import Certificates.Certificate3953
-public import Certificates.Certificate5007
-public import Certificates.Certificate5022
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
 public import Certificates.Kernel.J4Count.KFactsBase

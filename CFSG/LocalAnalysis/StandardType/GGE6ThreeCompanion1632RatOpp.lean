@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGE6ThreeCompanion1632Lang
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeCompanion1625B1a
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeExcE6Kern
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeTwE6Conn
-public import Certificates.Certificate13657
 public import CFSG.Certificates.Kernel.LocalCompTits.Span
 public import CFSG.HardMathSupport.Solomon.Coordinator.I14_20Alt
 public import CFSG.HardMathSupport.Solomon.Coordinator.L3C143AltMain

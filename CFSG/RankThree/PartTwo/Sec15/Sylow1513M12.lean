@@ -5,9 +5,6 @@ import CFSG.RankThree.PartTwo.Sec15.Item1513Res3ProofTransOut
 import CFSG.RankThree.PartTwo.Sec15.Item1513StepsProofTools
 import CFSG.RankThree.PartTwo.Sec17.Item17Q0ProofTools
 import CFSG.Goldschmidt.Steps.G310Basic
-public import Certificates.Certificate3029
-public import Certificates.Certificate3086
-public import Certificates.Certificate3139
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.MaximalityAmbient.RealThreeBasic
 import CFSG.RankThree.PartTwo.Sec15.Item1513ProofTools
 import CFSG.RankThree.PartTwo.Sec15.Item1513ProofNoTransv

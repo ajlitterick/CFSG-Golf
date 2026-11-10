@@ -58,8 +58,6 @@ public import CFSG.Sporadic.Th.Max3.Core
 public import CFSG.Sporadic.ThSchreier.GlobalData
 public import CFSG.Sporadic.ThSchreier.LocalOrbitBase1
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import Certificates.Certificate1
-public import Certificates.Certificate2
 
 public section
 

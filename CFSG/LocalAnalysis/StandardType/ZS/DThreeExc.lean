@@ -12,8 +12,6 @@ public import CFSG.LocalAnalysis.StandardType.GGWitSlpmConjAux
 import all CFSG.LocalAnalysis.StandardType.GGZSHallSoicherInputs
 public import CFSG.Fischer.Classification.Orthogonal3.Model
 public import CFSG.Fischer.Classification.PartIII.Beta.Forms
-public import Certificates.Certificate709541
-public import Certificates.Certificate709542
 public import CFSG.LocalAnalysis.StandardType.GGWitSlpm
 
 public section

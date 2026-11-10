@@ -6,9 +6,6 @@ public import CFSG.LieType.DefCharRankFour
 public import CFSG.Open.GriessAllModelsStatement
 public import CFSG.Adapters.TauCetiExceptional.Interface
 public import CFSG.LocalAnalysis.AGL81I.Section3.ThreeNineCatThreeG2Rank
-public import Certificates.Certificate10012
-public import Certificates.Certificate10013
-public import Certificates.Certificate10014
 import CFSG.RankThree.PartTwo.Census.NineCoverU43
 import CFSG.RankThree.PartTwo.Sec4.Census.WiringInputs
 import CFSG.RankThree.PartTwo.Sec4.Census.CoverCenterThreeRestG2
@@ -138,7 +135,6 @@ import CFSG.RankThree.PartTwo.Sec4.Item47Statement
 import CFSG.RankThree.PartTwo.Sec4.Item47Witness
 import CFSG.Sporadic.Schreier.J4SProfileNode
 import CFSG.Sporadic.Th.Max3.Core
-import Certificates.Certificate8171
 import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 
 public section

@@ -7,8 +7,6 @@ public import CFSG.Sporadic.J2
 public import CFSG.RankThree.Coprime.SmallPrimeTorsionQuotient
 public import CFSG.LocalAnalysis.RankThreeUC.ProofSupport.ClauseBFaithfulData
 public import CFSG.GroupTheory.SteinbergBKOddMetacyclicTorsion
-public import Certificates.Certificate3139
-public import Certificates.Certificate8020
 public import CFSG.LocalAnalysis.RankThreeUC.ModuleRanks
 public import CFSG.LocalAnalysis.RankThreeUC.Notation
 public import CFSG.RankThree.OrthogonalInvolutions.SuzukiTypes

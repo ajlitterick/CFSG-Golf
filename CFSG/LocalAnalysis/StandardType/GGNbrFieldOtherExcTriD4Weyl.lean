@@ -3,13 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalRk2LU4Weyl
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRanksTri
 public import CFSG.LocalAnalysis.StandardType.GGTriD4KnownInputs
-public import Certificates.Certificate80
-public import Certificates.Certificate81
-public import Certificates.Certificate115
-public import Certificates.Certificate116
-public import Certificates.Certificate120
-public import Certificates.Certificate123
-public import Certificates.Certificate3951
 import CFSG.RankThree.Chevalley.SteinbergCFTrialityToralSylow
 import CFSG.LocalAnalysis.StandardType.GGTriD4SchurHolds
 import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestTriDiag

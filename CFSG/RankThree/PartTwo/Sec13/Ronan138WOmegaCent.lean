@@ -31,7 +31,6 @@ public import CFSG.RankThree.PartTwo.Sec8.Statements
 public import CFSG.StronglyEmbedded.ParityCriterion
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import CFSG.RankThree.PartTwo.Sec6.Statements
-import Certificates.Certificate43
 
 public section
 

@@ -1,57 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenFourteenTwoListGammaJ4
-public import Certificates.Certificate45
-public import Certificates.Certificate46
-public import Certificates.Certificate47
-public import Certificates.Certificate48
-public import Certificates.Certificate49
-public import Certificates.Certificate50
-public import Certificates.Certificate51
-public import Certificates.Certificate52
-public import Certificates.Certificate53
-public import Certificates.Certificate54
-public import Certificates.Certificate55
-public import Certificates.Certificate56
-public import Certificates.Certificate57
-public import Certificates.Certificate58
-public import Certificates.Certificate59
-public import Certificates.Certificate60
-public import Certificates.Certificate61
-public import Certificates.Certificate62
-public import Certificates.Certificate63
-public import Certificates.Certificate64
-public import Certificates.Certificate65
-public import Certificates.Certificate66
-public import Certificates.Certificate67
-public import Certificates.Certificate68
-public import Certificates.Certificate69
-public import Certificates.Certificate70
-public import Certificates.Certificate71
-public import Certificates.Certificate72
-public import Certificates.Certificate73
-public import Certificates.Certificate74
-public import Certificates.Certificate75
-public import Certificates.Certificate110
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
-public import Certificates.Certificate2261
-public import Certificates.Certificate2262
-public import Certificates.Certificate2263
-public import Certificates.Certificate2264
-public import Certificates.Certificate2265
-public import Certificates.Certificate2266
-public import Certificates.Certificate2267
-public import Certificates.Certificate2268
-public import Certificates.Certificate2269
-public import Certificates.Certificate2270
-public import Certificates.Certificate3120
-public import Certificates.Certificate3951
-public import Certificates.Certificate8033
-public import Certificates.Certificate19760
-public import Certificates.Certificate19761
-public import Certificates.Certificate19763
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.TitsFiveLocal
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.M11Three
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanSmallTits
@@ -65,29 +14,6 @@ import CFSG.LocalAnalysis.GL83PartI.I_24_3.InnerPGroup
 import CFSG.LocalAnalysis.SectionRank.DerivedQuotient
 import CFSG.Sporadic.Bridge.M11
 import CFSG.Sporadic.Mathieu.M11
-public import Certificates.Certificate12601
-public import Certificates.Certificate12602
-public import Certificates.Certificate12603
-public import Certificates.Certificate12604
-public import Certificates.Certificate12605
-public import Certificates.Certificate12606
-public import Certificates.Certificate12607
-public import Certificates.Certificate12608
-public import Certificates.Certificate12609
-public import Certificates.Certificate12630
-public import Certificates.Certificate12631
-public import Certificates.Certificate12632
-public import Certificates.Certificate12680
-public import Certificates.Certificate19764
-public import Certificates.Certificate19766
-public import Certificates.Certificate19900
-public import Certificates.Certificate2174
-public import Certificates.Certificate2176
-public import Certificates.Certificate2181
-public import Certificates.Certificate2241
-public import Certificates.Certificate2244
-public import Certificates.Certificate4008
-public import Certificates.Certificate4202
 import CFSG.CharacterTheory.CyclicBlocks.Family
 import CFSG.CharacterTheory.Semidihedral.Principal.LargePrimeTorusSylowCentralizers
 import CFSG.CharacterTheory.Semidihedral.Principal.PrimeTorusBlockAlignment

@@ -9,7 +9,6 @@ import CFSG.LocalAnalysis.ComponentInitial.LinearHigherFieldInvolution
 import CFSG.LocalAnalysis.QuasithinUnique.CatalogBridgeLinear
 import CFSG.Adapters.LinearSmallCatalog
 import all CFSG.LocalAnalysis.ComponentClassification.PSL3FourActionData
-public import Certificates.Certificate2022
 public import CFSG.CharacterTheory.Blocks.Defs
 public import CFSG.GH74.GLS.Defs
 public import CFSG.GH74.GLS.Stage2.Local.Statements

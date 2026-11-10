@@ -2,9 +2,6 @@ module
 
 public import CFSG.LieType.Steinberg.Adjoint.Group
 public import CFSG.LieType.Steinberg.PartBHalfSpace
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 
 public noncomputable section
 

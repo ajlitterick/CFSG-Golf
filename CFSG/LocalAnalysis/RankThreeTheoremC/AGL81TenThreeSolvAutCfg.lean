@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThirteenSolvDefs
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThreeSolvAutParab
 public import CFSG.LocalAnalysis.AGLEmbedding.WeakBlockInputs
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.NoXBlock
-public import Certificates.Certificate43
-public import Certificates.Certificate7067
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThreeThreeCfg
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThreeThreeTransfer
 import CFSG.LocalAnalysis.AGLEmbedding.CZeroLift

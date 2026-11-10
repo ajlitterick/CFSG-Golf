@@ -12,8 +12,6 @@ public import CFSG.RankThree.PartTwo.Sec11.Item1117StepsProofCube
 public import CFSG.RankThree.PartTwo.Sec11.Item1117StepsProofTools
 public import CFSG.RankThree.PartTwo.Sec21.Item22Res4ProofNarrow
 public import CFSG.RankThree.PartTwo.Sec4.Item424Res2ProofTools
-public import Certificates.Certificate8007
-public import Certificates.Certificate8008
 
 public section
 

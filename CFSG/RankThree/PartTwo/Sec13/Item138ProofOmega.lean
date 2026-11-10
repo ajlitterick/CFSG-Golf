@@ -41,7 +41,6 @@ import CFSG.RankThree.PartTwo.Sec18.Transport
 import CFSG.RankThree.PartTwo.Sec4.LThreePiItem411
 import CFSG.RankThree.PartTwo.Sec4.StatementsGraphField
 import CFSG.RankThree.PartTwo.Sec6.Statements
-import Certificates.Certificate43
 
 public section
 

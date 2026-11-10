@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Monster.GMS.S4CohBBasic
-public import Certificates.Certificate3024
 
 public section
 

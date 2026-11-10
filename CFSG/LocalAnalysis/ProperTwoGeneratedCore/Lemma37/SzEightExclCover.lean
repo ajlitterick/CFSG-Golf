@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.Lemma37.SzEightRoot
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.TheoremC.BenderCoverCentral
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.TheoremC.BorelHold
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.EscapingCaseOneQuotient
-public import Certificates.Certificate113
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.LieType.BorelTits.CompleteFlag
 public import CFSG.LocalAnalysis.ComponentClassification.BlockTwoProductAction

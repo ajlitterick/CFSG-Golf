@@ -93,8 +93,6 @@ public import CFSG.RankThree.PartTwo.Sec19.SeitzTrialityFinal
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.F4Phi3
 public import CFSG.HardMathSupport.Foote.Coordinator.TwistedFrame.Final
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.E8Phi5
-public import Certificates.Certificate452201
-public import Certificates.Certificate18004
 public import CFSG.LieType.SeitzGeneration.ExcHigh.E8FiveFourFrame
 public import CFSG.CGT.PushingUpLit.SolK.Inputs
 public import CFSG.CGT.PushingUpLit.SolKNA.QuatLieLift
@@ -212,7 +210,6 @@ public import CFSG.RankThree.S4Free.SuzukiEight
 public import CFSG.SignalizerFunctorTheorem.CatalogBridge.NormalFormStabilizer
 public import CFSG.SignalizerFunctorTheorem.CatalogBridge.StabilizerLift
 public import CFSG.Sporadic.J4.QT2LocProof
-public import Certificates.Certificate8166
 public import CFSG.LocalAnalysis.ComponentClassification.ExcSelectorEvenTriality
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListAlt7
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Block
@@ -283,8 +280,6 @@ public import CFSG.Quasithin.Vol2.Ch9KGFFQR
 public import CFSG.Quasithin.Vol2.Ch9KGFFQRCase
 public import CFSG.RankThree.Chevalley.SteinbergCFEvenF4PointwiseInner
 public import CFSG.Walter.J1Props
-public import Certificates.Certificate10050
-public import Certificates.Certificate8117
 public import Certificates.Kernel.J4Count.Prim
 
 public section

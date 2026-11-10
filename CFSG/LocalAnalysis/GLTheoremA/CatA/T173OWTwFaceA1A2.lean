@@ -3,10 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OWTwFaceFrame
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.TwE6LeviRank
 public import CFSG.Open.LocalVocabulary
-public import Certificates.Certificate76
-public import Certificates.Certificate77
-public import Certificates.Certificate118
-public import Certificates.Certificate122
 
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OWTwFaceLevi
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OWTwFaceTwist
@@ -55,8 +51,6 @@ public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import Certificates.Certificate1
-public import Certificates.Certificate2
 
 public section
 

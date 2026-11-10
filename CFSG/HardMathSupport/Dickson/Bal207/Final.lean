@@ -6,19 +6,6 @@ public import CFSG.HardMathSupport.Dickson.Bal207.LocalBalRows
 public import CFSG.HardMathSupport.Dickson.Bal207.Restate
 public import CFSG.HardMathSupport.Dickson.Bal207.SU38
 public import CFSG.Open.GriessAllModelsStatement
-public import Certificates.Certificate10050
-public import Certificates.Certificate13659
-public import Certificates.Certificate13660
-public import Certificates.Certificate2012
-public import Certificates.Certificate5118
-public import Certificates.Certificate9542
-public import Certificates.Certificate9543
-public import Certificates.Certificate9544
-public import Certificates.Certificate9545
-public import Certificates.Certificate17371
-public import Certificates.Certificate17525
-public import Certificates.Certificate17526
-public import Certificates.Certificate19954
 import CFSG.HardMathSupport.Dickson.Bal207.D4Eight
 import CFSG.HardMathSupport.Dickson.Bal207.Dvd
 import CFSG.HardMathSupport.Dickson.Bal207.ExcG28
@@ -157,31 +144,6 @@ public import CFSG.Sporadic.Schreier.J1QT
 public import CFSG.Sporadic.SuzOddCore.GraphData
 public import CFSG.Sporadic.SuzOddCore.SmallActionData
 public import CFSG.Timmesfeld.Outcome
-public import Certificates.Certificate16005
-public import Certificates.Certificate3044
-public import Certificates.Certificate3122
-public import Certificates.Certificate3123
-public import Certificates.Certificate3130
-public import Certificates.Certificate3133
-public import Certificates.Certificate3134
-public import Certificates.Certificate3136
-public import Certificates.Certificate3137
-public import Certificates.Certificate3176
-public import Certificates.Certificate3179
-public import Certificates.Certificate7000
-public import Certificates.Certificate7001
-public import Certificates.Certificate7002
-public import Certificates.Certificate7003
-public import Certificates.Certificate7004
-public import Certificates.Certificate7005
-public import Certificates.Certificate7006
-public import Certificates.Certificate7007
-public import Certificates.Certificate7008
-public import Certificates.Certificate7009
-public import Certificates.Certificate7010
-public import Certificates.Certificate7011
-public import Certificates.Certificate9124
-public import Certificates.Certificate9530
 public import Certificates.Kernel.J4Count.Prim
 import CFSG.Blueprint.OddStandardExact
 import CFSG.ClassicalInvolution.Asc77.AscT3TypedExactMain
@@ -317,8 +279,6 @@ import CFSG.RankThree.PartTwo.Sec17.RouteProvers
 import CFSG.RankThree.PartTwo.Sec17.RouteProvers142
 import CFSG.RankThree.S4Free.SuzukiEight
 import CFSG.Yardstones.M67c2c3e09a6b.Definitions
-import Certificates.Certificate14953
-import Certificates.Certificate8166
 
 public section
 

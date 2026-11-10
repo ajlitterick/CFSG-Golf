@@ -9,10 +9,6 @@ import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMoreCl
 import CFSG.LocalAnalysis.StandardType.GGNbrLangRestRank
 import CFSG.LocalAnalysis.StandardType.GGTriD4NoneRank
 import CFSG.LocalAnalysis.SeitzReduction.RankOneCatSL2TypeDet
-public import Certificates.Certificate2264
-public import Certificates.Certificate2267
-public import Certificates.Certificate8033
-public import Certificates.Certificate8064
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.TitsGen
 
 public section

@@ -274,17 +274,6 @@ public import CFSG.SignalizerFunctorTheorem.McBride.Prelim.Basic
 public import CFSG.Sporadic.Co1.Module.Co2Stab
 public import CFSG.Sporadic.ON.SimpleBase
 public import CFSG.Timmesfeld.Moufang.Three
-public import Certificates.Certificate16005
-public import Certificates.Certificate3044
-public import Certificates.Certificate3122
-public import Certificates.Certificate3123
-public import Certificates.Certificate3130
-public import Certificates.Certificate3133
-public import Certificates.Certificate3134
-public import Certificates.Certificate3136
-public import Certificates.Certificate3137
-public import Certificates.Certificate3179
-public import Certificates.Certificate7233Base
 
 public section
 

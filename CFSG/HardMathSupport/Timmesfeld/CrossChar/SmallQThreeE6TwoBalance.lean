@@ -41,8 +41,6 @@ public import CFSG.RankThree.PartOne.S11d.OutLinear
 public import CFSG.RankThree.PartTwo.KFacts.KS14SzLie
 public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
-public import Certificates.Certificate1
-public import Certificates.Certificate2
 
 public section
 

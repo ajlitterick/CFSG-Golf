@@ -41,7 +41,6 @@ public import CFSG.RankThree.PartOne.KF.SymCtxMatrix
 public import CFSG.RankThree.PartOne.KF.SymCtxQuot
 public import CFSG.RankThree.PartOne.KF.ToralQuot
 public import CFSG.RankThree.PartOne.S15K.FamilyHerm
-public import Certificates.Certificate8026Base
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanParabAutIrrHom
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanParabAutIrrLarge
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanParabAutIrrXGen

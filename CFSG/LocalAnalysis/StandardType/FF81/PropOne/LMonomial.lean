@@ -21,7 +21,6 @@ public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
 public import CFSG.Sporadic.Schreier.RuPair
 public import CFSG.Sporadic.Schreier.RuSylow
-public import Certificates.Certificate7233Base
 
 @[expose] public section
 

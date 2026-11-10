@@ -82,7 +82,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.Basic
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2pFactsPSL2More
 public import CFSG.SignalizerFunctorTheorem.McBride.Models.Suzuki.Local
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ConjugatedInvertedSubgroup
-public import Certificates.Certificate55111
 
 public section
 

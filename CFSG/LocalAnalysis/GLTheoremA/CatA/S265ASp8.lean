@@ -50,8 +50,6 @@ public import CFSG.SignalizerFunctorTheorem.NonLocal.SpData
 public import CFSG.SignalizerFunctorTheorem.NonLocal.SpTwoTwo
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S267Facts
 import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264Parts
-import Certificates.Certificate8007
-import Certificates.Certificate8008
 
 public section
 

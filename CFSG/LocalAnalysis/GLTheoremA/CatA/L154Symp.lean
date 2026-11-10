@@ -47,9 +47,6 @@ public import CFSG.RankThree.S4Free.SuzukiEight
 public import CFSG.SignalizerFunctorTheorem.NonLocal.Cross
 public import CFSG.SignalizerFunctorTheorem.NonLocal.SpData
 public import CFSG.Sporadic.HeldB.Common
-public import Certificates.Certificate14953
-public import Certificates.Certificate7233Base
-public import Certificates.Certificate8166
 
 public section
 

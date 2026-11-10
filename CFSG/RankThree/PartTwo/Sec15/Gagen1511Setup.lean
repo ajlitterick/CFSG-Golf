@@ -7,9 +7,6 @@ public import CFSG.RankThree.PartTwo.Sec12.Notation
 public import CFSG.RankThree.PartTwo.Sec13.Item131a
 public import CFSG.RankThree.LocalRank.SolvablePrimeComplementCore
 public import CFSG.Assembly.Defs
-public import Certificates.Certificate3029
-public import Certificates.Certificate3086
-public import Certificates.Certificate3139
 import CFSG.RankThree.PartOne.Q1327T.ThetaLift
 import CFSG.LocalAnalysis.RankThreeEvenClassification.RankTransport
 import CFSG.LocalAnalysis.RankThreeEvenClassification.ThetaRankThree
@@ -63,8 +60,6 @@ import CFSG.RankThree.PartTwo.Sec4.LThreePiSLOn
 import CFSG.RankThree.PartTwo.Sec4.StatementsSporadic
 import CFSG.Sporadic.Schreier.J4SProfileNode
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
-import Certificates.Certificate8166
-import Certificates.Certificate8169
 
 public section
 

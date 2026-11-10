@@ -9,8 +9,6 @@ public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.YamadaNativeData
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeF14
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeWeylCoords
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveQ2PrimeL
-public import Certificates.Certificate3600
-public import Certificates.Certificate3920
 
 public section
 

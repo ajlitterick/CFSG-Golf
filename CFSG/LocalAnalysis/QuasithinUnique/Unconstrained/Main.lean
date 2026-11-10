@@ -36,16 +36,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_26Claim
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_27
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_Final
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.BadCaseLocal
-public import Certificates.Certificate1
-public import Certificates.Certificate2
-public import Certificates.Certificate43
-public import Certificates.Certificate110
-public import Certificates.Certificate2191
-public import Certificates.Certificate2192
-public import Certificates.Certificate4041
-public import Certificates.Certificate4051
-public import Certificates.Certificate4144
-public import Certificates.Certificate4145
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherTightEmbeddingAction
 public import CFSG.LocalAnalysis.ComponentClassification.BlockMutualRanks
 public import CFSG.LocalAnalysis.ComponentClassification.BlockTwoProductAction
@@ -71,7 +61,6 @@ public import CFSG.Quasithin.Background.A3Structure312Facts
 public import CFSG.Quasithin.Vol2.Ch1Local
 public import CFSG.Sporadic.J4Base
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import Certificates.Certificate8026Base
 
 public section
 

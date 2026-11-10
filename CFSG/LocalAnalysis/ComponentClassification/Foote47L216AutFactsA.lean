@@ -73,8 +73,6 @@ import CFSG.Sporadic.Th.F2Spec
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
-import Certificates.Certificate1
-import Certificates.Certificate2
 import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 

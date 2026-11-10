@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.Vol2.Ch7Sp4PairA6
 public import CFSG.Quasithin.Vol2.Ch7E61
-public import Certificates.Certificate7067
 public import CFSG.Open.SplitBNPair
 public import CFSG.Quasithin.Background.B2FactorizationResidual
 public import CFSG.Quasithin.Vol2.Ch10StatementsE

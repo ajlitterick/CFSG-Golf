@@ -3,45 +3,6 @@ module
 public import CFSG.RankThree.SubgroupLists.SymplecticGamma
 public import CFSG.RankThree.SubgroupLists.SymplecticFischerThree
 public import CFSG.RankThree.SubgroupLists.SymplecticQuasisimple
-public import Certificates.Certificate110
-public import Certificates.Certificate42
-public import Certificates.Certificate43
-public import Certificates.Certificate8
-public import Certificates.Certificate9
-public import Certificates.Certificate1
-public import Certificates.Certificate10
-public import Certificates.Certificate11
-public import Certificates.Certificate12
-public import Certificates.Certificate2
-public import Certificates.Certificate3
-public import Certificates.Certificate4
-public import Certificates.Certificate44
-public import Certificates.Certificate5
-public import Certificates.Certificate6
-public import Certificates.Certificate7
-public import Certificates.Certificate1000
-public import Certificates.Certificate1001
-public import Certificates.Certificate1002
-public import Certificates.Certificate1003
-public import Certificates.Certificate1004
-public import Certificates.Certificate1005
-public import Certificates.Certificate1006
-public import Certificates.Certificate1007
-public import Certificates.Certificate1008
-public import Certificates.Certificate1009
-public import Certificates.Certificate1010
-public import Certificates.Certificate1011
-public import Certificates.Certificate1012
-public import Certificates.Certificate1013
-public import Certificates.Certificate1014
-public import Certificates.Certificate1015
-public import Certificates.Certificate1016
-public import Certificates.Certificate1017
-public import Certificates.Certificate1018
-public import Certificates.Certificate1019
-public import Certificates.Certificate7023
-public import Certificates.Certificate1022
-public import Certificates.Certificate7059
 
 public section
 

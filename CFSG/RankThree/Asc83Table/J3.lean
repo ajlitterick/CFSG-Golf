@@ -2,8 +2,6 @@ module
 
 public import CFSG.RankThree.Asc83Table.J3Spec
 public import CFSG.RankThree.Asc83Table.J3Check
-public import Certificates.Certificate3169
-public import Certificates.Certificate8004
 
 public section
 

@@ -43,8 +43,6 @@ public import CFSG.RankThree.PartTwo.KFacts.KS14SzLie
 public import CFSG.RankThree.SubgroupLists.CommutatorScalarBound
 public import CFSG.RankThree.SubgroupLists.ExtraspecialNormal
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
-public import Certificates.Certificate1953
-public import Certificates.Certificate1954
 
 public noncomputable section
 set_option autoImplicit false

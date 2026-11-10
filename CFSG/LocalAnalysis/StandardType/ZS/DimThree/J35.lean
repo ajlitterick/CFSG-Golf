@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.ZS.DimThree.Inner
-public import Certificates.Certificate14971
-public import Certificates.Certificate14979
 import CFSG.RankThree.PartOne.A6N.Final
 import CFSG.RankThree.PartOne.N1322.CaseA6
 import CFSG.RankThree.PartOne.NF7H.StabSwap

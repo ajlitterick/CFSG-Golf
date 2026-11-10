@@ -44,7 +44,6 @@ public import CFSG.StronglyEmbedded
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
-public import Certificates.Certificate43
 import CFSG.LocalAnalysis.SectionRank.EvenCover.Catalog
 import CFSG.LocalAnalysis.SectionRank.LargeRee.SuzukiData
 import CFSG.LocalAnalysis.SectionRank.OddCover.CatalogOdd

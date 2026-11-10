@@ -168,38 +168,6 @@ public import CFSG.RankThree.PartTwo.Sec4.RonanK432RowsBridge
 public import CFSG.RankThree.PartTwo.Sec4.RonanK432WitArr
 public import CFSG.RankThree.PartTwo.Sec4.RonanKChevTwoDFourThreeA
 public import CFSG.RankThree.PartTwo.Sec8.Item8KFacts2ProofReeConj
-public import Certificates.Certificate13720
-public import Certificates.Certificate13721
-public import Certificates.Certificate14946
-public import Certificates.Certificate14976
-public import Certificates.Certificate14977
-public import Certificates.Certificate17253
-public import Certificates.Certificate17300
-public import Certificates.Certificate17301
-public import Certificates.Certificate17303
-public import Certificates.Certificate17304
-public import Certificates.Certificate17390
-public import Certificates.Certificate18004
-public import Certificates.Certificate188005
-public import Certificates.Certificate188007
-public import Certificates.Certificate188008
-public import Certificates.Certificate19800
-public import Certificates.Certificate36151
-public import Certificates.Certificate36152
-public import Certificates.Certificate36153
-public import Certificates.Certificate41505
-public import Certificates.Certificate41506
-public import Certificates.Certificate41722
-public import Certificates.Certificate452201
-public import Certificates.Certificate8099
-public import Certificates.Certificate9530
-public import Certificates.Certificate9551
-public import Certificates.Certificate9552
-public import Certificates.Certificate9562
-public import Certificates.Certificate9563
-public import Certificates.Certificate9564
-public import Certificates.Certificate9565
-public import Certificates.Certificate9715
 
 public section
 namespace CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8

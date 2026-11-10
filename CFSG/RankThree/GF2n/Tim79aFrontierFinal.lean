@@ -84,20 +84,6 @@ public import CFSG.Quasithin.Vol2.E2ThirteenMembers
 public import CFSG.RankThree.Classical.SteinbergBJUnitaryThreeInvolutions
 public import CFSG.RankThree.GF2n.Tim81.Sec4.Sec41Split
 public import CFSG.RankThree.Theta.ThreeComponentOrbitCover
-public import Certificates.Certificate16041
-public import Certificates.Certificate2098
-public import Certificates.Certificate2103
-public import Certificates.Certificate2108
-public import Certificates.Certificate2109
-public import Certificates.Certificate2130
-public import Certificates.Certificate2135
-public import Certificates.Certificate2136
-public import Certificates.Certificate2139
-public import Certificates.Certificate2140
-public import Certificates.Certificate2145
-public import Certificates.Certificate2314
-public import Certificates.Certificate2323
-public import Certificates.Certificate2324
 
 public section
 

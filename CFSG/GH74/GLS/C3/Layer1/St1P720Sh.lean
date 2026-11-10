@@ -159,9 +159,6 @@ public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
 public import CFSG.Sporadic.J4.QT2LocProof
 public import CFSG.Sporadic.Th.Max3.Core
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ConjugatedInvertedSubgroup
-public import Certificates.Certificate3953
-public import Certificates.Certificate5007
-public import Certificates.Certificate5022
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
 public import Certificates.Kernel.J4Count.KFactsBase

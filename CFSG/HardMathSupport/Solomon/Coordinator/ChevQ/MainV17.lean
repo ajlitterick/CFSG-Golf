@@ -166,19 +166,6 @@ public import CFSG.Sporadic.SuzOddCore.SmallActionData
 public import CFSG.Walter.J1Props
 public import CFSG.Walter.J1Recog
 public import CFSG.Walter.PSL2Facts
-public import Certificates.Certificate10050
-public import Certificates.Certificate13660
-public import Certificates.Certificate16041
-public import Certificates.Certificate2098
-public import Certificates.Certificate2103
-public import Certificates.Certificate2108
-public import Certificates.Certificate2109
-public import Certificates.Certificate2139
-public import Certificates.Certificate2140
-public import Certificates.Certificate2323
-public import Certificates.Certificate5007
-public import Certificates.Certificate8117
-public import Certificates.Certificate9124
 
 public section
 
