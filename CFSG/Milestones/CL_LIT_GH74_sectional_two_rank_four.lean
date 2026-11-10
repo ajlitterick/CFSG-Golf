@@ -1,5 +1,11 @@
 module
 
+public import CFSG.GH74.NoComponent
+public import CFSG.Milestones.QT_faithful_local_nonempty_classification
+public import CFSG.Milestones.QT_faithful_local_empty_classification
+public import CFSG.Milestones.QT_unique_maximal_local_classification
+public import CFSG.Adapters.CatalogAgree
+public import CFSG.LocalAnalysis.QuasithinUnique.QTKEAssemblyUnique
 import Certificates.Kernel.SporSch.Ly.SepGlue
 public import Certificates.Data.CFSGNative.J4.PentScan
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312HsKInputs
@@ -16,8 +22,6 @@ public import CFSG.YGroups.Y443.Native.CoverFactsWords
 import Certificates.Kernel.KDense.Y443
 public import CFSG.YGroups.Y443.Native.Swap13Word
 import CFSG.GH74.FinalAssemblyDeep35
-import CFSG.GH74.QTGen4.Stmt1316
-import CFSG.Yardstones.M39f387008ab2.Goals
 public import CFSG.CGT.A8S.N0EnumInputs
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.J3CheckInputs
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.QuasiAssembly
@@ -194,6 +198,27 @@ end CFSG.Open
 
 namespace CFSG.Milestones
 
+/-- The quasithin input of the sectional 2-rank four theorem.  A group satisfying the inductive
+hypothesis `KGH` is K-proper for the catalogue (`kProper_of_kgh`), so it is a QTKE-group and the
+three quasithin milestones classify it directly; no separate development for 4-generated
+groups is needed. -/
+theorem gh74_qtke_gen4_of_quasithin : CFSG.GH74.S_QTKE_Gen4 := by
+  intro G _ _ hs hnonab _ _ hK hev he
+  haveI : IsSimpleGroup G := hs
+  have hB : CFSG.Assembly.CatalogAgreeOn CFSG.Assembly.InCatalog CFSG.Blueprint.Catalog :=
+    CFSG.Open.QTFaithfulEmptyTauCeti.catalogAgree
+  have hqtke : CFSG.QuasithinUnique.quasithinIsQTKECat G :=
+    ⟨CFSG.GH74.kProper_of_kgh hK, hev, he⟩
+  exact CFSG.QuasithinUnique.cls_qtke_classification_of_branches
+    CFSG.QuasithinUnique.uniqueMaximalLocalCat_proved
+    (fun G _ _ _ hn hq T hMT hLf =>
+      CFSG.Milestones.qt_faithful_local_empty_classification G hn hq T hMT hLf)
+    (fun G _ _ _ hn hq T hLf =>
+      (hB G hn).1 (CFSG.Milestones.qt_faithful_local_nonempty_classification G hn
+        (CFSG.Assembly.Quasithin.QTKEOver.of_catalogAgree
+          (CFSG.Assembly.CatalogAgreeOn.symm hB) hq) T hLf))
+    G hnonab hqtke
+
 theorem cl_lit_gh74_sectional_two_rank_four_models
     (G : Type) [Group G] [Finite G] [IsSimpleGroup G]
     (hnonab : ∃ a b : G, a * b ≠ b * a) (hrank : 3 ≤ Open.twoRank G)
@@ -216,14 +241,6 @@ theorem cl_lit_gh74_sectional_two_rank_four_models
       Blueprint.NativeSporadic.IsSporadic G .M23 ∨ Blueprint.NativeSporadic.IsSporadic G .J1 ∨
       Blueprint.NativeSporadic.IsSporadic G .J2 ∨ Blueprint.NativeSporadic.IsSporadic G .J3 ∨
       Blueprint.NativeSporadic.IsSporadic G .McL ∨ Blueprint.NativeSporadic.IsSporadic G .Ly) :=
-  (CFSG.GH74.milestone_forms_of_leaves35
-    (CFSG.GH74.QTGen4.s_QTKE_Gen4_of_inputs
-      CFSG.Yardstones.M39f387008ab2.ys01_stmt13_1_7_GH
-      CFSG.Yardstones.M39f387008ab2.ys02_stmt13_1_2_three_GH
-      CFSG.GH74.QTGen4.stmt13_3_16_GH
-      CFSG.Yardstones.M39f387008ab2.ys03_stmt13_6_1_GH
-      CFSG.Yardstones.M39f387008ab2.ys04_stmt13_8_1_GH
-      CFSG.Yardstones.M39f387008ab2.ys05_stmt14_8_1_three_GH
-      CFSG.Yardstones.M39f387008ab2.ys06_stmt15_3_1_GH)).1 G hnonab hrank hsect
+  (CFSG.GH74.milestone_forms_of_leaves35 gh74_qtke_gen4_of_quasithin).1 G hnonab hrank hsect
 
 end CFSG.Milestones
