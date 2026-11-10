@@ -27,7 +27,7 @@ from collections import defaultdict
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import text_reach as T  # noqa: E402
 
-DOC_RE = re.compile(r'"(?:\\.|[^"\\\n])*"|--[^\n]*|/-.*?-/', re.S)
+DOC_RE = re.compile(r'"(?:\\.|[^"\\])*"|--[^\n]*|/-.*?-/', re.S)
 
 
 def process(path: str, rows: list[tuple[int, int, str, str]], apply: bool):

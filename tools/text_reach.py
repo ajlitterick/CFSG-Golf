@@ -34,7 +34,8 @@ import numpy as np
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from cfsg_modules import Graph  # noqa: E402
 
-STRIP_RE = re.compile(r'"(?:\\.|[^"\\\n])*"|--[^\n]*|/-.*?-/', re.S)
+# string literals may span lines (data tables are written that way)
+STRIP_RE = re.compile(r'"(?:\\.|[^"\\])*"|--[^\n]*|/-.*?-/', re.S)
 TOKEN_RE = re.compile(r"[^\W\d][\w'!?]*")
 DECL_KW = ("theorem", "lemma", "def", "abbrev", "structure", "class", "inductive", "opaque",
            "alias", "instance", "example", "axiom")
@@ -64,7 +65,8 @@ def strip(text: str) -> str:
     # string literals are kept (interpolated strings such as s!"{foo x}" contain code);
     # matching them first only stops `--` or `/-` inside a string from starting a comment
     return STRIP_RE.sub(
-        lambda m: m.group(0) if m.group(0).startswith('"') else "\n" * m.group(0).count("\n"),
+        lambda m: (m.group(0).replace("\n", "\n ") if m.group(0).startswith('"')
+                   else "\n" * m.group(0).count("\n")),
         text)
 
 

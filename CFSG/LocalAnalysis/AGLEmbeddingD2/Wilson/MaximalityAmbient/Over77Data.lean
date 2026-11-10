@@ -151,6 +151,7 @@ namespace CFSG.AGLEmbeddingD2.Wilson.MaximalityAmbient.Over77
 :1 1 1 1 1 1 1 1 1 0
 "
 
+@[expose] def rWordsStr : String := ":
 :0
 :1
 :2
@@ -8216,6 +8217,7 @@ namespace CFSG.AGLEmbeddingD2.Wilson.MaximalityAmbient.Over77
 :1 4 4 8 2 6
 "
 
+@[expose] def rMulStr : String := "0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9
 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18
 0 11 0 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26
 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35
@@ -16281,6 +16283,7 @@ namespace CFSG.AGLEmbeddingD2.Wilson.MaximalityAmbient.Over77
 42 3007 17 3681 51 5623 15 7183 27 7102 35 7679 0 6594 59 5548 74 7374
 "
 
+@[expose] def rClsStr : String := "0 0 0
 1 0 0
 2 0 0
 3 0 0
@@ -24346,6 +24349,7 @@ namespace CFSG.AGLEmbeddingD2.Wilson.MaximalityAmbient.Over77
 75 72 29
 "
 
+@[expose] def jxStr : String := "1
 2
 3
 4
