@@ -1,11 +1,9 @@
 module
 
-public import CFSG.RankThree.PartTwo.Sec18.Statements
 public import CFSG.RankThree.PartTwo.Sec18.Item183OneProofRemTools
 import CFSG.RankThree.PartTwo.KFacts.L34Sections
 import CFSG.RankThree.PartTwo.KFacts.KS14SL34
 import CFSG.RankThree.PartTwo.Sec18.SylowPlane
-import CFSG.RankThree.PartTwo.Sec18.Item186a
 import CFSG.RankThree.PartTwo.Sec18.Item186Rank
 import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 import CFSG.LinearAlgebra.LinearGroups.CoordinateData
@@ -44,8 +42,6 @@ import CFSG.LocalAnalysis.ComponentInitial.OrthogonalReflectionSplitting
 import CFSG.LocalAnalysis.ComponentInitial.OrthogonalStandardFormsRegular
 import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalGroup.LowRank

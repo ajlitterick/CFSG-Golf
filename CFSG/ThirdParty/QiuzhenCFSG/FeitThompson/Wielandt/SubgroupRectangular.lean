@@ -1,12 +1,6 @@
 module
 
-public import Mathlib.Algebra.Module.Projective
-public import Mathlib.RingTheory.Flat.Basic
 public import Mathlib.RingTheory.LocalRing.Module
-import Mathlib.RingTheory.Nilpotent.Basic
-public import Mathlib.RingTheory.Finiteness.Cardinality
-public import Mathlib.LinearAlgebra.Dimension.Free
-public import Mathlib.LinearAlgebra.StdBasis
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Wielandt.FixedPointProduct
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Wielandt.HomocyclicLift
 

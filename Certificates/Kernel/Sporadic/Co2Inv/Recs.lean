@@ -18,7 +18,6 @@ public import Certificates.Kernel.Sporadic.Co2Inv.Rec13
 public import Certificates.Kernel.Sporadic.Co2Inv.Rec14
 public import Certificates.Kernel.Sporadic.Co2Inv.Rec15
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

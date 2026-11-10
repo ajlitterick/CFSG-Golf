@@ -2,7 +2,6 @@ module
 
 public import CFSG.Sporadic.Co1Block.TwoCCheckInputs
 public import CFSG.Sporadic.Co1Block.XFix
-public import CFSG.Sporadic.Co1Block.PermData
 public import Certificates.Data.Co1HoltFreeTwoC
 public meta import CFSG.Sporadic.Co1Block.TwoCCheckInputs
 public meta import CFSG.Sporadic.Co1Block.TwoCData

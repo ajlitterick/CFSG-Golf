@@ -3,7 +3,6 @@ module
 public import CFSG.OddTranspositions.PartThree.EightEight.Shapes
 import CFSG.OddTranspositions.PartThree.EightEight.WreathFourAssembly
 import CFSG.OddTranspositions.PartThree.EightEight.WreathThree
-public import CFSG.OddTranspositions.PartThree.EightFive.Holds
 public import CFSG.OddTranspositions.PartThree.Nine.Main
 public import CFSG.OddTranspositions.PartThree.Nine.Wreath
 public import CFSG.OddTranspositions.PartThree.Nine.Simple
@@ -16,16 +15,13 @@ public import CFSG.OddTranspositions.PartThree.Nine.Seven
 public import CFSG.OddTranspositions.PartThree.Nine.FinalHolds
 public import CFSG.OddTranspositions.PartThree.Twelve.Branches
 public import CFSG.OddTranspositions.PartThree.Twelve.ElevenFive
-public import CFSG.OddTranspositions.PartThree.Statements
 public import CFSG.CGT.Foote82.T66.Proof511Two
 import CFSG.OddTranspositions.PartThree.EightEight.ASNZFinish
-import CFSG.OddTranspositions.PartThree.EightEight.Star
 import CFSG.OddTranspositions.TheoremTwo.TheoremTwo
 public import CFSG.OddTranspositions.PartThree.EightSix.Holds
 import CFSG.OddTranspositions.PartThree.Eleven.OneThree.Main
 import CFSG.OddTranspositions.PartThree.Twelve.EightMarked
 import CFSG.OddTranspositions.PartThree.Twelve.ElevenSp
-import CFSG.Timmesfeld.Bridge.Asc72ZMain
 public import CFSG.Adapters.WholeGroupLayer
 public import CFSG.CGT.T75P.A8ExclCfg
 public import CFSG.CGT.T75P.Aut
@@ -79,7 +75,6 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly

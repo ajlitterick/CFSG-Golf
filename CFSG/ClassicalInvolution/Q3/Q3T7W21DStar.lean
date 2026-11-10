@@ -1,21 +1,7 @@
 module
 
-public import CFSG.ClassicalInvolution.Asc77.AscT7ASectA
-public import CFSG.ClassicalInvolution.Q3.Q3T7SectA
-public import CFSG.ClassicalInvolution.Q3.Q3T7SectB
-public import CFSG.ClassicalInvolution.Q3.Q3T7SectC1
 public import CFSG.ClassicalInvolution.Q3.Q3T8E4Gen
 public import CFSG.ClassicalInvolution.Q3.Q3TIYRk1
-public import CFSG.ClassicalInvolution.Q3.Q3MTModel1
-public import CFSG.ClassicalInvolution.Q3.Q3T6OpenMuGraph
-public import CFSG.ClassicalInvolution.Uniform.U3Edge
-public import CFSG.ClassicalInvolution.Uniform.U3Thm7
-public import CFSG.ClassicalInvolution.Uniform.U3Thm8
-public import CFSG.ClassicalInvolution.Uniform.U5Three2
-public import CFSG.ClassicalInvolution.Uniform.U8Basic
-public import CFSG.ClassicalInvolution.Uniform.UExact
-public import CFSG.ClassicalInvolution.Uniform.UHypOmegaGen
-public import CFSG.ClassicalInvolution.Uniform.UMember
 public import CFSG.ClassicalInvolution.Q3.Q3TIVOr2
 
 public section

@@ -1,14 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
 public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionSL
 public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionRestSpinPlus
-public import CFSG.LieType.Steinberg.Classical.SpecialLinear
-public import CFSG.LieType.Steinberg.Classical.SpinPlus
-public import CFSG.LieType.Steinberg.Minuscule.ChevExtras
-public import CFSG.LieType.Steinberg.Minuscule.BruhatExtras
-public import CFSG.LieType.Steinberg.Adjoint.Presentation
-public import CFSG.LieType.Steinberg.Adjoint.Borel
 
 public section
 

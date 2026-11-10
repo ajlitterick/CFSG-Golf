@@ -1,13 +1,8 @@
 module
 
 public import CFSG.ClassicalInvolution.SmallCases.NDBE1S
-public import CFSG.ClassicalInvolution.RouteD.ExoticSingleGeom
 public import CFSG.ClassicalInvolution.RouteD.ExoticSingleMinus
 public import CFSG.ClassicalInvolution.Orders.OrthogonalNeg
-public import CFSG.ClassicalInvolution.Models.Transfer.Orthogonal.Standard
-public import CFSG.LieType.Universal.SpinOmega.Kernel
-public import CFSG.LieType.Universal.SpinOmega.Range
-public import CFSG.LieType.Universal.SpinClause0
 public import CFSG.ClassicalInvolution.ModelFacts.Orth15TwinStd
 
 public section

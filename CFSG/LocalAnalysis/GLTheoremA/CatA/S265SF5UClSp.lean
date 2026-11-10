@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Open.StatedDefs
 public import CFSG.LocalAnalysis.ComponentClassification.InnAutDerived
 public import CFSG.HardMathSupport.Solomon.Coordinator.LayerCentralFix
 import CFSG.GroupTheory.CenterlessInnerCentralizer
@@ -8,9 +7,6 @@ import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Basic
 import CFSG.LieType.SeitzGeneration.OuterSpData
 import CFSG.LocalAnalysis.ComponentClassification.InnAutDerivedSymplectic
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S265SF5UClSpB
-import CFSG.SignalizerFunctorTheorem.Inheritance.TransportA.Fitting
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
 public import CFSG.CharacterTheory.Wreathed.WreathCentralSquare
@@ -39,9 +35,6 @@ public import CFSG.LocalAnalysis.LargeEvenClassification.CyclicCongruenceCut
 public import CFSG.LocalAnalysis.LargeEvenClassification.TopScalarLiftSquare
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import CFSG.CGT.Timmesfeld75.L2Pair
 import CFSG.CGT.Timmesfeld75.ListWCBasic
 import CFSG.Certificates.Kernel.LocalCompTits.Span
@@ -100,26 +93,14 @@ import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasSix
 import CFSG.LocalAnalysis.ComponentInitial.OrthogonalReflectionSplitting
 import CFSG.LocalAnalysis.ComponentInitial.OrthogonalStandardFormsRegular
 import CFSG.LocalAnalysis.ComponentInitial.SymplecticSmallFieldPerfect
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Reduce
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Equivariance
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X7bPairs
 import CFSG.Quasithin.Background.A3Structure319
-import CFSG.Quasithin.Background.A3Structure36Base
-import CFSG.Quasithin.Background.A3Structure38Part3
-import CFSG.Quasithin.Background.B1MoreElevenE
-import CFSG.Quasithin.Background.B1MoreNineG
-import CFSG.Quasithin.Background.B4ModelsAction
-import CFSG.Quasithin.Background.B4ModelsIso
-import CFSG.Quasithin.Background.E3Cent
 import CFSG.Quasithin.Background.F9FiveStruct
 import CFSG.Quasithin.Background.F9G2
 import CFSG.Quasithin.Background.F9Geometry
 import CFSG.Quasithin.Background.GoldschmidtRankOneFacts
 import CFSG.Quasithin.EmptyFaithful.GoldschmidtF112ListC
-import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 import CFSG.Quasithin.EmptyFaithful.S1421Defs
 import CFSG.Quasithin.EmptyFaithful.S142Statements
 import CFSG.Quasithin.H13.A5S1326
@@ -141,16 +122,10 @@ import CFSG.RankThree.PartOne.S11d.PSLDescent
 import CFSG.RankThree.PartOne.S9.Sylow.ExclusionBasic
 import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 import CFSG.RankThree.Theta.ThreeComponentOrbitCover
-import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremB
-import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremC
-import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.ZJTheorem
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GW1965RemarkDGroup
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29Helpers
 import Certificates.Data.CFSGNative.MonsterB.Rep4371Model
 import Certificates.Kernel.J4Count.FixCE
 import Certificates.Kernel.J4Count.FixCPairBase1
-import Certificates.Kernel.J4Count.KFactsBase
 import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis

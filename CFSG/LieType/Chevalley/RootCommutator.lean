@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.Chevalley.RootCommutatorReduction
-public import CFSG.LieType.Chevalley.PinnedBridge
 public import CFSG.LieType.Chevalley.D4TripleA2Lemmas
 
 public noncomputable section

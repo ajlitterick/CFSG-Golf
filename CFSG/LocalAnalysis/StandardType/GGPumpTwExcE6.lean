@@ -4,11 +4,8 @@ public import CFSG.LocalAnalysis.StandardType.GGKGAF4Defs
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesE6NonsplitThree
 
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165ExcE6Two9
-import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesE6QPlusThreeFrame
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcWeylTorusAut
 import CFSG.LocalAnalysis.StandardType.GGF4AutWeyl
-import CFSG.RankThree.PartOne.K133H.F4Weyl
 
 public section
 

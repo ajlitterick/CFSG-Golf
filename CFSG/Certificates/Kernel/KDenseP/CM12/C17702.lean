@@ -2,7 +2,6 @@ module
 
 public import CFSG.Certificates.Kernel.KDenseP.CM12.Run
 public import CFSG.Certificates.Kernel.KDenseP.CM12.Pairs
-public import CFSG.Certificates.Kernel.Common.Chain
 import CFSG.Certificates.Kernel.Common.Each
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.MonsterElevenInputs
 public import CFSG.YGroups.DCE.MaximalB

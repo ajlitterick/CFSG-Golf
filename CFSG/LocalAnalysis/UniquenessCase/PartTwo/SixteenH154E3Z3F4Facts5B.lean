@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LinearAlgebra.FixedPointFreeOrderThreeField
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenH154E3Z3F4Facts5A
-public import Mathlib
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalSemilinearCoordinates
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
 
 public section
 

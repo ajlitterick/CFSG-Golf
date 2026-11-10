@@ -3,7 +3,6 @@ module
 
 public import Certificates.Certificate3009Base
 
-public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.NativeSylowDefs
 import Certificates.Kernel.OmegaEight.Bridge3009
 
 public section

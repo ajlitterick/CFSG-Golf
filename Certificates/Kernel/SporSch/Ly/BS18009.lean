@@ -3,8 +3,6 @@ module
 public import Certificates.Kernel.SporSch.Ly.BSData
 public import CFSG.Certificates.Kernel.SporSch.LyMatSound
 public import CFSG.Certificates.Kernel.Spor.Loops
-import Mathlib.Tactic.IntervalCases
-import Mathlib.Tactic.NormNum.Prime
 
 public section
 

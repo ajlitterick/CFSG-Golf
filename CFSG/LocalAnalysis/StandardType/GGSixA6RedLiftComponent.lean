@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Assembly.Subnormal
 public import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBCentralQuotientDerived
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedClDefs

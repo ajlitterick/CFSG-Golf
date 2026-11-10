@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGE0ShapeDefs
-public import CFSG.LocalAnalysis.StandardType.GGOTwoStarFrame
 public import CFSG.LocalAnalysis.StandardType.GGSteinbergCorrection
-public import CFSG.LocalAnalysis.StandardType.GGE0ShapeConjAux
 public import CFSG.LocalAnalysis.StandardType.GGE0ShapeConjAux2
 
 public section

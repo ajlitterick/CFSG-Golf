@@ -6,7 +6,6 @@ public import CFSG.Fischer.Uniq.CompTau
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Open.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Basic
 
 public noncomputable section

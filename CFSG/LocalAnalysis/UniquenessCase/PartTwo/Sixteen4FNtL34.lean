@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Sixteen4FNtRow
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Sixteen4FNtL34Cover
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenL34QuotientModule
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs16a
-public import CFSG.Quasithin.Background.B4ModelsLie
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.CommutatorSectionFaithful
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.CenterHopf
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Sixteen4FNtDual

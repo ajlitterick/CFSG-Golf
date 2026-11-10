@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOrthNsModel
 public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameTorus
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestTailSupp
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthogonalBasic
 
 public section
 

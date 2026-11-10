@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGK2E6D5DSPSubgroupCard
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthWeylOrdD
-public import Mathlib.GroupTheory.Perm.Fin
 
 public section
 

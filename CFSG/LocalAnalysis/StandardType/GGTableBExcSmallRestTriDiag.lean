@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestBasic
-public import CFSG.LieType.Chevalley.EvenTrialityAutomorphismNormalForm
-public import CFSG.LieType.Chevalley.EvenCartanRootDiagonals
 
 public section
 

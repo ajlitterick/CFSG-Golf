@@ -2,11 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.EvenSmallLie.TwoE6.Stroth22Native
 public import CFSG.Monster.B.GSide.HInnerFusionY3
-public import CFSG.Assembly.Reduction
-public import CFSG.Blueprint.Catalog
-public import CFSG.GroupTheory.PCore.Defs
 public import CFSG.LocalAnalysis.ComponentClassification.EvenStandardExceptionOddType
-public import CFSG.LocalAnalysis.ComponentClassification.StandardRecognitionAssemblyDefs
 public import CFSG.LocalAnalysis.ComponentClassification.StandardRecognitionQuaternion
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.Thm54Reach.CTEvenResidual
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.Thm54Reach.CTOddStandard
@@ -16,11 +12,9 @@ import CFSG.LocalAnalysis.ComponentClassification.M12J2CoverDisplacement
 import CFSG.LocalAnalysis.ComponentClassification.M12J2CoverExclusionHolds
 import CFSG.LocalAnalysis.ComponentClassification.StandardRecognitionRank
 import CFSG.LocalAnalysis.ComponentClassification.StandardRecognitionTypeCatalog
-import CFSG.Milestones.CT_catalog_nonabelian_type_partition
 import CFSG.Milestones.CT_even_small_Lie_standard_frontier
 import CFSG.Milestones.CT_rank_two_standard_recognition_frontier
 import CFSG.Open.CTInitialFrontierTauCeti
-import CFSG.RankThree.PartOne.TCB.Final
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableCompactPresented
 public import CFSG.Certificates.CosetTableWalkC
@@ -32,18 +26,12 @@ public import CFSG.LocalAnalysis.ComponentClassification.M12J2CoverExclusion
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicCensusW
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicConjWS
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicPairCensusW
-public import CFSG.LocalAnalysis.ComponentInitial.PGroupRankOneClassification
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.N3SplitDefs
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.NativeCheckBase
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.SpBranchL2Gen
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.Stage1Coord
 public import CFSG.LocalAnalysis.EvenSmallLie.Sp6JCondition
 public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.FischerPoints
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeThree
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Equivariance
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 public import CFSG.Monster.AxisCount.HSIdentBaby
 public import CFSG.Monster.AxisCount.HSIdentRec0
 public import CFSG.Monster.AxisCount.HSIdentRec1
@@ -56,42 +44,8 @@ public import CFSG.Monster.AxisCount.HSIdentRec7
 public import CFSG.Monster.AxisCount.HSIdentSmall
 public import CFSG.Monster.Existence.Census.FusionGens
 public import CFSG.Perm.ChainComplete
-public import CFSG.Quasithin.Background.A3Structure318Red
-public import CFSG.Quasithin.Background.A3Structure36A
-public import CFSG.Quasithin.Background.A3Structure36BAction
-public import CFSG.Quasithin.Background.A3Structure36BBase
-public import CFSG.Quasithin.Background.A3Structure36BCase3Base
-public import CFSG.Quasithin.Background.A3Structure36BCasesBase
-public import CFSG.Quasithin.Background.A3Structure36BCommonBase
-public import CFSG.Quasithin.Background.A3Structure36BFrattini
-public import CFSG.Quasithin.Background.A3Structure36BHeisBase
-public import CFSG.Quasithin.Background.A3Structure36BHomocyclic
-public import CFSG.Quasithin.Background.A3Structure36BPrimeDataBase
-public import CFSG.Quasithin.Background.A3Structure36BStarBase
-public import CFSG.Quasithin.Background.A3Structure36Base
-public import CFSG.Quasithin.Background.A3Structure37Base
-public import CFSG.Quasithin.Background.A3Structure37Comm
-public import CFSG.Quasithin.Background.A3Structure37Frattini
-public import CFSG.Quasithin.Background.A3Structure37KeyBase
-public import CFSG.Quasithin.Background.A3Structure37Schur
-public import CFSG.Quasithin.Background.A3Structure38Part3
-public import CFSG.Quasithin.Background.B1MoreElevenE
-public import CFSG.Quasithin.Background.B1MoreNineG
-public import CFSG.Quasithin.Background.B4ModelsAction
-public import CFSG.Quasithin.Background.B4ModelsIso
-public import CFSG.Quasithin.Background.C2Basic
-public import CFSG.Quasithin.Background.C2Inputs
-public import CFSG.Quasithin.Background.E1
-public import CFSG.Quasithin.Background.E1Sec4
-public import CFSG.Quasithin.Background.E1Sec5
-public import CFSG.Quasithin.Background.E1Sec8
-public import CFSG.Quasithin.Background.E1Solv
-public import CFSG.Quasithin.Background.E1Twelve
-public import CFSG.Quasithin.Background.E3Cent
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import CFSG.Quasithin.Recognition.M12AscFive
 public import CFSG.Quasithin.Recognition.M12AscY3
-public import CFSG.Quasithin.Vol2.Ch1Local
 public import CFSG.RankThree.Native.HSMcLSmallCheck
 public import CFSG.RankThree.PartOne.KS.OrbitCert
 public import CFSG.Sporadic.Bridge.BOrder
@@ -108,13 +62,11 @@ public import CFSG.Sporadic.Ly.ActionBase
 public import CFSG.Sporadic.Ly.CertificateBase
 public import CFSG.Sporadic.Ly.FaithSpec
 public import CFSG.Sporadic.Ly.OrbitSpec
-public import CFSG.Sporadic.Ly.PrimitiveBase
 public import CFSG.Sporadic.LyBase
 public import CFSG.Sporadic.ON.ActionBase
 public import CFSG.Sporadic.ON.CertificateBase
 public import CFSG.Sporadic.ON.ChainBase
 public import CFSG.Sporadic.ON.LinesBase
-public import CFSG.Sporadic.ON.PrimitiveBase
 public import CFSG.Sporadic.ON.SimpleBase
 public import CFSG.Sporadic.Presentation.Co1
 public import CFSG.Sporadic.Presentation.Co2FusionInputs
@@ -137,10 +89,6 @@ public import CFSG.Sporadic.Schreier.M23
 public import CFSG.Sporadic.SchreierLemmas.FrattiniProfile
 public import CFSG.Sporadic.Th
 public import CFSG.Sporadic.Th.CertificateBase
-public import CFSG.Sporadic.Th.KernelPlanesBase
-public import CFSG.Sporadic.Th.KernelSimpleBase
-public import CFSG.Sporadic.ThSchreier.FullAutCoreBase
-public import CFSG.Sporadic.ThSchreier.KernelAutBase
 public import CFSG.Timmesfeld.Moufang.A6
 public import CFSG.Timmesfeld.Moufang.Cases
 public import CFSG.Timmesfeld.Moufang.J2Check
@@ -148,7 +96,6 @@ public import CFSG.Timmesfeld.Moufang.J2MatCheck
 public import CFSG.Timmesfeld.Moufang.Three
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 import CFSG.Certificates.FusionF2
 import CFSG.Certificates.WordSubgroupHom
 import CFSG.ClassicalInvolution.SmallCases.Sporadic.QuasiAssembly

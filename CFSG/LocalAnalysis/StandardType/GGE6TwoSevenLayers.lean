@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitE6ThreeDvd
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165ExcE6Three
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165ExcE6Three2
 public import CFSG.HardMathSupport.Lang.SeitzPlane.Phi3D4LayerData
 public import CFSG.Dihedral.FourgroupCycleControl
@@ -33,7 +32,6 @@ public import CFSG.RankThree.PartOne.KE6.Phi6Frame
 public import CFSG.RankThree.PartOne.KE6.Phi6Torsion
 public import CFSG.RankThree.PartOne.KF4.KernelTools
 public import CFSG.RankThree.PartOne.S8.Statements
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 
 public noncomputable section
 

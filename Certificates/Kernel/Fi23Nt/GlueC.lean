@@ -4,7 +4,6 @@ public import Certificates.Kernel.Fi23Nt.GlueB
 public import Certificates.Kernel.Fi23Nt.Filt
 public import Certificates.Kernel.Fi23Nt.Filt1
 public import Certificates.Kernel.Fi23Nt.TabSt
-import Mathlib
 
 public section
 

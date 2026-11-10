@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphOrbitals
 public import Mathlib.Combinatorics.SimpleGraph.Finite
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

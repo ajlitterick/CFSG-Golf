@@ -3,7 +3,6 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma27IndexTwo
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseA7FittingCentralizes
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

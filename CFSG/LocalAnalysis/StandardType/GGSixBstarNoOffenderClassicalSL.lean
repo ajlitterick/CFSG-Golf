@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderClassicalSum
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderClassicalSp
-public import CFSG.LocalAnalysis.StandardType.GGSixLinearModelBasic
 public import CFSG.LocalAnalysis.StandardType.GGSixLinearModelMono
 
 public section

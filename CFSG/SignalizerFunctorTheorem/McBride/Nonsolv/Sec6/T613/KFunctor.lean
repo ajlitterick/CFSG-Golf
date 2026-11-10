@@ -1,7 +1,5 @@
 module
 
-public import Mathlib
-public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec6.L63
 public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec6.T613.Basic
 public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec6.T613.Free
 

@@ -5,7 +5,6 @@ public import CFSG.Quasithin.Background.SmithC27Star
 import all CFSG.Quasithin.Vol2.Ch12Sec7ModData
 import all CFSG.Quasithin.Vol2.Ch12Sec7ModData2
 import all CFSG.Quasithin.Vol2.Ch12Sec7L5zz
-public import CFSG.Quasithin.Vol2.Ch12Sec7L5zzE
 import all CFSG.Quasithin.Vol2.Ch12Sec7L5zzE
 public import CFSG.Quasithin.Vol2.Ch12Sec7L5zw
 public import CFSG.Quasithin.Vol2.Ch12Sec7L5zzC

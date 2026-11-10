@@ -1,14 +1,6 @@
 module
 
-public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4MnCoord
-public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4MnStab
-public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4MnTorus
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4MpTwist
-public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4Q1Twist
-public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcLang
-public import CFSG.RankThree.PartOne.KE.StabGeneral
-public import CFSG.RankThree.PartOne.KGD.D4Frame
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcLeviToral
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4MpAlg
 public import CFSG.LieType.Chevalley.C2E6RootOperators

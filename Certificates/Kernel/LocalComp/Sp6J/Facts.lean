@@ -4,14 +4,9 @@ public import Certificates.Kernel.LocalComp.Sp6J.Checks
 public import Certificates.Kernel.LocalComp.Sp6J.Slice0
 public import Certificates.Kernel.LocalComp.Sp6J.Slice1
 public import Certificates.Kernel.LocalComp.ExcGlue
-public import CFSG.Certificates.Kernel.SporSch.MathieuOCSound
 public import CFSG.Certificates.Kernel.SporSch.ChainKSlice
 public import CFSG.Certificates.Kernel.Spor.SiftRSound
-public import CFSG.LocalAnalysis.EvenSmallLie.Sp6JConditionInputs
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.BfsPinSound
-public import CFSG.Certificates.Kernel.BfsPinUnpack
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutCheckBase
 
 public section

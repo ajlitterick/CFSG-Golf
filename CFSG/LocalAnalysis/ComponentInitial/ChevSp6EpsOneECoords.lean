@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentInitial.ChevSp6EpsOneCoordsDefs
 public import CFSG.LocalAnalysis.ComponentInitial.ChevSp6EpsOneNormalizerStatements
-public import CFSG.LocalAnalysis.ComponentInitial.BinarySymplecticSixDegree64LagrangianCompletion
 import CFSG.LocalAnalysis.ComponentInitial.ChevSp6EpsOneJhat
 import CFSG.LocalAnalysis.ComponentInitial.ChevSp6EpsOneECoordsSq
 

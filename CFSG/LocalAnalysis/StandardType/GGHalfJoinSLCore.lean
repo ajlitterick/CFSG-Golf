@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGHalfJoinDefs
 public import CFSG.LocalAnalysis.StandardType.GGHalfJoinSLConj
 public import CFSG.LocalAnalysis.StandardType.GGHalfJoinSLPerf
-public import CFSG.LocalAnalysis.StandardType.GGHalfFrame
 
 public section
 

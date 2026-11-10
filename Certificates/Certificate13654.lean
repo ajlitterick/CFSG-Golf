@@ -2,8 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.BThreeFi23Reps
 import Certificates.Certificate17451
-import Certificates.Kernel.BabyMonster.Fi23Fu
-import Certificates.Kernel.Sporadic.Fi23Fu.Rels
 public import CFSG.Sporadic.Co2Schreier.ThirdChain
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Certificates.CentralKernel

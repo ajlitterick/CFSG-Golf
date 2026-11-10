@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLangOrbitTwo
 public import CFSG.LocalAnalysis.StandardType.GGLangOrbitTorus
-public import CFSG.LocalAnalysis.StandardType.GGLangWSLGamma
-public import CFSG.LocalAnalysis.StandardType.GGLangModelIndex
 
 public section
 

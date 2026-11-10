@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.AlgebraicGroups.RationalInnerInvolutionReduction
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 
 public noncomputable section
 

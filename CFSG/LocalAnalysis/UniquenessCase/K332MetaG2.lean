@@ -1,19 +1,13 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.K332MetaDefs
 public import CFSG.LocalAnalysis.UniquenessCase.K332MetaExc
 public import CFSG.LocalAnalysis.UniquenessCase.UC6K332G2
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFacts.WeakClosureThree.Wreath
 public import CFSG.HardMathSupport.Lang.Proving.FieldCubeRoots
-public import CFSG.Assembly.RankThreeEvenDefs
-public import CFSG.Assembly.LowTwoRankDefs
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanG2QSU33
 public import CFSG.Adapters.StatedClassicalUnitaryOrders
-public import CFSG.Adapters.RankThreeOutcomesReverse
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic49U3.CenterCard
-public import CFSG.Blueprint.ChevalleyRootGroupsTriangular
 public import CFSG.LieType.Chevalley.ExactG2FiniteOrder
-public import CFSG.LocalAnalysis.ComponentInitial.LinearFlagOrder
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk47f
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanG2QThree
 public import CFSG.SignalizerFunctorTheorem.NonLocalExc.Unipotent

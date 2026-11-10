@@ -4,10 +4,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.Foote47L216Normalizer
 public import CFSG.GroupTheory.CentralizerSup
 public import CFSG.GroupTheory.PCore.PrimeSetCore
 public import CFSG.GroupTheory.SylowIntersectionControl.Basic
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5bConj
-public import CFSG.LocalAnalysis.ComponentClassification.FooteLitConjugate
-public import CFSG.LocalAnalysis.ComponentClassification.Sol78Basic
-public import CFSG.LinearAlgebra.ScalarGraphAction
 public import CFSG.LocalAnalysis.RankFourTheoremC.InvariantTwo.KFacts.Reduced
 public import CFSG.ClassicalInvolution.QuaternionStructure.OddCoreQuotient
 public import CFSG.GH74.GLS.C3.Layer1.BackAuxCI
@@ -16,14 +12,9 @@ public import CFSG.GH74.GLS.Prop27.Balance
 public import CFSG.GroupTheory.SuzukiTwoGroupsCoprime
 public import CFSG.Quasithin.EmptyFaithful.SBc16SAut
 public import CFSG.LocalAnalysis.ComponentClassification.FooteProperFixedA7
-public import CFSG.LocalAnalysis.ComponentClassification.FixedCommutingProduct
-public import Mathlib.FieldTheory.Finite.GaloisField
 import CFSG.RankThree.PartOne.KC.EvenSymplecticSL2Automorphisms
 import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionSquareFieldCentralizer
 import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionSquareFieldFullAutomorphism
-public import CFSG.Walter.PSL2Facts.Even
-public import CFSG.Walter.Bender1970.S2.Involutions
-public import TauCeti.GroupTheory.DerivedCentralQuotient
 public import CFSG.Assembly.CompletedOddCoreElimination
 public import CFSG.GH74.E2.ComponentsShape
 public import CFSG.LocalAnalysis.ComponentClassification.AutL2FactsFieldAut

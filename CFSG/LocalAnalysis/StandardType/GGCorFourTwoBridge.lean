@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoKantor
-public import Mathlib.Algebra.Module.ZMod
-public import Mathlib.FieldTheory.Finiteness
-public import Mathlib.GroupTheory.PGroup
 
 public section
 

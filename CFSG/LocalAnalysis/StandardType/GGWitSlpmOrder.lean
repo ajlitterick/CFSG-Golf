@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGWitSlpm
-import Mathlib.Tactic
 
 public section
 

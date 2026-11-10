@@ -1,11 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSelectedRootMatch
 public import CFSG.LocalAnalysis.StandardType.GGSelPSUChart
 public import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpStdUnitaryDiag
-public import CFSG.LieType.Universal.Unitary.Extras
-public import CFSG.LieType.Steinberg.CentralExt.UnitaryField
-import Mathlib.Tactic.Ring
 
 public section
 

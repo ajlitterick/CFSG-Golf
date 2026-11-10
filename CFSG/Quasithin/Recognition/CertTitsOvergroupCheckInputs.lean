@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Sporadic.Schreier.TitsStabCheck
-public import CFSG.Sporadic.Schreier.TitsOrbit
 public import CFSG.Quasithin.Recognition.CertMergeTargets
 public import CFSG.Quasithin.Recognition.CertDataTitsOvergroup
 public meta import CFSG.Sporadic.Schreier.TitsData

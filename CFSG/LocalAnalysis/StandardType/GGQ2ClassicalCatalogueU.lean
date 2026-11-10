@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2ClassicalCatalogue
-public import CFSG.LocalAnalysis.StandardType.GGQ2ClassicalNormalizers
-public import CFSG.LocalAnalysis.StandardType.GGQ2UnitCutThree
 public import CFSG.LocalAnalysis.StandardType.GGQ2UnitHeartCutThree
 
 public section

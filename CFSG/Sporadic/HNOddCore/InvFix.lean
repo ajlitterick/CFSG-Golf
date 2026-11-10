@@ -3,12 +3,8 @@ module
 
 public import CFSG.Sporadic.HNOddCore.InvFixBase
 
-public import CFSG.Sporadic.HNOddCore.InvDefs
 public import CFSG.Sporadic.HNOddCore.XCheck
 public import CFSG.Sporadic.HNOddCore.DCheck
-public import CFSG.Sporadic.HNOddCore.Restrict
-public import CFSG.Sporadic.HNOddCore.DCheckInputs
-public import CFSG.Sporadic.HNOddCore.XCheckInputs
 public meta import CFSG.Sporadic.HNOddCore.CCheck
 public meta import CFSG.Sporadic.HNOddCore.InvArrays
 public meta import Certificates.Data.CFSGNative.ONSchreier.Tools

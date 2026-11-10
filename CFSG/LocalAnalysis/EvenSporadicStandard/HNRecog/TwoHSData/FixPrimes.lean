@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.FixPrime
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.FixFacts
 public import Certificates.Certificate26775
 
 public section

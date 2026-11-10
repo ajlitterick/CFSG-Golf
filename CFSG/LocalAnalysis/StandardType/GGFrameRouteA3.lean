@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveRest
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestTailHolds
 public import CFSG.LocalAnalysis.LargeEvenClassification.ElementarySubgroupPathsCore
 public import CFSG.LocalAnalysis.LargeEvenClassification.ProductLocalRank
-public import CFSG.LocalAnalysis.LargeEvenClassification.WeakCoreInternal
 public import CFSG.LocalAnalysis.LargeEvenClassification.WeakCoreDeltaTransfer
 public import CFSG.LocalAnalysis.LargeEvenClassification.WeakCoreAbsorption
 

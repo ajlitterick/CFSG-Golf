@@ -1,13 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoGenE7StepAux
-public import CFSG.LocalAnalysis.StandardType.GGPhiTwoGenHyper
-public import CFSG.LocalAnalysis.StandardType.GGPhiTwoGenRow
-public import CFSG.LocalAnalysis.StandardType.GGPhiTwoGenE7Bridge
-public import CFSG.LocalAnalysis.StandardType.GGOmegaNsRootGenLabels
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoRank
-public import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
-public import CFSG.LieType.Chevalley.RootCharacterConjugation
 
 public section
 

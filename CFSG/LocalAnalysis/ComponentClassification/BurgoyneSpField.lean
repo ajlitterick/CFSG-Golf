@@ -3,10 +3,8 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneSpBasic
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoynePSLField
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoynePSLUnitary
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSpField
 public import CFSG.RankThree.Classical.SteinbergBYSymplecticFieldDescent
 public import CFSG.LieType.Universal.Symplectic
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalDescentEndpoint
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalFixedTransfer

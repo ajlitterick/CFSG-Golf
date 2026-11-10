@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Certificates.Kernel.Common.Harness
 meta import all CFSG.Certificates.Kernel.Common.Harness
 public meta import CFSG.Certificates.Kernel.Common.Benes
 meta import all CFSG.Certificates.Kernel.Common.Benes

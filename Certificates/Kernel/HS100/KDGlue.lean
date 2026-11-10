@@ -10,17 +10,9 @@ public import Certificates.Kernel.HS100.KDCls5
 public import Certificates.Kernel.HS100.Chain
 public import Certificates.Kernel.HS100.Five
 public import Certificates.Kernel.LocalComp.ExcGlue
-public import Certificates.Kernel.LocalQT.He4148.Glue
-public import CFSG.Certificates.Kernel.LocalCompExcDerivSound
-public import CFSG.Certificates.Kernel.SporSch.CodesImg
-public import CFSG.Certificates.Kernel.SporSch.MathieuOC2Sound
 public import CFSG.Certificates.Kernel.SporSch.ConjClosureSpec
 public import CFSG.Certificates.Kernel.Child3Reps
-public import CFSG.Certificates.Kernel.BfsPinBaseSound
 public import CFSG.Certificates.Kernel.Common.ForallChunks
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.Group
-import Mathlib.Tactic.IntervalCases
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutCheckBase
 
 public section

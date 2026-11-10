@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.SolMaxQuot
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.SolMaxAscent
 
 public section

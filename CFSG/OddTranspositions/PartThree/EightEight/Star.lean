@@ -1,10 +1,6 @@
 module
 
-public import CFSG.OddTranspositions.AscTheoremTwo
-public import CFSG.OddTranspositions.FaithfulBlocks
 public import CFSG.OddTranspositions.PartThree.EightEight.Core
-public import CFSG.OddTranspositions.PartThree.Statements
-public import CFSG.Timmesfeld.Bridge.Asc72Triangle
 
 import CFSG.OddTranspositions.BlockGraph
 import CFSG.OddTranspositions.PartThree.EightEight.ThirdKind

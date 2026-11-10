@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsCoresHerm
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsCoresLinear
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerPDivFactors
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitKGSLBasic
 

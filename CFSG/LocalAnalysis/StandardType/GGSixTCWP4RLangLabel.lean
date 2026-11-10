@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RDefs
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4Inputs
-public import CFSG.LocalAnalysis.StandardType.GGExcCompFieldInput
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4ULang
 
 public section

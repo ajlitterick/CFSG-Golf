@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.PhanEResSeam
 public import CFSG.LocalAnalysis.StandardType.PhanEResPsiAct
-import CFSG.LieType.Universal.SpecialLinearRoots.SignedPerm
 public import CFSG.LocalAnalysis.StandardType.PhanELocalGate
 
 public section

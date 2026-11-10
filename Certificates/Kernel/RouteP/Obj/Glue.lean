@@ -4,11 +4,9 @@ public import Certificates.Kernel.RouteP.Obj.Run
 public import Certificates.Kernel.RouteP.Obj.Pts
 public import Certificates.Kernel.RouteP.Obj.EpsGlue
 public import Certificates.Kernel.RouteP.Bridge.Glue
-public import Certificates.Kernel.RouteP.Bridge.Misc
 public import Certificates.Kernel.RouteP.Text.Layout
 public import Certificates.Kernel.RouteP.Lines.Run
 public import CFSG.Certificates.Kernel.RouteP.Triple
-public import CFSG.Certificates.Kernel.RouteP.TreeBFS
 
 public section
 

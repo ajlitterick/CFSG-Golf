@@ -2,7 +2,6 @@
 module
 
 public import CFSG.Sporadic.Schreier.RuCheckChainsBase
-public import CFSG.Sporadic.Schreier.RuEnum
 public meta import CFSG.Sporadic.Schreier.RuCheckChainsBase
 public meta import CFSG.Sporadic.Schreier.RuEnum
 

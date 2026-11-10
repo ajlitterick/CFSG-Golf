@@ -3,11 +3,8 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitarySides
 public import CFSG.LocalAnalysis.StandardType.GGTWZKRank
 public import CFSG.LocalAnalysis.StandardType.GGTWZKPrimeJ
-public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitarySix
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitarySixOriginal
 public import CFSG.LocalAnalysis.StandardType.GGTWZKQuotient
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.LocalAnalysis.StandardType.GGResSideDatumDefs
 
 public section
 

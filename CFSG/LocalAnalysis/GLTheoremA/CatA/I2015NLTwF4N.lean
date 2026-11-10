@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I2015NLTwF4
 import CFSG.SignalizerFunctorTheorem.CatalogBridge.NonLocalLargeReeTits
-import CFSG.SignalizerFunctorTheorem.CatalogBridge.LargeReeFixed
 
 public section
 

@@ -1,9 +1,7 @@
 module
 
 public import CFSG.Monster.B.Short.Extraspecial
-public import Mathlib.LinearAlgebra.Matrix.Nondegenerate
 
-import Mathlib.Algebra.Field.ZMod
 
 public noncomputable section
 

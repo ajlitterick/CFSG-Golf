@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Tc.RuHex
 public import Certificates.Kernel.SporSch.Ru.JChain
-public import Certificates.Data.Kernel.Spor.Raw
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.D4YHCat
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.D4YERest
 
 public section
 

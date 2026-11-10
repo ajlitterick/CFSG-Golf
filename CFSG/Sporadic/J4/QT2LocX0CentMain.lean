@@ -6,7 +6,6 @@ public import CFSG.Sporadic.J4.QT2LocX0CentMainBase1
 import all CFSG.Sporadic.J4.QT2LocX0CentMainBase1
 
 public import CFSG.Sporadic.J4.QT2LocScanCheck
-public import CFSG.Adapters.ProjectiveSpecialLinear
 
 public section
 

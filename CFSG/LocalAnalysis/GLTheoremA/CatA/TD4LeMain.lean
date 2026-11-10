@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I148XRes
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.TD4LeGrp
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.TD4LeSplit
-public import CFSG.LieType.Chevalley.OddDiagramFrobeniusFixedDerived
-public import Mathlib.FieldTheory.Finite.Extension
 public import CFSG.Blueprint.LieModelAPI
 public import CFSG.GH74.GLS.IVK.Proofs2.OddTools
 public import CFSG.GH74.GLS.Stage2.Local.P34Main

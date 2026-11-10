@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.I28_8Inputs
-import CFSG.Certificates.Kernel.PermCent.CVSound
 import Certificates.Kernel.PermCent.K13510
 public import Certificates.Data.Kernel.PermCent.CV
 

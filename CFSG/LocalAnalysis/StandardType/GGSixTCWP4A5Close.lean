@@ -42,7 +42,6 @@ public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Quasithin.Background.A3Components
 public import CFSG.Quasithin.Background.B6
-public import CFSG.Quasithin.Background.B6Example
 public import CFSG.Quasithin.Background.E2Hyp
 public import CFSG.Quasithin.Background.E2SolvTwo
 public import CFSG.Quasithin.Background.F2Equiv
@@ -58,12 +57,9 @@ public import CFSG.Quasithin.Vol2.Ch1Comm
 public import CFSG.Quasithin.Vol2.Ch5Sec1Lem5115
 public import CFSG.Quasithin.Vol2.Ch5Sec1Thm5114
 public import CFSG.Quasithin.Vol2.Ch5StatementsDS
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

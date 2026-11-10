@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoOrthogonalMarking
 public import CFSG.LocalAnalysis.StandardType.GGQTwoOrthogonalFixedAutomizer
 public import CFSG.LocalAnalysis.StandardType.GGQTwoOrthogonalMovingAutomizer
 public import CFSG.LocalAnalysis.StandardType.GGQTwoVACOrthNonFull
-public import CFSG.LocalAnalysis.StandardType.GGAutomizerMap
 
 public noncomputable section
 

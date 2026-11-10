@@ -1,22 +1,13 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1E6ThreeModel
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1Regimes
 public import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourCoverMark
 public import CFSG.LocalAnalysis.StandardType.GGInnerD4RAContracts
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Three
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelRecipeID
 public import CFSG.LocalAnalysis.StandardType.GGNbrTwE6Prop87
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoTableBReduce
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangTypeALift
 public import CFSG.LocalAnalysis.StandardType.GGSpFrameConfig
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1TransferData
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1TransferMark
-public import CFSG.LocalAnalysis.StandardType.GGBstarLIDUnit63Holds
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLExc3
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLExcReduction
-public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBE6
-public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6
 
 public section
 

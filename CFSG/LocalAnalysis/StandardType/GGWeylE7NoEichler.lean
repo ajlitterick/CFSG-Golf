@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGWeylE7Sylow
 public import CFSG.LocalAnalysis.StandardType.GGQ2EichlerDefs
 public import CFSG.HardMathSupport.Curtis.NaturalModuleCensus.ExcCross.E78Sylow
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
 public import CFSG.LocalAnalysis.StandardType.GGFrameRouteA4Thm
 
 public section

@@ -2,12 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKSmallStep
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKSmallCompType
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKU33B0
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKU33InnCoprime
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKU33Bridges
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.I141FDynOrders
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.MILabel
-public import CFSG.LocalAnalysis.SeitzReduction.F4PilotCatTypeDet
 
 public section
 

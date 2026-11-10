@@ -3,8 +3,6 @@ module
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TrialityThree
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4MnFixedLine
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4MnV
-public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4Toral
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.Reduction
 public import CFSG.LieType.SeitzGeneration.ExtSeitzReeF4Cyclic
 public import CFSG.LocalAnalysis.ComponentClassification.AutL2FactsCentModel

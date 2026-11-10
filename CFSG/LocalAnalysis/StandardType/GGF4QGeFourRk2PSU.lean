@@ -1,12 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourA2PSU
-public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourTwins
-public import CFSG.ClassicalInvolution.Models.TwistedPairs.Unitary
-import CFSG.ClassicalInvolution.RouteD.TypeTwistedE6SU6
 import CFSG.ClassicalInvolution.WeakCT.TwistedSpinModelEven
-import CFSG.RankThree.PartOne.CTP.SU4EvenField
-import CFSG.RankThree.PartOne.CTP.SU4EvenGen
 import CFSG.ClassicalInvolution.Models.TwistedPairs
 
 public noncomputable section

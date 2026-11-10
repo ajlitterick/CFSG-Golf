@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMore
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangTypeALabel
 
 public section
 

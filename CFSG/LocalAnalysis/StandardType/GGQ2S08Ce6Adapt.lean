@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08TwoNodeBasics
-public import CFSG.LocalAnalysis.StandardType.GGDepED4ReadDefs
 public import CFSG.LocalAnalysis.StandardType.GGDepED4RowSmall
 
 public section

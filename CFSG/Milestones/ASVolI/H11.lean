@@ -1,13 +1,6 @@
 module
 
-public import Mathlib
 public import CFSG.Milestones.ASVolI.H1
-public import CFSG.Quasithin.Background.B4Models
-public import CFSG.Quasithin.Background.G6Natural
-public import CFSG.Blueprint.NativeSporadic
-import CFSG.Quasithin.AppendixH.H11.AutomorphismGroup
-import CFSG.Quasithin.AppendixH.H11.InvolutionRank
-import CFSG.Quasithin.AppendixH.H11.NativeBridge
 import CFSG.Quasithin.AppendixH.H11.Quadratic
 import CFSG.Quasithin.AppendixH.H11.TwoRank
 public import CFSG.Quasithin.Background.F2Equiv
@@ -15,8 +8,6 @@ public import CFSG.Quasithin.Background.F6Basic
 public import CFSG.Quasithin.Recognition.GoldschmidtTripleQuotient
 public import CFSG.Quasithin.Recognition.M12AmalAutClass
 public import Certificates.Kernel.HMathieu.C7075
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.CGT.Timmesfeld75.L2Pair
 import CFSG.CGT.Timmesfeld75.ListWCBasic
 import CFSG.ClassicalGroups

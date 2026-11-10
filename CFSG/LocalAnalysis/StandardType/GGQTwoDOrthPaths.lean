@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthPathsPair
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthPathsPath
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthPathsFar
 import CFSG.LocalAnalysis.StandardType.GGOrthRk1AllPairs

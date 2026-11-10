@@ -1,14 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.AGLEmbedding.J3Facts
-public import CFSG.LocalAnalysis.SectionRank.SQT
-public import CFSG.Sporadic.J3
 public import CFSG.Sporadic.SmallOddCore.J3Aut
-public import CFSG.Sporadic.Schreier.PairJ3Faithful
-public import CFSG.Sporadic.Schreier.PairOuter
 public import CFSG.RankThree.Asc83Table.J3
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Foundations
 public import CFSG.LocalAnalysis.AGLEmbedding.JStarReducedDefs

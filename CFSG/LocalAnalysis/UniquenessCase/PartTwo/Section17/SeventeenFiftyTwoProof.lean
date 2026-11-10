@@ -1,29 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.StatementsC
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.CentralizingRank
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenFiftyTwoSteps
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenFiftyTwoRank
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenSixtySixShape
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.U4CartanRank
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.Sp4CartanRank
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.G2CartanRank
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.U4CartanPlus
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.U4CartanPlusHolds
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.RootLine
-public import CFSG.GH74.Uniqueness.Section14Lem47A
-public import CFSG.LocalAnalysis.UniquenessCase.UC22DataExt
-public import CFSG.LocalAnalysis.UniquenessCase.UC22OddPRank
-public import CFSG.LocalAnalysis.SectionRank.SubgroupRank
-public import CFSG.GroupTheory.ElemAbelianRank
-public import CFSG.LocalAnalysis.UniquenessCase.UCFront07
-public import CFSG.LocalAnalysis.UniquenessCase.UC6S846e
-public import CFSG.LocalAnalysis.UniquenessCase.UCR638
-public import Mathlib.Tactic.IntervalCases
-public import Mathlib.Tactic.LinearCombination
-public import Mathlib.Tactic.NormNum
-public import Mathlib.Tactic.Push
-public import Mathlib.Tactic.Ring
 public import CFSG.GH74.GLS.Stage2.Local.P34Main
 public import CFSG.GH74.GLS.Stage2.Local.P34S5A
 public import CFSG.GH74.GLS.Stage2.Local.Prop27Cfg

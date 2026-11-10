@@ -1,10 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection2.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection1.PFsection1_4
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection1.PFsection1_5
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection1.PFsection1_6
-public import Mathlib.GroupTheory.SpecificGroups.Cyclic
 
 namespace CFSG
 end CFSG

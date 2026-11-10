@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.Vol2.KGFact1296Cl
 public import CFSG.Quasithin.Vol2.KGFact1296A7
-public import CFSG.Quasithin.Vol2.Ch12Sec9Lemma6One
 
 public section
 

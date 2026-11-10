@@ -1,13 +1,11 @@
 module
 
 public import CFSG.Monster.GMS.Griess13.Data
-public import CFSG.Sporadic.HS.SmallF2Spec
 public meta import CFSG.Monster.GMS.Griess13.Data
 public meta import Certificates.Data.CFSGNative.HS.SmallF2
 public meta import CFSG.Sporadic.Co1Base
 public import CFSG.Sporadic.Co1Base
 public meta import CFSG.Sporadic.Th.F2Spec
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

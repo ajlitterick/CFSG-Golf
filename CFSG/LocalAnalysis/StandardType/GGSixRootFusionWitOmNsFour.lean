@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionWitOmNs
 public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionWitSpNs
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBIrred
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotMainGraphOmegaMinusPiecesOrders
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotMainGraphOmegaMinusPiecesEmbed
 

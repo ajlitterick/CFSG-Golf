@@ -1,16 +1,10 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Higman.lemma_4
-public import Mathlib.LinearAlgebra.TensorProduct.Basic
-public import Mathlib.LinearAlgebra.Basis.Basic
 import Mathlib.Algebra.Polynomial.Module.AEval
 import Mathlib.RingTheory.SimpleModule.Basic
-import Mathlib.FieldTheory.Finite.GaloisField
 import Mathlib.FieldTheory.Finite.Trace
-import Mathlib.RingTheory.Trace.Basic
 import Mathlib.LinearAlgebra.TensorProduct.Free
-import Mathlib.LinearAlgebra.TensorProduct.Basis
-import Mathlib.RingTheory.TensorProduct.Maps
 
 namespace CFSG
 end CFSG

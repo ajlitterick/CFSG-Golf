@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInner937Defs
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerSCrComp
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylExcPlusLift
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLineE7
 
 public section
 

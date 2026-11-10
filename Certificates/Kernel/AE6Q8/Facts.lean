@@ -5,8 +5,6 @@ public import Certificates.Kernel.AE6Q8.Pairs
 public import CFSG.Certificates.Kernel.SporSch.RootPairSound
 public import Certificates.Kernel.AE6F.Final
 public import CFSG.Quasithin.Recognition.CertChain
-public import Certificates.Data.AE6ModelSmall
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.BfsPinSound
 public import CFSG.Certificates.Kernel.HeModelKSound
 public import CFSG.Certificates.Kernel.HexaKSound

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperRestDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoTableBTypeALabel
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoRestSp
 public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoRestTwo
 
 public section

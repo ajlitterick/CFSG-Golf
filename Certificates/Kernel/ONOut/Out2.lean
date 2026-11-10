@@ -1,12 +1,10 @@
 module
 
-public import CFSG.Certificates.Kernel.ONOut.RowsSound
 public import CFSG.Certificates.Kernel.ONOut.InvVSound
 public import CFSG.Certificates.Kernel.Spor.Dec3Sound
 public import CFSG.Certificates.Kernel.Spor.BytesFSound
 public import Certificates.Kernel.ONOut.Checks2
 import Certificates.Kernel.Sporadic.BrChain
-import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
 
 public section
 

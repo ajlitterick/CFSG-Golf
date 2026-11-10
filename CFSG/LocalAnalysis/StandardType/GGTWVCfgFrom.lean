@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeDepAssembly
-public import CFSG.LocalAnalysis.StandardType.GGTWSurvDefs
 public import CFSG.LocalAnalysis.StandardType.GGRowKFrameDim
 public import CFSG.LocalAnalysis.StandardType.GGTWDFalse
 public import CFSG.LocalAnalysis.StandardType.GGTWDCells36Orb

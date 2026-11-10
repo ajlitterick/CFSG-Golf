@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.MultNatCoords
 public import CFSG.Quasithin.Background.HMultNorm
 public import CFSG.Quasithin.Background.HSp4Rel
 public import CFSG.LocalAnalysis.ComponentInitial.SymplecticHigherFieldParabolic
-public import CFSG.GroupTheory.ABGLocalTools.PStabilityQSL2
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.CharacterTheory.CyclicBlocks.Family

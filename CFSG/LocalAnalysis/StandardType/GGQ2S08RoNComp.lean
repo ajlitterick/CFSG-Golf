@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQ2S08RoNFrame
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08RoNDiag
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08RoNMat
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08RoNQuasi

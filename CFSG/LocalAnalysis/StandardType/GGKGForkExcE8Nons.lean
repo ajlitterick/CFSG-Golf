@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGKGForkExcRows
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcNonsAsm
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcNonsTor
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcNonsOrders
-public import CFSG.LocalAnalysis.StandardType.GGKGForkWeylSeven
 import CFSG.LocalAnalysis.StandardType.GGKGForkExcNonsLang
 
 public section

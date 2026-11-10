@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.Kernel.Spor.Fi24Base
 public import Certificates.Data.Kernel.Spor.Fi24PumpK
 public import Certificates.Data.Kernel.Spor.Fi24Kn
 

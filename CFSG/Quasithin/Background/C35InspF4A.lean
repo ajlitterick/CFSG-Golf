@@ -3,8 +3,6 @@ module
 public import CFSG.Quasithin.Background.C35InspD4A
 public import CFSG.Quasithin.H13.NQCatG2RadModel
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsLieF4Gen
-public import CFSG.LieType.Ree.LargeReeInvolutionFusion
-public import CFSG.LieType.Ree.LargeReeInvolutionFusionStrata
 public import CFSG.LieType.Ree.LargeReeEightTorus
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogLargeReeNormalForm
 public import CFSG.LocalAnalysis.ComponentInitial.SylowPointRecovery

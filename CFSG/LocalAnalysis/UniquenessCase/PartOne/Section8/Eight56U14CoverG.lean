@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight56U14CoverDefs
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight56U14CoverTwo
 public import CFSG.LocalAnalysis.UniquenessCase.UC6R3
-import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.SylowInfCenter
-import CFSG.HardMathSupport.Solomon.Proving.GLBCoreNormalizer
-import CFSG.GroupTheory.PGroup.ElemAbelianSq
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight65WeakClosureBar
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight65SylowCenterU33
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight65X0CardG2General
@@ -14,11 +11,6 @@ import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight65FrattiniWeak
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight65K332Setup
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.ExtraspecialTransport
 import CFSG.GroupTheory.CoprimeCentralizerCover
-import CFSG.GroupTheory.PCore.NormalPCoreOf
-import CFSG.LocalAnalysis.RankThreeCoreUniqueness.LocalCore
-import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
-import CFSG.LocalAnalysis.ComponentClassification.PerfectCentralQuotient
-import CFSG.Foundations.QuasisimpleMulEquiv
 import all CFSG.LocalAnalysis.RankThreeUC.SmallClassTwoGroups.IsExtraspecialExpP
 public import CFSG.LocalAnalysis.UniquenessCase.UC6S846d
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront07
@@ -75,9 +67,6 @@ import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.SupDecomposition
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.UpperCentralTwo
 import CFSG.Quasithin.Background.B69Core
 import CFSG.Quasithin.Background.E3
-import CFSG.Quasithin.Background.E3Nprime
-import CFSG.Quasithin.Background.E3Uniq
-import CFSG.Quasithin.Background.E4Solv
 import CFSG.Quasithin.EmptyFaithful.S14110
 import CFSG.Quasithin.EmptyFaithful.S151Basic
 import CFSG.Quasithin.EmptyFaithful.S151cCasei

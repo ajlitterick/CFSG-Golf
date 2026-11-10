@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGWPlusUnitAutModel
 public import CFSG.LocalAnalysis.StandardType.GGWPlusPositionRk
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBRkDefs
 public import CFSG.LocalAnalysis.StandardType.GGL45TGSU
 
 public section

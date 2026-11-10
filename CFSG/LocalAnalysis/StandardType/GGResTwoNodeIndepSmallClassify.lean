@@ -7,9 +7,6 @@ public import CFSG.LocalAnalysis.StandardType.ZS.MonomialBasic
 public import CFSG.LocalAnalysis.StandardType.GGRCLinWeyl
 public import CFSG.ClassicalGroups.Orthogonal.FiveDimensionalSimilarity
 public import CFSG.ClassicalGroups.Orthogonal.Represents
-public import CFSG.GroupTheory.WeirSylow.OrthogonalOrders
-public import Mathlib.GroupTheory.Abelianization.Defs
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
 
 public section
 

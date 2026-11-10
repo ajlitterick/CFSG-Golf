@@ -1,9 +1,7 @@
 module
 
 public import Certificates.Kernel.Co2Smith.Psi
-public import CFSG.Certificates.Kernel.Spor.RawSound
 public import CFSG.Certificates.Kernel.Spor.StrongOfSound
-public import CFSG.Certificates.Kernel.Spor.RawTreeDefs
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

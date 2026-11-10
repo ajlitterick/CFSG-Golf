@@ -1,9 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter3section1.Basic
-public import Mathlib.GroupTheory.SemidirectProduct
-public import Mathlib.GroupTheory.OrderOfElement
-public import Mathlib.LinearAlgebra.Dimension.Finite
 
 namespace CFSG
 end CFSG

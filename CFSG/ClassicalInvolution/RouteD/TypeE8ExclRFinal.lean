@@ -4,7 +4,6 @@ public import CFSG.ClassicalInvolution.RouteD.TypeE8ExclR1
 public import CFSG.ClassicalInvolution.RouteD.TypeE8ExclR2Main
 public import CFSG.ClassicalInvolution.RouteD.TypeE8ExclP1x
 public import CFSG.ClassicalInvolution.ModelFacts.E8ExclStar
-public import CFSG.ClassicalInvolution.ModelFacts.FundNoncentralBridge
 
 public section
 

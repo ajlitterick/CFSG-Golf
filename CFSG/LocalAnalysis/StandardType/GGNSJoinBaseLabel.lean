@@ -2,33 +2,19 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinRMChain
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRowMember
-public import CFSG.LocalAnalysis.StandardType.GGTBXPlumb
 public import CFSG.LocalAnalysis.StandardType.GGF4ThreeNbrRankDefs
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyQFourTBSmall
 import CFSG.LocalAnalysis.StandardType.GGSecFiveJA2PhanDOfEsu
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSCornerMain
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSLieEsu
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosAdapter
-import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosDiag
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosFinal
 import CFSG.LocalAnalysis.StandardType.GGNSJoinToralA
 import CFSG.LocalAnalysis.StandardType.GGNSJoinFrameA
 import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseTwE6
-import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylKnownDefs
-import CFSG.LocalAnalysis.StandardType.GGTBRowTwE6Parity
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
 import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHyperbolic
 import CFSG.LocalAnalysis.StandardType.GGTwA5ThreeFrame
-import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylRest5
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
-import CFSG.LocalAnalysis.StandardType.GGF4ThreeNbrInputs
-import CFSG.LocalAnalysis.StandardType.GGF4ThreeNbrRank
-import CFSG.LocalAnalysis.StandardType.GGF4ThreeSCCube
 import CFSG.LocalAnalysis.StandardType.GGF4ThreeSCCubeHolds
-import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrCoxOrder
-import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
 import CFSG.LocalAnalysis.StandardType.GGNSJoinJA2TBJ
 
 public section

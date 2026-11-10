@@ -1,22 +1,12 @@
 
 module
 
-public import Mathlib.Data.Finset.Card
-public import CFSG.Sporadic.Co1.Module.Pairs
-public import CFSG.Monster.GMS.S365Native
-public import CFSG.Monster.GMS.S365Facts
-public import CFSG.Sporadic.Co1.Module.InvData
-public import Certificates.Data.CFSGNative.Co1.S365Coset
-public import Certificates.Data.CFSGNative.Co1.S365CentPath
-public import CFSG.Monster.GMS.S365CosetInputs
 public import Certificates.Kernel.Co1M.K42T0
 public import Certificates.Kernel.Co1M.K42T1
 public import Certificates.Kernel.Co1M.K42T2
 public import Certificates.Kernel.Co1M.K42T3
 public import Certificates.Kernel.Co1M.C10037
-public import CFSG.Certificates.Kernel.SortTreeSound
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic
 
 public section
 

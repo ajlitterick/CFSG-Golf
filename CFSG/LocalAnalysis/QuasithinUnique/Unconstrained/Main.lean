@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.Assembly
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_4
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_5
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_10
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_11
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_12
@@ -10,18 +7,10 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_6Fin
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_6Out
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_13
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_15
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_16
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_18
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_20
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2pFacts
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.M11NotBender
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_23
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_2
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_2Small
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_3Main
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_8
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19Defs
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19L2pGen
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_21Final
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_15FactsK33
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_15FactsL33
@@ -31,10 +20,8 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_16FactsA6
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_22
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_24
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_25
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_26
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_26Claim
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_27
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_Final
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.BadCaseLocal
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherTightEmbeddingAction
 public import CFSG.LocalAnalysis.ComponentClassification.BlockMutualRanks
@@ -60,7 +47,6 @@ public import CFSG.Quasithin.Background.A3Components
 public import CFSG.Quasithin.Background.A3Structure312Facts
 public import CFSG.Quasithin.Vol2.Ch1Local
 public import CFSG.Sporadic.J4Base
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 
 public section
 

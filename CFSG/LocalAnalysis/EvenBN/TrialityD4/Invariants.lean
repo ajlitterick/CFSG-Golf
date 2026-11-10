@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.EvenBN.TrialityD4.SylowCenters
 public import CFSG.LocalAnalysis.EvenBN.TrialityD4.Bruhat
 public import CFSG.LocalAnalysis.SectionRank.PRank
-public import CFSG.Open.Defs
 
 public section
 

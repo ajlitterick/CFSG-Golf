@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJNoB2derDefs
-import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticBstar
 
 public section
 

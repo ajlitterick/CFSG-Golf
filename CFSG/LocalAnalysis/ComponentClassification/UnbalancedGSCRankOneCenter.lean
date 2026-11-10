@@ -1,9 +1,7 @@
 module
 
-public import CFSG.Foundations.Basic
 public import CFSG.LocalAnalysis.ComponentInitial.BasicFacts
 public import CFSG.LocalAnalysis.SectionRank.SQT
-public import Mathlib.GroupTheory.NoncommCoprod
 
 public section
 

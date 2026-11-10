@@ -2,10 +2,6 @@ module
 
 public import CFSG.LieType.Chevalley.C2E6UnitaryFourDefs
 import all CFSG.Fischer.F4
-public import Mathlib.RingTheory.Coalgebra.IsFrobenius
-public import Mathlib.RingTheory.Etale.Weakly
-public import Mathlib.RingTheory.HopfAlgebra.Basic
-public import Mathlib.RingTheory.TotallySplit
 
 public section
 

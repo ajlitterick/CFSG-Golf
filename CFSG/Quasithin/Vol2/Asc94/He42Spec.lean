@@ -3,8 +3,6 @@ module
 public import CFSG.Quasithin.Vol2.Asc94.He42Base
 public import CFSG.Quasithin.Vol2.Asc94.He42PDef
 public import CFSG.Quasithin.Vol2.GoldschmidtF431U42AutP8IotaGen1
-public import CFSG.Sporadic.Schreier.J4SBinary
-public import CFSG.Sporadic.Schreier.J4SOrder
 
 public section
 

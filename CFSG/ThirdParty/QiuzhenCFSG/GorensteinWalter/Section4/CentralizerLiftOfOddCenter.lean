@@ -3,7 +3,6 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OddCenterOfOddQuotientKernel
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConjAction
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Quotient
-import Mathlib.GroupTheory.GroupAction.Quotient
 import Mathlib.Tactic
 
 namespace CFSG

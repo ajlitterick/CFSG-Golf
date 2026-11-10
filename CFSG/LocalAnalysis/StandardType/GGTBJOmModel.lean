@@ -1,12 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmTauOm
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorusCore
-public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelOmMvMoves
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorus
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthExc
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUElt
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmFrame
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmModelLift
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmModelMap

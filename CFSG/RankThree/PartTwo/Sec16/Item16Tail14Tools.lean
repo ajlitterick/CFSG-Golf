@@ -1,27 +1,14 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec16.Item16Tail14Defs
-public import CFSG.RankThree.PartTwo.Sec15.HypS
-public import CFSG.RankThree.PartTwo.Sec13.Item13Inputs
 import CFSG.RankThree.PartTwo.Sec16.Item16Tail13
 import CFSG.RankThree.PartTwo.Sec16.Item16Tail13Tools
-import CFSG.RankThree.PartTwo.Sec16.Item16Tail
-import CFSG.RankThree.PartTwo.Sec13.Item131Facts
-import CFSG.RankThree.PartTwo.Sec13.Item136PGL
-import CFSG.RankThree.PartTwo.Sec13.Item13Models
-import CFSG.RankThree.PartTwo.Sec13.Item13Plane
-import CFSG.RankThree.PartTwo.Sec13.Item13GL
-import CFSG.RankThree.PartTwo.Sec13.Item13Prod
-import CFSG.RankThree.PartTwo.Sec13.Item13Theta
 import CFSG.RankThree.PartTwo.Sec13.Item132
 import CFSG.RankThree.PartTwo.Sec13.Item133
 import CFSG.RankThree.PartTwo.Sec13.Item13Sporadic
 import CFSG.RankThree.PartTwo.Sec13.Item13SLTwo
-import CFSG.RankThree.PartTwo.Sec13.Naturality
 import CFSG.RankThree.PartTwo.Sec5.Tools
 import CFSG.RankThree.PartTwo.KFacts.KS14Orders
-import CFSG.RankThree.PartTwo.Sec11.Item116Coords
-import CFSG.RankThree.PartTwo.Sec11.Item116Points
 import CFSG.RankThree.PartTwo.Sec10.Item104
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC

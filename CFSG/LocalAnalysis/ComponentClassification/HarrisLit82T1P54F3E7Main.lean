@@ -25,7 +25,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.TBLitCoreBasics
 public import CFSG.LocalAnalysis.ComponentClassification.TBLitStepFour
 public import CFSG.Sporadic.SmallOddCore.HSAut
 public import CFSG.Sporadic.SmallOddCore.J3Aut
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ConjugatedInvertedSubgroup
 
 public section
 

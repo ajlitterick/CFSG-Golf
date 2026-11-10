@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.SporSch.Ly.GenSeven
 public import Certificates.Kernel.SporSch.Ly.BSData
 public import Certificates.Data.Kernel.SporSch.LySeven
-public import Certificates.Kernel.Sporadic.RawGen
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

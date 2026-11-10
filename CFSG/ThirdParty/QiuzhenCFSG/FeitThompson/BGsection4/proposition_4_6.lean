@@ -1,8 +1,6 @@
 module
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.Defs
 
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.lemma_4_5_c
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.lemma_4_5_a
 
 namespace CFSG
 end CFSG

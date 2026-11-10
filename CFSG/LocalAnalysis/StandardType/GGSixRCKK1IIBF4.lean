@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIBPair
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2LongF4
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OddCenter
-public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionOddCoreCover
-public import CFSG.LieType.Steinberg.Adjoint.Group
 
 public section
 

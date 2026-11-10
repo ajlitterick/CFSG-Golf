@@ -1,8 +1,6 @@
 module
 
-public import CFSG.Sporadic.ONOddCore.LiftPayload
 public meta import CFSG.Sporadic.ONOddCore.LiftPayload
-public import CFSG.Sporadic.ONOddCore.LiftCountInputs
 public import Certificates.Certificate2121
 
 public section

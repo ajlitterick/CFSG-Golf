@@ -3,10 +3,8 @@ module
 
 public import CFSG.Monster.B.TwoA.Sp8.QuadCosetCBase
 
-public import CFSG.Monster.B.TwoA.Sp8.GenActionGen
 public import CFSG.Monster.B.TwoA.Sp8.GenActionOrbit
 public import CFSG.Monster.B.TwoA.Sp8.QuadInv
-public import Certificates.Data.CFSGNative.MonsterB.Orth8BFS
 public meta import CFSG.Monster.B.Rep4371.Model
 public meta import CFSG.Monster.B.TwoA.Sp8.Lifts
 public meta import CFSG.Monster.B.TwoA.Sp8.GenActionConj
@@ -14,37 +12,7 @@ public meta import CFSG.Monster.B.TwoA.Sp8.QuadData
 public meta import CFSG.Monster.B.TwoA.Sp8.QuadInv
 public meta import CFSG.Monster.B.TwoA.Sp8.ElemAb
 public meta import Certificates.Data.CFSGNative.MonsterB.Orth8BFS
-public import CFSG.Monster.B.TwoA.Sp8.QuadCosetCInputs
 public import Certificates.Certificate3078
-public import CFSG.Monster.B.TwoA.Sp8.LiftsInputs
-public import CFSG.Monster.B.TwoA.Sp8.A8Inputs
-public import CFSG.Monster.B.TwoA.Sp8.Lifts
-public import CFSG.Monster.B.TwoA.Sp8.GenActionLiftsInputs
-public import CFSG.Monster.B.TwoA.Sp8.GenActionDiffInputs
-public import CFSG.Monster.B.TwoA.Sp8.GenActionConjInputs
-public import CFSG.Monster.B.TwoA.Sp8.GenActionOrbitInputs
-public import Certificates.Data.CFSGNative.MonsterB.Short
-public import Certificates.Data.CFSGNative.Mathieu.M24
-public import CFSG.Certificates.Kernel.AxisPlane.Orbit
-public import Certificates.Data.Kernel.VisFrame.Gens
-public import Certificates.Data.CFSGNative.MonsterB.Co2Chain
-public import Certificates.Data.CFSGNative.MonsterB.Co2Matrix
-public import CFSG.Monster.B.TwoA.Co2Inv.ConjCertInputs
-public import CFSG.Monster.B.TwoA.Co2Inv.FrameCertInputs
-public import CFSG.Monster.B.TwoA.Sp8.T9
-public import CFSG.Monster.B.TwoA.Sp8.QuadForm
-public import CFSG.Monster.B.TwoA.Sp8.QuadInvInputs
-public import CFSG.Monster.B.Rep4371.SmallFaithful
-public import CFSG.Monster.B.Gen.Max2Assembly
-public import CFSG.Monster.B.Gen.PacketGeneration
-public import CFSG.Monster.B.Gen.EbarPairing
-public import CFSG.Monster.B.Cbar.SimpleAux
-public import CFSG.Monster.B.Rep4371.FaithfulImageInputs
-public import CFSG.Monster.B.TwoA.Base.WCls
-public import CFSG.Monster.B.TwoA.Census.PermBFS
-public import CFSG.Monster.B.TwoA.Co2Inv.Data
-public import CFSG.Monster.B.TwoA.Co2Inv.RowsInputs
-public import Certificates.Certificate3055Base
 public import Certificates.Certificate3078Base
 
 public noncomputable section

@@ -1,16 +1,9 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.lemma_3_1
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.theorem_3_4
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.theorem_3_5
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.theorem_3_6
 import Mathlib.Data.Nat.Choose.Dvd
 import Mathlib.GroupTheory.GroupAction.OfQuotient
-import Mathlib.GroupTheory.IndexNormal
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.MinimalNormal
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PGroup.NormalSubgroups
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Centralizer
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.ElementaryAbelianAction
 
 namespace CFSG

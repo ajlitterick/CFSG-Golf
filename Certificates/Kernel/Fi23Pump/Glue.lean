@@ -8,8 +8,6 @@ public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabFi23Cent
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431SporAux.Fi23No65
 import Certificates.Kernel.Fi23Pump.Chk
 import Certificates.Kernel.Fi23Five.Small
-import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import Mathlib
 public import CFSG.Goldschmidt.StatementsG3
 public import CFSG.Goldschmidt.Steps.G37Core
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431Spor
@@ -23,7 +21,6 @@ public import CFSG.LieType.Multipliers.U62Action
 public import CFSG.LieType.Multipliers.U62Bridge
 public import CFSG.LieType.Multipliers.U62Kernel
 public import CFSG.LieType.Ree.LargeReeEightTorus
-public import CFSG.LocalAnalysis.ComponentClassification.AschbacherWalterSchurEight
 public import CFSG.LocalAnalysis.ComponentClassification.StandardRecognitionQuaternion
 public import CFSG.LocalAnalysis.ComponentClassification.TBLitCover
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.NativeCheckBase
@@ -35,8 +32,6 @@ public import CFSG.Quasithin.Background.A3Structure314
 public import CFSG.Quasithin.Background.B15P4LayerDict
 public import CFSG.Quasithin.Background.C1GNSolvConnect
 public import CFSG.Quasithin.Background.E2Statements
-public import CFSG.Quasithin.Background.F6CatRecogL2
-public import CFSG.Quasithin.Background.F6CatRecogTools2
 public import CFSG.Quasithin.Background.FFC7G
 public import CFSG.Quasithin.Background.FFC8A
 public import CFSG.Quasithin.Background.InternalSecB56B
@@ -98,8 +93,6 @@ public import CFSG.RankThree.PartTwo.Sec8.Item83ProofDefs
 public import CFSG.RankThree.PartTwo.Sec8.Standing
 public import CFSG.RankThree.PartTwo.Toolkit.M12Local
 public import CFSG.RankThree.S4Free.SuzukiEight
-public import CFSG.Walter.J1Props
-public import CFSG.Walter.J1Recog
 public import Certificates.Certificate10006
 public import Certificates.Certificate10007
 public import Certificates.Certificate10008

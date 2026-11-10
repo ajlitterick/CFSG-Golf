@@ -1,13 +1,9 @@
 module
 
-public import Mathlib
-public import CFSG.SignalizerFunctorTheorem.CatalogBridge.NonLocalizedStatements
 public import CFSG.SignalizerFunctorTheorem.CatalogBridge.FieldLinear
 public import CFSG.SignalizerFunctorTheorem.CatalogBridge.FieldUnitary
-public import CFSG.SignalizerFunctorTheorem.NonLocal.LinearMain
 public import CFSG.SignalizerFunctorTheorem.NonLocal.SpMain
 public import CFSG.SignalizerFunctorTheorem.NonLocal.UHeisenberg
-public import CFSG.RankThree.PartOne.KC.SymplecticSubfieldFixed
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Fischer.Uniq.CompTau
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSpExclusion
@@ -17,7 +13,6 @@ public import CFSG.Monster.Existence.Defs
 public import CFSG.Open.MonsterY443Defs
 public import CFSG.Quasithin.Background.Basic
 public import CFSG.RankThree.Classical.SteinbergBJSymplecticSquareZeroCentralizer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 
 public section
 

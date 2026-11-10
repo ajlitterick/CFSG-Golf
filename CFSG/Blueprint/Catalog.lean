@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Blueprint.Chevalley
-public import CFSG.Blueprint.NativeSporadic
 public import CFSG.Milestones.FAM_classical_model_membership
 public import CFSG.Open.StatedAPI
 

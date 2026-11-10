@@ -2,11 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeFamInOrthTransMark
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeFamInOmGen
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeBoundBase
 public import CFSG.LieType.SeitzGeneration.StandardTypeOrthModel
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.OrthBlocks
-public import CFSG.ClassicalGroups.Orthogonal.Simple
-public import CFSG.RankThree.Classical.SteinbergBJOrthogonalHighWitt
 public import CFSG.GroupTheory.CenterlessInnerCentralizer
 public import CFSG.SignalizerFunctorTheorem.CatalogBridge.StabilizerLift
 public import CFSG.SignalizerFunctorTheorem.McBride.Models.Extra

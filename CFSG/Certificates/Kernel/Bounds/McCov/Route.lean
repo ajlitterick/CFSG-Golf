@@ -1,10 +1,8 @@
 module
 
-public import CFSG.Certificates.Kernel.Bounds.Hdr
 public import CFSG.Certificates.Kernel.Bounds.McCov.T2vData
 public import CFSG.Certificates.Kernel.Misc.Coset.PG
 public import Certificates.Data.CoverCenterThreeMcL
-import CFSG.Certificates.Kernel.Bounds.Load
 
 open CFSG.Certificates CFSG.SectionRank.Native CFSG.KC.MiscCoset
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResSideDatumDefs
-public import CFSG.LocalAnalysis.StandardType.GGResRows
 
 public section
 

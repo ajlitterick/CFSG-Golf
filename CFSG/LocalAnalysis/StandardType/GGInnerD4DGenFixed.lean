@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGInnerD4ComponentIdent
 public import CFSG.LocalAnalysis.StandardType.GGInnerD4Regimes
 public import CFSG.RankThree.PartOne.S15K.CentralCover
 public import CFSG.RankThree.PartOne.S15K.OrthModel
-public import CFSG.RankThree.PartOne.KC.OrthogonalLocalComponents
 
 public section
 

@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionSL
-public import CFSG.LieType.Universal.SymplecticExtras.Unipotent
 public import CFSG.LieType.Universal.SymplecticExtras.Torus
-public import TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.Symplectic.ChevalleyRelations
 import all CFSG.LieType.Universal.SymplecticRoots
 import all CFSG.LieType.Universal.SymplecticExtras.Matrices
 

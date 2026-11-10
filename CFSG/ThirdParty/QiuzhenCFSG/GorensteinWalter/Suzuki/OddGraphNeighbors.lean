@@ -3,7 +3,6 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.UConjugatesGraph
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinB4Divisible
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CentralizerSup
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
-public import CFSG.LieType.Universal.Spin.Datum
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
 public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerSpin
 public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerOmegaSpin

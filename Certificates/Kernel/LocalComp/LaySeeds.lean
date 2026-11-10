@@ -1,7 +1,6 @@
 module
 
 public meta import Certificates.Kernel.LocalQT.Cmd
-public import Certificates.Data.Kernel.LocalQT.Sec
 public import Certificates.Kernel.LocalQT.Cmd
 
 public section

@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.SuzB17322.Checks
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 set_option maxRecDepth 400000
 

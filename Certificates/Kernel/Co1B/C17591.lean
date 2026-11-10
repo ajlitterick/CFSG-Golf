@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.TabCo1ThreeD
 public meta import Certificates.Data.TabCo1ThreeD
 public import Certificates.Kernel.Co1B.Chk17591
 public import Certificates.Kernel.Co1B.Lvl17591A
@@ -9,7 +8,6 @@ public import Certificates.Kernel.Co1B.Lvl17591C
 public import Certificates.Kernel.Co1B.C17590
 public import Certificates.Kernel.Co1B.C2041
 public import CFSG.Certificates.Kernel.Co1BSpinSound
-import Mathlib.Tactic.IntervalCases
 
 public section
 

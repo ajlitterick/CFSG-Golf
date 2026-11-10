@@ -1,63 +1,32 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResCentBoundNbr
 public import CFSG.LocalAnalysis.StandardType.GGNbrCanCartan
 public import CFSG.LocalAnalysis.StandardType.GGResCentBound
 public import CFSG.LocalAnalysis.StandardType.GGResCentBoundNbrSpaces
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrWeylA
-public import CFSG.LocalAnalysis.StandardType.GGReflClosedOfWeyl
 public import CFSG.LocalAnalysis.StandardType.GGWeylMatrixAut
-public import CFSG.LocalAnalysis.StandardType.GGTBXDatumOfTor
-public import CFSG.LocalAnalysis.StandardType.GGTBTorDatum
-public import CFSG.LocalAnalysis.StandardType.GGPZWeylD
-public import CFSG.GroupTheory.ConjKerCenter
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowZDet
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepPos
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepTransfer
-public import CFSG.LocalAnalysis.StandardType.GGResIPumpLineAux
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeLinearNbr
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePumpBstar
-public import CFSG.LocalAnalysis.StandardType.GGTwA5ThreeFrame
-public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3BridgeA2
-public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitary
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRest
-public import CFSG.LocalAnalysis.StandardType.GGF4ThreeSCCubeHolds
-public import CFSG.LocalAnalysis.StandardType.GGF4ThreeSCCube
 public import CFSG.LocalAnalysis.StandardType.GGF4NbrAutReflKGHolds
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableBE6Three
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelHeart
-public import CFSG.LocalAnalysis.StandardType.GGResFixedWeylCentralizer
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenTwE6Three
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerClassicalModel
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBScWeyl
 
-public import CFSG.LocalAnalysis.StandardType.GGFrameRouteNbrFix
 public import CFSG.LocalAnalysis.StandardType.GGTBFixIrred
-public import CFSG.LocalAnalysis.StandardType.GGResSevenNbr
 public import CFSG.LocalAnalysis.StandardType.GGIrred937TwE6
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInner937TwE6Inn
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInner937TwE6Center
 
-public import CFSG.LocalAnalysis.StandardType.GGTBWNormSmall
 
 public import CFSG.LocalAnalysis.StandardType.GGResTwDInverterLSplit
-public import CFSG.LocalAnalysis.StandardType.GGQ2P3Hyp
-public import CFSG.LocalAnalysis.StandardType.GGRCLinRefl
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoSixAux
 public import CFSG.LocalAnalysis.StandardType.ZS.Adapter
-public import CFSG.LocalAnalysis.StandardType.ZS.Support
 public import CFSG.LocalAnalysis.StandardType.ZS.OrthExtLemmas
 public import CFSG.ClassicalGroups.Orthogonal.SiegelRT1Basic
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNineClassical
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNineClassicalLabel
-public import CFSG.LocalAnalysis.StandardType.GGResXDichotomy
 public import CFSG.LocalAnalysis.StandardType.GGTBXDatumResRest2
 public import CFSG.LocalAnalysis.StandardType.GGTBWeylRowResRest2Cases
 public import CFSG.LocalAnalysis.StandardType.GGResSeven
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylE6TwoSeven
-public import CFSG.LocalAnalysis.StandardType.GGTWRowData
 public import CFSG.HardMathSupport.Kantor79.LongRootGroup
 
 public section

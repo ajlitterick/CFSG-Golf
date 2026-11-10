@@ -5,13 +5,9 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Lem14_6.Sec
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Lem14_6.Sec18ModU4OuterClsMu
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Lem14_6.Sec18ModU4Omega6
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.OuterCyclic
-public import CFSG.Quasithin.Background.HTransport
-public import CFSG.Quasithin.Background.StabSubBasics
 public import CFSG.Quasithin.Background.RonanE42Small
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X5bGroup
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1P54DBBlock
 public import CFSG.HardMathSupport.U4FF.ClassMain
-public import CFSG.GroupTheory.ABGLocalTools.PStabilityQSL2
 public import CFSG.SignalizerFunctorTheorem.McBride.Models.Transport
 public import CFSG.Quasithin.EmptyFaithful.S151bW3Mod
 public import CFSG.RankThree.PartTwo.Sec19.KF1923OutGeneric
@@ -132,8 +128,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.UC22P2214b
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22g
 public import CFSG.Quasithin.Background.A3Structure319
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.E4Solv
 public import CFSG.Quasithin.Background.E6TorusFacts
 public import CFSG.Quasithin.Background.F9FiveStruct
 public import CFSG.Quasithin.Background.FFC7G

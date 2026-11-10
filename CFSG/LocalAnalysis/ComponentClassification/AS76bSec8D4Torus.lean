@@ -1,13 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8D4Cell
-public import CFSG.LieType.Chevalley.ToralCentralizerBruhat
 public import CFSG.LieType.Chevalley.TrialityAllCharTorusCoordinates
 public import CFSG.LieType.Chevalley.ParabolicRadicalLevi
-public import CFSG.LieType.Chevalley.GraphFixedRankOneImage
-public import CFSG.Walter.PSL2Facts.Even
 public import CFSG.Adapters.ProjectiveSpecialLinear
-public import CFSG.LinearAlgebra.LinearGroups.Perfect
 public import CFSG.LinearAlgebra.LinearGroups.ProjectiveSimple
 
 public noncomputable section

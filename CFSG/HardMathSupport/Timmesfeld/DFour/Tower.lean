@@ -2,8 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Timmesfeld.DefChar.OuterOrth
 public import CFSG.HardMathSupport.Timmesfeld.Coordinator.Tables112Lie
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.GH74.GLS.Classes
 public import CFSG.GH74.Generic.Certificates
 public import CFSG.GH74.Statements
@@ -19,8 +17,6 @@ public import CFSG.LocalAnalysis.GLTheoremB.Lemma911Defs
 public import CFSG.LocalAnalysis.SectionRank.ClassicalOdd
 public import CFSG.LocalAnalysis.SectionRank.Framework.SylowRank
 public import CFSG.Quasithin.Background.A3ComponentsAmbient
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 
 public section

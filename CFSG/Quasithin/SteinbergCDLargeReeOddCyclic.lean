@@ -1,6 +1,5 @@
 module
 
-public import CFSG.GroupTheory.ABGLocalTools.CoreLemmas
 public import CFSG.LieType.Ree.LargeReeInvolutionTCentralizer
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X6ReeResidual
 public import CFSG.LocalAnalysis.SectionRank.SuzukiCover

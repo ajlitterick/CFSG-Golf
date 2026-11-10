@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGLevTwoS3bE8LinkCheck
 public import CFSG.LocalAnalysis.StandardType.GGLevTwoS3bLink
 public import CFSG.LocalAnalysis.StandardType.GGLevTwoS3bSem
-public import CFSG.Mathlib.Decide.Bounded
 
 public section
 

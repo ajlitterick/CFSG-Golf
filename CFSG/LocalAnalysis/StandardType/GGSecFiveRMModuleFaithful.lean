@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRMModuleDefs
 public import Mathlib.Algebra.Field.ZMod
-public import Mathlib.LinearAlgebra.Basis.Basic
-public import Mathlib.LinearAlgebra.Basis.Defs
 public import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
-public import Mathlib.LinearAlgebra.Dimension.Finrank
 
 public section
 

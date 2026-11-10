@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1RLevel
 public import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagModel
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticBstar
 
 public section
 

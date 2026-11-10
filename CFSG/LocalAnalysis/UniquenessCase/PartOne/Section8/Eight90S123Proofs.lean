@@ -1,57 +1,25 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight90S123
-public import CFSG.LocalAnalysis.RankThreeCoreUniqueness.LocalCore
-public import CFSG.LocalAnalysis.RankThreeCoreUniqueness.PerfectResiduals
-import CFSG.Adapters.GeneralizedFitting
-import CFSG.Blueprint.Catalog
-import CFSG.Foundations.Basic
 import CFSG.GroupTheory.BarImageConj
-import CFSG.GroupTheory.CardMapInfKer
-import CFSG.GroupTheory.ChiefFactors.OddElement
 import CFSG.GroupTheory.Commutator.JoinNormalizer
 import CFSG.GroupTheory.ConjOrderThree
-import CFSG.GroupTheory.CoprimeCentralizerCover
 import CFSG.GroupTheory.CoprimeCosetFixed
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Core
-import CFSG.GroupTheory.Fitting.LayerTopBot
-import CFSG.GroupTheory.LocalCores.Components
-import CFSG.GroupTheory.OddOrderClosure
 import CFSG.GroupTheory.OddOrderClosurePerfect
-import CFSG.GroupTheory.PCore.OpenTransport
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
 import CFSG.GroupTheory.PCoreSurjective
 import CFSG.GroupTheory.PerfectNormalConjugate
 import CFSG.GroupTheory.PerfectTwoQuotient
-import CFSG.LieType.BorelTits.Basic
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Bridge13
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Fourteen1c
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Fourteen2
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Fourteen3a
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.FourteenEight.Components
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenFiftyFive
-import CFSG.LocalAnalysis.UniquenessCase.UC22Main1
 import CFSG.LocalAnalysis.UniquenessCase.UCFront09R917A5V
 import CFSG.RankThree.PartTwo.Sec18.Item187NChief
-import Mathlib.GroupTheory.Commutator.Basic
-import Mathlib.GroupTheory.PGroup
-import Mathlib.GroupTheory.QuotientGroup.Basic
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section9.R920OddRed
 import CFSG.GroupTheory.InvariantMinimal
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenSixtyTwoFix
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight90P22
-import CFSG.Foundations.KCoreOpen
-import CFSG.LieType.Simplicity.Suzuki
-import CFSG.LocalAnalysis.ComponentClassification.Quasisimple
-import CFSG.LocalAnalysis.RankThreeCoreUniqueness.Helpers
 import CFSG.Quasithin.H13.NQCatSubnormalCore
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
-import CFSG.GroupTheory.BaerSuzuki.Helpers
-import CFSG.LocalAnalysis.SectionRank.PRank
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight67Subnormal
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Fourteen1b
-import CFSG.LocalAnalysis.UniquenessCase.UC6Basic
-import CFSG.Sporadic.J2
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.CharacterTheory.CyclicBlocks.Family

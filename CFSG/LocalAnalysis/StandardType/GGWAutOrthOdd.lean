@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGWAutOrthCosets
-public import CFSG.LocalAnalysis.StandardType.GGWAutCommon
 
 public section
 

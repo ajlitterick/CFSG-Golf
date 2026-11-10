@@ -1,13 +1,8 @@
 module
 
-public import CFSG.Monster.B.Fischer.HexadQuot
-public import CFSG.Monster.B.Fischer.ArrCert
 public meta import CFSG.Monster.B.Fischer.HexadQuot
 public meta import CFSG.Monster.B.Fischer.ArrCert
-public import CFSG.Monster.B.Fischer.HexadDiagInputs
 public import Certificates.Certificate3031
-public import Certificates.Certificate3030
-public import Certificates.Certificate3029
 
 public section
 

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.RankThreeUC.K518HDefs
 import CFSG.GroupTheory.AllPSubgroupsIsCyclicOfPRankLeOne
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K518YCover
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.Monster.B.TwoA.Census.PermClasses
 
 public section

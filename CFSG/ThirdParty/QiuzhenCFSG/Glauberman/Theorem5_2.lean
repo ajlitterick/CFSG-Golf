@@ -1,17 +1,9 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Theorem5_1
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Lemma5_2
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Lemma5_3
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.StepIVConjugateSylowCentralizer
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.PGroupQuotientOfPPrimeElements
-import Mathlib.GroupTheory.Sylow
-import Mathlib.GroupTheory.Index
-import Mathlib.GroupTheory.PGroup
-import Mathlib.GroupTheory.QuotientGroup.Basic
-import Mathlib.Data.Nat.Factorization.Basic
-import Mathlib.GroupTheory.Commutator.Basic
-import Mathlib.GroupTheory.Subgroup.Centralizer
 import Mathlib.Tactic
 
 namespace CFSG

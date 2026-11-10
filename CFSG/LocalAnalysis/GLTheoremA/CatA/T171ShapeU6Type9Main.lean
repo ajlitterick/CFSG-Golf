@@ -23,7 +23,6 @@ import CFSG.LocalAnalysis.GLTheoremA.S10.Bridge
 import CFSG.LocalAnalysis.GLTheoremA.S11.Defs
 import CFSG.LocalAnalysis.GLTheoremA.S9.Inputs
 import CFSG.LocalAnalysis.GLTheoremA.Sec5Setup
-import CFSG.LocalAnalysis.SignalizerFunctor
 import CFSG.Quasithin.Background.A3ComponentsAmbient
 
 public section

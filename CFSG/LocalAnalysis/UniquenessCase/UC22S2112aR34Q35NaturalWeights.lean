@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S2112aR34Q35NaturalBlocks
 public import CFSG.Open.StatedDefs
-public import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
 import CFSG.GroupTheory.ABGLocalTools.FrobeniusFixedPoints
 
 public section

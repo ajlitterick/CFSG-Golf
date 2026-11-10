@@ -1,15 +1,9 @@
 module
 
-public import Mathlib
-public import CFSG.Open.StatedDefs
 public import CFSG.RankThree.PartTwo.Sec21.FF79KLemmaOGen
 public import CFSG.HardMathSupport.Solomon.Coordinator.LayerCentralFix
 
 import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs256h
-import CFSG.LocalAnalysis.QuasithinUnique.SQTK.TypeB2Carrier
-import CFSG.RankThree.PartOne.KC.SymplecticNoninnerPlaneDescent
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
 public import CFSG.CharacterTheory.Wreathed.WreathCentralSquare
@@ -38,9 +32,6 @@ public import CFSG.LocalAnalysis.LargeEvenClassification.CyclicCongruenceCut
 public import CFSG.LocalAnalysis.LargeEvenClassification.TopScalarLiftSquare
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

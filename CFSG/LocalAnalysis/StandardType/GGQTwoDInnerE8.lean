@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoInnerDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoQuandleE
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabel
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.FS81.StdLoc
 public import CFSG.GroupTheory.IndexThreeCosets
 public import CFSG.LocalAnalysis.StandardType.FS81.D6Inner
 public import CFSG.LocalAnalysis.StandardType.FS81.SplitEAux

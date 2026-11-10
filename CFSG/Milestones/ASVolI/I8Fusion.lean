@@ -2,14 +2,9 @@ module
 
 public import CFSG.Milestones.ASVolI.I8
 public import CFSG.Holt.General.Aschbacher73
-public import CFSG.LocalAnalysis.ZStar
 public import CFSG.LargeExtraspecial.S8CBFList
-public import CFSG.Timmesfeld.Bridge.Asc72Bender
 public import CFSG.Open.StatedCenterThree
 public import CFSG.LocalAnalysis.ComponentClassification.Asc76BenderFactsBasic
-public import CFSG.ClassicalGroups.Unitary.Finite
-public import CFSG.RankThree.PerfectCover.HopfCentralCoversFinite
-public import CFSG.Quasithin.Background.ASVolIRegistered
 public import CFSG.LargeExtraspecial.S8CBFOut
 
 public section

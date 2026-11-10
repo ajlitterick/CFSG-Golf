@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGHalfWeylDefs
-public import CFSG.LocalAnalysis.StandardType.GGHalfWeylTorusCoord
 public import CFSG.LocalAnalysis.StandardType.GGHalfWeylSignedConj
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinOrbitBound
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 
 public section
 

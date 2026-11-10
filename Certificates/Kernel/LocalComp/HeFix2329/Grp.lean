@@ -4,16 +4,11 @@ module
 public import Certificates.Kernel.LocalComp.HeFix2329.Glue
 public import CFSG.Certificates.Kernel.Spor.BfsMap
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeldFixSylowBase
-public import CFSG.Sporadic.HeldB.CertPChainData
-public import Certificates.Data.CFSGNative.Schreier.Check
-public import CFSG.Sporadic.HeldB.InnerCheckInputs
 public meta import CFSG.Sporadic.HeldB.InnerData
 public meta import CFSG.Sporadic.HeldB.Common
 public meta import CFSG.Sporadic.Schreier.MathieuOddCoreCentral
-public import CFSG.Sporadic.HeldB.OuterArithCheckInputs
 public meta import CFSG.Sporadic.HeldB.AutData
 public meta import Certificates.Data.CFSGNative.Schreier.Check
-public import CFSG.Sporadic.HeldB.OuterCentCheckInputs
 public meta import CFSG.Sporadic.HeldB.OuterCentAux
 public meta import CFSG.Sporadic.HeldB.OuterArithCheck
 public import CFSG.Certificates.Kernel.HeAutKSound

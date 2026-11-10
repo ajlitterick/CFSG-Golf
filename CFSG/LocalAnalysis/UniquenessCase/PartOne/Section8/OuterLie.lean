@@ -12,24 +12,15 @@ public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeMax
 public import CFSG.LocalAnalysis.ComponentClassification.OutcomeLocalOddCentralizer
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListA7Iso
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L122AProved
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.Statements
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Equivariance
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.LayerFinal
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.OuterInnerThree
 public import CFSG.Quasithin.Background.A3Structure319
-public import CFSG.Quasithin.Background.A3Structure36BBase
-public import CFSG.Quasithin.Background.A3Structure36BPrimeDataBase
-public import CFSG.Quasithin.Background.A3Structure36Base
 public import CFSG.Quasithin.Background.B5FinOut
 public import CFSG.Quasithin.Background.C1GNA7
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.Quasithin.Background.E3OffenderB
 public import CFSG.Quasithin.Background.F420Orders
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import CFSG.Quasithin.EmptyFaithful.S1417Sylow
 public import CFSG.Quasithin.EmptyFaithful.S1421L246
 public import CFSG.Quasithin.EmptyFaithful.S143Pre
@@ -84,7 +75,6 @@ public import CFSG.Timmesfeld.RankOne
 public import CFSG.Timmesfeld.Transvection.Statement
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

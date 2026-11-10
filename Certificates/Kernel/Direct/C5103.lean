@@ -1,11 +1,6 @@
 module
 
-public import CFSG.GH74.GLS.Stage4.Q9.ThetaModel
-public import CFSG.GH74.GLS.Stage4.Q9.FrobCount
 public import CFSG.GH74.GLS.Stage4.Q9.ThetaPropsInputs
-import CFSG.GH74.GLS.Stage4.Q9.ModelBase
-import CFSG.GH74.GLS.Stage4.Q9.ChatOrders
-import CFSG.GH74.GLS.Stage4.Q9.Tables
 
 public section
 

@@ -1,47 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.OddStandard.AltStdSecTwoTen
-public import CFSG.LocalAnalysis.OddStandard.AltStdSecLookupEight
-public import CFSG.LocalAnalysis.EvenSporadicStandard.M24Std.StandardCentralizer
-public import CFSG.Sporadic.HS
-public import CFSG.LocalAnalysis.OddStandard.AltStdSecTenSwapPair
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec2OddCoreBasic
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec2OddCoreTransport
-public import CFSG.GroupTheory.ElemAbelianClosure
-public import CFSG.GroupTheory.PCore.Defs
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
-import CFSG.LocalAnalysis.ComponentClassification.SymmetricLocalInvolutionOddCore
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBAlternatingLocal
 import CFSG.Quasithin.Background.A3Structure39Odd
-public import CFSG.GroupTheory.ElementaryAbelianTransport
-public import CFSG.ThirdParty.BrauerInduction.Background.Group.InternalDirectProduct
-public import CFSG.GroupTheory.CommutingConjugatePair
-public import CFSG.GroupTheory.CentralizerMap
-public import CFSG.GroupTheory.ConjTransport
-public import CFSG.GroupTheory.PCore.PCoreOfMulEquiv
-public import CFSG.LocalAnalysis.OddStandard.AltStdSecTenHSOddKernelLiftTwoSec
-public import CFSG.LocalAnalysis.OddStandard.AltStdCycTwoTwoSecLift
-public import CFSG.LocalAnalysis.OddStandard.AltStdSecTenSwapData
-public import Mathlib.GroupTheory.FixedPointFree
-public import Mathlib.GroupTheory.OrderOfElement
-public import CFSG.LocalAnalysis.OddStandard.AltStdSecTenHSActualV4Support
-public import Mathlib.Algebra.Group.Subgroup.Ker
-public import Mathlib.Algebra.Group.Prod
-public import Mathlib.Data.ZMod.Basic
-public import Mathlib.GroupTheory.QuotientGroup.Basic
-public import CFSG.ClassicalInvolution.Asc77.AscMuTabGroup
-public import CFSG.Sporadic.SmallOddCore.HSLocal
-public import CFSG.Sporadic.Schreier.PairHSOrder
 import Certificates.Kernel.Sporadic.HS.L2273F
-import CFSG.Certificates.Kernel.Common.Harness
-public import CFSG.LocalAnalysis.OddStandard.AltStdSecTenHSActualSupplier
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.HSCoverMain
-public import CFSG.Sporadic.Recognition.HSMultiplierCert
-public import CFSG.Walter.JRFacts
-public import CFSG.LargeExtraspecial.OutSixBasic
-public import CFSG.Sporadic.SmallOddCore.HSAut
 public import CFSG.LocalAnalysis.OddStandard.AltStdSecTenHSCenterless
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19UHSClass
 public import CFSG.Certificates.Kernel.LocalCompTits.Span
 public import CFSG.ClassicalInvolution.Asc77.HypOmegaBasic
 public import CFSG.ClassicalInvolution.Asc77.Lemma310
@@ -57,7 +19,6 @@ public import CFSG.GH74.Generic.S1.LinFull
 public import CFSG.Goldschmidt.Steps.G310Core2
 public import CFSG.Goldschmidt.Steps.G37Core
 public import CFSG.Goldschmidt75.TheoremB
-public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LocalAnalysis.Asc75.Conj
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bLemma26
 public import CFSG.LocalAnalysis.ComponentClassification.Asc76XTheorem4
@@ -99,7 +60,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.Basic
 public import CFSG.LocalAnalysis.SignalizerFunctor
 public import CFSG.Milestones.CL_LIT_Goldschmidt_strongly_closed_abelian_models
 public import CFSG.Monster.SteinbergMY443SimpleIsomorphism
-public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.Timmesfeld.Moufang.Three
 public import CFSG.Timmesfeld.RankOne
 public import CFSG.Timmesfeld.Special.TwoCore
@@ -109,7 +69,6 @@ public import CFSG.Walter.ReeOrder.WardLocal
 public import CFSG.Walter.W67.Section8.Prop83
 public import Certificates.Kernel.J4Count.FixC
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 public import Certificates.Kernel.SporSch.J4S.NoCP
 
 public section

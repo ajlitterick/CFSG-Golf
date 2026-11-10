@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GHarrisGL3
-public import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.SectionRank.Ccomm.Supercritical
 

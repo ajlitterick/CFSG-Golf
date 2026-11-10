@@ -4,14 +4,12 @@ module
 public import Certificates.Kernel.Sporadic.OddCore.J2CnE
 public import Certificates.Kernel.Sporadic.OddCore.J2CnE2
 public import Certificates.Kernel.Sporadic.OddCore.CentGlue
-public import Certificates.Kernel.Sporadic.OddCore.PEnumGlue3
 public import Certificates.Kernel.Sporadic.OddCore.J2LocF
 public import CFSG.Certificates.Kernel.J2CoverSound
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Spor.SiftEq
 import CFSG.Certificates.Kernel.Spor.PcompFacts
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import Mathlib.Tactic.IntervalCases
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutCheckBase
 import CFSG.Certificates.Kernel.Spor.RawSlSound
 

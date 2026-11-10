@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.AlgebraicGroups.ReductiveDescent
 public import CFSG.LieType.AlgebraicGroups.MatrixComponentQuotient
-public import CFSG.LieType.AlgebraicGroups.ExactAffineRealization
 public import CFSG.LieType.Chevalley.NoncentralNormalSolvable
 public import CFSG.LieType.Chevalley.BabyPrereqPerfectAwayFromTwo
 public import TauCeti.Algebra.AlgebraicGroup.Unipotent.Solvable

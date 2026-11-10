@@ -2,61 +2,33 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.S12.YS11Cat35
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OHolds
-public import CFSG.Assembly.E6FourCentHolds
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieOrderBridgeHolds
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.H1419L3Four
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.H1419Lie
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.H1419Spor
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.H1419CoverL3U3
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.H1429Inner
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.H1429SubFinal
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.HOutDiagMain
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.HSubTOmGaps
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.I141FDynAll
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.I141FSmallHolds
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I167Univ
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.K1419ClsDefs
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.K1419ClsLabel
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.K1419ClsExcOut
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.K1419ClsTransJ
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.K1419ClsTransAut
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.K1419ClsLinMain
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.K1419ClsUniMain
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.K1419ClsSympMain
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.K1419ClsOrthMain
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.K1419ExcRat
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.K1419ExcOrdMain
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.K1419ExcRankMain
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154ExcInnHolds
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154ExcOnly
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154ExcRee
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154ExcRestAll
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154ExcTD4Class
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154ExcTD4Tw
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.S171ExtremalRank
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.S171U42Bridge
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172AExist
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172ALayer
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172AResid
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172BHolds
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172CHolds
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S262Holds
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265AQSAH
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265BFamS
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265CC1
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265CC2E78
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265CC2TD4
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeE6KernelExitWire
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265CDynE2
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265CFam
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265DL28Fin
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265DQS
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265ERed
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265Fam
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265SFHolds
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.SFM10Main
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.SporL3DownBM
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T123CBlockMain
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T123CParityBridge
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T123CParityLinA
@@ -69,18 +41,12 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeE6KernelExitFacts
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeExcActOuterPerfTwoDFourE8Main
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeExcInnerD4FixMain
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171SmallTypeAsm
-public import CFSG.HardMathSupport.Foote.FamilyReduction.ClassicalFive
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.I1431ChevTwoInn
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171SmallTypeA6
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171SmallTypeDefs
-public import CFSG.Milestones.CL_LIT_Griess_Schur_multipliers_Lie_type
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171SmallTypeUni
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171SmallTypeAlpha
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171SmallTypeExc
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171SmallTypeModel4
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171SmallTypeLinHolds
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171SmallTypeOmHolds
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171SmallTypeModel
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171SmallTypeSpBlockHolds
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171SmallTypeOmMinusHolds
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173AExtMain
@@ -91,15 +57,9 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173AMMain
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173DHolds
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173Noncyc
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.FStdDiagHolds
-public import CFSG.LocalAnalysis.GLTheoremA.CatB.HStdExclHolds
-public import CFSG.LocalAnalysis.GLTheoremA.CatB.HStdList
-public import CFSG.LocalAnalysis.GLTheoremA.CatB.HStdSchur
-public import CFSG.LocalAnalysis.GLTheoremA.CatB.HU42SE27
 import CFSG.LocalAnalysis.GLTheoremA.CatB.HU42SE27CRed
 import CFSG.LocalAnalysis.GLTheoremA.CatB.HU42SE27CD4
 import CFSG.LocalAnalysis.GLTheoremA.CatB.HU42SE27CU5
-import CFSG.LocalAnalysis.GLTheoremA.CatB.HU42SE27CU6
-import CFSG.LocalAnalysis.GLTheoremA.CatB.HU42SE27CU6Nine
 import CFSG.LocalAnalysis.GLTheoremA.CatB.HU42SE27CU6Cube
 import CFSG.LocalAnalysis.GLTheoremA.CatB.HU42SE27LRed
 import CFSG.LocalAnalysis.GLTheoremA.CatB.HU42SE27LPSp
@@ -112,14 +72,10 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatB.HU42SInnU6Main
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.HU42SLevel
 public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonE6Cent5Bridge
 public import CFSG.Assembly.E6FourNeighbourAut
-public import CFSG.Assembly.E6FourNeighbourSylow
 public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonE6Rank5
 public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonE6Uni
 public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonOm4
-public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonSubcomp
-public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonTriCentHolds
 public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonTriCentHolds2
-public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonTriLHolds2
 public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonU3Holds
 public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonU3TorusHolds
 public import CFSG.CGT.Foote82.T66.Steps
@@ -160,18 +116,8 @@ public import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotCatSporadicSix
 public import CFSG.LocalAnalysis.SeitzReduction.SporadicRefineL34HS
 public import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotCatOmegaMinusSporadic
 public import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotCatAssembly
-public import CFSG.Quasithin.Background.B3ThreeModel
-public import CFSG.Quasithin.Background.B3ThreeStruct
-public import CFSG.Quasithin.Background.G2Omega4PlusModule
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtS143W2CompO
 public import CFSG.Quasithin.EmptyFaithful.R3c19B
-public import CFSG.Quasithin.EmptyFaithful.S143FF
-public import CFSG.Quasithin.EmptyFaithful.S143Final
-public import CFSG.Quasithin.EmptyFaithful.S143HD
-public import CFSG.Quasithin.EmptyFaithful.S143IG
-public import CFSG.Quasithin.EmptyFaithful.S143JB
-public import CFSG.Quasithin.EmptyFaithful.S143KO
-public import CFSG.Quasithin.EmptyFaithful.S143KP
 public import CFSG.Quasithin.EmptyFaithfulMultiple.Lemma15421
 public import CFSG.Quasithin.H13.L32NLem14332d
 public import CFSG.Quasithin.H13.L32NLem1444a

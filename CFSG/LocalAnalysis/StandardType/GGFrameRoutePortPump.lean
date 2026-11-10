@@ -4,15 +4,10 @@ public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrBalancePumpup
 import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortRank
 import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortLift
-import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
 import CFSG.HardMathSupport.Solomon.Coordinator.I25_3Quasi
 import CFSG.Assembly.LargeEvenGLABridge
-import CFSG.LocalAnalysis.GLTheoremB.GammaStarConj
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PPrimeCore
 import CFSG.GroupTheory.ElementaryAbelianTransport
 import CFSG.Assembly.OpenBridges
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeFamilies
 import CFSG.LocalAnalysis.AGLEmbedding.ResidualTools
 import CFSG.LocalAnalysis.GLTheoremB.Lemma911Defs

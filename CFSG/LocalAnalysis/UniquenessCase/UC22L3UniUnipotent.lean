@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22L3UniRho
 import CFSG.LocalAnalysis.UniquenessCase.UC22L3LinPGL
-public import Certificates.Kernel.ThCent.Leaves
 
 public noncomputable section
 

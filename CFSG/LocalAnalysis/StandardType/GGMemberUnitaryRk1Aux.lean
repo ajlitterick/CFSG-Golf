@@ -1,13 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSADefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSAPairAux
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSAPairAux2
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSARk1
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylEltOfAutomizer
-public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInner
-public import CFSG.LieType.Steinberg.CentralExt.SUThreeThree
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Monster.B.TwoA.Unitary.CliqueLevi
-public import Mathlib.Algebra.Order.Ring.Star
 
 public section
 

@@ -1,11 +1,6 @@
 module
 
-public import CFSG.Quasithin.Vol2.Ch3Sec3Lem3327
-public import CFSG.Quasithin.Vol2.Ch3Sec3UniqueMax
-public import CFSG.GH74.KGroups.L27
 public meta import CFSG.GH74.KGroups.L27
-public import Certificates.Certificate5117
-public import CFSG.Quasithin.Vol2.Ch3Sec3L32CenterInputs
 public import Certificates.Certificate7054
 public import CFSG.Sporadic.Schreier.J4SProfileNode
 

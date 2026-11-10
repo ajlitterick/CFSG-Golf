@@ -1,17 +1,13 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieInnerDiagDefs
-public import CFSG.Assembly.GL83LieDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompAlgUnitaryBlock
 import CFSG.LocalAnalysis.StandardType.GGLieInnerDiagLinear
 import CFSG.LocalAnalysis.StandardType.GGLieInnerDiagUnitarySelfDual
 import CFSG.LocalAnalysis.StandardType.GGLieInnerDiagUnitaryPaired
 import CFSG.LocalAnalysis.StandardType.GGLieInnerDiagUnitaryLift
-import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.UnitaryInnerExport
 import CFSG.HardMathSupport.Solomon.LocalBalance.I1433.LinUnitUnitaryBlocks
 import CFSG.LocalAnalysis.StandardType.GGLieSU3FixedLift
-import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOtherUnitary
-import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
 public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeOrbits
 
 public section

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.RankThree.PartTwo.Sec14.Ronan148HCensus
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148HCensusL37
 
 public section

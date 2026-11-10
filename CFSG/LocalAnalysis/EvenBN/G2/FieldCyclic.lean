@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenBN.G2.SeriesCenters
 public import CFSG.LocalAnalysis.EvenBN.Sp4.BothTrivialCases
-public import CFSG.LocalAnalysis.EvenBN.GMSK.ConsumerSections
 
 public section
 

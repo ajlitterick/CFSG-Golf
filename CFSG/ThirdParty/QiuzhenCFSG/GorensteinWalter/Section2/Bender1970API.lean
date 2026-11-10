@@ -2,10 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.ThompsonPQ
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.Defs
-import Mathlib.GroupTheory.Commutator.Basic
-import Mathlib.GroupTheory.Subgroup.Simple
-import Mathlib.GroupTheory.Coset.Card
 
 namespace CFSG
 end CFSG

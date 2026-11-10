@@ -5,7 +5,6 @@ public import CFSG.Timmesfeld.Transvection.OddHeisFrameBasics
 import CFSG.Timmesfeld.Transvection.OddLocal
 import CFSG.Timmesfeld.Transvection.OddNormalize
 import CFSG.Timmesfeld.Transvection.OddPairsFrame
-import CFSG.Timmesfeld.Transvection.OddResidueOrder
 import CFSG.LinearAlgebra.LinearGroups.CoordinateData
 import CFSG.LocalAnalysis.ProperTwoGeneratedCore.AschbacherCanonicalRemaining
 import CFSG.LocalAnalysis.ProperTwoGeneratedCore.ExceptionalEightPlaneCentralizer

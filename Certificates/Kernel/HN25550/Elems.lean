@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.HN25550.Mat
 public import CFSG.Sporadic.HNOddCore.SixA
-public import CFSG.Sporadic.HNSchreier.ThreeSpec
 
 set_option maxRecDepth 400000
 

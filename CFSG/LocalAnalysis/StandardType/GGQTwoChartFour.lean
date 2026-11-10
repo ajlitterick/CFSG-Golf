@@ -4,16 +4,10 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoChartDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordInnerCenter
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivKindDiag
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosBlockAux3
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerTypeADvdModel
-public import CFSG.LocalAnalysis.StandardType.GGTableBTransport
 public import CFSG.LocalAnalysis.StandardType.GGFrameRouteFSEnds
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveNormalizer
 public import CFSG.LocalAnalysis.StandardType.GGQTwoSU34Aux7
-public import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
-public import CFSG.GroupTheory.LocalCores.Components
 public import CFSG.GroupTheory.IsComponentOfMap
 public import CFSG.LocalAnalysis.ComponentClassification.StandardSubgroupAPI
-public import Mathlib.LinearAlgebra.Matrix.Trace
 
 public noncomputable section
 

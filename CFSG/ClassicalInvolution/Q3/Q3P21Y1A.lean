@@ -3,7 +3,6 @@ module
 public import CFSG.ClassicalInvolution.Q3.Q3P21Y1S
 public import CFSG.ClassicalInvolution.Q3.Q3P21Y1M
 public import CFSG.ClassicalInvolution.Q3.Q3T6AutConj
-public import CFSG.ClassicalInvolution.Q3.Q3URTransfer
 public import CFSG.ClassicalInvolution.ModelFacts.TG3SmallSU
 
 public section

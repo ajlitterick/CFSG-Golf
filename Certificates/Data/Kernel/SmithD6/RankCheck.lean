@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.SmithD6.MeetK
-public import Certificates.Data.SmithD6RhoData
 
 public section
 

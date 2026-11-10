@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUCoord
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySpCoord
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 public import CFSG.LocalAnalysis.StandardType.GGFrameModelNumSumZero
 
 public section

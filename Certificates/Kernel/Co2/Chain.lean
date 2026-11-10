@@ -3,16 +3,12 @@ module
 public import Certificates.Kernel.Co2.Rels
 public import Certificates.Kernel.Co2.Facts
 public import Certificates.Kernel.Co2.Intro
-public import CFSG.Certificates.Kernel.LceSTabSound
-public import CFSG.Certificates.Kernel.Co2.Bound3.Data.M
-public import CFSG.Certificates.Kernel.Co2.Bound3.Data.X1_Sel
 public import CFSG.Certificates.Kernel.Co2.Bound3.Checks.P4_H_0
 public import CFSG.Certificates.Kernel.Co2.Bound3.Checks.X1_H_0
 public import CFSG.Certificates.Kernel.Co2.Bound3.Checks.X1_W_0
 public import CFSG.Certificates.Kernel.Co2.Bound3.Checks.X1_C_0
 public import CFSG.Certificates.Kernel.Co2.Bound3.Checks.X2_H_0
 public import CFSG.Certificates.Kernel.Co2.Bound3.Checks.X3_H_0
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LinearAlgebra.LinearGroups.UnitaryFourOrder
-public import Mathlib.FieldTheory.ChevalleyWarning
 
 public section
 

@@ -1,14 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResE6DepLabels
-public import CFSG.LocalAnalysis.StandardType.GGResILineAutBound
-public import CFSG.LocalAnalysis.StandardType.GGPumpTwExcKnownHolds
-public import CFSG.LocalAnalysis.StandardType.GGKGAF4Aut
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLine
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcTorus
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylExcPlusLift
-public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeNbrKnownLemmas
-public import CFSG.LocalAnalysis.StandardType.GGNbrU63Setup
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaExcPlusAux2
 
 public section

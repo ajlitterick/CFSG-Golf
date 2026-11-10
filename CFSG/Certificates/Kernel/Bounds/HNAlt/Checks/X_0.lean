@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Certificates.Kernel.Bounds.HNAlt.DceSP
 public import CFSG.Certificates.Kernel.Bounds.HNAlt.Data.Disp
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.EachUnfold

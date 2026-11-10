@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Open.StatedDefs
 public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourExactModel
 
 public section

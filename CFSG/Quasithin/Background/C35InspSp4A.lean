@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.Background.C35InspNat
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListSp4
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticHigherBorel
 public import CFSG.LocalAnalysis.ComponentInitial.SymplecticHigherMaximal
 public import CFSG.GroupTheory.PerfectResidualNodes
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups
@@ -22,9 +21,7 @@ public import CFSG.Quasithin.Background.A3Structure318Red
 public import CFSG.Quasithin.Background.A3Structure36A
 public import CFSG.Quasithin.Background.A3Structure36BAction
 public import CFSG.Quasithin.Background.A3Structure36BBase
-public import CFSG.Quasithin.Background.A3Structure36BCase3Base
 public import CFSG.Quasithin.Background.A3Structure36BCasesBase
-public import CFSG.Quasithin.Background.A3Structure36BCommonBase
 public import CFSG.Quasithin.Background.A3Structure36BFrattini
 public import CFSG.Quasithin.Background.A3Structure36BHeisBase
 public import CFSG.Quasithin.Background.A3Structure36BHomocyclic
@@ -39,7 +36,6 @@ public import CFSG.Quasithin.Background.B4ModelsAction
 public import CFSG.Quasithin.Background.B5CompA
 public import CFSG.Quasithin.Background.B5CompB
 public import CFSG.Quasithin.Background.B6
-public import CFSG.Quasithin.Background.B6Example
 public import CFSG.Quasithin.Background.C124B51Hyp
 public import CFSG.Quasithin.Background.C1GNC124
 public import CFSG.Quasithin.Background.C2Basic
@@ -52,7 +48,6 @@ public import CFSG.Quasithin.Background.InternalSecB4
 public import CFSG.Quasithin.Background.SmithB51LnAut
 public import CFSG.Quasithin.Vol2.Ch1Local
 public import CFSG.Sporadic.J4.QTOutChar
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
 public import CFSG.Walter.Defs
 
 public section

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesDensity
-public import Mathlib.LinearAlgebra.Matrix.FiniteDimensional
 
 public section
 

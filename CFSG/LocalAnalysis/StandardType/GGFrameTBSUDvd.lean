@@ -3,10 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGFrameTBTw
 public import CFSG.LocalAnalysis.StandardType.GGFrameTBSUDvdModel
 public import CFSG.LocalAnalysis.StandardType.GGFrameTBSUDvdRefl
-import CFSG.LocalAnalysis.StandardType.GGFrameModelNum
 import CFSG.LocalAnalysis.StandardType.GGFrameModelNumPerm
-import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagUnitary
-import CFSG.LocalAnalysis.StandardType.GGSixStepOneOutdiag
 import CFSG.LocalAnalysis.StandardType.GGRootGenAvoidReflModel
 
 public section

@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC6K324Act
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs1415b
-public import CFSG.LocalAnalysis.SectionRank.SporadicWitnesses
-public import CFSG.LocalAnalysis.SectionRank.Alternating
 public import CFSG.LocalAnalysis.ComponentClassification.CatFC.OddSporadicHolds
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Lemma86Aux8
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FRCore
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneSpField
 public import CFSG.LocalAnalysis.ComponentClassification.TBLitPropC
@@ -18,7 +15,6 @@ public import CFSG.LocalAnalysis.EvenSporadicStandard.McLStd.Dichotomy
 public import CFSG.LocalAnalysis.EvenSporadicStandard.McLStd.Input
 public import CFSG.LocalAnalysis.OddStandard.SmallF3Interfaces
 public import CFSG.LocalAnalysis.SteinbergCEOddResidualE6Graph
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.FQ
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FRLift
 
 public section

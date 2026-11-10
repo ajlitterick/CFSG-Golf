@@ -5,7 +5,6 @@ public import Certificates.Kernel.Sporadic.Fi22.E2067
 public import CFSG.Sporadic.FischerOddCore.Fi22CentCheckInputs
 meta import CFSG.Sporadic.FischerOddCore.Fi22CentText
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

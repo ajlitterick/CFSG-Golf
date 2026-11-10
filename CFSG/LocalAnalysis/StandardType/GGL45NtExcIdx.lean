@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGL45NtExcBridgeDefs
-public import CFSG.LieType.Chevalley.KernelComponentRoots
-public import CFSG.LieType.AlgebraicGroups.ConnectedToralLangFrobenius
-public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyClosedLang
-public import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 
 public section
 

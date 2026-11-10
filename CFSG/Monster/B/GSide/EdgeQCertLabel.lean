@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Monster.B.GSide.EdgeQCert
-public import CFSG.Monster.B.CTIB.FourClasses
-public import CFSG.Monster.B.TwoA.Unitary.Orbit1408
 
 public noncomputable section
 

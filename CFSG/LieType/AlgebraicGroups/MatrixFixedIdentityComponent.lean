@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LieType.AlgebraicGroups.MatrixFixedComponentsThree
-public import TauCeti.Algebra.AlgebraicGroup.Reductive.Basic
-public import TauCeti.Algebra.AlgebraicGroup.Smooth.IdentityComponent
-public import TauCeti.Algebra.AlgebraicGroup.HopfIdeal.Points.Separation
 
 public noncomputable section
 

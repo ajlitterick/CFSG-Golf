@@ -4,7 +4,6 @@ public import CFSG.RankThree.PartTwo.Census.Sporadic.Co1W4Data
 import CFSG.Certificates.Kernel.OpsF2KSound
 import CFSG.Certificates.Kernel.OpsF2KQSound
 import Certificates.Kernel.Census.W4F2Q
-public import CFSG.Blueprint.NativeSporadic
 import all CFSG.Blueprint.NativeSporadic
 public import CFSG.Assembly.LowTwoRankDefs
 public import Certificates.Certificate3024Base

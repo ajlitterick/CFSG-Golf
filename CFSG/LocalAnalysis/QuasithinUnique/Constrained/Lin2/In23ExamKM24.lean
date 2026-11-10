@@ -1,13 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.In23ExamKFusion
-public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicMathieu
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.In23ExamKFusion
 public meta import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicMathieu
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.In23ExamKM24Inputs
 public import Certificates.Certificate4072
-public import Certificates.Certificate4075
-public import Certificates.Certificate3017
 public meta import CFSG.GroupTheory.PerfectResidualNodes
 public meta import CFSG.LocalAnalysis.ComponentClassification.CatalogueBSymplecticTwoKernel
 public meta import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper

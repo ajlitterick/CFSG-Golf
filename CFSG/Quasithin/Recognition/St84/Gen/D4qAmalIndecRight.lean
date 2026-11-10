@@ -5,23 +5,12 @@ public import CFSG.Quasithin.Recognition.St84.Gen.D4qAmalBorel
 import CFSG.Quasithin.Recognition.St84.Gen.D4qAmalIndec
 import CFSG.Quasithin.Recognition.St84.Gen.D4qAmalCompl
 import CFSG.Quasithin.Recognition.St84.Gen.D4qVertexOneModule
-import CFSG.Quasithin.Recognition.St84.Gen.TriModule
 import CFSG.Quasithin.Recognition.St84.Gen.G2qAmalIndecSec
 import CFSG.Quasithin.Recognition.St84.Gen.L2SectionHall
-import CFSG.RankThree.GF2n.Smith81.TiD3Model
-import CFSG.Quasithin.Vol2.Ch3Sec3NFa2LMod
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X7Basic
-import CFSG.CGT.Timmesfeld75.L2Defs
-import CFSG.LieType.BorelTits.Basic
-import Mathlib.LinearAlgebra.BilinearForm.Orthogonal
-import Mathlib.LinearAlgebra.Matrix.BilinearForm
-import Mathlib.Tactic.Group
-import Mathlib.Tactic.FinCases
 public import CFSG.GroupTheory.PCore.Transport
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionSquareFieldAction
 public import CFSG.Quasithin.Recognition.St84.Gen.CoprimeComplement
 public import CFSG.Quasithin.Recognition.St84.Gen.SL2TorusAut
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConj
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
 public import CFSG.Timmesfeld.RankOne.Defs
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeLocalNormal
@@ -32,7 +21,6 @@ import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_21FinDS
 import CFSG.Quasithin.Background.C1PackS15212C
 import CFSG.Quasithin.Background.C1PackS1531Top
 import CFSG.Quasithin.Background.E3
-import CFSG.Quasithin.Background.E3Uniq
 import CFSG.Quasithin.Background.F7TwoFix
 import CFSG.Quasithin.Background.F918H5
 import CFSG.Quasithin.Background.FFC4Tr2

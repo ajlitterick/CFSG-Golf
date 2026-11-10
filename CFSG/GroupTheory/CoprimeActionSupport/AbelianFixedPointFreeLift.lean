@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.CoprimeHall
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Lemmas
 public import CFSG.GroupTheory.HyperplaneGeneration
 public import CFSG.LocalAnalysis.SignalizerFunctor.ElementaryComplements
 public import Mathlib

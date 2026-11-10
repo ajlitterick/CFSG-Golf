@@ -3,12 +3,9 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieInputs
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieI5AutGen
 public import CFSG.StronglyEmbedded.Catalog.Unitary
-public import CFSG.RankThree.PartTwo.Sec4.Item413AutU3
 public import CFSG.RankThree.PartTwo.Sec20.SimsAsc1411U3
 public import CFSG.LocalAnalysis.ComponentClassification.GMS78Basic
-public import CFSG.RankThree.PartTwo.Sec13.Item13Models
 public import CFSG.RankThree.PartTwo.Sec19.Step1914Tri
-public import CFSG.Models.BenderSuzuki
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264Parts
 public import CFSG.LocalAnalysis.GLTheoremA.S4.Assembly
 public import CFSG.LocalAnalysis.GLTheoremA.S4.Inputs

@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.WeakClosure81.W15SixI
 public import CFSG.LocalAnalysis.WeakClosure81.EightDefs
-public import CFSG.LocalAnalysis.WeakClosure81.EightOne
-public import CFSG.LocalAnalysis.WeakClosure81.SevenDefs
 
 public section
 

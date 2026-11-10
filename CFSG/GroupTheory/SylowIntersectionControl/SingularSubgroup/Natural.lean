@@ -11,15 +11,11 @@ import CFSG.GroupTheory.SylowIntersectionControl.GomiGstar
 import CFSG.Walter.PSL2Facts.Even
 import CFSG.Quasithin.Background.C126A5ExtractAux
 import CFSG.LocalAnalysis.ComponentClassification.AschbacherComponentInvolutionTwoExtension
-import CFSG.Quasithin.Background.A4Aut
-import CFSG.Quasithin.Background.B6Basic
 import CFSG.Quasithin.Background.C1GNNotation
 import TauCeti.Algebra.Group.Subgroup.ModularLaw
 import CFSG.GroupTheory.SubgroupTransport
 import CFSG.Quasithin.EmptyFaithful.SzN15Nat
-import CFSG.Adapters.ProjectiveSpecialLinear
 import CFSG.GroupTheory.ConjTransport
-import CFSG.Quasithin.Background.B2Factorization
 import CFSG.Quasithin.Background.G2SL2
 import CFSG.RankThree.PartTwo.Sec19.SimsTheoremCShort
 public import CFSG.LocalAnalysis.AGLEmbedding.D1GlobalU
@@ -42,18 +38,14 @@ public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Monster.Code.Weights
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.B1Restrict
 public import CFSG.Quasithin.Background.B4Statement
 public import CFSG.Quasithin.Background.F6GoldschmidtList
 public import CFSG.Quasithin.EmptyFaithful.Setting
 public import CFSG.Quasithin.Recognition.GoldschmidtTripleQuotient
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 import CFSG.LocalAnalysis.ComponentClassification.BlockTwoProductAction
 import CFSG.LocalAnalysis.ComponentClassification.CoprimeInvariantSylow
 import CFSG.LocalAnalysis.ComponentClassification.NormalizedProductSylow
@@ -66,8 +58,6 @@ import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerRestrictionCompl
 import CFSG.LocalAnalysis.RankTwoShapes.AlperinFusion
 import CFSG.LocalAnalysis.SignalizerFunctor
 import CFSG.Quasithin.Background.B6
-import CFSG.Quasithin.Background.B6Example
-import CFSG.Quasithin.Background.B6Offenders
 import CFSG.Quasithin.Background.C126A5Perm
 import CFSG.Quasithin.Background.E2Statements
 import CFSG.Quasithin.Background.E2Three

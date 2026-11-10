@@ -1,11 +1,8 @@
 module
 
-public import CFSG.ClassicalInvolution.WeakCT.TwistedE6MinusculeFixedField
 public import CFSG.ClassicalInvolution.WeakCT.TwistedE6FiniteToralAction
 public import CFSG.LieType.Steinberg.CentralExt.TwistedE6TwoOriginalOuterAction
 public import CFSG.LocalAnalysis.StandardType.GGNsq2PairLift
-public import CFSG.LocalAnalysis.StandardType.GGFixedTwoKernelTransport
-import CFSG.LieType.Chevalley.GraphFixedF4GroupRestriction
 
 public noncomputable section
 

@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22qa
-public import CFSG.LocalAnalysis.UniquenessCase.UC22P22qs
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.DataThree
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Basic
-public import CFSG.LocalAnalysis.RankThreeTheoremC.WreathThompson
 public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83SmallRank627Wreath
 public import CFSG.LocalAnalysis.AGLEmbedding.Norton.OrdinaryProofs.SylowTransport
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22q

@@ -2,8 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Orders.Basic
 public import CFSG.GH74.SectionalRank
-public import CFSG.Open.StatedDefs
-public import CFSG.Open.Defs
 
 public section
 

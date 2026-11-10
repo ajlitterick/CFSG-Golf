@@ -2,11 +2,7 @@ module
 
 public import Certificates.Data.SuzReal
 import Certificates.Kernel.SuzPump.PairFacts
-import Certificates.Kernel.Sporadic.Suz.Text2306
 import CFSG.Certificates.Kernel.Misc.ArrEnumSound
-import CFSG.Certificates.Kernel.Misc.ArrEnumOps
-import CFSG.Certificates.Kernel.B3S3KSound
-import CFSG.Certificates.Kernel.Spor.PackWord
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Misc.ArrBind
 

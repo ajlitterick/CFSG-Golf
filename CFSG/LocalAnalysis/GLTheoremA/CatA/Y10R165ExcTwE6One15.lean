@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165ExcTwE6One14
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165ExcTwE6One16
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165ExcTwE6One12
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165ExcTwE6Transport
 public import CFSG.RankThree.PartOne.KE.E6TwFourData
 public import CFSG.RankThree.PartOne.AUTSL.PushShared
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165ExcDefs

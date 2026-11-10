@@ -1,10 +1,7 @@
 module
 
 public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.ExcInnerTorus
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.PlanesToral
-public import CFSG.HardMathSupport.Timmesfeld.Torality.DescentCongruence
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcToralityFive
-public import CFSG.RankThree.E6.LargePrimeStabilizers
 public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.CrossLin
 public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.ExcInnerBase
 public import CFSG.LieType.Chevalley.C2E6UnitaryFourImages

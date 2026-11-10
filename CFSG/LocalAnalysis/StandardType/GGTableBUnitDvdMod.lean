@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitDvdCent
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUCoverTwo
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLModPSL
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoTableBTypeAMono
 
 public section
 

@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedClDefs
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitKGOmFix
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitKGOmModel
-public import CFSG.RankThree.PartOne.S11d.OrthCaseN
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.GroupTheory.Index
 public import Mathlib.FieldTheory.Finiteness
 public import Mathlib.LinearAlgebra.Dual.Lemmas
 public import Mathlib.Algebra.Field.ZMod

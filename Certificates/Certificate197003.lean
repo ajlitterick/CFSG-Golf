@@ -2,9 +2,6 @@ module
 
 public import Certificates.Data.Holder1711.Om2Facts
 import Certificates.Kernel.Om2K.BGlue
-import Certificates.Kernel.Om2K.BJoin
-import Certificates.Kernel.Om2K.BDefs
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.BfsPinSound
 import CFSG.Certificates.Kernel.Spor.RawOrbGrp
 import Certificates.Kernel.Om2K.Words

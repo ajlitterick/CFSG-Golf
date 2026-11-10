@@ -2,13 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGOuterInvLangDatumThrough
 public import CFSG.LocalAnalysis.StandardType.GGOuterInvAtE6
-public import CFSG.LocalAnalysis.StandardType.GGFieldOuterInvSolvable
 public import CFSG.LocalAnalysis.StandardType.GGOuterInvAtE6OddLemmas
 public import CFSG.LocalAnalysis.StandardType.GGOuterInvAtE6OddToral2
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Subnormal
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.OuterFieldCore
 public import CFSG.LieType.Chevalley.AlgebraicClosurePrimeField
-public import CFSG.LieType.Chevalley.E6SecondGraphFixedSubgroup
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwRigid
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.RigidCriterion
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.RigidNorm

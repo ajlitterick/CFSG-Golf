@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGR4JMeetKGDefs
-public import CFSG.LocalAnalysis.StandardType.GGInnerDiagBridgeInner
 public import CFSG.LocalAnalysis.StandardType.GGLayerCenterCyclicSymplectic
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldSympMark
-public import CFSG.RankThree.PartOne.KC.SymplecticSemi
-public import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
 public import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
 public import CFSG.CharacterTheory.Wreathed.WreathCentralSquare
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FBase2

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Background.D216Restrict
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Centralizer
 
 public section
 

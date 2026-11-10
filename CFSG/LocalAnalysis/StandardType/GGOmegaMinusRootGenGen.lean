@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGOmegaMinusRootGenDefs
 public import CFSG.ClassicalGroups.Orthogonal.StatedOmegaElementary
-public import CFSG.LieType.Universal.Spin.Generation.Eichler
 public import CFSG.ClassicalGroups.Orthogonal.Omega7ThreeLocalRoot
 public import CFSG.ClassicalGroups.Orthogonal.RootGroupFixedCard
 

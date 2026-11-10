@@ -3,7 +3,6 @@ module
 public import CFSG.Quasithin.Background.D2Seventeen
 public import CFSG.Quasithin.Background.D2Misc
 public import CFSG.Quasithin.Background.D2Conj
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Centralizer
 
 public section
 

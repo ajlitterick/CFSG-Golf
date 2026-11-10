@@ -10,7 +10,6 @@ import CFSG.RankThree.PartTwo.Sec21.Item222KLeProof
 import CFSG.RankThree.PartTwo.Sec3.AlternatingSLTwoLocalRank
 public import CFSG.Adapters.ProjectiveSpecialLinear
 public import CFSG.GroupTheory.LocalCores.Components
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 
 public section

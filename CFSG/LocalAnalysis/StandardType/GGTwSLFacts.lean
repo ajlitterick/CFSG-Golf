@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwAutDefs
-public import CFSG.LocalAnalysis.StandardType.GGInnLocalDefs
 import CFSG.LocalAnalysis.StandardType.GGSlNsRootGenModel
-import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMoreCl
 import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerLinearNonsplit
-import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMonomialIrred
 
 public section
 

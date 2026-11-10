@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.GF2n.Parrott.Section3RemarksCJ
 public import CFSG.RankThree.GF2n.Parrott.OThreeSigma
-public import CFSG.GroupTheory.KleinFourAutomorphism
 import CFSG.RankThree.GF2n.Parrott.Section3RemarksE9
 import CFSG.RankThree.GF2n.Parrott.A1LocalData
 import CFSG.LocalAnalysis.RankThreeUC.ModuleHypotheses

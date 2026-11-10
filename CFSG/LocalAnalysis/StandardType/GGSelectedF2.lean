@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveQTwoCompat
-public import CFSG.LocalAnalysis.StandardType.GGSelectedRootMatch
 public import CFSG.LocalAnalysis.StandardType.GGSelectedModelOfChevalley
 public import CFSG.GroupTheory.CommutingConjugatePair
 public import CFSG.Sporadic.ThSchreier.GlobalData

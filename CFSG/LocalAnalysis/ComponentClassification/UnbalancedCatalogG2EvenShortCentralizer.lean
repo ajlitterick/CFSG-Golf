@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenLongCentralizer
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ElementaryAbelian
 
 public noncomputable section
 

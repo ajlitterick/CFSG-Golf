@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Asc77.AscBSCPair
-public import CFSG.ClassicalInvolution.Asc77.WP3FrameBootTwinCtx
 public import CFSG.ClassicalInvolution.Asc77.AscIH8Graph
 import CFSG.ClassicalInvolution.Uniform.U3Edge
 public import CFSG.ClassicalInvolution.Asc77.WP2Interface

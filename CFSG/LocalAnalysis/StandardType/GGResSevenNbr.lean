@@ -2,14 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGResLeaves
 public import CFSG.LocalAnalysis.StandardType.GGNbrLabelJOfTcjK
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-public import CFSG.LocalAnalysis.StandardType.GGTPNNarrow
 public import CFSG.LocalAnalysis.StandardType.GGForkA8NotRefl
 public import CFSG.LocalAnalysis.StandardType.GGForkA8TablePOn
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyNbrFieldRows
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyNbrFieldRowsNarrow
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyReflDom
-public import CFSG.LocalAnalysis.StandardType.GGNbrHalfSplitArith
 public import CFSG.LocalAnalysis.StandardType.GGRootGenExcLabels
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplit
 

@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeKFixed
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuotTools
-public import CFSG.LocalAnalysis.ComponentClassification.PrimeComplementQuotientComponents
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedLayerOddCoreQuotient
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec5Std
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec5Lemma53
 

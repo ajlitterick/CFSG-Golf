@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFamD4IndexAux
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4ULang
 
 public section
 

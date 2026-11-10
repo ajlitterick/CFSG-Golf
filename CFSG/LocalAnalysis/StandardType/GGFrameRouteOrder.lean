@@ -1,11 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGFrameRouteFSInputs
 public import CFSG.LocalAnalysis.StandardType.GGFrameRouteE7Models
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTBFull
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTBSelfCent
 public import CFSG.LocalAnalysis.StandardType.GGExcFrameNormIso
-public import CFSG.LocalAnalysis.StandardType.GGRootNormInner
 
 public section
 

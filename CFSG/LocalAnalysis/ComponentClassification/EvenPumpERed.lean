@@ -1,13 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuotTools
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuotIso
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedLayerSemidihedralTwoComponents
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCorrSourceChange
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBPrimeJoinConvention
-public import CFSG.LocalAnalysis.ComponentClassification.PComponentNormalizerEnlargement
 public import CFSG.LocalAnalysis.ComponentClassification.Sol78Basic
-public import CFSG.LocalAnalysis.SectionRank.NativeKGroup
 public import CFSG.LocalAnalysis.ComponentClassification.Sol78Seven
 
 public section

@@ -2,19 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenInputs
 import CFSG.GroupTheory.ElementaryAbelianTransport
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
-import CFSG.LocalAnalysis.AGLEmbedding.ConstrainedSLAux
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.Infrastructure
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.proposition_4_8_b
-import CFSG.LocalAnalysis.QuasithinUnique.PushingUp.C5Counting
 import CFSG.LocalAnalysis.RankThreeTheoremC.ConstrainedRankTwo
-import CFSG.LocalAnalysis.SectionRank.Ccomm.NonabelianCube
-import CFSG.LocalAnalysis.SectionRank.Ccomm.Supercritical
-import CFSG.LocalAnalysis.SectionRank.PRank
-import CFSG.LocalAnalysis.SectionRank.SubgroupRank
-import CFSG.Quasithin.Background.A1cRank
 import CFSG.RankThree.PartOne.K1214.CycAlg
-import Mathlib.Tactic.Group
 
 public section
 

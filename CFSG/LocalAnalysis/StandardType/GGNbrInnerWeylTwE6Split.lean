@@ -1,10 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylOpenLabels
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6Delta
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6SplitEmbed
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylScIrred
-public import CFSG.LieType.SeitzGeneration.ExcTorusSylow
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylFrameGen
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylExcPlusLargeF4
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTwistedTorus

@@ -2,8 +2,6 @@ module
 
 public import CFSG.CGT.Timmesfeld75.L2Defs
 import CFSG.LocalAnalysis.SeitzReduction.F4PilotNonsplitSL2
-import Mathlib.Algebra.CharP.Two
-import Mathlib.Tactic.LinearCombination
 
 public section
 

@@ -5,7 +5,6 @@ public import Certificates.Kernel.SporSch.Ly.GenSevF
 public meta import CFSG.Certificates.Kernel.Common.Eval
 public meta import Lean
 import CFSG.Certificates.Kernel.SporSch.LyLoop
-import CFSG.Certificates.Kernel.SporSch.LySevBfs
 import CFSG.Certificates.Kernel.SporSch.LySevMat
 import CFSG.Certificates.Kernel.SporSch.LySevCbfs
 

@@ -1,16 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1RuData
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1CharNative
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1RowNative
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1PipeNative
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicRu
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1RuCheckInputs
 import Certificates.Kernel.LocalQT.Base.C4061
-import Certificates.Kernel.LocalQT.Base.C4061H
-import Certificates.Kernel.LocalQT.Base.C4061M
-import Certificates.Kernel.LocalQT.Base.C4061Z
-import Certificates.Data.Kernel.LocalQT.BaseT
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

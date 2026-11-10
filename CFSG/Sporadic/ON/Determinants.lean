@@ -2,10 +2,8 @@ module
 
 public import CFSG.F3.Spec
 public import Certificates.Data.CFSGNative.ON.Data
-public import Certificates.Data.CFSGNative.F3.Basic
 import CFSG.Certificates.Kernel.Spor.F3LaneEq
 import Certificates.Kernel.SporDet.ONData
-import Certificates.Data.Kernel.Spor.F3LaneId
 import CFSG.Certificates.Kernel.Common.Harness
 import all CFSG.Blueprint.NativeSporadic
 

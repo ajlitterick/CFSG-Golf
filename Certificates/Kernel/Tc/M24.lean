@@ -6,7 +6,6 @@ public import Certificates.Kernel.B3S3.Gen
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public meta import Certificates.Kernel.Tc.M24Src
 public meta import Certificates.Kernel.B3S3.Gen
-import CFSG.Certificates.Kernel.Common.Harness
 public meta import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.ThreeCore.M24
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.ThreeCore.M24
 public meta import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore

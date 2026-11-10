@@ -4,10 +4,6 @@ public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.TheoremTwoSectionEightFo
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.PairStabilizerRankOneHolds
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.ShultCentralizerIndices
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.ThreePointLeastFailure
-public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.RankOnePairCentralizerModel
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.MatrixFieldTransport
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiCentralCover
 public import CFSG.CharacterTheory.Blocks.BrauerInduction
 public import CFSG.CharacterTheory.TwoRankLowerBound.BrauerCharacterCriterion
 public import CFSG.Dihedral.DihedralFusionPrefixes

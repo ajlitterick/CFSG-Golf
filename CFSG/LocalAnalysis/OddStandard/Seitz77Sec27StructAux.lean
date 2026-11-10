@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.AutAlternating
-public import Mathlib.Algebra.Group.Pointwise.Set.Card
-public import Mathlib.GroupTheory.Subgroup.Simple
 
 public section
 

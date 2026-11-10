@@ -1,11 +1,8 @@
 module
 
-public import CFSG.Open.StatedDefs
 public import CFSG.Open.GLADefs
 public import CFSG.LocalAnalysis.ComponentInitial.LinearIsometry
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalGroup.Basic
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBAlternatingIsometryBasis
-import CFSG.ClassicalGroups.Symplectic.Model
 import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogQuadraticNormalForms
 import CFSG.ClassicalGroups.Orthogonal.ProjectiveSimple
 import CFSG.LocalAnalysis.ComponentInitial.OrthogonalReflectionSplitting

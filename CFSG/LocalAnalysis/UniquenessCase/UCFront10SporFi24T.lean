@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront10SporFi24EOut
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatM24
-public import CFSG.Sporadic.Fi24.Simple
 
 public section
 

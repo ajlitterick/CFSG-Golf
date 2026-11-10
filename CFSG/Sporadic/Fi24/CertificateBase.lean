@@ -1,7 +1,6 @@
 
 module
 
-public import Certificates.Data.CFSGNative.Fi24.Certificate
 public import Certificates.Data.Fi24Core
 
 public section

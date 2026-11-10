@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ClassicalInvolution.Asc77.AscP1ThompsonBasic
 public import CFSG.ClassicalInvolution.AschTight.S19TStmt
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinDiscExitUAE5Cent
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerp23WPerm

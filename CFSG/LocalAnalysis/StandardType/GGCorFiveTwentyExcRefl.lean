@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyHypG0
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcReflLinear
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
 
 public section
 

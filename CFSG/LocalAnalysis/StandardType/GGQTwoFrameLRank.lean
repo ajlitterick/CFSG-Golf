@@ -1,10 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLCx
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnit63Main
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOpenVac
 
 public section
 

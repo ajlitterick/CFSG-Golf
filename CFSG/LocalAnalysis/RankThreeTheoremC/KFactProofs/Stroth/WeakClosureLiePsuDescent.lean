@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.WeakClosureLieTwistFrame
 public import CFSG.GroupTheory.WeirSylow.UnitaryBridge
-public import CFSG.Open.StatedDefs
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.WeakClosureLieFormDet
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.WeakClosureLieGUDet
 public import CFSG.Certificates.CentralKernel
@@ -49,7 +48,6 @@ public import CFSG.Monster.B.TwoA.Sp8.SubgeomIsoBase
 public import CFSG.Monster.B.TwoA.Sp8.SubgeomStdBase
 public import CFSG.Monster.B.TwoA.Unitary.Twenty
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.RankThree.LocalRank.SelectorCases
 public import CFSG.RankThree.PartOne.Assembly
 public import CFSG.RankThree.PartOne.CTP.StrongPClassification
@@ -66,9 +64,6 @@ public import CFSG.Sporadic.Presentation.Co2Fusion
 public import CFSG.Sporadic.Presentation.Co2FusionInputs
 public import CFSG.Sporadic.Presentation.McLExactData
 public import CFSG.Sporadic.Presentation.McLExactInputs
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import CFSG.YGroups.DCE.B433Check
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement

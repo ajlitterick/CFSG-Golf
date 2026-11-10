@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentInitial.LinearTwoOuterOrder
-public import CFSG.LinearAlgebra.LinearGroups.Perfect
 public import CFSG.ClassicalInvolution.Q3.Q3T6AutInn
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CDefs
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenDefs

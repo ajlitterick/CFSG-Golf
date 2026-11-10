@@ -4,7 +4,6 @@ public import CFSG.Monster.GMS.CoTwoMain
 public import CFSG.Monster.GMS.CoTwoModule
 public import CFSG.Monster.GMS.CoTwoPerfectGen
 public import CFSG.Sporadic.Co1.Module.CoTwoNortonData
-public import Certificates.Kernel.Co1Cover.Bridge
 public import Certificates.Kernel.Co1M.Data10029
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Monster.GMS.F1Basic

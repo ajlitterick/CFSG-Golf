@@ -1,9 +1,6 @@
 module
 
-public import CFSG.Quasithin.Background.FixVZPowers
-public import CFSG.Quasithin.Background.FixVZPowersMem
 public import CFSG.Quasithin.Vol2.Ch12Sec5L5a
-public import CFSG.Quasithin.Vol2.Ch12Sec4E61
 public import CFSG.Quasithin.Vol2.Ch12Sec4L5Mbar
 
 public section

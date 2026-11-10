@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoVACTwE6Heart
-public import CFSG.LocalAnalysis.StandardType.GGUSixTwoDescent
 public import CFSG.LocalAnalysis.StandardType.GGTwE6DeltaSmallThreeOdd
 
 public section

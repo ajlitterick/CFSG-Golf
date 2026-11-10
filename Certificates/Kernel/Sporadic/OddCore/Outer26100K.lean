@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Sporadic.OddCore.Beta24601K
 public import Certificates.Kernel.Sporadic.OddCore.SqrtK26102
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

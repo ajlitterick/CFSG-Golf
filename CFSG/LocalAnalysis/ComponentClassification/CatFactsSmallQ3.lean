@@ -2,11 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallQ3Data
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallQ3P45
-public import Certificates.Certificate2007
-public import Certificates.Certificate2012
-public import Certificates.Certificate2013
-public import Certificates.Certificate2014
-public import Certificates.Certificate2015
 
 public section
 

@@ -9,7 +9,6 @@ import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight105KTorusU5Cent
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight105KTorusU5Rank
 import CFSG.GroupTheory.CardMapInfKer
 import CFSG.GroupTheory.Frattini.PSubgroupLift
-import CFSG.RankThree.PartTwo.Sec21.KS21U4TorusLines
 public import CFSG.LocalAnalysis.ComponentClassification.BlockTwoProductAction
 public import CFSG.LocalAnalysis.ComponentClassification.NormalizedProductSylow
 public import CFSG.LocalAnalysis.ComponentClassification.TwoActionFixedInvolution
@@ -23,7 +22,6 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeOrbits
 public import CFSG.RankThree.PartOne.KF.R7Final
 public import CFSG.RankThree.PartOne.KF.UnitaryModel
@@ -32,11 +30,9 @@ public import CFSG.RankThree.PartOne.KFOUT3.KtyWCtx
 public import CFSG.RankThree.PartOne.S12.InputsKF2
 public import CFSG.RankThree.PartOne.S12.Sec1322Inputs
 public import CFSG.RankThree.PartTwo.Census.Classical.EvenUnitary
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

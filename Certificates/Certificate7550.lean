@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Certificates.CosetTablePresented
 public import CFSG.Milestones.ASVolI.F48.Small.Sp43eInputs
 import Certificates.Kernel.PresLetters.F7550
 import CFSG.Certificates.Kernel.Misc.Coset.TableFact

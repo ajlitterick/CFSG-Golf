@@ -5,14 +5,10 @@ public import CFSG.Sporadic.Co2Schreier.ThirdChainBase
 
 public import CFSG.Sporadic.Co2Schreier.ThirdCheck
 public import CFSG.Sporadic.Co2Schreier.Chains
-public import CFSG.Sporadic.Co2Cert.Order
-public import CFSG.Sporadic.Co2Schreier.ThirdCheckInputs
 public meta import CFSG.Sporadic.Co2Schreier.WitCheck
 public meta import CFSG.Sporadic.Co2Schreier.SylowCheck
 public meta import CFSG.Sporadic.Co2Schreier.CoreCheck
 public meta import CFSG.Sporadic.Co2Cert.FaithfulCheck
-public import CFSG.Sporadic.Co2Cert.CheckInputs
-public import CFSG.Sporadic.Co2Cert.OrderCheckInputs
 
 public noncomputable section
 

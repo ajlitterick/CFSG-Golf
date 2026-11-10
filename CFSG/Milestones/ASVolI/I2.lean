@@ -1,64 +1,15 @@
 module
 
-public import Mathlib
-public import CFSG.Foundations.Basic
 public import CFSG.Open.SplitBNPair
-public import CFSG.Open.QuasithinDefs
-public import CFSG.Open.LocalVocabulary
-public import CFSG.LocalAnalysis.SectionRank.NativeKGroup
-public import CFSG.Blueprint.Catalog
-public import CFSG.Blueprint.NativeSporadic
-public import CFSG.Quasithin.Background.B4Statement
 public import CFSG.Milestones.ASVolI.I1
-public import CFSG.LocalAnalysis.SectionRank.CentralLift
-public import CFSG.LocalAnalysis.SectionRank.ClassicalOdd
-public import CFSG.LocalAnalysis.SectionRank.G2OddCover
-public import CFSG.LocalAnalysis.SectionRank.Sporadic.ON
-public import CFSG.LocalAnalysis.SectionRank.Sporadic.McL
-public import CFSG.LocalAnalysis.SectionRank.Sporadic.J3LocalDet
-public import CFSG.LocalAnalysis.SectionRank.LocalDet
-public import CFSG.LocalAnalysis.SectionRank.SQT
-public import CFSG.LocalAnalysis.SectionRank.AlternatingCover
-public import CFSG.LocalAnalysis.SectionRank.Framework.SylowRank
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SmallSylowCentralCover
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.lemma_4_5_a
-public import CFSG.LocalAnalysis.ComponentInitial.GroupAlternatingCover
-public import CFSG.Alternating.Multipliers.Small
-public import CFSG.RankThree.PerfectCover.HopfCover
 public import CFSG.LocalAnalysis.QuasithinUnique.CatalogBridgeLinear
 public import CFSG.Sporadic.Recognition.JankoWongPSLNine
 public import CFSG.GroupTheory.TitsSystem.Parabolic
 public import CFSG.GH74.GLS.SP.DatumBN
-public import CFSG.LieType.Universal.SymplecticExtras
-public import CFSG.LieType.Universal.SymplecticExtras.Torus
-public import CFSG.LieType.Universal.SymplecticExtras.Unipotent
 public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionSp
-public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionSL
-public import CFSG.LieType.Universal.SpecialLinearExtras
-public import CFSG.LieType.Universal.Unitary
-public import CFSG.LieType.Universal.Unitary.Extras.Unipotent
-public import CFSG.LieType.Universal.Unitary.Extras.Torus
 public import CFSG.LieType.Steinberg.CentralExt.SUBruhatExtras
-public import CFSG.LieType.Chevalley.ChevalleySplitBN
-public import CFSG.LieType.Chevalley.SylowOpposition
-public import CFSG.LieType.Chevalley.OppositeBorel
-public import CFSG.LieType.Ree.SuzukiOrder
-public import CFSG.LieType.Ree.FixedTwoCellParabolics
-public import CFSG.LieType.Ree.FixedSubgroupData
-public import CFSG.LieType.Ree.ReeGenericPerfect
-public import CFSG.LieType.Steinberg.CentralExt.TorusLift
-public import CFSG.LieType.Chevalley.GraphFixedBorelSelfNormalizer
-public import CFSG.LieType.Chevalley.GraphFixedSimpleBruhat
-public import CFSG.LieType.Chevalley.GraphFixedFinitePerfect
-public import CFSG.LieType.CurtisTits.Spin
 public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionRestSpinPlus
-public import CFSG.LieType.Universal.SpinOmega
-public import CFSG.LieType.Steinberg.CentralExt.Unipotent
-public import CFSG.LieType.Steinberg.CentralExt.OrthogonalPerfect
-public import CFSG.LieType.Steinberg.CentralExt.SpinMinusPosLift
 import all CFSG.LieType.Universal.Spin.Structure.TypeB
-import CFSG.LieType.Universal.Spin.Structure.Levels
-import CFSG.LieType.Universal.Spin.Structure.Entries
 
 public section
 

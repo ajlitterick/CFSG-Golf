@@ -1,10 +1,5 @@
 module
 
-public import CFSG.OddTranspositions.PartThree.Eleven.Statements
-public import CFSG.OddTranspositions.PartThree.Eleven.OneOne.Hyp
-public import CFSG.OddTranspositions.PartThree.Eleven.Minus.Pair
-public import CFSG.OddTranspositions.PartThree.Eleven.Minus.Quandle
-public import CFSG.OddTranspositions.PartThree.EightFive.KBarSetup
 public import CFSG.OddTranspositions.PartThree.Eleven.OneTwo.KTrans
 import CFSG.CGT.Timmesfeld75.Sec4TwoBender
 import CFSG.Timmesfeld.Bridge.OddTranspGenL2

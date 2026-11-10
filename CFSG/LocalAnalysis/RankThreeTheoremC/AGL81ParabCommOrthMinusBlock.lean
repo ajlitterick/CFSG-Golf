@@ -41,7 +41,6 @@ public import CFSG.Quasithin.Background.OrderingMax
 public import CFSG.Quasithin.Vol2.Ch1Local
 public import CFSG.RankThree.PartOne.KC.OrthogonalNaturalCommonDefs
 public import CFSG.Sporadic.J4Base
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 

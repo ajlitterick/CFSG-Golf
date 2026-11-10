@@ -1,14 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResLeaf
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangRegStepZero
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangTorARank
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154ExcOutdiag
-public import CFSG.LocalAnalysis.StandardType.Marking
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentVocab
-public import CFSG.RankThree.PerfectCover.HopfCentralCoversSetup
 
 public section
 

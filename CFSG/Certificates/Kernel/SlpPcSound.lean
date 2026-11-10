@@ -3,9 +3,7 @@ module
 public import Certificates.Data.Kernel.SlpPcCl
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.PcSylow
 public import CFSG.Certificates.Kernel.J4Hub.BlockSound
-public import CFSG.Certificates.Kernel.Spor.OrdSound
 import all CFSG.Certificates.Kernel.Spor.OrdSound
-public import CFSG.Certificates.Kernel.LocalQTSecLemmas
 import all CFSG.Certificates.Kernel.LocalQTSecLemmas
 import CFSG.Certificates.Kernel.Spor.PackFld
 

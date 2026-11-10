@@ -1,9 +1,6 @@
 module
 
 public import Mathlib.GroupTheory.Perm.Fin
-public import Mathlib.GroupTheory.Perm.Cycle.Type
-public import Mathlib.GroupTheory.Perm.Sign
-public import Mathlib.Data.ZMod.Basic
 
 public section
 

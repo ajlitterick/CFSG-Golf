@@ -1,11 +1,9 @@
 module
 
 public import Certificates.Kernel.Sporadic.OddCore.SuzCTF0
-public import CFSG.Certificates.Kernel.Spor.PackWord
 public import CFSG.Certificates.Kernel.Common.Lce
 public import Certificates.Data.GSThmBCatalog7SuzCS
 public meta import Certificates.Data.GSThmBCatalog7SuzCS
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

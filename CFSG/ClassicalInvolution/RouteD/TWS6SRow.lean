@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.RouteD.TWS6SRank
 public import CFSG.ClassicalInvolution.RouteD.TWS6Cfg
-public import CFSG.ClassicalInvolution.RouteD.TWEAssemble
 public import CFSG.ClassicalInvolution.RouteD.TWEClose
 public import CFSG.ClassicalInvolution.RouteD.SCRTwinGenSmall
 

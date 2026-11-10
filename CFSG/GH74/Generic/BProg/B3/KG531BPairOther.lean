@@ -4,8 +4,6 @@ public import CFSG.GH74.Generic.BProg.B3.KG531BPairMain
 public import CFSG.GH74.Generic.BProg.B3.KG531BPairOrd
 public import CFSG.GH74.Generic.BProg.B3.KG531Basic
 public import CFSG.GH74.Generic.BProg.B3.KG531Ord
-public import CFSG.Certificates.Kernel.ThDemp.OrbCent
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GH74.AS16.Defs
 public import CFSG.GH74.E2.OddRankG
 public import CFSG.GH74.GLS.C3.Layer1.BkIvk73Q

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitNsRest
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerPDivSUTag
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerPDivFactors
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerPDivOmega
 
 public section

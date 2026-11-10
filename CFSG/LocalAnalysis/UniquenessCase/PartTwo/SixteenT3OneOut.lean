@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenT3BCPair
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenT3GapMV
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven10Ctx
 
 public section
 

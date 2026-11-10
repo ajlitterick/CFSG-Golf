@@ -2,10 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.WeakClosure81.W183B2CKOuter
 public import CFSG.LocalAnalysis.WeakClosure81.W183B2CKHeart
-public import CFSG.LocalAnalysis.WeakClosure81.W183B2Fin
 public import CFSG.LocalAnalysis.WeakClosure81.W183B2CKAAux1
 import CFSG.LocalAnalysis.WeakClosure81.W183K3Quasi
-import CFSG.LocalAnalysis.ComponentClassification.Quasisimple
 
 public section
 

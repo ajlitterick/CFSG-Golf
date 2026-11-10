@@ -5,14 +5,11 @@ public import Certificates.Kernel.Sporadic.Fi22.X2069P
 public import Certificates.Kernel.Sporadic.Fi22.X2069T
 public import Certificates.Kernel.Sporadic.Fi22.X2069S
 public import CFSG.Certificates.Kernel.Spor.SiftEq
-public import CFSG.Certificates.Kernel.BfsPinSound
 public import CFSG.Certificates.Kernel.Misc.PairCountSound
 public import CFSG.Certificates.Kernel.Spor.CBfsKSound
-public import CFSG.Monster.B.Fischer.Fi22GraphCheckInputs
 public meta import CFSG.Monster.B.Fischer.Fi22GraphCheckInputs
 import Init.Data.Range.Lemmas
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.NormNum
 
 public section
 

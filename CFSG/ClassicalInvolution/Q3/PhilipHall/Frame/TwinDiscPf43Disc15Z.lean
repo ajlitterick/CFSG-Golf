@@ -4,7 +4,6 @@ public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinDiscPf41ZT
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinDiscPf12Cent
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinDiscPf12Rep
 public import CFSG.Sporadic.ThSchreier.AutCore
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.ClassicalInvolution.Asc77.AscC22N5
 public import CFSG.ClassicalInvolution.Asc77.AscC5O12
 public import CFSG.ClassicalInvolution.Asc77.AscC5OM21
@@ -62,7 +61,6 @@ public import CFSG.ClassicalInvolution.Q3.Q3T7W21Res
 public import CFSG.ClassicalInvolution.Q3.Q3T8B01
 public import CFSG.ClassicalInvolution.Q3.Q3T8P26Top
 public import CFSG.ClassicalInvolution.Q3.TA3SOLCore
-public import CFSG.ClassicalInvolution.Q3.TA3SOLCoreRank
 public import CFSG.ClassicalInvolution.Q3.TL3T73C
 public import CFSG.ClassicalInvolution.Q3.TL4AECoverH
 public import CFSG.ClassicalInvolution.Q3.TL4ExitTwoE4O8A
@@ -93,7 +91,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.AppCCases
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.Basic
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2pFactsPSL2More
 public import CFSG.SignalizerFunctorTheorem.McBride.Models.Suzuki.Local
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ConjugatedInvertedSubgroup
 
 public section
 

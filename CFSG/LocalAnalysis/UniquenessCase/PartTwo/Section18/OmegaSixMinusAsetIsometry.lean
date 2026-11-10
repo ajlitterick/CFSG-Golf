@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section18.Defs
-public import CFSG.Quasithin.Background.E3Defs
 public import CFSG.HardMathSupport.U4FF.BOSemi
 public import CFSG.Quasithin.MS93.S32U
-public import CFSG.GroupTheory.ABGLocalTools.PStabilityQSL2
 public import CFSG.LocalAnalysis.AGLEmbedding.CaseTwoConfig
 public import CFSG.LocalAnalysis.AGLEmbedding.CaseTwoEscape
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanParabAutIrrHom

@@ -3,10 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangS1ExcInputs
 public import CFSG.LocalAnalysis.StandardType.GGL45NtExcBridgeDefs
 import CFSG.LocalAnalysis.StandardType.GGL45NtExcBridgeU
-import CFSG.LieType.Chevalley.EvenE7E8AutomorphismNormalForm
-import CFSG.LieType.Chevalley.LangFiniteRootCentralizer
-import CFSG.HardMathSupport.Lang.AnisoE6.E6InF4
-import CFSG.RankThree.Classical2.TwistedE6RationalOrder
 
 public section
 

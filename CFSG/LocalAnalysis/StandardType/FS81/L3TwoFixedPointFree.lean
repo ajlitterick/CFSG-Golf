@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.RootFusionGen
 public import CFSG.LocalAnalysis.UniquenessCase.UCSingerL3
-public import CFSG.Assembly.OrderReductions.ElementaryRepresentation
-public import CFSG.Adapters.ProjectiveSpecialLinear
 public import CFSG.LocalAnalysis.UniquenessCase.UCK461
 public import CFSG.LocalAnalysis.UniquenessCase.UCKInputs2
 

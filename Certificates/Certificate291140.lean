@@ -2,17 +2,11 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.ComponentPrimary.Cover3
 public import Certificates.Data.CFSGNative.ComponentPrimary.Cover3Co3
-import Certificates.Data.Kernel.Local3K
-import Certificates.Data.Kernel.LaneChain
 import Certificates.Kernel.TcGen.F2
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.JsonGz
-import CFSG.Certificates.Kernel.Common.Repo
 import Certificates.Kernel.Bounds.Family
 import CFSG.Certificates.Kernel.LaneChainSound
 import CFSG.Certificates.Kernel.Co1F2Sound
-import CFSG.Sporadic.HS.SmallF2Spec
-import CFSG.LocalAnalysis.SectionRank.Sporadic.LocalWitness
 import CFSG.Certificates.Kernel.Local3KSound
 import CFSG.Certificates.Kernel.F2WordSound
 import CFSG.Certificates.Kernel.Misc.Coset.TableFact

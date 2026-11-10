@@ -3,11 +3,8 @@ module
 public import CFSG.Timmesfeld.Transvection.OddPairs
 import CFSG.Timmesfeld.Transvection.OddPairsCone
 import CFSG.Timmesfeld.Transvection.OddPairsModel
-import CFSG.Timmesfeld.Transvection.OddModelWeyl
 import CFSG.Timmesfeld.Transvection.OddModelSU3
-import CFSG.Timmesfeld.Transvection.OddModelHeis
 import CFSG.Timmesfeld.Transvection.OddModelBC2Struct
-import CFSG.LieType.Universal.Unitary.Extras.Unipotent
 import CFSG.Timmesfeld.RankTwo.LevisBCone
 
 public section

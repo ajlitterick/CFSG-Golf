@@ -3,7 +3,6 @@ module
 public import CFSG.ClassicalInvolution.Q3.Q3TPCtx
 public import CFSG.ClassicalInvolution.Q3.Q3TCCp
 public import CFSG.ClassicalInvolution.Q3.Q3TPSModel
-public import CFSG.ClassicalInvolution.SmallCases.EndpointsOrthPatternB
 public import CFSG.ClassicalInvolution.Q3.Q3TCPartner
 public import CFSG.ClassicalInvolution.Q3.Q3WAETLocal
 public import CFSG.ClassicalInvolution.RouteD.ExoticD4FourBasic

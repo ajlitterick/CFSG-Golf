@@ -3,11 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TriD4BridgeIso
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeTriD4FrameDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixPositionDefs
-public import CFSG.LieType.Chevalley.TrialityFullAmbientFixedGroup
-public import CFSG.LieType.Chevalley.RootCharacterConjugation
-public import CFSG.LieType.Chevalley.OrthogonalSemilinearFixedRootData
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264D4EightCaseB
-public import CFSG.LieType.Steinberg.TwistedD4.Perfect
 public import CFSG.ClassicalGroups.Orthogonal.RootGroupPair
 public import CFSG.GroupTheory.PCore.SubgroupCore
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431Fam.BlocksAbstract

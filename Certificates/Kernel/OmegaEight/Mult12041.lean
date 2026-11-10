@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.CoverData
 public import CFSG.Certificates.Kernel.CycTabSound
 import CFSG.Certificates.Kernel.Common.Eval
-import CFSG.Certificates.Kernel.Common.Harness
 public meta import Certificates.Kernel.OmegaEight.Mult12041Gen
-import Mathlib.Tactic.FinCases
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.NativeCheckBase

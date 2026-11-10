@@ -4,15 +4,11 @@ public import CFSG.LocalAnalysis.ComponentClassification.RankTwoL3FourDefs
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicOddCore
 public import CFSG.LocalAnalysis.SectionRank.SporadicCatalog
 public import CFSG.Sporadic.Suz.Simple
-public import CFSG.Open.StatedAPI
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LocalAnalysis.SectionRank.Framework.SylowRank
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.SporadicWitnesses
 public import CFSG.Sporadic.M23.M23Group
-public import CFSG.Sporadic.Th.F2Spec
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.theorem_3_4
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.Defs
 
 public section
 

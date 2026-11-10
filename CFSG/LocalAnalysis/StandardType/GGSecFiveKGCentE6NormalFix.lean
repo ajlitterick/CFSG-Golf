@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartOne.KE8F.FamBruhat
-public import CFSG.LieType.Chevalley.ExactNormalFormE
 import CFSG.LieType.Chevalley.E6EvenRootTorusCentralizer
 import CFSG.LocalAnalysis.SeitzReduction.E6PilotAutDTwo
 import CFSG.LocalAnalysis.StandardType.GGRootCentralizerExcBruhat
@@ -14,8 +13,6 @@ public import CFSG.RankThree.PartOne.KE.SigmaUntwisted
 public import CFSG.RankThree.PartOne.KE.StabGeneral
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import CFSG.Walter.Defs
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 import CFSG.LieType.Chevalley.C2E6StandardFixedData
 import CFSG.LieType.Chevalley.C2E6UnitaryFourImages
@@ -33,7 +30,6 @@ import CFSG.LocalAnalysis.ComponentInitial.SylowPointRecovery
 import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 import CFSG.RankThree.PartOne.KE.A2Family
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 import CFSG.Walter.JRFacts
 
 public section

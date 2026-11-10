@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoUnitaryLocal
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoLabel
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoLocal
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoSix
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinNbrModel
 import CFSG.LocalAnalysis.StandardType.GGSCNoTVCyclic

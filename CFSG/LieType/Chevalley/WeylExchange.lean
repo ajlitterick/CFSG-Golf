@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.Chevalley.WeylRoots
-public import CFSG.LieType.RootSystem.Form
 
 public section
 

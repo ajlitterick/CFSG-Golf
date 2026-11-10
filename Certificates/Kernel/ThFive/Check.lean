@@ -3,7 +3,6 @@ module
 public import Certificates.Data.Kernel.ThFive.Check
 public import Certificates.Kernel.ThFive.Data
 public import CFSG.Certificates.Kernel.Th.S.Data.Sm_Sel
-public import CFSG.Certificates.Kernel.Th.S.Data.Sm_const
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

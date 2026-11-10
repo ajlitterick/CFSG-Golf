@@ -2,16 +2,7 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.Q3TWCollCert
 public import CFSG.ClassicalInvolution.Q3.Q3TWWAdjB
-public import CFSG.ClassicalInvolution.Q3.Q3WChain
-public import CFSG.ClassicalInvolution.Q3.Q3ZAdjMain
-public import CFSG.ClassicalInvolution.WeakCT.SpPair
-public import CFSG.ClassicalInvolution.WeakCT.SimplyLaced
-public import CFSG.ClassicalInvolution.WeakCT.TwistedTransport
-public import CFSG.ClassicalInvolution.WeakCT.SpinOdd
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofFrameDLSubgroup
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofSp4Levi
-public import CFSG.ClassicalInvolution.Q3.Q3TWInputs
-public import CFSG.ClassicalInvolution.Q3.Q3TWCollB
 public import CFSG.ClassicalInvolution.Q3.Q3TWWMinusMap
 public import CFSG.ClassicalInvolution.Models.LinearFrames
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Quadruple

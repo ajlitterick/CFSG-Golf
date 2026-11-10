@@ -5,9 +5,7 @@ public import CFSG.Certificates.Kernel.Spor.SiftEq
 public import Certificates.Kernel.Sporadic.Tits.LocS
 public import Certificates.Kernel.Sporadic.Tits.LocR
 public import CFSG.Sporadic.Schreier.TitsAbelCheckInputs
-public import CFSG.Certificates.Kernel.Spor.SiftRSound
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

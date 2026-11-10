@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesDescent
 public import CFSG.Quasithin.Background.SmithCurtisBasic
-public import Mathlib.RingTheory.Etale.Weakly
-public import Mathlib.RingTheory.TotallySplit
 
 set_option linter.unusedSectionVars false
 

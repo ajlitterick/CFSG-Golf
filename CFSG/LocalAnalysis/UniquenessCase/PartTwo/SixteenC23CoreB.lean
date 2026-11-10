@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC23CoreA
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC23ModA
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC23Nat
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenTwo
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenT7Proof
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC7SixtyTwoTrans
 public import CFSG.LocalAnalysis.WeakClosure81.FiveSixOrder

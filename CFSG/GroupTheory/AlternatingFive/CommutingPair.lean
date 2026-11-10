@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GH74.E2.Cl2Rank
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
 public import Mathlib.GroupTheory.SpecificGroups.Alternating.Simple
 
 public section

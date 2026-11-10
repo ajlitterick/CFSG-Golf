@@ -3,13 +3,10 @@ module
 
 public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.C9NativeInputsBase
 
-public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.NativeClassesBase
-public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.NativeModelBase1
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.Sylow
 public import CFSG.LocalAnalysis.ComponentClassification.M12CoverAutCentralizers
 public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.NativeModel
 public meta import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.NativeData
-public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.NativeDataInputs
 
 public section
 

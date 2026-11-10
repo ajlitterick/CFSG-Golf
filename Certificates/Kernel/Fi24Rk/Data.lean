@@ -1,9 +1,6 @@
 module
 
-public import Certificates.Kernel.Misc.Perm.HexCmd
-public import Certificates.Kernel.Sporadic.HexNumsGen
 public import Certificates.Kernel.LocalComp.Fi24Pl.Data
-public import Certificates.Data.Fi24Rank.KData
 meta import Certificates.Data.Fi24Rank.KCheck
 
 namespace CertificateChecks.KernelFi24Rk.E

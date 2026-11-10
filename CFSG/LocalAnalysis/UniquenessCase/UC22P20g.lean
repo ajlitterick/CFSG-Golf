@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.UC22S21a
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S22a
 public import CFSG.LocalAnalysis.EvenSmallLie.CatalogOrdersLie
 public import CFSG.Timmesfeld.Orders.Distinct
@@ -10,16 +9,10 @@ import CFSG.Adapters.LieModelOrders
 import CFSG.Adapters.LieModelSimple
 import CFSG.LocalAnalysis.EvenBN.GMSK.SzFacts
 import CFSG.Blueprint.LieModelAPI
-import CFSG.Assembly.Subnormal
-import CFSG.Quasithin.Background.A3ComponentsQuotient
-import CFSG.GroupTheory.LocalCores.Components
-import CFSG.LieType.Simplicity.Exceptional
 import CFSG.LieType.Simplicity.TrialityD4
-import CFSG.LieType.Simplicity.ReeLargeModel
 import CFSG.RankThree.PartOne.S12K.Rigidity
 import CFSG.LieType.Ree.LargeReeEightTorus
 import CFSG.LocalAnalysis.UniquenessCase.UC22S22b
-import CFSG.LocalAnalysis.UniquenessCase.UC6R2
 
 public section
 

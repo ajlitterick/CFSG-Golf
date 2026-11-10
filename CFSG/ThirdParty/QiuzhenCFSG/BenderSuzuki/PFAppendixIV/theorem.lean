@@ -4,13 +4,9 @@ public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFAppendixIV.lemma_1
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFAppendixIV.lemma_2
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Suzuki.VI.theorem_2_3
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.V.theorem_8_14
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.Remaining
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection3.PFsection3_5
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection5.PFsection5_9
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection6.Basic
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection6.PFsection6_5_b
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection6.PFsection6_6
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.HallSubgroups.Core
 import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.DegreeBounds
 
 namespace CFSG

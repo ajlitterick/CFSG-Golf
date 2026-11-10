@@ -1,29 +1,12 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.I2023Facts
 public import CFSG.RankThree.PartTwo.KFacts.KS167D4Model
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.SFM3OutCyclic
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.YS09TD4G2C
 import CFSG.RankThree.PartTwo.Sec11.Item1119NUOut
 import CFSG.RankThree.PartTwo.KFacts.KS6OuterIndexProof
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcVacuousTriality
-import CFSG.LieType.Chevalley.GraphFixedCenterTrivial
 import CFSG.RankThree.PartTwo.Sec21.Item211LieProofBar
 import CFSG.LocalAnalysis.OddStandard.GH71.S55D4
-import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
-import CFSG.LieType.Chevalley.GraphFixedCompatibleDiagonal
-import CFSG.RankThree.PartTwo.Sec8.Item8KFacts2ProofD4
-import CFSG.RankThree.PartTwo.Sec4.Item417Res8ProofD4Plane
-import CFSG.RankThree.PartTwo.Sec4.Item417Res8ProofD4Even
-import CFSG.RankThree.PartTwo.Sec21.Item223Rank2ProofD4
-import CFSG.LieType.Chevalley.GraphFixedOrbitParametrization
-import CFSG.LieType.Chevalley.GraphFixedCommonBaseField
-import CFSG.LieType.Chevalley.TwistedE6NormalFormActors
-import CFSG.LieType.Chevalley.TrialityAllCharTorusCoordinates
-import CFSG.LieType.Chevalley.TrialityExactFiniteOrder
-import CFSG.LieType.Chevalley.GraphFixedSylowOpposition
-import CFSG.GroupTheory.ElementaryAbelianTransport
-public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 public import CFSG.Goldschmidt.Steps.G37Core
 public import CFSG.HardMathSupport.Solomon.Coordinator.L3FATArith
 public import CFSG.HardMathSupport.Solomon.Coordinator.L3G515Core
@@ -50,10 +33,6 @@ public import CFSG.Quasithin.Background.C1GNSolvConnect
 public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.E2Statements
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.F6CatRecogL2
-public import CFSG.Quasithin.Background.F6CatRecogTools2
 public import CFSG.Quasithin.Background.F918C6
 public import CFSG.Quasithin.Background.FFC7G
 public import CFSG.Quasithin.Background.FFC8A
@@ -115,7 +94,6 @@ public import CFSG.RankThree.PartTwo.Sec17.RouteProvers
 public import CFSG.RankThree.PartTwo.Sec17.RouteProvers142
 public import CFSG.RankThree.PartTwo.Sec8.Item87Proof84
 public import CFSG.RankThree.S4Free.SuzukiEight
-public import CFSG.Walter.J1Props
 public import Certificates.Kernel.J4Count.Prim
 import CFSG.RankThree.PartTwo.Sec11.Theorem1134
 import CFSG.RankThree.PartTwo.Sec21.Item211Res2ProofLie

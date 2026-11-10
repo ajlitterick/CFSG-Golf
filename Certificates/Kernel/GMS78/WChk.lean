@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.GMS78.WData
 public import CFSG.Certificates.Kernel.GMS78RuWSound
 public import Certificates.Data.GMS78RuPi7RuData
-public import CFSG.Certificates.Kernel.Orders.Ru.Data.Const
 public import CFSG.Certificates.Kernel.Orders.Ru.Data.Sel
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Spor.OrdSound

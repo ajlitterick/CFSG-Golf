@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.G24B.Checks733011
 public import Certificates.Kernel.G24B.DData
-public import Certificates.Data.G24IdentDC
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

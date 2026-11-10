@@ -1,8 +1,6 @@
 
 module
 
-public import CFSG.Sporadic.HNSchreier.LocalCheckBase
-public import CFSG.Sporadic.HNSchreier.FAData
 public meta import CFSG.Sporadic.HNSchreier.LocalCheckBase
 public meta import CFSG.Sporadic.HNSchreier.FAData
 public import CFSG.Sporadic.HNSchreier.ThreeCheckInputs

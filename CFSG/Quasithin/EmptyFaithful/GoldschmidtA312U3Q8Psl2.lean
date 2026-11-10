@@ -2,9 +2,6 @@ module
 
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312U3Q8Act
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312U3Q8
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2
-public import CFSG.Adapters.ProjectiveSpecialLinear
-public import CFSG.GroupTheory.ABGLocalTools.PStabilityQSL2
 public import CFSG.Foundations
 public import CFSG.GH74.BNPair.Defs
 public import CFSG.GH74.GLS.IVK.L2.F1

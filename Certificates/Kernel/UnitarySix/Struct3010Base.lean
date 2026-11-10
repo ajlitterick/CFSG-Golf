@@ -3,8 +3,6 @@ module
 
 public import Certificates.Kernel.UnitarySix.LettersBase
 public import CFSG.Certificates.Kernel.U6Sound3010S
-public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.NativeDataBase
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Spor.RawSound
 
 @[expose] public section

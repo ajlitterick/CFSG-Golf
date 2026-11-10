@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorusCore
-public import CFSG.LocalAnalysis.StandardType.GGB48OmReduce
 public import CFSG.LocalAnalysis.StandardType.GGResILineInputs
-public import CFSG.LocalAnalysis.StandardType.GGResLeaf
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 
 public section
 

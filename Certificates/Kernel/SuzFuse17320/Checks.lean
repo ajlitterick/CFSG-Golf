@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.SuzA17321.Checks
 public import Certificates.Kernel.SuzThree13637.HypData
-public import Certificates.Data.TabSuzFuse
 public import Certificates.Data.Kernel.Spor.PSearch
 import CFSG.Certificates.Kernel.Common.Harness
 

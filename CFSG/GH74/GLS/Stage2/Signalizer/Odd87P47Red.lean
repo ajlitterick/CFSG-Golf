@@ -3,7 +3,6 @@ module
 public import CFSG.GH74.GLS.Stage2.Signalizer.Bridge
 import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.Assembly.ComponentTypeDefs
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGUSixThreeKGDefs
-public import CFSG.LocalAnalysis.StandardType.GGLinearTorusCompSUFrame
-public import CFSG.LocalAnalysis.StandardType.GGSixLinearModelSUTorus
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63H5LayerHeis
 
 public section

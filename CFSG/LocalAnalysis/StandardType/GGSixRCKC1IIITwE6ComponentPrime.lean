@@ -1,19 +1,11 @@
 module
 
-public import CFSG.Blueprint.Catalog
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeDefs
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKDefs
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIE6Components
-import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpRestTypeDet
 import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutOutdiagTwE6Model
-import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcSixETwisted
 import CFSG.LocalAnalysis.StandardType.GGTriD4NoneRank
 import CFSG.LargeExtraspecial.A2ModFrFLie
-import CFSG.ClassicalInvolution.Orders.Twisted
 import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.Cover
-import CFSG.LocalAnalysis.ComponentInitial.LocalComponents
 import CFSG.HardMathSupport.Dickson.I271.SporGen
 import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.NoComp
 import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.StepGen

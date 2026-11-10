@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenBN.U4.CaseTwoEight
 public import CFSG.LocalAnalysis.EvenBN.Common.Diagonal
-public import CFSG.Quasithin.Background.A1cTransfer
 
 public section
 

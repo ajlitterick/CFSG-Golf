@@ -5,7 +5,6 @@ public import CFSG.Certificates.Kernel.Spor.RawSound
 public import Certificates.Kernel.Misc.Perm.U33Base
 meta import Certificates.Kernel.Misc.Perm.U33Base
 import CFSG.Certificates.Kernel.Common.Harness
-import CFSG.Monster.B.Co2.PermArr
 
 public section
 

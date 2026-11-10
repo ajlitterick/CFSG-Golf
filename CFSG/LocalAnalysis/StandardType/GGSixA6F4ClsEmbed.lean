@@ -2,15 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedF4ClassDefs
 public import CFSG.HardMathSupport.Dickson.Bal207.FamF42Class
-public import CFSG.LocalAnalysis.SeitzReduction.F4PilotLeviSp6
 public import CFSG.LocalAnalysis.StandardType.GGLieCorePlane
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreCent
-public import CFSG.LocalAnalysis.StandardType.GGLieCoreDefs
-public import CFSG.HardMathSupport.Solomon.LocalBalance.I1433.F4TwoLang
-public import CFSG.LieType.Chevalley.CoordinateFieldBaseChange
-public import CFSG.LieType.AlgebraicGroups.FrobeniusDiagramRealized
-public import CFSG.LieType.Chevalley.OddF4CosetDescent
-public import CFSG.LieType.Chevalley.GraphFixedF4GroupRestriction
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
 public import CFSG.Certificates.FusionF2
@@ -57,7 +50,6 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly
@@ -71,8 +63,6 @@ public import CFSG.Quasithin.Background.C2PushThree
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.D2Cyclic
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.FFC4Tr2
 public import CFSG.Quasithin.Background.GoldschmidtS146RBend1

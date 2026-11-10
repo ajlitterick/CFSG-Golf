@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofEndOddLieLCore2
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneCBasic
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSp4OutCard
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofEndOddLieLCore
 public import CFSG.LocalAnalysis.ComponentClassification.Sol78F5EndB

@@ -1,15 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45FieldFixReeModel
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45FieldFixReeMark
-public import CFSG.LocalAnalysis.StandardType.GGTwistedF4Diag
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalRk2LU4Weyl
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalRk2Rows
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherExcHead
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherExcTwF4WeylLarge
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherExcTwF4WeylThree
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATorus
-public import CFSG.RankThree.SteinbergR3ELargeReeOrder
 
 public section
 

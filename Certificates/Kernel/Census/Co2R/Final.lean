@@ -13,7 +13,6 @@ public import Certificates.Kernel.Census.Co2R.TRL
 public import Certificates.Kernel.Census.Co2R.U
 public import CFSG.Certificates.Kernel.Census.PackedConjLProof
 public import Certificates.Kernel.Census.Co2R.L
-public import Certificates.Kernel.SporSch.Co2M.FratG
 public import CFSG.Certificates.Kernel.Census.TreeProof
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicCo2R
 import all Certificates.Kernel.Census.Co2R.Data
@@ -22,8 +21,6 @@ import all CFSG.Certificates.Kernel.Census.ToMainConj
 import all Certificates.Data.Kernel.Census.Packed
 import all Certificates.Data.Kernel.Census.PackedConj
 import CFSG.Certificates.Kernel.Common.Harness
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Certificates.Kernel.Census.ConjSound
 public import CFSG.Certificates.Kernel.Spor.SiftEq
 public import CFSG.Sporadic.Co2Schreier.ThirdNode

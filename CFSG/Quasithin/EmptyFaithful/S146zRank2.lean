@@ -1,10 +1,6 @@
 module
 
 public import CFSG.Quasithin.EmptyFaithful.S146zCtx
-public import CFSG.Quasithin.EmptyFaithful.S146zGen
-public import CFSG.Quasithin.EmptyFaithful.S146F22
-public import CFSG.Quasithin.Background.F9Sixteen
-public import Certificates.Kernel.J4Count.FixCE
 
 public section
 

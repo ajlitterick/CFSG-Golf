@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortTransport
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TwE6Conj
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TwE6Rad
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TwE6Gen
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TwE6Norm
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TwE6Center

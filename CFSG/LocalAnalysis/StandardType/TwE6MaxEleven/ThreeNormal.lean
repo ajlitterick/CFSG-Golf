@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.TwE6MaxEleven.Local
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConjAction
 
 public section
 

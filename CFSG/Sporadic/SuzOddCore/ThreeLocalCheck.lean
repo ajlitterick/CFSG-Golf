@@ -1,14 +1,9 @@
 module
 
-public import CFSG.Sporadic.SuzOddCore.GammaCheck
-public import CFSG.Sporadic.SuzOddCore.RestrictDefs
-public import Certificates.Data.CFSGNative.PSL3Four.Basic
-public import Certificates.Data.CFSGNative.Schreier.Check
 public meta import CFSG.Sporadic.SuzOddCore.GammaCheck
 public meta import CFSG.Sporadic.SuzOddCore.RestrictDefs
 public meta import Certificates.Data.CFSGNative.PSL3Four.Basic
 public meta import Certificates.Data.CFSGNative.Schreier.Check
-public import CFSG.Sporadic.SuzOddCore.ThreeLocalCheckInputs
 public import Certificates.Certificate2308
 
 public section

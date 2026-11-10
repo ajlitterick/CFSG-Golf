@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseCentralizerSylow
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2DihedralSylow
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

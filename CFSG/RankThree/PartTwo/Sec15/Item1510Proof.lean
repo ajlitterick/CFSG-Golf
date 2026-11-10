@@ -1,26 +1,16 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec15.Item1510ProofTools
-public import CFSG.RankThree.PartTwo.Sec13.Item13Inputs
-public import CFSG.RankThree.PartTwo.Sec14.Notation
 import CFSG.RankThree.PartTwo.Sec15.Item1511Meta
 import CFSG.RankThree.PartTwo.Sec15.Item1514Steps1515
-import CFSG.RankThree.PartTwo.Sec14.Concl143Std
 import CFSG.RankThree.PartTwo.Sec14.Concl142NHJInner
-import CFSG.RankThree.PartTwo.Sec14.Item145Bot
 import CFSG.RankThree.PartTwo.Sec13.OmegaNonempty
-import CFSG.RankThree.PartTwo.Sec13.Item131Facts
 import CFSG.RankThree.PartTwo.Sec13.Item13Sporadic
 import CFSG.RankThree.PartTwo.Sec13.Item13SLTwo
-import CFSG.RankThree.PartTwo.Sec13.Item13Models
-import CFSG.RankThree.PartTwo.Sec13.Item13Basic
 import CFSG.RankThree.PartTwo.Sec13.Item133
 import CFSG.RankThree.PartTwo.Sec19.Step1914Tri
 import CFSG.RankThree.PartTwo.KFacts.KS14Orders
 import CFSG.RankThree.PartTwo.KFacts.KS14HJSignalizer
-import CFSG.RankThree.PartTwo.Late.Transitivity
-import CFSG.RankThree.Theta.PlaneConditionSolvability
-import CFSG.RankThree.PartTwo.Source.SolvableNormalizedTwoCore
 import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 import CFSG.LinearAlgebra.LinearGroups.CoordinateData
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
@@ -51,7 +41,6 @@ import CFSG.LocalAnalysis.ComponentInitial.OrthogonalReflectionSplitting
 import CFSG.LocalAnalysis.ComponentInitial.OrthogonalStandardFormsRegular
 import CFSG.RankThree.PartTwo.KFacts.KS12MovesSL
 import CFSG.RankThree.PartTwo.Sec4.Census.Interface46
-import CFSG.Sporadic.Schreier.J4SProfileNode
 import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalGroup.LowRank

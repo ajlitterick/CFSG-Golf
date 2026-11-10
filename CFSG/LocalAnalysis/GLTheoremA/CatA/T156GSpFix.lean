@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownSp
-public import CFSG.LocalAnalysis.StandardType.GGNbrGraphFieldB2der
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownLinearGeom
-public import CFSG.LocalAnalysis.ComponentClassification.PresentationLocalSymplecticSix
 
 public section
 

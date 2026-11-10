@@ -1,20 +1,12 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoCavImage
-public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRankFiveAmbient
 public import CFSG.LocalAnalysis.StandardType.GGE6RankFiveTorality
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangModel
-public import CFSG.LocalAnalysis.StandardType.MarkingChevalley
-public import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOtherCore
 public import CFSG.LocalAnalysis.StandardType.GGQTwoCavMarking
 public import CFSG.LocalAnalysis.StandardType.GGQTwoCavHeartImage
-public import CFSG.LocalAnalysis.StandardType.GGTwE6DD2Torus
 public import CFSG.LocalAnalysis.StandardType.GGTwE6R5Torus
 public import CFSG.LocalAnalysis.StandardType.GGTwE6D5CoreFrame
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.AlgSetupUntw
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154ExcDataTw
-public import CFSG.LieType.Chevalley.GraphFixedFinitePerfect
 
 public noncomputable section
 

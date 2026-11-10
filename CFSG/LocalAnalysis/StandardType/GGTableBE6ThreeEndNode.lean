@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTableBE6ThreeEndCore
 public import CFSG.LocalAnalysis.StandardType.GGTableBE6ThreeEndCount
 public import CFSG.LocalAnalysis.StandardType.GGTableBE6ThreeEndCoroot
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeLabel
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeBstar
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 
 public section
 

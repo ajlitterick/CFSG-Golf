@@ -6,10 +6,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.TwE6LeviRank
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeDiagTwisted
 public import CFSG.GroupTheory.CentralizerMap
 public import CFSG.GroupTheory.ConjKerCenter
-public import CFSG.LocalAnalysis.ComponentClassification.PerfectCentralQuotient
-public import CFSG.LieType.Universal.Unitary.Clause0
-public import CFSG.ClassicalGroups.Unitary.Finite
-public import CFSG.ClassicalGroups.UnitaryFlag.GroupData
 public import CFSG.LieType.SeitzGeneration.OuterQuotient
 public import CFSG.Quasithin.SteinbergUnitaryOuterPrimeControl
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeDiag
@@ -52,7 +48,6 @@ public import CFSG.RankThree.PartTwo.KFacts.KS14SzLie
 public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 
 public section
 

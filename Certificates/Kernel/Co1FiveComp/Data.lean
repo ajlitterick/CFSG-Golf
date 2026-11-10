@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.Kernel.SporSch.Co1Bfs
 public meta import Certificates.Kernel.SporSch.Co1.GenBfs
 public meta import Certificates.Kernel.Co1FiveK.Data
 public meta import Certificates.Data.Co1FiveComp

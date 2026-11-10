@@ -1,6 +1,5 @@
 module
 
-public import CFSG.CharacterTheory.Blocks.Defs
 public import CFSG.CharacterTheory.SmallDefect.Basic
 
 public section

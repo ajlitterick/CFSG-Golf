@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGRawAutRestSz
 public import CFSG.LocalAnalysis.StandardType.GGRawAutRestSmall
 public import CFSG.LocalAnalysis.StandardType.GGRawAutRestTri
 public import CFSG.LocalAnalysis.StandardType.GGTwistedF4Diag
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagRee
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTriality
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryDiagonalOuterOrder
 public import CFSG.Sporadic.Schreier.TitsOuterTwo
 

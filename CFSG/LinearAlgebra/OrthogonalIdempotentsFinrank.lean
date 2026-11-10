@@ -1,8 +1,6 @@
 module
 
 import TauCeti.LinearAlgebra.Dimension.DirectSum
-public import Mathlib.LinearAlgebra.Dimension.Constructions
-public import Mathlib.LinearAlgebra.FiniteDimensional.Defs
 public import Mathlib.RingTheory.Idempotents
 public import Mathlib.LinearAlgebra.FiniteDimensional.Basic
 public import Mathlib.LinearAlgebra.FreeModule.StrongRankCondition

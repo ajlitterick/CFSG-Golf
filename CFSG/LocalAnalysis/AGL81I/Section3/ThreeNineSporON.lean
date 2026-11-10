@@ -4,9 +4,6 @@ public import CFSG.LocalAnalysis.AGL81I.Section3.ThreeNineSporHull
 public import CFSG.LocalAnalysis.AGL81I.Section3.ThreeNineMemberDefLocal
 public import CFSG.LocalAnalysis.RankThreeTheoremC.ONPair.ThreeFourTwo
 public import CFSG.LocalAnalysis.RankThreeTheoremC.ONPair.NQOvergroupsHolds
-public import CFSG.Sporadic.Schreier.SteinbergBIONOuterTwo
-public import CFSG.Sporadic.ON.Simple
-public import CFSG.Sporadic.ON
 public import CFSG.GroupTheory.SylowNormalIndex
 public import CFSG.LocalAnalysis.AGL81I.Section3.ThreeNineSporOrder
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveFour

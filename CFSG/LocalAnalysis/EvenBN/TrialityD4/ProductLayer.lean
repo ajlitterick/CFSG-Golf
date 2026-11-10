@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.EvenBN.TrialityD4.ProductToolbox
 public import CFSG.LocalAnalysis.EvenBN.Common.Diagonal
 public import CFSG.LocalAnalysis.EvenBN.Common.RadicalRank
-public import CFSG.LieType.Steinberg.CentralExt.RankOne
-public import Mathlib.LinearAlgebra.Projectivization.PSL.PSL2
 public import CFSG.Monster.B.TwoA.Sp8.A8
 
 public section

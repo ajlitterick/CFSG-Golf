@@ -1,18 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGUSixTwoTorus
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRest
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoTransfer
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoPairing
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelTypeAAssembly
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelTypeABridge
-public import CFSG.LocalAnalysis.StandardType.GGUSixTwoModel
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoSetup
-public import CFSG.LocalAnalysis.StandardType.GGUSixTwoDescent
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitDvdAct
-public import CFSG.LocalAnalysis.StandardType.GGUSixTwoTransvection
-public import CFSG.LocalAnalysis.StandardType.GGUSixTwoModuleTorus
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoCoverTorusAux
 
 public section

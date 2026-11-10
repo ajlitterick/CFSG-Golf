@@ -8,20 +8,8 @@ import CFSG.LocalAnalysis.UniquenessCase.UC22P21d
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.LayerOddAvg
 import CFSG.GH74.Uniqueness.Section14Tools
 public import CFSG.LocalAnalysis.UniquenessCase.UC6R
-public import CFSG.LocalAnalysis.UniquenessCase.UCFront07
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront07Eq
-import CFSG.RankThree.PartOne.S12.Sec15Final
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Core
 import CFSG.GroupTheory.LocalCores.FittingNormal
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.lemma_4_5_a
-import CFSG.LocalAnalysis.SectionRank.SQT
-import CFSG.LocalAnalysis.SectionRank.PRank
-import CFSG.LocalAnalysis.SignalizerFunctor.SurjectiveSylowLifting
-import CFSG.LocalAnalysis.RankThreeCoreUniqueness.CoprimeQuotientRank
-import CFSG.LocalAnalysis.RankThreeCoreUniqueness.Helpers
-import CFSG.LocalAnalysis.RankThreeCoreUniqueness.LocalCore
-import CFSG.LocalAnalysis.RankThreeTheoremC.Basic
 import CFSG.LocalAnalysis.UniquenessCase.UC22Bridge
 
 public section

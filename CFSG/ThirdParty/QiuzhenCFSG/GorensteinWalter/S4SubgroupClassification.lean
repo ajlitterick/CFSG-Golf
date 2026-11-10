@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.LinearThreeEquiv
-public import Mathlib.GroupTheory.PGroup
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
 
 namespace CFSG
 end CFSG

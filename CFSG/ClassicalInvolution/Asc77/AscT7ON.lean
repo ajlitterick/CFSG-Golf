@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Asc77.AscT7OM
-public import CFSG.ClassicalInvolution.ModelFacts.Orth15D4Outer
-public import CFSG.ClassicalInvolution.ModelFacts.Orth15D4Inner
 public import CFSG.ClassicalInvolution.ModelFacts.Orth15RFixLift
 
 public section

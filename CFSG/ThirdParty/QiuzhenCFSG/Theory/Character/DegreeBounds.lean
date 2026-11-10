@@ -1,10 +1,7 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.JacobsonDensity
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.SubrepresentationLattice
 public import Mathlib.Analysis.Complex.Polynomial.Basic
-public import Mathlib.GroupTheory.Commutator.Basic
-public import Mathlib.LinearAlgebra.FreeModule.Finite.Matrix
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.Maschke
 
 namespace CFSG

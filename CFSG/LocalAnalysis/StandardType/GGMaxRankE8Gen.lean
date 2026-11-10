@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.Steinberg.Adjoint.Pairs
-public import CFSG.LieType.Chevalley.WeylRoots
 public import CFSG.LieType.Chevalley.LatticeWeylGroup
 
 public section

@@ -1,14 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGLinearFusionSUComp
-public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionSURepWitt
-public import CFSG.LocalAnalysis.StandardType.GGLinearFusionSURepairBlock
-public import CFSG.LocalAnalysis.StandardType.GGLinearTorusCompSUModel
 public import CFSG.LocalAnalysis.StandardType.GGLinearTorusCompSUTwo
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeBlock
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
 public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitSU
-public import CFSG.LocalAnalysis.ComponentInitial.CommutingBlock
 public import CFSG.LocalAnalysis.ComponentInitial.BlockOvergroupDichotomy
 public import CFSG.LocalAnalysis.ComponentInitial.QuasisimpleRankOne
 public import CFSG.LocalAnalysis.ComponentInitial.BlockNormalizerControl

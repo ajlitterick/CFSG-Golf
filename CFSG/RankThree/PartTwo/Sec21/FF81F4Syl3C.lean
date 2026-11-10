@@ -1,10 +1,5 @@
 module
 
-public import CFSG.RankThree.PartTwo.Sec21.FF81F4Syl3Sound
-public import CFSG.RankThree.PartTwo.Sec21.FF81F4Syl3Check
-public import CFSG.RankThree.PartTwo.Sec21.FF81F4Elts
-public import CFSG.RankThree.PartTwo.Sec21.FF81F4Easy
-public import CFSG.GroupTheory.ElemAbelianClosure
 public import Certificates.Certificate799602
 public import CFSG.Quasithin.H13.J4Core
 

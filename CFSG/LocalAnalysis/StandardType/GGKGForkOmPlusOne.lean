@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGKGForkRows
 public import CFSG.LocalAnalysis.StandardType.GGKGForkOrthRow
 public import CFSG.LocalAnalysis.StandardType.GGKGForkOmPlusRoot
-public import CFSG.LocalAnalysis.StandardType.GGKGForkLatticeElt
 
 public section
 

@@ -3,11 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinSelected
 public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockSpSelected
 public import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagModel
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockDegreeOneGFTwo
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveNbr
-public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotTorus
-public import CFSG.LocalAnalysis.StandardType.GGExclNoIso
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockModelSelfDualPSp
 
 public section

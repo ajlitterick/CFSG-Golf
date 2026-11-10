@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.PhanELocalModels
 import CFSG.LocalAnalysis.StandardType.PhanELocalPlane
-import CFSG.LocalAnalysis.StandardType.PhanELocalSigma
 import CFSG.LocalAnalysis.StandardType.PhanELocalGate
 public import CFSG.Certificates.Kernel.ThDemp.OrbCent
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanEDefs

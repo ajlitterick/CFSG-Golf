@@ -3,24 +3,11 @@ module
 public import Certificates.Kernel.Asch54.Fi22Checks
 public import Certificates.Kernel.Sporadic.Fi22.C2066
 public import Certificates.Kernel.Sporadic.Fi22.E2065Eq
-public import CFSG.Certificates.Kernel.Spor.RawTreeSound
-public import CFSG.Certificates.Kernel.Spor.RawOrbHead
-public import CFSG.Certificates.Kernel.Spor.RawAgree
-public import CFSG.Certificates.Kernel.Spor.RawSiftK
-public import CFSG.Certificates.Kernel.Spor.SiftEq
-public import CFSG.Certificates.Kernel.Misc.HexFlatSound
 public import CFSG.Quasithin.Recognition.CertChain
 public import CFSG.Sporadic.FischerOddCore.Fi22FiveExact
-public import CFSG.Sporadic.FischerOddCore.Fi22ExtSylow
 public import CFSG.Monster.B.Fischer.Fi22Model
-public import CFSG.Monster.B.Fischer.Fi22Local
 public import CFSG.LocalAnalysis.WeakClosure81.GF2RepsAsch54SporIndexTwo
 public import Certificates.Data.Asch54SporFi22Pair
-public import CFSG.Monster.B.Fischer.Fi22Graph
-public import CFSG.Sporadic.FischerOddCore.Fi22Cent
-public import Certificates.Data.Asch54SporFi22Pair
-public import CFSG.Monster.B.Fischer.PinnedChain
-public import CFSG.Sporadic.FischerOddCore.Fi22Cent
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

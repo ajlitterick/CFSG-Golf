@@ -4,24 +4,11 @@ module
 public import CFSG.Monster.B.TwoA.Sp8.GenActionLiftsBase
 
 public import CFSG.Monster.B.TwoA.Sp8.ElemAb
-public import CFSG.Monster.B.TwoA.Sp8.GenActionData
-public import CFSG.Monster.B.Gen.HRecords
 public meta import CFSG.Monster.B.Rep4371.Model
 public meta import CFSG.Monster.B.TwoA.Sp8.GenActionData
 public meta import CFSG.Monster.B.TwoA.Co2Inv.Data
 public meta import CFSG.Monster.B.TwoA.Sp8.Lifts
-public import CFSG.Monster.B.TwoA.Sp8.GenActionLiftsInputs
 public import Certificates.Certificate3072
-public import Certificates.Data.CFSGNative.MonsterB.Short
-public import Certificates.Data.CFSGNative.Mathieu.M24
-public import CFSG.Certificates.Kernel.AxisPlane.Orbit
-public import Certificates.Data.Kernel.VisFrame.Gens
-public import Certificates.Data.CFSGNative.MonsterB.Co2Chain
-public import Certificates.Data.CFSGNative.MonsterB.Co2Matrix
-public import CFSG.Monster.B.TwoA.Base.WCls
-public import CFSG.Monster.B.TwoA.Census.PermBFS
-public import CFSG.Monster.B.TwoA.Co2Inv.Data
-public import CFSG.Monster.B.TwoA.Co2Inv.RowsInputs
 
 public noncomputable section
 

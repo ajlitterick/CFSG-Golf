@@ -1,15 +1,8 @@
 module
 
 public import Mathlib.GroupTheory.Perm.ClosureSwap
-public import Mathlib.GroupTheory.Perm.Sign
 public import Mathlib.GroupTheory.Perm.Cycle.Basic
-public import Mathlib.Algebra.Group.Subgroup.Actions
-public import Mathlib.Data.Fintype.Card
 public import Mathlib.Logic.Equiv.Fin.Basic
-public import Mathlib.Logic.Equiv.Set
-public import Mathlib.Algebra.Group.End
-public import Mathlib.Data.Fin.SuccPred
-public import Mathlib.Data.Set.Subsingleton
 
 public section
 

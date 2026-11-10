@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.FS81.E7FrameAssemble
 public import CFSG.LocalAnalysis.StandardType.FS81.E7FrameJ0
 public import CFSG.LocalAnalysis.StandardType.FS81.E7FrameTrans
 public import CFSG.Mathlib.GroupTheory.NormalSimpleProj
-public import CFSG.GroupTheory.CommutingProductFixedSubgroup
 
 public noncomputable section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResE6DependentDualWord
-import Mathlib.Tactic.FinCases
 
 public section
 

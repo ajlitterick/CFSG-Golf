@@ -2,7 +2,6 @@ module
 
 public import Mathlib.Data.Complex.Basic
 public import Mathlib.RepresentationTheory.Character
-public import Mathlib.GroupTheory.Index
 
 namespace CFSG
 end CFSG

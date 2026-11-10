@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TableTBridge
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TableTClasses
 
 public section

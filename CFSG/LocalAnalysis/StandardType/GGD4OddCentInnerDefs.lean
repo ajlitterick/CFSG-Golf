@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentKnownInputs
-public import CFSG.LocalAnalysis.StandardType.GGHypSixD4RankOmega
 
 public section
 

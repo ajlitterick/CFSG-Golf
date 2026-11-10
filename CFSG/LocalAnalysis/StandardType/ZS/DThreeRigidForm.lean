@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.ZS.ReflQuotient
-public import Mathlib.LinearAlgebra.BilinearForm.Basic
 import CFSG.LocalAnalysis.StandardType.ZS.Basic
 import CFSG.LocalAnalysis.StandardType.ZS.ReflProductOrder
 

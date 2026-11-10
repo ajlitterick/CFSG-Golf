@@ -1,13 +1,8 @@
 module
 
 public import CFSG.Monster.AxisCount.HSCount
-public import CFSG.Monster.B.Cbar.FourGroupBar
-public import CFSG.Monster.B.Cbar.Simple
-public import CFSG.Monster.B.TwoA.Census.CentralSqrt
 public import CFSG.Monster.Existence.DLevelRank
 public import CFSG.Monster.Existence.GMSBridge
-public import CFSG.Monster.Existence.InvolutionClasses
-public import CFSG.Monster.GMS.Defs
 
 public section
 

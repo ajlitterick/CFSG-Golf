@@ -1,9 +1,6 @@
 module
 
-public import Mathlib.Algebra.Algebra.ZMod
-public import Mathlib.Algebra.Field.ZMod
 public import Mathlib.FieldTheory.Finite.GaloisField
-public import Mathlib.FieldTheory.Galois.Basic
 public import Mathlib.GroupTheory.Abelianization.Finite
 public import Mathlib.GroupTheory.Nilpotent
 

@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGFrameEndJoin
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortGlueRoot
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoAux
 
 public section
 

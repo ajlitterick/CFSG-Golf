@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Open.Defs
-public import CFSG.Open.StatedDefs
-public import CFSG.Assembly.LowTwoRankDefs
 public import CFSG.Blueprint.Catalog
 
 public section

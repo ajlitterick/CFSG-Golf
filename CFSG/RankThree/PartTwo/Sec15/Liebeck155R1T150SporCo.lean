@@ -5,15 +5,7 @@ import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.Co3Shape
 import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabCo2Cent
 import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabCo2U42
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S2019AmbAut
-import CFSG.RankThree.PartOne.KP.Co3Aut
-import CFSG.RankThree.PartOne.SPOR.Outer
 import CFSG.RankThree.PartTwo.Sec4.RonanK429RowHComp
-import CFSG.Sporadic.Bridge.Co3Surj
-import CFSG.Sporadic.Co2Cert.Faithful
-import CFSG.Sporadic.Presentation.Co2Exact
-import CFSG.Sporadic.Schreier.Co3Faithful
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.Certificates.CosetTableWalkC
@@ -66,7 +58,6 @@ import CFSG.RankThree.PartTwo.Sec14.Item142ResProofPGL
 import CFSG.RankThree.PartTwo.Sec20.OneSteps
 import CFSG.RankThree.PartTwo.Sec21.Item211ProofListOf
 import CFSG.RankThree.PartTwo.Sec4.Item41NarrowGriess
-import CFSG.Walter.J1Props
 
 public section
 

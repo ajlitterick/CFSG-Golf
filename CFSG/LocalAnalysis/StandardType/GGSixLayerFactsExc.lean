@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcToral
-public import CFSG.RankThree.PartOne.KE.EDualStabilizer
-public import CFSG.RankThree.PartOne.KE.F4Regular
-public import CFSG.LieType.CurtisTits.ExceptionalQuasisimple
-public import CFSG.LieType.Steinberg.Adjoint.Perfect
 
 public section
 

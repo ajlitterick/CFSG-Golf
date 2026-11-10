@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.Vol2.Ch9Sec3FactsF112PfA
 public import CFSG.Quasithin.Background.C35InspL3
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X7aResidual
 public import CFSG.Quasithin.H13.NQCatParabolicSL3
 public import CFSG.Quasithin.Background.F2Equiv
 public import CFSG.Quasithin.Vol2.Ch9Sec3FactsF112

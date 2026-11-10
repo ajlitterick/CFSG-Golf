@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBJOmDefs
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmBlockGTwo
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmBlockGDet
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmBlockGSupp

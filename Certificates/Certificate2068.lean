@@ -3,28 +3,20 @@ module
 
 public import Certificates.Certificate2068Base
 public meta import CFSG.Sporadic.FischerOddCore.Fi22ExtSylowCheckBase
-import Certificates.Kernel.Sporadic.Fi22.C2068Base
 meta import CFSG.Monster.B.Fischer.Fi22OuterCheckBase
 meta import CFSG.Sporadic.FischerOddCore.Fi22ExtCheckBase
 meta import CFSG.Monster.B.Fischer.Fi22GraphCheckBase
 
-public import CFSG.Sporadic.FischerOddCore.Fi22ExtCoverCheckInputs
 public meta import CFSG.Sporadic.FischerOddCore.Fi22ExtSylowCheck
 public meta import Certificates.Data.CFSGNative.FischerOddCore.Checks
 import Certificates.Kernel.Sporadic.Fi22.C2068
-import CFSG.Sporadic.FischerOddCore.Fi22ExtCheckInputs
 meta import CFSG.Sporadic.FischerOddCore.Fi22ExtData
 meta import CFSG.Monster.B.Fischer.Fi22OuterCheck
 meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
-import CFSG.Sporadic.FischerOddCore.Fi22ExtSylowCheckInputs
 meta import CFSG.Sporadic.FischerOddCore.Fi22ExtCheck
 meta import CFSG.Monster.B.Fischer.Fi22CoverCheckBase
 meta import CFSG.Monster.B.Fischer.Fi22OrderCheck
 meta import CFSG.Monster.B.Fischer.Fi22GraphCheck
-import CFSG.Monster.B.Fischer.PinnedChainInputs
-import CFSG.Monster.B.Fischer.Fi22OrderCheckInputs
-import CFSG.Monster.B.Fischer.Fi22OuterArrays
-import CFSG.Monster.B.Fischer.Fi22OrderCheck
 
 public section
 

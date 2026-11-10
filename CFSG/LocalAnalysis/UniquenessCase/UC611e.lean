@@ -1,15 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.UC611b
-public import CFSG.LocalAnalysis.UniquenessCase.UC611c
 public import CFSG.LocalAnalysis.UniquenessCase.UC611a
 public import CFSG.LocalAnalysis.UniquenessCase.UC611d
-public import CFSG.GroupTheory.CommutingProductFixedSubgroup
-public import CFSG.GroupTheory.QuasisimpleCommutingProductBound
-public import CFSG.LocalAnalysis.UniquenessCase.UC22P21c
-public import CFSG.LocalAnalysis.UniquenessCase.UC22P22qa
-public import CFSG.LocalAnalysis.RankThreeEvenClassification.CoprimeAmbientCentralizerGeneration
-public import CFSG.LocalAnalysis.SignalizerFunctor.Coprime
 
 public section
 

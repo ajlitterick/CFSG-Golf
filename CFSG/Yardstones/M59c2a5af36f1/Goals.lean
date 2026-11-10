@@ -2,23 +2,12 @@ module
 
 public import CFSG.GF2Type.Aschbacher1976Full.Final
 public import CFSG.GF2Type.Smith1980Orth.Final
-public import CFSG.Assembly.InCatalog
-public import CFSG.LocalAnalysis.GLTheoremB.Statements
-public import CFSG.GF2Type.Aschbacher1976
-public import CFSG.GF2Type.Aschbacher1977WidthAtMostTwo
 public import CFSG.GF2Type.Smith1979CharTwoKP
-public import CFSG.GF2Type.Smith1980Orthogonal
-public import CFSG.GF2Type.Smith1980TypeE
 public import CFSG.GF2Type.SmithTypeE.Final
 public import CFSG.GF2Type.Aschbacher1977.Main
 public import CFSG.Yardstones.M67c2c3e09a6b.Goals
-public import CFSG.GF2Type.Smith1979.GammaU.CensusDefs
 import Certificates.Kernel.GammaU.BaseBridge
-import CFSG.HardMathSupport.Timmesfeld.LocalTwo.AltMain
-import CFSG.HardMathSupport.Timmesfeld.LocalTwo.LpEpsMain
 import CFSG.HardMathSupport.Solomon.LocalBalance.TheoremOneWired
-import CFSG.HardMathSupport.Solomon.Coordinator.I27_1Fi22
-import CFSG.HardMathSupport.Solomon.Coordinator.T112TCAll
 import CFSG.LocalAnalysis.GLTheoremB.Prop98FinalReducedI19
 import CFSG.GF2Type.Smith1979CharTwoKPInputs
 import CFSG.GF2Type.Smith1979.ParrottThHolds

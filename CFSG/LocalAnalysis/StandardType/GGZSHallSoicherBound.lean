@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGZSHallSoicherInputs
 import all CFSG.LocalAnalysis.StandardType.GGZSHallSoicherInputs
 public import Certificates.Certificate709541
 public import Mathlib

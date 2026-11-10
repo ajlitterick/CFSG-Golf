@@ -2,21 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Main
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Basic245Proofs
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Stage5
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Final
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Stage4
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Stage1
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Stage2
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Stage3
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Stage6
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.S2Q
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.S2StageA
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.S2StageB
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.S2StageC
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.S2StageD
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.S2List
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Stage7
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Stage8
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Stage9
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.S9Insp
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Stage10
@@ -24,7 +14,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.G3NoProper
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.Lemma27A5
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3Main
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.AppCS2Final
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.AppC56A5
 
 public section
 

@@ -1,16 +1,9 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Higman.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Higman.lemma_5
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Higman.lemma_6
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Higman.lemma_9
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Higman.lemma_10
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFAppendixIII.CentralExtensionCoordinates
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Invariant
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Frattini.Core
-import Mathlib.GroupTheory.GroupAction.ConjAct
 import Mathlib.LinearAlgebra.FixedSubmodule
-import Mathlib.RingTheory.Flat.FaithfullyFlat.Basic
 
 namespace CFSG
 end CFSG

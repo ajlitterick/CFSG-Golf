@@ -3,10 +3,8 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTorsionDefs
 import CFSG.LocalAnalysis.StandardType.GGTorsionPSUComp
 import CFSG.LocalAnalysis.StandardType.GGTorsionClassical
-import CFSG.LocalAnalysis.StandardType.GGTorsionQuotComp
 import CFSG.LocalAnalysis.StandardType.GGTorsionLinear
 import CFSG.LocalAnalysis.StandardType.GGTorsionTwF4
-import CFSG.LocalAnalysis.StandardType.Marking
 
 public section
 

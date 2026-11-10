@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Sporadic.OddCore.SuzBtZG
 public import Certificates.Kernel.Sporadic.OddCore.SuzBtIF
 public import CFSG.Certificates.Kernel.Spor.BTupISound
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
 
 public section

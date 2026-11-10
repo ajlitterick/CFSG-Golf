@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.IDPSL
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.IDPSU
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.HeisenbergRank
-public import CFSG.Assembly.Defs
-public import CFSG.Open.StatedDefs
 public import CFSG.Sporadic.Schreier.J4SProfileNode
 
 public section

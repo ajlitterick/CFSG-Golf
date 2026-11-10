@@ -7,7 +7,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.OddLinearTwoAliases
 public import CFSG.Monster.Existence.Compat.Sp8
 public import CFSG.Quasithin.EmptyFaithfulMultiple.G2TwoUnitary
 public import CFSG.LieType.Ree.SuzukiSimple
-public import CFSG.ClassicalGroups.Unitary.Simple
 import CFSG.Open.StatedZModTwo
 import CFSG.Adapters.StatedPSLTwoNine
 public import CFSG.Fischer.Uniq.CompTau
@@ -15,10 +14,6 @@ public import CFSG.LinearAlgebra.LinearGroups.CoordinateData
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoAllFields
 public import CFSG.Monster.Existence.Defs
 public import CFSG.Open.MonsterY443Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

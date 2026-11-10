@@ -1,7 +1,5 @@
 module
 
-public import CFSG.ClassicalInvolution.Q3.ModelOddCentralizerGaussUnitary
-public import CFSG.Monster.B.Fischer.Fi22Order
 public import TauCeti.RingTheory.LocalRing.Basic
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.A2ActualPart1
 

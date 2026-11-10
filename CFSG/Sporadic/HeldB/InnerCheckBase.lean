@@ -1,9 +1,6 @@
 
 module
 
-public import CFSG.Sporadic.HeldB.InnerData
-public import CFSG.Sporadic.HeldB.Common
-public import CFSG.Sporadic.Schreier.MathieuOddCoreCentral
 public meta import CFSG.Sporadic.HeldB.InnerData
 public meta import CFSG.Sporadic.HeldB.Common
 public meta import CFSG.Sporadic.Schreier.MathieuOddCoreCentral

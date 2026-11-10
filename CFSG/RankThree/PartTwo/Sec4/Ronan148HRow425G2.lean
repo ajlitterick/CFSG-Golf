@@ -2,21 +2,9 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec4.Ronan148HRow425Three
 public import CFSG.RankThree.PartTwo.Sec4.Ronan148LT2Tor
-public import CFSG.RankThree.PartTwo.Sec11.KS11Lie4ProofSplit
-public import CFSG.RankThree.PartTwo.Sec11.KS11Lie4ProofTwist
 public import CFSG.RankThree.PartTwo.Sec11.KS11Lie7Proof
-public import CFSG.RankThree.PartTwo.Sec11.KS11Lie7ProofCent
-public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67A2Hom
-public import CFSG.Adapters.TauCetiExceptional.EvenBridgeG2
-public import CFSG.LieType.Steinberg.CentralExt.G2Multiplier
 public import CFSG.LieType.Steinberg.CentralExt.GriessGTwoFour
-public import CFSG.Adapters.ProjectiveSpecialLinear
-public import CFSG.LieType.Universal.Unitary.Clause0
-import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67A2Torus
 import CFSG.ClassicalInvolution.Balance.LayerGenerationShortAdjoint
-import CFSG.LieType.Chevalley.AdjointCenter
-import CFSG.RankThree.Chevalley.SteinbergCAG2ToralPrimePlane
-import CFSG.RankThree.Classical2.SLnRootPermutingFixedGroups
 public import CFSG.GH74.GLS.Balance.SolvAPIDefs
 public import CFSG.HardMathSupport.Solomon.Coordinator.L3C143AltMain
 public import CFSG.HardMathSupport.Solomon.Coordinator.YS08.Down
@@ -46,7 +34,6 @@ public import CFSG.RankThree.PartTwo.Sec4.Ronan148RH1Move
 public import CFSG.RankThree.PartTwo.Sec4.Ronan148RH1Transfer
 public import CFSG.RankThree.PartTwo.Sec4.RonanK429RowA9
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item4443SLUsed
-public import CFSG.Walter.J1Props
 import CFSG.ClassicalInvolution.Balance.PassTwoFinal
 
 public section

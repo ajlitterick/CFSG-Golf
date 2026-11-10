@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.Section3.Shapes
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.Section3.GzClass.A5CentBase
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.Aschbacher.BaseEmb
 
 @[expose] public section
 

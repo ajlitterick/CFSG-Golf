@@ -3,11 +3,8 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTwE6KGLIDADefs
 public import CFSG.RankThree.Classical.SteinbergBJSymplecticCrossPrimeBlocks
 import all CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.SympInner
-import CFSG.LieType.Universal.Symplectic
-import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagOrder
 import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherEvenSymplecticNormalForm
 import CFSG.RankThree.PartOne.KC.SymplecticInnerPlaneAlt6
-import CFSG.RankThree.PartOne.KC.SymplecticIsotypicFixed
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoProjectiveFormulas
 import CFSG.ClassicalInvolution.Balance.LocalBalance.Faithful
 import CFSG.HardMathSupport.Solomon.Coordinator.B3FamPC
@@ -16,14 +13,7 @@ import CFSG.HardMathSupport.Solomon.LocalBalance.Sec5Statements
 import CFSG.HardMathSupport.Timmesfeld.Proving.ExistsOrderPCentralizer
 import CFSG.HardMathSupport.Timmesfeld.Proving.GLAPrimeCoreCentralizer
 import CFSG.RankThree.PartOne.KC.SymplecticInnerPlaneCore
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
-import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremB
-import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremC
-import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.ZJTheorem
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GW1965RemarkDGroup
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29Helpers
 
 public section
 

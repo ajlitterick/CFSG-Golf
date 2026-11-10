@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourKGPos
 public import CFSG.LocalAnalysis.StandardType.GGF4OrbCore
 public import CFSG.LocalAnalysis.StandardType.GGF4OrigRep
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLFaithful
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
-import Mathlib.Tactic.Group
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Assembly.OrderReductions.InvariantSylow
 public import CFSG.Assembly.OrderReductions.TwoPointInvolutions
 
 public section

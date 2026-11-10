@@ -2,16 +2,12 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7CCoordDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixA6InsideSpFrame
-public import CFSG.LocalAnalysis.StandardType.GGSixAutKFinerChoiceTwoKey
 public import CFSG.LocalAnalysis.StandardType.GGSixA6InsideSpTorus
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 import CFSG.LocalAnalysis.StandardType.GGSixA6InsideSpComp
 import CFSG.LocalAnalysis.StandardType.GGHdRo7CKCoordBCoreS
-import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitSpNsComp
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OSpThreeFixed2
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GSympLabel
 import CFSG.ClassicalGroups.Symplectic.ComponentCartanRank
-import CFSG.LocalAnalysis.ComponentInitial.BinarySymplecticSixCoverModel
 import CFSG.LocalAnalysis.SteinbergCCPowerTwoDegreeTransport
 import CFSG.LocalAnalysis.ComponentClassification.TBLitL34P
 import CFSG.LocalAnalysis.StandardType.GGHdRo7CKCoordBCoreSmall
@@ -20,7 +16,6 @@ import CFSG.ClassicalGroups.Symplectic.DiagonalTorusRank
 import CFSG.Goldschmidt75.WeakClosure
 import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsCoverInvModel
 import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsParabolicGen
-import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsRealModelBase
 import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsStandard
 import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4InputsReal
 import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec5Lemma53

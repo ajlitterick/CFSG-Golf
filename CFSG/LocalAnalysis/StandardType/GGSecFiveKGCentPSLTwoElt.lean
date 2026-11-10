@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotHsyl
 import CFSG.LocalAnalysis.ComponentInitial.LinearHigherFieldInvolution
 import CFSG.LocalAnalysis.ComponentInitial.LinearFlagOrder
 import CFSG.LocalAnalysis.ComponentInitial.LinearHigherSubspaceIndex
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

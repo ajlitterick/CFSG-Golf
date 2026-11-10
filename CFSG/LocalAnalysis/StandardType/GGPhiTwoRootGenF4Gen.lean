@@ -1,23 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoRootGenF4Cover
-public import CFSG.LocalAnalysis.StandardType.GGPhiTwoRootGenF4Rat
-public import CFSG.LocalAnalysis.StandardType.GGPhiTwoRootGenLayer
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwE7
 public import CFSG.LieType.SeitzGeneration.ExcHigh.F4Two
-public import CFSG.LocalAnalysis.StandardType.GGPhiTwoRootGenDefs
-public import CFSG.LocalAnalysis.StandardType.GGPhiTwoRootGenSL
-public import CFSG.LieType.AlgebraicGroups.KernelRootDescent
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Detect.Heis.RootSpanInter
-public import CFSG.LieType.Chevalley.WeylRootTransport
-public import CFSG.LieType.Chevalley.F4FieldTwoEuclid
-public import CFSG.LieType.Chevalley.CLSEvenCoordinateFieldsFourGroup
-public import CFSG.LieType.Chevalley.ParabolicRadicalLevi
 public import CFSG.LocalAnalysis.StandardType.GGOppositeRadicalExcCore
-public import CFSG.LieType.Steinberg.Adjoint.Datum
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoRootGenOmit
-public import CFSG.LocalAnalysis.StandardType.GGPhiTwoRootGenGen
-public import CFSG.LieType.Chevalley.GraphFixedF4GroupDescent
 public import CFSG.HardMathSupport.Lang.AnisoF4.B4PlanesEven
 
 public section

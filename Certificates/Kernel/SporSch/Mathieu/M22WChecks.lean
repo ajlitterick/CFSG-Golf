@@ -5,7 +5,6 @@ public import Certificates.Kernel.SporSch.Mathieu.M22Cls
 public import Certificates.Kernel.SporSch.Mathieu.M22OData
 public import Certificates.Data.Kernel.SporSch.OddWit
 public import Certificates.Data.Kernel.SporSch.MathieuBT
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.SemisimpleCentralizers.SymplecticCentralizerSolvable
 public import CFSG.LocalAnalysis.StandardType.GGAllFixedA8Seven
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticBstar
 public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 
 public section

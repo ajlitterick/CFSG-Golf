@@ -1,13 +1,10 @@
 module
 
-public import CFSG.Blueprint.Catalog
 public import CFSG.ClassicalInvolution.SmallCases.UpgradeCoverClassical
 public import CFSG.LieType.Multipliers.U43Action
 public import CFSG.LieType.Chevalley.AdjointCenter
 public import CFSG.LieType.Chevalley.CoordinateFieldBaseChange
 public import CFSG.LocalAnalysis.SectionRank.PRank
-public import CFSG.Open.StatedDefs
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
 
 public section
 

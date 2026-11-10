@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_1_12
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_10_12
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.MatrixGroups.Unitary
 import Mathlib.GroupTheory.IsPerfect
 import Mathlib.Tactic.NoncommRing
 

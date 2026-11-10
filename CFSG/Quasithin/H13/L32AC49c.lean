@@ -23,11 +23,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalReflectionSplitting
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalStandardFormsRegular
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.CentralInvolutionStructure
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListAlt7
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeThree
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Equivariance
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19IdentLieAlt
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 public import CFSG.Open.SplitBNPair
@@ -35,12 +30,10 @@ public import CFSG.Permutation.AlternatingAutomorphism
 public import CFSG.Quasithin.Background.A1cA132Action
 public import CFSG.Quasithin.Background.A1cA133Three
 public import CFSG.Quasithin.Background.A3Structure319
-public import CFSG.Quasithin.Background.A3Structure36Base
 public import CFSG.Quasithin.Background.B1More13A
 public import CFSG.Quasithin.Background.B1More13Defs
 public import CFSG.Quasithin.Background.B1MoreEleven
 public import CFSG.Quasithin.Background.B216Quotient
-public import CFSG.Quasithin.Background.B4ModelsAction
 public import CFSG.Quasithin.Background.B5Basic
 public import CFSG.Quasithin.Background.B5CompA
 public import CFSG.Quasithin.Background.B5CompB
@@ -54,7 +47,6 @@ public import CFSG.Quasithin.Background.F6CatSetting
 public import CFSG.Quasithin.Background.InternalSecData
 public import CFSG.Quasithin.Background.InternalSecIso
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtF112ListC
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import CFSG.Quasithin.EmptyFaithful.S1421L246
 public import CFSG.Quasithin.EmptyFaithful.S143Pre
 public import CFSG.Quasithin.EmptyFaithful.S1469Sev
@@ -101,7 +93,6 @@ public import CFSG.Walter.J1
 public import Certificates.Data.CFSGNative.MonsterB.Rep4371Model
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 public import TauCeti.LinearAlgebra.QuadraticForm.Prod
 
 public section

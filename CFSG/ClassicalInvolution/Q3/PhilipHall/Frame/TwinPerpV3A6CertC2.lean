@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6ModelSmall
 public import Certificates.Certificate517506
-public import Mathlib.Data.List.Sections
 
 public section
 

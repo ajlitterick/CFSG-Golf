@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentInitial.LinearCoverModel
 public import CFSG.LocalAnalysis.SectionRank.SQT
 import CFSG.LocalAnalysis.EvenBN.LinearThree.ElementaryAbelianCard
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQ2ExcTwE6Defs
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcTwE6RankNoTwo
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcTwE6RankComp
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcTwE6RankLabel

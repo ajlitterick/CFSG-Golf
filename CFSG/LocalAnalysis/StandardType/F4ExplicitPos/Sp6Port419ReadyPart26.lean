@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.Sp6Port419ReadyPart25
-public import CFSG.LieType.Chevalley.CoordinateFieldBaseChange
-public import CFSG.LieType.Chevalley.GraphFixedF4GroupDescent
-public import CFSG.LieType.Chevalley.RootOps.RingComm
 
 @[expose] public section
 

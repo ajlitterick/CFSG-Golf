@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGB36Defs
 public import CFSG.LocalAnalysis.StandardType.GGTPNNarrowC6
-public import CFSG.LocalAnalysis.StandardType.GGTPNI1
 
 public section
 

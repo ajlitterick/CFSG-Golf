@@ -3,10 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinSelected
 public import CFSG.LocalAnalysis.StandardType.GGSelectedModelOfChevalley
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.GeoPSpRoot
-public import CFSG.LocalAnalysis.StandardType.GGRankOneModel
-import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerSp
-import CFSG.LieType.Steinberg.Classical.Symplectic
-import CFSG.LieType.Steinberg.BruhatWeyl
 
 public section
 

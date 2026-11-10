@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosDefs
 public import CFSG.ClassicalInvolution.ModelFacts.StandardPairChevalley
-public import CFSG.LieType.Steinberg.Classical.SpecialLinear
 public import CFSG.ClassicalInvolution.WeakCT.Main
 
 public section

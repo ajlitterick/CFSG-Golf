@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartOne.N1322.Statements
-public import CFSG.RankThree.PartOne.S12.Facts13
 
 public section
 

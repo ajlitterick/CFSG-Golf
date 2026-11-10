@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixStepOneOutdiagNbr
 public import CFSG.LocalAnalysis.StandardType.GGSixStepOneSchreier
-public import CFSG.LocalAnalysis.StandardType.GGSixStepOneCompCentre
-public import CFSG.LocalAnalysis.StandardType.GGSixStepOneCompNormal
-public import CFSG.LocalAnalysis.StandardType.GGSixStepOneCompKd
 public import CFSG.LocalAnalysis.StandardType.GGSixStepOneCompCentJ
 
 public section

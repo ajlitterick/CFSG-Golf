@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Sporadic.Schreier.MathieuOddCoreM12ModelData
 public meta import CFSG.Sporadic.Schreier.MathieuOddCoreM12ModelData
 public import Certificates.Certificate2201
 

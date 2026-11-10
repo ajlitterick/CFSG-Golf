@@ -3,10 +3,6 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremA
 import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Lemma6_3
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Lemma7_2
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.PLengthLemmas
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PPrimeCore
 
 namespace CFSG
 end CFSG

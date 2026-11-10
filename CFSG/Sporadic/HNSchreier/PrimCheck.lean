@@ -3,13 +3,9 @@ module
 
 public import CFSG.Sporadic.HNSchreier.PrimCheckBase
 
-public import CFSG.Sporadic.HNSchreier.OrbitCheck
-public import Certificates.Data.CFSGNative.ONSchreier.Vectors
-public import Certificates.Data.CFSGNative.Perm.Chain
 public meta import CFSG.Sporadic.HNSchreier.OrbitCheck
 public meta import Certificates.Data.CFSGNative.ONSchreier.Vectors
 public meta import Certificates.Data.CFSGNative.Perm.Chain
-public import CFSG.Sporadic.HNSchreier.PrimCheckInputs
 public import Certificates.Certificate2104
 
 public section

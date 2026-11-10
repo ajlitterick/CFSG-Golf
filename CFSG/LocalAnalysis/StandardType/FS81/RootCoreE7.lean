@@ -3,11 +3,8 @@ module
 public import CFSG.LocalAnalysis.StandardType.FS81.ConstructYE7
 import CFSG.LocalAnalysis.SeitzReduction.E7PilotQ2Neighbour
 import CFSG.LocalAnalysis.SeitzReduction.EnKLLevi
-import CFSG.LocalAnalysis.SeitzReduction.E8PilotAutD
 import CFSG.ClassicalGroups.Alternating.TransvectionGenerationTwo
 import CFSG.GroupTheory.NormalLeCentralizerOfInfBot
-import CFSG.LieType.Simplicity.Exceptional
-import CFSG.LieType.SeitzGeneration.ExcParabolicUntw
 import CFSG.LieType.Chevalley.C2E6StandardFixedData
 import CFSG.LieType.Chevalley.C2E6UnitaryFourImages
 import CFSG.LieType.Chevalley.E6SecondGraphFullCentralizer

@@ -1,11 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.UC22S22a
-public import CFSG.LocalAnalysis.UniquenessCase.UC22Lie
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22ud
-import CFSG.LocalAnalysis.UniquenessCase.UC22Bridge4
 import CFSG.LocalAnalysis.UniquenessCase.UC22OddPRank
-import CFSG.LocalAnalysis.UniquenessCase.UC22P22a
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22sj
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22ue
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22vd
@@ -32,7 +28,6 @@ import CFSG.Quasithin.Background.B5Basic
 import CFSG.Quasithin.Background.B5CompA
 import CFSG.Quasithin.Background.B5CompB
 import CFSG.Quasithin.Background.B6
-import CFSG.Quasithin.Background.B6Example
 import CFSG.Quasithin.Background.InternalSecAutOn
 import CFSG.Quasithin.Background.InternalSecB4
 import CFSG.Quasithin.Background.SmithC27Star

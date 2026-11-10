@@ -1,15 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGExcKnownGroups
-public import CFSG.LocalAnalysis.StandardType.GGLatOrth
 public import CFSG.LocalAnalysis.StandardType.GGExcKGInvolutionsLift
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcSixETwisted
-public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinberg
-public import CFSG.LocalAnalysis.SeitzReduction.HypothesisOneTwistedE6ClassList
-public import CFSG.LocalAnalysis.SeitzReduction.HypothesisOneTwistedE6ClassesReps
-public import CFSG.LocalAnalysis.SeitzReduction.HypothesisOneTwistedE6CascadeFinal
-public import CFSG.LocalAnalysis.SeitzReduction.E6PilotLeviHom
-public import CFSG.LieType.Steinberg.TwistedE6.Local
 public import CFSG.Adapters.TauCetiExceptional.TwistedTransfer
 public import CFSG.LocalAnalysis.StandardType.GGTwInndiagRootBridge
 public import CFSG.Adapters.TauCetiExceptional.BridgeTransport

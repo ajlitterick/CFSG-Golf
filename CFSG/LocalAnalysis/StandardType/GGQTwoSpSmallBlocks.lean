@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpPlaneBlocks
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniBlocks
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotQ2EightModel
-import CFSG.ClassicalInvolution.Models.SymplecticPairs.ShortRoot
 import CFSG.LocalAnalysis.StandardType.GGSpJoinCentralizerLam
 public import CFSG.LocalAnalysis.ComponentClassification.ExcSelectorEvenTriality
 public import CFSG.LocalAnalysis.ComponentInitial.CLSFourGroupLinearThreeFour

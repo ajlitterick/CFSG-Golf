@@ -3,13 +3,10 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGKG87BTransDefs
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.TwE6Order3Defs
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUE6
-import CFSG.HardMathSupport.Timmesfeld.Steinberg.ToralCentralizerGenerated
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24CentreStab
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24ConnGenActs
 import CFSG.LocalAnalysis.StandardType.GGTwE6A5KToral
 import CFSG.LocalAnalysis.StandardType.GGKG87BHeisNormal
-import CFSG.LieType.Steinberg.CentralExt.PerfectLift
-import CFSG.LinearAlgebra.LinearGroups.Perfect
 import CFSG.RankThree.SubgroupLists2.SpectralBounds
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.NativeSylow
 public import CFSG.Assembly.Subnormal
@@ -35,7 +32,6 @@ public import CFSG.LocalAnalysis.SectionRank.EvenCover.LinearStep
 public import CFSG.LocalAnalysis.SectionRank.SporadicCover
 public import CFSG.Sporadic.M23.M23Group
 public import CFSG.Sporadic.SmallOddCore.CheckSpec
-public import CFSG.Sporadic.Th.F2Spec
 public import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.InnExcSuNHom
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24CentreHom
@@ -95,7 +91,6 @@ import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
 import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
 import CFSG.Sporadic.Schreier.J4SProfileNode
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 import Certificates.Kernel.SporSch.Th.Plane2320
 
 public section

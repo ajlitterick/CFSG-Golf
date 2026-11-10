@@ -2,9 +2,7 @@
 module
 
 public import CFSG.Monster.B.TwoA.Sp8.GenActionOrbitInputs
-public import CFSG.Certificates.Kernel.SortTreeSound
 public import Certificates.Kernel.MonsterB.Sp8OrbData
-public import Mathlib.Data.Nat.Bits
 import CFSG.Certificates.Kernel.Common.Harness
 
 @[expose] public section

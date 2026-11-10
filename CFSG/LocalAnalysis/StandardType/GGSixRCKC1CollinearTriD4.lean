@@ -5,9 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIBTriCore
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2LongLift
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TriD4BridgeLongRoot
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1LemmaHNbr
-public import CFSG.LieType.HighestRoot.GenModels
-public import CFSG.ClassicalInvolution.ModelFacts.Families
-import CFSG.LocalAnalysis.StandardType.GGSixRCKC1LemmaHTriD4
 
 public section
 

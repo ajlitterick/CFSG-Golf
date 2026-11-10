@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRealSgnDefs
 public import CFSG.LocalAnalysis.StandardType.GGRealKGTorusComponents
-public import CFSG.LocalAnalysis.StandardType.GGRealQFour
 
 public section
 

@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4Inputs
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeToralityTw
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.FrobeniusOnRoots
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleLang
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.TwistedE6Base
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24ConnGenUni
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.InnExcSuNHom
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.SmallQThreeE6FourCore

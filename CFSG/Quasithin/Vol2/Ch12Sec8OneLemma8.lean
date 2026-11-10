@@ -2,14 +2,8 @@ module
 
 public import CFSG.Quasithin.Vol2.Ch12Sec8OneLemma4
 public import CFSG.Quasithin.Background.G2L2
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Frattini.Core
 public import CFSG.RankThree.PartOne.S10.PlaneTwoGroupLemmas
 public import CFSG.Quasithin.Background.E1
-public import CFSG.Quasithin.Background.E1Sec4
-public import CFSG.Quasithin.Background.E1Sec5
-public import CFSG.Quasithin.Background.E1Sec8
-public import CFSG.Quasithin.Background.E1Solv
-public import CFSG.Quasithin.Background.E1Twelve
 public import CFSG.Quasithin.Background.E3Defs
 public import CFSG.Quasithin.Background.F9Basic
 public import CFSG.Quasithin.H13.LinearOrders

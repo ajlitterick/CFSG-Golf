@@ -4,9 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniBlocks
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniLFrameClass
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniModelTwoCenter
-import CFSG.LocalAnalysis.StandardType.GGResLeviLE3BridgeA2
-import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaBase
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
 import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrOfEnnola
 import CFSG.LocalAnalysis.StandardType.GGSignedCoordReflGroup
 

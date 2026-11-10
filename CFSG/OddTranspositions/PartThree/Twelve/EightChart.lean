@@ -1,7 +1,6 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Twelve.SixUnitary
-public import CFSG.LocalAnalysis.WeakClosure81.W16Gt2KFactsI
 import CFSG.OddTranspositions.PartThree.Twelve.EightModel
 import CFSG.OddTranspositions.PartFour.UnitaryClass
 

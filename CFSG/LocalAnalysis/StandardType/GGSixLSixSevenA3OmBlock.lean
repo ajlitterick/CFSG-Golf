@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelOmShape
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelOmMain
 
 public section

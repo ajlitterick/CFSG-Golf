@@ -9,8 +9,6 @@ import CFSG.LocalAnalysis.StandardType.GGF4QGeFourOmegaMinusTorality
 import CFSG.LocalAnalysis.StandardType.GGF4QGeFourR3CommOmega
 import CFSG.LocalAnalysis.StandardType.GGLieModelPSULabel
 import CFSG.LocalAnalysis.StandardType.GGF4QGeFourEndsCover
-import CFSG.LocalAnalysis.StandardType.GGPZWeylB
-import Mathlib.Tactic.Group
 
 public section
 

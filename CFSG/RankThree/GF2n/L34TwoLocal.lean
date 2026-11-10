@@ -1,8 +1,6 @@
 module
 
 public import CFSG.RankThree.GF2n.Basic
-public import CFSG.Assembly.Defs
-public import CFSG.Assembly.LowTwoRankDefs
 public import CFSG.LieType.BorelTits.Matrix
 public import CFSG.LieType.BorelTits.CompleteFlag
 import CFSG.LieType.BorelTits.SpecialLinear

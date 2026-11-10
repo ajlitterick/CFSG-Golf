@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Certificate476001
-public import Mathlib.Algebra.Group.Submonoid.BigOperators
 
 public section
 

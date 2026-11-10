@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormCenterless
 public import CFSG.LinearAlgebra.Reflection.ScalarIsometry
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcWeylTorusAut
-public import Mathlib.LinearAlgebra.Matrix.BilinearForm
-public import Mathlib.Algebra.Module.Pi
 
 public noncomputable section
 

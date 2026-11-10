@@ -1,14 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNSJoinGen
-public import CFSG.LocalAnalysis.StandardType.GGNSJoinRMChain
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinByType
-import CFSG.LocalAnalysis.StandardType.GGNbrBalance
-import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
 import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrCoxOrder
-import CFSG.LocalAnalysis.StandardType.GGSimplyLacedWeyl
 import CFSG.LocalAnalysis.StandardType.GGNSJoinRankOneOfRk1
-import CFSG.LocalAnalysis.StandardType.GGReflectionBasic
 
 public section
 

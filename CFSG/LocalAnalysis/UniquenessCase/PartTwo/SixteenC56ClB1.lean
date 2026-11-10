@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC56ClDefs
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC56Fix
 public import CFSG.LocalAnalysis.WeakClosure81.SixTwo
-public import CFSG.LocalAnalysis.WeakClosure81.SixFiveA
-public import CFSG.Quasithin.Background.B2FactorizationBridge
-public import CFSG.Quasithin.Background.E3Basic
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBTorRelDMinusDefs
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthogonalBasic
-public import CFSG.RankThree.PartOne.S11d.OrthDicksonOmega
 public import CFSG.RankThree.PartTwo.Sec21.Hering2125Mat
 
 public section

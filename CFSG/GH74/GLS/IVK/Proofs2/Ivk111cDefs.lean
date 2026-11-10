@@ -1,9 +1,5 @@
 module
 
-public import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
-public import Mathlib.Algebra.Field.Basic
-public import Mathlib.RepresentationTheory.Basic
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.ExtendScalars
 public import CFSG.GH74.GLS.Stage4.T2SL2Defs
 

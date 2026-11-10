@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePZPSU
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePZExc
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePZClassical
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePZD4
 

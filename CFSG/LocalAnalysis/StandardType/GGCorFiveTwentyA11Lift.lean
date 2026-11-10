@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyA11
 public import CFSG.LocalAnalysis.StandardType.GGTypeACompatDiagProof
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveTypeALift
 
 public section
 

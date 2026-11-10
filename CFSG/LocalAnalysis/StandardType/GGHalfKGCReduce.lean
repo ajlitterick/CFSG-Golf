@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGHalfKGCDefs
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
-public import CFSG.LocalAnalysis.ComponentClassification.Quasisimple
 public import CFSG.LocalAnalysis.StandardType.GGHalfBlockCentral
-public import CFSG.Assembly.Defs
 
 public section
 

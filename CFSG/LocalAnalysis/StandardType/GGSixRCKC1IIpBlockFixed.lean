@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCK1416Defs
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
-import Mathlib.LinearAlgebra.Matrix.SesquilinearForm
 
 public section
 

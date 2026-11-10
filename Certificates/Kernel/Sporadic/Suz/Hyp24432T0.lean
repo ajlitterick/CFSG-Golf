@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Sporadic.Suz.Hyp24432Defs
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo
-import CFSG.Certificates.Kernel.Common.Harness
 public import Certificates.Data.Kernel.Spor.CommEnum
 
 public section

@@ -1,12 +1,10 @@
 module
 
-public import Certificates.Data.CFSGNative.J4Tree.Aff
 public import CFSG.Milestones.ASVolI.C31.J4NP.AffNative
 public import CFSG.Certificates.Kernel.J4Tree.CodeSound
 public import Certificates.Kernel.J4Q.QTBase
 public import Certificates.Kernel.J4Q.MaskU
 import CFSG.Certificates.Kernel.Common.Harness
-public import CFSG.Sporadic.J4.QTRankWitNative
 
 public section
 

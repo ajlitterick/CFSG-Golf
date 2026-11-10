@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.Defs
-public import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.Preamble
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.NineNineOneHolds
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.QSetTransport
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveTenAssembly
@@ -11,7 +10,6 @@ import CFSG.CGT.T75P.Ctx
 import CFSG.CGT.T75P.DecA
 import CFSG.CGT.Timmesfeld75.SimpleAssembly
 import CFSG.GH74.GLS.IVK.Proofs2.Ivk95J3
-import CFSG.GH74.GLS.IVK.Proofs2.Stmt111c
 import CFSG.GH74.Generic.S45.LEvSporFacts
 import CFSG.GroupTheory.SylowNormalIndex
 import CFSG.HardMathSupport.Foote.Coordinator.Downstream

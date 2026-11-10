@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafInputs
-public import CFSG.GroupTheory.ABGLocalTools.Basic
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafBasic
 
 public section

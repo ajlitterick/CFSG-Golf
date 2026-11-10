@@ -1,9 +1,6 @@
 module
 
 public import Certificates.Kernel.Sporadic.OddCore.SuzGlS
-public import CFSG.Certificates.Kernel.Spor.BfsReplay
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

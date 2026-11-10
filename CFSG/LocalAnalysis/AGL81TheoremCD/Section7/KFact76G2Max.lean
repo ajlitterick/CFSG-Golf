@@ -5,15 +5,10 @@ import CFSG.LocalAnalysis.AGL81TheoremCD.Section7.KFact76G2Minus
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section7.KFact76G2Plus
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section7.KFact76G2LongRoot
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section7.KFact76SL3Sylow
-import CFSG.RankThree.PartTwo.Sec11.KS11Lie4ProofG2Minus
 import CFSG.RankThree.PartTwo.Sec12.Hering129LG2
 import CFSG.RankThree.PartTwo.Sec12.Hering129KRes
-import CFSG.RankThree.PartTwo.Sec12.Hering129HBasic
 import CFSG.HardMathSupport.Seitz.G2Anisotropic.ExceptionsTransport.BridgeOdd
 import CFSG.Quasithin.H13.ModelsG2
-import CFSG.LieType.Chevalley.Braid
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Foundations
 public import CFSG.GroupTheory.LocalCores.Fitting
@@ -36,8 +31,6 @@ public import CFSG.RankThree.LocalRank.SelectorCases
 public import CFSG.RankThree.PartOne.Assembly
 public import CFSG.RankThree.PartOne.S10.ThetaContract
 public import CFSG.RankThree.PartOne.S12.InputsBase
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 import CFSG.LocalAnalysis.ComponentInitial.GL3TwoFixedModelSelector
 import CFSG.RankThree.PartOne.D4RC.RxIso
 import CFSG.RankThree.PartOne.SEITZ7.D4Final

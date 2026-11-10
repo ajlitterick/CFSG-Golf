@@ -3,12 +3,9 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsExcConj
 public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerExc
 public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerExcE6
-public import CFSG.LocalAnalysis.SeitzReduction.EPilotCentralizerHigh
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotLeviModel
 public import CFSG.LocalAnalysis.SeitzReduction.E7PilotNeighbourLevi
 public import CFSG.LocalAnalysis.SeitzReduction.E8PilotLevi
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 public import CFSG.LieType.Chevalley.C2E6StandardFixedData
 public import CFSG.LieType.Chevalley.C2E6UnitaryFourImages
@@ -23,7 +20,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
 public import CFSG.LocalAnalysis.ComponentInitial.SylowPointRecovery
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.JRFacts
 
 public section

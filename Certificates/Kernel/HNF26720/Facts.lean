@@ -1,12 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.HNFSetup
-public import CFSG.Sporadic.HNSchreier.Faithful
 public import Certificates.Kernel.HNF26720.Checks
 public import CFSG.Certificates.Kernel.HNF26720Sound
 import Certificates.Kernel.HN3166.Seed
 import CFSG.Certificates.Kernel.Fam.HNSeed.Checks.K
-import Mathlib.Tactic.IntervalCases
 
 public section
 

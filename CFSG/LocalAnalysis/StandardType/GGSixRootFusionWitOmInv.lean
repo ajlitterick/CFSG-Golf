@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthogonalDiag
-public import CFSG.RankThree.OrthogonalInvolutions.Dickson
 public import CFSG.LieType.SeitzGeneration.OrthEvenSingular
-public import CFSG.RankThree.PartOne.S11d.OrthDicksonOmega
 
 public section
 

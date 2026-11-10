@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGHalfInnerNbr
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveSpProofHalf
-public import CFSG.LocalAnalysis.StandardType.GGCompatNbrSomeDefs
 
 public section
 

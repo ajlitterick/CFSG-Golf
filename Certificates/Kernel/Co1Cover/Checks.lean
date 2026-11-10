@@ -2,9 +2,7 @@
 module
 
 public import Certificates.Kernel.Co1Cover.Data
-public import Certificates.Data.Kernel.Co1F2
 public import CFSG.Sporadic.Co1.Cover.Data
-public import CFSG.Sporadic.Co1.Module.FormsInputs
 public import CFSG.Certificates.Kernel.Bounds.M24Alt.Binding
 public import Certificates.Kernel.Sporadic.RawGen
 import CFSG.Certificates.Kernel.Common.Harness

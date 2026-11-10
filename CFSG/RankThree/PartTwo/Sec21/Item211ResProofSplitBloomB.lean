@@ -9,7 +9,6 @@ public import CFSG.GroupTheory.BaerSuzuki
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.RankThree.PartTwo.NotationBlocks
 public import CFSG.RankThree.PartTwo.Sec7.ThreeTranspositions

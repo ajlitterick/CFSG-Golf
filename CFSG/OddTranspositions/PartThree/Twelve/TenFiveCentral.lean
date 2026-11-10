@@ -2,11 +2,9 @@ module
 
 public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveModel
 public import CFSG.OddTranspositions.PartThree.Twelve.Four
-public import CFSG.Timmesfeld.Bridge.OddLocalDefs
 public import CFSG.OddTranspositions.FusionStep
 public import CFSG.GroupTheory.ClosureDiffImage
 public import CFSG.GroupTheory.LocalLift.NormalizerQuotient
-public import CFSG.Sporadic.Th.Max3.Data
 
 public section
 

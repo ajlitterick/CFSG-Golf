@@ -1,16 +1,9 @@
 module
 
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.BThirteenGroup
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HypOne.B68Basic
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HypOne.B68Defs
 public import CFSG.Monster.Existence.StdOdd.Reduce
 public import CFSG.Monster.Existence.StdOdd.Cert.Cent13
 public import CFSG.Monster.Existence.MilestoneInputs
-public import CFSG.Monster.Existence.BabyTableIVOf
-public import CFSG.Monster.Existence.BabyW2Classes
-public import CFSG.Monster.B.TwoA.Amalgam.DerivedCoverMain
-public import CFSG.Monster.B.Pinned.Primes.SeedGL
-public import CFSG.Monster.B.CTIB.FourClasses
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Common
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication

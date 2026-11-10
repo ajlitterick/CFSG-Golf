@@ -3,10 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcWeylAutInner
 public import CFSG.LocalAnalysis.StandardType.GGRCAbsIrred
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerF4
-public import CFSG.LieType.Chevalley.LangRootArithmeticDet
-public import CFSG.Blueprint.Chevalley
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcThreeAct
-public import CFSG.LieType.Chevalley.RootCommutatorData
 
 open CFSG.StandardType
 open CFSG.RankThree.CentralCover

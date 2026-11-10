@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172BCentPos
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172BCentPlanar
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172XDefs
 public import CFSG.Assembly.OpenBridges
 public import CFSG.LocalAnalysis.AGLEmbedding.ThreeCentLieTwoBasic
 public import CFSG.LocalAnalysis.AGLEmbedding.ThreeCentLieTwoBlocks

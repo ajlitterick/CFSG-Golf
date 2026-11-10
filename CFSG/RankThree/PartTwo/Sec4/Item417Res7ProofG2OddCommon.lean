@@ -1,13 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenWeyl
 public import CFSG.LocalAnalysis.EvenBN.G2.Torus
 public import CFSG.RankThree.Chevalley.SteinbergCAG2ToralPrimePlane
-public import CFSG.LieType.Chevalley.CoordinateFieldBaseChange
 import CFSG.LieType.Chevalley.OddDiagramFrobeniusFixedDerived
-import CFSG.LieType.Chevalley.CLSOddE7RationalDerivedIndex
-import CFSG.LieType.Chevalley.GraphFixedF4GroupRestriction
-import CFSG.LieType.Chevalley.GraphFixedF4Canonical
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSpExclusion
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSpWedge

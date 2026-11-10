@@ -2,13 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGOrthDFourTwoPosition
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylNoLine
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-import CFSG.LocalAnalysis.StandardType.GGTBJConfigFacts
-import CFSG.LocalAnalysis.StandardType.GGSecFivePumpBstar
 import CFSG.LocalAnalysis.StandardType.GGResOrthogonalExactTwo
-import CFSG.LieType.SeitzGeneration.ExcHigh.TwE6FiveSylow
 import CFSG.GroupTheory.AllPSubgroupsIsCyclicOfPRankLeOne
-import CFSG.GroupTheory.SupCommute
 import CFSG.LocalAnalysis.GLTheoremA.CatB.TimmGroup
 
 public section

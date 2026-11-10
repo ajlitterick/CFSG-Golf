@@ -3,13 +3,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGReflNineFinalBase
 
-public import CFSG.LocalAnalysis.StandardType.GGReflNineSound
-public import CFSG.LocalAnalysis.StandardType.GGReflNineChart
-public import CFSG.LocalAnalysis.StandardType.GGReflExtFinal
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeNineAllDefs
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeSmallNineDepChart
 public import Certificates.Certificate708606
-public import Certificates.Data.CFSGNative.NineAll.Check
 
 public section
 

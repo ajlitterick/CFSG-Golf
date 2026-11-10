@@ -2,13 +2,6 @@ module
 
 public import Certificates.Data.TabFi23Y
 public meta import Certificates.Data.TabFi23Y
-import Certificates.Data.CFSGNative.Fi23.Certificate
-import CFSG.Sporadic.Presentation.Fi23Inputs
-import CFSG.Sporadic.Fi23.Simple
-import CFSG.Sporadic.Bridge.Common
-import CFSG.Sporadic.Presentation.Fi23
-import Certificates.Data.CFSGNative.Bridge.Fi23GPL
-import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 import Certificates.Kernel.Fi23Y322.Glue
 
 public section

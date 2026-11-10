@@ -4,7 +4,6 @@ public import CFSG.GH74.GLS.Stage2.Signalizer.Ivk8P4S55StepH3U4
 public import CFSG.GH74.GLS.Stage2.Signalizer.Ivk8P4S55StepH3U3CW
 public import CFSG.GH74.GLS.Stage2.Signalizer.Ivk8P4S55StepH3U3Frame
 public import CFSG.GH74.GLS.Stage2.Signalizer.Ivk8P4S55StepH3LNoRC
-public import CFSG.GH74.Uniqueness.Bender.FrameAbelian
 public import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneProjSlice
 public import CFSG.RankThree.SubgroupLists.SymplecticTransvections

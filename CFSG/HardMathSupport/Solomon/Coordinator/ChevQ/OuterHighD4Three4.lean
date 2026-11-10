@@ -2,23 +2,7 @@ module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.OuterHighD4Three3
 public import CFSG.RankThree.PartTwo.Sec4.HeringK419OneFieldDiag
-public import CFSG.RankThree.PartTwo.Sec4.LThreePiProj
-public import CFSG.RankThree.PartTwo.Sec4.LThreePiMain
-public import CFSG.RankThree.PartTwo.Sec13.Item138NMod9
-public import CFSG.RankThree.PartTwo.Sec13.Item136PGL
-public import CFSG.RankThree.PartTwo.Sec13.Item13Models
-public import CFSG.RankThree.PartTwo.Sec16.KSL3TwoProofTypeC
-public import CFSG.RankThree.PartTwo.Sec8.Item8KFacts2ProofD4
-public import CFSG.RankThree.Chevalley.SteinbergCFOddG2QPlusTorus
-public import CFSG.Adapters.RankTwoModelTransports
-public import CFSG.Adapters.LinearCatalog
-public import CFSG.Adapters.ProjectiveSpecialLinear
-public import CFSG.LocalAnalysis.QuasithinUnique.SQTK.UnitaryTauCeti
-public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergE6Good
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.D4Graph.Duality
 public import CFSG.HardMathSupport.Lang.E6Descent.OuterFixedTriality2Classes
-public import CFSG.RankThree.PartTwo.Sec21.LangTwistedProofD4Geom
-public import CFSG.RankThree.PartTwo.Sec8.Item8KFacts2ProofEvenDesc
 public import CFSG.RankThree.PartTwo.Sec14.Item1411HJ
 public import CFSG.RankThree.PartTwo.Sec14.Item143N
 public import CFSG.RankThree.PartTwo.Sec15.Item157

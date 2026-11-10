@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoGlobDefs
-public import CFSG.GroupTheory.WeirSylow.OrthogonalOrders
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLocalDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBarConnGen
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBarData

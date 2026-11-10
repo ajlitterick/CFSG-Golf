@@ -3,11 +3,6 @@ module
 public import CFSG.LieType.Chevalley.RootOps.Cert.E6Tab
 public import CFSG.LieType.Chevalley.RootOps.Cert.E6Simple
 public import CFSG.LieType.Chevalley.RootOps.Cert.E6Conj0
-public import Certificates.Certificate50
-public import Certificates.Certificate51
-public import Certificates.Certificate52
-public import Certificates.Certificate113
-public import Certificates.Certificate114
 
 public section
 

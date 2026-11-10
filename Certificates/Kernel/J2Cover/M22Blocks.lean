@@ -2,8 +2,6 @@ module
 
 public import Certificates.Kernel.J2Cover.ModelsP2
 public import Certificates.Kernel.LocalComp.BlockGen
-public import CFSG.LocalAnalysis.ComponentClassification.J2CoverModelsNative
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

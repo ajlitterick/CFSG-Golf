@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagConcl
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ParabCommSpRes
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalResU3ThreeSolv
-public import CFSG.GroupTheory.OrderBelowSixtySolvable
 public import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeFamilies
 public import CFSG.LocalAnalysis.AGLEmbedding.D1GlobalU
 public import CFSG.LocalAnalysis.AGLEmbedding.IIIaResidualDefs

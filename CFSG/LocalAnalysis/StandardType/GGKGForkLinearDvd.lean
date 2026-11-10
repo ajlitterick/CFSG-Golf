@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGKGForkRows
 public import CFSG.LocalAnalysis.StandardType.GGKGForkLinearDvdLat
 public import CFSG.LocalAnalysis.StandardType.GGKGForkLinearDvdModel
-public import CFSG.LocalAnalysis.StandardType.GGKGForkLinearRow
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeADvd
 
 public section
 

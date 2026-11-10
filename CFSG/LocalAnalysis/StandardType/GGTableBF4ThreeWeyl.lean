@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBF4Rank
 public import CFSG.RankThree.CentralCover.SteinbergBNChevalleySplitTorus
-public import CFSG.LieType.Chevalley.WeylNormalizerQuotient
-public import CFSG.LieType.Chevalley.ChevalleySplitBN
 
 public section
 

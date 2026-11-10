@@ -2,13 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4Overgroup
 public import CFSG.LocalAnalysis.StandardType.GGF4TypeCards
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
-public import CFSG.LocalAnalysis.StandardType.GGF4WeylData
 public import CFSG.LocalAnalysis.StandardType.GGF4B3CoreRep
 import CFSG.LocalAnalysis.StandardType.GGSecFiveRootRefl
 import CFSG.LocalAnalysis.StandardType.GGF4OrigRep
 import CFSG.LocalAnalysis.StandardType.GGF4CrossPair
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelTypeAAssembly
 import CFSG.LocalAnalysis.StandardType.GGF4FrameData
 import CFSG.LocalAnalysis.StandardType.GGF4ReflGroup
 

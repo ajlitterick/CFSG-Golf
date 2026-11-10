@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDSevenPrelim
-import CFSG.LocalAnalysis.StandardType.GGSimplyLacedWeyl
 import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
 
 public section

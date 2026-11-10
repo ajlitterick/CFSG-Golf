@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMPrimeCBase
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUElt
 import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUModel
 
 public section

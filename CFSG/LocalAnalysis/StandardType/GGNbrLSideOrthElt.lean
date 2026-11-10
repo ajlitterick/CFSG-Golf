@@ -10,7 +10,6 @@ import CFSG.LocalAnalysis.StandardType.GGNbrLSideUniType
 import CFSG.LocalAnalysis.StandardType.GGNbrLSideKitSL3
 import CFSG.LocalAnalysis.StandardType.GGNbrLSideOrthSelfDual
 import CFSG.LocalAnalysis.StandardType.GGNbrLSideOrthFixed
-import CFSG.LocalAnalysis.GLTheoremA.CatA.L154Orth
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeOrthPairBlock
 import CFSG.LocalAnalysis.GLTheoremA.CatA.K1419ClsOrthBlock
 import CFSG.HardMathSupport.Curtis.NaturalModuleCensus.PerfThreeOrth.ResidualEichler

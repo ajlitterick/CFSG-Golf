@@ -5,8 +5,6 @@ public import CFSG.HardMathSupport.Meierfrankenfeld.AGL81.FF531.GN
 public import CFSG.HardMathSupport.Meierfrankenfeld.GeneralFF.RGroupExclusion
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.MsideParabolicEscape.LayerGNDefs
 public import CFSG.Quasithin.Background.F918V3S1
-public import CFSG.Quasithin.Background.A1aFStar
-public import CFSG.LieType.BorelTits.Basic
 public import CFSG.Quasithin.H13.A5S1521a
 public import CFSG.LargeExtraspecial.AS35KFisA
 public import Certificates.Kernel.ThCent.Leaves
@@ -71,9 +69,7 @@ public import CFSG.Quasithin.Background.A3Structure318Red
 public import CFSG.Quasithin.Background.A3Structure36A
 public import CFSG.Quasithin.Background.A3Structure36BAction
 public import CFSG.Quasithin.Background.A3Structure36BBase
-public import CFSG.Quasithin.Background.A3Structure36BCase3Base
 public import CFSG.Quasithin.Background.A3Structure36BCasesBase
-public import CFSG.Quasithin.Background.A3Structure36BCommonBase
 public import CFSG.Quasithin.Background.A3Structure36BFrattini
 public import CFSG.Quasithin.Background.A3Structure36BHeisBase
 public import CFSG.Quasithin.Background.A3Structure36BHomocyclic
@@ -93,9 +89,6 @@ public import CFSG.Quasithin.Background.B4ModelsAction
 public import CFSG.Quasithin.Background.B4ModelsIso
 public import CFSG.Quasithin.Background.C2Basic
 public import CFSG.Quasithin.Background.E1
-public import CFSG.Quasithin.Background.E1Sec4
-public import CFSG.Quasithin.Background.E1Sec5
-public import CFSG.Quasithin.Background.E1Sec8
 public import CFSG.Quasithin.Background.E3Cent
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtF112ListC
 public import CFSG.Quasithin.H13.A5S1326

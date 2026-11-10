@@ -2,7 +2,6 @@ module
 
 public import CFSG.Sporadic.HNSchreier.Primitive
 public import CFSG.Sporadic.HNSchreier.Order
-public import CFSG.Sporadic.HN.ConjSimple
 
 public noncomputable section
 

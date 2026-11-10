@@ -2,11 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIVacDefs
 import CFSG.LocalAnalysis.GLTheoremA.CatA.FPFieldN
-import CFSG.LocalAnalysis.GLTheoremA.CatA.YS09Field
-import CFSG.LocalAnalysis.StandardType.MarkingChevalley
-import CFSG.LieType.Steinberg.Adjoint.Perfect
-import CFSG.LieType.Steinberg.G2.Perfect
-import CFSG.LieType.Simplicity.Exceptional
 
 public section
 

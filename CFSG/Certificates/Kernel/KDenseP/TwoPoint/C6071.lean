@@ -1,10 +1,7 @@
 module
 
 import CFSG.Certificates.Kernel.Common.Repo
-public import CFSG.Certificates.Kernel.KDenseP.TwoPoint.MonoTab
 public import CFSG.Certificates.Kernel.KDenseP.TwoPoint.Pairs
-public import Certificates.Data.Kernel.KDenseP.Words
-public import CFSG.Certificates.Kernel.KDense.Data.Fix
 public import CFSG.Certificates.Kernel.KDenseP.TwoPoint.Run
 public import Certificates.Data.Kernel.KDenseP.Replay
 public import CFSG.Certificates.Kernel.Common.Plan

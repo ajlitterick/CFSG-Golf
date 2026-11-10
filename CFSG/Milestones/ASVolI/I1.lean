@@ -1,44 +1,16 @@
 module
 
-public import Mathlib
-public import CFSG.Foundations.Basic
-public import CFSG.Open.QuasithinDefs
-public import CFSG.Open.QuasithinH1NaturalModulesMilestoneDefs
-public import CFSG.LocalAnalysis.SectionRank.NativeKGroup
-public import CFSG.Blueprint.Catalog
-public import CFSG.Blueprint.NativeSporadic
-public import CFSG.Quasithin.Background.A3StructureDefs
 public import CFSG.Quasithin.Background.ASVolIRegistered
-public import CFSG.Milestones.CL_LIT_SQTK_simple_list
 public import CFSG.LocalAnalysis.SectionRank.QTK.Main
 public import CFSG.LocalAnalysis.ComponentClassification.SymmetricLocalLinearFourTwo
-public import CFSG.LocalAnalysis.ComponentInitial.SmallLinearIsomorphisms
 public import CFSG.LocalAnalysis.ComponentInitial.FieldNineAlternatingSix
-public import CFSG.Adapters.LinearSmallCatalog
 public import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Coordinator.TrivialRows
-public import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Coordinator.ProvedRows
-public import CFSG.GH74.Exceptional.UnitaryFourTwo
 public import CFSG.Blueprint.SourceClassicalTransport
 public import CFSG.RankThree.PartOne.LIT.RankPSL3
-public import CFSG.RankThree.PartOne.S12.ModelTransport
 public import CFSG.ClassicalInvolution.Orders.Classical
 public import CFSG.Timmesfeld.Orders.Classical
-public import CFSG.LieType.Ree.SuzukiOrder
-public import CFSG.Sporadic.Mathieu.M22
-public import CFSG.LocalAnalysis.SectionRank.SQTKTransport
-public import CFSG.Sporadic.J2
-public import CFSG.Sporadic.HS
-public import CFSG.Sporadic.Ru
-public import CFSG.Sporadic.Mathieu.M12
-public import CFSG.LocalAnalysis.SectionRank.Sporadic.J2Local
-public import CFSG.LocalAnalysis.SectionRank.Sporadic.HSLocal
-public import CFSG.LocalAnalysis.SectionRank.Sporadic.RuLocal
-public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocal
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434RemG24
 public import CFSG.RankThree.Chevalley.EvenRealThreeCentralizingInvolution
-public import CFSG.RankThree.PerfectCover.HopfFormula
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.lemma_4_5_a
-public import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherEvenOrthogonalModel
 public import CFSG.Sporadic.Recognition.HNMultiplier
 

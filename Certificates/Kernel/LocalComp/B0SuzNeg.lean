@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.LocalComp.B0SuzChecks
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

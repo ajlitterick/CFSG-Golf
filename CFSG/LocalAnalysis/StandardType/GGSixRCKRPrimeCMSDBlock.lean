@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCMSDForm
-public import CFSG.LocalAnalysis.ComponentInitial.FieldUnitaryHermitian
 import all CFSG.LocalAnalysis.StandardType.ClassicalPosition.GeoPSU
 
 public section

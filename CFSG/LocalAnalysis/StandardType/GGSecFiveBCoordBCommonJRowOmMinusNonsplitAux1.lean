@@ -2,11 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJNativeConj
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorus
-import CFSG.GroupTheory.ElemAbelianClosure
 import CFSG.GroupTheory.SupCommute
-import CFSG.GroupTheory.WeirSylow.OrthogonalOrders
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T173UniRank
-import CFSG.LocalAnalysis.StandardType.GGTableBOrthogonalBasic
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S172CCentSplit
 
 public section

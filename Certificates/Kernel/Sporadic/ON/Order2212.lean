@@ -1,14 +1,9 @@
 
 module
 
-public import Certificates.Kernel.Sporadic.ON.Levels
 public import Certificates.Kernel.Sporadic.ON.Minus2124
 public import CFSG.Certificates.Kernel.Spor.ONMvSound
 public import CFSG.Sporadic.ON.Chain
-public import CFSG.Sporadic.Schreier.ONCheckChainInputs
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.NormNum
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.GroupTheory.QuotientGroup.Basic
 public import Mathlib.GroupTheory.SpecificGroups.KleinFour
 import Mathlib.Tactic
 

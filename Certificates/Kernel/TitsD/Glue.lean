@@ -1,10 +1,6 @@
 module
 
-public import CFSG.Quasithin.Vol2.GoldschmidtF431TitsGeoDAct
-public import CFSG.Quasithin.Vol2.GoldschmidtF431TitsGeoPtLoc
-public import CFSG.Quasithin.Vol2.GoldschmidtF431TitsGeoLnLoc
 public import Certificates.Kernel.TitsF48.Glue
-public import CFSG.Certificates.Kernel.TitsDSound
 public import Certificates.Certificate4190Base
 
 public section

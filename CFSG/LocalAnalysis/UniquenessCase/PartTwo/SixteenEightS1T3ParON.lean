@@ -1,9 +1,7 @@
 module
 
-public import CFSG.Open.StatedDefs
 public import CFSG.ClassicalGroups.Orthogonal.NormalizerOmega
 public import CFSG.ClassicalInvolution.SmallCases.UpgradeCoverClassical
-public import CFSG.LieType.Universal.Spin.Forms
 public import CFSG.Quasithin.Background.FFC4Zmod
 public import CFSG.Fischer.Uniq.CompTau
 public import CFSG.LargeExtraspecial.OrthoF2

@@ -1,8 +1,6 @@
 module
 
 public import Certificates.Data.ChengHeldCover
-public import Certificates.Data.CFSGNative.PSL3Four.Basic
-public import CFSG.Certificates.CosetTableColumns
 
 public section
 

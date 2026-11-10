@@ -3,27 +3,13 @@ module
 public import CFSG.LocalAnalysis.AGL81I.Section3.ThreeNineCatalogue
 public import CFSG.LocalAnalysis.GL83PartI.I_24_3.ListDefs
 public import CFSG.LieType.DefCharRankFour
-public import CFSG.Open.GriessAllModelsStatement
-public import CFSG.Adapters.TauCetiExceptional.Interface
 public import CFSG.LocalAnalysis.AGL81I.Section3.ThreeNineCatThreeG2Rank
 import CFSG.RankThree.PartTwo.Census.NineCoverU43
 import CFSG.RankThree.PartTwo.Sec4.Census.WiringInputs
 import CFSG.RankThree.PartTwo.Sec4.Census.CoverCenterThreeRestG2
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentTenFourteen
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PPrimeCore
-import CFSG.GH74.KGroups.PSLN
-import CFSG.LocalAnalysis.SectionRank.ClassicalOdd
-import CFSG.LocalAnalysis.QuasithinUnique.SQTK.UnitaryTauCeti
-import CFSG.LocalAnalysis.QuasithinUnique.SQTK.TypeB2Carrier
-import CFSG.LocalAnalysis.QuasithinUnique.SQTK.TypeCCarrier
-import CFSG.LocalAnalysis.RankThreeEvenClassification.LocalRank
 import CFSG.RankThree.PartTwo.Census.Carrier.SpinBOdd
-import CFSG.RankThree.PartTwo.Census.Carrier.SpinDOdd
-import CFSG.RankThree.PartTwo.Census.Carrier.SpinTDOdd
-import CFSG.RankThree.PartTwo.Census.Classical.Bridges
-import CFSG.RankThree.PartTwo.Sec4.Census.Item44TwoCoverModels
 import CFSG.Adapters.LinearCatalogStated
-import CFSG.Adapters.TauCetiExceptional.B1Exceptional
 public import CFSG.CGT.PushingUpLit.BHS.NaturalDefs
 public import CFSG.CGT.PushingUpLit.BHS.SymNatDefs
 public import CFSG.CGT.Timmesfeld75.Statements
@@ -130,7 +116,6 @@ import CFSG.Quasithin.Vol2.Ch11SecAVi2
 import CFSG.Quasithin.Vol2.Ch11SecSFacts
 import CFSG.Quasithin.Vol2.Ch11SecSSetup
 import CFSG.RankThree.PartTwo.Census.Spin.Main
-import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 import CFSG.RankThree.PartTwo.Sec4.Item47Statement
 import CFSG.RankThree.PartTwo.Sec4.Item47Witness
 import CFSG.Sporadic.Schreier.J4SProfileNode

@@ -3,22 +3,15 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGResidualWeakNbr
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinOutWeakPosDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanCharTwoDefs
-public import CFSG.LocalAnalysis.StandardType.GGPhanCentralQuotient
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveL1PhanLocal
-public import CFSG.LocalAnalysis.StandardType.GGNSJoinByType
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanUnitaryAnyA
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanEData
 import CFSG.LocalAnalysis.StandardType.GGWeylNoEichlerBCDAux
 import CFSG.LocalAnalysis.StandardType.PhanELiftQuasi
 import CFSG.LocalAnalysis.StandardType.GGOrthFrameConcl
 import CFSG.LocalAnalysis.StandardType.GGOrthModelInputsHold
-import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
-import CFSG.LocalAnalysis.StandardType.GGSecFiveRankOneWeyl
 import CFSG.LocalAnalysis.StandardType.GGMemberUnitaryGen
 import CFSG.LocalAnalysis.StandardType.GGMemberUnitaryRk1
-import CFSG.LocalAnalysis.StandardType.GGSecFiveL1PhanTransfer
 import CFSG.GroupTheory.QuasisimpleCentralSection
-import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanEDefs
 
 public section

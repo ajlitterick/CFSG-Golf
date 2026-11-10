@@ -2,12 +2,8 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148TIdDefs
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148BPSL3Inner
-public import CFSG.RankThree.PartTwo.Sec14.Ronan148BPSAsm
-import CFSG.RankThree.PartTwo.Sec14.Item14Res8ProofHessConj
 import CFSG.RankThree.PartTwo.Sec14.Ronan148WL3CentSinger
 import CFSG.RankThree.PartTwo.Sec4.LThreePiHessian
-import CFSG.RankThree.PartTwo.Sec4.LThreePiRank
-import CFSG.RankThree.PartTwo.Sec4.LThreePiMain
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
 public import CFSG.Certificates.FusionF2
@@ -54,7 +50,6 @@ public import CFSG.Monster.AxisCount.HSIdentRec6
 public import CFSG.Monster.AxisCount.HSIdentRec7
 public import CFSG.Monster.AxisCount.HSIdentSmall
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 public import CFSG.Quasithin.Vol2.KGFactC31RuRefBase
 public import CFSG.RankThree.LocalRank.SelectorCases

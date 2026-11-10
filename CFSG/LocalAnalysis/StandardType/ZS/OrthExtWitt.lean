@@ -2,18 +2,14 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.ZS.OrthExtTable
 public import CFSG.LocalAnalysis.StandardType.ZS.OrthReflect
-public import CFSG.LocalAnalysis.StandardType.ZS.ClassReflClosure
 public import CFSG.LocalAnalysis.StandardType.ZS.ClassReflSmul
 public import CFSG.LocalAnalysis.StandardType.ZS.ClassReflOrder
 public import CFSG.LocalAnalysis.StandardType.ZS.DimThree.OrthRefl
 public import CFSG.LocalAnalysis.StandardType.ZS.AbsIrred
 public import CFSG.LocalAnalysis.StandardType.ZS.ThroughRefl
-public import CFSG.LocalAnalysis.StandardType.ZS.MovedGroup
 public import CFSG.LocalAnalysis.StandardType.ZS.SubgroupSpaces
 public import CFSG.ClassicalGroups.Orthogonal.NormClass.Generation
 public import CFSG.ClassicalGroups.Orthogonal.Represents
-public import CFSG.ClassicalGroups.Orthogonal.Hyperbolic
-public import Mathlib.LinearAlgebra.QuadraticForm.Basic
 import CFSG.LocalAnalysis.StandardType.ZS.ReflQuotient
 public import CFSG.LocalAnalysis.StandardType.ZS.OrthExtSix
 

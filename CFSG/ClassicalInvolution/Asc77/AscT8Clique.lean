@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Asc77.AscT8Thm4
-public import CFSG.ClassicalInvolution.Asc77.AscIHSectD
 public import CFSG.ClassicalInvolution.Asc77.AscIHSectE
 public import CFSG.ClassicalInvolution.RouteD.G2D4Ih8Free
 public import CFSG.ClassicalInvolution.RouteD.ExoticD4Model

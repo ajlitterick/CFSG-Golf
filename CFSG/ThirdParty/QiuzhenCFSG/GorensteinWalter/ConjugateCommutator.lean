@@ -1,9 +1,6 @@
 module
 
-public import Mathlib.Algebra.Group.Defs
-public import Mathlib.Algebra.Group.Subgroup.Defs
 public import Mathlib.Algebra.Group.Subgroup.Lattice
-public import Mathlib.Data.Set.Defs
 import Mathlib.Tactic
 
 namespace CFSG

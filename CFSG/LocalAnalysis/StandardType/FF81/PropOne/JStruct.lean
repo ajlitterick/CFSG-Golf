@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.FF81.PropOne.Setup
 public import CFSG.Mathlib.GroupTheory.SLCentralizerOrderThree
 public import CFSG.LocalAnalysis.StandardType.GGFFModelSL
 import CFSG.Adapters.StatedSLTwoField
-import CFSG.Open.StatedZModTwo
-import CFSG.Adapters.ProjectiveSpecialLinear
 
 attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent
 

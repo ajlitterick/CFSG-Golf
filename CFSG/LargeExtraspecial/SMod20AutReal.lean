@@ -2,8 +2,6 @@ module
 
 public import CFSG.LargeExtraspecial.SMod20AutSemi
 public import CFSG.LargeExtraspecial.AS35KAut
-public import CFSG.Fischer.Classification.PSU6
-import CFSG.Fischer.F4
 public import CFSG.Fischer.NoF25.Local
 public import CFSG.GroupTheory.ABGLocalTools.PStabilityDefs
 public import CFSG.LargeExtraspecial.AS35DFinal

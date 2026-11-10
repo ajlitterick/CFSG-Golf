@@ -3,7 +3,6 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseComponentData
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.ComponentA7InvolutionFusion
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.ComponentPSL2InvolutionFusion
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

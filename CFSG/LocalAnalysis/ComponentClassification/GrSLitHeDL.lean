@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeDQ
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuotTools
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec5Lemma53
 public import CFSG.LocalAnalysis.QuasithinUnique.Setting
 

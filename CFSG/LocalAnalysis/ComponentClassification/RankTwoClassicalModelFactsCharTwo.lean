@@ -7,9 +7,6 @@ public import CFSG.ClassicalInvolution.SmallCases.EvenLie.Symplectic
 public import CFSG.ClassicalInvolution.SmallCases.EvenLie.Unitary
 public import CFSG.ClassicalInvolution.SmallCases.EvenLie.Orthogonal
 import CFSG.LocalAnalysis.ComponentInitial.LinearCoverModel
-import CFSG.Adapters.ProjectiveSpecialLinear
-import CFSG.LocalAnalysis.ComponentInitial.BasicFacts
-import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogEvenUnitary
 public import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 public import CFSG.ClassicalInvolution.QuaternionStructure
 public import CFSG.LieType.BorelTits.CompleteFlag
@@ -38,18 +35,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalReflectionSplitting
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalStandardFormsRegular
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherEvenOrthogonalModel
 public import CFSG.LocalAnalysis.SectionRank.SQT
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldPrimeOrderFixedSubfield
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OrderThreeNormalizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2PSLRangeCentralizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinInvolutionCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinRestrictionSixCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinUDecomposition
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationEleven
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTen
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTenStructuralIdentities
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2FieldProjectionArithmetic
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2OrderPSubgroupCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphReconstruction
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalGroup.LowRank

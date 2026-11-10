@@ -1,28 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection5.theorem_5_6_a
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PGroup.NormalSubgroups
-import Mathlib.Algebra.CharP.LinearMaps
-import Mathlib.LinearAlgebra.Eigenspace.Triangularizable
-import Mathlib.LinearAlgebra.Eigenspace.Zero
-import Mathlib.LinearAlgebra.Lagrange
-import Mathlib.LinearAlgebra.Semisimple
-import Mathlib.LinearAlgebra.TensorProduct.Pi
-import Mathlib.RepresentationTheory.Character
-import Mathlib.RepresentationTheory.Coinduced
-import Mathlib.RepresentationTheory.Semisimple
-import Mathlib.RepresentationTheory.Submodule
-import Mathlib.RingTheory.RootsOfUnity.AlgebraicallyClosed
-import Mathlib.RingTheory.SimpleModule.Isotypic
-import Mathlib.RingTheory.ZMod.Torsion
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.CriticalSubgroupLemmas
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Burnside.NormalComplement
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Extraspecial
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.LinearAlgebra.BlockElementaryMap
-import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.ConjugateRep
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection2.EndFieldRep
-import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.TwoDimensionalOddOrder
 import Mathlib.GroupTheory.Schreier
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.theorem_4_18_c
 

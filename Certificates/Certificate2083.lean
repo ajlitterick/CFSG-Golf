@@ -3,18 +3,14 @@ module
 
 public import Certificates.Certificate2083Base
 
-public import CFSG.Sporadic.HNOddCore.CCheckInputs
 public meta import CFSG.Sporadic.HNSchreier.ThreeCheck
 public import Certificates.Kernel.SporSch.HN.CTab
 import Certificates.Kernel.SporSch.HN.CTabNeg
-import CFSG.Sporadic.HNSchreier.InvolCheckInputs
 meta import CFSG.Sporadic.HNSchreier.SeedsCheck
 meta import CFSG.Sporadic.HNSchreier.LocalCheck
-import CFSG.Sporadic.HNSchreier.LocalCheckInputs
 meta import CFSG.Sporadic.HNSchreier.PrimCheck
 meta import CFSG.Sporadic.HNSchreier.LocalData
 meta import CFSG.Sporadic.HNSchreier.MaskCheck
-import CFSG.Sporadic.HNSchreier.OrbitCheckInputs
 
 public section
 

@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeRetIota
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePairTwCover6Aux2
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.TwistedE6Base
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeRetLang
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.CentralizerTrivialQ2
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.CentralizerTrivialQ3T

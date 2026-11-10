@@ -1,9 +1,7 @@
 module
 
-public import Mathlib.GroupTheory.Commutator.Basic
 public import CFSG.RankThree.GF2n.Tim79a34TwoModel
 public import Mathlib.Tactic.Group
-public import Mathlib.SetTheory.Cardinal.Finite
 public import Mathlib.Data.ZMod.Basic
 
 public section

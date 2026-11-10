@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGL45NtExcBridgeTwE6
-public import CFSG.LieType.Chevalley.TrialityFullAmbientFixedGroup
-public import CFSG.LieType.Chevalley.EvenTrialityAutomorphismNormalForm
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestTriDiag
 
 public section
 

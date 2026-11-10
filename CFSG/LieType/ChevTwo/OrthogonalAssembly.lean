@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremB.Prop95IvDefs
-public import CFSG.LieType.ChevTwo.OrthogonalBasic
 public import CFSG.LieType.ChevTwo.OrthogonalAutEight
 public import CFSG.LieType.ChevTwo.OrthogonalOddCent
-import CFSG.LieType.BorelTits.Basic
 public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Inputs
 public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec7Layer
 public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallGEVL34FFDefs

@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGLargeFixDefs
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeFrameShared
 public import CFSG.LocalAnalysis.StandardType.GGResXDatumLFrame
 public import CFSG.LocalAnalysis.StandardType.GGLargeRowShared
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 
 public section
 

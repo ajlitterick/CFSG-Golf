@@ -3,12 +3,8 @@ module
 public import Certificates.Kernel.SuzPump.Pair
 public import CFSG.Certificates.Kernel.B3S3KSound
 public import CFSG.Certificates.Kernel.Spor.RebuildSound
-public import CFSG.Certificates.Kernel.BfsPinSliceSound
-import CFSG.Certificates.Kernel.Spor.RawOrbEval
 import CFSG.Certificates.Kernel.Spor.BfsReplay
-import CFSG.Certificates.Kernel.Spor.Loops
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.BfsPinSound
 public import CFSG.Certificates.Kernel.Spor.RawSiftK
 

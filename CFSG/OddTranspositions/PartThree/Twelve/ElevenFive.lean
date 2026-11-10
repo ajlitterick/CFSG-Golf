@@ -1,9 +1,7 @@
 module
 
-public import CFSG.OddTranspositions.PartThree.Twelve.Minimal
 import CFSG.OddTranspositions.PartThree.Twelve.ElevenFiveGlue
 import CFSG.OddTranspositions.PartThree.Twelve.ElevenFiveRecog
-import CFSG.OddTranspositions.PartThree.Twelve.ElevenFiveModel
 public import CFSG.OddTranspositions.PartThree.Twelve.ElevenFiveModelCentralizer
 public import CFSG.OddTranspositions.PartThree.Twelve.ElevenFivePlumbing
 import CFSG.OddTranspositions.PartThree.Twelve.NineFive

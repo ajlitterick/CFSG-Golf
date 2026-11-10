@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenFiveA
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.VZeroSmall17
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P20o
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.ConjSetCard
-public import CFSG.Quasithin.Background.F6SQTK
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.WeakClosureNine
 public import CFSG.LocalAnalysis.StronglyEmbedded.PSubgroups
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.NineThreeSylData

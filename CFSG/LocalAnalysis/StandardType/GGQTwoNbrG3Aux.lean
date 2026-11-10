@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitaryDatum
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUAct
 
 public section
 

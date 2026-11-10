@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableBE6Three
-public import CFSG.LocalAnalysis.StandardType.GGE6DepModelIndep
 public import CFSG.LocalAnalysis.StandardType.GGE6DepZLFinite
 import CFSG.LocalAnalysis.StandardType.GGE6DepZLWeyl
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKSmallChainS12
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.I141FDynExc
 
 public section
 

@@ -1,15 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestDefs
-public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestFrame
 public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestPCore
-public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestInvLin
-public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestInvQV
-public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestInvariant
-public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestLeviInv
-public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestCenter
-public import CFSG.LocalAnalysis.StandardType.GGRootNormInner
-public import CFSG.LieType.Chevalley.ExactNormalFormE
 
 public section
 

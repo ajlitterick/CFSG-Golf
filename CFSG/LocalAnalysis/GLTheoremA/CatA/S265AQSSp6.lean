@@ -1,16 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265Fam
-import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagOrder
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S265AP2
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S265ASp6Big
-import CFSG.LocalAnalysis.GLTheoremA.CatA.S265BAct
-import CFSG.LocalAnalysis.GLTheoremA.CatB.Bridges
-import CFSG.LocalAnalysis.GLTheoremA.PComp
-import CFSG.LocalAnalysis.GLTheoremA.PartI.I2611
-import CFSG.LocalAnalysis.SeitzReduction.F4PilotSwapBLiftSchur
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma32
 public import CFSG.HardMathSupport.Solomon.LocalBalance.PartIInputs
@@ -45,14 +37,7 @@ public import CFSG.LocalAnalysis.GLTheoremB.Lemma911Defs
 public import CFSG.LocalAnalysis.GLTheoremB.SchreierTools
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremB
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremC
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.ZJTheorem
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GW1965RemarkDGroup
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29Helpers
 
 public section
 

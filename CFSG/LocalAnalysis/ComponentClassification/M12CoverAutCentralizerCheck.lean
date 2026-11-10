@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.M12CoverAutCentralizerData
 public import Certificates.Certificate10023
 public meta import CFSG.LocalAnalysis.ComponentClassification.M12CoverAutCentralizerData
 public meta import CFSG.LocalAnalysis.ComponentClassification.M12CoverAutFusion

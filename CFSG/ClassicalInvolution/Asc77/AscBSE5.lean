@@ -2,8 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Asc77.AscBSE4
 public import CFSG.ClassicalInvolution.Asc77.AscBSD9
-public import CFSG.ClassicalInvolution.RouteD.ExoticD4FourModel
-public import CFSG.ClassicalInvolution.RouteD.ExoticTwinProofOrthBridge
 public import CFSG.ClassicalInvolution.Asc77.AscBSD8
 public import CFSG.ClassicalInvolution.ModelFacts.Orth15D4Ord
 

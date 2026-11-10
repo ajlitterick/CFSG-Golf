@@ -2,7 +2,6 @@ module
 
 public import CFSG.GroupTheory.ABGLocalTools.Basic
 public import CFSG.Quasithin.Vol2.F134L2
-public import CFSG.Walter.PSL2Facts.Even
 
 public section
 

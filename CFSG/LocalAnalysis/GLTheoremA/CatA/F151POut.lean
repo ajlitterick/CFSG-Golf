@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.F151Defs
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeFamOutBCD
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeFamInBCD
-import CFSG.LocalAnalysis.GLTheoremA.S10.Bridge
-import CFSG.Foundations.SteinbergCADefinitionNodes
 import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Claims1110d
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
@@ -68,30 +66,17 @@ public import CFSG.LocalAnalysis.GLTheoremA.S10.Lemma106107
 public import CFSG.LocalAnalysis.GLTheoremA.S3.Lemma35
 public import CFSG.LocalAnalysis.GLTheoremA.S6.Lemma62Aux
 public import CFSG.LocalAnalysis.GLTheoremA.Sec5Setup
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Reduce
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Equivariance
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
-public import CFSG.LocalAnalysis.SignalizerFunctor
 public import CFSG.Monster.B.Classical.PlaneAut
 public import CFSG.Monster.B.TwoA.Amalgam.Data
 public import CFSG.Monster.B.TwoA.Sp8.Par1
 public import CFSG.Monster.B.TwoA.Unitary.LinThree
 public import CFSG.Quasithin.Background.A3Structure319
-public import CFSG.Quasithin.Background.A3Structure36Base
-public import CFSG.Quasithin.Background.A3Structure38Part3
-public import CFSG.Quasithin.Background.B1MoreElevenE
-public import CFSG.Quasithin.Background.B1MoreNineG
-public import CFSG.Quasithin.Background.B4ModelsAction
-public import CFSG.Quasithin.Background.B4ModelsIso
-public import CFSG.Quasithin.Background.E3Cent
 public import CFSG.Quasithin.Background.F9FiveStruct
 public import CFSG.Quasithin.Background.F9G2
 public import CFSG.Quasithin.Background.F9Geometry
 public import CFSG.Quasithin.Background.GoldschmidtRankOneFacts
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtF112ListC
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import CFSG.Quasithin.EmptyFaithful.S1421Defs
 public import CFSG.Quasithin.EmptyFaithful.S142Statements
 public import CFSG.Quasithin.H13.A5S1326
@@ -106,7 +91,6 @@ public import CFSG.Sporadic.SmallOddCore.CheckSpec
 public import CFSG.YGroups.Y322Central
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 import CFSG.Adapters.GeneralizedFitting
 import CFSG.CGT.Timmesfeld75.OddCenter
 import CFSG.CGT.Timmesfeld75.Sec5FiveEng
@@ -171,8 +155,6 @@ import CFSG.Quasithin.Background.C2PushThree
 import CFSG.Quasithin.Background.D2
 import CFSG.Quasithin.Background.D2Cyclic
 import CFSG.Quasithin.Background.E3
-import CFSG.Quasithin.Background.E3Nprime
-import CFSG.Quasithin.Background.E3Uniq
 import CFSG.Quasithin.Background.F918H5
 import CFSG.Quasithin.Background.FFC4Tr2
 import CFSG.Quasithin.Background.GoldschmidtS146RBend1

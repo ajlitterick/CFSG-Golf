@@ -1,12 +1,8 @@
 module
 
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.GoodRankOne
-public import CFSG.Assembly.LargeEvenDefs
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Detect.Heis.Defs
-public import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
-public import CFSG.LocalAnalysis.SeitzReduction.LongRootPairsRoots
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Position
-public import CFSG.LocalAnalysis.StandardType.GGSixPositionDefs
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Defs
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerE8Five
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerFiveTwRigidLang
@@ -62,7 +58,6 @@ public import CFSG.RankThree.PartTwo.KFacts.KS14SzLie
 public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 
 @[expose] public section
 

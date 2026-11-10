@@ -2,16 +2,7 @@
 module
 
 public import Certificates.Kernel.A312M23.Bridge
-public import CFSG.Quasithin.Background.HSporLatM23Sg
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312M23Core
-public import CFSG.LieType.Multipliers.L34Data
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312M23Lat
-import CFSG.Certificates.Kernel.Common.Harness
-import CFSG.Sporadic.Schreier.M23PinnedInputs
-import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicMathieuInputs
-import CFSG.Quasithin.Background.HSporLatInputs
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatFactsK
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatCode
 public import Certificates.Certificate4170Base
 
 public section

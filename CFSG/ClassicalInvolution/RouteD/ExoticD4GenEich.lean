@@ -1,15 +1,12 @@
 module
 
-public import CFSG.ClassicalInvolution.Models.OrthogonalPairs.Fundamental
 public import CFSG.ClassicalInvolution.Models.OrthogonalPairs.Planes
-public import CFSG.ClassicalGroups.Orthogonal.Eichler
 import CFSG.ClassicalInvolution.SmallOrth.PlusFour
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.ClassicalGroups.Orthogonal.Derived
 public import CFSG.ClassicalGroups.Orthogonal.ProjectiveSimple
 public import CFSG.ClassicalInvolution.Models.OrthogonalPairs.Pairs
 public import CFSG.Open.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
 import CFSG.ClassicalInvolution.SmallOrth.Layer
 import CFSG.ClassicalInvolution.SmallOrth.PlusFourModel
 import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis

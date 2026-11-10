@@ -4,9 +4,6 @@ public import Certificates.Data.Kernel.SporLatDcCode
 public import CFSG.Certificates.Kernel.SporLatDcSound
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatCode
 public import CFSG.Quasithin.EmptyFaithful.S151S9TData
-public import Mathlib.Algebra.Group.Action.TransferInstance
-public import Mathlib.Algebra.Group.Action.Prod
-public import Mathlib.Logic.Equiv.Fin.Basic
 
 public section
 

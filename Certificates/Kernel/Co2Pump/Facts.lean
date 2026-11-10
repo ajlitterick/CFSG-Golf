@@ -2,16 +2,12 @@ module
 
 public import Certificates.Kernel.Co2Pump.K
 public import Certificates.Kernel.Misc.Perm.C2M
-public import Certificates.Kernel.Misc.Perm.C2J
 public import CFSG.Certificates.Kernel.MonsterB.BfsTruncSound
 public import CFSG.Certificates.Kernel.MonsterB.ArrBfsSound
 public import CFSG.Certificates.Kernel.Spor.TextSound
 public import CFSG.Certificates.Kernel.SporSch.DerivsSound
 public import CFSG.Certificates.Kernel.SporSch.PairJ3FaithSound
-public import CFSG.RankThree.Native.F2EnumPoint
-public import Certificates.Data.Co2Pump
 public meta import Certificates.Data.Co2Pump
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.Misc.ArrEnumSound
 public import CFSG.Certificates.Kernel.Spor.RawOrbGrp
 public import Certificates.Data.CFSGNative.SporadicSchreier.MathieuOddCore

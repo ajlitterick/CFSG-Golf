@@ -4,18 +4,8 @@ module
 public import CFSG.Sporadic.ThSchreier.GlobalIndexBase1
 
 public import CFSG.Sporadic.ThSchreier.GlobalTransport
-public import CFSG.Sporadic.ThSchreier.ScanCheck
-public import Mathlib
-public import CFSG.Blueprint.NativeSporadic
-public import CFSG.Blueprint.MatrixSeedIdentification
-public import CFSG.Sporadic.Th.F2Spec
-public import CFSG.Certificates.SchreierStabilizerGenerators
-public import Certificates.Data.CFSGNative.Th.Certificate
-public import CFSG.Sporadic.ThSchreier.GlobalData
-public import CFSG.Sporadic.Th.Simple
 public meta import CFSG.Sporadic.ThSchreier.Row
 public meta import CFSG.Sporadic.ThSchreier.LocalOrbit
-public import CFSG.Sporadic.ThSchreier.RowInputs
 public meta import Certificates.Data.CFSGNative.Th.Base
 
 public section

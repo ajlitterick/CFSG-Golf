@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.PreuniquenessRankFour.CoprimeAction
 public import CFSG.Assembly.OrderReductions.ElementaryRepresentation
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
 
 public section
 

@@ -3,15 +3,12 @@ module
 public import CFSG.OddTranspositions.PartThree.Twelve.ElevenSpModelBasic
 public import CFSG.RankThree.PartOne.KC.SymplecticFullCentralizerTransvection
 public import CFSG.OddTranspositions.PartFour.LinePolar
-public import CFSG.Timmesfeld.Bridge.OddLocalDefs
 public import CFSG.RankThree.PartOne.AUTSL.TraceAS
 import CFSG.ClassicalGroups.Orthogonal.CharTwoReflectGen
-import CFSG.RankThree.OrthogonalInvolutions.Dickson
 import CFSG.OddTranspositions.PartThree.Twelve.NineSp
 import CFSG.OddTranspositions.PartThree.Twelve.TenModel
 import CFSG.OddTranspositions.PartThree.Twelve.ElevenSpArith
 import CFSG.RankThree.PartOne.AUTSL.TraceASApply
-import CFSG.ClassicalGroups.Orthogonal.Transitive
 import CFSG.GroupTheory.CentralizerSingletonEquiv
 import CFSG.LieType.SeitzGeneration.SpSubEmb
 public import CFSG.OddTranspositions.PartFour.LineStabilizer

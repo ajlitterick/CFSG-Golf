@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.Steinberg.Adjoint.Datum
 public import CFSG.LieType.Chevalley.RootOps.CommAll
-public import CFSG.LieType.Chevalley.WeylSpace
 
 public section
 

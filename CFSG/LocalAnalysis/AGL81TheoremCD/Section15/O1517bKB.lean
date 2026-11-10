@@ -2,13 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section15.O1517bDefs
 public import CFSG.HardMathSupport.RichardWeiss.RecognitionPresentation.StrongThree.Gls3Plus
-import CFSG.LocalAnalysis.AGLEmbedding.CatalogComponent
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentAut
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CZKFactsA6
 import CFSG.HardMathSupport.RichardWeiss.RecognitionPresentation.StrongThree.AutoX
 import CFSG.HardMathSupport.RichardWeiss.RecognitionPresentation.StrongThree.AltSix
 import CFSG.GroupTheory.PGroup.ElemAbelianSq
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
@@ -21,7 +19,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
 public import CFSG.LocalAnalysis.ComponentInitial.LayerComponentOrbit
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.Quasithin.Background.Basic
 public import CFSG.RankThree.GroupTheory.SteinbergBYSectionNineResidual
 public import CFSG.RankThree.LocalRank.SelectorCases

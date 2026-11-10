@@ -3,9 +3,7 @@ module
 
 public import Certificates.Certificate2060Base
 
-public import CFSG.Sporadic.Co2Schreier.TextCheckInputs
 public meta import CFSG.Sporadic.Co2Schreier.Text
-public import CFSG.Certificates.Kernel.SporSch.Co2SShapeSound
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

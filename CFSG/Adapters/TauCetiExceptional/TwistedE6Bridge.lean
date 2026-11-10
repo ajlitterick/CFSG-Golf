@@ -2,7 +2,6 @@ module
 
 public import CFSG.Adapters.TauCetiExceptional.TwistedE6Carrier
 public import CFSG.Adapters.TauCetiExceptional.TwistedIsogeny
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.LieType
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.LieType
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.GraphTwisted
 

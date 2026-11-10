@@ -2,8 +2,6 @@ module
 
 public import Certificates.Kernel.SporSch.PairBT.McLSylFacts
 public import Certificates.Kernel.SporSch.PairBT.McLSyl2E
-public import CFSG.Sporadic.Schreier.PairMcLCheck
-public import Certificates.Data.CFSGNative.PairSchreier.Counts
 public meta import CFSG.Sporadic.Schreier.PairMcLCheck
 public meta import Certificates.Data.CFSGNative.PairSchreier.Core
 public meta import Certificates.Data.CFSGNative.PairSchreier.Counts

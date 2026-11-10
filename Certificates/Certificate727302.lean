@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Sporadic.SuzRecog.SuzL34.Facts
-import Certificates.Kernel.Sporadic.OddCore.SuzBtXG
 import Certificates.Kernel.Sporadic.OddCore.SuzBtYG
 
 public section

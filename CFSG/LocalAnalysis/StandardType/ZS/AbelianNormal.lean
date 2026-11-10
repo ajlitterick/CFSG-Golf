@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveZSInputs
 public import CFSG.Quasithin.Background.SimsG4OrthUAbel
 public import CFSG.LocalAnalysis.StandardType.ZS.ReflQuotient
 

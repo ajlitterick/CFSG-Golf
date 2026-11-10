@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicJ2
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatFactsK
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatCode
 public import CFSG.Quasithin.Background.E2TwoProofSporJ2Inputs
 public import Certificates.Data.Kernel.SporLatDcCode
 import CFSG.Certificates.Kernel.Common.JsonGz

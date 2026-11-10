@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Sporadic.OddCore.TBfsCmd
 public import Certificates.Kernel.Sporadic.OddCore.RowsCmd
-public import CFSG.Certificates.Kernel.Spor.PackWord
 public import Certificates.Data.CFSGNative.He.Certificate
 public meta import Certificates.Data.CFSGNative.He.Certificate
 

@@ -9,8 +9,6 @@ public import Certificates.Kernel.J4Q.MaskData
 public import Certificates.Kernel.J4Q.MatData
 public import CFSG.Sporadic.Schreier.J4SData
 import CFSG.Certificates.Kernel.Common.Harness
-public import CFSG.LocalAnalysis.SectionRank.Sporadic.LocalWitness
-public import CFSG.Open.Defs
 
 public section
 

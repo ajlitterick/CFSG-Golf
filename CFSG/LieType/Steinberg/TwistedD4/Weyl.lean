@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.Steinberg.TwistedD4.Unipotent
-public import Mathlib.GroupTheory.NoncommPiCoprod
 
 public noncomputable section
 

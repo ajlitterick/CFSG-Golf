@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTwE6DeltaThreeSixCube
 public import CFSG.LocalAnalysis.StandardType.GGTwE6DeltaThreeSplit
 public import CFSG.LocalAnalysis.StandardType.GGTwE6DD2Recipe
-public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitaryDesc
 
 public section
 

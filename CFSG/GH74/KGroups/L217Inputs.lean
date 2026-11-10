@@ -1,15 +1,11 @@
 module
 
-public import Mathlib
-public import CFSG.GH74.KGroups.Generic
-public import CFSG.GH74.KGroups.PermCheck
 public import CFSG.GH74.KGroups.Checks
 public import CFSG.GH74.KGroups.PSL2
 public import CFSG.GH74.KGroups.PrimeField
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Cardinality
 public meta import CFSG.GH74.KGroups.Checks
 public meta import Mathlib
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
 
 public section
 

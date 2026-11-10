@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentInnerLeafDefs
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentInnerToralAlg
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentInnerToralAut
-public import CFSG.LocalAnalysis.StandardType.GGNbrGraphD4ProofKG
-public import CFSG.LocalAnalysis.StandardType.GGNbrGraphD4ProofOut
 
 public section
 

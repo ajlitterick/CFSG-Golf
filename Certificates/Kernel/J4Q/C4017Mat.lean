@@ -6,7 +6,6 @@ import Certificates.Kernel.J4Q.Strs
 import Certificates.Kernel.J4Q.AllN
 import CFSG.Certificates.Kernel.Common.Harness
 public import Certificates.Kernel.J4Q.Orbits
-public import Certificates.Kernel.J4Q.QTBase
 
 public section
 

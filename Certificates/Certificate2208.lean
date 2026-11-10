@@ -7,8 +7,6 @@ public meta import CFSG.Sporadic.Schreier.M22
 public meta import CFSG.Monster.B.Mathieu.M22Check
 public meta import Certificates.Data.CFSGNative.SporadicSchreier.MathieuOddCore
 import Certificates.Kernel.Sporadic.M22Syl.Facts
-import Certificates.Kernel.Sporadic.M22Syl.Checks
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

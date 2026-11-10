@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.M22Std.R3HE32
-public import CFSG.LocalAnalysis.EvenSporadicStandard.M22Std.OutFacts
 public import CFSG.LocalAnalysis.EvenSporadicStandard.M22Std.R3Fusion1
 public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
 

@@ -1,15 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenMinimumChoice
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC1677ThreeDefs
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenNoncomponentMinimumCases
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Sixteen3FCompStd
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenNonthinComponentSOne
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenThinComponentDispatch
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenElevenA
-public import Certificates.Certificate431004
-public import Certificates.Certificate17430
-public import Certificates.Certificate9726
 public import CFSG.GroupTheory.StronglyClosedTI.OddCore
 public import CFSG.GroupTheory.ThreeTranspositions.Basic
 public import CFSG.LieType.Universal.Spin

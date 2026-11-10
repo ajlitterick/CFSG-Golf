@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.RankThree.PartOne.CTP.StrongPGlue
 import CFSG.SignalizerFunctorTheorem.McBride.Prelim.Generation
 import CFSG.GroupTheory.ABGLocalTools.Constraint

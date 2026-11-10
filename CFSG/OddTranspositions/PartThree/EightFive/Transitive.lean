@@ -1,23 +1,14 @@
 module
 
-public import CFSG.OddTranspositions.SevenThreeTransitive
 public import CFSG.OddTranspositions.DeltaCentSet
 public import CFSG.OddTranspositions.AscTheoremTwo
-public import CFSG.OddTranspositions.HypothesisC
 public import CFSG.Timmesfeld.Bridge.Asc72ConjOrbit
 public import CFSG.Timmesfeld.Bridge.OddTranspDefs
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
-public import CFSG.Foundations.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Comparator.Defs
 
 import CFSG.OddTranspositions.PartThree.EightFour
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.OddTranspositions.SixEight
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.Timmesfeld.Bridge.Asc72Lift
 public import CFSG.Timmesfeld.Bridge.Asc73Quotient
 public import CFSG.Timmesfeld.Moufang.Three

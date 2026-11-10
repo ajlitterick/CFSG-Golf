@@ -1,12 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortDefs
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP10E6Real
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP5TwE6A5
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP5TwE6Rank
-public import CFSG.LocalAnalysis.StandardType.GGNTPlaneTableData
 public import CFSG.LocalAnalysis.StandardType.GGNTPlaneHyperplane
-public import TauCeti.GroupTheory.FixedSubgroup
 
 public section
 

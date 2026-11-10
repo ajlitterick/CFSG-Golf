@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23d.Defs
-public import CFSG.Open.StatedDefs
 public import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockOrthMinusCuts
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalTailModelTransport
 public import CFSG.ClassicalGroups.Orthogonal.StatedOmegaElementary
@@ -20,9 +19,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalStandardFormsRegular
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalTailModelCoordinates
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalTailPolar
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherEvenOrthogonalModel
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 
 public section

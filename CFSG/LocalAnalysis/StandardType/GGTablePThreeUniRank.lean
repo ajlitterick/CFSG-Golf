@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniDefs
 import CFSG.RankThree.PartTwo.Sec8.Hering418L2
-import CFSG.RankThree.PartTwo.Sec4.Item413AutGen
 import CFSG.CGT.Timmesfeld75.L2Pair
 import CFSG.CGT.Timmesfeld75.ListWCBasic
 import CFSG.ClassicalGroups
@@ -42,14 +41,8 @@ import CFSG.RankThree.PartTwo.Sec4.Item47
 import CFSG.RankThree.PartTwo.Sec4.LThreePiItem411
 import CFSG.RankThree.PartTwo.Sec6.Item612
 import CFSG.Sporadic.ONOddCore.LiftHomCheckInputs
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
-import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremB
-import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremC
-import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.ZJTheorem
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GW1965RemarkDGroup
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29Helpers
 import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 
 public section

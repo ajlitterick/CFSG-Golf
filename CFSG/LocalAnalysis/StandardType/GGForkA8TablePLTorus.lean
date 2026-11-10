@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGForkA8TablePClauses
-public import CFSG.LocalAnalysis.StandardType.GGTableBRank
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangTorARankBound
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticOmega
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcTorus
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4Torus
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeNbrKnownLemmas
 
 public section

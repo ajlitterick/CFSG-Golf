@@ -4,7 +4,6 @@ public import CFSG.Milestones.ASVolI.C31.J4NP.Is2ANative
 public import Certificates.Kernel.J4F2.J4Std
 public import CFSG.Certificates.Kernel.J4Q.RepQT2B
 import CFSG.Certificates.Kernel.Common.Harness
-public import CFSG.Sporadic.J4.QTRankWitNative
 
 public section
 

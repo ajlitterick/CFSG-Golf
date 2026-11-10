@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.FS81.N7MainDefs
 public import CFSG.LocalAnalysis.StandardType.FS81.N7MainFone
 import CFSG.LocalAnalysis.StandardType.FS81.N7FixQuotNormal
 import CFSG.LocalAnalysis.StandardType.FS81.N7FixQuotTwo

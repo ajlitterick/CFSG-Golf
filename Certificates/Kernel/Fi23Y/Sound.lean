@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Fi23Y.ChkDefs
 public import Certificates.Kernel.Fi23K.Card
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicFi23Facts
-public import Certificates.Certificate9111
 public import Certificates.Certificate9206
 import Certificates.Kernel.Fi23Y.KSFacts
 public import CFSG.Blueprint.MatrixSeedIdentification
@@ -21,14 +20,9 @@ public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicSLP
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
 public import CFSG.Perm.ChainSpec
-public import CFSG.Sporadic.Bridge.Common
 public import CFSG.Sporadic.Fi23.CertificateBase
-public import CFSG.Sporadic.Fi23.SimpleBase
 public import CFSG.Sporadic.Fi23.SlpSpec
-public import CFSG.Sporadic.Presentation.Fi23
-public import CFSG.Sporadic.Th.F2Spec
 public import CFSG.Sporadic.Th.OrbitSpec
-public import Certificates.Certificate9206Base
 public import Certificates.Data.CFSGNative.Schreier.SetOrbit
 public import Certificates.Kernel.Fi23K.Chain
 public import Certificates.Kernel.Sporadic.Fi23Br.Words

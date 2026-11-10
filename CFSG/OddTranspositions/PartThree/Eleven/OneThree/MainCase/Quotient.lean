@@ -2,7 +2,6 @@ module
 
 public import CFSG.OddTranspositions.PartThree.Eleven.OneThree.MainCase.Coset
 public import CFSG.OddTranspositions.PartThree.Eleven.OneThree.MainCase.TheoremTwo
-public import CFSG.OddTranspositions.HalphaQuotient
 import CFSG.OddTranspositions.PartThree.Eleven.OneThree.MainCase.Center
 import CFSG.OddTranspositions.PartThree.SixThreeGlobal
 import CFSG.OddTranspositions.PartFour.Fourteen.Steps
@@ -13,9 +12,6 @@ import CFSG.GroupTheory.PCore.TwoOddCoreSolvable
 import CFSG.OddTranspositions.PartThree.Eleven.OneThree.MainCase.PCore
 import CFSG.Timmesfeld.Bridge.Asc72ElemCompQuot
 import CFSG.OddTranspositions.TheoremTwo.PropFourSeven.CaseBStep
-import CFSG.Timmesfeld.Bridge.OddLocalRootCore
-import CFSG.Timmesfeld.Exceptional.TwoLines
-import CFSG.OddTranspositions.PartThree.Nine.ThreeSplit
 import CFSG.Mathlib.GroupTheory.MulConjMemNormal
 import CFSG.CGT.T75E.Lemma26
 import CFSG.CGT.Timmesfeld75.Sec3TenCaseA

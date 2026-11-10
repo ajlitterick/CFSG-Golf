@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.OddStandard.AltStdSecTwoRoot
 public import CFSG.LocalAnalysis.OddStandard.AltStdSecFarHN
-public import CFSG.Sporadic.HNSchreier.Intrinsic
 public import CFSG.CharacterTheory.CyclicBlocks.Family
 public import CFSG.CharacterTheory.Semidihedral.Principal.LargePrimeTorusSylowCentralizers
 public import CFSG.CharacterTheory.Semidihedral.Principal.PrimeTorusBlockAlignment
@@ -24,10 +23,6 @@ public import CFSG.LocalAnalysis.OddStandard.Solomon75Sec3Reduce
 public import CFSG.Milestones.SG_two_signalizer_completeness
 public import CFSG.Permutation.UnitaryThreeRecognition.Model
 public import CFSG.StronglyEmbedded.TheoremSE.BenderLowRank
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_1_12
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 
 public section

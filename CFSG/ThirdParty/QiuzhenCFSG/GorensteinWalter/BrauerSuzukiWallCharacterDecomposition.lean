@@ -3,7 +3,6 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.LowNormVirtualCharacterDecomposition
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection12.Basic
 
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection5.Basic
 import Mathlib.Tactic
 
 namespace CFSG

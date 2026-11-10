@@ -2,11 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6OppCompLabCat
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6UniqueCompLabelMarking
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6UniqueCompLabel
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TwoLeafModel
-public import CFSG.LocalAnalysis.StandardType.GGSpJoinNbrModel
-public import CFSG.LocalAnalysis.StandardType.MarkingDict
-public import CFSG.Blueprint.Chevalley
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.Q3TCBridge
 public import CFSG.ClassicalInvolution.Q3.Q3WASTSign
-public import CFSG.ClassicalInvolution.RouteD.ExoticD4FourModel
 public import CFSG.ClassicalInvolution.RouteD.ExoticD4LinearClique
 public import CFSG.ClassicalInvolution.Asc77.AscE187Cop
 public import CFSG.ClassicalInvolution.Asc77.AscIHSectG

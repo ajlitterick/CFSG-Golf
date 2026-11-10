@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.Kernel.Spor.Fi24Kit
 public import Certificates.Data.Kernel.Spor.Fi24ThreeO
 public import Certificates.Data.Kernel.Spor.Chain
 

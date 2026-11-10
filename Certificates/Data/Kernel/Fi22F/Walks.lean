@@ -2,7 +2,6 @@ module
 
 public import CFSG.Sporadic.Presentation.Fi22ExactData
 public import Certificates.Data.Kernel.HOrb
-public import CFSG.Certificates.Kernel.Common.HOrb
 public import Mathlib
 
 public section

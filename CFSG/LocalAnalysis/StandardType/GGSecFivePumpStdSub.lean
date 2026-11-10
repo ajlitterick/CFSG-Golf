@@ -8,11 +8,7 @@ import CFSG.LocalAnalysis.StandardType.GGSecFivePumpJShape
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpMemberL
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosHolds
 import CFSG.LocalAnalysis.StandardType.GGStdPosLocalConj
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelTypeABridge
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
-import CFSG.LocalAnalysis.StandardType.GGSecFiveL2SplitDkRootsBasic
 import CFSG.LocalAnalysis.StandardType.GGSecFiveL2SplitDkRootsWeyl
-import CFSG.LocalAnalysis.StandardType.GGSixStepOneCompNormal
 
 public section
 

@@ -5,9 +5,6 @@ public import CFSG.Sporadic.Co1Patterson.AmalgamInnerMain
 public import CFSG.Sporadic.Co1Patterson.AmalgamRigidEdge
 public import CFSG.Sporadic.Co1Patterson.Generation
 public import CFSG.Sporadic.Co1Block.TwoBCent
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 
 public section
 

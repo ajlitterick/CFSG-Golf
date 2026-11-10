@@ -1,11 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGTransferGen
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OddCenter
-public import CFSG.LieType.HighestRoot.GenModels
-public import CFSG.ClassicalInvolution.ModelFacts.FundNoncentralSimple
-public import CFSG.LieType.Steinberg.OfCartan
 
 public section
 

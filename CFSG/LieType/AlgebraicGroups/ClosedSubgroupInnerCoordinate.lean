@@ -2,7 +2,6 @@ module
 public import CFSG.LieType.AlgebraicGroups.FixedComponentCentralIsogeny
 public import CFSG.LieType.AlgebraicGroups.ConstructibleSubgroupGL
 public import CFSG.LieType.AlgebraicGroups.G2ExceptionalComorphism
-public import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ElementaryAbelian
 public import TauCeti.Algebra.AlgebraicGroup.ConstantGroup.Points
 public import TauCeti.Algebra.AlgebraicGroup.Torus.SmoothConnected

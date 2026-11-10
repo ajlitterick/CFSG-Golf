@@ -23,12 +23,7 @@ public import CFSG.Open.SplitBNPair
 public import CFSG.Quasithin.Background.A3Structure312Defs
 public import CFSG.Quasithin.Background.B4Statement
 public import CFSG.Quasithin.Background.B6
-public import CFSG.Quasithin.Background.B6Example
-public import CFSG.Quasithin.Background.B6Offenders
 public import CFSG.Quasithin.Background.E1
-public import CFSG.Quasithin.Background.E1Sec4
-public import CFSG.Quasithin.Background.E1Sec5
-public import CFSG.Quasithin.Background.E1Sec8
 public import CFSG.Quasithin.Background.E2SolvTwo
 public import CFSG.Quasithin.Background.E3OffenderB
 public import CFSG.Quasithin.H13.StatementsL1

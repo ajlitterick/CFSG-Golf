@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.EvenN0Mat
 public import CFSG.LocalAnalysis.StandardType.FS81.EvenN0Rep
-public import CFSG.LocalAnalysis.StandardType.FS81.N7MainBasic
-public import CFSG.LocalAnalysis.StandardType.FS81.OddCoreOrthRows
 public import CFSG.LocalAnalysis.StandardType.FS81.HMCore
 
 public section

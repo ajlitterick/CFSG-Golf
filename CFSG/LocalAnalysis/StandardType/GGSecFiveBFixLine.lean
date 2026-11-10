@@ -1,12 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBJoinDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRest
-public import CFSG.LocalAnalysis.StandardType.GGTBFixDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 import CFSG.LocalAnalysis.StandardType.GGRowKFrame
 import CFSG.LocalAnalysis.StandardType.GGSignedCoordFix
-import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaBase
 
 public section
 

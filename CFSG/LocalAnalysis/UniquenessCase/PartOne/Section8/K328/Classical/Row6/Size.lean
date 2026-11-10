@@ -5,8 +5,6 @@ import CFSG.Adapters.StatedClassicalSmallOrders
 import CFSG.Adapters.StatedClassicalUnitaryOrders
 import CFSG.LocalAnalysis.SectionRank.OddCover.DegreeThreeSU
 import CFSG.GH74.Generic.S1.SymBlocksUniCore
-import CFSG.GroupTheory.ABGLocalTools.PStabilityQSL2
-import CFSG.LieType.Universal.Unitary.Comparison
 import CFSG.Certificates.CosetTableShort
 import CFSG.Fischer.Uniq.CompTau
 import CFSG.GH74.Generic.Front.Final

@@ -1,12 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcCensusCert
-public import CFSG.LocalAnalysis.StandardType.GGQ2AmbModelSplitAmb
-public import CFSG.LocalAnalysis.StandardType.GGQ2FrameSplit
 public import CFSG.LocalAnalysis.StandardType.GGQ2NoTwoNodeExc
-public import CFSG.LocalAnalysis.StandardType.GGQ2ClassicalCatalogueU
 import CFSG.LocalAnalysis.StandardType.GGQ2ExcInsideMoved
-import CFSG.LocalAnalysis.StandardType.GGQ2ClassicalCensusStatements
 import CFSG.LocalAnalysis.StandardType.GGQ2CensusPlane
 import CFSG.LocalAnalysis.StandardType.GGQ2CensusUnitFull
 import CFSG.LocalAnalysis.StandardType.GGQ2CensusUnitHeart

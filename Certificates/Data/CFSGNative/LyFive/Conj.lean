@@ -1,8 +1,6 @@
 module
 
-public import Certificates.Data.CFSGNative.Ly.Orbit
 public import Certificates.Data.CFSGNative.LySchreier.Check
-public import Std.Data.HashMap
 
 public section
 

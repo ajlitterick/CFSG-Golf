@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGOrthRk1Defs
 public import CFSG.LocalAnalysis.StandardType.GGOrthRk1PairAlg
 public import CFSG.LocalAnalysis.StandardType.GGOrthRk1PairNorm
-public import CFSG.ClassicalInvolution.Models.OrthogonalPairs.Anisotropic.Embed
 import CFSG.LocalAnalysis.StandardType.GGOrthRk1Pieces
 import CFSG.RankThree.Classical.SteinbergBJOrthogonalInnerPlane
 import CFSG.Timmesfeld.Transvection.RelBuildField

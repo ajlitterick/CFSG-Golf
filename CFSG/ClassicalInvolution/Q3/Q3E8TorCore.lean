@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.Q3E8TorStmt
 public import CFSG.ClassicalInvolution.Q3.Q3E8BF5HJ
-public import CFSG.ClassicalInvolution.ModelFacts.E7ModelLeviStab
 
 public section
 

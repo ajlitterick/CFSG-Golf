@@ -1,17 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNTPlaneInput
-public import CFSG.LocalAnalysis.StandardType.GGNTPlaneDiag
 public import CFSG.LocalAnalysis.StandardType.GGNTPlaneA2Split
 public import CFSG.LocalAnalysis.StandardType.GGCentStructProof
 public import CFSG.LocalAnalysis.StandardType.GGCentA2Diag
 public import CFSG.LocalAnalysis.StandardType.GGCentA2Shape
 public import CFSG.LocalAnalysis.StandardType.GGCentA2Lang
 public import CFSG.LocalAnalysis.StandardType.GGCentA2Std
-public import CFSG.LocalAnalysis.StandardType.GGCompFieldLieModel
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24A2CubeClass
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.KS.TwE6UniqFacts
-public import CFSG.LieType.Universal.SpecialLinear
 
 public section
 

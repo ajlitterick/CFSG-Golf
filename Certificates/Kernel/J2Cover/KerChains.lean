@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.J2Cover.AutChain
 public import Certificates.Kernel.J2Cover.TxtKernel
 public import CFSG.Certificates.Kernel.DecTextSound
-public import CFSG.LocalAnalysis.ComponentClassification.J2CoverKernelData
 meta import CFSG.LocalAnalysis.ComponentClassification.J2CoverKernelData
 import CFSG.Certificates.Kernel.Common.Harness
 import Mathlib.Tactic.IntervalCases

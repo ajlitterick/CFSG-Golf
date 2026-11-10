@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TwE6NV
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TwE6Data
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortF4IsoLen
 public import CFSG.LieType.TitsSimplicity.LeviSteinberg
 

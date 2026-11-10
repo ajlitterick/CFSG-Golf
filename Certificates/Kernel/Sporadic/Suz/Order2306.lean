@@ -11,8 +11,6 @@ public import CFSG.Sporadic.SuzOddCore.SmallChainCheckInputs
 public import Certificates.Certificate9130
 import all CFSG.Sporadic.SuzOddCore.Arrays
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Sporadic.Presentation.Common
 
 public section

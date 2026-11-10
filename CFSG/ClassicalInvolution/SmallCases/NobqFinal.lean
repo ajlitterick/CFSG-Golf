@@ -45,7 +45,6 @@ public import CFSG.LocalAnalysis.LargeEvenClassification.MacWilliamsReduction
 public import CFSG.LocalAnalysis.LargeEvenClassification.SmallCfourFullObstruction
 public import CFSG.LocalAnalysis.LargeEvenClassification.SmallCfourProperSubgroups
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.Open.GorensteinHaradaSectionalRankFourMilestoneDefs
 public import CFSG.Permutation.AlternatingAutomorphism

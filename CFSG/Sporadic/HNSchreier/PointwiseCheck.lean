@@ -1,10 +1,8 @@
 module
 
 public import CFSG.Sporadic.HNSchreier.SylowCheck
-public import CFSG.Sporadic.HNSchreier.PointwiseData
 public meta import CFSG.Sporadic.HNSchreier.SylowCheck
 public meta import CFSG.Sporadic.HNSchreier.PointwiseData
-public import CFSG.Sporadic.HNSchreier.PointwiseCheckInputs
 public import Certificates.Certificate2103
 
 public section

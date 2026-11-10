@@ -1,24 +1,14 @@
 module
 
-public import CFSG.LieType.SeitzGeneration.QuasiHighLift
-public import CFSG.LieType.SeitzGeneration.QuasiHigh6Rest
-public import CFSG.LieType.SeitzGeneration.UniPlaneCoverLift
 public import CFSG.LieType.SeitzGeneration.CoverDerivedPreimage
 public import CFSG.LieType.SeitzGeneration.CubeCoverTwE6Rest
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.IndicesTwistedA
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.TwE6InnerTwoToral
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.TwE6InnerTwoLevi
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.TwE6InnerTwoLongRoot
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.TwE6InnerTwoRootSL2
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.TwE6NegDatumRadical
-public import CFSG.LieType.SeitzGeneration.ExcWideThree.TwE6RegularLevi
-public import CFSG.LieType.SeitzGeneration.ExcWideThree.TwE6RegularInputs
-public import CFSG.RankThree.PartOne.S11d.LieFieldTransfer
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.TwE6InnerTwoLeviCube
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.TwE6InnerTwoKill
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.TwE6InnerTwoDefs
-public import CFSG.LieType.SeitzGeneration.ExcWideThree.TwE6LeviCatalogue
-public import CFSG.LieType.Chevalley.GraphFixedCenterTrivial
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.TwE6InnerTwoFixedRootMono
 public import CFSG.LieType.SeitzGeneration.CubeCoverE6Bad
 

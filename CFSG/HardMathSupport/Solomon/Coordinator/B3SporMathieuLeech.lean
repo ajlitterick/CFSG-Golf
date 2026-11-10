@@ -4,7 +4,6 @@ public import CFSG.HardMathSupport.Solomon.Coordinator.B3Spor3Mathieu
 public import CFSG.HardMathSupport.Solomon.Coordinator.B3Spor3M24
 public import CFSG.HardMathSupport.Solomon.Coordinator.B3Spor3J2
 public import CFSG.HardMathSupport.Solomon.Coordinator.B3Spor3HS
-public import CFSG.HardMathSupport.Solomon.Coordinator.B3SporAssemble
 public import CFSG.HardMathSupport.Solomon.Coordinator.SporOrders
 public import CFSG.HardMathSupport.Solomon.Coordinator.B3SporFiveJ2
 public import CFSG.HardMathSupport.Solomon.Coordinator.B3SporFiveHSMcL
@@ -19,7 +18,6 @@ public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co1Five
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co1Seven
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co2Five
 public import CFSG.HardMathSupport.Timmesfeld.Proving.SporadicOuterLeTwo
-public import CFSG.Sporadic.Bridge.Catalogue
 public import CFSG.ClassicalInvolution.Balance.LocalBalance.Faithful
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.QuasiAssembly
 public import CFSG.HardMathSupport.Solomon.Coordinator.GFR1Basic
@@ -63,7 +61,6 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly

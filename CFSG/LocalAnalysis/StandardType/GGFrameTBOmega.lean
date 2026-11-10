@@ -6,12 +6,8 @@ public import CFSG.LocalAnalysis.StandardType.GGFrameModelNumD
 import CFSG.LocalAnalysis.StandardType.GGFrameClassicalNum
 import CFSG.LocalAnalysis.StandardType.GGRootGenAvoidReflModel
 import CFSG.LocalAnalysis.StandardType.GGNbrTableBOrthPlus
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorus
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthExcEvenLabels
 import CFSG.LocalAnalysis.StandardType.GGHdRo7DFrameOmega
 import CFSG.LocalAnalysis.StandardType.GGHdRo7DFrameTransport
-import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOrthNsLabels
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthExc
 import CFSG.LocalAnalysis.StandardType.GGTwAutHolds
 import CFSG.LocalAnalysis.StandardType.GGTwOmPlusHolds
 

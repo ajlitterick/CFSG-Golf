@@ -6,8 +6,6 @@ public import Certificates.Kernel.LocalComp.Co3BfsGen
 public import Certificates.Kernel.LocalComp.Co3IdentModelArrs
 meta import Certificates.Kernel.LocalComp.Co3IdentModelArrs
 meta import CFSG.Sporadic.Schreier.Co3Arrays
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.Co3BfsSound
 
 public section

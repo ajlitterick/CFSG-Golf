@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2OrthBlocksDefs
-public import CFSG.LocalAnalysis.StandardType.GGQ2ActualFrame
 public import CFSG.LocalAnalysis.StandardType.GGQ2ClassicalCatalogue
 
 public section

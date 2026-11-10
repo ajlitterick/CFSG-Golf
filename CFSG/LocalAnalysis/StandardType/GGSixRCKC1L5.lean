@@ -1,7 +1,6 @@
 module
 
 public import Mathlib.Algebra.Algebra.Basic
-public import Mathlib.Algebra.Field.Defs
 
 public section
 

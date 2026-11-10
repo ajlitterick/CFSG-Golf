@@ -14,7 +14,6 @@ public meta import CFSG.Monster.B.Mathieu.SylowCore
 public meta import CFSG.Sporadic.SuzOddCore.RestrictDefs
 public meta import CFSG.Certificates.NativeSchreierCard
 public import CFSG.Certificates.NativeSchreierCard
-public import Mathlib.GroupTheory.Schreier
 public meta import Mathlib.GroupTheory.Schreier
 public import Std.Data.HashMap
 

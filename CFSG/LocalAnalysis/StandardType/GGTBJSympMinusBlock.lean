@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJSympMinusUnitary
-public import CFSG.LocalAnalysis.StandardType.GGTBJSympMinusBlockAux
 public import CFSG.LocalAnalysis.StandardType.GGTBJSympMinusBlockZ2
 public import CFSG.LocalAnalysis.StandardType.GGTBJSympMinusLocalize
 

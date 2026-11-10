@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeO1ppModels
 public import CFSG.LocalAnalysis.StandardType.GGIOneOrthEndSmall
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172AExistBase
 public import CFSG.Assembly.LargeEvenGLABridge
-public import CFSG.GroupTheory.QuasisimpleCommutingProductBound
 public import CFSG.Assembly.OpenBridges
 public import CFSG.Blueprint.OddStandardExact
 public import CFSG.ClassicalInvolution.Asc77.AscT3TypedG2GenMax

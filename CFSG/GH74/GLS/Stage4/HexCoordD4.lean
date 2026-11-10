@@ -2,8 +2,6 @@ module
 
 public import CFSG.GH74.GLS.Stage4.HexCoord
 public import CFSG.GH74.GLS.Stage4.HexD4Comm
-public import CFSG.GH74.GLS.Stage4.HexModelD4
-public import CFSG.GH74.GLS.Stage4.HexClass
 
 public noncomputable section
 

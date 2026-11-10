@@ -1,12 +1,6 @@
 module
 
-public import CFSG.GH74.GLS.C3.Layer2.L5C5g
-public import CFSG.GH74.GLS.C3.Layer2.L5C2e
 public import CFSG.GH74.GLS.C3.Layer2.L5C5fInputs
-public import Certificates.Certificate5045
-public import Certificates.Certificate5051
-public import Certificates.Certificate5065
-public import Certificates.Certificate5066
 import CFSG.Certificates.Kernel.L5.EngRec
 import CFSG.Certificates.Kernel.L5.F5Code
 import CFSG.Certificates.Kernel.L5.Sh2Grp

@@ -1,13 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGRootNormInner
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutTrialityBridge
 public import CFSG.LocalAnalysis.StandardType.GGRootDetectSpinPlus
 public import CFSG.LieType.ChevTwo.OppCl.D4Normal
-public import CFSG.LieType.Chevalley.G2FieldFourEvenSimplePairs
-public import CFSG.LieType.Chevalley.RootPairCommonField
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaInnerMatrix
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaInnerTriality
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaInnerTrialityReduction
 public import CFSG.LieType.ChevTwo.OppositeFixedExcTri
 public import CFSG.LieType.Chevalley.EvenOddCentralizerRadicalTwisted

@@ -5,7 +5,6 @@ public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.SeitzCubeOrthTwo
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.LinearAutCubeProof
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.Star2313UnitaryProof
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.SeitzCubeUnitaryPow
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.OuterHighClassical
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.OuterHighExc
 public import CFSG.LieType.SeitzGeneration.SeitzStatus
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.SeitzExcOpenRest

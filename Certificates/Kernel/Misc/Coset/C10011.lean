@@ -4,9 +4,6 @@ public import CFSG.LieType.Multipliers.U42Data
 public import CFSG.Certificates.Kernel.Spor.RelSound
 public import CFSG.Certificates.Kernel.Misc.Coset.PG
 public import Certificates.Kernel.Misc.Coset.XU42R
-import CFSG.Certificates.Kernel.Common.Harness
-import CFSG.Fischer.Classification.PartIII.Beta.Data
-import Certificates.Data.CFSGNative.Th.Tables
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.Open.Defs

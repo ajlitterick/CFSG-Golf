@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthIdentDefs
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthPaths
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDGNOrthGen
 
 public section

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGResLeaf
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerCore
 public import CFSG.LocalAnalysis.StandardType.GGTBWNorm
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUDefs
 
 public section
 

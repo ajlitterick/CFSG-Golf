@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec16.Item166Proof
 import CFSG.RankThree.PartTwo.Sec16.Item166StepsProofSz
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Centralizer
 import CFSG.RankThree.PartTwo.Sec3.TwoGroupPrimeFiveAction
 import CFSG.LocalAnalysis.SectionRank.SuzukiCover
 import CFSG.RankThree.PartOne.S9.MinTwoAction.LiftingSelectedBase

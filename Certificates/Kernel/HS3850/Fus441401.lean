@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.HS3850.Small
 public import Certificates.Kernel.Sporadic.OddCore.PEnumCmd
-public import Certificates.Data.Kernel.Spor.PEnum
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19HSAutOuterCheckInputs
 public meta import CFSG.LocalAnalysis.OddStandard.SwapPartner.TwHSFusionInputs
 import CFSG.Certificates.Kernel.Common.Harness

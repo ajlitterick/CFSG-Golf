@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.CFSGNative.SmallOddCore.Check
-public import Mathlib.Data.List.Defs
 public import Mathlib.Data.List.Permutation
 
 public section

@@ -3,17 +3,10 @@ module
 
 public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.NativeDataBase
 
-public import CFSG.Fischer.T46Simple
-public import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
-public import CFSG.Sporadic.Schreier.MathieuOddCoreOuter
-public import CFSG.LocalAnalysis.ComponentClassification.M12CoverAutCentralizerData
-public import CFSG.ClassicalInvolution.SmallCases.Sporadic.SetOrbitTools
-public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourCertificate
 public meta import Certificates.Data.CFSGNative.F4.T46Simple
 public meta import Certificates.Data.CFSGNative.Fi22.Local
 public meta import Certificates.Data.CFSGNative.Th.Tables
 public meta import Certificates.Data.CFSGNative.Th.Orbit
-public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.NativeDataInputs
 public import Certificates.Certificate3180
 public import Certificates.Certificate3180Base
 

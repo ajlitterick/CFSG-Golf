@@ -1,15 +1,10 @@
 module
 
-public import CFSG.ClassicalInvolution.SmallCases.NobqArr
 public import CFSG.ClassicalInvolution.SmallCases.NobqLists
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.J3
-public import CFSG.ClassicalInvolution.SmallCases.Sporadic.Sylow
-public import CFSG.ClassicalInvolution.SmallCases.NobqJ3Inputs
 public import Certificates.Certificate9303
-public import Certificates.Certificate9309
 public meta import CFSG.ClassicalInvolution.SmallCases.Sporadic.J3Check
 public meta import CFSG.ClassicalInvolution.SmallCases.NobqArr
-public import Certificates.Certificate3169
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.CentralizerOrbit
 public meta import CFSG.ClassicalInvolution.SmallCases.Sporadic.J3CheckInputs
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.Normalizer

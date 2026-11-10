@@ -2,38 +2,19 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22KHi8a
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22sq
-import CFSG.LocalAnalysis.UniquenessCase.UC22P22e
-import CFSG.LocalAnalysis.UniquenessCase.UC22P22t
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22v
 import CFSG.Milestones.ASVolI.C61.HypBase
-import CFSG.Milestones.ASVolI.C5Blocks
 import CFSG.RankThree.PartTwo.KFacts.KS116ProofTools
-import CFSG.Quasithin.Background.A1aFStar
-import CFSG.Quasithin.Background.C126A5ExtractAux
-import CFSG.Assembly.Subnormal
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22sl
-import CFSG.LocalAnalysis.UniquenessCase.UC22P22sb
-import CFSG.LocalAnalysis.UniquenessCase.UC22P22se
-import CFSG.LocalAnalysis.UniquenessCase.UC22P22xg
-import CFSG.LocalAnalysis.UniquenessCase.UC22P22ya
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22yg
-import CFSG.LocalAnalysis.UniquenessCase.UC22Bridge3
 import CFSG.Milestones.ASVolI.B6Baumann
-import CFSG.Open.StatedAPI
-import CFSG.Quasithin.Background.A3ComponentsBasic
 public import CFSG.Certificates.Kernel.LocalCompTits.Span
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporJ4Quot
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Reduce
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeThree
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Equivariance
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19Defs
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_2
 public import CFSG.LocalAnalysis.UniquenessCase.UC22KPkg
 public import CFSG.Milestones.ASVolI.B6
-public import CFSG.Quasithin.Background.A3Structure318Red
-public import CFSG.Quasithin.Background.A3Structure38Part3
 public import CFSG.Quasithin.Background.B1More13Defs
 public import CFSG.Quasithin.Background.B5CompA
 public import CFSG.Quasithin.Background.B5CompB
@@ -45,8 +26,6 @@ public import CFSG.Quasithin.Background.B69Iso
 public import CFSG.Quasithin.Background.B69Lift
 public import CFSG.Quasithin.Background.B69Mod
 public import CFSG.Quasithin.Background.B69Simple
-public import CFSG.Quasithin.Background.B6Example
-public import CFSG.Quasithin.Background.C2Inputs
 public import CFSG.Quasithin.Background.E2Statements
 public import CFSG.Quasithin.Background.E2Three
 public import CFSG.Quasithin.Background.F9G2
@@ -54,11 +33,9 @@ public import CFSG.Quasithin.Background.F9Geometry
 public import CFSG.Quasithin.Background.FFC4Tr2
 public import CFSG.Quasithin.Background.InternalSecAutOn
 public import CFSG.Quasithin.Background.InternalSecB4
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import CFSG.Quasithin.EmptyFaithfulMultiple.InputD15Proof
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 import CFSG.CGT.PushingUpLit.LIT.Foote.GroupAux
 import CFSG.ClassicalInvolution.QuaternionStructure
 import CFSG.ClassicalInvolution.SmallCases.EvenLie.Chevalley
@@ -69,24 +46,11 @@ import CFSG.GH74.GLS.C3.Layer1.BackLeaves
 import CFSG.GH74.GLS.C3.Layer1.Split
 import CFSG.GH74.GLS.C3.Layer3.Main
 import CFSG.GH74.GLS.Defs
-import CFSG.GH74.GLS.IVK.A7.Glue
-import CFSG.GH74.GLS.IVK.L2.BN
-import CFSG.GH74.GLS.IVK.L2.BorelFive
-import CFSG.GH74.GLS.IVK.L2.Lemma113
-import CFSG.GH74.GLS.IVK.L2.Lemma114
-import CFSG.GH74.GLS.IVK.L2.Lemma12ib
-import CFSG.GH74.GLS.IVK.L2.Lemma12j
-import CFSG.GH74.GLS.IVK.L2.Lemma12k
-import CFSG.GH74.GLS.IVK.L2.Lemma14f
-import CFSG.GH74.GLS.IVK.L2.Lemma14j
-import CFSG.GH74.GLS.IVK.L2.Lemma19b
-import CFSG.GH74.GLS.IVK.Prod.Lemma31
 import CFSG.GH74.GLS.IVK.Proofs
 import CFSG.GH74.GLS.IVK.Proofs2.C3Ivk102L
 import CFSG.GH74.GLS.IVK.Proofs2.Lemma12hb
 import CFSG.GH74.GLS.IVK.Proofs2.Lemma13d
 import CFSG.GH74.GLS.IVK.Proofs2.Lemma13g
-import CFSG.GH74.GLS.IVK.Statements
 import CFSG.GH74.GLS.Stage1.Thm3.Sec5.Closed
 import CFSG.GH74.GLS.Stage1.Thm3.Sec5.Statements
 import CFSG.GH74.GLS.Stage1.Thm6.Sec12.Defs
@@ -180,7 +144,6 @@ import CFSG.SignalizerFunctorTheorem.NonLocal.SpData
 import CFSG.Sporadic.Schreier.J4SCommGenBase1
 import CFSG.Sporadic.Schreier.J4SNoCompCover
 import CFSG.Sporadic.Schreier.MathieuOddCore
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ConjugatedInvertedSubgroup
 import CFSG.Walter.Ree.Thompson2.BaseFin
 import CFSG.Walter.ReeOrder.WardLocal
 import CFSG.Walter.W67.Section8.Prop83

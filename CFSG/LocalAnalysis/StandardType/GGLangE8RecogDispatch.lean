@@ -7,8 +7,6 @@ import CFSG.LocalAnalysis.StandardType.GGK0LQRecE
 import CFSG.LocalAnalysis.StandardType.GGK0LQRecTwE6
 import CFSG.LocalAnalysis.StandardType.GGK0LQRecTriD4
 import CFSG.LocalAnalysis.StandardType.GGK0LQRecTwoD
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.KacDispatch
 
 public section
 

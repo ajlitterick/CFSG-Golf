@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBXPlumb
-public import CFSG.LocalAnalysis.StandardType.GGPZWeylType
 public import CFSG.LocalAnalysis.StandardType.GGResFixedWeylCentralizer
 public import CFSG.LocalAnalysis.StandardType.GGResThreeSingularDefs
 public import CFSG.LocalAnalysis.StandardType.GGTwE6BadWeyl

@@ -4,9 +4,6 @@ public import Certificates.Data.Kernel.SuzDc2.Defs
 public import Certificates.Data.Kernel.SporLatDc2Check
 public import CFSG.Sporadic.SuzOddCore.Arrays
 import Certificates.Kernel.SuzDc2.Final
-import Certificates.Kernel.SuzDc2.Slices
-import Certificates.Kernel.Sporadic.OddCore.SuzCert
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

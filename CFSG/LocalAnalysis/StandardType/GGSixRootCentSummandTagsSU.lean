@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsBasic
 public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerSU
 public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandStructPSL
 public import CFSG.LieType.Steinberg.CentralExt.SUTwo
-public import CFSG.LieType.Steinberg.CentralExt.SUThreeOrder
-public import CFSG.LieType.Universal.Unitary.Clause0
 
 public section
 

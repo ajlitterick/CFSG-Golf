@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.RouteD.TWT8Model
 public import CFSG.ClassicalInvolution.RouteD.TWT9Twin
-public import CFSG.ClassicalInvolution.RouteD.TWT8V
 
 public section
 

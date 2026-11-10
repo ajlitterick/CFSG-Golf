@@ -1,12 +1,9 @@
 module
 
-public import CFSG.ClassicalGroups.Unitary.Generation
 public import CFSG.ClassicalGroups.Unitary.Finite
 public import CFSG.Assembly.RankThreeEvenDefs
 import CFSG.RankThree.PartTwo.Sec4.Item47CasesEven
 public import CFSG.LieType.BorelTits.CompleteFlag
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.GroupTheory.HallHigmanPiCore
 import CFSG.LieType.Chevalley.LangRootArithmetic
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
@@ -19,7 +16,6 @@ import CFSG.RankThree.PartTwo.Sec12.Notation
 import CFSG.RankThree.PartTwo.Sec4.LThreePiItem411
 import CFSG.RankThree.PartTwo.Sec8.Statements
 import CFSG.StronglyEmbedded.ParityCriterion
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

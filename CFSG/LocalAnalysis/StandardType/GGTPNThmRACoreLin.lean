@@ -2,19 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTPNThmRABase
 public import CFSG.LocalAnalysis.StandardType.GGTPNThmRADescent
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeALift
-public import CFSG.LocalAnalysis.StandardType.GGD4OddCentVocab
 public import CFSG.LocalAnalysis.StandardType.GGTPNI1TypeAHelp
-public import CFSG.LocalAnalysis.StandardType.Marking
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.LinearFieldType
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.PrimaryConjScalar
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FSeitzB2
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T263SDLinProj
-public import CFSG.LocalAnalysis.StandardType.GGPGLTorality
-public import CFSG.RankThree.PartOne.KC.LinearCommutantFactors
 public import CFSG.RankThree.PartOne.S15K.CommonEigen
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBGeneralLinearNative
 
 public section
 

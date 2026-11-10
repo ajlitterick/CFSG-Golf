@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcFrame
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSylowCyclic
 
 public section
 

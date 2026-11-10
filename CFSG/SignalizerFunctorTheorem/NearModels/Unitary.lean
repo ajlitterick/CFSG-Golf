@@ -2,7 +2,6 @@ module
 
 public import CFSG.Open.SignalizerFunctorDefs
 import CFSG.SignalizerFunctorTheorem.NearModels.Conjugacy
-import CFSG.SignalizerFunctorTheorem.NearModels.Unitary.Basic
 import CFSG.SignalizerFunctorTheorem.NearModels.Unitary.Arith
 import CFSG.SignalizerFunctorTheorem.NearModels.Unitary.Bridge
 import CFSG.SignalizerFunctorTheorem.NearModels.Unitary.AutBound

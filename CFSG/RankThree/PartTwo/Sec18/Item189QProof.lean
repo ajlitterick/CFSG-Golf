@@ -5,12 +5,9 @@ public import CFSG.RankThree.PartTwo.Sec18.Item189QKernel
 public import CFSG.RankThree.PartTwo.Sec18.Item189StepProofO3
 public import CFSG.RankThree.PartTwo.Sec18.Item189StepProofO2Direct
 public import CFSG.RankThree.PartTwo.Sec18.Item189KTypeProof
-import CFSG.RankThree.PartTwo.Sec6.Item612Basic
 import CFSG.RankThree.PartTwo.Sec18.Item189KType
-import CFSG.RankThree.PartTwo.Sec20.OneTools
 import CFSG.RankThree.PartTwo.Sec18.SylowPlane
 import CFSG.RankThree.PartTwo.Sec18.Transport
-import CFSG.RankThree.PartTwo.Sec20.Contra
 import CFSG.RankThree.PartTwo.Sec19.SimsTheoremCTI
 import CFSG.RankThree.PartTwo.Sec19.O2Centralizer
 public import CFSG.ClassicalInvolution.WeakCT.Main

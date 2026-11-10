@@ -3,10 +3,8 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestTailHolds
 public import CFSG.LocalAnalysis.StandardType.GGLayerCycModelOmegaSec
 public import CFSG.LocalAnalysis.SectionRank.EvenCover.Orthogonal
-public import CFSG.LieType.Universal.Spin.Forms
 public import CFSG.LocalAnalysis.SectionRank.SporadicCover
 public import CFSG.Sporadic.M23.M23Group
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

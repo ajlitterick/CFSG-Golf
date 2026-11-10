@@ -1,9 +1,6 @@
 module
 
-public import CFSG.Quasithin.Recognition.L34AmalgamIsoRef
-public import CFSG.LocalAnalysis.SectionRank.Ccomm.ElementaryAut
 public meta import CFSG.Certificates.CosetTablePresented
-public import CFSG.Quasithin.Recognition.L34AmalgamIsoA5Inputs
 public import Certificates.Certificate7038
 
 public section

@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LieType.Steinberg.CentralExt.SUThreeOrder
 public import CFSG.LieType.Steinberg.CentralExt.SUThree
 public import CFSG.RankThree.PerfectCover.HeisenbergDilation
 public import CFSG.RankThree.CentralLiftU.PerfectSplit
-import Mathlib.Tactic.LinearCombination
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LieType.Steinberg.CentralExt.PerfectLift
 

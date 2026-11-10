@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitDvdCent
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitTvCob
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoTableBTypeAMono
 
 public section
 

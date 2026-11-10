@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGL45TALinCount
-public import CFSG.LocalAnalysis.StandardType.GGPGLToralityMatrix
 
 public section
 

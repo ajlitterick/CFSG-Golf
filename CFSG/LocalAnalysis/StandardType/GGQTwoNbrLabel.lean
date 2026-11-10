@@ -2,11 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoNbrA
 public import CFSG.LocalAnalysis.StandardType.GGQTwoNbrLabelAux
-public import CFSG.LocalAnalysis.StandardType.GGQTwoNbrLabelAuxInn
 public import CFSG.LocalAnalysis.StandardType.GGQTwoNbrLabelAuxFour
 public import CFSG.LocalAnalysis.StandardType.GGQTwoJoinDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEsu
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrEnnolaLabel
 
 public section
 

@@ -1,13 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrLSideRSExcDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrLSideRSExcU1Core
 import CFSG.LocalAnalysis.StandardType.GGTwE6RecipeTransport
 import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcInnerLang
 import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcInnerLang.Core
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.TwistedE6Base
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeDiagTwisted
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeBlock
 import CFSG.HardMathSupport.Solomon.Coordinator.B3FamPC
 import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.LayerBridge
 import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma28

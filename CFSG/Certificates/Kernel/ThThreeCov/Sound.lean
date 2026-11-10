@@ -4,7 +4,6 @@ public import Certificates.Data.Kernel.ThThreeCov.Defs
 public import Certificates.Data.Kernel.ThThreeCov.Sim
 public import CFSG.Certificates.Kernel.Th.ExprSound
 public import CFSG.Certificates.Kernel.ThThreeCov.Cover
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThSlp
 
 public section
 

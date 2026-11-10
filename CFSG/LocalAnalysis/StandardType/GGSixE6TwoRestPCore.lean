@@ -1,12 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestBasic
-public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestNormalizer
-public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestLevi
 public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestLeviFaith
 public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestCommQ
 public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestPCoreA
-public import CFSG.LocalAnalysis.StandardType.GGRootNormInner
 
 open scoped commutatorElement
 

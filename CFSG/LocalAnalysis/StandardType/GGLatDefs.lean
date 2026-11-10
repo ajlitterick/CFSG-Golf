@@ -2,9 +2,6 @@ module
 
 public import CFSG.LieType.Universal.RootData
 public import Mathlib.Combinatorics.SimpleGraph.Connectivity.Connected
-public import Mathlib.Combinatorics.SimpleGraph.Maps
-public import Mathlib.GroupTheory.Perm.Cycle.Basic
-import Mathlib.Algebra.Field.ZMod
 
 public section
 

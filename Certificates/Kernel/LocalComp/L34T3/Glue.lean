@@ -2,14 +2,10 @@ module
 
 public import Certificates.Kernel.LocalComp.L34T3.C11a
 public import Certificates.Kernel.LocalComp.L34T3.C11b
-public import Certificates.Kernel.LocalComp.L34T3.Defs
 import CFSG.Certificates.Kernel.Common.Harness
 public import Certificates.Kernel.LocalComp.L34T3.Small
-public import Certificates.Kernel.LocalComp.L34Cert
 public import Certificates.Kernel.LocalComp.L34Para.Final
 public import CFSG.Certificates.Kernel.L34PowSound
-public import CFSG.Certificates.Kernel.L34ScanSound
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsCover2CertInputs
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsNoFrobCertInputs
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
 

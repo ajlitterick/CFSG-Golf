@@ -2,15 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.ExcPos.RootPairStabilizer
 public import CFSG.LocalAnalysis.StandardType.GGFinModelRat
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Defs
-public import CFSG.LieType.AlgebraicGroups.FrobeniusDiagramRealized
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.TwoDHighAssembly
 import CFSG.LocalAnalysis.StandardType.ExcPos.StableOppositePairLang
-import CFSG.LieType.AlgebraicGroups.ConnectedToralLangFrobenius
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.CentralizerTrivialUnitaryOrbit
 import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.ConnectedJoint
 import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.CommonFactor
-import TauCeti.GroupTheory.FixedSubgroup
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24A2CubeClass
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24ConnGenAsm
 import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompIdx

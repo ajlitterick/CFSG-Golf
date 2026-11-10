@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitaryDvdField
 public import CFSG.LocalAnalysis.StandardType.GGBstarLIDUnitFieldGlue
 public import CFSG.LocalAnalysis.StandardType.GGBstarLIDUnitFieldCase1
 public import CFSG.LocalAnalysis.StandardType.GGBstarLIDUnitFieldCase2

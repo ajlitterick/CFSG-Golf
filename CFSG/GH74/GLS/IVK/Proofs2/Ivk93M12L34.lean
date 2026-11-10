@@ -2,8 +2,6 @@ module
 
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk93M12Crit
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk73G4L34
-public import CFSG.Timmesfeld.Orders.ClassicalLinear
-public import CFSG.GH74.Generic.Context
 
 public section
 

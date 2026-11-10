@@ -2,15 +2,9 @@ module
 
 public import Certificates.Data.Kernel.Spor.PEnum
 public import CFSG.Certificates.Kernel.Spor.RawSound
-public import Certificates.Data.CFSGNative.PSL3Four.Basic
 public import CFSG.Certificates.Kernel.Spor.BfsReplay
 import CFSG.Certificates.Kernel.Spor.PackWord
-import CFSG.Certificates.Kernel.Spor.PcompFacts
-import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import CFSG.Certificates.Kernel.Spor.RawOrbHead
 import CFSG.Certificates.Kernel.Spor.RawSiftK
-import Mathlib.Data.Finset.Card
-import Mathlib.GroupTheory.Schreier
 import Std.Tactic.BVDecide.Normalize.BitVec
 
 namespace CFSG.KS.PEnum

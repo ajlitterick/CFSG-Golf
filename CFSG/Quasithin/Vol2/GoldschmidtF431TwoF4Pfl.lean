@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.GoldschmidtF431TwoF4Forest
-public import CFSG.Quasithin.Vol2.GoldschmidtF45RuAdj
 
 public section
 

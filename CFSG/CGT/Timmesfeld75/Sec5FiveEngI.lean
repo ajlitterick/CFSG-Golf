@@ -1,7 +1,6 @@
 module
 
 public import CFSG.CGT.Timmesfeld75.Sec3Twelve
-public import CFSG.CGT.Timmesfeld75.Sec3Thirteen
 public import CFSG.CGT.Timmesfeld75.L2AutInvolCard
 public import CFSG.CGT.Timmesfeld75.Sec5FiveBasic
 

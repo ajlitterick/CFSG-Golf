@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LargeExtraspecial.S12TriGData
 public import Certificates.Certificate10002
 public meta import CFSG.LargeExtraspecial.S12TriGData
 public meta import Mathlib

@@ -1,10 +1,7 @@
 module
 
-public import CFSG.Sporadic.Recognition.McLASInputs
 public import CFSG.Sporadic.Recognition.McLASThreeFacts
 import Certificates.Kernel.McLAS.SixF
-import Certificates.Certificate2240
-import Certificates.Certificate2241
 
 public section
 

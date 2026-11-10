@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFrameRouteFSInputs
-public import CFSG.Open.FusionDefs
 
 public section
 

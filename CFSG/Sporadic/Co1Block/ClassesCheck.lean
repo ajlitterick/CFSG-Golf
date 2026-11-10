@@ -1,7 +1,5 @@
 module
 
-public import CFSG.Sporadic.Co1Block.XFix
-public import CFSG.Sporadic.Co1Block.Iota
 public meta import CFSG.Sporadic.Co1Block.XFix
 public meta import CFSG.Sporadic.Co1Block.Iota
 public meta import CFSG.Sporadic.Co1Block.IotaData
@@ -14,7 +12,6 @@ public meta import Certificates.Data.CFSGNative.Co1.Data
 public meta import Certificates.Data.CFSGNative.Co1.Involutions
 public meta import Certificates.Data.CFSGNative.HS.SmallF2
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Data
-public import CFSG.Sporadic.Co1Block.ClassesCheckInputs
 public import Certificates.Certificate2041
 
 public section

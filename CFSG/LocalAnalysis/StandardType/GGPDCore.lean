@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGR4JMeetKGDefs
-public import CFSG.LocalAnalysis.StandardType.GGPDDefs
 public import CFSG.LocalAnalysis.StandardType.GGPDWeights
-public import CFSG.LocalAnalysis.StandardType.GGPDWeightSupport
 public import CFSG.LocalAnalysis.StandardType.GGPDAffine
 public import CFSG.LocalAnalysis.StandardType.GGPDSymm
 public import CFSG.LocalAnalysis.StandardType.GGPDOrbit

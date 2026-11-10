@@ -6,8 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGReeLangPositionF4
 import CFSG.LocalAnalysis.StandardType.KGLangReeTorusLang
 import CFSG.LocalAnalysis.StandardType.GGL45NtExcFrame
 import CFSG.LocalAnalysis.StandardType.GGLieCoreRatFinite
-import CFSG.LieType.Chevalley.WeylNormalizerQuotient
-import CFSG.RankThree.PartOne.KE.A1Weyl
 
 public section
 

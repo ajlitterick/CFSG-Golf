@@ -6,7 +6,6 @@ public import CFSG.Monster.B.Classical.PlaneIncidence
 public meta import CFSG.Monster.B.Classical.PlaneData
 public meta import CFSG.LocalAnalysis.ComponentClassification.WittDesignPlaneSquares
 public meta import Mathlib
-public import Mathlib
 
 public noncomputable section
 

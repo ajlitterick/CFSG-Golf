@@ -1,21 +1,15 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Statements
-public import CFSG.OddTranspositions.HypothesisC
 public import CFSG.OddTranspositions.FaithfulBlocks
-public import CFSG.OddTranspositions.Blocks
-public import CFSG.Timmesfeld.Bridge.Asc72Triangle
 public import CFSG.Timmesfeld.Bridge.OddTranspDefs
 
 import CFSG.OddTranspositions.PartThree.EightEight.Triangles
 import CFSG.OddTranspositions.PartThree.EightSeven
 import CFSG.OddTranspositions.PartThree.EightNine.Tools
 import CFSG.OddTranspositions.PartThree.Nine.ThreeBlocks
-import CFSG.OddTranspositions.SixSevenLocalStep
-import CFSG.OddTranspositions.SixNineUnconditional
 import CFSG.OddTranspositions.SixTenPetersen
 import CFSG.OddTranspositions.PartThree.SixThreeGlobal
-import CFSG.Timmesfeld.Bridge.OddTranspSecondKind
 
 public section
 

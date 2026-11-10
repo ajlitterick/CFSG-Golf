@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.Native.F5MatrixArrays
-import Certificates.Data.Kernel.U43Pk.Defs
 import CFSG.Certificates.Kernel.ArrBfsCert
 import CFSG.Certificates.Kernel.U43Pk.Sound
 import CFSG.Certificates.Kernel.PackSetSound
@@ -9,12 +8,7 @@ import CFSG.Certificates.Kernel.SporSch.LyLoop
 import CFSG.Certificates.Kernel.Bounds.LoadGz
 import CFSG.Certificates.Kernel.Common.Repo
 import CFSG.Certificates.Kernel.Common.Each
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.RankThree.Native.DerivedGenerators
-public import Mathlib.LinearAlgebra.Matrix.Transvection
-public import Mathlib.LinearAlgebra.FiniteDimensional.Defs
-public import Mathlib.LinearAlgebra.Dimension.Finrank
 public import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
 public import CFSG.Monster.B.Co2.PermArr
 public import Mathlib.FieldTheory.Finite.Basic

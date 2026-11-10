@@ -2,12 +2,7 @@ module
 
 public import CFSG.Sporadic.Bridge.BTc
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ThThreeTc
-public import CFSG.Sporadic.Bridge.BData
-public import CFSG.Monster.B.Pinned.Primes.Program
-public import CFSG.Sporadic.Bridge.BSurj
-public import CFSG.Monster.B.Pinned.Primes.SixPrimes
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.BCoxeterRels
-public import CFSG.RankThree.PartOne.CTP.FusionSound
 public import CFSG.LocalAnalysis.AGLEmbedding.CoverWeakGenData
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.SporCaseThreeGen
 

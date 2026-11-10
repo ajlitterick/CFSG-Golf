@@ -1,11 +1,9 @@
 
 module
 
-public import CFSG.Monster.B.Fischer.InducedChecksBase
 
 public import CFSG.Monster.B.Fischer.InducedEncoding
 public meta import CFSG.Monster.B.Fischer.InducedEncoding
-public import CFSG.Monster.B.Fischer.InducedChecksInputs
 public import Certificates.Certificate3034
 public import Certificates.Certificate3034Base
 

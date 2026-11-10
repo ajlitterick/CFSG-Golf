@@ -4,7 +4,6 @@ public import CFSG.Quasithin.Vol2.Ch12Sec5L2G
 public import CFSG.Quasithin.Vol2.Ch11SecCB51Trans
 public import CFSG.Quasithin.Background.SmithB51LnReal
 public import CFSG.Quasithin.Background.F918F1
-public import CFSG.Quasithin.Background.JonesParshallNatural
 public import CFSG.Quasithin.Background.SmithB51LnAut
 public import CFSG.Quasithin.Background.SmithB51SL3Common
 

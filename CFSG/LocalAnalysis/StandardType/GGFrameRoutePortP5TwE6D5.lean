@@ -1,12 +1,8 @@
 module
 
-public import CFSG.Blueprint.Catalog
-public import CFSG.LieType.AlgebraicGroups.ToralRootCover
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentInnerMark
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortDefs
 public import CFSG.LocalAnalysis.StandardType.GGNTPlaneTableData
-public import CFSG.LocalAnalysis.StandardType.GGReverseMarkingRaw
-public import CFSG.Timmesfeld.Orders.Classical
 
 public section
 

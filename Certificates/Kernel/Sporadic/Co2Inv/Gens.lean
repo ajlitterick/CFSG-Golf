@@ -1,13 +1,11 @@
 module
 
-public import Certificates.Kernel.Sporadic.Co2Inv.Mats
 public import Certificates.Kernel.Sporadic.Co2Inv.Bind
 public import Certificates.Kernel.Sporadic.Co2.ChainA
 public import Certificates.Kernel.Sporadic.Co2.FVecs
 public import CFSG.Certificates.Kernel.Spor.SiftRSound
 public import CFSG.Certificates.Kernel.Spor.PrimSound
 public import CFSG.Certificates.Kernel.PosTableSound
-public import CFSG.Certificates.Kernel.Spor.BindList
 import Init.Data.Nat.Fold
 import Init.Data.Range.Basic
 import Init.Data.Array.Basic
@@ -15,7 +13,6 @@ import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.Cover
 import CFSG.Certificates.Kernel.Common.EachUnfold
 import CFSG.Certificates.Kernel.Common.ForallChunks
-import Mathlib.Tactic.IntervalCases
 
 set_option maxRecDepth 400000
 set_option exponentiation.threshold 600

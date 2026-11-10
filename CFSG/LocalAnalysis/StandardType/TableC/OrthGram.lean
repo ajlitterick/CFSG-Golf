@@ -1,7 +1,5 @@
 module
 
-public import Mathlib.LinearAlgebra.QuadraticForm.Basic
-public import Mathlib.LinearAlgebra.Matrix.SesquilinearForm
 public import CFSG.LieType.Universal.Spin.Action
 
 public section

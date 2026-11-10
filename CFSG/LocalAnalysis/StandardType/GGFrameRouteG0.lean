@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGFrameRouteFSInputs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRest
-public import CFSG.LocalAnalysis.StandardType.GGSkeleton
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyDichotomy
 public import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.Fischer.Classification.Recognition.SymOBasic

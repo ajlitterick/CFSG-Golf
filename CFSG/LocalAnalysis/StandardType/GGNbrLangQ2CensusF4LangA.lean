@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265CDynO2
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.RationalTypeAModel
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.LocalAnalysis.StandardType.KGLangS1ALinTypeDet
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniLabelPSU
 import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusF4Frame
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I141FDynExc
 

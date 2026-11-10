@@ -1,9 +1,6 @@
 module
 
-public import CFSG.Quasithin.Recognition.Stroth.Weiss80Route
-public import CFSG.Quasithin.Recognition.Stroth.Un5ModelFacts
 public import CFSG.Quasithin.Recognition.Stroth.Un5ModelProps
-public import CFSG.Quasithin.Recognition.Stroth.RootGroupRegular
 public import CFSG.Quasithin.Recognition.Stroth.QuadrangleKappa
 public import CFSG.GH74.GLS.SP.Local.SPLFaith
 public import CFSG.GH74.GLS.SP.Local.SPLRestrict

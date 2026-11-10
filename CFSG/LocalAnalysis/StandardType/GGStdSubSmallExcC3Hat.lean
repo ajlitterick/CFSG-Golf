@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallExcC3Conj
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallExcC3Toral
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRankFiveSylow
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.Adapters.ProjectiveSpecialLinear
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.Quasithin.Background.G11Defs
 
 public section

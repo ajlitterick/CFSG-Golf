@@ -2,10 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.ModelFacts.TG3SmallSU
 public import CFSG.ClassicalInvolution.ModelFacts.TG3VacPSU
-public import CFSG.ClassicalInvolution.RouteD.TypeULocal
-public import CFSG.ClassicalInvolution.Models.UnitaryFrames
-public import CFSG.LieType.Universal.Unitary.Clause0
-public import CFSG.GroupTheory.LocalCores.Components
 
 public section
 

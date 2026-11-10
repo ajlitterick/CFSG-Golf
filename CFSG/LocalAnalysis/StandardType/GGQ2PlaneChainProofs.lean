@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQ2PlaneChain
 import CFSG.LocalAnalysis.StandardType.GGQ2PlaneChainData
 import CFSG.LocalAnalysis.StandardType.GGLevTwoS4cAux
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
 
 public section
 

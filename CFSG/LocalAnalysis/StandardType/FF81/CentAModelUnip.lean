@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FF81.CentAModelDefs
-import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Basic
 
 public section
 

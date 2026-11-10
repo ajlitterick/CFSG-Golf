@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Sixteen67SmallKGAt
 public import CFSG.LocalAnalysis.ComponentClassification.AutL2FactsTransport
-import CFSG.CharacterTheory.PSL2Table.Partition
-import CFSG.CharacterTheory.PSL2Table.Classes
 import CFSG.Dihedral.Glauberman.DicksonMaxStructure
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

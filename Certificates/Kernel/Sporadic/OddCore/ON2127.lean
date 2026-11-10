@@ -7,15 +7,11 @@ public import Certificates.Kernel.Sporadic.OddCore.ON2127E3
 public import Certificates.Kernel.Sporadic.OddCore.ON2127E4
 public import Certificates.Kernel.Sporadic.OddCore.ON2127E5
 public import Certificates.Kernel.Sporadic.OddCore.ON2127Q
-public import Certificates.Kernel.Sporadic.OddCore.PEnumGlue
 public import Certificates.Kernel.Sporadic.OddCore.ON2123
 public import Certificates.Kernel.Sporadic.ON5.Final
 public import CFSG.Certificates.Kernel.Spor.DecSLProved
-public import CFSG.Certificates.Kernel.BfsPinUnpack
 public import CFSG.Sporadic.ONOddCore.QuotOuterCheckInputs
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Spor.PEnumLSound
-import Mathlib.Tactic.IntervalCases
 
 public section
 

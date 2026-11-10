@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabel
 import CFSG.LocalAnalysis.StandardType.GGRCWeylConnected
-import Mathlib.Tactic.Module
 
 public section
 

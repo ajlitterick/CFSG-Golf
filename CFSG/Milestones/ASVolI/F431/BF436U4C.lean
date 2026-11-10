@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Milestones.ASVolI.F431.BF436U4
-public import CFSG.Fischer.F4
 import all CFSG.Fischer.F4
 import all CFSG.Milestones.ASVolI.F4
 

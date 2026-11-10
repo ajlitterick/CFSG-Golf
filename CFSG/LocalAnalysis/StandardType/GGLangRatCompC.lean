@@ -41,24 +41,13 @@ public import CFSG.LocalAnalysis.ComponentClassification.LabeledBlockPermutation
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSUFieldOddCore
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancingLocalSmallSourceLinear
 public import CFSG.LocalAnalysis.GLTheoremB.Lemma911Defs
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Reduce
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Equivariance
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 public import CFSG.Quasithin.Background.A3Structure319
-public import CFSG.Quasithin.Background.A3Structure36Base
-public import CFSG.Quasithin.Background.A3Structure38Part3
-public import CFSG.Quasithin.Background.B1MoreElevenE
-public import CFSG.Quasithin.Background.B1MoreNineG
-public import CFSG.Quasithin.Background.B4ModelsIso
-public import CFSG.Quasithin.Background.E3Cent
 public import CFSG.Quasithin.Background.F9FiveStruct
 public import CFSG.Quasithin.Background.F9G2
 public import CFSG.Quasithin.Background.F9Geometry
 public import CFSG.Quasithin.Background.GoldschmidtRankOneFacts
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtF112ListC
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import CFSG.Quasithin.EmptyFaithful.S1421Defs
 public import CFSG.Quasithin.EmptyFaithful.S142Statements
 public import CFSG.Quasithin.H13.A5S1326
@@ -68,15 +57,9 @@ public import CFSG.Quasithin.Vol2.Ch11SecAFacts02
 public import CFSG.Quasithin.Vol2.Ch11SecAFacts03
 public import CFSG.Quasithin.Vol2.Ch11StatementsB
 public import CFSG.Quasithin.Vol2.Ch11StatementsC
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremB
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremC
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.ZJTheorem
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GW1965RemarkDGroup
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29Helpers
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

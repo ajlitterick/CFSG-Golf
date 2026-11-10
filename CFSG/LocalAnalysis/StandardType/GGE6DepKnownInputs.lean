@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGE6DepKnownInputsDefs
 public import CFSG.LocalAnalysis.StandardType.GGE6DepConjAssembly
 public import CFSG.LocalAnalysis.StandardType.GGE6DepXNotInL
 

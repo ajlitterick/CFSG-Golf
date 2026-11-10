@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.SporSch.Pair.J2Chain
 public import Certificates.Kernel.SporSch.PairBT.GenSyl
 public import Certificates.Kernel.SporSch.PairBT.GenSylElts
-public import Certificates.Data.Kernel.SporSch.MathieuBT
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

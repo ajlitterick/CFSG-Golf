@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.GroupTheory.PGroup
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.Defs
 
 public section

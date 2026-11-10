@@ -1,13 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3Defs
-public import CFSG.LocalAnalysis.StandardType.GGResSideDatumDefs
 public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3BridgeB2
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepChain
 public import CFSG.LocalAnalysis.StandardType.GGResJLineA3
-public import CFSG.LocalAnalysis.StandardType.GGPZWeylType
-public import CFSG.Monster.B.Geometry.InitialIsometryParabolic
-public import TauCeti.LinearAlgebra.RootSystem.FiniteType.Classification
 public import TauCeti.LinearAlgebra.RootSystem.Coxeter.DynkinType
 
 public section

@@ -1,22 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGRowKFrame
 public import CFSG.LocalAnalysis.StandardType.GGTBJE6LeviAssemble
-public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkTransport
-public import CFSG.LocalAnalysis.StandardType.GGRowKSide
 public import CFSG.LocalAnalysis.StandardType.GGDepAOddLarge
-public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3Defs
-public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3Bridge
-public import CFSG.LocalAnalysis.StandardType.GGPZWeylType
 public import CFSG.LocalAnalysis.StandardType.GGResUnitaryQPlusKProducers
-public import CFSG.LocalAnalysis.StandardType.GGResCentBoundNbrHolds
 public import CFSG.LocalAnalysis.StandardType.ZS.UseInputHolds
-public import CFSG.LocalAnalysis.StandardType.ZS.Adapter
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepAtLK
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepAtThree
-public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepMove
-public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepPos
-public import CFSG.LocalAnalysis.StandardType.GGResThreeSettledDefs
 
 public section
 

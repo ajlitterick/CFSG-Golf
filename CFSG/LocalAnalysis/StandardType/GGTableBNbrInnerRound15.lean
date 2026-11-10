@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerRound15Label
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelNbrInner
 
 public section

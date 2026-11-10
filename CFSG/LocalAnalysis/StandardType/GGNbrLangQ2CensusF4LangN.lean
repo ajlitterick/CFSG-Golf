@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265CDynO2
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 import CFSG.CGT.PushingUpLit.A78.L3List
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I141FDynExc
 

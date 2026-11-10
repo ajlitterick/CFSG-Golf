@@ -2,11 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesE6QPlusThreeLang
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTwE6ThreeFrame
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeAd
 public import CFSG.HardMathSupport.Curtis.NaturalModuleCensus.ExcCross.ExcLangNGenFix
-public import CFSG.RankThree.PartOne.KE.CTLang
-public import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
-public import CFSG.LieType.Chevalley.RootDiagonalWeylTransporter
 
 public section
 

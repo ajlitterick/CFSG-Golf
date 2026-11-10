@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.BrauerInduction.Background.FDRep.Character.Basic
 public import CFSG.ThirdParty.BrauerInduction.Background.FDRep.SimpleDecomposition
-public import CFSG.ThirdParty.BrauerInduction.Background.Fintype.Basic
 
 public section
 

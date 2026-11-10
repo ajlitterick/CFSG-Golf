@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderOmegaOrth
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutClassicalGraphPlus
-public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergOmegaMinusHolds
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerPDivOmega
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1P58b3LDFour
 

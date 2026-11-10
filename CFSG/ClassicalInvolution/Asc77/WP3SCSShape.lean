@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ClassicalInvolution.Asc77.WP3FrameBootTwinSide
 public import CFSG.ClassicalInvolution.Asc77.WP3SCSLift
 
 public section

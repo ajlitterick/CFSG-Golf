@@ -1,14 +1,10 @@
 module
 
 public import CFSG.RankThree.PartOne.KC.OrthogonalBlockModels
-public import CFSG.Blueprint.Catalog
-public import CFSG.Open.StatedDefs
 import CFSG.HardMathSupport.Solomon.LocalBalance.I1433.SympOrthOrthIdent
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniData
-import CFSG.LieType.SemisimpleCentralizers.HeldCompTrivSU
 import CFSG.LieType.SemisimpleCentralizers.HeldTwoDimUnitaryBlock
 import CFSG.LocalAnalysis.StandardType.GGNbrLSideUniType
-import CFSG.LieType.Steinberg.CentralExt.UnitaryField
 import CFSG.RankThree.PartOne.KC.LinearPlaneBlocks
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 import CFSG.Assembly.GL83StatedBridge

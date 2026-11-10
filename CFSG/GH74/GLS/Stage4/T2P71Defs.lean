@@ -2,9 +2,6 @@ module
 
 public import CFSG.GH74.GLS.Stage4.T2GoodRed
 public import CFSG.GH74.GLS.Stage4.RestX2Q1
-public import CFSG.GH74.GLS.Stage4.T6Ord
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Semidihedral.InvolutionFusion
 public import CFSG.CharacterTheory.Semidihedral.Local.LocalNormalizerQuotients
 public import CFSG.Dihedral.GorensteinWalter.GLSemilinearDescent
@@ -39,16 +36,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.GeneralizedFittingProduct
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.CentralInvolutionStructure
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.ClassFunction
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremC
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.ZJTheorem
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ConjugatedInvertedSubgroup
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GW1965RemarkDGroup
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970_19
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.CoprimeActionNontrivialTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseComponentData
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character
 public import CFSG.Walter.J1.Inv
 
 public section

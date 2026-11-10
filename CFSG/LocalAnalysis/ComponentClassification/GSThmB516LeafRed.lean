@@ -1,11 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentInitial.GroupCentralKernel
-public import CFSG.LocalAnalysis.ComponentInitial.LocalComponents
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuotTools
-public import CFSG.LocalAnalysis.ComponentClassification.PComponentNormalizerEnlargement
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBPrimeJoinTransport
-public import CFSG.LocalAnalysis.ComponentClassification.PrimeComplementQuotientComponents
 
 public section
 

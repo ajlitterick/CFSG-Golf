@@ -1,9 +1,6 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Theorem26
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseCyclicTwoCore
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

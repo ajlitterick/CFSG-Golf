@@ -1,7 +1,5 @@
 module
 
-public import Mathlib.LinearAlgebra.QuadraticForm.Basic
-public import Mathlib.Data.Matrix.Mul
 public import CFSG.Open.PGLModelDefs
 
 public section

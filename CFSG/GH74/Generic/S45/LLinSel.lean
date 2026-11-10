@@ -1,8 +1,6 @@
 module
 
-public import CFSG.GH74.Generic.S45.LQSmall
 public import CFSG.GH74.Generic.S45.LOddPSU
-public import CFSG.LocalAnalysis.ComponentClassification.OddSelector
 
 public section
 

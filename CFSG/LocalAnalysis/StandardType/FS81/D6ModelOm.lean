@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.D6ModelRel
-public import CFSG.Adapters.SpecialLinearPerfect
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1Subtype
 
 public section

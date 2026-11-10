@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofCoxeter
 public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelTypeAAssembly
-public import TauCeti.GroupTheory.Coxeter.Geometric
 public import TauCeti.LinearAlgebra.Matrix.Cartan.Classical
 import CFSG.LocalAnalysis.StandardType.GGTDAutomizer
 import CFSG.RankThree.CentralCover.AlternatingFourGroupWitness

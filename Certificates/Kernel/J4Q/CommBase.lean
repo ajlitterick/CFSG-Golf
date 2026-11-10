@@ -6,7 +6,6 @@ public import CFSG.Certificates.Kernel.J4Q.RepComm
 import Certificates.Kernel.J4Q.AllN
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Sporadic.J4.QTOutObsNative
-public import CFSG.Sporadic.J4.QTRankWitNative
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoRestSmall
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthogonal
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerOrth
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestCenter
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestBstar

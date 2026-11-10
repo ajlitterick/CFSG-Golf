@@ -4,7 +4,6 @@ public import CFSG.Quasithin.MS93.M15Sp4
 public import CFSG.Quasithin.Background.B5FinSp
 public import CFSG.Quasithin.H13.VolIAltCoverSix
 public import CFSG.ClassicalGroups.Symplectic.Perfect
-public import CFSG.ClassicalGroups.Symplectic.Model
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Quasithin.Background.B1More13A
@@ -20,7 +19,6 @@ public import CFSG.Quasithin.Background.SmithB51SL3A
 public import CFSG.Quasithin.H13.L1332Inputs
 public import CFSG.Quasithin.Vol2.Ch3Sec2Inputs
 public import CFSG.Sporadic.Schreier.J4SSylow
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.Timmesfeld.RankOne
 public import CFSG.Timmesfeld.Transvection.Statement
 

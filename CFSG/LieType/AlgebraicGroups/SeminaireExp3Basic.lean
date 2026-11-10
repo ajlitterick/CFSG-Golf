@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LieType.AlgebraicGroups.ConstructibleSubgroupGL
-public import Mathlib.RingTheory.Spectrum.Prime.Noetherian
-public import Mathlib.Topology.NoetherianSpace
 
 public noncomputable section
 

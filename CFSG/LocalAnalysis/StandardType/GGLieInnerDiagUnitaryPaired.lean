@@ -3,10 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGLieInnerDiagDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompAlgUnitaryBlock
 import CFSG.LocalAnalysis.StandardType.GGLieInnerDiagSLPack
-import CFSG.RankThree.PartOne.KC.UnitaryPrimaryAlgebra
 import CFSG.HardMathSupport.Solomon.LocalBalance.I1433.LinUnitUnitaryBlocks
-import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeSpecial
-import CFSG.RankThree.PartOne.KC.UnitaryGoodSpecial
 public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeOrbits
 
 public section

@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCMBlockPSp
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCMExclPSp
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeF1PSp
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeStepA
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 
 public section
 

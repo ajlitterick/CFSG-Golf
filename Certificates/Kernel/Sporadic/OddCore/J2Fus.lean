@@ -1,9 +1,7 @@
 module
 
 public import Certificates.Kernel.Sporadic.OddCore.J2FusK
-public import Certificates.Kernel.Sporadic.OddCore.MulHGlue
 public import Certificates.Kernel.Sporadic.OddCore.CentGlue
-public import CFSG.Certificates.Kernel.Spor.PackWord
 public import CFSG.Certificates.Kernel.BfsPinAlg
 
 public section

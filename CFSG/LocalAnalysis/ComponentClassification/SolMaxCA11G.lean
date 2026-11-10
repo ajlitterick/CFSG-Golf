@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.SolMaxFiveT
-public import CFSG.LocalAnalysis.ComponentClassification.SolMaxSigSwapA
 
 public section
 

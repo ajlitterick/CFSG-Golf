@@ -1,18 +1,9 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Higman.lemma_10
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Higman.lemma_7
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Higman.lemma_8
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Higman.lemma_9
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Higman.lemma_11
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Higman.lemma_6
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFAppendixIII.FrobeniusBilinear
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFAppendixIII.CentralExtensionCoordinates
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Invariant
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Frattini.Core
-import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.Maschke
 import Mathlib.LinearAlgebra.FixedSubmodule
-import Mathlib.RepresentationTheory.Submodule
 
 namespace CFSG
 end CFSG

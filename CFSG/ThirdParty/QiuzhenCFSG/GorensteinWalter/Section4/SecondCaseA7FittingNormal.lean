@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseA7FittingCentralizesSylow
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseFittingNormal
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

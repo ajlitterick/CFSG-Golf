@@ -2,14 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJRowOmMinusNonsplitAux1
 import CFSG.LocalAnalysis.StandardType.GGTBJOmModelMap
-import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestOddLayer
 import CFSG.LocalAnalysis.StandardType.GGF4QGeFourPlusFrame
 import CFSG.GroupTheory.IsComponentOfMap
-import CFSG.RankThree.PartOne.KC.OrthogonalBlockDet
-import CFSG.RankThree.PartOne.KC.OrthogonalFixedDerived
 import CFSG.HardMathSupport.Dickson.Bal207.OrthD4Semilin
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm14_5.SmallL4Klein
-import CFSG.Adapters.ProjectiveSpecialLinear
 import CFSG.ClassicalGroups.SpecialLinear.ComponentCartanRankDivisible
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJCoord
 import CFSG.LocalAnalysis.StandardType.GGTBJOmComp
@@ -19,12 +15,8 @@ import CFSG.LocalAnalysis.StandardType.GGOmegaNsRootGenTorus
 import CFSG.LocalAnalysis.StandardType.GGRealKGOmegaFrame
 import CFSG.LocalAnalysis.StandardType.GGHdRo7DFrameOmega
 import CFSG.ClassicalGroups.Orthogonal.MinusPlaneFrames
-import CFSG.ClassicalInvolution.RouteD.TWYType
-import CFSG.RankThree.PartOne.S11d.OrthModels
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166Label
 import CFSG.LocalAnalysis.StandardType.GGTCJLabel
-import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalAS76aProofOKlein
-import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalAS76aProofOrthOmega
 import CFSG.CGT.PushingUpLit.CGT6.SixFourCoreSL
 import CFSG.CGT.PushingUpLit.Glue.NineContentGlue
 import CFSG.CGT.PushingUpLit.NineContent

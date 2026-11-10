@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.Data.Fin.VecNotation
 public import Mathlib.Tactic.ReduceModChar
 public import Mathlib.GroupTheory.SpecificGroups.Cyclic
 

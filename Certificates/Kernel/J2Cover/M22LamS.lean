@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.J2Cover.M22LamN
 public import Certificates.Kernel.J2Cover.M22Tr
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

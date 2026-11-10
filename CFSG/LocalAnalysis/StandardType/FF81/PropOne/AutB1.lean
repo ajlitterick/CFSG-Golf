@@ -3,11 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.FF81.PropOne.Setup
 public import CFSG.Mathlib.GroupTheory.GL3Monomial
 import CFSG.GroupTheory.ABGLocalTools.Basic
-import Mathlib.LinearAlgebra.Matrix.ToLin
-import Mathlib.LinearAlgebra.Matrix.Charpoly.Basic
-import Mathlib.LinearAlgebra.Eigenspace.Zero
-import Mathlib.Algebra.CharP.Lemmas
-import Mathlib.RingTheory.Nilpotent.Lemmas
 
 @[expose] public section
 

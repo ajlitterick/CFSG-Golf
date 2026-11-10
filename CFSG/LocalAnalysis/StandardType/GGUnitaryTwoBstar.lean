@@ -1,17 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitDvdAct
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUDefs
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowDefs
-import CFSG.LocalAnalysis.StandardType.GGTableBUnitDvdCent
-import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeRestOuter
-import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeRestMult
-import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeInner
-import CFSG.LocalAnalysis.StandardType.GGTableBTypeALift
 import CFSG.LocalAnalysis.StandardType.GGIOneRestFiveUDvdRZMod
-import CFSG.LocalAnalysis.StandardType.GGTableBTransport
 import CFSG.LocalAnalysis.StandardType.GGTorusGenRkTransport
 import CFSG.LocalAnalysis.StandardType.GGStdUnitaryFourExcl
 import CFSG.LocalAnalysis.StandardType.GGQ2CentPsuFiveModel

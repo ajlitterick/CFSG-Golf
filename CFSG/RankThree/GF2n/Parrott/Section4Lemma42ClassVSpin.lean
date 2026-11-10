@@ -1,9 +1,6 @@
 module
 
-public import CFSG.RankThree.GF2n.Parrott.LiftSquare
 public import CFSG.RankThree.GF2n.Parrott.Lemma16
-public import CFSG.RankThree.GF2n.Parrott.SpinFixedCardSigma
-public import CFSG.RankThree.GF2n.Parrott.QA45SigmaCentralizers
 public import CFSG.GroupTheory.InvolutionPair
 public import CFSG.RankThree.GF2n.Parrott.Section4Lemma42ClassV
 public import CFSG.RankThree.GF2n.Parrott.Section4Lemma42Centres

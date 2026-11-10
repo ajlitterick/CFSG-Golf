@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseLinearPSL2TorusFamily
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2QuotientTorusReflection
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

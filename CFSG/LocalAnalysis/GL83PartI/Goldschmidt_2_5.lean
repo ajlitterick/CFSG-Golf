@@ -5,7 +5,6 @@ import CFSG.GroupTheory.SteinbergBSQuotientLifting
 import CFSG.RankThree.GroupTheory.SteinbergBMCoprimeGeneration
 import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.Open.LocalVocabulary
-import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

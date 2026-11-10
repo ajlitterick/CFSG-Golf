@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.FixedCommutingProduct
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherEvenOrthogonalRealization
 
 public noncomputable section

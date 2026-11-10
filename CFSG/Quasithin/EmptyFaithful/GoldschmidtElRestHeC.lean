@@ -6,9 +6,6 @@ public import CFSG.Quasithin.EmptyFaithful.GoldschmidtElRestSyl
 public import CFSG.Quasithin.Background.F420Basic
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHe
 import all CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHe
-public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicHe
-public import CFSG.LocalAnalysis.QuasithinUnique.GammaFamilies
-public import CFSG.Sporadic.He
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGOuterInvAtPSL
 public import CFSG.HardMathSupport.Foote.ModuleExclusions.ProjectiveLinear
-public import CFSG.RankThree.PartOne.KC.LinearCommutantBlocks
 public import CFSG.RankThree.PartOne.KC.LinearCommutantFactors
 
 public section

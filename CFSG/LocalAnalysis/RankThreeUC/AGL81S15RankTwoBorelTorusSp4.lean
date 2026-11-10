@@ -6,7 +6,6 @@ import CFSG.LocalAnalysis.ComponentInitial.SymplecticTorusInverters
 import CFSG.LocalAnalysis.ComponentInitial.SymplecticHigherSylow
 public import CFSG.Assembly.QuasithinDefs
 import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
 
 public section
 

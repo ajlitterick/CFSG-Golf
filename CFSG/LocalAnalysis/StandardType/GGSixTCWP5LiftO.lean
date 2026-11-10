@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UFrameO
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4Lift
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 
 public section
 

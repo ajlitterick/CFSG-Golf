@@ -1,14 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldExcGap
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownChevModel
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45FieldFixAut
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45FieldFixData
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangModel
-public import CFSG.LocalAnalysis.StandardType.GGKGroupFusionSeitzExcComp
-public import CFSG.LieType.Steinberg.G2.Perfect
 public import CFSG.Quasithin.Recognition.CertG2Two
-public import CFSG.Quasithin.Recognition.CertU33Simple
 public import CFSG.Quasithin.Background.B5FinG2U33
 
 public section

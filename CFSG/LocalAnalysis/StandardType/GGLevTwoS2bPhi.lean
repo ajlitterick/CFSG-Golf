@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLevTwoS2bForm
 public import CFSG.LocalAnalysis.StandardType.GGLevTwoTrans
-import Mathlib.Algebra.Field.ZMod
 import CFSG.ClassicalInvolution.ModelFacts.Families
 import CFSG.LieType.Universal.Unitary.Roots
 

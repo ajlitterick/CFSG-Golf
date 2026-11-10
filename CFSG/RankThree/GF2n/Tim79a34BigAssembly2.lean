@@ -1,12 +1,8 @@
 module
 
-public import CFSG.RankThree.GF2n.Tim79a34BigAssembly
 public import CFSG.RankThree.GF2n.Tim79a34BigRoot
-public import CFSG.RankThree.GF2n.Tim79aSec34Centre
 public import CFSG.RankThree.GF2n.Tim79a34BigRegular
-public import CFSG.RankThree.GF2n.Tim79a34BigStabQuot
 public import CFSG.RankThree.GF2n.Tim79a34BigRbarIso
-public import CFSG.RankThree.GF2n.Tim79a34BigB
 public import CFSG.RankThree.GF2n.Tim79a34BigAlpha
 
 public section

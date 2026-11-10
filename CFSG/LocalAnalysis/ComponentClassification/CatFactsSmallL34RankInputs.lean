@@ -1,12 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallL34Out
-public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
 public import CFSG.GH74.KGroups.Generic5
 public import CFSG.GH74.KGroups.Checks3
 public meta import CFSG.GH74.KGroups.Checks3
 public meta import CFSG.LocalAnalysis.ComponentClassification.PSL3FourActionData
-public import Certificates.Certificate2022
 public meta import CFSG.GH74.KGroups.Checks
 public import CFSG.GH74.KGroups.Checks
 public import CFSG.LinearAlgebra.LinearGroups.LinearTwo
@@ -18,9 +16,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedLayerOddCoreU
 public import CFSG.LocalAnalysis.SectionRank.CentralLift
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.Sporadic.Th.F2Spec
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 public meta import Mathlib
 
 public section

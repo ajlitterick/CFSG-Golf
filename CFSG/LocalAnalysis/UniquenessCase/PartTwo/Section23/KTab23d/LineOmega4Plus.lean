@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23d.Defs
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.StatementsRootModule
-public import CFSG.LocalAnalysis.UniquenessCase.UC22S20
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23d.ReduceLine
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23d.SolvOmega4Plus
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23d.Bar2Map

@@ -1,7 +1,6 @@
 module
 
 public import Mathlib.Algebra.Group.Subgroup.Finite
-public import Mathlib.Data.Fintype.Card
 public import Mathlib.Tactic.Group
 
 public section

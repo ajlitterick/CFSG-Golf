@@ -3,17 +3,11 @@ module
 
 public import Certificates.Certificate2118Base
 
-public import CFSG.Sporadic.HeldB.HeBlocks
-public import CFSG.Sporadic.HeldB.OuterArithCheck
-public import Certificates.Data.CFSGNative.HeldB.Tests
 public meta import CFSG.Sporadic.HeldB.HeBlocks
 public meta import CFSG.Sporadic.HeldB.OuterArithCheck
 public meta import Certificates.Data.CFSGNative.HeldB.Tests
 public meta import Certificates.Data.CFSGNative.PairSchreier.Core
 import Certificates.Kernel.SporSch.HeT.Facts2118
-import CFSG.Sporadic.HeldB.CertPChainData
-import Certificates.Data.CFSGNative.Schreier.Check
-import CFSG.Sporadic.HeldB.OuterArithCheckInputs
 meta import CFSG.Sporadic.HeldB.AutData
 meta import Certificates.Data.CFSGNative.Schreier.Check
 

@@ -7,7 +7,6 @@ import CFSG.LocalAnalysis.UniquenessCase.UC22P22ya
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Fourteen1
 import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.S5FiveQuot
 import CFSG.Mathlib.GroupTheory.PermCommute
-import Mathlib.GroupTheory.SpecificGroups.Alternating.Simple
 import CFSG.Adapters.StatedClassicalSmallOrders
 import CFSG.ClassicalInvolution.Models.SymplecticPairs.Quadruple
 import CFSG.ClassicalInvolution.QuaternionStructure

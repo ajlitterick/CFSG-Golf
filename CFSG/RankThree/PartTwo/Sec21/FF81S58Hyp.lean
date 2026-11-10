@@ -3,13 +3,8 @@ module
 public import CFSG.RankThree.PartTwo.Sec21.FF81S58Cyc
 public import CFSG.RankThree.PartTwo.Sec21.FF81S58A5
 import CFSG.RankThree.PartTwo.Sec21.FF81S58K
-import CFSG.RankThree.PartTwo.Sec21.FF81J
 import CFSG.RankThree.PartTwo.Sec21.FF81Prop51
 import CFSG.RankThree.PartTwo.Sec21.FF81S0
-import CFSG.RankThree.PartTwo.Sec21.FF81Sec36Geom
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcFieldCore
-import CFSG.Timmesfeld.Orders.Classical
-import CFSG.ClassicalGroups.Symplectic.Simple
 public import CFSG.HardMathSupport.Lang.Coordinator.OuterFixedOrderBoundAll
 public import CFSG.HardMathSupport.Lang.Coordinator.OuterFixedOrderE6Order
 public import CFSG.LocalAnalysis.ComponentInitial.OddUnitaryInvolutionSylow

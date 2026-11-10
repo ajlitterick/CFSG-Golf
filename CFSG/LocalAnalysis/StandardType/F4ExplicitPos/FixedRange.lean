@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.RationalB2Part2
 public import CFSG.LocalAnalysis.StandardType.GGFamF4Shapes
 import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.B2Inner
 import CFSG.LocalAnalysis.StandardType.GGFamF4Tame
-import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.NativePinFinalPart2
 
 public section
 

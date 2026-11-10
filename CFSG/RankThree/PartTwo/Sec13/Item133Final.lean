@@ -4,7 +4,6 @@ public import CFSG.RankThree.PartTwo.Sec13.Item133
 import CFSG.RankThree.PartTwo.Sec13.Item13Final
 import CFSG.RankThree.PartTwo.Sec13.Item13NotSLTwo
 import CFSG.RankThree.PartTwo.Sec13.Item13SetupAt
-import CFSG.RankThree.PartTwo.Sec13.Item13SLTwo
 import CFSG.RankThree.PartTwo.Sec13.Item13Sporadic
 import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
 

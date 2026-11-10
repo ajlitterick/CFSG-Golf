@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.SporSch.PairJ3.C81Base
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic
 
 public section
 

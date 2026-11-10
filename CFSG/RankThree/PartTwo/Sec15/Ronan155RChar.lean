@@ -2,19 +2,14 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec15.Ronan155RDiamond
 public import CFSG.RankThree.PartTwo.Sec15.Ronan155RKFact
-public import CFSG.RankThree.PartTwo.Sec15.Item155w2ProofCases
 public import CFSG.RankThree.PartTwo.Sec15.Item155wProofCorr
 import CFSG.RankThree.PartTwo.Sec15.Ronan155RQ
 import CFSG.RankThree.PartTwo.Sec15.Ronan155RAut
 import CFSG.RankThree.PartTwo.Sec15.Item155wProof
 import CFSG.RankThree.PartTwo.Sec15.Item155Proof
-import CFSG.RankThree.PartTwo.Sec15.Item153Claims
-import CFSG.RankThree.PartTwo.Sec15.Item152Proof
 import CFSG.RankThree.PartTwo.Sec15.Item1424Proof
 import CFSG.RankThree.PartTwo.Sec14.Item14Tools
 import CFSG.RankThree.PartTwo.Sec14.Item147
-import CFSG.RankThree.PartTwo.Sec13.Item13Models
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.CharTwo
 import CFSG.GroupTheory.PCore.OpenTransport
 import CFSG.Models.PGLSimple
 import CFSG.GroupTheory.PCore.Transport

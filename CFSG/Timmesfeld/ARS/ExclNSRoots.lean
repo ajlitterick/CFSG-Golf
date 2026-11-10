@@ -2,7 +2,6 @@ module
 
 public import CFSG.Timmesfeld.ARS.ExclNSStab
 public import CFSG.Timmesfeld.ARS.CaseENatural
-public import CFSG.LieType.Steinberg.CentralExt.Unipotent
 public import CFSG.Timmesfeld.ARS.CaseEFrame
 public import CFSG.Timmesfeld.ARS.ExclNSClique
 public import CFSG.Timmesfeld.ARS.ExclNSDefs

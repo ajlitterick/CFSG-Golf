@@ -4,9 +4,7 @@ public import CFSG.ClassicalInvolution.Q3.Q3TY8
 public import CFSG.ClassicalInvolution.Q3.Q3TPSGN
 public import CFSG.ClassicalInvolution.Q3.Q3TPSNorm
 public import CFSG.ClassicalInvolution.Q3.Q3TWWRowBPair
-public import CFSG.ClassicalInvolution.Q3.Q3TCPartner
 public import CFSG.ClassicalInvolution.Q3.Q3EXOrthLarge
-public import CFSG.ClassicalInvolution.WeakCT.DLWeakAgree
 public import CFSG.ClassicalInvolution.Q3.Q3TY5
 
 public section

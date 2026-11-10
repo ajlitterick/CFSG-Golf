@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Certificates.Kernel.AS35QTS.CenterSound
-import Mathlib.Tactic.IntervalCases
-import Mathlib.Tactic.NormNum
 
 public section
 

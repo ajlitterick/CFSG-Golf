@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordDExclQTwoClDefs
 public import CFSG.LocalAnalysis.StandardType.GGQ2SpPlacementHolds
 public import CFSG.LocalAnalysis.StandardType.GGQ2LinPlacementHolds
-import CFSG.LocalAnalysis.StandardType.GGQ2AutomizerCover
 import CFSG.LocalAnalysis.StandardType.GGQ2LinBlocksMark
 import CFSG.LocalAnalysis.StandardType.GGQ2LinEleH
 import CFSG.LocalAnalysis.StandardType.GGQ2LinFrame

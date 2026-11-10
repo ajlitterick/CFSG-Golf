@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcE6SplitRoots
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Defs
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcCensusTabs
 import CFSG.LocalAnalysis.StandardType.GGSixTCWP4TwistOuter
-import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcE6Data
-import CFSG.LieType.Chevalley.CorootCoordinates
 
 public section
 

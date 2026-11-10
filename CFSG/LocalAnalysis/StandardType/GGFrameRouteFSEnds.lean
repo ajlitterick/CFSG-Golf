@@ -1,11 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGFrameRouteFSInputs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRest
-public import CFSG.LargeExtraspecial.S5Comp
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestTailHolds
 public import CFSG.LocalAnalysis.StandardType.GGFrameRouteE7Models
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcOut
 public import CFSG.LocalAnalysis.StandardType.GGFrameRouteEndNormal
 
 public section

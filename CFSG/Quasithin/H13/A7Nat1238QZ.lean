@@ -5,11 +5,6 @@ public import CFSG.Quasithin.H13.A7Nat1238Ke
 public import CFSG.Quasithin.Background.B1Basic
 public import CFSG.Quasithin.Background.C2Inputs
 public import CFSG.Quasithin.Background.E1
-public import CFSG.Quasithin.Background.E1Sec4
-public import CFSG.Quasithin.Background.E1Sec5
-public import CFSG.Quasithin.Background.E1Sec8
-public import CFSG.Quasithin.Background.E1Solv
-public import CFSG.Quasithin.Background.E1Twelve
 public import CFSG.Quasithin.H13.A7NatMain
 public import CFSG.Quasithin.Vol2.Ch1Chief
 

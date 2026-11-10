@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGE0ExcNoSuzukiReeAt
 public import CFSG.LocalAnalysis.StandardType.GGE0ChevStMarking
-public import CFSG.LocalAnalysis.StandardType.GGCompFieldCatalogue
 public import CFSG.LocalAnalysis.StandardType.GGRootCentKGStructE6Diag
 
 public section

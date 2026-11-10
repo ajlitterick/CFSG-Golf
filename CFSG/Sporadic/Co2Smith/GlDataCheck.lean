@@ -5,13 +5,9 @@ public import Certificates.Certificate21121
 public import Certificates.Certificate21122
 public import Certificates.Certificate21123
 public import Certificates.Certificate21124
-public import CFSG.Sporadic.Co2Smith.GlDataInputs
 import Certificates.Kernel.Co2Smith.Chain
 import Certificates.Kernel.Co2Smith.ChainMData
-import Certificates.Kernel.Sporadic.RawGenSplitP
-import Certificates.Kernel.Sporadic.RawGenSchO
 import Certificates.Kernel.Sporadic.RawGenSchOJ
-import Certificates.Kernel.Co2Smith.Psi
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.InvariantMerge
 public import CFSG.Sporadic.Co2Smith.Cat

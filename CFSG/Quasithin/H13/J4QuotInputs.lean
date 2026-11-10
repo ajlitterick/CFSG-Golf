@@ -6,7 +6,6 @@ public import Certificates.Data.CFSGNative.H13.J4Data
 public meta import Certificates.Data.CFSGNative.H13.J4Data
 public meta import Certificates.Data.CFSGNative.H13.J4Elems
 public meta import CFSG.Quasithin.H13.J4Defs
-import Certificates.Data.CFSGNative.H13.J4Elems
 public meta import CFSG.Sporadic.J4.ParSpec
 
 public noncomputable section

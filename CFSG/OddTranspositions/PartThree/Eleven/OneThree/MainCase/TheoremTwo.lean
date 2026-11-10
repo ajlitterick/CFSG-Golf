@@ -31,23 +31,12 @@ import CFSG.GH74.GLS.C3.Layer1.BackLeaves
 import CFSG.GH74.GLS.C3.Layer1.Split
 import CFSG.GH74.GLS.C3.Layer3.Main
 import CFSG.GH74.GLS.Defs
-import CFSG.GH74.GLS.IVK.A7.Glue
-import CFSG.GH74.GLS.IVK.L2.BN
-import CFSG.GH74.GLS.IVK.L2.BorelFive
-import CFSG.GH74.GLS.IVK.L2.Lemma114
-import CFSG.GH74.GLS.IVK.L2.Lemma12k
-import CFSG.GH74.GLS.IVK.L2.Lemma13fc
-import CFSG.GH74.GLS.IVK.L2.Lemma14f
-import CFSG.GH74.GLS.IVK.L2.Lemma14j
-import CFSG.GH74.GLS.IVK.L2.Lemma19b
 import CFSG.GH74.GLS.IVK.Lifted.Outer14
-import CFSG.GH74.GLS.IVK.Prod.Lemma31
 import CFSG.GH74.GLS.IVK.Proofs
 import CFSG.GH74.GLS.IVK.Proofs2.Lemma12hb
 import CFSG.GH74.GLS.IVK.Proofs2.Lemma13d
 import CFSG.GH74.GLS.IVK.Proofs2.Lemma13e
 import CFSG.GH74.GLS.IVK.Proofs2.Lemma13g
-import CFSG.GH74.GLS.IVK.Statements
 import CFSG.GH74.GLS.Stage1.Thm3.Sec4.Prop41
 import CFSG.GH74.GLS.Stage1.Thm3.Sec5.Statements
 import CFSG.GH74.GLS.Stage1.Thm3.Sec6.Closed2
@@ -91,7 +80,6 @@ import CFSG.RankThree.GF2n.Tim79aSec2
 import CFSG.RankThree.GF2n.Tim79aSec23Inputs
 import CFSG.RankThree.GF2n.Tim79aSec23NoSqE1
 import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec2.Defs
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ConjugatedInvertedSubgroup
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 
 public section

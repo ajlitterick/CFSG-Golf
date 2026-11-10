@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherExcHead
-import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalCover
-import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalRk2Rows
 import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherExcTriD4Fix
 import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherExcTriD4Weyl
 

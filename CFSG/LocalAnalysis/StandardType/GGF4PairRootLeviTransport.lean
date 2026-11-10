@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourOrb
 public import CFSG.LocalAnalysis.StandardType.GGF4Rk2Core
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourRk1
-import Mathlib.Tactic.Group
 
 public noncomputable section
 

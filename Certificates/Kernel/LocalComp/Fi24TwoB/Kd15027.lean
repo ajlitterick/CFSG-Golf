@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.Sporadic.RawGenSch
 public import Certificates.Kernel.LocalComp.Fi24TwoB.D15027
 public meta import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicFi24TwoBData
 import CFSG.Certificates.Kernel.Common.Harness

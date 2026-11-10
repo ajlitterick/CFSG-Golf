@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoRootGenFrame
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwTorus
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfMaxTorus
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieInnGoodF4
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwE7
 public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcE8Rank1
 public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcA2Generic
 public import CFSG.GroupTheory.PCore.SubgroupCore

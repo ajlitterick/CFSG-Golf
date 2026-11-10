@@ -8,7 +8,6 @@ public import Certificates.Kernel.Sporadic.Fi22.X2069PL4
 public meta import CFSG.Monster.B.Fischer.Fi22OrderCheckInputs
 public meta import CFSG.Monster.B.Fischer.PinnedChainInputs
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.NormNum
 
 public section
 

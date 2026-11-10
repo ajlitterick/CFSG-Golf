@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LieType.Steinberg.Adjoint.Presentation
 public import CFSG.LieType.Steinberg.Adjoint.Borel
 public import CFSG.LieType.CurtisTits.Perfect
 public import CFSG.LieType.TitsSimplicity.Simplicity

@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrU63
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylNoLine
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryDvdCodimOne
 public import CFSG.LocalAnalysis.StandardType.GGQTwoCavQuotient
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowDefs
 

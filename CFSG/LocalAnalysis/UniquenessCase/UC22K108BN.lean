@@ -3,7 +3,6 @@ module
 public import CFSG.Open.SplitBNPair
 public import CFSG.LocalAnalysis.QuasithinUnique.Defs
 import CFSG.Milestones.ASVolI.I2
-import CFSG.LocalAnalysis.QuasithinUnique.GammaFamiliesBasic
 import CFSG.Quasithin.Vol2.Ch11SecC37N1
 public import CFSG.Assembly.QuasithinDefs
 import CFSG.Quasithin.Background.A3Structure312Defs
@@ -14,7 +13,6 @@ import CFSG.Quasithin.Background.B5Basic
 import CFSG.Quasithin.Background.B5CompA
 import CFSG.Quasithin.Background.B5CompB
 import CFSG.Quasithin.Background.B6
-import CFSG.Quasithin.Background.B6Example
 import CFSG.Quasithin.Background.E3OffenderB
 import CFSG.Quasithin.Background.InternalSecData
 import CFSG.Quasithin.Background.InternalSecIso

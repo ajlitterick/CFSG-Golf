@@ -3,7 +3,6 @@ module
 public import CFSG.GH74.Uniqueness.Section15HeringDefs
 public import CFSG.GH74.Uniqueness.Section15HeringCyclic
 public import CFSG.ThirdParty.QiuzhenCFSG.BaerSuzuki.FinalTheorem
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
 
 public section
 

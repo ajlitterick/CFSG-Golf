@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeCompanion1632Lang
-public import CFSG.LieType.Chevalley.ToralCentralizerQuotient
-public import CFSG.HardMathSupport.Timmesfeld.Steinberg.ThreeCentralizer
 
 public section
 

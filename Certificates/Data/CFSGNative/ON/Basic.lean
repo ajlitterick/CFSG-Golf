@@ -1,9 +1,7 @@
 module
 
 public import Certificates.Data.CFSGNative.Fi23.Wide
-public import Certificates.Data.CFSGNative.Perm.Chain
 public import Certificates.Data.CFSGNative.HS.Cert
-public import Std.Data.HashMap
 
 public section
 

@@ -3,13 +3,9 @@ module
 public import Certificates.Data.Kernel.Co1M.ElevenFix
 public import CFSG.Certificates.Kernel.Co1BSound
 public import CFSG.Certificates.Kernel.Co1M.RankSound
-public import CFSG.Certificates.Kernel.F2WordSound
 public import CFSG.Sporadic.Co1Block.PointStab
 public import CFSG.Sporadic.Co1Block.XFix
-public import CFSG.Sporadic.Schreier.Co1Lift
-public import CFSG.Sporadic.Co1
 public import CFSG.HardMathSupport.Dickson.BMRows.Co2Eleven
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.FixedFreeRank
 public import CFSG.LocalAnalysis.ComponentInitial.Finkelstein1977Commuting
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.WeylData
 

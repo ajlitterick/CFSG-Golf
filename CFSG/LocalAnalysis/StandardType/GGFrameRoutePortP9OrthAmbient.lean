@@ -8,7 +8,6 @@ import CFSG.LocalAnalysis.StandardType.GGFrameFSxOrth
 import CFSG.LocalAnalysis.AGLEmbeddingD2.McLaughlin.OrdinaryProofs.OutL5Proof
 import CFSG.RankThree.PartTwo.Sec14.Ronan148JInner
 import CFSG.RankThree.PartOne.S11d.OrthCaseH
-import CFSG.RankThree.PartOne.S11d.OrthDicksonOmega
 import CFSG.GH74.E2.DirectProd
 import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP9Norm
 import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP9SignOmega
@@ -28,11 +27,6 @@ public import CFSG.Quasithin.Background.B4ModelsAction
 public import CFSG.Quasithin.Background.B4ModelsIso
 public import CFSG.Quasithin.Background.C2Basic
 public import CFSG.Quasithin.Background.E1
-public import CFSG.Quasithin.Background.E1Sec4
-public import CFSG.Quasithin.Background.E1Sec5
-public import CFSG.Quasithin.Background.E1Sec8
-public import CFSG.Quasithin.Background.E1Solv
-public import CFSG.Quasithin.Background.E1Twelve
 public import CFSG.Quasithin.Background.E3Cent
 public import CFSG.Quasithin.EmptyFaithfulMultiple.InputB19Proof
 public import CFSG.RankThree.PartTwo.Sec12.Notation

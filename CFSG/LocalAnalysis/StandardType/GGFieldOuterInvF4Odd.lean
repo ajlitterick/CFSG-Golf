@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGFieldOuterModel
 public import CFSG.LocalAnalysis.StandardType.GGFieldOuterInvF4OddModel
 
 public section

@@ -1,22 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBRowR5Defs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwenty
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyQSplit
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
-public import CFSG.LocalAnalysis.StandardType.GGTableBRank
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiag
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLCx
-public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpLattice
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitClassical
-public import CFSG.LocalAnalysis.StandardType.Marking
-public import CFSG.LocalAnalysis.StandardType.GGTableBTransport
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63H5Final
 public import CFSG.LocalAnalysis.StandardType.GGNbrU63Setup
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaBase
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrTableBPSL
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeOrthBlockModel
 

@@ -2,12 +2,10 @@ module
 
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo
-public import Certificates.Kernel.Sporadic.Fi24Fix.DataK
 public import Certificates.Kernel.Sporadic.Fi24Orb.Data
 public import Certificates.Kernel.Sporadic.Fi24G2e.Data
 public import Certificates.Data.Kernel.Spor.Fi24Kn
 public import Certificates.Data.Kernel.Spor.Fi24G2d
-public import Certificates.Data.Kernel.Spor.Fi24Fix
 
 #kc_repo #kc_json_gz CFSG.KD.Fi24F3d.J "Certificates/Kernel/Sporadic/Fi24F3d/data/f3d.json.gz" 7317
   17360795821460123783

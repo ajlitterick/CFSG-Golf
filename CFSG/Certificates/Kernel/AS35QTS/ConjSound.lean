@@ -2,7 +2,6 @@ module
 
 public import CFSG.Certificates.Kernel.AS35QTS.PairSound
 public import CFSG.Certificates.Kernel.AS35QTS.CountSound
-public import Certificates.Data.Kernel.LceSTab
 
 public section
 

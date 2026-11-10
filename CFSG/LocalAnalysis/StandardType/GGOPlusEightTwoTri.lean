@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGOPlusEightTwoTransfer
 public import CFSG.LocalAnalysis.StandardType.GGOPlusEightTwoLayer
 public import CFSG.LocalAnalysis.StandardType.GGHypSixD4RankClass
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestOddEnd
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitKGClFactors
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsOmegaRegular
 

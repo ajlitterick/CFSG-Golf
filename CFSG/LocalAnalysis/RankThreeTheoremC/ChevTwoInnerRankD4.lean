@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.ChevTwoInnerRankCover
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.LieType
 import CFSG.RankThree.PartTwo.Census.Carrier.SpinDBridge
 import CFSG.RankThree.PartTwo.Sec4.Census.RankOmegaF4
 

@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTCKSpace
-public import Mathlib.FieldTheory.KummerPolynomial
-public import Mathlib.RingTheory.AdjoinRoot
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
 
 public section
 

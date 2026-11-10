@@ -3,7 +3,6 @@ module
 public import CFSG.GroupTheory.FrattiniQuotient
 public import CFSG.RankThree.GroupTheory.SteinbergBMFrattiniMaschke
 public import CFSG.RankThree.GroupTheory.SteinbergBMTwoCommutatorLift
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Frattini.Core
 
 public section
 

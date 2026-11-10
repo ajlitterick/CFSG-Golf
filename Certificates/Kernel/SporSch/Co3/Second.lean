@@ -11,9 +11,7 @@ public import CFSG.Certificates.Kernel.Spor.BindList
 public import Certificates.Data.Kernel.Spor.M11
 public import CFSG.Sporadic.Schreier.Co3SecondCheckInputs
 meta import CFSG.Sporadic.Schreier.Co3SecondCheckInputs
-public import CFSG.Certificates.Kernel.Spor.SiftRSound
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.Spor.RawSlSound
 
 public section

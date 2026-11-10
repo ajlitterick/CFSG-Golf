@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeRhoTInnerLift
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeRhoTInnerRad
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelTypeABridge
 public import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofCoxeter
-public import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofRefl
-public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeProp1010
 
 public section
 

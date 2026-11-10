@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBJE6ThreeData
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6ThreeFrameA
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6ThreeClassA
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6ThreeKer

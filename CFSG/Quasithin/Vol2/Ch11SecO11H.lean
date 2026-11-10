@@ -1,24 +1,10 @@
 module
 
 public import CFSG.Quasithin.Vol2.Ch11SecO11G
-public import CFSG.Quasithin.Background.E2TwoProofSporGen
 public import CFSG.Quasithin.Background.E2TwoProofSporJ2
 public import CFSG.Quasithin.Background.HSporLatMathieu
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHS
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatRu
-public import Certificates.Certificate3029
-public import Certificates.Certificate3139
-public import Certificates.Certificate3167
-public import Certificates.Certificate3172
-public import Certificates.Certificate4034
-public import Certificates.Certificate4075
-public import Certificates.Certificate4102
-public import Certificates.Certificate4140
-public import Certificates.Certificate4142
-public import Certificates.Certificate4143
-public import Certificates.Certificate7117
-public import Certificates.Certificate7125
-public import CFSG.Blueprint.NativeSporadic
 import all CFSG.Blueprint.NativeSporadic
 public import CFSG.Dihedral.FourgroupCycleControl
 public import CFSG.Dihedral.OriginalCentralizerOddCore
@@ -51,8 +37,6 @@ public import CFSG.Quasithin.Vol2.Ch11SecSG2Sp4
 public import CFSG.Quasithin.Vol2.Ch11SecSI3
 public import CFSG.Quasithin.Vol2.Ch11SecSObl
 public import CFSG.Quasithin.Vol2.Ch1Faithful
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.AutAlternating
 
 public section

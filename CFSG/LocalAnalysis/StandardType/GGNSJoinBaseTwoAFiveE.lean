@@ -5,15 +5,9 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoBridgeDefs
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoTorus
 import CFSG.LocalAnalysis.StandardType.GGUSixTwoTorusTwoGroup
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSQ2U62Setup
-import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
-import CFSG.LocalAnalysis.StandardType.GGSecFiveRest
 import CFSG.LocalAnalysis.StandardType.GGFrameRouteLower
 import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoUnitary
-import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoUnitaryAux
-import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoInnerQ
-import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoAutLQAux
 import CFSG.LocalAnalysis.StandardType.GGLtBstarOfInner
-import CFSG.LocalAnalysis.StandardType.GGTableBBstar
 
 public section
 

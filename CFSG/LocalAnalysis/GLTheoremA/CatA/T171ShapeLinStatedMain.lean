@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeLinStatedRecipe
-import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeInnAutCore
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S171Basic
 import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieOuterLinear
-import CFSG.Foundations.SteinbergCADefinitionNodes
 import CFSG.Models.Blueprint
 import CFSG.Blueprint.LieModelAPI
 import CFSG.Goldschmidt.Steps.G37Core

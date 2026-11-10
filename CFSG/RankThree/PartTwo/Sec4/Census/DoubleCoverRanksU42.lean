@@ -2,21 +2,16 @@ module
 
 public import CFSG.RankThree.PartTwo.Census.TransitiveLift
 public import CFSG.RankThree.PartTwo.Sec4.Census.Item44TwoCoverList
-public import CFSG.RankThree.PartTwo.Sec4.Census.Item44TwoCoverModels
 public import CFSG.LieType.Multipliers.U42
 public import CFSG.RankThree.SubgroupLists.SymplecticInvolutions
-public import CFSG.ClassicalGroups.Symplectic.ProjectivePerfect
 public import CFSG.GH74.Generic.S3.L3Cover
 public import CFSG.LocalAnalysis.ComponentInitial.SymplecticModelOuterTwoPart
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticHigherProjective
 public import CFSG.Certificates.WordSubgroupRel
 public import CFSG.GH74.Generic.Front.Final
 public import CFSG.GH74.Generic.FrontEnd
 public import CFSG.GH74.Generic.S1.LinFull
 public import CFSG.GH74.Generic.S3.LeavesFine
 public import CFSG.GH74.Generic.S3.Lem37
-public import CFSG.GroupTheory.HallHigmanPiCore
-public import CFSG.LieType.Chevalley.LangRootArithmetic
 public import CFSG.LieType.Multipliers.ProductKernel
 public import CFSG.LieType.Multipliers.U43Action
 public import CFSG.LieType.Multipliers.U43BridgeInputs
@@ -43,7 +38,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSpExcl
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedGSBFixedLayer
 public import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalStandardFormsRegular
-public import CFSG.LocalAnalysis.ComponentInitial.SuzukiModelSchreier
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherAllInvolutionFourGroup
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.NativeCheckBase
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.NativeModel
@@ -55,7 +49,6 @@ public import CFSG.Monster.B.TwoA.Sp8.Par1
 public import CFSG.Monster.B.TwoA.Unitary.LinThree
 public import CFSG.Monster.B.TwoA.Unitary.Orbit1408Points
 public import CFSG.Open.QuasithinDefs
-public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.Sporadic.Bridge.LyData
 public import CFSG.Sporadic.Bridge.TableSurj
 public import CFSG.Sporadic.HN.LevelChainSpec

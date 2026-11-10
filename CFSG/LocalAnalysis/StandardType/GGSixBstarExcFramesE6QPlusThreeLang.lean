@@ -1,14 +1,9 @@
 module
 
 public import CFSG.RankThree.PartOne.KE6.EqpTorus
-public import CFSG.RankThree.Lattice.SteinbergBIE6QplusData
 public import CFSG.RankThree.Chevalley.SteinbergCEF4EvenQPlusWeyl
-public import CFSG.LieType.Chevalley.FoldedWeylIdentification
-public import CFSG.LieType.Chevalley.FoldedWeylData
 public import CFSG.RankThree.PartOne.K133H.F4Weyl
 public import CFSG.RankThree.PartOne.KE.CTLangData
-public import CFSG.LieType.Chevalley.GraphFixedData
-public import CFSG.Timmesfeld.Orders.ExceptionalTwisted
 public import CFSG.LieType.Chevalley.C2E6SubsystemBruhat
 public import CFSG.LieType.Chevalley.C2E6UnitaryFourImages
 public import CFSG.LieType.Chevalley.SignKernelComponentBruhat

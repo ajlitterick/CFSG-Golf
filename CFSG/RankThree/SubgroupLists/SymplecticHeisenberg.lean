@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.SubgroupLists.SymplecticTransvections
-public import CFSG.ClassicalGroups.Alternating.Transvections
 
 public section
 

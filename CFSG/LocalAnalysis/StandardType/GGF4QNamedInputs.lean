@@ -1,31 +1,18 @@
 module
 
 import CFSG.LocalAnalysis.StandardType.GGF4QGeFourReduction
-import CFSG.LocalAnalysis.StandardType.GGF4QGeFourRk1
-import CFSG.LocalAnalysis.StandardType.GGF4QGeFourOrb
-import CFSG.LocalAnalysis.StandardType.GGF4QGeFourRk2
 import CFSG.LocalAnalysis.StandardType.GGF4QGeFourRk2S2
-public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourRk2Cross
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourJoin
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourA2PSU
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourL1
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveDataResDefs
 public import CFSG.LocalAnalysis.StandardType.GGF4QTwoEndsL
-public import CFSG.LocalAnalysis.StandardType.GGKGPosSpStd
 public import CFSG.LocalAnalysis.StandardType.GGKGPosLocalHypTw
 import CFSG.LocalAnalysis.StandardType.GGTbKlTableP
 import CFSG.LocalAnalysis.StandardType.GGF4QGeFourKGCent
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourOpp
 import CFSG.LocalAnalysis.StandardType.GGF4QGeFourEndsAbsorb
 import CFSG.LocalAnalysis.StandardType.GGF4QGeFourOrbS2
-import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6
 public import CFSG.LocalAnalysis.StandardType.GGK0ExcB3
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwo
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangAxisOn
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangRest
-import CFSG.LocalAnalysis.StandardType.GGF4QGeFourOppSp
-import CFSG.LocalAnalysis.StandardType.GGF4QGeFourOppPlus
 import CFSG.LocalAnalysis.StandardType.GGF4QGeFourOppPlusSup
 import CFSG.LocalAnalysis.StandardType.GGF4N2OriginalJoin
 import CFSG.LocalAnalysis.StandardType.GGF4N2OmegaKAltPlaneE6
@@ -33,7 +20,6 @@ import CFSG.LocalAnalysis.StandardType.GGF4QGeFourS1Third
 import CFSG.LocalAnalysis.StandardType.GGF4QGeFourS2Third
 import CFSG.LocalAnalysis.StandardType.GGKGPosSUTableB
 import CFSG.LocalAnalysis.StandardType.GGKGPosOmegaMinusTableB
-import CFSG.LocalAnalysis.StandardType.GGNewPlaneLocalAction
 import CFSG.LocalAnalysis.StandardType.GGAssemblyTwoInputs
 
 public section

@@ -1,13 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TWDefs
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TWPhi
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TWCent
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TWFrob
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseIOneDefs
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseXL48Rest
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseXL48RestZp
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseQuot
 
 public section
 

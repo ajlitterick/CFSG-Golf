@@ -1,11 +1,9 @@
 module
 
-public import CFSG.Sporadic.Co1Block.TwoBComp
 public import CFSG.Sporadic.Co1Block.Classes
 public import CFSG.Sporadic.Schreier.Co1Generation
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.LocBCExtra
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.LocBCSylow
-public import Certificates.Certificate26683
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.Chain
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.GlobLemma39N
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.GlobSylow
@@ -13,9 +11,6 @@ public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Sporadic.Co1.Module.InvAssemble
 public import CFSG.Sporadic.Schreier.Co1SplitLocalSubgroup
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 public import CFSG.Walter.JRFacts
 
 public noncomputable section

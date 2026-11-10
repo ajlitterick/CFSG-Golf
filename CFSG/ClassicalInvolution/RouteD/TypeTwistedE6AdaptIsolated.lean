@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ClassicalInvolution.RouteD.TypeTwistedE6AdaptClass
 public import CFSG.ClassicalInvolution.RouteD.TypeTwistedE6P1x
 public import CFSG.ClassicalInvolution.RouteD.NoG2D4SU6
 public import CFSG.ClassicalInvolution.RouteD.TypeTwistedE6AdaptModel

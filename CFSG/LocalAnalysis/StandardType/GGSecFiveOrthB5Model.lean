@@ -4,9 +4,6 @@ public import Mathlib.GroupTheory.Coxeter.Matrix
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthRefl
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthTyGram
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthSPermStab
-public import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
-public import Mathlib.Algebra.Group.Subgroup.Finite
-public import Mathlib.Algebra.Group.Subgroup.Lattice
 
 public section
 

@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcRootRefl
-public import CFSG.LocalAnalysis.StandardType.GGKGForkExcRootJ
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcRootC
-public import CFSG.LocalAnalysis.StandardType.GGKGForkTransfer
 
 public section
 

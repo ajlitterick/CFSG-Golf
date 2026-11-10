@@ -1,11 +1,8 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.ExoticSingleSplit
-public import CFSG.ClassicalInvolution.RouteD.ExoticSingleTwin
 public import CFSG.ClassicalInvolution.RouteD.ExoticSingleGeom
 public import CFSG.ClassicalInvolution.RouteD.GapsToralB
-public import CFSG.ClassicalInvolution.RouteD.LocalTwinBLocal
-public import CFSG.ClassicalInvolution.RouteD.TypeENodes
 
 public section
 

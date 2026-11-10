@@ -3,16 +3,9 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGE6IsoFrame
 public import CFSG.LocalAnalysis.StandardType.GGE6IsoLayerAdj
 public import CFSG.LocalAnalysis.StandardType.GGE6IsoLayerTw
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelKGFrameE
-public import CFSG.LocalAnalysis.StandardType.GGKGLayersTheta
 public import CFSG.LocalAnalysis.StandardType.GGKGTwFrame
-public import CFSG.LocalAnalysis.StandardType.GGTwE6DD2Recipe
 public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBE6
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6Delta
-public import CFSG.HardMathSupport.Lang.E6Descent.OuterFixed27TwistedE6Group
-public import CFSG.HardMathSupport.Lang.E6Descent.RankTwistedE6
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeCompInner
-public import CFSG.LocalAnalysis.StandardType.GGBstarLIDUnit63Holds
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLExc3
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLExcReduction
 

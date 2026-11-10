@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsOmPlus
 public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsOmMinus
 public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsSU
-public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsSpTwo
-public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandStructPSL
 
 public section
 

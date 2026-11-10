@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.U42F431Perm
 public import Certificates.Data.U42F431Tab
 public import Certificates.Data.U42F431TabInv
 public import Certificates.Data.U42F431TabFlag

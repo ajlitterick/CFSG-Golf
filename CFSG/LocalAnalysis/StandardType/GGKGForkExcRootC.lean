@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcRootJ
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcRootsC
-public import CFSG.LocalAnalysis.StandardType.GGKGForkExcCent
-public import CFSG.LocalAnalysis.StandardType.GGLayerChevAdjoint
 public import CFSG.LocalAnalysis.StandardType.GGKGForkLayerGen
 
 public section

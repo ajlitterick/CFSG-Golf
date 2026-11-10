@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyNbrFieldRows
 public import CFSG.LocalAnalysis.StandardType.GGTCJEnnolaOrthLabel
 public import CFSG.LocalAnalysis.StandardType.GGTCJLabel
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinDict

@@ -7,7 +7,6 @@ public import Mathlib.Data.Nat.Totient
 public import Mathlib.Data.Rat.Floor
 public import Mathlib.Data.Sym.Sym2.Init
 public import Mathlib.GroupTheory.Rank
-public import Mathlib.Tactic.Group
 public import Mathlib.Tactic.NormNum.GCD
 public import CFSG.ThirdParty.BrauerInduction.Background.Group.Basic
 

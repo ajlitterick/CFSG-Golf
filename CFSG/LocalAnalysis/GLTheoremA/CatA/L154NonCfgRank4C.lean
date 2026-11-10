@@ -2,7 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24D4T2Outer
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154NonCfgRank4A
-public import CFSG.RankThree.Chevalley.SteinbergBNF4Block
 
 public section
 

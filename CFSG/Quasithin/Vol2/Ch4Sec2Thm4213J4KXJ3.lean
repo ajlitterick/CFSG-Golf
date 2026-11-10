@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Quasithin.Vol2.Ch4Sec2Thm4213J4KXJ1
 public import CFSG.Quasithin.Vol2.Ch4Sec2Thm4213J4KXJ2
 public import CFSG.Quasithin.Vol2.Ch4Sec2Thm4213J4KXE9
 public import CFSG.Quasithin.Vol2.Ch4Sec2Thm4213J4KXOT

@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.FS81.E7RecogPieces
 public import CFSG.LocalAnalysis.StandardType.FS81.RootFusionGen
 public import CFSG.LocalAnalysis.StandardType.FS81.S7Model
-public import CFSG.LocalAnalysis.SeitzReduction.E6PilotUniqueFieldInner
-public import CFSG.LocalAnalysis.SeitzReduction.E7PilotClasses
 public import CFSG.GF2Type.SmithTypeE.E8.E23aMod
 public import CFSG.GF2Type.SmithTypeE.E7Order
 import CFSG.LocalAnalysis.StandardType.FS81.S79Radical

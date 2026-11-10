@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticDiag
 public import CFSG.LocalAnalysis.StandardType.GGTableBBstar
 public import CFSG.LocalAnalysis.StandardType.GGTableBLinear
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
 import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotSetup
 import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotTorus
 import CFSG.LocalAnalysis.SeitzReduction.F4PilotFieldNormalizeSp
@@ -33,7 +32,6 @@ import CFSG.LocalAnalysis.ComponentInitial.OrthogonalReflectionSplitting
 import CFSG.LocalAnalysis.ComponentInitial.OrthogonalStandardFormsRegular
 import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 import CFSG.Walter.JRFacts
 import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension

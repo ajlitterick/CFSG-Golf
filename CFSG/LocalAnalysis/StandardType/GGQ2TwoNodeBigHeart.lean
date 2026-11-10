@@ -1,13 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2SubStab
-public import TauCeti.LinearAlgebra.Matrix.Cartan.Classical
 import CFSG.LocalAnalysis.StandardType.GGTBTorCartan
 import CFSG.LocalAnalysis.StandardType.GGCartanATypeArith
-import Mathlib.GroupTheory.GroupAction.Quotient
-import Mathlib.LinearAlgebra.Finsupp.LinearCombination
-import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
-import Mathlib.SetTheory.Cardinal.Finite
 import CFSG.LocalAnalysis.StandardType.GGTBTorDefs
 
 public section

@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.Sporadic.RawGen
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.Co1PairData
 
 public section

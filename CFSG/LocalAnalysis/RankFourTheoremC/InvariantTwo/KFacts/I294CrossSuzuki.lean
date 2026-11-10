@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.RankFourTheoremC.InvariantTwo.KFacts.I294CrossFamilies
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.FFExclusionsTwo
 public import CFSG.SignalizerFunctorTheorem.McBride.Models.Suzuki.Local
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
 public import CFSG.Certificates.FusionF2
@@ -81,18 +80,6 @@ public import CFSG.Sporadic.Presentation.McLExactData
 public import CFSG.Sporadic.Presentation.McLExactInputs
 public import CFSG.Sporadic.Schreier.RuLOdd
 public import CFSG.Sporadic.Schreier.RuZClass
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldPrimeOrderFixedSubfield
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OrderThreeNormalizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2PSLRangeCentralizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinInvolutionCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinRestrictionSixCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinUDecomposition
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationEleven
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTen
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTenStructuralIdentities
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2FieldProjectionArithmetic
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2OrderPSubgroupCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphReconstruction
 public import CFSG.Walter.Ree.Model.JTHyp
 public import CFSG.YGroups.DCE.B433Check
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement

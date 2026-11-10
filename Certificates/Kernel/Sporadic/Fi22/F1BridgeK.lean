@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Sporadic.Fi22.X2069PT
 public import Certificates.Kernel.Sporadic.ON.Gen
-public import Certificates.Kernel.MonsterB.IndOrbData
 public import Certificates.Kernel.MonsterB.IndTransData
 public import Certificates.Kernel.MonsterB.IndCentral
 public import Certificates.Data.Kernel.Misc.ArrEnum

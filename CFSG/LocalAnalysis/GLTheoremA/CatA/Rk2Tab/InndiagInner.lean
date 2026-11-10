@@ -1,13 +1,10 @@
 module
 
 public import CFSG.RankThree.PartTwo.Census.Classical.EvenPrimes
-public import CFSG.Open.GLADefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2
-public import CFSG.LocalAnalysis.StandardType.GGAssemblyThreeHypSix
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestTriDiag
 public import CFSG.LocalAnalysis.StandardType.GGTwistedF4Diag
 public import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpRestInner
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.GroupTheory.ElementaryAbelianTransport
 
 public section

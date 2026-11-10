@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfMaxDefs
 public import CFSG.LieType.Chevalley.KernelComponentRoots
-public import CFSG.LieType.Chevalley.SimplyLacedCommutation
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGHalfWeylDefs
-public import CFSG.LocalAnalysis.StandardType.GGSpJoinOrbitBound
 public import CFSG.LocalAnalysis.StandardType.GGSpFrameOrbit
 
 public section

@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQ2NbrD5Frame
 public import CFSG.LocalAnalysis.StandardType.GGQ2AmbModelSplit
 public import CFSG.LocalAnalysis.StandardType.GGCSRHolds
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-public import CFSG.LocalAnalysis.StandardType.GGTriD4NoneRank
 public import CFSG.LocalAnalysis.StandardType.GGTBJConfigFacts
 
 public section

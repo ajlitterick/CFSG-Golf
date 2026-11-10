@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSLieEsuAux
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSLieCover
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeInner
-public import CFSG.ClassicalGroups.Unitary.Finite
-public import CFSG.LieType.Universal.Unitary.Comparison
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHypCentral
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T156GUniMat
 

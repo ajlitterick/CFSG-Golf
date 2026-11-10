@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.Defs
-import CFSG.LocalAnalysis.AGLEmbedding.WeakBlockBasic
-import CFSG.LocalAnalysis.ComponentClassification.LocalComponents
 
 public section
 

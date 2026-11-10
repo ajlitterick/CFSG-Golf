@@ -3,7 +3,6 @@ module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatM24Base
 public import CFSG.Quasithin.Background.A312SporGen
-public import Mathlib.Algebra.Group.Pointwise.Finset.Basic
 
 public section
 

@@ -3,15 +3,9 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGExcKGSFCore
 public import CFSG.LocalAnalysis.StandardType.GGExcKGSFFinite
 public import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpRest
-public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerAdj
-public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerE7
 public import CFSG.LocalAnalysis.StandardType.GGExcFieldRankE7
 public import CFSG.LocalAnalysis.StandardType.GGExcFieldRankE8
 public import CFSG.LocalAnalysis.StandardType.GGExcFieldAutCentRankF4Rank
-public import CFSG.LieType.Chevalley.AdjointCenter
-public import CFSG.LieType.Steinberg.CentralExt.MinusculeCenter
-public import CFSG.LieType.Steinberg.CentralExt.FieldFourMultiplier
-public import CFSG.LieType.Steinberg.Isogeny.E7
 
 public section
 

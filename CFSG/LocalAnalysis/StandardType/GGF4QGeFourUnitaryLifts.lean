@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.CoprimePSU
-public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourLocalMaps
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourSpinLifts
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHyperbolic
 

@@ -2,8 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.RouteD.GapsOrthFacts
 public import CFSG.ClassicalInvolution.RouteD.TypeDAdapt
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.ClassicalInvolution.ModelFacts.OddCover
 public import CFSG.ClassicalInvolution.Models.LinearFrames
 public import CFSG.ClassicalInvolution.Models.LinearPairs

@@ -3,7 +3,6 @@ module
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk93R3Main
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk93WSmall1
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk93WSmall2
-public import CFSG.GH74.GLS.IVK.Proofs2.Ivk93WSpor
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk93WQuasi
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk93WSp4
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk93WExc
@@ -27,14 +26,8 @@ public import CFSG.GH74.Generic.S45.LEvSporFacts
 public import CFSG.GH74.Generic.S45.LUniLift
 public import CFSG.GroupTheory.PCore.PrimeSetCore
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4Cover
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearFieldDeterminant
 public import CFSG.LocalAnalysis.ComponentClassification.OddClassSelectorU
-public import CFSG.LocalAnalysis.ComponentClassification.OddSelector
-public import CFSG.LocalAnalysis.ComponentClassification.OutcomeLocalCTILinearSocle
 public import CFSG.LocalAnalysis.ComponentClassification.Sp4RecPair
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSLAllInvolutions
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSUFieldOddCore
-public import CFSG.LocalAnalysis.ComponentInitial.ProjectiveEigenspaceComponent
 public import CFSG.RankThree.PartOne.KS.Plane
 public import CFSG.Sporadic.Th.Max3.Packet
 public import CFSG.Sporadic.Th.Max3.Quotient

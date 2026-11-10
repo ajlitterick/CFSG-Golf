@@ -2,11 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.Interface
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.HNSideFacts.F4T4
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.HNSideFacts.F5T2
-public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoHS.Transport
-public import CFSG.LocalAnalysis.ComponentClassification.OutcomeLocalCTIBasic
-public import CFSG.Sporadic.HN
-public import CFSG.Sporadic.HN.Local.Main
 
 public section
 

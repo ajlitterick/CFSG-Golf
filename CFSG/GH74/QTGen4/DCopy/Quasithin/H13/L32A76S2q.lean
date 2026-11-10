@@ -1,21 +1,8 @@
 module
 
-public import CFSG.GH74.QTGen4.Finite4
 public import CFSG.Quasithin.H13.L32A76S2q
-public import CFSG.GH74.QTGen4.DCopy.Quasithin.H13.A6Inputs13_3
-public import CFSG.GH74.QTGen4.DCopy.Quasithin.H13.L1332
-public import CFSG.GH74.QTGen4.DCopy.Quasithin.H13.L32A705a
-public import CFSG.GH74.QTGen4.DCopy.Quasithin.H13.L32A74
-public import CFSG.GH74.QTGen4.DCopy.Quasithin.H13.L32A76S2GL
-public import CFSG.GH74.QTGen4.DCopy.Quasithin.H13.L32A76S2b
 public import CFSG.GH74.QTGen4.DCopy.Quasithin.H13.L32A76S2m
 public import CFSG.GH74.QTGen4.DCopy.Quasithin.H13.L32A76S2p
-public import CFSG.GH74.QTGen4.DCopy.Quasithin.H13.L32ASetting
-public import CFSG.GH74.QTGen4.DCopy.Quasithin.H13.L32ASk9
-public import CFSG.GH74.QTGen4.DCopy.Quasithin.H13.L32NModule
-public import CFSG.GH74.QTGen4.DCopy.Quasithin.H13.L32NSet14
-public import CFSG.GH74.QTGen4.DCopy.Quasithin.H13.L32NSet14Act
-public import CFSG.GH74.QTGen4.DCopy.Quasithin.H13.StatementsL2
 
 public section
 

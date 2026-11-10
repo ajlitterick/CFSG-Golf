@@ -2,11 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGExcRERegimeDefs
 public import CFSG.LocalAnalysis.StandardType.GGTPNExcKacDatum
-public import CFSG.LocalAnalysis.StandardType.GGKacTable
 public import CFSG.LocalAnalysis.StandardType.GGTPNThmUClauses
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 public import CFSG.LocalAnalysis.StandardType.GGTypeADefs
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrLabels
 
 public section
 

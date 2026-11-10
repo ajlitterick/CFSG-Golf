@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.LocalQT.HSAut.K4146R
 public import Certificates.Kernel.Misc.Perm.CharsLits
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19HSAutData
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

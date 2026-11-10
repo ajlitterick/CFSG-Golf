@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.Lie.SU3
 public import CFSG.LocalAnalysis.UniquenessCase.Lie.RankOneInput
-import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
 import CFSG.LocalAnalysis.UniquenessCase.Lie.Cover
-import CFSG.LinearAlgebra.LinearGroups.UnitaryScalarKernel
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.CGT.Timmesfeld75.Statements

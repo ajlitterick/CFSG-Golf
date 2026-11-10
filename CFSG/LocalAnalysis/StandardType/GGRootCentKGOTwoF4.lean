@@ -2,29 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootCentKGTagsDefs
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotCentralizerTUStd
-import CFSG.LocalAnalysis.SeitzReduction.F4PilotAutD
-import CFSG.LocalAnalysis.SeitzReduction.F4PilotLeviSp6
-import CFSG.LocalAnalysis.SeitzReduction.F4PilotLeviRootSL2
-import CFSG.LocalAnalysis.SeitzReduction.HypothesisOneF4Inner
-import CFSG.LocalAnalysis.SeitzReduction.HypothesisOneF4InnerVBasic
 import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotQ2PosCore
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGRigid
 import CFSG.LocalAnalysis.StandardType.GGRootNormInner
-import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsBasic
 import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsOmBasic
-import CFSG.Blueprint.ChevalleyRootGroupsTorus
-import CFSG.Blueprint.ChevalleyWeyl
-import CFSG.LieType.Chevalley.GraphFixedHighestRoot
-import CFSG.LieType.Chevalley.Canonical
-import CFSG.LieType.Chevalley.EvenF4ExceptionalRootLayers
-import CFSG.LieType.Chevalley.AdjointCenter
-import CFSG.LieType.Chevalley.RootCommutatorPairTable
-import CFSG.LieType.Ree.Duality
-import CFSG.LieType.Ree.LargeReeRootInvolution
 import CFSG.ClassicalInvolution.Balance.LayerGenerationShortAdjoint
-import CFSG.LieType.Steinberg.Adjoint.Pairs
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 public import CFSG.LieType.Chevalley.C2E6StandardFixedData
 public import CFSG.LieType.Chevalley.C2E6SubsystemBruhat
@@ -40,7 +22,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.SylowPointRecovery
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotToralCentralizer
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.JRFacts
 import CFSG.ClassicalInvolution.Balance.PassTwoFinal
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalSixStructure

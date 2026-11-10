@@ -96,7 +96,6 @@ public import CFSG.LocalAnalysis.ShultStronglyClosedTI.MinimalLocalFailureSylowA
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure
 public import CFSG.Quasithin.Background.A1cTransfer
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.G11Stmts
 public import CFSG.RankThree.Classical.SteinbergBJSymplecticSquareZeroCentralizer
 public import CFSG.RankThree.LocalRank.SelectorCases
@@ -128,18 +127,6 @@ public import CFSG.Sporadic.ON.SimpleBase
 public import CFSG.Sporadic.Presentation.Ly
 public import CFSG.Sporadic.Schreier.LyChain11
 public import CFSG.Sporadic.Schreier.TitsOther
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldPrimeOrderFixedSubfield
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OrderThreeNormalizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2PSLRangeCentralizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinInvolutionCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinRestrictionSixCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinUDecomposition
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationEleven
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTen
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTenStructuralIdentities
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2FieldProjectionArithmetic
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2OrderPSubgroupCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphReconstruction
 
 public section
 

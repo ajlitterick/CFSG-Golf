@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGL45FixA2Arith
 public import CFSG.LocalAnalysis.StandardType.GGL45FixA2Centre
 public import CFSG.LocalAnalysis.StandardType.GGL45FixA2Rank
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownLinear
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45KGForms
 
 public section
 

@@ -3,7 +3,6 @@ module
 public import CFSG.ClassicalInvolution.RouteD.GapsFrMinusCross
 public import CFSG.ClassicalInvolution.RouteD.GapsFrMinusFix
 public import CFSG.ClassicalInvolution.RouteD.GapsFrMinusNodes
-public import CFSG.ClassicalInvolution.RouteD.GapsPatternD
 public import CFSG.ClassicalInvolution.Models.TwistedPairs
 public import CFSG.ClassicalInvolution.RouteD.GapsChainConfig
 public import CFSG.ClassicalInvolution.RouteD.GapsFrNodes

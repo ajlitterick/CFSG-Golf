@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentInnerDefs
-public import CFSG.LocalAnalysis.StandardType.GGHypSixD4RankClassFour
 
 public section
 

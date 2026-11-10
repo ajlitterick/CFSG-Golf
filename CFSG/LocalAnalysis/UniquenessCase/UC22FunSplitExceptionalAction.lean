@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22FunSplitSimplyLacedGeometry
-public import CFSG.LieType.HighestRoot.CentChevalley
 public import CFSG.LocalAnalysis.ComponentClassification.GMS78Sec5RuGL32
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec2Step23
-public import CFSG.ClassicalInvolution.ModelFacts.G2D4G2NC
 public import CFSG.LocalAnalysis.ComponentInitial.BinarySymplecticSixDegreeEight
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenEightS1T3KbarSts
 public import TauCeti.Data.ZMod.IntUnitsPower

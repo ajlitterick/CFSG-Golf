@@ -7,18 +7,10 @@ public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ElementaryAbelian
 public import Mathlib.FieldTheory.Finite.GaloisField
 import CFSG.GroupTheory.ABGLocalTools.PStabilityQBorel
 import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonClassification
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Cardinality
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2Cardinality
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2Center
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2DerivedSubgroup
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.LinearThreeEquiv
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.LinearRingEquiv
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.NormalOddPSubgroupPSL2
 import Mathlib.LinearAlgebra.Projectivization.PSL.PSL2
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
-import Mathlib.FieldTheory.Finite.Trace
-import Mathlib.RingTheory.ZMod.Torsion
 
 public section
 

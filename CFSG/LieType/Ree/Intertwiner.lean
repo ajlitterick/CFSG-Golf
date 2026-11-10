@@ -3,8 +3,6 @@ module
 public import CFSG.Blueprint.ChevalleySimpleRoots
 public import CFSG.LieType.Ree.Mirror
 public import CFSG.LieType.Ree.ShortModule
-public import Certificates.Certificate113
-public import Certificates.Certificate114
 
 public noncomputable section
 

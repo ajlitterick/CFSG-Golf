@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylEltOfAutomizer
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinNbrModel
-public import CFSG.GroupTheory.ElemAbelianClosure
-public import CFSG.Timmesfeld.Orders.ClassicalLinear
 public import CFSG.Assembly.GL83StatedBridge
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRankOneConj
 

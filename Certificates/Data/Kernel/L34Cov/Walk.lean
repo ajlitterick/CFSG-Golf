@@ -1,9 +1,6 @@
 module
 
-public import CFSG.Certificates.Kernel.Common.Lce
-public import CFSG.Certificates.Kernel.Common.Loop
 public import Certificates.Data.Kernel.Multipliers.Mono
-public import CFSG.Certificates.PresentationLetters
 public import CFSG.LieType.Multipliers.L34Data
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.GroupTheory.LocalCores.Fitting

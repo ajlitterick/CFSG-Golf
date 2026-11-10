@@ -1,18 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestDefs
-public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestBasic
-public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestCenter
 public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestClosure
-public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestInvariant
-public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestPCore
 public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestAut
-public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestCentD
 public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestA3
 public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestA4
 public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestNC1
 public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestNC2
-public import CFSG.Assembly.Subnormal
 
 public section
 

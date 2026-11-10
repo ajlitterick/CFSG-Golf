@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.SeitzReduction.E7PilotClassYCore
 public import CFSG.LocalAnalysis.SeitzReduction.E7PilotClassYDescent
 public import CFSG.LocalAnalysis.StandardType.GGL45NtExcBridgeU
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1Transport
-public import Mathlib.FieldTheory.Perfect
 public import CFSG.GroupTheory.PCore.NormalPCoreOf
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8E7Classes
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8E8Classes

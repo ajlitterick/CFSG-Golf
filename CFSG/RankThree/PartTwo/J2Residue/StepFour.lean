@@ -1,14 +1,11 @@
 module
 
 public import CFSG.RankThree.PartTwo.J2Residue.ConfigFacts
-public import CFSG.RankThree.GroupTheory.ThetaComponents
 public import CFSG.GroupTheory.ABGLocalTools.PStabilityChief
 import CFSG.GroupTheory.HyperplaneGeneration
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConjAction
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Lemmas
 import CFSG.GroupTheory.PGroup.CardCoprime
 import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent.Radical
-import TauCeti.GroupTheory.Commutator
 import TauCeti.GroupTheory.SemidirectProduct
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22Defs
-public import CFSG.Open.StatedDefs
 import CFSG.ClassicalGroups.UnitaryFlag.SU3L2Subgroup
 import CFSG.ClassicalGroups.UnitaryFlag.StatedBridge
 public import CFSG.CGT.Timmesfeld75.Statements

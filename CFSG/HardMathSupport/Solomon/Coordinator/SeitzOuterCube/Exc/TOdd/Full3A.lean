@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.SeitzOuterCube.Exc.TOdd.Layer3A
-public import CFSG.HardMathSupport.Solomon.Coordinator.SeitzOuterCube.Exc.TOdd.FullLin
 public import CFSG.HardMathSupport.Solomon.Coordinator.SeitzOuterCube.Exc.TOdd.FullUni
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC

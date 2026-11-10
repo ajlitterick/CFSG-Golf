@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.C232403.Data
 public import Certificates.Kernel.Item434.M22Chain
 public import Certificates.Data.Inputs2324QM22
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

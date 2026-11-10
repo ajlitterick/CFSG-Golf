@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.K32TableMa
 public meta import Certificates.Kernel.SporSch.Mathieu.M23Data
 public meta import Certificates.Kernel.SporSch.Mathieu.M22Data
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.K32TableMathieuData
-import CFSG.Certificates.Kernel.Common.Harness
 public meta import CFSG.Sporadic.Schreier.M23
 public import CFSG.Sporadic.Schreier.M23
 

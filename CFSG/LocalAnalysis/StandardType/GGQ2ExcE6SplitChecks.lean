@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcE6SplitDefs
 import CFSG.LocalAnalysis.StandardType.GGQ2ExcE6SplitCensus
-import CFSG.LocalAnalysis.StandardType.GGQ2ExcCensusTabs
 
 public section
 

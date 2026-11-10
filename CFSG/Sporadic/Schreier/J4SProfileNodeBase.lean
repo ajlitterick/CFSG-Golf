@@ -2,16 +2,9 @@
 module
 
 public import CFSG.Sporadic.Schreier.J4SProfileCheckBase
-public import CFSG.Sporadic.Schreier.J4SNative
-public import CFSG.Sporadic.Schreier.J4SCols
-public import CFSG.Sporadic.Schreier.J4SOrbitsBase
 public meta import CFSG.Sporadic.Schreier.J4SOrbitsBase
-public import CFSG.Sporadic.Schreier.J4SProfile
 public meta import CFSG.Sporadic.Schreier.J4SProfile
-public import CFSG.Sporadic.Schreier.J4SSylowData
 public meta import CFSG.Sporadic.Schreier.J4SSylowData
-public import CFSG.Sporadic.J4.Local
-public import CFSG.Sporadic.Schreier.J4SSylowBase1
 public import CFSG.Sporadic.J4.QT2LocCntProofBase
 public import CFSG.Sporadic.J4.QT2LocZProof
 public import CFSG.Sporadic.J4.QTOutChar

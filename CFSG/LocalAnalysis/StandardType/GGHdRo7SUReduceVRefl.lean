@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7SULinDefs
 public import CFSG.RankThree.PartOne.S12.Sec138LocLinear
-import Mathlib.Tactic.Module
-import Mathlib.Tactic.LinearCombination
 
 public section
 

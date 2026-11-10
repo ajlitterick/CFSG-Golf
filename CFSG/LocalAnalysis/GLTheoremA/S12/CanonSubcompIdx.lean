@@ -1,13 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.ChevTwoLieModel
-public import CFSG.LocalAnalysis.StandardType.GGReverseMarking
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinDict
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.CentQChar2Index
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieIdx
 public import CFSG.Adapters.TauCetiLieModels
-public import CFSG.Adapters.LinearSmallCatalog
-public import CFSG.Adapters.StatedClassicalOrders
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264Parts
 public import CFSG.LocalAnalysis.GLTheoremA.S4S.I145GW
 public import CFSG.LocalAnalysis.GLTheoremA.S4S.KData

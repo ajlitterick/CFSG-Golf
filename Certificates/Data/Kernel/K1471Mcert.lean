@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.CFSGNative.SectionRank.Local
 public import CFSG.RankThree.Asc83Table.MatCertDefs
 
 public section

@@ -3,12 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeE6ConsumerK
 public import CFSG.LocalAnalysis.StandardType.GGDepED4RowSmall
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepLarge
-public import CFSG.LocalAnalysis.StandardType.GGE6D4TwoNodeLocalInput
-public import CFSG.LocalAnalysis.StandardType.GGTWSmallADefs
-public import CFSG.LocalAnalysis.StandardType.GGResXDichotomyDefs
-public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3Defs
-public import CFSG.LocalAnalysis.StandardType.GGResSideDatumDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 
 public section
 

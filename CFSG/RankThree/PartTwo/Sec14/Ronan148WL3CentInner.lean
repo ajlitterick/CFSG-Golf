@@ -2,10 +2,7 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148WL3CentConfig
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148WL3TwoLocal
-import CFSG.RankThree.PartTwo.Sec4.LThreePiMain
-import CFSG.RankThree.PartTwo.Sec4.LThreePiTypes
 import CFSG.RankThree.PartTwo.Sec4.RonanK432L3HardMat
-import CFSG.LinearAlgebra.LinearGroups.UnitaryScalarKernel
 
 public section
 

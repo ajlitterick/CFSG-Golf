@@ -3,9 +3,6 @@ module
 public import CFSG.StronglyEmbedded.BenderSuzukiCenter
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.XI.theorem_3_3
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ElementaryAbelian
-public import Mathlib.GroupTheory.Abelianization.Defs
-public import Mathlib.GroupTheory.Sylow
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.MatrixGroups.PSL2
 
 public noncomputable section
 

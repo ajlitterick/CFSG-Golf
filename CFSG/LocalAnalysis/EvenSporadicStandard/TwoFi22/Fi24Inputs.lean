@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoFi22.Main
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Extraspecial
-public import CFSG.Open.StatedDefs
 public import CFSG.Fischer.NoF25.Local
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoFi22.FrameJInputs
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoFi22.FrameJSylInputs

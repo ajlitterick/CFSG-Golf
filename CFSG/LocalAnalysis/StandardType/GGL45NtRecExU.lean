@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGL45NtDefs
-public import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOther
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLine
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLineE7
 public import CFSG.LieType.Steinberg.CentralExt.G2FourMultiplier
 

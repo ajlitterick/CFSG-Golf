@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBWNormQuotTransvection
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterPrimeSquare
 public import CFSG.LocalAnalysis.StandardType.GGCoxeterPrimePower
 
 public section

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixSevenA3KnownForms
-public import CFSG.LieType.Steinberg.Minuscule.Datum
-public import CFSG.LocalAnalysis.SeitzReduction.LongRootPairsRoots
 
 public section
 

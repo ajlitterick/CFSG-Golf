@@ -2,8 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter4section2.Basic
 
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter4section1.claim_H3
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter4section2.claim_2
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter4section2.claim_9
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter4section2.proposition
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter4section3.claim_1
@@ -12,7 +10,6 @@ import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter4section3.claim_3_b
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter4section1.Reconstruction
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.lemma_1
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.lemma_2
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_10_12
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_10_13
 
 namespace CFSG

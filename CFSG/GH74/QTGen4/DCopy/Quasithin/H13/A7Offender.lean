@@ -1,6 +1,5 @@
 module
 
-public import CFSG.GH74.QTGen4.Finite4
 public import CFSG.Quasithin.H13.A7Offender
 public import CFSG.GH74.QTGen4.DCopy.Quasithin.Vol2.Ch12Sec2Statements
 

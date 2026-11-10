@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.Q3CHHyp51
 public import CFSG.ClassicalInvolution.Q3.Q3NFPair
-public import CFSG.ClassicalInvolution.Q3.Q3YAbs
 public import CFSG.ClassicalInvolution.ModelFacts.CommutingFundamentalTwE6
 public import CFSG.ClassicalInvolution.Q3.OddCoreCentral
 public import CFSG.ClassicalInvolution.Q3.Q3KCGen

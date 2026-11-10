@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.LocalComp.Co3IdentData
 public import Certificates.Kernel.LocalComp.FendelBridge
 public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Co3IdentModelInputs
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.FendelSound
 
 public section

@@ -3,10 +3,7 @@ module
 public import CFSG.Timmesfeld.Exceptional.DeepQWalk
 public meta import CFSG.Timmesfeld.Exceptional.DeepQData
 public meta import CFSG.Certificates.CosetTableWalkC
-public import CFSG.Timmesfeld.Exceptional.DeepQInputs
 public import Certificates.Certificate8054
-public import Certificates.Certificate8055
-public import Certificates.Certificate8056
 public meta import CFSG.Certificates.CosetTableShort
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.Certificates.CosetTableWalkC

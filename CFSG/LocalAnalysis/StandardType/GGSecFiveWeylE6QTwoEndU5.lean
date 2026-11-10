@@ -1,17 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoEndFacts
-public import CFSG.LocalAnalysis.StandardType.GGTBXPlumb
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseLabel
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylRest5
-public import CFSG.LocalAnalysis.StandardType.GGSpJoinReflPairing
-public import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofCoxeter
-public import CFSG.LocalAnalysis.StandardType.GGP3LineNormalizer
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabel
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelTypeAAssembly
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelTypeABridge
-public import CFSG.Monster.B.TwoA.Base.SymFiveAut
 
 public section
 

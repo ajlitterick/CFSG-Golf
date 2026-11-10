@@ -2,11 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.CompPOmegaMinus
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Position
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.StepACore
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.IDPOmegaMinus
-public import CFSG.LieType.Universal.Spin.Twisted.Datum
-public import CFSG.LieType.Universal.Spin.Action
 
 public section
 

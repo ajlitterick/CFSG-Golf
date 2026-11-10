@@ -3,15 +3,9 @@ module
 public import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6PairDefs
 import CFSG.LocalAnalysis.StandardType.GGLieCoreA3DictPhi
 import CFSG.LocalAnalysis.StandardType.GGLieCoreSmallSetup
-import CFSG.LocalAnalysis.StandardType.ExcPos.ContainingComponent
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExcD4
-import CFSG.LocalAnalysis.StandardType.GGFinModelBCTw
 import CFSG.LocalAnalysis.StandardType.ExcPos.RankOneJoint
 import CFSG.LocalAnalysis.StandardType.ExcPos.TwistedE6Factors
 import CFSG.LocalAnalysis.StandardType.GGFinModelInnDiagTw
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleField
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleCycle
-import CFSG.LocalAnalysis.ComponentInitial.CommutingBlock
 import CFSG.GroupTheory.OddKernelImage
 import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TwE6Rad
 

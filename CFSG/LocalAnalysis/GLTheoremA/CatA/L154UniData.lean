@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154UniAux
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154LinData
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GClsUni
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldUniSig
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniLabelPSU
 
 public section
 

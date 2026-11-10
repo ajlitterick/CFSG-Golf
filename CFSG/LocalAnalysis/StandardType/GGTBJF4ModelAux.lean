@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJF4Defs
 public import CFSG.LocalAnalysis.StandardType.GGTableBF4
-public import CFSG.RankThree.CentralCover.SteinbergBNChevalleySplitTorus
-public import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
-public import CFSG.RankThree.Chevalley.SteinbergCAF4SplitPrimeTorus
 
 public section
 

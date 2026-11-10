@@ -2,20 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicMovedPerfect
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicPairCensus
-public import CFSG.Sporadic.Fi24.Edge
-public import CFSG.Sporadic.Fi24.Involutions
-public import CFSG.Sporadic.Fi24.Local
-public import CFSG.Sporadic.Fi24.ExtFi23
-public import CFSG.Sporadic.Fi24.ExtOuter
-public import CFSG.Sporadic.FischerOddCore.FischerOuterFi24
-public import CFSG.Sporadic.FischerOddCore.Fi24TJComp
-public import CFSG.Sporadic.FischerOddCore.Fi24R2Comp
 public import CFSG.Sporadic.FischerOddCore.Fi24Block
-public import CFSG.Sporadic.Fi23.Fischer
-public import CFSG.Sporadic.Fi23.Simple
-public import CFSG.Sporadic.Fi22.Simple
-public import CFSG.Fischer.Polar.Facts
-public import CFSG.Sporadic.Fi23.InvCover
 public import CFSG.Certificates.Kernel.HNLocalSound
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicGenCensus
 public import CFSG.LocalAnalysis.ComponentInitial.BlockNormalizerControl

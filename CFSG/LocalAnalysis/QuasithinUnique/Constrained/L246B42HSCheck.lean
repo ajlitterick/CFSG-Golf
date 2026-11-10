@@ -1,14 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L246B42HSData
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1HeSylArr
-public import CFSG.Sporadic.SmallOddCore.HSData
-public import CFSG.Sporadic.Schreier.PairHSCert
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L246B42HSData
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1HeSylArr
 public meta import CFSG.Sporadic.SmallOddCore.HSData
 public meta import CFSG.Sporadic.Schreier.PairHSCert
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L246B42HSCheckInputs
 public import Certificates.Certificate4126
 public meta import CFSG.Foundations
 public meta import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels

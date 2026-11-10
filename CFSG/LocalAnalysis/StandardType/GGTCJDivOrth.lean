@@ -1,14 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTCJDivDefs
-public import CFSG.Assembly.Subnormal
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnOrthMark
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinCore
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GCenterQuot
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnOrthModel
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldOrthDict
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GSympLabel
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniLabel
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GNegBCLab
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.OrthInnerExport
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.FactorSL

@@ -3,7 +3,6 @@ module
 public import CFSG.LieType.SeitzGeneration.UnitaryONExt
 public import CFSG.LieType.SeitzGeneration.UnitaryRankThreeBlocks
 public import CFSG.LieType.SeitzGeneration.UnitaryHyperPSU
-public import CFSG.LieType.SeitzGeneration.HyperAveraging
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs.ShortRoot
 public import CFSG.LieType.SeitzGeneration.NonabHeisThreeCore
 public import CFSG.LieType.SeitzGeneration.NonabHeisThreeUnitary

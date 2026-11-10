@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGKacTable
 public import CFSG.LocalAnalysis.StandardType.GGKacTablePatternSum
 public import CFSG.LocalAnalysis.StandardType.GGKacTablePatternOrbit
 

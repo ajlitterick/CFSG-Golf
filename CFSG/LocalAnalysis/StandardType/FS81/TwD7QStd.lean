@@ -4,10 +4,8 @@ public import CFSG.LocalAnalysis.StandardType.FS81.TwD7QOrbit
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD7QCount
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD7QCanon
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD7QA2
-public import CFSG.LocalAnalysis.StandardType.FS81.TwD7TorusSwap
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD7BetaProjection
 public import CFSG.LocalAnalysis.StandardType.FS81.E7FrameD6Word
-public import CFSG.LocalAnalysis.StandardType.FS81.WeakClosureFusion
 
 public section
 

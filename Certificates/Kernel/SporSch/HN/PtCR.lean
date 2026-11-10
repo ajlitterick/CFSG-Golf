@@ -3,10 +3,7 @@ module
 
 public import Certificates.Kernel.SporSch.HN.PtCK
 public import Certificates.Kernel.SporSch.HN.Pt2103
-public import Certificates.Kernel.SporSch.HN.CTab
-public import Certificates.Kernel.SporSch.HN.Invol2099
 public import CFSG.Sporadic.HNOddCore.LCheckInputs
-public import CFSG.Sporadic.HNSchreier.InvolSpec
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

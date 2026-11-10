@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMFrame
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUModel
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
 public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLCx
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotKindUnitaryGlobal
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotMainGraphUnitaryNormal
 public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotQ2SmallJ

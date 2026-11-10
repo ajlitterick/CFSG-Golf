@@ -3,9 +3,7 @@ module
 public import Certificates.Kernel.M23Dc.Bridge
 public import Certificates.Kernel.M23Dc.Lit
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatOfFacts
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatCode
 public import CFSG.Certificates.Kernel.SporLatDcSortSound
-import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 100000
 

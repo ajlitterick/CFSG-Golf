@@ -1,11 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBRkNarrowDefs
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBRkLabels
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBScWeyl
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBBridgeLabels
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48RkF4Irred
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySpModel
 
 public section
 

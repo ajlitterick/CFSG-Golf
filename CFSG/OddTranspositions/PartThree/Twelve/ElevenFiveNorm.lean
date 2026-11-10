@@ -1,9 +1,7 @@
 module
 
-public import CFSG.OddTranspositions.PartThree.Eleven.Five.FiveFormAux
 public import CFSG.OddTranspositions.PartThree.Twelve.ElevenFiveForm
 public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveStab
-import CFSG.Mathlib.GroupTheory.ClosureSubgroupOf
 
 public section
 

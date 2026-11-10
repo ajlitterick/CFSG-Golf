@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGOmegaMinusRootGenDefs
 public import CFSG.ClassicalGroups.Orthogonal.StatedOmegaElementary
-public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalSplitStabilizer
-public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotRecognizePieces
 public import CFSG.ClassicalGroups.Orthogonal.RootGroupFixedCard
 
 public section

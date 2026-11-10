@@ -3,7 +3,6 @@ module
 public import CFSG.Quasithin.Recognition.GoldschmidtFan86Sec9P5Pres1
 public import CFSG.Quasithin.Recognition.GoldschmidtFan86Sec9P5Mem
 public import CFSG.Quasithin.Recognition.GoldschmidtFan86Sec9P5Main1
-public import CFSG.Quasithin.Recognition.GoldschmidtFan86Sec9P5Alg3
 public import CFSG.Quasithin.Recognition.GoldschmidtFan86Sec9P5Alg4
 
 public section

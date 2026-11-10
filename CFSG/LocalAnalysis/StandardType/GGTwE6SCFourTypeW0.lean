@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourModel
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeAEndModel
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUDefs
 import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourInverter
 import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourCoroot

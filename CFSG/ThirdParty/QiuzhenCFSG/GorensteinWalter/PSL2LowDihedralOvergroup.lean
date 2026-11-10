@@ -3,11 +3,8 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2DicksonNormalOddPReduction
 import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonClassification
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.NormalOddPSubgroupAlternating
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.NormalOddPSubgroupAlternatingFour
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.NormalOddPSubgroupPGL2
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.NormalOddPSubgroupPSL2
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.NormalOddPSubgroupSymmetricFour
-import Mathlib.GroupTheory.Complement
 import Mathlib.Tactic
 
 namespace CFSG

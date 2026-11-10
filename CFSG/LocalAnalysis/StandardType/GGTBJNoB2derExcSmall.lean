@@ -2,11 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJNoB2derA1
 public import CFSG.LocalAnalysis.StandardType.GGTBJNoB2derA6
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldSymplectic
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestG2
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestTri
-public import CFSG.LocalAnalysis.StandardType.MarkingSmall
-public import CFSG.LieType.Ree.SuzukiOrder
 public import CFSG.RankThree.PartOne.SEITZ8.D4Order
 
 public section

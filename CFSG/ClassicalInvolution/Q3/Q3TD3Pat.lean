@@ -2,8 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.Q3TD3ZSide
 public import CFSG.ClassicalInvolution.Q3.Q3TD3Scen
-public import CFSG.ClassicalInvolution.Q3.Q3TD3Nodes
-public import CFSG.ClassicalInvolution.RouteD.GapsPatternDMain
 
 public section
 

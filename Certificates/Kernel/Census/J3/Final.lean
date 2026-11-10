@@ -21,9 +21,7 @@ public import Certificates.Kernel.Census.J3.N5
 public import Certificates.Kernel.Census.J3.N6
 public import CFSG.Certificates.Kernel.Census.ConjFNodeSound
 public import CFSG.Certificates.Kernel.Census.ConjSound
-public import CFSG.Certificates.Kernel.Census.ExcSound
 public import CFSG.Certificates.Kernel.Census.PidProof
-public import CFSG.Certificates.Kernel.Census.XsProof
 public import CFSG.Certificates.Kernel.Common.ForallChunks
 import all Certificates.Kernel.Census.J3.Data
 import all Certificates.Kernel.Census.J3.Words

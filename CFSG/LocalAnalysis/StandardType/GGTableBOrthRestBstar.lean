@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestDefs
-public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergOmegaMinus
-public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergOmegaPlus
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaModelMinus
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaModel
-public import CFSG.RankThree.PartOne.LIT.RankMatrix
 
 public section
 

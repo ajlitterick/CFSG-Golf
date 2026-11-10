@@ -2,17 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.SmallRankE3.FongKGOutGen
 public import CFSG.RankThree.PartOne.S11d.OutExceptional
-public import CFSG.RankThree.PartTwo.Census.Carrier.ReeF4Catalog
 public import CFSG.Adapters.ExceptionalCatalogReverse
 public import CFSG.Sporadic.Schreier.TitsOuterTwo
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructureTransport
 public import CFSG.StronglyEmbedded.Catalog.Suzuki
-public import CFSG.RankThree.PartTwo.Sec21.Item224KFactsProofRed
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
-public import Mathlib.FieldTheory.Finite.GaloisField
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.LieType
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.GroupTheory.BaerSuzuki
 public import CFSG.GroupTheory.HallHigmanPiCore

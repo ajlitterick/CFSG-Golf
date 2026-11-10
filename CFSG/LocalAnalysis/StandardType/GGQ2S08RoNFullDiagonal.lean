@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoInnerQAux
-public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitaryInnFrame
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeInner
 public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUDvdBound
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08RoNFrame
 

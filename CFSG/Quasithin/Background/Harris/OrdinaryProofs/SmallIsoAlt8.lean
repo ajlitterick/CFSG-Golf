@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Open.StatedDefs
 public import CFSG.LieType.SteinbergBROddSylowNormalizers
 public import CFSG.RankThree.PartOne.CTP.ExtA
 public import CFSG.ClassicalInvolution.WeakCT.SpPair
@@ -33,7 +32,6 @@ public import CFSG.RankThree.LocalRank.SelectorCases
 public import CFSG.RankThree.PartOne.Assembly
 public import CFSG.RankThree.PartOne.S10.Defs
 public import CFSG.RankThree.PartOne.S12.Hyp
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 
 public section

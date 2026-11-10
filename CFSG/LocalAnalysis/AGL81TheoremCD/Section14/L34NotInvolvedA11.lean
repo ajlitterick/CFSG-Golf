@@ -2,13 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.ChoiceExists
 import CFSG.Models.PGLSimple
-import CFSG.Open.StatedDefs
 import CFSG.LocalAnalysis.ComponentClassification.PSL3FourAlternatingExclusion
 import CFSG.Models.PGLOrders
 import TauCeti.GroupTheory.Perm.Jordan
-import Mathlib.GroupTheory.GroupAction.Primitive
-import Mathlib.GroupTheory.Perm.Cycle.Concrete
-import Mathlib.GroupTheory.Sylow
 
 public section
 

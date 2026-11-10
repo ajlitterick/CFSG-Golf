@@ -1,15 +1,10 @@
 module
 
 public import CFSG.GH74.Uniqueness.SU.KI1r3Fitting
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Hall.Basic
-public import CFSG.GroupTheory.Fitting.CharacteristicP
-public import CFSG.GroupTheory.LocalCores.Components
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedLayerOddCoreFreeTwoLayer
 public import CFSG.LocalAnalysis.ComponentInitial.InvolutionFixedFourGroupTransport
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
 public import CFSG.GH74.KGH
 public import CFSG.Walter.TwoRank
-import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.CharacterTheory.CyclicBlocks.Family
 public import CFSG.CharacterTheory.PSL2Table.BlocksProduct
 public import CFSG.CharacterTheory.Semidihedral.Principal.LargePrimeTorusSylowCentralizers
@@ -28,9 +23,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.BlockOvergroupDichotomy
 public import CFSG.LocalAnalysis.ComponentInitial.GeneralizedFittingProduct
 public import CFSG.LocalAnalysis.ComponentInitial.PerfectOuterInjection
 public import CFSG.Permutation.UnitaryThreeRecognition.Model
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_1_12
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 
 public section

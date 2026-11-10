@@ -3,27 +3,10 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGF4JoinA3CommonPair
 public import CFSG.LocalAnalysis.StandardType.GGF4JoinB3Guarded
 import CFSG.LocalAnalysis.StandardType.GGF4OriginalTypes
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-import CFSG.LocalAnalysis.StandardType.GGTwistedF4DiagRaw
-import CFSG.LocalAnalysis.StandardType.GGF4JoinMemberPSL
-import CFSG.LocalAnalysis.StandardType.GGSecFiveCompatJoinF4
-import CFSG.Open.LocalVocabulary
-import CFSG.LieType.Chevalley.E6GraphInvolutionForms
-import CFSG.RankThree.PartOne.KE.E7ThreeA1
-import CFSG.Blueprint.ChevalleyRootArtifact
-import CFSG.LocalAnalysis.SeitzReduction.E8PilotLeviHom
-import CFSG.LocalAnalysis.SeitzReduction.E8PilotLevi
 import CFSG.LocalAnalysis.StandardType.GGExcFieldRankE7
 import CFSG.LocalAnalysis.StandardType.GGSecFiveF4ReflMax
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBIrred
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
-import CFSG.LocalAnalysis.StandardType.SpTwoLocalRankLower
-import CFSG.LieType.SeitzGeneration.ExcTorusRank
-import CFSG.GroupTheory.ElemAbelianClosure
-import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinSelectedPSU
 import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinSelectedSpMember
 import CFSG.LocalAnalysis.StandardType.GGF4JoinMemberE8
-import CFSG.LocalAnalysis.StandardType.GGF4JoinMemberE6
 import CFSG.LocalAnalysis.StandardType.GGF4JoinMemberTwistedE6
 import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinSelectedOmegaMinus
 import CFSG.LocalAnalysis.StandardType.GGF4JoinMemberPOmegaPlus

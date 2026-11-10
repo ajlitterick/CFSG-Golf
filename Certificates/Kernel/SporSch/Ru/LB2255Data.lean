@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.SporSch.GenPerms
-public import Certificates.Kernel.Sporadic.RawGen
 public import CFSG.Sporadic.Schreier.RuCheckOrbLBInputs
 meta import CFSG.Sporadic.Schreier.RuCheckOrbLBInputs
 import CFSG.Certificates.Kernel.Common.Harness

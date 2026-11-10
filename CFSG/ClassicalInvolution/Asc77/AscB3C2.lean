@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Asc77.AscB3C1
 public import CFSG.ClassicalInvolution.Asc77.AscR31Recog
-public import CFSG.ClassicalInvolution.Phan.Defs
 public import CFSG.LocalAnalysis.QuasithinUnique.Setting
 public import CFSG.LocalAnalysis.SectionRank.Ccomm.Supercritical
 public import CFSG.Quasithin.Background.Basic

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKG3Defs
-public import CFSG.LocalAnalysis.StandardType.GGKG3K3dCheck
 public import CFSG.LocalAnalysis.StandardType.GGKG3K3dWeyl
 public import CFSG.LocalAnalysis.StandardType.GGKG3K3dProj
 public import CFSG.HardMathSupport.Malle.E27Lie.ExcCross.WeylE6Sylow

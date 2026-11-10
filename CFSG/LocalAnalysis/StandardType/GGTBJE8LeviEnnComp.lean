@@ -1,18 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLangRatCompC
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarE8FiveFrameCentralizer
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTorus
 public import CFSG.LocalAnalysis.StandardType.GGQTwoRationalWeyl
 public import CFSG.LocalAnalysis.StandardType.GGTBJE8LeviCore
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeAd
-public import CFSG.LocalAnalysis.StandardType.GGReverseMarkingRaw
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUFrame
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUE8
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.KS.ExactSU
 public import CFSG.LieType.Chevalley.ParabolicRootsMono
-public import CFSG.Assembly.Subnormal
 
 public section
 

@@ -2,8 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.RouteD.GapsFrBZSide
 public import CFSG.ClassicalInvolution.RouteD.GapsFrBLift
-public import CFSG.ClassicalInvolution.RouteD.GapsFrBEigen
-public import CFSG.ClassicalInvolution.RouteD.GapsFrBWeight
 
 public section
 

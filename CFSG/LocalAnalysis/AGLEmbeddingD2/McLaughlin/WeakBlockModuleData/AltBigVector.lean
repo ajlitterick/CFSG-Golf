@@ -5,7 +5,6 @@ public import CFSG.Adapters.ProjectiveSpecialLinear
 public import CFSG.Assembly.ComponentTypeDefs
 public import CFSG.CGT.PushingUpLit.Transport
 public import CFSG.LocalAnalysis.AGLEmbedding.WeakBlockDefs
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.Quasithin.Background.B6Sections
 
 public section

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section10Proposition102ExponentData
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.InvolutionCore
 
 namespace CFSG
 end CFSG

@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticTorusWeylMatrices
 public import CFSG.Quasithin.H13.L32ACSkPfSp4
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.In23FiveSp
 
 public section
 

@@ -4,8 +4,6 @@ public import CFSG.Assembly.RankThreeEvenDefs
 public import CFSG.RankThree.PartTwo.Sec4.LThreePiDefs
 import CFSG.RankThree.PartTwo.KFacts.KS14Orders
 public import CFSG.LieType.BorelTits.CompleteFlag
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.Foundations
 import CFSG.GroupTheory.HallHigmanPiCore
 import CFSG.GroupTheory.LocalCores.Fitting
@@ -15,7 +13,6 @@ import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups
 import CFSG.LocalAnalysis.ComponentInitial.SuzukiModelSchreier
 import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
-import CFSG.LocalAnalysis.SectionRank.PRank
 import CFSG.LocalAnalysis.SectionRank.SQT
 import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure
 import CFSG.RankThree.PartTwo.NotationBlocks
@@ -23,7 +20,6 @@ import CFSG.RankThree.PartTwo.Sec14.Std
 import CFSG.RankThree.PartTwo.Sec8.Pairs
 import CFSG.RankThree.PartTwo.Sec8.Statements
 import CFSG.StronglyEmbedded.ParityCriterion
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 
 public section

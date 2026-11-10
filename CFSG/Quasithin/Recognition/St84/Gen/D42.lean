@@ -4,8 +4,6 @@ public import CFSG.Quasithin.Recognition.St84.Gen.D4qRadical
 public import CFSG.Quasithin.Recognition.St84.Gen.S3Slice
 import CFSG.Quasithin.Recognition.St84.Gen.PerfectGen
 import CFSG.Quasithin.Vol2.GoldschmidtF431D4qModel
-import CFSG.Quasithin.Vol2.GoldschmidtF431D4qYam
-import CFSG.Quasithin.Vol2.GoldschmidtF431D4qStructNorm
 import CFSG.Quasithin.Vol2.KGFactInspExcD4
 import CFSG.Quasithin.Vol2.Ch5Sec2LocalProp526Orient
 import CFSG.LocalAnalysis.StandardType.GGOppositeRadicalExcTwCore
@@ -49,10 +47,8 @@ import CFSG.Quasithin.Background.A3Structure319
 import CFSG.Quasithin.Background.B5FinOut
 import CFSG.Quasithin.Background.C1GNA7
 import CFSG.Quasithin.Background.D2
-import CFSG.Quasithin.Background.D2Dihedral
 import CFSG.Quasithin.Background.E3OffenderB
 import CFSG.Quasithin.Background.F6SolvableQuotient
-import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 import CFSG.Quasithin.EmptyFaithful.S1422Facts
 import CFSG.Quasithin.EmptyFaithful.S143Pre
 import CFSG.Quasithin.EmptyFaithful.S146C1

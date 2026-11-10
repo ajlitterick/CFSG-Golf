@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBLinIrredDef
 public import CFSG.LocalAnalysis.StandardType.GGTableBLinIrredEnd
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLRound11
 
 public section
 

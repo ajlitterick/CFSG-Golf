@@ -2,11 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Chain.Last
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Chain.TArg
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Chain.Quasi
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Chain.Transfer
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Chain.DiagDef
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Chain.CyclicNormal
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBAlternatingInclusion
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Common
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Chain.Composite

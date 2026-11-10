@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.HSA312.Struct
 public import Certificates.Kernel.HSA312.CY1
 public import CFSG.Quasithin.Background.A312SporHSKInputs
-public import Certificates.Kernel.J4Count.Suborb
 
 set_option maxRecDepth 100000
 

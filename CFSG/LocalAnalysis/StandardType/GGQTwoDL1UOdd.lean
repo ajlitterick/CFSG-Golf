@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
-import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosTorus
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosBlockAux4
 
 public section

@@ -3,14 +3,12 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGAssemblySevenDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordShapeSL
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordShapeSp
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderOmega
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutClassicalOmRest
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutOutdiag
 public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrame
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarOrthFrameD4
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitKGClHerm
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitKGClAltSix
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitKGSLTag
 
 public section
 

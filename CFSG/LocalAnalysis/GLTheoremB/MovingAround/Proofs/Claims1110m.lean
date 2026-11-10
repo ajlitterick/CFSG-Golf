@@ -1,13 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Claims1110l2
-public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.SchurFacts
-public import CFSG.Adapters.TauCetiLieModels
 public import CFSG.Quasithin.Background.Harris.L2.OmegaMinusGL
-public import CFSG.HardMathSupport.Timmesfeld.Tables.Multiplier.Models
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.SporTables
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Chev2SporRows
-public import CFSG.Quasithin.Background.A3Structure36BPrime
 public import CFSG.Certificates.Kernel.Census.SiftSound
 public import CFSG.HardMathSupport.Solomon.Coordinator.I10_21Fi22
 public import CFSG.HardMathSupport.Solomon.Coordinator.I10_21Fi22Two

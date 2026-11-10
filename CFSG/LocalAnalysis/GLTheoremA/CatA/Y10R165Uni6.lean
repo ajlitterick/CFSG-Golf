@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Uni5
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165OmDefs
-public import CFSG.ClassicalGroups.UnitaryFlag.GroupData
 public import CFSG.ClassicalGroups.UnitaryFlag.PointStabilizerRank
 public import CFSG.LocalAnalysis.AGLEmbedding.ToralCensusTwistedAKit
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniqueFourCatalog.Glue
-public import CFSG.Open.StatedDefs
 import CFSG.LocalAnalysis.RankThreeUC.CatalogClosureSymplectic
 public import CFSG.CGT.Timmesfeld75.Statements
 public import CFSG.Foundations

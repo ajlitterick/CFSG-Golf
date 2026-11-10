@@ -5,7 +5,6 @@ import CFSG.LocalAnalysis.GLTheoremA.CatA.T173ALinTors
 import CFSG.Assembly.GL83StatedBridge
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.LowerLinear
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173Facts
-public import CFSG.LocalAnalysis.SignalizerFunctor.NormalizedSylowContainment
 
 public section
 

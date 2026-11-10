@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.L2CentField
-public import CFSG.HardMathSupport.Solomon.Coordinator.L2FldAut3
-public import CFSG.HardMathSupport.Solomon.Coordinator.L2FldFixed
 
 public section
 

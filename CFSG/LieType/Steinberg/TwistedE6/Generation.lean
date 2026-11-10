@@ -5,7 +5,6 @@ public import CFSG.LieType.Steinberg.TwistedE6.Local
 public import CFSG.LieType.Steinberg.BruhatTwist
 public import CFSG.LieType.Steinberg.Minuscule.BruhatExtras
 import CFSG.LieType.Steinberg.PartBHalfSpace
-import Mathlib.Tactic.Group
 
 public noncomputable section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.RouteD.TwinSmallWitt
 public import CFSG.ClassicalInvolution.RouteD.TwinSmallTwin
-public import CFSG.ClassicalInvolution.RouteD.GapsOrthModel
 
 public section
 

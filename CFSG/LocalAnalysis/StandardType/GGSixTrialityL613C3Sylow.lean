@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTrialityL613C3Conj
-public import CFSG.Timmesfeld.Orders.ClassicalOmega
 
 public section
 

@@ -3,7 +3,6 @@ module
 public import Certificates.Data.Kernel.O8.ModelW
 public import Certificates.Kernel.OmegaEight.CPChains
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

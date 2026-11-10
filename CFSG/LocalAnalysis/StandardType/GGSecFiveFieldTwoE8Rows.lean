@@ -3,10 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveFieldTwoE8
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePairE7
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePairTwE6
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortF4IsoLen
-public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionExceptional
-public import CFSG.ClassicalInvolution.ModelFacts.Families
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExcD4
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCoverPairSU
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCoverPairTwoD
 public import CFSG.LocalAnalysis.StandardType.GGSelectedPOmegaMinusLong

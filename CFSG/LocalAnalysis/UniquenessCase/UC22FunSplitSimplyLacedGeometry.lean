@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22FunSplitF4Geometry
 public import CFSG.LocalAnalysis.UniquenessCase.UC22FunSplitOrthogonalGeometry
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTorus
 public import CFSG.LieType.SeitzGeneration.HyperExCubeUntw
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcRoots
 public import CFSG.LocalAnalysis.UniquenessCase.UC22FunSplitExceptionalModelInner

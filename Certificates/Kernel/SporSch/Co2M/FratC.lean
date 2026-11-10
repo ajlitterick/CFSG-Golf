@@ -8,9 +8,7 @@ public import Certificates.Kernel.SporSch.Co2M.FratS3
 public import Certificates.Kernel.SporSch.Co2M.FratS4
 public import Certificates.Kernel.SporSch.Co2M.FratYB
 public import Certificates.Kernel.SporSch.Co2M.FratM
-public import Certificates.Kernel.SporSch.Co2M.WordsBase
 public import Certificates.Kernel.Sporadic.OddCore.ChainCheckGlue
-public import CFSG.Certificates.Kernel.Spor.RawSound
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

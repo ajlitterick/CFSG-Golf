@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.Sz32Defs
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.Sz32SharedProp31
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.Sz32SharedLemma33
-public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.GroupSz32
-public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.SecondPointSz32
 import CFSG.GroupTheory.ElementaryAbelianTransport
 import CFSG.LocalAnalysis.RankThreeTheoremC.GL83Generic4_10Lemmas
 import CFSG.LocalAnalysis.RankThreeTheoremC.GenericCaseSetup

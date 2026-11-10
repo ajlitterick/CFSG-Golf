@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCMBlockPSp
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCMOmegaFixed
-public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockOmegaIsoOneLinear
 
 public section
 

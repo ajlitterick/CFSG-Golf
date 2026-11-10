@@ -1,17 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeSpModel
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeSpModelPairedMain
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeOrthModelSelfDual
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeOrthModelTransport
-public import CFSG.RankThree.Classical.SteinbergBJSymplecticCrossPrimeBlocks
-public import CFSG.LinearAlgebra.LinearGroups.UnitaryOrder
-public import CFSG.RankThree.CentralLift.DefiningUnitary
-public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeLinear
-public import CFSG.HardMathSupport.Curtis.UnitaryLevi.RankTwoTwistedA
 import all CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompAlgSymplectic
 import CFSG.LocalAnalysis.GLTheoremA.CatB.H1431cLieEightSpGood
-import CFSG.HardMathSupport.Curtis.UnitaryLevi.TailTrivialThree
 
 public section
 

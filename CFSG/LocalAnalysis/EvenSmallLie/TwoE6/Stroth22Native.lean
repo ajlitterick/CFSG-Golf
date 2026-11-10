@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.EvenSmallLie.TwoE6.Stroth22
-public import CFSG.Monster.B.GSide.CompletionFusion
-public import CFSG.Monster.B.CTIB.HInnerCensus
 public import CFSG.Monster.B.GSide.NotTwoCentral
 public import CFSG.Fischer.UnitaryAction
 public import CFSG.LieType.Chevalley.TwistedE6FieldTwoRelativeData

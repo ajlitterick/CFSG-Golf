@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.CFSGNative.Ru.Data
 public meta import Certificates.Data.CFSGNative.Ru.Data
 public import Certificates.Certificate3172
 

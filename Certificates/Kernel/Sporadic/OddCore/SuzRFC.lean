@@ -17,7 +17,6 @@ public import Certificates.Kernel.Sporadic.OddCore.SuzRFSe
 public import Certificates.Kernel.Sporadic.OddCore.SuzRFSf
 public import Certificates.Kernel.Sporadic.OddCore.SuzRFSg
 public import Certificates.Kernel.Sporadic.OddCore.SuzRFSh
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

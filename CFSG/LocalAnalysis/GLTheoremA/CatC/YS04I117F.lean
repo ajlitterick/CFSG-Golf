@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.YS04I117Rank
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.YS04I117Lift
 public import CFSG.HardMathSupport.Timmesfeld.DFour.OddRank4
-public import CFSG.HardMathSupport.Timmesfeld.ComponentBalance.I_11_2_FamilyRank
 
 public noncomputable section
 

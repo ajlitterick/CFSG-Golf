@@ -1,9 +1,7 @@
 module
 
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6fL2
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6fOdd
 public import CFSG.ClassicalInvolution.Q3.E29Ker.Main
-public import CFSG.ClassicalInvolution.Q3.TL3T12_6Dual
 
 public section
 

@@ -2,9 +2,7 @@
 module
 
 public import Certificates.Kernel.SporSch.Ru.Rows7045K
-public import Certificates.Kernel.SporSch.Tits.Graph2265K
 import CFSG.Certificates.Kernel.Common.EachTrue
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

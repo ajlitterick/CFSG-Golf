@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutInnerExcAssembly
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelOmMvMoves
 public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsSU
 public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsSpTwo
-public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandStructPSL
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6ThreeRound
 
 public section

@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGFamInnerTree
 public import CFSG.LocalAnalysis.StandardType.GGFamIsolation
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.KacDispatch
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CompsPTypeA
 
 public section
 

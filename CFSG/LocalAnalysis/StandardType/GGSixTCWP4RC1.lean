@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RKernel
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RTuple
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RFlag
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RRows
 

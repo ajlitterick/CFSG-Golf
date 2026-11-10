@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.PhanD4Dce.CTData
 public import Certificates.Data.Kernel.Misc.Coset.ActOrbit
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.Repo
 import CFSG.Certificates.Kernel.Common.JsonGz
 

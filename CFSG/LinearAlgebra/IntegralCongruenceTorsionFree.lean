@@ -1,7 +1,5 @@
 module
 
-public import Mathlib.Data.ZMod.Basic
-public import Mathlib.GroupTheory.OrderOfElement
 public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
 import CFSG.Monster.SteinbergBQOddPrimeCongruenceTorsionFree
 

@@ -3,7 +3,6 @@ module
 public import CFSG.GF2Type.Smith1980Orth.S2Seven
 public import CFSG.GF2Type.Smith1980Orth.S3GoodLin
 public import CFSG.LargeExtraspecial.S14SMELocal
-public import CFSG.Sporadic.ThSchreier.Row
 public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.CGT.Timmesfeld75.Derivations
 public import CFSG.CGT.Timmesfeld75.Main
@@ -50,8 +49,6 @@ public import CFSG.Sporadic.FischerOddCore.Fi24R2CompBase
 public import CFSG.Sporadic.FischerOddCore.FischerOuterBasic
 public import CFSG.Sporadic.Schreier.MathieuOddCoreWords
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970_18
 public import CFSG.Timmesfeld.RankOne
 public import CFSG.Timmesfeld.Special.TwoCore

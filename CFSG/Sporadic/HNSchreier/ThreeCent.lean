@@ -1,17 +1,6 @@
 module
 
-public import CFSG.Sporadic.HNSchreier.ThreeSpec
 public import Certificates.Certificate16025
-public import Certificates.Certificate2096
-public import Certificates.Certificate2097
-public import Certificates.Certificate2099
-public import Certificates.Certificate2100
-public import Certificates.Certificate2102
-public import Certificates.Certificate2104
-public import Certificates.Certificate2105
-public import Certificates.Certificate2109
-public import Certificates.Certificate16041
-public import Certificates.Certificate2107
 
 public noncomputable section
 

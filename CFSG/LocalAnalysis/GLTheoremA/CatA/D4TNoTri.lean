@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.D4TI117
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FPDich
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.MIAut
-public import CFSG.RankThree.PartTwo.Census.Carrier.SpinDOdd
-public import CFSG.LocalAnalysis.StandardType.GGReverseMarking
 public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Inputs
 public import CFSG.HardMathSupport.Timmesfeld.Balance.Alt.Lower
 public import CFSG.LocalAnalysis.GLTheoremA.S8.Lemma84Inputs

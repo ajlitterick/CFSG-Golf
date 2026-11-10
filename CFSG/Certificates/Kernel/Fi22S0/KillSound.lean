@@ -4,12 +4,10 @@ module
 public import Certificates.Data.Kernel.Fi22S0.Kill
 public import CFSG.Certificates.Kernel.Fi22S0.Sound
 public import CFSG.Certificates.Kernel.LyS0.Sound
-import Mathlib
 public import CFSG.Certificates.Kernel.Spor.PK.Basic
 public import CFSG.HardMathSupport.Foote.E27.SporKill
 public import CFSG.HardMathSupport.Foote.E27.SporSylowBound
 public import CFSG.Sporadic.Fi22
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

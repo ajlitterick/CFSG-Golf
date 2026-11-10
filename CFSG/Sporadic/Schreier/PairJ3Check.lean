@@ -5,7 +5,6 @@ public meta import CFSG.Sporadic.Schreier.PairJ3Cert
 public meta import Certificates.Data.CFSGNative.PairSchreier.Core
 public meta import Certificates.Data.CFSGNative.Schreier.Check
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
-public import CFSG.Sporadic.Schreier.PairJ3CheckInputs
 public import Certificates.Certificate2237
 
 public section

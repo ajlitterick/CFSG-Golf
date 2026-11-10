@@ -2,10 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.RouteD.TWT8VMinus
 public import CFSG.ClassicalInvolution.RouteD.TWEB6Scalar
-public import CFSG.ClassicalInvolution.RouteD.GapsFrBGen
-public import CFSG.ClassicalInvolution.RouteD.GapsFrMinusOrth
-public import CFSG.ClassicalInvolution.RouteD.GapsOrthSpin
-public import CFSG.ClassicalInvolution.ModelFacts.OrthAutMinusNormalized
 public import CFSG.ClassicalInvolution.RouteD.TWEB6Fixed
 public import CFSG.ClassicalInvolution.RouteD.TWEB6YBridge
 

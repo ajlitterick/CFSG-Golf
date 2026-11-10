@@ -1,13 +1,8 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec19.SeitzTrialityNFDefs
-public import CFSG.RankThree.PartOne.D4RC.Phi3
 public import CFSG.RankThree.PartOne.D4RC.Phi6
 import CFSG.RankThree.PartTwo.Sec19.SeitzTrialityTL3
-import CFSG.RankThree.PartOne.D4RC.Lines
-import CFSG.RankThree.PartOne.D4RC.Regular
-import CFSG.RankThree.PartOne.D4RC.SylowSplit
-import CFSG.RankThree.PartOne.D4RC.Gamma
 public import CFSG.Dihedral.FourgroupCycleControl
 public import CFSG.Dihedral.OriginalCentralizerOddCore
 public import CFSG.LieType.SeitzGeneration.Inner

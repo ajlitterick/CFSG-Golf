@@ -1,8 +1,6 @@
 module
 
-public import Certificates.Data.Kernel.J4Q.MatChk
 public import CFSG.Certificates.Kernel.J4Q.Rep
-public import CFSG.Sporadic.J4.Setup
 import CFSG.Certificates.Kernel.J4Q.RepQT2B
 import CFSG.Certificates.Kernel.SporSch.J4SBigSound
 

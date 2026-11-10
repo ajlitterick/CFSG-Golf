@@ -1,15 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1431cLieEightUni
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompIdxExcTw
 import CFSG.HardMathSupport.Dickson.Sec6.I1431Fam.OutReeF4
-import CFSG.HardMathSupport.Solomon.Coordinator.GFR2SporCrit
-import CFSG.RankThree.PartTwo.Sec4.Item47Bridges
-import CFSG.LieType.SeitzGeneration.ExcPlaneModel
-import CFSG.LieType.Ree.LargeReeCenterTrivial
 import CFSG.RankThree.PartTwo.Sec8.Item8KFacts2ProofReeConj
-import CFSG.RankThree.PartTwo.Sec8.Item87ProofGamma
-import CFSG.Foundations.SteinbergCADefinitionNodes
 
 public section
 

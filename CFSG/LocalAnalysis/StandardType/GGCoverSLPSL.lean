@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTorusGenSLPSL
 public import CFSG.LocalAnalysis.StandardType.GGCoverSLTransfer
 public import CFSG.LocalAnalysis.StandardType.GGCoverSLModel
 public import CFSG.LocalAnalysis.StandardType.GGCoverSLSemilin

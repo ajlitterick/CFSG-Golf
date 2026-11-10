@@ -3,9 +3,7 @@ module
 public import Certificates.Data.Kernel.SporSch.MathieuOC
 public import CFSG.Certificates.Kernel.Spor.BindList
 public import CFSG.Monster.B.Mathieu.CertData
-public import Mathlib.Data.List.Lex
 public import CFSG.Certificates.Kernel.Spor.RawSound
-public import Mathlib.GroupTheory.Schreier
 
 public section
 

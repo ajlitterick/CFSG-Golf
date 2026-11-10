@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ClassicalInvolution.Models.OrthogonalPairs.Frame
 public import CFSG.ClassicalInvolution.ModelFacts.Orth15Gen
 public import CFSG.ClassicalInvolution.SmallOrth.Orth3Block
 public import CFSG.ClassicalInvolution.ModelFacts.Orth15Basic

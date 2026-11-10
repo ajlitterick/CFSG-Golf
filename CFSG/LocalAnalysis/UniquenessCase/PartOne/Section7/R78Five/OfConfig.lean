@@ -3,10 +3,8 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.R78Five.Quotient
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.R78Five.SzTwo
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.Config
-public import CFSG.LocalAnalysis.UniquenessCase.UC6R
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.PartOne
 import CFSG.Adapters.TauCetiLieModels
-import CFSG.Assembly.OrderReductions.ThompsonQuotient
 import CFSG.GH74.Uniqueness.Section4Basic
 import CFSG.GroupTheory.PGroupPowTransfer
 import CFSG.LocalAnalysis.GLTheoremB.SchreierTools
@@ -15,7 +13,6 @@ import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.SEFive.Unitary
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.UnitaryRow
 import CFSG.LocalAnalysis.UniquenessCase.UC7P3Rows3
 import CFSG.Models.Blueprint
-import CFSG.RankThree.PartOne.CTP.StrongPInspection
 public import CFSG.Goldschmidt.StatementsG3
 public import CFSG.GroupTheory.RegularModuleThree
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.Parts

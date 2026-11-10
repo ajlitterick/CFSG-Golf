@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Sporadic.OddCore.ON2129
 public import Certificates.Kernel.Misc.Perm.HexCmd
-public import CFSG.Sporadic.Schreier.ONCheckSmallAuxInputs
 meta import CFSG.Sporadic.Schreier.ONCheckSmallAuxInputs
 meta import Certificates.Kernel.Sporadic.RawGen
 import CFSG.Certificates.Kernel.Common.Harness

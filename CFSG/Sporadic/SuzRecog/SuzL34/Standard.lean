@@ -2,16 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec2Step22ivQuot
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec2SuzNWC
-public import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
-public import CFSG.Open.StatedAPI
-public import Mathlib.GroupTheory.Perm.Cycle.Type
-public import Mathlib.GroupTheory.Commutator.Basic
 public import CFSG.Assembly.OddCoreSpan
 public import CFSG.Fischer.Uniq.CompTau
 public import CFSG.Foundations
 public import CFSG.LargeExtraspecial.OrthoF2
-public import CFSG.LargeExtraspecial.OrthoF2Fixed
-public import CFSG.LargeExtraspecial.OrthoF2SpRadical
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Step15
 public import CFSG.LocalAnalysis.ComponentClassification.Asc76XTheorem4
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherTheorem3WeakClosure
@@ -46,19 +40,6 @@ public import CFSG.RankThree.GroupTheory.ClassTwoThree
 public import CFSG.RankThree.OrthogonalInvolutions.SuzukiTypes
 public import CFSG.RankThree.PartOne.S11d.OutLinear
 public import CFSG.Sporadic.SmallOddCore.CheckSpec
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldPrimeOrderFixedSubfield
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OrderThreeNormalizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2PSLRangeCentralizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinInvolutionCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinRestrictionSixCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinUDecomposition
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationEleven
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTen
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTenStructuralIdentities
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2FieldProjectionArithmetic
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2OrderPSubgroupCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2S0LeQuotientTorus
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphReconstruction
 public import CFSG.Timmesfeld.RankOne
 public import CFSG.Timmesfeld.Special.TwoCore
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension

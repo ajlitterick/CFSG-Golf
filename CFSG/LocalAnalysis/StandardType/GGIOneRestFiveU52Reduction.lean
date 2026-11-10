@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGIOneRestFiveUnitaryDvd
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestUnitaryCenter
-public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitaryOutdiag
 
 public section
 

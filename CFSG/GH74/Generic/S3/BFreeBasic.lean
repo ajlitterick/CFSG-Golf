@@ -2,11 +2,8 @@ module
 
 public import CFSG.GH74.Generic.S3.J2Star
 public import CFSG.GH74.Generic.Gen4LiftJ
-public import CFSG.GH74.GLS.C3.Layer1.St1RigOrd
 public import CFSG.GH74.GLS.C3.Layer1.St1RigDiag
 public import CFSG.GH74.GLS.C3.Layer1.St1PumpH2
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedLayerOddCoreQuotient
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GH74.GLS.C3.Layer1.Back112Iv2
 public import CFSG.GH74.GLS.C3.Layer1.Back91Core
 public import CFSG.GH74.GLS.C3.Layer2.FusionTools

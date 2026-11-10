@@ -2,7 +2,6 @@ module
 
 import all CFSG.Fischer.F4
 public import CFSG.Monster.B.TwoA.Unitary.CliqueKernel
-public import Mathlib.Tactic.Have
 
 public section
 

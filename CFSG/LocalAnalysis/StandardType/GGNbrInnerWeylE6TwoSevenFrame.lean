@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylScIrred
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylFrameGen
-public import CFSG.LieType.SeitzGeneration.ExcTorusSylow
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylE6TwoSevenSylow
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylE6TwoSevenSL3
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylE6TwoSevenA2Frame

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBUniFourCharts
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBSparseNonsplitFrames
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBSparseEndpoint
 public import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.BlockGeneration
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermOmKCrossing
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBSpSp

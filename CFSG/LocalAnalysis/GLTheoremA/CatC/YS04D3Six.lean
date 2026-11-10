@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.YS04D3
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.YS04I117Rank
 public import CFSG.GH74.Filter.Orthogonal.EvenEichler
-public import CFSG.ClassicalGroups.Orthogonal.Simple
 public import CFSG.CharacterTheory.Wreathed.OriginalAllPrimeV4InputsLinear
 public import CFSG.CharacterTheory.Wreathed.OddFieldFixedTorusDerivedCentralizer
 

@@ -3,8 +3,6 @@ module
 public import CFSG.Certificates.Kernel.O8PairSound
 public import Certificates.Kernel.O8Pair.Chk
 public import Certificates.Kernel.OmegaEight.Bridge3009
-import CFSG.Certificates.Kernel.O8SASound
-import CFSG.Certificates.Kernel.Spor.Loops
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.BfsPinSound
 public import CFSG.Certificates.Kernel.Census.SiftSound
@@ -41,7 +39,6 @@ public import CFSG.Sporadic.Schreier.MathieuOddCoreOuter
 public import CFSG.Sporadic.Schreier.MathieuOddCoreWords
 public import CFSG.Sporadic.Schreier.Outer
 public import CFSG.Sporadic.SmallOddCore.CheckSpec
-public import CFSG.Sporadic.Th.F2Spec
 public import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 
 public section

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortGlueIdentDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 public import Certificates.Kernel.ThCent.Leaves
 
 public section

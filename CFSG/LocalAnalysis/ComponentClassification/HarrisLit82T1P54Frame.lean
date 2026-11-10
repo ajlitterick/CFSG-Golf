@@ -11,8 +11,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.TwoActionFixedInvolutio
 public import CFSG.LocalAnalysis.ComponentClassification.TwoActionInvariantSylow
 public import CFSG.LocalAnalysis.LargeEvenClassification.CyclicCongruenceCut
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.CentralInvolutionStructure
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public noncomputable section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.Ch5Sec1L34FiveQ5
-public import CFSG.Quasithin.H13.NQCatT513U35
 public import Certificates.Certificate7170
 
 public section

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC23Unique
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC165Bar
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenFiveTen
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenInputs
 public import CFSG.GH74.GLS.Stage2.Final.ModelOrd
 public import CFSG.LocalAnalysis.AGLEmbedding.JStarReducedDefs

@@ -4,7 +4,6 @@ public import CFSG.Monster.B.Co2CatalogData
 public import Certificates.Data.CFSGNative.MonsterB.Co2Data
 public import Certificates.Data.CFSGNative.MonsterB.Max2Tower
 public import Certificates.Data.CFSGNative.MonsterB.BinarySha
-public import Certificates.Data.CFSGNative.HS.SmallF2
 public import Certificates.Data.CFSGNative.Co2.Data
 public meta import CFSG.Monster.B.Co2CatalogData
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Data

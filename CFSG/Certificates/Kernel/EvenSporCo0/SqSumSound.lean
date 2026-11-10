@@ -5,9 +5,7 @@ public import CFSG.Certificates.Kernel.EvenSporCo0.EighthSound
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoCo1.OctadSylowCert
 import CFSG.LocalAnalysis.EvenSporadicStandard.TwoCo1.Co0TypEighthData
 import CFSG.Certificates.Kernel.BfsPinAlg
-import CFSG.Certificates.Kernel.BfsPinUnpack
 import all CFSG.Certificates.Kernel.Spor.PEnumSound
-import CFSG.Certificates.Kernel.Spor.PackWord
 import CFSG.Certificates.Kernel.Common.BvecLoop
 import CFSG.LocalAnalysis.EvenSporadicStandard.TwoCo1.Co0Data
 import CFSG.LocalAnalysis.EvenSporadicStandard.TwoCo1.Co0Mono

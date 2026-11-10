@@ -3,7 +3,6 @@ module
 public import Certificates.Data.Kernel.M24G.Kzero
 import CFSG.Certificates.Kernel.M24G.BfsReplaySound
 import CFSG.Certificates.Kernel.M24G.ReplayFacts
-import CFSG.Certificates.Kernel.M24G.IdxSound
 import CFSG.Certificates.Kernel.M24G.FixOctSound
 public import CFSG.Certificates.Kernel.M24G.DuadSound
 

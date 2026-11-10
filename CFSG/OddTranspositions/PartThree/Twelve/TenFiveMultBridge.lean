@@ -3,7 +3,6 @@ module
 public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveModel
 public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveMultQuad
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.H81Orth.Aut
-public import CFSG.Open.StatedDefs
 public import CFSG.ClassicalInvolution.Balance.PassTwoConj
 public import CFSG.ClassicalInvolution.Models.LinearFrames
 public import CFSG.ClassicalInvolution.Models.OrthogonalPairs

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangAxisCases
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45KGForms
-public import CFSG.LocalAnalysis.StandardType.GGFieldNbr
 import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45KGLabel
 import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45FieldFixOpen
 import CFSG.LocalAnalysis.StandardType.GGL45FixA2

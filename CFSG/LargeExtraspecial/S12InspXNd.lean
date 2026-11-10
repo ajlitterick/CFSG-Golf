@@ -3,9 +3,7 @@ module
 public import CFSG.LargeExtraspecial.DW2AOut
 public import CFSG.Timmesfeld.Orders.Classical
 public import CFSG.Timmesfeld.Orders.Exceptional
-public import CFSG.Timmesfeld.Final.PSU33
 public import CFSG.Quasithin.H13.A7Nat1233
-public import CFSG.Sporadic.J2
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAut
 public import CFSG.LargeExtraspecial.DW2AOutInput
 public import CFSG.LargeExtraspecial.Types

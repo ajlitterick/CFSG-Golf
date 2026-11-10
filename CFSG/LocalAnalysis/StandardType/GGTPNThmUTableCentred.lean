@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGExcRERegimeDefs
 public import CFSG.LocalAnalysis.StandardType.GGTPNThmUTableExc
 public import CFSG.LocalAnalysis.StandardType.GGKacTableShapes
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 
 public section
 

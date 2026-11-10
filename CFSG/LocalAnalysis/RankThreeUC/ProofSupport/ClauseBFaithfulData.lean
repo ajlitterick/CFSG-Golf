@@ -1,7 +1,6 @@
 module
 
 
-public import CFSG.LocalAnalysis.RankThreeUC.Section6.SigmaSylowCentralizerEscape
 import all CFSG.LocalAnalysis.RankThreeUC.Section6.SigmaSylowCentralizerEscape
 public import CFSG.LocalAnalysis.RankThreeUC.ProofSupport.ClauseBLayerAction.ClauseBLayerAction
 public import CFSG.LocalAnalysis.RankThreeUC.ProofSupport.FaithfulKernelReduction

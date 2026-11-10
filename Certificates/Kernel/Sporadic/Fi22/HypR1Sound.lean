@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Sporadic.Fi22.HypR1
 public import CFSG.Certificates.Kernel.Spor.CommBaseSound
-public import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
 
 public section
 

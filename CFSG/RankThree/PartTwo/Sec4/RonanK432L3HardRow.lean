@@ -2,8 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec4.RonanK432L3HardMat
 public import CFSG.RankThree.PartTwo.Sec4.RonanK432RowL3Easy
-import CFSG.RankThree.PartTwo.Sec4.RonanK432Transport
-import CFSG.Open.PGLModelStated
 
 public section
 

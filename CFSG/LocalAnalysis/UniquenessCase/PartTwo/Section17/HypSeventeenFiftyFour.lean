@@ -2,23 +2,13 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.NotThinShapes
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.JMFour
-public import CFSG.LocalAnalysis.UniquenessCase.UC22P22g
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.StatementsC
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenSixtyFour
 public import CFSG.RankThree.PartOne.K1320.L4Comm
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.ConjClosureSimple
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P2214g
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22ry
-public import CFSG.LocalAnalysis.UniquenessCase.UC22P22uc
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22rr
-public import CFSG.LieType.Simplicity.ExceptionalConverse
-public import CFSG.LocalAnalysis.SeitzReduction.F4PilotCatTypeDet
-public import CFSG.GroupTheory.LieTypeOrderBounds
 public import CFSG.Quasithin.H13.VolIA38Orders
 public import CFSG.ClassicalInvolution.RouteD.TWRExoticArith
-public import CFSG.Timmesfeld.Orders.ExceptionalUntwisted
-public import CFSG.LocalAnalysis.SectionRank.SuzukiCover
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructureTransport
 public import CFSG.Adapters.Certificate43Check
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitKG
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitPSL
@@ -48,8 +38,6 @@ public import CFSG.Quasithin.Background.C1PackS15212C
 public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.FFC4Res
 public import CFSG.Quasithin.Background.GoldschmidtS146RBend1
 public import CFSG.Quasithin.Background.InternalSecFF

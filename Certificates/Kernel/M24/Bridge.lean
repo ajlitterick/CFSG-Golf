@@ -4,7 +4,6 @@ public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 public import Certificates.Kernel.M24.Words
 import Certificates.Kernel.M24.Lce
 import CFSG.Certificates.Kernel.J4.M24Checks.M24RG
-import CFSG.Certificates.Kernel.Common.Harness
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 
 public section

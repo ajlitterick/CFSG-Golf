@@ -3,19 +3,9 @@ module
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148TOddModel
 public import CFSG.RankThree.SubgroupLists.UnitaryThreeFour
 import CFSG.RankThree.PartOne.S12.ModelTransport
-import CFSG.Adapters.RankTwoModelTransports
-import CFSG.Adapters.LinearFieldTransport
-import CFSG.Adapters.ProjectiveSpecialLinear
 import CFSG.RankThree.SubgroupLists.FieldThreeFamilies
-import CFSG.RankThree.SubgroupLists.ThreeSquareExclusion
-import CFSG.RankThree.SubgroupLists.CentralThreeLift
-import CFSG.RankThree.SubgroupLists2.SpectralBounds
-import CFSG.LieType.Universal.Unitary.Comparison
-import CFSG.LieType.Steinberg.CentralExt.UnitaryField
-import CFSG.ClassicalGroups.Unitary.Finite
 import CFSG.GH74.GLS.IVK.Proofs2.Lemma44bOrd
 import CFSG.RankThree.PartTwo.Sec13.Item138NMod9
-import CFSG.GroupTheory.ABGLocalTools.PStabilityQSL2
 
 public section
 

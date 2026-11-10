@@ -8,7 +8,6 @@ public import CFSG.LocalAnalysis.SectionRank.EvenCover.LinearStep
 public import CFSG.LocalAnalysis.SectionRank.SporadicCover
 public import CFSG.RankThree.PartOne.KC.OrthogonalFieldDescent
 public import CFSG.Sporadic.M23.M23Group
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

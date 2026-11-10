@@ -1,14 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeLinDefs
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinDict
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinPLab
-import CFSG.LocalAnalysis.GLTheoremA.S11.InputsElim
 import CFSG.LocalAnalysis.StandardType.GGFrameRouteE7Models
 import CFSG.Assembly.GL83StatedBridge
-import CFSG.GroupTheory.ABGLocalTools.SL2FieldAutInner
-import CFSG.Certificates.CentralizerFinite
 
 public section
 

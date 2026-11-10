@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.WeakClosureCases
-public import CFSG.Open.StatedDefs
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.WeakClosureLieTorus
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.WeakClosureVacuous
 import CFSG.Adapters.RankTwoModelTransports
@@ -46,15 +45,12 @@ public import CFSG.Sporadic.Presentation.Co2Fusion
 public import CFSG.Sporadic.Presentation.Co2FusionInputs
 public import CFSG.Sporadic.Presentation.McLExactData
 public import CFSG.Sporadic.Presentation.McLExactInputs
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Basic
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import CFSG.YGroups.DCE.B433Check
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 public import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 import CFSG.RankThree.PartOne.CTP.StrongPSylow
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

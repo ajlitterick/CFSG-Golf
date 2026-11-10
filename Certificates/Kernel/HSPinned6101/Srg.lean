@@ -1,13 +1,9 @@
 module
 
-public import Certificates.Data.CFSGNative.Recognition.HSPinnedData
-public import Mathlib.Data.Fintype.Card
 public import CFSG.Sporadic.Recognition.HSGraphModel
 public import Certificates.Certificate6102
-import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22HexadsInputs
 meta import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22Count
 meta import CFSG.Monster.B.Classical.PlaneData
-import CFSG.Sporadic.Recognition.HSGraphModelInputs
 import Certificates.Certificate6102
 public import CFSG.Sporadic.ThSchreier.GlobalData
 public import CFSG.Sporadic.ThSchreier.LocalOrbitBase1

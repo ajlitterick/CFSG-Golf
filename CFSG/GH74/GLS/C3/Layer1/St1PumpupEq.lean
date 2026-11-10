@@ -1,9 +1,6 @@
 module
 
 public import CFSG.GH74.GLS.C3.Layer1.St1Prop83
-public import CFSG.GH74.GLS.TwoThin.DPair
-public import CFSG.Walter.AStar.Subnormal
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GH74.GLS.C3.Layer1.St1P41L42
 public import CFSG.GH74.GLS.C3.Layer1.Th2Dih
 public import CFSG.GH74.GLS.C3.Layer1.Th2Struct

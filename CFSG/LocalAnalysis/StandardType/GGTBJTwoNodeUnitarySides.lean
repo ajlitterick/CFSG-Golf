@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitary
-public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitaryDatum
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeNbr
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrEnnola
 

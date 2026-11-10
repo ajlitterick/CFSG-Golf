@@ -1,9 +1,7 @@
 module
 
 public import CFSG.Monster.B.Dyadic.Max2K
-public import CFSG.Monster.B.Dyadic.PinnedK
 import Certificates.Kernel.BabyMonster.Pair.Max2C
-import Certificates.Kernel.BabyMonster.Pair.Pinned
 
 public section
 

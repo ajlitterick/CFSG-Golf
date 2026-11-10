@@ -2,8 +2,6 @@ module
 
 public import Certificates.Kernel.LocalComp.HeFixBind
 public import CFSG.Quasithin.Background.F7TwoInvSporHeInputs
-public import CFSG.Certificates.Kernel.PermToolSound
-public import CFSG.Certificates.Kernel.BfsPinUnpack
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

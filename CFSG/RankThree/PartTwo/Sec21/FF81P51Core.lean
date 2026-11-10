@@ -1,9 +1,7 @@
 module
 
-public import CFSG.RankThree.PartTwo.Sec21.FF81P51Checks
 public import CFSG.RankThree.PartTwo.Sec21.FF81P51Classify
 public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
-public import Mathlib.GroupTheory.GroupAction.Quotient
 
 @[expose] public section
 

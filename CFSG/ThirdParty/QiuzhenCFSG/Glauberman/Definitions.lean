@@ -1,9 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Gorenstein.Chapter8_2
-public import Mathlib.GroupTheory.SemidirectProduct
-public import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
-public import Mathlib.Algebra.Group.Equiv.TypeTags
 
 namespace CFSG
 end CFSG

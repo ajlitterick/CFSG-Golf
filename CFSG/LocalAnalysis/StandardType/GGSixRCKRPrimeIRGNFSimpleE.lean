@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGDefs
-public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionCore
-public import CFSG.LocalAnalysis.StandardType.GGLatRootBridge
 
 public section
 

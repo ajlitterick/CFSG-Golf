@@ -1,12 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoModel
-public import CFSG.LocalAnalysis.StandardType.FS81.HoltSimpleControl
-public import CFSG.LocalAnalysis.StandardType.FF81.Defs
-public import CFSG.LocalAnalysis.StandardType.FF81.CentE6.Frame
 public import CFSG.LocalAnalysis.StandardType.FF81.CentE6.RadTransport
-public import CFSG.LocalAnalysis.StandardType.FF81.CentE6.GFuse
-public import CFSG.LocalAnalysis.StandardType.FF81.CentE6.GQuotient
 public import CFSG.LocalAnalysis.StandardType.FF81.CentE6.GLift
 public import CFSG.LocalAnalysis.StandardType.FF81.CentE6.GFuseClass
 public import CFSG.LocalAnalysis.StandardType.FF81.CentE6.GCenLe

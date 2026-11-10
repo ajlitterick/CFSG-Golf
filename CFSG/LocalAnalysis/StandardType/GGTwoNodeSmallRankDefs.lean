@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeIndepDefs
-public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepWeyl
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepPos
-public import CFSG.LocalAnalysis.StandardType.GGDepAFrame
 public import CFSG.LocalAnalysis.StandardType.GGRCWeylConnected
 public import CFSG.LocalAnalysis.StandardType.GGResCentBoundNbr
 

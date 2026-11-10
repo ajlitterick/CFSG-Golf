@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoDRMDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBase
 public import CFSG.LocalAnalysis.StandardType.GGTDAutomizer
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveReflMaxBasic
-public import CFSG.LocalAnalysis.StandardType.GGQTwoPThree
 
 public section
 

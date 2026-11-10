@@ -4,9 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLAmbDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLQuot
 public import CFSG.LocalAnalysis.StandardType.GGLinCentCompLabel
 public import CFSG.LocalAnalysis.StandardType.GGXInLDispatch
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.LocalAnalysis.StandardType.GGQTwoPairsDefs
-public import CFSG.LocalAnalysis.StandardType.GGTPNDefs
 
 public section
 

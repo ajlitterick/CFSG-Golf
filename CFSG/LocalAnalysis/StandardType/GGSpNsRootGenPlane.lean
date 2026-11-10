@@ -1,11 +1,9 @@
 module
 
-public import CFSG.Assembly.Defs
 public import CFSG.LocalAnalysis.StandardType.GGSpNsRootGenDefs
 
 import CFSG.HardMathSupport.Seitz.Proving.SL2PrimeOrder
 import CFSG.LargeExtraspecial.S4Restrict
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBAlternatingIsometryTwo
 import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogRigidityOrthCentralizer
 import CFSG.LocalAnalysis.SteinbergSFSingleCommRootStandardClosure
 import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogRigidityAlternating

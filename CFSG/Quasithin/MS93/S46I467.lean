@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.MS93.S46I467Dec
 public import CFSG.Quasithin.MS93.S4AFMain
-public import CFSG.Quasithin.MS93.S46Ker
 public import CFSG.Quasithin.MS93.S46Inputs
 
 public section

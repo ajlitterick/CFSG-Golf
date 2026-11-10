@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGFamComponent
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.JointShapesPart2
-public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.OddShapesPart2
 import CFSG.LocalAnalysis.StandardType.GGFamF4Isolate
 
 public section

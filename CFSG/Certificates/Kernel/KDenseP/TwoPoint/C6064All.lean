@@ -2,7 +2,6 @@ module
 
 public import CFSG.Certificates.Kernel.KDenseP.TwoPoint.C6064
 import CFSG.Certificates.Kernel.Common.Each
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

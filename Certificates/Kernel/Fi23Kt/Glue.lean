@@ -5,8 +5,6 @@ import Certificates.Kernel.Fi23Kt.Checks
 import all Certificates.Kernel.Fi23Pf.Glue
 import Certificates.Kernel.Fi23M.Facts
 import Certificates.Kernel.Fi23M.WGlue
-import Certificates.Kernel.VecCert.WordProg
-import CFSG.Certificates.Kernel.Spor.Mat3Sound
 import CFSG.Certificates.Kernel.DecTextSound
 import CFSG.Certificates.Kernel.Common.StrSplit
 import CFSG.Certificates.Kernel.Common.StrChars

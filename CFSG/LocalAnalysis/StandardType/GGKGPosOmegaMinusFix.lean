@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerOmegaSpin
-public import CFSG.LieType.Universal.Spin.Twisted.Generation
-public import CFSG.LieType.Universal.Spin.Generation.Eichler
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogRigidityOrthRestrict
 public import CFSG.LocalAnalysis.StandardType.GGKGPosSULevi
-public import Mathlib.Algebra.CharP.Algebra
 public import CFSG.Sporadic.Th.Chain
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBSymplecticBField
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBSymplecticBLinear

@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixA3PositionDefs
-public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
-public import CFSG.LocalAnalysis.StandardType.GGSkeleton
 public import CFSG.LocalAnalysis.StandardType.GGFinModelRootCompatDefs
-public import CFSG.LocalAnalysis.StandardType.GGFinModelInput
-public import CFSG.LocalAnalysis.StandardType.GGLatRootBridge
 
 public section
 

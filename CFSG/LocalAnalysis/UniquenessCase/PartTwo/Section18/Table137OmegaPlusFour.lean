@@ -4,10 +4,8 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section18.EighteenFourte
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section18.Table137Opp
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC56Stab
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC56R38RModel
-public import CFSG.Quasithin.Background.P3OrthoOm4
 public import CFSG.RankThree.GF2n.Stroth80.HeringSec95DTor
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P2214Rk
-public import CFSG.GroupTheory.ABGLocalTools.PStabilityQSL2
 public import CFSG.GroupTheory.PElementSubgroup
 public import CFSG.LieType.Ree.LargeReeEightTorus
 public import CFSG.LieType.Ree.LargeReeInvolutionTwoCentralizers

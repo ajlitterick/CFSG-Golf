@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFixGapGlue
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FRTwE6
-public import CFSG.LocalAnalysis.StandardType.Marking
-public import CFSG.LieType.Simplicity.Exceptional
 
 public section
 

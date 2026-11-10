@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBPosition
-public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotBlocks
 public import CFSG.LieType.Steinberg.CentralExt.PSpEvenMultiplier
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyReflSp
 public import CFSG.GroupTheory.PerfectCentralExtensionUnique

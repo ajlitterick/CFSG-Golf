@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGNFGen
-public import CFSG.ClassicalInvolution.ModelFacts.ChevAutMain
 
 public section
 

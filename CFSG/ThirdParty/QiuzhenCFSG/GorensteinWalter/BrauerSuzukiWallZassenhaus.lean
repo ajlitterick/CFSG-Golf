@@ -3,13 +3,10 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.BrauerSuzukiWallDefs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2DihedralSylow
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2Cardinality
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.LinearULift
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.LinearThree
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.LinearThreeEquiv
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.XI.theorem_11_16
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.XI.example_1_3
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConjAction
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConj
 
 namespace CFSG
 end CFSG

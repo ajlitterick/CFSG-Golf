@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.TauCeti.DiagonalizableCentralizerTangent
-public import TauCeti.Algebra.AlgebraicGroup.Tangent.Equivariance
 
 public noncomputable section
 

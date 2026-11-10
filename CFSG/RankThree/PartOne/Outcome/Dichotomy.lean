@@ -5,24 +5,14 @@ public import CFSG.RankThree.PartOne.TCB.Final
 public import CFSG.RankThree.PartOne.KS.FinalAll
 public import CFSG.RankThree.PartOne.KS.ONPointwise
 public import CFSG.RankThree.PartOne.KP.Main
-public import CFSG.RankThree.PartOne.KP.BExclusion
-public import CFSG.RankThree.PartOne.KP.MSectionMonster
-public import CFSG.RankThree.PartOne.SPOR.Final
 public import CFSG.RankThree.PartOne.KE.FinalAssembly
 public import CFSG.RankThree.PartOne.SPOR.Co1Planes
 public import CFSG.RankThree.PartOne.KLR.Final
 public import CFSG.RankThree.PartOne.KGD.TrialityFamily
-public import CFSG.RankThree.PartOne.KD4L.TrialityLayer
-public import CFSG.RankThree.PartOne.KD4L.TranspositionLayer
 public import CFSG.RankThree.PartOne.SPOR.HNPlane
 public import CFSG.RankThree.PartOne.KS.PlaneLy
 public import CFSG.RankThree.PartOne.KA5L.Final
-public import CFSG.Sporadic.Schreier.LyCheckSep
-public import CFSG.Sporadic.Ly.KeySpec
-public import CFSG.Sporadic.He.FpSpec
 import Certificates.Kernel.SporSch.Ly.SepGlue
-public import CFSG.Sporadic.Ly.FiveFacts
-import CFSG.Sporadic.Ly.Certificate
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
 public import CFSG.Certificates.FusionF2

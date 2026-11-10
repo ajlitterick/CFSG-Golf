@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.GoldschmidtF431D4qLocCenter
-public import CFSG.Quasithin.Vol2.GoldschmidtF431D4qYam
 public import CFSG.Quasithin.Vol2.GoldschmidtF431D4qLocAut
 public import CFSG.Quasithin.Vol2.GoldschmidtF431D4qLocRep
 public import CFSG.Quasithin.Vol2.GoldschmidtF431D4qStructSyl

@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenDefs2
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs16a
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.R1613gCase153
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven10Norm
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Quadruple

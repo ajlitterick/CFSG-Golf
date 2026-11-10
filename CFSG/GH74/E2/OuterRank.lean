@@ -1,11 +1,7 @@
 module
 
-public import CFSG.GH74.E2.Ext2
-public import CFSG.CharacterTheory.Semidihedral.NormalForm
-public import CFSG.GH74.E2.FrattiniRank
 public meta import Mathlib
 public meta import CFSG.CharacterTheory.Semidihedral.Model
-public import CFSG.GH74.E2.OuterRankInputs
 public meta import CFSG.GH74.E2.OuterRankInputs
 public import Certificates.Certificate5016
 

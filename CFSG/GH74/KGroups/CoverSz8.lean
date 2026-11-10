@@ -1,15 +1,8 @@
 module
 
-public import Mathlib
-public import CFSG.Foundations.Basic
-public import CFSG.GH74.Defs
-public import CFSG.Blueprint.Catalog
-public import CFSG.GH74.KGroups.Sz8
 public import CFSG.GH74.KGroups.Sz8Tables
 public import CFSG.GH74.KGroups.CoverRank
 import CFSG.Goldschmidt.Steps.GSz8Mult
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.GH74.SectionalRank
 public import CFSG.GroupTheory.FrattiniQuotient
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper

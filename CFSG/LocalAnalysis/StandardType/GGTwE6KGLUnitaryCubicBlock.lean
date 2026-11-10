@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompAlgCore
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompAlgUnitaryBlock
 public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonU3UniBlock
 

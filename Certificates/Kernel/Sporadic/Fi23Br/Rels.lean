@@ -4,11 +4,7 @@ module
 public import CFSG.Sporadic.Fi23.SimpleBase
 public import CFSG.Sporadic.Bridge.Common
 public import CFSG.Sporadic.Presentation.Fi23
-public import Certificates.Data.CFSGNative.Bridge.Fi23GPL
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 public import Certificates.Kernel.Sporadic.RelSeg
-public import Certificates.Kernel.Sporadic.Fi23Br.Data
-public import Certificates.Kernel.Sporadic.Fi23Br.Words
 import Certificates.Kernel.Sporadic.Fi23Br.Checks
 import Certificates.Kernel.Sporadic.Fi23Br.Seed
 import Certificates.Kernel.Sporadic.Fi23Br.R0
@@ -24,16 +20,13 @@ import Certificates.Kernel.Sporadic.Fi23Br.R9
 import CFSG.Certificates.Kernel.Spor.BytesFSound
 import CFSG.Certificates.Kernel.CosetJ.WordsTSound
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 import CFSG.Certificates.Kernel.Common.ForallChunks
 import Certificates.Kernel.Sporadic.BrChain
-import Certificates.Kernel.Sporadic.OrdCommon
 public import CFSG.Blueprint.MatrixSeedIdentification
 public import CFSG.F3.SepSpec
 public import CFSG.Perm.ChainSpec
 public import CFSG.Sporadic.Fi23.CertificateBase
 public import CFSG.Sporadic.Fi23.SlpSpec
-public import CFSG.Sporadic.Th.F2Spec
 public import CFSG.Sporadic.Th.OrbitSpec
 public import Certificates.Kernel.Sporadic.Fi23Br.RelC
 

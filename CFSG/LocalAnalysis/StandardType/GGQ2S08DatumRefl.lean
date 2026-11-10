@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoTableBI1
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRMModuleDefs
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
 public import CFSG.LocalAnalysis.StandardType.GGDepARefl
 
 public section

@@ -1,12 +1,7 @@
 module
 
 public import Certificates.Data.B3Spor3.J2
-public import Certificates.Data.Kernel.B3S3K
-public import Certificates.Data.Kernel.Misc.ChainTail
-public import Certificates.Kernel.B3S3.Gen
 public import Certificates.Kernel.GFR3.J2
-public import Certificates.Kernel.Sporadic.RawGen
-public import Certificates.Kernel.Misc.Perm.HexCmd
 public import Certificates.Kernel.SporSch.Th.GenV4
 public meta import Certificates.Data.B3Spor3.J2
 public meta import Certificates.Kernel.B3S3.Gen

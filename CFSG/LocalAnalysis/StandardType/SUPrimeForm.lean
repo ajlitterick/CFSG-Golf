@@ -6,7 +6,6 @@ import CFSG.LocalAnalysis.StandardType.GGRootDetectSU
 import CFSG.Timmesfeld.LieEmbed.UnitaryIsometry
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.LieType.BorelTits.CompleteFlag
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

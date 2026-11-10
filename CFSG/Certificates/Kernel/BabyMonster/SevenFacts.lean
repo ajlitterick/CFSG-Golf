@@ -7,8 +7,6 @@ public import CFSG.Certificates.Kernel.BabyMonster.Seven.Data3
 public import CFSG.Certificates.Kernel.BabyMonster.Seven.Data5
 public import CFSG.Certificates.Kernel.BabyMonster.SevenLocal.Data0
 public import CFSG.Certificates.Kernel.BabyMonster.SevenLocal.Data1
-public import Mathlib.LinearAlgebra.Matrix.Rank
-public import Mathlib.Data.ZMod.Basic
 public import CFSG.Certificates.Kernel.BSeed.Sound
 
 public section

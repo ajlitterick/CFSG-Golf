@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentInitial.ChevSp6EpsOneNormalizerPtBasic
-import CFSG.LocalAnalysis.ComponentInitial.BinarySymplecticSixFusionOrbits
 import CFSG.LocalAnalysis.ComponentInitial.ChevSp6EpsOneLambdaZeroNorm
 import CFSG.LocalAnalysis.ComponentInitial.ChevSp6EpsOneNormalizerPtOrders
 

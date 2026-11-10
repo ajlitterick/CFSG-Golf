@@ -1,19 +1,11 @@
 
 module
 
-public import CFSG.Sporadic.Co2Schreier.ChainsBase
 
 public import CFSG.Sporadic.Co2Schreier.ChainCheck
-public import CFSG.Sporadic.Co2Schreier.Tuples
-public import CFSG.Sporadic.Co2Cert.Order
-public import CFSG.Certificates.NativeSchreierCard
-public import CFSG.Sporadic.Co2Schreier.ChainCheckInputs
 public meta import CFSG.Sporadic.Co2Schreier.Arrays
 public meta import Certificates.Data.CFSGNative.Schreier.Check
-public import CFSG.Sporadic.Co2Schreier.TextCheckInputs
 public meta import CFSG.Sporadic.Co2Schreier.Text
-public import CFSG.Sporadic.Co2Cert.CheckInputs
-public import CFSG.Sporadic.Co2Cert.OrderCheckInputs
 
 public noncomputable section
 

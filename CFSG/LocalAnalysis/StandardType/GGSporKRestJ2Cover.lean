@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSporKRestModelLink
 public import Certificates.Certificate1023005
 public import CFSG.Sporadic.J2.Simple
 public import CFSG.Sporadic.Bridge.J2
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

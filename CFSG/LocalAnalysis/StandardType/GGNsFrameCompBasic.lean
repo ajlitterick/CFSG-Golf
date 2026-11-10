@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSUNonsplitTwoBlockPair
 public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionNonsplitRestSUWit
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelSLCompParts
 public import CFSG.RankThree.PartOne.KC.UnitaryGoodSpecial
-public import CFSG.RankThree.PartOne.KC.UnitaryPrimaryDet
 
 public section
 

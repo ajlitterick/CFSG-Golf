@@ -6,7 +6,6 @@ public import CFSG.RankThree.GF2n.Parrott.SpinBridge
 public import CFSG.RankThree.GF2n.Parrott.Section4CentreSylow
 public import CFSG.RankThree.GF2n.Parrott.Section4EInv
 public import CFSG.RankThree.GF2n.Parrott.ActionQAIdentificationOutsideEquality
-public import CFSG.RankThree.GF2n.Parrott.Section4EWeak
 public import CFSG.RankThree.GF2n.Parrott.QA45ElementaryAbelian
 
 public section

@@ -5,11 +5,7 @@ public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeGeoFlag
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1ILongRootConj
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IPerfect
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OddCenter
-public import CFSG.Timmesfeld.RankOne.SL2
 public import CFSG.Timmesfeld.Bridge.RootSetsSyl
-public import CFSG.Timmesfeld.Orders.Classical
-public import CFSG.RankThree.PartOne.S11c.Sec66TGroup
-public import CFSG.RankThree.PartTwo.Sec4.T444.Item434AltPerm
 public import CFSG.GroupTheory.ConjTransport
 public import CFSG.Timmesfeld.Bridge.LocalA
 public import CFSG.Timmesfeld.Bridge.NoPolarConnected

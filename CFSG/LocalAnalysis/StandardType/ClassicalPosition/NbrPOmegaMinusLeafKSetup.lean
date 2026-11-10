@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.NbrPOmegaMinusLeafCore
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.NbrPOmegaMinusLeafNeighbourBlockData
 
 public section

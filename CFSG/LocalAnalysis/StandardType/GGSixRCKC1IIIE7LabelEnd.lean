@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE7TwAFrame
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIE7LabelK2
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIE7LabelModel
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIISpBlock
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIUnitaryBlock
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeStepA
 
 public section

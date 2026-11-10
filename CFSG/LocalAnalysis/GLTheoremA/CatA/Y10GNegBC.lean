@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GNeg
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GNegBCUni
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GNegBCSymp
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GNegBCOrth

@@ -2,14 +2,11 @@ module
 
 public import Certificates.Kernel.Sporadic.Fi22.P2066
 public import CFSG.Certificates.Kernel.Spor.BaseSep
-public import CFSG.Sporadic.FischerOddCore.Fi22Cent
 public import CFSG.Sporadic.FischerOddCore.Fi22CentOrderCheckInputs
 public import CFSG.Monster.B.Fischer.Fi22Order
-public import CFSG.Sporadic.FischerOddCore.Fi22CentOrderCheckInputs
 public meta import CFSG.Sporadic.FischerOddCore.Fi22Cent
 public meta import CFSG.Sporadic.FischerOddCore.Fi22ExtSylowCheck
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

@@ -1,11 +1,6 @@
 module
 
 public import CFSG.Sporadic.HeldB.InnerCheck
-public import CFSG.Sporadic.HeldB.Common
-public import CFSG.Sporadic.HeldB.CertPChain
-public import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
-public import Certificates.Certificate2112
-public import Certificates.Certificate2114
 
 public noncomputable section
 

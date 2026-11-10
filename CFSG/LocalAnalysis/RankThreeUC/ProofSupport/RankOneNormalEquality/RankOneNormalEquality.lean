@@ -1,18 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.RankThreeUC.SourceSetting.AschbacherCommon
-public import CFSG.LocalAnalysis.RankThreeUC.OddRankOneQuotient.OddRankOneQuotient
 public import CFSG.LocalAnalysis.RankThreeUC.ProofSupport.ResidualConjugateClosure.ResidualConjugateClosure
 public import CFSG.LocalAnalysis.RankThreeUC.ProofSupport.OrderThreeFusionInRankOne.OrderThreeFusionInRankOne
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Hall.Basic
-public import Mathlib.GroupTheory.PGroup
-public import Mathlib.GroupTheory.QuotientGroup.Basic
-public import Mathlib.GroupTheory.SpecificGroups.Cyclic
-public import Mathlib.GroupTheory.Subgroup.Center
-public import Mathlib.GroupTheory.Subgroup.Centralizer
-public import Mathlib.GroupTheory.Sylow
-import Mathlib.Tactic.Basic
-import Mathlib.Tactic.NormNum
 public import CFSG.CGT.Timmesfeld75.Statements
 public import CFSG.Foundations
 public import CFSG.GroupTheory.ElementaryAbelianTransport
@@ -29,8 +19,6 @@ public import CFSG.LocalAnalysis.SectionRank.Framework.SylowRank
 public import CFSG.Quasithin.Background.A1bGroups
 public import CFSG.RankThree.PartOne.S10.ThetaContract
 public import CFSG.RankThree.PartOne.S12.InputsBase
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.theorem_3_4
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.Defs
 
 public section
 

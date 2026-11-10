@@ -2,17 +2,13 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeakNbr
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinByType
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveDataResDefs
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaE6PatCox
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaE6PatRows
-import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaForkCox
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaExcPlus
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaTwE6
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaTwE6Three
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaOrth
-import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
 import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6Holds
 
 public section

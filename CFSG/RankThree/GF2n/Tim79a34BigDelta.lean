@@ -1,8 +1,6 @@
 module
 
-public import CFSG.RankThree.GF2n.Tim79a34BigB
 public import CFSG.RankThree.GF2n.Tim79a34BigAlpha
-public import CFSG.RankThree.GF2n.Tim79a34BigAssembly
 
 public section
 

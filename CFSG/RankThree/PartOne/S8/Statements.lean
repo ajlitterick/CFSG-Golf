@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.PartOne.KC.LinearEndpointStatements
 public import CFSG.Assembly.CatalogTransport
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

@@ -1,11 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGFrameRouteFSInputs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRest
 public import CFSG.LocalAnalysis.StandardType.GGFrameRouteE7Models
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcOut
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTorus
-public import CFSG.LocalAnalysis.StandardType.GGTableBRank
 
 public section
 

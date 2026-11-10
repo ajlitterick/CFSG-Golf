@@ -1,13 +1,7 @@
 module
 
 public import CFSG.Monster.GMS.S4CohBBasic
-public import CFSG.Monster.GMS.S36LinesBasic
-import CFSG.Monster.GMS.S57
 import CFSG.Monster.GMS.S5Inputs
-import CFSG.Monster.GMS.S31Three
-import CFSG.Monster.GMS.NotConj
-import CFSG.Monster.GMS.S341
-import CFSG.Monster.GMS.S342
 import CFSG.Monster.GMS.Coxeter
 
 public section

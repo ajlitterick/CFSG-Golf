@@ -4,10 +4,7 @@ public import Certificates.Kernel.Co3Pump36903.Chk
 public import Certificates.Kernel.Co3T.Facts
 public import Certificates.Kernel.Co3Pair.Facts
 public import Certificates.Kernel.Co3Five.Facts
-public import Certificates.Data.Co3Pump
 public meta import Certificates.Data.Co3Pump
-import CFSG.Certificates.Kernel.Spor.Loops
-import Mathlib.Tactic.IntervalCases
 
 public section
 

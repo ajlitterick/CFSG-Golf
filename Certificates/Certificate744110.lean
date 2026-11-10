@@ -4,9 +4,7 @@ public import Certificates.Certificate10070Base
 
 public import CFSG.Sporadic.Co1Patterson.Defs
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.SporadicPermutesPackage
-public import Certificates.Data.CFSGNative.Co1.Data
 public import CFSG.Monster.Existence.Co1BridgeDataInputs
-public import CFSG.Sporadic.Co1Block.IotaCheckInputs
 public meta import CFSG.Sporadic.Co1Block.IotaData
 public meta import CFSG.Sporadic.Schreier.Co1StabCheck
 public meta import CFSG.Sporadic.Schreier.Co1ThreeLocal
@@ -27,26 +25,12 @@ public meta import CFSG.Sporadic.Co1Block.CentCheck
 public meta import CFSG.Sporadic.Schreier.Co1ChainCheck
 public meta import Certificates.Data.CFSGNative.Co1.Involutions
 public meta import Certificates.Data.CFSGNative.Co1.TwoB
-public import CFSG.Sporadic.Schreier.Co1SignedMono
-public import CFSG.Sporadic.Schreier.Co1ElemThreeSigned
-public import CFSG.Sporadic.Mathieu.M12
 public meta import CFSG.Sporadic.Schreier.Co1ElemData
 public meta import CFSG.Sporadic.Schreier.Co1ElemThreeData
-public import CFSG.Sporadic.Schreier.Co1SplitCheckInputs
 public meta import CFSG.Sporadic.Schreier.Co1ElemThreeCheck
-public import CFSG.Monster.B.TwoA.Census.SignClsInputs
-public import CFSG.Monster.B.TwoA.Census.MonoCertInputs
-public import Certificates.Data.CFSGNative.Mathieu.M24
-public import CFSG.Monster.B.TwoA.Census.PermClassesInputs
-public import CFSG.Certificates.Kernel.AxisPlane.Orbit
-public import Certificates.Data.Kernel.VisFrame.Gens
-public import CFSG.Monster.B.TwoA.Census.XiFusionInputs
 public import CFSG.Monster.B.TwoA.Census.LatticeInvInputs
-public import Certificates.Data.CFSGNative.Mathieu.M12
 public import CFSG.Sporadic.Co1.Module.Orbits
-public import CFSG.Sporadic.Co1.Module.FormsInputs
 public import Certificates.Certificate10070
-public import CFSG.Sporadic.Schreier.Co1TernaryCode
 public import CFSG.Sporadic.Co1Patterson.NativeQInputs
 public import CFSG.Sporadic.Co1Patterson.TwistNativeInputs
 import Certificates.Kernel.Co1Nine.Glue
@@ -71,9 +55,6 @@ public import CFSG.Quasithin.Background.A1cA132Action
 public import CFSG.Quasithin.Background.A1cA133Three
 public import CFSG.Quasithin.Background.B216Quotient
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3OffenderB
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.E4Solv
 public import CFSG.Quasithin.Background.F6Amalgams
 public import CFSG.Quasithin.Background.F6SolvableQuotient
 public import CFSG.Quasithin.Background.F9G2
@@ -92,7 +73,6 @@ public import CFSG.Quasithin.EmptyFaithfulMultiple.InputB19Proof
 public import CFSG.Quasithin.Vol2.Ch1Faithful
 public import CFSG.Quasithin.Vol2.Ch4Sec1Lem415
 public import CFSG.Quasithin.Vol2.Ch4Sec4Lem445
-public import CFSG.Sporadic.Co1.Module.InvGroupBase
 public import CFSG.Sporadic.Co1Block.Iota
 public import CFSG.Sporadic.Co2Smith.Defs
 public import CFSG.Sporadic.Schreier.J4SCommGenBase1
@@ -153,23 +133,9 @@ import CFSG.Sporadic.Ly.ActionBase
 import CFSG.Sporadic.Ly.CertificateBase
 import CFSG.Sporadic.Ly.FaithSpec
 import CFSG.Sporadic.Ly.OrbitSpec
-import CFSG.Sporadic.Ly.PrimitiveBase
 import CFSG.Sporadic.LyBase
 import CFSG.Sporadic.Presentation.Ly
 import CFSG.Sporadic.Schreier.LyChain11
-import CFSG.Sporadic.ThSchreier.GlobalIndexBase
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldPrimeOrderFixedSubfield
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OrderThreeNormalizer
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2PSLRangeCentralizer
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinInvolutionCount
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinRestrictionSixCount
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinUDecomposition
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationEleven
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTen
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTenStructuralIdentities
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2FieldProjectionArithmetic
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2OrderPSubgroupCount
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphReconstruction
 import CFSG.Timmesfeld.RankOne
 import CFSG.Timmesfeld.Special.TwoCore
 import Certificates.Certificate1

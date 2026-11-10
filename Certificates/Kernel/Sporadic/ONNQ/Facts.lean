@@ -5,7 +5,6 @@ public import Certificates.Kernel.Sporadic.ONNQ.FCWAll
 public import Certificates.Kernel.Sporadic.ONLine.Final
 public import CFSG.Certificates.Kernel.Spor.ONNQSound
 public import CFSG.LocalAnalysis.RankThreeTheoremC.ONPair.FixCheck
-import CFSG.Certificates.Kernel.Spor.Loops
 
 public section
 

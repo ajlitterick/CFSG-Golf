@@ -27,33 +27,23 @@ public meta import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A3Components
 public meta import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public meta import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.B1Basic
 public meta import CFSG.Quasithin.Background.B1Basic
 public import CFSG.Quasithin.Background.E1
 public meta import CFSG.Quasithin.Background.E1
-public import CFSG.Quasithin.Background.E1Sec4
 public meta import CFSG.Quasithin.Background.E1Sec4
-public import CFSG.Quasithin.Background.E1Sec5
 public meta import CFSG.Quasithin.Background.E1Sec5
-public import CFSG.Quasithin.Background.E1Sec8
 public meta import CFSG.Quasithin.Background.E1Sec8
-public import CFSG.Quasithin.Background.E1Solv
 public meta import CFSG.Quasithin.Background.E1Solv
-public import CFSG.Quasithin.Background.E1Twelve
 public meta import CFSG.Quasithin.Background.E1Twelve
-public import CFSG.Sporadic.J4.Simple
 public meta import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public meta import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public meta import CFSG.Sporadic.Mathieu.M12
 public meta import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
 public meta import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public meta import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public meta import Certificates.Certificate43
 

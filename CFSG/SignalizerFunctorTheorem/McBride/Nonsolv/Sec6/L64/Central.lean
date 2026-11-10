@@ -1,11 +1,5 @@
 module
 
-public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec6.L64.Central.Basic
-public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec6.L64.Central.Components
-public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec6.L64.Central.Diagonal
-public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec6.L64.Central.Monolith
-public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec6.L64.Central.Orbit
-public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec6.L64.Central.Lift
 public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec6.L64.Central.Perfect
 
 public section

@@ -2,11 +2,7 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Theorem4
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.theorem_3_4
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.FinalTheorem
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.CoprimeHall
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Cardinalities
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConj
 
 namespace CFSG
 end CFSG

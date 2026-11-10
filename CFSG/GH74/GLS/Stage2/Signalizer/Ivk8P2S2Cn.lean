@@ -1,16 +1,10 @@
 module
 
-public import CFSG.GH74.Defs
-public import CFSG.GH74.GLS.Classes
 public import CFSG.GroupTheory.ABGLocalTools.PStabilityQDickson
-public import CFSG.GH74.GLS.Stage2.Local.Closed
 public import CFSG.GH74.GLS.Stage2.Local.Prop28Basic
 public import CFSG.GH74.GLS.Stage2.Local.Prop28Layer
 public import CFSG.GH74.GLS.Stage2.Final.L26.G2Lift
 public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87SubSec31TwoAux
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHeldSmallCorePrimeCore
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Blocks.Defs
 public import CFSG.GH74.GLS.Defs
 public import CFSG.GH74.GLS.Stage2.Final.Thm4.Core
@@ -34,8 +28,6 @@ public import CFSG.LocalAnalysis.SectionRank.Ccomm.Critical
 public import CFSG.LocalAnalysis.SectionRank.CentralLift
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.Nilpotent
 
 public section

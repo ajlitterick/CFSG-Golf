@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJSuDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 public import CFSG.LocalAnalysis.StandardType.GGTBRowUFrameAux
 
 public section

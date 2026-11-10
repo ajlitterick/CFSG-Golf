@@ -1,14 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIField
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIUnitaryFour
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1Transport
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIISpBlock
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIFixedUnitaryBlock
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIUnitaryOrthBlock
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIUnitaryRecognition
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIINativeLinear
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIINativeSp
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIPSpField
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIE6
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIE8Prime
@@ -18,11 +9,8 @@ public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIE8SevenE6
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIE7LabelEnd
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIITwE6Label
 public import Certificates.Certificate14972
-public import Certificates.Certificate13657
-import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIINativeMinus
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIINativeOrthogonalPlus
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCMAssembly
-import CFSG.LocalAnalysis.StandardType.GGSixRCKC1Helpers
 import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIF4
 import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIITwE6
 import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIE7

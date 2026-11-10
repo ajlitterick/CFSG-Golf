@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.EvenSporSuz.Outer25030
 public import Certificates.Kernel.EvenSporSuz.Fours25010F
 public import CFSG.Certificates.Kernel.EvenSporSuz.OuterBlkSound
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

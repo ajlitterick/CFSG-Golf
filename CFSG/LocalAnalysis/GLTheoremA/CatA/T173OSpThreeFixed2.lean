@@ -2,7 +2,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OSpThreeUnitary2
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OSpThreeLayer
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OSpThreeRank
-public import CFSG.RankThree.PartOne.KC.SymplecticInnerPlaneAlt6
 public import CFSG.LieType.Multipliers.U62Sylow
 public import CFSG.LocalAnalysis.AGLEmbedding.ThreeCentLieTwoBasic
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.YS1011LabUniq

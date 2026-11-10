@@ -1,10 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNTPlaneInput
-public import CFSG.RankThree.Chevalley.SteinbergBID4Restrict
-public import CFSG.RankThree.PartOne.KE.D4TranspositionInterface
-public import CFSG.HardMathSupport.Lang.D4Three.NormalForm
-public import CFSG.LocalAnalysis.StandardType.GGCentD4HomExt
 public import CFSG.LocalAnalysis.StandardType.GGCentD4ThetaGraphAux
 
 public section

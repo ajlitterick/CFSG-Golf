@@ -6,7 +6,6 @@ import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.InvolutionCore
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Lemma312
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.RankOne
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.StrongEmbeddingOddCore
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConj
 
 namespace CFSG
 end CFSG

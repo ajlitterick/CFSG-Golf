@@ -1,8 +1,6 @@
 module
 
 public import Certificates.Kernel.SporSch.GenPerms
-public import Certificates.Kernel.Sporadic.RawGen
-public import CFSG.Sporadic.Schreier.RuWitArrays
 public import CFSG.Sporadic.Schreier.RuCheckInvInputs
 meta import CFSG.Sporadic.Schreier.RuWitArrays
 meta import CFSG.Sporadic.Schreier.RuCheckInvInputs

@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.FF81.PropOne.Setup
 public import CFSG.LocalAnalysis.StandardType.FF81.PropOne.IsoTau
 public import CFSG.LocalAnalysis.StandardType.FF81.PropOne.LMonomial
-public import CFSG.LocalAnalysis.StandardType.FF81.PropOne.B1NCore
 public import CFSG.LocalAnalysis.StandardType.FF81.PropOne.B1NIrr
 public import CFSG.LocalAnalysis.StandardType.FF81.PropOne.B1NEigen
 public import CFSG.LocalAnalysis.StandardType.FF81.PropOne.B1NDecomp
@@ -14,10 +12,6 @@ public import CFSG.RankThree.PartTwo.Sec21.CarterFF81aCBY
 public import CFSG.RankThree.PartTwo.Sec21.CarterFF81aYAbelian
 public import CFSG.RankThree.PartTwo.Sec21.CarterFF81aYneBot
 public import CFSG.RankThree.PartTwo.Sec21.RudvalisFF81aCenYTau
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ElementaryAbelian
-public import CFSG.Dihedral.BrauerSuzuki.Helpers
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Wreathed.BrauerWongSylowCentralizer
 public import CFSG.CharacterTheory.Wreathed.OddKernelSylowQuotient
 public import CFSG.CharacterTheory.Wreathed.WreathCentralSquare
@@ -32,18 +26,6 @@ public import CFSG.RankThree.PartTwo.Sec21.CarterFF81aCenEqNor
 public import CFSG.RankThree.PartTwo.Sec21.CarterFF81aY1Fix
 public import CFSG.RankThree.PartTwo.Sec21.CarterFF81aZStarFull
 public import CFSG.RankThree.PartTwo.Sec21.FF81KFacts
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldPrimeOrderFixedSubfield
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OrderThreeNormalizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2PSLRangeCentralizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinInvolutionCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinRestrictionSixCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinUDecomposition
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationEleven
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTen
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTenStructuralIdentities
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2FieldProjectionArithmetic
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2OrderPSubgroupCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphReconstruction
 
 @[expose] public section
 

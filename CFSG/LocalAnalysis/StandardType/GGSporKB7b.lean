@@ -4,10 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSporKB7bCover
 public import CFSG.LocalAnalysis.StandardType.GGSporKB7bStd
 public import CFSG.LocalAnalysis.StandardType.GGSporKBMTransportA
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.BSevenLocal
-public import CFSG.Sporadic.Bridge.BBound
-public import CFSG.Monster.GMS.BabyTwoAAutBridge
-public import CFSG.Monster.B.TwoA.Amalgam.DerivedCoverMain
-public import CFSG.Monster.Existence.MilestoneInputs
 
 public section
 

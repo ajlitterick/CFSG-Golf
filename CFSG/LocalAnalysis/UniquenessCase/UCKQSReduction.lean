@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UCKQSDispatch
-public import CFSG.LocalAnalysis.UniquenessCase.UCKInputs3
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.WeakClosureFinal
-import CFSG.Foundations.KCoreOpen
 public import CFSG.Certificates.LiftedSchreierData
 public import CFSG.HardMathSupport.Timmesfeld.Tables.Census.SporadicHolds
 public import CFSG.LieType.Chevalley.EvenDiagramRootParameters

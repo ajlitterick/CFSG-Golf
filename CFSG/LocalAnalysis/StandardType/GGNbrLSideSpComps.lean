@@ -1,8 +1,6 @@
 module
 
-public import CFSG.Assembly.GL83LieDefs
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.SympInnerExport
-import CFSG.HardMathSupport.Solomon.Coordinator.LayerCentralFix
 public import CFSG.Fischer.Uniq.CompTau
 public import CFSG.Monster.Existence.Defs
 public import CFSG.Open.MonsterY443Defs

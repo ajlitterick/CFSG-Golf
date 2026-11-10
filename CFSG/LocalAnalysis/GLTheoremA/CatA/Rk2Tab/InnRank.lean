@@ -1,17 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.InndiagInner
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.InndiagLinear
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.InndiagExc
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Basic
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeBstar
 public import CFSG.LocalAnalysis.StandardType.GGSmallKGInputsTwE6
 public import CFSG.RankThree.PartOne.F106.OddRadTools
 public import CFSG.LocalAnalysis.StandardType.GGLayerCenterCyclicExcTw
-public import CFSG.LocalAnalysis.StandardType.GGLayerCenterCyclicExcSz
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestG2
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestTwF4
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaOutdiag
 public import CFSG.RankThree.PartOne.N143.Weyl613Defs
 public import CFSG.RankThree.PartOne.N143X.KF64WSimple
 

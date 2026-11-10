@@ -1,14 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinPrimed
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosPrimed
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveJNormOfFrame
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveJReflOfCore
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNbrGenKNOfInputs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrGuardOfEnnola
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrEnnola
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalanceSchreier
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueRelativeBMinimal
 
 public section
 

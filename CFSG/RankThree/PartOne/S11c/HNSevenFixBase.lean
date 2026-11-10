@@ -4,10 +4,6 @@ module
 public import CFSG.RankThree.PartOne.S11c.HNCoverAbstract
 public import CFSG.RankThree.PartOne.S11c.HNSevenInputs
 public import CFSG.Sporadic.HNOddCore.InvRow2
-public import CFSG.Sporadic.HNSchreier.Order
-public import CFSG.Sporadic.HNOddCore.XCheckInputs
-public import CFSG.Sporadic.HNOddCore.NatCheckInputs
-public import Mathlib.GroupTheory.Perm.Centralizer
 public import CFSG.RankThree.Classical.SteinbergBJUnitaryThreeInvolutions
 
 @[expose] public noncomputable section

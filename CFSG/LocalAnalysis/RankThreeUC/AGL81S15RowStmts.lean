@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15Vocab
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15Ctx2
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15LiftDefs
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RankTable
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RankLists
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsPair
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15Oracles
 

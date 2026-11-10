@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoOmegaWeylAux3
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoModelAux
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoOmegaRootRefl
 
 public section

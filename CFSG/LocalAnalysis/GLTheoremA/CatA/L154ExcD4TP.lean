@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154ExcD4TPOuter
 import CFSG.LocalAnalysis.StandardType.GGLayerNotExcThreeAtTwoKac
 import CFSG.LocalAnalysis.StandardType.GGLayerNotExcThreeAtTwoE6D4
 import CFSG.LocalAnalysis.StandardType.GGLangSmallLat
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerSmallPerfect
 
 public section
 

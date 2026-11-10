@@ -3,7 +3,6 @@ module
 public import Certificates.Data.Kernel.SuzDc2.Defs
 public import Certificates.Data.Kernel.SporLatDc2Check
 public import Certificates.Kernel.LocalComp.BlockGen
-import CFSG.Certificates.Kernel.Common.Harness
 
 public noncomputable section
 

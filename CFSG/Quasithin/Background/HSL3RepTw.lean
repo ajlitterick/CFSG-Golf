@@ -4,7 +4,6 @@ public import CFSG.Quasithin.Background.HSL3Rep
 public import CFSG.Quasithin.Background.HSL3S77Fix
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L238BridgeAlt57SL
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.ElementaryAbelianAction
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.SubrepresentationLattice
 
 public section
 

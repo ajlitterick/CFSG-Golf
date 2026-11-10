@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortDefs
-import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyDichotomy
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PPrimeCore
 
 public section
 

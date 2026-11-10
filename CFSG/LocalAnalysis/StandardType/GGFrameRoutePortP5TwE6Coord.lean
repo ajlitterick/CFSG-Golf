@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP10E6Real
-import CFSG.Mathlib.RingTheory.UnitOrderOf
 import CFSG.LocalAnalysis.StandardType.GGTwE6EndNodeThreeTorus
 
 public section

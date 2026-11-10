@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcSixETwisted
 public import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotHR4
-public import CFSG.LieType.Chevalley.GraphFixedF4Canonical
-public import CFSG.LieType.Chevalley.E6SecondGraphFixedSubgroup
-public import CFSG.LieType.Chevalley.GraphFixedCenterTrivial
-public import CFSG.LieType.Chevalley.E6GraphFullDiagonalCoset
 public import CFSG.GroupTheory.ElemAbelianClosure
 
 public section

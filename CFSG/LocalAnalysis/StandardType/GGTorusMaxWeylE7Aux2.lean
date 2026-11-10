@@ -21,7 +21,6 @@ public import CFSG.RankThree.Lattice.SteinbergBIOrbitQuotFull
 public import CFSG.RankThree.PartOne.KE.Basic
 public import CFSG.RankThree.PartOne.KE.NativeCyclicMain
 public import CFSG.RankThree.PartOne.S8.Statements
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 
 public section
 

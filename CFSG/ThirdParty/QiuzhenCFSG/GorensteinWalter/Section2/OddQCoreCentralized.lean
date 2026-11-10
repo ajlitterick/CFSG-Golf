@@ -3,16 +3,12 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.KleinFourNormalizerConjugator
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.DGroupInvariantClosurePCommutator
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.QCoreConjugate
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.MinimalInvariantInvolutionCommutator
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.MinimalInvariantNormalizerCentralizer
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.KleinFourCentralizerWitness
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma23ControlCore
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma24
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma25
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.NormalizerEqOfNontrivialNormalInCoatom
 import all CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GWLemma21Trichotomy
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma21
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

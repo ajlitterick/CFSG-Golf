@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDTablePDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDTablePTorus
 public import CFSG.LocalAnalysis.StandardType.GGTPNThmRACore
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 public import CFSG.LocalAnalysis.StandardType.GGALocalRank
-public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitaryDvdFrame
 
 public section
 

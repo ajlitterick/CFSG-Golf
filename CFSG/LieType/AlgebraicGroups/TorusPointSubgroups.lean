@@ -2,14 +2,10 @@ module
 
 public import CFSG.LieType.AlgebraicGroups.IdentityComponentTangent
 public import CFSG.LieType.AlgebraicGroups.SplitTorusTwoTorsion
-public import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 public import CFSG.LieType.AlgebraicGroups.CoordinateConjugation
 public import CFSG.LieType.AlgebraicGroups.ClosedIdentityComponentFunctorial
 public import CFSG.LieType.AlgebraicGroups.DiagonalSubgroupTorus
 public import CFSG.LieType.AlgebraicGroups.ZariskiClosureFrobenius
-import TauCeti.Algebra.AlgebraicGroup.Torus.AlgebraicallyClosed
-import TauCeti.Algebra.AlgebraicGroup.SplitTorus.Basic
-import TauCeti.Algebra.AlgebraicGroup.Hopf.Map
 
 public noncomputable section
 namespace CFSG.LieType.AlgebraicGroups

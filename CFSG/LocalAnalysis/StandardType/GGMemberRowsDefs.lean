@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanPrimDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
 
 public section
 

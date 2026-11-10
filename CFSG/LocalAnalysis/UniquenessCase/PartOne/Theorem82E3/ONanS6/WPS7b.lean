@@ -1,20 +1,12 @@
 module
 
 public import CFSG.GroupTheory.Frattini.PSubgroupLift
-public import CFSG.GroupTheory.QuasisimpleOddCenterQuotient
-public import CFSG.LocalAnalysis.AGLEmbedding.AThreePLiftAux
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactWiring3Kf1
 public import CFSG.LocalAnalysis.RankThreeTheoremC.SmallRankE3.P622KDEvenHolds
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight72Sz
-public import CFSG.Quasithin.Background.C2PushQuot
 public import CFSG.Quasithin.Background.FFC12E
-public import CFSG.Quasithin.EmptyFaithful.SBc2SzCore
 public import CFSG.RankThree.GroupTheory.SteinbergBKComponentOrbitLocalRank
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanK8K9
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPS
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPS2b
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPS7a
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WS6
 public import CFSG.LocalAnalysis.GL83PartI.I_7_13
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.Extremal
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.L6LeavesKDQuot

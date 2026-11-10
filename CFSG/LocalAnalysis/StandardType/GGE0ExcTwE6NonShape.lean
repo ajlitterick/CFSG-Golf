@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGE0ModelFrameOn
-public import CFSG.LocalAnalysis.StandardType.GGE0ExcNoSuzukiReeAt
-public import CFSG.LocalAnalysis.StandardType.GGSteinbergCorrection
 public import CFSG.LocalAnalysis.StandardType.GGE0TwE6Core
 public import CFSG.LocalAnalysis.StandardType.GGOuterInvAtTwistedE6
 

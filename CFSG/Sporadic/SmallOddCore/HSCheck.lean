@@ -1,10 +1,7 @@
 module
 
-public import CFSG.Sporadic.SmallOddCore.HSData
-public import CFSG.Sporadic.Schreier.PairHSCheck
 public meta import CFSG.Sporadic.SmallOddCore.HSData
 public meta import CFSG.Sporadic.Schreier.PairHSCheck
-public import CFSG.Sporadic.SmallOddCore.HSCheckInputs
 public import Certificates.Certificate2272
 
 public section

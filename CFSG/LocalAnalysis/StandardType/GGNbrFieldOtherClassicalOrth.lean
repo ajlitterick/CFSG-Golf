@@ -1,13 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOrthNsLabels
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixD4
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownTwOmega
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixNsKnownOmegaPlus
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixNsWrap
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylIrredLabels
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestTailFinal
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestTailHolds
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeNbrKnownLemmas
 
 public section

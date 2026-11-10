@@ -1,11 +1,6 @@
 module
 
-public import Mathlib
-public import CFSG.GH74.KGroups.Generic
-public import CFSG.GH74.KGroups.PermCheck
-public import CFSG.GH74.KGroups.Checks
 public meta import CFSG.GH74.KGroups.Checks
-public import CFSG.GH74.KGroups.A7Inputs
 public meta import CFSG.GH74.KGroups.A7Inputs
 public import Certificates.Certificate5109
 

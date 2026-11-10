@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.A10Lemma43GConcA
 import all CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.GroupA10Perm
-public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.A10Lemma43GConcDefs
 import all CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.A10Lemma43GConcDefs
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.GroupA10Cent
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.GroupA10Swap

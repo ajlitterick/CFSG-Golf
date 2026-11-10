@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieParabolicCharOn
 public import CFSG.Adapters.TauCetiExceptional.B1Exceptional
-public import CFSG.Adapters.TauCetiExceptional.TwistedTransfer
-public import CFSG.LieType.Chevalley.AdjointCenter
 public import CFSG.LieType.Chevalley.RootWeightFiltrationData
 
 public section

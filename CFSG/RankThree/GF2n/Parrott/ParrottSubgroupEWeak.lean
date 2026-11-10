@@ -1,12 +1,7 @@
 module
 
 public import CFSG.RankThree.GF2n.Parrott.Section4Lemma34HypA
-public import CFSG.RankThree.GF2n.Parrott.ActionQAIdentificationOutsideEquality
-public import CFSG.RankThree.GF2n.Parrott.Section4FixDimBridge
-public import CFSG.RankThree.GF2n.Parrott.SpinFixedCardUT
-public import CFSG.RankThree.GF2n.Parrott.QA45ElementaryAbelian
 
-import CFSG.RankThree.GF2n.Parrott.CaseIIDouble
 
 public section
 

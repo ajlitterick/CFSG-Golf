@@ -4,17 +4,8 @@ public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsPair
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.GN.ChevThree
 import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.OrdinaryProofs.GNQuotient
 public import CFSG.Certificates.Kernel.LocalCompTits.Span
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeThree
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
-public import CFSG.Quasithin.Background.B4ModelsAction
-public import CFSG.Quasithin.Background.B4ModelsIso
-public import CFSG.Quasithin.Background.C2Inputs
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremB.Defs
-public import CFSG.Open.StatedDefs
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
 public import CFSG.Open.GLBDefs
 

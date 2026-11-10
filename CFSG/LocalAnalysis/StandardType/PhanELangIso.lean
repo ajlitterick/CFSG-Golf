@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.PhanEFixedTorus
-public import CFSG.LocalAnalysis.StandardType.PhanELangAdjust
 public import CFSG.LocalAnalysis.StandardType.PhanEStdPanel
 public import CFSG.LocalAnalysis.StandardType.PhanEDMPanel
 

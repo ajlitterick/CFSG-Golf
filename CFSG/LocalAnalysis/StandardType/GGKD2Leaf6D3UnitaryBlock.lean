@@ -1,11 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGKD2Leaf6D3Contracts
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitarySixThreeFieldAlg
 public import CFSG.LocalAnalysis.StandardType.GGKD2Leaf6D3LinearCentralizer
 public import CFSG.LocalAnalysis.StandardType.GGHermTools
-public import CFSG.RankThree.PartOne.KC.UnitaryOrthonormalEigenbasis
-public import CFSG.LocalAnalysis.ComponentInitial.UnitaryTransvectionGeneration
 public import CFSG.LocalAnalysis.StandardType.GGKD2Leaf6D3CubicBlock
 
 public section

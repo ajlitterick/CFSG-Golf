@@ -1,12 +1,8 @@
 module
 
-public import CFSG.LieType.SpecialLinear.CurtisDatum.NegExcept
 public import CFSG.LieType.SpecialLinear.CurtisDatum.Torus
-public import CFSG.LieType.SpecialLinear.CurtisDatum.RankOne
-public import CFSG.LieType.SpecialLinear.CurtisDatum.Unipotent
 public import CFSG.LieType.SpecialLinear.CurtisDatum.Cover
 public import CFSG.LieType.SpecialLinear.CurtisDatum.Hecke
-public import CFSG.Quasithin.Background.SmithCurtisDatum
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.CurtisTw.CoverType
 
 public section

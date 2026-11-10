@@ -1,7 +1,5 @@
 module
 
-public import CFSG.Quasithin.Recognition.Stroth.Weiss80Route
-public import CFSG.Quasithin.Recognition.Stroth.MoufangApartment
 public import CFSG.Quasithin.Recognition.Stroth.MoufangTitsAxioms
 public import CFSG.Quasithin.Recognition.Stroth.MoufangLittleNormal
 

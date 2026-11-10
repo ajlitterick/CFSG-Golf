@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GH74.GLS.Stage2.Signalizer.Ivk8P4S55BTFinCk
-public import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
 public import CFSG.Sporadic.Schreier.MathieuOddCoreModel
 public import CFSG.Sporadic.Schreier.MathieuOddCoreWords
 public import CFSG.Sporadic.Schreier.Outer

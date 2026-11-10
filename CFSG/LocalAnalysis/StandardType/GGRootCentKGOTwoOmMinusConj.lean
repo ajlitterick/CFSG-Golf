@@ -1,14 +1,9 @@
 module
 
-public import CFSG.LieType.Universal.Spin.Twisted.Frame
 public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsOmHyp
-import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsOmMinus
 import CFSG.LocalAnalysis.StandardType.GGRootPlaneOmSpin
 import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalAS76aProofOrthOmega
-import CFSG.LieType.Universal.SpinOmega.Range
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGOTwoOmCent
-import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotAnisoEightBasic
-import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotMinusTenBasic
 import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalAS76aProofTypeAC
 import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalConj
 import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalSplit

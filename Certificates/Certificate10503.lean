@@ -4,7 +4,6 @@ public import Certificates.Data.Kernel.Co2Dc2.Defs
 public import Certificates.Data.Kernel.SporLatDc2Check
 public import CFSG.Sporadic.Co2InvCheckInputs
 import Certificates.Kernel.Co2Dc2.Final
-import Certificates.Kernel.Sporadic.Co2Inv.Gens
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

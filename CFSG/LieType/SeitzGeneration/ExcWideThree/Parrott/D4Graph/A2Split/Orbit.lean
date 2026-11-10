@@ -2,8 +2,6 @@ module
 
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.G2Pair
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.A2Split.Defs
-public import CFSG.LieType.Chevalley.E6GraphInvertedRootRotation
-public import CFSG.LieType.Chevalley.LangRootRankOne
 
 public section
 

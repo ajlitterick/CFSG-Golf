@@ -2,13 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265ASp68Grp
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265Fam
-public import CFSG.Open.StatedDefs
-import CFSG.GroupTheory.ElemAbelianClosure
-import CFSG.GroupTheory.PLayer.CenterQuotientAction
 import CFSG.LieType.SeitzGeneration.OuterSpData
-import CFSG.LocalAnalysis.GLTheoremA.Basic
-import CFSG.RankThree.Classical.SteinbergR3EHigherSymplecticOuterOrder
-import CFSG.RankThree.SteinbergR3ECASymplecticPrimeSubfield
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265Cfg
 
 public section

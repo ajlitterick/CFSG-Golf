@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGWitOrthClassR53Aux3
 public import CFSG.LocalAnalysis.StandardType.GGWitOrthClassR53Data
-import CFSG.LocalAnalysis.StandardType.GGWitOrthCoord
 import CFSG.LocalAnalysis.StandardType.GGWitOrthTypeA
 
 public section

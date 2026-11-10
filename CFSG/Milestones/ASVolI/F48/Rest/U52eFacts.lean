@@ -2,7 +2,6 @@ module
 
 public import CFSG.Milestones.ASVolI.F48.Rest.U52Lie
 public import Certificates.Certificate7773
-public import CFSG.Milestones.ASVolI.F48.Rest.U52eInputs
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearFieldDeterminant
 public import CFSG.Milestones.ASVolI.F48.Rest.EngQE
 

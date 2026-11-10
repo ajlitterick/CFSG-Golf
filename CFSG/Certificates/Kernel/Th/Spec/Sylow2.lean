@@ -4,12 +4,8 @@ module
 public import CFSG.Certificates.Kernel.Th.Spec.Sylow2Base
 import all CFSG.Certificates.Kernel.Th.Spec.Sylow2Base
 
-public import CFSG.Certificates.Kernel.Th.Gen.Sylow2
-public import CFSG.Blueprint.NativeSporadic
 import CFSG.Certificates.Kernel.Th.Spec.SylowOrbit
 import CFSG.Certificates.Kernel.Th.Spec.FwdSlp
-import CFSG.Certificates.Kernel.Th.Spec.Big
-import CFSG.Certificates.Kernel.Th.Spec.DceMat
 import CFSG.Certificates.Kernel.Th.Max3S.Basic
 import CFSG.Certificates.Kernel.J4Hub.FlagSound
 import CFSG.Sporadic.Th.Max3.AllConjBase1

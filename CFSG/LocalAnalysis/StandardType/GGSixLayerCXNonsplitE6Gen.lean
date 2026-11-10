@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitF4Basic
-public import CFSG.LocalAnalysis.ComponentInitial.LocalComponents
-public import CFSG.GroupTheory.LocalCores.Components
 
 public section
 

@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGWeylCasePrime
 public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLTypeA
 public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLLabel
-import TauCeti.LinearAlgebra.RootSystem.FiniteType.Classical
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10ModelInv
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10ElemAbList
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10FrameInv
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10S109KLPInputs

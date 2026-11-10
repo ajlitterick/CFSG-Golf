@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRG
-public import CFSG.LocalAnalysis.StandardType.GGSixLSixSevenA3TypeDet
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2PSUPos
-public import CFSG.ClassicalInvolution.Models.SymplecticPairs.RootSp2
 public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsSU
-public import CFSG.Adapters.LinearFieldTransport
 
 public section
 

@@ -7,8 +7,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTWUpClose
 public import CFSG.LocalAnalysis.StandardType.GGTWLowOf
 public import CFSG.LocalAnalysis.StandardType.GGTWLowLeaf
 public import CFSG.LocalAnalysis.StandardType.GGTWVCfgFrom
-public import CFSG.LocalAnalysis.StandardType.GGTWSurvOne
-public import CFSG.LocalAnalysis.StandardType.GGTWSurvTwo
 public import CFSG.LocalAnalysis.StandardType.GGTWLowWeyl
 public import CFSG.LocalAnalysis.StandardType.GGTWDCells77
 public import CFSG.LocalAnalysis.StandardType.GGTWDCells510

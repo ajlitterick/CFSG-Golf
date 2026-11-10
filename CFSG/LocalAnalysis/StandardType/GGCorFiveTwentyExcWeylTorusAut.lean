@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcWeylGenRefl
 public import CFSG.LocalAnalysis.StandardType.GGNoTransvectionAutForm
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderExcWeyl
 
 public section
 

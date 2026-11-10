@@ -2,8 +2,6 @@ module
 
 public import CFSG.LargeExtraspecial.SMod20AutReal
 public import CFSG.LargeExtraspecial.SMod20AutCount
-import CFSG.Fischer.F4
-public import CFSG.Sporadic.Th.Max3.Data
 
 public section
 

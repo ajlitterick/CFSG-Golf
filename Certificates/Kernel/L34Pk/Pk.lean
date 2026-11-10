@@ -4,7 +4,6 @@ module
 public import Certificates.Kernel.L34Pk.Data
 public import CFSG.Certificates.Kernel.L34PkSound
 public import Certificates.Kernel.Sporadic.M22Syl.Facts
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

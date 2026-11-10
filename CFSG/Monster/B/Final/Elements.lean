@@ -2,7 +2,6 @@ module
 
 public import CFSG.Monster.B.Final.Basic
 public import CFSG.Monster.B.Max2.Facts
-public import CFSG.Monster.B.Cbar.SimpleBase
 
 public section
 

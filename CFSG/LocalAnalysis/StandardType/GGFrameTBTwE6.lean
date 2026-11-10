@@ -5,13 +5,10 @@ public import CFSG.LocalAnalysis.StandardType.GGFrameWholeFacts
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelHoldsBoth
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelData
 import CFSG.LocalAnalysis.StandardType.GGFrameTBExcMat
-import CFSG.LocalAnalysis.StandardType.GGNbrTableBE6Three
-import CFSG.LocalAnalysis.StandardType.GGTBRowE6Equiv
 import CFSG.LocalAnalysis.StandardType.GGDepED4Weyl
 import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelHeart
 import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelTv
 import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeSplitE6ThreeAux
-import CFSG.LocalAnalysis.StandardType.GGTableBTwE6Delta
 
 public section
 

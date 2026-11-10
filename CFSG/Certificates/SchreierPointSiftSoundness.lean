@@ -2,7 +2,6 @@ module
 
 public import CFSG.Certificates.SchreierChainOrder
 public import CFSG.Certificates.SchreierPointSift
-public import Mathlib.GroupTheory.Schreier
 
 public section
 

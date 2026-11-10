@@ -1,13 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoVACLinCell
 public import CFSG.LocalAnalysis.StandardType.GGQTwoVACLinFix
 public import CFSG.LocalAnalysis.StandardType.GGQTwoOriginalNormalizerLift
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLemma895
-public import CFSG.LocalAnalysis.StandardType.GGHalfFrameGF2
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixSevenA3SL8Model
-public import CFSG.LocalAnalysis.StandardType.GGHalfWeylTorusCoord
-public import CFSG.LocalAnalysis.StandardType.GGHalfBlockPerm
 public import CFSG.Mathlib.GroupTheory.ConjCentralizer
 public import CFSG.LocalAnalysis.StandardType.GGE0ShapeConjAux
 public import CFSG.GroupTheory.InvolutionPair

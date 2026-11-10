@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixAutKStarDefs
 public import CFSG.LocalAnalysis.StandardType.GGSummandStructBasic
-public import CFSG.LocalAnalysis.StandardType.GGInnerDiagBridgeInner
 
 public section
 

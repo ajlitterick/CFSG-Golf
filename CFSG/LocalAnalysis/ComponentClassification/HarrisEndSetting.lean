@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisEnd413Simple
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitLemma412c
-public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitFrontier46
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuotIso
-public import CFSG.LocalAnalysis.ComponentInitial.EmptyLayerCharTwo
-public import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
 public import CFSG.CharacterTheory.Semidihedral.InvolutionFusion
 public import CFSG.CharacterTheory.Semidihedral.Local.LocalNormalizerQuotients
 public import CFSG.GroupTheory.QuasiDihedralFusion.Basic
@@ -17,9 +13,6 @@ public import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerPreimages
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerRestrictionCompletion
 public import CFSG.LocalAnalysis.SignalizerFunctor
 public import CFSG.Open.GorensteinHaradaSectionalRankFourMilestoneDefs
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 
 public noncomputable section
 

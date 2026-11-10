@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGFamTypeAFrames
 public import CFSG.LocalAnalysis.StandardType.GGFamInnerCover
-public import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.InnExcSuNHom
-public import CFSG.LocalAnalysis.StandardType.GGFamTameRange
 
 public section
 

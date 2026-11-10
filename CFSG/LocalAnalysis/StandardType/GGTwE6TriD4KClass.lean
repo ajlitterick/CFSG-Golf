@@ -2,13 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6TwA2KCompLabel
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24D4T2Outer
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExc
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcKacCount
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompAlcove
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwCoreAssembly
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24Plane
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24Red
-public import CFSG.LieType.SeitzGeneration.SeitzStatus
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotCTFieldCenter
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotClassesRoots
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotMainSetup

@@ -4,7 +4,6 @@ public import CFSG.RankThree.PartOne.CTP.SeitzToral
 public import CFSG.RankThree.PartOne.CTP.SeitzTransfer
 public import CFSG.RankThree.PartOne.KC.LinearPlaneCore
 public import CFSG.LieType.Steinberg.CentralExt.LinearPerfect
-public import CFSG.Adapters.LinearCatalog
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.LieType.Steinberg.Classical.SpinFrame
 public import CFSG.LieType.Steinberg.Exceptional.E6E7

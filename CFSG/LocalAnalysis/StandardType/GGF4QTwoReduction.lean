@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGFrameRouteA4F4
 public import CFSG.LocalAnalysis.StandardType.GGSLTwoAutBound
 public import CFSG.LocalAnalysis.StandardType.GGF4QTwoHypA
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePresTags
-public import CFSG.LocalAnalysis.StandardType.GGSpJoinReflAlgebra
 public import CFSG.LocalAnalysis.StandardType.GGFrameRouteQTwo
 public import CFSG.RankThree.PartOne.K133H.F4Weyl
 import CFSG.LocalAnalysis.LargeEvenClassification.WeakCoreDeltaTransfer

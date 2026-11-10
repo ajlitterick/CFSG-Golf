@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangKGInputs
-public import CFSG.LocalAnalysis.StandardType.MarkingDict
 public import CFSG.HardMathSupport.Timmesfeld.Tables.Multiplier.Arith
 
 public section

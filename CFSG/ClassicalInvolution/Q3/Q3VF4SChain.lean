@@ -3,7 +3,6 @@ module
 public import CFSG.ClassicalInvolution.Q3.Q3VF4SAdapt
 public import CFSG.ClassicalInvolution.Q3.Q3VF4CClose
 public import CFSG.ClassicalInvolution.Q3.Q3TY8
-public import CFSG.ClassicalInvolution.Q3.Q3VChainModel
 public import CFSG.ClassicalInvolution.Q3.Q3TY5
 public import CFSG.LieType.Chevalley.E7SupportedBruhat
 

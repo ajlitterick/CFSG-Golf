@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LieType.Chevalley.OddTrialityAutomorphismNormalForm
 public import CFSG.RankThree.PartOne.KGD.D4T36Core
-public import CFSG.LocalAnalysis.ComponentClassification.FixedCommutingProduct
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
 
 set_option linter.unusedSectionVars false
 

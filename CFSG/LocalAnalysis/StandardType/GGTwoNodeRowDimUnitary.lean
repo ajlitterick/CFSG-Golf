@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeRowDimAction
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeBlock
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitDvdAct
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
 
 public section
 

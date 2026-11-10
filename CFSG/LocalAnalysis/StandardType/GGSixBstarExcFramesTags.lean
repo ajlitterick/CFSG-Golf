@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesSplit
 public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerAdj
 public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerE7
-public import CFSG.LocalAnalysis.SeitzReduction.E8PilotLevi
-public import CFSG.LocalAnalysis.SeitzReduction.E8PilotLeviHom
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBIrred
 
 public section

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelTSpec
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelLiftT
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarE6ThreeDiag
 

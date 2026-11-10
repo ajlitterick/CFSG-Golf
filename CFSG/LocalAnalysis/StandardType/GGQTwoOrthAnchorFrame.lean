@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermOmKFrameDefs
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 public import CFSG.LocalAnalysis.StandardType.GGSignedCoordBlocks
 import CFSG.LocalAnalysis.StandardType.GGSpJoinBstarSplit
 

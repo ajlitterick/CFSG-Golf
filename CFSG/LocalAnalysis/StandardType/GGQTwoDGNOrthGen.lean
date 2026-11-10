@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDGNOrthNorm
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDGNOrthBlock
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDGNOrthRefl
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDGNUnitGen

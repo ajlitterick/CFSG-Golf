@@ -1,6 +1,5 @@
 module
 
-public import CFSG.HardMathSupport.Cooperstein.Coordinator.FFSporadic.Co1DispCheck
 public meta import CFSG.Sporadic.Co1Block.TwoAData
 public meta import CFSG.Sporadic.Co1Block.IotaData
 public meta import CFSG.Sporadic.Co1Block.Iota

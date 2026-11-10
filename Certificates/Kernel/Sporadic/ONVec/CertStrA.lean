@@ -2,9 +2,7 @@ module
 
 public import Certificates.Kernel.Sporadic.ON.Final
 public import CFSG.Certificates.Kernel.Spor.ONVecSound
-public import CFSG.Certificates.Kernel.Spor.PWord
 public import CFSG.Certificates.Kernel.Spor.ChainKGen
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Spor.ONMvSound
 public import CFSG.Certificates.Kernel.Spor.ONSplitSound
 

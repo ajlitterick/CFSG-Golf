@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGA11Defs
 public import CFSG.LocalAnalysis.StandardType.GGA11Levi4
-public import CFSG.LocalAnalysis.StandardType.GGPropFiveTwentyOneTypeA
 public import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofCoxeter
 
 public section

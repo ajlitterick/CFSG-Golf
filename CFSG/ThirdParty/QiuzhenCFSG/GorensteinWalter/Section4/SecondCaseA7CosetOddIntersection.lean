@@ -6,7 +6,6 @@ import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PrimeThreeNormalizerInverted
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ASevenOddSubgroupOrderBound
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.InvertedElementsLeInfConjugate
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CosetInvolutionCount
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

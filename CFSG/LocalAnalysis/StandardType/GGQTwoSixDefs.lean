@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoBlockHubDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoSixPointSu
-public import CFSG.LocalAnalysis.StandardType.GGQTwoSixPointRels
 
 public section
 

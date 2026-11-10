@@ -4,7 +4,6 @@ public import CFSG.ClassicalInvolution.Q3.Q3VChainMain
 public import CFSG.ClassicalInvolution.Q3.Q3VCtMainFrame
 public import CFSG.ClassicalInvolution.Q3.Q3VRowClose
 public import CFSG.ClassicalInvolution.Q3.Q3VLiftMain
-public import CFSG.ClassicalInvolution.Q3.Q3VFrameMain
 public import CFSG.ClassicalInvolution.Q3.Q3WARow
 public import CFSG.ClassicalInvolution.Q3.Q3WMain
 

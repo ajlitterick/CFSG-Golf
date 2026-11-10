@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.ONPair.SL3PresData
-public import CFSG.Certificates.CosetTablePresented
 import Certificates.Kernel.PresLetters.F753504
 import CFSG.Certificates.Kernel.Misc.Coset.TableFact
 

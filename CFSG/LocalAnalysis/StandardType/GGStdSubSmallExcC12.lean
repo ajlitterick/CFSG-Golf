@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallExcC12Core
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallOrthBstar
-public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperRestExc
-public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperMoreE6
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLineE6
 
 public section
 

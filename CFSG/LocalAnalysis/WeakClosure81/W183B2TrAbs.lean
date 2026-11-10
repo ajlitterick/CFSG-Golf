@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.WeakClosure81.W183B2CoreK
 public import CFSG.LocalAnalysis.WeakClosure81.W183B2TrQ
 import CFSG.LocalAnalysis.WeakClosure81.W183K3Quasi
-import CFSG.LocalAnalysis.ComponentClassification.Quasisimple
 
 public section
 

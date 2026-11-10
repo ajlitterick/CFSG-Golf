@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.HN1408.ShVData
 public import Certificates.Kernel.HN1408.CayleyDefs
 public import Certificates.Kernel.HN1408.M11Lem
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.FixData
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

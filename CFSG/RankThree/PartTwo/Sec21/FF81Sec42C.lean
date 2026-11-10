@@ -1,6 +1,5 @@
 module
 
-public import CFSG.RankThree.PartTwo.Sec21.FF81Defs
 public import CFSG.RankThree.PartTwo.Sec21.FF81Sec42Q
 public import CFSG.RankThree.PartTwo.Sec21.FF81FS79KStmt
 import CFSG.RankThree.PartTwo.Sec21.FF81Sec42A
@@ -11,14 +10,11 @@ import CFSG.RankThree.PartTwo.Sec21.FF81Sec44
 import CFSG.RankThree.PartTwo.Sec21.FF81Sec32A
 import CFSG.RankThree.PartTwo.Sec21.FF81Sec32
 import CFSG.RankThree.PartTwo.Sec21.FF81Prop51
-import CFSG.RankThree.PartTwo.Sec21.FF81Prop33
 import CFSG.RankThree.PartTwo.Sec21.FF81HoltHyp4
 import CFSG.RankThree.PartTwo.Sec21.FF81J
 import CFSG.RankThree.PartTwo.Sec21.FF79Sec3AS1
 import CFSG.GroupTheory.ElemAbelianClosure
 public import CFSG.RankThree.PartTwo.Sec21.FF81P51
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Wreathed.BrauerWongSylowCentralizer
 public import CFSG.CharacterTheory.Wreathed.OddKernelSylowQuotient
 public import CFSG.CharacterTheory.Wreathed.WreathCentralSquare
@@ -43,7 +39,6 @@ public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.B4ModelsAction
 public import CFSG.Quasithin.Background.B4Statement
 public import CFSG.Quasithin.Background.B5Statement
@@ -51,24 +46,9 @@ public import CFSG.Quasithin.Background.F9Basic
 public import CFSG.Quasithin.Background.G2A5Setting
 public import CFSG.Quasithin.H13.Sp62D3
 public import CFSG.RankThree.PartTwo.Sec21.FF81FS79R34
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldPrimeOrderFixedSubfield
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OrderThreeNormalizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2PSLRangeCentralizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinInvolutionCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinRestrictionSixCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinUDecomposition
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationEleven
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTen
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTenStructuralIdentities
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2FieldProjectionArithmetic
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2OrderPSubgroupCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphReconstruction
 
 attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent
 

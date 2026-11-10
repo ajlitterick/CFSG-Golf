@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowY1ClsUniBound
 public import CFSG.RankThree.PartOne.LIT.RankMatrix
 public import CFSG.Open.StatedDefs
-public import CFSG.Open.MatrixModelCore
-public import CFSG.LocalAnalysis.SectionRank.PRank
-public import CFSG.Open.Defs
 
 public section
 

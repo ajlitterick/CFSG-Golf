@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Assembly.GL83LieDefs
 public import CFSG.LocalAnalysis.StandardType.GGL45NtExcAbs
 public import CFSG.RankThree.PartOne.TCX.Ree.Closure
 import CFSG.LocalAnalysis.StandardType.GGL45NtExcBridgeTwF4

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Step18SuzCenterTests
 public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourEnumSpec
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Defs
-import CFSG.Perm.OrbitTree
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 public import CFSG.LocalAnalysis.ComponentClassification.GeneralizedFitting
 public import CFSG.LocalAnalysis.ComponentClassification.LayerMultiplication

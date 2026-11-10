@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LieType.Chevalley.E6SignedGraphQuasisimpleData
-public import CFSG.LieType.TitsSimplicity.Simplicity
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBFixedCentralQuotientComponents
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBAlternatingSymmetric
 public import CFSG.LocalAnalysis.ComponentInitial.LocalComponents
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 public import CFSG.LocalAnalysis.ComponentClassification.LayerMultiplication
@@ -12,7 +10,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.OrdinaryComponentJoins
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
 public import CFSG.Monster.B.Geometry.CoxeterWords
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public noncomputable section
 

@@ -3,7 +3,6 @@ module
 public import Mathlib.GroupTheory.SpecificGroups.Dihedral
 public import Mathlib.GroupTheory.Sylow
 public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Projective
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2DihedralSylow
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2DihedralSylowParameter
 import CFSG.HardMathSupport.Solomon.Proving.PSL2CommutantAffine
 import CFSG.LocalAnalysis.ComponentClassification.HarrisLitDihedralAut

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieCorePlane3Pair
 public import CFSG.LocalAnalysis.StandardType.GGFamLabelAssembly
-public import CFSG.LocalAnalysis.StandardType.GGLieCoreSmallSetup
 public import CFSG.LocalAnalysis.StandardType.GGFamAssembly
 
 public section

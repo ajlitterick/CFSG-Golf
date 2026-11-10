@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLangRatStep
 public import CFSG.LocalAnalysis.StandardType.GGLangCoroot
-public import CFSG.LocalAnalysis.StandardType.GGLangModelIndex
 
 public section
 

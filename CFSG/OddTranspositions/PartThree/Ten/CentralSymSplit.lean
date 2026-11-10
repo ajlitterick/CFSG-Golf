@@ -2,10 +2,8 @@ module
 
 public import CFSG.Timmesfeld.Bridge.Asc72Defs
 public import CFSG.Permutation.SymmetricCoxeter
-public import Mathlib.GroupTheory.Perm.Cycle.Type
 import CFSG.CGT.PushingUpLit.BHSSym.Coxeter
 import CFSG.GroupTheory.SmallSymmetric
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
 
 public section
 

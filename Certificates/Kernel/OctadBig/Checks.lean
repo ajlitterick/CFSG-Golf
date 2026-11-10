@@ -3,7 +3,6 @@ module
 public import Certificates.Data.Kernel.OctadBig
 public import Certificates.Kernel.LocalQT.Syl.C4137
 public import CFSG.LocalAnalysis.EvenSporadicStandard.M24Std.PairData
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.LocalAnalysis.EvenSporadicStandard.M24Std.PairB0
 
 set_option maxRecDepth 100000

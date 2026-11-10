@@ -6,9 +6,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.UC6R
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Basic
 import CFSG.LocalAnalysis.UniquenessCase.UC6Syl
 import CFSG.Quasithin.Background.BlueprintB2Bridge
-import CFSG.Quasithin.Background.BlueprintB2Thompson
-import CFSG.GroupTheory.ThompsonAxB
-import CFSG.LocalAnalysis.SectionRank.PRank
 import CFSG.LocalAnalysis.RankThreeUC.TheoremDSolvableQuotient
 public import CFSG.LocalAnalysis.UniquenessCase.UC22Bridge
 

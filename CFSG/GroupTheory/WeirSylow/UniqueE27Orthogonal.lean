@@ -2,12 +2,9 @@ module
 
 public import CFSG.GroupTheory.UniqueElemSylow
 public import CFSG.LieType.Universal.Spin.Forms
-public import CFSG.Open.StatedDefs
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalGroup.Basic
-import CFSG.ClassicalGroups.Orthogonal.Matrix
 import CFSG.ClassicalGroups.Orthogonal.StatedOmegaOddOrder
 import CFSG.GroupTheory.UniqueElemSylowProj
-import CFSG.GroupTheory.WeirSylow.Orthogonal
 import CFSG.GroupTheory.WeirSylow.UniqueE27Symplectic
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFacts.WeakClosureHeis.CrossOmega
 import CFSG.LieType.Universal.SpinOmega.Range

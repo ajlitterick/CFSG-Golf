@@ -1,13 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Pieces
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Local
 public import CFSG.LocalAnalysis.StandardType.FS81.WeakClosureFusion
-public import CFSG.LocalAnalysis.StandardType.FS81.RowElemAbOrth
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
-public import CFSG.GroupTheory.WeirSylow.OrthogonalOrders
-public import CFSG.LieType.Universal.Spin.Forms
-public import CFSG.Open.StatedDefs
 
 public section
 

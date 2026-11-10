@@ -12,12 +12,9 @@ public import CFSG.LocalAnalysis.ABGTheoremB.IV9DGroupInputs
 public import CFSG.LocalAnalysis.ABGTheoremB.IV9KFacts
 public import CFSG.LocalAnalysis.ABGTheoremB.II61QBridge
 public import CFSG.LocalAnalysis.ABGTheoremB.TotallyInverted.OmnibusDConjugacyQD
-public import CFSG.LocalAnalysis.ABGTheoremB.TotallyInverted.DGroupCentralizerQD
 public import CFSG.LocalAnalysis.ABGTheoremB.TotallyInverted.InputsFourFusionQD
 public import CFSG.CharacterTheory.TwoRankLowerBound.NormalComplementCharacterSpace
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.QuotientGraph
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

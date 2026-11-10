@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestInvQV
 public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestInvAct
 
 public section

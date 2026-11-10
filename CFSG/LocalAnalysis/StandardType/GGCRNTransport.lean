@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBRank
-public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
 public import CFSG.LocalAnalysis.StandardType.GGTriD4NoneTwE6
 public import CFSG.LocalAnalysis.StandardType.GGR4JMeetKGDefs
 

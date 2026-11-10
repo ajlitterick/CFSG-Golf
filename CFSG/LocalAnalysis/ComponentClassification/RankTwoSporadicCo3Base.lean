@@ -3,54 +3,32 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicCo3CheckBase
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicConjWY
-public import CFSG.Sporadic.Schreier.Co3Order
-public import CFSG.Sporadic.Schreier.Co3Faithful
 public import CFSG.Sporadic.SmallOddCore.Co3Aut
 public import CFSG.Sporadic.Co3
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicCo3Tests
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicConjW
-public import Certificates.Data.CFSGNative.Mathieu.M12
-public import CFSG.Sporadic.Schreier.Co3Arrays
-public import CFSG.Sporadic.Schreier.Co3OrderCheckInputs
 public meta import CFSG.Sporadic.Schreier.Co3Cert
 public meta import Certificates.Data.CFSGNative.Schreier.Check
-public import CFSG.Sporadic.Schreier.Co3CentralizerCheckInputs
 public meta import CFSG.Sporadic.Schreier.Co3SylowCheck
 public meta import Certificates.Data.CFSGNative.Schreier.SetOrbit
-public import CFSG.Sporadic.Schreier.Co3FaithfulCheckInputs
 public meta import CFSG.Sporadic.Schreier.Co3FaithfulData
 public meta import Certificates.Data.CFSGNative.Co3.Data
-public import CFSG.Sporadic.Schreier.Co3FirstCheckInputs
 public meta import CFSG.Sporadic.Schreier.Co3CentralizerCheck
 public meta import CFSG.Sporadic.Schreier.Co3Sp6Check
-public import CFSG.Sporadic.Schreier.Co3GenerationCheckInputs
 public meta import CFSG.Sporadic.Schreier.Co3SecondCheck
 public meta import CFSG.Sporadic.Schreier.M12Data
 public meta import CFSG.Sporadic.Schreier.CountSpec
 public meta import Certificates.Data.CFSGNative.SporadicSchreier.Count
-public import CFSG.Sporadic.Schreier.Co3StabItInputs
 public meta import CFSG.Sporadic.Schreier.Co3StabItInputs
-public import CFSG.Sporadic.Schreier.Co3OrbitZCheckInputs
 public meta import Certificates.Data.CFSGNative.Co3Schreier.Orbit
-public import CFSG.Sporadic.Schreier.Co3SecondCheckInputs
 public meta import CFSG.Sporadic.Mathieu.M12
 public meta import CFSG.Monster.B.Mathieu.Order
-public import CFSG.Sporadic.Schreier.Co3SecondImageCheckInputs
 public meta import CFSG.Sporadic.Schreier.Co3GenerationCheck
-public import CFSG.Sporadic.Schreier.Co3Sp6CheckInputs
 public meta import CFSG.Sporadic.Schreier.Co3Outer
 public meta import Mathlib.Data.Matrix.Block
-public import CFSG.Sporadic.Schreier.Co3SylowCheckInputs
 public meta import CFSG.Sporadic.Schreier.Co3OrderCheck
-public import CFSG.Sporadic.Schreier.M12Data
-public import CFSG.Sporadic.Schreier.M12PinnedInputs
-public import CFSG.Sporadic.Schreier.MathieuSylowAutM12Inputs
-public import CFSG.Sporadic.Schreier.MathieuSylowAutM12Derivs
 public meta import CFSG.Sporadic.Schreier.MathieuSylowAutMain
 public meta import CFSG.Sporadic.Schreier.M12
 public meta import CFSG.Sporadic.Schreier.M12Pinned
 public meta import Certificates.Data.CFSGNative.SporadicSchreier.MathieuOddCore
-public import Certificates.Data.CFSGNative.Co3.Data
 public import CFSG.Certificates.Kernel.Spor.ONKSound
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
@@ -66,7 +44,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasSix
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalReflectionSplitting
 public import CFSG.Monster.Code.Weights
 public import CFSG.Sporadic.SmallOddCore.CentSpec
-public import CFSG.Sporadic.Th.F2Spec
 
 @[expose] public section
 

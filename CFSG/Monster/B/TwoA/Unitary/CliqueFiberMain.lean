@@ -2,7 +2,6 @@ module
 
 public import CFSG.Monster.B.TwoA.Unitary.CliqueFibers
 public import CFSG.Monster.B.TwoA.Unitary.CliqueMain
-public import Mathlib.Topology.Sheaves.Presheaf
 
 public section
 

@@ -3,9 +3,6 @@ module
 public import CFSG.ClassicalInvolution.ModelFacts.Orth15D4Center
 public import CFSG.ClassicalInvolution.ModelFacts.Orth15D4Ord
 public import CFSG.ClassicalInvolution.ModelFacts.Orth15TwinRows
-public import CFSG.ClassicalInvolution.ModelFacts.Orth15TwinStd
-public import CFSG.ClassicalInvolution.RouteD.ExoticTwinProofOrthBridge
-public import CFSG.ClassicalInvolution.ModelFacts.FundPerfectBridge
 public import CFSG.ClassicalInvolution.Asc77.AscE184Basic
 public import CFSG.ClassicalInvolution.Asc77.AscE184Sec
 public import CFSG.ClassicalInvolution.Asc77.AscE186QuotOdd

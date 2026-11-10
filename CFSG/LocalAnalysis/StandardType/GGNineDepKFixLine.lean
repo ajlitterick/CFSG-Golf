@@ -4,11 +4,8 @@ public import CFSG.LocalAnalysis.StandardType.GGTwoNodeNineDepTwoRestDefs
 public import CFSG.LocalAnalysis.StandardType.GGNineDepLin
 public import CFSG.LocalAnalysis.StandardType.GGNineDepEightNodes
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeFrameShared
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeKFixLineDefs
 public import CFSG.LocalAnalysis.StandardType.GGResCentBound
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepLarge
-public import CFSG.LocalAnalysis.StandardType.GGHLAutomizer
-public import CFSG.LocalAnalysis.StandardType.GGRowKFrame
 public import CFSG.LocalAnalysis.StandardType.GGSmallDepDefs
 
 public section

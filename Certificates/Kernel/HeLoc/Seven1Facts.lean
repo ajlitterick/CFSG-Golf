@@ -2,11 +2,8 @@ module
 
 public import Certificates.Kernel.HeLoc.Seven1K
 public import Certificates.Kernel.HeLoc.Seven0Facts
-public import CFSG.RankThree.PartOne.KS.HeSevenCheckDefs
-public import CFSG.RankThree.PartOne.KS.PKitSimple
 public import CFSG.Certificates.Kernel.HeLoc.GroupConjSound
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

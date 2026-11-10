@@ -1,6 +1,5 @@
 module
 
-public import CFSG.OddTranspositions.PartThree.Twelve.ElevenFiveLocal
 public import CFSG.OddTranspositions.PartThree.Twelve.ElevenFiveModel
 import CFSG.OddTranspositions.PartThree.CommSetConjCentralizer
 

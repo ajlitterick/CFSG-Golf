@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173ODefs
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OSpThreeLayer
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OSpThreeFixed
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OSpThreeUnitary
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OSpine

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.NormalizerAction.J4PrimeKernelData
 public meta import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.NormalizerAction.J4PrimeKernelData
 public import Certificates.Kernel.J4M2.C12603Checks
 public import Certificates.Kernel.SporSch.J4S.RealK

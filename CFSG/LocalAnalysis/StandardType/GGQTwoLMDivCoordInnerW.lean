@@ -1,6 +1,5 @@
 module
 
-import CFSG.LocalAnalysis.StandardType.GGQTwoLMMod
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordInnerLift
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMPrimeCBase
 

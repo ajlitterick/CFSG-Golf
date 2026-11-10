@@ -2,10 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.KGLangTorALinLift
 public import CFSG.LocalAnalysis.StandardType.GGFixSub
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearAction
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.CentralQuotient
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Export
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearFieldAction
 import CFSG.LocalAnalysis.ComponentClassification.BurgoynePSLField
 import CFSG.CGT.Timmesfeld75.L2Pair
 import CFSG.CGT.Timmesfeld75.ListWCBasic
@@ -74,25 +72,13 @@ import CFSG.LocalAnalysis.ComponentInitial.PerfectOuterInjection
 import CFSG.LocalAnalysis.GLTheoremB.Lemma911Defs
 import CFSG.LocalAnalysis.LargeEvenClassification.CyclicCongruenceCut
 import CFSG.LocalAnalysis.LargeEvenClassification.TopScalarLiftSquare
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Reduce
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Equivariance
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 import CFSG.Quasithin.Background.A3Structure319
-import CFSG.Quasithin.Background.A3Structure36Base
-import CFSG.Quasithin.Background.A3Structure38Part3
-import CFSG.Quasithin.Background.B1MoreElevenE
-import CFSG.Quasithin.Background.B1MoreNineG
-import CFSG.Quasithin.Background.B4ModelsAction
-import CFSG.Quasithin.Background.B4ModelsIso
-import CFSG.Quasithin.Background.E3Cent
 import CFSG.Quasithin.Background.F9FiveStruct
 import CFSG.Quasithin.Background.F9G2
 import CFSG.Quasithin.Background.F9Geometry
 import CFSG.Quasithin.Background.GoldschmidtRankOneFacts
 import CFSG.Quasithin.EmptyFaithful.GoldschmidtF112ListC
-import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 import CFSG.Quasithin.EmptyFaithful.S1421Defs
 import CFSG.Quasithin.EmptyFaithful.S142Statements
 import CFSG.Quasithin.H13.A5S1326
@@ -102,15 +88,9 @@ import CFSG.Quasithin.Vol2.Ch11SecAFacts02
 import CFSG.Quasithin.Vol2.Ch11SecAFacts03
 import CFSG.Quasithin.Vol2.Ch11StatementsB
 import CFSG.Quasithin.Vol2.Ch11StatementsC
-import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremB
-import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremC
-import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.ZJTheorem
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GW1965RemarkDGroup
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29Helpers
 import Certificates.Kernel.J4Count.FixCE
 import Certificates.Kernel.J4Count.FixCPairBase1
-import Certificates.Kernel.J4Count.KFactsBase
 import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalGroup.LowRank

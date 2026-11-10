@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKU33Transport
-public import CFSG.LocalAnalysis.StandardType.Marking
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.MILabel
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.MIBase
 public import CFSG.LocalAnalysis.StandardType.GGStructSOnePrimeCent
 public import CFSG.LocalAnalysis.StandardType.GGSixAutKFlatIVQuot
 public import CFSG.HardMathSupport.Curtis.Coordinator.SeitzTower.Rest
@@ -13,7 +11,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.HG2InnMain
 public import CFSG.LocalAnalysis.RankThreeTheoremC.RelativePairInputs
 public import CFSG.RankThree.PartOne.KF.F128Count
 public import CFSG.RankThree.PartOne.S11b.OuterPrimeTwoSporadicOpen
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.I142TInd
 public import CFSG.LocalAnalysis.StandardType.GGStructSOneHolds
 
 public section

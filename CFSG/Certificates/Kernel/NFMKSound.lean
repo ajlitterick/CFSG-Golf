@@ -3,9 +3,6 @@ module
 public import Certificates.Data.Kernel.NFMK
 public import CFSG.Certificates.Kernel.HSMKSound
 public import CFSG.Certificates.Kernel.PCentCheck
-public import Mathlib.GroupTheory.Nilpotent
-public import Mathlib.GroupTheory.PGroup
-public import Mathlib.LinearAlgebra.Matrix.Notation
 import all CFSG.Certificates.Kernel.WEMKSound
 public import CFSG.Certificates.Kernel.Spor.PK.Perm.Inv
 

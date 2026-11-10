@@ -2,23 +2,12 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompIdxExc2
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import CFSG.LocalAnalysis.StandardType.GGReverseMarkingRaw
-public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcE8Rank1
-public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcA2Generic
 public import CFSG.ClassicalInvolution.Q3.Q3TWWMinus
-public import CFSG.HardMathSupport.Dickson.Sec6.I1431Lie
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Certs
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CompsPD4Rank4
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CompsPD4Rank4All
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TriD4
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TwE6
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.D4Graph.Transfer
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeDiag
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.CentralizerTrivialPoly
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.OuterField
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.PlanesSetup
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.RigidField
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.RigidNorm
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotMainGraphOmegaPlusIota
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotMainGraphUnitaryNormal
 public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotQ2RowNeighbour
@@ -40,15 +29,8 @@ public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotQ2RowOmegaClass
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotQ2RowOmegaUnitaryRows
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotQ2RowUnitaryCover
 public import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotInvolutionTwoPartEvenInner
-public import CFSG.RankThree.Chevalley.SteinbergBID4CentralKernel
-public import CFSG.RankThree.Lattice.SteinbergBIE6EvenBruhat
-public import CFSG.RankThree.Lattice.SteinbergBIE6OrderThreeTools
-public import CFSG.RankThree.Lattice.SteinbergBIE6Qplus
-public import CFSG.RankThree.PartOne.KE.E7FiveBlock
-public import CFSG.RankThree.PartOne.KE.E8D4Family
 public import CFSG.RankThree.PartOne.KEXC.Basic
 public import CFSG.RankThree.PartOne.TCX.Ree.Perm
-public import CFSG.RankThree.PartTwo.Sec8.Item87Proof84
 
 public section
 

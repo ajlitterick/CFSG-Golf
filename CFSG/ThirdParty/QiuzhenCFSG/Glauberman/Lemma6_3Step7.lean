@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Lemma7_2
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_6_14
-public import Mathlib.GroupTheory.Complement
 
 import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Theorem4_1
 

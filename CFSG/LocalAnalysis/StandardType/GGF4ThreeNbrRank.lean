@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGF4ThreeReflPair
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrCoxOrder
 import CFSG.LocalAnalysis.StandardType.GGNbrU63Setup
-import CFSG.LocalAnalysis.StandardType.GGExcFieldAutCentRankF4Rank
-import CFSG.LocalAnalysis.StandardType.GGTableBF4Basic
 
 public section
 

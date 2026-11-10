@@ -2,17 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreMarked
 
-import CFSG.Assembly.Subnormal
-import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
-import CFSG.LocalAnalysis.StandardType.GGFamF4Shapes
 import CFSG.LocalAnalysis.StandardType.GGFamF4Tame
 import CFSG.LocalAnalysis.StandardType.GGFamF4Trivial
 import CFSG.LocalAnalysis.StandardType.GGFamF4Two
-import CFSG.LocalAnalysis.StandardType.GGLangCoroot
 import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreNormGe
-import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreNormLe
-import CFSG.LocalAnalysis.StandardType.GGReverseMarkingRaw
-import Mathlib.GroupTheory.IsPerfect
 
 public section
 

@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesInt
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesAlt
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2AffineCoordinates
 public import CFSG.LinearAlgebra.LinearGroups.Perfect
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFAppendixIII.Basic
-public import Mathlib.LinearAlgebra.Projectivization.Cardinality
 
 public section
 

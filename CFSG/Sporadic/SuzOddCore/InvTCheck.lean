@@ -1,10 +1,8 @@
 module
 
 public import CFSG.Sporadic.SuzOddCore.InvGraphCheck
-public import CFSG.Sporadic.SuzOddCore.SmallChainCheck
 public meta import CFSG.Sporadic.SuzOddCore.InvGraphCheck
 public meta import CFSG.Sporadic.SuzOddCore.SmallChainCheck
-public import CFSG.Sporadic.SuzOddCore.InvTCheckInputs
 public import Certificates.Certificate2302
 
 public section

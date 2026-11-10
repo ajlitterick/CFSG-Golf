@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.AlgebraicGroups.G2ExceptionalGraph
 public import CFSG.LieType.AlgebraicGroups.TangentDimensionBound
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 
 public noncomputable section
 

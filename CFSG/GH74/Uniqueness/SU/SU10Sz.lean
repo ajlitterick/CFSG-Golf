@@ -1,9 +1,6 @@
 module
 
 public import CFSG.GH74.Uniqueness.SU.SU10Hyp
-public import CFSG.GH74.Uniqueness.SU.SU10BenderAbs
-public import CFSG.GH74.Uniqueness.SU.SU10Fusion
-public import CFSG.GH74.Uniqueness.SU.KInputs
 
 public section
 

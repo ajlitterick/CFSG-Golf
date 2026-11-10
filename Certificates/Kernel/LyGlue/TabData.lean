@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.LyGlue.Data
 public import Certificates.Kernel.LyGlue.Hex
 public import CFSG.Sporadic.Recognition.LyonsAmalgamGlueInputs
-public import CFSG.Certificates.Kernel.Common.Harness
 public import Certificates.Data.Kernel.LyGlue.Defs
 import CFSG.Certificates.Kernel.Common.Repo
 

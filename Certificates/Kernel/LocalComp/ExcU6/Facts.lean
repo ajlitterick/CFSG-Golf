@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.LocalComp.ExcU6.FactsD
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

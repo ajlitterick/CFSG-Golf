@@ -3,16 +3,10 @@ module
 public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomy
 public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyParity
 public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalToralBasic
-public import CFSG.ClassicalInvolution.ModelFacts.OrthAutPlus
-public import CFSG.ClassicalInvolution.ModelFacts.OrthAutOdd
 public import CFSG.ClassicalInvolution.ModelFacts.OrthAutMinus
 public import CFSG.ClassicalInvolution.RouteD.TypeTwistedDLocal
-public import CFSG.ClassicalInvolution.RouteD.GapsOrthSpin
 public import CFSG.ClassicalInvolution.RouteD.GapsOrthSpinOdd
 public import CFSG.ClassicalInvolution.RouteD.ExoticTwinProofOrthBridge
-public import CFSG.ClassicalInvolution.RouteD.GapsOrthExcl
-public import CFSG.ClassicalInvolution.Models.OrthogonalPairs
-public import CFSG.LieType.Steinberg.CentralExt.UnitaryLift
 public import CFSG.ClassicalInvolution.Models.UnitaryFrames
 public import CFSG.ClassicalInvolution.RouteD.LocalTwinBRecognition
 

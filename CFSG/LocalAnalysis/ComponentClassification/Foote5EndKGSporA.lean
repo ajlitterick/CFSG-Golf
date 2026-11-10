@@ -5,13 +5,8 @@ public import CFSG.LocalAnalysis.ComponentClassification.Sp4RecM11
 public import CFSG.LocalAnalysis.ComponentClassification.RestrictedSporMathieuCase
 public import CFSG.GH74.Generic.S45.LSporMathB
 public import CFSG.GH74.GLS.C3.Layer1.St1EndNFamSpor
-public import CFSG.Walter.J1Props.Facts
-public import CFSG.Walter.Models
-public import CFSG.Sporadic.SmallOddCore.J2Local
-public import CFSG.Sporadic.Schreier.PairJ3Faithful
 public import CFSG.Sporadic.Schreier.J4SNoComp
 public import CFSG.Sporadic.Schreier.J4SCatalogU
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GH74.GLS.C3.Layer1.BkIvk73Q
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk73G4Kill
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk73G4Ly

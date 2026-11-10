@@ -3,7 +3,6 @@ module
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148HCensusChar2b
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148HCensusL37
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148HCensusE16Alt
-public import CFSG.GH74.GLS.Stage2.Final.ModelOrd
 public import CFSG.CGT.PushingUpLit.CGT6.SixFourCoreSL
 public import CFSG.CGT.PushingUpLit.Glue.NineContentGlue
 public import CFSG.CGT.PushingUpLit.NineContent
@@ -43,7 +42,6 @@ public import CFSG.RankThree.PartTwo.Sec4.Item423ResProof432
 public import CFSG.Timmesfeld.ARS.CaseHConnected
 public import CFSG.Timmesfeld.ARS.CaseHU33
 public import CFSG.Timmesfeld.Moufang.Three
-public import CFSG.Walter.J1Props
 
 public section
 

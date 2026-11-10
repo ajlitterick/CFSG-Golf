@@ -1,13 +1,9 @@
 module
 
-public import CFSG.CGT.Timmesfeld75.Sec4TwoSix
 public import CFSG.CGT.Timmesfeld75.Sec4Three
-public import CFSG.CGT.Timmesfeld75.Sec4CaseIKernel
 public import CFSG.CGT.Timmesfeld75.Sec4CaseIJIdent
-public import CFSG.CGT.Timmesfeld75.Sec3Thirteen
 public import CFSG.CGT.Timmesfeld75.Sec4NoAAssembly
 public import CFSG.CGT.T75B.QuotAut
-import CFSG.Timmesfeld.Bridge.Asc72Bender
 public import CFSG.CGT.Timmesfeld75.Sec3TenCaseA
 public import CFSG.CGT.Timmesfeld75.Sec4CaseIBasic
 public import CFSG.CGT.Timmesfeld75.Sec4CaseIIIFour

@@ -2,7 +2,6 @@ module
 
 public import CFSG.Blueprint.NativeSporadic
 public import CFSG.Foundations.Basic
-public import Mathlib.GroupTheory.Sylow
 public import Certificates.Certificate3120
 import Certificates.Kernel.SporCovPerm.M11Glue
 

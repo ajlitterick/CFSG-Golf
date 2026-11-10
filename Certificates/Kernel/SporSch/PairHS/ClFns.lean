@@ -2,9 +2,7 @@ module
 
 public import Certificates.Kernel.SporSch.PairHS.ClData
 public import Certificates.Kernel.SporSch.PairJ3.GenClT
-public import Certificates.Data.Kernel.SporSch.PairClT
 public import CFSG.Certificates.Kernel.SporSch.PairClSound
-public import CFSG.Certificates.Kernel.Spor.RawDefs
 public import CFSG.Certificates.Kernel.SporSch.PairKSound
 
 public section

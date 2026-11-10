@@ -1,11 +1,9 @@
 module
 
 public import CFSG.Sporadic.Th.KernelCentOuter
-public import Certificates.Kernel.ThCent.Leaves
 public import Certificates.Kernel.ThCent.C3C
 public import Certificates.Kernel.ThCent.C3D
 public import Certificates.Kernel.ThCent.Wit3C
-public import CFSG.Certificates.Kernel.ThCent.PinSound
 public import Certificates.Kernel.ThCent.Consumers
 
 public section

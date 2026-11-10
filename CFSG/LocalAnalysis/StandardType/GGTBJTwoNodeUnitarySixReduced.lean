@@ -1,14 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitary
-public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitaryDatum
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63Q2ProofOne
-public import CFSG.LocalAnalysis.StandardType.GGLemmaThreeThirteenFourteenP
-public import CFSG.LocalAnalysis.GLTheoremA.PartI.I2611
-public import CFSG.GroupTheory.PCore.CommutingBalance
-public import CFSG.LocalAnalysis.ComponentClassification.PerfectCentralQuotient
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
-public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeDefs
 
 public section
 

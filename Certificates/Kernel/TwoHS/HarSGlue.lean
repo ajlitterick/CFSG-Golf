@@ -3,11 +3,7 @@ module
 public import Certificates.Kernel.TwoHS.HarSK
 public import Certificates.Kernel.TwoHS.FourGlue
 public import Certificates.Kernel.HS3850.CoverFacts
-public import Certificates.Kernel.Sporadic.OddCore.PEnumGlue
-public import Certificates.Kernel.Sporadic.OddCore.MulHGlue
 public import CFSG.Certificates.Kernel.Spor.MulHFSound
-import Mathlib.Tactic.IntervalCases
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Misc.RuInvHash
 public import CFSG.Certificates.Kernel.Spor.ClassOneH
 

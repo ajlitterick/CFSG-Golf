@@ -2,18 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.SectionRank.QTK.CoverBA134Defs
 public import CFSG.LocalAnalysis.SectionRank.QTK.CentreFact.LayerDefs
-public import CFSG.Blueprint.NativeSporadic
-public import CFSG.Blueprint.Catalog
-public import CFSG.Open.StatedDefs
 import CFSG.LocalAnalysis.SectionRank.QTK.CentreFact.LayerT
 import CFSG.LocalAnalysis.SectionRank.QTK.CoverBA134Basic
 import CFSG.LocalAnalysis.SectionRank.QTK.CoverBMain
 import CFSG.LocalAnalysis.SectionRank.QTK.A134ListMat
-import CFSG.LocalAnalysis.SectionRank.QTK.Witness3
-import CFSG.LocalAnalysis.SectionRank.AlternatingCover
-import CFSG.LocalAnalysis.ShultStronglyClosedTI.SmallSylowCentralCover
-import CFSG.LocalAnalysis.SectionRank.G2OddCover
-import CFSG.LieType.Multipliers.U43
 import CFSG.RankThree.PartTwo.KFacts.OutFixCentralThreeU43Rank
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
@@ -25,14 +17,9 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 import CFSG.Adapters.TauCetiExceptional.BridgeTransport
 import CFSG.Certificates.CentralKernel
 import CFSG.Certificates.CosetTableWalkC
@@ -89,7 +76,6 @@ import CFSG.Sporadic.Ly.ActionBase
 import CFSG.Sporadic.Ly.CertificateBase
 import CFSG.Sporadic.Ly.FaithSpec
 import CFSG.Sporadic.Ly.OrbitSpec
-import CFSG.Sporadic.Ly.PrimitiveBase
 import CFSG.Sporadic.LyBase
 import CFSG.Sporadic.Presentation.Co2FusionInputs
 import CFSG.Sporadic.Presentation.Co3
@@ -103,10 +89,6 @@ import CFSG.Sporadic.Suz.Setup
 import CFSG.Sporadic.Suz.W64Spec
 import CFSG.Sporadic.Th
 import CFSG.Sporadic.Th.CertificateBase
-import CFSG.Sporadic.Th.KernelPlanesBase
-import CFSG.Sporadic.Th.KernelSimpleBase
-import CFSG.Sporadic.ThSchreier.FullAutCoreBase
-import CFSG.Sporadic.ThSchreier.KernelAutBase
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 
 public section

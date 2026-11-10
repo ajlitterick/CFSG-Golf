@@ -1,12 +1,9 @@
 module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.SeitzExcOpenRest4
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.SeitzCubeOrthTwo
 public import CFSG.LieType.SeitzGeneration.ExcHigh.E8FrameFamily
 public import CFSG.LieType.SeitzGeneration.ExcHigh.E8FrameProd
 public import CFSG.LieType.SeitzGeneration.ExcHigh.E8FiveCore
-public import CFSG.LieType.SeitzGeneration.ExcHigh.F4Two
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 public import CFSG.HardMathSupport.Timmesfeld.Coordinator.LocalThreeSporadicRank
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Assembly
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.PlanesSetup

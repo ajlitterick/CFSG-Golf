@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LieType.Sp6Spin.Model
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC8SpinModel
 
 public section

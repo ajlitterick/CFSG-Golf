@@ -2,12 +2,8 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FreeActionCard
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinData
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinCosetInvolution
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinCosetRepresentative
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseJNCoset
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseCosetFiberCard
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Basic
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

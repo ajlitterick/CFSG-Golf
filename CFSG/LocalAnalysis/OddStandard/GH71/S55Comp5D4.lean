@@ -7,11 +7,6 @@ public import CFSG.LocalAnalysis.OddStandard.GH71.S55Comp5D4C
 public import CFSG.LocalAnalysis.OddStandard.GH71.S55D4Ord3Gen
 public import CFSG.LocalAnalysis.OddStandard.GH71.S55D4
 public import CFSG.RankThree.Chevalley.SteinbergCFTrialityCommutingSL2
-public import CFSG.RankThree.Chevalley.SteinbergCDTrialityTwelveTorus
-public import CFSG.RankThree.Chevalley.SteinbergBTCanonicalFieldCommon
-public import CFSG.ClassicalInvolution.Orders.Twisted
-public import CFSG.LinearAlgebra.SL2MinimalFaithfulMatrix
-public import CFSG.LieType.Chevalley.OddTrialityAutomorphismNormalForm
 public import CFSG.GH74.GLS.IVK.Proofs2.OddTools
 public import CFSG.GH74.GLS.Stage2.Local.P34Main
 public import CFSG.GH74.GLS.Stage2.Local.P34S5A

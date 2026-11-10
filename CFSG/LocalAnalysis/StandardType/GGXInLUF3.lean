@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGXInLUDefs
 import CFSG.LocalAnalysis.StandardType.GGSixTCPSLMatrix
 import CFSG.HardMathSupport.Dickson.Bal207.UniFrame
 import CFSG.LocalAnalysis.StandardType.GGL45TGSU
-import CFSG.LocalAnalysis.StandardType.GGPGLToralityMatrix
 import CFSG.GroupTheory.TwoWeightData
 
 public section

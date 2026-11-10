@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTypeACompatFar
 public import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofCfg
 public import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofAutCommute
 public import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofGlueSwap

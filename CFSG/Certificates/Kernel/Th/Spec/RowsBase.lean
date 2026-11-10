@@ -2,7 +2,6 @@
 module
 
 public import CFSG.Certificates.Kernel.Th.Spec.Seed
-public import CFSG.Sporadic.Th.Max3.DataBase
 public import CFSG.Sporadic.ThSchreier.WordsBase
 
 @[expose] public section

@@ -1,9 +1,7 @@
 module
 
 public import CFSG.Open.StatedDefs
-public import Mathlib.LinearAlgebra.BilinearForm.Properties
 import CFSG.LieType.BorelTits.UnitaryForm
-import Mathlib.RingTheory.Trace.Basic
 import CFSG.LieType.BorelTits.CompleteFlag
 
 public section

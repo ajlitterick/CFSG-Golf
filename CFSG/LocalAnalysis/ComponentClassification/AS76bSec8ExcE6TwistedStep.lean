@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8ExcE6TwistedAu
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8ExcTorus
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoExceptionalOut
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bLemma34
-public import CFSG.LieType.Chevalley.TwistedE6NormalForm
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherToolkitBenderAutLinear
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherToolkitBenderSuzuki
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherToolkitBenderUnitary

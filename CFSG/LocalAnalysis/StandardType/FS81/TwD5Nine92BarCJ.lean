@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Nine92Bar
 public import CFSG.ThirdParty.BrauerInduction.Background.Group.PDecomposition
 public import CFSG.Mathlib.GroupTheory.SylowConj
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
 import CFSG.Holt.H78.Prelim
 import CFSG.ClassicalInvolution.SmallCases.Hat2A7Embed
 

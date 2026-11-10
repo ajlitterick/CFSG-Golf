@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGK1DDefs
 public import CFSG.LocalAnalysis.StandardType.GGK1DWitt
 
 public section

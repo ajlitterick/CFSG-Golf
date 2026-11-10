@@ -1,10 +1,8 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PerfectCentralAutomorphism
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2OddInnerFixingKleinFour
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.QuotientCenterAutomorphism
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

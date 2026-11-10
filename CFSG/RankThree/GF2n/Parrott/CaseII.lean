@@ -1,12 +1,7 @@
 module
 
-public import CFSG.RankThree.GF2n.Parrott.Section3Lift
-public import CFSG.RankThree.GF2n.Parrott.Section1Extraspecial
 public import CFSG.RankThree.GF2n.Parrott.Section3Commutator
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallPSp43Model
 public import CFSG.GroupTheory.ExtraspecialOrderEight
-public import CFSG.GroupTheory.Extraspecial2PG
-public import CFSG.LinearAlgebra.F2OrderNineFixed
 public import CFSG.GroupTheory.CoprimeActionSupport.NormalSubgroupSylowJoin
 public import CFSG.Monster.B.Classical.PlaneAut
 public import CFSG.Monster.B.TwoA.Unitary.LinThree

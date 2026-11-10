@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.FiveTwoK
 public import CFSG.RankThree.Native.FiveTwoData
-public import Certificates.Kernel.LocalComp.M1Gen
 public import Certificates.Kernel.AlphaMc.SeedsF2
 public import Certificates.Kernel.SectionRankHS.Seeds
 public import Certificates.Kernel.LocalComp.ThOrder

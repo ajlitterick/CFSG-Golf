@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GTriD4Fix
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GClsOrthKind
-public import CFSG.HardMathSupport.Dickson.Bal207.D4GraphBridgeField
-public import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.EvenClass
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.OuterFourSeitzBal
 public import CFSG.HardMathSupport.Seitz.G2Noninner.Descent.OddNeThree
 public import CFSG.HardMathSupport.Seitz.G2Noninner.SubfieldPair.Final

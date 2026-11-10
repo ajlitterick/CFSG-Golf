@@ -3,7 +3,6 @@ module
 public import CFSG.LinearAlgebra.LinearGroups.ProjectiveSimple
 public import CFSG.Fischer.Classification.Recognition.PSU6
 public import CFSG.LocalAnalysis.ComponentClassification.ClassicalModelStatedBridge
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.Monster.B.TwoA.Census.PermClasses
 public import CFSG.Sporadic.Ly.KeySpec

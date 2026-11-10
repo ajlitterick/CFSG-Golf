@@ -6,7 +6,6 @@ public import Certificates.Kernel.U38.Data
 public import Certificates.Kernel.SchreierFam.C188001C1
 public import Certificates.Data.Kernel.U38ThreeK
 public import Certificates.Data.Kernel.K426K
-public import Certificates.Data.Kernel.Misc.ChainTail
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Sporadic.J4.QTOutNative
 public meta import CFSG.Sporadic.J4.QTOutNative
 public import CFSG.Sporadic.J4.QTRankCheck
 public import Certificates.Certificate4019

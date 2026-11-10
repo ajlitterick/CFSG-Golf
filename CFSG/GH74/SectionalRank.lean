@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GH74.Defs
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 
 public section

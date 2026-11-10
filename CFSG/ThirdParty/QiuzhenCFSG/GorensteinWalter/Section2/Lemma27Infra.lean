@@ -1,21 +1,6 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970API
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.ControlCore
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970_18
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section1
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.MinimalCounterexample
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.PreambleHSU
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralCore
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralUniqueCentralInvolution
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralNormalSubgroup
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.NormalDihedralIndex
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GWLemma21
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GWLemma21Trichotomy
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.NoncyclicAbelianPGroup
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma27IndexTwo
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma27QuotientIndex
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma27TwoResidualBranch
 
 namespace CFSG

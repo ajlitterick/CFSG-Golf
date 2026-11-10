@@ -1,8 +1,5 @@
 module
 
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
-public import Mathlib.GroupTheory.Perm.Cycle.Basic
-public import Mathlib.GroupTheory.Perm.Cycle.Type
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 namespace CFSG

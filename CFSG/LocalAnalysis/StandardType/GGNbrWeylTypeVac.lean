@@ -2,15 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitFamilies
-import CFSG.FeitThompson.OddOrderTheorem
 import CFSG.LocalAnalysis.StandardType.GGNbrLangWeylRestVac
-import CFSG.LocalAnalysis.StandardType.GGCorFourTwoRestSmall
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRanks
 import CFSG.LocalAnalysis.StandardType.GGTwF4SUThreeRank
 import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBVac
 import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrSmallRank
 import CFSG.LocalAnalysis.StandardType.GGNbrTableBExcInduced
-import CFSG.LocalAnalysis.StandardType.GGTableBTypeATorus
 
 public section
 

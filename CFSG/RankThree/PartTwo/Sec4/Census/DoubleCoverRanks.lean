@@ -2,34 +2,22 @@ module
 
 public import CFSG.RankThree.PartTwo.Census.DoubleCoverLift
 public import CFSG.RankThree.PartTwo.Sec4.Census.RankOmegaF4
-public import Mathlib.GroupTheory.Perm.ViaEmbedding
-public import CFSG.LocalAnalysis.SectionRank.Sporadic.LocalWitness
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.OpsF2
 public import CFSG.Sporadic.Bridge.HSSurj
 public import CFSG.Sporadic.Bridge.RuSurj
-public import Certificates.Data.DoubleCoverRanks
 public import Certificates.Certificate8093
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Suzuki.Torus
-public import CFSG.StronglyEmbedded.Catalog.Suzuki
-public import CFSG.LieType.Multipliers.Sz8Field
 import CFSG.Sporadic.Bridge.M22
 public import CFSG.LocalAnalysis.ComponentInitial.GroupAlternatingCover
-public import CFSG.LocalAnalysis.ComponentInitial.GroupAlternatingCoverPerm
-import CFSG.LocalAnalysis.ComponentInitial.GroupAlternatingCoverPresentation
 import all CFSG.Blueprint.NativeSporadic
 public import CFSG.Sporadic.Th.Max3.Quotient
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.GH74.GLS.Classes
 public import CFSG.GH74.Statements
-public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LieType.Chevalley.EvenRootCommutatorF4
 public import CFSG.LieType.Multipliers.U42Bridge
 public import CFSG.LieType.Multipliers.U62Action
 public import CFSG.LieType.Multipliers.U62Bridge
 public import CFSG.LieType.Multipliers.U62Kernel
 public import CFSG.LocalAnalysis.ComponentClassification.BlockTwoProductAction
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHermitianIsometry
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 public import CFSG.LocalAnalysis.ComponentClassification.MinimalBCenter
@@ -39,7 +27,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.TBLitCover
 public import CFSG.LocalAnalysis.ComponentClassification.TwoActionFixedInvolution
 public import CFSG.LocalAnalysis.ComponentClassification.TwoActionInvariantSylow
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedGSBFixedLayer
-public import CFSG.LocalAnalysis.ComponentInitial.SuzukiModelSchreier
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.NativeCheckBase
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.NativeModel
 public import CFSG.LocalAnalysis.EvenSmallLie.Sp6JCondition
@@ -53,10 +40,7 @@ public import CFSG.Monster.B.TwoA.Amalgam.Data
 public import CFSG.Monster.B.TwoA.Sp8.Par1
 public import CFSG.Monster.B.TwoA.Unitary.LinThree
 public import CFSG.RankThree.PartTwo.Census.Spin.Main
-public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.Sporadic.SmallOddCore.CheckSpec
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import CFSG.YGroups.Y322Central
 public import Certificates.Certificate10005
 public import Certificates.Certificate10006

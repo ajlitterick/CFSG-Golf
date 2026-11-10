@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGReflExtBasic
 public import CFSG.LocalAnalysis.StandardType.GGFLWReflForm
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRMModuleDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveZSInputs
 public import Certificates.Data.CFSGNative.ReflExt.Check
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeSmallPosFacts
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeSmallPosWeyl

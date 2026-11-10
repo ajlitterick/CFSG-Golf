@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LieType.Universal.Unitary.Extras.Basic
 public import CFSG.Timmesfeld.ARS.Defs
 public import CFSG.Timmesfeld.Transvection.PresSUModel
 public import CFSG.LocalAnalysis.UniquenessCase.Lie.SU3Torus
@@ -8,11 +7,9 @@ public import CFSG.LieType.Steinberg.CentralExt.SUOddCover
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.LieInput.SUEmbed
 import CFSG.Timmesfeld.ARS.BasicTwoGroup
 import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
-import CFSG.LieType.Steinberg.CentralExt.UnitaryRankOneLast
 import CFSG.Timmesfeld.Orders.ClassicalUnitaryThree
 import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 import CFSG.Timmesfeld.RankOne
 
 public section

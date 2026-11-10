@@ -1,8 +1,6 @@
 module
 
-public import CFSG.Monster.B.Fischer.PinnedChain
 public meta import CFSG.Monster.B.Fischer.PinnedChain
-public import CFSG.Monster.B.Fischer.PinnedBridgeChecksInputs
 public import Certificates.Certificate3040
 
 public section

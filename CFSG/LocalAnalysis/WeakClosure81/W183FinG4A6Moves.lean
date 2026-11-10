@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.WeakClosure81.W183FinG4A6S6
 public import CFSG.LocalAnalysis.WeakClosure81.W183FinG4A6DynA
 public import CFSG.LocalAnalysis.WeakClosure81.W183FinG4A6MovesModel
 

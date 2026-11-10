@@ -1,28 +1,14 @@
 module
 
 public import CFSG.LieType.SeitzGeneration.ExcOuterLeOne.FixedGroup
-public import CFSG.Open.LocalVocabulary
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.PlanesToralTwo
 import CFSG.LocalAnalysis.WeakClosure81.Asc80BExcKilled
 import CFSG.LieType.SeitzGeneration.ExcHighThree.KillsRootE6
 import CFSG.LieType.SeitzGeneration.ExcHighThree.KillsRootF4
-import CFSG.LieType.Steinberg.Adjoint.Perfect
-import CFSG.LieType.Simplicity.Exceptional
-import CFSG.LieType.Chevalley.AdjointCenter
-import CFSG.LieType.Chevalley.OddF4CosetDescent
-import CFSG.LieType.Chevalley.OddF4G2AutomorphismNormalForm
-import CFSG.LieType.Chevalley.OrdinaryEFieldGraphQuotient
-import CFSG.LieType.Chevalley.ExactNormalFormE
-import CFSG.LieType.Chevalley.GraphFixedF4GroupRestriction
-import CFSG.RankThree.Chevalley.SteinbergBTEvenE6Noninner
 import CFSG.HardMathSupport.Lang.E6Descent.OutRankE6
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangInner
 import CFSG.LocalAnalysis.SeitzReduction.F4PilotZStar
-import CFSG.LocalAnalysis.ComponentInitial.DiagonalSemilinear
 import CFSG.GH74.GLS.Stage1.Main.BrTwoClassE
 public import Certificates.Kernel.ThCent.Leaves
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LieType.Chevalley.EvenRootCommutatorF4
@@ -87,7 +73,6 @@ import CFSG.RankThree.PartOne.KE.E8NineData
 import CFSG.RankThree.PartOne.KE.NativeCyclicMain
 import CFSG.RankThree.PartOne.KE.PlaneToral
 import CFSG.RankThree.PartOne.KGD.D4QA1
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ConjugatedInvertedSubgroup
 import CFSG.Walter.J1.Inv
 
 public section

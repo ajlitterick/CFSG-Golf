@@ -1,7 +1,6 @@
 
 module
 
-public import CFSG.YGroups.Y443.Native.Words
 public import CFSG.YGroups.Y443.Native.PairRelAInputs
 public meta import CFSG.YGroups.Y443.Native.Words
 public meta import Certificates.Data.CFSGNative.MonsterAxis.Dense

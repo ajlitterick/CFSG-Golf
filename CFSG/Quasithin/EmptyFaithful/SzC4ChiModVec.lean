@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.EmptyFaithful.SzC4ChiModDef
 public import Mathlib.Algebra.CharP.CharAndCard
-public import Mathlib.Algebra.CharP.Two
 public import Mathlib.Data.Matrix.Mul
 
 public section

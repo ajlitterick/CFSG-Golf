@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniNbrLabel
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165OmFam
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166FamB
-import CFSG.LieType.Steinberg.CentralExt.OrthogonalTwoMultiplier
 import CFSG.GroupTheory.CentralizerSup
 import CFSG.GroupTheory.PLayer.PIndex
 import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8ExcAction

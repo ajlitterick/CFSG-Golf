@@ -3,8 +3,6 @@ module
 public import Certificates.Kernel.Sporadic.Fi24OrbL.FactsBase
 import all Certificates.Kernel.Sporadic.Fi24OrbL.FactsBase
 
-public import Certificates.Kernel.Sporadic.Fi24OrbL.Bridge
-public import Certificates.Kernel.Sporadic.Fi24Form.Final
 import Certificates.Kernel.Sporadic.Fi24Orb.Small
 
 public section

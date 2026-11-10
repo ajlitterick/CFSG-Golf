@@ -4,12 +4,7 @@ public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineOne
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenDefs
 import CFSG.GroupTheory.ElementaryAbelianTransport
 import CFSG.GroupTheory.ThompsonAxBFaithful
-import CFSG.GroupTheory.HyperplaneGeneration
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConjAction
-import CFSG.LocalAnalysis.AGLEmbedding.NongenerationTransfer
-import CFSG.LocalAnalysis.AGLEmbeddingD2.Reduced
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.AlmostSimpleBInnerPClosure
-import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.CGT.PushingUpLit.BHS.NaturalDefs
 public import CFSG.CGT.PushingUpLit.BHS.SymNatDefs
 public import CFSG.CGT.Timmesfeld75.Statements

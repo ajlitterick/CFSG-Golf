@@ -4,7 +4,6 @@ public import CFSG.Blueprint.MatrixSeedIdentification
 public import CFSG.Sporadic.McL.VecSpec
 public import CFSG.Certificates.SchreierStabilizerGenerators
 public import CFSG.Sporadic.McL.Certificate
-public import CFSG.Blueprint.NativeSporadic
 import all CFSG.Blueprint.NativeSporadic
 
 public section

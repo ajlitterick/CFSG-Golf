@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
-public import CFSG.LieType.Universal.SpecialLinearExtras
-public import CFSG.Open.StatedDefs
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
 public import CFSG.LinearAlgebra.RootGroupSL.SLTransitive
 

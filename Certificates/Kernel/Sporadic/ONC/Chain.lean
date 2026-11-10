@@ -4,10 +4,6 @@ module
 public import Certificates.Kernel.Sporadic.ONC.ChainBase
 
 public import Certificates.Kernel.Sporadic.ONC.Group
-public import Certificates.Kernel.Sporadic.ONC.Defs
-public import CFSG.Certificates.Kernel.Spor.ONCSound
-public import CFSG.Certificates.Kernel.Spor.PChainSound
-public import CFSG.Certificates.Kernel.Spor.TabWords
 import Certificates.Kernel.Sporadic.ONC.Slp
 import Certificates.Kernel.Sporadic.ONC.Let0
 import Certificates.Kernel.Sporadic.ONC.Let1
@@ -26,10 +22,8 @@ import Certificates.Kernel.Sporadic.ONC.T0d
 import Certificates.Kernel.Sporadic.ONC.T1
 import Certificates.Kernel.Sporadic.ONC.Hd
 import Certificates.Kernel.Sporadic.ONC.Misc
-import Certificates.Kernel.Sporadic.ON.Gen
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
 import CFSG.Certificates.Kernel.Spor.PackFld
-import Mathlib.Tactic.IntervalCases
 
 public section
 

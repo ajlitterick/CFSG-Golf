@@ -2,14 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGExcTwoCompList
 public import CFSG.LocalAnalysis.StandardType.GGTCJCoverGen
-public import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOther
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcBasic
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
-public import CFSG.HardMathSupport.Dickson.Bal207.FamF42Class
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.I2610HF4Comp
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265SGF4Comp
-public import CFSG.SignalizerFunctorTheorem.Inheritance.TransportA.Fitting
-public import CFSG.Assembly.Subnormal
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
 public import CFSG.Certificates.FusionF2
@@ -52,7 +46,6 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly
@@ -66,8 +59,6 @@ public import CFSG.Quasithin.Background.C2PushThree
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.D2Cyclic
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.FFC4Tr2
 public import CFSG.Quasithin.Background.GoldschmidtS146RBend1

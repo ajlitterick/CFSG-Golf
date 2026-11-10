@@ -2,8 +2,6 @@ module
 
 public import Certificates.Kernel.Fi22Twist.CgFacts
 public import Certificates.Kernel.Fi22Twist.NfChk
-import Mathlib.Tactic.Group
-import Mathlib.Tactic.IntervalCases
 
 public section
 

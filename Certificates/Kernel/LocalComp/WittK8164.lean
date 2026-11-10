@@ -3,9 +3,7 @@ module
 public import Certificates.Kernel.LocalComp.WittLev
 public import Certificates.Kernel.LocalComp.WittData8165
 public import Certificates.Data.Kernel.WittFix
-public import CFSG.RankThree.PartTwo.KFacts.KP4Data
 public import CFSG.RankThree.PartTwo.KFacts.KP4AutCheckInputs
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.Permutation.FinPack
 public import Mathlib.Data.ZMod.Basic
-public import Mathlib.Data.Fintype.Pi
 
 public section
 

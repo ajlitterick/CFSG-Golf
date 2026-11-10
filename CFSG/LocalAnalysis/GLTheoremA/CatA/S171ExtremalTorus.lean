@@ -1,11 +1,9 @@
 module
 
 public import CFSG.Open.StatedDefs
-public import CFSG.Open.LocalVocabulary
 public import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.RankThree.PartOne.KP.CentralCoverThree
 public import CFSG.HardMathSupport.Timmesfeld.Tables.T1b.E6Lift
-public import CFSG.Open.Defs
 
 public section
 

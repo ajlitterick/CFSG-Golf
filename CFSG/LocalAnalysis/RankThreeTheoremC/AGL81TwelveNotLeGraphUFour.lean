@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TwelveNotLeGraphUFourHat
 public import CFSG.Quasithin.Vol2.GoldschmidtF431U42Geom
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TwelveNotLeGraphQuasi
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TwelveLeU42O8U42
-import CFSG.Quasithin.Vol2.GoldschmidtF431U42Syl
 import CFSG.Quasithin.Vol2.GoldschmidtF431U42Equiv
 import CFSG.Quasithin.Vol2.GoldschmidtF431U42Model
 public import CFSG.CGT.PushingUpLit.BHS.NaturalDefs

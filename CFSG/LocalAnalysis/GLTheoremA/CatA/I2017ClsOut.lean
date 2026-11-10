@@ -2,18 +2,12 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I2017ClsRed
 import CFSG.LocalAnalysis.GLTheoremA.CatA.I2018CoreField
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GField
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GClsLin
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GClsUni
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GClsSympA6
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GClsOrth
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GClsExc
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldLin
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinDict
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldUni
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldUniSig
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldSymp
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldOrth
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldExcRedV
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldExcFixG2
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldExcFixE6All
@@ -25,13 +19,7 @@ import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GTriPiece
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnOrth
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnExc
 import CFSG.LocalAnalysis.GLTheoremA.S12.CanonSubcompInn
-import CFSG.LocalAnalysis.GLTheoremA.PCompNoncomm
-import CFSG.LocalAnalysis.StandardType.GGInndiagCommRest
-import CFSG.LocalAnalysis.StandardType.GGReverseMarking
-import CFSG.LocalAnalysis.ComponentClassification.SymmetricLocalLinearFourTwo
 import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.AltFacts4
-import CFSG.HardMathSupport.Solomon.Coordinator.LieOrderBridgeHolds
-import CFSG.HardMathSupport.Solomon.Coordinator.B3LieRes
 public import CFSG.Holt.Fixed
 public import CFSG.LieType.Chevalley.EvenOddCentralizerRadicalModel
 public import CFSG.LieType.Multipliers.U62Sylow

@@ -4,7 +4,6 @@ import Lean
 public import CFSG.ClassicalInvolution.Phan.Defs
 import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeInner
 import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompAlgCore
-import CFSG.LieType.Universal.Unitary.Comparison
 import CFSG.LinearAlgebra.MatrixPlanes
 import CFSG.Certificates.CentralKernel
 import CFSG.Certificates.CosetTableWalkC
@@ -64,7 +63,6 @@ import CFSG.LocalAnalysis.ShultStronglyClosedTI.MinimalLocalFailureConjugation
 import CFSG.LocalAnalysis.ShultStronglyClosedTI.MinimalLocalFailureProperPair
 import CFSG.LocalAnalysis.ShultStronglyClosedTI.MinimalLocalFailureSylowAssemblyData
 import CFSG.LocalAnalysis.ShultStronglyClosedTI.MinimalLocalFailureSylowAssemblyProper
-import CFSG.LocalAnalysis.SignalizerFunctor
 import CFSG.Monster.AxisCount.HSIdentBaby
 import CFSG.Monster.AxisCount.HSIdentRec0
 import CFSG.Monster.AxisCount.HSIdentRec1
@@ -86,11 +84,8 @@ import CFSG.Quasithin.Background.B69Core
 import CFSG.Quasithin.Background.C1GNSolvConnect
 import CFSG.Quasithin.Background.C1PackS1531Top
 import CFSG.Quasithin.Background.D2
-import CFSG.Quasithin.Background.D2Dihedral
 import CFSG.Quasithin.Background.E2Statements
 import CFSG.Quasithin.Background.E3
-import CFSG.Quasithin.Background.E3Nprime
-import CFSG.Quasithin.Background.E3Uniq
 import CFSG.Quasithin.Background.F918C6
 import CFSG.Quasithin.Background.FFC7G
 import CFSG.Quasithin.Background.FFC8A
@@ -157,10 +152,6 @@ import CFSG.Sporadic.SuzOddCore.GraphData
 import CFSG.Sporadic.SuzOddCore.SmallActionData
 import CFSG.Timmesfeld.RankOne
 import CFSG.Timmesfeld.Transvection.Statement
-import CFSG.Walter.J1Props
-import CFSG.Walter.J1Recog
-import CFSG.Walter.PSL2Facts
-import CFSG.Walter.W67.Statements
 import CFSG.YGroups.DCE.B433Check
 import Certificates.Kernel.J4Count.Prim
 

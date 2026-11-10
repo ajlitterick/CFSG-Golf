@@ -1,15 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.RankFourTheoremC.InvariantTwo.KFacts.I294K29ExcRankGen
-public import CFSG.HardMathSupport.Timmesfeld.Torality.PlanesToralF4Three
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.SeitzExcOpenRest8b
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylCompDefs
-public import CFSG.RankThree.Chevalley.G2SplitPrimeToralCentralizers
-public import CFSG.HardMathSupport.Timmesfeld.Steinberg.ThreeCharF4
 public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyClosedLang
 public import CFSG.HardMathSupport.Timmesfeld.Steinberg.F4ThreeSigma
-public import CFSG.HardMathSupport.Timmesfeld.Torality.LangAssembly
-public import CFSG.LieType.Chevalley.GraphFixedF4GroupDescent
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUAut
 public import CFSG.LieType.SeitzGeneration.UnitaryNonabLift
 public import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeA3pSurvivor

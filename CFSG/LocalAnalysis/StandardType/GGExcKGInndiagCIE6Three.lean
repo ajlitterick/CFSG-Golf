@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGExcKGInndiagCIE6
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarE6ThreeFrameOn
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutOutdiagE6Toral
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticBstar
 
 public section
 

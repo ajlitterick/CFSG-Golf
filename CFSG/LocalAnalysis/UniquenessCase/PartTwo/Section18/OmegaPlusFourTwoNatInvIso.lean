@@ -5,10 +5,7 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section18.OmegaPlusFourM
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.MultNatCoords
 public import CFSG.Quasithin.Background.HMultNorm
 public import CFSG.Quasithin.Background.HMultFix
-public import CFSG.Quasithin.Background.HTransport
 public import CFSG.Quasithin.Background.SzG11TwoOm4Quad
-public import CFSG.GroupTheory.E3Params
-public import CFSG.GroupTheory.ABGLocalTools.PStabilityQSL2
 public import CFSG.GroupTheory.SylowNormalizedByPGroup
 public import CFSG.HardMathSupport.Solomon.Coordinator.I28_8Defs
 public import CFSG.HardMathSupport.Solomon.LocalBalance.Prop42CaseThreeProof

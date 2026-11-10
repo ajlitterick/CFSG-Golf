@@ -1,9 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Higman.theorem_1b
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Higman.lemma_12
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Higman.InvariantComplement
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Quotient
 
 namespace CFSG
 end CFSG

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotTorus
 public import CFSG.RankThree.PartOne.KC.SymplecticInnerPlaneAlt6
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotQ2Sp4TwoRootSix
-public import CFSG.ClassicalGroups.Symplectic.ProjectivePerfect
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Quadruple
 public import CFSG.Fischer.Uniq.CompTau
 public import CFSG.LieType.CurtisTits.SpecialLinear

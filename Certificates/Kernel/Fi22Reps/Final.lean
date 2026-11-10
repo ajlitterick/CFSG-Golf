@@ -8,9 +8,6 @@ public import Certificates.Kernel.Fi22Reps.Scan
 public import Certificates.Kernel.Fi22Reps.Sep
 public import Certificates.Kernel.Fi22Cls.Final
 public import CFSG.Certificates.Kernel.Fi22Reps.Sound
-public import CFSG.Sporadic.Fi22.Transpositions
-public import CFSG.Certificates.Kernel.Common.ForallTree
-import Mathlib
 
 public section
 

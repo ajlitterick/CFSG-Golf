@@ -2,15 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreDefs
 public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyClosedLang
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.FrobeniusOnRoots
-public import CFSG.LieType.Chevalley.GraphFixedHighestRoot
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.SmallQThreeFactsLeaf
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTorus
 public import CFSG.RankThree.PartOne.S11c.EvenRootInverters
-public import CFSG.LieType.AlgebraicGroups.FrobeniusDiagramRealized
-public import CFSG.LieType.AlgebraicGroups.ToralTwistPinningFrobenius
-public import CFSG.LieType.Chevalley.GraphFixedCoordinateDetection
-public import CFSG.RankThree.Chevalley.EvenPinnedRootSL2
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleLang
 public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcLevi
 public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcE8Data

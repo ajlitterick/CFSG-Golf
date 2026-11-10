@@ -1,10 +1,8 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Nine.ThreeSplit
-public import CFSG.OddTranspositions.SixEight
 public import CFSG.OddTranspositions.SevenOne
 public import CFSG.OddTranspositions.SevenLocalSecond
-public import CFSG.OddTranspositions.BlockGraph
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoBenderONan
 public import CFSG.StronglyEmbedded.BenderCentre
 public import CFSG.GroupTheory.CardSupInf

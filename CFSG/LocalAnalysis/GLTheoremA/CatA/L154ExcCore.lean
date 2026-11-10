@@ -1,15 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154ExcLang
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154ExcG2
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154ExcData
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154ExcJ
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154ExcCent
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.MIBase
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcInnerLang.Root
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Inner
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTame
-public import CFSG.HardMathSupport.Solomon.Coordinator.B3LieCore
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I2015Defs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154ExcOmega
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154Omega

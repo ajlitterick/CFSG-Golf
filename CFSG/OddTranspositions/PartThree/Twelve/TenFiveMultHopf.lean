@@ -1,8 +1,6 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveMultModels
-public import CFSG.RankThree.PerfectCover.HopfCentralCoversSetup
-public import CFSG.RankThree.PerfectCover.HopfFormula
 public import CFSG.LieType.Steinberg.CentralExt.POmegaOddMultiplier
 public import CFSG.LieType.Steinberg.CentralExt.POmegaPlusMultiplier
 

@@ -1,14 +1,10 @@
 module
 
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThFive
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThSlp
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThSlpInputs
 public import CFSG.HardMathSupport.Dickson.I271.SporGenAux.ThFiveCentInputs
 public import CFSG.HardMathSupport.Dickson.I271.SporGenAux.CubeFacts
 public import CFSG.HardMathSupport.Dickson.I271.SporGenAux.ThAutModel
 public import CFSG.HardMathSupport.Dickson.I271.SporGenAux.RecordExtra
-public import CFSG.HardMathSupport.Dickson.I271.SporGenAux.RankOK
-public import CFSG.HardMathSupport.Dickson.I271.SporGenAux.PrimePowMod
 public import CFSG.HardMathSupport.Dickson.I271.SporGenAux.PlaneNoSig
 public import Certificates.Certificate17304
 public import CFSG.CharacterTheory.CyclicBlocks.Family
@@ -66,8 +62,6 @@ public import CFSG.Quasithin.Background.C2PushThree
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.D2Cyclic
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.FFC4Tr2
 public import CFSG.Quasithin.Background.GoldschmidtS146RBend1
@@ -118,8 +112,6 @@ public import CFSG.RankThree.PartTwo.KFacts.KS14SzLie
 public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.RankThree.Theta.ThreeComponentOrbitCover
 public import CFSG.Sporadic.Schreier.TitsOther
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 

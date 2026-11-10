@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Sporadic.OddCore.S2301Rnd
 import Certificates.Kernel.Co1B.GenTri2045
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Sporadic.SuzOddCore.Arrays
 
 public section

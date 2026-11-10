@@ -2,11 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1431cFacts
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I1431ZMathHS2
-public import CFSG.LocalAnalysis.GLTheoremA.PartI.RankTwoDownAux
-public import CFSG.HardMathSupport.Solomon.Coordinator.YS08.Simple
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieOrderBridgeHolds
-public import CFSG.HardMathSupport.Solomon.Coordinator.B3SporGen
-public import CFSG.HardMathSupport.Timmesfeld.Proving.SporadicOuterLeTwo
 public import CFSG.HardMathSupport.Solomon.Coordinator.I22_4Glue
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I1431Core
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1431cClause

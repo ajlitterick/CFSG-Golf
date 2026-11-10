@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LieType.Multipliers.U62Data
 public import CFSG.Certificates.CosetTableCompactColumns
-public import CFSG.Fischer.Classification.Recognition.PSU6
-public import CFSG.LieType.Multipliers.U62BridgeInputs
 public import Certificates.Certificate10015
 public meta import CFSG.LieType.Multipliers.U62Data
 public meta import CFSG.Certificates.CosetTableCompactColumns

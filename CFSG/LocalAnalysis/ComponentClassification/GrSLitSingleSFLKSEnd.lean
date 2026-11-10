@@ -1,20 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitSingleSFLZOne
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4InputsEnd43
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4End46
-public import CFSG.LocalAnalysis.ComponentClassification.Sol78PSp4
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4DiagMem
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec5SHoltX
 public import CFSG.RankThree.PartTwo.Sec21.HoltCatalog
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4InputsEnd46
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4KSInputs
-import CFSG.LocalAnalysis.ComponentClassification.GSThmBHypG
-import CFSG.LocalAnalysis.ComponentClassification.GrSLitConn
-import CFSG.LocalAnalysis.ComponentClassification.GrSLitWGroup
 import CFSG.LocalAnalysis.ComponentClassification.CatLeafAlt
 import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4End46F
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

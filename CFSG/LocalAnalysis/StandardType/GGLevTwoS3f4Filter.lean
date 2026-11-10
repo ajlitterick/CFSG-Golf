@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLevTwoS3f4Sem
 public import CFSG.LocalAnalysis.StandardType.GGLevTwoS3bDisc
-public import Mathlib.Data.Nat.Bitwise
 
 public section
 

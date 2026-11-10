@@ -1,18 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs1918
-public import CFSG.RankThree.PartOne.KC.PlaneReduction
 public import CFSG.RankThree.PartOne.KC.LinearCAAdapter
 public import CFSG.RankThree.PartOne.KC.UnitaryNonsplitInnerPlaneProducts
-public import CFSG.RankThree.PartOne.KC.UnitaryPlaneStatements
-public import CFSG.Adapters.LinearCatalog
-public import CFSG.LocalAnalysis.QuasithinUnique.SQTK.UnitaryTauCeti
-public import CFSG.LieType.SeitzGeneration.ExcPlaneModel
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcVacuousG2
-public import CFSG.LieType.SeitzGeneration.ExcTorusRankF4
-public import CFSG.LieType.SeitzGeneration.ExcTorusCat
-public import CFSG.LieType.SeitzGeneration.ExcTorusCatTw
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcVacuousTriality
 public import CFSG.RankThree.Chevalley.SteinbergCAF4CyclotomicThreeSixComponent
 public import CFSG.RankThree.Chevalley.SteinbergCAF4CyclotomicFourComponent
 public import CFSG.RankThree.PartOne.KE6.Phi3Final
@@ -21,15 +11,11 @@ public import CFSG.RankThree.PartOne.KE6.Phi6Final
 public import CFSG.RankThree.PartOne.KE.E6TwThreeFinal
 public import CFSG.RankThree.PartOne.KE.E6TwFourFinal
 public import CFSG.RankThree.PartOne.KE6.Tw6Final
-public import CFSG.RankThree.PartOne.KGD.D4T36Plane
 public import CFSG.RankThree.PartOne.KE.E7ThreeFinal
 public import CFSG.RankThree.PartOne.KE.E7FourEndpoint
-public import CFSG.RankThree.PartOne.KE.E7ThreeLayerProof
 public import CFSG.RankThree.PartOne.KA5L.Final
 public import CFSG.RankThree.PartOne.KE6.E8T3Final
-public import CFSG.RankThree.PartOne.KE.E8FiveData
 public import CFSG.RankThree.PartOne.KE.E8EightPlane
-public import CFSG.RankThree.PartOne.KE.E8TwelveData
 public import CFSG.RankThree.PartOne.KD4L.TrialityLayer
 public import CFSG.RankThree.PartOne.KD4L.TranspositionLayer
 public import CFSG.RankThree.PartOne.KE6.E6LLayer

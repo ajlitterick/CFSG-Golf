@@ -3,15 +3,9 @@ module
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveThreeDataBranchA
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveThreeCorrectedThree
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.ThreeNineSocleHolds
-public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveThreeOrders
-public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveThreeBranchNotLe
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.NineTenInputsHolds
-public import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.NineNineOneHolds
-public import CFSG.RankThree.PartOne.TCB.Final
 public import CFSG.HardMathSupport.Foote.Coordinator.Downstream
 public import CFSG.CGT.PushingUpLit.TwoKHolds
-public import CFSG.LocalAnalysis.RankThreeTheoremC.D2LocalCGT3
-public import CFSG.LocalAnalysis.AGLEmbedding.AscEightFour
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveThreeBranchB
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveThreeBranchC
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveFourOneProof
@@ -21,7 +15,6 @@ public import CFSG.CGT.T75P.Ctx
 public import CFSG.CGT.T75P.DecA
 public import CFSG.CGT.Timmesfeld75.SimpleAssembly
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk95J3
-public import CFSG.GH74.GLS.IVK.Proofs2.Stmt111c
 public import CFSG.GH74.Generic.S45.LEvSporFacts
 public import CFSG.GroupTheory.CoprimeLiftElementaryAbelian
 public import CFSG.GroupTheory.GL52.SylowTools

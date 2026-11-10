@@ -1,8 +1,5 @@
 module
 
-public import Mathlib
-public import CFSG.GH74.KGroups.PermCheck
-public import CFSG.GH74.KGroups.L34Inputs
 public import CFSG.GH74.KGroups.L34AutInputs
 public meta import CFSG.GH74.KGroups.PermCheck
 public meta import CFSG.GH74.KGroups.L34Inputs

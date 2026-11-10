@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4Coprime
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aSecStd
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuot
 public import CFSG.LieType.Universal.SpinOmega.Range
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancingLocalKProper
 

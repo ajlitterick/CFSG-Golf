@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeSpBlockAnModel
-public import CFSG.RankThree.PartOne.KC.OrthogonalReciprocal
 
 public section
 

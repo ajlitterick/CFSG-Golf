@@ -1,9 +1,7 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.KleinFourNormalizerEscape
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.CentralizerSetupCentralInvolution
 import all CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GWLemma21Trichotomy
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

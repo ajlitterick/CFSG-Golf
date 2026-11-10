@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaEq
 public import CFSG.LocalAnalysis.StandardType.GGBstarLIDUnitField
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6
 
 public section
 

@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLevTwoS2bZc
-import Mathlib.Algebra.Field.ZMod
-public import CFSG.LocalAnalysis.StandardType.GGLevTwoS2bCoord
 public import CFSG.LocalAnalysis.StandardType.GGLevTwoS2bAux
-public import CFSG.LocalAnalysis.StandardType.GGLevTwoS2bForm
-public import CFSG.LocalAnalysis.StandardType.GGLevTwoTrans
 public import TauCeti.LinearAlgebra.Matrix.Cartan.Classical
 
 public section

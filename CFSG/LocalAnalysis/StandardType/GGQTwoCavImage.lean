@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoReflCut
-public import CFSG.LocalAnalysis.StandardType.GGTableBBstar
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUDefs
 
 public noncomputable section

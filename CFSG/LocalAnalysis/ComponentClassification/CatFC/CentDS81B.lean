@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.CatFC.CentDS81Basic
-public import CFSG.Monster.B.CTIB.FourClasses
 public import CFSG.Monster.B.CTIB.UniqueComponentFinal
 public import CFSG.Monster.B.CTIB.Rank2158Final
 public import CFSG.Monster.B.CTIB.Rank2048

@@ -4,13 +4,10 @@ module
 public import CFSG.Monster.B.Fischer.Fi22FaithfulCheckBase
 
 public import CFSG.Monster.B.Fischer.Fi22Cert
-public import CFSG.Monster.B.Fischer.Fi22SepData
-public import Certificates.Data.CFSGNative.Fi22.Certificate
 public meta import CFSG.Monster.B.Fischer.Fi22Cert
 public meta import CFSG.Monster.B.Fischer.Fi22SepData
 public meta import Certificates.Data.CFSGNative.Fi22.Certificate
 public meta import Certificates.Data.CFSGNative.Fi22Pinned.Forms
-public import CFSG.Monster.B.Fischer.Fi22FaithfulCheckInputs
 public import Certificates.Certificate3152
 public import Certificates.Certificate3152Base
 

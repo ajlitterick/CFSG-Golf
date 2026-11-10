@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10F107Case
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10F107Setup
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10FactPockets
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10Inputs
 
 public section
 

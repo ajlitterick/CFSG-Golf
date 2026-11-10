@@ -3,7 +3,6 @@ module
 
 public import Certificates.Certificate2178Base
 
-public import CFSG.Sporadic.Schreier.J4SPrimes
 public meta import CFSG.Sporadic.Schreier.J4SPrimes
 import Certificates.Kernel.SporSch.J4S.Primes
 

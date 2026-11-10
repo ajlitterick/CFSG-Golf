@@ -2,8 +2,6 @@ module
 
 import CFSG.LieType.Steinberg.CentralExt.GriessOmegaEightTwo
 public import CFSG.LocalAnalysis.StandardType.GGPZMultCore
-public import CFSG.LocalAnalysis.StandardType.MarkingClassical
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 
 public section
 

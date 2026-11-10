@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.HSA312.Y1
 public import Certificates.Kernel.HSA312.CY2
-import Mathlib.Tactic.IntervalCases
 
 set_option maxRecDepth 100000
 

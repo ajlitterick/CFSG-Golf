@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallOrthUnMain
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthogonalBasic
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.RankThree.PartTwo.Sec8.Item812Proof89
 public import CFSG.RankThree.PartTwo.Sec8.Item812Proof89G2
 public import CFSG.RankThree.PartTwo.Sec8.Item812Res2ProofRee
 public import CFSG.RankThree.PartTwo.KFacts.K71Sp4

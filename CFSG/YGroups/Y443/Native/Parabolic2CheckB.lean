@@ -1,6 +1,5 @@
 module
 
-public import CFSG.YGroups.Y443.Native.Parabolic2Words
 public import Certificates.Certificate10121
 public meta import CFSG.YGroups.Y443.Native.Align
 public meta import CFSG.YGroups.Y443.Native.Parabolic2Words

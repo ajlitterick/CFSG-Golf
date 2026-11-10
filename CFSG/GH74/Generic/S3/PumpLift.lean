@@ -3,7 +3,6 @@ module
 public import CFSG.GH74.Generic.BarSubnormal
 public import CFSG.GH74.Generic.S1.LayerPair
 public import CFSG.GH74.Generic.S3.Defs
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GH74.GLS.LU.Ident
 
 public section

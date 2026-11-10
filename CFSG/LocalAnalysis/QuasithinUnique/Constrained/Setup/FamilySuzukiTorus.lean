@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionDenominatorSuzukiFamilyOrderIdentity
-public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionDenominatorSuzukiFamilyNormalizer
-public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionDenominatorSuzukiInvolutions
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.OddPrimeInvertersSuzuki
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructureTransport
-public import CFSG.LieType.Ree.SuzukiFrobeniusExponents
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure
 public import CFSG.StronglyEmbedded.ParityCriterion
 

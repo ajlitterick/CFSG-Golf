@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec21.FF81Am6Family
 public import CFSG.RankThree.PartTwo.Sec21.FF79Vocab
-public import CFSG.Open.StatedDefs
 
 @[expose] public section
 

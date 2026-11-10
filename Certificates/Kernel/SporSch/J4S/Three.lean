@@ -2,10 +2,6 @@
 module
 
 public import CFSG.Sporadic.Schreier.J4SThreeDataInputs
-public import Certificates.Kernel.Sporadic.RawGen
-public import Certificates.Kernel.SporSch.J4S.XY
-public import CFSG.Certificates.Kernel.SporSch.J4STokSound
-public import CFSG.Certificates.Kernel.Spor.Loops
 meta import CFSG.Sporadic.Schreier.J4SThreeDataInputs
 import CFSG.Certificates.Kernel.Common.Harness
 public import Certificates.Kernel.SporSch.J4S.NoCP

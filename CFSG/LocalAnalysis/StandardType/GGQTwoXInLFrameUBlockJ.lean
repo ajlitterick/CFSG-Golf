@@ -1,11 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLFrameUDefs
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoPairsDefs
 public import CFSG.LocalAnalysis.StandardType.GGLinearTorusCompSUTwo
 import CFSG.LocalAnalysis.StandardType.GGQTwoNoTwoNodeKSide
-import CFSG.LocalAnalysis.StandardType.GGSixRootFusionSURepFrame
 import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitSU
 import CFSG.LocalAnalysis.StandardType.GGSpFrameConfig
 import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitaryInn

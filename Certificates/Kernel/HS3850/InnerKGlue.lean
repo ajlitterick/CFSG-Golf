@@ -10,14 +10,6 @@ public import Certificates.Kernel.HS3850.InnerKS5
 public import Certificates.Kernel.HS3850.InnerKS6
 public import Certificates.Kernel.HS3850.InnerKS7
 public import Certificates.Kernel.HS3850.Facts25371
-public import Certificates.Kernel.HS3850.FusFacts
-public import Certificates.Kernel.HS3850.Kit
-public import Certificates.Kernel.Sporadic.OddCore.MulHGlue
-public import CFSG.Certificates.Kernel.L34KSnd.Tab
-public import CFSG.Certificates.Kernel.Spor.PEnumSound
-public import Certificates.Kernel.Sporadic.OddCore.PEnumGlue
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

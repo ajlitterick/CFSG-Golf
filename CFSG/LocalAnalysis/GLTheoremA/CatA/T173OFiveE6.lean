@@ -1,18 +1,13 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OFiveDModel
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OFiveDModel2
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OFiveE6Model
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OFiveStd
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OFiveE6Lift
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OFiveE6Rank2
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OFiveE6Diag
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OFiveE6Toral
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OFiveE6Cent
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OFiveE6Weyl
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OFiveE6Gen
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OFiveLayer
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticBstar
 public import CFSG.LocalAnalysis.AGLEmbedding.CaseTwoConfig
 public import CFSG.LocalAnalysis.AGLEmbedding.CaseTwoEscape
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanParabAutIrrHom

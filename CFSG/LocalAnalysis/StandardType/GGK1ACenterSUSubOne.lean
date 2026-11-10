@@ -5,9 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGK1ACenterInvCount
 public import CFSG.LocalAnalysis.StandardType.GGK1AMultUni
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FQUni
 public import CFSG.LinearAlgebra.MatrixPlanes
-public import CFSG.RankThree.PartOne.KC.LinearSplitInner
-public import Mathlib.LinearAlgebra.Lagrange
-public import Mathlib.RingTheory.Polynomial.Cyclotomic.Basic
 
 public section
 

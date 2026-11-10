@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.RankThreeTheoremC.ONPair.Words
-public import CFSG.LocalAnalysis.RankThreeTheoremC.ONPair.ModelFacts
 public import Certificates.Certificate753505
 
 public section

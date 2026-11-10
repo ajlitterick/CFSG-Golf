@@ -1,24 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKG87BSCBridge
-public import CFSG.LieType.Chevalley.TwistedE6NormalFormActors
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwCoreDefs
 
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeA2ConjLift
-import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeA2ConjOrbit
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24CentreStab
-import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24ConnLang
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcInnerLang
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeBlock
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeDiagTwisted
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeToralityProof
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.PlanesToral
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.SmallQThreeE6FourFusion
-import CFSG.HardMathSupport.Timmesfeld.Steinberg.ToralCentralizerGenerated
-import CFSG.LieType.Chevalley.E6GraphInvolutionFiniteReduction
-import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
-import CFSG.LieType.Chevalley.LangFrobeniusFixedDerived
-public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 
 public section
 

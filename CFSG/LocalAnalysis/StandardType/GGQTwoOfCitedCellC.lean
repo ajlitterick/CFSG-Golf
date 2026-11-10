@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoGammaXPosAmb
 public import CFSG.LocalAnalysis.StandardType.GGQTwoGammaXOffI1Holds
 public import CFSG.LocalAnalysis.StandardType.GGQTwoGammaXGraphHolds
 public import CFSG.LocalAnalysis.StandardType.GGQTwoTBCGraphF4
-import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6
 import CFSG.LocalAnalysis.StandardType.GGQ2S08RestOut
 
 public section

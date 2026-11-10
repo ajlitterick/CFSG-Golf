@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.MonoN0Orbit
-public import CFSG.LocalAnalysis.StandardType.FS81.WtTwo
 
 public section
 

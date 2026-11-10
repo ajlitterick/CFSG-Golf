@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.GroupTheory.Nilpotent
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.PGroupQuotientOfPPrimeElements
 
 public section

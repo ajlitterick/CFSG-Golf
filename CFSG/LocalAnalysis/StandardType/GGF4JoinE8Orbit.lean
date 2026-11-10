@@ -1,20 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveFieldTwoExcCore
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6RatLabelA
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinSelected
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
 import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusExcOrbit
 import CFSG.LocalAnalysis.StandardType.ExcPos.TwistedE6Factors
-import CFSG.LieType.Chevalley.RootComponentType
-import CFSG.LieType.Chevalley.SignKernelSimpleWeyl
-import CFSG.HardMathSupport.Timmesfeld.RootAut.Main
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleOrbit
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExcD4
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExc
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompAlcove
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTame
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcShapeFourKac
 
 public section

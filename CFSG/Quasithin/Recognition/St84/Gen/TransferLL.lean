@@ -10,7 +10,6 @@ import CFSG.Quasithin.EmptyFaithful.GoldschmidtF146CoverA
 import CFSG.GroupTheory.CentralizerSup
 public import CFSG.Dihedral.Glauberman.DicksonMaxB
 public import CFSG.Quasithin.Recognition.Kleidman.F204.W2FFA5
-public import CFSG.Quasithin.Recognition.St84.AppTreeL2
 public import CFSG.Quasithin.Recognition.St84.AppTreeSAP2
 public import CFSG.Quasithin.Vol2.Ch1Sec3A5Gen
 public import CFSG.Quasithin.Vol2.KGFact3312A5
@@ -42,10 +41,6 @@ import CFSG.Quasithin.Background.B69Core
 import CFSG.Quasithin.Background.C1GNSolvConnect
 import CFSG.Quasithin.Background.D2
 import CFSG.Quasithin.Background.E3
-import CFSG.Quasithin.Background.E3Nprime
-import CFSG.Quasithin.Background.E3OffenderB
-import CFSG.Quasithin.Background.E3Uniq
-import CFSG.Quasithin.Background.E4Solv
 import CFSG.Quasithin.Background.F9Sixteen
 import CFSG.Quasithin.Background.FFC7G
 import CFSG.Quasithin.Background.FFC8A
@@ -70,18 +65,6 @@ import CFSG.RankThree.Asc83Table.PermTables
 import CFSG.Sporadic.Schreier.J4SSylow
 import CFSG.Sporadic.Schreier.M11
 import CFSG.Sporadic.Schreier.M22
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldPrimeOrderFixedSubfield
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OrderThreeNormalizer
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2PSLRangeCentralizer
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinInvolutionCount
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinRestrictionSixCount
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinUDecomposition
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationEleven
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTen
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTenStructuralIdentities
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2FieldProjectionArithmetic
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2OrderPSubgroupCount
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphReconstruction
 import CFSG.Timmesfeld.RankOne
 import CFSG.Timmesfeld.Transvection.Statement
 import CFSG.Walter.J1

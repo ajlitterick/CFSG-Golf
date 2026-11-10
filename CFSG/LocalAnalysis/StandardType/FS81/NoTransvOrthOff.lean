@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.NoTransvOrth
-public import CFSG.HardMathSupport.Timmesfeld.LinearRank.PermOrbitCount
 
 public section
 

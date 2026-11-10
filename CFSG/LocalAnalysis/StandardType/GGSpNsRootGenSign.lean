@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSpNsRootGenDefs
 public import CFSG.LocalAnalysis.StandardType.GGOmegaNsRootGenDefs
 public import CFSG.LocalAnalysis.StandardType.GGOmegaPlusRootGenDefs
 import CFSG.LocalAnalysis.StandardType.GGOmegaPlusRootGenWeyl
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySpCoord
 import CFSG.LocalAnalysis.AGLEmbedding.ThreeCentLieTwoOFix
 import CFSG.LocalAnalysis.AGLEmbedding.ThreeCentLieTwoBasic
 import CFSG.LocalAnalysis.AGLEmbedding.ThreeCentLieTwoBlocks

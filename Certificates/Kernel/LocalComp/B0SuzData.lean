@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public import CFSG.Certificates.Kernel.Misc.HexFlatSound
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec3B0SuzTests

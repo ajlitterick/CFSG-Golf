@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorsionDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 
 public section

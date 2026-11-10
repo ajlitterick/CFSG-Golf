@@ -1,11 +1,7 @@
 module
 
 public import CFSG.RankThree.PartOne.CTP.SeitzFineU5Five
-public import CFSG.RankThree.PartOne.CTP.SeitzU5Gen
-public import CFSG.RankThree.PartOne.CTP.SeitzU5Eigen
 public import CFSG.RankThree.PartOne.CTP.SeitzU5Four
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LieType.Ree.SuzukiSimple
 public import CFSG.LocalAnalysis.ComponentClassification.AutL2FactsCentModel
@@ -41,9 +37,7 @@ public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
 public import CFSG.Sporadic.Schreier.TitsOther
-public import CFSG.Sporadic.Th.F2Spec
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 
 public section
 

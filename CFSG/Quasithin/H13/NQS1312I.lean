@@ -57,8 +57,6 @@ public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.E2Statements
 public import CFSG.Quasithin.Background.E2Three
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.FFC7G
 public import CFSG.Quasithin.Background.G25Seven
 public import CFSG.Quasithin.Background.G64SymCase
@@ -145,9 +143,6 @@ public import CFSG.SignalizerFunctorTheorem.NonLocal.SpData
 public import CFSG.Sporadic.J4.QT2LocProof
 public import CFSG.Sporadic.Schreier.J4SNoCompCover
 public import CFSG.Sporadic.Schreier.MathieuOddCore
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 
 public section

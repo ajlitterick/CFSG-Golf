@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Quasithin.H13.L32NM22Inputs
 public import CFSG.Certificates.Kernel.M22KSound
 
 public section

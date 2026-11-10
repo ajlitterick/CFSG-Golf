@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.L34W.OutCov
 public import Certificates.Data.Kernel.L34W.Fix
-public import Certificates.Data.Kernel.L34W.Outer
 
 public section
 

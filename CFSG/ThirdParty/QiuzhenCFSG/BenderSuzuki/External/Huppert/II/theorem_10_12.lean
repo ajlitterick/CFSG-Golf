@@ -1,17 +1,13 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_10_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.MatrixGroups.Unitary
 public import Mathlib.Algebra.Group.MinimalAxioms
 public import Mathlib.GroupTheory.Complement
-public import Mathlib.GroupTheory.GroupAction.MultipleTransitivity
 public import Mathlib.LinearAlgebra.Projectivization.Action
 public import Mathlib.LinearAlgebra.Projectivization.Cardinality
 import Mathlib.FieldTheory.Finite.Trace
 import Mathlib.Algebra.Group.MinimalAxioms
-import Mathlib.GroupTheory.SpecificGroups.Cyclic
 import Mathlib.LinearAlgebra.Matrix.Hermitian
-import Mathlib.RingTheory.RootsOfUnity.Basic
 
 namespace CFSG
 end CFSG

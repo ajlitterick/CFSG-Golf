@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGPZVertHolds
-public import CFSG.LocalAnalysis.StandardType.GGPZRankTwo
 
 public section
 

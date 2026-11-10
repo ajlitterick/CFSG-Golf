@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1Regimes
 public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwDThree
 
 public section
 

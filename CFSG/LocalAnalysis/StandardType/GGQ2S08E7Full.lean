@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08FullCoordsExc
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08PermLin
 public import CFSG.Mathlib.Decide.Bounded
-public import Mathlib.LinearAlgebra.StdBasis
-public import Mathlib.GroupTheory.Perm.Cycle.Concrete
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenInfra
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenLin
-public import CFSG.Assembly.Subnormal
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs15
 
 public section

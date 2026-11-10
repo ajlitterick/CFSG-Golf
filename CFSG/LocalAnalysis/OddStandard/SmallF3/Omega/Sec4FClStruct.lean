@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec4FClMod
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec4FClLift
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec4FDStd
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec4IPocketL
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.ClassicalGroups

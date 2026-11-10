@@ -1,8 +1,6 @@
 module
 
 
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2SplitTorus
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2NonsplitTorus
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2InnerAction
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2TorusCentralizer
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ReflectedCyclicIndexTwo

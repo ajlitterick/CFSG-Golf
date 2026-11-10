@@ -2,7 +2,6 @@ module
 
 public import CFSG.Certificates.Kernel.Spor.RawTreeDefs
 import CFSG.Certificates.Kernel.Spor.RawSiftB
-public import Certificates.Data.CFSGNative.Co3Schreier.Basic
 import CFSG.Certificates.Kernel.Spor.RawSiftK
 
 public section

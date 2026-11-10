@@ -4,33 +4,21 @@ public import CFSG.CGT.Stroth77.Section223Step
 public import CFSG.CGT.Stroth77.Section223IndexFour
 public import CFSG.CGT.Stroth77.Extension22Data
 public import CFSG.CGT.Stroth77.Extension215
-public import CFSG.CGT.Stroth77.Extension24IndexTwo
-public import CFSG.CGT.Stroth77.Extension24
 public import CFSG.CGT.Stroth77.Extension25
 public import CFSG.CGT.Stroth77.Extension27
-public import CFSG.CGT.Stroth77.Extension28Basic
 public import CFSG.CGT.Stroth77.Extension28
-public import CFSG.CGT.Stroth77.Extension29IndexTwo
 public import CFSG.CGT.Stroth77.Extension29IndexFour
 public import CFSG.CGT.Stroth77.Extension212Two
 public import CFSG.CGT.Stroth77.Extension212Four
 public import CFSG.CGT.Stroth77.Extension213
 public import CFSG.CGT.Stroth77.Extension214
-public import CFSG.CGT.Stroth77.Extension216
 public import CFSG.CGT.Stroth77.Extension217
 public import CFSG.CGT.Stroth77.Extension218
 public import CFSG.CGT.Stroth77.Extension218Four
-public import CFSG.CGT.Stroth77.Extension219
-public import CFSG.CGT.Stroth77.Extension220IndexTwo
 public import CFSG.CGT.Stroth77.Extension220
-public import CFSG.CGT.Stroth77.Extension221
-public import CFSG.CGT.Stroth77.Extension222
 public import CFSG.CGT.Stroth77.Extension222Four
 public import CFSG.CGT.Stroth77.Extension23Final
 public import CFSG.CGT.Stroth77.Extension26Final
-public import CFSG.CGT.Stroth77.Extension210Final
-public import CFSG.CGT.Stroth77.Extension211Final
-public import CFSG.CGT.Stroth77.Extension210Four
 public import CFSG.CGT.Stroth77.Section224
 public import CFSG.CGT.Stroth77.Stroth31Proof
 public import CFSG.CGT.Stroth77.StrothFrameAmbient
@@ -48,21 +36,16 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.B4ModelsAction
 public import CFSG.Quasithin.Background.B4Statement
 public import CFSG.Quasithin.Background.B5Statement
 public import CFSG.Quasithin.Background.F9Basic
 public import CFSG.Quasithin.Background.G2A5Setting
 public import CFSG.Quasithin.H13.Sp62D3
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
 public import CFSG.Sporadic.Schreier.J4SBinary
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

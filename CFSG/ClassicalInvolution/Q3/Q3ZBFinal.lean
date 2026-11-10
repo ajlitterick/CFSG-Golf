@@ -3,10 +3,8 @@ module
 public import CFSG.ClassicalInvolution.Q3.Q3ZBStruct
 public import CFSG.ClassicalInvolution.Q3.Q3ZBAct
 public import CFSG.ClassicalInvolution.Q3.Q3ZAFinal
-public import CFSG.ClassicalInvolution.Q3.Q3ZACross
 public import CFSG.ClassicalInvolution.Q3.Q3ZATri
 public import CFSG.ClassicalInvolution.Q3.Q3VRowSp2
-public import CFSG.ClassicalInvolution.Q3.Q3TSetup
 public import CFSG.ClassicalInvolution.Q3.OddCoreCentral
 public import CFSG.ClassicalInvolution.Q3.Q3WMain
 public import CFSG.ClassicalInvolution.Q3.Q3ZTop

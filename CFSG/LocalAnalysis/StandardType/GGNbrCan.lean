@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrCentralizer
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveNbr
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveNormalizer
-public import CFSG.LocalAnalysis.StandardType.GGFieldNbr
 
 public section
 

@@ -1,13 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.KInputs811Centre
-public import CFSG.Open.StatedDefs
-public import CFSG.Open.LocalVocabulary
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.KInputs811K6aHolds
-import CFSG.GroupTheory.ElementaryAbelianTransport
 import CFSG.GroupTheory.CoprimeCentralizerTransport
 import CFSG.HardMathSupport.Malle.E27Lie.Defining.TypeD
-import CFSG.LieType.BorelTits.OrthogonalModels
 
 public section
 

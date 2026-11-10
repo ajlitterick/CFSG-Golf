@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesE6QPlusThreeDiag
 public import CFSG.LocalAnalysis.StandardType.GGTwE6SplitRootGenComp
-public import CFSG.Assembly.Subnormal
 
 public section
 

@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.ExcPay.Defs
-public import CFSG.HardMathSupport.Timmesfeld.Tables.T1b.WeylTorusAct
-import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
-import CFSG.LieType.Chevalley.RootDiagonalWeylTransporter
-import Mathlib.RingTheory.RootsOfUnity.AlgebraicallyClosed
 
 public section
 

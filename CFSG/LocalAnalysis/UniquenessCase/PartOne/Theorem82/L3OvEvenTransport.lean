@@ -5,7 +5,6 @@ public import CFSG.Blueprint.Catalog
 import CFSG.LocalAnalysis.ComponentInitial.LinearCoverModel
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearAction
 import CFSG.LocalAnalysis.AGLEmbedding.BlockToralReducePSL
-import CFSG.LieType.BorelTits.Basic
 import CFSG.GroupTheory.ABGLocalTools.PStabilityQSL2
 import CFSG.Assembly.QuasithinDefs
 import CFSG.Foundations

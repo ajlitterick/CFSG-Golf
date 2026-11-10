@@ -1,6 +1,5 @@
 module
 
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Defs
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.RationalTypeAModel
 public import CFSG.LocalAnalysis.GLTheoremA.S10.StrongCover
 public import CFSG.LieType.SeitzGeneration.SeitzStatus

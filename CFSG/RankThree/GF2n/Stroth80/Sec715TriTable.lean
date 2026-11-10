@@ -1,8 +1,6 @@
 module
 
 public import CFSG.RankThree.GF2n.Stroth80.Sec715TriOctId
-public import Mathlib.Data.Fintype.Pi
-import Mathlib.Tactic.FinCases
 
 public section
 

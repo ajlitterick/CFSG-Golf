@@ -4,8 +4,6 @@ public import Certificates.Kernel.S63K.HBind
 public import Certificates.Kernel.S63K.AData
 public import CFSG.Certificates.Kernel.S63K.BfsSound
 public import Certificates.Data.Kernel.S63K.Sorted
-public import CFSG.Certificates.Kernel.Enum.Defs
-public import Certificates.Data.Kernel.Spor.Chain
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.Each
 public import CFSG.Certificates.Kernel.Spor.RawSound

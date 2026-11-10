@@ -1,18 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRest
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieI5CoverField
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieI5CoverExc
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowX1LinPart
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowX2E6Red
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowXUnStruct
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowX1SpMain
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowY1KerA4
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowY1KerA4U
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowY1KerC3
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowY1KerC3B3
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowY1KerC3D4
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowX1OmCFinal
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowX1UnPart
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowY1KerA6U
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowY1KerA7Final
@@ -22,16 +14,11 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowY1KerD4MTwisted
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowX2E6Weyl
 public import CFSG.LieType.SemisimpleCentralizers.HeldLangI5E6Holds
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowY1KerA6LFinal
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowY1KerD4MModel
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowY1OutFinal
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowY1OutOS
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowY1OutD4
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowY1ClsSplit
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowY1ClsExc
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowY1ClsSOSym
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowY1ClsSOOrth
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowY1ClsLin
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowY1ClsUni
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowY1OutE6Final
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowY1OutExcFinal
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowF8Row

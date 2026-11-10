@@ -3,18 +3,11 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGExcFieldAutCentRank
 public import CFSG.LocalAnalysis.StandardType.GGExcFieldAutCentRankF4Basic
 public import CFSG.LocalAnalysis.StandardType.GGExcFieldRankTwE6
-public import CFSG.LocalAnalysis.StandardType.GGExcFieldRankTransfer
 public import CFSG.LocalAnalysis.StandardType.GGTwE6FieldDescent
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeLift
-public import CFSG.LocalAnalysis.StandardType.GGTwE6ToralInner
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesIsogenyTwE6
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcSixETwisted
 public import CFSG.LocalAnalysis.StandardType.GGSixTrialityL613
-public import CFSG.LieType.Chevalley.TwistedE6NormalForm
 public import CFSG.LieType.SeitzGeneration.TwE6SubfieldInndiag
-public import CFSG.LieType.SeitzGeneration.ExcOuterLeOne.TwE6Basic
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwFixed
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeTwField
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
 public import CFSG.Certificates.FusionF2
@@ -58,7 +51,6 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly

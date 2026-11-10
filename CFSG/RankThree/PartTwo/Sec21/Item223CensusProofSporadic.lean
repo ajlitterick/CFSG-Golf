@@ -1,18 +1,10 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec21.Item223CensusProofFamilies
-public import CFSG.Sporadic.Mathieu.M11
-public import CFSG.Sporadic.Mathieu.M22
 public import CFSG.Sporadic.Schreier.M23
-public import CFSG.Sporadic.J1
 public import CFSG.Sporadic.J3
 public import CFSG.Sporadic.HS
-public import CFSG.Sporadic.Mathieu.M24
 public import CFSG.Sporadic.He
-public import CFSG.Sporadic.He.Simple
-public import CFSG.Sporadic.Ru
-public import CFSG.Sporadic.J4
-public import CFSG.Sporadic.J2
 public import CFSG.RankThree.Asc83Table.M24
 public import CFSG.RankThree.Asc83Table.He
 public import CFSG.RankThree.Asc83Table.Ru

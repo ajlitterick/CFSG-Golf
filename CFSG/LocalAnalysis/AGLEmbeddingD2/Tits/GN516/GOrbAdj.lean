@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.GN516.GOrbLeviRad
-public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.MsideParabolicEscape.MinParS
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.GN516.GOrbAdjBruhat
 
 public section

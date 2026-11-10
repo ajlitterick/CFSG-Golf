@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoOmegaLocalLin
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoOmegaLocalAutAux7
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoOmegaLocalReflAux
 
 public section
 

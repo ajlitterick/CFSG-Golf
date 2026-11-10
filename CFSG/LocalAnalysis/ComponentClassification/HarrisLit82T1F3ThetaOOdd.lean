@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoynePOmegaOdd
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1F3ThetaOTorus
 import CFSG.LocalAnalysis.ComponentClassification.BurgoyneCOShape
-public import Certificates.Kernel.ThCent.Leaves
 
 public noncomputable section
 

@@ -81,7 +81,6 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly
@@ -89,15 +88,12 @@ public import CFSG.Monster.GMS.S4CohB
 public import CFSG.Monster.GMS.S5Inputs
 public import CFSG.Quasithin.Background.B216Quotient
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.Quasithin.Background.E3OffenderB
 public import CFSG.Quasithin.Background.F9FiveStruct
 public import CFSG.Quasithin.Background.F9G2
 public import CFSG.Quasithin.Background.F9Geometry
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtF112ListC
 public import CFSG.Quasithin.EmptyFaithful.S14117
-public import CFSG.Quasithin.EmptyFaithful.S14117Coprime
-public import CFSG.Quasithin.EmptyFaithful.S14117Rank
 public import CFSG.Quasithin.EmptyFaithful.S1414Defs
 public import CFSG.Quasithin.EmptyFaithful.S1417Sylow
 public import CFSG.Quasithin.EmptyFaithful.S152N11

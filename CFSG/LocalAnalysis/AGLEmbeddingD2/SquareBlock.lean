@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.SquareDispatch
-public import CFSG.LocalAnalysis.AGLEmbedding.WeakBlockInputs
 
 public section
 

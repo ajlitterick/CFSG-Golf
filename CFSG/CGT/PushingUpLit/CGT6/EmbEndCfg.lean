@@ -3,9 +3,6 @@ module
 public import CFSG.CGT.PushingUpLit.CGT6.EmbAdm
 public import CFSG.CGT.PushingUpLit.CGT6.EmbModDefs
 public import CFSG.Open.StandardDefs
-public import CFSG.Open.StatedDefs
-public import CFSG.Blueprint.Catalog
-public import CFSG.Blueprint.NativeSporadic
 public import CFSG.CGT.PushingUp.BenderBridge
 public import CFSG.CGT.PushingUp.BlockOrder
 public import CFSG.CGT.PushingUpLit.BHS.SymNatOrbitsSL
@@ -16,8 +13,6 @@ public import CFSG.GH74.SectionalRank
 public import CFSG.LocalAnalysis.ComponentClassification.SmallLocalFitting
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.CampbellMotion
 public import CFSG.RankThree.PartTwo.Sec6.Statements
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ProjectiveSemilinear
 public import CFSG.Walter.Defs
 
 public section

@@ -7,9 +7,6 @@ public import Certificates.Kernel.McLAS.InvChk1
 public import Certificates.Kernel.Sporadic.OddCore.MNF
 public import Certificates.Kernel.Sporadic.OddCore.McLTH
 public import CFSG.Certificates.Kernel.Item434.PkSound
-public import CFSG.Certificates.Kernel.Misc.HexFlatSound
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.Misc.ArrBind
 
 public section

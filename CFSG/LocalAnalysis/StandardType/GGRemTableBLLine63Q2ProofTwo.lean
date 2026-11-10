@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63H5StepTwoB
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63H5Final
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63Q2ProofLayer
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63Q2ProofRed
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineL2Remainder
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUCoverOdd
 
 public section

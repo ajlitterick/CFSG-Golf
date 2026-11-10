@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.WeakClosure81.EightThirteenPGapSL3ParAux1
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherMaximalParabolics
 public import CFSG.Quasithin.Vol2.Ch5Sec1L34ParModel
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22d
-public import CFSG.Adapters.ProjectiveSpecialLinear
-import CFSG.LocalAnalysis.ComponentInitial.SmallLinearIsomorphisms
 import CFSG.GroupTheory.AlternatingFive.SylowTwo
 public import CFSG.CGT.Timmesfeld75.Cfg214Gen
 public import CFSG.LargeExtraspecial.S9TIXC

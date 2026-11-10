@@ -2,12 +2,6 @@
 module
 
 public import CFSG.Sporadic.Schreier.Co1FullOrbCheckBase
-public import CFSG.Sporadic.Schreier.Co1OrbEnum
-public import CFSG.Sporadic.Schreier.Co1ThreeLocal
-public import Mathlib.FieldTheory.Finiteness
-public import CFSG.Sporadic.Schreier.Co1FullOrbCheckInputs
-public import CFSG.Sporadic.Schreier.Co1XSet
-public import Certificates.Data.CFSGNative.Co1.Data
 
 @[expose] public section
 

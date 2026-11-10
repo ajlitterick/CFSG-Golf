@@ -7,8 +7,6 @@ public import Certificates.Kernel.Sporadic.Fi22.N3153R3
 public import Certificates.Kernel.Sporadic.Fi22.N3153R4
 public import Certificates.Kernel.Sporadic.Fi22.N3153R5
 import Certificates.Kernel.Co1B.GenTri2045
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

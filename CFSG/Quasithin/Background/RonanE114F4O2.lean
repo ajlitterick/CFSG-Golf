@@ -2,11 +2,7 @@ module
 
 public import CFSG.Quasithin.Background.RonanE114O2
 public import CFSG.Quasithin.Background.RonanE114F4
-public import CFSG.LieType.Ree.LargeReeInvolutionCentralizersCentral
 public import CFSG.LieType.ChevTwo.OppositeFixedExcReeStd
-public import CFSG.LieType.Ree.FixedBruhatDecomposition
-public import CFSG.LieType.Chevalley.WeylRootTransport
-public import CFSG.CGT.Timmesfeld75.L2Defs
 public import CFSG.LieType.Ree.LargeReeEightTorus
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogLargeReeNormalForm
 

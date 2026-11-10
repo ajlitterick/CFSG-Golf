@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6PairOneAssembly
-public import CFSG.LieType.Chevalley.AmbientTwistedFrobeniusFixedNormalizer
-public import CFSG.RankThree.Classical2.TwistedE6RationalOrder
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.TwistedE6Base
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.FrobeniusOnRoots
 

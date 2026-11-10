@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.TcRes.C3Data
 import CFSG.Certificates.Kernel.Common.EachTrue
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

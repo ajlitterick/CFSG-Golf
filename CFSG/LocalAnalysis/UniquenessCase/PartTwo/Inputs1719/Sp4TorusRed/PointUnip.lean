@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.Sp4TorusRed.D
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.TorusQSSp4Weyl
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.Open.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
 
 public section
 

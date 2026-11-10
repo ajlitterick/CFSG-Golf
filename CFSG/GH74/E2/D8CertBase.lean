@@ -1,7 +1,6 @@
 
 module
 
-public import CFSG.GH74.E2.SD16Cert
 public meta import Mathlib
 public import CFSG.GH74.E2.D8CertInputs
 public meta import CFSG.GH74.E2.D8CertInputs

@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD7RootInverter
 public import CFSG.LocalAnalysis.StandardType.FS81.E7FrameHolds
-import CFSG.LieType.SeitzGeneration.ExcParabolicUntw
-import CFSG.LieType.Simplicity.Exceptional
 
 public section
 

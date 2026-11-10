@@ -1,10 +1,8 @@
 module
 
 public import CFSG.Monster.B.GSide.CompletionSubgroup
-public import CFSG.Monster.B.GSide.FusionBasic
 public import CFSG.Monster.B.GSide.HInnerFusion
 public import CFSG.Monster.B.CTIB.DistThreeProductFinal
-public import CFSG.Monster.B.CTIB.Rank2158
 public import CFSG.Monster.B.TwoA.Amalgam.DistThreeCentFinal
 
 public noncomputable section

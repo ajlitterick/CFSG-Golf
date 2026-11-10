@@ -2,19 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.InputsSeitz7b
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.ClassicalEA
-public import CFSG.HardMathSupport.Timmesfeld.OrthogonalGeneration.OrthCentGen
-import CFSG.RankThree.PartTwo.Census.Carrier.SpinDBridge
-import CFSG.RankThree.PartTwo.Census.Carrier.SpinTDBridge
-import CFSG.LocalAnalysis.GLTheoremA.CatB.Bridges
-import CFSG.ClassicalInvolution.SmallCases.UpgradeCoverClassical
 import CFSG.GF2Type.Smith1980Orth.TriD4Rank
-import CFSG.HardMathSupport.Seitz.TrialityEven.TwoThree
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcVacuousTriality
 import CFSG.HardMathSupport.Curtis.NaturalModuleCensus.SPLCellG2
-import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenAutomorphisms
-import CFSG.LieType.SeitzGeneration.ExcPlaneModel
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.D44Outer
-import CFSG.Adapters.TauCetiLieModels
 public import CFSG.HardMathSupport.Curtis.Coordinator.SeitzOuter.RankCube
 public import CFSG.HardMathSupport.Dickson.I271.SporGenBM
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.RkBM

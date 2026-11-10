@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Certificates.Kernel.Common.Loop
-import Certificates.Kernel.Sporadic.OddCore.PEnumCmd
 import Certificates.Kernel.Sporadic.OddCore.MulHCmd
 meta import Certificates.Kernel.PropA.YGen
 

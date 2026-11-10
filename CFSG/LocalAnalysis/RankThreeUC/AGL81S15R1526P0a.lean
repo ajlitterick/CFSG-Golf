@@ -2,13 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsPair
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15LiftDefs
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15Vocab
-public import CFSG.LocalAnalysis.AGLEmbeddingD2.McLaughlin.WeakBlockModuleData.ParabolicCover
-public import CFSG.LocalAnalysis.AGLEmbeddingD2.McLaughlin.WeakBlockModuleData.GlaubermanNiles
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
-public import CFSG.GroupTheory.ABGLocalTools.Basic
-public import CFSG.GroupTheory.HallHigmanPiCore
-public import CFSG.Open.LocalVocabulary
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RankBase
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15R1511A
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15R1511C

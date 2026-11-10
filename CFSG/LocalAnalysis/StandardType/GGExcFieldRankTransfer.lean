@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.SeitzGeneration.ExcTorusRank
-public import CFSG.LieType.SeitzGeneration.ExcTorusSylow
 public import CFSG.LieType.Chevalley.EvenCanonicalFieldCentralizerF4
 public import CFSG.RankThree.Chevalley.SteinbergBTCanonicalFieldCommon
 public import CFSG.GroupTheory.ElementaryAbelianTransport

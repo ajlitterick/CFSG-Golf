@@ -3,16 +3,12 @@ module
 public import Certificates.Kernel.LocalComp.HeFixBind
 public import Certificates.Kernel.Sporadic.OddCore.Suz2302
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.ThetaSpor.HeThreeInputs
-public import CFSG.Certificates.Kernel.BfsPinUnpack
 public import CFSG.Certificates.Kernel.BfsPinSetSound
 public import CFSG.Certificates.Kernel.Spor.RawCongr
-import Certificates.Kernel.Misc.Perm.HexCmd
 meta import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.ThetaSpor.HeThreeInputs
-public import CFSG.Certificates.Kernel.Spor.Loops
 import all Init.Data.Nat.Fold
 import all Init.Data.Range.Basic
 import all Init.Data.Array.Basic
-import CFSG.Certificates.Kernel.Common.Harness
 
 namespace CertificateChecks.KernelCo2Chain.He12635
 

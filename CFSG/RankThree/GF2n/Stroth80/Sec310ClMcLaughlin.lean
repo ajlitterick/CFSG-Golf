@@ -3,21 +3,7 @@ module
 public import CFSG.RankThree.GF2n.Stroth80.Sec310ClPoint
 public import CFSG.RankThree.GF2n.Stroth80.Sec310Stmt
 public import CFSG.RankThree.PartOne.KC.AlternatingSymplecticBasis
-public import CFSG.Open.MatrixModelCore
 public import TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.Basis
-public import Mathlib.Algebra.Group.Subgroup.Finite
-public import Mathlib.Algebra.Group.Subgroup.Lattice
-public import Mathlib.Algebra.Group.Subgroup.Map
-public import Mathlib.Data.Matrix.Mul
-public import Mathlib.LinearAlgebra.Basis.VectorSpace
-public import Mathlib.LinearAlgebra.Dimension.Constructions
-public import Mathlib.LinearAlgebra.Dimension.Finite
-public import Mathlib.LinearAlgebra.Dimension.Free
-public import Mathlib.LinearAlgebra.Dual.Lemmas
-public import Mathlib.LinearAlgebra.FiniteDimensional.Basic
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
-public import Mathlib.LinearAlgebra.Matrix.SchurComplement
-public import Mathlib.Tactic.Group
 public import CFSG.CGT.Timmesfeld75.Forms
 public import CFSG.ClassicalGroups.Orthogonal.ProjectiveSimple
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalReflectionSplitting
@@ -31,9 +17,6 @@ public import CFSG.RankThree.GF2n.SupIndepDecomp
 public import CFSG.RankThree.GF2n.Tim79CentC
 public import CFSG.RankThree.GF2n.Tim79CentL
 public import CFSG.RankThree.GF2n.Tim79Mod
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

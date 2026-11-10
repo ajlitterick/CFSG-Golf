@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofGlueInj
-public import CFSG.LocalAnalysis.StandardType.GGTypeAEndNodeBlock
-public import CFSG.LocalAnalysis.StandardType.GGTypeAFarPerm
 
 public section
 

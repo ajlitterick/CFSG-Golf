@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthogonalEndNode
-import CFSG.RankThree.PartOne.KC.OrthogonalFixedDerived
-import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotMinusTenBasic
 
 public section
 

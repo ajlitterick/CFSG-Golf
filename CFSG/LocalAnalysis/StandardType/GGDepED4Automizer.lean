@@ -1,13 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorus
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthExcEven
 public import CFSG.LocalAnalysis.StandardType.GGSignedPermCount
-public import CFSG.LocalAnalysis.StandardType.GGTableBRank
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenCore
 public import CFSG.LocalAnalysis.StandardType.GGPZMultD4
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUDefs
 
 public section
 

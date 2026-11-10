@@ -6,10 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGRootPlaneRest
 public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitComp
 public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrame
 public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergOmegaPlusFour
-public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerSpin
-public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerMinus
-public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionCore
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointDataCoordinateRegular
 
 public section
 

@@ -3,14 +3,7 @@ module
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.BSevenJParts
 public import CFSG.Certificates.Kernel.BabyMonster.B7J.All
 public import Certificates.Kernel.BabyMonster.B7EParts
-public import Certificates.Kernel.BabyMonster.SevenLocal
 public import CFSG.Certificates.CosetTableShort
-public import CFSG.Certificates.Kernel.BabyMonster.B7J.Check0
-public import CFSG.Certificates.Kernel.BabyMonster.B7J.Check1
-public import CFSG.Certificates.Kernel.BabyMonster.B7J.Check2
-public import CFSG.Certificates.Kernel.BabyMonster.B7J.Check3
-public import CFSG.Certificates.Kernel.BabyMonster.B7J.Check4
-public import CFSG.Certificates.Kernel.BabyMonster.B7J.Wf
 public import CFSG.GroupTheory.LocalCores.Fitting
 
 public section

@@ -2,7 +2,6 @@
 module
 
 public import CFSG.Sporadic.ON.PrimitiveBase
-public import Certificates.Data.CFSGNative.ON.Certificate
 
 @[expose] public section
 

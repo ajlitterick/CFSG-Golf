@@ -1,15 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGK0MarkedKacIface1587
-public import CFSG.LocalAnalysis.StandardType.GGKacExcB2
-public import CFSG.LocalAnalysis.StandardType.GGK1CoverBij
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoLayer
 public import CFSG.RankThree.PartOne.SLBN.LocalBasic
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4ULang
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RFam
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcLang
-public import CFSG.LocalAnalysis.StandardType.GGFamLabelIndex
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4E6TwoThree
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoFi22.DS81.ModelAutQuot
 public import CFSG.GroupTheory.CentralExtensionS3
 public import CFSG.LocalAnalysis.StandardType.GGK0MarkedComponents

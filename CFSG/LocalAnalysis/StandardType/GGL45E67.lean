@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGL45NtAssembly
 public import CFSG.LocalAnalysis.StandardType.GGL45NtAutAsm
 public import CFSG.LocalAnalysis.StandardType.GGL45NtSimp
-public import CFSG.LocalAnalysis.StandardType.GGL45FamCover
 
 public section
 

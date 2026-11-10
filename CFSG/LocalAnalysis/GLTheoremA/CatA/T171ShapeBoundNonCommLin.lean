@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeBoundOther
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeFamInLUComp
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431Fam.PslBadKey
-public import CFSG.RankThree.PartOne.KC.UnitaryRigidityScalar
 import TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.Conjugation
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431Fam.BlocksAbstract

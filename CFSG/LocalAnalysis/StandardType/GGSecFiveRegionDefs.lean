@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveCompatLeviDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveCompatRestDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePrimDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylRest5
 

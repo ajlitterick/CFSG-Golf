@@ -3,9 +3,6 @@ module
 public import CFSG.OddTranspositions.PartThree.Ten.Steps
 import CFSG.OddTranspositions.PartThree.Ten.WreathRigidity
 import CFSG.OddTranspositions.PartThree.HalphaCentralizer
-import CFSG.OddTranspositions.WreathBase
-import CFSG.Timmesfeld.Bridge.Asc72Bender
-import CFSG.Timmesfeld.Bridge.Asc72WAct
 import CFSG.Timmesfeld.Bridge.Asc72WreathConn
 
 public section

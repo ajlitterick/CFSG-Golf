@@ -4,7 +4,6 @@ public import CFSG.RankThree.Chevalley.SteinbergCFEvenF4RootSL2Traces
 public import Certificates.Data.F4NA
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.MsideParabolicEscape.F4AdjointCert
 public import CFSG.LieType.Chevalley.LargeReeAmbientPositiveCentralizer
-public import CFSG.LieType.Simplicity.TitsBits
 import all CFSG.LieType.Simplicity.TitsBits
 
 public section

@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.MS93.S4A441EBP
 public import CFSG.Quasithin.MS93.S4A441EBW
-public import CFSG.Quasithin.MS93.S4A441C3
 import CFSG.Quasithin.MS93.S4A441E
 
 public section

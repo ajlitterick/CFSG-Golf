@@ -3,7 +3,6 @@ module
 public import CFSG.ClassicalInvolution.Q3.Q3E8TorFrame
 public import CFSG.ClassicalInvolution.Q3.Q3E8TorStmt
 public import CFSG.ClassicalInvolution.Q3.Q3E8Frame
-public import CFSG.ClassicalInvolution.Q3.Q3EPFixed
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDNbrDefs
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDSelCore
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDSelUnit
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDSelOrth
 

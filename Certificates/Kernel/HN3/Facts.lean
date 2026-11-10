@@ -10,7 +10,6 @@ import Certificates.Kernel.HN3.Prog
 import Certificates.Kernel.HN3.Checks
 import Certificates.Kernel.HN3.Tie
 import Certificates.Kernel.HN3166.Seed
-import Mathlib.Tactic.IntervalCases
 import all CFSG.Blueprint.NativeSporadic
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.Certificates.Kernel.Fam.Lin

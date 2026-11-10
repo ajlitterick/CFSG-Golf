@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.B3Spor3.HeWords
 public meta import Certificates.Data.B3Spor3.HeWords
-import Certificates.Certificate2112
 import Certificates.Kernel.SporSch.HeThree.C0WordsFacts
 import CFSG.Certificates.Kernel.Misc.ArrBind
 

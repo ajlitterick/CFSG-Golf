@@ -1,8 +1,6 @@
 module
 
 public import CFSG.RankThree.GF2n.Parrott.Basic
-public import Certificates.Data.ParrottPSp43
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallPSp43Model
 public import Certificates.Certificate946005
 public import Certificates.Certificate946016
 

@@ -2,12 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.RouteD.MultiStarModel
 public import CFSG.ClassicalInvolution.ModelFacts.FundamentalSL2Main
-public import CFSG.ClassicalInvolution.ModelFacts.FundNoncentralBridge
-public import CFSG.ClassicalInvolution.ModelFacts.ClauseZero
-public import CFSG.ClassicalInvolution.SL2Facts
-import CFSG.ClassicalInvolution.ModelFacts.FundNoncentralMain
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.ClassicalInvolution.Generic.InductionMain
 public import CFSG.ClassicalInvolution.ModelFacts.OddCover
 public import CFSG.ClassicalInvolution.Models.LinearFrames

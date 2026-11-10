@@ -1,19 +1,13 @@
 module
 
 public import CFSG.Quasithin.Background.E1Defs
-public import CFSG.Quasithin.Background.A1bBasic
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Classification
-public import Mathlib.GroupTheory.SpecificGroups.KleinFour
 
 import CFSG.GroupTheory.InvertedTorusCoset
 import CFSG.GroupTheory.SylowCover
 import CFSG.GroupTheory.ElemAbelianClosure
 import CFSG.CGT.PushingUpLit.SolKAb.CyclicTI
 import CFSG.LocalAnalysis.ComponentClassification.FooteLitElemAb
-import CFSG.Quasithin.Background.E1Invariance
-import CFSG.Quasithin.Background.E1Sec6
-import CFSG.Quasithin.Background.E1Solv
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2DihedralSylow
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2KleinFourCentralizerEqSelf
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2PerfectOfCard
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.PSL2ReflectedTorusCard
@@ -22,7 +16,6 @@ import CFSG.Quasithin.EmptyFaithful.E22PD1
 import CFSG.Quasithin.EmptyFaithful.E22PS4
 import CFSG.Quasithin.EmptyFaithful.E22PTor
 import CFSG.Quasithin.EmptyFaithful.E22PL2Sev
-import CFSG.Quasithin.EmptyFaithful.E22PL2PglC
 import CFSG.GH74.Generic.BProg.B2.GenLocPsl2Full
 import CFSG.GroupTheory.SolvableTransport
 import CFSG.GroupTheory.ABGLocalTools.PStabilityQDickson
@@ -30,7 +23,6 @@ import CFSG.CGT.PushingUpLit.SolKAb.Setup
 import CFSG.Quasithin.Vol2.Ch11SecU1L3IN
 import CFSG.CharacterTheory.Semidihedral.ParameterFiveGeneration
 import CFSG.LocalAnalysis.WeakClosure81.TenFive
-import CFSG.Walter.PSL2Facts.Odd
 import CFSG.Walter.Bender1970.S3.Tools
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.GroupTheory.LocalCores.Fitting
@@ -52,22 +44,9 @@ import CFSG.LocalAnalysis.LargeEvenClassification.CyclicTwoFourGenerators
 import CFSG.LocalAnalysis.LargeEvenClassification.MacWilliamsReduction
 import CFSG.LocalAnalysis.LargeEvenClassification.SmallCfourFullObstruction
 import CFSG.LocalAnalysis.LargeEvenClassification.SmallCfourProperSubgroups
-import CFSG.LocalAnalysis.SectionRank.PRank
 import CFSG.LocalAnalysis.SectionRank.SQT
 import CFSG.Quasithin.Background.G11Basic
 import CFSG.Quasithin.EmptyFaithful.E22PGen
-import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.ClassFunction
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
-import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremC
-import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.ZJTheorem
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GW1965RemarkDGroup
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.CoprimeActionNontrivialTransfer
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseComponentData
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2S0LeQuotientTorus
-import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character
 import CFSG.Walter.Bender1970.S2
 import CFSG.Walter.Bender1970.S3.Basic
 import CFSG.Walter.PSL2Facts

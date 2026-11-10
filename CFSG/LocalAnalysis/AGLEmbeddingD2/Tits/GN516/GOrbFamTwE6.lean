@@ -5,12 +5,6 @@ public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.GN516.GOrbEdgeLevi
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.GN516.GOrbCardPar
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.MsideParabolicEscape.ExcTwistedE6
 public import CFSG.ClassicalInvolution.WeakCT.TwistedE6Model
-public import CFSG.ClassicalInvolution.WeakCT.TwistedE6Levi
-public import CFSG.ClassicalInvolution.WeakCT.Sides
-public import CFSG.ClassicalInvolution.WeakCT.Standard
-public import CFSG.ClassicalInvolution.ModelFacts.ChevAutLift
-public import CFSG.LieType.Steinberg.TwistedE6.Local
-public import TauCeti.LinearAlgebra.RootSystem.FiniteType.Diagram
 public import CFSG.CGT.PushingUpLit.BHS6.Basic
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC

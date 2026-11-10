@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJF4LeviFrame
-public import CFSG.LocalAnalysis.StandardType.GGTBTorTransport
-public import CFSG.LocalAnalysis.ComponentClassification.Components
 
 public section
 

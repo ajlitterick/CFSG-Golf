@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.ExoticSingleFixed
-public import CFSG.ClassicalInvolution.RouteD.GapsToralB
-public import CFSG.ClassicalInvolution.RouteD.TypeTwistedDLocal
 public import CFSG.ClassicalInvolution.ModelFacts.OrthAutMinus
 
 public section

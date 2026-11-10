@@ -1,11 +1,9 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseA7ComponentLeNormalizerLayer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseA7AmbientModel
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PerfectImageNormalOddIndex
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CommutatorCentralDecomposition
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ComponentLayerPerfect
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

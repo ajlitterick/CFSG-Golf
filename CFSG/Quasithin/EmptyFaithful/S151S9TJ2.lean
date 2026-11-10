@@ -3,7 +3,6 @@ module
 public import CFSG.Quasithin.EmptyFaithful.S151S9TKInputs
 public import CFSG.Quasithin.EmptyFaithful.S151S9TLat
 public import CFSG.Quasithin.EmptyFaithful.S151S9TCen
-public import CFSG.Quasithin.Background.E2TwoProofSporJ2
 
 public section
 

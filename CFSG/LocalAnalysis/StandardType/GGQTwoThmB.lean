@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoConnectivity
-public import CFSG.LocalAnalysis.StandardType.GGQTwoInvForm
-public import CFSG.LocalAnalysis.StandardType.GGQTwoThmA
 public import CFSG.LocalAnalysis.StandardType.GGQTwoThmBA
 public import CFSG.LocalAnalysis.StandardType.GGQTwoBCThmB
 public import CFSG.LocalAnalysis.StandardType.GGQTwoThmBBC4

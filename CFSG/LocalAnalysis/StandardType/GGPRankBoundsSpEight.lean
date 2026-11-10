@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGPRankBoundsSp
 public import CFSG.LocalAnalysis.StandardType.GGPRankBoundsEigen
-public import CFSG.LieType.BorelTits.Symplectic
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Sporadic.SuzInv.Text1
 public import Certificates.Kernel.LocalComp.B0SuzData
-public import Certificates.Kernel.Misc.Perm.HexCmd
 public import CFSG.Sporadic.SuzRecog.LevelTwoCoverWCheck
 meta import CFSG.Sporadic.SuzRecog.LevelTwoCoverWCheck
 import CFSG.Certificates.Kernel.Common.Harness

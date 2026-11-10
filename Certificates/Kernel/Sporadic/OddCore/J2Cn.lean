@@ -4,7 +4,6 @@ module
 public import Certificates.Kernel.Sporadic.OddCore.J2Loc
 public import Certificates.Kernel.Sporadic.OddCore.RowsCmd
 public import Certificates.Kernel.Sporadic.OddCore.J2PChain
-public import CFSG.Sporadic.SmallOddCore.J2CheckInputs
 meta import CFSG.Sporadic.SmallOddCore.J2CheckInputs
 meta import Certificates.Kernel.Sporadic.OddCore.J2Loc
 import CFSG.Certificates.Kernel.Common.Harness

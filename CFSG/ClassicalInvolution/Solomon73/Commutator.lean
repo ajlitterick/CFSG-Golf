@@ -2,9 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Solomon73
 public import CFSG.LocalAnalysis.ComponentInitial.BinarySymplecticSixLagrangianSylow
-public import CFSG.LocalAnalysis.ComponentInitial.BinarySymplecticSixCoverModel
-public import CFSG.LocalAnalysis.SectionRank.Ccomm.ElementaryAut
-import Certificates.Data.Kernel.F4M3B
 import CFSG.Certificates.Kernel.F4M3BSound
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo

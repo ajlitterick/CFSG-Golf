@@ -1,23 +1,9 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.MinimalCounterexample
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseCosetFiberCard
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseCountConstructor
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseCountData
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinCentralizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinDataComplete
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseTwoCoreKleinFour
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralCore
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GWLemma21
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.HhatQuotientS4
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.SylowThreeCount
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.SylowThreeIncidence
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.TwoSubgroupCentralizingULeTwoCore
-public import Mathlib.GroupTheory.GroupAction.Quotient
-public import Mathlib.GroupTheory.IndexNormal
-public import Mathlib.GroupTheory.Sylow
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

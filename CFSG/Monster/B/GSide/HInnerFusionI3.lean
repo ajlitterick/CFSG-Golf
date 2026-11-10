@@ -3,11 +3,6 @@ module
 public import CFSG.Monster.B.GSide.HInnerFusionI3Cert
 public import CFSG.Monster.B.GSide.HInnerFusionDefs
 public import CFSG.Monster.B.GSide.G4TwoC
-public import CFSG.Monster.B.CTIB.DistThreeProductCore
-public import CFSG.Monster.B.CTIB.SylowCenter
-public import CFSG.Monster.B.CTIB.UniqueComponent
-public import CFSG.Monster.B.TwoA.Amalgam.NativeChain
-public import CFSG.Monster.B.TwoA.Amalgam.GlobalTypeRemain
 
 public noncomputable section
 

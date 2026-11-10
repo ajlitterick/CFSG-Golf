@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResIDisp.E6
-public import CFSG.LocalAnalysis.StandardType.GGResQTwoCellData
 public import CFSG.LocalAnalysis.StandardType.GGResQTwoCellDataE6.B0
 public import CFSG.LocalAnalysis.StandardType.GGResQTwoCellDataE6.B1
 public import CFSG.LocalAnalysis.StandardType.GGResQTwoCellDataE6.B5

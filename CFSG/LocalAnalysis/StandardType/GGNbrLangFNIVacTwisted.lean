@@ -2,13 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIVacDefs
 import CFSG.LocalAnalysis.StandardType.GGNbrLangS1KGFieldExc
-import CFSG.LocalAnalysis.StandardType.MarkingSmall
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFixGapTwB2
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFixGapTwF4
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestG2
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GClsSympA6
 import CFSG.LocalAnalysis.GLTheoremA.CatA.FPFieldN
-import CFSG.LieType.Simplicity.TitsModel
 import CFSG.Quasithin.Vol2.Ch5Sec1L34FiveA7
 import CFSG.Quasithin.Vol2.Ch6Sec1Lem4SpA
 import CFSG.RankThree.PartTwo.Sec11.Item1117ProofSwap
@@ -19,10 +16,6 @@ import CFSG.RankThree.PartTwo.Sec4.Item426A6
 import CFSG.RankThree.PartTwo.Sec4.Statements423
 import CFSG.RankThree.PartTwo.Sec6.Statements
 import CFSG.RankThree.PartTwo.Sec8.Steps
-import CFSG.Walter.J1Props
-import CFSG.Walter.J1Recog
-import CFSG.Walter.PSL2Facts
-import CFSG.Walter.W67.Statements
 
 public section
 

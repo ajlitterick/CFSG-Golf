@@ -1,15 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeIndepDefs
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeKFixLineDefs
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeSmallRankDefs
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepTransfer
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepSide
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepAtLK
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepAtThree
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepPm1
 public import CFSG.LocalAnalysis.StandardType.GGRCCycleBalanced
-public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeSides
 
 public section
 

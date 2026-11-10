@@ -2,9 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Asc77.AscAETSecViol
 public import CFSG.ClassicalInvolution.Asc77.WP3FrameBootTwinCtx
-public import CFSG.ClassicalInvolution.Asc77.AscT3TypedClass
-public import CFSG.ClassicalInvolution.Asc77.AscT3TypedQuot
-public import CFSG.ClassicalInvolution.ModelFacts.Orth15Section
 public import CFSG.ClassicalInvolution.Asc77.AscE187Cop
 public import CFSG.ClassicalInvolution.Asc77.AscIHSectG
 public import CFSG.ClassicalInvolution.Asc77.AscT7CExit25

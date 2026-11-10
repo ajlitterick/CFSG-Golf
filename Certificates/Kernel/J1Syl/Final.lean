@@ -8,7 +8,6 @@ public import Certificates.Kernel.J1Syl.ChecksF
 public import Certificates.Kernel.J1Syl.ChecksG
 public import CFSG.Certificates.Kernel.Spor.TabWords
 public import CFSG.Certificates.Kernel.Co1PTextSound
-public import CFSG.Sporadic.Th.TableSpec
 public import CFSG.Certificates.Kernel.SporSch.TblSound
 
 public section

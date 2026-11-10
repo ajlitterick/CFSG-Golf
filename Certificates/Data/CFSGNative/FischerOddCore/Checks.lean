@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.CFSGNative.Schreier.Enum3
-public import Certificates.Data.CFSGNative.Schreier.SetOrbit
 public import Certificates.Data.CFSGNative.Schreier.Refine
 public import Std.Data.HashMap
 

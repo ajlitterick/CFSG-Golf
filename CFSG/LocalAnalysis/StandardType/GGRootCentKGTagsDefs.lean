@@ -1,9 +1,5 @@
 module
 
-public import CFSG.Assembly.Defs
-public import CFSG.Assembly.GL83LieDefs
-public import CFSG.Assembly.LowTwoRankDefs
-public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoKGroup
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixElevenDefs
 

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ClassicalGroups.Unitary.SUThreeTwoDiagonalCommutator
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeBlock
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUAct
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniBlocksDiag
 import CFSG.LocalAnalysis.StandardType.GGTorusGenRkComp
 

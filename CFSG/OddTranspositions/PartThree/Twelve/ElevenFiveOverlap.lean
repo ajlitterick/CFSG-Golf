@@ -3,7 +3,6 @@ module
 public import CFSG.OddTranspositions.PartThree.Twelve.ElevenFiveChart
 public import CFSG.OddTranspositions.PartThree.Twelve.ElevenFiveForm
 import CFSG.Mathlib.GroupTheory.ClosureSubgroupOf
-public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveLiftModel
 
 public section
 

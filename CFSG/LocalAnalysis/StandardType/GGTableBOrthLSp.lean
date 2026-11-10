@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthLD4
-public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameTorus
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOpenTableBMoreSp
 
 public section
 

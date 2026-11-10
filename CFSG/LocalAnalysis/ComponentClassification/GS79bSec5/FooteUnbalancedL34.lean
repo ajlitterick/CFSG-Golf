@@ -2,13 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GS79bSec5.FooteUnbalanced
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Assembly
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitCases
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitThmBReach
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitInputs
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Steps
-public import CFSG.LocalAnalysis.ComponentClassification.SolAltLitOddInput
-public import CFSG.LocalAnalysis.ComponentInitial.KProperPumpUpStatement
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

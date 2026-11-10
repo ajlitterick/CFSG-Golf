@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResLeaves
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
 import TauCeti.LinearAlgebra.IntegralLattice.RootLattice.TypeD.SimpleRoots
 import TauCeti.LinearAlgebra.Matrix.Cartan.Classical
-import TauCeti.LinearAlgebra.RootSystem.FiniteType.Classical
-import TauCeti.LinearAlgebra.RootSystem.FiniteType.Dynkin
 
 public section
 

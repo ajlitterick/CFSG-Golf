@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKD2Connected1619Contracts
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172CCentComp
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeOrthFixed
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeOrthBlockProofFixed
-public import CFSG.GroupTheory.Fitting.LayerContainment
-public import CFSG.Quasithin.EmptyFaithfulMultiple.Inspection15418Basic
 public import CFSG.GH74.Generic.S3.LyB2Dickson
 public import CFSG.HardMathSupport.Dickson.Bal207.OrthD4Loc
 public import CFSG.HardMathSupport.Solomon.Coordinator.L5Conj

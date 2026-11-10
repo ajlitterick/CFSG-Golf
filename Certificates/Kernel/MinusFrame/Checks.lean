@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.MinusEnum.Data
 public import Certificates.Kernel.MinusFrame.Data
 public import Certificates.Data.Kernel.PermPinK
-public import CFSG.Certificates.Kernel.LocalCompUnpack
 import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 400000

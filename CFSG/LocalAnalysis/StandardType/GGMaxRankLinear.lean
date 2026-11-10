@@ -2,19 +2,6 @@ module
 
 public import CFSG.LinearAlgebra.MovedSpanFixSub
 public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
-public import Mathlib.LinearAlgebra.RootSystem.CartanMatrix
-public import Mathlib.Data.Matrix.Mul
-public import Mathlib.LinearAlgebra.Matrix.ToLin
-public import Mathlib.LinearAlgebra.Dimension.Constructions
-public import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
-public import Mathlib.RingTheory.Finiteness.Basic
-public import Mathlib.FieldTheory.Finiteness
-public import Mathlib.SetTheory.Cardinal.Finite
-public import Mathlib.Algebra.Module.Pi
-public import Mathlib.LinearAlgebra.Isomorphisms
-public import Mathlib.Tactic.Module
-public import Mathlib.Tactic.Ring
-public import Mathlib.Tactic.FieldSimp
 public import CFSG.ClassicalGroups.Orthogonal.ProjectiveSimple
 
 public section

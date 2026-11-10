@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.TitsOct.Data
 public import Certificates.Data.Kernel.TitsOctK
 public import Certificates.Kernel.SporSch.Tits.Action2262
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

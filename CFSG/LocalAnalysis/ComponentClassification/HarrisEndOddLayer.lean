@@ -1,11 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.HarrisEndBasic
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisEndSetting
-public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitTwoComp
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitCompTools
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuotTools
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuotIso
 public import CFSG.Dihedral.GorensteinWalter
 
 public noncomputable section

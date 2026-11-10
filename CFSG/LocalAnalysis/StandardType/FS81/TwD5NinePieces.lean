@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Pieces
 public import CFSG.Open.GLADefs
-public import CFSG.Open.LocalVocabulary
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTorsionE67Basic
 public import CFSG.LocalAnalysis.StandardType.GGTorsionE67Linear
 public import CFSG.LocalAnalysis.StandardType.GGTorsionE67BCD
 public import CFSG.LocalAnalysis.StandardType.GGTorsionE67Exc

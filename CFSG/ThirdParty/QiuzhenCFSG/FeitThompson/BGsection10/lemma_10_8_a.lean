@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection10.corollary_10_7_b
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection5.theorem_5_6_c
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.theorem_4_18_a
 import Mathlib.GroupTheory.Schreier
 import Mathlib.LinearAlgebra.Projectivization.Cardinality
 

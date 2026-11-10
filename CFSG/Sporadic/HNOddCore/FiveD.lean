@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Sporadic.HNOddCore.FiveC
-public import CFSG.Sporadic.HNOddCore.Alt12
 
 public noncomputable section
 

@@ -1,10 +1,7 @@
 module
 
-public import Certificates.Data.Kernel.LceSTab
 public import Certificates.Data.Kernel.LceSHeRu
 public import CFSG.Certificates.Kernel.Bounds.J3Alt.Route
-import Certificates.Kernel.LceSTab.Assemble
-import Certificates.Kernel.HeRu.Assemble
 import Certificates.Kernel.J3.Assemble
 import Certificates.Kernel.J3.Labs
 import CFSG.Certificates.Kernel.Common.Harness

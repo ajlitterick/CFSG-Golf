@@ -1,9 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Q3TD3R4Model
-public import CFSG.ClassicalInvolution.Q3.Q3WASNorm
-public import CFSG.ClassicalInvolution.RouteD.GapsFrIso
-public import CFSG.ClassicalInvolution.RouteD.GapsToralD
 public import CFSG.ClassicalInvolution.Q3.Q3TLKOdd
 
 public section

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinBranch
-public import CFSG.LocalAnalysis.StandardType.GGFixedRealizedConfig
-import CFSG.LocalAnalysis.StandardType.GGNSJoinOrthExclAux
 import CFSG.LocalAnalysis.StandardType.GGNSJoinOrthExclAux2
 
 public section

@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBWNormFrame
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormE8Split
 public import CFSG.LocalAnalysis.StandardType.GGTorusE7Split
-public import CFSG.LocalAnalysis.StandardType.GGTwE6WeylTorusTransferCore
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLineE7
 public import CFSG.GroupTheory.SelfCentralizingMap
 
 public noncomputable section

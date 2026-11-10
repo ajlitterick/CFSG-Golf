@@ -1,15 +1,8 @@
 module
 
-public import CFSG.LieType.Steinberg.CentralExt.TwistedE6TwoOriginalOuterAction
 public import CFSG.LieType.Steinberg.CentralExt.TwistedE6OrigCover
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRootGenFrame
 public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6Holds
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenTwE6Three
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRestDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBBstar
-import CFSG.LieType.SeitzGeneration.ExcTorusCount
 
 public section
 

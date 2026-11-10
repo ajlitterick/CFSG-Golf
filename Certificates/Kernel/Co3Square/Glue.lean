@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Co3Std.SquareCheck
-public import CFSG.Certificates.Kernel.Spor.RawDefs
 public import Certificates.Kernel.Sporadic.Co3.Single
 import Certificates.Kernel.Co3Square.Check
-import CFSG.Certificates.Kernel.Spor.PackWord
 import CFSG.Certificates.Kernel.BfsPinUnpack
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Sporadic.Schreier.Co3Sylow

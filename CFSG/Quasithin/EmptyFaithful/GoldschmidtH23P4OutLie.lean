@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtH23P4OutBase
-public import CFSG.Quasithin.Background.A3StructureDefs
 public import CFSG.Quasithin.EmptyFaithful.SBc11List
 public import CFSG.Quasithin.Recognition.CertU33AutBound
 public import CFSG.Timmesfeld.Final.PSU33
@@ -9,8 +8,6 @@ public import CFSG.LieType.Chevalley.OddExceptionalOuterTwoRank
 public import CFSG.LieType.Chevalley.EvenTrialityAutomorphismNormalForm
 public import CFSG.Sporadic.Schreier.TitsOuter
 public import CFSG.Sporadic.Schreier.TitsAutD
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Foundations
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
@@ -30,16 +27,12 @@ public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.B2Thompson
 public import CFSG.Quasithin.Background.F2Equiv
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
 public import CFSG.Sporadic.Schreier.TitsOther
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

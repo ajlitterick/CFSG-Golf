@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLDType
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 public import CFSG.LocalAnalysis.StandardType.GGDepASmall
-public import CFSG.LocalAnalysis.StandardType.GGResLeaf
 public import CFSG.YGroups.Y443.Native.Hom
 public import CFSG.LocalAnalysis.StandardType.GGDepAPerm
 

@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsPair
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15Vocab
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K5192P2PB
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15P2GlueKernel
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBLinearTwoComponents
-import CFSG.Assembly.Subnormal
 
 public section
 

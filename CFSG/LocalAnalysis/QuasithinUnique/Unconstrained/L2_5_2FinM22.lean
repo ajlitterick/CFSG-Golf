@@ -1,11 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_2FinM2Tab
 public import CFSG.Sporadic.Mathieu.M22
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_2FinM2Tab
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_2FinM22Inputs
 public import Certificates.Certificate4065
-public import Certificates.Certificate3029
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Reduce
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Reduce
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_2

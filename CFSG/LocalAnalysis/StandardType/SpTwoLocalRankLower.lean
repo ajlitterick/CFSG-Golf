@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBRank
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticTorus
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwoThreeSp
-public import CFSG.LieType.Universal.Symplectic
 
 public section
 

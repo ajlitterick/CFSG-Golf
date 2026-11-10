@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenKNormOrthAbs
-public import CFSG.Open.MatrixModelCore
 import CFSG.HardMathSupport.Solomon.Coordinator.McLaughlinTypesForms
 
 public section

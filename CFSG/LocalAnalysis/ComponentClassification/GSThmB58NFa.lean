@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.GSThmB6Conj
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5bLemma513
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBHypB2
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB516PumpQuot
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5bConj
 public import CFSG.LieType.Universal.SpinOmega.Range
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB6Choice
 

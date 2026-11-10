@@ -10,8 +10,6 @@ import CFSG.LieType.Chevalley.OrdinaryEOuterOrder
 import CFSG.LieType.SeitzGeneration.ExcPlaneModel
 public import CFSG.LieType.ChevTwo.Reductions
 public import CFSG.LieType.Chevalley.C2E6UnitaryFourImages
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.GroupTheory.LocalCores.Fitting
 import CFSG.LieType.Chevalley.EvenRootCommutatorF4
 import CFSG.LieType.SeitzGeneration.ExcPlaneBridge

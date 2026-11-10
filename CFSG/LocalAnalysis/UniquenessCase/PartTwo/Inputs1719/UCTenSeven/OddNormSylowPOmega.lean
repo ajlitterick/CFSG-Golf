@@ -10,9 +10,6 @@ import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.UCTenSeven.OddPOmega
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.FundamentalOverModel
 import CFSG.LocalAnalysis.UniquenessCase.UC22FunSplitNormalizerGeometry
 import CFSG.LocalAnalysis.UniquenessCase.UC22FunSplitOrthogonalBlocks
-import CFSG.LocalAnalysis.UniquenessCase.UC22FunSplitPermutationAction
-import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalReduce
-import CFSG.ClassicalInvolution.Q3.Q3PlanParamsLift
 public import CFSG.GroupTheory.PCore.Transport
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.UCTenSeven
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S2114Defs

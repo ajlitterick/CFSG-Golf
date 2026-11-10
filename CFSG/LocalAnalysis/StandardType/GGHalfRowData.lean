@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 public import CFSG.LocalAnalysis.StandardType.GGSixE6A24Centre
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4Mult
 import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOther
-import CFSG.LocalAnalysis.StandardType.Marking
 public import CFSG.LinearAlgebra.LinearGroups.LinearTwo
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueUStatement
 public import CFSG.LocalAnalysis.ComponentClassification.GSLitType
@@ -16,7 +15,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedGSAContainedS
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedLayerOddCoreUnbalancingTriple
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

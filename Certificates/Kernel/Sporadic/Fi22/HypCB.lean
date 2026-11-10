@@ -26,10 +26,7 @@ public meta import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBloc
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HypOne.Rows
 public meta import CFSG.LocalAnalysis.EvenSporadicStandard.HypOne.Rows
 public meta import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public meta import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 public meta import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 public meta import CFSG.Walter.JRFacts
 public import CFSG.Walter.JRFacts

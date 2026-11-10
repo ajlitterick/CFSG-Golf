@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.Kernel.SmithD6.Data
 public import Certificates.Data.Kernel.KeyTreeChunks
 public import Certificates.Data.SmithD6Model
 import CFSG.Certificates.Kernel.Common.EachTrue

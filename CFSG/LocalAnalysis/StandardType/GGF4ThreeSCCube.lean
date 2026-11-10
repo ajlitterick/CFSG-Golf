@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4ThreeNbrRank
-import CFSG.LocalAnalysis.StandardType.GGOneFiveRank
 import CFSG.LocalAnalysis.StandardType.GGFieldCaseXL48
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOmega
-import CFSG.LocalAnalysis.StandardType.GGExcFieldAutCentRankF4Rank
 import CFSG.Quasithin.EmptyFaithful.GoldschmidtS15223P2Alt
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListAlt7
 import CFSG.Quasithin.Background.A1cA132Action
@@ -15,7 +12,6 @@ import CFSG.Quasithin.Background.B1MoreEleven
 import CFSG.Quasithin.Background.B5CompA
 import CFSG.Quasithin.Background.B5CompB
 import CFSG.Quasithin.Background.D2
-import CFSG.Quasithin.Background.D2Dihedral
 import CFSG.Quasithin.EmptyFaithful.S146F4
 import CFSG.Quasithin.EmptyFaithful.S152He4Core
 import CFSG.Quasithin.EmptyFaithful.S153Baum

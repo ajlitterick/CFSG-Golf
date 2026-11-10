@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTorusGenTwoThreeNarrow22Defs
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenSpTwo
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenOmegaPlusTwo
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenOmegaMinusTwo
@@ -12,15 +11,12 @@ public import CFSG.LocalAnalysis.StandardType.GGTorusGenE6Two
 public import CFSG.LocalAnalysis.StandardType.GGTableBF4TwoTorusGen
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenTwoANarrow21
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcNarrow20
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcNarrow19
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcNarrow18
 public import CFSG.LocalAnalysis.StandardType.GGCoverRkCoprimeNarrow17
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkCoprimeNarrow16
 public import CFSG.LocalAnalysis.StandardType.GGCoverSLTwoNarrow15
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenSLDvdNarrow14
 import CFSG.LocalAnalysis.StandardType.GGTorusGenUFour
 import CFSG.LocalAnalysis.StandardType.GGTorusGenOrthLabels
-import CFSG.LocalAnalysis.StandardType.GGCoverPClassicalInner
 import CFSG.LocalAnalysis.StandardType.GGCoverPSymplectic
 import CFSG.LocalAnalysis.StandardType.GGCoverPOmegaPlus
 import CFSG.LocalAnalysis.StandardType.GGCoverPOmegaMinus

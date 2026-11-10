@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T156GUniSmall
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T156GMain
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldUnitary
 
 public section
 

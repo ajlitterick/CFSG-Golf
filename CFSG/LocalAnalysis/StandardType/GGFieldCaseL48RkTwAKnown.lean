@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBRkDefs
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBPosition
-public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
-public import CFSG.LocalAnalysis.StandardType.GGTableBRank
 
 public section
 

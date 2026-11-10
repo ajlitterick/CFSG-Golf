@@ -1,17 +1,13 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeIndepDatumOfTor
-public import CFSG.LocalAnalysis.StandardType.GGTBXPlumb
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangTorJInputs
 import CFSG.LocalAnalysis.StandardType.GGE6D4LocalDatum
 import CFSG.LocalAnalysis.StandardType.GGE6D4LocalPos
-import CFSG.LocalAnalysis.StandardType.GGResLeaf
 import CFSG.LocalAnalysis.StandardType.GGForkJrPumpLattice
 import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthWeylOrdD
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
 import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepPos
 import CFSG.LocalAnalysis.StandardType.GGNbrU63Setup
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
 import CFSG.LocalAnalysis.StandardType.GGRCWeylConnected
 import CFSG.LocalAnalysis.StandardType.GGResCentBoundNbr
 

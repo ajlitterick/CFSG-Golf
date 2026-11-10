@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Sporadic.M22Pair5
-import CFSG.Certificates.Kernel.Common.Harness
 
 namespace CertificateChecks.KernelSpor.M22Pair5
 

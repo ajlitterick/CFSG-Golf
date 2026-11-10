@@ -3,8 +3,6 @@ module
 public import CFSG.ClassicalInvolution.WeakCT.Blocks
 public import CFSG.RankThree.PartTwo.Census.Classical.EvenBlocks
 public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec7L75Z1
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 public import CFSG.Foundations
@@ -54,9 +52,6 @@ public import CFSG.LocalAnalysis.GLTheoremB.SchreierTools
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalGroup.LowRank

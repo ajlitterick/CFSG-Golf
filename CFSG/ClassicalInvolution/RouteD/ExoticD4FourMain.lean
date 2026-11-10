@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.ExoticD4FourCaseI
-public import CFSG.ClassicalInvolution.RouteD.ExoticD4FourTwins
-public import CFSG.ClassicalInvolution.RouteD.ExoticD4FourPair
 public import CFSG.ClassicalInvolution.RouteD.ExoticD4FourNodes
 
 public section

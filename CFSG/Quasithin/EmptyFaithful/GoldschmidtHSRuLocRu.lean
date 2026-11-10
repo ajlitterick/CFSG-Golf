@@ -5,7 +5,6 @@ public import CFSG.Quasithin.EmptyFaithful.GoldschmidtHSRuLocLat
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtHSRuLocOrd4
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312RuQuot
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtCMaxCen
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatRu
 import all CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatRu
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19IdentRu
 public import CFSG.Certificates.Kernel.LocalCompTits.Span
@@ -20,36 +19,23 @@ public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalReflectionSplitting
 public import CFSG.LocalAnalysis.ComponentInitial.SuzukiModelSchreier
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListAlt7
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L122AProved
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Equivariance
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19IdInputs3
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure
 public import CFSG.Open.SplitBNPair
 public import CFSG.Quasithin.Background.A3Structure319
-public import CFSG.Quasithin.Background.A3Structure36BBase
-public import CFSG.Quasithin.Background.A3Structure36BPrimeDataBase
-public import CFSG.Quasithin.Background.A3Structure36Base
 public import CFSG.Quasithin.Background.B1More13Defs
 public import CFSG.Quasithin.Background.B1MoreEleven
 public import CFSG.Quasithin.Background.B216Quotient
-public import CFSG.Quasithin.Background.B4ModelsAction
 public import CFSG.Quasithin.Background.B5CompA
 public import CFSG.Quasithin.Background.B5CompB
 public import CFSG.Quasithin.Background.C1GNSolvConnect
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3OffenderB
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.E4Solv
 public import CFSG.Quasithin.Background.F9G2
 public import CFSG.Quasithin.Background.FFC4Res
 public import CFSG.Quasithin.Background.FLcAutMat
 public import CFSG.Quasithin.Background.InternalSecFF
 public import CFSG.Quasithin.EmptyFaithful.FLcMLEGrp
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import CFSG.Quasithin.EmptyFaithful.S14110
 public import CFSG.Quasithin.EmptyFaithful.S1421L246
 public import CFSG.Quasithin.EmptyFaithful.S143Pre
@@ -102,7 +88,6 @@ public import CFSG.Walter.J1
 public import Certificates.Data.CFSGNative.MonsterB.Rep4371Model
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

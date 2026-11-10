@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLFrameUHeart
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeBlock
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaBase
 public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUDvdBound
 

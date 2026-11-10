@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LieType.SeitzGeneration.ExcHigh.TwE6SU6Cover
-public import CFSG.LieType.SeitzGeneration.ExcHigh.TwE6TwoTorus
-public import CFSG.Assembly.GL83LieDefs
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSpSuzukiCentralizer
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSpWedge
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X7bPairs

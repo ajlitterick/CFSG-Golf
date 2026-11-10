@@ -3,14 +3,6 @@ module
 
 public import CFSG.Sporadic.Co2Rank3.CheckBase
 
-public import CFSG.Sporadic.Co2Cert.Check
-public import Certificates.Data.CFSGNative.Schreier.Refine
-public import Certificates.Data.CFSGNative.Schreier.Check
-public import Certificates.Data.CFSGNative.Co2Rank3.Orbits
-public import Certificates.Data.CFSGNative.Co2Rank3.Data
-public import Mathlib.Data.Fintype.Basic
-public import CFSG.Sporadic.Co2Rank3.CheckInputs
-public import CFSG.Sporadic.Co2Rank3.CheckInputsT
 public import Certificates.Certificate10079
 public meta import CFSG.Sporadic.Co2Cert.Check
 public meta import Certificates.Data.CFSGNative.Schreier.Refine

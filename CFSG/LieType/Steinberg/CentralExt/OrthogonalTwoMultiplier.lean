@@ -3,13 +3,10 @@ module
 public import CFSG.LieType.Steinberg.CentralExt.CoverAssembly
 public import CFSG.LieType.Steinberg.CentralExt.POmegaPlusMultiplier
 public import CFSG.LieType.Steinberg.CentralExt.POmegaMinusMultiplier
-public import CFSG.LieType.Steinberg.CentralExt.SpinPlusCentrallyClosed
-public import CFSG.LieType.Steinberg.Families
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalSplitCoverPrime
 public import CFSG.LocalAnalysis.ComponentInitial.NonsplitOrthogonalCoverFour
 public import CFSG.LocalAnalysis.ComponentInitial.NonsplitOrthogonalCoverFive
 public import CFSG.LocalAnalysis.ComponentInitial.NonsplitOrthogonalCover
-public import CFSG.Blueprint.Catalog
 public import CFSG.LieType.Steinberg.CentralExt.F4E8Multiplier
 public import CFSG.LieType.Steinberg.G2
 public import CFSG.Open.QuasithinDefs

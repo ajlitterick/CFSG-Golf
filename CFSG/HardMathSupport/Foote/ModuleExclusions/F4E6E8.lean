@@ -2,7 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Foote.ModuleExclusions.G2General
 public import CFSG.HardMathSupport.Foote.ModuleExclusions.ExcSigns
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

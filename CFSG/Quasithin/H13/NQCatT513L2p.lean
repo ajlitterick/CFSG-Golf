@@ -2,8 +2,6 @@ module
 
 public import CFSG.Quasithin.H13.NQCatT513L24
 public import CFSG.Dihedral.Glauberman.DicksonMaxList
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2KleinFourCentralizerEqSelf
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Cardinality
 public import CFSG.Quasithin.Background.P3GL24A5Dec
 
 public section

@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7DDefs
 import CFSG.LocalAnalysis.StandardType.GGHdRo7SUReduceVIrrB
-import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylBFrame
-import Mathlib.Tactic.Module
-import Mathlib.Tactic.LinearCombination
 
 public section
 

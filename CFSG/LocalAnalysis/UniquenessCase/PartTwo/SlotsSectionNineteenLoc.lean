@@ -1,32 +1,15 @@
 module
 
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.GF2RepsSevenSevenHolds
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.GF2RepsElevenEight
-import Certificates.Certificate2233
-import Certificates.Certificate2234
-import Certificates.Certificate2235
-import Certificates.Certificate3139
-import Certificates.Certificate10019
-import Certificates.Certificate260410
-import Certificates.Certificate260411
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.GF2RepsElevenEightRank
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.J2InvertsGenHolds
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.UCOneFourTen.Assembly
 public import CFSG.RankThree.GF2n.Parrott.GF2nTypeOfNoSqE1
 public import CFSG.OddTranspositions.PartFour.Fourteen.IOneOpen
 public import CFSG.OddTranspositions.Frontier
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.R82Setup
-import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.CaseOneONanFinal
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.CaseOneL62Holds
-import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.Case812Setup
-import CFSG.LocalAnalysis.UniquenessCase.OpenThree.R82Exits
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenThirteenHolds
 public import Certificates.Certificate17264
-public import Certificates.Certificate9516
-public import Certificates.Certificate41721
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentIrred
-import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.GroupTits
-import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.GroupMcL
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.PartOneSevenNarrowHolds
 public import Certificates.Certificate725009
 public import Certificates.Certificate7252
@@ -41,33 +24,19 @@ import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.UCTenSeven.OddAutSyl
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.TwistedF4IrredBoundHolds
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.TrialityD4IrredBoundHolds
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Lem11_9HS
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4RowAutRank
-import CFSG.Quasithin.Background.Harris.IrreducibleModulesAndBounds.Case1M22Rank
-import CFSG.LocalAnalysis.WeakClosure81.GF2Reps128Main
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.GF2RepsFourSixteenHolds
-import CFSG.LocalAnalysis.WeakClosure81.GF2RepsAsch54Holds
-import CFSG.LocalAnalysis.WeakClosure81.GF2RepsAsch5AboveFive
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.TenSix.ResidualQ
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.R847NarrowSetup
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.R920L2Main
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.R920L2RestHolds
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.TorusQSCases
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.TorusQSSp4
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.Sp4TorusRed.Holds
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.TorusQSL2U3
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.FourTenDefs
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.UCTenNineProof
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.SevenFour.Holds
-public import Certificates.Certificate188001
-public import Certificates.Certificate188002
 public import Certificates.Certificate419001
-import CFSG.LocalAnalysis.UniquenessCase.UC6S898i
 import CFSG.LocalAnalysis.UniquenessCase.UC22R898Print
-import CFSG.LocalAnalysis.UniquenessCase.UCKP1
 import CFSG.LocalAnalysis.UniquenessCase.UCKP3
 import CFSG.LocalAnalysis.UniquenessCase.UCKP898D
-import CFSG.LocalAnalysis.UniquenessCase.UCKP898G
-import CFSG.LocalAnalysis.UniquenessCase.UCKPCenter
 import CFSG.LocalAnalysis.UniquenessCase.UCKPFI3
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.FourTenBasic
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.FourTenLarge
@@ -76,9 +45,6 @@ import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.FourTenSmall
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.KFourteenSix
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.UCFourteenSix
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.U3EvenCentPerfect
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.KFourteenSixNBar
-import CFSG.LocalAnalysis.UniquenessCase.UC1K32
-import CFSG.LocalAnalysis.RankThreeTheoremC.SmallRankE3.P622KDEvenHolds
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.KFourteenSixNBarProof
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.KFourteenSixNHolds
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.ComposeRows
@@ -88,50 +54,26 @@ import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.UCTenSeven.OddOutCen
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.WeakClosureOrbitE3
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.WeakClosureNineBModel
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.WeakClosureNine14NHolds
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.A6AutOrder8Holds
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenFiveA6Orbit
-import CFSG.LocalAnalysis.WeakClosure81.GF2RepsAsch5ASFinal
-import CFSG.LocalAnalysis.WeakClosure81.GF2RepsAsch512Main
-import CFSG.LocalAnalysis.WeakClosure81.RankThreePrimePowerBounds
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.WeakClosureNineBOfModels
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.WeakClosureNineBMHolds
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.SporadicThreePermutingRankThree
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SigmaRankThree13
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.PartOneSixNine
-public import CFSG.LocalAnalysis.UniquenessCase.UC6K36EqlStarCat
-public import CFSG.LocalAnalysis.UniquenessCase.UC6K36SporGe4
-public import CFSG.LocalAnalysis.UniquenessCase.UC6K36ODCCent
-public import CFSG.LocalAnalysis.UniquenessCase.UC6K316Out
-public import CFSG.LieType.SeitzGeneration.SeitzStatus
-public import CFSG.LocalAnalysis.UniquenessCase.UC6K36SporPairs
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S21r899E3
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section19.AssemblyRG
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.BorelOvergroupHolds
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.NineteenTwentyOddAutHolds
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SlotsSectionsEighteenNineteen
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.TwelveSevenBAS
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.PartOneThree
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.PartOneThreeSix
-public import CFSG.LocalAnalysis.UniquenessCase.UC6S846h
-public import CFSG.LocalAnalysis.UniquenessCase.UC22DataExt
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.PartOneSixThirtyEight
 public import CFSG.LocalAnalysis.UniquenessCase.UC7R71Three
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.R72.RankThree
-public import CFSG.RankThree.GF2n.AssemblyFour
-public import CFSG.LocalAnalysis.UniquenessCase.UC6R640Cert
-public import CFSG.LocalAnalysis.UniquenessCase.UC6K332THolds
-public import CFSG.LocalAnalysis.RankThreeTheoremC.KFacts.CentralOmega.Main
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.CatalogModels
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.UCTenSeven.OddDefs
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.UCTenSeven.OddAction
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenThirtyOneMcClurg
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm14_1.Defs
-public import CFSG.CGT.PushingUpLit.TwoKHolds
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.R8107Three
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.L2SmallHolds
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.JRgenHolds
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.Glue4TorusHolds
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W7NineOneFourHolds
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W7NineFourHolds
 public import CFSG.RankThree.PartTwo.Sec19.F194Wide3
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.AutOmegaHolds
@@ -141,41 +83,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section19.TorusCentHolds
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.Chev2StarHolds
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section19.TorusAutomizerHolds
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section19.NoL2SzSectionHolds
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.KFact1916Census
-public import Certificates.Certificate45
-public import Certificates.Certificate46
-public import Certificates.Certificate47
-public import Certificates.Certificate48
-public import Certificates.Certificate49
-public import Certificates.Certificate50
-public import Certificates.Certificate51
-public import Certificates.Certificate52
-public import Certificates.Certificate53
-public import Certificates.Certificate54
-public import Certificates.Certificate55
-public import Certificates.Certificate56
-public import Certificates.Certificate57
-public import Certificates.Certificate58
-public import Certificates.Certificate59
-public import Certificates.Certificate60
-public import Certificates.Certificate61
-public import Certificates.Certificate62
-public import Certificates.Certificate63
-public import Certificates.Certificate64
-public import Certificates.Certificate65
-public import Certificates.Certificate66
-public import Certificates.Certificate67
-public import Certificates.Certificate68
-public import Certificates.Certificate69
-public import Certificates.Certificate70
-public import Certificates.Certificate71
-public import Certificates.Certificate72
-public import Certificates.Certificate73
-public import Certificates.Certificate74
-public import Certificates.Certificate75
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.Census1916.Linear
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.Census1916.Unitary
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.Census1916.SpOmega
@@ -185,7 +92,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.RankOneHolds
 public import CFSG.LocalAnalysis.UniquenessCase.F10K105OfSporRest
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.KFacts1918OmegaShape
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.BNGenerationHolds
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.KFact1920ForceShape
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.ForceLieHolds
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section19.NineteenOneSuppliers
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.KFactsNineteenLeviHolds
@@ -195,74 +101,38 @@ import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.UCTenSeven.Reduction
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.UCTenSeven.OddReeOuter
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm13_10.Assembly
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm14_1.Three
-import CFSG.LocalAnalysis.UniquenessCase.UCFront10K101
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section19.NineteenOneNineAssembly
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenThree
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.ElevenFourteen
-import CFSG.LocalAnalysis.WeakClosure81.FourteenEightTorus
-import CFSG.LocalAnalysis.WeakClosure81.FourteenEightTwo
-import CFSG.LocalAnalysis.WeakClosure81.GF2RepsAsch5ASTwelve
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.GF2RepsB
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.SU3Modules
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.U34InvolutionGen
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.U34OuterInvolution
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.U34InvolutionGenReduction
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.U34InvolutionGenCheck
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.U34OuterInvHolds
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section19.NineteenThreeHigh
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section19.NineteenFourInner
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section19.NineteenFourInnerTwo
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.TwelveFourteenSetup
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.TwelveNineteen
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22qx
 import CFSG.LocalAnalysis.UniquenessCase.UC611f
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.ElevenNineMain
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.R77EqThree
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.HeOuterParabolicsHolds
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.ONanLatticeLat
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.ONanLatticePar
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section19.NineteenSixteenLHolds
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.UCFourteenSevenThree
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenFortyFiveNeFour
-public import Certificates.Certificate17282
-public import Certificates.Certificate2129
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.FunHypOmega
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.FunHypOmegaHolds
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.UCOneFourTen
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.FourteenEight
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.FourteenEightNarrow
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.R77E2Three
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs12c4Holds.Reduction
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.FFGlaubermanNiles
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.OddLieFunCommute
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W3SixEighteenHolds
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.KFacts1919Torus
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section19.NineteenNineteenHolds
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.R8108Three
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight102KFacts
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight102AltTenHolds
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight102U4OddRankHolds
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight102U45OutHolds
-import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight102Syl3Holds
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight102SylOddHolds
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight102TorusFixHolds
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight102U45AltFiveHolds
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight102U45KeyHolds
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight102R8103Three
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.L33GraphOuterW
-public import CFSG.LocalAnalysis.UniquenessCase.UCFront10SporRestE
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront10SporRestEHolds
-public import Certificates.Certificate10502
-public import Certificates.Certificate10503
 public import Certificates.Certificate27980
-public import Certificates.Certificate10504
-public import Certificates.Certificate10505
-public import Certificates.Certificate1264303
-public import Certificates.Certificate6097
-public import Certificates.Certificate6098
-public import Certificates.Certificate6099
-public import Certificates.Certificate15059
-public import Certificates.Certificate15096
 public import Certificates.Certificate75337
 public import Certificates.Certificate75338
 public import Certificates.Certificate75339
@@ -290,18 +160,15 @@ import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4RowHS
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4RowONA
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4RowONM
 public import Certificates.Certificate14961
-public import Certificates.Certificate291400
 public import Certificates.Certificate725004
 public import Certificates.Certificate725005
 public import Certificates.Certificate725006
 public import Certificates.Certificate725007
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm14_2.Statement
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.TenFive.ResidualQ
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.TenFive.Invol.ExcTwD4
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm14_3.Statement
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm14_5.SmallOpen
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.GF2Reps417TrialityD4
-import CFSG.LocalAnalysis.WeakClosure81.FourFiveLayer.Holds
 import CFSG.LocalAnalysis.UniquenessCase.UC22S2114R4Holds
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm14_1.InvolGenHolds
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm14_1.GL42SevenHolds
@@ -311,148 +178,49 @@ import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.SU3TorusIrredHolds
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm14_2.Assembly
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm14_3.Assembly
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm14_2.CentHolds
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm14_3.ExtHolds
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm14_2.SmallHolds
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm14_5.SmallHolds
-import CFSG.LocalAnalysis.UniquenessCase.UC1K462Proved
-import CFSG.CGT.PushingUpLit.CGT6.EmbK
-import CFSG.HardMathSupport.Foote.Coordinator.Downstream
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm14_3.ExcHolds
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm14_3.FixTHolds
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Lem14_6.Defs
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Lem14_6.Reduction
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Lem14_6.L28SmallM
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Lem14_6.SzMinM
-import Certificates.Certificate43
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.LeviInvHolds
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.R920Slices
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section9.R920OddSetupThree
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section9.R920J1Main
-import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.KInputsSolvableOf
-import CFSG.LocalAnalysis.UniquenessCase.UC6K35Holds
-import CFSG.LocalAnalysis.UniquenessCase.UCK461Holds
-import CFSG.CGT.PushingUpLit.CGT6.EmbEndSporThree
-import CFSG.HardMathSupport.Foote.FamilyReduction.ClassicalFive
 import CFSG.LocalAnalysis.UniquenessCase.UC1ZassMain
-import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.Coordinator.J4Eleven
-import CFSG.LocalAnalysis.UniquenessCase.UC6K332Lists
-import CFSG.LocalAnalysis.UniquenessCase.UC6K332K33
-import CFSG.LocalAnalysis.UniquenessCase.UC6K332RowsHolds
-import CFSG.LocalAnalysis.UniquenessCase.UC1K462Holds
-public import Certificates.Certificate8058
-public import Certificates.Certificate8059
-public import Certificates.Certificate9504
-public import Certificates.Certificate12610
-public import Certificates.Certificate12612
-public import Certificates.Certificate12613
-public import Certificates.Certificate12614
-public import Certificates.Certificate12623
-public import Certificates.Certificate12635
-public import Certificates.Certificate12636
-public import Certificates.Certificate12641
-public import Certificates.Certificate428001
-public import Certificates.Certificate428004
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.PartOne
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight106KComp
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight105Holds
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight105KTorusHolds
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight105KU3IdentHolds
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight105KU3Mult
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight105KU3Facts
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsGroup
 public import CFSG.LocalAnalysis.WeakClosure81.OddTranspCoreCases
-public import CFSG.Milestones.CL_LIT_Fischer_three_transposition_theorem
-import CFSG.LocalAnalysis.WeakClosure81.SevenElevenSmallCls
-import CFSG.LocalAnalysis.WeakClosure81.OddTranspCoreThreeTransp
 import CFSG.LocalAnalysis.WeakClosure81.OddTranspCoreSimpleHolds
 import CFSG.LocalAnalysis.WeakClosure81.OddTranspCoreRadicalHolds
-import CFSG.LocalAnalysis.UniquenessCase.UCFront10SporBK
-import CFSG.LocalAnalysis.UniquenessCase.UCFront10SporBThompson
-import CFSG.Monster.B.TwoA.Sp8.TwoRankCbar
-import CFSG.Monster.B.TwoA.Sp8.T8Witness
 public import CFSG.LocalAnalysis.WeakClosure81.OddTranspListTriHolds
 public import CFSG.LocalAnalysis.WeakClosure81.TrialityMarkedHolds
 public import CFSG.LocalAnalysis.WeakClosure81.TrialityCentralHolds
 public import CFSG.LocalAnalysis.WeakClosure81.Asc80BMain
 public import CFSG.LocalAnalysis.WeakClosure81.OddTranspCompFactorHolds
 public import CFSG.LocalAnalysis.WeakClosure81.NineThreeT79Main
-public import CFSG.LocalAnalysis.WeakClosure81.W16LCited
 public import CFSG.LocalAnalysis.WeakClosure81.W183Remaining
 public import CFSG.LocalAnalysis.WeakClosure81.W16POne
-public import CFSG.LocalAnalysis.WeakClosure81.W16Holds
-public import CFSG.LocalAnalysis.WeakClosure81.W16Discharge
-public import CFSG.LocalAnalysis.WeakClosure81.EightFiveGapsDischarged
-public import CFSG.LocalAnalysis.WeakClosure81.EightTailAssembly
-public import CFSG.LocalAnalysis.WeakClosure81.EightFiveTwoSplit
 public import CFSG.LocalAnalysis.WeakClosure81.EightEightPFinalAS
 public import CFSG.LocalAnalysis.WeakClosure81.EightFiveRootRankL2Holds
 public import CFSG.LocalAnalysis.WeakClosure81.EightFiveGapSixHolds
 public import CFSG.LocalAnalysis.WeakClosure81.EightThirteenPGapFinal
-public import CFSG.LocalAnalysis.WeakClosure81.TimTI.Main
 public import CFSG.LocalAnalysis.WeakClosure81.SpUCitedHolds
 public import CFSG.LocalAnalysis.WeakClosure81.EightThirteenPCited
-public import CFSG.LocalAnalysis.WeakClosure81.TwelveSchur
-public import CFSG.LocalAnalysis.WeakClosure81.W15ElevenDich
-public import CFSG.LocalAnalysis.WeakClosure81.W15ElevenS4B
-public import CFSG.LocalAnalysis.WeakClosure81.W15ElevenBar
 public import CFSG.LocalAnalysis.WeakClosure81.SevenKUnitaryHolds
-public import CFSG.LocalAnalysis.WeakClosure81.SevenNineOrthHolds
-public import CFSG.LocalAnalysis.WeakClosure81.A6Case.Main
-public import CFSG.LocalAnalysis.WeakClosure81.SevenElevenBig
-public import CFSG.LocalAnalysis.WeakClosure81.EightThirteenPHinge
-public import CFSG.LocalAnalysis.WeakClosure81.EightNineteenP
-public import CFSG.LocalAnalysis.WeakClosure81.EightTwentyP
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs12
-public import CFSG.LocalAnalysis.WeakClosure81.EightEight
-import CFSG.RepresentationTheory.SL2NatSum.NatSumInput
-import CFSG.RepresentationTheory.SzMartineau.MartineauInput
-public import CFSG.LocalAnalysis.WeakClosure81.SzExcl.Main
-public import CFSG.LocalAnalysis.UniquenessCase.UCFront10SporRestE
-public import CFSG.LocalAnalysis.UniquenessCase.UCFront10SporFi23Frame
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront10SporMJ
-public import CFSG.LocalAnalysis.UniquenessCase.UCFront10SporONan
-public import CFSG.LocalAnalysis.UniquenessCase.UCFront10SporCo1
-public import CFSG.LocalAnalysis.UniquenessCase.UCFront10SporFi24
-public import CFSG.LocalAnalysis.UniquenessCase.UCFront10SporHN
-public import CFSG.LocalAnalysis.UniquenessCase.UCFront10SporLy
-public import CFSG.LocalAnalysis.UniquenessCase.UCFront10SporTh
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight91
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.R856Three
-public import Certificates.Certificate2005
-public import Certificates.Certificate8124
-public import Certificates.Certificate8171
 public import Certificates.Certificate10506
 public import Certificates.Certificate10507
 public import Certificates.Certificate10508
-public import Certificates.Certificate10509
 public import Certificates.Certificate10510
 public import Certificates.Certificate10511
-public import Certificates.Certificate13620
-public import Certificates.Certificate13621
-public import Certificates.Certificate17335
-public import Certificates.Certificate17336
-public import Certificates.Certificate17337
-public import Certificates.Certificate17338
-public import Certificates.Certificate17339
-public import Certificates.Certificate22200
 public import Certificates.Certificate23204
-public import Certificates.Certificate24530
 public import Certificates.Certificate24531
 public import Certificates.Certificate24550
-public import Certificates.Certificate25230
-public import Certificates.Certificate25231
-public import Certificates.Certificate25260
-public import Certificates.Certificate25261
-public import Certificates.Certificate25262
-public import Certificates.Certificate25290
-public import Certificates.Certificate25300
 public import Certificates.Certificate26777
-public import Certificates.Certificate36908
-public import Certificates.Certificate131101
 public import Certificates.Certificate704101
-public import Certificates.Certificate812105
-public import Certificates.Certificate812201
-public import Certificates.Certificate1089008
 public import Certificates.Certificate1164101
 public import Certificates.Certificate1383001
 public import Certificates.Certificate1383002
@@ -468,10 +236,6 @@ public import Certificates.Certificate1383011
 public import Certificates.Certificate1383012
 public import Certificates.Certificate1430001
 public import Certificates.Certificate1449001
-public import Certificates.Certificate15082
-public import Certificates.Certificate812461
-public import Certificates.Certificate812462
-public import Certificates.Certificate812463
 public import Certificates.Certificate1322003
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.R880SpineThree
 public import CFSG.CGT.Foote82.T66.CitedMC2
@@ -571,7 +335,6 @@ public import CFSG.Quasithin.Background.G118Hyp
 public import CFSG.Quasithin.Background.G118NT
 public import CFSG.Quasithin.Background.G93ApplyStmt
 public import CFSG.Quasithin.Background.GoldschmidtE23J
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtL2BlockSecA
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtL2BlockSecB
 public import CFSG.Quasithin.EmptyFaithful.S151CLG2D4Pkg
 public import CFSG.Quasithin.EmptyFaithful.S151WE
@@ -623,7 +386,6 @@ public import CFSG.RankThree.PartTwo.Sec21.Item221ProofStatements
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434O8pE9Local
 public import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec2.Thm210SetupGlobal
 public import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec2.Thm210SetupOrbit
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseLinearPostEquationFour
 public import Certificates.Certificate17260
 public import Certificates.Certificate17280
 public import Certificates.Certificate17283
@@ -671,7 +433,6 @@ import CFSG.LocalAnalysis.UniquenessCase.UC22S21rD
 import CFSG.LocalAnalysis.UniquenessCase.UC6S6
 import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135Defs
 import CFSG.LocalAnalysis.WeakClosure81.GF2Reps13Found
-import CFSG.LocalAnalysis.WeakClosure81.GF2Reps13FoundC
 import CFSG.LocalAnalysis.WeakClosure81.GF2Reps13OneBetaCA
 import CFSG.LocalAnalysis.WeakClosure81.GF2Reps13Sev
 import CFSG.LocalAnalysis.WeakClosure81.GF2Reps13TwoDefs

@@ -4,9 +4,6 @@ public import CFSG.OddTranspositions.PartThree.EightOne.Defs
 public import CFSG.Timmesfeld.Bridge.Asc72Central
 public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.SolQuot.Hom
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.Timmesfeld.Bridge.Asc72Width
 
 public section

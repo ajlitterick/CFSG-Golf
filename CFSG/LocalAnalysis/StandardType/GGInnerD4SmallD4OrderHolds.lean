@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGInnerD4SmallContracts
-public import CFSG.LocalAnalysis.StandardType.MarkingClassical
-public import CFSG.Timmesfeld.Orders.Classical
 public import CFSG.ClassicalInvolution.RouteD.TWRExoticArith
 
 public section

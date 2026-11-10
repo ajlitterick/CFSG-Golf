@@ -4,7 +4,6 @@ module
 public import CFSG.Sporadic.Th.KernelSimpleBase
 
 public import CFSG.Sporadic.Th.KernelPlanes
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

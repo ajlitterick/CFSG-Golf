@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.V.SamePrime
 
 namespace CFSG

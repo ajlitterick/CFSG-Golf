@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265SF0
 public import CFSG.LocalAnalysis.StandardType.GGE6DepPerpDefs
-public import CFSG.LocalAnalysis.StandardType.GGWeylCasePrime
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyDichotomy
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUDefs
 public import CFSG.Sporadic.Schreier.J4SProfileNode

@@ -2,7 +2,6 @@ module
 
 public import CFSG.Blueprint.Catalog
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.MinimalLocalFailurePairActionQuotient
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.MatrixGroups.PSL2
 
 public noncomputable section
 

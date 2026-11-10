@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGHalfFrameGF2
 public import CFSG.LocalAnalysis.StandardType.GGHalfFramePerm
 
 public section

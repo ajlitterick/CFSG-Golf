@@ -1,10 +1,8 @@
 module
 
-public import CFSG.Certificates.Kernel.Orders.Mat3
 public import CFSG.Certificates.Kernel.Asc82Syl.Pc
 public import CFSG.Certificates.Kernel.Spor.Mat3Sound
 public import Std.Data.HashMap
-public import Mathlib.Data.Matrix.Mul
 public import Mathlib.Data.ZMod.Basic
 public import Mathlib.Algebra.BigOperators.Fin
 

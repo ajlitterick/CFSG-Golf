@@ -1,9 +1,7 @@
 module
 
-public import Certificates.Data.Kernel.U38Pts
 public import Certificates.Kernel.SchreierFam.C188002C
 import CFSG.Certificates.Kernel.Common.Harness
-import CFSG.Certificates.Kernel.Common.Loop
 import all Init.Data.Nat.Fold
 import all Init.Data.Range.Basic
 import all Init.Data.Array.Basic

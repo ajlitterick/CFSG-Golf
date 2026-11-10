@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Certificates.Kernel.KDenseP.Norton.Run
-public import CFSG.Certificates.Kernel.Common.Chain
 import CFSG.Certificates.Kernel.Common.Each
 public import CFSG.LocalAnalysis.AGLEmbedding.Norton.MON11_13.D13CheckDefs
 public import CFSG.LocalAnalysis.AGLEmbedding.Norton.MON11_13.ElevenCheckDefs

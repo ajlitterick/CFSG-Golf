@@ -3,12 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormFrame
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormE6Five
 public import CFSG.LocalAnalysis.StandardType.GGTBTorE8Split
-public import CFSG.LocalAnalysis.StandardType.GGTwE6WeylTorusTransferCore
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLine
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplit
-public import CFSG.LocalAnalysis.StandardType.GGOuterInvAtE6OddToral2
-public import CFSG.LocalAnalysis.StandardType.GGNoTransvectionAutForm
-public import CFSG.LocalAnalysis.SeitzReduction.HypothesisOneHeightRigidityAut
 public import CFSG.LocalAnalysis.StandardType.GGL45NtE8Five
 
 public noncomputable section

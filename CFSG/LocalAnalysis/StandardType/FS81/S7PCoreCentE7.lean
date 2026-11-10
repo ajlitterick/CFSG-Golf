@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.FS81.S7E7Incl
 import CFSG.LocalAnalysis.StandardType.FS81.S7E7RadicalCent
 import CFSG.LocalAnalysis.StandardType.FS81.S7RootSL2
-import CFSG.LieType.BorelTits.Basic
 
 public section
 

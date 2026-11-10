@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootPlaneOmFrame
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderOmegaOrth
-public import Mathlib.RingTheory.Polynomial.Cyclotomic.Basic
-public import Mathlib.LinearAlgebra.Eigenspace.Minpoly
-public import CFSG.Timmesfeld.Orders.ClassicalOrthogonal
-public import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotAnisoEight
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1P58b3LDFour
 
 public section

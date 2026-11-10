@@ -4,9 +4,7 @@ public import Certificates.Kernel.Sporadic.CF24.Data
 public import Certificates.Kernel.Sporadic.OddCore.Suz23000K
 public import Certificates.Data.Kernel.Spor.CF24K
 public import Certificates.Data.Kernel.Misc.ArrEnum
-public import Certificates.Data.Kernel.Spor.Raw
 public import Certificates.Data.GSThmBCatalog7CF24
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

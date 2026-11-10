@@ -2,7 +2,6 @@
 module
 
 public import Certificates.Data.Kernel.PermCent.CV
-public import Certificates.Data.ParrottPSp43
 public import Certificates.Certificate946016Base
 
 public section

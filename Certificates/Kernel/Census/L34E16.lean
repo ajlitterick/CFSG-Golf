@@ -3,14 +3,6 @@ module
 public import Certificates.Kernel.Census.L34
 public import CFSG.Certificates.Kernel.Census.E16Sound
 public import CFSG.Certificates.Kernel.Census.E16Proof
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoL3FourE16Tests
-import CFSG.LocalAnalysis.ComponentClassification.RankTwoL3FourHypIIW
-import Certificates.Data.CFSGNative.MonsterB.Co2Chain
-import Certificates.Data.Kernel.Census.Packed
-import Certificates.Data.Kernel.Census.PackedF
-import Certificates.Data.Kernel.Census.PackedE16
-import CFSG.Certificates.Kernel.Enum.Defs
-import Mathlib.Data.List.Sort
 import Init.Data.Nat.Fold
 import Init.Data.Range.Basic
 import CFSG.Certificates.Kernel.Common.Harness

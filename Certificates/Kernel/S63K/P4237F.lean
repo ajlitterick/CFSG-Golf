@@ -1,14 +1,11 @@
 module
 
-public import Certificates.Data.D4HexLocCheck
 public import Certificates.Kernel.S63K.PChecksT
 public import Certificates.Kernel.S63K.PChecksQ
 public import Certificates.Kernel.S63K.H4240
-public import Certificates.Kernel.S63K.I21111
 public import Certificates.Kernel.S63K.L4234
 public import Certificates.Kernel.S63K.C21113
 public import CFSG.Certificates.Kernel.S63K.LocForestSound
-public import CFSG.Certificates.Kernel.S63K.SortSound
 import CFSG.Certificates.Kernel.Common.ForallTree
 
 public section

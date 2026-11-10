@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGE6R4OppFieldTwo
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeFullCentre1585RowTableBHolds
 public import CFSG.LocalAnalysis.StandardType.GGFamLabelDefs
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24ConnGenFrame
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.CentralizerTrivialUnitaryQ2
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24ConnGenAsm
 public import CFSG.Quasithin.Background.G1Basic

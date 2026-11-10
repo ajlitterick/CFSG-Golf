@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinPrimed
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveZSInputs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylBranchInputs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBarData
 
 public section

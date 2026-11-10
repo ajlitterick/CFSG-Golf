@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGMaxRankSide
 public import CFSG.LocalAnalysis.StandardType.GGMaxRankNine
-public import CFSG.LocalAnalysis.StandardType.GGResSideDatumDefs
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepTransfer
 public import CFSG.LocalAnalysis.StandardType.GGWeylSimpleSystemsConj
 

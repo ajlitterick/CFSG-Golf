@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSuDvdRootGenComp
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitDvdAct
 
 public section

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenKNormOrthMat
-public import CFSG.Open.StatedDefs
 import CFSG.LieType.Universal.Spin.Forms
 
 public section

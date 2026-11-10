@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.SeitzReduction.EPilotFusionEntrywise
 public import CFSG.RankThree.PartOne.KE8F.FamBruhat
-import CFSG.LieType.Chevalley.AdjointCenter
 import CFSG.LieType.Chevalley.OddF4CosetDescent
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGCentExcFieldAut
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGCentExcTwoElt
@@ -14,7 +13,6 @@ public import CFSG.RankThree.PartOne.KE.A1SL2
 public import CFSG.RankThree.PartOne.KE.A1Torus
 public import CFSG.RankThree.PartOne.KE.SigmaUntwisted
 public import CFSG.RankThree.PartOne.KE.StabGeneral
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import CFSG.Walter.JRFacts
 

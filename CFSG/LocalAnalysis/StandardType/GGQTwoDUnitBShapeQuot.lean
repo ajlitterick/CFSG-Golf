@@ -3,18 +3,11 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNsq2QuotNorm
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDCoxMat
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBShape
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDCells
 public import CFSG.LocalAnalysis.StandardType.GGNsq2Cited
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowDefs
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitDelete
-import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBShapeA1
-import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBShapeA2
-import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBShapeB1
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBShapeB2
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBShapeM2
-import CFSG.Mathlib.GroupTheory.CoprimeKernelLift
-import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6
-import CFSG.LocalAnalysis.StandardType.GGOneFiveNbr
 
 public section
 

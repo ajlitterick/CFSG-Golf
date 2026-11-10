@@ -2,7 +2,6 @@ module
 
 public import CFSG.Monster.B.TwoA.Fischer.CliqueCodeBlocks
 public import CFSG.LinearAlgebra.LinearGroups.ProjectiveSimple
-public import Mathlib.LinearAlgebra.Projectivization.Independence
 
 public section
 

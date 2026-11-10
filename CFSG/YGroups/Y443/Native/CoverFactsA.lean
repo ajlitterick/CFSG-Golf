@@ -1,6 +1,5 @@
 module
 
-public import CFSG.YGroups.Y443.Native.CoverFactsWords
 public import Certificates.Certificate10112
 public meta import CFSG.YGroups.Y443.Native.Align
 public meta import CFSG.YGroups.Y443.Native.EdgeNoncomm

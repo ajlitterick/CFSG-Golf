@@ -1,18 +1,12 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangS1ExcInputs
-public import CFSG.LocalAnalysis.StandardType.GGL45NtDefs
 public import CFSG.LocalAnalysis.StandardType.GGL45NtExcBridgeDefs
-import CFSG.LocalAnalysis.StandardType.GGL45NtRecExU
 import CFSG.LocalAnalysis.StandardType.KGLangS1EToralLift
-import CFSG.LocalAnalysis.StandardType.GGL45NtExcBridge
 import CFSG.LocalAnalysis.StandardType.KGLangLT5ExcModel
 import CFSG.LocalAnalysis.StandardType.KGLangLT5ExcTorus
 import CFSG.LocalAnalysis.StandardType.KGLangS1AGlue
 import CFSG.LocalAnalysis.StandardType.KGLangTorAGeneric
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangChev
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcInn
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldCyclicLabels
 import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownChevModel
 
 public section

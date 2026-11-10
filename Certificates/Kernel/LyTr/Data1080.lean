@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.LyTr.Data
-public import CFSG.Sporadic.Recognition.LyonsAmalgamYInputs
 meta import CFSG.Sporadic.Recognition.LyonsAmalgamYInputs
 meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 

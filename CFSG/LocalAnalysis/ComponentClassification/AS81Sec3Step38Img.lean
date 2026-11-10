@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec3Step38Rho
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec3Step37
-public import CFSG.RankThree.OrthogonalInvolutions.Dickson
 public import CFSG.GroupTheory.WeirSylow.OrthogonalOrders
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec3LinePrim
 

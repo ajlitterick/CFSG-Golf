@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinPrimed
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrWeylA
-public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.NormalFourGeometry
 public import TauCeti.GroupTheory.SpecificGroups.Dihedral.Basic
 
 public section

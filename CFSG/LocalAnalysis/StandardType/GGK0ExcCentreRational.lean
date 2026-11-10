@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGK0MarkedKacIface1587
-public import Mathlib.LinearAlgebra.Pi
 
 public section
 

@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGR4PumpTwKnownDefs
-import CFSG.LocalAnalysis.StandardType.Marking
-import CFSG.LocalAnalysis.StandardType.GGTableBTransport
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
 
 public section
 

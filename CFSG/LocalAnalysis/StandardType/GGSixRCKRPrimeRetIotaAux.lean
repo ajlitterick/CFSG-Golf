@@ -1,13 +1,7 @@
 module
 
-public import CFSG.LieType.Chevalley.WeylRoots
-public import CFSG.LieType.Steinberg.Adjoint.Pairs
-public import CFSG.LieType.Chevalley.KernelComponentRoots
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.BigAnyGen
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfMaxNormTwo
-public import CFSG.LocalAnalysis.ComponentInitial.RootDiagonalConjugation
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcOrbit
-public import CFSG.Timmesfeld.RankTwo.LevisExceptional
 
 public section
 

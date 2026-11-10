@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Sporadic.Schreier.RuCheckOrbLBInputs
-public import CFSG.Sporadic.Schreier.RuWitArrays
 public import Certificates.Data.CFSGNative.SporadicSchreier.Classes
 public meta import CFSG.Sporadic.Schreier.RuCheckOrbLBInputs
 public meta import CFSG.Sporadic.Schreier.RuWitArrays

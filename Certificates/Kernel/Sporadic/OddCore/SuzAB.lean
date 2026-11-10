@@ -1,10 +1,7 @@
 module
 
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public import Certificates.Kernel.Sporadic.OddCore.PEnumGlue
-public import CFSG.Certificates.Kernel.BfsPinSound
-public import CFSG.Certificates.Kernel.Spor.PrimSound
 public import CFSG.Sporadic.SuzRecog.TwistTests
 meta import CFSG.LocalAnalysis.ComponentClassification.AS81Sec3B0SuzTests
 import CFSG.Certificates.Kernel.Common.Harness

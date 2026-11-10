@@ -1,9 +1,6 @@
 module
 
-public import Certificates.Data.Kernel.Spor.Prim
-public import Certificates.Data.Kernel.Spor.Row
 public import Certificates.Data.Kernel.Spor.PEnum
-public import CFSG.Certificates.Kernel.Common.Loop
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTorusGenTwE6NarrowDefs
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenTwE6Label
 
 public section

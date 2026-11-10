@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Assembly.GL83LieDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154Symp2
 
 public section

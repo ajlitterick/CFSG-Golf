@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoVACSplit
 public import CFSG.LocalAnalysis.StandardType.GGQTwoVACLinClass
 public import CFSG.LocalAnalysis.StandardType.GGR4Forced
 public import CFSG.LocalAnalysis.StandardType.GGHalfRowData
@@ -10,14 +9,8 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoFullExclusions
 public import CFSG.LocalAnalysis.StandardType.GGE6TwoCenter
 public import CFSG.LocalAnalysis.StandardType.GGE6TwoLocalRank
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrSmallRank
-public import CFSG.LocalAnalysis.StandardType.GGTableBTransport
-public import CFSG.Blueprint.ChevalleyRootArtifact
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeTwoTorus
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.D44
-public import CFSG.LocalAnalysis.StandardType.GGTableBE6TwoPilotToral
 public import CFSG.LocalAnalysis.StandardType.GGE6OppConjDatum
 public import CFSG.LocalAnalysis.StandardType.GGR4JMeetTransport
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMoreCore
 public import CFSG.GroupTheory.SupCommute
 public import CFSG.LocalAnalysis.StandardType.GGR4JMeetNoL34
 public import CFSG.LocalAnalysis.StandardType.GGE6OppOrderThreeLayer

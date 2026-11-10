@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallPSp43ModelData
 public import CFSG.LocalAnalysis.EvenSporadicStandard.M22Std.P21HCommCheck
-import Certificates.Certificate2012
 import Certificates.Kernel.U42Ten.Checks
 import CFSG.Certificates.Kernel.ConjRecSound
 import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallPSp43Model

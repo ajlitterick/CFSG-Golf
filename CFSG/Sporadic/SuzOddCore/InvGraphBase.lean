@@ -2,17 +2,10 @@
 module
 
 public import CFSG.Sporadic.SuzOddCore.InvPerms
-public import CFSG.Certificates.NativeRefine
-public import CFSG.Sporadic.SuzOddCore.ArraysCheckInputs
-public import CFSG.Sporadic.SuzOddCore.FamilyCheckInputs
 public meta import CFSG.Sporadic.SuzOddCore.ArraysCheck
 public meta import Certificates.Data.CFSGNative.Schreier.Refine
 public meta import Certificates.Data.CFSGNative.Perm.Chain
-public import CFSG.Sporadic.SuzOddCore.InvArrays
-public import CFSG.Sporadic.SuzOddCore.ArraysCheck
-public import Certificates.Data.CFSGNative.Schreier.Refine
 public meta import CFSG.Sporadic.SuzOddCore.InvArrays
-public import CFSG.Sporadic.SuzOddCore.InvGraphCheckInputs
 public meta import CFSG.Sporadic.SuzOddCore.InvArraysCheck
 public meta import Mathlib.Data.Fintype.Card
 

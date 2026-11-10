@@ -1,11 +1,7 @@
 module
 
-public import CFSG.Foundations.Basic
-public import CFSG.GroupTheory.PCore.Defs
-public import CFSG.Timmesfeld.Bridge.Asc72Basic
 public import CFSG.Timmesfeld.Bridge.OddLocalDefs
 
-import CFSG.GroupTheory.ABGLocalTools.Constraint
 import CFSG.OddTranspositions.PartThree.EightEight.KOneRadical
 import CFSG.OddTranspositions.PartTwoSec6
 import CFSG.RankThree.PartTwo.Sec15.Sylow155R1OpenA7M22Lemma
@@ -13,9 +9,6 @@ import CFSG.Timmesfeld.Bridge.Asc72ElemCompQuot
 import CFSG.Timmesfeld.Bridge.OddLocalRootCore
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import CFSG.Timmesfeld.Bridge.Asc72Triangle
 public import CFSG.Timmesfeld.Moufang.Three
 public import CFSG.Timmesfeld.RankOne

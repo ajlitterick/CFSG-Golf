@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.SporSch.Th.PlaneText
 public import Certificates.Kernel.SporSch.Th.Plane2320K
 public import Certificates.Data.Kernel.SporSch.Sep2318
-public import Certificates.Data.CFSGNative.Th.FormCheck
 public import CFSG.Sporadic.ThSchreier.PlaneSepArithInputs
 meta import CFSG.Sporadic.ThSchreier.PlaneSepArithInputs
 import CFSG.Certificates.Kernel.Common.Harness

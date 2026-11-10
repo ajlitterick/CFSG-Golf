@@ -7,13 +7,7 @@ public meta import Certificates.Data.CFSGNative.Schreier.Check
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 public import CFSG.Sporadic.Presentation.Common
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
-public import CFSG.Certificates.CosetTablePresented
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Index
 import Certificates.Kernel.SporSch.PairHS.Check2219
-import CFSG.Sporadic.Presentation.Common
-import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
-import CFSG.Certificates.CosetTablePresented
-import TauCeti.GroupTheory.SpecificGroups.CFSG.Index
 
 public section
 

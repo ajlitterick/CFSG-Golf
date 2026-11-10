@@ -3,46 +3,17 @@ module
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs256d2
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Claims1110h
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.InputsL33c2
-import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.LinearUnitaryComps
 import CFSG.LocalAnalysis.GLTheoremA.PartI.LevelLieRF4Gen
-import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.UnitaryFieldExport
 import CFSG.GH74.GLS.Stage2.Signalizer.Ivk8P4S55UDesc
-import CFSG.LocalAnalysis.QuasithinUnique.SQTK.UnitaryTauCeti
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.SympAut
-import CFSG.RankThree.PartOne.KC.SymplecticIsotypicFixed
-import CFSG.RankThree.PartOne.KC.SymplecticIsotypicBlocks
-import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeLinear
-import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeSpecial
-import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagOrder
-import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.FactorSp
-import CFSG.LocalAnalysis.QuasithinUnique.SQTK.TypeB2Carrier
-import CFSG.LocalAnalysis.QuasithinUnique.SQTK.TypeCCarrier
-import CFSG.ClassicalInvolution.Models.SymplecticPairs.RootSp2
-import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.SympFieldExport
-import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.SympAssembly
 import all CFSG.HardMathSupport.Solomon.Coordinator.LieComp.FactorSp
 import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.AssemblySO
 import all CFSG.HardMathSupport.Solomon.Coordinator.LieComp.OrthInnerExport
 import all CFSG.HardMathSupport.Solomon.Coordinator.LieComp.OrthFieldExport
 import all CFSG.HardMathSupport.Solomon.Coordinator.LieComp.FactorOmega
 import all CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.OrthInner
-import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.OrthAssembly
-import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Glue
-import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddOrthLow
-import CFSG.GroupTheory.WeirSylow.OrthogonalOrders
-import CFSG.RankThree.Classical.SteinbergBJOrthogonalHighWitt
 import CFSG.RankThree.PartOne.K159.RowFourFixed
-import CFSG.LocalAnalysis.ComponentInitial.OrthogonalLowDimCoverageCases
-import CFSG.RankThree.PartOne.S11d.OrthCaseH
-import CFSG.RankThree.PartOne.S11d.OrthModels
-import CFSG.RankThree.PartTwo.Census.Carrier.SpinDOdd
-import CFSG.RankThree.PartTwo.Census.Carrier.SpinTDOdd
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.OrthQ2SpFamily
-import CFSG.CharacterTheory.Burnside
-import CFSG.LocalAnalysis.SeitzReduction.FoursGroupExceptionalBasic
 import all CFSG.HardMathSupport.Solomon.Coordinator.LieComp.UnitaryInnerExport
 import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.InnUniBlock
-import CFSG.HardMathSupport.Timmesfeld.OrthogonalGeneration.FixedSpaceNum
 import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.L6LeavesKFact2401OmegaBasic
 public import CFSG.HardMathSupport.Solomon.Coordinator.I10_21Fi22
 public import CFSG.HardMathSupport.Solomon.Coordinator.I10_21Fi22Two

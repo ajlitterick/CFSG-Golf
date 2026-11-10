@@ -1,17 +1,10 @@
 module
 
 public import CFSG.Quasithin.Vol2.KGFact12617LieW
-public import CFSG.LieType.Chevalley.RootOps.Comm
-public import CFSG.LieType.Chevalley.BorelOvergroups
 public import CFSG.LieType.Chevalley.ParabolicRadicalLevi
 public import CFSG.LieType.Chevalley.SylowOpposition
-public import CFSG.LieType.Chevalley.StandardParabolicCells
-public import CFSG.LieType.Chevalley.AdjointCenter
 public import CFSG.LieType.Chevalley.ChevalleySplitBN
-public import CFSG.Blueprint.ChevalleyPinnedLemmas
-public import CFSG.Blueprint.ChevalleyRoots
 public import CFSG.Quasithin.Background.SmithB42G2Id
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L238BridgeAlt57G2Eq
 
 public section
 

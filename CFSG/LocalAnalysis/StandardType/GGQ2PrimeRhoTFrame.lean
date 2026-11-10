@@ -1,15 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeRhoTKer
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeRhoTOrderThree
-public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeRhoTFrameCoord
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeRhoTFrameDelta
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeRhoTFrameDiag
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeRhoTFrameE
-public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeRhoTFrameKer
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeRhoTFramePerm
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeRhoTFrameS
-public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeRhoTInner
 
 public section
 

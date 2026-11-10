@@ -1,13 +1,8 @@
 module
 
 public import CFSG.Milestones.ASVolI.K1
-public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionSquareFieldFullAutomorphism
-public import CFSG.Quasithin.Background.SmithB45L2Main
 public import CFSG.Quasithin.Vol2.Ch5ModulesOrth
 public import CFSG.Quasithin.Background.C124YLA6Grp
-public import CFSG.Quasithin.Background.SmithB42L2Alt5
-public import CFSG.Quasithin.Background.SmithB42L2Sl2
-public import CFSG.Quasithin.Background.B15P4Repl
 public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 public import CFSG.Quasithin.Background.C1PackClassG
 public import CFSG.Quasithin.Background.C1PackSolvP

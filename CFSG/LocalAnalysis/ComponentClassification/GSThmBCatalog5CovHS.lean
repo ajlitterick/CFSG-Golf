@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog5CovHSLoc
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.HSCoverMain
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuotIso
-public import CFSG.Sporadic.SmallOddCore.HSAut
-public import CFSG.Sporadic.HS
 public import CFSG.Assembly.OrderReductions.CharacterInflation
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
@@ -47,9 +45,6 @@ public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Schreier.M23
 public import CFSG.Sporadic.Schreier.MathieuOddCoreWords
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import CFSG.Walter.Defs
 
 public section

@@ -3,10 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNbrD4TwoUnitaryBase
 public import CFSG.LocalAnalysis.StandardType.GGResidualRk1ExcTops
 public import CFSG.LocalAnalysis.StandardType.GGOrthWeakFrameOfMarking
-public import CFSG.LocalAnalysis.StandardType.GGOrthWeakFrameCenter
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeakNbr
 import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseOrthFrame
 
 public section

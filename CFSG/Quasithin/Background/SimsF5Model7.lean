@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Background.SimsF5Ai
-public import CFSG.Quasithin.Background.SimsF5Par
 public import CFSG.Quasithin.Background.SimsF5Main
 
 public section

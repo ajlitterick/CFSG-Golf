@@ -1,9 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Q3URStd
-public import CFSG.ClassicalInvolution.Q3.Q3WL65
-public import CFSG.ClassicalInvolution.Q3.ModelCenterClassical
-public import CFSG.ClassicalInvolution.Models.Transfer.Unitary
 public import CFSG.ClassicalInvolution.Q3.Q3URClose
 
 public section

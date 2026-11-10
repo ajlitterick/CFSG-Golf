@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGResKnownGroup
 public import CFSG.LocalAnalysis.StandardType.GGHalfJoinSigned
 public import CFSG.LocalAnalysis.StandardType.GGResCentBoundNbrKernel
-public import CFSG.LocalAnalysis.StandardType.GGTBXPlumb
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeIndepDefs
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInner937Defs
 public import CFSG.LocalAnalysis.StandardType.GGF4ThreeNbrRankDefs

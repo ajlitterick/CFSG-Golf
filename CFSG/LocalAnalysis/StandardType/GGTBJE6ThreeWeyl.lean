@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRestDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderExcRestProofE6Ad
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeAEndModel
 
 public section
 

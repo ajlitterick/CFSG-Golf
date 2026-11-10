@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourRk2
 import CFSG.LocalAnalysis.StandardType.GGF4CommPair
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
-import Mathlib.Tactic.Group
 
 public section
 

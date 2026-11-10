@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGOrthRk1Defs
 import CFSG.LocalAnalysis.StandardType.GGOrthRk1PairBlock
-import CFSG.GH74.L5U5.IdentUnitary
 
 public section
 

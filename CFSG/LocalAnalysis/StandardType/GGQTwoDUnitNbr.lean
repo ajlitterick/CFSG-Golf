@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitTorus
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitLayer
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitComp
 import CFSG.LocalAnalysis.StandardType.GGTypeAFarPComp
 import CFSG.LocalAnalysis.StandardType.GGQTwoSU34Aux6

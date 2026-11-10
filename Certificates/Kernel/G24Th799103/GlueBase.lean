@@ -12,7 +12,6 @@ public import CFSG.Certificates.Kernel.PCentSubCheck
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.G24AutOuter
 import CFSG.Certificates.Kernel.Misc.ArrEnumUnpack
 import CFSG.Certificates.Kernel.Misc.HexFlatSound
-import CFSG.Certificates.Kernel.Spor.RawOrbEval
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Spor.PK.Perm.Inv
 public import CFSG.Sporadic.Co1Block.TwoBComp

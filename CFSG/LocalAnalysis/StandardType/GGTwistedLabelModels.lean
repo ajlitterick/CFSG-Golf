@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import CFSG.LocalAnalysis.StandardType.MarkingClassical
 
 public section
 

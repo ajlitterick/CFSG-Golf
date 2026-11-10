@@ -6,7 +6,6 @@ public import CFSG.Sporadic.HeldB.InnerCheckInputs
 public meta import CFSG.Sporadic.HeldB.InnerData
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.BfsPinSound
-public import CFSG.Certificates.Kernel.BfsPinUnpack
 
 public section
 

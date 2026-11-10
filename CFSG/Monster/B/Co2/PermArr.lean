@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 public import CFSG.Certificates.SchreierChainData
-public import Mathlib.Data.Fintype.Card
 public import Mathlib.Data.Fintype.EquivFin
 import Mathlib.Tactic.Ring.RingNF
 

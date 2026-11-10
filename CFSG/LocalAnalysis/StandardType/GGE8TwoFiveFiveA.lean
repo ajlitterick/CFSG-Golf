@@ -3,11 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGE8TwoFiveKernel
 public import CFSG.LocalAnalysis.StandardType.GGLangRatSingleOrbit
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.RationalTypeAModel
-public import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.InnExcSuNHom
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUE8
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.SplitLineFix
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Subnormal
-public import CFSG.HardMathSupport.Timmesfeld.Steinberg.PrimeCentralizer
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24A2CubeIndexLang
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.KD147cMat
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHypCentral

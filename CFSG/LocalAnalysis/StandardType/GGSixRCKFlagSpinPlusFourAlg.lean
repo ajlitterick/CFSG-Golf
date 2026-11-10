@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.Universal.Spin.Action
-public import Mathlib.Tactic.LinearCombination
 
 public section
 

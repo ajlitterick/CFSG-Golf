@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBF4Three
-public import CFSG.LieType.Chevalley.CoordinateFieldBaseChange
 
 public section
 

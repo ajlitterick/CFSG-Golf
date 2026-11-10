@@ -1,7 +1,6 @@
 module
 
 public import CFSG.CGT.Timmesfeld75.Sec66Cfg
-public import CFSG.CGT.Timmesfeld75.Sec3Thirteen
 public import CFSG.CGT.Timmesfeld75.JLemma35
 public import CFSG.CGT.Timmesfeld75.JLemmaTrans
 public import CFSG.CGT.Timmesfeld75.Sec5SevenB

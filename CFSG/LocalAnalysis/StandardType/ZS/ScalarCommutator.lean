@@ -1,11 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.ZS.CommutingRefl
 public import CFSG.LocalAnalysis.StandardType.ZS.ReflProductOrder
 import CFSG.LocalAnalysis.StandardType.GGWitSlpmConjAux
-import Mathlib.LinearAlgebra.Eigenspace.Basic
-import Mathlib.LinearAlgebra.Dimension.Constructions
-import Mathlib.LinearAlgebra.LinearIndependent.Lemmas
 import CFSG.LocalAnalysis.StandardType.GGWitSlpm
 
 public section

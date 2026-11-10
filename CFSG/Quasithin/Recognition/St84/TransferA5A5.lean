@@ -1,8 +1,5 @@
 module
 
-public import CFSG.Quasithin.Recognition.St84.TransferSetup
-public import CFSG.Quasithin.Recognition.St84.TransferInner
-public import CFSG.Quasithin.Recognition.St84.TransferNormality
 public import CFSG.Quasithin.Recognition.St84.TransferModule
 public import CFSG.Quasithin.Recognition.St84.TransferVertex
 public import CFSG.GroupTheory.CentralizerSup
@@ -10,12 +7,9 @@ public import CFSG.GroupTheory.CentralizerSup
 import CFSG.Quasithin.Recognition.St84.Gen.TransferLL
 public import CFSG.Dihedral.Glauberman.DicksonMaxB
 public import CFSG.Quasithin.Background.C2
-public import CFSG.Quasithin.Background.C2Bridge
-public import CFSG.Quasithin.Background.C2Seven
 public import CFSG.Quasithin.Background.C48Asm
 public import CFSG.Quasithin.Background.E2Statements
 public import CFSG.Quasithin.Recognition.Kleidman.F204.W2FFA5
-public import CFSG.Quasithin.Recognition.St84.AppTreeL2
 public import CFSG.Quasithin.Recognition.St84.AppTreeSAP2
 public import CFSG.Quasithin.Vol2.Ch1Sec3A5Gen
 public import CFSG.Quasithin.Vol2.KGFact3312A5

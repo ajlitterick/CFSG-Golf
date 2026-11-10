@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1432WitTD4
 import CFSG.LocalAnalysis.UniqueFourCatalog.TrialityD4Odd
-import CFSG.LieType.Chevalley.RootCommutatorReduction
-import CFSG.LieType.Steinberg.Classical.Symplectic.RankOne
 import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4UnSL2
 public import CFSG.Blueprint.LieModelAPI
 public import CFSG.GH74.GLS.IVK.Proofs2.OddTools

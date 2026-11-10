@@ -3,7 +3,6 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2InvariantOddPSubgroupCentralized
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2InvariantOddPSubgroupCentralized
-public import Mathlib.GroupTheory.SpecificGroups.KleinFour
 import Mathlib.Tactic
 
 namespace CFSG

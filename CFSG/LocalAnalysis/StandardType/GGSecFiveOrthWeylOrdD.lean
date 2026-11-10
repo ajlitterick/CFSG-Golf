@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRest
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinReflTypeD
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthWeylOrd
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderExcWeyl

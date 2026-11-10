@@ -3,11 +3,7 @@ module
 
 public import CFSG.Certificates.Kernel.GammaUSigmaSoundBase
 
-public import Certificates.Data.Kernel.GammaUSigmaK
-public import CFSG.Certificates.Kernel.IdxFourCosetSound
-public import CFSG.Certificates.Kernel.IdxFourSiftSound
 public import CFSG.GF2Type.Smith1979.GammaU.SigmaFacts
-public import CFSG.GF2Type.Smith1979.GammaU.SigmaBase
 
 public section
 

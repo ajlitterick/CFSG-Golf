@@ -1,9 +1,6 @@
 module
 
 public import CFSG.Sporadic.Co2Smith.Cat
-public import CFSG.Sporadic.Co2Cert.FaithfulCheck
-public import Certificates.Data.CFSGNative.Co2Smith.Check
-public import CFSG.Sporadic.Co2Smith.CheckInputs
 public import Certificates.Certificate10080
 public meta import CFSG.Sporadic.Co2Cert.FaithfulCheck
 public meta import Certificates.Data.CFSGNative.Co2Smith.Check

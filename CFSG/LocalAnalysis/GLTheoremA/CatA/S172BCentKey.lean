@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172BCentFrame
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172BCentComp
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172BCentType
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172BCentLayer
 public import CFSG.RankThree.PartOne.KC.OrthogonalSubfieldCentralizer
 public import CFSG.RankThree.PartOne.S15K.FixedWitt
 public import CFSG.RankThree.PartOne.S15K.LayerModel

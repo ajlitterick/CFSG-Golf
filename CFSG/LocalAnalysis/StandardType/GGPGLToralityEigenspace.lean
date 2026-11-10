@@ -1,11 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGPGLToralityBasic
-public import CFSG.LocalAnalysis.StandardType.GGPGLToralityMatrix
 public import CFSG.LocalAnalysis.StandardType.GGPGLToralityCaseB
 public import CFSG.LinearAlgebra.MatrixPlanes
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.KS.U6ElemAux
-public import CFSG.Assembly.GL83LieDefs
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoynePSLInner
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneProjSlice

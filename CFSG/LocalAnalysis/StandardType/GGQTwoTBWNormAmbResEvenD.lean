@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoTBWNormAmbInner
 public import CFSG.LocalAnalysis.StandardType.GGQTwoNoF4
 import CFSG.LocalAnalysis.StandardType.GGQTwoS5Dispatch
 import CFSG.LocalAnalysis.StandardType.GGQTwoWeylInnerSmall
-import CFSG.LocalAnalysis.StandardType.GGQTwoLemma112WeylA
 import CFSG.LocalAnalysis.StandardType.GGQTwoLemma112WeylE7
 import CFSG.LocalAnalysis.StandardType.GGQTwoLemma112WeylE8
 import CFSG.LocalAnalysis.StandardType.GGQTwoLemma112Lin

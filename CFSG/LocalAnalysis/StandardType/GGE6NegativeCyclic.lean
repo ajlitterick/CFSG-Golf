@@ -1,14 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGE6NegativeLift
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeNonToralCyclic
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeNonToralClauses
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeNonToralEmbed
 public import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourToral
-public import CFSG.LocalAnalysis.StandardType.GGTwE6HyperplaneTypes
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
-public import CFSG.LieType.AlgebraicGroups.ClosedIdentityComponentFunctorial
-public import Mathlib.Tactic.IntervalCases
 
 public noncomputable section
 

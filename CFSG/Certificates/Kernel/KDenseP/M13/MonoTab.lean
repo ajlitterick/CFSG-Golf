@@ -2,7 +2,6 @@ module
 
 public import CFSG.Certificates.Kernel.KDenseP.M13.Mono0
 public import CFSG.Certificates.Kernel.KDenseP.M13.Mono1
-public import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Common.ListOf
 
 public section

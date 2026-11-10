@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.ONPair.LineTwo
-public import CFSG.RankThree.Native.ONSevenDefs
 import Certificates.Kernel.Sporadic.ONPv.Fix
 
 public section

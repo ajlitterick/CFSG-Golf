@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Monster.Existence.StdOdd.Cert.Cent7B
-public import CFSG.Monster.Existence.StdOdd.Cert.Sylow57
-public import CFSG.LieType.Chevalley.C2E6NativeF4Building
 public import CFSG.Monster.Existence.BabyW2Classes
 
 public section

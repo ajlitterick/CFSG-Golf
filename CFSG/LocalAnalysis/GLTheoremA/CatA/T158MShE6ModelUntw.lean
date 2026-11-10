@@ -7,20 +7,9 @@ import all CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeE6Mark
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeE6MarkLie
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeFamOutBase
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S172AGrp
-import CFSG.LocalAnalysis.GLTheoremA.ExcClubList
-import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMoreSix
-import CFSG.LocalAnalysis.SeitzReduction.CrossCharCert
 import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelRecipeID
 import CFSG.LocalAnalysis.StandardType.GGSixBstarE6ThreeFaithful
 import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompAlgExcTw
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcInnerLang.Core
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcMonomial
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcToralityFive
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.TorusAtUntw
-import CFSG.LieType.Chevalley.SingleEdgePerfect
-import CFSG.LieType.Chevalley.CLSOddE7RationalDerivedIndex
-import CFSG.RankThree.Classical2.TwistedE6Phi3Torus
-import CFSG.GroupTheory.ElemAbelianClosure
 public import CFSG.Goldschmidt.Steps.G37Core
 public import CFSG.HardMathSupport.Dickson.Sec6.I923Fam.PsuGoodAux.Descent
 public import CFSG.HardMathSupport.Solomon.Coordinator.L3NoSLInner
@@ -36,7 +25,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.S10.Lemma106107
 public import CFSG.LocalAnalysis.GLTheoremA.Sec5Setup
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1Engine
 public import CFSG.Sporadic.Schreier.Fi22Schreier
-import CFSG.HardMathSupport.Dickson.Sec6.I1431Lie
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24ConnGenAsm
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TriD4
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TwE6

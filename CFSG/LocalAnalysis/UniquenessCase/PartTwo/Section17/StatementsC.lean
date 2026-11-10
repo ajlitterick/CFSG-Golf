@@ -1,12 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.Defs
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.DefsModule
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.DefsWeakClosure
-public import CFSG.LocalAnalysis.UniquenessCase.UC22S21a
-public import CFSG.LocalAnalysis.UniquenessCase.UCFront08
-public import CFSG.Blueprint.Catalog
-public import CFSG.GroupTheory.ABGLocalTools.Basic
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.CharacterTheory.CyclicBlocks.Family

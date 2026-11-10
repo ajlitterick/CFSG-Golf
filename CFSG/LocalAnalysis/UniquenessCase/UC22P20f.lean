@@ -1,18 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P20d
-public import CFSG.LocalAnalysis.ComponentClassification.SolAltLitSol78Inputs
-public import CFSG.RankThree.PartTwo.Sec4.Census.Item44TwoCoverList
-public import CFSG.LieType.Multipliers.U43
 import CFSG.Quasithin.Background.A318PC7
 import CFSG.Adapters.LinearCatalogStated
 import CFSG.Models.Blueprint
 import CFSG.RankThree.PartTwo.Census.NineCoverU43
-public import CFSG.Adapters.QiuzhenLegacy.BenderSuzuki.BenderSuzukiBorel
-public import CFSG.LieType.Simplicity.Suzuki
-public import CFSG.LocalAnalysis.ComponentClassification.FooteLitTypeRank
-public import CFSG.RankThree.PartTwo.Census.Carrier.SpinBBridge
-public import CFSG.RankThree.PerfectCover.HopfCentralCoversSetup
 import CFSG.RankThree.PartTwo.Census.Carrier.SpinBOdd
 import CFSG.RankThree.PartTwo.Census.Carrier.SpinTDOdd
 

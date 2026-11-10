@@ -1,16 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.S10.InputsAlpha
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.MIAut
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.MIPComp
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.Bridges
-public import CFSG.LocalAnalysis.StandardType.Marking
-public import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotCatTypeDet
-public import CFSG.LocalAnalysis.SeitzReduction.CrossCharCert
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldUnitary
-public import CFSG.LocalAnalysis.ComponentInitial.FieldFiniteAutomorphism
-public import CFSG.LocalAnalysis.GLTheoremA.S4.FullCover.MultLie
 public import CFSG.Blueprint.LieModelAPI
 public import CFSG.GH74.GLS.IVK.Proofs2.OddTools
 public import CFSG.GH74.GLS.Stage2.Local.P34Main

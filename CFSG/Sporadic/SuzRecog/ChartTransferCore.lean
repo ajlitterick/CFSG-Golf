@@ -1,12 +1,9 @@
 module
 
 public import CFSG.Sporadic.SuzRecog.RigidL2
-public import CFSG.Sporadic.SuzRecog.ChartTransferTests
 public import Certificates.Certificate15111
 public import CFSG.Sporadic.SuzRecog.Rigid
-public import CFSG.LargeExtraspecial.S3Eight
 public import CFSG.Sporadic.Co1Patterson.AmalgamKey
-public import CFSG.Sporadic.Co1Patterson.SettingOmega
 
 public section
 

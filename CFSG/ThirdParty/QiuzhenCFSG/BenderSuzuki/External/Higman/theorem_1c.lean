@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Higman.theorem_1b
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Higman.lemma_11
 
 namespace CFSG
 end CFSG

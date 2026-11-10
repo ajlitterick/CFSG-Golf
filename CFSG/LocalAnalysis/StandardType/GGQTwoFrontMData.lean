@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.MarkingClassical
 public import CFSG.Open.Defs
-public import CFSG.Open.StatedAPI
 
 public section
 

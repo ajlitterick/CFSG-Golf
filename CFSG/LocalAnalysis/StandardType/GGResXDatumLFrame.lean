@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLargeFixDefs
-public import CFSG.LocalAnalysis.StandardType.GGTBFixDefs
 import CFSG.LocalAnalysis.StandardType.GGRCLinRefl
 import CFSG.LocalAnalysis.StandardType.GGRCWeylConnected
-import CFSG.LocalAnalysis.StandardType.GGTBFix
 import CFSG.LocalAnalysis.StandardType.GGDepAConfig
 
 public section

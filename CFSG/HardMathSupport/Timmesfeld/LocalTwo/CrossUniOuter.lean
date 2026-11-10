@@ -19,7 +19,6 @@ public import CFSG.RankThree.PartOne.KC.PlaneReductionGeneral
 public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeOrbits
 public import CFSG.RankThree.PartOne.KC.UnitaryEndpointStatements
 public import CFSG.RankThree.Theta.ThreeComponentOrbitCover
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 
 public section
 

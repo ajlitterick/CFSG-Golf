@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265SF3
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.LinearInner
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.DiagSplit
-import CFSG.LieType.SeitzGeneration.NonabLinear
-import CFSG.LocalAnalysis.ComponentInitial.LinearHigherOuterQuotients
 import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieInnGoodLinear
 import CFSG.LocalAnalysis.StandardType.GGPGLTorality
 public import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
@@ -50,14 +46,7 @@ public import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec2.Thm210Aux
 public import CFSG.SignalizerFunctorTheorem.McBride.Prelim.Projection
 public import CFSG.SignalizerFunctorTheorem.McBride.Prelim.SemisimpleFactors
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremB
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremC
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.ZJTheorem
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GW1965RemarkDGroup
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29Helpers
 
 public section
 

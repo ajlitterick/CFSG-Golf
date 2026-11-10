@@ -2,12 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6TTUnits
 import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6TTSplitLaw
-import CFSG.RankThree.Classical2.TwistedE6RationalOrder
 import CFSG.LieType.SeitzGeneration.ExcHighThree.TwE6InF4Sylow
-import CFSG.LieType.SeitzGeneration.ExcHighThree.TwE6InF4Order
 import CFSG.LocalAnalysis.StandardType.GGTwE6OuterGenF4
-import CFSG.RankThree.Chevalley.SteinbergBTTwistedE6ModelCover
-import CFSG.LieType.SeitzGeneration.ExcParabolicModel
 import CFSG.HardMathSupport.Timmesfeld.LocalTwo.LangRankOne
 public import CFSG.HardMathSupport.Lang.AnisoE6.TwPlane
 import CFSG.HardMathSupport.Timmesfeld.LocalTwo.LangFrame

@@ -6,7 +6,6 @@ public import Certificates.Kernel.SporSch.HN.Pt2108K
 public import Certificates.Kernel.SporSch.HN.Pt2108KM
 public import Certificates.Kernel.SporSch.HN.Pt2108G0
 public import Certificates.Kernel.SporSch.HN.Pt2108N
-public import CFSG.Sporadic.HNSchreier.SylowCheckInputs
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

@@ -5,10 +5,7 @@ public import Certificates.Kernel.Fi22Twist.SrchChk
 public import Certificates.Kernel.Fi22Twist.LvChk
 public import Certificates.Kernel.Fi22Twist.TfChk
 public import Certificates.Kernel.Fi22Twist.BfChk
-public import CFSG.Certificates.Kernel.Fi22Twist.LvOrbSound
 public import CFSG.Certificates.Kernel.Fi22Twist.TfSound
-public import CFSG.Monster.B.Fischer.Fi22Order
-import Mathlib.Tactic.IntervalCases
 
 public section
 

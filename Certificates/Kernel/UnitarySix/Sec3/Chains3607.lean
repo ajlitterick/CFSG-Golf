@@ -4,7 +4,6 @@ public import Certificates.Kernel.UnitarySix.Sec3.Gens
 public import Certificates.Kernel.UnitarySix.Sec3.CX3A3
 public import Certificates.Kernel.UnitarySix.Sec3.CSigA3
 public import CFSG.Certificates.Kernel.U6Sec3ElemSound
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.BfsPinSound
 public import CFSG.Certificates.Kernel.Spor.RawSlSound
 public import CFSG.Certificates.Kernel.Spor.SiftEq

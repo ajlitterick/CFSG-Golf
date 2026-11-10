@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinReflPairing
-public import CFSG.LocalAnalysis.StandardType.GGWeylReflection
-public import CFSG.LocalAnalysis.StandardType.GGReflModule
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinPrimed
 
 public section

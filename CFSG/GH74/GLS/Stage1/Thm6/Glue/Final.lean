@@ -1,11 +1,9 @@
 module
 
-public import CFSG.GH74.GLS.Stage1.Thm6.Glue.L2Main
 public import CFSG.GH74.GLS.Stage1.Thm6.Glue.L2TNormal
 public import CFSG.GH74.GLS.Stage1.Thm6.Assembly
 public import CFSG.GH74.GLS.Stage1.Thm6.Adapters
 public import CFSG.GH74.GLS.Stage1.Thm6.Glue.L2Rank
-public import CFSG.GH74.GLS.Stage1.Thm6.Glue.Conv
 public import CFSG.GH74.GLS.Stage1.Thm6.Glue.CompNormal
 public import CFSG.GH74.GLS.Stage12.Interface
 public import CFSG.CharacterTheory.Blocks.Defs

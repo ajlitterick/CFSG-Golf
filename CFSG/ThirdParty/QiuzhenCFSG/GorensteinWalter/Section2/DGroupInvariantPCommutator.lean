@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.DGroupInvariantCommutatorOddCore
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.CommutatorOddCoreTail
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConj
 import Mathlib.Tactic
 
 namespace CFSG

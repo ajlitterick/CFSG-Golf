@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTBE6Witness
 public import CFSG.LocalAnalysis.StandardType.GGTBE6Cover
 public import CFSG.LocalAnalysis.StandardType.GGTwE6WeylTorusTransferCore
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLineE6
 public import CFSG.LocalAnalysis.StandardType.GGTorusWeylFrame
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenExcSplit
 

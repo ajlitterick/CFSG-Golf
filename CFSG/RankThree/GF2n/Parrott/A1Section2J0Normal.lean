@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.GF2n.Parrott.A1LocalData
-public import CFSG.RankThree.GF2n.Parrott.CentralizerFusion
 import all CFSG.RankThree.GF2n.Parrott.CentralizerJoinQA45
 
 public section

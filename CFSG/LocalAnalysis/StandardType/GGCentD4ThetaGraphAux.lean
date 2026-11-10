@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCentD4HomExt
-public import CFSG.LieType.Chevalley.GraphFixedHighestRoot
-public import CFSG.LieType.Chevalley.ParabolicWeylStabilizer
-public import CFSG.RankThree.PartOne.KE.ConjRootSpan
 
 public section
 

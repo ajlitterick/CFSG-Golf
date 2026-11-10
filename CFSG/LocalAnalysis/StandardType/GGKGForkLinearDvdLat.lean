@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGForkLatticePerm
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySpCoord
 public import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofRefl
 
 public section

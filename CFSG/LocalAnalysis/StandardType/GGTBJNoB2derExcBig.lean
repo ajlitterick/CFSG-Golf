@@ -4,13 +4,7 @@ public import CFSG.LocalAnalysis.StandardType.GGTBJNoB2derA1
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.FStdDiagExcHolds
 public import CFSG.LocalAnalysis.StandardType.GGTBJNoB2derA6
 public import CFSG.LocalAnalysis.StandardType.GGTCJDatum
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcBasic
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaOutdiag
 public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonTriLHolds
-public import CFSG.Assembly.InCatalogConverse
-public import CFSG.Assembly.Subnormal
-public import CFSG.Sporadic.Fi24.ExtCentralizer
-public import CFSG.Quasithin.Background.A3Structure36BPrime
 public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonSubcomp
 
 public section

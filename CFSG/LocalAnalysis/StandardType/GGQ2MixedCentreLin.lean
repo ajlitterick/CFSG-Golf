@@ -1,9 +1,6 @@
 module
 
-public import Mathlib.LinearAlgebra.Dual.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.AbsolutelyIrreducible
-import Mathlib.Tactic.Module
-import Mathlib.Tactic.LinearCombination
 
 public section
 

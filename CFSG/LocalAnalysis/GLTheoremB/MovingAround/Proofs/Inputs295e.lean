@@ -3,19 +3,7 @@ module
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs295d2
 import CFSG.LocalAnalysis.EvenSporadicStandard.M22Std.OutU42Aut
 import CFSG.GH74.GLS.Stage2.Signalizer.Odd87U4SvNine
-import CFSG.LocalAnalysis.QuasithinUnique.SQTK.UnitaryTauCeti
-public import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.Transfer
-public import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.EvenClass
-public import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.ClassOdd.Glue
-public import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.ClassOdd.Shintani
-public import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.ClassOdd.ThreeD4
-public import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.ClassOdd.G2Class
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.OuterHighD4Three
-import CFSG.RankThree.Chevalley.SteinbergCFOddG2QPlusTorus
-import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenWeyl
-import CFSG.RankThree.Chevalley.SteinbergBIRootSL2Tools
-import CFSG.RankThree.Chevalley.SteinbergBID4TrialityConjugacy
-import CFSG.LocalAnalysis.SeitzReduction.LinearPilotTorus
 import CFSG.HardMathSupport.Dickson.DefCharOuter.Export.SporthD4Stab
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.LinearUnitaryComps
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcInnerLang

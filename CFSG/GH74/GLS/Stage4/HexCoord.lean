@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GH74.GLS.Stage4.HexClass
-public import CFSG.GH74.GLS.Stage4.HexModelG2
 public import CFSG.Timmesfeld.RankTwo.ModelG2
 public import CFSG.LieType.Steinberg.G2
 

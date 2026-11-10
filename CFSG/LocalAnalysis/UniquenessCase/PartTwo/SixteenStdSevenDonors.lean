@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenStdSixFourteen
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Conclusion76Three
-public import CFSG.LocalAnalysis.AGLEmbedding.CatalogSchreier
 public import CFSG.LocalAnalysis.UniquenessCase.UC7P3ThreeKIBA6
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.R72.Setup4Core
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.R72.RankThree
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.R72.ReeThreeType

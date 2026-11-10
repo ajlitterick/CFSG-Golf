@@ -3,9 +3,6 @@ module
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeLayerNC
 public import CFSG.HardMathSupport.Solomon.Coordinator.SeitzOuterCube.Exc.TOdd.FullUni
 
-import Mathlib.Tactic.Group
-import Mathlib.Tactic.Module
-import Mathlib.Tactic.NoncommRing
 
 public section
 

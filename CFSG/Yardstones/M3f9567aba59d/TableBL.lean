@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBIrred
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoTableB
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLRound
 
 public section

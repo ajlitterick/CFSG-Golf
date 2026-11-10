@@ -5,10 +5,6 @@ public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.T29.InnDiag
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.T29.L227
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.K2.Main
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.K3.Wreath
-public import CFSG.LocalAnalysis.RankThreeTheoremC.WreathThompson
-import CFSG.RankThree.PartOne.S9.Planes.Basic
-public import CFSG.LocalAnalysis.ComponentClassification.Quasisimple
-public import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma511
 public import CFSG.HardMathSupport.Solomon.Coordinator.I23_26Comp
 public import CFSG.HardMathSupport.Solomon.Coordinator.L3AModel
 public import CFSG.HardMathSupport.Solomon.LocalBalance.ONFacts
@@ -19,21 +15,11 @@ public import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
 public import CFSG.LocalAnalysis.GLTheoremB.Lemma911Defs
 public import CFSG.Quasithin.H13.J4Order
 public import CFSG.Quasithin.H13.J4OrderBase
-public import CFSG.Quasithin.H13.J4Words
 public import CFSG.RankThree.PartTwo.KFacts.K72OutL2
 public import CFSG.RankThree.PartTwo.Sec4.LThreePiSLOn
 public import CFSG.StronglyEmbedded
 public import CFSG.StronglyEmbedded.BenderNormalSeries
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremB
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremC
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.ZJTheorem
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GW1965RemarkDGroup
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29Helpers
 public import CFSG.Walter.ReeOrder.JT.Defs
 
 public section

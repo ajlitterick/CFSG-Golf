@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Co3Std.FS79Excluded
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Co3Std.Swap
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Co3Std.CentT.Main
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Co3Std.CentT.KDCat
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Co3Std.CentT.Config
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Co3Std.CentT.OddIndex
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Co3Std.CentT.Push

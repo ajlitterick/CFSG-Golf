@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoChartDefs
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 
 public section
 

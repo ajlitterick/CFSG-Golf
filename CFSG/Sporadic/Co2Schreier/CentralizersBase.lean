@@ -5,17 +5,10 @@ public import CFSG.Sporadic.Co2Schreier.ChainsBase
 public import CFSG.Sporadic.Co2Schreier.OrbitZCheck
 public import CFSG.Sporadic.Co2Schreier.OrbitTCheck
 public import CFSG.Sporadic.Schreier.Co3Centralizers
-public import CFSG.Certificates.NativeSetOrbit
-public import CFSG.LocalAnalysis.ComponentInitial.AutomorphismRealization
-public import CFSG.Sporadic.Co2Schreier.ChainCheckInputs
 public meta import CFSG.Sporadic.Co2Schreier.Arrays
 public meta import Certificates.Data.CFSGNative.Schreier.Check
-public import CFSG.Sporadic.Co2Schreier.OrbitCheck
 public meta import CFSG.Sporadic.Co2Schreier.OrbitCheck
-public import CFSG.Sporadic.Co2Schreier.TextCheckInputs
 public meta import CFSG.Sporadic.Co2Schreier.Text
-public import CFSG.Sporadic.Co2Cert.CheckInputs
-public import CFSG.Sporadic.Co2Cert.OrderCheckInputs
 public import CFSG.Certificates.Kernel.Spor.ONKSound
 
 @[expose] public noncomputable section

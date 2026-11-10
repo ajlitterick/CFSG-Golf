@@ -1,10 +1,6 @@
 module
 
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTamePrime
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaCard
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimple
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.KS.ExactSU
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34OddAux.SsExcAux.SuN
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.RationalTypeAModel
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.KD147cMat

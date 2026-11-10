@@ -4,7 +4,6 @@ public import Certificates.Data.Kernel.M24G.FixOct
 public import Certificates.Data.Kernel.M24G.Replay
 import CFSG.Certificates.Kernel.M24G.BfsReplaySound
 import CFSG.Certificates.Kernel.M24G.ReplayFacts
-import CFSG.Certificates.Kernel.M24G.IdxSound
 
 public section
 

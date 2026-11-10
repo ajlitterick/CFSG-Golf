@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public import Certificates.Data.Kernel.C18005
 public import CFSG.LocalAnalysis.SteinbergCCDempwolffModelCertificate18005Inputs

@@ -2,9 +2,6 @@ module
 
 public import CFSG.RankThree.GF2n.Stroth80.Sec715TriSpin
 public import CFSG.RankThree.GF2n.Stroth80.Sec715TriOctFam
-public import Mathlib.LinearAlgebra.QuadraticForm.Basic
-public import Mathlib.LinearAlgebra.Basis.Bilinear
-public import Mathlib.Data.Matrix.Mul
 
 public section
 

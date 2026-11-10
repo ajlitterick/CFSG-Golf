@@ -1,12 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1ShortCore
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1ShortTwE6Adj
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1ShortTwE6Aux
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1ShortTwE6Sc
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TwE6Conj
-public import CFSG.LocalAnalysis.StandardType.GGRootDetectTwE6
-public import CFSG.LocalAnalysis.ComponentClassification.OddKernelInvolutions
 
 public section
 

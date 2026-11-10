@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.FF81.CentE6.GFuse
 public import CFSG.LocalAnalysis.StandardType.FF81.CentE6.GCentB
 public import CFSG.LocalAnalysis.StandardType.FF81.CentE6.XAssembly
 

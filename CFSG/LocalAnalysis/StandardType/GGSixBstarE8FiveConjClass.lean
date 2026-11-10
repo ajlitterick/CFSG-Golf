@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixBstarE8FiveLangTorus
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarE8FiveSylowGroup
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarE8FiveFixBound
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarE8FiveOrder
-public import CFSG.RankThree.PartOne.KE.CTLangData
-public import Mathlib.RingTheory.RootsOfUnity.AlgebraicallyClosed
 
 public section
 

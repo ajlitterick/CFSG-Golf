@@ -3,18 +3,8 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P2121e
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S13a
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront13
-import CFSG.LocalAnalysis.UniquenessCase.UC22P21c
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenSixtyFour
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.ShapeDisjoint
-import CFSG.GH74.GLS.C3.Layer1.EvenSelBasic
 import CFSG.GH74.GLS.TwoThin.G.OrdersB2
-import CFSG.GroupTheory.LieTypeOrderBounds
-import CFSG.Adapters.LieModelOrders
-import CFSG.LocalAnalysis.EvenBN.GMSK.SzFacts
-import CFSG.GH74.Generic.Context
-import CFSG.LieType.Steinberg.CentralExt.UnitaryPerfect
-import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
-import CFSG.LieType.Steinberg.CentralExt.MultiplierCongr
 import CFSG.ClassicalInvolution.Q3.TL4SecIdE3S3M
 import CFSG.Foundations.SteinbergCADefinitionNodes
 public import CFSG.Adapters.ClassicalCatalogLinearUnitary

@@ -4,7 +4,6 @@ module
 public import Certificates.Kernel.LocalComp.Co3IdentElts
 public import CFSG.Certificates.Kernel.E3Sound
 public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Co3IdentRigidBase
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Co3IdentRigidCheckBase
 public import Certificates.Data.Kernel.E3
 

@@ -1,12 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremB.AutL34Bound
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanK9bCat
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPFF2
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPS
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPS2a
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPZ
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WS6
 
 public section
 

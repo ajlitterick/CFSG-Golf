@@ -2,10 +2,7 @@ module
 
 public import Mathlib.GroupTheory.Nilpotent
 public import CFSG.ThirdParty.BrauerInduction.Background.Group.PDecomposition
-public import CFSG.ThirdParty.BrauerInduction.Background.Group.Basic
 public import CFSG.ThirdParty.BrauerInduction.Background.Group.InternalDirectProduct
-public import Mathlib.GroupTheory.SpecificGroups.Cyclic.Basic
-public import Mathlib.GroupTheory.Index
 
 public section
 

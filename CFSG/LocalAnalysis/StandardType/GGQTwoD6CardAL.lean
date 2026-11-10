@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoD6CardALDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoD6CardALA
 public import CFSG.LocalAnalysis.StandardType.GGQTwoD6CardALB
 public import CFSG.LocalAnalysis.StandardType.GGQTwoD6CardALR

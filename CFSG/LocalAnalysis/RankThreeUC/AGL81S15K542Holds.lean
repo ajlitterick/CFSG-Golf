@@ -1,12 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsPair
-public import CFSG.LocalAnalysis.AGLEmbeddingD2.McLaughlin.FiveThreeAlt.A6Clause
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.McLaughlin.FiveThreeAlt.U33Clause
-public import Mathlib.GroupTheory.IsPerfect
-public import Mathlib.GroupTheory.Abelianization.Defs
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
-public import Mathlib.LinearAlgebra.Matrix.ToLin
 public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallGEVL34FFDefs
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1Engine
 public import CFSG.Quasithin.Background.B1

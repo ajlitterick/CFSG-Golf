@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Th.Fam.K
 public import Certificates.Kernel.Th.Fam.LocalTE
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Th.LocalDataTh.TransvData
 
 public section

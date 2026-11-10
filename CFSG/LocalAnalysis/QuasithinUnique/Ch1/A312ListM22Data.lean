@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListPermExt
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListPermExt
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListM22DataInputs
 public import Certificates.Certificate4053
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListAlt7Base
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListAlt7Base

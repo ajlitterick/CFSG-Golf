@@ -5,7 +5,6 @@ import CFSG.LocalAnalysis.StandardType.GGTwE6DeltaThreeEndComp
 import CFSG.LocalAnalysis.StandardType.GGTwE6DeltaThreePure
 import CFSG.LocalAnalysis.StandardType.GGUSixTwoLayer
 import CFSG.LocalAnalysis.StandardType.GGIOneOrthEndSmall
-import Mathlib.GroupTheory.GroupAction.FixingSubgroup
 
 public section
 

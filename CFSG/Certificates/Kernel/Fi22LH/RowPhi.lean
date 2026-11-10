@@ -11,8 +11,6 @@ import CFSG.Certificates.Kernel.Fi22LH.Prim
 import CFSG.Certificates.Kernel.Fi22LH.Acc
 import CFSG.Sporadic.Th.CertificateChunks
 public import Mathlib.Algebra.BigOperators.Group.Finset.Defs
-import Mathlib.RingTheory.WittVector.IsPoly
-import Mathlib.Tactic.ReduceModChar
 
 public section
 

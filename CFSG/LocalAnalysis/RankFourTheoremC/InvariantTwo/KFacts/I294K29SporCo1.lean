@@ -2,13 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.RankFourTheoremC.InvariantTwo.KFacts.I294K29SporOut
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co1Five
-public import Certificates.Certificate6001
-public import Certificates.Certificate6002
-public import Certificates.Certificate6003
-public import Certificates.Certificate6004
-public import Certificates.Certificate6005
-public import Certificates.Certificate6007
-public import Certificates.Certificate16026
 public import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 public import CFSG.Foundations
 public import CFSG.LinearAlgebra.LinearGroups.CoordinateData
@@ -64,7 +57,6 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly

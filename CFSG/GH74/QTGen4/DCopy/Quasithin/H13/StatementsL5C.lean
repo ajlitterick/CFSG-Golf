@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GH74.QTGen4.Finite4
-public import CFSG.Quasithin.H13.StatementsL5
 public import CFSG.Quasithin.H13.StatementsL5C
 
 public section

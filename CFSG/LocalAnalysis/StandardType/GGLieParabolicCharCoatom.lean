@@ -11,7 +11,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.OrdinaryComponentJoins
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 
 public section

@@ -3,11 +3,8 @@ module
 
 public import CFSG.Sporadic.Fi23.InvCertBase
 
-public import Certificates.Data.CFSGNative.Fi23.Classes
-public import Certificates.Data.CFSGNative.Fi23.Centralizer
 public meta import Certificates.Data.CFSGNative.Fi23.Classes
 public meta import Certificates.Data.CFSGNative.Fi23.Centralizer
-public import CFSG.Sporadic.Fi23.InvCertInputs
 public import Certificates.Certificate1014
 public import Certificates.Certificate1014Base
 

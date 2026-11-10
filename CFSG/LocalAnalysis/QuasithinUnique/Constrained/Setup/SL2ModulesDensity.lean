@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesTensor
-public import Mathlib.RingTheory.LittleWedderburn
 
 public section
 

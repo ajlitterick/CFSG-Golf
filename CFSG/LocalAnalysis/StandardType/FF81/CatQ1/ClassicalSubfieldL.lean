@@ -1,18 +1,12 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.FF81.CatQ1.Defs
 public import CFSG.LocalAnalysis.StandardType.FF81.CatQ1.ClassicalTorus
 public import CFSG.LocalAnalysis.StandardType.FF81.CatQ1.ClassicalTorusL
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismData
 import CFSG.LocalAnalysis.StandardType.FF81.CatQ1.Arith
 import CFSG.LocalAnalysis.StandardType.FF81.CatQ1.CharThree
-import CFSG.RankThree.PartOne.KC.LinearSubfieldInclusion
 import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.L6LeavesKD291OuterLinAut
-import CFSG.LieType.OutStructureAGeneral
 import CFSG.LieType.OutStructureFixedRank
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15ACoreThree
-import CFSG.LocalAnalysis.ComponentInitial.LinearCoverModel
-import CFSG.Adapters.ProjectiveSpecialLinear
 import CFSG.Certificates.CentralKernel
 import CFSG.Certificates.CosetTableWalkC
 import CFSG.Certificates.FusionF2
@@ -72,7 +66,6 @@ import CFSG.Monster.GMS.Fi23Gen
 import CFSG.Monster.GMS.Fi23GenIso
 import CFSG.Monster.GMS.Fi23GenSix
 import CFSG.Monster.GMS.LeechCoh
-import CFSG.Monster.GMS.LeechCohGroup
 import CFSG.Monster.GMS.S365Center
 import CFSG.Monster.GMS.S37
 import CFSG.Monster.GMS.S4Assembly

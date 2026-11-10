@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInner
 public import CFSG.LocalAnalysis.StandardType.GGInterfaceFive
-public import CFSG.LieType.Steinberg.Minuscule.ChevExtras
-public import CFSG.LieType.Chevalley.LangRootArithmeticDet
 
 public section
 

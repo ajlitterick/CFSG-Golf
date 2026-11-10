@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.Vol2.Ch12Sec5F
 public import CFSG.Quasithin.Vol2.Ch12Sec5L5b
-public import CFSG.LocalAnalysis.ComponentClassification.PresentationLocalSymplecticSix
 
 public section
 

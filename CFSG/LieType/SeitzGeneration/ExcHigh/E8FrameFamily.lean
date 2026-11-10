@@ -5,7 +5,6 @@ public import CFSG.RankThree.PartOne.KE.EvenE7E8QPlusWeyl
 public import CFSG.HardMathSupport.Timmesfeld.Torality.LangAssembly
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.PlanesToralWeylFive
 public import CFSG.RankThree.Classical2.TwistedE6Phi3Centralizer
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 public import CFSG.ClassicalInvolution.Generic.InductionMain
 public import CFSG.ClassicalInvolution.Models.LinearFrames
 public import CFSG.ClassicalInvolution.Models.OrthogonalPairs

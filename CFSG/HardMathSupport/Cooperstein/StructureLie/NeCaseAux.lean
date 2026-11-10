@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Cooperstein.StructureLie.NeCaseOdd
-public import CFSG.Quasithin.Background.A3ComponentsBasic
 public import CFSG.HardMathSupport.Cooperstein.Proving.NineThreeTransfer
 import CFSG.HardMathSupport.Cooperstein.StructureLie.NeCaseSylow
 public import CFSG.CGT.PushingUpLit.BHS.NaturalDefs
@@ -34,9 +33,6 @@ public import CFSG.RankThree.PartTwo.Sec19.Item194Used
 public import CFSG.Sporadic.Schreier.TitsOther
 public import CFSG.StronglyEmbedded
 public import CFSG.StronglyEmbedded.MatrixGroups.PSL2
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 import CFSG.HardMathSupport.Cooperstein.AlternatingGeometry.BlockSolvableTransfer
 import CFSG.HardMathSupport.Cooperstein.StructureLie.NeCaseRadical
 

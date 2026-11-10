@@ -11,7 +11,6 @@ public import CFSG.Quasithin.Background.B1MoreEleven
 public import CFSG.Quasithin.Background.B5CompA
 public import CFSG.Quasithin.Background.B5CompB
 public import CFSG.Quasithin.Background.B6
-public import CFSG.Quasithin.Background.B6Example
 public import CFSG.Quasithin.Background.C124B51Hyp
 public import CFSG.Quasithin.Background.C1GNC124
 public import CFSG.Quasithin.Background.C35InspL45C

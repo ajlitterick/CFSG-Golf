@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1RLevel
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagProj
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldUnitary
 
 public section
 

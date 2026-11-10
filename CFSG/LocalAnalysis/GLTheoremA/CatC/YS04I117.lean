@@ -1,13 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.YS04I117Out
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.YS04I117Count
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.YS04I117Rank
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.YS04I117F
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.YS04I117Fld
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.YS04I117K2
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.YS04E6FFinal
-public import CFSG.Milestones.CL_LIT_Griess_Schur_multipliers_Lie_type
 public import CFSG.Blueprint.LieModelAPI
 public import CFSG.Goldschmidt.Steps.G37Transport
 public import CFSG.HardMathSupport.Curtis.Coordinator.SeitzTower.Rest
@@ -57,8 +53,6 @@ public import CFSG.Quasithin.Background.C1GNSolvConnect
 public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.E2Statements
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918C6
 public import CFSG.Quasithin.Background.FFC7G
 public import CFSG.Quasithin.Background.FFC8A
@@ -118,7 +112,6 @@ public import CFSG.RankThree.PartTwo.Sec19.Step1914TriSeitz434
 public import CFSG.RankThree.PartTwo.Sec19.Step199Proof
 public import CFSG.RankThree.PartTwo.Sec20.OneSteps
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434U38K0
-public import CFSG.Walter.J1Props
 public import Certificates.Kernel.J4Count.Prim
 
 public section

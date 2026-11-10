@@ -1,15 +1,7 @@
 module
 
-public import CFSG.RankThree.PartOne.KC.OrthogonalPlanePermutations
-public import CFSG.RankThree.PartOne.KC.OrthogonalSupportedMaps
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmCoordinates
 public import CFSG.RankThree.PartOne.KC.OrthogonalSplitCompletion
-public import Mathlib.LinearAlgebra.Pi
-public import Mathlib.LinearAlgebra.QuadraticForm.Prod
-public import Mathlib.GroupTheory.Perm.ViaEmbedding
-public import Mathlib.GroupTheory.Perm.Fin
-public import CFSG.GroupTheory.WeirSylow.OrthogonalModels
-public import CFSG.GroupTheory.WeirSylow.OrthogonalTori
 
 public section
 

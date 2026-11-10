@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTriD4NoneMarking
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
 import CFSG.GroupTheory.ElemAbelianClosure
-import CFSG.GroupTheory.ElementaryAbelianTransport
 import CFSG.LocalAnalysis.LargeEvenClassification.LocalRank
-import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

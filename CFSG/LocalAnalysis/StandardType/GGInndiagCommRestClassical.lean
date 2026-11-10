@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGInndiagCommRestCore
 public import CFSG.LocalAnalysis.StandardType.GGRawAutRestOmega
-public import CFSG.LocalAnalysis.StandardType.GGNbrGraphFieldLinear
-public import CFSG.LocalAnalysis.StandardType.GGNbrGraphFieldSymplectic
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X7bAut
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X7bPairs
 

@@ -1,15 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRealNbrNSTwE6Defs
-import CFSG.LocalAnalysis.StandardType.GGRealKGThree
-import CFSG.LocalAnalysis.StandardType.GGRealKGThreeUDvd
-import CFSG.LocalAnalysis.StandardType.GGRealKGThreeU63
 public import CFSG.LocalAnalysis.StandardType.GGRealKGThreeAssembly
 import CFSG.LocalAnalysis.StandardType.GGRealKGExcNegRows
-import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRootGenKG
-import CFSG.LocalAnalysis.StandardType.GGNbrReflGenTwE6Three
-import CFSG.LocalAnalysis.StandardType.GGTableBTwE6Delta
-import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylKnownDefs
 
 public section
 

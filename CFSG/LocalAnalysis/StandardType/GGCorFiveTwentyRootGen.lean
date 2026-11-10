@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyQSplit
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneBasic
 public import CFSG.Certificates.WordSubgroupRel
 public import CFSG.LieType.Multipliers.ProductKernel

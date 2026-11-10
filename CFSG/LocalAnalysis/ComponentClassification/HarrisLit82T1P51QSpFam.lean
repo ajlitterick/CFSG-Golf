@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1P51QSpNs
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1P51QF
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1P51eComp
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LieType.Universal.SpinOmega.Range
 public import CFSG.LocalAnalysis.ComponentClassification.GSFMMaximal
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeMax
@@ -21,9 +20,6 @@ public import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerRestricti
 public import CFSG.LocalAnalysis.RankTwoShapes.UnitaryFourPresentation
 public import CFSG.LocalAnalysis.SignalizerFunctor
 public import CFSG.Open.GorensteinHaradaSectionalRankFourMilestoneDefs
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 
 public noncomputable section
 

@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.HeLoc.TreeCmd
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public import CFSG.Certificates.Kernel.Spor.PackWord
 public import CFSG.LocalAnalysis.EvenSporadicStandard.RuStd.S2.RuThreeInputs

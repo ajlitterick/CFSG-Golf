@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestBstarOddBT
-public import CFSG.RankThree.OrthogonalInvolutions.Dickson
 
 public section
 

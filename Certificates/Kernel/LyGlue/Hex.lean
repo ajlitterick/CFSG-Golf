@@ -3,7 +3,6 @@ module
 public import CFSG.Sporadic.Recognition.LyonsModelData
 public import Certificates.Kernel.B3S3.HexGen
 public import CFSG.Certificates.Kernel.Common.StrLitChunks
-public import Certificates.Data.Kernel.Spor.Chain
 public import CFSG.Certificates.Kernel.Common.Harness
 import Mathlib.Tactic.IntervalCases
 public meta import CFSG.Sporadic.Recognition.LyonsModelData

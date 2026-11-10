@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBTransport
 public import CFSG.LocalAnalysis.StandardType.GGQTwoFrameLDefs
-public import CFSG.GroupTheory.ElementaryAbelianTransport
-public import CFSG.Assembly.GL83LieDefs
 
 public section
 

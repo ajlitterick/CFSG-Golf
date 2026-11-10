@@ -3,17 +3,9 @@ module
 public import CFSG.Yardstones.M0a200c08cf60.Goals
 public import CFSG.Yardstones.M0a200c08cf60.Reduction
 public import CFSG.Milestones.CL_LIT_classical_involution_theorem
-public import CFSG.Monster.Existence.StdOdd.Defs
-public import Certificates.Data.CFSGNative.Chevalley.C2E6CertLie
-public import CFSG.LieType.Chevalley.C2E6StdMatrixData
-public import CFSG.Monster.B.Classical.E6AdjointGroup
 import Certificates.Kernel.Misc.E6StdSlp
-public import CFSG.Blueprint.NativeSporadic
-public import CFSG.RankThree.PartOne.CTP.FusionSound
 import CFSG.Sporadic.Bridge.BFusSevenGen
-public import CFSG.YGroups.Y443.Native.CoverFactsWords
 import Certificates.Kernel.KDense.Y443
-public import CFSG.YGroups.Y443.Native.Swap13Word
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.FFSporadic.Co2DfsSound
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.FFSporadic.Co2Sylow
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.FFSporadic.Fi22CoverCheck

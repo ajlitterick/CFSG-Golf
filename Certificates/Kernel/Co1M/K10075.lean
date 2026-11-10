@@ -4,7 +4,6 @@ module
 public import Certificates.Kernel.Co1M.O10075
 public import Certificates.Kernel.Co1M.D10075
 public import Certificates.Kernel.Co1B.C2046
-public import CFSG.Sporadic.Co1.Module.InvFam
 public import CFSG.Certificates.Kernel.Co1M.HitSound
 import CFSG.Certificates.Kernel.Common.Harness
 

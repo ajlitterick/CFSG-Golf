@@ -2,8 +2,6 @@ module
 
 public import CFSG.RankThree.OddKernel.SporadicKernelRestrictionB
 public import CFSG.Sporadic.Bridge.BBound
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Certificates.InvariantMerge
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.SectionRank.SectionAssembly
@@ -25,11 +23,7 @@ public import CFSG.Sporadic.Schreier.LyChain11
 public import CFSG.Sporadic.Th.CertificateBase
 public import CFSG.Sporadic.Th.CertificateBase1
 public import CFSG.Sporadic.ThSchreier.KernelAut
-public import CFSG.Sporadic.ThSchreier.KernelAutBase
 public import CFSG.Sporadic.ThSchreier.KernelAutBase1
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import CFSG.YGroups.DCE.B433Check
 
 public section

@@ -3,14 +3,12 @@ module
 
 public import CFSG.Monster.B.TwoA.Census.CosetEnumCheckBase
 
-public import CFSG.Monster.B.TwoA.Census.CosetEnumBits
 public meta import CFSG.Monster.B.TwoA.Census.CosetEnumBits
 public meta import CFSG.Monster.B.TwoA.Census.NatCert
 public meta import CFSG.Monster.B.TwoA.Census.CosetCertData
 public meta import CFSG.Monster.B.TwoA.Census.MonoCert
 public meta import CFSG.Monster.B.Rep4371.GlueDefs
 public meta import Certificates.Data.CFSGNative.MonsterB.CosetEnum
-public import CFSG.Monster.B.TwoA.Census.CosetEnumCheckInputs
 public import Certificates.Certificate3023
 
 public section

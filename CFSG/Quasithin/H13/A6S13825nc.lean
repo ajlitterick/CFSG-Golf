@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Quasithin.H13.A6S13825e
-public import CFSG.Quasithin.H13.A6S13825s
-public import CFSG.Sporadic.Schreier.J4SFrattini
 
 public section
 

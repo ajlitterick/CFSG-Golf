@@ -1,9 +1,6 @@
 module
 
 public import Mathlib.LinearAlgebra.Reflection
-import Mathlib.Tactic.LinearCombination
-import Mathlib.Tactic.Module
-import Mathlib.Tactic.NormNum.DivMod
 
 public section
 

@@ -5,7 +5,6 @@ public import Certificates.Kernel.J4Q.X0OrbMats
 public import Certificates.Kernel.J4Q.X0OrbPk
 public import CFSG.Certificates.Kernel.J4Q.RepMOrb
 import Certificates.Kernel.J4Q.AllN
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

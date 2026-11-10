@@ -4,7 +4,6 @@ module
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312HsKInputs
 import Certificates.Kernel.HSA312.Struct
 import Certificates.Kernel.HSQuot.Final
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHSBase
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHS
 

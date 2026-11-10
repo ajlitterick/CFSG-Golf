@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.LyY.Chain
 public import Certificates.Kernel.LyY.ScanAll
 public import CFSG.Certificates.Kernel.LyY.ScanSound
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.J2CoverSound
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutCheckBase
 

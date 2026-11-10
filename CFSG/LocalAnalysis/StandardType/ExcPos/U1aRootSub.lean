@@ -3,15 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.ExcPos.LangFrameDefs
 public import CFSG.LocalAnalysis.StandardType.GGFinModelRootCompat
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.AmbientPairDescentPart1
-public import CFSG.LieType.Chevalley.CLSOddE7RationalDerivedIndex
-public import CFSG.LieType.AlgebraicGroups.RationalCentralizerCocycleLang
-public import CFSG.LieType.Chevalley.RootCharacterConjugation
-public import CFSG.LieType.Chevalley.RootDiagonalWeylTransporter
-public import CFSG.LieType.Chevalley.Canonical
-public import CFSG.LieType.Chevalley.WeylRootTransport
-public import CFSG.LieType.Chevalley.CoordinateFieldBaseChange
-public import CFSG.LocalAnalysis.SeitzReduction.EPilotRoots
-public import CFSG.Adapters.TauCetiExceptional.EvenLang
 
 public section
 

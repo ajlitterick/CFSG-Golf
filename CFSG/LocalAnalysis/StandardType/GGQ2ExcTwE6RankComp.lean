@@ -2,14 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcTwE6Defs
 public import CFSG.LocalAnalysis.StandardType.GGTriD4KnownInputs
-import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
 import CFSG.LocalAnalysis.StandardType.GGSixLSixSevenE6Components
 import CFSG.Dihedral.DisconnectedInvolutionGraph.SubgroupConjugationAction
 import CFSG.GroupTheory.SylowIntersectionControl.GomiFactsGF2Conj
-import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
-import CFSG.GroupTheory.ElementaryAbelianTransport
 import CFSG.GroupTheory.CentralSplitTransfer
-import CFSG.FeitThompson.OddOrderTheorem
 import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaBase
 import CFSG.LocalAnalysis.SectionRank.EvenCover.Catalog
 import CFSG.LocalAnalysis.SectionRank.LargeRee.SuzukiData
@@ -21,7 +17,6 @@ import CFSG.LocalAnalysis.SectionRank.TitsCover
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.DefsE
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs12d
 import CFSG.Quasithin.Background.A3Components
-import CFSG.Quasithin.Background.A3ComponentsAmbient
 import CFSG.Quasithin.Background.B1Restrict
 import CFSG.Quasithin.Background.B4Statement
 import CFSG.Quasithin.Background.F6GoldschmidtList

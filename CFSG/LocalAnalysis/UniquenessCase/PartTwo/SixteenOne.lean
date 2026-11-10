@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenMod
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs16a
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenSmallDefs
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenTwo
 

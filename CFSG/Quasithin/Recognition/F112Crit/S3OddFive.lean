@@ -3,7 +3,6 @@ module
 public import CFSG.Quasithin.Recognition.F112Crit.S3OddFiveCases
 public import CFSG.Quasithin.Recognition.F112Crit.OddFiveCenter
 public import CFSG.Quasithin.Recognition.F112Crit.OddRhoPair
-public import CFSG.Quasithin.Recognition.F112Crit.OddFiveQ
 public import CFSG.Quasithin.Recognition.F112Crit.BenderRigid
 
 public section

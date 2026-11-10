@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.CFSGNative.MonsterB.Co2Irred
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Irred
 public import Certificates.Certificate3027
 public import Mathlib.Data.Vector.Basic

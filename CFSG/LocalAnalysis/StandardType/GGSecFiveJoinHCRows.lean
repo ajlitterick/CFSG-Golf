@@ -2,15 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinHCRowDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinHC
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRegionDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveMaxJoin
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRest
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanAData
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanEDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanPrimDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveDataResDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1Defs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1WeylE
 
 public section
 

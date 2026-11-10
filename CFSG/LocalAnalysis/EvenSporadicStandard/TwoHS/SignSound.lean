@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoHS.G6Words
-public import CFSG.Sporadic.HNOddCore.OuterFix
-public import CFSG.Sporadic.HNOddCore.CRec
-public import Std.Data.HashSet
-public import CFSG.Sporadic.HNOddCore.SixB
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoHS.SylowReduce
 public import CFSG.Sporadic.HNOddCore.SixD
 public import Certificates.Certificate25550

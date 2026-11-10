@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Recognition.GoldschmidtFan86Sec5P515Rev
-public import CFSG.Quasithin.Recognition.GoldschmidtFan86Sec8P1Z2Loc
 public import CFSG.Foundations
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.GroupTheory.LocalCores.Layer

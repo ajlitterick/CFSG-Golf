@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBJTypeBDatum
 public import CFSG.LocalAnalysis.StandardType.GGTBJTypeBFrameChange
 public import CFSG.LocalAnalysis.StandardType.GGTBJWeylParabolicLE3
-public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3BridgeA
 public import CFSG.LocalAnalysis.StandardType.GGTWReflConj
 public import CFSG.LocalAnalysis.StandardType.GGResIICell
 public import CFSG.Permutation.SupportedAdjacent

@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs2311q2
-public import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.A2Nonsplit.Sylow
-public import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.A2NonsplitGen.Closing
-public import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.A2NonsplitGen.Top
-public import CFSG.Quasithin.Background.A3Structure36BPrime
 
 public section
 

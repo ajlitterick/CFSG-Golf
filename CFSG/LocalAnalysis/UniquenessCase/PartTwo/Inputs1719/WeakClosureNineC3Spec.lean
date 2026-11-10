@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.WeakClosureNine3CChkSpec
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.WeakClosureNineC3Pull
-public import Certificates.Kernel.Sporadic.Fi22.C3151
 public import CFSG.Quasithin.Vol2.Ch1Sec3Basic
 
 public section

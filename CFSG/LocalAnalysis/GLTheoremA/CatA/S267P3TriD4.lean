@@ -2,11 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267P3TriD4Model
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267P3Iso
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcVacuousTriality
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.TrialityThreeRank
 import CFSG.HardMathSupport.Seitz.TrialityOdd.Coordinator.InvolConjTransport
 import CFSG.LieType.Steinberg.CentralExt.TrialityClosed
-import CFSG.LieType.Chevalley.OddTrialityAutomorphismNormalForm
 import CFSG.GH74.Uniqueness.SU.SU7Gen3
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T2021TD4Quot
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S267Omega268
@@ -70,14 +68,7 @@ import CFSG.LocalAnalysis.GLTheoremA.S4.Assembly
 import CFSG.LocalAnalysis.GLTheoremA.S4.Inputs
 import CFSG.LocalAnalysis.GLTheoremA.S4S.Inputs
 import CFSG.LocalAnalysis.SignalizerFunctor
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
-import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremB
-import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremC
-import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.ZJTheorem
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GW1965RemarkDGroup
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29Helpers
 
 public section
 

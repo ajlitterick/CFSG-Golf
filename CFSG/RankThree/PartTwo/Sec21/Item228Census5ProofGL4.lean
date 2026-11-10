@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec21.Item228Census5ProofCubeField
 public import CFSG.RankThree.PartOne.KF.SpSylow
-public import CFSG.GroupTheory.WeirSylow.GL
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.LocalAnalysis.ComponentClassification.BlockTwoProductAction
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
@@ -23,7 +22,6 @@ public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeOrbits
 public import CFSG.RankThree.PartOne.KF.UnitaryModel
 public import CFSG.RankThree.PartOne.S10.ThetaContract
 public import CFSG.RankThree.PartOne.S12.InputsBase
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

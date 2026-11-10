@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSporKRestClosure
 public import Certificates.Certificate1023203
 public import CFSG.Sporadic.Bridge.SuzSurj
 public import CFSG.Sporadic.Presentation.Common
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

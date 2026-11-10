@@ -1,9 +1,7 @@
 module
 
-public import CFSG.RankThree.PartTwo.Sec4.E27.D4StepALeavesAuxL2G2
 public import CFSG.LocalAnalysis.StandardType.GGNbrG2ThreeOffStd
 public import CFSG.LocalAnalysis.StandardType.GGNbrG2ThreeOffLine
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
 
 public section
 

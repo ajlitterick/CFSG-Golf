@@ -1,33 +1,17 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGHalfFiveInnAll
-public import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagConcl
 public import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagOmegaQuasisimple
 public import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagOmegaFour
 public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockOmegaIsoOneLinear
 import CFSG.HardMathSupport.Dickson.Sec6.I1431Fam.OrtHFixed
-import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogQuadraticNormalForms
 import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalResU3ThreeSolv
-public import CFSG.RankThree.Classical.SteinbergBYOrthogonalGates
-public import CFSG.RankThree.PartOne.AUTSL.OmegaOut
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangKGInputs
 public import CFSG.OddTranspositions.PartFour.ThirteenListExtTrialityOrthOtherMinus
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphismsCongr
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeBoundBase
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointDataCoordinateRegular
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointDataReindexGroups
 public import CFSG.RankThree.PartOne.KF.ClsOmega
-public import CFSG.LocalAnalysis.StandardType.GGAssemblyThreeHypSix
-public import CFSG.LocalAnalysis.StandardType.GGRootCentKGMarking
-public import CFSG.Timmesfeld.Orders.Distinct
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm14_5.SmallL4Klein
-public import CFSG.Adapters.ProjectiveSpecialLinear
 public import CFSG.ClassicalGroups.SpecialLinear.ComponentCartanRankDivisible
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixSevenA3TypeDet
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIOrthogonalUnitary4
 public import CFSG.RankThree.PartOne.S11d.OrthSplitFixed
-public import CFSG.RankThree.PartOne.S11d.OrthGoodSingle
-public import CFSG.Timmesfeld.RankOne.SL2
 public import CFSG.ClassicalGroups.SpecialLinear.DiagonalTorusRank
 public import CFSG.LieType.SpecialLinear.BinaryDescent.Basic
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.StatementsRootModule

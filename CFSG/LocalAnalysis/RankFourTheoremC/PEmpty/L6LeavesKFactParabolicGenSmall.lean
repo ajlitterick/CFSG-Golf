@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.L6LeavesKFactParabolicGenCore
-public import CFSG.Quasithin.Background.SmithC27RLieA6
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.L6LeavesKFactParabolicGenSmallK
 
 public section

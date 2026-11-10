@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGE0ShapeDefs
 public import CFSG.LocalAnalysis.StandardType.GGE0ShapeAction
-public import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagConcl
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
 
 public section
 

@@ -1,15 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeShapeLeaves
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePairE6
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePairTwCover6Aux2
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePairTwCover78
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePairFix
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.KacShape
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.KacEAll
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcKacCount
-public import CFSG.ClassicalInvolution.ModelFacts.Models
-public import CFSG.LieType.HighestRoot.RootsUnitary
 
 public section
 

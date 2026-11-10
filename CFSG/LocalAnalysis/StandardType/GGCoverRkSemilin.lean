@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGL45TGSU
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitDvdAct
-public import CFSG.LocalAnalysis.StandardType.GGRawAutRestUnitary
-public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitarySemi
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeInner
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallUnitDvdPair
 
 public section

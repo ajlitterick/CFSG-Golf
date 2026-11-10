@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQ2CentralizerPort
 public import CFSG.LocalAnalysis.StandardType.GGQTwoAssemble
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBLemmas
-public import CFSG.LocalAnalysis.StandardType.GGStdSubExistAdmissible
-public import CFSG.LocalAnalysis.LargeEvenClassification.RankOneComparable
 
 public section
 

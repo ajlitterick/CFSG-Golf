@@ -1,12 +1,9 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseA7TwoCoreFixedCard
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseA7ANormalH
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.TwoCoreNormal
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.TwoCoreCentralizerEqualsHhat
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.KleinFourMapInjective
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.D4YBLin
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.D4YBFlag
-public import CFSG.LocalAnalysis.StandardType.GGHypSixD4RankClass
-public import CFSG.HardMathSupport.Curtis.Coordinator.PerfThreeOrthModel
 public import CFSG.LocalAnalysis.StandardType.GGNbrGraphD4ProofOut
 
 public section

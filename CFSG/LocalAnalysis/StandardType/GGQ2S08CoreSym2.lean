@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08CoreSymType
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08CoreDefs
-public import Mathlib.Data.Fintype.Card
-public import Mathlib.GroupTheory.GroupAction.FixingSubgroup
 
 public section
 

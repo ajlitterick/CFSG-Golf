@@ -1,7 +1,6 @@
 module
 
 public import Mathlib.FieldTheory.Finite.GaloisField
-public import Mathlib.LinearAlgebra.Matrix.ProjectiveSpecialLinearGroup
 public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Projective
 public import Mathlib.GroupTheory.SpecificGroups.Alternating
 

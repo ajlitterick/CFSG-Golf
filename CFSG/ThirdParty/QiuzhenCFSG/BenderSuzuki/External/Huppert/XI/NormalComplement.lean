@@ -1,11 +1,7 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.V.FrattiniQuotient
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.theorem_1_8
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.theorem_1_11
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PGroup.OmegaFrattini
 public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
 
 namespace CFSG

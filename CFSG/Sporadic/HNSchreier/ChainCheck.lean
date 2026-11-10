@@ -1,10 +1,7 @@
 module
 
-public import CFSG.Sporadic.HNSchreier.OrbitCheck
-public import Certificates.Data.CFSGNative.ONSchreier.Vectors
 public meta import CFSG.Sporadic.HNSchreier.OrbitCheck
 public meta import Certificates.Data.CFSGNative.ONSchreier.Vectors
-public import CFSG.Sporadic.HNSchreier.ChainCheckInputs
 public import Certificates.Certificate2096
 
 public section

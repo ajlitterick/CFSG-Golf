@@ -6,18 +6,7 @@ public import CFSG.Certificates.Kernel.BabyMonster.Fi23.Check3
 public import CFSG.Certificates.Kernel.BabyMonster.Fi23.Check8
 public import CFSG.Certificates.Kernel.BabyMonster.Chain4
 public import CFSG.Certificates.Kernel.BabyMonster.Chain4Pair
-public import CFSG.Certificates.Kernel.BabyMonster.Sound
-public import CFSG.Certificates.Kernel.BabyMonster.PairSound
-public import CFSG.Certificates.Kernel.BabyMonster.VStripSound
 public import Certificates.Kernel.BabyMonster.Chain
-public import CFSG.Certificates.Kernel.BabyMonster.E35.Check0
-public import CFSG.Certificates.Kernel.BabyMonster.E35.Check1
-public import CFSG.Certificates.Kernel.BabyMonster.E35.Check2
-public import CFSG.Certificates.Kernel.BabyMonster.E35.Check3
-public import CFSG.Certificates.Kernel.BabyMonster.E35.Check4
-public import CFSG.Certificates.Kernel.BabyMonster.E35.Rel
-public import CFSG.Certificates.Kernel.BabyMonster.E35.Wf
-public import CFSG.Certificates.Kernel.BabyMonster.E35Cyc
 
 public section
 

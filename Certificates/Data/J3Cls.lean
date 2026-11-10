@@ -2,7 +2,6 @@ module
 
 public import CFSG.Sporadic.SmallOddCore.LocalCheck
 public import CFSG.Sporadic.SmallOddCore.J3CheckInputs
-public import CFSG.Sporadic.SmallOddCore.J3DataInputs
 public import CFSG.Quasithin.Vol2.KGFactC31OrbCheck
 
 public section

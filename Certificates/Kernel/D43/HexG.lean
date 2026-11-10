@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Milestones.ASVolI.F48.D43.Data
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public import Certificates.Kernel.Misc.Perm.CharsLits
 meta import CFSG.Milestones.ASVolI.F48.D43.Data

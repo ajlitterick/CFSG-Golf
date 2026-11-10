@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC23Cent
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenUniqueMax
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenCore
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenKbar
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.ElevenNineFour
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.ElevenFourteenSylow
 

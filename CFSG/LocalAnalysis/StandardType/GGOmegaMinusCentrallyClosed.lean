@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestCenter
-public import CFSG.LieType.Steinberg.CentralExt.SL2CentrallyClosed
-public import CFSG.LieType.Steinberg.CentralExt.SpinMinusCentrallyClosed
 
 public section
 

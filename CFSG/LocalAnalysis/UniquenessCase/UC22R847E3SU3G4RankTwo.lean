@@ -2,31 +2,23 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22R847E3SU3G4
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront10
-public import CFSG.RankThree.PartTwo.Sec4.LThreePiAct
 public import CFSG.LocalAnalysis.UniquenessCase.UC22InE229R78At3Setup4
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.PartOne
 import CFSG.LocalAnalysis.UniquenessCase.UC22InE229R78p3Setup4
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.OutPRank
 import CFSG.LocalAnalysis.RankThreeTheoremC.PGroupRankTwoCharSubgroupOf
-import CFSG.LocalAnalysis.SectionRank.Ccomm.RankTwo
 import CFSG.Quasithin.H13.NQCoreP134Group
 import CFSG.GH74.GLS.C3.Layer1.U1aSetup
-import CFSG.Quasithin.Vol2.Ch1Sec3Basic
 import CFSG.LocalAnalysis.UniquenessCase.UC22InE229Z9
 import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.OrdinaryProofs.OrderPrimeConj
 import CFSG.LocalAnalysis.RankFourTheoremC.Nongeneration.Planes
 import CFSG.LocalAnalysis.RankThreeTheoremC.GL83Generic4_1P3R1Aux
-import CFSG.LocalAnalysis.ABGTheoremB.V5Tools
 import CFSG.LocalAnalysis.RankThreeTheoremC.LayerNormal
-import CFSG.LocalAnalysis.UniquenessCase.UC22InE229L34Lift
 import CFSG.LocalAnalysis.UniquenessCase.UC22InE229L34U3
 import CFSG.LocalAnalysis.UniquenessCase.UC22InE229Ker3
 import CFSG.LocalAnalysis.UniquenessCase.UC22S217U3B
 import CFSG.LocalAnalysis.UniquenessCase.UC22P2251c
 import CFSG.LocalAnalysis.UniquenessCase.UC22P2251d
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22yb
-import CFSG.LocalAnalysis.UniquenessCase.UC22InE229Z5U3
-import CFSG.LocalAnalysis.UniquenessCase.UC22InE229ZBU3
 import CFSG.LocalAnalysis.RankThreeUC.TheoremDCentralizerReduction
 import CFSG.LocalAnalysis.UniquenessCase.UCKU3Key
 import CFSG.LocalAnalysis.UniquenessCase.UC22S218Uc
@@ -35,26 +27,17 @@ import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Conclusion76Three
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.Conclusion76
 import CFSG.Blueprint.LieModelAPI
 import CFSG.HardMathSupport.Timmesfeld.FieldBonus.TFAbCover
-import CFSG.LocalAnalysis.UniquenessCase.Lie.SU3Torus
-import CFSG.LocalAnalysis.UniquenessCase.Lie.Shared
 import CFSG.LocalAnalysis.UniquenessCase.UCSingerL3a
-import CFSG.LieType.Steinberg.CentralExt.SUThreeOrder
-import CFSG.LieType.Universal.Unitary.Comparison
 import CFSG.LocalAnalysis.RankThreeUC.TheoremDReductions
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.B69K.PRankSurvivor
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.B69K.OddCoversRank
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.B69K.OddCoversTable
 
 import CFSG.RankThree.PartTwo.KFacts.K71SU3AutFacts
-import CFSG.RankThree.PartTwo.Sec4.LThreePiCaseI
 import CFSG.LieType.SeitzGeneration.UnitaryHeisGU2
-import CFSG.LocalAnalysis.UniquenessCase.UC6S846a
 import CFSG.RankThree.GF2n.Stroth80.FieldAut
-import CFSG.LocalAnalysis.UniquenessCase.UC6S846f
-import CFSG.LocalAnalysis.PreuniquenessRankFour.PrimeCore
 import CFSG.LocalAnalysis.UniquenessCase.UC22InE229U3E9
 import CFSG.LocalAnalysis.UniquenessCase.UC22R847E3NNK
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition84Residual
 public import CFSG.LocalAnalysis.UniquenessCase.UC22R847G4
 import CFSG.Adapters.ClassicalCatalogLinearUnitary
 import CFSG.Adapters.StatedClassicalSmallOrders
@@ -153,7 +136,6 @@ import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotUniqueTypeGraph
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs12b
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section19.Statements
 import CFSG.LocalAnalysis.UniquenessCase.UC22S13xi
-import CFSG.LocalAnalysis.UniquenessCase.UC6S846d
 import CFSG.LocalAnalysis.UniquenessCase.UCKPRank1
 import CFSG.LocalAnalysis.UniquenessCase.UCKPSyl3
 import CFSG.Quasithin.Background.B1More13

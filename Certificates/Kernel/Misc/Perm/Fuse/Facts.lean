@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Misc.Perm.Fuse.Checks
 public import Certificates.Kernel.Misc.Perm.SylCent.Facts
 public import CFSG.Certificates.Kernel.Misc.PermFuseSound
-public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourActionData
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourCertificate
 

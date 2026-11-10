@@ -3,11 +3,6 @@ module
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.Star2313In
 public import CFSG.RankThree.PartOne.S11c.EvenRootInverters
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotCentralizerTUBasic
-public import CFSG.LieType.Chevalley.E6GraphRadicalCoords
-public import CFSG.LieType.Chevalley.RankOneCentralImage
-public import CFSG.LieType.Chevalley.BruhatCellFactorization
-public import CFSG.RankThree.E6.RootLatticeTools
-public import CFSG.LieType.Chevalley.RootCharacterConjugation
 public import CFSG.CharacterTheory.CyclicBlocks.Family
 public import CFSG.CharacterTheory.PSL2Table.BlocksProduct
 public import CFSG.CharacterTheory.Semidihedral.Principal.LargePrimeTorusSylowCentralizers
@@ -115,8 +110,6 @@ public import CFSG.Quasithin.Background.C2PushThree
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.D2Cyclic
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.FFC4Tr2
 public import CFSG.Quasithin.Background.GoldschmidtS146RBend1
@@ -188,8 +181,6 @@ public import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
 public import CFSG.Sporadic.Schreier.J4SNoCompCover
 public import CFSG.Sporadic.Schreier.TitsOther
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 public import CFSG.Timmesfeld.Outcome
 

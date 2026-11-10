@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Fi23Q.SubClsGlue
 import Certificates.Kernel.Fi23Q.SubClsChk
-import Mathlib
 public import Certificates.Kernel.SporSch.Co2M.ThirdBound
 public import CFSG.Certificates.Kernel.Fi23Q.SubClsSound
 public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions

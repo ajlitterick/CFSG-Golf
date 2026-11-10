@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
 import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIpAltEightTwo
 import CFSG.LocalAnalysis.StandardType.SUCenterOdd
 import CFSG.LieType.SemisimpleCentralizers.HeldLangU64Ord

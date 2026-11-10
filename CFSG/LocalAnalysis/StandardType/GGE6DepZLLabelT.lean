@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGE6DepZLOfGoodOdd
 public import CFSG.LocalAnalysis.StandardType.GGE6DepZLTRow
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelHoldsT
-public import CFSG.LocalAnalysis.StandardType.GGTorusGenE6Comm
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelAbelianLift
 
 public section

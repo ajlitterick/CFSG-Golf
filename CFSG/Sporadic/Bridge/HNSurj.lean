@@ -1,17 +1,10 @@
 module
 
 public import CFSG.Sporadic.HN
-public import CFSG.Sporadic.Bridge.TableSurj
-public import CFSG.Sporadic.Presentation.HN
-public import Certificates.Data.CFSGNative.Bridge.HNGPL
 public meta import Certificates.Data.CFSGNative.Bridge.HNGPL
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
-public import Certificates.Certificate9114
 public import Certificates.Certificate9208
-public import Certificates.Certificate3166
 public import CFSG.Sporadic.Bridge.HomSurj
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
-import CFSG.Blueprint.NativeSporadic
 
 public section
 

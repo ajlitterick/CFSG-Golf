@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.HS3850.UTDefs
-public import Certificates.Kernel.LocalQT.Tc.Gen
 import CFSG.Certificates.Kernel.Common.Harness
 public import Certificates.Data.Kernel.ConjOrb
 public import Certificates.Data.Kernel.PkPow

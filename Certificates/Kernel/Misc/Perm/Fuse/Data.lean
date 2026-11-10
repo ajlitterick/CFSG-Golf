@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.Misc.PermFuse
-public import Certificates.Data.Kernel.Misc.PermClos
 public import Certificates.Data.Kernel.Misc.PermM22
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo

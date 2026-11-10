@@ -4,10 +4,8 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveNSQ2DCellsDefs
 public import CFSG.LocalAnalysis.StandardType.GGNsq2Cited
 import CFSG.LocalAnalysis.StandardType.GGNsq2Main
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSQ2U62Setup
-import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
 import CFSG.LocalAnalysis.StandardType.GGNSJoinRMChain
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSLieEsuAux
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1Weyl
 
 public section
 

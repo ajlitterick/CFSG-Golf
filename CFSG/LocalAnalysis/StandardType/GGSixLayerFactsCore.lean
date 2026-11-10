@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsSLBasic
-public import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
-public import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
 
 public section
 

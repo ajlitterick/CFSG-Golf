@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeRows1585
-import CFSG.LocalAnalysis.StandardType.GGKacTable
 
 public section
 

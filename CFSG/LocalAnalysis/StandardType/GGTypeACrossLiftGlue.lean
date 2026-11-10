@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTypeAFarEnd
 public import CFSG.LocalAnalysis.StandardType.GGTypeAFarRealize
 public import CFSG.LocalAnalysis.StandardType.GGTypeAReflOverLin
 public import CFSG.LocalAnalysis.StandardType.GGTypeAReflOverPair
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyHypG0
 public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpConj
 public import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofGlueInj
 

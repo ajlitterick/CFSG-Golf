@@ -1,9 +1,7 @@
 module
 
 public import CFSG.Open.Defs
-public import Mathlib.NumberTheory.Padics.PadicVal.Defs
 import CFSG.HardMathSupport.Malle.Proving.E27OrderModTwo
-import Mathlib.NumberTheory.Multiplicity
 
 public section
 

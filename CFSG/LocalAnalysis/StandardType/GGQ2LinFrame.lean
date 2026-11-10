@@ -1,14 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2LinFrameStatements
-import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
-import CFSG.LocalAnalysis.StandardType.GGTableBRank
-import CFSG.LocalAnalysis.StandardType.GGTableBTransport
-import CFSG.LocalAnalysis.StandardType.GGTableBBstar
 import CFSG.LocalAnalysis.StandardType.GGStdSubSmallLinTwo
 import CFSG.LocalAnalysis.StandardType.GGTorCPlane
-import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameTorusField
-import CFSG.Assembly.GL83LieDefs
 
 public section
 

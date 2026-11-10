@@ -3,9 +3,7 @@ module
 public import CFSG.LieType.Chevalley.GraphFixedF4GroupTorus
 public import CFSG.LieType.Chevalley.GraphFixedF4Intertwiner
 public import CFSG.LieType.Chevalley.GraphFixedSimplePairs
-public import CFSG.LieType.Chevalley.GraphFixedCenterTrivial
 public import CFSG.LieType.Chevalley.GraphFixedNoncentralSolvable
-public import CFSG.LieType.Chevalley.SingleEdgePerfect
 public import CFSG.LieType.Chevalley.CoordinateFieldBaseChange
 
 public noncomputable section

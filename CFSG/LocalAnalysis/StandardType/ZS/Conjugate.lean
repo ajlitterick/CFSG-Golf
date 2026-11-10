@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveZSInputs
 public import CFSG.HardMathSupport.Kantor79.CommutatorSpace
-public import CFSG.Quasithin.Background.SimsG4Defs
 public import CFSG.Quasithin.Background.SimsG4OrthUPrim
 import CFSG.LocalAnalysis.StandardType.ZS.ReflQuotient
 

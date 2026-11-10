@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.Background.B4ModelsAction
 public import CFSG.Quasithin.Background.JonesParshallG2Field
-public import CFSG.Quasithin.Background.JonesParshallG2Two
 
 public section
 

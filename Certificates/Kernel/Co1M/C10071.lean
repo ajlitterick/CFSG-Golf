@@ -5,7 +5,6 @@ public import Certificates.Kernel.Co1M.W10071
 public import Certificates.Kernel.Co1M.Orb98280
 public import Certificates.Kernel.Co1Cover.Bridge
 public import CFSG.Certificates.Kernel.Co1M.FixListSound
-public import CFSG.Certificates.Kernel.Co1BTrSound
 public import CFSG.Sporadic.Co1.Module.LeechOddChecksInputs
 import CFSG.Certificates.Kernel.Common.Harness
 

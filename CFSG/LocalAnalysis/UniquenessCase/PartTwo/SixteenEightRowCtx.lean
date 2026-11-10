@@ -3,16 +3,7 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenEightLemE
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven10Case2LnTI
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven10Case2LnLift
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC23Sylow
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC34Ten
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.TwelveShort
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.TwelveSeventeen
-public import CFSG.LocalAnalysis.UniquenessCase.UCFront12
-public import CFSG.LocalAnalysis.UniquenessCase.UCFront07Eq
-public import CFSG.LocalAnalysis.UniquenessCase.UCFront11
-public import CFSG.LocalAnalysis.UniquenessCase.UCR638
-public import CFSG.LocalAnalysis.UniquenessCase.UC6R
-public import CFSG.LocalAnalysis.UniquenessCase.UC6S846e
 public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec7Case1
 public import CFSG.LargeExtraspecial.OrthoF2
 public import CFSG.LargeExtraspecial.S2Basic
@@ -63,7 +54,6 @@ public import CFSG.RankThree.PartTwo.Sec4.T444.Basic
 public import CFSG.RankThree.PartTwo.Sec6.Item612
 public import CFSG.RankThree.PartTwo.Sec6.Item65Tools
 public import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
-public import CFSG.Walter.J1Props
 
 public section
 

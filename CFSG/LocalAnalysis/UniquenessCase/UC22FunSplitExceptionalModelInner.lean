@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22FunSplitExceptionalTraceInner
-public import CFSG.ClassicalInvolution.Generic.Induction
-public import CFSG.ClassicalInvolution.Models.Transfer.Basic
 public import CFSG.ClassicalInvolution.ModelFacts.ChevAutLift
 public import CFSG.RankThree.PartOne.S15K.CentralCover
 public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcA2E6Pair

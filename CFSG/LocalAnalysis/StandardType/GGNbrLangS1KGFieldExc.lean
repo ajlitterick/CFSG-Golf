@@ -3,21 +3,8 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangS1KGField
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangS1Labels
 
-import CFSG.Assembly.GL83LieDefs
-import CFSG.LocalAnalysis.StandardType.Marking
-import CFSG.LocalAnalysis.StandardType.MarkingChevalley
-import CFSG.LocalAnalysis.StandardType.GGTableBExcBasic
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangChev
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangTwisted
 import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherExcFixTwE6
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldExcFixE6All
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldExcOrd
-import CFSG.LocalAnalysis.GLTheoremA.CatA.YS09Field
-import CFSG.LieType.Chevalley.GraphFixedFinitePerfect
-import CFSG.LieType.Chevalley.TrialityFullAmbientFixedGroup
-import CFSG.LieType.Simplicity.Exceptional
-import CFSG.LieType.BorelTits.DerivedQuotient
-import CFSG.LocalAnalysis.ComponentClassification.ExcSelectorComponents
 
 public section
 

@@ -3,10 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinSelectedSpRoot
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinSelectedSp
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinSelectedPSU
-import CFSG.RankThree.GF2n.Stroth80.Sec4Classical
 import CFSG.HardMathSupport.Solomon.Coordinator.I19_5_2L2Main
-import CFSG.RankThree.PartOne.S11d.OrthCaseN
-import CFSG.LocalAnalysis.StandardType.GGSixLSixSevenA3TypeDet
 import CFSG.Quasithin.H13.A6S1372L76X
 import CFSG.Quasithin.EmptyFaithful.S152He8Aut
 import CFSG.Quasithin.H13.A5Quad

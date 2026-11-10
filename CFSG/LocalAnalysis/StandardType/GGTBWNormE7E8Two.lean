@@ -1,57 +1,34 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBWNorm
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormSpSix
-public import CFSG.LocalAnalysis.StandardType.GGTBWNormLowRank
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormSmall
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormClassical
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormSymplectic
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormLinearNonsplit
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormLinearSplit
-public import CFSG.LocalAnalysis.StandardType.GGTBWNormLinearPrime
-public import CFSG.LocalAnalysis.StandardType.GGTBWNormLinearTwicePrime
-public import CFSG.LocalAnalysis.StandardType.GGTBWNormLinearThreePrime
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormLinearFourPrime
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormLinearNineThree
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormLinearThreeShears
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormLinearW5
-public import CFSG.LocalAnalysis.StandardType.GGTBWNormUnitaryTwicePrime
-public import CFSG.LocalAnalysis.StandardType.GGTBWNormE6Split
-public import CFSG.LocalAnalysis.StandardType.GGTBWNormE6Five
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormE6ThreeLabel
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormE7Plus
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormUnitarySplit
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormUnitaryNonsplit
-public import CFSG.LocalAnalysis.StandardType.GGTBWNormUnitarySingular
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormTwE6
-public import CFSG.LocalAnalysis.StandardType.GGTBWNormOrth
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormOrthFour
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormE8Four
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormE6Relative
-public import CFSG.LocalAnalysis.StandardType.GGTBWNormE8Split
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormE8Five
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormE8QuarticFive
-public import CFSG.LocalAnalysis.StandardType.GGTBWNormE7Split
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormE7Cyclotomic
-public import CFSG.LocalAnalysis.StandardType.GGTBWNormE8Plus
-public import CFSG.LocalAnalysis.StandardType.GGTBWNormE8PowerMap
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormE8PhiThree
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormE8Three
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormE7ThreeToral
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormExcRankTwo
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormE8FivePlus
-public import CFSG.LocalAnalysis.StandardType.GGTBWNormUnitaryThreePrime
-public import CFSG.LocalAnalysis.StandardType.GGTBWNormE6PhiThree
-public import CFSG.LocalAnalysis.StandardType.GGTBWNormLinearFrob
-public import CFSG.LocalAnalysis.StandardType.GGTBWNormFormFrob
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormTwE6PhiSix
-public import CFSG.LocalAnalysis.StandardType.GGTBWNormUnitaryFrob
-public import CFSG.LocalAnalysis.StandardType.GGTBWNormOrthPhiFour
-public import CFSG.LocalAnalysis.StandardType.GGTBWNormUnitaryFourPrime
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormUnitaryAllShears
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormUnitaryPhiFour
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcBasic
-public import CFSG.Mathlib.GroupTheory.PerfectCentralAut
 public import CFSG.LocalAnalysis.StandardType.GGRawTorusPClassical
 
 public section

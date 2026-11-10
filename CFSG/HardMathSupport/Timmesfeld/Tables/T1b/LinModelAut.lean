@@ -3,7 +3,6 @@ module
 public import CFSG.HardMathSupport.Timmesfeld.Tables.T1b.LinAut
 public import CFSG.HardMathSupport.Timmesfeld.Tables.T1b.UniAut
 public import CFSG.LocalAnalysis.ComponentInitial.LinearCoverModel
-public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherPrimeFormRealization
 
 public section
 

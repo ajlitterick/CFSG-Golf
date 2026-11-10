@@ -1,10 +1,7 @@
 module
 
 public import CFSG.Monster.B.CTIB.Rank2158WitnessInputs
-import Certificates.Certificate3110
-import Certificates.Kernel.BabyMonster.CTIB.CosetQBind
 import Certificates.Kernel.BabyMonster.CTIB.QK
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

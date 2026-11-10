@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeFamInLinTransJ
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeInnAutCore
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeBlockDefs
-import CFSG.Assembly.GL83StatedBridge
 
 public section
 

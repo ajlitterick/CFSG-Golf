@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
 public import CFSG.LocalAnalysis.StandardType.GGFrameRouteA4F4
 
 public section

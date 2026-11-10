@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixBstarE6ThreeSubgroupConj
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarE6ThreeWeylDiag
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarE6ThreeSteinberg
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarModelFrameTransfer
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticBstar
 
 public section
 

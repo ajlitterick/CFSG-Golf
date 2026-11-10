@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoSixPermAux5
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoSixFrame
-public import Mathlib.GroupTheory.Sylow
 
 public section
 

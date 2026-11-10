@@ -1,7 +1,5 @@
 module
 
-public import CFSG.Quasithin.Recognition.M12AmalAutCheck2
-public import CFSG.Quasithin.Recognition.M12AmalAutJData
 public import CFSG.Quasithin.Recognition.M12AmalAutJPack
 public import CFSG.Quasithin.Recognition.M12AmalAutJMul
 

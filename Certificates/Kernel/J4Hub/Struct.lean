@@ -6,8 +6,6 @@ import Certificates.Kernel.J4.Assemble
 import Certificates.Kernel.J4.ChecksFix
 import Certificates.Kernel.J4.ChecksPts
 import Certificates.Kernel.J4.ChecksMFix
-import CFSG.Certificates.Kernel.J4.KShapeSound
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGL45TALinSetting
-public import CFSG.LocalAnalysis.StandardType.GGSixLinearModelAut
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeALift
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldDefs
 
 public section
 

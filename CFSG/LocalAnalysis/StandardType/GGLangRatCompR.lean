@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGLangRatComp
 public import CFSG.LocalAnalysis.StandardType.GGLangCoroot
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleOrbit
-import CFSG.LieType.Chevalley.GraphFixedOrbitParametrization
 
 public section
 

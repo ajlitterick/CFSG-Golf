@@ -3,11 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs2311o
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs2311o3
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs2311j2
-public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs2311k
-public import CFSG.LieType.SeitzGeneration.ExcHigh.E8Levi
-public import CFSG.LieType.SeitzGeneration.ExcHigh.E8Layer
-public import CFSG.LieType.SeitzGeneration.ExcHigh.E8TwLayer
-public import CFSG.Quasithin.Background.A3Structure36BPrime
 
 public section
 

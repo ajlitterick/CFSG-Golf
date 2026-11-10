@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.QuasithinUnique.Defs
 import CFSG.GroupTheory.PermSylowTwo.Alt
 import CFSG.GroupTheory.AlternatingFive.SylowTwo
-import CFSG.GroupTheory.SolvableHallNodes
 import CFSG.GroupTheory.WielandtProductFinal
 import CFSG.Quasithin.EmptyFaithful.GoldschmidtH23P4Mul
 public import CFSG.Assembly.QuasithinDefs

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GH74.KGroups.FieldGF
-public import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
 public meta import CFSG.GH74.KGroups.FieldGF
 public meta import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
 public meta import Mathlib

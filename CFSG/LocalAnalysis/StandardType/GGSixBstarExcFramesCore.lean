@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderExc
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeAd
 public import CFSG.RankThree.PartOne.K133H.WeylKey
-public import CFSG.LieType.Chevalley.KernelComponentRoots
-public import CFSG.LieType.Chevalley.RootCharacterKernelProduct
 public import CFSG.RankThree.GroupTheory.SteinbergBYSectionNineResidual
 public import CFSG.RankThree.LocalRank.SelectorCases
 public import CFSG.RankThree.PartOne.S10.Defs

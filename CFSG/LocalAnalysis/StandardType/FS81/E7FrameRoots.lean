@@ -1,9 +1,6 @@
 module
 
-public import CFSG.ClassicalInvolution.WeakCT.StandardPair
-public import CFSG.LocalAnalysis.ComponentInitial.SmallLinearIsomorphisms
 public import CFSG.ClassicalInvolution.ModelFacts.E7ModelWeyl
-public import CFSG.ClassicalInvolution.Models.LinearPairs.Pairs
 public import CFSG.LocalAnalysis.StandardType.FS81.FrameEm
 
 public noncomputable section

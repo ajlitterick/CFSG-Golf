@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.UnitarySix.Sec3.G3601
 public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.YamadaSec3Y14Data
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

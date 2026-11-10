@@ -4,8 +4,6 @@ module
 public import Certificates.Kernel.Misc.Tits.JTab8073
 public import Certificates.Kernel.EvenBN.Table4
 public import Certificates.Kernel.Sporadic.Tits.Final2268
-public import CFSG.Sporadic.Schreier.TitsCertCheckInputs
-public import CFSG.Sporadic.Schreier.TitsLocalCheckInputs
 public meta import CFSG.Sporadic.Schreier.TitsData
 public meta import CFSG.Sporadic.Schreier.TitsArrays
 public meta import CFSG.Sporadic.Schreier.TitsBasic
@@ -14,9 +12,6 @@ public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Data
 public meta import CFSG.Sporadic.Schreier.TitsCertCheck
 public import CFSG.Sporadic.Schreier.TitsCentral
-public import CFSG.Sporadic.Schreier.TitsChain
-public import CFSG.Quasithin.Recognition.CertTitsJCheckInputs
-public import CFSG.Certificates.Kernel.Spor.SiftRSound
 public import Certificates.Kernel.EvenBN.Bind
 
 public section

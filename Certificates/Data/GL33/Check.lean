@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.GL33.Code
 public import Certificates.Data.GL33.Data
 
 public section

@@ -3,7 +3,6 @@ module
 public import CFSG.Sporadic.HNSchreier.Faithful
 public import CFSG.Sporadic.Schreier.ONWordDatum
 public import Certificates.Data.CFSGNative.ONSchreier.Vectors
-public import Certificates.Certificate2102
 public import CFSG.Certificates.SchreierChainOrderGenerators
 public import CFSG.Certificates.SchreierPointSift
 

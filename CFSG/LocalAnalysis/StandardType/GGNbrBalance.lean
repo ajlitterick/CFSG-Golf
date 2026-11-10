@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrBalanceBasic
 public import CFSG.LocalAnalysis.StandardType.GGFieldNbr
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L122ACore
 
 public section

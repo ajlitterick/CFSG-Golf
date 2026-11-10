@@ -3,11 +3,7 @@ module
 public import CFSG.Certificates.Kernel.BabyMonster.PktSound
 public import CFSG.Certificates.Kernel.BabyMonster.PktBind.All
 public import Certificates.Kernel.BabyMonster.ForallLt
-public import CFSG.Certificates.Kernel.BabyMonster.Native.Small
 import CFSG.Certificates.Kernel.Common.Harness
-public import CFSG.Certificates.Kernel.BabyMonster.PktBind.Check0
-public import CFSG.Certificates.Kernel.BabyMonster.PktBind.Check1
-public import CFSG.Certificates.Kernel.BabyMonster.PktBind.Check2
 public import Mathlib.LinearAlgebra.Finsupp.LinearCombination
 
 public section

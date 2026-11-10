@@ -2,10 +2,8 @@ module
 
 public import CFSG.LargeExtraspecial.A2ModBasic
 public import CFSG.LocalAnalysis.ComponentInitial.BinarySymplecticTransvection
-public import CFSG.Open.StatedDefs
 
 import CFSG.ClassicalGroups.Alternating.BinaryPointFix
-import CFSG.ClassicalGroups.Alternating.Transvections
 import CFSG.LinearAlgebra.F2PlaneMaps
 public import CFSG.ClassicalGroups.Orthogonal.ProjectiveSimple
 public import CFSG.GroupTheory.LocalCores.Fitting
@@ -20,7 +18,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
 public import CFSG.RankThree.GroupTheory.ClassTwoThree
 public import CFSG.RankThree.OrthogonalInvolutions.SuzukiTypes
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Utils
 public import CFSG.Timmesfeld.Outcome
 
 public section

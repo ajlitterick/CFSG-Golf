@@ -1,10 +1,7 @@
 module
 
-public import CFSG.Sporadic.Schreier.Co3SecondCheck
-public import CFSG.GH74.M12.HypCore
 public meta import CFSG.Sporadic.Schreier.Co3SecondCheck
 public meta import CFSG.GH74.M12.HypCore
-public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.FendelDataInputs
 public import Certificates.Certificate3097
 
 public section

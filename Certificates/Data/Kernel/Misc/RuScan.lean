@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.Misc.RuInv
-public import Certificates.Data.Kernel.Spor.Raw
 
 public section
 

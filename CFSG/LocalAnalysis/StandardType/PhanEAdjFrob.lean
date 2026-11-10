@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergRoot
 public import CFSG.LocalAnalysis.StandardType.PhanEStdFrob
-public import CFSG.LieType.Steinberg.BruhatTwist
-public import CFSG.LieType.Steinberg.Adjoint.Datum
 public import CFSG.ClassicalInvolution.Models.TwistedPairs.Unitary
 import CFSG.LieType.Chevalley.OddF4CosetDescent
 public import CFSG.ClassicalInvolution.WeakCT.StandardPair

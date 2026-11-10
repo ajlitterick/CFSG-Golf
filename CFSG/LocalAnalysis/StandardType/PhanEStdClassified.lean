@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.PhanEAssembly
-public import CFSG.LocalAnalysis.StandardType.PhanEStdChoice
 public import CFSG.LocalAnalysis.StandardType.PhanEMatchFinal
 public import CFSG.LocalAnalysis.StandardType.PhanEResCharts
 public import CFSG.LocalAnalysis.StandardType.PhanEResField

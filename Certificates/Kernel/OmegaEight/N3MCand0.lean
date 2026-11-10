@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.OmegaEight.N3MCandBase
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1P51QSpSpl
-public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneSpSkewComp
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneSpSkewE
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1P51QSpSelf
 public import CFSG.LocalAnalysis.LargeEvenClassification.C8FourSubgroupExhaustion

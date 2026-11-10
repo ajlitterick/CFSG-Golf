@@ -3,10 +3,6 @@ module
 
 public import Certificates.Certificate7018Base
 
-public import CFSG.Quasithin.H13.J4WordsInputs
-public import CFSG.Quasithin.H13.J4Defs
-public import CFSG.Quasithin.H13.J4ChainSpec
-public import Certificates.Data.CFSGNative.H13.J4Elems
 import Certificates.Kernel.J4F2.H13
 
 public section

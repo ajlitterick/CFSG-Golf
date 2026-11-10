@@ -1,7 +1,5 @@
 module
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.Defs
 import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.ElementaryAbelianAction
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GeneratorRank
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.gorenstein_5_4_15
 
 namespace CFSG

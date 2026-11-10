@@ -2,9 +2,7 @@ module
 
 public import CFSG.Quasithin.Vol2.Ch12Sec5L4
 public import CFSG.Quasithin.Vol2.Ch12Sec5L10
-public import CFSG.Quasithin.Vol2.Ch12Sec5L11
 public import CFSG.Quasithin.Vol2.Ch12Sec4Lemma4
-public import CFSG.Quasithin.Vol2.Ch12Sec2StatementsPrime
 
 public section
 

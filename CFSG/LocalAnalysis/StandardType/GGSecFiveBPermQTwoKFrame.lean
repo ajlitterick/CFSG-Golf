@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermQTwoFrameDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermLinDefs
 import CFSG.LocalAnalysis.StandardType.GGFFSLSylow
-import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineL2Frame
 import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineL2Line
 import CFSG.LocalAnalysis.StandardType.GGTableBLinTwoTvFrame
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermQTwoKSigned

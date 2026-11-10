@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LieType.Universal.Spin.Structure.Entries
-public import CFSG.LieType.Universal.Spin.Chevalley.Plus
 public import CFSG.LieType.Universal.Spin.Datum
-public import CFSG.LieType.CurtisTits.Reduction
 public import CFSG.LieType.Steinberg.BruhatWeyl
 public import CFSG.LieType.Universal.Spin.Roots
 public import CFSG.LieType.Universal.Spin.Structure.Levels

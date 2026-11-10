@@ -6,11 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IRootFieldTri
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1ILemmaA
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1ILemmaATri
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IK1b
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IPerfect
-public import CFSG.LieType.Chevalley.AdjointCenter
-public import CFSG.LieType.CurtisTits.ExceptionalQuasisimple
-public import CFSG.LieType.CurtisTits.TwistedE6
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OddCenter
 
 public section
 

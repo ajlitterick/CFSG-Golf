@@ -2,9 +2,6 @@ module
 
 public import CFSG.Quasithin.Background.SmithD321CaseI
 public import CFSG.Quasithin.Background.SmithD321Two
-public import CFSG.Quasithin.Background.SmithD321Main
-public import CFSG.Quasithin.Background.SmithD321CaseIIb
-public import CFSG.Quasithin.Background.SmithD321Sym
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherTightEmbeddingAction
 public import CFSG.LocalAnalysis.ComponentClassification.BlockMutualRanks
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound

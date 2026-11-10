@@ -1,7 +1,5 @@
 module
 
-public import CFSG.Certificates.Kernel.Common.Loop
-public import CFSG.Certificates.Kernel.Common.Lce
 public import CFSG.Certificates.Kernel.MonsterConv.Perm
 
 public section

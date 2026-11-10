@@ -16,7 +16,6 @@ import CFSG.GH74.QTGen4.DCopy.Roots.ThmD1381
 import CFSG.GH74.QTGen4.DCopy.Roots.ThmD1481
 import CFSG.GH74.QTGen4.DCopy.Roots.ThmE
 public import CFSG.CGT.A8S.N0EnumInputs
-public import CFSG.GH74.QTGen4.Assembly
 public import CFSG.LieType.Chevalley.CLSEvenE6AllInvolutionFourGroup
 public import CFSG.LieType.Chevalley.CLSEvenTrialityFourGroup
 public import CFSG.LieType.Chevalley.CLSOddTrialityAllInvolutionFourGroup
@@ -92,10 +91,6 @@ public import CFSG.Sporadic.Co1.Module.U6OddTuple
 public import CFSG.Sporadic.Presentation.ThBase
 public import CFSG.Sporadic.Th
 public import CFSG.Sporadic.Th.CertificateBase
-public import CFSG.Sporadic.Th.KernelPlanesBase
-public import CFSG.Sporadic.Th.KernelSimpleBase
-public import CFSG.Sporadic.ThSchreier.FullAutCoreBase
-public import CFSG.Sporadic.ThSchreier.KernelAutBase
 public import CFSG.YGroups.Y443.Native.EdgeNoncommBase
 
 public section

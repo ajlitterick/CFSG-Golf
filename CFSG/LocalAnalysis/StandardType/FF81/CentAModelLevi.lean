@@ -6,8 +6,6 @@ import CFSG.LocalAnalysis.StandardType.FF81.RootFusionLinInv
 import CFSG.LocalAnalysis.StandardType.FF81.RootFusionLinO2
 import CFSG.LocalAnalysis.SeitzReduction.F4PilotMainGraphOmegaMinusPiecesEmbed
 import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotFieldNormalize
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 import CFSG.LieType.Chevalley.C2E6StandardFixedData
 import CFSG.LieType.Chevalley.C2E6SubsystemBruhat
@@ -32,13 +30,10 @@ import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotSetup
 import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 import CFSG.Quasithin.Background.A3Components
-import CFSG.Quasithin.Background.A3ComponentsAmbient
 import CFSG.Quasithin.Background.G11Stmts
 import CFSG.RankThree.PartOne.KC.OrthogonalAutSemilinearBridge
-import CFSG.Sporadic.J4.Simple
 import CFSG.Sporadic.J4Base
 import CFSG.Sporadic.Mathieu.M24
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 import CFSG.Walter.JRFacts
 
 public section

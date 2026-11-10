@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154ExcReal
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154RealE6Abs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154RealE6Diag
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangModel
-public import CFSG.LocalAnalysis.StandardType.MarkingChevalley
 public import CFSG.RankThree.PartOne.KE6.E6LNormal
 public import CFSG.RankThree.PartOne.KE6.E6LStdIso
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.Asc94.He42P427F
-public import CFSG.LocalAnalysis.ZStar
 public import CFSG.Quasithin.Vol2.Asc94.He42P427E
 
 public section

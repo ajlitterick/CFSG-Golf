@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.RankThreeUC.Section5.FixedKernel
 public import CFSG.LocalAnalysis.RankThreeUC.ProofSupport.SquarefreeAbelianCentrality.SquarefreeAbelianCentrality
 public import CFSG.GroupTheory.CoprimeActionSupport.FiniteCyclicPrimeSylowsComplement
 public import CFSG.LocalAnalysis.RankThreeUC.Section5.CentralizerEqCenterAndActorCyclicAndPrimeCoreCyclic
-public import CFSG.LocalAnalysis.RankThreeUC.Section5.Context
 import all CFSG.LocalAnalysis.RankThreeUC.Section5.Context
 
 public section

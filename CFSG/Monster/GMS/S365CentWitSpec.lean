@@ -3,8 +3,6 @@ module
 public import CFSG.Monster.GMS.S365CentPathSpec
 public import CFSG.Monster.GMS.S365CentRootSpec
 public import CFSG.Monster.GMS.S365CentDefs
-public import Certificates.Data.CFSGNative.Co1.S365CentWit
-public import CFSG.Monster.GMS.S365CentWitSpecInputs
 public import Certificates.Certificate10040
 public meta import CFSG.Sporadic.Co1.Module.PairsCheck
 public meta import CFSG.Sporadic.Co1.Module.InvData

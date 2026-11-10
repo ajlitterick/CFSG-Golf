@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryDvdGen
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNineSCr
 
 public section
 

@@ -1,14 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2TableBI1Frame
-public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameCenter
-import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameTorus
 import CFSG.LocalAnalysis.StandardType.GGTBRowSignedFrameSC
 import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalSpLift
-import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalSpSC
 import CFSG.LocalAnalysis.StandardType.GGKGARank
-import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticBstar
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
 import CFSG.LocalAnalysis.StandardType.GGTwoNodeSmallPosWeylSys
 import CFSG.LocalAnalysis.StandardType.GGTwoNodeSmallE8
 import CFSG.LocalAnalysis.StandardType.GGTwoNodeSmallRankDefs

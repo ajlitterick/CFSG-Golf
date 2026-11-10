@@ -3,20 +3,14 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangS1ExcInputs
 public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentVocab
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangTypeALift
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangRegKG
-public import CFSG.LocalAnalysis.StandardType.GGResLeaf
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2E7Rank
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTorus
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfE6Toral
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfE7Three
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangInj
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelRecipeID
 public import CFSG.LocalAnalysis.StandardType.GGE6InnerDiagBoundThreeProof3
 public import CFSG.LocalAnalysis.StandardType.GGTwE6RecipeTransport
-public import CFSG.LocalAnalysis.ComponentInitial.FieldFiniteAutomorphism
 
 public section
 

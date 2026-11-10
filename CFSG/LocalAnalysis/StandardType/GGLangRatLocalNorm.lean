@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLangRatFixedChassis
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.BigAnyStep
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimple
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcRoots
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExc
 import CFSG.RankThree.Chevalley.SteinbergBID4CentralKernel
 import CFSG.RankThree.PartOne.KE.E8D4Family

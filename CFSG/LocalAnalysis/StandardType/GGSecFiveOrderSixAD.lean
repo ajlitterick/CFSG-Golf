@@ -1,10 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveQTwoInternal
-public import CFSG.LocalAnalysis.StandardType.GGTBRowUCartan
-public import CFSG.LocalAnalysis.StandardType.GGTBRowDCartan
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveBWeylInfType
-public import CFSG.LocalAnalysis.StandardType.GGPZCartanRank
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveQTwoInternalE6
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeGlue
 

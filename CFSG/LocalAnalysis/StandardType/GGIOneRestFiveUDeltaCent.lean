@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGIOneRestFiveUDeltaField
-public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitarySemi
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeBlock
 public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitaryDvdFrame
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUAct
 public import CFSG.LocalAnalysis.StandardType.GGSixLinearModelSUAut

@@ -2,12 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.Chev2StarDef
 public import CFSG.Open.SplitBNPair
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.Chev2GlueHolds
 import CFSG.LocalAnalysis.UniquenessCase.UC22K108BigRow
-import CFSG.Milestones.ASVolI.I2
 import CFSG.RankThree.PartOne.FOCD.LyFive
-import CFSG.Sporadic.Schreier.TitsOuter
 public import CFSG.CGT.Timmesfeld75.Statements
 public import CFSG.Foundations
 public import CFSG.GroupTheory.LocalCores.Fitting

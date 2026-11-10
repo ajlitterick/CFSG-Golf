@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcE6SplitTorus
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcE6SplitOrders
-public import CFSG.LocalAnalysis.StandardType.GGKGForkExcE6SplitFrame
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcE6SplitFix
 
 public section

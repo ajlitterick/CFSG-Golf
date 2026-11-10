@@ -3,7 +3,6 @@ module
 public import CFSG.ClassicalInvolution.ModelFacts.L6CInner
 public import CFSG.ClassicalInvolution.ModelFacts.L6CGraph
 public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismGeneration
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherGraphFieldInvolution
 public import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedGraphTools
 public import CFSG.ClassicalInvolution.ModelFacts.UnitaryAutLift
 public import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJE6TwoWeylPoint
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6SplitFold
-public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6SplitWeyl
 
 public section
 

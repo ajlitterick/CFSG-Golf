@@ -1,14 +1,9 @@
 module
 
-public import CFSG.Sporadic.Schreier.RuTreeEltA
-public import CFSG.Sporadic.Schreier.RuWitArrays
-public import CFSG.Sporadic.Schreier.RuCheckChains
-public import CFSG.Sporadic.Schreier.RuEnum
 public meta import CFSG.Sporadic.Schreier.RuTreeEltA
 public meta import CFSG.Sporadic.Schreier.RuWitArrays
 public meta import CFSG.Sporadic.Schreier.RuCheckChains
 public meta import CFSG.Sporadic.Schreier.RuEnum
-public import CFSG.Sporadic.Schreier.RuCheckInvInputs
 public import Certificates.Certificate2250
 
 public section

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixAutKFlatRootCent
-public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummand
 import CFSG.LocalAnalysis.StandardType.GGSixRootCentSThreeAbstract
 import CFSG.LocalAnalysis.StandardType.GGSixRootCentSThreeBar
 

@@ -8,7 +8,6 @@ public import CFSG.GroupTheory.IsComponentOfMap
 public import CFSG.LocalAnalysis.StandardType.GGQTwoTBCOrthComp
 public import CFSG.LocalAnalysis.StandardType.GGQTwoRationalWeyl
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172CRankInv
-public import CFSG.GroupTheory.InvolutionPair
 public import CFSG.LocalAnalysis.StandardType.GGQTwoVACLinClass
 import CFSG.LocalAnalysis.StandardType.GGTriD4NoneAutRank
 

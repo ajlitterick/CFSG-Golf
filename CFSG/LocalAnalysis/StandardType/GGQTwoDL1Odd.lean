@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveL1OddLeaves
-public import CFSG.LocalAnalysis.StandardType.GGTableBRank
 
 public section
 

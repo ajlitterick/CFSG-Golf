@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenE6Comm
-public import CFSG.LocalAnalysis.StandardType.GGTwE6CorootTorus
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelHoldsT
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenE6RGenA
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenE6RGenB
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenE6RGenC

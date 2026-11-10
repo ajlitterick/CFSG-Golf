@@ -2,14 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionExceptional
 public import CFSG.ClassicalInvolution.ModelFacts.CentralLift
-public import CFSG.LieType.Steinberg.Classical.SpinPlus
-public import CFSG.LieType.Universal.SpinOmega.Kernel
-public import CFSG.LieType.Steinberg.CentralExt.OrthogonalPerfect
-public import CFSG.LieType.Steinberg.CentralExt.TorusLift
-public import CFSG.LieType.Steinberg.CentralExt.Unipotent
 import all CFSG.LieType.Universal.Spin.Structure.TypeD
-import CFSG.LieType.Universal.Spin.Structure.Levels
-import CFSG.LieType.Universal.Spin.Structure.Entries
 
 public section
 

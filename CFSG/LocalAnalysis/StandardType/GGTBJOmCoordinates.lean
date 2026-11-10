@@ -5,9 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTBJOmBlockZ
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmTauOm
 public import CFSG.RankThree.PartOne.KC.OrthogonalPlanePermutations
 public import CFSG.Mathlib.LinearAlgebra.QuadraticForm.OrthogonalSum
-public import Mathlib.LinearAlgebra.DFinsupp
-public import Mathlib.LinearAlgebra.Projection
-public import CFSG.LieType.SeitzGeneration.OrthNonsplitDims
 public import CFSG.ClassicalGroups.Orthogonal.RootGroupNormalizer
 public import CFSG.HardMathSupport.Dickson.Bal207.OrthD4Loc
 public import CFSG.Holt.Fixed

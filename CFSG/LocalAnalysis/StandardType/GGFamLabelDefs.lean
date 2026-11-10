@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGFamRatComp
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4Inputs2
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4ULang
-public import CFSG.LocalAnalysis.StandardType.GGReverseMarkingRaw
-public import CFSG.LocalAnalysis.StandardType.MarkingDict
 public import CFSG.Blueprint.LieModelAPI
 
 public section

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoynePOmegaOdd
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneBOTwin
 import CFSG.LocalAnalysis.ComponentClassification.BurgoyneCOShape
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.Foundations
 public import CFSG.LieType.Steinberg.Classical.SpinFrame
 public import CFSG.LieType.Steinberg.Exceptional.E6E7

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenEightS1T3ParCard
-public import CFSG.Open.StatedDefs
-public import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockLinCuts
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TwelveNotLeGraphAltEightLevi
 public import CFSG.Foundations
 public import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeFamilies

@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.HS100.S5OCData
-public import Certificates.Kernel.HS100.S5OData
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

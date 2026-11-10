@@ -1,15 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IRootLine
-public import CFSG.ClassicalInvolution.Balance.LayerGenerationTorusModels
-public import CFSG.ClassicalInvolution.ModelFacts.ChevAutRoots
-public import CFSG.ClassicalInvolution.ModelFacts.ChevAutTorusMain
-public import CFSG.ClassicalInvolution.ModelFacts.Families
-public import CFSG.ClassicalInvolution.ModelFacts.Models
-public import CFSG.Blueprint.ChevalleyRootsInputs
-public import CFSG.LieType.Steinberg.Minuscule.Datum
-public import CFSG.LieType.Steinberg.Adjoint.Presentation
-public import CFSG.LieType.Universal.SymplecticExtras.Matrices
 
 public section
 

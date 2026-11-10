@@ -3,7 +3,6 @@ module
 public import Certificates.Data.Kernel.Misc.YamakiRep
 public import Certificates.Kernel.Misc.YamakiRep.Rec
 public import Certificates.Data.Sp62RecCR1CE
-public import Certificates.Data.YamakiTables
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

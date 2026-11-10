@@ -1,7 +1,5 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.DihedralStructure
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section3.Basic
 
 namespace CFSG

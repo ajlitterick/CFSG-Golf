@@ -1,13 +1,11 @@
 module
 
 public import CFSG.Sporadic.Schreier.RuArrays
-public import CFSG.Certificates.NativeSetOrbit
 public meta import CFSG.Sporadic.Schreier.RuArrays
 public meta import CFSG.Certificates.NativeSetOrbit
 public meta import CFSG.Sporadic.Schreier.RuEnum
 public import CFSG.Sporadic.Schreier.RuEnum
 public meta import Mathlib.GroupTheory.Schreier
-public import Mathlib.GroupTheory.Schreier
 
 public section
 

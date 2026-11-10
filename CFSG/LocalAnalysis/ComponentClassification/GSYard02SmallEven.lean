@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GSYard02Simple
-import CFSG.LocalAnalysis.ComponentInitial.LinearFlagOrder
 import CFSG.GH74.GLS.IVK.Proofs2.Lemma41dL3Mat
-import CFSG.Adapters.ProjectiveSpecialLinear
-import CFSG.LieType.Ree.SuzukiUnipotentStructure
 import CFSG.RankThree.SteinbergR3ESuzukiInvolutionCentralizers
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSp4OneComp
 public import CFSG.LocalAnalysis.ComponentClassification.Sol76RankOneClassPoint

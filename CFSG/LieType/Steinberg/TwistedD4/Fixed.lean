@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.Steinberg.TwistedD4.Local
 public import CFSG.LieType.Steinberg.BruhatWeyl
-import Mathlib.Tactic.Group
 
 public noncomputable section
 

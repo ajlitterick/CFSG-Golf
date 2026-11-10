@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.LocalOrthMono
 public import CFSG.LocalAnalysis.StandardType.FS81.OrthParity
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorusCore
 
 public section
 

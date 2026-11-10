@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ExcInner
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ItemThree
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixFiveKnownForms
-public import CFSG.LieType.Chevalley.AdjointCenter
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotRoots
-public import Mathlib.LinearAlgebra.Matrix.ToLinearEquiv
 
 public section
 

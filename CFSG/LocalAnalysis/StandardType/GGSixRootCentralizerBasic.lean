@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixFusion
 public import CFSG.Assembly.OddCoreElimination.CentralizerContainmentKernel
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.CoprimeAmbientCentralizerGeneration
-public import CFSG.Assembly.Subnormal
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 
 public section

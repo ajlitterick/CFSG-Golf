@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeFAt
-import CFSG.RankThree.PartOne.CTP.SU4EvenBridge
 
 public section
 

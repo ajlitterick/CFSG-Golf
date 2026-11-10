@@ -1,9 +1,7 @@
 module
 
 public import CFSG.Sporadic.J4.QTOutCocNative
-public import CFSG.Sporadic.J4.QTRankNative
 public import CFSG.Sporadic.J4.QTOutActNative
-public import CFSG.Sporadic.J4.QTNative
 public import Certificates.Kernel.J4Q.Mask
 public import Certificates.Kernel.J4Q.MaskData
 import Certificates.Kernel.J4Q.AllN

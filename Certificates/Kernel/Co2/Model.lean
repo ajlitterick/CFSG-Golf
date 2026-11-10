@@ -3,7 +3,6 @@ module
 public import CFSG.Certificates.Kernel.Co2KillSound
 public import CFSG.Certificates.Kernel.Co2.Bound3.Model
 public import CFSG.Certificates.Kernel.CosetBounds
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

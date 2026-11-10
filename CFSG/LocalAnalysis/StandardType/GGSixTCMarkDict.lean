@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.MarkingDict
-public import CFSG.LocalAnalysis.StandardType.Marking
 public import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpRestTypeDet
 
 public section

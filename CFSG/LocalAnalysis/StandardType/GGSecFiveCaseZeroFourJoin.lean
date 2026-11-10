@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveCaseZeroReflShape
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLLabel
-import Mathlib.Tactic.Ring
 
 public section
 

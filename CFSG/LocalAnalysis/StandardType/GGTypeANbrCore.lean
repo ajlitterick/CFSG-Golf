@@ -1,11 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrArith
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrLabels
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrGate
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrRowFilter
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrTableBLift
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrKnownDefs
 
 public section
 

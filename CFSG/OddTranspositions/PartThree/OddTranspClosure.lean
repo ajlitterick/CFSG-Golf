@@ -1,13 +1,8 @@
 module
 
-public import CFSG.Timmesfeld.Bridge.Asc72Basic
 public import CFSG.Timmesfeld.Bridge.Asc72Minimal
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.Timmesfeld.Bridge.Asc72Lift
 public import CFSG.Timmesfeld.Bridge.Asc73Quotient
 public import CFSG.Timmesfeld.Moufang.Three

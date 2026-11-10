@@ -1,13 +1,6 @@
 
 module
 
-public import CFSG.Certificates.NativeSchreierArrays
-public import CFSG.Certificates.SchreierChainOrderGenerators
-public import CFSG.Sporadic.Schreier.PairF2Quad
-public import CFSG.Sporadic.Schreier.PairText
-public import CFSG.Sporadic.Schreier.PairClasses
-public import Certificates.Data.CFSGNative.MonsterB.Co2Data
-public import Certificates.Data.CFSGNative.PairSchreier.Core
 public meta import Certificates.Data.CFSGNative.PairSchreier.Core
 public meta import CFSG.Sporadic.Schreier.PairF2Quad
 public meta import CFSG.Sporadic.Schreier.PairText

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LinearAlgebra.LinearGroups.QuadraticActions
-public import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
 public import Mathlib.Algebra.Field.ZMod
 import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Lemma6_2
 

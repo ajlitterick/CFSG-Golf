@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartOne.TCX.Tri.TorusCentral
-public import CFSG.ClassicalInvolution.Orders.Twisted
 public import CFSG.RankThree.PartOne.TCX.Tri.PlaneSplit
 
 public section

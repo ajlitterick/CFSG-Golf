@@ -1,9 +1,6 @@
 module
 
 public import CFSG.Quasithin.Background.D2Transport
-public import CFSG.Quasithin.Background.FixVTransport
-public import CFSG.Quasithin.Background.D2Offenders
-public import CFSG.Quasithin.Background.G2L2
 public import CFSG.Quasithin.Vol2.Ch3Sec1Aux
 public import CFSG.Quasithin.Vol2.Ch5Sec1L34InputsD3
 import CFSG.GroupTheory.ElementaryAbelianTransport
@@ -25,7 +22,6 @@ public import CFSG.Quasithin.Background.B5Basic
 public import CFSG.Quasithin.Background.B5CompA
 public import CFSG.Quasithin.Background.B5CompB
 public import CFSG.Quasithin.Background.B6
-public import CFSG.Quasithin.Background.B6Example
 public import CFSG.Quasithin.Background.C2Basic
 public import CFSG.Quasithin.Background.E2Hyp
 public import CFSG.Quasithin.Background.E2SolvTwo

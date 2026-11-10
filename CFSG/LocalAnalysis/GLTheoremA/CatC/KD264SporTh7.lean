@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264SevenSq
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264SporAll
-public import CFSG.Sporadic.Bridge.ThSurj
-public import CFSG.Milestones.FAM_Th_simplicity
 public import Certificates.Certificate10143
-public import CFSG.LocalAnalysis.GLTheoremA.S8.HNAlt12
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431SporAux.Assembly
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264RowData
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section2.Basic
 
 namespace CFSG

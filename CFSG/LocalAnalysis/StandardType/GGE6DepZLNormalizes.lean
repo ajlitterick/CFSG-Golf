@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGE6DepZLDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRestDefs
 
 public section
 

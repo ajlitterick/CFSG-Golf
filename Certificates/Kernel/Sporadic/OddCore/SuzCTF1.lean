@@ -2,8 +2,6 @@ module
 
 public import Certificates.Kernel.Sporadic.OddCore.SuzCTF0
 public import CFSG.Certificates.Kernel.O8ConstrSound
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.Stage1ModelData
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.Stage2Cand
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.Stage2MinusData

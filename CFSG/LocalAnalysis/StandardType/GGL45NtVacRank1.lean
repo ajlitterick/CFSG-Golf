@@ -1,11 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGL45NtDefs
-public import CFSG.LocalAnalysis.ComponentInitial.LinearCoverModel
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinear
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestTri
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 
 public section
 

@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveCompatJoinCells
 public import CFSG.LocalAnalysis.StandardType.GGPhanMarkedRecognition
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanEData
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanSystem
-import CFSG.LocalAnalysis.StandardType.GGRootInvolutionRank
-import CFSG.Milestones.CL_LIT_Curtis_Tits_presentation_theorem
 
 public section
 

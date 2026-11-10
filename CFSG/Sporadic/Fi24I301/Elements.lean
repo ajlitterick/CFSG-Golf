@@ -1,13 +1,7 @@
 module
 
-public import CFSG.Sporadic.Fi24I301.Facts
 public import Certificates.Certificate810306
-public import Certificates.Certificate10132
-public import Certificates.Certificate13693
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.I66RealFix
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Fi24Classes
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Fi24ThreeFix
-public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoFi22.DS81.Fi24ShapeQuot
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoFi22.DS81.Fi24ShapeC
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoFi22.DS81.GlueO23
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoFi22.DS81.S44ReifartTransport

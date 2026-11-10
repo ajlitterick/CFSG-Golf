@@ -2,11 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGL45FixA2Rank
 public import CFSG.HardMathSupport.Timmesfeld.LinearRank.ProjRank
-public import CFSG.RankThree.PartOne.S11d.OutLinear
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherOuterQuotients
-public import CFSG.LocalAnalysis.ComponentInitial.SteinbergBUProjectivePlaneCoprimeCentral
-public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotEndFieldBasic
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

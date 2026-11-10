@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBWNorm
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormE6ThreeModel
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormE6ThreeToral
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Three
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeTwoTorus
 
 public section
 

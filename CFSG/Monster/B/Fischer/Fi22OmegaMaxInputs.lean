@@ -3,8 +3,6 @@ module
 public import CFSG.Certificates.IndexOrbit
 public import CFSG.Certificates.SetOrbit
 public import CFSG.HardMathSupport.Solomon.Coordinator.I24_2Inputs
-public import CFSG.Monster.B.Fischer.PinnedChainData
-public import CFSG.RankThree.Native.Fi22FiveArrays
 public meta import CFSG.Certificates.IndexOrbit
 public meta import CFSG.Certificates.SetOrbit
 public meta import CFSG.HardMathSupport.Solomon.Coordinator.I24_2Inputs

@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitE6FiveData
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitE6Label
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitCyclicCore
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitKGClSpOne
 
 public section
 

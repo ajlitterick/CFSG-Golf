@@ -2,7 +2,6 @@ module
 
 public import CFSG.Sporadic.Schreier.TitsBasic
 public import CFSG.Sporadic.Schreier.TitsArrays
-public import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 public meta import CFSG.Sporadic.Schreier.TitsData
 public meta import CFSG.Sporadic.Schreier.TitsArrays
 public meta import CFSG.Sporadic.Schreier.TitsBasic
@@ -14,7 +13,6 @@ import CFSG.Certificates.Kernel.Common.Harness
 public meta import CFSG.Certificates.NativeSchreierCard
 public import CFSG.Certificates.NativeSchreierCard
 public meta import Mathlib.GroupTheory.Schreier
-public import Mathlib.GroupTheory.Schreier
 
 public section
 

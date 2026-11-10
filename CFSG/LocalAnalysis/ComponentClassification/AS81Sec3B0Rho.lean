@@ -6,8 +6,6 @@ public import CFSG.Assembly.OddCoreSpan
 public import CFSG.Fischer.Uniq.CompTau
 public import CFSG.Foundations
 public import CFSG.LargeExtraspecial.OrthoF2
-public import CFSG.LargeExtraspecial.OrthoF2Fixed
-public import CFSG.LargeExtraspecial.OrthoF2SpRadical
 public import CFSG.LargeExtraspecial.S12FourteenB
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bExistBasic
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bHypII
@@ -38,19 +36,6 @@ public import CFSG.LocalAnalysis.RankTwoShapes.AlperinFusion
 public import CFSG.RankThree.GroupTheory.ClassTwoThree
 public import CFSG.RankThree.OrthogonalInvolutions.SuzukiTypes
 public import CFSG.StronglyEmbedded
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldPrimeOrderFixedSubfield
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OrderThreeNormalizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2PSLRangeCentralizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinInvolutionCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinRestrictionSixCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinUDecomposition
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationEleven
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTen
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTenStructuralIdentities
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2FieldProjectionArithmetic
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2OrderPSubgroupCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2S0LeQuotientTorus
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphReconstruction
 public import CFSG.Timmesfeld.RankOne
 public import CFSG.Timmesfeld.Special.TwoCore
 

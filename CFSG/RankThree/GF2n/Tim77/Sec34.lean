@@ -1,13 +1,7 @@
 module
 
 public import CFSG.RankThree.GF2n.Tim77.Sec3Basic
-public import CFSG.RankThree.GF2n.Tim77.InvolAut
 public import CFSG.RankThree.GF2n.Tim77.InvolAutD
-public import CFSG.RankThree.GF2n.Tim77Prop24
-public import CFSG.RankThree.GF2n.Tim77Prop24Roots
-public import CFSG.CGT.T75N.BenderCenter
-public import CFSG.CGT.T75N.UnitaryTwoGen
-import CFSG.Timmesfeld.RootInvolutions.RootInvolutionSetting
 public import CFSG.ClassicalGroups.Orthogonal.RootGroupSwap
 public import CFSG.LocalAnalysis.RankThreeUC.Notation
 public import CFSG.RankThree.GF2n.Stroth80.Sec5NatStmt

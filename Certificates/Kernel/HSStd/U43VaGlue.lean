@@ -2,11 +2,9 @@ module
 
 public import Certificates.Kernel.HSStd.U43VaChecks
 public import Certificates.Kernel.Sporadic.OddCore.U43CoverKF
-import CFSG.Certificates.Kernel.BfsPinUnpack
 import CFSG.Certificates.Kernel.BfsPinSetSound
 import CFSG.Certificates.Kernel.Common.ForallChunks
 import CFSG.Certificates.Kernel.BfsPinAlg
-import CFSG.Certificates.Kernel.Spor.PackWord
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
 public import CFSG.Sporadic.SmallOddCore.ClassSimple
 public import Certificates.Kernel.Sporadic.OddCore.CentGlue

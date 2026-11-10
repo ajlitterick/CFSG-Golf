@@ -3,10 +3,8 @@ module
 public import Certificates.Kernel.MinusFrame.Small
 public import Certificates.Kernel.MinusEnum.Data
 public import Certificates.Kernel.MinusFrame.Data
-public import Certificates.Data.Kernel.BfsPinBase
 public import Certificates.Data.Kernel.PermPinK
 public import Certificates.Data.Kernel.Misc.PermWit
-public import CFSG.Certificates.Kernel.LocalCompUnpack
 
 public section
 

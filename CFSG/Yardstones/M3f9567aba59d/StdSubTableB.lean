@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6LangRound
-public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperDefs
 public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperMoreNarrow
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmall
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestThreeLabels
 public import CFSG.LocalAnalysis.StandardType.GGLayerCenterCyclicRootCenter
 

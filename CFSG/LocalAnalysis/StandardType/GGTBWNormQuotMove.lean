@@ -1,12 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBWNormPairing
 public import CFSG.LocalAnalysis.StandardType.GGPGLCommForm
 public import CFSG.LocalAnalysis.StandardType.GGTableBTypeAEndModel
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeALift
 public import CFSG.LocalAnalysis.StandardType.GGPGLToralityCaseB
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherOuterQuotients
 
 public section
 

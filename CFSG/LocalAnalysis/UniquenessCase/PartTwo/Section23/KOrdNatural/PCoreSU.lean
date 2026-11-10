@@ -5,7 +5,6 @@ public import CFSG.GroupTheory.PCore.Construction
 import CFSG.ClassicalGroups.Unitary.Finite
 import CFSG.Quasithin.H13.GoldschmidtG52Sec
 import CFSG.LocalAnalysis.RankThreeUC.Section5.PCoreEqBotOfFaithfulIrreducible
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
 import CFSG.Assembly.QuasithinDefs
 import CFSG.LieType.BorelTits.CompleteFlag
 

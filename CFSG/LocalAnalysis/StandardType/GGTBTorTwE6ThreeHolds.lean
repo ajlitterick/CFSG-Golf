@@ -5,14 +5,7 @@ public import CFSG.LocalAnalysis.StandardType.GGTBTorTwE6ThreeDefs
 public import CFSG.LocalAnalysis.StandardType.GGTwE6RecipeTransport
 import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeLangCent
 import CFSG.LocalAnalysis.StandardType.GGTBE6IndTwistAlign
-import CFSG.LocalAnalysis.StandardType.GGTBE6Witness
 import CFSG.LocalAnalysis.StandardType.GGTwA5ThreeDescent
-import CFSG.LocalAnalysis.StandardType.GGTableBUnit63Desc
-import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelHoldsBoth
-import CFSG.LocalAnalysis.StandardType.GGTableBTwE6Delta
-import CFSG.LieType.Steinberg.CentralExt.PerfectLift
-import CFSG.LocalAnalysis.SeitzReduction.LinearPilotOrth
-import CFSG.LieType.Chevalley.GraphFixedParameterFields
 
 public noncomputable section
 

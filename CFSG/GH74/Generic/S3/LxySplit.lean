@@ -1,11 +1,8 @@
 module
 
 public import CFSG.GH74.Generic.S3.Main19
-public import CFSG.GH74.Generic.JMaxShapes
-public import CFSG.GH74.GLS.AssemblyComponents
 public import CFSG.GH74.GLS.TwoThin.G.Reduction
 public import CFSG.GH74.Generic.S3.L3ClassC2T2
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GH74.E2.CaseIINoComp
 public import CFSG.GH74.GLS.Bg.Rank
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.HSFiveCaseTwoTools

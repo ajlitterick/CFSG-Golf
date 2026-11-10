@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.AGL81I.Section3.GammaBasics
-public import CFSG.LocalAnalysis.SectionRank.SubgroupRank
 public import CFSG.GroupTheory.PRankZeroOfPrimeNotDvd
-public import CFSG.LocalAnalysis.RankThreeCoreUniqueness.Helpers
-public import Mathlib.GroupTheory.Nilpotent
 public import CFSG.GH74.GLS.Defs
 public import CFSG.GH74.GLS.Stage2.Local.Statements
 

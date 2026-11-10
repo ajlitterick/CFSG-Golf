@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83SmallRank618Defs
 import CFSG.LocalAnalysis.RankThreeTheoremC.GL83SmallRank618Comp
 import CFSG.Adapters.GeneralizedFitting
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.FStarSubnormal
-import CFSG.GroupTheory.ABGLocalTools.Basic
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Centralizer
 import CFSG.RankThree.PartOne.D4RC.Burnside
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970_18
 public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83SmallRank614PrimeDefs
@@ -25,10 +23,6 @@ public import CFSG.Assembly.QuasithinDefs
 public import CFSG.RankThree.LocalRank.SelectorCases
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public import CFSG.RankThree.GroupTheory.SteinbergCEQuaternionDihedral
-import Mathlib.Algebra.Group.Action.Defs
-public import Mathlib.Data.ZMod.Basic
-import Mathlib.GroupTheory.SpecificGroups.Alternating
-import Mathlib.LinearAlgebra.Matrix.ProjectiveSpecialLinearGroup
 
 public section
 

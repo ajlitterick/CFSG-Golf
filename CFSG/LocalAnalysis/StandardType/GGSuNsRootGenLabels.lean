@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSuNsRootGenAsm
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyU
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyWeylNSRootGen
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
 import CFSG.LocalAnalysis.StandardType.GGNbrFrameOneUnitaryLabel
 
 public section

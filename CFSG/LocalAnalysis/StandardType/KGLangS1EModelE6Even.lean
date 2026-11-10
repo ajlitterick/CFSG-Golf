@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.KGLangS1EBridgeFix
 public import CFSG.LocalAnalysis.StandardType.KGLangS1ECover
 public import CFSG.LocalAnalysis.StandardType.KGLangS1ENormalFormE6Diag
-public import CFSG.LocalAnalysis.StandardType.GGL45NtDefs
 
 import CFSG.LocalAnalysis.StandardType.KGLangS1EModelDerived
 

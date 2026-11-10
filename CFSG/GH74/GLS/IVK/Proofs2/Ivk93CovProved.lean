@@ -17,8 +17,6 @@ public import CFSG.GH74.GLS.IVK.Proofs2.Ivk93CovPGU
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk93CovRee
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk93CovBender
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk93CovL34
-public import CFSG.GH74.GLS.IVK.Proofs2.Ivk47abG2Native
-public import CFSG.GH74.GLS.IVK.Proofs2.Ivk47abD4Native
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk73G4L3U3
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk73G4L3U3Small
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk93Field
@@ -42,14 +40,8 @@ public import CFSG.GH74.Generic.S45.LEvSporFacts
 public import CFSG.GH74.Generic.S45.LUniLift
 public import CFSG.GroupTheory.PCore.PrimeSetCore
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4Cover
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearFieldDeterminant
 public import CFSG.LocalAnalysis.ComponentClassification.OddClassSelectorU
-public import CFSG.LocalAnalysis.ComponentClassification.OddSelector
-public import CFSG.LocalAnalysis.ComponentClassification.OutcomeLocalCTILinearSocle
 public import CFSG.LocalAnalysis.ComponentClassification.Sp4RecPair
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSLAllInvolutions
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSUFieldOddCore
-public import CFSG.LocalAnalysis.ComponentInitial.ProjectiveEigenspaceComponent
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19IdentLieAlt
 public import CFSG.RankThree.PartOne.KS.Plane
 public import CFSG.Sporadic.Th.Max3.Packet

@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.GroupTheory.SpecificGroups.Quaternion
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2KleinFourSelfCentralizer
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.KleinFourOfCommutingInvolutions
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBLinearTwoMatrixCentralizer

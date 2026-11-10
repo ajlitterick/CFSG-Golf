@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Q3WAE6
-public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcE6Main
 public import CFSG.LieType.Steinberg.CentralExt.FieldFourMultiplier
 public import CFSG.ClassicalInvolution.Q3.Q3WADict
 public import CFSG.ClassicalInvolution.Q3.Q3WMain

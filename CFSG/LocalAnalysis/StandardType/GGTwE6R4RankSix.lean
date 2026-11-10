@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6RecipeTransport
-public import CFSG.LocalAnalysis.StandardType.GGTwE6KGA1Defs
 public import CFSG.LocalAnalysis.StandardType.GGTwE6KGA1TIn
 public import CFSG.LocalAnalysis.StandardType.GGTwE6KGA1RankSix
 public import CFSG.LocalAnalysis.StandardType.GGTwE6KGA1Compat

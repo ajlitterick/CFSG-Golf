@@ -1,9 +1,6 @@
 module
 
 public import CFSG.Milestones.ASVolI.J4
-public import CFSG.Quasithin.Recognition.RuTypeJ47Sig
-public import CFSG.Quasithin.H13.J4Core
-public import CFSG.Sporadic.Co1.Module.TwoBCert
 
 public section
 

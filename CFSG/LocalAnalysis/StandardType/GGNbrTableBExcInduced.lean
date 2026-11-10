@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyWeylNormModel
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrKnownDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeAEndModel
 
 public section
 

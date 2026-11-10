@@ -3,9 +3,7 @@ module
 public import Certificates.Kernel.M11Dc.Checks
 public import CFSG.Certificates.Kernel.SporLatDcPair
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicMathieu
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatLat
 public import CFSG.Quasithin.Vol2.KGFactSporLatInputs
-import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 100000
 

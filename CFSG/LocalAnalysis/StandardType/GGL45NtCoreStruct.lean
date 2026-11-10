@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGL45NtCoreGeo
 public import CFSG.LocalAnalysis.StandardType.GGTCJDatum
-public import CFSG.LocalAnalysis.StandardType.GGTwistedF4DiagRaw
 
 public section
 

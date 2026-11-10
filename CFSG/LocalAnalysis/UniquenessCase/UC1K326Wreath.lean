@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC1K326Setup
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.GroupTheory.ElemThompsonTransport
 public import CFSG.LocalAnalysis.SectionRank.Ccomm.PGroupBasics
 public import CFSG.LocalAnalysis.SectionRank.SQT

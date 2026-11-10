@@ -2,9 +2,7 @@ module
 
 public import CFSG.Monster.B.GSide.HInnerFusion
 public import CFSG.Monster.B.GSide.HSylowCenter
-public import CFSG.Monster.B.Cbar.Simple
 public import CFSG.Monster.B.CTIB.OddCoreFree
-public import CFSG.Monster.B.CTIB.Rep4371Rho
 
 public noncomputable section
 

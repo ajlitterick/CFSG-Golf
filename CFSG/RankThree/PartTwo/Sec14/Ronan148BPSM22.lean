@@ -6,10 +6,8 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatCode
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicMathieu
 public import CFSG.RankThree.PartTwo.KFacts.KP4
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148BM22Sg
-public import CFSG.Sporadic.Schreier.MathieuOddCoreM22
 public import CFSG.Quasithin.H13.NQCatT3Perm
 public import Certificates.Certificate148010
-public import CFSG.CharacterTheory.Burnside
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.Coordinator.KF148Sig.Transport
 public import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField

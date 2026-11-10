@@ -1,9 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseA7TwoCoreCentralizesFitting
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma27Infra
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section1
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

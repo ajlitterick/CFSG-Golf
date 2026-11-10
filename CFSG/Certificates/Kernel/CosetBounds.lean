@@ -1,10 +1,7 @@
 module
 
-public import Certificates.Data.Kernel.Bounds.Table
 public import TauCeti.GroupTheory.Presentation.GroupPresentation
-public import Mathlib.GroupTheory.Index
 public import Mathlib.GroupTheory.OrderOfElement
-import Mathlib.Data.ZMod.QuotientGroup
 import CFSG.Sporadic.Presentation.Common
 public import CFSG.Certificates.Kernel.CosetBoundsLemmas
 import Mathlib

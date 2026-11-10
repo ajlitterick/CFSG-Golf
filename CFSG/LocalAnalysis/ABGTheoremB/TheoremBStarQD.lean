@@ -1,15 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.ABGTheoremB.IVAssembly
-public import CFSG.LocalAnalysis.ABGTheoremB.IV7Assembly
-public import CFSG.LocalAnalysis.ABGTheoremB.IV8
-public import CFSG.LocalAnalysis.ABGTheoremB.V2
 public import CFSG.LocalAnalysis.ABGTheoremB.V6
 public import CFSG.LocalAnalysis.ABGTheoremB.CorollaryV21Proof
 public import CFSG.LocalAnalysis.ABGTheoremB.TheoremBStar
 public import CFSG.LocalAnalysis.ABGTheoremB.V56Bridges
 public import CFSG.LocalAnalysis.ABGTheoremB.PropR1Input
-public import CFSG.LocalAnalysis.ABGTheoremB.ClaimR23
 public import CFSG.LocalAnalysis.ABGTheoremB.TotallyInverted.OmnibusQD
 public import CFSG.GroupTheory.ABGLocalTools.PStabilityDGroup
 public import CFSG.LocalAnalysis.ABGTheoremB.IV9Assembly
@@ -19,9 +15,6 @@ public import CFSG.LocalAnalysis.ABGTheoremB.PSL2Schur
 public import CFSG.LocalAnalysis.ABGTheoremB.PSL2FourGroups
 public import CFSG.LocalAnalysis.ABGTheoremB.IV9DGroupCentralizers
 public import CFSG.LocalAnalysis.ABGTheoremB.V4Prop1
-public import CFSG.LocalAnalysis.ABGTheoremB.V4Lemma5
-public import CFSG.LocalAnalysis.ABGTheoremB.TotallyInverted.InputsFourFusion
-public import CFSG.GroupTheory.ABGDGroups.LinearOddCyclic
 public import CFSG.LocalAnalysis.ABGTheoremB.LinearImageForm
 public import CFSG.LocalAnalysis.ABGTheoremB.TotallyInverted.DGroupCentralizerQD
 public import CFSG.LocalAnalysis.ABGTheoremB.TotallyInverted.FinalInputsSection

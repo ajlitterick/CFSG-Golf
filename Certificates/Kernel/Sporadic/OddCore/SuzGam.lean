@@ -15,7 +15,6 @@ public import Certificates.Kernel.Sporadic.OddCore.SuzGamR5
 public import Certificates.Kernel.Sporadic.OddCore.SuzGamR6
 public import Certificates.Kernel.Sporadic.OddCore.Suz2308
 public import CFSG.Certificates.Kernel.SuzGamma2294Sound
-public import CFSG.Sporadic.SuzOddCore.GammaStageInputs
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Spor.RawOrbHead
 import CFSG.Certificates.Kernel.Spor.RawOrbGrp

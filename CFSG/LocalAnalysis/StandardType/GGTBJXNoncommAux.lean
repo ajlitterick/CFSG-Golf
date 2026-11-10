@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBJXDefs
 public import CFSG.LocalAnalysis.StandardType.GGTBJXRoots
-public import Mathlib.LinearAlgebra.FiniteDimensional.Defs
 
 public section
 

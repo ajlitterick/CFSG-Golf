@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGFieldCaseIOneRankX
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseIOneTail
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseIOneTorus
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45FinalAssembly
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseXL48Homocyclic
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseNoBL5Aut
 public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneExist
 
 public section

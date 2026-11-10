@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoThmB
-public import Mathlib.LinearAlgebra.SesquilinearForm.Basic
-public import Mathlib.LinearAlgebra.Matrix.ToLin
-public import Mathlib.LinearAlgebra.Matrix.DotProduct
 
 public section
 

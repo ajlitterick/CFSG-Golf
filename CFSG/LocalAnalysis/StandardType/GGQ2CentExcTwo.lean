@@ -2,13 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2CentInternal
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenExcTwoCent
-public import CFSG.LocalAnalysis.StandardType.GGIrred937ExcLang
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTorus
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLineE7
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLine
-public import CFSG.LocalAnalysis.StandardType.GGTableBRank
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoTableBReduce
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 
 public section
 

@@ -7,7 +7,6 @@ public import Certificates.Kernel.SporSch.Ru.Text4060
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo
 import CFSG.Certificates.Kernel.Common.Each
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

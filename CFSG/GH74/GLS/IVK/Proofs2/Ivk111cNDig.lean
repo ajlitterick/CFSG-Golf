@@ -2,10 +2,6 @@ module
 
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk111cDefs
 public import Mathlib.Algebra.Order.Ring.Star
-public import Mathlib.RingTheory.WittVector.IsPoly
-public import Mathlib.Tactic.Basify
-public import Mathlib.Tactic.Polynomial.Basic
-public import Mathlib.Tactic.ReduceModChar
 public import Std.Tactic.BVDecide.Normalize.Prop
 
 public section

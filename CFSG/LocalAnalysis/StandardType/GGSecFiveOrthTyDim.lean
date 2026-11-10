@@ -1,12 +1,5 @@
 module
 
-public import Mathlib.Algebra.Field.ZMod
-public import Mathlib.LinearAlgebra.QuadraticForm.Basic
-public import Mathlib.LinearAlgebra.BilinearForm.Orthogonal
-public import Mathlib.LinearAlgebra.BilinearForm.Properties
-public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalGroup.Basic
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthRefl
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthPolar
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthTyGram
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthSetup
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBarBridge

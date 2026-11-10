@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk73G4L34
-public import CFSG.GH74.GLS.IVK.Proofs2.Ivk95Gen
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk95Bender
 public import CFSG.GH74.GLS.LU.Local.A3Reduce2
 public import CFSG.GH74.GLS.Stage2.Final.Thm4.Core

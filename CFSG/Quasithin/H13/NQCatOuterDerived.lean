@@ -1,12 +1,7 @@
 module
 
-public import CFSG.Quasithin.H13.NQCatQuasisimple
 public import CFSG.Quasithin.H13.NQRigidFacts
 public import CFSG.Quasithin.H13.NQRigidInputs
-public import CFSG.LocalAnalysis.ComponentInitial.QTNQRLinearUnitaryOuterDerived
-public import CFSG.LieType.SteinbergBREvenSymplecticThreeRank
-public import CFSG.RankThree.ThinCatalog.SporadicJ1
-public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4Local
 public import CFSG.GroupTheory.ABGLocalTools.PStabilityQSL2
 public import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
 public import CFSG.LocalAnalysis.ComponentInitial.SmallLinearIsomorphisms

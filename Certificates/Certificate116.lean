@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LieType.Steinberg.Minuscule.ValidInputs
-import Certificates.Certificate113
-import Certificates.Certificate114
-import Certificates.Certificate115
 
 public noncomputable section
 

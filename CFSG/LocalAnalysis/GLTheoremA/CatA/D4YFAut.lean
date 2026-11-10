@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.D4YBCore
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.D4YFCount
 
 public section
 

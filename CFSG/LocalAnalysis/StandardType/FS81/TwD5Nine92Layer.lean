@@ -7,10 +7,7 @@ public import CFSG.LocalAnalysis.StandardType.FS81.TwD5NineOdd
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5NineCore
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5TwoLocalK
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Nine92Struct
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalanceBasic
 public import CFSG.HardMathSupport.Solomon.Coordinator.I18_3Bridge
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups
-public import CFSG.Dihedral.GorensteinWalter.Helpers
 
 public section
 

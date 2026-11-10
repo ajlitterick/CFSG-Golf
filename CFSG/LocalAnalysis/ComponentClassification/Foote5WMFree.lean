@@ -1,10 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.Foote5SolMirror
 public import CFSG.LocalAnalysis.ComponentClassification.Foote5SolOrbit
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedGSAOrbitFixedComponent
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuotTools
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.Foote5SolForward
 public import CFSG.LocalAnalysis.ComponentClassification.HSFLitWeakMaximal
 

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQ2TableBNbrFrameDefs
 public import CFSG.LocalAnalysis.StandardType.GGQ2ClassicalCatalogue
 import CFSG.LocalAnalysis.StandardType.GGQ2PlaneChainGroups
-import CFSG.LocalAnalysis.StandardType.GGQ2PlaneCutThree
 import CFSG.Mathlib.Perm.ChainSwap
 
 public section

@@ -2,9 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.ModelFacts.E8ExclLayerStage
 public import CFSG.ClassicalInvolution.ModelFacts.E8ExclLayerStmt
-public import CFSG.ClassicalInvolution.ModelFacts.FundPerfectMain
-public import CFSG.ClassicalInvolution.RouteD.TypeEModel
-public import CFSG.ClassicalInvolution.RouteD.GapsOrthTransfer
 
 public section
 

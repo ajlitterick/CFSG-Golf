@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LieType.AlgebraicGroups.ToralRootCoverWords
-public import CFSG.LieType.AlgebraicGroups.HopfTensorPoints
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 
 public noncomputable section
 

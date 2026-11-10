@@ -1,13 +1,9 @@
 module
 
-public import CFSG.LieType.Multipliers.L34UpperData
 public import CFSG.LieType.Multipliers.ProductKernel
-public import CFSG.Certificates.Kernel.Misc.Coset.PG
 public import CFSG.Certificates.Kernel.Misc.Coset.MemSound
 public import Certificates.Kernel.Misc.Coset.XL34C
 public import Certificates.Kernel.Multipliers.L34HRels
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 import all CFSG.LieType.Multipliers.L34UpperData
 import all CFSG.LieType.Multipliers.L34Data
 import all CFSG.LieType.Multipliers.ProductKernel

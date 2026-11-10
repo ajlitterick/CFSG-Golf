@@ -1,20 +1,7 @@
 module
 
 public import CFSG.LieType.SeitzGeneration.QuasiHigh5
-public import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
-public import CFSG.LieType.Steinberg.CentralExt.SUCentrallyClosed
-public import CFSG.LieType.SeitzGeneration.UnitaryOuterNonabFive
-public import CFSG.LieType.SeitzGeneration.UnitaryNonabHeis
-public import CFSG.LieType.SeitzGeneration.UnitaryNonabNonPth
-public import CFSG.LieType.SeitzGeneration.UnitaryNonCube
-public import CFSG.LieType.SeitzGeneration.UnitaryHeisTensorPair
-public import CFSG.LieType.SeitzGeneration.UnitaryNonabToral
 public import CFSG.LieType.SeitzGeneration.SingerUMain
-public import CFSG.LieType.SeitzGeneration.HeisTorusUGen
-public import CFSG.LieType.SeitzGeneration.OuterUnitaryWide
-public import CFSG.LocalAnalysis.ComponentInitial.UnitaryDiagonalOuterOrder
-public import CFSG.LieType.SeitzGeneration.OuterSUField
-public import CFSG.LieType.SeitzGeneration.UnitaryHeisCoreMain
 public import CFSG.RankThree.PartTwo.Sec19.Item19Res6ProofSeitzExactCore
 public import CFSG.HardMathSupport.Curtis.Coordinator.SeitzOuter.RankCube
 public import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeA3pSurvivor

@@ -1,16 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGDepAOdd
 public import CFSG.LocalAnalysis.StandardType.GGRowKFrame
-public import CFSG.LocalAnalysis.StandardType.GGRCCaseIIBasic
 public import CFSG.LocalAnalysis.StandardType.GGResCentBoundNbr
-public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeDefs
 public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3Defs
-public import CFSG.LocalAnalysis.StandardType.GGResSideDatumDefs
-public import CFSG.LocalAnalysis.StandardType.GGDepAPerm
-public import CFSG.LocalAnalysis.StandardType.GGRCWeylConnected
-public import CFSG.LocalAnalysis.StandardType.GGTBFix
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeDepOdd
 
 public section

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutData
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutNative
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverKernelData
 public import CFSG.Sporadic.SmallOddCore.LocalCheck

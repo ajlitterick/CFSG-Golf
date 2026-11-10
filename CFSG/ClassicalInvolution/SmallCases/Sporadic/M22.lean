@@ -1,12 +1,7 @@
 module
 
-public import CFSG.ClassicalInvolution.SmallCases.Sporadic.Cover
 public import CFSG.Sporadic.Schreier.MathieuOddCoreM22
-public import Certificates.Certificate2195
-public import Certificates.Certificate2202
-public import CFSG.ClassicalInvolution.SmallCases.Sporadic.M22Inputs
 public import Certificates.Certificate9312
-public import Certificates.Certificate3157
 public meta import CFSG.ClassicalInvolution.SmallCases.Sporadic.Cover
 public meta import CFSG.Sporadic.Schreier.MathieuOddCoreM22
 public meta import CFSG.ClassicalInvolution.SmallCases.Sporadic.Basic

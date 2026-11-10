@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.UCFront11
 public import CFSG.LocalAnalysis.SectionRank.Ccomm.Supercritical
 import CFSG.GroupTheory.ElemAbelianClosure
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.lemma_4_5_a
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

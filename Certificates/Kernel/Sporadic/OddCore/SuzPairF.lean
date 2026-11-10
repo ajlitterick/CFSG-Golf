@@ -2,9 +2,7 @@ module
 
 public import Certificates.Kernel.Sporadic.OddCore.SuzPairC
 public import Certificates.Kernel.Sporadic.OddCore.SuzRFF
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import Mathlib.Tactic.IntervalCases
 
 public section
 

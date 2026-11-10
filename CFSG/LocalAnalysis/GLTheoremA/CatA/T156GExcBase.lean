@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T156GDefs
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.MIInn
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 
 public section
 

@@ -1,13 +1,8 @@
 module
 
-public import Mathlib
 public import CFSG.ClassicalInvolution.RouteD.G2D4A2Classical
 public import CFSG.ClassicalInvolution.RouteD.TWRExoticArith
-public import CFSG.ClassicalInvolution.RouteD.NoG2D4Model
 public import CFSG.ClassicalInvolution.Orders.Classical
-public import CFSG.ClassicalInvolution.ModelFacts.ClauseZero
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.ClassicalInvolution.Balance.LayerGenerationPairBoot
 public import CFSG.ClassicalInvolution.Generic.InductionMain
 public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalIsogeny

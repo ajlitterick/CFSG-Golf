@@ -1,7 +1,5 @@
 module
 
-public import Certificates.Data.Kernel.Spor.Raw
-public import Certificates.Data.Kernel.Spor.Prim
 public import Certificates.Data.Kernel.Child3
 public import Certificates.Data.Kernel.SurjK
 

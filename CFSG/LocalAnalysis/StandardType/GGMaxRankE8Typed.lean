@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBXPlumb
-public import CFSG.LocalAnalysis.StandardType.GGResLeaves
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 
 public section
 

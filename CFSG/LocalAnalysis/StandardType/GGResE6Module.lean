@@ -2,15 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGResE6Coordinates
 public import CFSG.LocalAnalysis.StandardType.GGTBE6
-public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBE6
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallExcC3Bstar
-public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperMoreE6
 public import CFSG.LocalAnalysis.StandardType.GGIOneFieldCFHolds
-public import CFSG.LocalAnalysis.StandardType.GGResIBasic
 public import CFSG.LocalAnalysis.StandardType.GGKOnlyE6Normalization
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLExc11R
 public import CFSG.LocalAnalysis.StandardType.GGResE6DependentDualClassification
-import TauCeti.LinearAlgebra.Pi
 import CFSG.LocalAnalysis.StandardType.GGQ2P3Hyp
 
 public section

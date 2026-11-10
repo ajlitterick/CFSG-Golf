@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.TwoHSLe4.NormD
 public import Certificates.Data.Kernel.F4M3B
-public import Certificates.Kernel.Misc.Perm.HexCmd
 meta import CFSG.LocalAnalysis.EvenSporadicStandard.TwoHS.Le4.S8Cand
 
 public section

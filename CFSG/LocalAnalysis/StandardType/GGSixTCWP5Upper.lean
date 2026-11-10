@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP5Inner
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4Upper
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerSevenClasses
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerResiduals
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwE6

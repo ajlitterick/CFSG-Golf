@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Core
-public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1Defs
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuotIso
 public import CFSG.ClassicalInvolution.Asc77.WP1Section18
 public import CFSG.ClassicalInvolution.Asc77.WP1Section6
 public import CFSG.ClassicalInvolution.Balance.QNineFuzzyFree

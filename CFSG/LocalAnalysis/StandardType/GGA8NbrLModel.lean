@@ -1,12 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
-public import CFSG.LocalAnalysis.StandardType.GGTypeACompatFar
-public import CFSG.LocalAnalysis.StandardType.GGTypeAEndNodeBlock
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBTypeAIrred
-public import CFSG.LocalAnalysis.StandardType.GGTypeAFarPerm
 public import CFSG.LocalAnalysis.StandardType.GGTypeAFarActsVec
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 public import CFSG.LocalAnalysis.StandardType.GGA8NbrCoordDefs
 
 public section

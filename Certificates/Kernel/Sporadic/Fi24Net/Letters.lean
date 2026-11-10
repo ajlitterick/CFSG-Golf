@@ -8,13 +8,10 @@ public import Certificates.Kernel.Sporadic.Fi24Net.W3
 public import CFSG.Certificates.Kernel.Spor.Fi24NetSound
 public import Certificates.Data.CFSGNative.Fi24.Certificate
 import CFSG.Certificates.Kernel.Common.ForallTree
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.BfsPinSound
-public import CFSG.Certificates.Kernel.BfsPinUnpack
 public import Certificates.Data.Kernel.KDense.KeysDistinct
 public import Certificates.Data.Kernel.KDense.LetterOK
 public import Certificates.Data.Kernel.KDense.Plan
-public import Mathlib
 
 public section
 

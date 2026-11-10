@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.SuzPinCheck
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.RankE8
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.LocBSSuzFacts
 public import Certificates.Certificate26990
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 public import CFSG.LinearAlgebra.LinearGroups.CoordinateData
 public import CFSG.LocalAnalysis.ComponentClassification.BlockCentralSylowEquality

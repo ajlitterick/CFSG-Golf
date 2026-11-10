@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6LeviSplit
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6LeviFoldCover
-public import CFSG.LocalAnalysis.StandardType.GGTBJETypeCells
 public import CFSG.LocalAnalysis.StandardType.GGTBJE6LeviIso
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6SplitCoverModel
 

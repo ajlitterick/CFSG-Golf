@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.TwinSmallLeafSpin
-public import CFSG.ClassicalInvolution.RouteD.TwinSmallLocal
-public import CFSG.ClassicalInvolution.RouteD.LocalTwinAdapt
 
 public section
 

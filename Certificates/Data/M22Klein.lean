@@ -3,7 +3,6 @@ module
 public import CFSG.Sporadic.Schreier.Enumeration
 public meta import CFSG.Sporadic.Schreier.Enumeration
 public meta import Mathlib.GroupTheory.Schreier
-public import Mathlib.GroupTheory.Schreier
 
 public section
 

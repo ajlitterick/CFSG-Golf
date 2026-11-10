@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNarrowInputs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosPrimed
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthTyBridge
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveReflMaxNotG2
 

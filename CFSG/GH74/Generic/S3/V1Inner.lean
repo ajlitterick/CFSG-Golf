@@ -1,7 +1,5 @@
 module
 
-public import CFSG.GH74.Generic.S3.Prop21Leaves
-public import CFSG.GH74.Generic.S3.FourGroup
 public import CFSG.GH74.Generic.S3.L3Class
 public import CFSG.GH74.Generic.S3.L3Sylow
 public import CFSG.GH74.KGroups.L3EpsFour

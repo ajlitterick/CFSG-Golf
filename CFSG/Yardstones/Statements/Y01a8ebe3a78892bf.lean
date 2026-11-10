@@ -22,9 +22,6 @@ public import CFSG.RankThree.GroupTheory.SteinbergBYSectionNineResidual
 public import CFSG.RankThree.LocalRank.SelectorCases
 public import CFSG.RankThree.PartOne.S10.Defs
 public import CFSG.StronglyEmbedded
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 import YardstoneContract
 
 public section

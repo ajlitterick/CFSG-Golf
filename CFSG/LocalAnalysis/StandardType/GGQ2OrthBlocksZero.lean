@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQ2OrthAmbient
-public import CFSG.LocalAnalysis.StandardType.GGQ2OrthAmbientSmall
 public import CFSG.LocalAnalysis.StandardType.GGQ2OrthBlocksZero4
 
 public section

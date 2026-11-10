@@ -1,25 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.HypA2Leaves.A2lCl2FamCore
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofE7Frame
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofFrameRecog
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofLeviFrame
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofF4C3
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofF4FrameC3
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddOrthLow
-public import CFSG.LieType.Chevalley.OddRootPairSL2
-public import CFSG.LocalAnalysis.ComponentInitial.QuasisimpleRankOne
-public import CFSG.LieType.Steinberg.Adjoint.CertE7
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofE7FrameA7
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofWeylWord
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofE7FrameE6
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofE6Frame
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofE7Split
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofE7Classes
-public import CFSG.LocalAnalysis.ComponentClassification.ExcSelectorOddDatum
-public import CFSG.LieType.Chevalley.OrthogonalSemilinearFixedRootPerfectness
-public import CFSG.RankThree.Chevalley.SteinbergBIRootSL2Tools
-public import CFSG.LocalAnalysis.ComponentInitial.CentralSL2Semilinear
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.ClassicalGroups

@@ -1,11 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGE6KGLayerDefs
 public import CFSG.LocalAnalysis.StandardType.GGKGAutDict
 public import CFSG.LocalAnalysis.StandardType.GGTwE6RootAsCoreDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaOutdiag
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangTwE6Conj
-public import CFSG.Open.StatedDefs
 
 public section
 

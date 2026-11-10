@@ -1,13 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenFourteenTwoListGamma
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentCited
-public import CFSG.LocalAnalysis.AGLEmbedding.LinTwoCatalog
 import CFSG.LocalAnalysis.AGLEmbedding.CaseTwoMinimalSimple
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanRankOneDickson
-import CFSG.LocalAnalysis.AGLEmbedding.LinTwoFacts
 import CFSG.LocalAnalysis.GL83PartI.I_24_3.InnerPGroup
-import CFSG.GroupTheory.ABGLocalTools.Basic
 import CFSG.LocalAnalysis.EvenBN.Common.Diagonal
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenFourteenTwoAltTen
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentAltTenCase

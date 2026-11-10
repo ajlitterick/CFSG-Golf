@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGK0LCDefs
 public import CFSG.LocalAnalysis.StandardType.GGK0LCDescent
 public import CFSG.LocalAnalysis.StandardType.GGK0LCCentred
 

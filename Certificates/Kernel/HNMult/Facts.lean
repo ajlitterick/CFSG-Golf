@@ -15,9 +15,7 @@ import Certificates.Kernel.HNMult.ChecksW2
 import Certificates.Kernel.HNMult.ChecksW3
 import Certificates.Kernel.HN3166.Seed
 import Certificates.Kernel.VecCert.WordProg
-import Certificates.Kernel.Sporadic.RawGen
 import Certificates.Kernel.LocalComp.SurjGen
-import CFSG.Certificates.Kernel.Spor.OrdSound
 import CFSG.Certificates.Kernel.Fam.HNSeed.Checks.K
 import CFSG.Certificates.Kernel.SurjKSound
 import CFSG.Certificates.Kernel.Common.Harness
@@ -32,7 +30,6 @@ public import CFSG.Certificates.NativeSchreierCard
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.Open.Defs
 public import CFSG.Sporadic.Recognition.CoverChainSub
-public import CFSG.Sporadic.Th.F2Spec
 
 set_option maxRecDepth 400000
 

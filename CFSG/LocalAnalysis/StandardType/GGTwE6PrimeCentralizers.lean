@@ -1,7 +1,5 @@
 module
 
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.TwistedE6Base
-public import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotModel
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP5Inputs
 public import CFSG.Blueprint.LieModelAPI
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.AlgSetupUntw

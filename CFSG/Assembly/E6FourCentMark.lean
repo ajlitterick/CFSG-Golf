@@ -2,7 +2,6 @@ module
 
 public import CFSG.Assembly.E6FourNeighbourFacts
 public import CFSG.LocalAnalysis.StandardType.GGReverseMarking
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 public import CFSG.Assembly.LargeEvenGLABridge
 public import CFSG.Assembly.OpenBridges
 public import CFSG.Assembly.StandardTypeRecognitionDefs

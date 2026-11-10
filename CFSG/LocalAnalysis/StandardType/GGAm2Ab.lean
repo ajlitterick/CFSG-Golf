@@ -1,12 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTPNDefs
 public import CFSG.LocalAnalysis.StandardType.GGB36LemmaRT
-public import CFSG.LocalAnalysis.StandardType.GGD4OddCentVocab
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
 public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotUniqueGraphBasic
-public import CFSG.LocalAnalysis.ComponentInitial.LinearFlagOrder
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotGlobalNormalModel
 public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotNeighbourNormal
 public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotUniqueTypeInner

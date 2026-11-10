@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcCoverRows
 public import CFSG.LocalAnalysis.StandardType.GGTableBMarkedTheta
 public import CFSG.LocalAnalysis.StandardType.GGRawAutRestTwE6
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldCyclicLabels
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcInn
 
 public section

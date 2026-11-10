@@ -1,13 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitary
-public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitaryDatum
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeNbr
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrEnnola
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyDichotomy
 public import CFSG.LocalAnalysis.StandardType.GGNbrU63
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63Q2ProofFinal
-public import CFSG.LocalAnalysis.StandardType.GGUSixTwoModel
 
 public section
 

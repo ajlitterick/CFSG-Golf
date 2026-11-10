@@ -4,9 +4,7 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight89Defs
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight89Basic
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.OuterJ2
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight8xK85
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.OutPRank
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.CentOverO2Inner
-import CFSG.GroupTheory.CoprimeCentralizerCover
 import CFSG.GroupTheory.IsCyclicOfLeOfPRankLeOne
 import CFSG.GroupTheory.SupCommute
 public import CFSG.Blueprint.LieModelAPI
@@ -51,14 +49,8 @@ import CFSG.LocalAnalysis.ComponentClassification.AutL2FactsCentModel
 import CFSG.LocalAnalysis.ComponentClassification.AutL2FactsFieldAut
 import CFSG.LocalAnalysis.ComponentClassification.SmallLocalFitting
 import CFSG.LocalAnalysis.GLTheoremB.Lemma911Defs
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeThree
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Equivariance
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.CampbellMotion
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 import CFSG.Quasithin.Background.A3Structure319
-import CFSG.Quasithin.Background.A3Structure38Part3
 import CFSG.Quasithin.Background.B1More13A
 import CFSG.Quasithin.Background.B1More13Defs
 import CFSG.Quasithin.Background.B1MoreEleven
@@ -66,12 +58,9 @@ import CFSG.Quasithin.Background.B5Basic
 import CFSG.Quasithin.Background.B5CompA
 import CFSG.Quasithin.Background.B5CompB
 import CFSG.Quasithin.Background.B6
-import CFSG.Quasithin.Background.B6Example
-import CFSG.Quasithin.Background.C2Inputs
 import CFSG.Quasithin.Background.InternalSecAutOn
 import CFSG.Quasithin.Background.InternalSecB4
 import CFSG.Quasithin.Background.SmithC27Star
-import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 import CFSG.Quasithin.Vol2.Ch11SecAFacts02
 import CFSG.Quasithin.Vol2.Ch11SecAFacts03
 import CFSG.RankThree.PartOne.CTP.SeitzOrthModel
@@ -83,7 +72,6 @@ import CFSG.RankThree.PartTwo.Sec6.Statements
 import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
 import Certificates.Kernel.J4Count.FixCE
 import Certificates.Kernel.J4Count.FixCPairBase1
-import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

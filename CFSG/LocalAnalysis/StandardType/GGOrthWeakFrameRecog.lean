@@ -3,7 +3,6 @@ module
 public import CFSG.LieType.Universal.Catalog
 public import CFSG.GroupTheory.WeirSylow.OrthogonalModels
 public import CFSG.RankThree.Classical2.OrthogonalIsotropicUnipotent
-import CFSG.ClassicalGroups.Orthogonal.Simple
 import CFSG.ClassicalInvolution.SmallCases.UpgradeCoverClassical
 import CFSG.LieType.Universal.SpinOmega.Kernel
 import CFSG.RankThree.PartOne.S11d.OrthModels
@@ -62,7 +61,6 @@ import CFSG.RankThree.PartOne.S11d.OutSymplectic
 import CFSG.RankThree.PartOne.S11d.OutUnitary
 import CFSG.RankThree.PartOne.S9.Sylow.ExclusionBasic
 import CFSG.RankThree.Theta.ThreeComponentOrbitCover
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 import CFSG.Walter.Defs
 import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials

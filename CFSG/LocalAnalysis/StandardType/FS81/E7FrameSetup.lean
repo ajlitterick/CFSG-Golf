@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.LocalModelE7
-public import CFSG.LocalAnalysis.StandardType.FS81.WeakClosureFusion
 public import CFSG.LocalAnalysis.StandardType.FS81.RowOutE7
 public import CFSG.LocalAnalysis.StandardType.FS81.RowOutTwD7
 public import CFSG.LocalAnalysis.StandardType.FS81.RootCoreE7

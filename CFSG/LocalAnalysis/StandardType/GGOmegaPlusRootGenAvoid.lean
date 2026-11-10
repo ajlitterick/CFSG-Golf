@@ -1,16 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRootGenAvoidKG
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRootGenKGDefs
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyWeylNSRootGen
 public import CFSG.LocalAnalysis.StandardType.GGOmegaPlusCentrallyClosed
 public import CFSG.LocalAnalysis.StandardType.GGOmegaPlusRootGenDefs
 import CFSG.LocalAnalysis.StandardType.GGTorusRootGenAvoidModel
-import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticOmega
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaPlus
 import CFSG.LocalAnalysis.StandardType.GGOmegaMinusRootGenAvoid
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySp
-import CFSG.LieType.Universal.SpinOmega.Center
 import CFSG.LocalAnalysis.StandardType.GGOmegaPlusRootGenWeyl
 import CFSG.LocalAnalysis.StandardType.GGOmegaPlusRootGenComp
 import CFSG.LocalAnalysis.StandardType.GGOmegaPlusRootGenGen

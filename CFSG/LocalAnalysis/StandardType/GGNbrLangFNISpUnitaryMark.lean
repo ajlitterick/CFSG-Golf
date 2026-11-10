@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNISpUnitaryMarkAux
-public import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagUnitary
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIOne
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIUnitaryTwo
 public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockSpIsoUnitary
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryDvdCodimOne

@@ -2,18 +2,12 @@ module
 
 public import CFSG.LocalAnalysis.SeitzReduction.EPilotFusionEntrywise
 public import CFSG.LocalAnalysis.SeitzReduction.LongRootPairsRoots
-import CFSG.LocalAnalysis.SeitzReduction.LongRootPairs
 import CFSG.LocalAnalysis.SeitzReduction.E6PilotClassesRoots
 import CFSG.LocalAnalysis.SeitzReduction.E6PilotClassesLevi
 import CFSG.LocalAnalysis.SeitzReduction.EPilotRootSL2Basic
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 public import CFSG.Walter.JRFacts
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 import CFSG.GroupTheory.LocalCores.Fitting
 import CFSG.LieType.Chevalley.C2E6StandardFixedData

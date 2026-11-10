@@ -8,7 +8,6 @@ import CFSG.RankThree.GroupTheory.SteinbergBMClassTwoExtraspecialAction
 import CFSG.Assembly.OrderReductions.FrattiniElementary
 import CFSG.LinearAlgebra.OddSolvableUnitary.CommutatorForm
 import CFSG.LocalAnalysis.SectionRank.Ccomm.OddCritical
-import CFSG.LocalAnalysis.SectionRank.PRank
 import CFSG.LocalAnalysis.SectionRank.SQT
 import CFSG.LocalAnalysis.SignalizerFunctor.Maximality
 

@@ -9,9 +9,7 @@ import CFSG.LocalAnalysis.StandardType.GGSixE6TwoOrder3
 import CFSG.LocalAnalysis.StandardType.GGSixE6TwoTransAux
 import CFSG.LocalAnalysis.StandardType.GGHalfFrame
 import CFSG.LocalAnalysis.StandardType.GGHalfJoinSLCard
-import CFSG.LocalAnalysis.StandardType.Marking
 import CFSG.LocalAnalysis.SeitzReduction.E6PilotQ2FieldAlign
-import CFSG.LocalAnalysis.SeitzReduction.E6PilotQ2RowOverlap
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotLeviHom
 import CFSG.ClassicalInvolution.WeakCT.Main
 import CFSG.LieType.Ree.LargeReeInvolutionTwoCentralizers
@@ -42,7 +40,6 @@ import CFSG.LocalAnalysis.SeitzReduction.RankOneHypStarDef
 import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotAlignImagesSwap
 import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotUniqueTypeGraph
 import CFSG.Quasithin.Background.A3Components
-import CFSG.Quasithin.Background.A3ComponentsAmbient
 import CFSG.Quasithin.Background.B1MoreElevenD
 import CFSG.Quasithin.Background.B1MoreElevenF
 import CFSG.Quasithin.Background.B1MoreNineG
@@ -50,11 +47,6 @@ import CFSG.Quasithin.Background.B4ModelsAction
 import CFSG.Quasithin.Background.B4ModelsIso
 import CFSG.Quasithin.Background.C2Basic
 import CFSG.Quasithin.Background.E1
-import CFSG.Quasithin.Background.E1Sec4
-import CFSG.Quasithin.Background.E1Sec5
-import CFSG.Quasithin.Background.E1Sec8
-import CFSG.Quasithin.Background.E1Solv
-import CFSG.Quasithin.Background.E1Twelve
 import CFSG.Quasithin.Background.E3Cent
 import CFSG.Quasithin.EmptyFaithfulMultiple.InputB19Proof
 import CFSG.RankThree.Chevalley.SteinbergCEF4EvenQPlusWeyl

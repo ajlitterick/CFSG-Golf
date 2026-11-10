@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.RestrictedSporMathieuData
 public meta import CFSG.LocalAnalysis.ComponentClassification.RestrictedSporMathieuData
 public import Certificates.Certificate2023
 

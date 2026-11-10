@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.Kernel.Spor.MulH
 public import Certificates.Data.Kernel.Spor.HKeyU
 
 public section

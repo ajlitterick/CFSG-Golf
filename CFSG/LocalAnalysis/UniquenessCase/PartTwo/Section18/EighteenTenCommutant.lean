@@ -1,15 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenDefs
 public import CFSG.Quasithin.Background.HSp4Model
-public import CFSG.Quasithin.Background.HSL
 public import CFSG.Quasithin.Vol2.Ch11SecBK5Base11
-public import CFSG.Quasithin.EmptyFaithful.SzN15Nat
-public import CFSG.Quasithin.Background.JonesParshallG2Derived
 public import CFSG.Quasithin.Background.P3G2Zorn
-public import CFSG.Quasithin.Vol2.KGNatCoord
-public import CFSG.Quasithin.Vol2.Ch11G2Q8Comm
-public import CFSG.ClassicalGroups.Orthogonal.EichlerCentralizerScalar
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.CentOmegaMinusFour
 public import CFSG.ClassicalGroups.Orthogonal.RootGroupFixedCard
 public import CFSG.LinearAlgebra.LinearGroups.ProjectiveSimple

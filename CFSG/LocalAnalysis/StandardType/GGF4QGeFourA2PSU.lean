@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4PairRootLeviTransport
 public import CFSG.LocalAnalysis.StandardType.GGF4SUShortA2
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePresTagUnitary
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourRk2Cross
 
 public noncomputable section

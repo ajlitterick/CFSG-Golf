@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJSympMinusUnitaryVec
-public import CFSG.LocalAnalysis.StandardType.GGTBJSpBlockAux
 public import CFSG.LocalAnalysis.StandardType.GGTBJTypeBShape
 
 public section

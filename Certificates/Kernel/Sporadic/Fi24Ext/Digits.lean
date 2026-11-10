@@ -3,7 +3,6 @@ module
 import CFSG.Certificates.Kernel.Common.Harness
 public meta import CFSG.Certificates.Kernel.Common.StrChunks
 public import Certificates.Kernel.Sporadic.Fi24Ext.Data
-public import Certificates.Data.CFSGNative.Fi24.Data
 public import CFSG.Sporadic.Fi24.ExtCertInputs
 public import CFSG.Certificates.Kernel.Common.StrChunks
 

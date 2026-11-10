@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenRTransfer
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenSLTransfer
 public import CFSG.LocalAnalysis.StandardType.GGTwE6TorusGen
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcCoverRows
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6Lift
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaCenter
 
 public section
 

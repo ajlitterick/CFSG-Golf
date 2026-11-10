@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.SmithL6K
 public import Certificates.Data.Kernel.SmithL6Coll
-public import Certificates.Data.SmithL6Orbit
 
 public section
 

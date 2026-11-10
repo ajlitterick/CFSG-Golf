@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinQFourRows
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinByType
-public import CFSG.LocalAnalysis.StandardType.GGMemberRowsDefs
 public import CFSG.LocalAnalysis.StandardType.GGMemberUnitaryPos
 import CFSG.LocalAnalysis.StandardType.GGMemberUnitaryRk1Aux
 import CFSG.LocalAnalysis.StandardType.GGNSJoinRankOneOfRk1

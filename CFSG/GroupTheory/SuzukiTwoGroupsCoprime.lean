@@ -1,8 +1,6 @@
 module
 
-public import Mathlib.GroupTheory.PGroup
 public import Mathlib.GroupTheory.GroupAction.CardCommute
-public import Mathlib.GroupTheory.Index
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Higman.Basic
 
 public section

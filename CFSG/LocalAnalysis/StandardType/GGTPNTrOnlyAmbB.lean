@@ -1,15 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTPNDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyDichotomy
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalanceSchreier
 public import CFSG.LocalAnalysis.StandardType.GGSixAutKFlatIVPComp
-public import CFSG.LocalAnalysis.StandardType.GGSixStepOneRestCX
 public import CFSG.LocalAnalysis.StandardType.GGSixJNotA6CycX
 public import CFSG.RankThree.PartOne.TCB.SchreierFinal
-public import CFSG.GroupTheory.ElemAbelianClosure
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
 public import CFSG.Certificates.FusionF2

@@ -1,7 +1,5 @@
 module
 
-public import Mathlib.GroupTheory.PGroup
-public import Mathlib.GroupTheory.Index
 public import CFSG.Open.LocalVocabulary
 
 public section

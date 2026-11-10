@@ -1,6 +1,5 @@
 module
 
-public import CFSG.RankThree.GF2n.Parrott.SpinTFacts
 public import CFSG.RankThree.GF2n.Parrott.QA45ElementaryAbelian
 public import CFSG.RankThree.GF2n.Parrott.SpinStabW0
 

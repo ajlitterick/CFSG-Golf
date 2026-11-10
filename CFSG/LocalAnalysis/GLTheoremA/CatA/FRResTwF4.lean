@@ -1,19 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.FRField
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.FRRee
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FRResSmall
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.MIAut
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.FPMI
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.FPMarking
-public import CFSG.RankThree.SteinbergR3ELargeReeOrder
-public import CFSG.Sporadic.Schreier.TitsIso
-public import CFSG.Sporadic.Schreier.TitsOuter
-public import CFSG.Sporadic.Schreier.TitsCert
-public import CFSG.LieType.Ree.ReeHolds
-public import CFSG.LocalAnalysis.StandardType.MarkingSmall
-public import CFSG.LocalAnalysis.StandardType.Marking
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.CentQChar2Index
 
 public section
 

@@ -1,12 +1,9 @@
 module
 
-public import CFSG.Certificates.Kernel.Orders.Cert3
-public import Certificates.Data.Kernel.Spor.WordProg
 public import Certificates.Kernel.Fi23M.Data
 public import Certificates.Kernel.Sporadic.Fi23Br.Data
 import CFSG.Certificates.Kernel.Common.Each
 import CFSG.Certificates.Kernel.Common.ForallChunks
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo
 

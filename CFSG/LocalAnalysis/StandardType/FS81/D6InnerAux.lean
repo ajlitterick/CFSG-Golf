@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.FS81.WtTwo
 public import CFSG.LocalAnalysis.StandardType.FS81.OrthInner
 public import CFSG.LocalAnalysis.StandardType.FS81.LocalOrthRows
 public import CFSG.LocalAnalysis.StandardType.FS81.RowElemAbOrth
-public import CFSG.LocalAnalysis.StandardType.FS81.AutMat
 
 public section
 

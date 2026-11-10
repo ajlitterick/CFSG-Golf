@@ -1,10 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGUSixTwoTorus
-public import CFSG.LocalAnalysis.StandardType.GGUSixTwoModuleTorus
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoModuleOrbit
-public import Mathlib.Algebra.Module.Submodule.EqLocus
-public import Mathlib.LinearAlgebra.Dimension.Finrank
 
 public section
 

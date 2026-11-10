@@ -4,8 +4,6 @@ public import CFSG.OddTranspositions.PartThree.Eleven.Wong.CentSylowT
 public import CFSG.OddTranspositions.PartThree.Eleven.Wong.CentTransferData
 public import CFSG.OddTranspositions.PartThree.Eleven.Wong.CentClasses
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_4
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.Basic
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 
 public section
 

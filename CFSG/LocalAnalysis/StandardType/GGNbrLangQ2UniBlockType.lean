@@ -1,15 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2UniSquare
-import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagLinear
-import CFSG.LocalAnalysis.StandardType.MarkingClassical
-import CFSG.Timmesfeld.Orders.Classical
-import CFSG.Timmesfeld.Orders.ClassicalLinear
-import CFSG.Timmesfeld.Orders.Distinct
-import CFSG.LieType.SemisimpleCentralizers.HeldCompTrivSL
 import CFSG.LieType.SemisimpleCentralizers.OrderThree.CenterQuot
 import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalAS76aProofUTypes
-import CFSG.RankThree.SubgroupLists.UnitaryThreeFamily
 import CFSG.Quasithin.Background.GoldschmidtListedSolv
 import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalAS76aProofUnitary
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Reduce

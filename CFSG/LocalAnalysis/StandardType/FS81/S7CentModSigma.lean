@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.S7CentDefs
 import CFSG.LocalAnalysis.StandardType.FS81.S7ModTransfer
-import Mathlib.Algebra.Group.Subgroup.Map
-import Mathlib.Algebra.Group.Subgroup.Pointwise
-import Mathlib.GroupTheory.Commutator.Basic
 
 public section
 

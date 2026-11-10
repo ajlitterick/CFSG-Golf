@@ -5,9 +5,7 @@ public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.S3AmalgamBound.ThreeRankSpo
 public import CFSG.Goldschmidt.Steps.GoldType
 import CFSG.LocalAnalysis.AGLEmbeddingD2.RealThreeRank
 import CFSG.RankThree.PartOne.CTP.SeitzExcModels
-import CFSG.RankThree.PartOne.Census3.Interface
 import CFSG.ClassicalInvolution.Orders.Ree
-import CFSG.RankThree.PartOne.TCB.Sporadic
 import CFSG.Goldschmidt.J1ModelTransport
 import CFSG.HardMathSupport.Timmesfeld.ComponentBalance.PGroupNormalE4
 public import CFSG.Assembly.OddCoreSpan
@@ -86,19 +84,6 @@ public import CFSG.Sporadic.Presentation.Co2FusionInputs
 public import CFSG.Sporadic.Presentation.McLExactData
 public import CFSG.Sporadic.Presentation.McLExactInputs
 public import CFSG.StronglyEmbedded.MatrixGroups.PSL2
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldPrimeOrderFixedSubfield
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OrderThreeNormalizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2PSLRangeCentralizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinInvolutionCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinRestrictionSixCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinUDecomposition
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationEleven
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTen
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTenStructuralIdentities
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2FieldProjectionArithmetic
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2OrderPSubgroupCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2S0LeQuotientTorus
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphReconstruction
 public import CFSG.YGroups.DCE.B433Check
 import CFSG.LieType.Chevalley.EvenRootCommutatorF4
 import CFSG.LieType.Universal.Spin.Roots

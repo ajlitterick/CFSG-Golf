@@ -1,17 +1,14 @@
 module
 
-public import Mathlib
 public import CFSG.LinearAlgebra.LinearGroups.RegularPermutationSign
 public import CFSG.LinearAlgebra.LinearGroups.Perfect
 public import CFSG.GroupTheory.ABGLocalTools.PStabilityQDickson
 public import CFSG.Dihedral.DisconnectedInvolutionGraph.RankOneQuaternionRecognition
 public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalInvolutions
-public import CFSG.ClassicalInvolution.Generic.Induction
 public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalLift
 public import CFSG.LieType.Universal.Spin.Roots
 public import CFSG.LieType.Universal.Unitary
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBLinearDescentFixedBasis
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 
 public section

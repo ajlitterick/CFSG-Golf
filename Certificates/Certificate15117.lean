@@ -2,8 +2,6 @@ module
 
 public import Certificates.Data.GMS78RuSPrimeCheck
 import Certificates.Kernel.GMS78.P117
-import Certificates.Kernel.GMS78.PJ
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

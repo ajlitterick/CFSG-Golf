@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UFrameD
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UData
 
 public section
 

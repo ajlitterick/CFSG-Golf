@@ -1,11 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1J2Data
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1J2Data
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1PipeNative
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1CosetNative
 public meta import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicBaseNative
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1J2CheckInputs
 public import Certificates.Certificate4050
 public meta import Std.Data.HashMap
 

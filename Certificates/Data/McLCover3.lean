@@ -1,8 +1,6 @@
 module
 
 public import Certificates.Data.Item434SporGenKit
-public import Certificates.Data.CFSGNative.MonsterB.Co2Data
-public import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 public import CFSG.Sporadic.Schreier.PairMcLCheckInputs
 
 public section

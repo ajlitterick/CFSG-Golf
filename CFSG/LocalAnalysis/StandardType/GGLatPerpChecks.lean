@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Blueprint.ChevalleyRootsInputs
 public import CFSG.LieType.Chevalley.LangRootArithmeticDet
 
 public section

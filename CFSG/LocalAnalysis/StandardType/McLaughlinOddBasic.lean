@@ -2,11 +2,6 @@ module
 
 public import CFSG.RankThree.PartOne.LIT.McSlA
 public import CFSG.RankThree.PartOne.LIT.McPencil
-import Mathlib.LinearAlgebra.Dual.Lemmas
-import Mathlib.Tactic.FieldSimp
-import Mathlib.Tactic.LinearCombination
-import Mathlib.Tactic.Module
-import Mathlib.Tactic.Ring
 public import CFSG.RankThree.PartOne.LIT.KF127Trans
 
 public section

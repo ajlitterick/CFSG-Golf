@@ -1,19 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIRows
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIRestr
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIOne
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIVacTwisted
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherExcTwF4Row
-public import CFSG.LocalAnalysis.StandardType.GGInndiagCommRestExcl
-public import CFSG.LocalAnalysis.StandardType.GGTwistedF4Diag
-public import CFSG.LocalAnalysis.StandardType.GGMarkingAllInduces
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154ExcRee
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.MIInn2
 public import CFSG.LocalAnalysis.StandardType.KGLangTorAGeneric
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45ConfigIso
-public import CFSG.LocalAnalysis.StandardType.GGAssemblyFiveDefs
-public import CFSG.LocalAnalysis.StandardType.GGExclNoIso
 public import CFSG.RankThree.PartOne.TCX.LayerEngineG
 
 public section

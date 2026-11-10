@@ -1,15 +1,8 @@
 module
 
-public import Mathlib
 public import CFSG.Milestones.ASVolI.H1
-public import CFSG.Quasithin.Background.HMathieuStatements
-public import CFSG.Blueprint.NativeSporadic
 public import CFSG.Monster.Code.LatticeCount
 public import CFSG.Quasithin.Background.HMathieuNorm
-public import CFSG.Quasithin.Background.HMathieuCent
-public import CFSG.Sporadic.Schreier.MathieuOddCoreM22
-public import CFSG.Sporadic.Schreier.M22
-public import CFSG.Monster.B.TwoA.Base.PairStab
 public import CFSG.Quasithin.Background.H132Irr
 
 public section

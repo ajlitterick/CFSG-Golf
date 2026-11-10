@@ -6,12 +6,7 @@ public import CFSG.Sporadic.Schreier.PairCounts
 public meta import CFSG.Sporadic.Schreier.PairHSCheck
 public meta import Certificates.Data.CFSGNative.PairSchreier.Core
 public meta import Certificates.Data.CFSGNative.PairSchreier.Counts
-public import Certificates.Certificate2218
-public import Certificates.Certificate2219
 public import Certificates.Certificate2222
-public import Certificates.Certificate2220
-public import Certificates.Certificate2221
-public import Certificates.Certificate3167
 
 public noncomputable section
 

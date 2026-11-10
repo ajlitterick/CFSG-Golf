@@ -2,9 +2,6 @@ module
 
 public import CFSG.CGT.Timmesfeld75.Sec66Conj
 public import CFSG.CGT.Timmesfeld75.Sec4OneQuotient
-public import CFSG.CGT.Timmesfeld75.Sec3Root
-public import CFSG.CGT.Timmesfeld75.Sec3Iso
-public import CFSG.CGT.Timmesfeld75.Sec3L2
 public import CFSG.CGT.Timmesfeld75.Sec5FiveEng
 public import CFSG.CGT.Timmesfeld75.Step511Card
 public import CFSG.CGT.Timmesfeld75.Step57Reduction

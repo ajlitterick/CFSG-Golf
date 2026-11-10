@@ -4,8 +4,6 @@ public import CFSG.RankThree.PartTwo.Sec4.T444.Item434SmallTwoOtherDefs
 import CFSG.RankThree.PartTwo.Sec4.T444.Item434SmallTwoOtherKit
 import CFSG.RankThree.PartTwo.Sec4.T444.Item434SmallTwoOtherU42Tools
 import CFSG.RankThree.PartTwo.Sec4.Item47CasesEven
-import CFSG.LocalAnalysis.SectionRank.EvenCover.Unitary
-import CFSG.LocalAnalysis.SectionRank.EvenCover.CoverMap
 import CFSG.Permutation.AlternatingAutomorphism
 import CFSG.RankThree.PartTwo.Sec12.Notation
 import CFSG.RankThree.PartTwo.Sec4.LThreePiItem411

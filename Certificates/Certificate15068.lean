@@ -3,10 +3,7 @@ module
 public import CFSG.Sporadic.Schreier.M12Data
 public meta import CFSG.Sporadic.Schreier.M12Data
 import CFSG.Sporadic.Schreier.M12
-import CFSG.Sporadic.Schreier.M12Check
 import CFSG.GH74.Generic.S1.Exo.Q3SingleM12
-import Certificates.Certificate2193
-import Certificates.Certificate3086
 public meta import CFSG.Sporadic.Schreier.ImagePairs
 public import CFSG.Sporadic.Schreier.ImagePairs
 

@@ -1,13 +1,6 @@
 module
 
 public import CFSG.Sporadic.Co2Smith.GlC0Jk45
-public import CFSG.ClassicalGroups.Symplectic.Simple
-public import CFSG.Sporadic.Co2Smith.GlC0JkInputs
-import Certificates.Kernel.Co2Smith.Mark
-import Certificates.Data.Kernel.Co2Smith.Rows
-import Mathlib.Logic.Equiv.Defs
-import Certificates.Data.Kernel.Census.CatFacts.PkDefs
-import Certificates.Kernel.Co2Smith.LettersData
 import Certificates.Kernel.Co2Smith.JkData
 import CFSG.Certificates.Kernel.Census.CatFacts.PkEnum
 

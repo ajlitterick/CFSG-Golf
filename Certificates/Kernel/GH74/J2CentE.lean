@@ -1,13 +1,11 @@
 module
 
 public import Certificates.Kernel.Sporadic.OddCore.J2CnK
-public import Certificates.Kernel.Sporadic.OddCore.J2Loc
 public import Certificates.Data.Kernel.GH74Ev
 public import Certificates.Data.GH74J2CentCheck
 public import Certificates.Kernel.Sporadic.ON.Gen
 meta import Certificates.Data.GH74J2CentCheck
 meta import Certificates.Kernel.Sporadic.OddCore.J2Loc
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

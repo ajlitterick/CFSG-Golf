@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.FF81P51Fast
 public import Certificates.Kernel.FF81P51Checks
 public import CFSG.Certificates.Kernel.FF81P51WitSound
 

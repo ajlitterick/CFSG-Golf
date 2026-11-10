@@ -3,7 +3,6 @@ module
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtE68SporRu
 public import CFSG.Quasithin.EmptyFaithful.Stellmacher.L3YC.Row18Common
 import all CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatRu
-public import Certificates.Certificate4215
 
 public section
 

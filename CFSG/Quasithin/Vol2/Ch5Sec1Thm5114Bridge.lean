@@ -4,7 +4,6 @@ public import CFSG.Quasithin.Vol2.Ch5Sec1Thm5114SL3
 public import CFSG.Quasithin.H13.StatementsL5
 public import CFSG.Quasithin.Background.E2Two
 public import CFSG.Quasithin.Background.InternalSecISec
-public import CFSG.Quasithin.Background.A4Defs
 public import CFSG.Foundations
 public import CFSG.GroupTheory.Fitting.CharacteristicP
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
@@ -19,7 +18,6 @@ public import CFSG.Quasithin.Background.B5Basic
 public import CFSG.Quasithin.Background.B5CompA
 public import CFSG.Quasithin.Background.B5CompB
 public import CFSG.Quasithin.Background.B6
-public import CFSG.Quasithin.Background.B6Example
 public import CFSG.Quasithin.Background.C2Basic
 public import CFSG.Quasithin.Background.E2Hyp
 public import CFSG.Quasithin.Background.E2SolvTwo

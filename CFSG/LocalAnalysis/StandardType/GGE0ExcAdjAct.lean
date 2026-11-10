@@ -2,18 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGE0ExcAdjNormal
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeAssemblyHolds
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeInnAutRest
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeInnAutLinear
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeInnAutUnitary
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T263DXQuasi
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.I141FU9LabHolds
-public import CFSG.LocalAnalysis.GLTheoremA.S10.CaseGamma
 public import CFSG.LocalAnalysis.StandardType.GGOutTwoCommInnerHolds
-public import CFSG.LocalAnalysis.StandardType.GGRawAutRestCore
-public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Lemma1315b
 public import CFSG.SignalizerFunctorTheorem.CatalogBridge.Parity
-public import CFSG.LocalAnalysis.StandardType.GGExclNoIso
-public import CFSG.LocalAnalysis.StandardType.Marking
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431Fam.E6BadLift
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.F151DiagDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeD4ThreeHolds
@@ -21,7 +11,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeE6KernelExitFacts
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeExcAdj
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeExcInnerD4FixMain
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeFamChar2
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeSpModel
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeSpModelPairedMain
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeOrthPairMain
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeSpBlock
@@ -39,18 +28,8 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeTwE6CompAct
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeTwE6Conn
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeTwSmall
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeUniInner
-public import CFSG.Quasithin.Background.B3ThreeModel
-public import CFSG.Quasithin.Background.B3ThreeStruct
-public import CFSG.Quasithin.Background.G2Omega4PlusModule
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtS143W2CompO
 public import CFSG.Quasithin.EmptyFaithful.R3c19B
-public import CFSG.Quasithin.EmptyFaithful.S143FF
-public import CFSG.Quasithin.EmptyFaithful.S143Final
-public import CFSG.Quasithin.EmptyFaithful.S143HD
-public import CFSG.Quasithin.EmptyFaithful.S143IG
-public import CFSG.Quasithin.EmptyFaithful.S143JB
-public import CFSG.Quasithin.EmptyFaithful.S143KO
-public import CFSG.Quasithin.EmptyFaithful.S143KP
 public import CFSG.Quasithin.EmptyFaithfulMultiple.Lemma15421
 public import CFSG.RankThree.PartOne.N143.HighEvenU
 

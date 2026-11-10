@@ -8,18 +8,7 @@ public import CFSG.LocalAnalysis.StandardType.GGTPNC2Final
 public import CFSG.LocalAnalysis.StandardType.GGKGPosSpStd
 import CFSG.LocalAnalysis.StandardType.GGF4QGeFourEndsCover
 import CFSG.LocalAnalysis.StandardType.GGF4QGeFourR3Comm
-import CFSG.LocalAnalysis.StandardType.GGF4QGeFourOrb
-import CFSG.LocalAnalysis.StandardType.GGF4OrigRep
-import CFSG.LocalAnalysis.StandardType.GGPZWeylB
 import CFSG.LocalAnalysis.StandardType.GGF4OrderThreeLabel
-import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaBase
-import CFSG.LocalAnalysis.StandardType.GGRootInvolutionRank
-import CFSG.LocalAnalysis.StandardType.GGPumpupBalance
-import CFSG.LocalAnalysis.StandardType.Marking
-import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagOrder
-import CFSG.Timmesfeld.Transvection.PresSp
-import CFSG.Timmesfeld.Orders.ClassicalLinear
-import Mathlib.Tactic.Group
 
 public section
 

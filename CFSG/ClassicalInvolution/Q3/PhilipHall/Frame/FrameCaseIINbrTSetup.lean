@@ -1,9 +1,5 @@
 module
 
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.FrameAEmptyPf2
-public import CFSG.ClassicalInvolution.Q3.Q3T6DExact
-public import CFSG.ClassicalInvolution.SmallCases.NDBG1
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.InductionBridge.FrameCore
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.FrameAEmptyPf16Thm3
 import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.FrameAEmptyPf30Setup
 public import CFSG.ClassicalInvolution.Asc77.AscS22B

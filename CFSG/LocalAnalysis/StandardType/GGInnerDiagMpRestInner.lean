@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGAssemblyThreeHypSix
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagUnitary
 
 public section
 

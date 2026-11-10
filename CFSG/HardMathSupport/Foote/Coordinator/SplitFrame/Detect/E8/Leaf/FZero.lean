@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Detect.E8.CaseData
-public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Detect.Heis.ConjSub
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Detect.E8.MPart
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Detect.GroupTheory
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Detect.Heis.NormalForm

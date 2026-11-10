@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.PartOne.AUTSL.Interface
 public import CFSG.RankThree.SubgroupLists.SL3Involutions
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.ComponentInitial.LinearModelOuterTwoPart
 public import CFSG.GH74.GLS.Stage2.Local.Concl
 

@@ -2,13 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3Defs
 public import CFSG.LocalAnalysis.StandardType.GGResXDichotomyDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveZSInputs
-public import CFSG.LocalAnalysis.StandardType.GGResSideDatumDefs
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRMModuleDefs
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 
 public section
 

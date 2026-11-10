@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.PreambleHSU
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section1 -- fact_1_4_*, fact_1_5_iii, centralizerIn, sqrtOf
 
 namespace CFSG

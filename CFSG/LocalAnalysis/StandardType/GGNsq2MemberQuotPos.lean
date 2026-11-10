@@ -3,7 +3,6 @@ module
 import Lean
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSQ2CellsDefs
 public import CFSG.LocalAnalysis.StandardType.GGNsq2Cited
-import CFSG.LocalAnalysis.StandardType.GGNsq2QuotCover
 import CFSG.LocalAnalysis.StandardType.GGNsq2Hopf
 import CFSG.LocalAnalysis.StandardType.GGNsq2Main
 import CFSG.LocalAnalysis.StandardType.GGNsq2QuotActs
@@ -13,7 +12,6 @@ import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosBlock
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosTransport
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSLieEsuAux
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSCornerMain
-import CFSG.ClassicalGroups.Unitary.Finite
 
 public section
 

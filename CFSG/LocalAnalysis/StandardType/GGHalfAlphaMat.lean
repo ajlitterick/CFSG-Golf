@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGHalfAlphaCent
 public import CFSG.LocalAnalysis.StandardType.GGHalfAux
-public import CFSG.LocalAnalysis.StandardType.GGHalfBlockPerm
 public import CFSG.LocalAnalysis.StandardType.GGHalfSlOnLevi
 
 public section

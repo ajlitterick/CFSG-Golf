@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.N7FixSylow
-import CFSG.LocalAnalysis.StandardType.FS81.N7FixDentGrp
 import CFSG.LocalAnalysis.StandardType.FS81.N7FixDentPerm
 import CFSG.LocalAnalysis.StandardType.FS81.N7FixDentNorm
 

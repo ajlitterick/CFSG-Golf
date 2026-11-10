@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusDefs
-import CFSG.LocalAnalysis.StandardType.GGTableBExc
 import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylExcPlusLift
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.ExcE7
 import CFSG.LocalAnalysis.GLTheoremA.CatA.YS1011LabUniq

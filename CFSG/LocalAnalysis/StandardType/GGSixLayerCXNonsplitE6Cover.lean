@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitExcSixE
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitExcLabel
-public import CFSG.LocalAnalysis.StandardType.GGLayerCenterCyclicTransfer
 
 public section
 

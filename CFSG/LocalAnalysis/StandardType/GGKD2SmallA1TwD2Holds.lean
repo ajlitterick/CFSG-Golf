@@ -3,12 +3,8 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGKD2SmallPieces1615
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoLayer
 public import CFSG.LocalAnalysis.StandardType.GGAssemblyThreeHypSix
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeAEndModel
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63H5LayerGroup
 public import CFSG.RankThree.PartTwo.Sec4.Item462AltProofKChevTwoL2
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Center
-public import CFSG.LocalAnalysis.ComponentInitial.LinearFlagElation
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LocalAnalysis.ComponentInitial.SuzukiModelSchreier
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.CentralInvolutionStructure

@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormUnitaryThreePrimeBlock
-public import CFSG.LocalAnalysis.StandardType.GGTBWNormUnitarySingular
-public import CFSG.LocalAnalysis.StandardType.GGPGUQuadPhase
-public import CFSG.LocalAnalysis.StandardType.GGTBWNormQuotMovePSU
-public import CFSG.LocalAnalysis.StandardType.GGTBWNormQuotTransvection
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormQuotTransvectionThree
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormUnitaryTwicePrime
 

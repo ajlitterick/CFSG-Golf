@@ -2,12 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveL2SplitDefs
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpCoordPair
 import CFSG.LocalAnalysis.StandardType.GGSecFiveL2SplitDkRootsWeyl
-import Mathlib.FieldTheory.Finiteness
-import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
-import Mathlib.LinearAlgebra.Matrix.Nondegenerate
 import TauCeti.LinearAlgebra.IntegralLattice.RootLattice.TypeD.SimpleRoots
 
 public section

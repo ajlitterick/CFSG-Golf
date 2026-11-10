@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixStepOneOutdiagLabels
 public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherOuterQuotients
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismGeneration
 
 public section
 

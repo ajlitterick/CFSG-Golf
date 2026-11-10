@@ -5,12 +5,7 @@ public import CFSG.LocalAnalysis.StandardType.ExcPay.Defs
 import CFSG.LocalAnalysis.StandardType.GGL45NtExcBridgeU
 import CFSG.LocalAnalysis.StandardType.GGLieCoreLang
 import CFSG.LocalAnalysis.SeitzReduction.E7PilotMainSetup
-import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.FieldCopy
-import CFSG.LocalAnalysis.StandardType.GGFinModelRootCompatDefs
-import CFSG.LocalAnalysis.StandardType.GGFinModelRat
-import CFSG.LieType.CurtisTits.ExceptionalQuasisimple
 import CFSG.LieType.AschbacherSeitz.RootGroupTransport
-import CFSG.RankThree.PartOne.Q1327T.Item7D4W
 import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8E7Levi
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.InTorus
 import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotCatAssembly

@@ -3,13 +3,10 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGK0LEA12
 public import CFSG.LocalAnalysis.StandardType.GGK0LQ1
 public import CFSG.LocalAnalysis.StandardType.GGK0LQ3
-public import CFSG.LocalAnalysis.StandardType.GGK0LQAlgSetup
 public import CFSG.LocalAnalysis.StandardType.GGK0LETwE6Normal
 public import CFSG.LocalAnalysis.StandardType.GGK0LETwE6Chiral
 public import CFSG.LocalAnalysis.StandardType.GGKacTwE6A12Class
 public import CFSG.LieType.Chevalley.E6DiagramRootChar
-public import CFSG.LieType.Chevalley.RootDiagonalWeylTransporter
-public import CFSG.Sporadic.ThSchreier.GlobalData
 
 public section
 

@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarE8FiveCharpoly
 public import CFSG.LieType.SeitzGeneration.ExcTorusUntw
 public import CFSG.RankThree.PartOne.KE.SigmaUntwisted2
-public import CFSG.RankThree.PartOne.KE.CTLang
-public import CFSG.RankThree.PartOne.KE.CTTorusFixed
 public import CFSG.LieType.SeitzGeneration.Lift
 public import CFSG.LieType.SeitzGeneration.RegimesExcFamilies
 public import CFSG.RankThree.PartOne.KE.A1SL2

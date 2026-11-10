@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LieType.Chevalley.EvenE7E8AutomorphismNormalForm
 public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergRoot
 public import CFSG.LocalAnalysis.StandardType.GGLatRootBridge
-public import CFSG.LieType.Steinberg.Adjoint.Presentation
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.Survivors.E7Rep
 public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalIsogeny
 public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalAdjoint

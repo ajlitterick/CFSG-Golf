@@ -3,65 +3,22 @@ module
 
 public import CFSG.Sporadic.FischerOddCore.Fi24R2CompBase
 
-public import CFSG.Sporadic.FischerOddCore.Fi24R2Order
 public import CFSG.Sporadic.FischerOddCore.Fi24R2Check
-public import CFSG.Sporadic.FischerOddCore.Fi23T2Card
-public import CFSG.Sporadic.FischerOddCore.Fi24Cent
-public import CFSG.Sporadic.FischerOddCore.NoCompLemmas
-public import CFSG.Sporadic.Fi24.Involutions
-public import CFSG.Sporadic.Fi23.InvCover
-public import CFSG.Fischer.Polar.Facts
-public import Certificates.Data.Kernel.Fi22.CentChecks
-public import Certificates.Data.CFSGNative.Fi22.Certificate
-public import Certificates.Data.CFSGNative.Fi23.Centralizer
-public import Certificates.Data.CFSGNative.Fi23.Certificate
-public import Certificates.Data.CFSGNative.Fi23.Classes
-public import CFSG.Sporadic.Fi23.InvCertInputs
-public import Certificates.Data.Fi24Core
-public import Certificates.Data.CFSGNative.Fi24.Certificate
-public import Certificates.Data.CFSGNative.Fi23.Data
-public import CFSG.Sporadic.Fi24.ExtCertInputs
-public import CFSG.Sporadic.Fi24.Simple
-public import CFSG.Sporadic.FischerOddCore.Fi22CentCheckInputs
 public meta import CFSG.Sporadic.FischerOddCore.Fi22CentData
 public meta import CFSG.Monster.B.Fischer.Fi22OuterCheck
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
-public import CFSG.Sporadic.FischerOddCore.Fi22CentOrderCheckInputs
 public meta import CFSG.Sporadic.FischerOddCore.Fi22Cent
 public meta import CFSG.Sporadic.FischerOddCore.Fi22ExtSylowCheck
-public import CFSG.Sporadic.FischerOddCore.Fi22ExtCheckInputs
 public meta import CFSG.Sporadic.FischerOddCore.Fi22ExtData
-public import CFSG.Sporadic.FischerOddCore.Fi22ExtCoverCheckInputs
 public meta import Certificates.Data.CFSGNative.FischerOddCore.Checks
-public import CFSG.Sporadic.FischerOddCore.Fi22ExtSylowCheckInputs
 public meta import CFSG.Sporadic.FischerOddCore.Fi22ExtCheck
 public meta import CFSG.Monster.B.Fischer.Fi22CoverCheck
 public meta import CFSG.Monster.B.Fischer.Fi22OrderCheck
 public meta import CFSG.Monster.B.Fischer.Fi22GraphCheck
-public import CFSG.Sporadic.FischerOddCore.Fi22RelBoundCheckInputs
 public meta import CFSG.Sporadic.FischerOddCore.Fi22CentCheck
 public meta import CFSG.Monster.B.Fischer.Fi22GraphBoundCheck
-public import CFSG.Sporadic.FischerOddCore.Fi22SearchCheckInputs
 public meta import CFSG.Sporadic.FischerOddCore.Fi22RelBoundCheck
 public meta import CFSG.Sporadic.FischerOddCore.Fi22CentOrderCheck
-public import CFSG.Sporadic.FischerOddCore.Fi22ExtCheck
-public import CFSG.Monster.B.Fischer.Fi22OuterCheck
-public import CFSG.Sporadic.FischerOddCore.Fi23UniqCheckInputs
-public import CFSG.Sporadic.FischerOddCore.Fi23WitCheckInputs
-public import CFSG.Sporadic.FischerOddCore.Fi24G2dFacts
-public import CFSG.Sporadic.FischerOddCore.Fi24R2KCheckInputs
-public import CFSG.Monster.B.Fischer.Fi22GraphCheckInputs
-public import CFSG.Monster.B.Fischer.Fi22OuterCheckInputs
-public import CFSG.Monster.B.Fischer.PinnedChainInputs
-public import CFSG.Monster.B.Fischer.Fi22OrderCheckInputs
-public import CFSG.Monster.B.Fischer.Fi22CentralizerCheckInputs
-public import CFSG.Monster.B.Fischer.Fi22OuterArrays
-public import CFSG.Monster.B.Fischer.Fi22OrderCheck
-public import CFSG.Monster.B.Fischer.Fi22CoverCheckInputs
-public import CFSG.Monster.B.Fischer.Fi22FaithfulCheckInputs
-public import CFSG.Monster.B.Fischer.Fi22GraphBoundCheckInputs
-public import Certificates.Data.CFSGNative.FischerOddCore.Checks
-public import CFSG.Monster.B.Fischer.Fi22GraphCheck
 public import CFSG.Sporadic.FischerOddCore.Fi24AlmostSimple
 public import CFSG.Sporadic.FischerOddCore.FischerOuterBasic
 public import CFSG.Sporadic.Schreier.MathieuOddCoreWords

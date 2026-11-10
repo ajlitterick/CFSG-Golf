@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
-public import CFSG.LieType.Steinberg.CentralExt.SUCentrallyClosed
 public import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotSwapLiftBasic
 
 public section

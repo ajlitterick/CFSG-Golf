@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutTrialityBridgeFix
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangTriD4
-public import CFSG.RankThree.PartOne.KE.LangDescent
 
 public section
 

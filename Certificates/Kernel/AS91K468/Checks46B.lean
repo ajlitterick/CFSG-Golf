@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.AS91K468.Checks46C
 import CFSG.Certificates.Kernel.Common.EachTrue
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

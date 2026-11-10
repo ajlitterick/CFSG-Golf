@@ -1,14 +1,11 @@
 module
 
-public import Certificates.Data.TabCo1FiveC
 public meta import Certificates.Data.TabCo1FiveC
 public import Certificates.Kernel.Co1B.Chk17326
 public import Certificates.Kernel.Co1B.Tree17326
 public import Certificates.Kernel.Co1B.Lvl17326A
 public import Certificates.Kernel.Co1B.Lvl17326B
 public import Certificates.Kernel.Co1B.C17330
-import Mathlib.Tactic.IntervalCases
-public import CFSG.Monster.B.TwoA.Par3.Main
 
 public section
 

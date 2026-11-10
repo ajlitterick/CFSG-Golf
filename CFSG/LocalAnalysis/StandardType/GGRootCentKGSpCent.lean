@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsSp
 public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsOmBasic
 public import CFSG.LocalAnalysis.StandardType.GGSixAutStructurePSpHolds
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Commutator.Core
 
 public section
 

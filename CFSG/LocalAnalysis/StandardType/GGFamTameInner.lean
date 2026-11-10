@@ -1,13 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGFamTameRangeSpan
 public import CFSG.LocalAnalysis.StandardType.GGFamTameLang
-public import CFSG.LocalAnalysis.StandardType.GGFamTameOrbit
-public import CFSG.LocalAnalysis.StandardType.GGFamTameTransfer
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4ULang
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTamePrime
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTame.SmallField
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerF4Root
 public import CFSG.HardMathSupport.Timmesfeld.RootAut.Main
 public import CFSG.LocalAnalysis.StandardType.GGFamTameInnerAux
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcLang

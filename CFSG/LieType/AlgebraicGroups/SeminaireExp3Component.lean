@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.AlgebraicGroups.SeminaireExp3Basic
-public import Mathlib.Topology.Algebra.Group.ClosedSubgroup
 
 public noncomputable section
 

@@ -6,13 +6,9 @@ public import Certificates.Kernel.Sporadic.ON8.ChecksH
 public import Certificates.Kernel.Sporadic.ON8.ChecksS
 public import Certificates.Kernel.Sporadic.ON3.Final
 public import Certificates.Kernel.Sporadic.ON5.Final
-public import CFSG.Certificates.Kernel.Spor.ChainKProof
-public import CFSG.Sporadic.Schreier.ONCheckR3EInputs
 public meta import CFSG.Sporadic.Schreier.ONCheckAux
 public meta import CFSG.Sporadic.Schreier.ONCheckSmallAux
-import CFSG.Certificates.Kernel.Common.Harness
 import Certificates.Kernel.Sporadic.ON8.Neg
-import Mathlib.Tactic.IntervalCases
 
 public section
 

@@ -45,7 +45,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasSix
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalReflectionSplitting
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalStandardFormsRegular
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionSquareFieldAction
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.RankThree.GF2n.Smith81.ELane
 public import CFSG.RankThree.GF2n.Smith81.LinOddBasic
@@ -67,8 +66,6 @@ public import CFSG.RankThree.GF2n.SupIndepDecomp
 public import CFSG.RankThree.GF2n.Tim79CentC
 public import CFSG.RankThree.GF2n.Tim79CentL
 public import CFSG.RankThree.GF2n.Tim79Mod
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import CFSG.Timmesfeld.RankOne
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension

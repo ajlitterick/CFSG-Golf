@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.EvenBN.U5.Setting
-public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherRankTwoLevi
 public import CFSG.RankThree.CentralLiftU.HypRankOneConj
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Foundations
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenCanonicalField

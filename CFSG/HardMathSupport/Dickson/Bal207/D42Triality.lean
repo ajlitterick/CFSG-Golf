@@ -2,15 +2,10 @@ module
 
 public import CFSG.HardMathSupport.Dickson.Bal207.OrthShapeIdx
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.NativeModel
-public import CFSG.Quasithin.Recognition.CertU33PresInputs
-public import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
-import CFSG.Assembly.Subnormal
 import CFSG.HardMathSupport.Dickson.Bal207.D42TriModel
 import CFSG.HardMathSupport.Meierfrankenfeld.AGL81.I542.AutFactsU33
 import CFSG.LargeExtraspecial.S5Gen2
 import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.NativeAut
-import CFSG.LocalAnalysis.QuasithinUnique.SQTK.UnitaryTauCeti
-import Mathlib.Tactic.Group
 public import CFSG.CharacterTheory.CyclicBlocks.Family
 public import CFSG.CharacterTheory.PSL2Table.BlocksProduct
 public import CFSG.CharacterTheory.Semidihedral.Principal.LargePrimeTorusSylowCentralizers
@@ -103,8 +98,6 @@ public import CFSG.Quasithin.Background.C2PushThree
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.D2Cyclic
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.FFC4Tr2
 public import CFSG.Quasithin.Background.GoldschmidtS146RBend1
@@ -154,8 +147,6 @@ public import CFSG.RankThree.PartTwo.KFacts.KS14SzLie
 public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.RankThree.Theta.ThreeComponentOrbitCover
 public import CFSG.Sporadic.Schreier.TitsOther
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension

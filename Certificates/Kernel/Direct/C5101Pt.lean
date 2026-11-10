@@ -1,8 +1,6 @@
 module
 
 public import CFSG.GH74.GLS.Stage4.Q9.PermCharInputs
-import CFSG.GH74.GLS.Stage4.Q9.ModelBaseInputs
-import CFSG.GH74.GLS.Stage4.Q9.ModelBase
 
 public section
 

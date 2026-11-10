@@ -4,7 +4,6 @@ import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.lemma_4_5_a
 import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.Assembly.LowTwoRankDefs
 public import CFSG.Assembly.RankThreeEvenDefs
-import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

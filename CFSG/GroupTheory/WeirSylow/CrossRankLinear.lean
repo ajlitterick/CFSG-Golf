@@ -5,7 +5,6 @@ public import CFSG.Open.StatedAPI
 public import CFSG.GroupTheory.WeirSylow.Arith
 import CFSG.GroupTheory.WeirSylow.GL
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RankChevSigma
-import TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.Equivalence
 
 public section
 

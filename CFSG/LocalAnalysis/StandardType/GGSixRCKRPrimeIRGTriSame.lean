@@ -1,13 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGTriPairAut
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGTriSameAux
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGTyLabelE
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGTransferGen
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.ClassicalInvolution.RouteD.SmallTwinChainX
-public import CFSG.LieType.HighestRoot.GenModels
 
 public section
 

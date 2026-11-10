@@ -7,20 +7,12 @@ import CFSG.RankThree.PartTwo.Sec12.Item128BarProofTools
 import CFSG.RankThree.PartTwo.Sec4.Sporadic.Item414Local
 import CFSG.RankThree.PartTwo.Sec4.LThreePiCaseI
 import CFSG.RankThree.PartTwo.Sec13.Item13Sporadic
-import CFSG.RankThree.PartTwo.Sec13.Item13GL
 import CFSG.RankThree.PartTwo.Sec13.Item133Mono
 import CFSG.RankThree.PartTwo.Sec13.Item136Lift
 import CFSG.RankThree.PartTwo.Sec13.Item136E
 import CFSG.RankThree.PartTwo.Sec13.Item136Pair
-import CFSG.RankThree.PartTwo.Sec13.Item136PGL
 import CFSG.RankThree.PartTwo.Sec13.Item137NormLe
 import CFSG.RankThree.PartTwo.Sec13.Item137Delta
-import CFSG.RankThree.PartTwo.Sec13.Item137Tools
-import CFSG.RankThree.Asc83Table.GL23
-import CFSG.RankThree.GroupTheory.ThetaQuotientTransport
-import CFSG.GroupTheory.QuasisimpleCommutingProductBound
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Foundations
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LieType.Chevalley.LangRootArithmetic
@@ -40,11 +32,9 @@ public import CFSG.RankThree.PartTwo.Sec4.LThreePiSLOn
 public import CFSG.RankThree.PartTwo.Sec8.Pairs
 public import CFSG.RankThree.PartTwo.Sec8.Statements
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 import CFSG.RankThree.PartTwo.Sec11.Data
 import CFSG.RankThree.PartTwo.Sec6.Statements
-import CFSG.Sporadic.Th.F2Spec
 
 public section
 

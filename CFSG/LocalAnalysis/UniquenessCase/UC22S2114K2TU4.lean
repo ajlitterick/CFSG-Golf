@@ -2,30 +2,22 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S2114E3R880
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S22c
-public import CFSG.LocalAnalysis.UniquenessCase.UC22S21d
-public import CFSG.LocalAnalysis.UniquenessCase.UC6S846e
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight102KFacts
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.PartOne
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.R76Sig
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section21.StatementsFive
 import CFSG.LocalAnalysis.UniquenessCase.UC22Main1
-import CFSG.LocalAnalysis.UniquenessCase.UC22P22p
 import CFSG.LocalAnalysis.UniquenessCase.UC22P21a
-import CFSG.LocalAnalysis.UniquenessCase.UC22P21k
-import CFSG.LocalAnalysis.UniquenessCase.UC22Bridge4
 import CFSG.LocalAnalysis.UniquenessCase.UC22S2114Thin
 import CFSG.LocalAnalysis.UniquenessCase.UC22S2114K2N
 import CFSG.LocalAnalysis.UniquenessCase.UC22S2114K2U
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.NotThinShapes
-import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight102Types
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight106Setup
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight102Strong
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight102Unique
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight102Eight
-import CFSG.LocalAnalysis.RankThreeUC.Assembly
 import CFSG.GroupTheory.PCoreJoin
 import CFSG.GroupTheory.HuppertProduct.Quotient
-import CFSG.LocalAnalysis.RankThreeCoreUniqueness.PerfectResiduals
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S2114Defs
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S218X
 public import CFSG.LocalAnalysis.UniquenessCase.UC6S846d
@@ -63,9 +55,6 @@ import CFSG.Quasithin.Background.B5CompB
 import CFSG.Quasithin.Background.C1GNSolvConnect
 import CFSG.Quasithin.Background.D2
 import CFSG.Quasithin.Background.E3
-import CFSG.Quasithin.Background.E3Nprime
-import CFSG.Quasithin.Background.E3Uniq
-import CFSG.Quasithin.Background.E4Solv
 import CFSG.Quasithin.Background.FFC4Res
 import CFSG.Quasithin.Background.GoldschmidtS146RBend1
 import CFSG.Quasithin.Background.InternalSecFF
@@ -110,9 +99,6 @@ import CFSG.RankThree.PartTwo.Sec4.T444.Basic
 import CFSG.RankThree.PartTwo.Sec6.Item612
 import CFSG.RankThree.PartTwo.Sec6.Item65Tools
 import CFSG.Sporadic.Schreier.J4SNoCompCover
-import CFSG.Walter.J1Props
-import CFSG.Walter.J1Recog
-import CFSG.Walter.W67.Statements
 
 public section
 

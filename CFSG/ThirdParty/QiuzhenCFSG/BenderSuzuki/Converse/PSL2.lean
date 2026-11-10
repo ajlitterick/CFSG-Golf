@@ -4,7 +4,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.Basic
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.MatrixGroups.PSL2
 public import Mathlib.LinearAlgebra.Projectivization.Action
 public import Mathlib.LinearAlgebra.Projectivization.Cardinality
-public import Mathlib.FieldTheory.Finite.GaloisField
 
 namespace CFSG
 end CFSG

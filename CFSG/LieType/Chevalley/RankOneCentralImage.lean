@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LieType.Chevalley.RankOneGaussian
-public import CFSG.LieType.Chevalley.RankOneBruhat
 public import CFSG.LieType.Chevalley.SimpleRootSubgroups
-public import CFSG.LieType.Chevalley.BorelWeylIntersection
 public import CFSG.LieType.Chevalley.BorelCoreCenter
 
 public noncomputable section

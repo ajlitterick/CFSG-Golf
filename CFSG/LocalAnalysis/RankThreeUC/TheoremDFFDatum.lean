@@ -7,7 +7,6 @@ import CFSG.LocalAnalysis.RankThreeUC.TIModule
 import CFSG.LocalAnalysis.RankThreeUC.TheoremDSolvableQuotient
 import CFSG.Quasithin.Background.B2FactorizationR2
 import CFSG.GroupTheory.ElementaryAbelianTransport
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

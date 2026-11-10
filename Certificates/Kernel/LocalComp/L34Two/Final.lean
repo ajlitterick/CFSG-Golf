@@ -8,7 +8,6 @@ public import Certificates.Kernel.LocalComp.L34Two.BChk
 public import Certificates.Kernel.LocalComp.L34Cert
 public import CFSG.Certificates.Kernel.L34TwoSigKSound
 public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
-public import Certificates.Certificate2022
 import Certificates.Kernel.Sporadic.ON.Gen
 import CFSG.Certificates.Kernel.L34KSnd.Tab
 import CFSG.Certificates.Kernel.Spor.RawOrbEval

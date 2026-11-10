@@ -1,16 +1,12 @@
 module
 
-public import CFSG.LocalAnalysis.SeitzReduction.E8PilotLevi
-public import CFSG.LocalAnalysis.SeitzReduction.EPilotRootSL2Basic
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTBFull
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerE8FourFiveQ2Char
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.RankThree.PartTwo.Census.CommonUnipotent
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerFivePairRigid
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerFiveTwRigidLang
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.CentralizerTrivialPoly
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.CentralizerTrivialQ3T
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.OuterField
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.RigidField
 public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.CrossLin
 public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.LangFrame

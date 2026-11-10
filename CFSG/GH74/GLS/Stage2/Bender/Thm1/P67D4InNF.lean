@@ -4,8 +4,6 @@ public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4VNormal
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4WeylCases
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4PlaneLeaf
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67InnerTools
-public import CFSG.LieType.Chevalley.GraphFixedBorelCoreCenter
-public import CFSG.LieType.Chevalley.TrialityExactFiniteOrder
 public import CFSG.GH74.GLS.IVK.Proofs2.OddTools
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.Der61a
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.Der69

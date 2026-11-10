@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGFrameTBTw
 public import CFSG.LocalAnalysis.StandardType.GGFrameModelStep
-public import CFSG.LocalAnalysis.StandardType.GGCoxReflConv
 
 public section
 

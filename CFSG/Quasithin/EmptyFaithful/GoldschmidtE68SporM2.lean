@@ -4,10 +4,7 @@ public import CFSG.Quasithin.EmptyFaithful.GoldschmidtE68SporAsm
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtE68SporCen
 public import CFSG.Quasithin.EmptyFaithful.S151S9TM23
 public import CFSG.Quasithin.EmptyFaithful.S151S9TM24
-public import CFSG.Quasithin.Background.E2TwoProofSporM23
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatM24
 public import Certificates.Certificate4213
-import CFSG.Quasithin.Background.HSporLatMathieu
 
 public section
 

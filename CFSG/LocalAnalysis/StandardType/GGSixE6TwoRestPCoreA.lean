@@ -1,15 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestDefs
-public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestFrame
-public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestBasic
 public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestNormalizer
-public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestInvQV
 public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestInvariant
 public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestCenter
-public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestLevi
 public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestLeviInv
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Defs
 
 open scoped commutatorElement
 

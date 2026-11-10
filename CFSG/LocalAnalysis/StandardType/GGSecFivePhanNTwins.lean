@@ -1,7 +1,6 @@
 module
 
 import Lean
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanPrimDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSARk1
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSAGen
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSAPair

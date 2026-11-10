@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Open.GLADefs
 public import CFSG.LocalAnalysis.StandardType.MarkingDict
 public import CFSG.LieType.SeitzGeneration.ExcTorusSylow
 public import CFSG.LocalAnalysis.SectionRank.PRank

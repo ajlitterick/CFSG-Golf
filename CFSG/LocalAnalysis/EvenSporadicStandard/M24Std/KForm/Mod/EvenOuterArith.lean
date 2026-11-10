@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafLieOrderBig
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagOrder
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafBasic
 
 public section

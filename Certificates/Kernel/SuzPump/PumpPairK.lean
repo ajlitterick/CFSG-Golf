@@ -2,8 +2,6 @@ module
 
 public import Certificates.Kernel.SuzPump.PumpPair
 public import Certificates.Data.Kernel.Spor.HNAOrb
-public import Certificates.Data.Kernel.BfsPinSlice
-public import Certificates.Data.Kernel.BfsPinBase
 public import Certificates.Kernel.LocalQT.Tc.Gen
 import CFSG.Certificates.Kernel.Common.Harness
 

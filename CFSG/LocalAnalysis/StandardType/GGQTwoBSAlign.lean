@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Phan.Defs
 import CFSG.LocalAnalysis.StandardType.GGQTwoSixAlign
-import CFSG.LocalAnalysis.StandardType.GGQTwoSixExt
 import CFSG.LocalAnalysis.StandardType.GGQTwoSixGensWindows
 
 public section

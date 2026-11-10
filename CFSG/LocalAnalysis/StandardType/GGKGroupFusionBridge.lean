@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGroupFusionSeitz
-public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoAutK
-public import CFSG.LocalAnalysis.StandardType.GGLemmaThreeThirteen
 public import CFSG.LocalAnalysis.StandardType.GGLemmaThreeThirteenFourteenP
 
 public section

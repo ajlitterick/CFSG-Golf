@@ -2,12 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLangFamily
 public import CFSG.LocalAnalysis.StandardType.GGTwE6LangRetype
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Defs
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcInnerLang
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcInnerLang.Core
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeBlock
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.FrobeniusOnRoots
-public import CFSG.LieType.AlgebraicGroups.FrobeniusDiagramRealized
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.LayerBridge
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.TorusAtCore
 

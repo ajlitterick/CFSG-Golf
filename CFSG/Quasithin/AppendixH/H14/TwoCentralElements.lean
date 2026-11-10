@@ -1,8 +1,6 @@
 module
 
-public import Mathlib
 public import CFSG.Milestones.ASVolI.H13
-public import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
 
 public section
 

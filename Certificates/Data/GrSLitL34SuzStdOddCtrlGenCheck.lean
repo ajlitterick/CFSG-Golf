@@ -1,8 +1,6 @@
 module
 
 public import Certificates.Data.GrSLitL34FactsCF23SuzCheck
-public import Certificates.Data.CFSGNative.MonsterB.Co2Chain
-public import CFSG.Sporadic.SuzOddCore.Arrays
 
 public section
 

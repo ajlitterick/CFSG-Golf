@@ -3,7 +3,6 @@ module
 public import CFSG.GH74.Generic.BProg.B2.GenLocU4Q2sSL2
 public import CFSG.GH74.Generic.BProg.B2.GenLocU4Q2sPsi
 public import CFSG.Sporadic.ThSchreier.GlobalData
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.Sporadic.ThSchreier.LocalOrbitBase1
 
 public section

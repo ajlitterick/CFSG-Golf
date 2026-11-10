@@ -3,7 +3,6 @@ module
 public import CFSG.Certificates.Kernel.Spor.RawOrbEval
 public import CFSG.Certificates.Kernel.Spor.PcompFacts
 public import CFSG.Certificates.Kernel.Spor.RawTreeDefs
-public import Certificates.Data.CFSGNative.Co3Schreier.Basic
 public import Mathlib.Data.Nat.Totient
 public import Mathlib.Data.Rat.Floor
 public import Mathlib.Data.Sym.Sym2.Init

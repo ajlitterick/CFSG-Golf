@@ -4,7 +4,6 @@ module
 public import CFSG.Quasithin.Background.E2TwoProofSporJ1Inputs
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatCore
 public import CFSG.Sporadic.J1.Setup
-public import Certificates.Data.CFSGNative.J1.Certificate
 import Certificates.Kernel.J1Dc.Final
 
 public section

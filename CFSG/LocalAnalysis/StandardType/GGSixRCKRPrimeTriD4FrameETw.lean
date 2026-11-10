@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeTriD4FrameELeaf
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeTriD4FrameE
-public import CFSG.LocalAnalysis.StandardType.GGK0LQD4TwE6
 
 public section
 

@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeLemma1025Basic
-public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeLemma1025Coords
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeLemma1025Torus
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeLemma1025Count
-public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeO1ppModels
 import CFSG.LocalAnalysis.StandardType.GGQ2PrimeU52Torus
 import CFSG.LocalAnalysis.StandardType.GGQ2PrimeU52TorusU42
 

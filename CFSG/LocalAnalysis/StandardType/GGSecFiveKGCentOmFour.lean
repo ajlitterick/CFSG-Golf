@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGRootCentKGOTwoOmPlusStep
 public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergTrialityModel
 
-import CFSG.LocalAnalysis.StandardType.GGRootCentralizerOmegaSpin
 
 public section
 

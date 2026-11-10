@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoUnitaryCav
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
 
 public section
 

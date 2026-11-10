@@ -1,20 +1,9 @@
 module
 
-public import CFSG.Assembly.Defs
-public import CFSG.Blueprint.Chevalley
-public import CFSG.LieType.Chevalley.TwistedE6NormalForm
-public import CFSG.LocalAnalysis.ComponentInitial.RootDiagonalConjugation
-public import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotCentralizerT
-public import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotHR6X
 public import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotQ2Rigid
 public import CFSG.RankThree.Chevalley.SteinbergCEF4EvenQPlusDoubleEdge
 import CFSG.LieType.Chevalley.E6EvenRootTorus
-import CFSG.LieType.Chevalley.E6GraphLeviTheta
-import CFSG.LocalAnalysis.SeitzReduction.HypothesisOneTwistedE6InnerBasic
 import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotQ2PosCore
-import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotLeviCentralizerX
-import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotNeighbourStandard
-import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotQ2Neighbour
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGOTwoExc
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGRigid
 import CFSG.LocalAnalysis.StandardType.GGRootNormInner

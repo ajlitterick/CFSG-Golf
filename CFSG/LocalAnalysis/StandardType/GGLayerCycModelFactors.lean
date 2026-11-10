@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLayerCycModelCore
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsCoresHerm
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsCoresLinear
 
 public section
 

@@ -1,11 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RowStmts
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RankLists
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsPair
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15SecRank
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15R1517A
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

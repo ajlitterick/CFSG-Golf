@@ -1,8 +1,6 @@
 module
 
-public import CFSG.GH74.Generic.S1.SymNbhd
 public import CFSG.GH74.Generic.S45.LLift
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

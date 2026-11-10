@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResE6DepLabelDefs
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderExcWeyl
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenCore
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelModule
 public import CFSG.LocalAnalysis.StandardType.GGTBRowE6Equiv

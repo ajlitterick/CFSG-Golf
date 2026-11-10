@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoAInnerPhi
-public import CFSG.LocalAnalysis.StandardType.GGQTwoCoreDefs
-public import CFSG.LocalAnalysis.StandardType.GGQTwoLin
 
 public section
 

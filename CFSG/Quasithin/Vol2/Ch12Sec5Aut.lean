@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.Vol2.Ch12Sec5ZV
 public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismGeneration
-public import CFSG.LocalAnalysis.ComponentInitial.LinearFlagOrder
 
 public section
 

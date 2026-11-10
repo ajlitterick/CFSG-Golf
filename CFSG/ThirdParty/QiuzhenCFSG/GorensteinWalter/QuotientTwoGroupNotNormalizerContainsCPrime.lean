@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CPrime
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection6.Defs
-import Mathlib.GroupTheory.GroupAction.SubMulAction
 
 namespace CFSG
 end CFSG

@@ -14,11 +14,7 @@ import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosFinal
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosAdapterAux
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSCornerMain
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSLieEsuAux
-import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
-import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoAux
 import CFSG.LocalAnalysis.StandardType.GGRCWeylCard
-import CFSG.ClassicalGroups.Unitary.Finite
 
 public section
 

@@ -6,8 +6,6 @@ public import CFSG.GroupTheory.SupCommute
 public import CFSG.GroupTheory.ElemAbelianClosure
 public import CFSG.GroupTheory.CentralizerSup
 public import CFSG.GroupTheory.PLayer.Transfer
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.GroupTheory.PLayer.PIndex
 public import CFSG.HardMathSupport.Solomon.LocalBalance.Balance
 public import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeFamilies

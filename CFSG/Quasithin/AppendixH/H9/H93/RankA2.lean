@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.AppendixH.H9.H93.ExplicitA2
-public import CFSG.Quasithin.AppendixH.H9.H93.RankA2.Coordinates
 public import CFSG.Quasithin.AppendixH.H9.H93.RankA2.FixedPoints
 
 public section

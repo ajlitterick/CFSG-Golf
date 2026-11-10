@@ -1,17 +1,11 @@
 module
 
-public import Certificates.Data.TabCo1ThreeC
 public meta import Certificates.Data.TabCo1ThreeC
 public import Certificates.Kernel.Co1B.Chk17329
 public import Certificates.Kernel.Co1B.Lvl17329A
 public import Certificates.Kernel.Co1B.Lvl17329B
 public import Certificates.Kernel.Co1B.C17330
-public import Certificates.Kernel.Co1B.C17591
-public import Certificates.Kernel.Co1B.C2041
 public import CFSG.Certificates.Kernel.Co1BFixImpSound
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
-public import CFSG.Monster.B.TwoA.Par3.Main
 
 public section
 

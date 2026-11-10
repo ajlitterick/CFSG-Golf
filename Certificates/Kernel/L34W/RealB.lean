@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.L34W.Outer
 public import Certificates.Kernel.LocalComp.L34SChk
 public import Certificates.Data.Kernel.L34W.RealB
-import Certificates.Kernel.Misc.Perm.HexCmd
 meta import Certificates.Kernel.L34W.RealBData
 
 public section

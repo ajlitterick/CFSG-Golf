@@ -1,17 +1,6 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Theorem6
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section9Lemma91
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section9Proposition93
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section10Lemma101
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section10Lemma103
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section10Lemma104
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section10Lemma105
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section10Lemma106Final
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section10Proposition102Final
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma113
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma114
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Proposition111
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Proposition111Contradiction
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.SourceData

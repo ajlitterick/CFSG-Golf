@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.SporSch.Ru.PresData
 public import Certificates.Kernel.SporSch.Ru.Gens
-public import Certificates.Kernel.SporSch.Ru.RowsGen
 public import Certificates.Data.Kernel.SporSch.RuPres
 import CFSG.Certificates.Kernel.Common.Harness
 

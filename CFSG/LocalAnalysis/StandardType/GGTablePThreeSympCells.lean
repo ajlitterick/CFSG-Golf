@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeSympDefs
 import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 import CFSG.LocalAnalysis.StandardType.GGSporKLamOrders
-import CFSG.RankThree.PartOne.S12K.OrdRigidL
 
 public section
 

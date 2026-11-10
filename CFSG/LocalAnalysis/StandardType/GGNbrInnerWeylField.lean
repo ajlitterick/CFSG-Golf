@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylOpenLabels
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylFieldVac
 
 public section

@@ -1,12 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.PhanEClassify
-public import CFSG.LocalAnalysis.StandardType.PhanEResSL
-public import CFSG.LocalAnalysis.StandardType.PhanEStdBuildingData
-public import CFSG.LocalAnalysis.StandardType.PhanEMatchCases
 public import CFSG.LocalAnalysis.StandardType.PhanEMatchCasesX
-public import CFSG.LocalAnalysis.StandardType.PhanEMatchDiagram
-public import CFSG.LocalAnalysis.StandardType.PhanEMatchPath
 public import CFSG.LocalAnalysis.StandardType.PhanEMatchLink
 
 public section

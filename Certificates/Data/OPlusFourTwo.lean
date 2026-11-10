@@ -1,8 +1,6 @@
 module
 
-public import Mathlib.Data.Matrix.Mul
 public import Mathlib.Data.ZMod.Defs
-public import Mathlib.Data.Fintype.Pi
 public import Mathlib.LinearAlgebra.Matrix.Notation
 
 public section

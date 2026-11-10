@@ -3,8 +3,6 @@ module
 public import Certificates.Kernel.Sporadic.Tits.Bind2264
 public import CFSG.Certificates.Kernel.BfsPinSound
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
-public import CFSG.Certificates.Kernel.BfsPinUnpack
 
 public section
 

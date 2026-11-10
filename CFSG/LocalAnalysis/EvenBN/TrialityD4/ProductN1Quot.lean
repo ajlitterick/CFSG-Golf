@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenBN.TrialityD4.ProductN1Sylow
 public import CFSG.LocalAnalysis.EvenBN.Common.NaturalModuleBridge
-public import CFSG.LocalAnalysis.EvenBN.Common.CoprimeQuotient
-public import CFSG.LocalAnalysis.EvenBN.Common.FongSeitzFourB
-public import CFSG.LocalAnalysis.EvenBN.Common.ProductSplit
 
 public section
 

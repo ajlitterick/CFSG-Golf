@@ -3,10 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBLabelDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBJoinDefs
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBSpSp
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyWeylNS
 import CFSG.LocalAnalysis.StandardType.GGTPNI1BC
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-import CFSG.Open.StatedAPI
 
 public section
 

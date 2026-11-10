@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelSLCompParts
-public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelSL
 
 public section
 

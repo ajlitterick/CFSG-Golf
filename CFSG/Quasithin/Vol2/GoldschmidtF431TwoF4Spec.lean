@@ -4,13 +4,6 @@ module
 public import CFSG.Quasithin.Vol2.GoldschmidtF431TwoF4SpecBase
 
 public import Certificates.Certificate4180
-public import Certificates.Data.TwoF4LieCheck
-public import CFSG.Monster.B.Co2.PermArr
-public import Mathlib.GroupTheory.Perm.Basic
-public import Mathlib.SetTheory.Cardinal.Finite
-public import CFSG.Quasithin.Vol2.GoldschmidtF45RuArr
-public import CFSG.Quasithin.Vol2.GoldschmidtF45RuModel
-public import CFSG.Quasithin.Recognition.RuTypeJ47Cert
 
 public section
 

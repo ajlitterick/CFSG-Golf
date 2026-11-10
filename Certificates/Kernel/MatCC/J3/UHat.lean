@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Sporadic.Recognition.J3MultiplierCover
-public import CFSG.Certificates.CosetTablePresented
 public import Certificates.Kernel.Bounds.Family
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.Certificates.NativeSchreierCard

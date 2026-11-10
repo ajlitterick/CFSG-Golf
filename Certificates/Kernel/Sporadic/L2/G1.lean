@@ -5,7 +5,6 @@ public import Certificates.Kernel.Sporadic.L2.Defs
 public import Certificates.Kernel.Sporadic.Q3A.Glue
 public import CFSG.Certificates.Kernel.Spor.FpBfsSound
 public import CFSG.Sporadic.SuzRecog.LevelTwoDefsBase
-import Mathlib.Tactic.IntervalCases
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec3B0Model
 public import CFSG.Sporadic.Schreier.MathieuOddCoreCentral
 public import CFSG.Sporadic.Schreier.MathieuOddCoreWords

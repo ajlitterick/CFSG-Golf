@@ -4,10 +4,7 @@ public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.G24ModelMat
 public import Certificates.Kernel.G24Match.Chk27211
 public import Certificates.Kernel.G24Tri.C27206
 public import CFSG.Certificates.Kernel.G24KeySound
-public import CFSG.Certificates.Kernel.Spor.PackWord
 public import CFSG.Certificates.Kernel.BfsPinAlg
-public import CFSG.Certificates.Kernel.Spor.RawOrbEval
-public import CFSG.Certificates.Kernel.Spor.PcompFacts
 
 public section
 

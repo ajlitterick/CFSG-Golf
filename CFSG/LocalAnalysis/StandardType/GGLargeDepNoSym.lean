@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGLargeFixDefs
 public import CFSG.LocalAnalysis.StandardType.GGLargeDepNoSymAug
 import CFSG.LocalAnalysis.StandardType.GGLargeDepNoSymPerm
 import CFSG.LocalAnalysis.StandardType.GGLargeDepNoSymDims

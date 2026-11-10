@@ -1,14 +1,9 @@
 module
 
-public import CFSG.Sporadic.Schreier.Co3SecondCheck
-public import CFSG.Sporadic.Schreier.M12Data
-public import CFSG.Sporadic.Schreier.CountSpec
-public import Certificates.Data.CFSGNative.SporadicSchreier.Count
 public meta import CFSG.Sporadic.Schreier.Co3SecondCheck
 public meta import CFSG.Sporadic.Schreier.M12Data
 public meta import CFSG.Sporadic.Schreier.CountSpec
 public meta import Certificates.Data.CFSGNative.SporadicSchreier.Count
-public import CFSG.Sporadic.Schreier.Co3GenerationCheckInputs
 public import Certificates.Certificate2155
 
 public section

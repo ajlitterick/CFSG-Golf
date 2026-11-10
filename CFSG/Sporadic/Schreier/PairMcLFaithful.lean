@@ -1,21 +1,11 @@
 module
 
-public import CFSG.Sporadic.Schreier.PairMcLCert
-public import CFSG.Sporadic.Schreier.PairAction
-public import CFSG.Sporadic.McL.Setup
-public import CFSG.F3.SepSpec
-public import CFSG.Blueprint.MatrixSeedIdentification
-public import Mathlib.LinearAlgebra.Matrix.ToLinearEquiv
 public meta import CFSG.Sporadic.Schreier.PairMcLCert
 public meta import Certificates.Data.CFSGNative.J1.Vec
 public meta import Certificates.Data.CFSGNative.F3.Sep
 public meta import Certificates.Data.CFSGNative.McL.Certificate
 public meta import Certificates.Data.CFSGNative.PairSchreier.Core
-import CFSG.Blueprint.NativeSporadic
-public import Certificates.Certificate2240
-public import CFSG.Sporadic.Schreier.PairMcLFaithfulInputs
 public import Certificates.Certificate2244
-public import Certificates.Certificate3170
 
 public noncomputable section
 

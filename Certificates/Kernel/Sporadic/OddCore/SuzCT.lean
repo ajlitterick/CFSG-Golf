@@ -1,7 +1,5 @@
 module
 
-public import Certificates.Kernel.Sporadic.RawGen
-public import Certificates.Kernel.Sporadic.OddCore.PEnumCmd
 public import Certificates.Kernel.Sporadic.OddCore.PEnumFamCmd
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public import CFSG.Sporadic.SuzOddCore.CTIChainInputs

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGResLeaves
 public import CFSG.LocalAnalysis.StandardType.GGResTrialityNbr
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 
 public section
 

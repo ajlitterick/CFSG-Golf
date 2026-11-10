@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T123CBlockOrthA
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T123CBlockLinB
-public import CFSG.RankThree.PartOne.KC.OrthogonalFixedRestrict
 
 public section
 

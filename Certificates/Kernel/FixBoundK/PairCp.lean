@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.FixBoundK.PairData
 public import Certificates.Kernel.FixBoundK.PairGData
 public import Certificates.Data.Kernel.FixBoundK.PairCp
-import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 400000
 

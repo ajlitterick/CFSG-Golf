@@ -1,11 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBGraphFormSimilitude
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoynePSLOrthData
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalThreeSimilarityGroups
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalTraceZeroProjective
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherFactsL2Orders
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherFactsL2Maximal
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalSixStructure
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotD4Diagonal
-public import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotHR6Y
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.TwE6LeviSharp
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeDiagTwisted
 public import CFSG.CGT.Timmesfeld75.Derivations
@@ -44,8 +43,6 @@ public import CFSG.Quasithin.Background.A3Structure319
 public import CFSG.Quasithin.Background.C1GNSolvConnect
 public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918D5
 public import CFSG.Quasithin.Background.InternalSecFF
 public import CFSG.Quasithin.EmptyFaithful.R3cBlocks

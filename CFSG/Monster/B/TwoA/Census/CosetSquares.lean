@@ -1,22 +1,9 @@
 module
 
-public import CFSG.Monster.B.TwoA.Census.CosetReps
-public import CFSG.Monster.B.TwoA.Census.CosetCert
-public import CFSG.Monster.B.TwoA.Census.LatticeInv
-public import CFSG.Monster.B.Rep4371.SpinAct
-public import CFSG.Monster.B.Rep4371.GlueDefs
 public meta import CFSG.Monster.B.Rep4371.GlueDefs
 public meta import CFSG.Monster.B.TwoA.Census.CosetCertData
 public meta import CFSG.Monster.B.TwoA.Census.MonoCert
-public import CFSG.Monster.B.TwoA.Census.CosetSquaresInputs
 public import Certificates.Certificate3022
-public import Certificates.Certificate3020
-public import Certificates.Certificate3021
-public import Certificates.Certificate3015
-public import Certificates.Certificate3016
-public import Certificates.Certificate3017
-public import Certificates.Certificate3018
-public import Certificates.Certificate3019
 public import Certificates.Data.Kernel.KDense.LetterOK
 public import Certificates.Data.Kernel.KDense.Plan
 

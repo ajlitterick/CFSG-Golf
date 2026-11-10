@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoNbrAmbD
-public import CFSG.LocalAnalysis.StandardType.GGQTwoNbrDatumDet
-public import CFSG.LocalAnalysis.StandardType.GGQTwoNbrDatumInner
-public import CFSG.LocalAnalysis.StandardType.GGQTwoGammaNbrPosE6
-public import CFSG.LocalAnalysis.StandardType.GGQTwoPosInLCells
 
 public section
 

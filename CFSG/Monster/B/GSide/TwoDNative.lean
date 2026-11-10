@@ -3,9 +3,6 @@ module
 public import CFSG.Monster.B.TwoA.Sp8.Orth8Plus
 public import CFSG.Monster.B.GSide.TwoBNative
 public import CFSG.Monster.B.GSide.CompletionFusion
-public import CFSG.Monster.B.CTIB.SylowCenter
-public import CFSG.ClassicalGroups.Orthogonal.CharTwoTransvection
-public import CFSG.ClassicalGroups.Orthogonal.Simple
 
 public noncomputable section
 

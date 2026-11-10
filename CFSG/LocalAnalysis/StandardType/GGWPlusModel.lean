@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGWPlusDefs
 public import CFSG.LocalAnalysis.StandardType.GGWPlusPerm
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrTableBAutCard
-public import CFSG.LocalAnalysis.StandardType.GGPGLTorality
 
 public section
 

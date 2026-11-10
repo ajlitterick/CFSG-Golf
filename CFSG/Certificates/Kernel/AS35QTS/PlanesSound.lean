@@ -3,7 +3,6 @@ module
 public import Certificates.Data.Kernel.AS35QTS.Lens
 public import CFSG.LargeExtraspecial.AS35QTSFacts
 import CFSG.Certificates.Kernel.AS35QTS.ThompsonSound
-public import Mathlib
 
 public section
 

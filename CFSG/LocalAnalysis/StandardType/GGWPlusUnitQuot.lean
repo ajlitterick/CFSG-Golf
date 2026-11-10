@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGWPlusUnitAut
-public import CFSG.LocalAnalysis.StandardType.GGWPlusPerm
-public import CFSG.LocalAnalysis.StandardType.GGWPlusDefs
 
 public section
 

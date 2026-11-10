@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGExcCompSLDefs
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Defs
 
 public section
 

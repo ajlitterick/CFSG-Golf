@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveL2SplitDkRootsWeyl
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveL2SplitWeylEquiv
 public import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofCoxeter

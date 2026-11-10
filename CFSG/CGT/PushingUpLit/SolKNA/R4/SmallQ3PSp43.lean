@@ -2,7 +2,6 @@ module
 
 public import CFSG.CGT.PushingUpLit.SolKNA.R4.SmallQ3CheckSound
 public import CFSG.CGT.PushingUpLit.SolKNA.R4.SmallQ3Models
-public import CFSG.ClassicalInvolution.Q3.TA3SmallDefs
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallPSp43Model
 public import Certificates.Certificate9755
 public import CFSG.ClassicalInvolution.Asc77.AscE187Cop

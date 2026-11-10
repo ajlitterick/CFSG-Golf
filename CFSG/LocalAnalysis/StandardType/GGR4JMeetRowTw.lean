@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGR4JMeetKGDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154ExcOutdiag
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaCenter
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelKernelCore
-public import CFSG.LieType.Steinberg.CentralExt.TwistedE6Center
-public import CFSG.LieType.Steinberg.CentralExt.TwistedE6PosLift
 public import CFSG.LieType.Steinberg.CentralExt.GriessTwistedE6
 public import CFSG.LieType.Steinberg.CentralExt.GriessExceptional
 

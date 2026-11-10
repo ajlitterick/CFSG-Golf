@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBRank
 public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSmall
 import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestTri
 import CFSG.HardMathSupport.Seitz.G2Anisotropic.Coordinator.ThreeRank
 import CFSG.RankThree.PartTwo.Sec21.Item223Rank2ProofD4

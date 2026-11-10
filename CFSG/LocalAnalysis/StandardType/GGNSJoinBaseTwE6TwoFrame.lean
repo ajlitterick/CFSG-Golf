@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowDefs
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeTwoLocalCover
 public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6Holds

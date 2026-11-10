@@ -8,10 +8,7 @@ import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneElevenEleven
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGLHyp111WeakCore
 import CFSG.LocalAnalysis.RankThreeTheoremC.GL83SmallRank65Plane
 import CFSG.LocalAnalysis.RankThreeTheoremC.GL83Generic5MLayer
-import CFSG.LocalAnalysis.RankThreeTheoremC.D1Component3
 import CFSG.LocalAnalysis.RankFourTheoremC.PPointP.Prop34
-import CFSG.LocalAnalysis.AGLEmbedding.NongenerationTransfer
-import CFSG.LocalAnalysis.SectionRank.SubgroupRank
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.CharacterTheory.Wreathed.OddKernelSylowQuotient

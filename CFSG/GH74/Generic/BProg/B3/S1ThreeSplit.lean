@@ -1,14 +1,11 @@
 module
 
 public import CFSG.GH74.Generic.BProg.B3.S1ThreeLift
-public import CFSG.GH74.Generic.BProg.B3.S1Split
 public import CFSG.GH74.Generic.BProg.B3.S1Lemma282ANeX
-public import CFSG.GH74.Generic.BProg.B1.PilotS1ThreeFacts
 public import CFSG.GH74.Generic.S1.CompIdent
 public import CFSG.GH74.Generic.S1.SL2Facts
 public import CFSG.GH74.Generic.S1.Exo.Q3Core
 public import CFSG.GH74.GLS.Balance.Bender.Final
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.Assembly.CompletedOddCoreElimination
 public import CFSG.ClassicalInvolution.ModelFacts.G2D4G2Edge
 public import CFSG.GH74.E2.ComponentsShape

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRootGen
 public import CFSG.LocalAnalysis.StandardType.GGTypeAReflOverCoord
-public import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofLin
 public import CFSG.GroupTheory.ElementaryAbelianTransport
 
 public section

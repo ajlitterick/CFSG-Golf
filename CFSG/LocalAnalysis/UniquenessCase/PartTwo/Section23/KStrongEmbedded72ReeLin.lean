@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2DihedralSylow
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2Subgroups
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoSemilinear
 public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
 public import CFSG.LocalAnalysis.ComponentInitial.DiagonalSemilinear

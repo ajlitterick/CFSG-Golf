@@ -2,15 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDCells
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDRMStabDefs
-public import CFSG.LocalAnalysis.StandardType.GGOrthFrameCore
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthIdentActs
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthIdentDefs
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDCoxEven
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDCoxMat
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDFrameStd
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDRMLin
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 import CFSG.LocalAnalysis.StandardType.GGQTwoDRootFrame
 
 public section

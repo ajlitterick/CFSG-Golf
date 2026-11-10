@@ -1,26 +1,12 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight69Struct
-public import CFSG.LocalAnalysis.UniquenessCase.UC6R2
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight70Basic
 public import CFSG.LocalAnalysis.UniquenessCase.UC6S846e
 import CFSG.GroupTheory.PRankLeOfSylowLe
 import CFSG.HardMathSupport.Solomon.Proving.GLBCoreNormalizer
-import CFSG.LocalAnalysis.ComponentInitial.CLSFourGroupLinearThreeFour
-import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismData
-import CFSG.LocalAnalysis.ComponentInitial.LinearCoverModel
-import CFSG.LocalAnalysis.ComponentInitial.LinearFlagElation
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight7xKAutL34Outer
-import CFSG.Adapters.ProjectiveSpecialLinear
-import CFSG.GroupTheory.LocalCores.Components
-import CFSG.LinearAlgebra.LinearGroups.Perfect
-import CFSG.ThirdParty.QiuzhenCFSG.Theory.AutAlternating
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBGeneralLinearNative
-import CFSG.LocalAnalysis.ComponentClassification.Quasisimple
-import CFSG.Foundations.QuasisimpleMulEquiv
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight7xKAutL34SymNine
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
 public import CFSG.GroupTheory.CoprimeActionSupport.AbelianEquivalence
 public import CFSG.GroupTheory.CoprimeActionSupport.Geometry
 public import CFSG.LocalAnalysis.RankThreeUC.Notation
@@ -63,10 +49,6 @@ import CFSG.Quasithin.Background.C22PfC
 import CFSG.Quasithin.Background.C2PushH129
 import CFSG.Quasithin.Background.D2
 import CFSG.Quasithin.Background.E3
-import CFSG.Quasithin.Background.E3Nprime
-import CFSG.Quasithin.Background.E3OffenderB
-import CFSG.Quasithin.Background.E3Uniq
-import CFSG.Quasithin.Background.E4Solv
 import CFSG.Quasithin.Background.E6Gamma
 import CFSG.Quasithin.Background.E6TwentyThreeD
 import CFSG.Quasithin.Background.E6TwentyThreeE

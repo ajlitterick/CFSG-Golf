@@ -1,11 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangTorARankKG
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangTorARankBound
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangRegKG
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldLinear
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldUnitary
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldCyclicLabels
 
 public section
 

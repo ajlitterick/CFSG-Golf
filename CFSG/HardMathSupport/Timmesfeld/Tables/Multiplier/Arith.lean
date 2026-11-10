@@ -1,9 +1,6 @@
 module
 
 public import CFSG.Blueprint.MultiplierDefs
-public import CFSG.Open.StatedDefs
-public import Mathlib.GroupTheory.SpecificGroups.Cyclic
-public import Mathlib.Data.ZMod.Basic
 
 public section
 

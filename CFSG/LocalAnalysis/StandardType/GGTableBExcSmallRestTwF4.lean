@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestBasic
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagRee
-public import CFSG.Sporadic.Schreier.TitsIso
 public import CFSG.Sporadic.Schreier.TitsOuter
 public import CFSG.Sporadic.Schreier.TitsOther
 

@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitF4Three
-public import CFSG.RankThree.Chevalley.SteinbergBUF4CyclotomicFourNonregular
-public import CFSG.RankThree.Chevalley.SteinbergCAF4CyclotomicFourActors
-public import CFSG.RankThree.Chevalley.SteinbergCAF4NonregularSp4
 
 public section
 

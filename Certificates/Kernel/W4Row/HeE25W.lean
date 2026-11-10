@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Perm.HexCmd
 meta import Certificates.Data.W4RowHeE25
 import CFSG.Assembly.LowTwoRankDefs

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Sporadic.Bridge.BTcFive
-public import CFSG.Sporadic.Bridge.BTcData
 public import Certificates.Certificate9726
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.SporadicRankCommData

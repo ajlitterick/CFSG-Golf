@@ -4,7 +4,6 @@ module
 public import Certificates.Certificate2317Base
 
 import Certificates.Kernel.SporSch.Th.Cent
-public import CFSG.Sporadic.ThSchreier.CentralizerDataInputs
 
 public section
 

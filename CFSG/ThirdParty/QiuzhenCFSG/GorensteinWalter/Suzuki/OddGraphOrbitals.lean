@@ -1,11 +1,8 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphRootBridge
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinCommutingPairs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinCosetPairDistribution
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.InvertedSetCardSmall
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.TwoCoreNormal
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

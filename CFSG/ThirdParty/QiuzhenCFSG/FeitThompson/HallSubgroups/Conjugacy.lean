@@ -1,36 +1,8 @@
 module
 
-public import Mathlib.Algebra.Group.Defs
-public import Mathlib.Algebra.Group.Subgroup.Defs
-public import Mathlib.Data.Bracket
-import Mathlib.SetTheory.Cardinal.NatCard
-public import Mathlib.Data.Finite.Defs
-public import Mathlib.Data.Nat.Prime.Defs
-public import Mathlib.GroupTheory.Commutator.Basic
-public import Mathlib.GroupTheory.Index
-public import Mathlib.GroupTheory.Solvable
-public import Mathlib.SetTheory.Cardinal.Finite
 
-import Mathlib.Algebra.Group.Action.Faithful
-import Mathlib.Algebra.Group.Subgroup.Lattice
-import Mathlib.Algebra.Group.Subgroup.Pointwise
-import Mathlib.Algebra.Notation.Defs
 import Mathlib.GroupTheory.Frattini
-import Mathlib.GroupTheory.GroupAction.FixingSubgroup
-import Mathlib.GroupTheory.Nilpotent
-import Mathlib.GroupTheory.QuotientGroup.Basic
-import Mathlib.GroupTheory.GroupAction.Quotient
-public import Mathlib.GroupTheory.SchurZassenhaus
-public import Mathlib.GroupTheory.SemidirectProduct
-import Mathlib.GroupTheory.Sylow
-import Mathlib.Order.SetNotation
-import Mathlib.Tactic.Basic
-import Mathlib.Tactic.TypeStar
 
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Invariant
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Quotient
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.HallSubgroups.Core
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.HallSubgroups.Complements
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.HallSubgroups.Existence
 
 namespace CFSG

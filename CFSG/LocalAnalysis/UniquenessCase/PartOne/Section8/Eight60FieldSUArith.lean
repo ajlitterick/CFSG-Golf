@@ -2,8 +2,6 @@ module
 
 public import CFSG.Open.StatedDefs
 import CFSG.RankThree.SubgroupLists.UnitaryThreeFamily
-import CFSG.ClassicalGroups.UnitaryFlag.GroupData
-import CFSG.LinearAlgebra.LinearGroups.UnitaryOrder
 
 public section
 

@@ -1,10 +1,8 @@
 module
 
 public import CFSG.Sporadic.HNOddCore.Fusion
-public import CFSG.Sporadic.HNOddCore.ThreeInvol
 public import CFSG.Sporadic.HNSchreier.FullAut
 public import CFSG.Sporadic.Schreier.MathieuOddCoreCentral
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
 public import CFSG.Sporadic.Schreier.MathieuOddCoreWords
 
 public noncomputable section

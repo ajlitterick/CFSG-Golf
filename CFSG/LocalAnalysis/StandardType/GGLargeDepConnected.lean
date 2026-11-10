@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLargeFixDefs
 import CFSG.LocalAnalysis.StandardType.GGSecFiveRMModuleAdj
-import CFSG.LocalAnalysis.StandardType.GGTBTorCartan
-import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepFrame
 
 public section
 

@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGA8NbrCoordSplit
 public import CFSG.LocalAnalysis.StandardType.GGA8NbrLabelsB
-public import CFSG.LocalAnalysis.StandardType.GGA8NbrGlueB
-public import CFSG.LocalAnalysis.StandardType.GGA8NbrCoordCase
 public import CFSG.LocalAnalysis.StandardType.GGA8NbrOmLSide
 
 public section

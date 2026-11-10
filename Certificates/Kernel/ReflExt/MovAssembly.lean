@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.ReflExt.Checks708608
 public import CFSG.Certificates.Kernel.ReflExt.MovKSound
-import CFSG.Certificates.Kernel.Common.ForallChunks
 public import CFSG.Certificates.Kernel.ReflExt.DepKSound
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeSmallRankDefs
 

@@ -1,12 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.DefsWeakClosure
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC8Norm
 public import CFSG.LocalAnalysis.WeakClosure81.SixNine
 public import CFSG.LocalAnalysis.WeakClosure81.SixSix
 public import CFSG.Quasithin.Background.B6
-public import CFSG.Quasithin.Background.B6Example
-public import CFSG.Quasithin.Background.B6Offenders
 public import CFSG.Quasithin.Background.E3Cent
 
 public section

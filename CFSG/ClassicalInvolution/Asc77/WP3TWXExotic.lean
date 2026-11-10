@@ -1,15 +1,7 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.TWRExoticMain
-public import CFSG.ClassicalInvolution.Asc77.WP3FrameBootTwinCtx
-public import CFSG.ClassicalInvolution.SmallCases.NDBCRes
-import CFSG.ClassicalInvolution.SmallCases.NDBC0
 import CFSG.ClassicalInvolution.Asc77.AscE187Img
-import CFSG.ClassicalInvolution.Asc77.ModOApi
-import CFSG.ClassicalInvolution.ModelFacts.ClauseZero
-import CFSG.ClassicalInvolution.Balance.PassTwoModelFacts
-public import CFSG.ClassicalInvolution.Asc77.AscBSCMain
-public import CFSG.ClassicalInvolution.Asc77.AscBSD12
 public import CFSG.ClassicalInvolution.Asc77.AscBSE8
 import CFSG.ClassicalInvolution.Asc77.AscE187Cop
 import CFSG.ClassicalInvolution.Asc77.AscThmABasic

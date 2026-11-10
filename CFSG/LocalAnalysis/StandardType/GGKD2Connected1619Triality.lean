@@ -2,20 +2,13 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGKD2Connected1619Contracts
 public import CFSG.LocalAnalysis.StandardType.GGTriD4KnownInputs
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight91D4ThreeBCentralizer
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight91D4Model
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight91D4Bridge
 import CFSG.LocalAnalysis.StandardType.GGKD2Connected1619ClassicalGlue
 import CFSG.LocalAnalysis.StandardType.GGKD2Connected1619CoverDescentHolds
 import CFSG.LocalAnalysis.GLTheoremA.S12.CanonTriCentHolds
-import CFSG.RankThree.PartTwo.Sec11.KS11Lie6Proof
-import CFSG.RankThree.PartTwo.Sec11.FieldCentRigid82
-import CFSG.LocalAnalysis.StandardType.GGLemmaThreeThirteenFourteen
-import CFSG.LocalAnalysis.StandardType.GGTypeANbrLabels
-import CFSG.GH74.Orders.LieType
 import CFSG.LocalAnalysis.UniquenessCase.UC6N588D3
 import CFSG.LocalAnalysis.EvenBN.GMSK.CatOddBender
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestTri
 public import CFSG.Blueprint.LieModelAPI
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic

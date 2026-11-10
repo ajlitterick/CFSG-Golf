@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeE6ToralDefs
 import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfE6Toral
 import CFSG.LocalAnalysis.StandardType.GGTwE6LemmaKFinal
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGA1RankSix
-import CFSG.GroupTheory.PGroup.RankTwoCommute
 
 public section
 

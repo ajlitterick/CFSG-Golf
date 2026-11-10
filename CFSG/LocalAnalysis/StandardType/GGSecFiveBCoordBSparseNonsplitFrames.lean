@@ -2,17 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermOmKFrameDefs
 public import CFSG.LocalAnalysis.StandardType.GGTBJOrthLeft
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBLabelDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySpCoord
-public import CFSG.LocalAnalysis.StandardType.GGSignedCoordBlocks
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBSparseEndpoint
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniOmKFrame
 import CFSG.LocalAnalysis.StandardType.GGQTwoOrthAnchorRecal
-import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.Models
-import CFSG.ClassicalGroups.Orthogonal.IsometryConj
-import CFSG.ClassicalInvolution.SmallCases.UpgradeCoverClassical
 import CFSG.RankThree.GF2n.Stroth80.GriessOrthSmall
 
 public section

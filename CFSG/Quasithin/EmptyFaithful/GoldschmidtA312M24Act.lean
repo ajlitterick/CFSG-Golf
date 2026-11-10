@@ -2,7 +2,6 @@
 module
 
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312M24Tab
-public import Mathlib.GroupTheory.GroupAction.SubMulAction
 
 public section
 

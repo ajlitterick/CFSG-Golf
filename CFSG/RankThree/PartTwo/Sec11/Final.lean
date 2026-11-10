@@ -6,8 +6,6 @@ public import CFSG.RankThree.PartTwo.Sec12.Item124
 public import CFSG.RankThree.PartTwo.Sec11.Wreath
 public import CFSG.RankThree.Transfer.Yoshida
 public import CFSG.RankThree.PartTwo.Sec8.Transfer
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LieType.Chevalley.LangRootArithmetic
@@ -16,7 +14,6 @@ public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure
 public import CFSG.RankThree.Asc83Table.Automizer
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

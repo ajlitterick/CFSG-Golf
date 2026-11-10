@@ -2,16 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeSplitR
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import CFSG.GroupTheory.WeirSylow.OrthogonalModels
-public import CFSG.RankThree.PartOne.KC.OrthogonalLocalComponentDefs
-public import CFSG.RankThree.PartOne.KC.OrthogonalComponentFacts
-public import CFSG.RankThree.PartOne.KC.OrthogonalFixedDerived
-public import CFSG.RankThree.PartOne.KC.OrthogonalReciprocal
-public import CFSG.Assembly.GL83LieDefs
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeLinDefs
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniModel
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeKnownSix
-import CFSG.RankThree.Classical2.OrthogonalIsotropicUnipotent
 import CFSG.LocalAnalysis.GLTheoremA.CatA.K1419ClsOrthBlock
 import CFSG.LocalAnalysis.StandardType.GGNbrLSideOrthSelfDual
 import CFSG.LocalAnalysis.StandardType.GGNbrLSideOrthFixed
@@ -20,12 +13,9 @@ import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnOrthModel
 import CFSG.LocalAnalysis.GLTheoremA.CatA.L154Orth2
 import CFSG.HardMathSupport.Dickson.Bal207.OrthFixedType
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniLabelPSU
-import CFSG.LocalAnalysis.StandardType.GGReverseMarkingRaw
 import CFSG.LocalAnalysis.StandardType.GGD4OddCentInnerModel
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinPLab
 import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestOddLayer
-import CFSG.RankThree.Classical.SteinbergBJOrthogonalHighWitt
-import CFSG.GroupTheory.ElemAbelianClosure
 import CFSG.Goldschmidt.Steps.G310Comp
 import CFSG.LocalAnalysis.GLTheoremA.CatA.HSubTM5
 

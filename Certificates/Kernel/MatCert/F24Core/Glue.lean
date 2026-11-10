@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.MatCert.F24Core.Checks
 public import CFSG.Certificates.Kernel.LocalComp.FactsVSound
-public import CFSG.Blueprint.NativeSporadic
 import all CFSG.Blueprint.NativeSporadic
 
 public section

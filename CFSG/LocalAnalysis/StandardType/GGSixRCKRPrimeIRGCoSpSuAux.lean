@@ -1,13 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGCoSl2Gen
-public import CFSG.ClassicalInvolution.Models.SymplecticPairs.RootSp2
-public import CFSG.LocalAnalysis.SeitzReduction.F4PilotLeviRootSL2Sp
-public import CFSG.LieType.Universal.Unitary.Extras.Basic
 public import CFSG.LieType.Universal.Unitary.RootGroupCard
-public import CFSG.LieType.Steinberg.CentralExt.SUPosLift
-public import CFSG.LieType.Steinberg.CentralExt.SUTwo
-public import CFSG.ClassicalInvolution.SmallCases.UpgradeCoverClassical
 
 public section
 

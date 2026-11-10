@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeBlock
 public import CFSG.LocalAnalysis.StandardType.GGSixAutStructurePSUHolds
-public import CFSG.LocalAnalysis.StandardType.GGRootDetectSUDiag
 
 public section
 

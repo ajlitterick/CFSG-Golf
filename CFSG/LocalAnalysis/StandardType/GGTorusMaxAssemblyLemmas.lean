@@ -1,9 +1,5 @@
 module
 
-public import Mathlib.GroupTheory.Sylow
-public import Mathlib.GroupTheory.Subgroup.Simple
-public import Mathlib.Order.Atoms.Finite
-public import CFSG.Open.LocalVocabulary
 public import CFSG.Assembly.InCatalog
 public import CFSG.LocalAnalysis.StandardType.GGTorusMaxAssemblyAux
 public import CFSG.LocalAnalysis.StandardType.GGTorusMaxNormalP

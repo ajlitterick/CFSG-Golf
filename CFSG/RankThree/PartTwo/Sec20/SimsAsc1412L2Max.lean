@@ -1,9 +1,6 @@
 module
 
 public import CFSG.Dihedral.Glauberman.DicksonMaxUp
-public import CFSG.Dihedral.Glauberman.DicksonMaxStructure
-public import CFSG.CharacterTheory.PSL2Table.Partition
-public import CFSG.CharacterTheory.PSL2Table.Classes
 
 public section
 

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Quasithin.Background.ShultG53TotPack
-public import CFSG.Quasithin.H13.A6G5
-public import CFSG.Quasithin.H13.A6S13834F
 
 public section
 

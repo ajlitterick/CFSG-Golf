@@ -10,7 +10,6 @@ public import CFSG.Certificates.Kernel.SporSch.Co1VOrbSound
 public meta import Certificates.Kernel.SporSch.GenPerms
 public meta import CFSG.Sporadic.Schreier.Co1StabCheckInputs
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import Certificates.Kernel.SporSch.GenPerms
 
 public section

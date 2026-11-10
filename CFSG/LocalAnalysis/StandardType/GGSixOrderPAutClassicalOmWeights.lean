@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthogonalDiag
-import TauCeti.LinearAlgebra.BilinearForm.SymplecticBasis
 import CFSG.GroupTheory.ElemAbelianClosure
 
 public section

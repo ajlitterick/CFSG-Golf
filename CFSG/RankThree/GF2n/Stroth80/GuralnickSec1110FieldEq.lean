@@ -9,7 +9,6 @@ import CFSG.ClassicalGroups.SpecialLinear.InvolutionOrderSix
 import CFSG.ClassicalGroups.SpecialLinear.TransvectionRootGroup
 import CFSG.LocalAnalysis.ComponentClassification.OutcomeLocalCTILinear
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalAS76aProofLeviModel
-import CFSG.LocalAnalysis.ComponentInitial.BasicFacts
 import CFSG.RankThree.OrthogonalInvolutions.A2Pencil
 import CFSG.RankThree.GF2n.Stroth80.Sec123Order
 import CFSG.RankThree.GF2n.Stroth80.Sec1110TwoCenter
@@ -39,18 +38,6 @@ public import CFSG.RankThree.GF2n.Tim79Mod
 public import CFSG.RankThree.GF2n.Tim81.Components
 public import CFSG.SignalizerFunctorTheorem.McBride.Prelim.Basic
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldPrimeOrderFixedSubfield
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OrderThreeNormalizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2PSLRangeCentralizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinInvolutionCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinRestrictionSixCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinUDecomposition
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationEleven
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTen
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTenStructuralIdentities
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2FieldProjectionArithmetic
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2OrderPSubgroupCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphReconstruction
 public import CFSG.Timmesfeld.RankOne
 import CFSG.CGT.Timmesfeld75.L2Pair
 import CFSG.CGT.Timmesfeld75.ListWCLinSylow

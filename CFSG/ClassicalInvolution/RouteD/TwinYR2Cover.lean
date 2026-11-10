@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ClassicalInvolution.RouteD.TwinYP1Main
 public import CFSG.ClassicalInvolution.RouteD.TwinYR2Lift
 public import CFSG.ClassicalInvolution.RouteD.TwinYR2Rows
 

@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBDenseLabelDefs
 import CFSG.LocalAnalysis.StandardType.GGClassicalCentralImageLabel
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBDenseCoords
-import CFSG.LocalAnalysis.StandardType.GGNbrBalanceBasic
-import CFSG.LocalAnalysis.ComponentClassification.LBalanceComponentLifts
 
 public section
 

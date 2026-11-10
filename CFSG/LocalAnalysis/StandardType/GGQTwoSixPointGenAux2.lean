@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoSixPointGenAux
 public import CFSG.LocalAnalysis.StandardType.GGQTwoSixPointInputs
-public import CFSG.Certificates.CosetTablePresented
 
 public section
 

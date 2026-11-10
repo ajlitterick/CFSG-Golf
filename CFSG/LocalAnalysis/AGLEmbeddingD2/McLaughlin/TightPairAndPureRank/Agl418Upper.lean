@@ -1,10 +1,7 @@
 module
 
 public import CFSG.RankThree.PartOne.Q1327T.Item7L3
-public import CFSG.RankThree.PartOne.Q1327T.Item7UBasic
 public import CFSG.RankThree.PartTwo.Sec4.Item417Res3ProofL2
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2CoprimeSylowCyclic
-public import CFSG.LocalAnalysis.SectionRank.SQT
 
 public section
 

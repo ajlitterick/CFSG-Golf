@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Sporadic.SuzOddCore.CTICheckInputs
-public import CFSG.Sporadic.SuzOddCore.InvGraphCheckInputs
-public import CFSG.Sporadic.SuzOddCore.ArraysCheckInputs
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.LocBSSuzData
 public meta import CFSG.Sporadic.SuzOddCore.CTICheckInputs
 public meta import CFSG.Sporadic.SuzOddCore.InvGraphCheckInputs

@@ -4,14 +4,6 @@ module
 public import Certificates.Kernel.SporSch.Co2M.Chains2049Base
 
 public import Certificates.Kernel.SporSch.Co2M.Words
-public import CFSG.Sporadic.Co2Schreier.ChainsBase
-public import CFSG.Sporadic.Co2Schreier.OrbitZCheck
-public import CFSG.Sporadic.Co2Schreier.OrbitTCheck
-public import CFSG.Certificates.NativeSetOrbit
-public import CFSG.Sporadic.Schreier.Co3Centralizers
-public import CFSG.Certificates.Kernel.Spor.RawOrbSound
-public import CFSG.LocalAnalysis.ComponentInitial.AutomorphismRealization
-public import CFSG.Sporadic.Co2Schreier.OrbitCheck
 public meta import CFSG.Sporadic.Co2Schreier.OrbitCheck
 
 public section

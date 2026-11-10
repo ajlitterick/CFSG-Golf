@@ -2,17 +2,14 @@ module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X5bZsig
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X5bRank
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X5bInvol
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X5bGroup
 public import CFSG.LocalAnalysis.SectionRank.EvenCover.UnitaryThree
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X5bModel
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X5bAut
-public import CFSG.ClassicalGroups.UnitaryFlag.GroupData
 public import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 public import CFSG.LinearAlgebra.LinearGroups.UnitaryThreeOverNine
 public import CFSG.LinearAlgebra.LinearGroups.UnitaryThreeOverNineInvolutions
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X35Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

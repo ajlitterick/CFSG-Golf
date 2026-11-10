@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2TableBI1Tor
-import CFSG.LocalAnalysis.StandardType.GGTDLabels
 import CFSG.LocalAnalysis.StandardType.GGTwA5ThreeFrame
-import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
 
 public section
 

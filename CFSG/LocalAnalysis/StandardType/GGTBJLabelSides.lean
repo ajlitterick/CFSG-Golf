@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3Defs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
 public import CFSG.LocalAnalysis.StandardType.GGRootGenSmallRankQFour
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNineClassicalLabel
 
 public section
 

@@ -1,11 +1,7 @@
 module
 
-public import CFSG.Assembly.Defs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
-import CFSG.Assembly.Subnormal
-import CFSG.LocalAnalysis.StandardType.GGNbrBalanceBasic
 import CFSG.LocalAnalysis.StandardType.GGSecFiveRankOneConj
-import Mathlib.Tactic.Group
 
 public section
 

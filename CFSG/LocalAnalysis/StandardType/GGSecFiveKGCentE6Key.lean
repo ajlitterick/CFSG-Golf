@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartOne.KE8F.FamBruhat
-public import CFSG.LieType.Chevalley.ExactNormalFormE
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGCentE6NormalForm
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGCentE6NormalFix
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGCentE6Regular

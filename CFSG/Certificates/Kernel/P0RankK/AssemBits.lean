@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Certificates.Kernel.P0RankK.OrbForms
-public import Mathlib.Algebra.Order.Ring.Nat
 
 public section
 

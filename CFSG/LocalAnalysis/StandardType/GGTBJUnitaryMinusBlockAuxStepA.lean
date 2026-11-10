@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJUnitaryMinusBlockAux
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalanceBasic
-public import CFSG.LocalAnalysis.StandardType.GGLinearSemisimple
 
 public section
 

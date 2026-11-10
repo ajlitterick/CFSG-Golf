@@ -1,36 +1,11 @@
 module
 
-public import CFSG.Assembly.LargeEvenDefs
-public import CFSG.Sporadic.Schreier.LyCheckSep
-public import CFSG.Sporadic.Ly.KeySpec
-public import CFSG.Sporadic.He.FpSpec
 import Certificates.Kernel.SporSch.Ly.SepGlue
-public import CFSG.Monster.Existence.StdOdd.Defs
-public import Certificates.Data.CFSGNative.Chevalley.C2E6CertLie
-public import CFSG.LieType.Chevalley.C2E6StdMatrixData
-public import CFSG.Monster.B.Classical.E6AdjointGroup
 import Certificates.Kernel.Misc.E6StdSlp
-public import CFSG.Blueprint.NativeSporadic
-public import CFSG.RankThree.PartOne.CTP.FusionSound
-import CFSG.Sporadic.Bridge.BFusSevenGen
-public import CFSG.YGroups.Y443.Native.CoverFactsWords
 import Certificates.Kernel.KDense.Y443
-public import CFSG.YGroups.Y443.Native.Swap13Word
-public import CFSG.Sporadic.Ly.FiveFacts
-import CFSG.Sporadic.Ly.Certificate
-public import CFSG.LocalAnalysis.AGLEmbedding.Norton.MON5_7.ThreeBData
-public import CFSG.YGroups.Y443.Native.Words
 import Certificates.Kernel.KDenseP.MonSevenB
 import Certificates.Kernel.KDenseP.MonSevenC
-public import CFSG.Sporadic.Ly.Setup
 import CFSG.Sporadic.Ly.GenSpecBase
-public import CFSG.Sporadic.Co2Smith.GlC0MarkInputs
-import Certificates.Kernel.Co2Smith.Cox
-import Certificates.Data.Kernel.Co2Smith.Mark
-import Certificates.Data.Kernel.Co2Smith.Cox
-import Certificates.Kernel.Co2Smith.LettersData
-import Certificates.Kernel.Co2Smith.CoxData
-import Certificates.Kernel.Co2Smith.MarkK
 import CFSG.Yardstones.M67c2c3e09a6b.Assembly
 import CFSG.Yardstones.M67c2c3e09a6b.Goals
 public import CFSG.CGT.A8S.N0EnumInputs

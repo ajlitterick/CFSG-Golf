@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Monster.B.GSide.MuFourOmega
-public import Certificates.Kernel.MonsterB.Co2Mem
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.Monster.B.Classical.PlaneAut

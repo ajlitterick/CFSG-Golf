@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoRestSpTorus
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoTableBTypeALabel
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBTransport
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangNorm
 public import CFSG.LieType.Steinberg.CentralExt.PSpEvenMultiplier
-public import CFSG.LieType.Steinberg.CentralExt.SL2CentrallyClosed
 public import CFSG.LieType.Steinberg.CentralExt.F4E8Multiplier
 public import CFSG.LieType.Steinberg.CentralExt.PSpMultiplier
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoProjectiveFormulas

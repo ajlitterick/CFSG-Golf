@@ -2,9 +2,7 @@ module
 
 public import CFSG.Certificates.Kernel.Bounds.CJSuz2.Data.B_Sel
 public import CFSG.Certificates.Kernel.Bounds.CJSuz2.Data.T_Sel
-public import CFSG.Certificates.Kernel.Common.LabF
 import CFSG.Certificates.Kernel.Common.Harness
-public import CFSG.Certificates.Kernel.Common.Lce
 public import CFSG.Certificates.Kernel.Common.RelNorm
 import CFSG.Certificates.Kernel.Bounds.CJSuz2.Checks.TH
 

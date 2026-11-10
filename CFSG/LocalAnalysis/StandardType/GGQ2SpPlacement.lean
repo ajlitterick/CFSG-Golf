@@ -1,13 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQ2SpAssembly
 public import CFSG.LocalAnalysis.StandardType.GGQ2SpNormalizerAssembly
 public import CFSG.LocalAnalysis.StandardType.GGQ2FrameSplit
 public import CFSG.LocalAnalysis.StandardType.GGQ2ClassicalCatalogueU
 public import CFSG.LocalAnalysis.StandardType.GGQ2FrameAmbientDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-public import CFSG.LocalAnalysis.StandardType.GGSixStepOneDefs
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBIrred
 
 public section
 

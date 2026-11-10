@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Open.FusionDefs
-public import Mathlib.GroupTheory.Sylow
 
 public section
 

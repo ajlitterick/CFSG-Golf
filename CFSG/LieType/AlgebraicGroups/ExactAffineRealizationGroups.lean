@@ -3,7 +3,6 @@ module
 public import CFSG.LieType.AlgebraicGroups.ConstructibleSubgroupGL
 public import CFSG.LieType.AlgebraicGroups.ReducedGroupSmooth
 public import CFSG.LieType.AlgebraicGroups.RootWordRegular
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 
 public noncomputable section
 

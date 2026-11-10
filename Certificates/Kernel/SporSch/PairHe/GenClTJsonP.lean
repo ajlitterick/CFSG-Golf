@@ -8,7 +8,6 @@ meta import all CFSG.Certificates.Kernel.Common.HarnessGz
 public import CFSG.Certificates.Kernel.SporSch.PairClTSound
 public import CFSG.Certificates.Kernel.SporSch.PairKSound
 public import Certificates.Kernel.Sporadic.RawGen
-public import Mathlib.GroupTheory.Schreier
 
 open Lean Elab Command
 

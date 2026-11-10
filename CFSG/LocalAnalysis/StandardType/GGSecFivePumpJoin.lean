@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 import CFSG.LocalAnalysis.StandardType.GGSecFiveMaxJoin
 
 public section

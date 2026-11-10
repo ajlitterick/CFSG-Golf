@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGK0LEGammaTw
-public import CFSG.LieType.Chevalley.TwistedE6NormalForm
 import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangTwE6
 public import CFSG.Sporadic.ThSchreier.GlobalData
 public import CFSG.Sporadic.ThSchreier.LocalOrbitBase1

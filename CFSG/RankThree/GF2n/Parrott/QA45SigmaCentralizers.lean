@@ -1,11 +1,8 @@
 module
 
 public import CFSG.RankThree.GF2n.Parrott.QA45InvolutionClasses
-public import CFSG.RankThree.GF2n.Parrott.QA45ListGroups
-public import CFSG.GroupTheory.ConjClassCover
 public import CFSG.GroupTheory.ElementaryAbelianBasis
 public import CFSG.GroupTheory.ElemAbelianClosure
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralGenerators
 public import CFSG.Sporadic.Recognition.LyonsAS44Quat
 
 public section

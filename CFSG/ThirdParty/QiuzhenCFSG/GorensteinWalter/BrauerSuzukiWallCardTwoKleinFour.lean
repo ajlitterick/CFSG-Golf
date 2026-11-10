@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.BrauerSuzukiWallCardH
-public import Mathlib.GroupTheory.SpecificGroups.KleinFour
 import Mathlib.Tactic
 
 namespace CFSG

@@ -1,13 +1,5 @@
 module
 
-public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec8.TB.Geom
-public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec8.TB.Pair
-public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec8.TB.WK
-public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec8.TB.Cover
-public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec8.TB.Max
-public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec8.TB.Fam
-public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec8.TB.Order
-public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec8.TB.Fix
 public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec8.TB.Close
 
 public section

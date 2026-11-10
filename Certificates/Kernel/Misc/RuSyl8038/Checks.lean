@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.Misc.RuSyl8038
-public import Certificates.Data.Kernel.Spor.Raw
 public import Certificates.Kernel.RuThree.Chain
 import CFSG.Certificates.Kernel.Common.Harness
 

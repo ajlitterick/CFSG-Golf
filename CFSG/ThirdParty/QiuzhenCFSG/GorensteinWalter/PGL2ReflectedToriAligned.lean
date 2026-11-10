@@ -3,12 +3,8 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2LowTorusFixedSylow
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2LowReflectedToriCard
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralOuterInvolutionConjugacy
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2DerivedSubgroup
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2DihedralSylow
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralIndexTwoCentralInvolution
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma27Infra
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Hall.Basic
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

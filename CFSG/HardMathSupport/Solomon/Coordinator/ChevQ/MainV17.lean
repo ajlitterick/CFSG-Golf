@@ -1,38 +1,14 @@
 module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.MainD44
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.TwE6Four
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.Gen2318LocalExc
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.Gen2318Out
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.Gen2318E68
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E68FieldFix
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.CartanConj
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.TwE6FourOut
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.Bal209F4
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.F4Fixed
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.F4InnerEx
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.SeitzBridge
-public import CFSG.HardMathSupport.Foote.FamilyReduction.ClassicalFive
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.SeitzHyperGoodIn
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.Bal209TwoIn
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.F4LocalOne
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.F4EightOuterFix
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.I102Uniq
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.Bal209TwoOuterIn
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.F4EightOPrime
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.KS.Bal209TwoInner
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.Gen2318E64In
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.SeitzCubeInner
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.Star2313In
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.SeitzCubeUnitary
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.KS.TwE6Uniq
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.KS.TwE6InnerComp
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.KS.Bal209TwoSLOBIn
 public import CFSG.HardMathSupport.Solomon.Coordinator.SeitzOuterCube.U3Heis.Main
 public import CFSG.HardMathSupport.Solomon.Coordinator.SeitzOuterCube.Exc.TOdd.Final
-public import CFSG.HardMathSupport.Solomon.Coordinator.SeitzOuterCube.Exc.TrialityThree
-public import CFSG.HardMathSupport.Solomon.Coordinator.SeitzOuterCube.Dispatch
-public import CFSG.HardMathSupport.Solomon.Coordinator.SeitzOuterCube.Exc.Assembly
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.KS.F4PureOut
 public import CFSG.Assembly.CompletedOddCoreElimination
 public import CFSG.CGT.Foote81L6.TStruct.DihSub
@@ -138,7 +114,6 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly
@@ -163,9 +138,6 @@ public import CFSG.Sporadic.Presentation.McLExactInputs
 public import CFSG.Sporadic.Schreier.J1QT
 public import CFSG.Sporadic.SuzOddCore.GraphData
 public import CFSG.Sporadic.SuzOddCore.SmallActionData
-public import CFSG.Walter.J1Props
-public import CFSG.Walter.J1Recog
-public import CFSG.Walter.PSL2Facts
 
 public section
 

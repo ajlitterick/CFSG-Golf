@@ -4,8 +4,6 @@ public import CFSG.OddTranspositions.PartThree.Ten.Steps
 public import CFSG.OddTranspositions.PartThree.Ten.CentralSymSplit
 import CFSG.OddTranspositions.PartThree.Ten.SetupQ
 import CFSG.OddTranspositions.HalphaQuotient
-import CFSG.Timmesfeld.Bridge.Asc72Basic
-import Mathlib.GroupTheory.Commutator.Finite
 import CFSG.Timmesfeld.Bridge.Asc72Lift
 
 public section

@@ -1,10 +1,6 @@
 module
 
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4UnFrame
-public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4OutCrit
-public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4MinusStmt
-public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4UnFinal
-public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4A2FoldDef
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4UnPolar
 
 public section

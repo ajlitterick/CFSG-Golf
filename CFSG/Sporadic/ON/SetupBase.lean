@@ -1,7 +1,6 @@
 
 module
 
-public import CFSG.Blueprint.NativeSporadic
 import all CFSG.Blueprint.NativeSporadic
 public import Certificates.Data.CFSGNative.ON.Certificate
 public import CFSG.F3.ConjSpec

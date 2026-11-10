@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.DataThree
 public import CFSG.LocalAnalysis.UniquenessCase.UC6R
 import CFSG.LocalAnalysis.UniquenessCase.UC6Dict
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

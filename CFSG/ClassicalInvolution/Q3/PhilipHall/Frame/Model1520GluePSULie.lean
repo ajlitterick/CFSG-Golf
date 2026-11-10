@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.Model1520GluePSU
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.Model1520GlueLie
-public import CFSG.ClassicalInvolution.RouteD.TypeULocal
 
 public section
 

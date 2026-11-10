@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSporKRestDefs
-public import CFSG.Assembly.Subnormal
-public import CFSG.GroupTheory.LocalCores.PrimeSetCore
 
 public section
 

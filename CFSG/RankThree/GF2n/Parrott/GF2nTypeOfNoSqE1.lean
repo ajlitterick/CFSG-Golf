@@ -83,7 +83,6 @@ public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Defs
 public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec5.L514.Setup
 public import CFSG.SignalizerFunctorTheorem.McBride.Prelim.Projection
 public import CFSG.Sporadic.SchreierLemmas.OrderThree
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OddKernelInvolutionFusion
 public import Certificates.Kernel.J4Count.Fix5
 
 public section

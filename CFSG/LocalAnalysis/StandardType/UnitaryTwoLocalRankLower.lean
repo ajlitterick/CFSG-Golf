@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
 public import CFSG.LocalAnalysis.StandardType.SpTwoLocalRankLower
 public import CFSG.LocalAnalysis.StandardType.UnitaryEvenTorus
-public import CFSG.LocalAnalysis.StandardType.UnitaryCenterOrders
-public import CFSG.LieType.Universal.Unitary.Clause0
 
 public section
 

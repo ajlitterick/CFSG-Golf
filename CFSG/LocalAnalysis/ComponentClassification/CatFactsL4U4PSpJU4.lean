@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4SteinU
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4PSpCore
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4JHat
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4OrdU
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4TBlocks
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4AltFrame
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4InnerCase

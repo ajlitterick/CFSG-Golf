@@ -3,16 +3,11 @@ module
 
 public import CFSG.Sporadic.Co2Schreier.CoresBase
 
-public import CFSG.Sporadic.Co2Schreier.Action
-public import CFSG.Sporadic.Co2Schreier.ChainCheckInputs
 public meta import CFSG.Sporadic.Co2Schreier.Arrays
 public meta import Certificates.Data.CFSGNative.Schreier.Check
-public import CFSG.Sporadic.Co2Schreier.CoreCheckInputs
 public meta import CFSG.Sporadic.Co2Schreier.ChainCheck
 public meta import Std.Data.HashMap
-public import CFSG.Sporadic.Co2Schreier.TextCheckInputs
 public meta import CFSG.Sporadic.Co2Schreier.Text
-public import CFSG.Sporadic.Co2Cert.CheckInputs
 public import CFSG.Sporadic.Co2Schreier.Chains
 public import CFSG.Sporadic.Co2Schreier.CoreCheck
 

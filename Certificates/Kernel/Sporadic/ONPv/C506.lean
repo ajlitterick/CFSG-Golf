@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.Sporadic.ON.Data
 public import Certificates.Kernel.Sporadic.ONNQ.Tabs
 public import Certificates.Kernel.Sporadic.ONPv.Data
 public import Certificates.Data.Kernel.Spor.ONPvK

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.Asc76L26Defs
 public import CFSG.LocalAnalysis.SectionRank.SQT
 import CFSG.LocalAnalysis.SectionRank.AmbientRank
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

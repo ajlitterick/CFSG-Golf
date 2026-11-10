@@ -1,10 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGK0MarkedKacIface1587
-public import CFSG.LocalAnalysis.StandardType.Marking
-public import CFSG.LocalAnalysis.StandardType.GGExcCompFieldInput
-public import CFSG.LocalAnalysis.StandardType.GGSixAutKFlatIVQuot
-public import CFSG.LocalAnalysis.StandardType.GGExclNoIso
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinNbrModel
 public import CFSG.LocalAnalysis.StandardType.GGK0MarkedComponents
 public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOpenVacMoreNine

@@ -1,10 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGHdRo7CDefs
-public import CFSG.LocalAnalysis.StandardType.GGR4PumpDefs
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7CLCoordAux
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-public import CFSG.LocalAnalysis.StandardType.GGFieldNbr
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinNbrModel
 

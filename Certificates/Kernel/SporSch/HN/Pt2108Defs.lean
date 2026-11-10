@@ -8,8 +8,6 @@ public import Certificates.Data.Kernel.SporSch.HNXSyl
 public import Certificates.Data.Kernel.SporSch.HNXPtL
 public import Certificates.Data.Kernel.Spor.EnumBase
 public import CFSG.Certificates.Kernel.Local.HN.X.Data
-public import CFSG.Sporadic.HNSchreier.FAData
-public import CFSG.Sporadic.HNSchreier.SylowData
 public import CFSG.Sporadic.HNSchreier.Data
 import Certificates.Kernel.SporSch.HN.Pt2108RowCmd
 

@@ -3,7 +3,6 @@ module
 
 public import Certificates.Kernel.He7223.Glue
 public import Certificates.Kernel.He7223.Cent
-public import CFSG.Sporadic.HeldB.InnerClass
 
 public section
 

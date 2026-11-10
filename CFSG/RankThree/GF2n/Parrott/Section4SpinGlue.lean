@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.GF2n.Parrott.SpinForms
 public import CFSG.RankThree.GF2n.Parrott.Section4FixDimBridge
-public import CFSG.RankThree.GF2n.Parrott.OrthogonalV
 public import CFSG.RankThree.GF2n.Parrott.CommutatorDetermined
 public import CFSG.Blueprint.SourceGeckCorrespondence
 public import CFSG.HardMathSupport.Meierfrankenfeld.FFToolkit.FixedFreeThree

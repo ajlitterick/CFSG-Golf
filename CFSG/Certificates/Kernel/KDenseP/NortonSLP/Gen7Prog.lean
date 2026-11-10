@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.NortonSLPK
 public import CFSG.Certificates.Kernel.Common.Chain
-public import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

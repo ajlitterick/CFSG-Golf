@@ -2,10 +2,7 @@ module
 
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co1FiveBase
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Parts
-public import Certificates.Certificate2043
-public import Certificates.Certificate3024
 public import Certificates.Certificate13670
-public import Certificates.Certificate13671
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC

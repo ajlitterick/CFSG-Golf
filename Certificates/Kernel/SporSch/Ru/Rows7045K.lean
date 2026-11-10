@@ -5,9 +5,7 @@ public import Certificates.Kernel.SporSch.Ru.Rows7045D
 public import Certificates.Kernel.SporSch.Ru.TreeData
 public import Certificates.Kernel.SporSch.Ru.Q7307K
 public import Certificates.Data.Kernel.SporSch.RowTreeK
-public import Certificates.Data.Kernel.SporSch.RuTreeK
 import CFSG.Certificates.Kernel.Common.EachTrue
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

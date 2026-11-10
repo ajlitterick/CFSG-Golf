@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyQFourDom
-public import CFSG.LocalAnalysis.StandardType.GGTBWInputDefs
 
 public section
 

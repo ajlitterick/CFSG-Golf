@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseDefs
-public import CFSG.LocalAnalysis.StandardType.GGPropFourOneTransfer
 
 public section
 

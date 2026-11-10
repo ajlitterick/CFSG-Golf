@@ -3,7 +3,6 @@ module
 
 public import Certificates.Kernel.Ly3085.CardBase
 public import Certificates.Kernel.Ly3085.Alg
-public import CFSG.Sporadic.Ly.Setup
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.Sporadic.Bridge.LyData
 public import CFSG.Sporadic.Bridge.TableSurj
@@ -11,10 +10,7 @@ public import CFSG.Sporadic.HN.LevelChainSpec
 public import CFSG.Sporadic.Ly.ActionBase
 public import CFSG.Sporadic.Ly.CertificateBase
 public import CFSG.Sporadic.Ly.FaithSpec
-public import CFSG.Sporadic.Ly.FiveFacts
 public import CFSG.Sporadic.Ly.OrbitSpec
-public import CFSG.Sporadic.Ly.PrimitiveBase
-public import CFSG.Sporadic.Ly.WordFacts
 public import CFSG.Sporadic.LyBase
 public import CFSG.Sporadic.Presentation.Common
 public import CFSG.Sporadic.Presentation.Ly

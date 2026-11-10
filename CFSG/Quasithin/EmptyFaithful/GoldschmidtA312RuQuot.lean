@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312RuY2Inputs
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatRu
 public import Certificates.Certificate4163
 

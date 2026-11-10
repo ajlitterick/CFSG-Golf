@@ -70,7 +70,6 @@ import CFSG.Quasithin.Background.B5Basic
 import CFSG.Quasithin.Background.B5CompA
 import CFSG.Quasithin.Background.B5CompB
 import CFSG.Quasithin.Background.B6
-import CFSG.Quasithin.Background.B6Example
 import CFSG.Quasithin.Background.InternalSecAutOn
 import CFSG.Quasithin.Background.InternalSecB4
 import CFSG.Quasithin.Background.SmithC27Star

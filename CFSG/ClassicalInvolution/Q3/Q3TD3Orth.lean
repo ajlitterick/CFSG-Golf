@@ -1,10 +1,7 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Q3TD3Dn
-public import CFSG.ClassicalInvolution.Q3.Q3EPQuot
 public import CFSG.ClassicalInvolution.Q3.Q3TY36
-public import CFSG.ClassicalInvolution.RouteD.GapsOrthSpin
-public import CFSG.ClassicalInvolution.RouteD.TWS6Sign
 
 public section
 

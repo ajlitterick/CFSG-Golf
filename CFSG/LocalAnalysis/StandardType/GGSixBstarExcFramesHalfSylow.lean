@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesSplit
-public import CFSG.LieType.SeitzGeneration.ExcTorusFam
 public import CFSG.LieType.SeitzGeneration.ExcTorusNeg
 public import CFSG.LieType.SeitzGeneration.ExcTorusE7Two
 public import CFSG.LieType.SeitzGeneration.ExcTorusE8Two

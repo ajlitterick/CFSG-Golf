@@ -1,13 +1,9 @@
 module
 
-public import Certificates.Data.TabCo1ThreeMoore
 public meta import Certificates.Data.TabCo1ThreeMoore
 public import Certificates.Kernel.Co1ThreeK.MooreK
 public import Certificates.Kernel.Co1ThreeK.LettersEq
 public import Certificates.Kernel.Co1B.Cent2045
-public import CFSG.Certificates.Kernel.SporSch.Co1MatWSound
-public import CFSG.Certificates.Kernel.SporSch.Co1BfsSound
-public import CFSG.Certificates.Kernel.SporSch.Co1StabSound
 public import CFSG.Certificates.Kernel.Co1BSound
 public import CFSG.LocalAnalysis.ComponentInitial.Finkelstein1977Commuting
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.WeylData

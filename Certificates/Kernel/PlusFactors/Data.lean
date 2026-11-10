@@ -3,7 +3,6 @@ module
 public import CFSG.OddTranspositions.PartThree.Eleven.Plus.FactorsCheck
 public import Certificates.Kernel.LocalComp.BfsGenSl
 public import Certificates.Kernel.SporSch.Th.GenV4
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public meta import CFSG.OddTranspositions.PartThree.Eleven.Plus.FactorsCheck
 meta import Certificates.Kernel.Sporadic.RawGen

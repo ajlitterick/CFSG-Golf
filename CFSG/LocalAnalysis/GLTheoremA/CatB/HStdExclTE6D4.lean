@@ -1,12 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.HStdExclTE6Kac
-public import CFSG.LocalAnalysis.StandardType.GGLayerNotExcThreeAtTwoE6D4
-public import CFSG.LocalAnalysis.StandardType.GGLayerNotExcThreeAtTwoOrders
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24D4T2Outer
-public import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.InnExcInner
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieOrderBridgeHolds
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24CentreKac
 
 public section
 

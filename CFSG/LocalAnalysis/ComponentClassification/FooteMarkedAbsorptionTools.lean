@@ -2,24 +2,13 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.FooteMarkedFamily
 
-import CFSG.GroupTheory.LocalCores.Components
 import CFSG.LocalAnalysis.ComponentClassification.AS76bLemma34Basic
 import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4X81Conf
-import CFSG.LocalAnalysis.ComponentClassification.FooteLitLemma22
 import CFSG.LocalAnalysis.ComponentClassification.FooteMarkedComponentTools
 import CFSG.LocalAnalysis.ComponentClassification.FooteMarkedConjugacy
 import CFSG.LocalAnalysis.ComponentClassification.FooteMarkedTransport
-import CFSG.LocalAnalysis.ComponentClassification.UnbalancedLayerOddCoreActiveTwoComponent
-import CFSG.LocalAnalysis.ComponentClassification.UnbalancedLayerOddCoreQuotient
-import CFSG.LocalAnalysis.ComponentClassification.UnbalancedLayerOrbitContainmentTransfer
 import CFSG.LocalAnalysis.OddStandard.Solomon75Sec5SwapLift
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.I32Basic
-import CFSG.Foundations.GilmanSolomonGrammar
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma27QuotientIndex
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
-public import CFSG.LocalAnalysis.ComponentClassification.UGSChainKGroupTwoLayer
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancingLocalKProper
-public import CFSG.LocalAnalysis.SectionRank.KGroupSectionClosure
 import CFSG.CGT.Timmesfeld75.L2Pair
 import CFSG.CGT.Timmesfeld75.ListWCBasic
 import CFSG.CharacterTheory.CyclicBlocks.Family
@@ -65,9 +54,6 @@ import CFSG.LocalAnalysis.SectionRank.Ccomm.Critical
 import CFSG.LocalAnalysis.SignalizerFunctor
 import CFSG.Permutation.UnitaryThreeRecognition.Model
 import CFSG.StronglyEmbedded.TheoremSE.BenderLowRank
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 public import CFSG.LocalAnalysis.ComponentClassification.FooteLitOuterTools
 public import CFSG.LocalAnalysis.ComponentClassification.FooteLitThm32

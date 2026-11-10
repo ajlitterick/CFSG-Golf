@@ -1,6 +1,5 @@
 module
 
-public import CFSG.GH74.Tits83.Octagon
 public import CFSG.GH74.Tits83.Section2B
 public import CFSG.GH74.Tits83.Section2
 

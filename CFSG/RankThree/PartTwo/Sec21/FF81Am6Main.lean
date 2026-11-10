@@ -1,8 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec21.FF81Am6Defs
-public import CFSG.RankThree.PartTwo.Sec21.FF81Am6A2
-public import CFSG.RankThree.PartTwo.Sec21.FF81Am6Family
 public import CFSG.RankThree.PartTwo.Sec21.FF81Am6F4
 public import CFSG.RankThree.PartTwo.Sec21.FF81Am6Lv
 public import CFSG.RankThree.PartTwo.Sec21.FF81Am6Loc

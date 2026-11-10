@@ -2,8 +2,6 @@ module
 
 public import Certificates.Data.GMS78RuCzEnum
 public import Certificates.Data.GMS78RuNModel
-public import Certificates.Data.GMS78RuAsmData
-public import CFSG.Certificates.CentralizerRelations
 
 public section
 

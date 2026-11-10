@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTWUpTwoW
 public import CFSG.LocalAnalysis.StandardType.GGTWSmallADefs
-public import CFSG.LocalAnalysis.StandardType.GGTWUpOf
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepLarge
 
 public section

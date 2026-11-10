@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.CFSGNative.Co1.Odd
-public import Std.Data.HashSet
 
 public section
 

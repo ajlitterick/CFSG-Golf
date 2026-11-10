@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCSRLabels
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4Two
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRanksTri
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRest
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP8dAct
 
 public section

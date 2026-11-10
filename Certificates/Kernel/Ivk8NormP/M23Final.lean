@@ -5,9 +5,7 @@ public import Certificates.Kernel.Ivk8Norm.Final
 public import CFSG.Certificates.Kernel.Ivk8NormPGlue
 public import CFSG.GH74.GLS.Stage2.Signalizer.Ivk8S12NormP
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.M23
-public import CFSG.Sporadic.Schreier.MathieuOddCoreM23
 public import CFSG.Quasithin.Background.A3Structure36BPrime
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GH74.GLS.IVK.Proofs2.OddTools
 public import CFSG.GH74.GLS.Stage2.Local.P34Main
 public import CFSG.GH74.GLS.Stage2.Local.P34S5A
@@ -18,9 +16,6 @@ public import CFSG.Perm.CentralizerOrbit
 public import CFSG.Sporadic.Ly.ThreeBCount
 public import CFSG.Sporadic.Th.CertificateBase
 public import CFSG.Sporadic.Th.CertificateBase1
-public import CFSG.Sporadic.Th.KernelContractBase
-public import CFSG.Sporadic.ThSchreier.FullAutCoreBase
-public import CFSG.Sporadic.ThSchreier.KernelAutBase
 public import CFSG.Sporadic.ThSchreier.KernelAutBase1
 
 public section

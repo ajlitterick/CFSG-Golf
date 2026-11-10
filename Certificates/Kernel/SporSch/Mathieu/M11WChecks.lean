@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.SporSch.Mathieu.M11WData
 public import Certificates.Data.Kernel.SporSch.OddWit
 public import Certificates.Data.Kernel.SporSch.MathieuBT
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

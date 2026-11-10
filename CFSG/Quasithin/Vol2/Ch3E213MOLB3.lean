@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.Vol2.Ch3E213MOLB1
 public import CFSG.ClassicalInvolution.Q3.Q3WASAut
-public import CFSG.Adapters.SpecialLinearPerfect
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.ClassicalGroups
@@ -18,15 +17,11 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A1bGroups
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.B6
-public import CFSG.Quasithin.Background.B6Example
-public import CFSG.Quasithin.Background.B6Offenders
 public import CFSG.Quasithin.Background.E2Hyp
 public import CFSG.Quasithin.Background.E2SolvTwo
 public import CFSG.Quasithin.Background.E2TwoNoNStmt
 public import CFSG.Quasithin.Vol2.Ch3E213MOLFacts
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M24
 

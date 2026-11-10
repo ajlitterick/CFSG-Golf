@@ -4,11 +4,7 @@ module
 public import Certificates.Kernel.LocalComp.E3Blocks
 public import Certificates.Kernel.LocalComp.E3BlocksL2
 public import Certificates.Kernel.LocalComp.E3BlocksL3
-public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Co3IdentRigidCheckInputs
 import CFSG.Certificates.Kernel.E3SoundProof
-import CFSG.Monster.B.Co2.PermArr
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

@@ -1,16 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBDenseDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBOffQTwoDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBSpFourCommonDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBJoinDefs
-public import CFSG.LocalAnalysis.StandardType.GGAssemblyTwoHypSix
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL4546Defs
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseNoBL5Aut
 public import CFSG.LocalAnalysis.StandardType.GGForkA8NotRefl
-public import CFSG.LocalAnalysis.StandardType.GGResXDichotomyDefs
 public import CFSG.LocalAnalysis.StandardType.GGTPNNarrow
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePermNbrLabelOfJDefs
 public import CFSG.LocalAnalysis.StandardType.GGNsq2Cited

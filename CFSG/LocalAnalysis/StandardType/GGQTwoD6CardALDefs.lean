@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoPosInLCells
-public import CFSG.LocalAnalysis.StandardType.GGQTwoModel
-public import CFSG.LocalAnalysis.StandardType.GGQTwoPairsDefs
-public import CFSG.LocalAnalysis.StandardType.GGQTwoReflLin
 public import CFSG.LocalAnalysis.StandardType.GGQTwoQuandleSym
 
 public section

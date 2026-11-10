@@ -1,14 +1,9 @@
 module
 
-public import CFSG.LieType.Simplicity.Exceptional
 public import CFSG.RankThree.PartTwo.Sec15.Item156StepsProofPoint
 public import CFSG.RankThree.PartTwo.Sec19.Step1911EndProof
 public import CFSG.RankThree.PartTwo.Sec4.T444.Lift
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPFF2
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPZ
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPZs
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WS6
-public import CFSG.Sporadic.J2
 public import CFSG.RankThree.PartTwo.Sec13.Item13Sporadic
 public import CFSG.RankThree.PartTwo.Sec19.Steps195
 public import Certificates.Data.Item434SporWords

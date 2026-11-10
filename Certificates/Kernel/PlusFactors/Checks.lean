@@ -1,10 +1,8 @@
 module
 
 public import Certificates.Kernel.PlusFactors.Data
-public import Certificates.Data.Kernel.BfsPinBase
 public import Certificates.Data.Kernel.Misc.PermWit
 public import CFSG.Certificates.Kernel.LocalCompUnpack
-public import CFSG.Certificates.Kernel.Lie.CT.Core
 public import CFSG.Certificates.Kernel.Spor.RawSound
 
 set_option maxRecDepth 400000

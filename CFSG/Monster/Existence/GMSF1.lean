@@ -2,7 +2,6 @@ module
 
 public import CFSG.Monster.Existence.DLevelRank
 public import CFSG.Monster.Existence.GMSBridge
-public import CFSG.Monster.GMS.Defs
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatLat
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtThreeDLocKer
 
 public section

@@ -2,8 +2,6 @@ module
 
 public import Mathlib.GroupTheory.SemidirectProduct
 public import Mathlib.GroupTheory.SpecificGroups.Quaternion
-public import Mathlib.Data.ZMod.Basic
-public import Mathlib.Data.Fintype.Prod
 
 public section
 

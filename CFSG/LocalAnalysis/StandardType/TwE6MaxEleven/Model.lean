@@ -2,14 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.TwE6MaxEleven.Defs
 public import CFSG.LieType.Chevalley.TwistedE6FieldTwoCyclicKernel
-public import CFSG.LieType.Chevalley.C2E6NativeF4Building
 public import CFSG.Monster.B.E6.GStarStructure
 public import CFSG.Monster.Existence.StdOdd.Cert.TableOne
 public import CFSG.Monster.Existence.StdOdd.Cert.ThreeLocal
-public import CFSG.Monster.Existence.StdOdd.Cert.Cent17
-public import CFSG.Monster.Existence.StdOdd.Cert.Reps
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LieType.Chevalley.C2E6A5ExteriorCubeModel
 public import CFSG.LieType.Chevalley.C2E6D4NaturalOrthogonal
@@ -40,8 +35,6 @@ public import CFSG.LocalAnalysis.SectionRank.ClassicalOdd
 public import CFSG.LocalAnalysis.SectionRank.EvenCover.LinearStep
 public import CFSG.LocalAnalysis.SectionRank.SporadicCover
 public import CFSG.Sporadic.M23.M23Group
-public import CFSG.Sporadic.Th.F2Spec
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 
 public section

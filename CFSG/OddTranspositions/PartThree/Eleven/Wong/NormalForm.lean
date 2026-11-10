@@ -1,12 +1,9 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Eleven.Wong.Delta
-public import Mathlib.GroupTheory.Commutator.Basic
 import CFSG.OddTranspositions.PartThree.Eleven.Wong.Basic
 import CFSG.OddTranspositions.PartThree.Eleven.Wong.CentralProduct
-import CFSG.ClassicalInvolution.SL2Facts
 import CFSG.HardMathSupport.Foote.Proving.SLFiveCard
-import Mathlib.GroupTheory.IsPerfect
 
 public section
 

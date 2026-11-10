@@ -4,9 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSpFrameLine
 public import CFSG.LocalAnalysis.StandardType.GGSpFrameCoxeterCard
 public import CFSG.LocalAnalysis.StandardType.GGSpFrameConfig
 public import CFSG.LocalAnalysis.StandardType.GGSpFrameRank
-public import CFSG.LocalAnalysis.StandardType.GGSpJoinNbrModel
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveSpProofJoin
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangTypeA
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeALift
 public import CFSG.LocalAnalysis.StandardType.GGTableBTypeABstarDvd
 public import CFSG.LocalAnalysis.StandardType.GGNbrGraphField
 

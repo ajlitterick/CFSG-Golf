@@ -3,7 +3,6 @@ module
 public import CFSG.GroupTheory.SylowIntersectionControl.GomiFactsGF2
 import CFSG.CGT.PushingUpLit.BHS.ThreeNormalizer
 import CFSG.LocalAnalysis.AGLEmbedding.CZeroSubnormalCommute
-import CFSG.LieType.BorelTits.Basic
 public import CFSG.LocalAnalysis.AGLEmbedding.D1GlobalU
 public import CFSG.LocalAnalysis.AGLEmbedding.Reduction
 public import CFSG.LocalAnalysis.AGLEmbedding.TwoCoreObstruction
@@ -18,19 +17,14 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.DefsE
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs12d
 public import CFSG.Monster.Code.Weights
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.B1Restrict
 public import CFSG.Quasithin.Background.B4Statement
 public import CFSG.Quasithin.Background.F6GoldschmidtList
 public import CFSG.Quasithin.EmptyFaithful.Setting
 public import CFSG.Quasithin.Recognition.GoldschmidtTripleQuotient
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 import CFSG.LocalAnalysis.AGLEmbedding.CZeroDefs
 
 public section

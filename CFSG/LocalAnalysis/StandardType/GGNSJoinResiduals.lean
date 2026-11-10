@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinTop
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinQFourTop
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinLinGlue
-public import CFSG.LocalAnalysis.StandardType.GGNSJoinGenMember
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinFrameAInputs
-public import CFSG.LocalAnalysis.StandardType.GGNSJoinOutWeakDefs
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinOutWeakPosDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanCharTwoDefs
 import CFSG.LocalAnalysis.StandardType.GGNSJoinOutWeakOrth

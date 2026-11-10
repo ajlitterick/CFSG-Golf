@@ -2,12 +2,10 @@ module
 
 public import CFSG.RankThree.GF2n.Parrott.FusionE16Transport
 public import CFSG.RankThree.GF2n.Parrott.FusionE16Model
-public import CFSG.Sporadic.Co2Smith.GlC0JankoA
 public import CFSG.ClassicalInvolution.Q3.Basic
 public import CFSG.LieType.Universal.Spin.Roots
 public import CFSG.LieType.Universal.Unitary
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBLinearDescentFixedBasis
-public import CFSG.LocalAnalysis.SectionRank.Sporadic.LocalWitness
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 
 public section

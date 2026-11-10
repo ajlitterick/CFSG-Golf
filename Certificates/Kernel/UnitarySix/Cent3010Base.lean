@@ -3,8 +3,6 @@ module
 
 public import Certificates.Kernel.UnitarySix.KQFactsBase
 public import CFSG.Sporadic.Schreier.RuEnum
-public import CFSG.Certificates.NativeSchreierEnum
-import CFSG.Certificates.Kernel.Common.Harness
 
 @[expose] public section
 

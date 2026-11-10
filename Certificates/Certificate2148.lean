@@ -3,7 +3,6 @@ module
 
 public import Certificates.Certificate2148Base
 
-public import CFSG.Sporadic.Schreier.Co1StabCheckInputs
 public meta import CFSG.Sporadic.Schreier.Co1OrbEnumCheck
 public meta import CFSG.Sporadic.Schreier.Co1StabData
 public meta import CFSG.Sporadic.Schreier.Co1FullOrbCheckBase

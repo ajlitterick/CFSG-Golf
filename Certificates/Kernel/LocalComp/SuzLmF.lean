@@ -9,7 +9,6 @@ public import Certificates.Kernel.LocalComp.SuzLmC5
 public import Certificates.Kernel.LocalComp.B0SuzProof
 public import CFSG.Certificates.Kernel.L34KSnd.Tab
 import CFSG.Certificates.Kernel.HeSylKSound
-import CFSG.Certificates.Kernel.BfsPinUnpack
 import CFSG.Certificates.Kernel.BfsPinSetSound
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
 import Certificates.Kernel.Sporadic.ON.Gen

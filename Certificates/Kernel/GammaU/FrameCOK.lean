@@ -1,10 +1,8 @@
 module
 
-public import Certificates.Kernel.GammaU.Frame0Data
 public import Certificates.Kernel.GammaU.Frame1Data
 import CFSG.Certificates.Kernel.Common.EachTrue
 import CFSG.Certificates.Kernel.Common.ForallChunks
-import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 100000
 

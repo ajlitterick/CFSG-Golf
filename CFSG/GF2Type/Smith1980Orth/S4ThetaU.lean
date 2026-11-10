@@ -50,8 +50,6 @@ public import CFSG.Sporadic.FischerOddCore.FischerOuterBasic
 public import CFSG.Sporadic.Schreier.MathieuOddCoreWords
 public import CFSG.Sporadic.Th.Max3.Data
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970_18
 public import CFSG.Timmesfeld.RankOne
 public import CFSG.Timmesfeld.Special.TwoCore

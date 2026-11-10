@@ -4,7 +4,6 @@ public import Certificates.Kernel.HS799102.GlueBasic
 public import Certificates.Kernel.HS799102.M12Checks
 public import CFSG.Certificates.Kernel.PCentSubCheck
 import CFSG.Certificates.Kernel.Misc.ArrEnumUnpack
-import CFSG.Certificates.Kernel.Spor.RawOrbEval
 import CFSG.Certificates.Kernel.Spor.RawOrbHead
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Spor.RawOrbGrp

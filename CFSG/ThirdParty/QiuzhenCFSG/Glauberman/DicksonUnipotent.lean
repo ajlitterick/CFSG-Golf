@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.MatrixGroups.PSL2
-public import Mathlib.Algebra.Group.AddChar
 
 namespace CFSG
 end CFSG

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.SeitzReduction.RankOneStageTransport
-public import CFSG.LocalAnalysis.SectionRank.NativeKGroup
 
 public section
 

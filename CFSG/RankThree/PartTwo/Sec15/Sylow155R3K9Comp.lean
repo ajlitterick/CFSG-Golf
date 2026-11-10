@@ -2,14 +2,11 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec15.Sylow155R3K9Core
 public import CFSG.RankThree.PartTwo.Sec4.Ronan148LComp
-public import CFSG.HardMathSupport.Solomon.Coordinator.I14_20LieEnd
 import CFSG.RankThree.PartTwo.Sec4.Ronan148LH1
 import CFSG.LocalAnalysis.StandardType.GGStructSOnePrimeCent
 import CFSG.LocalAnalysis.GLTheoremA.CatA.I1416QSporThreeSmall
 import CFSG.LocalAnalysis.GLTheoremA.CatA.I1416SporOrderDvd604800
 import CFSG.Quasithin.Background.C126RFSurj
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Export
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.I142TInd
 public import CFSG.LocalAnalysis.StandardType.GGStructSOneHolds
 
 public section

@@ -1,10 +1,8 @@
 
 module
 
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.HNElevenInputs
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.HNElevenBase
 public import CFSG.Mathlib.GroupTheory.PrimeOrderFix
-public import CFSG.Sporadic.HNSchreier.Primitive
 public import Certificates.Kernel.SporSch.HN.C13607K
 public import Certificates.Kernel.SporSch.HN.C13607Nat
 public import Certificates.Kernel.SporSch.HN.Pt2085

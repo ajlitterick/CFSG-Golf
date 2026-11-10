@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.CFSGNative.ON.Certificate
-public import Certificates.Data.Kernel.Spor.PEnum
 public import Certificates.Kernel.Sporadic.OddCore.RowsCmd
 public import Certificates.Kernel.Sporadic.OddCore.TBfsCmd
 public meta import Certificates.Data.CFSGNative.ON.Certificate

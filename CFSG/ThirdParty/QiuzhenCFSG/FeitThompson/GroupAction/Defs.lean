@@ -1,13 +1,9 @@
 module
 
-public import Mathlib.Algebra.Group.Defs
-public import Mathlib.Algebra.Group.Subgroup.Defs
-public import Mathlib.Data.Bracket
 public import Mathlib.GroupTheory.Commutator.Basic
 
 public import Mathlib.GroupTheory.GroupAction.FixingSubgroup
 import Mathlib.GroupTheory.SemidirectProduct
-import Mathlib.Tactic.Basic
 
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Commutator.Core
 

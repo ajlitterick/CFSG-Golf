@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSpField
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSpDescent
 public import CFSG.RankThree.PartTwo.Sec6.BThreeCensusSp4Main
 public import CFSG.LocalAnalysis.EvenBN.UnitaryFiveTwo.Gomi1PTransport
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound

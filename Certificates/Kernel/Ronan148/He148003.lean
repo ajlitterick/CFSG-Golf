@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.LocalComp.HeFix
-public import Certificates.Data.Kernel.Spor.Prim
 public import CFSG.RankThree.PartTwo.Sec4.Ronan148RHeInputs
 import Certificates.Kernel.Misc.Perm.HexCmd
 meta import CFSG.RankThree.PartTwo.Sec4.Ronan148RHeInputs

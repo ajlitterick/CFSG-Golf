@@ -5,13 +5,9 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoDShared
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveL1PhanTransfer
 import CFSG.LocalAnalysis.StandardType.GGQTwoDL1OAutFix
 import CFSG.LocalAnalysis.StandardType.GGQTwoDL1OHyp
-import CFSG.LocalAnalysis.StandardType.GGOneFiveNbr
-import CFSG.LocalAnalysis.StandardType.GGSecFiveL1OddLeaves
 import CFSG.LocalAnalysis.StandardType.GGQTwoBlockAsmPair
 import CFSG.LocalAnalysis.StandardType.GGQTwoSU34Aux5
 import CFSG.LocalAnalysis.StandardType.GGResidualRk1FrameRest
-import CFSG.RankThree.PartOne.S11d.OrthCaseH
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.OrthQ2Main8
 
 public section
 

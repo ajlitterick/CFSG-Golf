@@ -1,15 +1,11 @@
 module
 
 public import CFSG.Assembly.Subnormal
-public import CFSG.Blueprint.Chevalley
 import CFSG.LocalAnalysis.StandardType.GGSixA6F4ClsSpComp
-import CFSG.ClassicalGroups.Symplectic.ComponentCartanRank
 import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.FongOFRCStepF4
 import CFSG.LocalAnalysis.SeitzReduction.F4PilotUniqueRowsSwap
-import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagOrder
 import CFSG.LargeExtraspecial.S5Comp
 import CFSG.LocalAnalysis.ComponentInitial.BinarySymplecticSixCyclicKernel
-import CFSG.LieType.Chevalley.PerfectSimpleRoot
 public import CFSG.LieType.Chevalley.CoordinateFieldBaseChange
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.TitsGen
 public import CFSG.Perm.ChainSpec

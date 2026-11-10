@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Tits8074.Grp
 public import Certificates.Kernel.Tits8074.Data
 public import Certificates.Data.Kernel.Tits8074Grp
-import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 400000
 

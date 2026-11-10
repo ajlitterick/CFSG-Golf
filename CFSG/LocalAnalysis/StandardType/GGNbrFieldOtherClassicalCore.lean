@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixCore
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixNsWrap
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalDefs
 

@@ -2,12 +2,8 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinSylowNormalizer
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinDataComplete
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinNormalizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralCore
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Classification
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2PureSemilinear
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.PStability
-public import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

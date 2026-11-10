@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResILinDefs
 public import CFSG.LocalAnalysis.StandardType.GGResILineExit
 public import CFSG.LocalAnalysis.StandardType.GGResITriple
 public import CFSG.LocalAnalysis.StandardType.GGResIStdFork

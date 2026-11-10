@@ -8,9 +8,6 @@ public import CFSG.GH74.GLS.IVK.Proofs2.Std44LinConj
 public import CFSG.CGT.Timmesfeld75.MultPrime
 public import CFSG.Permutation.FiveTransitive.SylowThreeFixedOrbits
 public import CFSG.GroupTheory.OddInvariantSubgroupFamily
-public import CFSG.GroupTheory.MulAutCongr
-public import Mathlib.GroupTheory.GroupAction.Defs
-public import CFSG.Certificates.Kernel.ThDemp.OrbCent
 public import CFSG.CGT.Timmesfeld75.OddCenter
 public import CFSG.CGT.Timmesfeld75.Sec5FiveEng
 public import CFSG.CGT.Timmesfeld75.Sec5Nine
@@ -29,8 +26,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalSix
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherScalarSquareSplit
 public import CFSG.Sporadic.M23.M23Group
 public import CFSG.Sporadic.Th.Max3.Packet
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonSplitTorus
 
 public section
 

@@ -1,8 +1,5 @@
 module
 
-public import Mathlib.Analysis.Normed.Field.Lemmas
-public import Mathlib.LinearAlgebra.FreeModule.PID
-public import Mathlib.RingTheory.DedekindDomain.Dvr
 public import CFSG.ThirdParty.BrauerInduction.Background.ClassFun.Character.Basis
 public import CFSG.ThirdParty.BrauerInduction.Background.ClassFun.Integral
 public import CFSG.ThirdParty.BrauerInduction.Background.RingTheory.RootsOfUnity

@@ -6,15 +6,9 @@ public import CFSG.LocalAnalysis.StandardType.GGTriD4SchurHolds
 public import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
 public import CFSG.CharacterTheory.Wreathed.WreathCentralSquare
 public import CFSG.Dihedral.DihedralFusionPrefixes
-public import CFSG.HardMathSupport.Solomon.LocalBalance.PartIInputs
 public import CFSG.HardMathSupport.Solomon.LocalBalance.ScpQuot
-public import CFSG.HardMathSupport.Solomon.LocalBalance.Sec5Statements
 public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Inputs
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6DInputs
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6FInputs
 public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec7Layer
-public import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeFamilies
-public import CFSG.LocalAnalysis.AGLEmbedding.ResidualTools
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearFieldDeterminant
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSUFieldOddCore
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancingLocalSmallSourceLinear
@@ -26,15 +20,8 @@ public import CFSG.LocalAnalysis.GLTheoremA.S12.Bridge
 public import CFSG.LocalAnalysis.GLTheoremA.S12.Prop123
 public import CFSG.LocalAnalysis.GLTheoremA.Sec5Setup
 public import CFSG.LocalAnalysis.GLTheoremB.Lemma911Proof
-public import CFSG.LocalAnalysis.SignalizerFunctor
 public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremB
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremC
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.ZJTheorem
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GW1965RemarkDGroup
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29Helpers
 
 public section
 

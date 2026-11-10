@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoRationalWeyl
 public import CFSG.LocalAnalysis.StandardType.GGLangLatSolv
 public import CFSG.LocalAnalysis.StandardType.GGJ4dRankOne
 public import CFSG.LocalAnalysis.StandardType.GGJ4dRankTwo
-public import CFSG.LocalAnalysis.StandardType.GGJ4dSimpleRank
-public import CFSG.GroupTheory.LocalCores.Components
 
 public section
 

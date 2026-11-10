@@ -1,7 +1,6 @@
 module
 
 import Lean
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeakNbr
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSExcl
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRowMember
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanAD5

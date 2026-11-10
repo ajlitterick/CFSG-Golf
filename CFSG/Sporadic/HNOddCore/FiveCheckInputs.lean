@@ -3,7 +3,6 @@ module
 public import CFSG.Sporadic.HNOddCore.XCheck
 public import CFSG.Sporadic.HNOddCore.SCheck
 public import CFSG.Sporadic.HNOddCore.FiveData
-public import CFSG.Sporadic.HNSchreier.FALocalCheck
 public meta import CFSG.Sporadic.HNOddCore.XCheck
 public meta import CFSG.Sporadic.HNOddCore.SCheck
 public meta import CFSG.Sporadic.HNOddCore.FiveData

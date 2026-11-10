@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGMaxRankE8Typed
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylExcPlusLift
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcTorus
 
 public section
 

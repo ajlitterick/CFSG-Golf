@@ -1,7 +1,5 @@
 module
 
-public import Certificates.Data.Kernel.SporSch.PairClT
-public import Certificates.Data.Kernel.SporSch.PairJ3Cnt
 public import Certificates.Data.Kernel.HeLoc.Tree
 
 public section

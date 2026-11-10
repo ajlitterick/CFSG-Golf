@@ -4,7 +4,6 @@ public import Certificates.Kernel.Sporadic.M22Alt.Check
 public import CFSG.Certificates.Kernel.Spor.MCountProved
 public import CFSG.Sporadic.Schreier.M22Data
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.SporSch.MathieuOCSound
 public import CFSG.Sporadic.Schreier.M11Data
 

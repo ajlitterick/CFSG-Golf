@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.E27Table
 public import Certificates.Data.E27Fus
 public import Certificates.Data.CFSGNative.He.Fp
 

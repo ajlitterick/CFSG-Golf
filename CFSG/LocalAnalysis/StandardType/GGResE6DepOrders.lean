@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGResE6DepLabelDefs
 public import CFSG.LocalAnalysis.StandardType.GGReverseMarking
 public import CFSG.GH74.Orders.LieType
 public import CFSG.Timmesfeld.Final.Orders
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 public import CFSG.LocalAnalysis.SectionRank.ClassicalOdd
 public import CFSG.LocalAnalysis.SectionRank.EvenCover.LinearStep
 public import CFSG.LocalAnalysis.SectionRank.SporadicCover

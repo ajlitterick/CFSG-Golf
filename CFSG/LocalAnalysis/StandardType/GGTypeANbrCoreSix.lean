@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrLabels
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrRowFilter
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrTableBLift
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrKnownDefs
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrWeylA
 
 public section

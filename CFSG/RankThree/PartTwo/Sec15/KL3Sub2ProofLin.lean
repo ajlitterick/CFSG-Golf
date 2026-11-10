@@ -4,7 +4,6 @@ public import CFSG.RankThree.PartTwo.Sec15.KL3Sub2ProofAbs
 public import CFSG.RankThree.PartTwo.Sec16.Item166Res6ProofE9L
 public import CFSG.LocalAnalysis.ComponentInitial.SteinbergBUProjectivePlaneLinearField
 public import CFSG.CharacterTheory.Semidihedral.FixedFieldData
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

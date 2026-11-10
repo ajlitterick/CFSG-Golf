@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Background.Harris.R1.AbelIndex
-public import CFSG.Quasithin.Recognition.F112J2Act
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.AutAlternating
 import CFSG.GroupTheory.PCore.OpenTransport
 public import CFSG.Quasithin.Background.Harris.R1.Defs

@@ -1,18 +1,10 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec4.Ronan148HL37
-public import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.UniversalCoverMonster.PointSigReduction
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148HYd
-import CFSG.RankThree.PartTwo.Sec14.Item148StepPoint
-import CFSG.RankThree.PartTwo.Sec14.Item148MainProofKType
 import CFSG.RankThree.PartTwo.Sec14.Item147
-import CFSG.RankThree.PartTwo.Sec6.Item68
-import CFSG.RankThree.PartTwo.Sec6.Item612Local
-import CFSG.RankThree.PartTwo.Sec6.Item612Core
 import CFSG.RankThree.PartTwo.Sec15.Item1423ProofTools
-import CFSG.RankThree.GroupTheory.SteinbergBYSectionNineResidual
 import CFSG.RankThree.PartTwo.Sec14.Concl143Std
-import CFSG.RankThree.PartTwo.Sec4.LThreePiAct
 import CFSG.RankThree.PartTwo.Sec21.Item223PrintProofOne
 public import CFSG.Milestones.CL_LIT_Gorenstein_Walter_L_balance
 public import CFSG.RankThree.PartTwo.Sec14.Item148HJRes2ProofInner

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S2114K2TU4McGen
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22e
-import CFSG.LieType.BorelTits.Basic
 import CFSG.Quasithin.Background.BlueprintB2Bridge
 
 public section

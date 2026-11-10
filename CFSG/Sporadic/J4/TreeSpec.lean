@@ -1,9 +1,6 @@
 module
 
 public import CFSG.Sporadic.J4.Walk
-import Certificates.Data.CFSGNative.J4.Orbit
-import Certificates.Data.CFSGNative.J4.Tables
-import Certificates.Data.CFSGNative.J4.Global
 
 public section
 

@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.AGL81TheoremCD.RankThree.TheoremCThree
-public import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.NineTenBridge
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81CInputs
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenInputs
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.NineNineOneHolds
 
 public section

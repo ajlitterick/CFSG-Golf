@@ -3,10 +3,7 @@ module
 public import CFSG.RankThree.GF2n.Tim77.Defs
 public import CFSG.RankThree.GF2n.Tim77.InvolAut
 public import CFSG.RankThree.GF2n.Tim77TI
-public import CFSG.RankThree.GF2n.Tim77Prop24Conj
-public import CFSG.CGT.Timmesfeld75.WCBasic
 public import CFSG.CGT.Timmesfeld75.Sec3Thirteen
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
 import all CFSG.Timmesfeld.RootInvolutions.RootInvolutionSetting
 public import CFSG.ClassicalGroups.Orthogonal.RootGroupSwap
 public import CFSG.LocalAnalysis.RankThreeUC.Notation

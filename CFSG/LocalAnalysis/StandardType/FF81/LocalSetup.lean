@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.FF81.Defs
 import CFSG.LocalAnalysis.StandardType.FF81.LocalSetupCen
-import CFSG.LocalAnalysis.StandardType.GGFFLocalFus
 import CFSG.LocalAnalysis.StandardType.GGFFLocalNotNor
 import CFSG.LocalAnalysis.StandardType.GGFFLocalSyl
 

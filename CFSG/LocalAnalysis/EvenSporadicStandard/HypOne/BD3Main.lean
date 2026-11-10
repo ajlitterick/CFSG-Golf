@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HypOne.BMain
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HypOne.BD2Count
-public import CFSG.Monster.B.CTIB.FourClasses
-public import CFSG.Monster.B.CTIB.UniqueComponent
 
 public section
 

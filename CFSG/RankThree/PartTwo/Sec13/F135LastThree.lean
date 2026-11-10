@@ -3,7 +3,6 @@ module
 public import CFSG.RankThree.PartTwo.Sec13.F135LastDefs
 public import CFSG.SignalizerFunctorTheorem.McBride.Prelim.ThreeSubgroups
 public import CFSG.LocalAnalysis.SectionRank.SQT
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

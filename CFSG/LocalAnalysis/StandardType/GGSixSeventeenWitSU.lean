@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitDefs
-public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionSURepToral
-public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionSURepWit
-public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionSURepBlock
 public import CFSG.LocalAnalysis.StandardType.GGSixLinearModelSUMono
 public import CFSG.LocalAnalysis.StandardType.GGRoundFourSmallALinearBlock
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarRestSU

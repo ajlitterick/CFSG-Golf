@@ -23,7 +23,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3J4Dec2CoreBas
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3J4Dec2EVBase
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3J4FinalBase
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3J4HBase
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3J4Parts
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3J4PlanBase
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3J4Reps2A
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.AppCCases
@@ -36,7 +35,6 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.A3StructureBasic
 public import CFSG.Quasithin.Background.B1Basic
 public import CFSG.Quasithin.Background.C1GNInputs
@@ -45,23 +43,14 @@ public import CFSG.Quasithin.EmptyFaithful.QTKELocal
 public import CFSG.Sporadic.J4.QT2ARad
 public import CFSG.Sporadic.J4.QT2LocCntMainBase
 public import CFSG.Sporadic.J4.QT2LocEInterBase
-public import CFSG.Sporadic.J4.QT2LocHMain
 public import CFSG.Sporadic.J4.QT2LocMainBase
-public import CFSG.Sporadic.J4.QT2LocRadMainBase
-public import CFSG.Sporadic.J4.QT2LocUniqBase
 public import CFSG.Sporadic.J4.QT2LocUniqCheck
 public import CFSG.Sporadic.J4.QT2LocX0NMainBase
 public import CFSG.Sporadic.J4.QT2LocZProof
 public import CFSG.Sporadic.J4.QTOutChar
 public import CFSG.Sporadic.J4.QTRankInvProof
-public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2RootGroups
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ProjectiveSemilinear
 public import Certificates.Certificate43
 
 public section

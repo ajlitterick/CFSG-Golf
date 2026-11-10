@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.NbrPOmegaMinusLeafCore
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.NbrPOmegaMinusLeafGen
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.NbrPOmegaMinusLeafKSetup
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.NbrPOmegaMinusLeafModel
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.NbrPOmegaMinusLeafPlusFour

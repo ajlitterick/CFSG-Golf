@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.Zassenhaus.PartA.S7SwapMain
-public import Mathlib.GroupTheory.Sylow
 
 public section
 

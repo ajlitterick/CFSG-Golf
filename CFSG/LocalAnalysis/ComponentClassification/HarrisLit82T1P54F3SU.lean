@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1P54F3Sp
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1P54SU
-public import CFSG.LieType.Steinberg.CentralExt.UnitaryHigher
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1P54F3Odd
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1P54F3SL
 public import CFSG.Sporadic.Suz.Setup

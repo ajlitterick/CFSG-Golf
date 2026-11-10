@@ -4,7 +4,6 @@ public import CFSG.HardMathSupport.Timmesfeld.DFour.Residual44Defs
 public import CFSG.HardMathSupport.Timmesfeld.DFour.Residual44Chain
 public import CFSG.HardMathSupport.Timmesfeld.DFour.Residual44Fam
 public import CFSG.HardMathSupport.Timmesfeld.DefChar.CoreDFour
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointDataPlusImage
 public import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeFamilies
 public import CFSG.LocalAnalysis.AGLEmbedding.ResidualTools
 public import CFSG.LocalAnalysis.GLTheoremB.Lemma911Defs

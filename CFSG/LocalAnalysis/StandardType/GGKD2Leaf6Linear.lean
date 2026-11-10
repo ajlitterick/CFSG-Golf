@@ -1,15 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKD2Leaf6D3
-public import CFSG.LocalAnalysis.StandardType.GGKD2Leaves1615
 public import CFSG.LocalAnalysis.StandardType.GGKD2Connected1619Contracts
 import CFSG.LocalAnalysis.StandardType.GGKD2LinearHolds1615
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagProj
-public import CFSG.LocalAnalysis.StandardType.GGKD2LinearLemmas1615
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
-public import CFSG.Goldschmidt.Steps.G37Quot
-public import CFSG.Assembly.GL83StatedBridge
-public import CFSG.LocalAnalysis.ComponentInitial.BasicFacts
 
 public section
 

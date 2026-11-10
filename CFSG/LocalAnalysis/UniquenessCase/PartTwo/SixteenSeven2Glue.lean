@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs16c
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenResults
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenResults2
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven2Final
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven2Hyper
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven2Norm

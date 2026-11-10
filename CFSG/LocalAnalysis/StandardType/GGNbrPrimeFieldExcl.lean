@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL4546Defs
 
 public section

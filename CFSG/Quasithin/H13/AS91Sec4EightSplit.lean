@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.H13.AS91Sec4EightLift
-public import CFSG.Quasithin.Background.A1cTransfer
 
 public section
 

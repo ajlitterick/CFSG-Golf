@@ -3,7 +3,6 @@ module
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6S
 public import CFSG.ClassicalInvolution.Q3.Sec13AECoverEven
 public import CFSG.ClassicalInvolution.Q3.TL3T61
-public import CFSG.ClassicalInvolution.Q3.TL3T35
 public import CFSG.ClassicalInvolution.Q3.TL3T52A
 public import CFSG.ClassicalInvolution.Q3.TL3T12_6E8Sec
 public import CFSG.ClassicalInvolution.Q3.TL3T42

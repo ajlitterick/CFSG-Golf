@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.RankThreeUC.Section5.ActionVocabulary
 import all CFSG.LocalAnalysis.RankThreeUC.Section5.ActionVocabulary
 public import CFSG.LocalAnalysis.RankThreeUC.Section5.PrimeActionFixedFree
 public import CFSG.LocalAnalysis.RankThreeUC.Section5.CentralizerEqCenterAndActorCyclicAndPrimeCoreCyclic
-public import CFSG.LocalAnalysis.RankThreeUC.Section5.Context
 import all CFSG.LocalAnalysis.RankThreeUC.Section5.Context
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
 public import CFSG.LocalAnalysis.RankThreeUC.Section5.SstarQuotientFaithful.SstarQuotientFaithful

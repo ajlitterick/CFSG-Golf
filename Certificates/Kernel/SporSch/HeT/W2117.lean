@@ -2,9 +2,7 @@ module
 
 public import Certificates.Kernel.SporSch.HeT.W2117K
 public import Certificates.Kernel.SporSch.HeT.Q2117
-public import Certificates.Kernel.SporSch.HeT.Out2116
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

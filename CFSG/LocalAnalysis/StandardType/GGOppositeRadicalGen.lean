@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGOppositeRadicalStd
-public import TauCeti.LinearAlgebra.Matrix.SpecialLinearGroup.Transvection
 
 public section
 

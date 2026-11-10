@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabel
-public import Mathlib.LinearAlgebra.Matrix.Cartan.Basic
-public import Mathlib.LinearAlgebra.SesquilinearForm.Basic
 
 public section
 

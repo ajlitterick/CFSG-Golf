@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FQMat
-import Mathlib.FieldTheory.Galois.Basic
-import Mathlib.RepresentationTheory.Homological.GroupCohomology.Hilbert90
 
 public section
 

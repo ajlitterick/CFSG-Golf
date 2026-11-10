@@ -5,7 +5,6 @@ public import CFSG.LieType.AlgebraicGroups.InnerInvolutionTorus
 public import CFSG.LieType.Chevalley.OddToralInvolutionFixedComponents
 public import CFSG.LieType.Chevalley.CLSOddE7RationalDerivedIndex
 public import CFSG.LocalAnalysis.ComponentInitial.CommutingBlock
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBGeneralLinear
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBPrimeJoinInteraction

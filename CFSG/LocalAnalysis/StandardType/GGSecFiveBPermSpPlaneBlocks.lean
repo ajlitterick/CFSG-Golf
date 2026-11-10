@@ -1,12 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpPlaneFrameDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSpPlaneBlocksTwoDefs
-public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Embed
-import CFSG.LocalAnalysis.StandardType.GGSpJoinCentralizerLam
 import CFSG.LocalAnalysis.StandardType.GGSpJoinBstarSplit
-import CFSG.ClassicalInvolution.Models.SymplecticPairs.Complement
-import CFSG.ClassicalInvolution.Models.SymplecticPairs.ShortRoot
 import CFSG.ClassicalInvolution.Models.SymplecticPairs.TypeCLayer
 import CFSG.LocalAnalysis.StandardType.GGTorCPlane
 import CFSG.LocalAnalysis.StandardType.GGSixLSixFiveKnownComp

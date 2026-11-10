@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoExceptionalStep83Pair
-public import CFSG.LocalAnalysis.EvenSmallLie.TwoE6.CoverLevi
 public import CFSG.LocalAnalysis.EvenSmallLie.TwoE6.CoverPullback
 public import CFSG.LocalAnalysis.EvenSmallLie.TwoE6.LeviA2Diag
 public import CFSG.LieType.Multipliers.L34Upper

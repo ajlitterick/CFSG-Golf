@@ -1,10 +1,8 @@
 module
 
 public import Certificates.Kernel.Co2I301.Bind
-public import Certificates.Kernel.SporSch.Co2M.Seeds
 public import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

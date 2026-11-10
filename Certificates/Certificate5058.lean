@@ -1,7 +1,5 @@
 module
 
-public import CFSG.GH74.GLS.C3.Layer2.L5C3a
-public import CFSG.GH74.GLS.C3.Layer2.L5C3Inputs
 public import CFSG.Certificates.Kernel.L5.E16Sound
 public import Certificates.Kernel.L5E16.Checks
 import CFSG.Certificates.Kernel.Common.Harness

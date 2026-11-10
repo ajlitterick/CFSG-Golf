@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.Kernel.SmithEKT
 public import Certificates.Kernel.SmithEK.TPack
 public import Certificates.Kernel.SmithEK.WData
 public import CFSG.Certificates.Kernel.Common.EachTrue

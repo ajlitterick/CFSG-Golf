@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFixGapGlue
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FRSz
-public import CFSG.LocalAnalysis.StandardType.GGRawAutRestSz
-public import CFSG.LieType.Ree.SuzukiPerfect
 
 public section
 

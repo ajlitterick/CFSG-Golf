@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeTwoTorus
-public import CFSG.LocalAnalysis.ComponentInitial.RootDiagonalConjugation
 import CFSG.LocalAnalysis.StandardType.GGLangTwoPairAux
 
 public section

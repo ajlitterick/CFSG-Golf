@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1P51eBlock
-public import Certificates.Kernel.ThCent.Leaves
 
 public noncomputable section
 

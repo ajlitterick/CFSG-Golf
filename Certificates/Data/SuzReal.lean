@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.TabSuzFuse
-public import CFSG.Sporadic.SuzOddCore.Arrays
 public meta import Certificates.Data.TabSuzFuse
 public meta import CFSG.Sporadic.SuzOddCore.Arrays
 

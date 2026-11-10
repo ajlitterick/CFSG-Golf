@@ -1,22 +1,12 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section9.R920OddDefs
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenFifteenSix
-public import CFSG.LocalAnalysis.UniquenessCase.UC22R847G4
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.R847Narrow
 public import CFSG.LocalAnalysis.UniquenessCase.UC22R847ThinNe3
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Fourteen2
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenEight
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenKSchur
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenKSchur2
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenKNotJ2
-public import CFSG.LocalAnalysis.UniquenessCase.UC22P20p
-public import CFSG.LocalAnalysis.UniquenessCase.UC22P22qm
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenThreeS
 public import CFSG.LieType.Chevalley.SubsystemComponent
-public import CFSG.GroupTheory.QuasisimpleCommutingProductBound
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenInfra
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenLin
 public import CFSG.Blueprint.OddStandardExact
 public import CFSG.CGT.T75H.Rank1
 public import CFSG.CGT.T75H.Setup

@@ -1,10 +1,6 @@
 module
 
-public import CFSG.Quasithin.H13.NQCatD4Center
 public import CFSG.Quasithin.H13.NQCatD4Irred
-public import CFSG.LieType.Chevalley.GraphFixedBorelSelfNormalizer
-public import CFSG.LieType.Chevalley.RootCommutator
-public import CFSG.LieType.Chevalley.TrialityExactFiniteOrder
 
 public section
 

@@ -6,9 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutOmegaPlusTwo
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeFAt
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeStepA
 import CFSG.LocalAnalysis.StandardType.GGSixUnitaryTwoInnerDiag
-import CFSG.LocalAnalysis.StandardType.GGK0MarkedArithmetic
-import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpRestTypeDet
-import CFSG.LocalAnalysis.StandardType.GGSixAutKFlatIVQuot
 
 public section
 

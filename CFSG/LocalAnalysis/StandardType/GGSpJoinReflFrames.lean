@@ -1,13 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRest
-public import CFSG.LocalAnalysis.StandardType.GGSpJoinSignedPermBase
-public import CFSG.LocalAnalysis.StandardType.GGSpFrameIso
 public import CFSG.LocalAnalysis.StandardType.GGSpFrameOrbit
-public import CFSG.LocalAnalysis.StandardType.GGSpJoinOrbitBound
-public import CFSG.LocalAnalysis.StandardType.GGSpJoinCoxeterCard
-public import CFSG.LocalAnalysis.StandardType.GGSpJoinSignedPermGen
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySpCoord
 public import TauCeti.GroupTheory.ExponentPrime
 
 public section

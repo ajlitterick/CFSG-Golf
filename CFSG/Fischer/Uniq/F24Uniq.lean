@@ -1,9 +1,6 @@
 module
 
 public import CFSG.Fischer.Uniq.Fi23Facts
-public import CFSG.Fischer.Uniq.F23Uniq
-public import CFSG.Fischer.Uniq.LHTransport
-public import CFSG.Fischer.Polar.Lines
 public import CFSG.Sporadic.Fi23.Graph
 
 public section

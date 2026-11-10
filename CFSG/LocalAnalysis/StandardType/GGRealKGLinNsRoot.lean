@@ -1,29 +1,16 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRealKG
-public import CFSG.LocalAnalysis.StandardType.GGKGForkRows
 public import CFSG.LocalAnalysis.StandardType.GGKGForkLayerGen
-public import CFSG.LocalAnalysis.StandardType.GGRealKGModelRoot
 public import CFSG.LocalAnalysis.StandardType.GGSlNsRootGenModel
-import CFSG.LocalAnalysis.StandardType.GGSlNsRootGenWeyl
-import CFSG.LocalAnalysis.StandardType.GGSlNsRootGenTwist
-import CFSG.LocalAnalysis.StandardType.GGSlNsRootGenComp
 import CFSG.LocalAnalysis.StandardType.GGSlNsRootGenCoverComp
-import CFSG.LocalAnalysis.StandardType.GGSuSplitRootGenDefs
-import CFSG.LocalAnalysis.StandardType.GGOmegaPlusRootGenWeyl
-import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerLinearNsFrame
 import CFSG.LocalAnalysis.StandardType.GGKGForkLinNsC
 import CFSG.LocalAnalysis.StandardType.GGKGForkVacuous
 import CFSG.LocalAnalysis.StandardType.GGKGForkLatticeElt
-import CFSG.LocalAnalysis.StandardType.GGTableBTypeATorus
-import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
 import CFSG.LocalAnalysis.StandardType.GGOutTwoCommInnerHolds
 import CFSG.LocalAnalysis.StandardType.GGKnownInputsNoU6Classical
-import CFSG.LocalAnalysis.ComponentInitial.LinearHigherOuterQuotients
-import CFSG.LocalAnalysis.GLTheoremA.CatA.I142NBase
 import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Lemma1315b
 import CFSG.LocalAnalysis.RankThreeTheoremC.SmallRankE3.P622K3ChevSimple
-import CFSG.Adapters.SpecialLinearPerfect
 import CFSG.LocalAnalysis.StandardType.GGRealKGOmegaRow
 import CFSG.LocalAnalysis.StandardType.GGRealKGCoverComp
 import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Sec13g

@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.TcRes.Trans
 public import Certificates.Kernel.TcRes.Data
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.NatItemsGz
 import CFSG.Certificates.Kernel.Common.Repo
 

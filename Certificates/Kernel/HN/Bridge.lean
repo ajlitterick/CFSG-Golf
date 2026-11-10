@@ -5,10 +5,6 @@ public import Certificates.Kernel.HN.Words
 public import Certificates.Kernel.HN.Dce
 public import Certificates.Kernel.HN.Tables
 import CFSG.Certificates.Kernel.Bounds.HNAlt.RelsTC
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
-import Mathlib.Algebra.Group.Subgroup.Pointwise
-import Mathlib.Algebra.Group.Subgroup.Finite
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 public import CFSG.Certificates.Kernel.DceSPSound
 

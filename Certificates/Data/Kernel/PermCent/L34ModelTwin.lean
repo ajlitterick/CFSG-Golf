@@ -2,7 +2,6 @@
 module
 
 public import Certificates.Data.Kernel.PermCent.L34MTwin
-public import CFSG.GH74.Uniqueness.SU.KI1r4L34ModelInputs
 
 public section
 

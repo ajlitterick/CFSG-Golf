@@ -4,7 +4,6 @@ public import Certificates.Data.Kernel.Misc.Sp8U0
 public import Certificates.Data.Kernel.Misc.BfsKWStep
 public import Certificates.Kernel.Misc.Sp8U0.Rec
 import CFSG.Certificates.Kernel.Common.EachTrue
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

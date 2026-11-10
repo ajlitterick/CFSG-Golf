@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutNonsplitOmRank
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutClassicalOmMinus
-public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergOmegaModel
-public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergOmegaPlus
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointDataCoordinateRegular
 
 public section
 

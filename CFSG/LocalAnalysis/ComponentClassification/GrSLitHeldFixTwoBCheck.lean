@@ -1,12 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeldFixSylowCheck
-public import CFSG.Sporadic.SmallOddCore.HeLocalCheck2
 public meta import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeldFixSylowCheck
 public meta import CFSG.Sporadic.SmallOddCore.HeLocalCheck2
 public meta import CFSG.Sporadic.SmallOddCore.ClassSimple
 public meta import Certificates.Data.CFSGNative.PSL3Four.Basic
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeldFixTwoBCheckInputs
 public import Certificates.Certificate2330
 
 public section

@@ -4,9 +4,6 @@ public import CFSG.Quasithin.Recognition.St84.Gen.G2qAmalLevi
 
 import CFSG.Quasithin.Recognition.St84.Gen.G2qAmalVertexTwoTorus
 import CFSG.Quasithin.Recognition.St84.Gen.VertexIsoSpecial
-import CFSG.LieType.Chevalley.SylowOpposition
-import Mathlib.Algebra.CharP.Two
-import Mathlib.Algebra.CharP.Reduced
 import CFSG.Quasithin.Recognition.St84.Gen.NatSecDefs
 
 public section

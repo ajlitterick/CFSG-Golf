@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.SporSch.Co1.Packed
 public import CFSG.Certificates.Kernel.SporSch.Co1ElemSound
-public import CFSG.Sporadic.Schreier.Co1ElemThreeCheckInputs
 public meta import Certificates.Kernel.SporSch.Co1.GenDag
 public meta import CFSG.Sporadic.Schreier.Co1ElemThreeCheckInputs
 import Init.Data.Nat.Fold

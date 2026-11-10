@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265BSClTwo
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Blocks4
-public import CFSG.RankThree.PartOne.KC.OrthogonalFixedBlock
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.OrthQ2Unit
-import CFSG.RankThree.PartOne.LIT.RankAbstract
 import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.W2.OrthTwoAux.Quad
 
 public section

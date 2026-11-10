@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeSympLinAux2
 public import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeGlue
-public import CFSG.LocalAnalysis.StandardType.GGNbrCenterPCyclic
 public import CFSG.LocalAnalysis.StandardType.GGResNonsingularBase
-import CFSG.LocalAnalysis.StandardType.GGPZWeylB
 
 public section
 

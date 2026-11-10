@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
-import CFSG.LocalAnalysis.ComponentInitial.LocalComponents
 import CFSG.LocalAnalysis.StandardType.GGLemmaThreeThirteen
 
 public section

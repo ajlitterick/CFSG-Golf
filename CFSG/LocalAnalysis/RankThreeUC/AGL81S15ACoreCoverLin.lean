@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Open.StatedDefs
 public import CFSG.Open.GriessAllModelsStatement
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15ACoreCoverLinGen
 import CFSG.RankThree.PartOne.N143.Inspect613Even

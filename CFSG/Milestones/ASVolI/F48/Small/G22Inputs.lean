@@ -1,9 +1,7 @@
 module
 
-public import CFSG.Certificates.CosetTablePresented
 public meta import CFSG.Certificates.CosetTablePresented
 public import CFSG.Milestones.ASVolI.F48.Small.G22Base
-public import CFSG.Quasithin.Recognition.CertPermList
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.LocalAnalysis.ComponentInitial.FieldUnitaryTrace
 public import CFSG.Quasithin.Background.Basic

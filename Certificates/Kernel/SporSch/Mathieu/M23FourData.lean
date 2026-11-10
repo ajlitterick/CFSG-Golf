@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.SporSch.Mathieu.M23Data
 public import Certificates.Kernel.Sporadic.OddCore.MulHCmd
 public meta import Certificates.Kernel.SporSch.Mathieu.M23Data
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

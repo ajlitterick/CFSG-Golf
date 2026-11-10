@@ -2,9 +2,6 @@ module
 
 public import CFSG.Sporadic.Recognition.LyonsAS44ConjPerm
 public import CFSG.Sporadic.Recognition.LyonsAS44DeltaGen
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ElementaryAbelian
-public import Mathlib.GroupTheory.Frattini
-public import CFSG.Open.StatedDefs
 import CFSG.GroupTheory.ElemAbelianClosure
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups
@@ -14,7 +11,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.MinimalBCenter
 public import CFSG.LocalAnalysis.ComponentClassification.OrdinaryComponentJoins
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 
 public section

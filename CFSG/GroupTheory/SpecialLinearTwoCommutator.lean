@@ -1,14 +1,11 @@
 module
 
-public import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
 public import CFSG.Quasithin.Background.B6Defs
 
 import CFSG.LinearAlgebra.SL2CharTwoInvolution
 import CFSG.Timmesfeld.ARS.NaturalModule
-import CFSG.Adapters.SpecialLinearPerfect
 import CFSG.Quasithin.Background.C124Perf
 import CFSG.GroupTheory.TwoResidualOddOrder
-import Mathlib.Algebra.CharP.CharAndCard
 import CFSG.Quasithin.MS93.S37RPts
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Quasithin.Background.Basic
@@ -21,17 +18,11 @@ import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 import CFSG.LocalAnalysis.SectionRank.TitsCover
 import CFSG.Quasithin.Background.A3Components
-import CFSG.Quasithin.Background.A3ComponentsAmbient
 import CFSG.Quasithin.Background.E1Inherit
 import CFSG.Quasithin.Recognition.GoldschmidtTripleQuotient
-import CFSG.Sporadic.J4.Simple
 import CFSG.Sporadic.J4Base
 import CFSG.Sporadic.Mathieu.M12
 import CFSG.Sporadic.Mathieu.M24
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

@@ -3,8 +3,6 @@ module
 public import CFSG.ClassicalInvolution.SmallCases.NDBG1
 public import CFSG.ClassicalInvolution.SmallCases.NDBF
 public import CFSG.ClassicalInvolution.Asc77.AscT3CoreTight
-public import CFSG.ClassicalInvolution.Asc77.AscT3Final
-public import CFSG.ClassicalInvolution.Asc77.AscBSCMain
 public import CFSG.ClassicalInvolution.Asc77.AscT3TypedMain
 public import CFSG.ClassicalInvolution.RouteD.G2D4T3Free
 public import CFSG.GH74.GLS.Defs

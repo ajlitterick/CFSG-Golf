@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.TitsAschbacherE32
 public import Certificates.Data.TitsFiveLocal
-public import CFSG.Sporadic.Schreier.TitsCentralCheckInputs
 
 public section
 

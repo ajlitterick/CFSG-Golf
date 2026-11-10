@@ -1,11 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.UC22P22sa
-public import CFSG.LocalAnalysis.UniquenessCase.UC22P22x
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22so
-import CFSG.LocalAnalysis.UniquenessCase.UC22P22xf
-import CFSG.LocalAnalysis.UniquenessCase.UC22P22e
-import CFSG.GroupTheory.ElemAbelianClosure
 
 public section
 

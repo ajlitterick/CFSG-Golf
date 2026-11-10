@@ -1,16 +1,11 @@
 module
 public import CFSG.LocalAnalysis.StandardType.GGMemberRowsN
 public import CFSG.LocalAnalysis.StandardType.GGOriginalTwE6TwoNoncommRoute
-import CFSG.LocalAnalysis.StandardType.GGResidualExcRows
-import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylInputHolds
-import CFSG.LocalAnalysis.StandardType.GGRemTableBLExc11R
 import CFSG.LocalAnalysis.StandardType.GGPairResidualUnitaryTwo
-import CFSG.LocalAnalysis.StandardType.GGPairResidualE7Plus
 import CFSG.LocalAnalysis.StandardType.GGPairResidualE8Plus
 import CFSG.LocalAnalysis.StandardType.GGPairResidualTwE6Plus
 import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseEnnolaTwo
 import CFSG.LocalAnalysis.StandardType.GGPairResidualOrthTwo
-import CFSG.LocalAnalysis.StandardType.GGMemberUnitaryPair
 public noncomputable section
 namespace CFSG.StandardType
 open CFSG.Assembly CFSG.Open CFSG.ClassicalInvolution.Phan

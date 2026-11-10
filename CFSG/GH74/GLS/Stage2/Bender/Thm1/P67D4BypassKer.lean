@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4OutCrit
-public import CFSG.Certificates.Kernel.ThDemp.OrbCent
 
 public section
 

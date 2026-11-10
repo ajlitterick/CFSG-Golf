@@ -4,9 +4,7 @@ public import Certificates.Kernel.LocalComp.TitsE1.Checks
 public import Certificates.Kernel.Sporadic.Tits.Words2264
 public import CFSG.Certificates.Kernel.LocalCompPinSound
 public import CFSG.Certificates.Kernel.MaxD2.Sound
-public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourEnumSpec
 import Init.Data.Range.Basic
-import Mathlib.Tactic.IntervalCases
 
 public section
 

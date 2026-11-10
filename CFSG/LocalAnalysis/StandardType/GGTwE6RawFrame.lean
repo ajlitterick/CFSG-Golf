@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTwKGLayerDefs
 public import CFSG.LocalAnalysis.StandardType.GGTwE6EltSmallFrame
 public import CFSG.LocalAnalysis.StandardType.GGTwE6EnnolaSplitTorus
 public import CFSG.LocalAnalysis.StandardType.GGKGTwTheta

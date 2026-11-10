@@ -1,7 +1,6 @@
 
 module
 
-public import CFSG.Sporadic.Co2I301.SpecSixAuxBase
 import all CFSG.Sporadic.Co2I301.SpecSixAuxBase
 
 public import Certificates.Certificate810301

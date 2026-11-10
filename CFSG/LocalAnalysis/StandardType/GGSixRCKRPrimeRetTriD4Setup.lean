@@ -1,13 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeTriD4PinnedFrame
-import CFSG.RankThree.PartOne.KGD.D4Frame
 import CFSG.LocalAnalysis.StandardType.KGLangLT5ExcTorus
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.TorusAtDatum
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.FrobeniusOnRoots
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.TwistedE6Base
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.OuterFourSeitzD4
-import CFSG.RankThree.Chevalley.SteinbergCBTrialityPermModule
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcOrbit
 
 public section

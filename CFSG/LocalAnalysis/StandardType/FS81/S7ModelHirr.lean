@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.SeitzReduction.EnKLHeis
 public import CFSG.LocalAnalysis.SeitzReduction.EPilotCentralizerHigh
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Defs
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Detect.Heis.NormalForm
@@ -32,7 +30,6 @@ public import CFSG.RankThree.PartOne.KE.A1Torus
 public import CFSG.RankThree.PartOne.KE.A2Family
 public import CFSG.RankThree.PartOne.KE.A2Shape
 public import CFSG.RankThree.PartOne.KE.SigmaUntwisted
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.JRFacts
 
 public section

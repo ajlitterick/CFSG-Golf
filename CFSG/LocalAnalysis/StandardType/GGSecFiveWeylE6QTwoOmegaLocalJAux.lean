@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoOmegaLocalAutAux7
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoOmegaLocalLin
 public import CFSG.GroupTheory.IsComponentOfMap
-public import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
 
 public section
 

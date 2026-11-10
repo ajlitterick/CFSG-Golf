@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.ThCensus.WordChecks
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.Each
 
 public section

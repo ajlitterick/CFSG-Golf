@@ -1,16 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResidualGenFrame
-public import CFSG.LocalAnalysis.StandardType.GGNSJoinQFourExact
 public import CFSG.LocalAnalysis.StandardType.ExcPay.RouteE7Three
 import CFSG.LocalAnalysis.StandardType.GGResidualRk1SUTwo
 import CFSG.LocalAnalysis.StandardType.ExcPay.TwE6
-import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrEnnolaLabel
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseLabel
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-import CFSG.LocalAnalysis.StandardType.GGReverseMarking
-import CFSG.ClassicalInvolution.ModelFacts.ClauseZero
 
 public section
 

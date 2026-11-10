@@ -3,7 +3,6 @@ module
 public import CFSG.Quasithin.Background.B4Dual
 public import CFSG.Quasithin.Background.F918E1
 public import CFSG.LocalAnalysis.WeakClosure81.FourteenSix
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.DefsWeakClosure
 public import CFSG.Quasithin.Background.B1Key
 
 public section

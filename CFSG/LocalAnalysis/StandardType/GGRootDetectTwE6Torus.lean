@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootDetectExcE6
-public import CFSG.LieType.Steinberg.TwistedE6.Local
-public import CFSG.LieType.Steinberg.TwistedE6.Datum
 
 public section
 

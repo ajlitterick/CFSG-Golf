@@ -7,12 +7,6 @@ import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.LayerBridge
 import CFSG.RankThree.PartOne.KFOUT3.KtyGen
 import CFSG.LocalAnalysis.GLTheoremA.S12.Common
 import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.L6LeavesKGJ
-import CFSG.LocalAnalysis.ComponentClassification.LBalanceAssemblyElement
-import CFSG.GroupTheory.Fitting.CharacteristicP
-import CFSG.Quasithin.Background.B1More13A
-import CFSG.LocalAnalysis.StandardType.GGNbrBalanceBasic
-import CFSG.Assembly.Subnormal
-import CFSG.LocalAnalysis.StandardType.GGOneFiveNbr
 import CFSG.LocalAnalysis.StandardType.GGNbrBalancePumpup
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneElevenEleven
 import CFSG.GroupTheory.PRankLeOneOfSylowLe
@@ -23,7 +17,6 @@ public import CFSG.Assembly.QuasithinDefs
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public import CFSG.LocalAnalysis.ComponentClassification.Helpers
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.Quasithin.Background.Basic
 public import CFSG.RankThree.GroupTheory.SteinbergBYSectionNineResidual
 public import CFSG.RankThree.LocalRank.SelectorCases
@@ -42,10 +35,6 @@ import CFSG.GroupTheory.RegularModuleThree
 import CFSG.HardMathSupport.Cooperstein.Coordinator.Parts
 import CFSG.HardMathSupport.Solomon.Coordinator.B3FamPC
 import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma28
-import CFSG.HardMathSupport.Solomon.LocalBalance.Sec5Statements
-import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6DInputs
-import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6FInputs
-import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec7Interface
 import CFSG.HardMathSupport.Timmesfeld.Proving.ExistsOrderPCentralizer
 import CFSG.HardMathSupport.Timmesfeld.Proving.GLAPrimeCoreCentralizer
 import CFSG.LocalAnalysis.AGLEmbedding.OneLieUniqueJCompetitor
@@ -57,11 +46,8 @@ import CFSG.LocalAnalysis.GLTheoremA.S10.Bridge
 import CFSG.LocalAnalysis.GLTheoremA.S10.Inputs105
 import CFSG.LocalAnalysis.GLTheoremA.S10.InputsBeta
 import CFSG.LocalAnalysis.GLTheoremA.S11.Defs
-import CFSG.LocalAnalysis.GLTheoremA.S3.Inputs
-import CFSG.LocalAnalysis.GLTheoremA.S4.Inputs
 import CFSG.LocalAnalysis.GLTheoremA.S9.Inputs
 import CFSG.LocalAnalysis.GLTheoremA.Sec5Setup
-import CFSG.LocalAnalysis.GLTheoremB.Lemma911Defs
 import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.L618
 import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.S628Common
 import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.StrongMain
@@ -78,7 +64,6 @@ import CFSG.LocalAnalysis.RankThreeTheoremC.D1KlingenSp4Main
 import CFSG.LocalAnalysis.RankThreeTheoremC.GL83Generic5KFacts
 import CFSG.LocalAnalysis.RankThreeTheoremC.GL83SmallRank614Defs
 import CFSG.LocalAnalysis.RankThreeTheoremC.GL83SmallRank62yDefs
-import CFSG.LocalAnalysis.SignalizerFunctor
 import CFSG.Quasithin.Background.A3Structure319
 import CFSG.Quasithin.Background.B4ModelsAction
 import CFSG.Quasithin.Background.G2A5Setting

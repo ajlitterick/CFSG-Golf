@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveFieldTwoSpChart
-public import CFSG.LieType.Universal.Spin.Action
-public import CFSG.ClassicalGroups.Orthogonal.Eichler
 
 public section
 

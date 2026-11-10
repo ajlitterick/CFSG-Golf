@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixLSixFiveKnownForms
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKMarking
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKL32
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 
 public section
 

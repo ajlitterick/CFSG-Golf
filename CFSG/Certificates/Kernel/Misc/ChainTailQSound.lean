@@ -3,7 +3,6 @@ module
 public import Certificates.Data.Kernel.Misc.ChainTailQ
 public import CFSG.Certificates.Kernel.BfsPinAlg
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import CFSG.Certificates.Kernel.Spor.PcompFacts
 
 public section
 

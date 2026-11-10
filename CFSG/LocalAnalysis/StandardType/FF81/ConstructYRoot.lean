@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FF81.ConstructYSix
-public import CFSG.LocalAnalysis.ComponentInitial.LinearFlagData
-import CFSG.LocalAnalysis.ComponentInitial.LinearFlagOrder
 import CFSG.LargeExtraspecial.A2ModSLc
 import CFSG.ClassicalInvolution.WeakCT.Amalgam
 

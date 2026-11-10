@@ -2,7 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Fi22ThreeInputs
 public import CFSG.RankThree.Native.Fi22FiveCheckInputs
-public import CFSG.RankThree.Native.PermEnumeration
 public meta import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Fi22ThreeInputs
 public meta import CFSG.RankThree.Native.Fi22FiveCheckInputs
 public meta import CFSG.RankThree.Native.PermEnumeration

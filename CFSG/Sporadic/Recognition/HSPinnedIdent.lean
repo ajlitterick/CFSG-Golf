@@ -2,24 +2,9 @@ module
 
 public import CFSG.Sporadic.Recognition.HSPinned
 public import CFSG.Sporadic.Recognition.HSGraph
-public import CFSG.Sporadic.Recognition.HSPinnedIdentInputs
 public import Certificates.Certificate6102
 public meta import CFSG.Sporadic.Recognition.HSGraphModel
 public meta import Certificates.Data.CFSGNative.Recognition.HSPinnedData
-public import Certificates.Certificate2028
-public import Certificates.Certificate2031
-public import Certificates.Certificate2037
-public import Certificates.Certificate2038
-public import Certificates.Certificate2195
-public import Certificates.Certificate1020
-public import Certificates.Certificate1022
-public import Certificates.Certificate2035
-public import Certificates.Certificate3029
-public import Certificates.Certificate3167
-public import Certificates.Certificate2039
-public import Certificates.Certificate2040
-public import Certificates.Certificate6100
-public import Certificates.Certificate6101
 public import CFSG.Sporadic.Th.Chain
 public import CFSG.Sporadic.ThSchreier.AutCore
 

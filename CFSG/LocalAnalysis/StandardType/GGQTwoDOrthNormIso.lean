@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGOrthFrameCore
 public import CFSG.ClassicalInvolution.Phan.PhanDn.DiagTorus
-public import CFSG.ClassicalInvolution.Phan.PhanDn.NormForm
 import CFSG.LocalAnalysis.StandardType.GGOrthRk1PairTriple
 import CFSG.LocalAnalysis.StandardType.GGOrthRk1Pieces
 import CFSG.RankThree.Classical.SteinbergBJOrthogonalInnerPlane

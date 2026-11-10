@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalRk2L4
 public import CFSG.ClassicalGroups.Orthogonal.OmegaMinus8ThreeLocalTwo
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import CFSG.RankThree.PartOne.KC.OrthogonalFixedDerived
 import CFSG.ClassicalGroups.Orthogonal.OmegaMinus8ThreeLocalType
 import CFSG.RankThree.PartOne.S15K.OrthMult
 import CFSG.RankThree.PartOne.K159.RowFourFixed

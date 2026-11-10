@@ -2,11 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB7Sec
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB7Inst
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aSec59
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aSecData
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aSecW
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5bLemma56
-public import CFSG.GroupTheory.PCore.CommutingBalance
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB83Setup
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB8Statements
 

@@ -1,16 +1,11 @@
 module
 
-public import CFSG.Open.StatedDefs
 public import CFSG.Open.LocalVocabulary
 public import CFSG.LocalAnalysis.ComponentInitial.LinearUnitaryField
 public import CFSG.Assembly.GL83LieDefs
 import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHypCentral
 import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHypEigen
-import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
-import CFSG.RankThree.Classical2.TwoLocalRankCoprimeQuotient
 import CFSG.LocalAnalysis.GLTheoremA.CatA.L154Orth
-import CFSG.GroupTheory.ElemAbelianClosure
-import CFSG.GroupTheory.ElementaryAbelianTransport
 
 public section
 

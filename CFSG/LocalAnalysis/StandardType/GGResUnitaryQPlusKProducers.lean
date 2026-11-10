@@ -1,24 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResSingularAExactTwo
-public import CFSG.LocalAnalysis.StandardType.GGTBJSpPlus
 public import CFSG.LocalAnalysis.StandardType.GGResSpSplitThree
 public import CFSG.LocalAnalysis.StandardType.GGResExcSplitExactTwoL
 
-public import CFSG.LocalAnalysis.StandardType.GGResHigherFieldI1
-public import CFSG.LocalAnalysis.StandardType.GGResCentBoundNbrHolds
-public import CFSG.LocalAnalysis.StandardType.GGNbrU63
 public import CFSG.LocalAnalysis.StandardType.GGQTwoVACUnitDvd
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyReflDom
-public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkTransport
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryDvdCodimTwoLift
-public import CFSG.LocalAnalysis.StandardType.GGUSixTwoModel
-public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitarySixOriginal
 public import CFSG.LocalAnalysis.StandardType.GGTBJLinearMinusFrame
-public import CFSG.LocalAnalysis.StandardType.GGResE6Module
-public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperRestOrth
-public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperMoreOrth
-public import CFSG.LocalAnalysis.GL83PartI.I713.Chain
 
 public section
 

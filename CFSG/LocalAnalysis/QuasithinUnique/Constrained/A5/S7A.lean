@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.S7Rel
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.AppCOffender
-public import CFSG.Sporadic.Schreier.J4SOrder
 public import CFSG.Sporadic.Schreier.J4SSylow
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Stage6
 

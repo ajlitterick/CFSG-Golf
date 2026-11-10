@@ -1,14 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaOutdiag
 public import CFSG.LocalAnalysis.StandardType.GGTwE6EltSmallFrame
 public import CFSG.LocalAnalysis.StandardType.GGTwE6PlaneEnnola
 public import CFSG.LocalAnalysis.StandardType.GGTwE6NormSmallThreeLang
 import CFSG.LocalAnalysis.StandardType.GGTwE6RecipeTransport
-import CFSG.LocalAnalysis.StandardType.GGTwE6LeviSplit
 import CFSG.LocalAnalysis.StandardType.GGTwE6EnnolaSplit
-import CFSG.LocalAnalysis.StandardType.GGTwE6RootKillWeyl
 import CFSG.LocalAnalysis.StandardType.GGTwE6NormSmallThreeTorus
 import CFSG.LocalAnalysis.StandardType.GGTwE6NormSmallThreeCoord
 

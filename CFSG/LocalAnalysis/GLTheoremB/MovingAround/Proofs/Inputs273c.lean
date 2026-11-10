@@ -1,33 +1,19 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs273
-public import CFSG.HardMathSupport.Timmesfeld.Coordinator.LocalTwoFrontier
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Reduction
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.OuterTrivial
-public import CFSG.HardMathSupport.Solomon.Coordinator.B3SporFiveHSMcL
-public import CFSG.HardMathSupport.Solomon.Coordinator.B3SporRestHe
 public import CFSG.HardMathSupport.Solomon.Coordinator.B3SporRestRu
 public import CFSG.HardMathSupport.Solomon.Coordinator.B3SporFiveCo3
 public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.SporadicFive.HS
-public import CFSG.Sporadic.Schreier.RuAutInner
-public import CFSG.HardMathSupport.Solomon.Coordinator.B3SporRestJ4
 public import CFSG.HardMathSupport.Dickson.I271.SporGenAux.J4ElevenData
 public import CFSG.HardMathSupport.Dickson.I271.SporGenAux.J4ElevenPlane
-public import CFSG.LocalAnalysis.AGLEmbedding.SporadicBetaSmall2
 public import CFSG.HardMathSupport.Solomon.Coordinator.B3SporRestON
 public import CFSG.RankThree.PartOne.KS.ONPointwise
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.CommutingPair
-public import CFSG.LocalAnalysis.GL83PartI.I_22_5.Basic
-public import CFSG.Sporadic.FischerOddCore.FischerOuterFi24
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThFive
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co2Five
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.MonsterThirteenFinal
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.BThirteen
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Fi24Seven
-public import CFSG.HardMathSupport.Timmesfeld.Proving.SporadicOuterLeTwo
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.P1ThreeSporOrders
-public import CFSG.Sporadic.Bridge.Catalogue
-public import CFSG.Open.MonsterY443Finiteness
 public import CFSG.GH74.GLS.IVK.Proofs2.Lemma12hb
 public import CFSG.GH74.GLS.IVK.Proofs2.Lemma13d
 public import CFSG.GH74.GLS.IVK.Proofs2.Lemma13e

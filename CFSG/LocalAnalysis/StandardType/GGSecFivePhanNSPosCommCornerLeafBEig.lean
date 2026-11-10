@@ -2,18 +2,9 @@ module
 
 public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
 public import Mathlib.LinearAlgebra.Eigenspace.Basic
-public import Mathlib.LinearAlgebra.Matrix.ToLin
 public import Mathlib.RingTheory.RootsOfUnity.PrimitiveRoots
-public import Mathlib.Algebra.CharP.Defs
-import Mathlib.Algebra.CharP.Pi
-import CFSG.LinearAlgebra.MatrixPlanes
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S267ClsCaseLLift
 import CFSG.RankThree.PartOne.CTP.SeitzDiag
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.CriticalSubgroupLemmas
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection2.EndFieldRep
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Burnside.NormalComplement
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Extraspecial
-import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.ConjugateRep
 
 public section
 

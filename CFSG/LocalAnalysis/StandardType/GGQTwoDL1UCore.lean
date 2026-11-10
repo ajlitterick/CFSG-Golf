@@ -5,7 +5,6 @@ public import CFSG.ClassicalInvolution.Balance.StrongPowSuBlocks
 import CFSG.LocalAnalysis.StandardType.GGQTwoDL1UAut
 import CFSG.LocalAnalysis.StandardType.GGQTwoDL1UMat
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosBlockAux3
-import CFSG.LieType.Universal.Unitary.Comparison
 public import CFSG.ClassicalInvolution.Balance.PassTwoFinal
 public import CFSG.ClassicalInvolution.Models.LinearFrames
 public import CFSG.ClassicalInvolution.Models.LinearPairs

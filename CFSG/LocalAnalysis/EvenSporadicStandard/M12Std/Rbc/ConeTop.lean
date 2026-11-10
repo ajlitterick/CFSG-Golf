@@ -2,13 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.M12Std.Rbc.ConeTopGroup
 public import CFSG.LocalAnalysis.EvenSporadicStandard.M12Std.Rbc.Step
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Junction.Fs79.Main
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Junction.Fs79.Quat
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Junction.Fs79.LayerBalanceAt
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.Zassenhaus.ComponentOrder
-public import CFSG.Dihedral.BrauerSuzuki
 public import CFSG.Sporadic.Schreier.J4SProfileNode
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Junction.Fs79.Sylow
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.CentralInvolutionStructure
 

@@ -4,9 +4,6 @@ public import CFSG.GroupTheory.SteinbergBSQuotientLifting
 public import CFSG.GroupTheory.SteinbergBKPNilpotentQuotientCore
 public import CFSG.GroupTheory.SteinbergBSPrimeQuotientObstruction
 public import CFSG.GroupTheory.HyperplaneGeneration
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.PLengthLemmas
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.Basic
 public import CFSG.GroupTheory.QuasiDihedralFusion.Basic
 public import CFSG.Quasithin.Background.BlueprintB2Thompson
 public import CFSG.RankThree.Coprime.ThetaPlaneNormalizesComponent

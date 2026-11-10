@@ -3,10 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGKD2Leaves1615
 public import CFSG.LocalAnalysis.StandardType.GGTCJDivUni
 public import CFSG.LocalAnalysis.StandardType.GGInnerD4RALabels
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitaryOutdiag
 import CFSG.Goldschmidt.Steps.G37Quot
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniData
 import CFSG.LocalAnalysis.StandardType.GGUSixTwoLayer
 import CFSG.LocalAnalysis.StandardType.GGTPNDefs
 import CFSG.Goldschmidt.StatementsG2

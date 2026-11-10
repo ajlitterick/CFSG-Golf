@@ -6,7 +6,6 @@ public import Certificates.Data.Kernel.SporSch.PairJ3Cert
 public meta import CFSG.Sporadic.Schreier.PairJ3FaithfulCheckInputs
 public meta import Certificates.Kernel.SporSch.J4S.Gen
 public meta import CFSG.Certificates.Kernel.Common.StrChunks
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

@@ -1,18 +1,10 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section2.Basic
 import all CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section2.Coherence
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section2.Lemma24
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section3.Remark31
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section3.Theorem32
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Lemma19
 import all CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Lemma19
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.ClassFunction
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConjAction
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.Divisibility
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 namespace CFSG
 end CFSG

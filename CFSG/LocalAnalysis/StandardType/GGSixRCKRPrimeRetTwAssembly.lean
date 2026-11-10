@@ -2,14 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeRetAssembly
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePairTwCover6Aux1
-import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
-import CFSG.LieType.Chevalley.RootDiagonalWeylTransporter
-import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpStdTwE6
 import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitTwE6Tag
 import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortF4IsoLen
-import CFSG.LocalAnalysis.StandardType.GGLieOddCoverSplit
-import CFSG.LocalAnalysis.StandardType.GGLatRootBridge
-import CFSG.LocalAnalysis.StandardType.GGExcKGSFFinite
 
 public section
 

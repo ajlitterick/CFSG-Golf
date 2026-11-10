@@ -1,6 +1,5 @@
 module
 
-public import CFSG.OddTranspositions.PartThree.FiveReflectionFischer
 public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveLiftModel
 public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveChartModel
 

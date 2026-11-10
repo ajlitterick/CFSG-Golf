@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.Section3.Shapes
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.Section3.Fischer.LocalZ2S5
-public import Mathlib.GroupTheory.Perm.Fin
-public import Mathlib.GroupTheory.Perm.Cycle.Type
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.Section3.Classes
 
 public section

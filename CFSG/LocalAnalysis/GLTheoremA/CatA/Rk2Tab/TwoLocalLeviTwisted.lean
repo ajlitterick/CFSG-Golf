@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LieType.Chevalley.GraphFixedBorelOvergroups
 public import CFSG.LieType.Chevalley.GraphFixedParabolicLevi
-public import CFSG.LieType.BorelTits.Twisted
 public import CFSG.LocalAnalysis.StandardType.GGSixOddIndexF4RestLocal
 public import CFSG.GroupTheory.ElementaryAbelianTransport
 

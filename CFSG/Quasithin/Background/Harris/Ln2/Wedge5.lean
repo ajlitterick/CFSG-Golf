@@ -3,7 +3,6 @@ module
 public import CFSG.Quasithin.Background.Harris.Ln2.Wedge5Setup
 public import CFSG.Quasithin.Background.Harris.Ln2.Wedge5Count
 public import CFSG.Quasithin.Background.Harris.Ln2.AutRank5
-public import CFSG.Quasithin.Background.JonesParshallCurtisModels
 public import CFSG.Quasithin.Background.Harris.OrdinaryProofs.OneCompActions
 
 public section

@@ -2,10 +2,8 @@ module
 
 public import CFSG.LargeExtraspecial.S8CBFSL2
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenInvolutions
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenLongCentralizer
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenShortCentralizer
 public import CFSG.LieType.Chevalley.ExceptionalG2F4ModelSchreier
-public import CFSG.LocalAnalysis.ComponentInitial.BasicFacts
 public import CFSG.LargeExtraspecial.S8CBFCrit
 
 public section

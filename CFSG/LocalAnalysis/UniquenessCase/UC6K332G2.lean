@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC6K332Syl
-public import CFSG.Blueprint.Catalog
 public import CFSG.RankThree.PartTwo.Sec4.Statements
 import CFSG.GH74.GLS.IVK.Proofs2.Ivk47f
 import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67A2Hom
@@ -11,15 +10,10 @@ import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanG2QSU33
 import CFSG.LocalAnalysis.RankThreeTheoremC.Generic49U3.CenterCard
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFacts.WeakClosureThree.Wreath
 import CFSG.HardMathSupport.Lang.Proving.FieldCubeRoots
-import CFSG.LieType.Chevalley.AdjointCenter
-import CFSG.LieType.Chevalley.ExactG2FiniteOrder
 import CFSG.Adapters.StatedClassicalUnitaryOrders
-import CFSG.Adapters.RankThreeOutcomesReverse
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LieType.Chevalley.RootCommutatorData
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.Assembly.QuasithinDefs
 import CFSG.Foundations
 import CFSG.GH74.GLS.IVK.Defs
@@ -43,8 +37,6 @@ import CFSG.RankThree.PartOne.Assembly
 import CFSG.RankThree.PartOne.CTP.StrongPSylow
 import CFSG.RankThree.PartOne.S10.ThetaContract
 import CFSG.RankThree.PartOne.S12.InputsBase
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_1_12
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 
 public section

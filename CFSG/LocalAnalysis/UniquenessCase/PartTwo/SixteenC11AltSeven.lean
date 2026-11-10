@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC11AltCount
-import CFSG.Mathlib.Decide.Bounded
 
 public section
 

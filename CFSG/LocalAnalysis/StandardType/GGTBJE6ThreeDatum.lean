@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBJE6ThreeData
 public import CFSG.LocalAnalysis.StandardType.GGTBJE6ThreeRootPts
 
 public section

@@ -2,10 +2,7 @@ module
 
 public import CFSG.ClassicalInvolution.RouteD.TWS7Grp
 public import CFSG.ClassicalInvolution.RouteD.TWS6Cfg
-public import CFSG.ClassicalInvolution.RouteD.GapsFrFive
-public import CFSG.ClassicalInvolution.RouteD.GapsPatternDAdapted
 public import CFSG.ClassicalInvolution.RouteD.ExoticD4FourLift
-public import CFSG.ClassicalInvolution.ModelFacts.Orth15TwinStd
 
 public section
 

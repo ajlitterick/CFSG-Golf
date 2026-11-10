@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Sporadic.Schreier.J4SFormData
 public import Certificates.Kernel.SporSch.J4S.RealK
 public import CFSG.Certificates.Kernel.SporSch.J4SFormSound
 meta import CFSG.Sporadic.Schreier.J4SFormData

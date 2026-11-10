@@ -1,17 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeRetE7Frame
-import CFSG.HardMathSupport.Timmesfeld.RootAut.Main
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.PlanesSetup
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcRoots
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.RootSpanMap
-import CFSG.RankThree.PartOne.KE.CTLang
-import CFSG.RankThree.PartOne.KC.SymplecticInnerActorOdd
-import CFSG.LieType.Chevalley.SingleEdgePerfect
 import CFSG.LocalAnalysis.StandardType.GGFamTrivialRoots
-import CFSG.LieType.Ree.Endo
 import CFSG.LocalAnalysis.StandardType.GGLangRootSym3
-import CFSG.Adapters.TauCetiExceptional.BigCellEndgame
 
 public section
 

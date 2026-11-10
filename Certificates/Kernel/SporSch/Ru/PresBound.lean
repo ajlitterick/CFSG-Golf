@@ -4,11 +4,9 @@ public import Certificates.Kernel.SporSch.Ru.Pres
 public import CFSG.Certificates.Kernel.SporSch.RuPresSound
 public import CFSG.Certificates.Kernel.Spor.PresCardK
 public import CFSG.Sporadic.Bridge.RuSurj
-public import Certificates.Certificate9129
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.BfsPinSound
-public import CFSG.Certificates.Kernel.BfsPinUnpack
 public import CFSG.Certificates.Kernel.Spor.PresCard
 
 public section

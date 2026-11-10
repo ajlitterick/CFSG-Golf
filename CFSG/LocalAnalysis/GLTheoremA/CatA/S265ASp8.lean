@@ -8,8 +8,6 @@ import CFSG.LocalAnalysis.GLTheoremA.CatA.S265ARank
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S265ASp8Cen
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S265ASpAct
 import CFSG.LocalAnalysis.GLTheoremA.CatB.KFactsSp
-import CFSG.LocalAnalysis.GLTheoremA.PComp
-import CFSG.Open.StatedAPI
 public import CFSG.LargeExtraspecial.S4CEA6Basic
 public import CFSG.LargeExtraspecial.S4CESmallThree
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanChevOuterD42Spec

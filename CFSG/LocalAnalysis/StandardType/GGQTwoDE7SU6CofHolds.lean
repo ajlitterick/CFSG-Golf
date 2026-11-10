@@ -1,16 +1,12 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDTablePDefs
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 public import CFSG.LocalAnalysis.StandardType.GGTwE6WeylTorusTransferCore
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLineE7
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTorus
 public import CFSG.LocalAnalysis.StandardType.SpTwoLocalRankLower
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfMaxElem
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfE7Three
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfE7E8Five
-public import CFSG.GroupTheory.ElementaryAbelianTransport
-public import CFSG.Timmesfeld.Orders.Classical
 
 public section
 

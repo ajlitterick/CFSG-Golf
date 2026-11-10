@@ -5,8 +5,6 @@ public import Certificates.Kernel.TwoF4Lie.Data
 public import Certificates.Data.Kernel.TwoF4LocK
 public import Certificates.Data.TwoF4LocData
 public import Certificates.Kernel.SporSch.Tits.Action2262
-public import Certificates.Kernel.SporSch.Tits.Common
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

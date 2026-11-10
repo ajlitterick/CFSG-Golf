@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusInducedTransfer
-public import CFSG.LocalAnalysis.StandardType.GGTBTorDefs
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Wielandt
 public import CFSG.GroupTheory.CenterlessInnerCentralizer
 public import CFSG.GroupTheory.PCore.SubgroupCore
 public import CFSG.HardMathSupport.Solomon.LocalBalance.Defs

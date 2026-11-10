@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGL45NtExcBridgeU
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangModel
-public import CFSG.LieType.Chevalley.CoordinateFieldFixedSubgroup
 
 public section
 

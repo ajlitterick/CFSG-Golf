@@ -6,7 +6,6 @@ public import CFSG.Certificates.Kernel.BfsPinSound
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L246B42RuCheckInputs
 meta import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L246B42RuCheckInputs
 import CFSG.Certificates.Kernel.Common.Harness
-public import CFSG.Certificates.Kernel.BfsPinUnpack
 public import CFSG.Foundations
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 public import CFSG.LocalAnalysis.ComponentClassification.LayerMultiplication

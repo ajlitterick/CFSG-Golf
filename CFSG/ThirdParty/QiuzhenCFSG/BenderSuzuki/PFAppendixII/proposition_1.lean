@@ -5,12 +5,8 @@ public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_1_c
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.Basic
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Suzuki.VI.section_2_2.example_3
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_1_b
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_2_a
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_b
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.FinalTheorem
-public import Mathlib.FieldTheory.Finite.GaloisField
-import Mathlib.Algebra.GroupWithZero.TransferInstance
 
 namespace CFSG
 end CFSG

@@ -1,11 +1,8 @@
 module
 
-public import CFSG.LieType.Chevalley.G2ThreeAutomorphismNormalForm
 public import CFSG.LieType.Ree.G2ExceptionalCosetInvolutions
 public import CFSG.RankThree.PartTwo.Census.Carrier.G2Three
 public import CFSG.Adapters.TauCetiExceptional.BridgeTransport
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LieType.Ree.SmallReeModelSchreier
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels

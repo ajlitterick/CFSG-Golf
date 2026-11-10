@@ -4,7 +4,6 @@ public import CFSG.Sporadic.Presentation.SuzInputs
 import Certificates.Kernel.Bounds.Suz
 import Certificates.Kernel.Bounds.Suz.Binding
 import CFSG.Certificates.Kernel.CosetBounds
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Suzuki
 import all TauCeti.GroupTheory.Presentation.GroupPresentation

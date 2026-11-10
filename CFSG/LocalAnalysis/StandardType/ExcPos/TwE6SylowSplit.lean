@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFinModelRootCompatDefs
-public import CFSG.RankThree.Classical2.TwistedE6RationalOrder
 
 public section
 

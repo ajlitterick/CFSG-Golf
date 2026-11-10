@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.TitsOver.L33.Checks
 public import Certificates.Kernel.TitsOver.Three.Glue
-public import CFSG.Certificates.Kernel.Spor.PEnumSound
 public import CFSG.Certificates.Kernel.BfsPinAlg
 import CFSG.Certificates.Kernel.Common.Harness
 

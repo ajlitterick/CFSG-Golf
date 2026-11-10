@@ -3,7 +3,6 @@ module
 public import CFSG.Sporadic.Schreier.ClassSum
 public import CFSG.Sporadic.Schreier.MathieuOddCoreWitness
 public import Certificates.Data.CFSGNative.SporadicSchreier.MathieuOddCore
-public import Mathlib
 
 public section
 

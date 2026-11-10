@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.EvenBN.U5.Sec3M1Two
-public import CFSG.LocalAnalysis.ComponentClassification.AschbacherTheorem3Sylow
 
 public noncomputable section
 

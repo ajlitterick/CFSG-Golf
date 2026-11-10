@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.Co2.WCert
-public import CFSG.RankThree.Co2.CrBridge
 public import CFSG.RankThree.Co2.JClasses
 public import CFSG.RankThree.Co2.XSylow
 public import CFSG.RankThree.Co2.X9FuseCert

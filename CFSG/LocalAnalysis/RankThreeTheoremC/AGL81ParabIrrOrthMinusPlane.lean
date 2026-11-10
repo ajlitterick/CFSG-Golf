@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ParabCommOrthMinusPlane
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ParabIrrOrthMinusSec
 
 public section

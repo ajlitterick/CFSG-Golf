@@ -1,7 +1,6 @@
 module
 
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2Cardinality
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Cardinality
 public import Mathlib.Algebra.Order.Floor.Extended
 public import Mathlib.Algebra.Order.Interval.Basic
 public import Mathlib.Analysis.Complex.UpperHalfPlane.Basic

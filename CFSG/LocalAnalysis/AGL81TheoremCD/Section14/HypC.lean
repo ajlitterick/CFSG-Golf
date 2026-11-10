@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.AGL81TheoremCD.FourteenSixteen
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CDefs
-import CFSG.LocalAnalysis.RankThreeCoreUniqueness.Helpers
-import CFSG.LocalAnalysis.SectionRank.DerivedQuotient
 public import CFSG.CGT.PushingUpLit.BHS.NaturalDefs
 public import CFSG.CGT.PushingUpLit.BHS.SymNatDefs
 public import CFSG.CGT.Timmesfeld75.Statements

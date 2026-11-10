@@ -7,7 +7,6 @@ public import CFSG.Adapters.ProjectiveSpecialLinear
 public import CFSG.GroupTheory.FrattiniQuotient
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Ambient
 public import CFSG.LocalAnalysis.SectionRank.Ccomm.OddCritical
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 
 public section

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinExitPf2Sec
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinExitPf9Sec
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3PfBase
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.InductionBridge.FrameCore

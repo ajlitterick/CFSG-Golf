@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixAutKFinerTagsExcBasic
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcPilotRest
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerPDivOmega
-public import CFSG.RankThree.Chevalley.EvenPinnedRootSL2
 import CFSG.LinearAlgebra.SL2MinimalFaithfulMatrix
 
 public section

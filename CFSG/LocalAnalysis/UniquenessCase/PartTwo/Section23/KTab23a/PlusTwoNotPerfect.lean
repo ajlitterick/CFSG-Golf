@@ -4,8 +4,6 @@ public import CFSG.Open.StatedDefs
 import CFSG.HardMathSupport.Curtis.NaturalModuleCensus.AltIb.OmegaPlusTop2
 import CFSG.GH74.GLS.IVK.Proofs2.GHInvSym
 import CFSG.HardMathSupport.Timmesfeld.Tables.Census.Omega
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.Fischer.Uniq.CompTau
 import CFSG.Foundations
 import CFSG.GH74.Generic.Certificates
@@ -46,7 +44,6 @@ import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure
 import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 import CFSG.Quasithin.Background.A3Components
-import CFSG.Quasithin.Background.A3ComponentsAmbient
 import CFSG.Quasithin.Background.B1MoreElevenD
 import CFSG.Quasithin.Background.B1MoreElevenF
 import CFSG.Quasithin.Background.B1MoreNineG
@@ -54,11 +51,6 @@ import CFSG.Quasithin.Background.B4ModelsAction
 import CFSG.Quasithin.Background.B4ModelsIso
 import CFSG.Quasithin.Background.C2Basic
 import CFSG.Quasithin.Background.E1
-import CFSG.Quasithin.Background.E1Sec4
-import CFSG.Quasithin.Background.E1Sec5
-import CFSG.Quasithin.Background.E1Sec8
-import CFSG.Quasithin.Background.E1Solv
-import CFSG.Quasithin.Background.E1Twelve
 import CFSG.Quasithin.Background.E3Cent
 import CFSG.Quasithin.EmptyFaithfulMultiple.InputB19Proof
 import CFSG.RankThree.LocalRank.SelectorCases
@@ -68,7 +60,6 @@ import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 import CFSG.RankThree.PartTwo.Sec4.Item47Statement
 import CFSG.RankThree.PartTwo.Sec4.Item47Witness
 import CFSG.RankThree.PartTwo.Sec8.Statements
-import CFSG.Sporadic.J4.Simple
 import CFSG.Sporadic.J4Base
 import CFSG.Sporadic.Mathieu.M12
 import CFSG.Sporadic.Mathieu.M24

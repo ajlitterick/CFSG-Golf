@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.MinusFrame.ArrChecks
 public import Certificates.Kernel.MinusFrame.SmallFacts
-import CFSG.Certificates.Kernel.Spor.PackWord
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2Res
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoTableB
 
 public section
 

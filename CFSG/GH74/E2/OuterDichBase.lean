@@ -5,8 +5,6 @@ public import CFSG.GH74.E2.FrattiniRank
 public import CFSG.GH74.SectionalRank
 public import CFSG.Dihedral.DisconnectedInvolutionGraph.QuaternionCoordinateEquiv
 public meta import Mathlib
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.GroupTheory.FrattiniQuotient
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups

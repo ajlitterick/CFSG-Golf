@@ -1,23 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S213Rest15NormReduced
-public import CFSG.LocalAnalysis.UniquenessCase.UC22S213Rest15IntersectionCore
-public import CFSG.Monster.Existence.StdOdd.Defs
-public import Certificates.Data.CFSGNative.Chevalley.C2E6CertLie
-public import CFSG.LieType.Chevalley.C2E6StdMatrixData
-public import CFSG.Monster.B.Classical.E6AdjointGroup
 import Certificates.Kernel.Misc.E6StdSlp
-public import CFSG.Blueprint.NativeSporadic
-public import CFSG.RankThree.PartOne.CTP.FusionSound
-import CFSG.Sporadic.Bridge.BFusSevenGen
-public import CFSG.YGroups.Y443.Native.CoverFactsWords
 import Certificates.Kernel.KDense.Y443
-public import CFSG.YGroups.Y443.Native.Swap13Word
-import CFSG.LocalAnalysis.RankThreeTheoremC.OutCyclicThree
-import CFSG.LocalAnalysis.UniquenessCase.UC6K35Holds
-import CFSG.LocalAnalysis.AGLEmbedding.CatalogSchreier
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight69R876K762
-import CFSG.LocalAnalysis.UniquenessCase.UC6S846h
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.SEFive.Holds
 import CFSG.HardMathSupport.Foote.FamilyReduction.ClassicalFive
 
@@ -83,11 +69,9 @@ public import CFSG.LocalAnalysis.RankThreeTheoremC.D1AlphaListLiftsAlg
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2AltFiveBlock3
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2Families3
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2HSFive3
-public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3Cover
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3Fusion
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3Impure
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3Kmax
-public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Port3CoreFree
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Residue3
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2LeavesNarrow3
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2SporDatum3

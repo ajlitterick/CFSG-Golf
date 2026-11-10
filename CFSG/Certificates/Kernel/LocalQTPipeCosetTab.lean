@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1PipeNative
-public import CFSG.Certificates.Kernel.LocalQTBaseWProved
 public import CFSG.Certificates.Kernel.LocalQTPipeBasic
 
 public section

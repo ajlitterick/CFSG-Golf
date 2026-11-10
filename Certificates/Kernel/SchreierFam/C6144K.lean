@@ -5,7 +5,6 @@ public import Certificates.Data.Kernel.PkOrder
 import all Certificates.Data.ONanF2PGL
 import CFSG.Certificates.Kernel.Census.CatFacts.PkEnum
 import CFSG.Certificates.Kernel.PkOrderSound
-import CFSG.Certificates.Kernel.FootePkSound
 public import Certificates.Kernel.SchreierFam.C6144Raw
 
 public section

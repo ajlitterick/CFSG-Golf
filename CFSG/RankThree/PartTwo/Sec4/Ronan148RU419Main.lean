@@ -3,11 +3,6 @@ module
 public import CFSG.RankThree.PartTwo.Sec4.Ronan148RU419Ord
 public import CFSG.RankThree.PartTwo.Sec4.Ronan148RU419Six
 public import CFSG.RankThree.PartTwo.Sec4.Ronan148RU419Spor
-public import CFSG.RankThree.PartTwo.Sec4.Ronan138P5Census
-public import CFSG.RankThree.PartTwo.Sec4.Item419Res2ProofUnitary
-import CFSG.RankThree.PartTwo.Sec13.Item13Models
-import CFSG.GroupTheory.LocalCores.Components
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GH74.GLS.Balance.SolvAPIDefs
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk714A7
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk714Ord
@@ -19,7 +14,6 @@ public import CFSG.GH74.Generic.S1.TLeafA
 public import CFSG.GH74.Generic.S1.TLeafBar
 public import CFSG.Goldschmidt.Steps.G37Core
 public import CFSG.GroupTheory.SteinbergCBFTCores
-public import CFSG.HardMathSupport.Dickson.Sec6.I1431Lie
 public import CFSG.HardMathSupport.Solomon.Coordinator.InndiagLink
 public import CFSG.HardMathSupport.Solomon.Coordinator.L3FATArith
 public import CFSG.HardMathSupport.Solomon.Coordinator.L3G515Core
@@ -67,8 +61,6 @@ public import CFSG.Quasithin.Background.C1GNSolvConnect
 public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.E2Statements
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918C6
 public import CFSG.Quasithin.Background.FFC7G
 public import CFSG.Quasithin.Background.FFC8A

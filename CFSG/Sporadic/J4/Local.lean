@@ -1,12 +1,8 @@
 module
 
-public import CFSG.Sporadic.J4.FaithSpec
 public import CFSG.Sporadic.J4.CertParts
 public import CFSG.Perm.ChainSpec
 public import CFSG.Sporadic.J4.QT2LocPath
-import Certificates.Data.CFSGNative.J4.Tables
-import Certificates.Data.CFSGNative.J4.Chain
-import Certificates.Data.CFSGNative.Perm.Chain
 
 public section
 

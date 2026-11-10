@@ -50,7 +50,6 @@ public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Open.QuasithinDefs
 public import CFSG.Permutation.AlternatingAutomorphism
-public import CFSG.Sporadic.Th.F2Spec
 public import CFSG.Walter.ReeOrder.JT.Defs
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis

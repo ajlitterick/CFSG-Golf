@@ -2,11 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGOmegaNsRootGenDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172CCentFix
-public import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
-import CFSG.RankThree.PartOne.KC.OrthogonalNormPlanePrimary
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.Orth3Plane
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.HardMathSupport.Dickson.Bal207.OrthD4Loc
 public import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
 public import CFSG.RankThree.PartOne.KC.OrthogonalSubfieldCentralizer
@@ -19,7 +14,6 @@ public import CFSG.RankThree.PartOne.S12.Sec15Items
 public import CFSG.RankThree.PartOne.S15K.FixedWitt
 public import CFSG.RankThree.PartOne.S15K.LayerModel
 public import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.Defs
 
 public section

@@ -1,11 +1,9 @@
 module
 
-public import CFSG.ClassicalInvolution.Q3.Q3OTBase
 public import CFSG.ClassicalInvolution.Q3.Q3OTInn
 public import CFSG.ClassicalInvolution.Q3.Q3OTDict
 public import CFSG.ClassicalInvolution.Q3.Q3OTCplx
 public import CFSG.ClassicalInvolution.Asc77.AscT7OJ
-public import CFSG.ClassicalInvolution.Asc77.AscT7OD
 public import CFSG.ClassicalInvolution.Asc77.AscT7OF
 public import CFSG.ClassicalInvolution.Asc77.AscT7OI
 

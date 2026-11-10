@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGForkLinearDvdModel
 public import CFSG.LocalAnalysis.StandardType.GGSuDvdRootGenAsm
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUModel
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUCoverTwo
 
 public section

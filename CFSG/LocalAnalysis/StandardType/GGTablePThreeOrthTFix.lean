@@ -1,28 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeSplitR
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import CFSG.GroupTheory.WeirSylow.OrthogonalModels
-public import CFSG.RankThree.PartOne.KC.OrthogonalLocalComponentDefs
-public import CFSG.RankThree.PartOne.KC.OrthogonalComponentFacts
-public import CFSG.RankThree.PartOne.KC.OrthogonalFixedDerived
-public import CFSG.RankThree.PartOne.KC.OrthogonalReciprocal
-public import CFSG.Assembly.GL83LieDefs
 import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestOddLayer
-import CFSG.LocalAnalysis.ComponentInitial.OrthogonalLowDimCoverage
-import CFSG.RankThree.PartOne.KC.OrthogonalRegularQuasisimple
-import CFSG.RankThree.PartOne.KC.OrthogonalSplitFourClause
-import CFSG.RankThree.CentralLift.ClassicalCenterTrivial
-import CFSG.RankThree.PartOne.KC.OrthogonalFieldDescentSimilarity
-import CFSG.LocalAnalysis.StandardType.MarkingDict
-import CFSG.LocalAnalysis.StandardType.GGReverseMarkingRaw
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
-import CFSG.RankThree.PartOne.K159.RowFourFixed
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154Orth
 import CFSG.LocalAnalysis.GLTheoremA.CatA.L154Orth2
-import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotMinusEightBasic
 import CFSG.LocalAnalysis.StandardType.GGTCJLabel
-import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T123CBlockOrthA
 import CFSG.HardMathSupport.Dickson.Sec6.I1431Fam.OrtHFixed
 import CFSG.HardMathSupport.Dickson.Sec6.I1431

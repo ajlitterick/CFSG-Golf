@@ -2,31 +2,14 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGPosSpRootKer
 public import CFSG.LocalAnalysis.StandardType.GGStdPosLocalDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosDefs
 public import CFSG.LocalAnalysis.StandardType.GGRankOneModel
-public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionSp
-public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourTwins
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourKGPos
-public import CFSG.LocalAnalysis.StandardType.GGAssemblyTwoHypSix
 public import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpStdAssembly
-import CFSG.LocalAnalysis.StandardType.GGStdPosAutWeyl
-import CFSG.LocalAnalysis.StandardType.GGStdPosRefl
-import CFSG.LocalAnalysis.StandardType.GGStdPosLeviSub
-import CFSG.LocalAnalysis.StandardType.GGStdPosLeviCent
 import CFSG.LocalAnalysis.StandardType.GGStdPosCardScalar
-import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerSp
-import CFSG.LocalAnalysis.StandardType.GGSecFivePresTagClassical
 import CFSG.LocalAnalysis.StandardType.GGStdPosAutHolds
 import CFSG.LocalAnalysis.StandardType.GGStdPosLeviHolds
 import CFSG.LocalAnalysis.StandardType.GGStdPosIsogCore
 import CFSG.LocalAnalysis.StandardType.GGSixBstarRestSpFrame
-import CFSG.LocalAnalysis.StandardType.GGCompatNbrSomeSp
-import CFSG.LocalAnalysis.StandardType.GGTableBTransport
-import CFSG.LocalAnalysis.StandardType.GGOneFiveNbr
-import CFSG.LocalAnalysis.StandardType.GGRootInvolutionRank
-import CFSG.LocalAnalysis.StandardType.Marking
-import CFSG.Open.StatedAPI
-import Mathlib.Tactic.Group
 
 public section
 

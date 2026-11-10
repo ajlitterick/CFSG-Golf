@@ -4,15 +4,11 @@ public import Certificates.Data.Kernel.SHatClosedK
 public import Certificates.Data.AS81SHatClosed
 public import CFSG.Certificates.Kernel.Spor.RawDefs
 import CFSG.Certificates.Kernel.AxisPlane.Pop
-import CFSG.Certificates.Kernel.BfsPinSliceSound
 import CFSG.Certificates.Kernel.BfsPinSetSound
 import CFSG.Certificates.Kernel.BfsPinBaseSound
-import CFSG.Certificates.Kernel.Spor.PackWord
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
 import CFSG.Certificates.Kernel.StdOdd.RootOrbitSound
 import all CFSG.Certificates.Kernel.Spor.PEnumSound
-import Mathlib.Tactic.Ring
-public import Certificates.Data.CFSGNative.Co3Schreier.Basic
 import CFSG.Certificates.Kernel.BfsPinSound
 
 set_option exponentiation.threshold 400

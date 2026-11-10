@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.CompPOmegaPlus
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.StepAPOmegaPlus
-public import CFSG.LieType.Universal.Spin.Action
 
 public section
 

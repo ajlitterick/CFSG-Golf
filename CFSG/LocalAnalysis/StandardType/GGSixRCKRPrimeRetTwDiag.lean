@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeRetAssembly
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePairTwCover6Aux2
 public import CFSG.LocalAnalysis.StandardType.GGExcFieldAutCentRankTwE6ThreeHolds
 public import CFSG.LocalAnalysis.StandardType.GGE0ShapeContextRankAux2
-public import CFSG.LieType.Chevalley.AmbientTwistedFrobeniusFixedNormalizer
 
 public section
 

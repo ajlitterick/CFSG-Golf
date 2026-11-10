@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeAd
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotFieldNormalizeTorus
-public import CFSG.LocalAnalysis.SeitzReduction.EPilotRootSL2Levi
-public import CFSG.LieType.Chevalley.E6GraphInvertedRootRotation
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotAlignCores
 
 public section

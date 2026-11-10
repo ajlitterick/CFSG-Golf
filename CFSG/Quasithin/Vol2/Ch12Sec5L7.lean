@@ -2,8 +2,6 @@ module
 
 public import CFSG.Quasithin.Vol2.Ch12Sec5L7m
 public import CFSG.Quasithin.Vol2.Ch12Sec5L6
-public import CFSG.Quasithin.Background.E3OffenderB
-public import CFSG.Quasithin.Background.E3Lower
 public import CFSG.Quasithin.Background.B3Four2
 public import CFSG.Quasithin.Background.B1
 public import CFSG.Quasithin.Background.B3Q

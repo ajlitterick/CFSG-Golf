@@ -1,41 +1,21 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3BridgeA
-public import CFSG.LocalAnalysis.StandardType.GGPZCartanRank
 
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUModelCoprime
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUCoverTwo
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitDvdAct
 
-public import CFSG.LocalAnalysis.StandardType.GGResE6DepOrder
-public import CFSG.LocalAnalysis.StandardType.GGKGASp
-public import CFSG.LocalAnalysis.StandardType.GGResIPumpLineTransfer
-public import CFSG.LocalAnalysis.StandardType.GGTBJConfigFacts
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TwoLeafComponent
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
 
-public import CFSG.LocalAnalysis.StandardType.GGResJLinearCubeAutomizer
-public import CFSG.LocalAnalysis.StandardType.GGResJUnitaryCubicBlock
 public import CFSG.LocalAnalysis.StandardType.GGResJPairedBlock
-public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3Bridge
 
 public import CFSG.LocalAnalysis.StandardType.GGResFixedWeylCentralizer
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormSmall
 
-public import CFSG.LocalAnalysis.StandardType.GGCRNOrthNs
 
-public import CFSG.LocalAnalysis.StandardType.GGTBTorRelDNsRows
 
-public import CFSG.LocalAnalysis.StandardType.GGTBTorD
 
-public import CFSG.LocalAnalysis.StandardType.GGTBTorRelA5Holds
 
 public import CFSG.LocalAnalysis.StandardType.GGTwA5ThreeFrame
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNinePGL
 
-public import CFSG.LocalAnalysis.StandardType.GGTBTorDatum
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRest
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.FS81.TwD5NineModelAux
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5NineModelJ
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5NineModelTorus
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5NineModelSp

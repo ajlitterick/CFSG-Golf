@@ -74,7 +74,6 @@ import CFSG.Sporadic.ON.ActionBase
 import CFSG.Sporadic.ON.CertificateBase
 import CFSG.Sporadic.ON.ChainBase
 import CFSG.Sporadic.ON.LinesBase
-import CFSG.Sporadic.ON.PrimitiveBase
 import CFSG.Sporadic.ON.SimpleBase
 import CFSG.Sporadic.Presentation.Fi24PrimeExact
 import CFSG.Sporadic.Presentation.HeExact

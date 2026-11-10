@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonSylow
 public import Mathlib.Algebra.CharP.CharAndCard
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ElementaryAbelian
 
 public section
 

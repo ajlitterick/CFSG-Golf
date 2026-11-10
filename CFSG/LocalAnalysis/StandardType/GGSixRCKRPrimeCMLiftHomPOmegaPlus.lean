@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCMRestrict
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.IDPOmegaPlus
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.StepAPOmegaPlus
 public import CFSG.ClassicalGroups.Orthogonal.OddOrder
 

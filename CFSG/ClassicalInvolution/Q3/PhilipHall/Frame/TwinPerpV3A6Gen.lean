@@ -3,8 +3,6 @@ module
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6S
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerp23R7TwoWTr
 public import CFSG.ClassicalInvolution.Q3.TL4WylA
-public import CFSG.ClassicalInvolution.Q3.Sec13L711Mu
-public import CFSG.YGroups.Y443.Native.Hom
 
 public section
 

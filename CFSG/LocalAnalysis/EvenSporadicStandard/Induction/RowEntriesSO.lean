@@ -7,7 +7,6 @@ public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.ONRowAtlas
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.ONOuterPerfect
 import all CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.Stage3Parts
 import all CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.SuzONStage3
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.SuzRowAtlas
 import all CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.SuzRowAtlas
 import all CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.ONRowAtlas
 

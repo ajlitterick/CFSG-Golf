@@ -1,18 +1,11 @@
 module
 
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Defs
-public import CFSG.LieType.SeitzGeneration.ExcTorusCount
-public import CFSG.RankThree.E6.RootLatticeTools
-public import CFSG.Open.LocalVocabulary
 public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLFaithful
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.PlanesToral
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfToralDescent
 public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperRestExc
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4Rank
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4Three
-public import CFSG.HardMathSupport.Timmesfeld.Torality.LangAssembly
 public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.ExcFiveToralAux.SylowFrame
-public import CFSG.Timmesfeld.Orders.ExceptionalUntwisted
 public import CFSG.Sporadic.Schreier.J4SProfileNode
 public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.CrossLin
 

@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8G2Radical
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8TwoLift
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenAutomorphisms
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenInnerInvolutions
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalDichotomy
 
 public noncomputable section
 

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265BSClFix
 import CFSG.GroupTheory.PCore.FixedSubgroupCore
 import CFSG.GroupTheory.PLayer.CenterQuotientAction
-public import Certificates.Kernel.ThCent.Leaves
 import CFSG.GroupTheory.CenterlessInnerCentralizer
 import CFSG.GroupTheory.PCore.SubgroupCore
 

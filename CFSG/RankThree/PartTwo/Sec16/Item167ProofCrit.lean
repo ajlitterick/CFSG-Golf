@@ -2,19 +2,14 @@ module
 
 public import CFSG.LocalAnalysis.SectionRank.Ccomm.RankTwo
 public import CFSG.LocalAnalysis.SectionRank.Ccomm.Supercritical
-public import CFSG.LocalAnalysis.SectionRank.Ccomm.ElementaryAut
-public import CFSG.LocalAnalysis.SectionRank.Ccomm.FrattiniAut
 public import CFSG.RankThree.PartTwo.KFacts.KP10LinearTwo
-public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.GH74.GLS.Basic
 import CFSG.LocalAnalysis.SectionRank.Ccomm.Centralization
-import CFSG.GroupTheory.Fitting.CharacteristicP
 import CFSG.RankThree.PGroups.SolvableTrivialComplementCore
 import CFSG.RankThree.Transfer.Yoshida
 import CFSG.RankThree.PartTwo.Sec14.Item14Tools
 import CFSG.RankThree.PartTwo.Sec4.Census.Item44Core
 import CFSG.Foundations.SteinbergCAGeneratedCoreNodes
-import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer

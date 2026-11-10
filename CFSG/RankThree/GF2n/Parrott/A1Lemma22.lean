@@ -6,11 +6,9 @@ import CFSG.RankThree.GF2n.Parrott.A1ModelFacts
 import CFSG.RankThree.GF2n.Parrott.A1QP45No320
 import CFSG.RankThree.GF2n.Parrott.A1LocalData
 import CFSG.RankThree.GF2n.Parrott.Section1Fusion
-import CFSG.Monster.B.Short.InvolutionCentralizer
 import CFSG.GroupTheory.ExtraspecialElementaryAbelianBound
 import CFSG.GF2Type.Aschbacher1976Full.Z4Q8Facts
 import CFSG.LargeExtraspecial.S12DWCount
-import CFSG.Fischer.Classification.PartIII.Symp.Gauss
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.U33.Lemma38
 import CFSG.GF2Type.Aschbacher1976
 import CFSG.GroupTheory.Fitting.MulEquiv

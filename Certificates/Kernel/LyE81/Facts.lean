@@ -5,7 +5,6 @@ public import Certificates.Kernel.LyE81.Mats
 public import Certificates.Kernel.LyE81.Orb
 public import Certificates.Kernel.LyE81.Tab
 public import Certificates.Kernel.SporSch.Ly.BS18009
-import Mathlib.Tactic.IntervalCases
 
 public section
 

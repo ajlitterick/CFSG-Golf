@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs16a
-public import Mathlib.Data.Fintype.EquivFin
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
 
 public section
 

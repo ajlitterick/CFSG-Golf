@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBJSpTorus
 public import CFSG.LocalAnalysis.StandardType.GGTBJFrameBs
 public import CFSG.LocalAnalysis.StandardType.GGTorCTori
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalSpSC
-public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameCenter
 public import CFSG.LocalAnalysis.StandardType.GGTBJSympMinusModelAux
 
 public section

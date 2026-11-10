@@ -1,13 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJNoRankOneDefs
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 import CFSG.LocalAnalysis.StandardType.GGTBJNoRankOneCard
-import CFSG.LocalAnalysis.StandardType.GGTBJNoRankOneBook
-import CFSG.LocalAnalysis.StandardType.GGTableBTransport
 import CFSG.LocalAnalysis.StandardType.GGTBJConfigFacts
 import CFSG.LocalAnalysis.StandardType.GGTriD4NoneRank
-import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 
 public section
 

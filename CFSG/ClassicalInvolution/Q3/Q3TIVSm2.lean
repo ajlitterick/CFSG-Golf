@@ -1,14 +1,8 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Q3TIVDefs
-public import CFSG.ClassicalInvolution.Q3.Q3TCDict
 public import CFSG.ClassicalInvolution.Q3.Q3EXOrthLarge
 public import CFSG.ClassicalInvolution.Q3.Q3TY32
-public import CFSG.ClassicalInvolution.RouteD.ExoticTwinModel
-public import CFSG.ClassicalInvolution.RouteD.LocalTwinBLocal
-public import CFSG.ClassicalInvolution.RouteD.TypeDLocal
-public import CFSG.ClassicalInvolution.RouteD.TypeTwistedDLocal
-public import CFSG.ClassicalInvolution.RouteD.TwinYStatements
 
 public section
 

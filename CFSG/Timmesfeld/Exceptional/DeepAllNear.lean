@@ -1,8 +1,6 @@
 module
 
-public import CFSG.Timmesfeld.Exceptional.DeepQ
 public meta import CFSG.Certificates.CosetTableCompactColumns
-public import CFSG.Timmesfeld.Exceptional.DeepAllNearInputs
 public import Certificates.Certificate8053
 
 public section

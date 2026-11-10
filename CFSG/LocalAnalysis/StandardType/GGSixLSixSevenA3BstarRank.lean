@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordContrary
-public import CFSG.LocalAnalysis.StandardType.GGTableBRank
 
 public section
 

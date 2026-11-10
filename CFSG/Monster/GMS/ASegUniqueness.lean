@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Monster.GMS.ASegAmalgamAssemble
 public import CFSG.Monster.GMS.ASegSimple
 public import CFSG.Monster.GMS.ASegConnH87
 public import CFSG.Monster.GMS.ASegTwoA

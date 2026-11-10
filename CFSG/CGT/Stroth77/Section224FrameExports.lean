@@ -6,7 +6,6 @@ public import CFSG.CGT.Stroth77.Section226A
 public import CFSG.CGT.Stroth77.WeakTypeFamilyOneComm
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 
 public section
 

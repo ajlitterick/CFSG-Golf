@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.AlgebraicGroups.IdentityComponentLang
 
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 
 public noncomputable section
 

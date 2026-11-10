@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.HJ12Objects
 public import Certificates.Certificate17280
 public import CFSG.GroupTheory.CommutingProductFixedSubgroup
-public import CFSG.GroupTheory.QuasisimpleCommutingProductBound
-public import CFSG.Quasithin.Background.FixVLattice
 public import CFSG.Quasithin.Background.StabSubBasics
 public import CFSG.CGT.PushingUpLit.BHS.ThreeSixC
 public import CFSG.CGT.PushingUpLit.BHS.FourOne
@@ -40,13 +38,11 @@ public import CFSG.LocalAnalysis.SectionRank.SporadicCatalog
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Basic
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.B5Statement
 public import CFSG.Quasithin.Background.C2Basic
 public import CFSG.Quasithin.EmptyFaithfulMultiple.InputB19Proof
 public import CFSG.RankThree.PartOne.S10.ThetaContract
 public import CFSG.RankThree.PartOne.S12.InputsBase
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Schreier.M23
 public import CFSG.Sporadic.Schreier.PairJ2Pairs

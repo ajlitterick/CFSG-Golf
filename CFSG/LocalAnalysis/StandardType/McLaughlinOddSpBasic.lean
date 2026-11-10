@@ -1,11 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.McLaughlinOddBasic
-public import Mathlib.LinearAlgebra.BilinearForm.Properties
-import Mathlib.Tactic.FieldSimp
-import Mathlib.Tactic.LinearCombination
-import Mathlib.Tactic.Module
-import Mathlib.Tactic.Ring
 
 public section
 

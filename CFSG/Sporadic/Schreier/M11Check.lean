@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Sporadic.Schreier.M11Data
 public meta import CFSG.Sporadic.Schreier.M11Data
 public import Certificates.Certificate2191
 

@@ -1,13 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2TwoNodeBigHeart
-public import CFSG.LocalAnalysis.StandardType.GGWAutDefs
-public import CFSG.ClassicalGroups.Orthogonal.Derived
 import CFSG.LocalAnalysis.StandardType.GGQ2TwoNodeSixAbs
 import CFSG.LocalAnalysis.StandardType.GGQ2TwoNodeSixForm
 import CFSG.LocalAnalysis.StandardType.GGWAutOrthOdd
-import CFSG.LocalAnalysis.StandardType.GGWAutOrthCosets
-import CFSG.LocalAnalysis.StandardType.GGWAutCommon
 
 public section
 

@@ -1,13 +1,10 @@
 module
 
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThCentSound
-public import Certificates.Certificate1022
 import Certificates.Kernel.ThCent.Consumers
-import Certificates.Certificate1021
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThCentSoundBase2
 public import CFSG.Sporadic.Th.CertificateBase
 public import CFSG.Sporadic.ThSchreier.KernelAut
-public import CFSG.Sporadic.ThSchreier.KernelAutBase
 public import CFSG.Sporadic.ThSchreier.KernelAutBase1
 
 public section

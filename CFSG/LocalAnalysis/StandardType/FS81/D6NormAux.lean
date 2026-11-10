@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.D6Model
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowX1OmCFrame
-public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitOmFrame
 public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitOmFix
-public import CFSG.RankThree.Classical.SteinbergBJOrthogonalAveraging
 public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitOmBlock
 
 public section

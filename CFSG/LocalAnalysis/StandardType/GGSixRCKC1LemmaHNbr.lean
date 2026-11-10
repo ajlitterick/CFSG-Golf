@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1LemmaH
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OddCenter
-public import CFSG.LieType.Steinberg.CentralExt.TrialityCoprime
-public import CFSG.RankThree.PartOne.CTP.SU4EvenBridge
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.LieInput.SpinMinusModel
 public import CFSG.RankThree.GF2n.Smith81.OrthE2Natural
 public import CFSG.Adapters.Certificate43Check

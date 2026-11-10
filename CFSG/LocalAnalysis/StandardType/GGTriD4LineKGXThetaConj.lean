@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTriD4LineKGXThetaQ
 public import CFSG.LocalAnalysis.StandardType.GGTriD4LineKGXThetaH
-import CFSG.LocalAnalysis.StandardType.GGTriD4LineKGXSL3
 
 public section
 

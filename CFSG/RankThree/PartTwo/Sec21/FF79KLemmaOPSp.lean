@@ -1,7 +1,5 @@
 module
 
-public import Mathlib
-public import CFSG.Open.StatedDefs
 public import CFSG.RankThree.PartTwo.Sec21.FF79KLemmaOSp
 
 import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs256h

@@ -3,18 +3,12 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveFieldTwoOmegaChart
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveFieldTwoPSp
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeF1POmegaPlus
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.StepA2
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockModelSelfDualPOmegaPlus
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockModelSelfDualTwoPOmegaPlus
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockModelDualPairPOmegaPlus
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.GeoPOmegaPlusRoot
 public import CFSG.LocalAnalysis.StandardType.TableC.OrthGram
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGCoKleinPlus
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGCoKleinMinus
-public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotQ2OmegaCT
-public import CFSG.RankThree.PartOne.CTP.SpinCenterEven
-public import CFSG.ClassicalInvolution.WeakCT.SpinMinus6Generated
-public import CFSG.HardMathSupport.Timmesfeld.OrthogonalGeneration.TransvPre
 import all CFSG.LocalAnalysis.StandardType.ClassicalPosition.FEOmegaFourMinusPOmegaPlus
 import CFSG.LocalAnalysis.StandardType.ClassicalPosition.FEPOmegaPlus
 import all CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIpFPOmegaPlusFE

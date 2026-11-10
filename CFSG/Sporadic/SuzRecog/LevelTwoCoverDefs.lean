@@ -1,10 +1,8 @@
 
 module
 
-public import CFSG.Sporadic.SuzRecog.LevelTwoCoverDefsBase
 import all CFSG.Sporadic.SuzRecog.LevelTwoCoverDefsBase
 
-public import CFSG.Sporadic.SuzRecog.LevelTwoComplex
 public import Certificates.Certificate15113
 import CFSG.Certificates.Kernel.RankElimSound
 

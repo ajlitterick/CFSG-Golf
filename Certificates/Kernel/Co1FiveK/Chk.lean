@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Co1FiveK.Data
 public import Certificates.Kernel.SporSch.Co1.Packed
 public import Certificates.Data.Kernel.Co1FiveK
-public import Certificates.Data.Kernel.SporSch.Co1MatW
 public import Certificates.Data.CFSGNative.Timmesfeld.Co1Five
 import CFSG.Certificates.Kernel.Common.Harness
 

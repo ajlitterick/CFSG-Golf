@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6PairDefs
-public import CFSG.LocalAnalysis.StandardType.GGLieCoreDefs
-import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
-import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortTransport
 import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortTwE6
-import CFSG.Quasithin.Background.A3ComponentsQuotient
 
 public noncomputable section
 

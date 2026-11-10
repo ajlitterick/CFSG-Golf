@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLExc5
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTvE7E8
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLExc3Slot
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLExc4Slot
 
 public section

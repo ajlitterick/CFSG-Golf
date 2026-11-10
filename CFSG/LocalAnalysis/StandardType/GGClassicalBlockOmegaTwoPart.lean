@@ -1,28 +1,15 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGOuterInvFieldTags
-public import CFSG.LocalAnalysis.StandardType.GGE0Frame
-public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockDefs
 public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockDict
 public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockGUOrder
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockDecomp
-public import CFSG.Blueprint.SourceClassicalTransportOrthogonal
-public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs256q
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section18.OmegaPlusFourShape
-public import CFSG.RankThree.PartOne.S11d.OrthCaseN
-public import CFSG.RankThree.PartOne.S11d.OrthSplitAbs
-public import CFSG.RankThree.PartOne.KC.OrthogonalCommutatorBridge
 public import CFSG.RankThree.GF2n.Smith81.OrthE1KFLinear
 public import CFSG.LocalAnalysis.EvenBN.U5.Sec3ProofModelL3
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.GeoDualPair
 public import CFSG.LocalAnalysis.StandardType.GGStructSOnePrimeRootCountOmega
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs141d2
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.StepA2
 public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockOmegaDecomp
 public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockOmegaIsoOneLinear
 public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockOmegaIsoUnitary
-public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 public import CFSG.ClassicalGroups.SpecialLinear.InvariantForms
 public import CFSG.ClassicalGroups.SpecialLinear.NaturalDualSum
 public import CFSG.GroupTheory.HuppertProduct.Quotient

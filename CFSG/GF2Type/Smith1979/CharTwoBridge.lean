@@ -3,7 +3,6 @@ module
 public import CFSG.GF2Type.Smith1979.IdxFourIdentE
 public import CFSG.GF2Type.Smith1979.IdxFourBridge
 public import CFSG.GF2Type.Smith1979.CharTwoTransport
-public import Certificates.Kernel.SporSch.Co2M.ThirdBound
 
 public section
 

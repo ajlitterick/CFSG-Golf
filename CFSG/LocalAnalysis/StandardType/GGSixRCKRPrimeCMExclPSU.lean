@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixTCPSUBlock
 public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCMRestrict
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.YS1011LabUniq2
-public import CFSG.HardMathSupport.Timmesfeld.Tables.Census.Perm
 
 public section
 

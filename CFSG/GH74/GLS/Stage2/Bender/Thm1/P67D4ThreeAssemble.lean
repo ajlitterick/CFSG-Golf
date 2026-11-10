@@ -1,13 +1,9 @@
 module
 
-public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4PlaneLeaf
-public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4PlaneToral
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4Q1Main
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4ThreeZ0
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4ThreeS
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4ThreeTheta
-public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67InnerTools
-public import CFSG.LieType.Chevalley.GraphFixedCenterTrivial
 
 public section
 

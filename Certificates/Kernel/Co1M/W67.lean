@@ -1,10 +1,8 @@
 module
 
 public import Certificates.Kernel.Co1M.K67T
-public import Certificates.Kernel.Co1Cover.Bridge
 public import CFSG.Sporadic.Co1.Module.CoTwoLitInputs
 import CFSG.Certificates.Kernel.Common.Harness
-import CFSG.Sporadic.Co1.Module.InvFam
 public import Certificates.Kernel.Co1B.Tri2045
 
 public section

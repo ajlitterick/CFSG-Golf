@@ -1,13 +1,8 @@
 
 module
 
-public import CFSG.Quasithin.Recognition.CertTitsBase
 
 public import CFSG.Quasithin.Recognition.CertTits
-public import CFSG.Quasithin.Recognition.CertPermSimple
-public import CFSG.Quasithin.Recognition.CertDataTitsSimple
-public import Certificates.Data.CFSGNative.YGroups.ExactCheck
-public import Certificates.Data.CFSGNative.Schreier.Check
 public meta import CFSG.Open.QuasithinDefs
 public meta import CFSG.Quasithin.Recognition.CertTits
 public meta import CFSG.Quasithin.Recognition.CertPermSimple
@@ -15,7 +10,6 @@ public meta import CFSG.Quasithin.Recognition.CertDataTits
 public meta import CFSG.Quasithin.Recognition.CertDataTitsSimple
 public meta import Certificates.Data.CFSGNative.YGroups.ExactCheck
 public meta import Certificates.Data.CFSGNative.Schreier.Check
-public import CFSG.Quasithin.Recognition.CertTitsSimpleInputs
 public import Certificates.Certificate8077
 
 public section

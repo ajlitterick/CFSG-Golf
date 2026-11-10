@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.SporCov.F2Kit
-public import Certificates.Data.Kernel.SporCov.Census
 public import Certificates.Data.Kernel.SporCov.PCl
 
 public section

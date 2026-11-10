@@ -3,14 +3,9 @@ module
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.SquareSmall
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.BlockSubquotient
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.BlockNoncentralThree
-public import CFSG.RankThree.PartTwo.Sec4.Census.Open43
-import CFSG.LocalAnalysis.QuasithinUnique.SQTK.TypeB2Carrier
-import CFSG.LocalAnalysis.QuasithinUnique.SQTK.UnitaryTauCeti
 import CFSG.RankThree.PartTwo.Census.Carrier.SpinBBridge
-import CFSG.RankThree.PartTwo.Census.Carrier.SpinDBridge
 import CFSG.RankThree.PartTwo.Census.Carrier.SpinTDBridge
 import CFSG.Adapters.TauCetiExceptional.EvenBridgeG2
-import CFSG.RankThree.PartOne.N143.Inspect613Even
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.Certificates.Kernel.LocalCompTits.Span
@@ -53,18 +48,10 @@ public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalReflectionSplitting
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalStandardFormsRegular
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherEvenOrthogonalModel
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.CentralInvolutionStructure
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Equivariance
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X7bPairs
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.Quasithin.Background.B4ModelsAction
-public import CFSG.Quasithin.Background.B4ModelsIso
-public import CFSG.Quasithin.Background.C2Inputs
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import CFSG.Quasithin.EmptyFaithfulMultiple.InputB19Proof
 public import CFSG.RankThree.GroupTheory.SteinbergBMTwoPartCommutatorsOdd
 public import CFSG.RankThree.LocalRank.SelectorCases
@@ -75,12 +62,9 @@ public import CFSG.RankThree.PartOne.KC.OrthogonalSubfieldFixed
 public import CFSG.RankThree.PartOne.S11d.OutUnitary
 public import CFSG.RankThree.PartOne.S8.Statements
 public import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import Certificates.Data.CFSGNative.MonsterB.Rep4371Model
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 import CFSG.LieType.Chevalley.EvenRootCommutatorF4

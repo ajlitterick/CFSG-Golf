@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.LocalComp.BfsGen
 public import Certificates.Kernel.SporSch.Th.GenV4
 public import Certificates.Kernel.OmegaEight.AutChainOmP
-public import Certificates.Data.Kernel.BfsPinBase
 public import Certificates.Data.Kernel.PGrp
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434O8pE9Data
 meta import CFSG.RankThree.PartTwo.Sec4.T444.Item434O8pE9Data

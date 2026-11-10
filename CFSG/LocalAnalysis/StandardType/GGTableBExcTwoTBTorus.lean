@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTorus
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoBstar
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4Torus
 public import CFSG.LocalAnalysis.StandardType.GGTableBE6TwoTBSec
-public import CFSG.LieType.Chevalley.WeylRootTransport
-public import CFSG.RankThree.CentralCover.SteinbergBNReflectionNormalizers
 
 public section
 

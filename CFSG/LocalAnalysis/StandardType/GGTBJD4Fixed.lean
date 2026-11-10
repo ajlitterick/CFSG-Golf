@@ -1,11 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJD4Diag
-public import CFSG.RankThree.PartOne.KC.OrthogonalFixedDerived
 public import CFSG.RankThree.PartOne.KC.OrthogonalInnerPlaneDefs
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGCentOmCorank
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGCentOmTorus
-import CFSG.LocalAnalysis.StandardType.GGSecFiveJRootCoreOmDiag
 import CFSG.LocalAnalysis.StandardType.GGSecFiveJRootCoreOmFix
 import CFSG.LocalAnalysis.StandardType.GGRootCentralizerOmegaSpin
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound

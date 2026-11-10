@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGK1Defs
-public import CFSG.Assembly.GL83LieDefs
-public import CFSG.RankThree.Classical.SteinbergBJSymplecticCrossPrimeBlocks
 
 public section
 

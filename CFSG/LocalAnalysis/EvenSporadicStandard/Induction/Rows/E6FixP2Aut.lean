@@ -3,12 +3,6 @@ module
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.E6FixP1Gen
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.CoverFixInduced
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.BabyP3Core
-public import CFSG.LocalAnalysis.EvenSmallLie.TwoE6.CoverUniqueOuter
-public import CFSG.LocalAnalysis.EvenSmallLie.TwoE6.CoverUnique
-public import CFSG.LocalAnalysis.EvenSmallLie.TwoE6.IndexTwo
-public import CFSG.LocalAnalysis.EvenSmallLie.TwoE6.NativeFacts
-public import CFSG.LocalAnalysis.EvenSmallLie.TwoE6.InvolutionsN1
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
 
 public section
 

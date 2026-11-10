@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeU6Mark
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeSetup
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171Facts
-public import CFSG.LocalAnalysis.StandardType.GGTableBTransport
-public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitaryOutdiag
-public import CFSG.LocalAnalysis.StandardType.GGInnLocalDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T156GUniGeom
 
 public section

@@ -4,10 +4,8 @@ module
 public import CFSG.Sporadic.HNSchreier.FALocalCheckBase
 
 public import CFSG.Sporadic.HNSchreier.LocalCheck
-public import CFSG.Sporadic.HNSchreier.FAData
 public meta import CFSG.Sporadic.HNSchreier.LocalCheck
 public meta import CFSG.Sporadic.HNSchreier.FAData
-public import CFSG.Sporadic.HNSchreier.FALocalCheckInputs
 public import Certificates.Certificate2097
 
 public section

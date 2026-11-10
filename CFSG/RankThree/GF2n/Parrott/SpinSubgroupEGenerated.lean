@@ -2,9 +2,6 @@ module
 
 public import CFSG.RankThree.GF2n.Parrott.SpinSubgroupE
 public import CFSG.RankThree.GF2n.Parrott.SpinFixedSConj
-public import CFSG.RankThree.GF2n.Parrott.SpinStabW0
-public import CFSG.Monster.B.TwoA.Unitary.Orbit1408Points
-public import CFSG.Monster.B.TwoA.Unitary.Semilinear
 
 public section
 

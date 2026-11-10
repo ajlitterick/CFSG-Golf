@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4LabelH4Pieces
-import CFSG.LocalAnalysis.StandardType.GGTypeANbrLabels
 import CFSG.LocalAnalysis.StandardType.GGF4H4JBlockAux1
 import CFSG.LocalAnalysis.StandardType.GGF4H4JBlockAux2
 import CFSG.LocalAnalysis.StandardType.GGF4SmallBook

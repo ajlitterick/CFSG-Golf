@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IRootLineChev
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IRootLinePSL2All
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IRootLinePSU

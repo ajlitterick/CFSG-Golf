@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Open.Defs
-import Mathlib.NumberTheory.Multiplicity
 
 public section
 

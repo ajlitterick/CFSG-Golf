@@ -1,8 +1,6 @@
 module
 
 public import CFSG.RankThree.GF2n.Parrott.XAbelianCrux
-public import CFSG.RankThree.GF2n.Parrott.XAbelianTools
-public import CFSG.RankThree.GF2n.Parrott.QA45SigmaCentralizers
 public import CFSG.RankThree.GF2n.Parrott.ActionQAIdentificationOutsideEquality
 
 public section

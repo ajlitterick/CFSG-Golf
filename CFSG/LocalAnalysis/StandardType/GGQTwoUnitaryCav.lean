@@ -3,11 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitaryDvdField
 public import CFSG.LocalAnalysis.StandardType.GGLinearTorusCompSUTwo
 public import CFSG.LocalAnalysis.StandardType.GGQTwoCavQuotient
-public import CFSG.LocalAnalysis.StandardType.GGQTwoCavImage
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUModelCoprime
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitDvdCent
-public import CFSG.LocalAnalysis.StandardType.GGStdPosC13UnitaryDvdNorm
-public import CFSG.LocalAnalysis.StandardType.GGTDModelUPerm
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitaryAutomizer
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylUnitaryCover
 public import CFSG.LocalAnalysis.StandardType.GGQTwoCavImageOrder

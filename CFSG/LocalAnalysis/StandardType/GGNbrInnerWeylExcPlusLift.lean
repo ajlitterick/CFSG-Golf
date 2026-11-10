@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylOpenLabels
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTorus
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4TwoTorus
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylPlusLiftTorus
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylClauseFive
 

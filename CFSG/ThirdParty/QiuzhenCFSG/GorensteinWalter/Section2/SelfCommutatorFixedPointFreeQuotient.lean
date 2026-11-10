@@ -3,7 +3,6 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Classification
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.InvertingSelfCommutatorAction
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection7.Defs
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConj
 import Mathlib.GroupTheory.FixedPointFree
 
 namespace CFSG

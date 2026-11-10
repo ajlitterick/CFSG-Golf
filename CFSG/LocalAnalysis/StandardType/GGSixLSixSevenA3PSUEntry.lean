@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixSevenA3ExcRank
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6
-public import CFSG.LocalAnalysis.StandardType.GGInnerDiagBridgeSUDiag
 public import CFSG.LocalAnalysis.StandardType.UnitaryA3Contradiction
 public import CFSG.LocalAnalysis.StandardType.UnitaryTwoLocalRankLower
 

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentInitial.MatrixExtensionSymmetric
-public import Mathlib.FieldTheory.Finiteness
-public import Mathlib.LinearAlgebra.Matrix.Rank
 
 public section
 

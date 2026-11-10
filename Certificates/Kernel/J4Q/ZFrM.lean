@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.J4Q.ZFrK
 public import Certificates.Kernel.J4Q.VlOk
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

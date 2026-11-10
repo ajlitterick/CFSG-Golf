@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.CFSGNative.TwoNodeSmall.Verify
 public import Certificates.Data.CFSGNative.TwoNodeSmall.SearchO
 
 public section

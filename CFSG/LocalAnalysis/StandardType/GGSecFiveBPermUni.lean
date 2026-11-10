@@ -6,7 +6,6 @@ import CFSG.LocalAnalysis.StandardType.GGQTwoSpinEndpoint
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBSpSp
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSp
 import CFSG.LocalAnalysis.StandardType.GGStdUnitaryFourExcl
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySp
 
 public section
 

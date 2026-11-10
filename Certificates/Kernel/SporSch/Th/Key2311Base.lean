@@ -2,8 +2,6 @@
 module
 
 public import Certificates.Kernel.SporSch.Th.Row2322
-public import CFSG.Sporadic.ThSchreier.RowBase
-public import CFSG.Sporadic.ThSchreier.LocalOrbitInputs
 import CFSG.Certificates.Kernel.Common.Harness
 
 @[expose] public section

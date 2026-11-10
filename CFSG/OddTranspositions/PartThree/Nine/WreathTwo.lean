@@ -5,7 +5,6 @@ import CFSG.OddTranspositions.PartThree.Nine.Setup
 import CFSG.Timmesfeld.Bridge.Asc72WreathConn
 import CFSG.Timmesfeld.Bridge.Asc72Bender
 import CFSG.StronglyEmbedded.ParityCriterion
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
 
 public section
 

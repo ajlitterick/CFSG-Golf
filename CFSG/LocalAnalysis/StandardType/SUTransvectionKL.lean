@@ -1,9 +1,7 @@
 module
 
-public import CFSG.Blueprint.Catalog
 public import CFSG.RankThree.GF2n.Stroth80.Sec117Config
 public import CFSG.LocalAnalysis.StandardType.SURadicalVector
-public import CFSG.LieType.BorelTits.UnitaryForm
 import CFSG.LocalAnalysis.StandardType.SUTransvectionKernel
 import CFSG.LocalAnalysis.StandardType.SUTransvectionImage
 import CFSG.LocalAnalysis.StandardType.SUInvolutionRank
@@ -13,11 +11,7 @@ import CFSG.LocalAnalysis.StandardType.SUCenterOdd
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.KInputs811ModelUnpackSU
 import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotPositionB
 import CFSG.Alternating.Multipliers.OddKernel
-import CFSG.ClassicalGroups.Unitary.Finite
-import CFSG.Open.StatedAPI
 import CFSG.RankThree.GF2n.Stroth80.Sec117ConfigBasic
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 import CFSG.LieType.Chevalley.C2E6StandardFixedData
 import CFSG.LieType.Chevalley.C2E6SubsystemBruhat
@@ -37,7 +31,6 @@ import CFSG.LocalAnalysis.SeitzReduction.F4PilotHR7Split
 import CFSG.LocalAnalysis.SeitzReduction.F4PilotLeviSp6B3
 import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 import CFSG.Walter.JRFacts
 
 public section

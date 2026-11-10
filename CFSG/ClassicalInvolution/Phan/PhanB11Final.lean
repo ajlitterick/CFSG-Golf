@@ -2,8 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Phan.PhanB10Family
 public import CFSG.ClassicalInvolution.Phan.PhanB8Tits
-public import CFSG.ClassicalInvolution.Asc77.AscB3C2
-import CFSG.ClassicalInvolution.Asc77.AscT7BChain23
 
 public section
 

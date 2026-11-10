@@ -9,11 +9,7 @@ public import CFSG.Certificates.Kernel.Co2R3KSound
 public import CFSG.Certificates.Kernel.Fi22Nbr3153Sound
 public import CFSG.Certificates.Kernel.Misc.ArrEnumOps
 public import CFSG.Certificates.Kernel.Fi22Snd.Rows
-public import CFSG.Monster.B.Mathieu.SylowSound
-public import CFSG.Sporadic.Co2Rank3.CheckInputsT
 public import CFSG.Sporadic.Co2Rank3.GraphBase
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.NativeRefine
 public import CFSG.Sporadic.Co2Rank3.Wales
 

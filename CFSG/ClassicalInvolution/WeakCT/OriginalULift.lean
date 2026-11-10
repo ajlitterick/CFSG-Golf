@@ -1,28 +1,14 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGActualQuadraticField
 public import CFSG.LocalAnalysis.StandardType.GGFinModelCorner
-public import CFSG.LieType.Steinberg.Minuscule.E6TorusLang
-public import CFSG.ClassicalInvolution.WeakCT.TwistedE6Levi
-public import CFSG.ClassicalInvolution.Models.UnitaryPairs.Frame
 public import CFSG.ClassicalInvolution.ModelFacts.OrthAutMain
-public import CFSG.Adapters.SpecialLinearPerfect
-public import CFSG.ClassicalInvolution.WeakCT.TwistedE6Basic
-public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcA2UnitaryEmbed
 public import CFSG.RankThree.PartOne.KE6.EqpOpp
-public import CFSG.ClassicalInvolution.WeakCT.TwistedE6AdjointA2
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerE8FourFiveQ2Char
-public import CFSG.LocalAnalysis.StandardType.GGFinModelTorusMem
 public import CFSG.ClassicalInvolution.WeakCT.FiniteModelSquareConnection
-public import CFSG.RankThree.Chevalley.SteinbergBIRootSL2Tools
 public import CFSG.LieType.Steinberg.CentralExt.FieldTwoMultiplier
 public import CFSG.Mathlib.Arithmetic.TwoPowModThree
-public import CFSG.LocalAnalysis.SectionRank.EvenCover.UnitaryThree
-public import CFSG.RankThree.CentralLift.ClassicalCoverTools
-public import CFSG.Timmesfeld.RankTwo.SimplyLaced
 public import CFSG.GH74.Generic.BProg.B2.GenLocL3NFAux
 public import TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.Adjugate
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeBlock
 public import CFSG.GH74.GLS.C3.Layer1.Back112Iv2
 public import CFSG.GH74.GLS.C3.Layer1.Th2Cent5
 public import CFSG.GH74.GLS.C3.Layer2.FusionTools

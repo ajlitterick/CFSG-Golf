@@ -1,7 +1,5 @@
 module
 
-public import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
-public import Mathlib.LinearAlgebra.Matrix.ToLinearEquiv
 public import Mathlib.FieldTheory.Finite.Basic
 
 public section

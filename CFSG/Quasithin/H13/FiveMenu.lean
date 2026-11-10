@@ -5,9 +5,7 @@ public import CFSG.Quasithin.SteinbergBMQuasisimpleCenterlessImage
 public import CFSG.Quasithin.EmptyFaithfulMultiple.G2TwoUnitary
 public import CFSG.Quasithin.Background.BlueprintB2Reduced
 public import CFSG.Timmesfeld.Final.PSU33
-public import CFSG.LieType.Steinberg.CentralExt.Model
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.FamilySmall
-public import Mathlib.GroupTheory.SpecificGroups.Alternating.Simple
 public import CFSG.Foundations
 public import CFSG.LinearAlgebra.LinearGroups.CoordinateData
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoAllFields
@@ -26,15 +24,9 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

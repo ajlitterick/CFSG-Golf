@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGK1ADefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
-public import CFSG.LocalAnalysis.StandardType.GGSixAutStructurePSLRank
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeInner
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMoreU
-public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitaryOutdiag
 
 public section
 

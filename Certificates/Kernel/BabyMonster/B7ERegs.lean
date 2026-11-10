@@ -8,20 +8,6 @@ public import CFSG.Certificates.Kernel.BabyMonster.B7Reg.All
 public import CFSG.Certificates.Kernel.BabyMonster.Seeds.Check0
 public import CFSG.Certificates.Kernel.BabyMonster.Seeds.Check2
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.BSevenElementsInputs
-public import CFSG.Certificates.Kernel.BabyMonster.B7Reg.Check0
-public import CFSG.Certificates.Kernel.BabyMonster.B7Reg.Check1
-public import CFSG.Certificates.Kernel.BabyMonster.B7Reg.Check2
-public import CFSG.Certificates.Kernel.BabyMonster.Seven.Check0
-public import CFSG.Certificates.Kernel.BabyMonster.Seven.Check1
-public import CFSG.Certificates.Kernel.BabyMonster.Seven.Check10
-public import CFSG.Certificates.Kernel.BabyMonster.Seven.Check2
-public import CFSG.Certificates.Kernel.BabyMonster.Seven.Check3
-public import CFSG.Certificates.Kernel.BabyMonster.Seven.Check4
-public import CFSG.Certificates.Kernel.BabyMonster.Seven.Check5
-public import CFSG.Certificates.Kernel.BabyMonster.Seven.Check6
-public import CFSG.Certificates.Kernel.BabyMonster.Seven.Check7
-public import CFSG.Certificates.Kernel.BabyMonster.Seven.Check8
-public import CFSG.Certificates.Kernel.BabyMonster.Seven.Check9
 
 public section
 

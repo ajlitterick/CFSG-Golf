@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCoverSLPSL
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismGeneration
 
 public section
 

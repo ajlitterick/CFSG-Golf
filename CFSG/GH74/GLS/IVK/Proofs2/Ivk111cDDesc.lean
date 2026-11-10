@@ -2,9 +2,6 @@ module
 
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk111cDefs
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.ScalarDescent
-public import Mathlib.RingTheory.Henselian
-public import Mathlib.RingTheory.RegularLocalRing.Defs
-public import Mathlib.RingTheory.SimpleRing.Principal
 
 public section
 

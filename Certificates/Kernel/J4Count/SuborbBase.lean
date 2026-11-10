@@ -3,10 +3,7 @@ module
 
 public import Certificates.Kernel.J4Count.FixZBase
 public import Certificates.Kernel.J4Count.ChecksQ1
-public import Certificates.Kernel.J4Hub.Struct
-public import Certificates.Kernel.J4Q.Mat
 public import CFSG.Sporadic.J4.QT2LocX0CentMainBase
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.J4CountSound
 public import CFSG.Quasithin.H13.J4CentralizerBase
 public import CFSG.Sporadic.J4.QT2AGen

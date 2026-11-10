@@ -1,8 +1,6 @@
 module
 
 public import Certificates.Kernel.HN1408.Tab4CntDefs
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.ClassData
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.WordData
 import CFSG.Certificates.Kernel.Common.Harness
 public import Certificates.Kernel.HN1408.CzTDefs
 public import Certificates.Kernel.HN1408.TabXCntDefs

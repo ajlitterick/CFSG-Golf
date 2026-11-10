@@ -2,7 +2,6 @@
 module
 
 public import Certificates.Data.SmithB45MatQ
-public import CFSG.Quasithin.Background.HMathieuSyl24
 
 public section
 

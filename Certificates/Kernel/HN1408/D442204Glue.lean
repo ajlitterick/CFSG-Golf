@@ -5,7 +5,6 @@ public import Certificates.Kernel.HN1408.CzTScan
 public import Certificates.Kernel.HN1408.Y442202Glue
 public import Certificates.Kernel.HN1408.TableIShape
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.Simple2S5.S2S5DDefs
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.Simple2S5.S2S5LetterSpec
 import CFSG.Certificates.Kernel.Common.ForallChunks
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
 public import CFSG.Certificates.Kernel.Misc.PermClosSound

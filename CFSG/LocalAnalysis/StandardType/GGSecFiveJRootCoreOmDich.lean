@@ -1,18 +1,11 @@
 module
 
-public import CFSG.Assembly.Subnormal
 public import CFSG.LieType.Universal.Spin.Datum
-public import CFSG.RankThree.PartOne.KC.OrthogonalBlockDet
-public import CFSG.RankThree.PartOne.KC.OrthogonalFixedDerived
 public import CFSG.RankThree.PartOne.KC.OrthogonalInnerPlaneDefs
 import CFSG.CGT.Foote82.D1Lemma71
-import CFSG.LieType.Universal.SpinOmega.Range
 import CFSG.LocalAnalysis.GLTheoremA.S12.CanonU3OrthMinusBlock
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T173SplitFrame
 import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompAlgOrthogonal
-import CFSG.LocalAnalysis.StandardType.GGRootCentralizerOmegaSpin
-import CFSG.RankThree.PartOne.KC.OrthogonalLocalComponents
-import CFSG.RankThree.PartOne.S11d.LieCentralizerOrth
 public import CFSG.LieType.Universal.Spin.Roots
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHeldSmallCorePrimeCore
@@ -37,7 +30,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherEvenOrthogonalMod
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 public import CFSG.RankThree.PartOne.KC.OrthogonalEvenMinusExtraction
 public import CFSG.RankThree.PartOne.KC.OrthogonalHighWittFixedSpace
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
@@ -68,8 +60,6 @@ import CFSG.Quasithin.Background.C1GNSolvConnect
 import CFSG.Quasithin.Background.C1PackS1531Top
 import CFSG.Quasithin.Background.E2Statements
 import CFSG.Quasithin.Background.E3
-import CFSG.Quasithin.Background.E3Nprime
-import CFSG.Quasithin.Background.E3Uniq
 import CFSG.Quasithin.Background.F918C6
 import CFSG.Quasithin.Background.FFC7G
 import CFSG.Quasithin.Background.FFC8A
@@ -114,7 +104,6 @@ import CFSG.Quasithin.Vol2.Ch11SecSI3
 import CFSG.Quasithin.Vol2.Ch11SecSObl
 import CFSG.Quasithin.Vol2.Ch9KGFFQR
 import CFSG.Quasithin.Vol2.Ch9KGFFQRCase
-import CFSG.Walter.J1Props
 import Certificates.Kernel.J4Count.Prim
 
 public section

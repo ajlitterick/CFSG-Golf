@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.GMS78.P117Tabs
 public import Certificates.Kernel.GMS78.PChk
 public import CFSG.Certificates.Kernel.GMS78RuPSound
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

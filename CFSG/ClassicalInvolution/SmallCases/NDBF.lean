@@ -1,10 +1,8 @@
 module
 
 public import CFSG.ClassicalInvolution.SmallCases.NDBStmt
-public import CFSG.ClassicalInvolution.SmallCases.DSplitBoot
 import CFSG.ClassicalInvolution.ModelFacts.CommutingFundamentalTwAll
 import CFSG.ClassicalInvolution.Balance.LayerGenerationPairFinalAll
-import CFSG.ClassicalInvolution.Balance.Q27FuzzyBalance
 
 public section
 

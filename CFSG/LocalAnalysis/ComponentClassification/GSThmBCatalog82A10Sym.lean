@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog82A10Perm
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBAlternatingSymmetric
 public import CFSG.LocalAnalysis.ComponentInitial.FieldNineAlternatingSix
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.AutAlternating
 public import CFSG.LieType.CurtisTits.Conclusion

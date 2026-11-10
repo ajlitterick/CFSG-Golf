@@ -1,8 +1,6 @@
 module
 
-public import CFSG.Sporadic.Schreier.RuArrays
 public meta import CFSG.Sporadic.Schreier.RuArrays
-public import CFSG.Sporadic.Schreier.RuCheckBasicInputs
 public import Certificates.Certificate2247
 
 public section

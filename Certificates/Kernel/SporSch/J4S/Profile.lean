@@ -5,7 +5,6 @@ public import Certificates.Kernel.SporSch.J4S.ProfileK
 public import Certificates.Kernel.SporSch.J4S.ProfMath
 public import CFSG.Certificates.Kernel.SporSch.J4SProfSound
 public import CFSG.Certificates.Kernel.SporSch.J4SSylowSound
-public import CFSG.Certificates.Kernel.Spor.RawSlSound
 import CFSG.Certificates.Kernel.Common.Harness
 public import Certificates.Kernel.SporSch.J4S.NoCP
 

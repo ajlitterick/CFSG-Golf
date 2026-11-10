@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBBridge
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerClassicalModel
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerLinearNonsplit
 
 public section

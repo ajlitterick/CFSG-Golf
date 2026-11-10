@@ -7,7 +7,6 @@ public import CFSG.CGT.PushingUpLit.CGT6X.End4L34Z
 public import CFSG.CGT.PushingUpLit.CGT6X.End4Cover
 public import CFSG.CGT.PushingUpLit.CGT6X.End4Core
 public import CFSG.CGT.PushingUpLit.CGT6X.End3Cfg
-public import CFSG.CGT.PushingUpLit.CGT6X.K7aBridge
 public import CFSG.CGT.PushingUpLit.CGT6.EmbModule.FourFive
 public import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 public import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
@@ -19,8 +18,6 @@ public import CFSG.RankThree.PartOne.KC.LinearEndpointStatements
 public import CFSG.RankThree.PartOne.KC.PlaneReductionGeneral
 public import CFSG.RankThree.Theta.ThreeComponentOrbitCover
 public import CFSG.StronglyEmbedded.BenderUnitaryCenter
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_1_12
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 
 public section
 

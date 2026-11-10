@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.ONSeven.RGlueE
 public import Certificates.Kernel.ONSeven.RChkC34
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

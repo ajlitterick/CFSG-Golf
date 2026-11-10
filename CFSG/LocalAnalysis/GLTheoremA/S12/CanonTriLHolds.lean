@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonTriFacts
-public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonInnBridge
 public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonSubcompInn
 public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonE6Facts
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompIdxAll
@@ -45,7 +44,6 @@ public import CFSG.GH74.KGroups.L3EpsInvLin
 public import CFSG.GH74.Uniqueness.SU.SU13TA1Class
 public import CFSG.GroupTheory.PCore.SubgroupCore
 public import CFSG.GroupTheory.SteinbergCBFTCores
-public import CFSG.HardMathSupport.Dickson.Sec6.I1431Lie
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CompsPD4Rank4
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CompsPD4Rank4All
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TwE6
@@ -83,47 +81,18 @@ public import CFSG.RankThree.PartOne.TCX.Ree.Perm
 public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonSubcompIdx
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnSymp
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnOrth
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniLabel
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniLabelTwo
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniLabelPSU
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniScal
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GCenterQuot
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnOrthModel
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniCore
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniComp
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinCore
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldSympMark
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.OrthInnerExport
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.FactorOmega
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.FactorSL
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.FactorSU
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.FactorSp
 public import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourCover
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.Thm46FS.G2EvenOuterTypeDet
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.YS1011LabUniq
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompIdxTriality
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.RationalTypeAModel
 public import CFSG.LocalAnalysis.StandardType.GGInndiagCommRest
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompIdxExc
-import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CompsPTypeA
-import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.OuterDispatch
-import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.InnerTw
-import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.InnerUntw
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcInnerLang.TriD4
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcAssemblyTw
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTamePrime
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTorality
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTame
-import CFSG.RankThree.PartOne.KGD.D4Weyl
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcVacuousTriality
 import CFSG.HardMathSupport.Dickson.Sec6.I1431Fam.OutTriD4
-import CFSG.LieType.Chevalley.GraphFixedCenterTrivial
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.G2LongFrame
-import CFSG.HardMathSupport.Timmesfeld.RootAut.Main
-import CFSG.RankThree.Chevalley.SteinbergBIRootSL2Tools
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUAll
-import CFSG.CharacterTheory.Burnside
-import CFSG.GroupTheory.CenterlessInnerCentralizer
 public import CFSG.Quasithin.EmptyFaithful.S146zYFacts
 public import CFSG.Quasithin.EmptyFaithful.S146zYRes
 public import CFSG.Quasithin.H13.NQCoreP134Main

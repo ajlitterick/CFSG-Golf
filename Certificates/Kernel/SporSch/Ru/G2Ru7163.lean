@@ -7,10 +7,7 @@ public import Certificates.Certificate2250
 import Certificates.Kernel.SporSch.Ru.G2Ru7163K
 import Certificates.Kernel.SporSch.Ru.G2Ru7164
 import Certificates.Kernel.SporSch.Ru.E64
-import CFSG.Quasithin.Vol2.KGFactG2RuBasic
-import CFSG.Certificates.Kernel.Spor.RawOrbEval
 import CFSG.Certificates.Kernel.Spor.RawOrbHead
-import Mathlib.Tactic.IntervalCases
 import CFSG.Certificates.Kernel.Spor.RawOrbGrp
 
 set_option maxRecDepth 400000

@@ -1,11 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBXDatumResRest2Defs
-public import CFSG.LocalAnalysis.StandardType.GGRootGenSmallRankQFour
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrSmallRank
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrSmallRankExc
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestThreeVac
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitMarking
 
 public section
 

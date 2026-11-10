@@ -1,11 +1,8 @@
 module
 
-public import CFSG.Sporadic.Schreier.PairMcLCheck
-public import Certificates.Data.CFSGNative.PairSchreier.Counts
 public meta import CFSG.Sporadic.Schreier.PairMcLCheck
 public meta import Certificates.Data.CFSGNative.PairSchreier.Core
 public meta import Certificates.Data.CFSGNative.PairSchreier.Counts
-public import CFSG.Sporadic.Schreier.PairMcLTotal2Inputs
 public import Certificates.Certificate2246
 
 public section

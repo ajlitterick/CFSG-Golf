@@ -7,7 +7,6 @@ public import Certificates.Kernel.Bounds.Family
 public import CFSG.Certificates.Kernel.Misc.Coset.TableFact
 public import CFSG.Certificates.Kernel.Misc.Coset.ActRegular
 public import Certificates.Kernel.Misc.Coset.ActBlocks
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.NativeSchreierCard
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.OpsF2
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.OpsF3

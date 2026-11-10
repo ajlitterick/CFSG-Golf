@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinNbrInner
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinLeviCentralizer
-public import CFSG.LocalAnalysis.StandardType.GGFieldNbr
 
 public section
 

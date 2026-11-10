@@ -5,13 +5,11 @@ public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.W2.F4Four
 public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.W2.E6Four
 public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.W2.TriD4ThreeSix
 public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.W2.TwistedE6Three
-public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.SeitzRows.F4Assembly
 public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.SeitzRows.F4Six
 public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.SeitzRows.E8Five
 public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.ReeF4Big.Main
 public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.SporadicONSeven
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThSeven
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.OuterTrivial
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.MonsterElevenFinal
 public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.D4Dichotomy
 public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.E6Isotropic

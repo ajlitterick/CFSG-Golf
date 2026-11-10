@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesE6QPlusThreeFra
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesE6QPlusThreeNormalizer
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesE6QPlusThreeEmbed
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesE6QPlusThreeRational
-public import CFSG.LieType.Chevalley.WeylNormalizerQuotient
-public import CFSG.LieType.Chevalley.GraphFixedF4GroupRestriction
 public import CFSG.RankThree.PartOne.KE6.EqpFrame
 
 public section

@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Child3SelL39Check
 public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Child3SelL39Out
 public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Child3SelU43Gen
-public import CFSG.LocalAnalysis.ComponentInitial.LinearFlagOrder
-public import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
 public import CFSG.LinearAlgebra.LinearGroups.CoordinateData
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.NativeCheckBase
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.NativeModel

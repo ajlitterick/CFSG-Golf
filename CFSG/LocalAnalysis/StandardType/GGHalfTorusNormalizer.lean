@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGHalfBasic
-public import CFSG.LocalAnalysis.StandardType.GGHalfBlockPerm
 
 public section
 

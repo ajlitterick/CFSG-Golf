@@ -6,7 +6,6 @@ public import Certificates.Data.Kernel.SporSch.SpanK3
 public import Certificates.Data.Co2RowChk
 public meta import Certificates.Data.Co2RowChk
 meta import Certificates.Kernel.SporSch.HN.GenNTree
-import CFSG.Certificates.Kernel.Common.Harness
 import all Init.Data.Nat.Fold
 import all Init.Data.Range.Basic
 import all Init.Data.Array.Basic

@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Census.McLN
 public import Certificates.Kernel.Misc.Perm.HSMcL
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicMcLPk
 import all CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicMcLW
 import all CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicMcLTests
 import all Certificates.Data.CFSGNative.MonsterB.Co2Chain

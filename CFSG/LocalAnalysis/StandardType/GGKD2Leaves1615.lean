@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGKD2Spec1615
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeCentralizer1585
-public import CFSG.Sporadic.Th.Max3.Core
 public import CFSG.Sporadic.ThSchreier.GlobalData
 public import CFSG.Sporadic.ThSchreier.LocalOrbitBase1
 

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ASevenStructureFacts
-public import Mathlib.GroupTheory.SpecificGroups.KleinFour
-import Mathlib.GroupTheory.Perm.Centralizer
 import Mathlib.Tactic
 
 namespace CFSG

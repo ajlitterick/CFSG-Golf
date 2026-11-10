@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
 import CFSG.GroupTheory.ElemAbelianClosure
-import Mathlib.GroupTheory.Commutator.Basic
-import TauCeti.GroupTheory.OrderOfElement.PPart
 import TauCeti.GroupTheory.SpecificGroups.Cyclic.CoprimePart
 
 public section

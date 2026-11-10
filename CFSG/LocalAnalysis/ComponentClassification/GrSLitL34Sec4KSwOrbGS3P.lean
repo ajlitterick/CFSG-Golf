@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4KSwOrbGS3
 import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4End43H
 import CFSG.LocalAnalysis.ComponentClassification.HSFLitAutL34Facts
-public import Certificates.Kernel.ThCent.Leaves
 import CFSG.Goldschmidt75.WeakClosure
 
 public section

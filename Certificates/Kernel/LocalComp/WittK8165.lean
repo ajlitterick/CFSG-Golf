@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.LocalComp.WittFixLev
 public import Certificates.Kernel.LocalComp.WittData8165
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

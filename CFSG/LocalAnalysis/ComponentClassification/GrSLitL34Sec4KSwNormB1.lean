@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4KSwNormA
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeSNTwo
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB516Tools
-import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec5Lemma53
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog516
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeSNResidue
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4FWEq

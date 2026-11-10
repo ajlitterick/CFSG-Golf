@@ -1,9 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148TIdSubKDefs
-public import CFSG.RankThree.PartTwo.Sec4.LThreePiProj
-public import CFSG.RankThree.PartTwo.Sec4.LThreePiTypes
-import CFSG.RankThree.PartTwo.Sec4.LThreePiCaseA
 import CFSG.RankThree.PartTwo.Sec4.LThreePiHessian
 import CFSG.RankThree.PartTwo.KFacts.K72SylowL3
 public import CFSG.Certificates.CentralKernel
@@ -35,7 +32,6 @@ public import CFSG.LocalAnalysis.SignalizerFunctor
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.B2Thompson
 public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 public import CFSG.Quasithin.Vol2.KGFactC31RuRefBase

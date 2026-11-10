@@ -1,16 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGPumpTwLabDefs
 public import CFSG.LocalAnalysis.StandardType.GGPumpTwLabRigid
 public import CFSG.LocalAnalysis.StandardType.GGPumpTwLabCompNe
 public import CFSG.LocalAnalysis.StandardType.GGKacK1
 public import CFSG.LocalAnalysis.StandardType.GGKacExcB2
 public import CFSG.LocalAnalysis.StandardType.GGTCJHolds
-import CFSG.LocalAnalysis.StandardType.GGKGSmallA
-import CFSG.LocalAnalysis.StandardType.GGKGSmallB
 import CFSG.LocalAnalysis.StandardType.GGKGSmall
-import CFSG.Timmesfeld.Orders.Distinct
-import CFSG.Timmesfeld.Orders.Bang
 import CFSG.GF2Type.Smith1979.W4InspOrdA
 
 public section

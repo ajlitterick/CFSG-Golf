@@ -1,14 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLayerCenterCyclicLinear
-public import CFSG.LieType.Universal.SpinOmega.Center
-public import CFSG.LieType.Universal.SpinOmega.Kernel
-public import CFSG.LieType.Universal.SpinOmega.Range
-public import CFSG.LocalAnalysis.ComponentClassification.ClassicalModelStatedBridge
-public import CFSG.LieType.Steinberg.Classical.SpinPlus
-public import CFSG.LieType.Steinberg.CentralExt.Split
 public import CFSG.LieType.Steinberg.CentralExt.SpinMinusCentrallyClosed
-public import CFSG.LocalAnalysis.SectionRank.EvenCover.SLTwo
 
 public section
 

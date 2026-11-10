@@ -3,16 +3,6 @@ module
 public import CFSG.RankThree.GF2n.Stroth80.IrrSectionCard
 public import CFSG.Quasithin.Vol2.Ch3E215MSp4A
 public import CFSG.RankThree.GF2n.Stroth80.ClassicalQuasisimple
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSpExterior
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X7Basic
-public import CFSG.Quasithin.Background.G11Defs
-public import CFSG.Open.StatedDefs
-public import Mathlib.Algebra.Group.End
-public import Mathlib.Algebra.Module.ZMod
-public import Mathlib.FieldTheory.Finite.Basic
-public import Mathlib.FieldTheory.Finiteness
-public import Mathlib.GroupTheory.IsPerfect
-public import Mathlib.SetTheory.Cardinal.Finite
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHeldSmallCorePrimeCore
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalDescentEndpoint

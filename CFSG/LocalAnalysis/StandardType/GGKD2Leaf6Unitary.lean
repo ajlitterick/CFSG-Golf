@@ -1,16 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKD2Leaf6D3
-public import CFSG.LocalAnalysis.StandardType.GGKD2Leaves1615
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeFamInUniLift
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeBoundGenTypeOne
-public import CFSG.LocalAnalysis.StandardType.GGUSixTwoLayer
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeInner
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeThree
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
-public import CFSG.Goldschmidt.Steps.G37Quot
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeF4CubeScalar
-public import Mathlib.FieldTheory.Finite.GaloisField
 
 public section
 

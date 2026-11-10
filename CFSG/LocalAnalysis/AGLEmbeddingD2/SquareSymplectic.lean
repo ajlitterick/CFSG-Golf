@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.SquareLinear
-import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanParabThreeSp
 import CFSG.LocalAnalysis.AGLEmbedding.ToralCensusNodeRoots
-import CFSG.ClassicalGroups.Symplectic.Model
 import all CFSG.LieType.Universal.SymplecticExtras.RankOne
 
 public section

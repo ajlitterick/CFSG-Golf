@@ -6,13 +6,9 @@ public import CFSG.LocalAnalysis.StandardType.GGNsq2Cited
 import CFSG.LocalAnalysis.StandardType.GGNsq2Main
 import CFSG.LocalAnalysis.StandardType.GGNsq2QuotActs
 import CFSG.LocalAnalysis.StandardType.GGNsq2Hopf
-import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosFinal
-import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosDiag
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosAdapterAux
-import CFSG.LocalAnalysis.StandardType.GGSecFiveNSCornerMain
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSLieEsuAux
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpBstar
-import CFSG.ClassicalGroups.Unitary.Finite
 
 public section
 

@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSporKOrdBMLift
 public import CFSG.LieType.ChevTwo.OppCl.AutLifts
-public import CFSG.LocalAnalysis.ComponentInitial.BasicFacts
-public import CFSG.LocalAnalysis.ComponentInitial.DiagonalSemilinear
 
 public section
 

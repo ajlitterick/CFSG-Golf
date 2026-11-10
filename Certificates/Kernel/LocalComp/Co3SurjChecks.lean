@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.LocalComp.Co3SurjS
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQ2TableBNbrFrameDefs
 public import CFSG.LocalAnalysis.StandardType.GGQ2ClassicalCatalogueU
 import CFSG.LocalAnalysis.StandardType.GGQ2CensusChainA
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
 
 public section
 

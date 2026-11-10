@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.Fi22.Letters
 public import Certificates.Data.Kernel.Fi22.T46
-public import Certificates.Data.CFSGNative.F4.Unitary
 
 public section
 

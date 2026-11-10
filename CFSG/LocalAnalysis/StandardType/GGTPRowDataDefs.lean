@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Assembly.GL83LieDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 
 public section

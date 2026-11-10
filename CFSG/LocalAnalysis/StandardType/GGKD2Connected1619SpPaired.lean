@@ -1,12 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKD2Connected1619Contracts
-public import CFSG.Open.StatedDefs
 public import CFSG.LieType.SemisimpleCentralizers.HeldCompTrivLinear
 public import CFSG.LieType.SemisimpleCentralizers.OrderThree.Arith
 public import CFSG.Assembly.GL83StatedBridge
-public import CFSG.Assembly.Subnormal
-public import CFSG.Timmesfeld.Orders.ClassicalLinear
 
 public section
 

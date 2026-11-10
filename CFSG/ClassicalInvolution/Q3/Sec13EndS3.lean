@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Sec13End10
-import CFSG.ClassicalInvolution.Q3.TL3T25
 import CFSG.ClassicalInvolution.Q3.TL3T29
 public import CFSG.ClassicalInvolution.Asc77.AscE18FromM
 public import CFSG.ClassicalInvolution.Asc77.AscFusionR7

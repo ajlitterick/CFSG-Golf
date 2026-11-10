@@ -7,7 +7,6 @@ import CFSG.LocalAnalysis.StandardType.GGTwE6A5KModel
 import CFSG.LocalAnalysis.StandardType.GGTwE6A5KToral
 import CFSG.LocalAnalysis.StandardType.GGTwE6K1LineAux
 import CFSG.LocalAnalysis.StandardType.GGTwE6K1LeviMain
-import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24ConnLine
 
 public section
 

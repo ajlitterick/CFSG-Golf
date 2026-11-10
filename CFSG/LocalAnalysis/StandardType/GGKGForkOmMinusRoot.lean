@@ -1,16 +1,12 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRealKGModelRoot
-public import CFSG.LocalAnalysis.StandardType.GGRealKGSignedRefl
-public import CFSG.LocalAnalysis.StandardType.GGKGForkLayerGen
 public import CFSG.LocalAnalysis.StandardType.GGKGForkOmMinusRoot1
 public import CFSG.LocalAnalysis.StandardType.GGKGForkOmMinusRoot2
 public import CFSG.LocalAnalysis.StandardType.GGKGForkLatticeElt
 public import CFSG.LocalAnalysis.StandardType.GGOmegaMinusRootGenAvoid
-public import CFSG.LocalAnalysis.StandardType.GGOmegaMinusRootGenWeyl
 public import CFSG.LocalAnalysis.StandardType.GGOmegaMinusRootGenComp
 public import CFSG.LocalAnalysis.StandardType.GGOmegaMinusRootGenConj
-public import CFSG.LocalAnalysis.StandardType.GGOmegaMinusRootGenIso
 
 public section
 

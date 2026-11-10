@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJUnitaryMinusDefs
 public import CFSG.LocalAnalysis.StandardType.GGSuSplitRootGenLine
-public import TauCeti.LinearAlgebra.Matrix.Diagonal
 
 public section
 

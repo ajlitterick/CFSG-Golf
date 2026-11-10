@@ -5,13 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGNsq2QuotCover
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosDefs
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosAdapterAux
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSLieEsuAux2
-import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
-import CFSG.RankThree.PartOne.S15K.CentralCover
-import CFSG.LieType.Steinberg.CentralExt.SUThree
-import CFSG.LieType.Universal.Unitary.Comparison
-import CFSG.ClassicalGroups.Unitary.Perfect
-import CFSG.ClassicalGroups.Unitary.Finite
 public import CFSG.Sporadic.Bridge.ONSurj
 
 public section

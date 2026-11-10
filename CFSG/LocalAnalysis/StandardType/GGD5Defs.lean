@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGD5TwistFacts
 public import CFSG.LocalAnalysis.StandardType.GGQTwoGammaXPosAmb
-public import CFSG.LocalAnalysis.StandardType.GGQTwoFinishGen
-public import CFSG.LocalAnalysis.StandardType.GGQTwoAjSetting
-public import CFSG.LocalAnalysis.StandardType.GGQTwoK1OfI1
 
 public section
 

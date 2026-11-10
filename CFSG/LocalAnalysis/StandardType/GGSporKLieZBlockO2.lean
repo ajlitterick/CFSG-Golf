@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSporKLieZReduce
 public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockDefs
 import CFSG.ClassicalGroups.Symplectic.InvariantForm
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
-import CFSG.GroupTheory.LocalCores.Components
-import CFSG.ClassicalGroups.Orthogonal.Matrix
 import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestOddLayer
 
 public section

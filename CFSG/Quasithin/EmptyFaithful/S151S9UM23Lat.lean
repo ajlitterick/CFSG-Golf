@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Quasithin.EmptyFaithful.S151S9TM23
-import CFSG.Quasithin.Background.E2TwoProofSporM23
-import CFSG.Quasithin.Background.HSporLatMathieu
 
 public section
 

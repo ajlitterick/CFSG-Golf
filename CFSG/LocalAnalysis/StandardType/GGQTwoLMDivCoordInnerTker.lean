@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordInnerLift
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 import CFSG.LocalAnalysis.StandardType.GGQTwoLMFrameCBase
 
 public section

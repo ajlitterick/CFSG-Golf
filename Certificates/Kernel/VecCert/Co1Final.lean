@@ -4,9 +4,7 @@ module
 public import Certificates.Kernel.VecCert.Co1.Ok
 public import Certificates.Kernel.VecCert.Co1Bound
 public import CFSG.Sporadic.Co1.Module.OrbitsInputs
-public import CFSG.Sporadic.Co1.CertificateBase
 public import CFSG.Sporadic.Co1Base
-public import CFSG.Sporadic.HS.Simple
 
 public section
 

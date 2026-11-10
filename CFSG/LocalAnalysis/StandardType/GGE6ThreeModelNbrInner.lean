@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelHoldsBoth
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelInputs
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerSCrComp
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenTwE6Three
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6ThreeDefs
 
 public section
 

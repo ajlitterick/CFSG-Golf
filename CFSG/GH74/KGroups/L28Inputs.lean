@@ -1,8 +1,5 @@
 module
 
-public import Mathlib
-public import CFSG.GH74.KGroups.Generic
-public import CFSG.GH74.KGroups.PermCheck
 public import CFSG.GH74.KGroups.Checks
 public import CFSG.GH74.KGroups.PSL2
 public import CFSG.Quasithin.Recognition.CertF8
@@ -10,10 +7,6 @@ import CFSG.Walter.PSL2Facts.Even
 public meta import CFSG.GH74.KGroups.Checks
 public meta import Mathlib
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Borel
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Lemma83
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Cardinalities
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ProjectiveSemilinear
 import CFSG.Walter.Defs
 
 public section

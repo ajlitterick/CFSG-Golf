@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Certificates.Kernel.S23InnerSound
-public import CFSG.LocalAnalysis.EvenSmallLie.TwoE6.Stroth23InnerDataInputs
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Monster.B.TwoA.Unitary.TwentyData
 

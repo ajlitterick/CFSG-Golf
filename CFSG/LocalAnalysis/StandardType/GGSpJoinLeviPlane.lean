@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinPlaneTorusDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylBLevi
-public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Embed
 
 public section
 

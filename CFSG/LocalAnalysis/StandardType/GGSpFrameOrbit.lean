@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSpFrameIso
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinSingleSupport
-public import CFSG.LocalAnalysis.StandardType.GGSpJoinOrbitBound
 
 public section
 

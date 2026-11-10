@@ -1,9 +1,5 @@
 module
 
-public import Certificates.Data.TcRes
-public import CFSG.Blueprint.Chevalley
-public import CFSG.Blueprint.ChevalleyRoots
-public import CFSG.LieType.Chevalley.KernelComponentRoots
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RDefs
 
 public section

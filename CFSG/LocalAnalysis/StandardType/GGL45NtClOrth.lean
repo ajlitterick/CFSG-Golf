@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGL45NtClTransfer
 public import CFSG.LocalAnalysis.StandardType.GGL45NtClRecipes
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaConj
-public import CFSG.RankThree.PartOne.AUTSL.OmegaOut
 
 public section
 

@@ -3,10 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166Glue
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I107LRest
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.LowerSymplecticOrth
-public import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
-public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87Mult
-public import CFSG.Timmesfeld.Orders.ClassicalLinear
-public import CFSG.Timmesfeld.Orders.ClassicalOmega
 public import CFSG.Assembly.GL83StatedBridge
 public import CFSG.Quasithin.Vol2.Ch12Sec6P31WXL3NT
 public import CFSG.Blueprint.OddStandardExact

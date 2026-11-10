@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Frame
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.TabOps4
-public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.FrameDefs
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.TabOps1
 
 public section

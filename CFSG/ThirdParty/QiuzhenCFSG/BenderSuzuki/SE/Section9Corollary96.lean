@@ -1,14 +1,10 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section9Corollary95
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.II1Section4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.StrongEmbeddingCounting
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition84Coprime
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.Basic
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition84Sylow
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection11.lemma_11_1_a
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.FinalTheorem
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConj
 
 namespace CFSG
 end CFSG

@@ -2,7 +2,6 @@ module
 
 public import CFSG.GH74.Generic.BProg.B3.S3PumpSwap
 public import CFSG.GH74.Generic.S45.LDiagCore
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

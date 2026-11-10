@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCMBlockCore
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCMLiftPSU
 
 public section

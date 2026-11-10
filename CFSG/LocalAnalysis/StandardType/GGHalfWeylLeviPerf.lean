@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGHalfWeylDefs
 public import CFSG.LocalAnalysis.StandardType.GGHalfBlockCentral
-public import CFSG.LocalAnalysis.StandardType.GGHalfSlOnLevi
 public import CFSG.LocalAnalysis.StandardType.GGHalfWeylSlOnIso
 public import CFSG.LocalAnalysis.StandardType.GGHalfWeylCentOmega
 

@@ -1,11 +1,7 @@
 module
 
-public import CFSG.GH74.GLS.C3.Prop121.Card7F1
-public import CFSG.GH74.GLS.C3.Prop121.Card7F2
 public meta import CFSG.GH74.GLS.C3.Prop121.Card7F1
-public import CFSG.GH74.GLS.C3.Prop121.Card7F3Inputs
 public meta import CFSG.GH74.GLS.C3.Prop121.Card7F3Inputs
-public import Certificates.Certificate5076
 public import Certificates.Certificate5077
 
 public section

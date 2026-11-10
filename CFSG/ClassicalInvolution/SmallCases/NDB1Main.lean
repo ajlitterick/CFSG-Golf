@@ -2,12 +2,8 @@ module
 
 public import CFSG.ClassicalInvolution.SmallCases.NDB1Shape
 public import CFSG.ClassicalInvolution.SmallCases.NDB1Lift
-public import CFSG.ClassicalInvolution.Asc77.WP3FrameData
-public import CFSG.ClassicalInvolution.Asc77.WP3LayerSec
 public import CFSG.ClassicalInvolution.Asc77.WP3SCRBoot
 public import CFSG.ClassicalInvolution.Asc77.AscFusionS14
-public import CFSG.ClassicalInvolution.Balance.Theorem5Untouched
-public import CFSG.ClassicalInvolution.SmallCases.DSplitEdge
 public import CFSG.ClassicalInvolution.Balance.BootNoTripleStrong
 public import CFSG.ClassicalInvolution.RouteD.G2D4Ih8
 

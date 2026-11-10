@@ -3,7 +3,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Classification
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CentralizerNormalizerConjugateMap
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OddSubgroupLeNormalIndexTwo
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2LowTorus
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2OuterInvolutionFusion
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2InvariantOddPSubgroupCentralized

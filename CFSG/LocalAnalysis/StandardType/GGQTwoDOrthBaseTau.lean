@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthBaseLift
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDFrameTau
 
 public section
 

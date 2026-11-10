@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGKGForkRows
-public import CFSG.LocalAnalysis.StandardType.GGKGForkSignedPow
 public import CFSG.LocalAnalysis.StandardType.GGKGForkLinNsC
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRootGenTypeA
 
 public section
 

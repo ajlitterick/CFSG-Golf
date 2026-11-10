@@ -6,9 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveBNbrType
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBNbrAxis
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBDenseRows
 import CFSG.LocalAnalysis.StandardType.GGClassicalCentralImageLabel
-import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
-import CFSG.LocalAnalysis.StandardType.GGSignedCoordFix
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBSparseEndpoint
 
 public section

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormLinearThreePrime
 public import CFSG.LocalAnalysis.StandardType.GGPGLKernelShifts
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormQuotTwoShears
-public import CFSG.LocalAnalysis.StandardType.GGTBWNormMpCellLabels
 
 public section
 

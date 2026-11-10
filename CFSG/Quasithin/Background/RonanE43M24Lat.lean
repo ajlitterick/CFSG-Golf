@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.Background.RonanE43Basic
 public import CFSG.Quasithin.EmptyFaithful.S151S9TM24
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatM24
 
 public section
 

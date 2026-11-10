@@ -1,13 +1,10 @@
 module
 
-public import Certificates.Data.TitsAschbacherE32
 public import Certificates.Kernel.EvenBN.K27580A
 public import Certificates.Kernel.EvenBN.K27580P
-public import CFSG.Certificates.Kernel.Spor.SiftEq
 public import Certificates.Kernel.SporSch.Tits.Inv2266
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Spor.RawSiftK
-public import Certificates.Certificate7050Base
 
 public section
 

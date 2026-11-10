@@ -1,9 +1,7 @@
 module
 
 public import CFSG.Quasithin.EmptyFaithful.S142Basic
-public import CFSG.Quasithin.Background.A4Defs
 public import CFSG.Quasithin.Background.A4Four
-public import CFSG.LocalAnalysis.QuasithinUnique.QTKECore
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels

@@ -23,14 +23,9 @@ import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 import CFSG.LocalAnalysis.SectionRank.TitsCover
 import CFSG.Quasithin.Background.A3Components
-import CFSG.Quasithin.Background.A3ComponentsAmbient
-import CFSG.Sporadic.J4.Simple
 import CFSG.Sporadic.J4Base
 import CFSG.Sporadic.Mathieu.M12
 import CFSG.Sporadic.Mathieu.M24
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

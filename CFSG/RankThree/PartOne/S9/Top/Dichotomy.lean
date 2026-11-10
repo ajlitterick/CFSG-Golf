@@ -3,7 +3,6 @@ module
 public import CFSG.RankThree.PartOne.S9.StatementsSylow
 public import CFSG.RankThree.PartOne.S9.Top.ThetaLocal
 import CFSG.RankThree.GroupTheory.SteinbergBYAschCoreConjugacy
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.RankThree.LocalRank.SelectorCases
 public import CFSG.RankThree.PartOne.Assembly
 

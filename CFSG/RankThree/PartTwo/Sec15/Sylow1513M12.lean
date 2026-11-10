@@ -2,28 +2,18 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec15.Item1513Res2ProofEven
 import CFSG.RankThree.PartTwo.Sec15.Item1513Res3ProofTransOut
-import CFSG.RankThree.PartTwo.Sec15.Item1513StepsProofTools
 import CFSG.RankThree.PartTwo.Sec17.Item17Q0ProofTools
 import CFSG.Goldschmidt.Steps.G310Basic
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.MaximalityAmbient.RealThreeBasic
-import CFSG.RankThree.PartTwo.Sec15.Item1513ProofTools
-import CFSG.RankThree.PartTwo.Sec15.Item1513ProofNoTransv
-import CFSG.RankThree.PartTwo.Sec15.Item1513StepsProofTransv
-import CFSG.RankThree.PartTwo.Sec15.Item1511ProofTools
-import CFSG.RankThree.PartTwo.Sec15.Item1514Steps1515
 import CFSG.RankThree.PartTwo.Sec15.Item1515StepsProofPoints
-import CFSG.RankThree.PartTwo.Sec13.Item131Facts
 import CFSG.RankThree.PartTwo.Sec13.Item13Sporadic
 import CFSG.RankThree.PartTwo.Sec13.Item13GL
 import CFSG.RankThree.PartTwo.Sec13.Item133
 import CFSG.RankThree.PartTwo.Sec13.Item134Sylow
-import CFSG.RankThree.PartTwo.KFacts.K74Plane
-import CFSG.RankThree.PartTwo.KFacts.KS14Orders
 import CFSG.RankThree.PartTwo.Sec12.KS128NotHJSLTools
 import CFSG.RankThree.PartTwo.Sec8.Hering611S3App
 import CFSG.RankThree.PartTwo.Sec8.Item812Res3ProofFrattini
 import CFSG.RankThree.PartTwo.Sec6.Item612Plus
-import CFSG.RankThree.LocalRank.SolvablePrimeComplementCore
 import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.MaximalityAmbient.RealThreeM12
 import CFSG.LinearAlgebra.LinearGroups.ProjectiveSimple
 import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.MaximalityAmbient.RealThreeSylow

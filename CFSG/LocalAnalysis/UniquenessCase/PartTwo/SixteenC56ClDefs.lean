@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC56Model
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.DefsWeakClosure
 public import CFSG.LocalAnalysis.WeakClosure81.SixTwelveDefs
-public import CFSG.Quasithin.Background.B2FactorizationBridge
-public import CFSG.Quasithin.Background.E3Defs
 
 public section
 

@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGDepED4PackDefs
-public import CFSG.LocalAnalysis.StandardType.GGResKnownGroup
-public import CFSG.LocalAnalysis.StandardType.GGTBFixDefs
-public import CFSG.LocalAnalysis.StandardType.GGTBFixNbrDefs
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeE6AllDefs
-public import Mathlib.LinearAlgebra.Matrix.Cartan.Basic
 
 public section
 

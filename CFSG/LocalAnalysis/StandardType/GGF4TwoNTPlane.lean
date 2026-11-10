@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGF4TwoNTRoots
 public import CFSG.LocalAnalysis.StandardType.GGF4TwoThreeCCent
 public import CFSG.LocalAnalysis.StandardType.GGTableBF4TwoTBInputs
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTBLang
-public import CFSG.HardMathSupport.Timmesfeld.Torality.LangThreeProved
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.SeitzExcOpenRest8b
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.KilledPlaneCubeRoot
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUAut

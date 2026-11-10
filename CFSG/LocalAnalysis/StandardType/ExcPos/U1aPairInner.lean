@@ -5,11 +5,7 @@ public import CFSG.LocalAnalysis.StandardType.GGLieCoreSmallSetup
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreSmallInner
 public import CFSG.LocalAnalysis.StandardType.GGJ4dRankOne
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.Sp6Port419ReadyPart3
-public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.Sp6Port419ReadyPart4
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.SelectedPair
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleField
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerSmallPerfect
-public import CFSG.GroupTheory.LocalCores.Components
 
 public section
 

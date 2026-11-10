@@ -1,15 +1,8 @@
 module
 
-public import CFSG.Monster.B.TwoA.Base.M22
-public import CFSG.Monster.B.TwoA.Base.TwoPair
-public import CFSG.Monster.B.TwoA.Census.PermBFS
-public import Mathlib.GroupTheory.GroupAction.ConjAct
 public meta import CFSG.Monster.B.TwoA.Census.PermCert
 public meta import CFSG.Monster.B.TwoA.Census.PermBFS
-public import CFSG.Monster.B.TwoA.Base.SevenPairAInputs
 public import Certificates.Certificate3052
-public import Certificates.Certificate3017
-public import Certificates.Certificate3029
 
 public section
 

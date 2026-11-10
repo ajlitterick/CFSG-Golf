@@ -2,11 +2,9 @@ module
 
 public import Certificates.Kernel.LocalComp.E8Tables
 public import CFSG.Certificates.Kernel.LocalCompD8Sound
-public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.WeylD8Data
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.EachUnfold
 import CFSG.Certificates.Kernel.Common.ForallChunks
-import Mathlib.Tactic.IntervalCases
 public import CFSG.RankThree.Native.PermEnumeration
 
 public section

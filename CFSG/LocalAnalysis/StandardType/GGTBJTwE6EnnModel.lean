@@ -3,11 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6LeviFrame
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6Row
 public import CFSG.LocalAnalysis.StandardType.GGTBTorRelE6Cover
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-public import CFSG.LocalAnalysis.StandardType.GGResLeaf
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylNoLine
-public import CFSG.RankThree.PartTwo.Census.Classical.EvenPrimes
-public import CFSG.LieType.Steinberg.CentralExt.TwistedE6Center
 
 public section
 

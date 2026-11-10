@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutTrialityBridge
 public import CFSG.RankThree.PartOne.KE.CTStatement
 public import CFSG.RankThree.Lattice.SteinbergBIChecks
-public import CFSG.LieType.Chevalley.HeightSeries
 
 public section
 

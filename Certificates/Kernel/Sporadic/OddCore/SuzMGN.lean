@@ -3,8 +3,6 @@ module
 public import Certificates.Kernel.Sporadic.OddCore.SuzMGND
 public import Certificates.Kernel.Sporadic.RawGenSplitP
 public import Certificates.Kernel.Sporadic.OddCore.SuzMGCG
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

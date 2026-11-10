@@ -1,15 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeLinDefs
-import CFSG.Assembly.GL83StatedBridge
-import CFSG.GroupTheory.ABGLocalTools.SL2FieldAutInner
 import CFSG.LocalAnalysis.GLTheoremA.CatA.K144IOut
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinDict
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinPLab
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166Label
-import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
-import CFSG.LocalAnalysis.StandardType.Marking
-import CFSG.RankThree.PartOne.S11d.Common
 import CFSG.RankThree.PerfectCover.HopfCentralCoversUnrestricted
 import CFSG.LocalAnalysis.GLTheoremA.CatA.K144IInn
 

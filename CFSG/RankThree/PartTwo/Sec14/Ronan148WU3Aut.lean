@@ -3,19 +3,13 @@ module
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148WU3Rank
 public import CFSG.RankThree.PartTwo.Sec4.LThreePiProj
 import CFSG.RankThree.PartTwo.Sec13.Item135SimpleL3ProofModel
-import CFSG.RankThree.PartTwo.Sec11.KS11LieProofAut
 import CFSG.RankThree.PartTwo.Sec19.Item19ResProofAutCent
 import CFSG.RankThree.PartTwo.Sec4.Item462AltProofModels
 import CFSG.RankThree.PartTwo.Sec14.Ronan148WL3CentMat
-import CFSG.RankThree.PartTwo.Sec14.Ronan148WL3CentConfig
 import CFSG.RankThree.PartTwo.Sec14.Ronan148WL3CentGen
-import CFSG.RankThree.PartTwo.Sec18.Tools
 import CFSG.RankThree.PartTwo.Sec12.ONanKS128Diag
 import CFSG.RankThree.PartTwo.Sec4.RonanK432L3HardMat
 import CFSG.RankThree.PartTwo.Sec13.Item138ProofOmega
-import CFSG.RankThree.PartTwo.Sec13.Item138NMod9
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Foundations
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LieType.Chevalley.LangRootArithmetic
@@ -30,7 +24,6 @@ public import CFSG.RankThree.PartTwo.Sec4.LThreePiItem411
 public import CFSG.RankThree.PartTwo.Sec8.Pairs
 public import CFSG.RankThree.PartTwo.Sec8.Statements
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import CFSG.RankThree.PartTwo.Sec19.Item194Used
 import CFSG.RankThree.PartTwo.Sec19.Step1915W
 import CFSG.RankThree.PartTwo.Sec19.Step1917ProofDefs

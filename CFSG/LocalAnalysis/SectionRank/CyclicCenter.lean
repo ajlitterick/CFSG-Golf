@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.CentralSylowTransfer
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.lemma_4_5_a
 import CFSG.GroupTheory.ElementaryAbelianTransport
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

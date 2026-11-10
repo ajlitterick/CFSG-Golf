@@ -1,10 +1,6 @@
 module
 
-public import CFSG.RankThree.PartOne.KS.RuFiveData
-public import CFSG.RankThree.PartOne.KS.RuFiveAux
 public import CFSG.RankThree.Native.HSMcLFiveCheck
-public import CFSG.Sporadic.Schreier.RuDefs
-public import CFSG.RankThree.PartOne.KS.RuFiveCheckInputs
 public import Certificates.Certificate10057
 public meta import CFSG.RankThree.PartOne.KS.RuFiveData
 public meta import CFSG.RankThree.PartOne.KS.RuFiveAux

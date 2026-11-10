@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinFrameTgtSylow
 public import CFSG.ClassicalInvolution.Q3.TL4Conn26Mu
-public import CFSG.ClassicalInvolution.SmallCases.A7Q1B
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinThmEPrintedDefs
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinDiscData
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpPfCore

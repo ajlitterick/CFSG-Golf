@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.Recognition.M12AmalAutJCheck
 public import CFSG.Quasithin.Recognition.M12AmalAutLData
-public import Mathlib.GroupTheory.SpecificGroups.Quaternion
 
 public section
 

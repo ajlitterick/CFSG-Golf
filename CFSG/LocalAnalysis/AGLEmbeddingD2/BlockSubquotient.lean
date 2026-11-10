@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.ONanBlockInnerStep
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.LeviSection
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Foundations
 public import CFSG.GroupTheory.LocalCores.Fitting

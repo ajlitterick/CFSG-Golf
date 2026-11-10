@@ -2,19 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGKD2LinearBlock1615
 public import CFSG.LocalAnalysis.StandardType.GGKD2Leaves1615
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagProj
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinear
 public import CFSG.Goldschmidt.Steps.G37Quot
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoLayer
-public import CFSG.Adapters.StatedSLPerfect
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeBoundGenKernel
-public import CFSG.RankThree.PartOne.FOC.PSLDecomp
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinCore
-public import CFSG.LocalAnalysis.ComponentInitial.LinearFlagOrder
 public import CFSG.Quasithin.Background.B69Iso
-public import CFSG.LocalAnalysis.ComponentClassification.SymmetricLocalEvenLinearSource
-public import CFSG.Assembly.GL83StatedBridge
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinPLab
 public import CFSG.Goldschmidt.Steps.G37Core
 

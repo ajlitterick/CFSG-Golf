@@ -2,7 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34SporAux.Down
 public import CFSG.HardMathSupport.Timmesfeld.Proving.SporadicOuterLeTwo
-public import CFSG.Sporadic.Bridge.Catalogue
 public import CFSG.HardMathSupport.Solomon.Coordinator.YS08.Spor.Co1
 public import CFSG.HardMathSupport.Solomon.Coordinator.YS08.Spor.Co2
 public import CFSG.HardMathSupport.Solomon.Coordinator.YS08.Spor.Co3
@@ -16,14 +15,8 @@ public import CFSG.HardMathSupport.Solomon.Coordinator.YS08.Spor.McLON
 public import CFSG.HardMathSupport.Solomon.Coordinator.YS08.Spor.Suz
 public import CFSG.HardMathSupport.Solomon.Coordinator.YS08.Spor.Two
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34SporAux.ThThree
-public import CFSG.Monster.Existence.StdOdd.Defs
-public import Certificates.Data.CFSGNative.Chevalley.C2E6CertLie
-public import CFSG.LieType.Chevalley.C2E6StdMatrixData
-public import CFSG.Monster.B.Classical.E6AdjointGroup
 import Certificates.Kernel.Misc.E6StdSlp
-public import CFSG.YGroups.Y443.Native.CoverFactsWords
 import Certificates.Kernel.KDense.Y443
-public import CFSG.YGroups.Y443.Native.Swap13Word
 public import CFSG.GH74.GLS.IVK.Proofs2.OddTools
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.Der61a
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.Der69

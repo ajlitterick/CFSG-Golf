@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Item434D42
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Perm.HexCmd
 meta import Certificates.Data.Item434D42
 

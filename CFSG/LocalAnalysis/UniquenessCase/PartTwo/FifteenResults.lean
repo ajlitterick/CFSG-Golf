@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.DefsHyp
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.DefsWeakClosure
 
 public section
 

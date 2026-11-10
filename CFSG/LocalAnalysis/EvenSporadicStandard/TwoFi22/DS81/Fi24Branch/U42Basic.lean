@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoFi22.DS81.Fi24Branch.MulAutComplete
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoFi22.DS81.Fi24Branch.U42Model
 public import CFSG.LocalAnalysis.EvenSporadicStandard.M22Std.OutU42Aut
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallPSp43Model
-public import CFSG.GH74.Exceptional.UnitaryFourTwo
-public import Certificates.Kernel.SporCovBase.Fi22Glue
 
 public section
 

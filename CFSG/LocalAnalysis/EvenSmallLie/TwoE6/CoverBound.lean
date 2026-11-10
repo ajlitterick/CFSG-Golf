@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.EvenSmallLie.TwoE6.CoverLevi
 public import CFSG.LocalAnalysis.EvenSmallLie.TwoE6.LeviA2Diag
 public import CFSG.LieType.Multipliers.L34Upper
 public import CFSG.RankThree.CentralLiftU.PerfectSplit
-public import CFSG.LinearAlgebra.LinearGroups.Perfect
 public import CFSG.LieType.Steinberg.CentralExt.PerfectLift
 
 public section

@@ -1,12 +1,8 @@
 module
 
-public import CFSG.Sporadic.Co2Cert.Data
-public import Certificates.Data.CFSGNative.MonsterB.BinarySha
-public import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 public meta import CFSG.Sporadic.Co2Cert.Data
 public meta import Certificates.Data.CFSGNative.MonsterB.BinarySha
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
-public import CFSG.Sporadic.Co2Cert.CheckInputs
 public import Certificates.Certificate3115
 
 public section

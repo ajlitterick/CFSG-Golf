@@ -7,9 +7,6 @@ public import Certificates.Data.Kernel.SporSch.Co1Cent
 public import Certificates.Data.Kernel.SporSch.Co1Bfs
 public import Certificates.Data.Kernel.SporSch.Co1Stab
 public import Certificates.Data.CFSGNative.Co1.Involutions
-public import Certificates.Data.Kernel.Co1F2
-public import Certificates.Data.Kernel.Co1B
-public import Certificates.Data.Kernel.Co1BW
 public import Certificates.Kernel.Co1B.Data2041
 public import CFSG.Sporadic.Co1Block.TwoAData
 import CFSG.Certificates.Kernel.Common.Harness

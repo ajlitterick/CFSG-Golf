@@ -2,21 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T263SKSympSel
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T263SDLinOrder
-public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotTorus
-public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeLinear
-public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeSpecial
-public import CFSG.LinearAlgebra.LinearGroups.UnitaryOrder
-public import CFSG.RankThree.PartOne.KC.SymplecticInnerPlaneAlt6
-public import CFSG.RankThree.PartOne.KC.SymplecticIsotypicFixed
-public import CFSG.LocalAnalysis.ComponentClassification.PresentationLocalSymplecticSix
-public import CFSG.LieType.Universal.Symplectic
-public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherEvenSymplecticNormalForm
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagOrder
 public import CFSG.GroupTheory.PLayer.PIndex
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34Aux.Descent
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.Split
 public import CFSG.LieType.Multipliers.U62Sylow
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanChevOuterD42Spec
 public import CFSG.LocalAnalysis.ComponentClassification.Foote5CoreEven
 public import CFSG.LocalAnalysis.ComponentClassification.Foote5CoreL34
 public import CFSG.LocalAnalysis.ComponentClassification.Foote5CoreRes

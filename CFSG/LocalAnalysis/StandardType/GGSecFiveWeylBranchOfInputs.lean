@@ -1,16 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinPrimed
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveZSInputs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylBranchInputs
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveFourLeRank
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBarInput
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveBarData
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveCR3OfPump
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylBranchOrth
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylBranchCR
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNarrowInputs
 import CFSG.LocalAnalysis.StandardType.GGZSMonWit
 
 public section

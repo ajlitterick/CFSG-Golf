@@ -2,13 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 
-import CFSG.LocalAnalysis.StandardType.Marking
-import CFSG.LocalAnalysis.StandardType.MarkingClassical
-import CFSG.LocalAnalysis.StandardType.GGTableBTransport
 import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMoreCl
 import CFSG.LocalAnalysis.StandardType.GGNbrLangRestRank
 import CFSG.LocalAnalysis.StandardType.GGTriD4NoneRank
-import CFSG.LocalAnalysis.SeitzReduction.RankOneCatSL2TypeDet
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.TitsGen
 
 public section

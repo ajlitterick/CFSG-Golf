@@ -2,8 +2,6 @@ module
 
 public import CFSG.Quasithin.Background.A312SporAlt5
 public import CFSG.Quasithin.Background.A312SporE8Check
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatCore
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatQuot
 
 public section
 

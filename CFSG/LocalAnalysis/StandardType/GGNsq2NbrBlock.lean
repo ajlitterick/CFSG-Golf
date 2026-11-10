@@ -2,10 +2,7 @@ module
 
 import Lean
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosDefs
-public import CFSG.LocalAnalysis.StandardType.GGLinearTorusCompSUComp
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeLift
 public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitSU
-public import CFSG.LocalAnalysis.ComponentInitial.FixedComponentCorrespondence
 
 public section
 

@@ -13,7 +13,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
 public import CFSG.RankThree.GroupTheory.ClassTwoThree
 public import CFSG.RankThree.OrthogonalInvolutions.SuzukiTypes
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Utils
 
 public section
 

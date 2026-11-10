@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec4HeBridgeInputs
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec4HeModels
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 public import CFSG.LocalAnalysis.ComponentClassification.LBalanceComponentLifts

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.KGFact12617L52b
-public import CFSG.Quasithin.Vol2.KGFact12617LieW
 public import CFSG.Quasithin.Vol2.KGFact12618h
 public import CFSG.Quasithin.Vol2.KGFact12617Lie
 public import CFSG.Quasithin.Vol2.KGFact12617

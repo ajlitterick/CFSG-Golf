@@ -5,7 +5,6 @@ import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniCubeIsComp
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniCubeCQ
 import CFSG.GroupTheory.ConjQuot
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T156GUniMat
-import CFSG.Assembly.GL83StatedBridge
 import CFSG.LocalAnalysis.AGLEmbedding.ToralCensusUnitaryFlag
 
 public section

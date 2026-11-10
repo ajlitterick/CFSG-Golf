@@ -3,7 +3,6 @@ module
 
 public import Certificates.Kernel.SporSch.J4S.H11
 public import CFSG.Certificates.Kernel.SporSch.J4SPrimesSound
-public import CFSG.Certificates.Kernel.SporSch.J4SPowSound
 
 public section
 

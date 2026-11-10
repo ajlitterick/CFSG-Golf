@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfMaxLang
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfMaxRational
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfMaxSL2
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfMaxTorus
 public import CFSG.Sporadic.Schreier.J4SProfileNode
 
 public section

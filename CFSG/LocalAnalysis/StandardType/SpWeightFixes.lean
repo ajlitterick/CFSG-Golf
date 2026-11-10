@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.SpWeightForm
-public import CFSG.LocalAnalysis.StandardType.SpBlockMatrices
-public import Mathlib.FieldTheory.Perfect
-public import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
-public import Mathlib.FieldTheory.Finite.Basic
 
 public section
 

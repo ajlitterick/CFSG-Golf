@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LieType.Chevalley.RootCharacterConjugation
 public import CFSG.LocalAnalysis.StandardType.GGLangCoroot
 
 public section

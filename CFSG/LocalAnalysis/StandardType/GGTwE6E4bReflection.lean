@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTwE6ConnectedReflection
 public import CFSG.LocalAnalysis.StandardType.GGTwE6E4bTorus
-public import CFSG.LocalAnalysis.StandardType.GGTwE6ReflectionRadical
-public import CFSG.LocalAnalysis.StandardType.GGCellWitness
 
 public noncomputable section
 namespace CFSG.StandardType.SCFourCover

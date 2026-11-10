@@ -4,13 +4,8 @@ public import CFSG.LocalAnalysis.StandardType.GGPZWeylB
 public import CFSG.LocalAnalysis.StandardType.GGPZWeylD
 public import CFSG.LocalAnalysis.StandardType.GGPZWeylExc
 public import CFSG.LocalAnalysis.StandardType.GGTWLowStmt
-public import CFSG.LocalAnalysis.StandardType.GGTDAutomizer
-public import CFSG.LocalAnalysis.StandardType.GGSpFrameCoxeterCard
-public import CFSG.LocalAnalysis.StandardType.GGSpJoinCoxeterCard
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthWeylOrdD
 public import CFSG.LocalAnalysis.StandardType.GGTWTwA5Datum
 public import CFSG.LocalAnalysis.StandardType.GGLargeRowCard
-public import CFSG.LocalAnalysis.StandardType.GGRCWeylCard
 public import CFSG.Mathlib.GroupTheory.PermCenter
 
 public section

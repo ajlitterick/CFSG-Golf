@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGJ4dMixed
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcDiagramAutomorphisms
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExcTw
 
 public section
 

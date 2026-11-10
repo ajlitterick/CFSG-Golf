@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNineSCr
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6TBIrred
 
 public section

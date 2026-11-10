@@ -4,7 +4,6 @@ public import Certificates.Kernel.A312M23.Data
 public import Certificates.Kernel.M23Dc.Data
 public import Certificates.Data.Kernel.A312M23K
 import CFSG.Certificates.Kernel.Common.EachTrue
-import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 100000
 set_option maxHeartbeats 0

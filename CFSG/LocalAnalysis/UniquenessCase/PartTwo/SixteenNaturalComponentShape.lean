@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC1677ThreeDefs
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenTwo
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenThreeB2
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenThreeS
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC34ThreeMain
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenGammaBounds
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenEightRowCtx

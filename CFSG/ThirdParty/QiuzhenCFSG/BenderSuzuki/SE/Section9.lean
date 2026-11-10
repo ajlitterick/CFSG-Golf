@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition84
-public import Mathlib.Algebra.Group.Subgroup.Ker
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.FinalTheorem
 
 namespace CFSG

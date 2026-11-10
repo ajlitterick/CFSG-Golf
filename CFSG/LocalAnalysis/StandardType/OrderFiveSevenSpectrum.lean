@@ -2,15 +2,6 @@ module
 
 public import Mathlib.LinearAlgebra.Matrix.Charpoly.Eigs
 public import Mathlib.LinearAlgebra.Eigenspace.Triangularizable
-public import Mathlib.FieldTheory.IsAlgClosed.Basic
-public import Mathlib.Algebra.CharP.Basic
-public import Mathlib.FieldTheory.IsAlgClosed.Spectrum
-public import Mathlib.LinearAlgebra.Matrix.ToLinearEquiv
-public import Mathlib.RingTheory.Nilpotent.Basic
-public import Mathlib.GroupTheory.OrderOfElement
-public import Mathlib.Data.Set.Card
-public import Mathlib.Algebra.Polynomial.Splits
-public import Mathlib.Tactic.NoncommRing
 
 public section
 

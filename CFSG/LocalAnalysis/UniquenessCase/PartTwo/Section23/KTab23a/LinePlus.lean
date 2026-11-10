@@ -14,9 +14,6 @@ import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointDataM
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalSemilinearDataCompatibility
 import CFSG.LocalAnalysis.ComponentInitial.OrthogonalReflectionSplitting
 import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherEvenOrthogonalModel
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 
 public section

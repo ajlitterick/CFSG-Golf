@@ -1,9 +1,7 @@
 module
 
-public import Mathlib
 public import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec3.Thm311bAux2
 public import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec3.IntrThm32Step3
-public import CFSG.SignalizerFunctorTheorem.McBride.Functor.Basic
 
 public section
 

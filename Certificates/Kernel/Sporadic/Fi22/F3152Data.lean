@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.F3152.Forms
 public import Certificates.Data.Kernel.Spor.Row
-public import Certificates.Data.Kernel.Spor.Chain
 public import Certificates.Kernel.Sporadic.RowsWCmd
 public meta import CFSG.Monster.B.Fischer.Fi22FormsData
 public meta import CFSG.Monster.B.Fischer.Fi22SepData

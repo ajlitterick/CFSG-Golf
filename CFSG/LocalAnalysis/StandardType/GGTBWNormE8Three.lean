@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGExcToralInnerAction
 public import CFSG.LocalAnalysis.StandardType.GGTBTorE8Cover
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfE8Three
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcTorus
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylExcPlusLift
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeNbrKnownLemmas
 public import CFSG.LocalAnalysis.StandardType.GGTwE6KGLParity

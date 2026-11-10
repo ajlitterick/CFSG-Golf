@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGA11CohDefs
-public import CFSG.Assembly.Subnormal
-public import CFSG.LocalAnalysis.ComponentClassification.LocalComponents
 
 public section
 

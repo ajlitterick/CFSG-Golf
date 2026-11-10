@@ -1,11 +1,7 @@
 module
 
-public import CFSG.RankThree.E6.RootLatticeTools
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTwE6ThreeFrame
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeAd
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UG3
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.PlanesToralWeyl
-public import CFSG.LieType.Chevalley.KernelComponentRoots
 public import CFSG.LieType.Chevalley.EvenOddCentralizerRadicalRoots
 public import CFSG.RankThree.Lattice.SteinbergBIE6QplusFold
 public import CFSG.RankThree.Lattice.SteinbergBIE6OrderThreeTools

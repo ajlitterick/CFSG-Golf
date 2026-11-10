@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs2311m
-public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4TorusCent
 
 public section
 

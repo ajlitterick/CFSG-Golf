@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.UC22P22e
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22n
 public import CFSG.LocalAnalysis.EvenBN.Tits.N.P3Frob
 

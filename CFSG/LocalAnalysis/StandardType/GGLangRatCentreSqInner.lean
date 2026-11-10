@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGLangRatCentreStmts
 public import Certificates.Certificate13659
 
 import CFSG.HardMathSupport.Timmesfeld.RootAut.Main
-import CFSG.LieType.Chevalley.WeylRoots
 import CFSG.LocalAnalysis.StandardType.GGLangOrbitTwo
 
 public section

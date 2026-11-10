@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDL1InvFixO
 import CFSG.LocalAnalysis.StandardType.GGOrthFramePairs
-import CFSG.ClassicalInvolution.SmallCases.UpgradeCoverClassical
 
 public section
 

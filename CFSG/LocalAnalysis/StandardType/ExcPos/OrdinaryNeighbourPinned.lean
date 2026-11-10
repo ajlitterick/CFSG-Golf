@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.ExcPos.OrdinaryNeighbour
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeReturnedFrame
-import CFSG.Assembly.Subnormal
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.TwistedE6Base
-import CFSG.LieType.Chevalley.GraphFixedOrbitParametrization
-import CFSG.LieType.Simplicity.ExceptionalConverse
 import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotEightParamField
 import CFSG.LocalAnalysis.StandardType.ExcPos.NeighbourComponentOrbit
 import CFSG.LocalAnalysis.StandardType.ExcPos.NeighbourComponentPacket
@@ -14,11 +10,9 @@ import CFSG.LocalAnalysis.StandardType.ExcPos.PacketBasic
 import CFSG.LocalAnalysis.StandardType.ExcPos.TwistedE6Factors
 import CFSG.LocalAnalysis.StandardType.GGHalfCentGroup
 import CFSG.LocalAnalysis.StandardType.GGJ4dKernel24
-import CFSG.LocalAnalysis.StandardType.GGLangExhaust
 import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IPerfect
 import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IRootLine
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcShapeFourKac
-import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeNCGroup
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeNCRootGroupTwo
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCompPairIncidence
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeNCStdEnvelope

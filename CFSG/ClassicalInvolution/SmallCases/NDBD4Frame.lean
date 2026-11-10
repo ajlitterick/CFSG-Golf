@@ -2,12 +2,8 @@ module
 
 public import CFSG.ClassicalInvolution.SmallCases.NDBD4Defs
 public import CFSG.ClassicalInvolution.Asc77.WP3FrameStarE
-public import CFSG.ClassicalInvolution.Generic.CoreAssemblyPieces
-public import CFSG.ClassicalInvolution.RouteD.LocalTwin
 import CFSG.ClassicalInvolution.SmallCases.NDBD4Shape
 import CFSG.ClassicalInvolution.SmallCases.NDBC3
-import CFSG.ClassicalInvolution.SmallCases.DSplitBridge
-import CFSG.ClassicalInvolution.Asc77.WP3L52Main
 
 public section
 

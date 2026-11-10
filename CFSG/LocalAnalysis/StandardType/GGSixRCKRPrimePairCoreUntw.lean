@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePairCoreGood
-import CFSG.LieType.Chevalley.CLSOddE7RationalDerivedIndex
-import CFSG.LieType.Chevalley.SingleEdgePerfect
 
 public section
 

@@ -8,7 +8,6 @@ import CFSG.LocalAnalysis.StandardType.GGSecFiveL1OddLeaves
 import CFSG.LocalAnalysis.StandardType.GGStdPosTagData
 import CFSG.LocalAnalysis.StandardType.GGStdPosTorusFix
 import CFSG.LocalAnalysis.StandardType.GGStdPosRankCard
-import CFSG.Adapters.SpecialLinearPerfect
 
 public section
 

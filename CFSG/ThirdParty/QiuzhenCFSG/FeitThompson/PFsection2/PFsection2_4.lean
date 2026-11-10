@@ -2,8 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection2.Basic
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.HallSubgroups.Core
-public import Mathlib.GroupTheory.Complement
-public import Mathlib.GroupTheory.OrderOfElement
 
 namespace CFSG
 end CFSG

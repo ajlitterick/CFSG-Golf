@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Sporadic.HNOddCore.InvDefs
-public import CFSG.Sporadic.HNOddCore.RAction
 import Certificates.Kernel.HNClsL.Glue
 
 public section

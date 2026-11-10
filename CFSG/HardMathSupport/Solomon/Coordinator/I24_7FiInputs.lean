@@ -5,10 +5,7 @@ public import CFSG.HardMathSupport.Solomon.Coordinator.I24_7FiHexSA
 public import CFSG.HardMathSupport.Solomon.Coordinator.I24_7FiHexSB
 public import CFSG.HardMathSupport.Solomon.Coordinator.I24_7FiHexSC
 public import CFSG.Monster.B.Fischer.Fi22OrderCheckInputs
-public import CFSG.Monster.B.Fischer.InducedData
 public import CFSG.RankThree.PartOne.KS.PKit
-public import CFSG.RankThree.Native.PermEnumeration
-public import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 public meta import CFSG.HardMathSupport.Solomon.Coordinator.I24_7FiHexP
 public meta import CFSG.HardMathSupport.Solomon.Coordinator.I24_7FiHexSA
 public meta import CFSG.HardMathSupport.Solomon.Coordinator.I24_7FiHexSB

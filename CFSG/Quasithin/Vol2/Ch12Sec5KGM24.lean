@@ -3,11 +3,7 @@ module
 
 public import CFSG.Quasithin.Vol2.Ch12Sec5KGM24Base
 
-public import CFSG.Quasithin.Vol2.Ch12Sec5KG
-public import CFSG.Quasithin.Vol2.Ch12Sec5KGM24Inputs
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatM24
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115SporadicMathieu
-public import CFSG.LocalAnalysis.ComponentInitial.TwoPrimeSolvable
 public import Certificates.Certificate7249
 
 public section

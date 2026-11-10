@@ -1,18 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1431cLieEightUni
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.SympInnerExport
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.FactorSL
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.FactorSU
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.FactorSp
-import CFSG.LinearAlgebra.LinearGroups.UnitaryOrder
-import CFSG.RankThree.Classical.SteinbergBJUnitaryTwoBlock
-import CFSG.RankThree.CentralLift.DefiningUnitary
-import CFSG.ClassicalGroups.UnitaryFlag.GroupData
-import CFSG.LocalAnalysis.ComponentInitial.FieldUnitaryHermitian
-import CFSG.LocalAnalysis.ComponentInitial.TwoPrimeSolvable
-import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeSpecial
-import CFSG.RankThree.PartOne.KC.SymplecticIsotypicFixed
 
 public section
 

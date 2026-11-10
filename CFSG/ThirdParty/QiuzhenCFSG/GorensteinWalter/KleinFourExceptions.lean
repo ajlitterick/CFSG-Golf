@@ -2,7 +2,6 @@ module
 
 public import Mathlib.GroupTheory.SpecificGroups.Alternating
 public meta import Mathlib.GroupTheory.SpecificGroups.Alternating
-public import Mathlib.Data.Fintype.Perm
 public import Mathlib.GroupTheory.SpecificGroups.KleinFour
 public meta import Mathlib.Algebra.Group.Subgroup.Defs
 

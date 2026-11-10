@@ -1,15 +1,10 @@
 module
 
-public import Certificates.Kernel.Tits8074.Data
 public import Certificates.Kernel.Tits8074.Cent
 public import Certificates.Kernel.Tits8074.Letters
 public import Certificates.Kernel.Misc.Tits.Strong8077
-public import Certificates.Certificate8077
 public import CFSG.Certificates.Kernel.Tits8074Spec
 public import CFSG.Quasithin.Recognition.CertTitsPair
-public import CFSG.Certificates.SchreierChainOrder
-public import CFSG.Certificates.SchreierChainOrderStabilizers
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

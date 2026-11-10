@@ -4,14 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMoreCl
 public import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpRestTypeDet
 public import CFSG.LocalAnalysis.StandardType.GGLayerCenterCyclicExcSix
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaOutdiag
-public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotCatTypeDetExc
-public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotCatTypeDetExc
-public import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotCatTypeDetExc
-public import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotCatTypeDetExcMinus
-public import CFSG.LocalAnalysis.SeitzReduction.E8PilotCatTypeDet
-public import CFSG.LocalAnalysis.SeitzReduction.F4PilotCatEvenExcOrders
-public import CFSG.RankThree.PartOne.S12K.OrdRigidL
-public import CFSG.Timmesfeld.Orders.Distinct
 
 public section
 

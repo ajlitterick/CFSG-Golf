@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.ModelFacts.E8ExclLevi
 public import CFSG.ClassicalInvolution.ModelFacts.E7ModelFrameStep
-public import CFSG.ClassicalInvolution.RouteD.TypeEModel
 
 public section
 

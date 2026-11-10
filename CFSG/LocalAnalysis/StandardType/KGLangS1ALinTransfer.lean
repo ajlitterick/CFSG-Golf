@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismData
-import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismGeneration
-import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismTransport
 import CFSG.LocalAnalysis.SeitzReduction.LinearPilotGlobalNormalSubfield
 import CFSG.LocalAnalysis.StandardType.GGTableBTypeALift
 import CFSG.Open.QuasithinDefs

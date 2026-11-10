@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRuleSpRank
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallSpTwoDelta
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestThreeSmall
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRest
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwoThreeSp
 
 public section
 

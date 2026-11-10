@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreDefs
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreInsideWit
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompChain
 import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreNormFrame
 
 public section

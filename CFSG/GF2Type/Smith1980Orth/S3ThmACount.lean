@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GF2Type.Smith1980Orth.S3ThmAHalf
-import Mathlib.FieldTheory.Finite.GaloisField
 
 public section
 

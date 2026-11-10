@@ -1,10 +1,6 @@
 module
 
-public import CFSG.Sporadic.Mathieu.Simple
-public import CFSG.Sporadic.Mathieu.M22
-public import Certificates.Data.CFSGNative.Mathieu.Check
 public import CFSG.Quasithin.Background.HMathieuNorm
-public import CFSG.Quasithin.Background.A3ComponentsBasic
 public meta import Certificates.Data.CFSGNative.Mathieu.Check
 public meta import CFSG.Quasithin.Background.HMathieuCent
 public meta import CFSG.Monster.Code.Basis

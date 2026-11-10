@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Certificates.Kernel.Common.Loop
 public import CFSG.Certificates.Kernel.Enum.Defs
 
 public section

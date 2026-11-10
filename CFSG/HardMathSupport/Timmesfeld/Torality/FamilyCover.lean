@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Timmesfeld.Steinberg.ThreeCentralizer
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 
 public noncomputable section
 

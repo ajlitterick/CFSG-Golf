@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.Ch11SecO1bO
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.CharacterTheory.Wreathed.SmallerRecognitionOriginalFieldQuaternionConjugation
@@ -38,7 +36,6 @@ public import CFSG.Quasithin.Background.B5Basic
 public import CFSG.Quasithin.Background.B5CompA
 public import CFSG.Quasithin.Background.B5CompB
 public import CFSG.Quasithin.Background.B6
-public import CFSG.Quasithin.Background.B6Example
 public import CFSG.Quasithin.Background.E2Hyp
 public import CFSG.Quasithin.Background.E2SolvTwo
 public import CFSG.Quasithin.Background.E3OffenderB

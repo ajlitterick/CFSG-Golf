@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.AutMat
-public import CFSG.LocalAnalysis.StandardType.FS81.Realized
 public import CFSG.LocalAnalysis.StandardType.FS81.SpMatAlg
 
 public section

@@ -3,8 +3,6 @@ module
 public import Certificates.Kernel.KDenseP.AgreeB
 public import Certificates.Kernel.KDenseP.SepAt
 public import Certificates.Kernel.KDenseP.FixOf
-public import Certificates.Kernel.KDenseP.Axis.Base
-public import CFSG.Certificates.Kernel.KDense.Data.Checks
 public import CFSG.Certificates.Kernel.KDenseP.HeSeven.MonoEChk
 public import CFSG.Certificates.Kernel.KDenseP.HeSeven.CFix
 public import CFSG.Certificates.Kernel.KDenseP.HeSeven.CMove

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Certificates.Kernel.Lie.CT.Core
 public import Certificates.Data.Kernel.MonsterB.FischerK
 public import CFSG.Monster.B.TwoA.Fischer.GramDataLit
 

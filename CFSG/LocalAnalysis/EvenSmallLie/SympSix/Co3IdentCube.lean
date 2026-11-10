@@ -4,18 +4,7 @@ public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Co3IdentFacts
 public meta import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Co3IdentFacts
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 public meta import Certificates.Data.CFSGNative.Co3Schreier.Basic
-public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Co3IdentCubeInputs
 public import Certificates.Certificate3095
-public import Certificates.Certificate3089
-public import Certificates.Certificate3093
-public import Certificates.Certificate3094
-public import Certificates.Certificate2151
-public import Certificates.Certificate2152
-public import Certificates.Certificate2154
-public import Certificates.Certificate2157
-public import Certificates.Certificate2158
-public import Certificates.Certificate2161
-public import Certificates.Certificate2162
 
 public section
 

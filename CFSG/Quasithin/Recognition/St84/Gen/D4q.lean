@@ -3,15 +3,12 @@ module
 public import CFSG.Quasithin.Recognition.St84.Gen.BigL2Slice
 public import CFSG.Quasithin.Recognition.St84.Gen.PerfectGen
 public import CFSG.Quasithin.H13.NQCatD4Irred
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsLieD4Facts
 import CFSG.Quasithin.Recognition.St84.Gen.G2q
 import CFSG.Quasithin.Recognition.St84.Gen.D4qModel
 import CFSG.Quasithin.Recognition.St84.Gen.D4qRadical
 import CFSG.Quasithin.H13.NQCatF112D4
 import CFSG.Quasithin.Vol2.GoldschmidtSec53FactsModD4
-import CFSG.Quasithin.Vol2.GoldschmidtSec53FactsModD4Perf
 import CFSG.Quasithin.Recognition.GoldschmidtFan86UnivAmalgam
-import CFSG.LieType.Steinberg.CentralExt.GriessNativeModels
 public import CFSG.Quasithin.Background.GoldschmidtRankOneFacts
 public import CFSG.Quasithin.Recognition.GoldschmidtF112TitsBorel
 public import CFSG.RankThree.S4Free.Statement

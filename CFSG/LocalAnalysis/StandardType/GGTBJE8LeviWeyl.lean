@@ -1,10 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLFaithful
 public import CFSG.LocalAnalysis.StandardType.GGMaxRankWeyl
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
-public import CFSG.LieType.Chevalley.KernelComponentRoots
 
 public section
 

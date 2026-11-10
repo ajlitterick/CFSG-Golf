@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenCore
 public import CFSG.LocalAnalysis.StandardType.GGTBFix
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabel
 public import CFSG.LocalAnalysis.StandardType.GGTBWInputDefs
 
 @[expose] public section

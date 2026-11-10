@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.EmptyFaithful.S146zNKlein
-public import Certificates.Kernel.J4Count.FixCE
 
 public section
 

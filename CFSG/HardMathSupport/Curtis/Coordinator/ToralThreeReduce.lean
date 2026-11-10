@@ -3,22 +3,16 @@ module
 public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallGEVNormalThreeKFacts
 public import CFSG.LocalAnalysis.AGLEmbedding.BlockFoundationsPLType
 public import CFSG.LocalAnalysis.AGLEmbedding.BlockToralCensusDefs
-public import CFSG.Open.StatedDefs
 import CFSG.HardMathSupport.Curtis.Coordinator.BlockGlue
 import CFSG.HardMathSupport.Curtis.Coordinator.AutBounds
-import CFSG.LocalAnalysis.AGLEmbedding.BlockFactReductionsIVTypes
 import CFSG.LocalAnalysis.AGLEmbedding.BlockFactReductionsIVMain
 import CFSG.LocalAnalysis.AGLEmbedding.BlockFactReductionsIIASix
 import CFSG.LocalAnalysis.AGLEmbedding.BlockAltSevenPL
-import CFSG.LocalAnalysis.AGLEmbedding.AltOuterOdd
-import CFSG.LocalAnalysis.AGLEmbedding.BlockFactReductionsII
 import CFSG.LocalAnalysis.AGLEmbedding.BlockFactReductionsIICenter
 import CFSG.LocalAnalysis.AGLEmbedding.BlockFactReductionsIVOut
 import CFSG.RankThree.SubgroupLists2.OmegaThree
 import CFSG.GroupTheory.ElementaryAbelianTransport
 import CFSG.Adapters.StatedClassicalSmallOrders
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Foundations
 public import CFSG.GroupTheory.LocalCores.Fitting
@@ -32,8 +26,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.MinimalBCenter
 public import CFSG.LocalAnalysis.ComponentClassification.OrdinaryComponentJoins
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 import CFSG.Fischer.Uniq.CompTau
 import CFSG.GH74.Generic.Certificates
 import CFSG.GH74.Statements

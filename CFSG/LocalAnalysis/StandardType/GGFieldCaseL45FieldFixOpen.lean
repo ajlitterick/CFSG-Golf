@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45FieldFixOpenDefs
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45FieldFixChev
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45FieldFixReeChev
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExc
 
 public section
 

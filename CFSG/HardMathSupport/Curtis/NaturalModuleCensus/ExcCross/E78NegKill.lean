@@ -4,7 +4,6 @@ public import CFSG.HardMathSupport.Curtis.Coordinator.ExcLeafDefs
 public import CFSG.HardMathSupport.Curtis.NaturalModuleCensus.ExcCross.ExcLangNSylow
 public import CFSG.HardMathSupport.Foote.E27.SporSylowBound
 public import CFSG.HardMathSupport.Foote.E27.SporKill
-public import CFSG.LieType.SeitzGeneration.ExcPlaneModel
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
 public import CFSG.Certificates.FusionF2
@@ -43,7 +42,6 @@ public import CFSG.RankThree.Classical.SteinbergBJSymplecticSquareZeroCentralize
 public import CFSG.RankThree.PartOne.BRANCH.RankRee
 public import CFSG.RankThree.PartOne.CTP.StrongPBridgeRest
 public import CFSG.RankThree.PartOne.Census3.Assembly
-public import CFSG.RankThree.PartOne.FOC.Assemble
 public import CFSG.RankThree.PartOne.FOC.CentralQuot
 public import CFSG.RankThree.PartOne.FOC.ListBridge
 public import CFSG.RankThree.PartOne.FOC.PSUModel
@@ -58,7 +56,6 @@ public import CFSG.RankThree.PartOne.KD4T.Certs
 public import CFSG.RankThree.PartOne.KE.StabGeneral
 public import CFSG.RankThree.PartOne.N143.Weyl613Defs
 public import CFSG.RankThree.PartOne.N143X.KF64WSimple
-public import CFSG.RankThree.PartOne.S11c.Sec66ClassCommon
 public import CFSG.RankThree.PartOne.S11d.LayerDecomp
 public import CFSG.RankThree.PartOne.S11d.OutClassicalTwo
 public import CFSG.RankThree.PartOne.S11d.OutExceptional

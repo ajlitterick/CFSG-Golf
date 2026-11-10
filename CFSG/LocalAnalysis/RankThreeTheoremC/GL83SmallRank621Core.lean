@@ -19,7 +19,6 @@ public import CFSG.RankThree.GroupTheory.SteinbergBYSectionNineResidual
 public import CFSG.RankThree.GroupTheory.SteinbergCEQuaternionDihedral
 public import CFSG.RankThree.LocalRank.SelectorCases
 public import CFSG.RankThree.PartOne.Assembly
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection5.Defs
 
 public section
 

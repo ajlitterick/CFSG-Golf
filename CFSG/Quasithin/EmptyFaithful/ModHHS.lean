@@ -4,7 +4,6 @@ public import CFSG.Quasithin.EmptyFaithful.ModHNS
 public import CFSG.Quasithin.EmptyFaithful.ModHSolv
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHS
 import all CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHS
-public import CFSG.Sporadic.HS
 public import CFSG.GroupTheory.WeirSylow.GL
 public import CFSG.LieType.Chevalley.LangRootArithmetic
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHeldSmallCorePrimeCore
@@ -49,10 +48,6 @@ public import CFSG.RankThree.PartTwo.Sec4.LThreePiTypes
 public import CFSG.Sporadic.Schreier.J4SNoCompCover
 public import CFSG.Sporadic.Schreier.M11
 public import CFSG.Sporadic.Schreier.TitsOther
-public import CFSG.Walter.J1Props
-public import CFSG.Walter.J1Recog
-public import CFSG.Walter.PSL2Facts
-public import CFSG.Walter.W67.Statements
 public import Certificates.Kernel.J4Count.Prim
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis

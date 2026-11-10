@@ -1,17 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Co3IdentDefs
-public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Co3IdentTree
 public meta import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Co3IdentDefs
 public meta import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Co3IdentTree
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 public meta import Certificates.Data.CFSGNative.Co3Schreier.Basic
-public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Co3IdentModelInputs
 public import Certificates.Certificate3093
-public import Certificates.Certificate3089
-public import Certificates.Certificate2151
-public import Certificates.Certificate2152
-public import Certificates.Certificate2154
 
 public section
 

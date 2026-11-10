@@ -1,13 +1,8 @@
 module
 
-public import CFSG.Certificates.Kernel.GMS78RuSound
-public import Certificates.Kernel.GMS78.Gen
 public import Certificates.Kernel.GMS78.Q
 import CFSG.Certificates.Kernel.Common.Harness
-import CFSG.Certificates.Kernel.Common.EachUnfold
 import CFSG.Certificates.Kernel.Common.EachUnfoldKeyed
-import Mathlib.Tactic.IntervalCases
-import Batteries.Tactic.Init
 
 public section
 

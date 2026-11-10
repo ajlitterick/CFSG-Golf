@@ -1,13 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6WeylTorusDefs
-public import CFSG.LocalAnalysis.StandardType.GGTwE6WeylTorusFrame
-public import CFSG.LocalAnalysis.StandardType.GGTwE6WeylTorusAut
 public import CFSG.LocalAnalysis.StandardType.GGTwE6WeylTorusSCSeven
 public import CFSG.LocalAnalysis.StandardType.GGTwE6WeylTorusSCFive
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6RankOuter
-public import CFSG.GroupTheory.ElementaryAbelianTransport
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarE8FiveConjClass
 
 public section
 

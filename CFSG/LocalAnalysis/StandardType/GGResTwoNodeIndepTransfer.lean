@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeIndepDefs
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepNine
 
 public section

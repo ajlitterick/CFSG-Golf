@@ -1,6 +1,5 @@
 module
 
-public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Detect.E8.LAData
 public import CFSG.HardMathSupport.Foote.Coordinator.TwistedFrame.Leaf.ClosingE8TenDataK
 
 public section

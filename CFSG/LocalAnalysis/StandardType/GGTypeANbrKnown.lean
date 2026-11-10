@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrCore
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrGate
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrGenerated
 
 public section

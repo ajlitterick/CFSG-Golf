@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.SpMatAlg
-public import Mathlib.GroupTheory.Perm.Cycle.Type
 
 public section
 

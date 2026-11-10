@@ -5,9 +5,7 @@ public meta import CFSG.Sporadic.HeldB.InnerRestrict
 public meta import CFSG.Sporadic.HeldB.OuterCentRestrict
 public meta import CFSG.GH74.KGroups.PermCheck
 public import Certificates.Kernel.Census.CatFacts.C2010P
-public import CFSG.Certificates.Kernel.SporSch.MOCChain
 public import CFSG.Certificates.Kernel.SporSch.ChainKPack
-import Mathlib.Tactic.IntervalCases
 
 public section
 

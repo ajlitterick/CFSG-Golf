@@ -3,11 +3,9 @@ module
 public import Certificates.Kernel.LocalComp.L34Key.Chk0
 public import Certificates.Kernel.LocalComp.L34Key.Chk1
 public import Certificates.Kernel.LocalComp.L34Key.Small
-public import Certificates.Kernel.LocalComp.L34Cert
 public import Certificates.Kernel.LocalComp.L34ScanFinal
 public import CFSG.Certificates.Kernel.L34KeySound
 import Certificates.Kernel.Sporadic.ON.Gen
-import CFSG.Certificates.Kernel.L34ScanSound
 import CFSG.Certificates.Kernel.L34KSnd.Tab
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
 public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions

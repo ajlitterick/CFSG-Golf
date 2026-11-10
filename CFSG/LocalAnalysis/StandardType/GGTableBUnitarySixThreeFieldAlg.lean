@@ -1,15 +1,12 @@
 module
 
-public import Mathlib
 public import CFSG.LocalAnalysis.StandardType.GGPGLToralityCaseB
 import CFSG.HardMathSupport.Malle.Coordinator.CoverThreeNoInner.Rank2GLTools
 import CFSG.LieType.SeitzGeneration.UnitaryBlocks
-import TauCeti.FieldTheory.Finite.FrobeniusFixed
 import CFSG.LieType.SeitzGeneration.NonabHeisThreeCore
 import CFSG.LieType.SeitzGeneration.NonabHeisThreeUnitary
 import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeOrbits
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

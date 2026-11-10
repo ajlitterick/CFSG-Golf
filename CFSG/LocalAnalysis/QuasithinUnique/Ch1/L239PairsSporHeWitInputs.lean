@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatQuot
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHeCertificateInputs
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicRep
 public import CFSG.Sporadic.He
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

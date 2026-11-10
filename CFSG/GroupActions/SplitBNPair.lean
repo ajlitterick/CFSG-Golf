@@ -1,8 +1,6 @@
 module
 
 public import Mathlib.GroupTheory.Nilpotent
-public import Mathlib.GroupTheory.QuotientGroup.Defs
-public import Mathlib.Algebra.Group.Pointwise.Set.Basic
 
 public section
 

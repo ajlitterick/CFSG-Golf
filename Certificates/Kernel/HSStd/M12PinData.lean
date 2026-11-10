@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.HSStd.M12PinGen
 public import Certificates.Kernel.Misc.Perm.HexCmd
-public import CFSG.Certificates.Kernel.Lie.CT.Core
 meta import Certificates.Kernel.HSStd.M12PinGen
 
 public section

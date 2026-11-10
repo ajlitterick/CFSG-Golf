@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestEndRank
-public import CFSG.Timmesfeld.Orders.ClassicalOrthogonal
 
 public section
 

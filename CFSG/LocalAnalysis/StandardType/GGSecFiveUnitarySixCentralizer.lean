@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniLFrame
 import CFSG.LocalAnalysis.StandardType.GGQ2UnitDiag
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniQTwoExcSixCore
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitarySixCover
-import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
-import CFSG.LocalAnalysis.StandardType.GGSixBstarRestSp
 
 public section
 

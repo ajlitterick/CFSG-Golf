@@ -3,12 +3,9 @@ module
 public import CFSG.LocalAnalysis.GL83PartI.I713.LinearTwo
 public import CFSG.LocalAnalysis.GL83PartI.I713.LinearHigher
 public import CFSG.LocalAnalysis.GL83PartI.I713.LinearDiag
-public import CFSG.Open.StatedDefs
 import CFSG.LocalAnalysis.ComponentInitial.LinearCoverModel
-import CFSG.Adapters.ProjectiveSpecialLinear
 public import CFSG.LocalAnalysis.ComponentInitial.LinearFlagOrder
 public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherSubspaceIndex
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

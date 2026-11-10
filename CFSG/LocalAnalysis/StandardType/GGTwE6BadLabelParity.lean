@@ -1,10 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwenty
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylKnownDefs
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplit
 
 public section

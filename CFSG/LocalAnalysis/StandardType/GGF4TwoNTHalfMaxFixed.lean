@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfMaxMod
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfMaxDefs
 
 public section
 

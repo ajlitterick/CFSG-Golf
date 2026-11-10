@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenCore
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenOver
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenWeylLift
 public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrKnownDefs
 

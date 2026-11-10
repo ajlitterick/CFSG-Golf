@@ -19,7 +19,6 @@ public import CFSG.Quasithin.Background.A3Structure36A
 public import CFSG.Quasithin.Background.A3Structure36BBase
 public import CFSG.Quasithin.Background.A3Structure36BPrimeDataBase
 public import CFSG.Quasithin.Background.B6
-public import CFSG.Quasithin.Background.B6Example
 public import CFSG.Quasithin.Background.E2Hyp
 public import CFSG.Quasithin.Background.E2SolvTwo
 public import CFSG.Quasithin.Background.E3OffenderB

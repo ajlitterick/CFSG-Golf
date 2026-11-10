@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinPrimed
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRMPrimeInputs
 
 public section

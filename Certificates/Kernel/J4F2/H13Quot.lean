@@ -1,11 +1,6 @@
 module
 
 public import CFSG.Quasithin.H13.J4QuotInputs
-public import CFSG.Quasithin.H13.J4Words
-public import CFSG.Sporadic.HS.SmallF2Spec
-public import Certificates.Data.CFSGNative.H13.J4Data
-public import Certificates.Data.CFSGNative.H13.J4Elems
-public import Certificates.Data.CFSGNative.H13.J4Data
 public import Certificates.Kernel.J4F2.H13
 import CFSG.Certificates.Kernel.Common.Harness
 

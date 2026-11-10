@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerRestVac
-public import CFSG.RankThree.PartOne.LIT.RankMatrix
 
 public section
 

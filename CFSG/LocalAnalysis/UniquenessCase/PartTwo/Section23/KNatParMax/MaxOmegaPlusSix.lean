@@ -5,8 +5,6 @@ public import CFSG.Open.StatedDefs
 
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KAdj.OmegaPlusModel
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23bOmega6Plus
-import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockOrthPlusBlocks
-import CFSG.ClassicalGroups.Orthogonal.StatedOmegaElementary
 import CFSG.Blueprint.LieModelAPI
 import CFSG.CGT.Timmesfeld75.L2Pair
 import CFSG.CGT.Timmesfeld75.ListWCBasic
@@ -64,7 +62,6 @@ import CFSG.Quasithin.Background.B1MoreEleven
 import CFSG.Quasithin.Background.B5CompA
 import CFSG.Quasithin.Background.B5CompB
 import CFSG.Quasithin.Background.B6
-import CFSG.Quasithin.Background.B6Example
 import CFSG.Quasithin.Background.E2Hyp
 import CFSG.Quasithin.Background.E2SolvTwo
 import CFSG.Quasithin.Background.F2Equiv

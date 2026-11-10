@@ -1,35 +1,18 @@
 module
 
 public import CFSG.ClassicalGroups.Orthogonal.MinusSplitTorus
-public import CFSG.ClassicalGroups.Orthogonal.StatedOmegaElementary
-public import CFSG.ClassicalGroups.Orthogonal.RootGroupFixedModels
-public import CFSG.RankThree.Classical2.OrthogonalIsotropicUnipotent
-public import CFSG.RankThree.PartOne.KC.OrthogonalBlockProduct
-public import CFSG.RankThree.PartOne.KC.OrthogonalFixedDerived
-public import CFSG.RankThree.PartOne.KC.OrthogonalDerivedInLayer
-public import CFSG.RankThree.PartOne.KC.OrthogonalEvenMinusExtraction
 public import CFSG.Quasithin.Background.C41PfW
 public import CFSG.Quasithin.Background.C126RFSurj
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.H81Orth.Cent
 public import CFSG.HardMathSupport.Curtis.Coordinator.SPLCellMult
-public import CFSG.LocalAnalysis.UniquenessCase.UC22Defs
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC1677ThreeDefs
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section18.OmegaSixMinusK
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.BarSubBar2
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight102Transport
 public import CFSG.GroupTheory.Frattini.PSubgroupLift
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section18.OmegaSixMinusSingTransport
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.ParabolicTransfer
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23bSL3
 public import CFSG.Quasithin.H13.NQTermAmbientQuotient
 public import CFSG.LocalAnalysis.RankThreeTheoremC.GenericFixedPoints
 public import CFSG.LinearAlgebra.CoprimeActions.CoprimePGroupFixedCoset
-public import CFSG.Quasithin.Background.FixVZPowersMem
 public import CFSG.GroupTheory.PCore.PCoreOfMulEquiv
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenOmegaMinusSixFourCover
 
-public import CFSG.LocalAnalysis.UniquenessCase.UCFront08
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.ComponentPermutesGeneric
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.MaxParabolicTransport
 public import CFSG.GroupTheory.Commutator.SubgroupOf
 public import CFSG.RankThree.SteinbergR3ECAFieldFixedLayerQuotient

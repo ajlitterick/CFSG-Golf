@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableBExcInduced
-public import CFSG.LocalAnalysis.StandardType.GGInnLocalDefs
 import CFSG.LocalAnalysis.StandardType.GGNbrFrameOneTransfer
 
 public section

@@ -6,42 +6,8 @@ public import CFSG.Monster.B.TwoA.Sp8.GenActionImageBase
 public import CFSG.Monster.B.TwoA.Sp8.GenActionOrbit
 public import CFSG.Monster.B.TwoA.Sp8.NormalizerData
 public import CFSG.Monster.B.TwoA.Co2Inv.Kernel
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagOrder
 public meta import CFSG.Monster.B.TwoA.Sp8.GenActionOrbit
 public import Certificates.Certificate3077
-public import CFSG.Monster.B.TwoA.Sp8.LiftsInputs
-public import CFSG.Monster.B.TwoA.Sp8.A8Inputs
-public import CFSG.Monster.B.TwoA.Sp8.GenActionLiftsInputs
-public import CFSG.Monster.B.TwoA.Sp8.GenActionDiffInputs
-public import CFSG.Monster.B.TwoA.Sp8.GenActionConjInputs
-public import CFSG.Monster.B.TwoA.Sp8.GenActionConj
-public import CFSG.Monster.B.TwoA.Sp8.GenActionOrbitInputs
-public import Certificates.Data.CFSGNative.MonsterB.Short
-public import Certificates.Data.CFSGNative.Mathieu.M24
-public import CFSG.Certificates.Kernel.AxisPlane.Orbit
-public import Certificates.Data.Kernel.VisFrame.Gens
-public import Certificates.Data.CFSGNative.MonsterB.Co2Chain
-public import Certificates.Data.CFSGNative.MonsterB.Co2Matrix
-public import CFSG.Monster.B.TwoA.Co2Inv.ConjCertInputs
-public import CFSG.Monster.B.TwoA.Co2Inv.FrameCertInputs
-public import CFSG.Monster.B.TwoA.Co2Inv.SixCertInputs
-public import CFSG.Monster.B.Rep4371.SmallFaithful
-public import CFSG.Monster.B.Gen.Max2Assembly
-public import CFSG.Monster.B.Gen.PacketGeneration
-public import CFSG.Monster.B.Gen.EbarPairing
-public import CFSG.Monster.B.Cbar.SimpleAux
-public import CFSG.Monster.B.Rep4371.FaithfulImageInputs
-public import CFSG.Monster.B.TwoA.Base.WCls
-public import CFSG.Monster.B.TwoA.Census.PermBFS
-public import CFSG.Monster.B.TwoA.Co2Inv.Data
-public import CFSG.Monster.B.TwoA.Co2Inv.RowsInputs
-public import CFSG.Monster.B.TwoA.Sp8.A8
-public import CFSG.Monster.B.TwoA.Co2Inv.SixAction
-public import CFSG.Monster.B.TwoA.Base.Space34A
-public import CFSG.Monster.B.TwoA.Sp8.PsiInputs
-public import CFSG.Monster.B.TwoA.Base.PairSpace
-public import CFSG.Monster.B.TwoA.Base.Space34AInputs
-public import Certificates.Certificate3055Base
 
 public noncomputable section
 

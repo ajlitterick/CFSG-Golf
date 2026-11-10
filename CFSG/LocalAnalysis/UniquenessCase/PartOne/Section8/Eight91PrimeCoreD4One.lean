@@ -3,10 +3,8 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight91Defs
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight91CoreArith
 import CFSG.GroupTheory.PRankZeroOfPrimeNotDvd
-import CFSG.LocalAnalysis.SectionRank.SQT
 import CFSG.LocalAnalysis.UniquenessCase.UC22S218D4
 import CFSG.RankThree.PartOne.K128.D4Syl
-import CFSG.Timmesfeld.Orders.Exceptional
 public import CFSG.Blueprint.LieModelAPI
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic

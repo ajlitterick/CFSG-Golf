@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticOmega
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixNsCube
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixNsModelOmega
 

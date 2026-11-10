@@ -3,7 +3,6 @@ module
 
 public import Certificates.Certificate2145Base
 
-public import CFSG.Sporadic.Schreier.Co1RigidCheckInputs
 public meta import CFSG.Sporadic.Schreier.Co1SplitCheck
 public meta import CFSG.Sporadic.Schreier.Co1ElemThreeCheck
 public meta import CFSG.Sporadic.Schreier.Co1ElemData

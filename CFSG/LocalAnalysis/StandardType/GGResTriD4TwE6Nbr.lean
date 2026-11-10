@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGResTriD4TwE6Defs
 public import CFSG.LocalAnalysis.StandardType.GGResTwE6CompNbr
-public import CFSG.LocalAnalysis.StandardType.GGResLeaves
 
 public section
 

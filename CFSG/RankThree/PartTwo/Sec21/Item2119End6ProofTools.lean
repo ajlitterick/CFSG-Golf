@@ -1,22 +1,13 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec21.Item2119End5Proof2127C
-import CFSG.RankThree.PartTwo.KFacts.L34Aut
 import CFSG.RankThree.PartTwo.KFacts.L34Sections
-import CFSG.RankThree.PartTwo.KFacts.L34Sylow
-import CFSG.RankThree.PartTwo.Sec21.Item21Late2ProofFrame
-import CFSG.RankThree.PartTwo.Sec21.Item21LateProofGL33
 import CFSG.RankThree.PartTwo.Sec21.Item2119End3Proof2125Unique
-import CFSG.RankThree.GroupTheory.ThetaQuotientTransport
 import CFSG.RankThree.GroupTheory.SteinbergBYCentralCoverRank
 import CFSG.RankThree.Asc83Table.E27
 import CFSG.GroupTheory.SteinbergCBFTFactorization
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConjAction
 import CFSG.RankThree.PartTwo.Sec19.Step1917EqProofJArith
 import CFSG.RankThree.PartTwo.Sec13.Item138NMod9
-import CFSG.RankThree.PartTwo.Sec4.LThreePiDiag
-import CFSG.RankThree.PartTwo.Sec4.LThreePiTypes
-import Mathlib.GroupTheory.SpecificGroups.Quaternion
 public import CFSG.GroupTheory.ABGLocalTools.Constraint
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBAlternatingTransport
 public import CFSG.LocalAnalysis.ComponentInitial.BlockOvergroupDichotomy
@@ -34,7 +25,6 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.B2Thompson
 public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 public import CFSG.Quasithin.Vol2.KGFactC31RuRefBase
@@ -51,7 +41,6 @@ public import CFSG.RankThree.PartTwo.Sec13.Item135
 public import CFSG.RankThree.PartTwo.Sec13.Item135Simple
 public import CFSG.RankThree.PartTwo.Sec13.Item135SimpleReduce
 public import CFSG.RankThree.PartTwo.Sec18.Notation
-public import CFSG.RankThree.PartTwo.Sec18.Tools
 public import CFSG.RankThree.PartTwo.Sec21.Commute33
 public import CFSG.RankThree.PartTwo.Sec21.Item211ProofHeis
 public import CFSG.RankThree.PartTwo.Sec21.Item211ProofListOf
@@ -71,7 +60,6 @@ public import CFSG.RankThree.PartTwo.Sec4.LThreePiItem411
 public import CFSG.RankThree.PartTwo.Sec4.Statements423
 public import CFSG.RankThree.PartTwo.Sec4.StatementsGraphField
 public import CFSG.Sporadic.HeldB.Common
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Schreier.RuPair
 public import CFSG.Sporadic.Schreier.RuSylow

@@ -3,8 +3,6 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section4.Basic
 import all CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section4.Basic
 import all CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.ClassFunction
-import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section2.Lemma24
-import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section3.Lemma33
 import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section3.Lemma34
 
 namespace CFSG

@@ -7,15 +7,10 @@ import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.XI.example_1_3
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.XI.theorem_2_6
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.XI.FixedPointBruhat
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.XI.ThetaEquationExtraction
-import Mathlib.FieldTheory.PrimitiveElement
-import Mathlib.GroupTheory.SemidirectProduct
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.XI.FrobeniusKernel
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.XI.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.MatrixGroups.Suzuki
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Higman.theorem_1a
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Higman.theorem_1c
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.lemma_3_2_a
-import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.Orthogonality
 
 namespace CFSG
 end CFSG

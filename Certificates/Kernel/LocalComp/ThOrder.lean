@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.LocalComp.M1Gen
-public import Certificates.Data.Kernel.M1F2
 public import Certificates.Kernel.LocalComp.ThSeeds
 meta import Certificates.Kernel.LocalComp.ThSeeds
 import CFSG.Certificates.Kernel.Common.Harness

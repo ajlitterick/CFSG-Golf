@@ -1,17 +1,8 @@
 module
 
 public import CFSG.Open.StatedCenterThree
-public import CFSG.Yardstones.Md0ec50421ce4.Definitions
 public import CFSG.LocalAnalysis.GLTheoremA.S9.Defs
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
-import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
-import CFSG.LieType.Steinberg.CentralExt.MultiplierCongr
 import CFSG.LocalAnalysis.GLTheoremA.CatA.H1419CoverL3U3
-import CFSG.LocalAnalysis.GLTheoremA.CatA.H1419CoverCore
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.Foundations
@@ -37,16 +28,7 @@ public import CFSG.LocalAnalysis.GLTheoremA.S4.Inputs
 public import CFSG.LocalAnalysis.GLTheoremA.S4S.Inputs
 public import CFSG.LocalAnalysis.GLTheoremB.Lemma911Defs
 public import CFSG.LocalAnalysis.GLTheoremB.SchreierTools
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremB
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremC
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.ZJTheorem
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GW1965RemarkDGroup
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29Helpers
 import CFSG.HardMathSupport.Solomon.Coordinator.I22_4Glue
 import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Input319
 import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Lemma123

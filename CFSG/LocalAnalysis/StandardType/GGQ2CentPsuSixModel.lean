@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkSixModel
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63Q2ProofFinal
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBPosition
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnit63Desc
 
 public section

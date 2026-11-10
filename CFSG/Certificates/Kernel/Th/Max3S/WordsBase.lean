@@ -7,8 +7,6 @@ public import CFSG.Sporadic.Th.BaseBase
 public import CFSG.Sporadic.Th.ChainBase
 public import CFSG.Sporadic.Th.IndexBase
 public import CFSG.Sporadic.Th.Max3.AllConjBase
-public import CFSG.Sporadic.Th.Max3.AllConjInputsBase
-public import CFSG.Sporadic.Th.Max3.InvolutionsBase
 
 @[expose] public section
 

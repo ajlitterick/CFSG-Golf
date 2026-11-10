@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I142NBase
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsOmegaDefs
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsCoresAssembly
-public import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
 
 public section
 

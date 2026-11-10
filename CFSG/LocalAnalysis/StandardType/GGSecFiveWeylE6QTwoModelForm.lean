@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGE6IsoOrbit
-public import CFSG.LocalAnalysis.StandardType.GGE6DepModelCoord
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeAd
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderExcRestProofE6Ad
 
 public section
 

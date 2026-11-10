@@ -60,8 +60,6 @@ public import CFSG.Quasithin.Background.D2Cyclic
 public import CFSG.Quasithin.Background.D2Tools
 public import CFSG.Quasithin.Background.E2Statements
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.E4Solv
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.FFC7G
 public import CFSG.Quasithin.Background.GoldschmidtS146RBend1

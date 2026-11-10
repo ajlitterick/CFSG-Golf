@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.AS81Step18
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec3Step18Core
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Step18HoltG24
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Step18Co1
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicOddCore
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicCo1Census
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalQuotNF
 public import CFSG.Fischer.NoF25.Local
@@ -57,9 +56,6 @@ public import CFSG.Sporadic.SuzOddCore.GraphData
 public import CFSG.Sporadic.SuzOddCore.SmallActionData
 public import CFSG.Sporadic.Th.CertificateBase
 public import CFSG.Sporadic.Th.CertificateBase1
-public import CFSG.Sporadic.Th.KernelContractBase
-public import CFSG.Sporadic.ThSchreier.FullAutCoreBase
-public import CFSG.Sporadic.ThSchreier.KernelAutBase
 public import CFSG.Sporadic.ThSchreier.KernelAutBase1
 public import CFSG.Timmesfeld.RankOne
 public import CFSG.Timmesfeld.Special.TwoCore

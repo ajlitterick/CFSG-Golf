@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.HMathieu.Bfs
 public import CFSG.Quasithin.H13.A5M22HatInputs
-public import CFSG.Certificates.Kernel.Enum.Defs
 
 public section
 

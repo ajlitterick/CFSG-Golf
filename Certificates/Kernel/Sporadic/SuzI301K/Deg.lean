@@ -1,12 +1,8 @@
 module
 
 public import Certificates.Data.Kernel.SuzI301K
-public import Certificates.Data.Kernel.Misc.ArrEnum
-public import Certificates.Data.Kernel.Spor.Raw
 public import Certificates.Kernel.Sporadic.SuzI301K.Data
 public import Certificates.Kernel.Sporadic.SuzH.Data
-public import Certificates.Kernel.Sporadic.Suz.Chain2306
-public import Certificates.Kernel.Sporadic.Suz.Text2306
 public import Certificates.Kernel.Sporadic.SuzInv.Text1
 public import Certificates.Kernel.LocalComp.B0SuzData
 public import Certificates.Kernel.SuzPump.Pair

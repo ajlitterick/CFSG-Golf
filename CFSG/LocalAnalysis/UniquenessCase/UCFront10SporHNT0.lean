@@ -1,9 +1,7 @@
 module
 
 public import CFSG.Sporadic.HNOddCore.InvRow4
-public import CFSG.Certificates.Kernel.SporSch.HNArr
 public import CFSG.Quasithin.Background.Basic
-public import CFSG.Open.LocalVocabulary
 
 @[expose] public section
 

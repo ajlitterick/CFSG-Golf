@@ -11,12 +11,10 @@ public import CFSG.ClassicalInvolution.Asc77.ThmEStatement
 public import CFSG.ClassicalInvolution.Asc77.WP1Section6
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X6Containment
 public import CFSG.Quasithin.Background.A3Structure312
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import CFSG.Quasithin.EmptyFaithful.SzOneV2d
 public import Certificates.Data.CFSGNative.MonsterB.Rep4371Model
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

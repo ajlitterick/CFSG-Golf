@@ -2,8 +2,6 @@ module
 
 public import CFSG.GH74.GLS.Stage4.T2P56Core
 public import CFSG.GH74.GLS.Stage4.T2TSingEq
-public import CFSG.GH74.GLS.Stage4.T6Defs
-public import CFSG.GH74.GLS.Stage4.RestX2Q1
 
 public section
 

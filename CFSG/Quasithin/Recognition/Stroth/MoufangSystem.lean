@@ -1,9 +1,7 @@
 module
 
-public import CFSG.Quasithin.Recognition.Stroth.Weiss80Route
 public import CFSG.Quasithin.Recognition.Stroth.MoufangT3
 public import CFSG.Quasithin.Recognition.Stroth.MoufangFaithful
-public import CFSG.GH74.GLS.SP.Pre
 public import CFSG.GH74.GLS.SP.Local.SPLFaith
 public import CFSG.GH74.GLS.SP.Local.SPLRestrict
 

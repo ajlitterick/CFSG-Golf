@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I264tTD42Aux
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I264sTD42
-public import CFSG.LocalAnalysis.GLTheoremA.CatB.TD4
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanChevOuterD42Link
-public import CFSG.RankThree.PartTwo.Sec19.SeitzTrialityQ2Model
-public import CFSG.LieType.Simplicity.TrialityD4
 public import Certificates.Certificate264001
 public import CFSG.HardMathSupport.Seitz.G2Anisotropic.Coordinator.Cover
 public import CFSG.HardMathSupport.Seitz.G2Anisotropic.ExceptionsTransport.FamilyProved

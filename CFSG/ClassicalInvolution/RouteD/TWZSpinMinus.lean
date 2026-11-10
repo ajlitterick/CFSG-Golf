@@ -3,7 +3,6 @@ module
 public import CFSG.ClassicalInvolution.RouteD.TWZSpinCount
 public import CFSG.ClassicalInvolution.RouteD.TWZSpinModel
 public import CFSG.ClassicalInvolution.RouteD.TwinYR3Classify
-public import CFSG.ClassicalInvolution.RouteD.TypeTwistedE6PerpOrthStd
 public import CFSG.Sporadic.Schreier.J4SProfileNode
 
 public section

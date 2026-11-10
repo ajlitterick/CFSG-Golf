@@ -5,7 +5,6 @@ public import Certificates.Data.Kernel.McLAS.Nrm
 public import CFSG.Sporadic.Recognition.LyonsAS44McLInputs
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Spor.RawOrbHead
-import Mathlib.Tactic.IntervalCases
 import CFSG.Certificates.Kernel.Spor.RawOrbGrp
 
 public section

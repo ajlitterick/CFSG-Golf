@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoRestAutK
 import CFSG.Quasithin.SteinbergCBAlternatingAut
 import CFSG.Assembly.OrderReductions.FrattiniAutomorphisms
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.LocalAnalysis.ComponentClassification.BlockTwoProductAction
 import CFSG.LocalAnalysis.ComponentClassification.NormalizedProductSylow
 import CFSG.LocalAnalysis.ComponentClassification.TwoActionFixedInvolution

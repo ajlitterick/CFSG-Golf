@@ -3,7 +3,6 @@ module
 public import CFSG.ClassicalInvolution.Q3.Q3T7Q22TSF
 public import CFSG.ClassicalInvolution.Q3.Q3TD3R4Ord
 public import CFSG.ClassicalInvolution.Q3.Q3TWY1
-public import CFSG.ClassicalInvolution.Q3.Q3TY13
 public import CFSG.ClassicalInvolution.Asc77.AscT7HS4
 public import CFSG.ClassicalInvolution.Asc77.AscT7HS3
 public import CFSG.ClassicalInvolution.Asc77.WP2Branch

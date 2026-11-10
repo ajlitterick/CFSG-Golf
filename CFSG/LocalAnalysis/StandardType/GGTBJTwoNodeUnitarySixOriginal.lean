@@ -5,14 +5,9 @@ public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeQuotient
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitarySix
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitarySixCover
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitarySixReduced
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63Q2ProofOne
-public import CFSG.LocalAnalysis.StandardType.GGF4AutWeyl
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeRowDimUnitary
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeRowDimReduced
-public import CFSG.LocalAnalysis.StandardType.GGTCJHolds
-public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkComp
 public import CFSG.LocalAnalysis.StandardType.GGResE6DepUnitaryTwo
-public import CFSG.LocalAnalysis.StandardType.GGResFixedWeylCentralizer
 
 public section
 

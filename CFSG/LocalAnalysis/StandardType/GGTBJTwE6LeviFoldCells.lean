@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6LeviSplit
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6LeviSplitThreeCell
-public import CFSG.LocalAnalysis.StandardType.GGTBJETypeCells
-public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6EnnModel
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 
 public section
 

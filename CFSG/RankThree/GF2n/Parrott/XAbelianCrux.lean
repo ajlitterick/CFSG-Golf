@@ -3,7 +3,6 @@ module
 public import CFSG.RankThree.GF2n.Parrott.SpinXFacts
 public import CFSG.RankThree.GF2n.Parrott.XAbelianTools
 public import CFSG.RankThree.GF2n.Parrott.SpinBridge
-public import CFSG.RankThree.GF2n.Parrott.Section4FixDimBridge
 
 public section
 

@@ -3,21 +3,10 @@ module
 
 public import CFSG.GH74.Uniqueness.SU.KI1r4L34ModelBase
 
-public import CFSG.GH74.KGroups.L34TablesBase
 public meta import CFSG.GH74.KGroups.L34Aut
 public meta import CFSG.GH74.KGroups.L34
 public meta import CFSG.GH74.KGroups.Checks
-public import CFSG.GH74.Uniqueness.SU.KI1r4L34ModelInputs
 public meta import CFSG.GH74.Uniqueness.SU.KI1r4L34ModelInputs
-public import Mathlib
-public import CFSG.GH74.KGroups.Generic
-public import CFSG.GH74.KGroups.PermCheck
-public import CFSG.GH74.KGroups.Checks
-public import CFSG.GH74.KGroups.PSLN
-public import CFSG.GH74.KGroups.FieldGF
-public import CFSG.GH74.KGroups.L34Inputs
-public import CFSG.GH74.KGroups.L34
-public import CFSG.GH74.KGroups.L34AutInputs
 public import Certificates.Certificate5140
 public import CFSG.GH74.KGroups.L34Aut
 

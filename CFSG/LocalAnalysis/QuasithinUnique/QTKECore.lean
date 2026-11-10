@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.SectionRank.SQT
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.Helpers
 public import CFSG.LocalAnalysis.RankThreeCoreUniqueness.LocalCore
 public import CFSG.Open.SQTKSimpleListTauCeti

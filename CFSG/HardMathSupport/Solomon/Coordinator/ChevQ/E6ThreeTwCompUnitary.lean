@@ -3,7 +3,6 @@ module
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeCompRegular
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwTorusDet
 public import CFSG.HardMathSupport.Lang.UnitaryAutomorphisms.IrredMatrix
-public import CFSG.RankThree.PartOne.KF.UnitaryDiag
 public import CFSG.HardMathSupport.Lang.UnitaryAutomorphisms.DiagCube
 public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeOrbits
 

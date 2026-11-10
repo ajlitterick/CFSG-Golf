@@ -3,7 +3,6 @@ module
 public import CFSG.Quasithin.Vol2.GoldschmidtF134OddSporArith
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHS
 import all CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHS
-public import CFSG.Sporadic.HS
 public import CFSG.Monster.Code.Weights
 public import CFSG.Quasithin.Background.B4Statement
 public import CFSG.Quasithin.Background.B5Statement

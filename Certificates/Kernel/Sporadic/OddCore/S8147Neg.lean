@@ -2,8 +2,6 @@ module
 
 public import Certificates.Kernel.Sporadic.OddCore.S8147C
 public import Certificates.Kernel.Sporadic.OddCore.S8147KD
-public import Certificates.Data.Kernel.BfsPinSlice
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

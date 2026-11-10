@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentInitial.LinearFlagElation
 
-import CFSG.Adapters.SpecialLinearPerfect
 import CFSG.LocalAnalysis.StandardType.GGInnerDiagBridgeTypeA
 
 public section

@@ -4,14 +4,11 @@ public import CFSG.Sporadic.HNOddCore.RAction
 public import Certificates.Kernel.HNF26720.Facts
 import Certificates.Kernel.W4RowLane.HN
 import CFSG.Certificates.Kernel.SporCov.OrdP
-import CFSG.Certificates.Kernel.SporCov.LaneKit
-import CFSG.Certificates.Kernel.SporCov.Words
 import CFSG.Certificates.Kernel.Spor.OrdCanon
 import Certificates.Kernel.HN3166.Seed
 import Certificates.Kernel.SporSch.HN.PtCR
 import Certificates.Kernel.VecCert.WordProg
 import CFSG.Certificates.Kernel.Fam.HNSeed.Checks.K
-import Mathlib
 
 public section
 

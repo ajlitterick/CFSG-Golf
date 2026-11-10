@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIISUAct
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIISUS5
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIISULevi
 
 public section

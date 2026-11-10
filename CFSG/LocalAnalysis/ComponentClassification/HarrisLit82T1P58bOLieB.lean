@@ -8,8 +8,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1P58bOProps
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1P58bOZ
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1P51eOrthFam
 public import CFSG.LieType.Steinberg.CentralExt.POmegaOddMultiplier
-public import CFSG.LieType.Steinberg.CentralExt.PerfectCover
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.Foundations
 public import CFSG.LieType.Steinberg.CentralExt.PSL2Multiplier
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneBL2Reduction

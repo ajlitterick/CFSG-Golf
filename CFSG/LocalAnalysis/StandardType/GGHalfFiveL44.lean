@@ -12,7 +12,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedGSAContainedS
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedLayerOddCoreUnbalancingTriple
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

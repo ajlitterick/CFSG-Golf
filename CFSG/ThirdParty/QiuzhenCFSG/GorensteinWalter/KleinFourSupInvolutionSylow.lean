@@ -2,8 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
-public import Mathlib.GroupTheory.Sylow
-public import Mathlib.GroupTheory.SpecificGroups.KleinFour
 import Mathlib.Tactic
 
 namespace CFSG

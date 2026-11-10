@@ -11,36 +11,20 @@ public import CFSG.Yardstones.M3f9567aba59d.Definitions
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermProperQTwoSpPairHolds
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIRemaining
 public import CFSG.LocalAnalysis.StandardType.GGResUnitaryKRankFiveClose
-public import CFSG.LocalAnalysis.StandardType.GGK0ExcB3Holds
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRemainingHolds
 public import CFSG.Holt.H78.Bridge
 public import CFSG.Holt.H78.Theorem1
-public import CFSG.LieType.SeitzGeneration.SeitzStatus
-import CFSG.LocalAnalysis.StandardType.GGRemStdSubTableBOpen
-import CFSG.LocalAnalysis.StandardType.GGRemStdSubTableBHolds
-import CFSG.LocalAnalysis.StandardType.GGF4TwoThreeCCentHolds
 import CFSG.LocalAnalysis.StandardType.GGRootCentStructKGInputHolds
 import CFSG.LocalAnalysis.StandardType.GGSixRootCentNotExcFlatHolds
 import CFSG.LocalAnalysis.StandardType.GGTypeAReflOverKnown
 import CFSG.LocalAnalysis.StandardType.GGTypeACrossLiftKnown
 import CFSG.LocalAnalysis.StandardType.GGNbrFrameOneHolds
 import CFSG.LocalAnalysis.StandardType.GGNbrFrameNine
-import CFSG.LocalAnalysis.StandardType.GGNbrBalanceSchreier
-import CFSG.RankThree.PartOne.TCB.SchreierFinal
-import CFSG.LocalAnalysis.StandardType.GGTypeACompatDiagProof
-import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpStdAssembly
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-import CFSG.LocalAnalysis.StandardType.GGTypeANbrTableBWeyl
 import CFSG.LocalAnalysis.StandardType.GGNbrTableBSymp
-import CFSG.LocalAnalysis.StandardType.GGNbrTableBOrthPlus
-import CFSG.LocalAnalysis.StandardType.GGNbrTableBExcWeyl
-import CFSG.LocalAnalysis.StandardType.GGNbrTableBE6Three
-import CFSG.LocalAnalysis.StandardType.GGTypeANbrTableBCard
 import CFSG.LocalAnalysis.StandardType.GGNbrTableBExcOrder
 import CFSG.LocalAnalysis.StandardType.GGExcCompLiftRestInputProof
 import CFSG.LocalAnalysis.StandardType.GGSporKBMFree
 import CFSG.LocalAnalysis.StandardType.GGSporKRestClose
-import CFSG.LocalAnalysis.StandardType.GGSporKShape
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabBFiveCentSyl
 public import CFSG.Holt.CaseTwoBW
 public import CFSG.Holt.OddCoreTwoGroupBasic
@@ -48,48 +32,14 @@ public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.YamadaNativeData
 public import CFSG.RankThree.Holt.Basic
 public import Certificates.Certificate3600
 public import Certificates.Certificate3920
-public import Certificates.Certificate5120
-public import Certificates.Certificate6097
-public import Certificates.Certificate6098
-public import Certificates.Certificate6099
-public import Certificates.Certificate9726
-public import Certificates.Certificate10105
 public import Certificates.Certificate12632
 public import Certificates.Certificate12680
-public import Certificates.Certificate13506
-public import Certificates.Certificate13507
 public import Certificates.Certificate14958
 public import Certificates.Certificate16962
 public import Certificates.Certificate17105
-public import Certificates.Certificate17305
-public import Certificates.Certificate17324
-public import Certificates.Certificate17325
-public import Certificates.Certificate17326
-public import Certificates.Certificate17327
-public import Certificates.Certificate17330
-public import Certificates.Certificate17332
-public import Certificates.Certificate17372
-public import Certificates.Certificate17373
-public import Certificates.Certificate17391
 public import Certificates.Certificate17402
 public import Certificates.Certificate17403
-public import Certificates.Certificate17450
-public import Certificates.Certificate17451
-public import Certificates.Certificate17473
-public import Certificates.Certificate17480
-public import Certificates.Certificate17481
-public import Certificates.Certificate17482
-public import Certificates.Certificate17483
-public import Certificates.Certificate17484
-public import Certificates.Certificate17485
-public import Certificates.Certificate17486
-public import Certificates.Certificate17487
-public import Certificates.Certificate17488
 public import Certificates.Certificate17489
-public import Certificates.Certificate17490
-public import Certificates.Certificate17491
-public import Certificates.Certificate17492
-public import Certificates.Certificate17493
 public import Certificates.Certificate17494
 public import Certificates.Certificate17495
 public import Certificates.Certificate17535
@@ -98,18 +48,10 @@ public import Certificates.Certificate17541
 public import Certificates.Certificate17542
 public import Certificates.Certificate17543
 public import Certificates.Certificate17544
-public import Certificates.Certificate17561
 public import Certificates.Certificate17562
-public import Certificates.Certificate17575
 public import Certificates.Certificate17579
 public import Certificates.Certificate17580
 public import Certificates.Certificate17581
-public import Certificates.Certificate17590
-public import Certificates.Certificate17591
-public import Certificates.Certificate17593
-public import Certificates.Certificate17594
-public import Certificates.Certificate17595
-public import Certificates.Certificate17597
 public import Certificates.Certificate17598
 public import Certificates.Certificate17599
 public import Certificates.Certificate17613
@@ -138,14 +80,9 @@ public import Certificates.Certificate19843
 public import Certificates.Certificate19850
 public import Certificates.Certificate19851
 public import Certificates.Certificate19852
-public import Certificates.Certificate36920
-public import Certificates.Certificate36921
-public import Certificates.Certificate136207
-public import Certificates.Certificate214034
 public import Certificates.Certificate716001
 public import Certificates.Certificate716100
 public import Certificates.Certificate716201
-public import Certificates.Certificate830101
 public import Certificates.Certificate1023001
 public import Certificates.Certificate1023002
 public import Certificates.Certificate1023003

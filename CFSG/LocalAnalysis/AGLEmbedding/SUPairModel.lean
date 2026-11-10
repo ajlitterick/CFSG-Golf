@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.AGLEmbedding.SUPairInvolution
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bDefs
 public import CFSG.Open.StatedDefs
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.SUThreeTwoShape
-import CFSG.GH74.QTGen4.Leaves.F112.PSU32Model
-import Mathlib.GroupTheory.SpecificGroups.Cyclic
 public import CFSG.Foundations.Basic
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 public import CFSG.LocalAnalysis.ComponentClassification.GeneralizedFitting
@@ -14,8 +12,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.MinimalBCenter
 public import CFSG.LocalAnalysis.ComponentClassification.OrdinaryComponentJoins
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.GroupTheory.LocalCores.Fitting
 import CFSG.LocalAnalysis.AGLEmbedding.CZeroDefs
 import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeFamilies
@@ -31,9 +27,6 @@ import CFSG.RankThree.PartOne.CTP.StrongPClassification
 import CFSG.RankThree.PartOne.S10.ThetaContract
 import CFSG.RankThree.PartOne.S12.InputsBase
 import CFSG.StronglyEmbedded
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 
 public section
 

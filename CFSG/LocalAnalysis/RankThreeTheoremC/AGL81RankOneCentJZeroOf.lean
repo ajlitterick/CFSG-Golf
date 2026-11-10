@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentJZero
 public import CFSG.GroupTheory.QuasisimplePSolvable
-public import CFSG.LocalAnalysis.AGLEmbedding.CaseTwoDefs
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81JOneSolvPrimes
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ElevenSevenFourL34Of
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentStepFiveSix
@@ -10,12 +9,7 @@ import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentKpIrred
 import CFSG.LocalAnalysis.RankThreeTheoremC.D1CaseTwo3Central3BInnerQHallHigman
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K421LinGrp
 import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.InputsMisc5
-import CFSG.LocalAnalysis.ComponentClassification.LiteratureLocalPComponentCore
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.theorem_1_18
-import CFSG.LocalAnalysis.SectionRank.PRank
-import CFSG.LocalAnalysis.SectionRank.Induction
 import CFSG.GroupTheory.BaerSuzuki.Helpers
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PPrimeCore
 import CFSG.GH74.GLS.AssemblyComponents
 import CFSG.RankThree.PartTwo.Sec8.Hering418V2
 public import CFSG.CGT.Timmesfeld75.L2Pair

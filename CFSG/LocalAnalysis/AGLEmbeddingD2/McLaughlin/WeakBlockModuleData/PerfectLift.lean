@@ -1,9 +1,6 @@
 module
 
 public import CFSG.GroupTheory.PerfectResidualNodes
-public import CFSG.LocalAnalysis.RankThreeCoreUniqueness.CanonicalLocalObstruction
-public import Mathlib.GroupTheory.SpecificGroups.Alternating.Centralizer
-public import Mathlib.Algebra.Group.Subgroup.Finite
 
 public section
 

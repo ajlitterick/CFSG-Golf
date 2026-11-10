@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Asc77.AscBSE1
-public import CFSG.ClassicalInvolution.ModelFacts.Orth15Section
-import CFSG.ClassicalInvolution.RouteD.NoG2D4Count
 
 public section
 

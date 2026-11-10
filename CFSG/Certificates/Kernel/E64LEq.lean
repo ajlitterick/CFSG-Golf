@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.E64L
-public import CFSG.Quasithin.Vol2.KGFactE64Inputs
 public import Certificates.Data.Kernel.SporLatDcCode
 public import CFSG.Certificates.Kernel.E64FSound
 

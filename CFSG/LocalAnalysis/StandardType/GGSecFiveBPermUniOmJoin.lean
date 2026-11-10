@@ -6,7 +6,6 @@ import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermOmKBlocks
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniOmFrames
 import CFSG.LocalAnalysis.StandardType.GGSuNsRootGenComp
 import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.ScalarCentralizer
-import CFSG.ClassicalGroups.Unitary.Finite
 import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.Simple
 
 public section

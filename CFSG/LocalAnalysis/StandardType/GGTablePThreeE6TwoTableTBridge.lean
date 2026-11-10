@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TwoDefs
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TableTBridge
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TableTRoots
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TableTClasses
 public import Certificates.Data.E6TableTTwo
 

@@ -3,13 +3,9 @@ module
 public import Certificates.Kernel.MinusDerived.Checks3
 public import Certificates.Kernel.MinusDerived.Facts2
 public import CFSG.OddTranspositions.PartThree.Eleven.Minus.DerivedEnum
-import CFSG.Certificates.Kernel.Spor.PEnumSound
 import CFSG.Certificates.Kernel.LocalQTRestrSound
 import CFSG.Certificates.Kernel.HeAutKLoops
-import CFSG.Certificates.Kernel.BfsPinSetSound
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import CFSG.Certificates.Kernel.Spor.PackWord
-import CFSG.Certificates.Kernel.BfsPinAlg
 
 public section
 

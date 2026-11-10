@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Sporadic.OddCore.PEnumCmd
 public import Certificates.Kernel.Sporadic.OddCore.PEnumGlue
-public import Certificates.Kernel.LocalComp.L34RData
 public import Certificates.Kernel.LocalComp.L34SChk
 public import Certificates.Data.Kernel.L34DWord
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanSL3FourGenData

@@ -8,7 +8,6 @@ public meta import CFSG.Monster.B.TwoA.Co2Inv.Rows
 public meta import CFSG.Monster.B.Co2.Data
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Data
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Matrix
-import CFSG.Fischer.F4
 
 public noncomputable section
 

@@ -3,11 +3,9 @@ module
 public import CFSG.RankThree.PartTwo.Sec19.Statements
 import CFSG.RankThree.PartTwo.Sec19.Step1914Tri
 import CFSG.RankThree.PartTwo.Sec19.Step1914E
-import CFSG.RankThree.PartTwo.Sec19.O2Centralizer
 import CFSG.RankThree.PartTwo.Sec19.Step1910Proof
 import CFSG.RankThree.PartTwo.KFacts.KS18M12Proof
 import CFSG.RankThree.PartTwo.KFacts.KS14Orders
-import CFSG.GroupTheory.ABGLocalTools.Basic
 import CFSG.RankThree.PartTwo.Sec13.Item13Theta
 
 public section

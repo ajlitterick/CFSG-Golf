@@ -1,12 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 public import CFSG.LocalAnalysis.StandardType.GGStdPosLocalDefs
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpBstar
 import CFSG.LocalAnalysis.StandardType.GGStdPosAutHolds
-import CFSG.LocalAnalysis.StandardType.GGRootInvolutionRank
-import CFSG.LieType.Steinberg.CentralExt.Unipotent
-import Mathlib.Tactic.Group
 
 public section
 

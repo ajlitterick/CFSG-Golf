@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.ModelFacts.E7ModelCA
-public import CFSG.ClassicalInvolution.ModelFacts.E7ModelPair
 public import CFSG.ClassicalInvolution.ModelFacts.E7ModelLeviRat
 public import CFSG.ClassicalInvolution.ModelFacts.E7ModelWeyl
 

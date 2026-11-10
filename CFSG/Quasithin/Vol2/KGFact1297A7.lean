@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.KGFact1297SL
-public import CFSG.Quasithin.Vol2.KGFact1296A7
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListAlt7
 
 public section

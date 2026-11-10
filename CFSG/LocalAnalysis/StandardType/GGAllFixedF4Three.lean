@@ -2,12 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGAllFixedExceptionalToral
 public import CFSG.LocalAnalysis.StandardType.GGAllFixedA8Seven
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4Basic
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UF4
-public import CFSG.HardMathSupport.Timmesfeld.ComponentBalance.I_11_2_Tools
-public import CFSG.HardMathSupport.Timmesfeld.Torality.LangThreeProved
-public import CFSG.LieType.SeitzGeneration.ExcHighThree.RegularSolvable
 
 public section
 

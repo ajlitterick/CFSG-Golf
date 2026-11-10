@@ -6,7 +6,6 @@ public import Certificates.Kernel.SporSch.HN.BindS
 public import Certificates.Kernel.SporSch.HN.BindV
 public import Certificates.Kernel.SporSch.HN.BindA
 public import Certificates.Kernel.SporSch.HN.BindP
-public import CFSG.Certificates.Kernel.SporSch.HNXCertSound
 public import CFSG.Certificates.Kernel.SporSch.HNXCnt.Cert
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Spor.RawSound

@@ -2,8 +2,6 @@ module
 
 public import CFSG.Sporadic.SuzOddCore.Perms
 import Certificates.Kernel.Sporadic.OddCore.S129060F
-import CFSG.Sporadic.SuzOddCore.ArraysCheckInputs
-import CFSG.Sporadic.SuzOddCore.SmallChainCheckInputs
 meta import CFSG.Sporadic.SuzOddCore.ArraysCheck
 meta import Certificates.Data.CFSGNative.Schreier.Check
 public import CFSG.Certificates.LiftedSchreierData
@@ -14,10 +12,6 @@ import CFSG.LocalAnalysis.ComponentClassification.AS76bHypII
 import CFSG.Sporadic.SuzOddCore.GraphData
 import CFSG.Sporadic.SuzOddCore.SmallActionData
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Borel
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Lemma83
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Cardinalities
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ProjectiveSemilinear
 import CFSG.Walter.Defs
 
 public section

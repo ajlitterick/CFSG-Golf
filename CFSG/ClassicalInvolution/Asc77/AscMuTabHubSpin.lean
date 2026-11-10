@@ -2,8 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Asc77.AscMuTabHubModels
 public import CFSG.ClassicalInvolution.Asc77.AscMuTabSmallE
-public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyOrth
-public import CFSG.ClassicalInvolution.RouteD.ExoticTwinProofOrthBridge
 public import CFSG.ClassicalInvolution.Asc77.AscMuTabSmallB
 public import CFSG.ClassicalInvolution.Asc77.AscMuTabSmallD
 public import CFSG.ClassicalInvolution.Balance.BootNoTripleStrong

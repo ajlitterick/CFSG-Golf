@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1P58bExc
-public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneBTypeInputs
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.ClassicalGroups
@@ -65,9 +63,6 @@ public import CFSG.RankThree.PartOne.KC.OrthogonalFieldDescentTags
 public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeOrbits
 public import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
 public import CFSG.Sporadic.Schreier.TitsOther
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 
 public noncomputable section
 

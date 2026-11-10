@@ -1,10 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthogonalBasic
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestCenter
-public import CFSG.LieType.Steinberg.CentralExt.SL2CentrallyClosed
-public import CFSG.LieType.Steinberg.CentralExt.SpinPlusCentrallyClosed
-import CFSG.LieType.Universal.Spin.Forms
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7SUKCoordA
 import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalRk2U3
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUCoord
 
 public section
 

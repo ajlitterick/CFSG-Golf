@@ -1,12 +1,10 @@
 module
 
-public import CFSG.Sporadic.SmallOddCore.McLLocalCheck
 public meta import CFSG.Sporadic.SmallOddCore.McLLocalCheck
 public meta import CFSG.Sporadic.SmallOddCore.McLData
 public meta import CFSG.Sporadic.SmallOddCore.ClassSimple
 public meta import CFSG.Sporadic.SuzOddCore.RestrictDefs
 public meta import Certificates.Data.CFSGNative.PSL3Four.Basic
-public import CFSG.LocalAnalysis.ComponentClassification.RestrictedSporMcLOuterCheckInputs
 public import Certificates.Certificate2025
 
 public section

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInner
 public import CFSG.LocalAnalysis.StandardType.GGInterfaceFive
 public import CFSG.LieType.Steinberg.Classical.SpinPlus
-public import CFSG.LieType.Steinberg.PartBAssembly
 public import TauCeti.LinearAlgebra.IntegralLattice.RootLattice.TypeD.SimpleRoots
 public import CFSG.LieType.Steinberg.Classical.SpinFrame
 

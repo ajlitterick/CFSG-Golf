@@ -5,8 +5,6 @@ public import Certificates.Kernel.SuzPump.PumpY
 public import Certificates.Kernel.SuzPump.PairFacts
 public import Certificates.Kernel.Sporadic.OddCore.S8147E
 import CFSG.Certificates.Kernel.LocalQTCovTPrim
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

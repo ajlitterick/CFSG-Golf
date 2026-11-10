@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestDefs
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestUnitaryCenter
-public import CFSG.LocalAnalysis.StandardType.MarkingClassical
 public import CFSG.LieType.Steinberg.CentralExt.OrthogonalTwoMultiplier
 
 public section

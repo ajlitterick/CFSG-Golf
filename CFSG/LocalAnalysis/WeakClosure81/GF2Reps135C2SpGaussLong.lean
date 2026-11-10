@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm14_5.SmallSp6Smith
 import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2SpCurtisInterp
 import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2SpRootSL2
-import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2SpMono
 import CFSG.ClassicalInvolution.Models.SymplecticPairs.TypeCShortRoot
 import CFSG.ClassicalInvolution.Models.SymplecticPairs.Quadruple
 import CFSG.ClassicalInvolution.WeakCT.StandardPair

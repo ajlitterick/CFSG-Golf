@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicBFinal
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicBCommDefs
-public import CFSG.Blueprint.NativeSporadic
 public import Certificates.Certificate15048
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicBCommB
 

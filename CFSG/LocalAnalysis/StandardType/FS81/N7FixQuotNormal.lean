@@ -1,8 +1,6 @@
 module
 
 public import Mathlib.GroupTheory.SpecificGroups.Alternating.Simple
-public import Mathlib.GroupTheory.Perm.Cycle.Type
-public import Mathlib.GroupTheory.Perm.Support
 
 public section
 

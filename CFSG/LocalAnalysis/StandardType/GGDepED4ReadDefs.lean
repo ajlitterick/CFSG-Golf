@@ -2,15 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGE6D4TwoNodeLocalInput
 public import CFSG.LocalAnalysis.StandardType.GGTWSmallADefs
-public import CFSG.LocalAnalysis.StandardType.GGTWSmallCarried
-public import CFSG.LocalAnalysis.StandardType.GGTWSurvDefs
-public import CFSG.LocalAnalysis.StandardType.GGDepED4PackDefs
 public import CFSG.LocalAnalysis.StandardType.GGDepED4Align
 public import CFSG.LocalAnalysis.StandardType.GGDepED4UpOf
 public import CFSG.LocalAnalysis.StandardType.GGDepED4UpClose
 public import CFSG.LocalAnalysis.StandardType.GGDepED4Card
 public import CFSG.LocalAnalysis.StandardType.GGPZE6Input
-public import CFSG.LocalAnalysis.StandardType.GGResLeaves
 
 public section
 

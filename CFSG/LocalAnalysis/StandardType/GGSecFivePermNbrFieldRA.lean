@@ -5,9 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBRes
 import CFSG.LocalAnalysis.StandardType.GGTPNThmRACore
 import CFSG.LocalAnalysis.StandardType.GGTPNNarrowC6
 import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylInputHolds
-import CFSG.GH74.Generic.S1.RCard
-import CFSG.LinearAlgebra.LinearGroups.UnitaryScalarKernel
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldUnitary
 public import Certificates.Certificate13657
 
 public section

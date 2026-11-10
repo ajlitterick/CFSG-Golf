@@ -1,17 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoInputs
-public import CFSG.LocalAnalysis.StandardType.GGQTwoLin
-public import CFSG.LocalAnalysis.StandardType.GGQTwoReflLin
 public import CFSG.LocalAnalysis.StandardType.GGQTwoTBWNormAmbInner
 import CFSG.LocalAnalysis.StandardType.GGQTwoTBWNormAmbResEvenD
 import CFSG.LocalAnalysis.StandardType.GGQTwoDFourLeafNorm
 import CFSG.LocalAnalysis.StandardType.GGQTwoDForkNorm
 import CFSG.LocalAnalysis.StandardType.GGQTwoBridgeRefl
 import CFSG.LocalAnalysis.StandardType.GGQTwoBridgeWeyl
-import CFSG.LocalAnalysis.StandardType.GGQTwoNbrLineStab
-import CFSG.LocalAnalysis.StandardType.GGQTwoAjSetting
-import CFSG.LocalAnalysis.StandardType.GGQTwoK1OfI1
 import CFSG.LocalAnalysis.StandardType.GGQTwoSwapAB
 
 public section

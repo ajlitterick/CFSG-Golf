@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGKGTwFrame
 public import CFSG.LocalAnalysis.StandardType.GGKGTwClausesA5D4
 public import CFSG.LocalAnalysis.StandardType.GGKGTwClausesA3
 public import CFSG.LocalAnalysis.StandardType.GGTwE6CorootCoreHolds
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6Delta
 
 public section
 

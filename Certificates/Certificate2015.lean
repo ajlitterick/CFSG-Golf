@@ -3,7 +3,6 @@ module
 
 public import Certificates.Certificate2015Base
 
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallQ3P45Inputs
 public meta import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallPSp43Model
 public meta import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallArrChecks
 public meta import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallQ3Gen

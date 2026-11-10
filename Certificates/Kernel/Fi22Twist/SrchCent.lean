@@ -5,7 +5,6 @@ public import Certificates.Kernel.Fi22Twist.Cs0
 public import Certificates.Kernel.Fi22Twist.Cs2
 public import Certificates.Kernel.Fi22Twist.Cs3a
 public import Certificates.Kernel.Fi22Twist.Cs3b
-import Mathlib.Tactic.IntervalCases
 
 public section
 

@@ -8,8 +8,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec5SSuzCoreHo
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec5SFieldMirrorVanish
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec5SFieldAscentTop
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec5SFieldCoreProducer
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec5SStdCatL3Holds
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitGoldschmidt
 public import CFSG.Quasithin.Background.KGSchurMult2Pf
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34SuzStdEven
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34SuzStdOdd

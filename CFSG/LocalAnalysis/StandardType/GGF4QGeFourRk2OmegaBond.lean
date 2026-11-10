@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourS2FramePlane
 import CFSG.ClassicalInvolution.WeakCT.TwistedSpinModelEven
-import CFSG.RankThree.PartOne.CTP.SpinCenterEven
 import CFSG.ClassicalInvolution.Models.TwistedPairs
 
 public section

@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsSp
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsCoresTransport
-public import CFSG.ClassicalGroups.Symplectic.Model
-public import CFSG.Open.StatedAPI
 
 public section
 

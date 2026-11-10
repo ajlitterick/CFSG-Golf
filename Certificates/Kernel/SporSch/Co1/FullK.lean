@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.SporSch.Co1.OrbF2
-public import Certificates.Data.Kernel.SporSch.Co1Full
 public import Certificates.Data.Kernel.Co1BW
 public meta import Certificates.Kernel.SporSch.Co1.GenFib
 public meta import CFSG.Sporadic.Schreier.Co1FullOrbCheckInputs

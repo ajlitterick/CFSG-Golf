@@ -1,16 +1,11 @@
 module
 
 public import Certificates.Kernel.Sporadic.Fi22.R2079N3x
-public import Certificates.Kernel.Sporadic.Fi22.R2079N3
 public import Certificates.Kernel.Sporadic.Fi22.R2079N4x
 public import Certificates.Kernel.Sporadic.Fi22.R2079N4
-public import Certificates.Kernel.Sporadic.Fi22.R2079P3
-public import Certificates.Kernel.Sporadic.Fi22.R2079P42
 public import Certificates.Kernel.Sporadic.Fi22.GS2079P3
-public import Certificates.Kernel.Sporadic.Fi22.D2079
 public import Certificates.Kernel.Sporadic.Fi22.T2079N3
 public import Certificates.Kernel.Sporadic.Fi22.T2079H2
-public import Certificates.Kernel.Sporadic.Fi22.H2066c2
 public import Certificates.Kernel.Sporadic.Fi22.H2066c3
 public import Certificates.Kernel.Sporadic.Fi22.H2066c4
 public import Certificates.Kernel.Sporadic.Fi22.X2069Final

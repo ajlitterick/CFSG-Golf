@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.SporSch.HN.GenF5T
 public import Certificates.Kernel.SporSch.HN.StrongK
 public meta import Certificates.Data.HNG3Order
 import CFSG.Certificates.Kernel.Common.Harness

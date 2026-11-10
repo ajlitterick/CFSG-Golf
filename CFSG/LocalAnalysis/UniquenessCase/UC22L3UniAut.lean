@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.UC22L3UniBlock
 import CFSG.RankThree.PartTwo.Sec17.Item17Res7ProofL3AutUni
 import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherIsotropicRadical
-public import Certificates.Kernel.ThCent.Leaves
 import CFSG.GroupTheory.HallHigmanPiCore
 import CFSG.LieType.Chevalley.LangRootArithmetic
 import CFSG.LocalAnalysis.ComponentInitial.SuzukiModelSchreier

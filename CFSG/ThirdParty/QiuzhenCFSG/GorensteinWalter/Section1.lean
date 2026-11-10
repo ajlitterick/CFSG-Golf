@@ -2,9 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Centralizer
-import Mathlib.GroupTheory.Nilpotent
-import Mathlib.GroupTheory.OrderOfElement
-import Mathlib.GroupTheory.Index
 
 namespace CFSG
 end CFSG

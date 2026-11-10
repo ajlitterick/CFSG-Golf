@@ -1,11 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticLift
-public import CFSG.LocalAnalysis.StandardType.Marking
-public import TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.Diagonal.Normalizer
-public import TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.Transvection
-public import TauCeti.LinearAlgebra.SymplecticGroup
-import CFSG.ClassicalGroups.Symplectic.Model
 
 public section
 

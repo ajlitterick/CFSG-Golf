@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKU33B0
-public import CFSG.LocalAnalysis.StandardType.GGSixStepOneOutdiagInputs
 
 public section
 

@@ -5,13 +5,9 @@ public import Certificates.Kernel.Fi23M.KeysBase
 import all Certificates.Kernel.Fi23M.KeysBase
 
 public import Certificates.Kernel.Fi23M.Psi
-public import Certificates.Kernel.Fi23M.Matrix
-public import Certificates.Kernel.Fi23K.OrbEq
-public import CFSG.Perm.ChainSpec
 import Certificates.Kernel.Fi23M.TreeK
 import Certificates.Kernel.Fi23K.Misc
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import Mathlib
 
 public section
 

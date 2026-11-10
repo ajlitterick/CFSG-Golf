@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSelectedTwistedE6
-public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInner
 public import CFSG.LocalAnalysis.StandardType.PhanEStdTwE6Nodes
-public import CFSG.LocalAnalysis.StandardType.GGSelectedModelOfChevalley
 
 public noncomputable section
 

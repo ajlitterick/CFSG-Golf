@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermOffSpCaseDefs
 public import CFSG.ClassicalInvolution.WeakCT.TwistedSpinModel
-public import CFSG.LieType.Universal.Unitary.Basic
-public import CFSG.LieType.BorelTits.UnitaryForm
 public import CFSG.ClassicalInvolution.WeakCT.Main
 public import CFSG.ClassicalInvolution.WeakCT.SpinMinus
 

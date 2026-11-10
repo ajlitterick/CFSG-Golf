@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.Sp6Port419ReadyPart25
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.CyclicImplementersPart1
 
 @[expose] public section

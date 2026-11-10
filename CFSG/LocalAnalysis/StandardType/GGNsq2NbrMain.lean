@@ -1,15 +1,11 @@
 module
 
 import Lean
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSQ2CellsDefs
 public import CFSG.LocalAnalysis.StandardType.GGNsq2NbrX
 public import CFSG.LocalAnalysis.StandardType.GGNsq2NbrL
 public import CFSG.LocalAnalysis.StandardType.GGNsq2NbrOrd
-import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEsu
-import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrEnnola
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSLieEsuAux
-import CFSG.ClassicalGroups.Unitary.Finite
 
 public section
 

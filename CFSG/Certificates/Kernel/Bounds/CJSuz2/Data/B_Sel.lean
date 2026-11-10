@@ -1,6 +1,5 @@
 module
 
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Bounds.CJSuz2.Data.B_0
 public import CFSG.Certificates.Kernel.Common.LabF
 import CFSG.Certificates.Kernel.Common.NatItemsGz

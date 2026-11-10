@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFinModelG5Orbit
-public import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.AmbientPairDescentPart2
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.ShortPairStabilizerPart2
 

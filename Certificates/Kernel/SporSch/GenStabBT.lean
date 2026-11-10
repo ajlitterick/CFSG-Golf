@@ -8,7 +8,6 @@ public meta import Certificates.Kernel.SporSch.GenSetReplay
 public meta import CFSG.Certificates.Kernel.Common.Tab
 public meta import Mathlib.Algebra.Group.Nat.Defs
 public import Certificates.Data.Kernel.SporSch.StabBT
-public import CFSG.Certificates.Kernel.Spor.RawDefs
 public import Certificates.Kernel.SporSch.GenSetReplay
 
 open Lean Elab Command

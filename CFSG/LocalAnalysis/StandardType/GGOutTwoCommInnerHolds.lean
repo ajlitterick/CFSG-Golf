@@ -5,8 +5,6 @@ public import CFSG.LieType.ChevTwo.OutCommInner
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixFiveKnownForms
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.CentQChar2Index
 public import CFSG.Adapters.StatedPSLTwoSeven
-public import CFSG.Adapters.LinearCatalog
-public import CFSG.Adapters.RankTwoModelTransports
 public import CFSG.HardMathSupport.Meierfrankenfeld.AGL81.FF531.ChevFrontier
 public import CFSG.GroupTheory.ConjNormalFaithful
 public import CFSG.Quasithin.Background.A3Structure36BPrime

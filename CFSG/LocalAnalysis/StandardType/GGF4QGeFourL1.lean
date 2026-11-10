@@ -2,27 +2,13 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourKGPos
 public import CFSG.Quasithin.Background.A3Structure38Facts
-public import CFSG.LocalAnalysis.StandardType.GGTBFixDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBJoinDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueRelativeBMinimal
 import CFSG.LocalAnalysis.StandardType.GGF4QGeFourRk1
 import CFSG.LocalAnalysis.StandardType.GGSecFiveL1Perf
 import CFSG.LocalAnalysis.StandardType.GGSecFiveL1PhanProjection
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyDichotomy
-import CFSG.LocalAnalysis.StandardType.GGOneFiveNormalizer
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBIrred
 import CFSG.Quasithin.Vol2.Ch4Sec4L443E4Inner
-import CFSG.LinearAlgebra.LinearGroups.Perfect
-import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotNeighbourStandard
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A3NativeSchreier
-import CFSG.Timmesfeld.Transvection.PresSp
 import CFSG.LocalAnalysis.StandardType.GGSCNoTVCyclic
-import CFSG.LocalAnalysis.StandardType.GGOneFiveNbr
 import CFSG.LocalAnalysis.StandardType.GGF4Absorption
-import CFSG.LocalAnalysis.StandardType.GGSecFiveBFixLine
-import CFSG.LocalAnalysis.StandardType.GGSecFiveMaxJoin
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelTypeAAssembly
 import CFSG.LocalAnalysis.StandardType.GGSecFiveL1OddLeaves
 import CFSG.LocalAnalysis.StandardType.GGF4QGeFourRk2Cross
 import CFSG.LocalAnalysis.StandardType.GGSecFiveL1PhanMemberOut

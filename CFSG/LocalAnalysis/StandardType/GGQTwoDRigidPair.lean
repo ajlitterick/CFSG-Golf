@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ClassicalInvolution.Phan.Defs
 public import CFSG.ClassicalInvolution.Phan.Center
 import CFSG.LocalAnalysis.StandardType.GGQTwoDRigidSU3
 import CFSG.LocalAnalysis.StandardType.GGQTwoBlockAsmPair

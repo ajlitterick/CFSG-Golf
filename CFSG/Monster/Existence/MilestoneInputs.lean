@@ -1,21 +1,17 @@
 module
 
 public import CFSG.Monster.Existence.MilestoneAssembly
-public import CFSG.Monster.Existence.BabyAmbient
 public import CFSG.Monster.Existence.BabyW3Classes
 public import CFSG.Monster.Existence.BabyW3Griess
 public import CFSG.Monster.Existence.TableVGriess
 public import CFSG.Monster.Existence.TableVSylow
-public import CFSG.Monster.Existence.TwoPoint.ThreeIII
 public import CFSG.Monster.Existence.TwoPoint.GammaTransitive
 public import CFSG.Monster.Existence.TwoPoint.ThreeVAll
 public import CFSG.Monster.Existence.TwoPoint.ShapeSixFinal
-public import CFSG.Monster.Existence.BabyTableIVOf
 public import CFSG.Monster.Existence.BabyThreeSwap
 public import CFSG.Monster.Existence.TwoPoint.FourDMain
 public import CFSG.Monster.Existence.OrderFourT
 public import CFSG.Monster.GMS.InterfacesOf
-public import CFSG.Sporadic.Presentation.Th
 public import CFSG.Monster.Existence.TwoPoint.Fi23S4CommBase
 public import CFSG.Monster.Existence.TwoPoint.Fi23S4ConjBase
 public import CFSG.Monster.Existence.TwoPoint.Fi23S4CubeBase

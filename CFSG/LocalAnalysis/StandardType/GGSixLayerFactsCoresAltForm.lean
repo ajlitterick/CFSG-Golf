@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsCoresSkolem
-public import CFSG.LocalAnalysis.ComponentInitial.FieldUnitaryHermitian
-public import Mathlib.LinearAlgebra.Matrix.BilinearForm
 
 public section
 

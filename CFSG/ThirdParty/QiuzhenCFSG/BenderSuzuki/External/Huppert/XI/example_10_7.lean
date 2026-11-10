@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.MatrixGroups.Suzuki
-import Mathlib.Tactic.Group
 
 namespace CFSG
 end CFSG

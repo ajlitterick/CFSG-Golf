@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.SporSch.Ru.Sig2251
 public import CFSG.Certificates.Kernel.SporSch.RuVOrbSound
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

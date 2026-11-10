@@ -3,13 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10RSeitzCubeCore
 public import CFSG.LieType.ChevTwo.OppositeFixedExcBender
 public import CFSG.HardMathSupport.Solomon.Coordinator.YS08.LieQ.ClassicalRankOne
-public import CFSG.StronglyEmbedded.Catalog.Suzuki
-import CFSG.LocalAnalysis.ComponentClassification.AschbacherToolkitBenderAutOmega
-import CFSG.LocalAnalysis.ComponentInitial.RootPairRestriction
-import CFSG.LocalAnalysis.QuasithinUnique.RankOneRecognitionCover
-import CFSG.Goldschmidt.Steps.G3aBorel
-import CFSG.Models.BenderSuzuki
-import CFSG.StronglyEmbedded.MatrixGroups.SzModel
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePresTagDefs
-import CFSG.LieType.Steinberg.Adjoint.Presentation
 
 public section
 

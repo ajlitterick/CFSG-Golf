@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GroupTheory.SteinbergBSFixedPointFree
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.CentralizerLemmas
 public import CFSG.LocalAnalysis.SteinbergBVSolvableFrobeniusKernel
 public import CFSG.RankThree.Coprime.ThompsonElementaryComplement
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerImageCompletion

@@ -2,8 +2,6 @@
 module
 
 public import CFSG.Monster.B.TwoA.Co2Inv.FrameCertInputs
-public import CFSG.Certificates.Kernel.SortTreeMul
-public import CFSG.Certificates.Kernel.MonsterB.U6OrbSound
 public import Certificates.Kernel.MonsterB.Frame3055K
 import CFSG.Certificates.Kernel.Common.Harness
 

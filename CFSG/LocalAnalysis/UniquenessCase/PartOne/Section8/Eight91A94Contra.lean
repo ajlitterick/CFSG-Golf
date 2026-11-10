@@ -1,16 +1,10 @@
 module
 
-import CFSG.GroupTheory.QuasisimpleCommutingProductBound
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.OutPRank
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.CentOverO2Inner
-import CFSG.LieType.Simplicity.Exceptional
 import CFSG.Adapters.LieModelSimple
 import CFSG.GroupTheory.IsCyclicOfPRankLeOne
 import CFSG.GroupTheory.PRankLeOneOfIsCyclic
-import CFSG.GroupTheory.PGroup.ElemAbelianSq
 import CFSG.GroupTheory.PRankMapOfKerPrimeNotDvd
-import Mathlib.GroupTheory.IsPerfect
-import Mathlib.Algebra.Group.Subgroup.Ker
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight91Defs
 import all CFSG.LocalAnalysis.RankThreeUC.SmallClassTwoGroups.IsExtraspecialExpP
 public import CFSG.Blueprint.LieModelAPI

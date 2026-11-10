@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourS2Endpoint
 public import CFSG.LocalAnalysis.StandardType.GGF4MissedFrame
-import CFSG.LocalAnalysis.StandardType.GGF4QGeFourOrb
-import CFSG.LocalAnalysis.StandardType.GGF4OrigRep
-import Mathlib.Tactic.Group
 
 public section
 

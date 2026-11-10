@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLResidualsTwD
-public import CFSG.LocalAnalysis.StandardType.GGBstarLIDUnitCopTableB
 
 public section
 

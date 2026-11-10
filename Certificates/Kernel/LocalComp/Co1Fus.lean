@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.LocalComp.Co1FusData
 public import Certificates.Kernel.LocalComp.M1Gen
 public import CFSG.Certificates.Kernel.LocalCompCo1FusSound
-public import CFSG.LocalAnalysis.ComponentClassification.AS81Step18Co1Tests
 meta import Certificates.Data.CFSGNative.Co1.Data
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Sporadic.Co1Block.TwoCCheckInputs

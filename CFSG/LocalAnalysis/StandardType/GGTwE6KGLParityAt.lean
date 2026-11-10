@@ -1,11 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonSubcomp
-public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
-import CFSG.LocalAnalysis.StandardType.GGTableB
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FBase
-import TauCeti.GroupTheory.DerivedCentralQuotient
 
 public section
 

@@ -1,36 +1,26 @@
 module
 
-public import CFSG.LinearAlgebra.LinearGroups.Perfect
 
 public import CFSG.GH74.Generic.S1.RAutLin
 
 
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearFieldAction
 
 public import CFSG.LocalAnalysis.StandardType.GGF4N2RootCharts
 public import CFSG.LocalAnalysis.StandardType.GGPComponentInvolutionNormalizer
 public import CFSG.LocalAnalysis.StandardType.GGRootCentKGOTwoPSL
 public import CFSG.LocalAnalysis.StandardType.GGRootCentKGOTwoPSLLevi
 public import CFSG.LocalAnalysis.StandardType.GGRootCentKGOTwoPSLCent
-public import CFSG.LocalAnalysis.ComponentInitial.LinearCoverFour
 public import CFSG.Fischer.Aut.Complete
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentAut
 public import CFSG.LocalAnalysis.StandardType.GGRootNormInner
-public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionLinear
 
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedLayerOddCoreQuotient
 public import CFSG.LocalAnalysis.RankFourTheoremC.InvariantTwo.KFacts.Lemma212InputsProofCoverLie
-public import CFSG.RankThree.SteinbergR3ELinearRegularUnipotent
-public import CFSG.ClassicalGroups.SpecialLinear.CyclicRootGroups
 
 public import CFSG.LocalAnalysis.StandardType.GGRootCentKGOTwoOmMinus
 public import CFSG.LocalAnalysis.StandardType.GGRootCentKGOTwoOmMinusConj
-public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerMinus
-public import CFSG.LieType.Universal.Spin.Chevalley.Commutator
 public import CFSG.HardMathSupport.Foote.Proving.OrderSL4
 public import CFSG.Models.PGLOrders
 
-public import CFSG.RankThree.PartOne.AUTSL.Interface
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGAutPSLAux
 

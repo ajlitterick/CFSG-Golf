@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenE6Odd
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelHolds
 
 public section
 

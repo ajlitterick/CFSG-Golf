@@ -1,14 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCompCore
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcBridge
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcCenter
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKStepZero
 public import CFSG.LocalAnalysis.StandardType.GGLieM6cFinal
-public import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpStdTwE6
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitTwE6Tag
-import CFSG.HardMathSupport.Dickson.Sec6.I1431Fam.PsuBBlocks
 import CFSG.RankThree.PartOne.S10.FiveSuccessorActor
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.Bal3Planes
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.U62ThreeCentP6
@@ -18,36 +15,25 @@ import CFSG.GroupTheory.ConjKerCenter
 import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourNotToral
 import CFSG.LocalAnalysis.StandardType.GGTwE6A5KToral
 import CFSG.LocalAnalysis.StandardType.GGTwE6A5KModelLift
-import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOtherUnitary
 import CFSG.LocalAnalysis.StandardType.GGTableBUnitarySixThreeCases
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24ConnGenUni
-import CFSG.HardMathSupport.Dickson.Sec6.I1431Fam.U6RealKey
 import CFSG.HardMathSupport.Dickson.Sec6.I1431Fam.U6RealTriple
 import CFSG.HardMathSupport.Dickson.Sec6.I1431Fam.PsuBadHigh
-import CFSG.HardMathSupport.Lang.E6Descent.OuterFixed27TwistedE6Core
 import CFSG.LocalAnalysis.StandardType.GGTwE6K1Holds
 import CFSG.LocalAnalysis.StandardType.GGTwE6K1LeviMain
 import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourOutLine
-import CFSG.LocalAnalysis.StandardType.GGReverseMarking
 import CFSG.LocalAnalysis.StandardType.GGHalfFiveInnAll
 import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeNbrKnownLemmas
-import CFSG.LocalAnalysis.StandardType.GGLemmaThreeThirteenFourteenP
-import CFSG.LocalAnalysis.StandardType.MarkingDict
-import CFSG.GroupTheory.ElementaryAbelianTransport
 import CFSG.HardMathSupport.Dickson.Sec6.I923Fam.TwE6Aux.Field
 import CFSG.LocalAnalysis.StandardType.GGTwE6A5KType
 import CFSG.LocalAnalysis.StandardType.GGTwE6CorootCoreFuse
 import CFSG.LocalAnalysis.StandardType.GGTwE6CorootCoreCent
-import CFSG.LieType.Chevalley.GraphFixedCompatibleDiagonal
-import CFSG.LieType.Chevalley.AmbientTwistedFrobeniusFixedNormalizer
 import CFSG.RankThree.Chevalley.SteinbergCEF4EvenQPlusDoubleEdge
-import CFSG.RankThree.Chevalley.SteinbergCBTrialityQPlusFields
 import CFSG.LocalAnalysis.StandardType.GGTwE6A5KModel
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeModelII
 import CFSG.LocalAnalysis.StandardType.GGTwE6A5KModelRat
 import CFSG.LocalAnalysis.StandardType.GGSixLSixSevenE6Subtype
 import CFSG.LocalAnalysis.StandardType.GGE6IsoLayerAdj
-import TauCeti.FieldTheory.Finite.FrobeniusFixed
 import CFSG.HardMathSupport.Dickson.Bal207.Glue
 import CFSG.HardMathSupport.Dickson.Sec6.I1431Fam.LiftShell
 import CFSG.HardMathSupport.Dickson.Sec6.I1431Fam.LiftShellGl

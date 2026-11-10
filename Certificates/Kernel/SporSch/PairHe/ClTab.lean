@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.SporSch.PairHe.ClFns
 public import Certificates.Kernel.SporSch.Ru.RowsGen
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

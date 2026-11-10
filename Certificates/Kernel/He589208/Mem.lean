@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.He589208.D
 public import Certificates.Kernel.SporSch.HeT.Tab
 public import Certificates.Data.Kernel.SporSch.PairHeCnt
-public import Certificates.Data.Kernel.Misc.PermClos
 import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 400000

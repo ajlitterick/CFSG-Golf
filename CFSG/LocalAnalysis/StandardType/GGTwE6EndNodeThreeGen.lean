@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTwE6EndNodeThreeDefs
 public import CFSG.LocalAnalysis.StandardType.GGTwE6EndNodeThreeMat
 import CFSG.LocalAnalysis.StandardType.GGTwE6RootKernelCount
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangTwE6Datum
-import CFSG.GroupTheory.ElemAbelianClosure
 
 public section
 

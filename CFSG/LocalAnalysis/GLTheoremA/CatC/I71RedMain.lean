@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatC.I71RedComp
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.I71RedTransfer
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.I71RedD4
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.KD76c
-public import CFSG.LocalAnalysis.GLTheoremA.S6.Inputs61
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.YS04I117Defs
 
 public section
 

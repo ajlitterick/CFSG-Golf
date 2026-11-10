@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionSLRestNonsplit
-public import TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.GraphAutomorphism
 
 public section
 

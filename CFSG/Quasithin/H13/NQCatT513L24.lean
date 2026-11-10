@@ -2,10 +2,7 @@ module
 
 public import CFSG.Quasithin.H13.NQCatT513Trans
 public import CFSG.Walter.ReeOrder.JT.Section7C
-public import CFSG.Adapters.RankTwoModelTransports
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitLift
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Wreathed.SmallerRecognitionOriginalFieldQuaternionConjugation
 public import CFSG.Dihedral.FourgroupCycleControl
 public import CFSG.Dihedral.OriginalCentralizerOddCore

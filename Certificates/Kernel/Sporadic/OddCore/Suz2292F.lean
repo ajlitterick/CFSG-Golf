@@ -9,7 +9,6 @@ import all Init.Data.Nat.Fold
 import all Init.Data.Range.Basic
 import all Init.Data.Array.Basic
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Sporadic.SmallOddCore.ClassSimple
 public import Certificates.Kernel.Sporadic.OddCore.PEnumGlue
 

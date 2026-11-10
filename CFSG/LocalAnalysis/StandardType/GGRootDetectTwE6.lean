@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGRootDetectTwE6Core
 public import CFSG.LocalAnalysis.StandardType.GGRootDetectTwE6Root
 public import CFSG.LocalAnalysis.StandardType.GGRootDetectTwE6Torus
-public import CFSG.LieType.Chevalley.TwistedE6NormalForm
-public import CFSG.LieType.Steinberg.Isogeny.TwistedE6
 
 public section
 

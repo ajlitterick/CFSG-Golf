@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSpNsRootGenLabels
-import CFSG.LocalAnalysis.StandardType.GGTableBTypeATorus
-import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticBstar
 import CFSG.LocalAnalysis.StandardType.GGSpJoinPlaneRank
 import CFSG.ClassicalGroups.Symplectic.StandardForm
 import CFSG.ClassicalGroups.Symplectic.ComponentCartanRank

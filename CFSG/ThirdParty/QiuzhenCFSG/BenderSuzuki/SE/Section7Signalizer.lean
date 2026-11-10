@@ -2,8 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Corollary64
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.TBS.TBS
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection6.Defs
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Basic
 
 namespace CFSG
 end CFSG

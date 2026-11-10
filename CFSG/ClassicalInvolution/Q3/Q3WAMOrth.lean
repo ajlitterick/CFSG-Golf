@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Q3WAMBase
-public import CFSG.ClassicalInvolution.RouteD.MultiModelOrthGeom
-public import CFSG.ClassicalInvolution.RouteD.TypeTwistedE6PerpOrthLayer
 public import CFSG.ClassicalInvolution.Asc77.AscR10E24
 public import CFSG.ClassicalInvolution.ModelFacts.TG3OrthTags
 public import CFSG.ClassicalInvolution.Asc77.AscE187Cop

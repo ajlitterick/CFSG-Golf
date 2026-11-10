@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.Vol2.Ch3xC58NSEmbA7c
 public import CFSG.Quasithin.Vol2.Ch3xC58NSEmbC127
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L238FourJNative
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L246A7Main
 public import CFSG.CharacterTheory.Blocks.BrauerInduction
 public import CFSG.CharacterTheory.Blocks.NormOne

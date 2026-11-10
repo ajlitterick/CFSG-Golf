@@ -4,12 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGExcCompSLCat
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.KS.F4StdKernel
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S265SGF4Sp
 import CFSG.HardMathSupport.Dickson.Bal207.FamF42Class
-import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.KS.F4StdClasses
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompKac
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompAlcove
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUF4
-import CFSG.LieType.Universal.Symplectic
-import CFSG.ClassicalGroups.Symplectic.ProjectivePerfect
 import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrEnnolaLabel
 public import CFSG.HardMathSupport.Solomon.LocalBalance.I1433.F4TwoClass
 public import CFSG.HardMathSupport.Solomon.LocalBalance.I1433.F4TwoFrame
@@ -38,8 +32,6 @@ import CFSG.Quasithin.Background.A3Structure314Defs
 import CFSG.Quasithin.Background.C1PackS15212C
 import CFSG.Quasithin.Background.C1PackS1531Top
 import CFSG.Quasithin.Background.E3
-import CFSG.Quasithin.Background.E3Nprime
-import CFSG.Quasithin.Background.E3Uniq
 import CFSG.Quasithin.Background.F918H5
 import CFSG.Quasithin.Background.GoldschmidtS146RBend1
 import CFSG.Quasithin.EmptyFaithful.Gold14610F618StructFieldExt

@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.Misc.TitsPi
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Sporadic.Tits.Sift2264
 public import CFSG.Quasithin.Recognition.CertDataTitsOuter
 meta import CFSG.Quasithin.Recognition.CertDataTitsOuter

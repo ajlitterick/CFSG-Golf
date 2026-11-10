@@ -2,8 +2,6 @@ module
 
 public import CFSG.GroupTheory.HyperplaneGeneration
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.CoprimeHall
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Lemmas
-public import Mathlib.Data.Nat.Factors
 
 public section
 

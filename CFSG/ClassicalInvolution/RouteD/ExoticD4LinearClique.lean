@@ -2,9 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyOrth
 public import CFSG.ClassicalInvolution.RouteD.ExoticD4FourModel
-public import CFSG.ClassicalInvolution.RouteD.LocalTwinPartner
-public import CFSG.ClassicalInvolution.RouteD.GapsEnd4Aux
-import CFSG.ClassicalInvolution.ModelFacts.FundPerfectMain
 
 public section
 

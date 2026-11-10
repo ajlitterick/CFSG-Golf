@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoAltOpenDefs
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoAltGenY
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoAltEIdent
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoAltSmallFacts
 

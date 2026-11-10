@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GH74.GLS.Stage2.Final.ModelOrd
-public import CFSG.Open.StatedDefs
 public import CFSG.GH74.Statements
 public import CFSG.LieType.CurtisTits.Conclusion
 public import CFSG.LieType.Universal.Unitary.Clause0

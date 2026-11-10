@@ -1,17 +1,14 @@
 
 module
 
-public import Certificates.Kernel.Sporadic.Fi24Ext.Data
 public import Certificates.Kernel.Sporadic.Fi24Br.Rels
 public import Certificates.Kernel.Sporadic.Fi24Fix.DataI
 public import Certificates.Kernel.Sporadic.Fi23Br.Seed
 public import Certificates.Kernel.Sporadic.Fi24Ext.Digits
 public import CFSG.Certificates.Kernel.Spor.Fi24ExtSound
-public import CFSG.Certificates.Kernel.Spor.Fi24FixInit
 public import CFSG.Certificates.Kernel.Spor.Dec3Sound
 public import CFSG.Certificates.Kernel.Spor.BytesFSound
 public import CFSG.Sporadic.Fi24.ExtWSpec
-public import CFSG.Sporadic.Fi24.SetupBase
 public import CFSG.Certificates.Kernel.Common.ForallChunks
 public import CFSG.Certificates.Kernel.Common.Harness
 import Certificates.Kernel.Sporadic.Fi24Ext.V
@@ -29,13 +26,11 @@ import Certificates.Kernel.Sporadic.Fi24Ext.W10
 import Certificates.Kernel.Sporadic.Fi24Ext.W11
 import Certificates.Kernel.Sporadic.Fi24Ext.W12
 import Certificates.Kernel.Sporadic.Fi24Ext.W13
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Blueprint.MatrixSeedIdentification
 public import CFSG.Certificates.Kernel.Fam.Act
 public import CFSG.Certificates.Kernel.LceSP.Cosets
 public import CFSG.Certificates.SchreierStabilizerGenerators
 public import CFSG.Sporadic.Fi24.CertificateBase
-public import CFSG.Sporadic.Th.F2Spec
 public import CFSG.Sporadic.Th.OrbitSpec
 
 public section

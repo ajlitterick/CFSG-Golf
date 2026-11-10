@@ -1,7 +1,6 @@
 module
 
 public import Mathlib.Analysis.Complex.Basic
-public import Mathlib.GroupTheory.Subgroup.Centralizer
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.Unbundled
 
 namespace CFSG

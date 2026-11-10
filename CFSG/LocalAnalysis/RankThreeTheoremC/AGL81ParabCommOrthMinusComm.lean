@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ParabCommOrthMinusRes
-public import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotResidualLeviUnipotent
 
 public section
 

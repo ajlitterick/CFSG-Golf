@@ -4,7 +4,6 @@ public import Certificates.Kernel.LocalQT.Base.C7147D
 public import Certificates.Kernel.LocalQT.Base.C4076D
 public import Certificates.Data.Kernel.LocalQT.TreeR
 public import CFSG.Quasithin.Vol2.KGFactRankRuData
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.EachTrue
 
 set_option maxRecDepth 100000

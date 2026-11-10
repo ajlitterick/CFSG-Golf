@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OExcVanish
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OExcF4
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OExcF4Kernel2
 
 public section

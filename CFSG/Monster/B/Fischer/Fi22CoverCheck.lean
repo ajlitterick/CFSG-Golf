@@ -4,12 +4,9 @@ module
 public import CFSG.Monster.B.Fischer.Fi22CoverCheckBase
 
 public import CFSG.Monster.B.Fischer.Fi22LocalCheck
-public import Certificates.Data.CFSGNative.Schreier.Enum3
-public import Mathlib.Data.Fintype.Prod
 public meta import CFSG.Monster.B.Fischer.Fi22LocalCheck
 public meta import Certificates.Data.CFSGNative.Schreier.Enum3
 public meta import Mathlib.Data.Fintype.Prod
-public import CFSG.Monster.B.Fischer.Fi22CoverCheckInputs
 public import Certificates.Certificate3151
 public import Certificates.Certificate3151Base
 

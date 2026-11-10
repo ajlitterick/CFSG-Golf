@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.OpsLayFill
-public import Certificates.Data.Kernel.OpsRenL
 public import Certificates.Kernel.LocalComp.LaySnapsChunksF
 public import Certificates.Kernel.FusLay.Fi24Seeds
 public import CFSG.Certificates.Kernel.Common.Each
@@ -9,7 +8,6 @@ public import CFSG.Certificates.Kernel.Common.ForallTree
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.BetaFusFi24Inputs
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo
-import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 400000
 

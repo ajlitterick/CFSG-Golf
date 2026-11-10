@@ -1,25 +1,16 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenSixO2Rest
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.G176KFacts
 import CFSG.LocalAnalysis.ComponentClassification.GS82PumpOddChar
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenSixteenProof
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.OddLieFunRank
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.ExceptionalAutPRankHolds
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.OddLieFunHolds
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.LieOddRankFourHolds
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.CentOverO2Inner
-public import CFSG.GroupTheory.CoprimeCentralizerCover
 public import CFSG.GroupTheory.CoprimeNormalizerSup
-public import CFSG.GroupTheory.ElemAbelianClosure
 public import CFSG.GroupTheory.CoprimeCentralizerRank
 public import CFSG.GroupTheory.PLayer.Transfer
 public import CFSG.LocalAnalysis.StronglyEmbedded.OfCentralizers
 public import CFSG.LocalAnalysis.StronglyEmbedded.GammaOne
-public import CFSG.GH74.GLS.Stage2.Signalizer.Ivk8YCfgAct
 public import CFSG.Monster.Existence.Principle
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3Strong
-public import CFSG.GroupTheory.StronglyEmbeddedTwoResidual
 public import CFSG.Dihedral.OriginalPrimeNormalizerBasics
 public import CFSG.CGT.PushingUpLit.SolKNA.R4.TwinEdgeDefs
 public import CFSG.CGT.PushingUpLit.SolKNA.R4.TwinEdgeSocCyc4
@@ -45,7 +36,6 @@ public import CFSG.ClassicalInvolution.Q3.Q3T8P26T01
 public import CFSG.ClassicalInvolution.Q3.Q3T8P26T02
 public import CFSG.ClassicalInvolution.Q3.Q3T8P26TH01
 public import CFSG.ClassicalInvolution.Q3.TA3SOLCore
-public import CFSG.ClassicalInvolution.Q3.TA3SOLCoreRank
 public import CFSG.ClassicalInvolution.Q3.TA3SmallModelM12
 public import CFSG.ClassicalInvolution.Q3.TL3S8Gold
 public import CFSG.ClassicalInvolution.Q3.TL3S8Sd

@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LieType.Chevalley.Braid
-public import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
 public import CFSG.LieType.Chevalley.ToralCentralizerBruhat
 
 public section

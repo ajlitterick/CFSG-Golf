@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.LocalComp.Tits8Data
 public import Certificates.Kernel.SporSch.Tits.Inv2266
-public import Certificates.Kernel.Sporadic.Tits.LocJ
 public import CFSG.Certificates.Kernel.LocalCompTits8Sound
 import CFSG.Certificates.Kernel.Common.Harness
 

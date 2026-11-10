@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockOmegaIsoOneLinear
 public import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagOmegaQuasisimple
-public import CFSG.LocalAnalysis.StandardType.GGHalfCentGroup
 public import CFSG.LocalAnalysis.StandardType.GGF4JoinMemberPSL
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinSelectedPSU
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCMOmegaSmall

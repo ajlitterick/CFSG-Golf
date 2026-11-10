@@ -1,13 +1,11 @@
 module
 
-public import CFSG.Blueprint.NativeSporadic
 public import CFSG.HardMathSupport.Meierfrankenfeld.FFToolkit.Heisenberg
 public import CFSG.HardMathSupport.Solomon.Coordinator.B3B.BNFCheck
 public import CFSG.HardMathSupport.Solomon.Coordinator.B3B.BNFProd
 import Certificates.Kernel.BabyMonster.Three.Cert
 import Certificates.Kernel.BabyMonster.Seeds
 public import CFSG.Sporadic.M23.M23Group
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

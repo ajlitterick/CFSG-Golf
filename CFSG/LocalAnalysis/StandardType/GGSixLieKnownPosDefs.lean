@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixLSixFiveKnownForms
 public import CFSG.LocalAnalysis.StandardType.GGSixPositionDefs
 
 public section

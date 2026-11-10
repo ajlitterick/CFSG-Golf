@@ -1,15 +1,11 @@
 module
 
-public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Basic
-public import CFSG.RankThree.Classical.SteinbergBJSymplecticCrossPrimeBlocks
-public import CFSG.RankThree.PartOne.KC.SymplecticFullCentralizerTransvection
 public import CFSG.OddTranspositions.PartThree.Twelve.ElevenSpCentreMap
 import CFSG.OddTranspositions.PartThree.Twelve.SevenForm
 import CFSG.OddTranspositions.PartThree.Twelve.ElevenSpArith
 import CFSG.ClassicalGroups.Symplectic.PointRadicalNormal
 import CFSG.RankThree.Classical.SpIsometry
 import CFSG.RankThree.PartOne.KC.SymplecticSubfieldSemilinear
-import CFSG.RankThree.PartOne.CTP.SeitzSpClosure
 import CFSG.LocalAnalysis.WeakClosure81.SevenTwelveConfSpElt
 import CFSG.RankThree.PartOne.S11d.OddAlt
 

@@ -1,10 +1,7 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec21.FF81GL6Defs
-public import CFSG.Open.StatedAPI
 public import CFSG.ClassicalInvolution.Solomon73.YamakiPres
-public import CFSG.RankThree.Classical.SteinbergBJSymplecticCrossPrimeBlocks
-public import CFSG.RankThree.PartOne.KC.SymplecticFullCentralizerTransvection
 public import CFSG.RankThree.PartOne.CTP.SeitzSpClosure
 public import CFSG.LieType.CurtisTits.Conclusion
 public import CFSG.LieType.Universal.Spin.Roots
@@ -17,7 +14,6 @@ public import CFSG.RankThree.PartTwo.Sec21.FF81Sec55Defs
 public import CFSG.RankThree.PartTwo.Sec21.FF81Sec56Defs
 public import CFSG.RankThree.PartTwo.Sec21.FF81Sec57Defs
 public import CFSG.RankThree.PartTwo.Sec21.HoltCatalog
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 @[expose] public section
 

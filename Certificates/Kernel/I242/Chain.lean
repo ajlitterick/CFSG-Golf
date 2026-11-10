@@ -2,8 +2,6 @@ module
 
 public import Certificates.Kernel.I242.Gens
 public import Certificates.Kernel.I242.YChain
-public import CFSG.HardMathSupport.Solomon.Coordinator.I24_2Inputs
-import Mathlib.Tactic.IntervalCases
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

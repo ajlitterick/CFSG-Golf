@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreDefs
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSL
-import CFSG.LocalAnalysis.StandardType.GGQTwoRationalWeyl
-import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TypeASuConj
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUStd
 
 public section
 

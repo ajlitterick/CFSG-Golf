@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrGraphFieldDefs
 public import CFSG.LocalAnalysis.StandardType.MarkingSmall
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticTorusWeylMatrices
 public import CFSG.LocalAnalysis.ComponentInitial.AlternatingOuterBound
 public import CFSG.LieType.SteinbergBRSmallAltSylow
 public import CFSG.LieType.SteinbergBROddSylowCore

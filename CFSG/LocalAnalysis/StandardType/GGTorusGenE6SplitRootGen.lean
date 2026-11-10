@@ -1,20 +1,12 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTorusGenE6Comm
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelModuleME
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UStd
 public import CFSG.LocalAnalysis.StandardType.GGLangExhaust
 public import CFSG.LocalAnalysis.StandardType.GGLangRatComp
-public import CFSG.LocalAnalysis.SeitzReduction.E6PilotAlignTori
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenE6RGen
 public import CFSG.Mathlib.GroupTheory.PrimePowerGeneratingRanges
 public import CFSG.LocalAnalysis.StandardType.GGFinModelG5Orbit
-public import CFSG.LieType.Chevalley.LangRootRankOne
-public import CFSG.LieType.Chevalley.GraphFixedF4GroupDescent
-public import CFSG.LieType.Chevalley.SingleEdgePerfect
-public import CFSG.LieType.Chevalley.GraphFixedE6DiagonalCubes
-public import CFSG.HardMathSupport.Timmesfeld.Tables.T1b.WeylTorusAct
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompChain
 
 public section
 

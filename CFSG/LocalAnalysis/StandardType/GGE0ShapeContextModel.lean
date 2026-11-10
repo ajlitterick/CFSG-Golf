@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGE0ShapeDefs
 public import CFSG.LocalAnalysis.StandardType.GGE0ShapeContextToral
 public import CFSG.LocalAnalysis.StandardType.GGE0ShapeContextRank
 public import CFSG.LocalAnalysis.StandardType.GGE0ShapeKernelLarge

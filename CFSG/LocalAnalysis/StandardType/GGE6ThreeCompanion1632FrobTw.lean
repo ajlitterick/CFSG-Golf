@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeCompanion1632Lang
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T158MShE6D4T2Shape
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24D4T2Outer
-public import CFSG.LieType.Chevalley.GraphFixedBruhatEquivariance
-public import CFSG.LieType.Chevalley.WeylRoots
 public import CFSG.Goldschmidt.Steps.G37Core
 public import CFSG.HardMathSupport.Dickson.Sec6.I923Fam.PsuGoodAux.Descent
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.Defs

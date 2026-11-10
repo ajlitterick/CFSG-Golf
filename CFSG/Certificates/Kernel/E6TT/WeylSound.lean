@@ -2,8 +2,6 @@ module
 
 public import Certificates.Data.Kernel.E6TT.Weyl
 public import CFSG.Certificates.Kernel.E6TT.EnumSound
-public import CFSG.LieType.Chevalley.KernelComponentRoots
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Defs
 
 public section
 

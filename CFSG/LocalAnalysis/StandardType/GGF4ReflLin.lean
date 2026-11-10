@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
 import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelTypeAAssembly
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBarBridge
-import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofLin
 import CFSG.LocalAnalysis.StandardType.GGTypeAReflOverCoord
 
 public section

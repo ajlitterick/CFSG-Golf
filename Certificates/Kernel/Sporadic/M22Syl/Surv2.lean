@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Sporadic.M22Syl.Checks
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

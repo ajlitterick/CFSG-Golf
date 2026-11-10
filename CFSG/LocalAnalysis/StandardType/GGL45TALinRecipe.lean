@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGL45TALinLift
 public import CFSG.LocalAnalysis.StandardType.GGL45TAHFour
 public import CFSG.LocalAnalysis.StandardType.GGL45TorusPackageConj
 public import CFSG.LocalAnalysis.StandardType.GGL45TorusPackagePow
-public import CFSG.LocalAnalysis.StandardType.GGL45NtHFourAut
-public import CFSG.LocalAnalysis.ComponentInitial.DiagonalSemilinear
 
 public section
 

@@ -10,7 +10,6 @@ public import CFSG.LocalAnalysis.StandardType.GGNbrLSideKitComm
 public import CFSG.LocalAnalysis.GLTheoremA.S11.Lemma117
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1431cLieEightSpGood
 public import CFSG.RankThree.PartOne.TCP.AlModel
-public import CFSG.Goldschmidt.Steps.Sec82Tools
 public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockOmegaIsoUnitary
 public import CFSG.RankThree.PartOne.TCP.AlSL2
 

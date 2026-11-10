@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk111cNShape
-public import CFSG.GH74.GLS.Stage4.T2SL2Defs
 
 public section
 

@@ -1,15 +1,8 @@
 module
 
-public import Mathlib
-public import CFSG.Blueprint.Catalog
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallPSp43Model
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoFi22.DS81.Fi24Branch.U42PermAbs
-public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoFi22.DS81.Fi24Branch.U42SmallIndexInputs
-public import CFSG.ClassicalGroups.Unitary.Simple
-public import CFSG.GH74.KGroups.NativeChecks2
-public import CFSG.Open.StatedDefs
 public import Certificates.Certificate450100
-public import Certificates.Certificate2012
 
 public section
 

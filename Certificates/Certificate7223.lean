@@ -3,23 +3,15 @@ module
 
 public import CFSG.Quasithin.Vol2.KGFactC31HeElt
 import Certificates.Kernel.He7223.GlueFinal
-import CFSG.Sporadic.HeldB.CertPChainData
-import Certificates.Data.CFSGNative.Schreier.Check
-import CFSG.Sporadic.HeldB.InnerCheckInputs
 meta import CFSG.Sporadic.HeldB.InnerData
 meta import CFSG.Sporadic.HeldB.Common
 meta import CFSG.Sporadic.Schreier.MathieuOddCoreCentral
-import CFSG.Sporadic.HeldB.InnerClassCheckInputs
 meta import CFSG.Sporadic.HeldB.HeBlocks
 meta import CFSG.Sporadic.HeldB.InnerCheck
 meta import Certificates.Data.CFSGNative.HeldB.Tests
 meta import Certificates.Data.CFSGNative.PairSchreier.Core
-import CFSG.Sporadic.HeldB.OuterArithCheckInputs
 meta import CFSG.Sporadic.HeldB.AutData
 meta import Certificates.Data.CFSGNative.Schreier.Check
-import CFSG.Sporadic.HeldB.HeBlocks
-import CFSG.Sporadic.HeldB.OuterArithCheck
-import Certificates.Data.CFSGNative.HeldB.Tests
 meta import CFSG.Sporadic.HeldB.OuterArithCheck
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Foundations
@@ -32,19 +24,14 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.B2Thompson
 public import CFSG.Quasithin.Background.C31Insp
 public import CFSG.Quasithin.Vol2.KGFactC31Cover
 public import CFSG.Quasithin.Vol2.KGFactC31EBasis
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
 public import CFSG.Sporadic.Schreier.ImagePairs
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import Certificates.Certificate43
 
 public section

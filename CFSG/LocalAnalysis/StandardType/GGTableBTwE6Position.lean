@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcCoverRows
-public import CFSG.LocalAnalysis.StandardType.GGTableBCoverMarked
 public import CFSG.LocalAnalysis.StandardType.GGWPlusPosition
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6Lift
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaCenter
 public import CFSG.LocalAnalysis.StandardType.GGTwE6WeylTorusTransferCore
 
 public section

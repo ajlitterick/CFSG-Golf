@@ -1,16 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFamSLRecogDefs
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.RecogD
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.RecogE
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Certs
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcInnerLang
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.CentralizerTrivialPoly
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.OuterField
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.RigidField
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.RigidNorm
-public import CFSG.RankThree.Chevalley.SteinbergBID4CentralKernel
-public import CFSG.RankThree.PartOne.KE.E7FiveBlock
 
 public section
 

@@ -9,8 +9,6 @@ public import CFSG.RankThree.Chevalley.SteinbergCDTrialityThreeSixSylow
 public import CFSG.RankThree.PartOne.KC.UnitaryPlaneOrthogonal
 public import CFSG.RankThree.SteinbergR3ESL3RootPermutingFixed
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Borel
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Lemma83
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Cardinalities
 public import CFSG.Walter.Defs
 public section
 namespace CFSG.StandardType

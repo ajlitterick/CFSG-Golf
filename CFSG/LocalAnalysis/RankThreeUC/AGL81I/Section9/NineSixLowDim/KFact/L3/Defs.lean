@@ -1,9 +1,6 @@
 module
 
 public import CFSG.Open.StatedDefs
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
-public import Mathlib.GroupTheory.QuotientGroup.Basic
-public import Mathlib.GroupTheory.Subgroup.Center
 
 public section
 

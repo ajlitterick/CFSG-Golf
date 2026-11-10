@@ -2,9 +2,6 @@ module
 public import CFSG.LieType.Steinberg.CentralExt.TwistedE6TwoToralCoords
 public import CFSG.ClassicalInvolution.WeakCT.TwistedE6MinusculeFixedField
 public import CFSG.LocalAnalysis.StandardType.GGFinModelG5LangDatum
-public import CFSG.LieType.Chevalley.AmbientTwistedFrobeniusFixedNormalizer
-public import CFSG.LocalAnalysis.StandardType.GGResidualA2Pair
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarE6ThreeDiag
 public noncomputable section
 namespace CFSG.LieType.Steinberg.CentralExt.TwistedE6TwoCover
 open CFSG CFSG.StandardType CFSG.StandardType.GGFinModel

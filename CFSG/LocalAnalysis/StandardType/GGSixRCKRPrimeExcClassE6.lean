@@ -2,14 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeE6Weyl
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcFloorsPF
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcFloorsE6
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcTw
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcCaseV
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcEigen
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcEigenTw
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcE6Shape
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcRelOneAt
-public import CFSG.RankThree.PartOne.KE.CTLang
 
 public section
 

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Monster.B.TwoA.Sp8.GenActionLiftsInputs
-public import CFSG.Monster.B.TwoA.Co2Inv.Data
-public import CFSG.Monster.B.Rep4371.Model
 public meta import CFSG.Monster.B.TwoA.Sp8.GenActionLiftsInputs
 public meta import CFSG.Monster.B.TwoA.Co2Inv.Data
 public meta import CFSG.Monster.B.Rep4371.Model

@@ -2,11 +2,7 @@ module
 
 public import CFSG.ClassicalInvolution.SmallCases.NobqQuasi
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.McL
-public import CFSG.ClassicalInvolution.SmallCases.Sporadic.Sylow
-public import CFSG.ClassicalInvolution.SmallCases.NobqMcLInputs
 public import Certificates.Certificate9307
-public import Certificates.Certificate9314
-public import Certificates.Certificate3170
 public meta import CFSG.ClassicalInvolution.SmallCases.Sporadic.McL
 public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
 public import CFSG.ClassicalInvolution.SmallCases.NobqLists
@@ -15,7 +11,6 @@ public import CFSG.Foundations.QuasisimpleMulEquiv
 public meta import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
 public import CFSG.Sporadic.McL
 public meta import CFSG.Sporadic.McL
-public import CFSG.Sporadic.Th.F2Spec
 public meta import CFSG.Sporadic.Th.F2Spec
 
 public section

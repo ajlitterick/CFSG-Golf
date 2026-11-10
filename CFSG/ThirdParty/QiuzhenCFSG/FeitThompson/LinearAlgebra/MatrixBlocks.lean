@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.Algebra.Group.Subgroup.Finite
 public import Mathlib.Data.ZMod.Basic
 public import Mathlib.LinearAlgebra.Matrix.ToLin
 public import Mathlib.LinearAlgebra.Matrix.Trace

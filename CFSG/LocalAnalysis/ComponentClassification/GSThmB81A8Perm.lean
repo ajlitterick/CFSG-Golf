@@ -1,11 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallQ3A8Data
 public meta import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallQ3A8Data
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB81A8PermInputs
 public import Certificates.Certificate2019
-public import Certificates.Certificate2007
-public import Certificates.Certificate2014
 
 public section
 

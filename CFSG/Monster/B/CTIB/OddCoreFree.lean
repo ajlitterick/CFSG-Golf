@@ -2,8 +2,6 @@ module
 
 public import CFSG.Monster.B.CTIB.Rank2168Final
 public import CFSG.Monster.B.CTIB.DistThreeProductFinal
-public import CFSG.Monster.B.CTIB.UniqueComponentAmbient
-public import CFSG.GroupTheory.PCore.Defs
 public import CFSG.RankThree.OddKernel.OddLift
 
 public section

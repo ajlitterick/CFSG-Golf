@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.FS81.Pieces
 public import CFSG.LocalAnalysis.StandardType.FS81.MonoN0
 
 public section

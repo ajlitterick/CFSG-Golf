@@ -1,16 +1,10 @@
 
 module
 
-public import CFSG.Monster.GMS.S365CosetSpecBase
-public import CFSG.Monster.GMS.S365CentBasic
-public import CFSG.Monster.GMS.S365Facts
-public import Certificates.Data.CFSGNative.Co1.S365CentPath
-public import CFSG.Monster.GMS.S365CentPathSpecInputs
 public import Certificates.Kernel.Co1M.C10041
 public import Certificates.Kernel.Co1M.Cen10037
 public import CFSG.Certificates.Kernel.Co1M.GmsPathSound
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic
 
 public section
 

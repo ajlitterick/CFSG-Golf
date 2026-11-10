@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.WeakClosure81.W16PFiveTwelveMA
 public import CFSG.LocalAnalysis.WeakClosure81.W16PFiveTwelveO
-public import CFSG.LocalAnalysis.WeakClosure81.W16PFiveElevenF
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.EvenBN.U5.Sec3WFour
-public import CFSG.LocalAnalysis.EvenBN.U5.Sec3B4
 public import CFSG.LocalAnalysis.EvenBN.U5.Sec3WThree
 
 public noncomputable section

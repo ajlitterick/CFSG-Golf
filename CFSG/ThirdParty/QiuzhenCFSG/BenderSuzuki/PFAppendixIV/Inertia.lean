@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.RepEnd
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.ConjugateRep
-public import Mathlib.FieldTheory.Fixed
 
 namespace CFSG
 end CFSG

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.H13.U4ParYAmalgam
-public import CFSG.Quasithin.H13.U4ParRecog
 public import CFSG.Quasithin.Vol2.GoldschmidtSec53FactsU4
 public import CFSG.Quasithin.Background.B1More8
 public import CFSG.Quasithin.Background.B1MoreNineG

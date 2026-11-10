@@ -2,8 +2,6 @@ module
 
 public import CFSG.Certificates.CosetTablePresented
 public meta import CFSG.Certificates.CosetTablePresented
-public import Mathlib.GroupTheory.Perm.Fin
-public import Mathlib.GroupTheory.SpecificGroups.Alternating.Simple
 public meta import Mathlib
 public import Mathlib
 

@@ -2,10 +2,7 @@ module
 
 public import Mathlib.GroupTheory.NoncommPiCoprod
 public import Mathlib.Data.ZMod.Basic
-public import Mathlib.Data.Fintype.Pi
-public import Mathlib.Algebra.Group.Pi.Lemmas
 public import Mathlib.Data.Fin.VecNotation
-public import Mathlib.Tactic.FinCases
 
 public section
 

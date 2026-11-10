@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBF4Torus
-public import CFSG.RankThree.CentralCover.SteinbergBNCoverPairingCore
 
 public section
 

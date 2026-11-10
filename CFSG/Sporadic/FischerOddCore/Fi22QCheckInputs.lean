@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Sporadic.FischerOddCore.Fi22SylowCheck
 public import CFSG.Sporadic.FischerOddCore.Fi22CTICheckInputs
 public meta import CFSG.Sporadic.FischerOddCore.Fi22SylowCheck
 public meta import CFSG.Sporadic.FischerOddCore.Fi22CTICheckInputs

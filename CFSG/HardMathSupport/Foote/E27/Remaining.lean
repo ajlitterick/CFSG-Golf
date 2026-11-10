@@ -1,14 +1,12 @@
 module
 
 public import CFSG.HardMathSupport.Foote.E27.Final
-public import CFSG.HardMathSupport.Foote.E27.QTwoLeaf
 public import CFSG.HardMathSupport.Foote.E27.LieOutAut
 public import CFSG.HardMathSupport.Malle.E27Lie.Cross.Char3Final
 public import CFSG.HardMathSupport.Malle.E27Lie.Outer.Assembly9
 public import CFSG.HardMathSupport.Foote.E27.SporMFinal
 public import CFSG.HardMathSupport.Malle.E27Lie.ExcCross.E6OneCell
 public import CFSG.HardMathSupport.Curtis.UnitaryLevi.ExcF4Closed
-public import CFSG.HardMathSupport.Curtis.NaturalModuleCensus.ExcCross.ExcF4TwoCent
 public import CFSG.HardMathSupport.Curtis.NaturalModuleCensus.ExcCross.E78Kill
 public import CFSG.HardMathSupport.Curtis.NaturalModuleCensus.ExcCross.E78NegKill
 public import CFSG.HardMathSupport.Malle.E27Lie.ExcCross.TwE6Cell

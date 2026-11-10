@@ -3,10 +3,6 @@ module
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.PlanesTwo.Words
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.PlanesTwo.SL2Two
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.PlanesTwo.Defs
-public import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.G2Side
-public import CFSG.RankThree.PartTwo.Sec11.KS11Lie7ProofConj
-public import CFSG.HardMathSupport.Seitz.G2Anisotropic.UnitaryEmbedding.QuadExt
-public import CFSG.RankThree.SteinbergR3EEvenQuadraticSL2Fixed
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.Defs
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.EvenClass
 

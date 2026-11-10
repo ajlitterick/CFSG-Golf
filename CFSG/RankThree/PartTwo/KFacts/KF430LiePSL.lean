@@ -3,13 +3,11 @@ module
 public import CFSG.RankThree.PartTwo.KFacts.KF430LiePSp
 public import CFSG.RankThree.PartTwo.Sec4.Ronan148LT2Syl
 public import CFSG.RankThree.PartTwo.Sec4.Ronan148LCubeLift
-public import CFSG.RankThree.PartTwo.Sec21.Item223CensusResProofRankTwo
 public import CFSG.RankThree.PartTwo.Sec21.Item211Res4ProofPlusL4
 public import CFSG.RankThree.PartTwo.Sec4.RonanK429RowHL4
 public import CFSG.GH74.GLS.Balance.SolvAPIDefs
 public import CFSG.Goldschmidt.Steps.G37Core
 public import CFSG.GroupTheory.SteinbergCBFTCores
-public import CFSG.HardMathSupport.Dickson.Sec6.I1431Lie
 public import CFSG.HardMathSupport.Solomon.Coordinator.InndiagLink
 public import CFSG.HardMathSupport.Solomon.Coordinator.L3FATArith
 public import CFSG.HardMathSupport.Solomon.Coordinator.L3G515Core
@@ -46,8 +44,6 @@ public import CFSG.Quasithin.Background.C1GNSolvConnect
 public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.E2Statements
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918C6
 public import CFSG.Quasithin.Background.FFC7G
 public import CFSG.Quasithin.Background.FFC8A
@@ -108,7 +104,6 @@ public import CFSG.RankThree.PartTwo.Sec15.Item1512
 public import CFSG.RankThree.PartTwo.Sec21.Item211ProofListOf
 public import CFSG.RankThree.PartTwo.Sec4.Item41NarrowGriess
 public import CFSG.RankThree.PartTwo.Sec4.RonanK429RowHComp2
-public import CFSG.Walter.J1Props
 public import Certificates.Kernel.J4Count.Prim
 
 public section

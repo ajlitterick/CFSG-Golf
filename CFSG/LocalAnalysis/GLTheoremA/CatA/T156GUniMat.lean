@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FQUni
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownLinearMat
 public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitaryMat
-public import CFSG.ClassicalGroups.Unitary.Finite
 public import CFSG.Assembly.GL83StatedBridge
 
 public section

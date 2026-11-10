@@ -2,9 +2,6 @@ module
 
 public import CFSG.Quasithin.Background.GoldschmidtM12SylowCore
 public import CFSG.GH74.KGroups.Sz8
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiCoverRootData
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LieType.Ree.LargeReeEightTorus
 public import CFSG.LocalAnalysis.ComponentClassification.BlockTwoProductAction
 public import CFSG.LocalAnalysis.ComponentClassification.NormalizedProductSylow

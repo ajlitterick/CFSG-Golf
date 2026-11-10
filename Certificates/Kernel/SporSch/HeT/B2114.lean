@@ -3,11 +3,7 @@ module
 
 public import Certificates.Kernel.SporSch.HeT.B2114K
 public import Certificates.Kernel.SporSch.HeT.PtGlue
-public import Certificates.Kernel.Sporadic.OddCore.Glue
-public import CFSG.Certificates.Kernel.Spor.PrimSound
-public import CFSG.Certificates.Kernel.Misc.PairCountSound
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.HeAutKSound
 public import CFSG.Certificates.Kernel.HeFixKSound
 public import CFSG.Certificates.Kernel.PermToolSound

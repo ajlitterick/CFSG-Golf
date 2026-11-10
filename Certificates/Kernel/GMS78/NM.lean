@@ -6,8 +6,6 @@ public import Certificates.Kernel.GMS78.GenN
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.EachUnfold
 import CFSG.Certificates.Kernel.Common.ForallChunks
-import Mathlib.Tactic.IntervalCases
-import Batteries.Tactic.Init
 
 public section
 

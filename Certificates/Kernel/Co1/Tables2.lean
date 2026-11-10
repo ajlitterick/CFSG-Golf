@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Co1.Chain
 import Certificates.Kernel.Co2.Intro
 import Certificates.Kernel.Co1.FactsC2
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Co1.Checks.Bind
 import CFSG.Certificates.Kernel.Co1.Checks.C2H
 

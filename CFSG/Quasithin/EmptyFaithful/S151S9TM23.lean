@@ -4,7 +4,6 @@ public import CFSG.Quasithin.EmptyFaithful.S151S9TM23Inputs
 public import CFSG.Quasithin.EmptyFaithful.S151S9TLat
 public import CFSG.Quasithin.EmptyFaithful.S151S9TCen
 public import CFSG.Quasithin.Background.E2TwoProofSporM23
-import CFSG.Quasithin.Background.HSporLatMathieu
 
 public section
 

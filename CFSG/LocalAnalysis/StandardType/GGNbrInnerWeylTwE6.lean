@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylOpenLabels
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6Delta
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6Lift
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6SplitLift
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6Split

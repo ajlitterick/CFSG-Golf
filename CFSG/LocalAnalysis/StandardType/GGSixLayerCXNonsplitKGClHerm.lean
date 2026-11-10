@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitKGClSUNbr
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitKGClSpOne
 public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionSURepFactsBlock
-public import CFSG.RankThree.CentralLift.DefiningUnitary
-public import CFSG.RankThree.Classical.SteinbergBJUnitaryTwoBlock
-public import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotCatTypeDet
 public import CFSG.LocalAnalysis.EvenBN.GMSK.TypeDetBender
 
 public section

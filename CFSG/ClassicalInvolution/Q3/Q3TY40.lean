@@ -1,9 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Q3TY39
-public import CFSG.ClassicalInvolution.Q3.Q3TY17
-public import CFSG.ClassicalInvolution.Q3.Q3TY13
-public import CFSG.ClassicalInvolution.RouteD.TwinSmallTwin
 
 public section
 

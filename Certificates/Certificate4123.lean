@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L246C127EvenCertDefs
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L246B113OverCertA5Inputs
 import Certificates.Kernel.LocalQT.Lat.C4123
 import CFSG.Certificates.Kernel.Common.Harness

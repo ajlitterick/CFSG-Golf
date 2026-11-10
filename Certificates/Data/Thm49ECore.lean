@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Sporadic.Schreier.TitsCentralCheckInputs
-public import CFSG.Sporadic.Schreier.TitsCertCheckInputs
 public import Std.Data.HashMap
 
 public section

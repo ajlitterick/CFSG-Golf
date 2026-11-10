@@ -3,9 +3,6 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section2.proposition_1_c
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section2.AppendixIInput
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.lemma_b
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.Remaining
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Cardinalities
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConj
 
 namespace CFSG
 end CFSG

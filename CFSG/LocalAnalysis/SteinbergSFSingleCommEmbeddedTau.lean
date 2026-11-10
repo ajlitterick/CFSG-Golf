@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.SteinbergSFSingleCommEmbeddedDefs
-public import CFSG.LocalAnalysis.SteinbergSFSingleCommRootStandardRoot
 
 public section
 

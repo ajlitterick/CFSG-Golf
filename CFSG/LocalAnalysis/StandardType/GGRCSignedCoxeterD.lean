@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveZSInputs
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinReflTypeD
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLDType
 public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
 
 public section

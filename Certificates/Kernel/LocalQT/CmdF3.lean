@@ -3,7 +3,6 @@ module
 public meta import Lean
 public meta import Certificates.Kernel.LocalQT.Cmd
 public import Certificates.Data.Kernel.LocalQT.SecF3
-public import CFSG.Certificates.Kernel.LocalQT.Steps
 public import Certificates.Kernel.LocalQT.Cmd
 
 public section

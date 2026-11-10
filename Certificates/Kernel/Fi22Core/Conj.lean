@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Fi22Core.Matrix
-public import Certificates.Kernel.Fi22Core.Keys
 public import Certificates.Kernel.Fi22Core.Tree
 public import CFSG.Certificates.Kernel.Fi22.OrbKeysSound
 public import CFSG.Certificates.Kernel.Fi22.LettersSound
@@ -12,7 +11,6 @@ import Certificates.Kernel.Fi22Core.Edges2
 import Certificates.Kernel.Fi22Core.Edges3
 import Certificates.Kernel.Fi22Core.KeysChecks
 import Certificates.Kernel.Sporadic.ON.Gen
-import CFSG.Certificates.Kernel.Spor.Loops
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
 import CFSG.Certificates.Kernel.Spor.PChainSound
 

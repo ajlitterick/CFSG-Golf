@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GF2Type.Smith1979.CaseIIDCrit
-public import CFSG.Open.StatedDefs
 public import CFSG.RankThree.Classical.SteinbergR3EHigherSymplecticOuterOrder
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 

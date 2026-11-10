@@ -5,7 +5,6 @@ public import Certificates.Kernel.Sporadic.OddCore.SqrtK26102
 public import Certificates.Kernel.Sporadic.OddCore.S16J3K27810
 meta import CFSG.LocalAnalysis.EvenSporadicStandard.HypOne.J3Inputs
 meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
-import CFSG.Certificates.Kernel.Common.Harness
 meta import CFSG.GroupTheory.Fitting.CharacteristicP
 meta import CFSG.GroupTheory.LocalCores.Components
 meta import CFSG.GroupTheory.LocalCores.Fitting

@@ -1,18 +1,14 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22FunSplitAmbient
-public import CFSG.ClassicalInvolution.Generic.InductionLocal
 import CFSG.LocalAnalysis.UniquenessCase.UC22FunCountTwo
 import CFSG.LocalAnalysis.UniquenessCase.UC22FunCountTwoModel
 import CFSG.LocalAnalysis.UniquenessCase.UC22FunCountAmbient
 import CFSG.LocalAnalysis.UniquenessCase.UC22FunCountCommute
-import CFSG.ClassicalInvolution.RouteD.MultiModelOrthLayer
 import CFSG.ClassicalInvolution.Q3.Q3WAMOrth
 import CFSG.HardMathSupport.Meierfrankenfeld.LieOdd.ExcModel
-import CFSG.ClassicalInvolution.ModelFacts.E8D8AdjOrth
 import CFSG.ClassicalInvolution.Uniform.U8Basic
 import CFSG.ClassicalInvolution.Q3.Q3WASTLift
-import CFSG.ClassicalInvolution.RouteD.TwinSmallWitt
 public import CFSG.ClassicalInvolution.Asc77.AscIHSectG
 public import CFSG.ClassicalInvolution.AschTight.S1911P3a
 public import CFSG.ClassicalInvolution.AschTight.S1911P3b
@@ -48,7 +44,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.OddLieFunHold
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S2112aR34Defs
 public import CFSG.Quasithin.Background.A3Structure319
 public import CFSG.Quasithin.Background.B6
-public import CFSG.Quasithin.Background.B6Example
 public import CFSG.Quasithin.Background.E2Hyp
 public import CFSG.Quasithin.Background.E2SolvTwo
 public import CFSG.Quasithin.Background.F2Equiv

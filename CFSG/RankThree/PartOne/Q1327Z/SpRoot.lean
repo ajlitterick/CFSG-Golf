@@ -44,7 +44,6 @@ public import CFSG.Monster.B.TwoA.Amalgam.Data
 public import CFSG.Monster.B.TwoA.Sp8.Par1
 public import CFSG.Monster.B.TwoA.Unitary.LinThree
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.Basic
 public import CFSG.RankThree.GroupTheory.SteinbergBYSectionNineResidual
 public import CFSG.RankThree.LocalRank.SelectorCases
@@ -61,12 +60,10 @@ public import CFSG.RankThree.PartOne.Q1327Z.Refl
 public import CFSG.RankThree.PartOne.S12.InputsKF2
 public import CFSG.RankThree.PerfectCover.HopfCentralCoversFinite
 public import CFSG.RankThree.Theta.ThreeComponentOrbitCover
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Presentation.Common
 public import CFSG.Sporadic.SmallOddCore.CheckSpec
 public import CFSG.Sporadic.Suz.W64Spec
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import CFSG.YGroups.Y322Central
 
 public section

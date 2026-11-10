@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC1677ThreeDefs
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenEightS1T3Kbar
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC165Bar
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P20p
-public import CFSG.LocalAnalysis.UniquenessCase.UC22P21c
-public import CFSG.RankThree.Transfer.Yoshida
 public import CFSG.CGT.PushingUpLit.BHS5.FiveFive
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenEightRowCtx
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven2TwentyTwoCapAltEquiv

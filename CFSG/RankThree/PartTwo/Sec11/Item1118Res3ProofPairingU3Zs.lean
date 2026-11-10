@@ -3,8 +3,6 @@ module
 public import CFSG.RankThree.PartTwo.Sec11.KS11Lie4ProofD4
 public import CFSG.RankThree.Chevalley.SteinbergCFTrialityToralRankOne
 public import CFSG.RankThree.SteinbergR3EEvenQuadraticSL2Fixed
-public import CFSG.LieType.Chevalley.RankOneGaussian
-public import CFSG.LieType.Chevalley.TrialityAllCharTorusCoordinates
 
 public section
 

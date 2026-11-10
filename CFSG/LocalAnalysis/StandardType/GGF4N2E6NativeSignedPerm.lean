@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4N2E6NativeLang
-import CFSG.LieType.Chevalley.KernelComponentRoots
-import CFSG.LieType.Chevalley.SignKernelComponentPerfect
 
 public section
 

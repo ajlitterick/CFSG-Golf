@@ -5,9 +5,6 @@ public import CFSG.RankThree.PartOne.KC.OrthogonalEvenMinusExtraction
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LinearAlgebra.LinearGroups.ProjectiveSimple
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.ZS.ReflQuotient
-public import CFSG.Fischer.Classification.Orthogonal3.Model
-public import CFSG.Fischer.Classification.PartIII.Beta.Forms
 import CFSG.LocalAnalysis.StandardType.ZS.DThreeRigidLift
 import CFSG.LocalAnalysis.StandardType.ZS.DThreeRigidGram
 import CFSG.LocalAnalysis.StandardType.ZS.DThreeTernary

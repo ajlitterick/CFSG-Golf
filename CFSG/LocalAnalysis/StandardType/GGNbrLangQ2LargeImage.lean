@@ -2,16 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1Holds
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2OffRows
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2Rows
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2Toral
-import CFSG.LocalAnalysis.StandardType.GGPGLTorality
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
-import CFSG.LocalAnalysis.StandardType.GGTableBExcTorus
-import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Three
-import CFSG.LocalAnalysis.StandardType.GGResLeaf
-import CFSG.LocalAnalysis.StandardType.GGTableBRank
 
 public section
 

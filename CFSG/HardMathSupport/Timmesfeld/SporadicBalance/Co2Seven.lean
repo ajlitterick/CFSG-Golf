@@ -1,8 +1,6 @@
 module
 
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co2SevenData
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.FixedFreeRank
-public import CFSG.Sporadic.Co2Cert.Faithful
 public import CFSG.Sporadic.Co2Cert.Order
 public import CFSG.Sporadic.Fi23.SlpSpec
 public import Certificates.Certificate16960

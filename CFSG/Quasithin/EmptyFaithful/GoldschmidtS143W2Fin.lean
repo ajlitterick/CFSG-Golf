@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Quasithin.EmptyFaithful.Insp7NumD
 public import CFSG.Quasithin.EmptyFaithful.Insp7NumS
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtS143W2Alt
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtS143W2L2

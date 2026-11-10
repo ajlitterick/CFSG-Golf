@@ -2,17 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGKG55TwE6
 public import CFSG.LocalAnalysis.StandardType.GGKGLFTwE6
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixCore
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixLabel
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherExcFixTwE6
-public import CFSG.LocalAnalysis.StandardType.GGRawAutRestTwE6
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangTwisted
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldSpU
-public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergTrialityHolds
-public import CFSG.LocalAnalysis.StandardType.GGTwistedF4DiagRaw
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylRest13Known
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6PerBstar
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6Delta
 
 public section
 

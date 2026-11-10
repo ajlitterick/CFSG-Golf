@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4Inputs
 public import CFSG.LocalAnalysis.StandardType.GGFamComponent
 public import CFSG.LocalAnalysis.StandardType.GGFamTame
 public import CFSG.LocalAnalysis.StandardType.GGFamFieldDispatch

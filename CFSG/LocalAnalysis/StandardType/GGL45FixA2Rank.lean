@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixDefs
-public import CFSG.RankThree.PartTwo.Sec4.Item413AutL3
-public import CFSG.RankThree.PartTwo.Sec4.Item413AutU3
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldUnitary
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylFieldVacOther
 
 public section

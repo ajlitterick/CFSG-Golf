@@ -3,8 +3,6 @@ module
 public import CFSG.Sporadic.Recognition.J4MultiplierInputs
 public import Certificates.Data.Kernel.CosetJ.F2Cert
 import CFSG.Certificates.Kernel.Common.Harness
-public import CFSG.LocalAnalysis.SectionRank.Sporadic.LocalWitness
-public import CFSG.Open.Defs
 
 public section
 

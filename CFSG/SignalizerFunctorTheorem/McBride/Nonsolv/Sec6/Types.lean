@@ -1,6 +1,5 @@
 module
 
-public import Mathlib
 public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec6.Lines
 public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec6.L69
 

@@ -1,8 +1,6 @@
 module
 
 public import Certificates.Kernel.Sporadic.RawGenSch
-public import Certificates.Kernel.Sporadic.RawGenSchPJ
-public import Certificates.Kernel.Sporadic.RawGenSchPFJ
 public import Certificates.Kernel.SporSch.Ru.Lines
 public import Certificates.Kernel.SporSch.Ru.SCPFLv
 public import Certificates.Kernel.SporSch.Ru.SCPFF0
@@ -14,7 +12,6 @@ public import Certificates.Kernel.SporSch.Ru.SCRJ
 public import Certificates.Kernel.SporSch.Ru.SCRK
 public import Certificates.Kernel.SporSch.Ru.SCRR
 public import Certificates.Kernel.SporSch.Ru.SCRSmall
-public import CFSG.Sporadic.Schreier.RuCheckChainsInputs
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

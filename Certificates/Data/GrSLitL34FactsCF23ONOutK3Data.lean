@@ -2,7 +2,6 @@ module
 
 public import CFSG.Sporadic.Schreier.ONCheckLocalInputs
 public import Certificates.Data.GrSLitL34FactsCF23ONOutK1Data
-public import Std.Data.HashMap
 public import Std.Data.HashSet
 
 public section

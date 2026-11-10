@@ -1,16 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGL45NtDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
-public import CFSG.LocalAnalysis.ComponentInitial.LinearCoverModel
-public import CFSG.LocalAnalysis.ComponentInitial.SmallLinearIsomorphisms
-public import CFSG.Adapters.ProjectiveSpecialLinear
-public import CFSG.RankThree.PerfectCover.HopfCentralCoversSetup
-public import CFSG.RankThree.PerfectCover.HopfFormula
-public import CFSG.RankThree.SteinbergR3ELinearRegularUnipotent
-public import CFSG.LieType.Steinberg.CentralExt.MultiplierCongr
-public import CFSG.LieType.Steinberg.CentralExt.PSL2Multiplier
-public import CFSG.GH74.Exceptional.LinearFourTwo
 public import CFSG.LieType.Multipliers.L34Upper
 public import CFSG.Alternating.Multipliers.Main
 

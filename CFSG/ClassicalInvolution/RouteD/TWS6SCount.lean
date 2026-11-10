@@ -1,10 +1,7 @@
 module
 
-public import CFSG.ClassicalInvolution.RouteD.TWYCount
 public import CFSG.ClassicalInvolution.RouteD.TWYEven
 public import CFSG.ClassicalInvolution.RouteD.TWYOdd
-public import CFSG.ClassicalInvolution.RouteD.TwinYR2SpinCtx
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 
 public section
 

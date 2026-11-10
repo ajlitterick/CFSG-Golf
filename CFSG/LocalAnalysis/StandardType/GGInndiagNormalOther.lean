@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixStepOneOutdiagLinear
-public import CFSG.LocalAnalysis.StandardType.MarkingSmall
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierAlternatingSix
 
 public section
 

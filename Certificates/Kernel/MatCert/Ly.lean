@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.OpsMcertN
 public import Certificates.Data.Kernel.OpsFpK
-public import Certificates.Kernel.SporSch.Ly.BSData
 public import Certificates.Kernel.SporSch.Ly.SevA
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.LyThreeInputs
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.LyFiveInputs

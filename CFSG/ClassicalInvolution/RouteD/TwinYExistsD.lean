@@ -1,10 +1,7 @@
 module
 
 public import CFSG.ClassicalInvolution.MilestoneAssemblyWired5
-public import CFSG.ClassicalInvolution.RouteD.TypeDChain
-public import CFSG.ClassicalInvolution.RouteD.GapsFrPattern
 public import CFSG.ClassicalInvolution.RouteD.GapsFrFive
-public import CFSG.ClassicalInvolution.RouteD.GapsEnd4Final
 
 public section
 

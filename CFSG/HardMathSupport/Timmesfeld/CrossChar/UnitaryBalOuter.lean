@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.UnitaryBalMain
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.UnitaryOuter
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.UnitaryBalHeis
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.UnitaryBalPlane
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.UnitaryDiag

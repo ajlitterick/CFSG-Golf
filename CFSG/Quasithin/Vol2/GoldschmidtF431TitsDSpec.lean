@@ -2,8 +2,6 @@ module
 
 public import Certificates.Certificate4182
 public import CFSG.Quasithin.Vol2.GoldschmidtF431TwoF4LocMain
-public import CFSG.Quasithin.Recognition.CertTitsTwoLocal
-public import CFSG.Sporadic.Schreier.TitsCentral
 
 public section
 

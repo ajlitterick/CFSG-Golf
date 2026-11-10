@@ -1,11 +1,9 @@
 module
 
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public import CFSG.Certificates.Kernel.Misc.HexFlatSound
 public import CFSG.Sporadic.SuzI301Cover.Inputs
 meta import CFSG.Sporadic.SuzI301Cover.Inputs
-import CFSG.Sporadic.SuzI301.Inputs
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Spor.RawSound
 

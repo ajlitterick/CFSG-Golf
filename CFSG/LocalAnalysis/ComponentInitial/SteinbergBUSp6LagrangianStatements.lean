@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentInitial.BinarySymplecticSixDegree64NextNormalizer
-public import CFSG.LocalAnalysis.SectionRank.NativeKGroup
 
 public noncomputable section
 

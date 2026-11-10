@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Om1K.Elts
-public import Certificates.Kernel.LocalComp.E8Tables
 public meta import CFSG.Certificates.Kernel.Common.Each
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Common.Each

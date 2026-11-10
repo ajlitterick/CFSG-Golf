@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.PermCent.Sz8DC
 public import CFSG.Certificates.Kernel.PermCent.KGrpCSound
-public import CFSG.GH74.KGroups.Checks
 
 public section
 

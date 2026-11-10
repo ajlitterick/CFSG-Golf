@@ -2,7 +2,6 @@ module
 
 import Lean
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosDefs
-public import CFSG.RankThree.Classical.OrthogonalOrderThree
 
 public section
 

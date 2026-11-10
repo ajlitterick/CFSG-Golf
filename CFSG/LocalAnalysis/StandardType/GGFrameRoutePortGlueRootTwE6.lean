@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGFrameTBInputs
 public import CFSG.LocalAnalysis.StandardType.GGNTPlaneTableVec
 import CFSG.LocalAnalysis.StandardType.GGNTPlaneTableOrbits
-import CFSG.LieType.Chevalley.WeylRoots
 import CFSG.HardMathSupport.Meierfrankenfeld.LieOdd.UnitCount
 
 public section

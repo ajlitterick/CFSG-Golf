@@ -8,8 +8,6 @@ import CFSG.OddTranspositions.PartThree.EightEight.KOneRadical
 import CFSG.OddTranspositions.PartThree.EightEight.StarOrbit
 import CFSG.OddTranspositions.PartThree.EightEight.StarSigma
 import CFSG.OddTranspositions.PartThree.EightFive.Transitive
-import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent.Radical
-import CFSG.Timmesfeld.Bridge.Asc72Theorem
 
 public section
 

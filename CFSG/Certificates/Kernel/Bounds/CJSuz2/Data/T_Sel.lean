@@ -1,6 +1,5 @@
 module
 
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Bounds.CJSuz2.Data.T_0
 public import CFSG.Certificates.Kernel.Bounds.CJSuz2.Data.T_1
 public import CFSG.Certificates.Kernel.Bounds.CJSuz2.Data.T_2

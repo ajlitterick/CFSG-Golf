@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGMaxRankJModel
 public import CFSG.LocalAnalysis.StandardType.GGFinModelExists
-import CFSG.HardMathSupport.Lang.AnisoE6.E6InF4
 
 public section
 

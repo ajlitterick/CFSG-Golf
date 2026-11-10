@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section10Lemma106Final
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Commutator.Core
-import Mathlib.GroupTheory.IsPerfect
 
 namespace CFSG
 end CFSG

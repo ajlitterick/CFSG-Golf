@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.TitsSimplicity.Descent
-import Mathlib.Tactic.Group
 
 public section
 

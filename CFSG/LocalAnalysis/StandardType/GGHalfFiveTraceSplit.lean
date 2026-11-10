@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveNoSmallRep
-public import CFSG.LinearAlgebra.LinearGroups.Perfect
 
 public section
 

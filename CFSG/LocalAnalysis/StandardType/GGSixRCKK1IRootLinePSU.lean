@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IRootLine
-public import CFSG.LocalAnalysis.StandardType.GGInvolutionClassSURoot
 public import CFSG.SignalizerFunctorTheorem.CatalogBridge.FixedFieldCard
-public import CFSG.LieType.Steinberg.BruhatWeyl
-public import CFSG.LieType.Universal.Unitary.Extras.Basic
 
 public section
 

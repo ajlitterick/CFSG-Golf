@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.FieldTheory.Finite.Basic
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherToolkitBenderUnitaryCoord
 
 public section

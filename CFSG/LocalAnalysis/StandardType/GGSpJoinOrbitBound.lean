@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinCoxeterCard
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRest
-public import Mathlib.GroupTheory.GroupAction.Quotient
 
 public section
 

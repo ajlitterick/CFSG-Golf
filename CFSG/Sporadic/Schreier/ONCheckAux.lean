@@ -1,10 +1,8 @@
 module
 
 public import CFSG.Sporadic.Schreier.ONCheckLocal
-public import CFSG.Sporadic.Schreier.ONGlue
 public meta import CFSG.Sporadic.Schreier.ONCheckLocal
 public meta import CFSG.Sporadic.Schreier.ONGlue
-public import CFSG.Sporadic.Schreier.ONCheckAuxInputs
 public import Certificates.Certificate2211
 
 public section

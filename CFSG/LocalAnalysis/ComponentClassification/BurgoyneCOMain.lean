@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneCOB3
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneCOReduce
-public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneOForm
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointSchreier
-public import Certificates.Kernel.ThCent.Leaves
 
 public noncomputable section
 

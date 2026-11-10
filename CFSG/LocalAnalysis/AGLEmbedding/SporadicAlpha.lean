@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.AGLEmbedding.SporadicAlphaData
 import CFSG.LocalAnalysis.AGLEmbedding.SporadicBeta
 import CFSG.RankThree.PartTwo.Census.Criteria
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactsFamilies
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.StarFour.HatSL
-public import Mathlib.LinearAlgebra.SpecialLinearGroup
 
 public section
 

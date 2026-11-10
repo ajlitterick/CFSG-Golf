@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.SeitzReduction.RankOneUnitaryC1OuterGmiMain
-public import CFSG.LocalAnalysis.SeitzReduction.RankOneUnitaryC1OuterGmiCatHolds
 public import CFSG.LocalAnalysis.SeitzReduction.RankOneUnitaryC1OuterGmbMain
 
 public section

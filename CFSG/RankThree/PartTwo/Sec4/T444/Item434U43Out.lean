@@ -5,7 +5,6 @@ public import CFSG.RankThree.PartTwo.Sec4.T444.Item434U43OutAlg
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherPrimeFormRealization
 import CFSG.RankThree.PartTwo.Sec5.Tools
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 import CFSG.RankThree.PartTwo.Sec5.Hyp
 

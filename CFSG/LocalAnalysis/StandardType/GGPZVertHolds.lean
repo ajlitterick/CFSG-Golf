@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGPZCutsDefs
 public import CFSG.LocalAnalysis.StandardType.GGPZRankTwo
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalancePumpup
 public import CFSG.LocalAnalysis.StandardType.GGR4Forced
 
 public section

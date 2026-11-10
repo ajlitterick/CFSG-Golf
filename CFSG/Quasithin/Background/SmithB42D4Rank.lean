@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Background.SmithB42D4Coord
-public import CFSG.Sporadic.Schreier.J4SSylow
 
 public section
 

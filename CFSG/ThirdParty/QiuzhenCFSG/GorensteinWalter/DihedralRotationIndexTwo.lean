@@ -1,7 +1,6 @@
 module
 
 public import Mathlib.GroupTheory.SpecificGroups.Dihedral
-public import Mathlib.GroupTheory.Index
 
 namespace CFSG
 end CFSG

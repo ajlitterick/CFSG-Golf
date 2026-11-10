@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLemma112K
-public import CFSG.LocalAnalysis.StandardType.GGQTwoQuandleE
-public import CFSG.LocalAnalysis.StandardType.GGReflClosedIndep
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
-public import CFSG.LocalAnalysis.StandardType.GGQTwoInnerDefs
 
 public section
 

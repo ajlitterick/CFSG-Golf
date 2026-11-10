@@ -24,23 +24,12 @@ public import CFSG.GH74.GLS.C3.Layer1.BackLeaves
 public import CFSG.GH74.GLS.C3.Layer1.Split
 public import CFSG.GH74.GLS.C3.Layer3.Main
 public import CFSG.GH74.GLS.Defs
-public import CFSG.GH74.GLS.IVK.A7.Glue
-public import CFSG.GH74.GLS.IVK.L2.BN
-public import CFSG.GH74.GLS.IVK.L2.BorelFive
-public import CFSG.GH74.GLS.IVK.L2.Lemma114
-public import CFSG.GH74.GLS.IVK.L2.Lemma12k
-public import CFSG.GH74.GLS.IVK.L2.Lemma13fc
-public import CFSG.GH74.GLS.IVK.L2.Lemma14f
-public import CFSG.GH74.GLS.IVK.L2.Lemma14j
-public import CFSG.GH74.GLS.IVK.L2.Lemma19b
 public import CFSG.GH74.GLS.IVK.Lifted.Outer14
-public import CFSG.GH74.GLS.IVK.Prod.Lemma31
 public import CFSG.GH74.GLS.IVK.Proofs
 public import CFSG.GH74.GLS.IVK.Proofs2.Lemma12hb
 public import CFSG.GH74.GLS.IVK.Proofs2.Lemma13d
 public import CFSG.GH74.GLS.IVK.Proofs2.Lemma13e
 public import CFSG.GH74.GLS.IVK.Proofs2.Lemma13g
-public import CFSG.GH74.GLS.IVK.Statements
 public import CFSG.GH74.GLS.SP.Local.SPLTabL2
 public import CFSG.GH74.GLS.Stage1.Thm3.Sec4.Prop41
 public import CFSG.GH74.GLS.Stage1.Thm3.Sec5.Statements
@@ -58,10 +47,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.LinearFlagElation
 public import CFSG.LocalAnalysis.SectionRank.Ccomm.Critical
 public import CFSG.Permutation.UnitaryThreeRecognition.Model
 public import CFSG.StronglyEmbedded.MatrixGroups.PSL2
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ConjugatedInvertedSubgroup
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 public import CFSG.Walter.J1.Inv
 

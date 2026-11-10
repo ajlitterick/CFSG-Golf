@@ -2,7 +2,6 @@ module
 
 public import CFSG.Milestones.ASVolI.F48.L3
 public import CFSG.Milestones.ASVolI.F4Native
-public import CFSG.Milestones.ASVolI.F4
 import all CFSG.Milestones.ASVolI.F4
 
 public section

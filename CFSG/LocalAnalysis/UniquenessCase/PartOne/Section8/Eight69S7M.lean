@@ -13,7 +13,6 @@ import CFSG.GroupTheory.PCore.PrimeSetCore
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Centralizer
 import CFSG.LocalAnalysis.SectionRank.SubgroupRank
 public import CFSG.LocalAnalysis.SectionRank.Ccomm.OddCritical
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

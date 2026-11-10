@@ -7,8 +7,6 @@ public import CFSG.Monster.B.GSide.HInnerFusionY3
 public import CFSG.Monster.B.GSide.EdgeQCertDC
 public import CFSG.Monster.B.GSide.EdgeQCertWit
 public import CFSG.Monster.B.GSide.TwoDCentralizer
-public import CFSG.Monster.B.TwoA.Amalgam.NativeChain
-public import CFSG.Monster.B.TwoA.Fischer.AmbientRootNative
 
 public section
 

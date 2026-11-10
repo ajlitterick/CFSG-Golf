@@ -5,11 +5,8 @@ public import Certificates.Kernel.SuzThree13637.CCls
 public import CFSG.Certificates.Kernel.Spor.ClsKSound
 public import CFSG.Certificates.Kernel.Spor.PSearchSound
 public import CFSG.Sporadic.SuzOddCore.SmallChain
-public import CFSG.Sporadic.SuzOddCore.SmallChainCheck
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.LiftedSchreierData
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

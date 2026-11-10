@@ -2,7 +2,6 @@ module
 
 public import CFSG.GH74.Uniqueness.Bender.AutFixed
 public import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
-public import Mathlib.GroupTheory.Commutator.Basic
 public import CFSG.Foundations.Basic
 
 public section

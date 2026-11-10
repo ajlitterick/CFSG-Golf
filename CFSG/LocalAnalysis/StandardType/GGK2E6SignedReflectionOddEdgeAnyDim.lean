@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGFrameModelNumD
 public import CFSG.LocalAnalysis.StandardType.GGFrameModelSignedTable
 public import CFSG.LocalAnalysis.StandardType.GGEvenSignedNormalizer
 public import CFSG.LocalAnalysis.StandardType.GGTBRowSignedFrameAux
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLDType
 
 public section
 

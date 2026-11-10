@@ -1,17 +1,13 @@
 module
 
 public import CFSG.Quasithin.Recognition.F112Crit.Lemma61
-public import CFSG.Quasithin.Recognition.F112Crit.Lemma63
 public import CFSG.Quasithin.Recognition.F112Crit.Lemma65
 public import CFSG.Quasithin.Recognition.F112Crit.Transvection
 public import CFSG.Quasithin.Recognition.F112Crit.FrattiniAction
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Semidihedral.ElementStructure
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.QuotientGraph
 public import CFSG.Quasithin.Background.F1Lemma10
 public import CFSG.Quasithin.Background.F2Equiv
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

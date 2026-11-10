@@ -1,8 +1,5 @@
 module
 
-public import Mathlib.LinearAlgebra.Matrix.Block
-public import Mathlib.LinearAlgebra.Matrix.Charpoly.Basic
-public import Mathlib.LinearAlgebra.Matrix.ToLin
 public import CFSG.LocalAnalysis.StandardType.AlternatingEightCoverSmallModules
 
 public section

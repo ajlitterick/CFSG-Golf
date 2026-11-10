@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434CharThreeL2Tools
 import CFSG.RankThree.PartTwo.Sec5.Tools
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434AltPerm
 
 public section

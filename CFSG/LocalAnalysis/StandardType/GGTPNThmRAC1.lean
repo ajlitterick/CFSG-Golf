@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTPNThmRACore
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrLabels
 
 public section
 

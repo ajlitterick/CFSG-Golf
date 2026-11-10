@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.Q3TIYFinal
 public import CFSG.ClassicalInvolution.Q3.Q3TIYMf1
-public import CFSG.ClassicalInvolution.Q3.Q3TIYRk1
 public import CFSG.ClassicalInvolution.Q3.Q3TIYRk5
 public import CFSG.ClassicalInvolution.Q3.Q3TY6
 

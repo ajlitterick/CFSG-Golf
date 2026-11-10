@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.Steinberg.TwistedE6.Datum
 public import CFSG.LieType.Steinberg.TwistedE6.Generation
-public import CFSG.LieType.Steinberg.Minuscule.BruhatExtras
 public import CFSG.LieType.Steinberg.Minuscule.ChevExtras
 public import CFSG.LieType.CurtisTits.Perfect
 public import CFSG.LieType.TitsSimplicity

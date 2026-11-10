@@ -1,19 +1,9 @@
 module
 
-public import Mathlib
-public import CFSG.GH74.KGroups.Generic
-public import CFSG.GH74.KGroups.Generic9
-public import CFSG.GH74.KGroups.Generic10
 public import CFSG.GH74.KGroups.Generic11
-public import CFSG.GH74.KGroups.Sz8
-public import CFSG.GH74.KGroups.Sz8Tables
 public import CFSG.GH74.KGroups.Sz8D
 public import CFSG.GH74.KGroups.KI5
-public import CFSG.GH74.Uniqueness.SU.KInputs
 import CFSG.Goldschmidt.Steps.GSz8Mult
-import CFSG.Goldschmidt.Steps.G3MFSz8
-public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
-public import Certificates.Kernel.J4Count.KFacts
 
 public section
 

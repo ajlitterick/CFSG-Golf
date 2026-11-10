@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LinearAlgebra.ExtraspecialCyclotomicModule
-public import Mathlib.LinearAlgebra.Dual.Lemmas
-public import Mathlib.Algebra.CharP.Two
 
 public section
 

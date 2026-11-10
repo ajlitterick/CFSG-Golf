@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Basic
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.InvolutionCountInSubgroup
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

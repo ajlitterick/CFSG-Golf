@@ -1,13 +1,9 @@
 module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeLayerFrame
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeModel
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarE8FiveFrameCentralizer
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwFrob
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.SmallQThreeTwE6TwoModel
 public import CFSG.HardMathSupport.Lang.E6Descent.OuterFixed27TwistedE6Normalizer
-public import CFSG.RankThree.PartOne.KF4.A2Frame
-public import CFSG.RankThree.CentralCover.SteinbergBNLinearTorus
 public import CFSG.ClassicalInvolution.WeakCT.StandardPair
 public import CFSG.ClassicalInvolution.WeakCT.TorusAgree
 public import CFSG.HardMathSupport.Lang.E6Descent.OuterFixed27TwistedE6Arith

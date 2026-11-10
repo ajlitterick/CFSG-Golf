@@ -2,15 +2,9 @@ module
 
 public import CFSG.OddTranspositions.FusionStep
 public import CFSG.GroupTheory.SylowOrbitCard
-public import CFSG.Timmesfeld.Basic
-public import Mathlib.NumberTheory.Padics.PadicVal.Basic
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.OddTranspositions.SecondKindCoset
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.Timmesfeld.Moufang.Three
 public import CFSG.Timmesfeld.RankOne
 public import CFSG.Timmesfeld.Special.TwoCore

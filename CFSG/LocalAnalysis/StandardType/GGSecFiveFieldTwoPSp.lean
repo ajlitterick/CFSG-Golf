@@ -9,10 +9,6 @@ public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockModelSelfDu
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockModelSelfDualTwoPSp
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockModelDualPairPSp
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockDegreeOneGFTwo
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.GeoPSpRoot
-public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotTorus
-public import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockSympTypes
-public import CFSG.Quasithin.Vol2.Ch7Prop711Grp
 import all CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIpFPSpCases
 
 public section

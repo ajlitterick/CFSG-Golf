@@ -3,14 +3,8 @@ module
 public import Certificates.Kernel.HSStd.M12FyChecks
 public import CFSG.Certificates.Kernel.LeftOrbSound
 public import CFSG.Certificates.Kernel.GrpWitSound
-public import CFSG.Certificates.Kernel.Spor.HNAOrbSound
-public import Certificates.Kernel.HSStd.PumpU3Glue
 public import Certificates.Kernel.HSStd.PumpH43Glue
-import CFSG.Certificates.Kernel.BfsPinSetSound
-import CFSG.Certificates.Kernel.BfsPinUnpack
-import CFSG.Certificates.Kernel.BfsPinAlg
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import CFSG.Certificates.Kernel.Spor.PackWord
 public import CFSG.Certificates.Kernel.L34InvSound
 public import CFSG.Certificates.Kernel.SporSch.MathieuOCSound
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutCheckBase

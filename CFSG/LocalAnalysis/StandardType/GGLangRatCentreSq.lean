@@ -2,12 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLangRatCentreStmts
 public import CFSG.LocalAnalysis.StandardType.GGLangRatFixedChassis
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleOrbit
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcRoots
 import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcLang
 import CFSG.LocalAnalysis.StandardType.GGLangCoroot
-import CFSG.LieType.Chevalley.OrthogonalUnionBruhat
-import CFSG.LieType.Chevalley.SignKernelSimpleWeyl
 import CFSG.LocalAnalysis.StandardType.GGLangRatCentreFactor
 import CFSG.LocalAnalysis.StandardType.GGLangRatCentreWeyl
 import CFSG.LocalAnalysis.StandardType.GGLangRatCentreSqInner

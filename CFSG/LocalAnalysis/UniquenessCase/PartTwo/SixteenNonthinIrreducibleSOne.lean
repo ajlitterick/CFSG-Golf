@@ -1,18 +1,11 @@
 module
 
-public import CFSG.Assembly.Subnormal
-public import CFSG.LocalAnalysis.ComponentInitial.SylowLocalTransfer
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenListTwoOddRank
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenA7FourExclusion
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC1677ThreeSp6Row
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenEightS1T3InvA
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenG2DerivedRow
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenHatU43Row
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenNonthinNaturalOne
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenOmegaMinusSixFourExclusion
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenOmegaMinusSixNaturalField
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenOrthogonalFieldFourEightNatural
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSLField48
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSLFourFieldEightNaturalRow
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSLFourFieldFourNaturalRow
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSLThreeNaturalField
@@ -25,7 +18,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSmallClassicalDim
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSmallClassicalRank
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSmallUnitarySolvable
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenThreeL34Exclusion
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenThreeL5Conjugates
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenThreeL5S1
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenThreeM22Exclusion
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenTripleA6Row

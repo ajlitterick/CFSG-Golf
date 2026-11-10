@@ -6,7 +6,6 @@ public import Certificates.Kernel.He7222.ClsK
 public import Certificates.Kernel.He7222.InvK
 public import CFSG.Certificates.Kernel.He7222.CoverGrp
 public import CFSG.Certificates.Kernel.He7222.ClassGrp
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.OrbRow.LevelSound
 
 public section

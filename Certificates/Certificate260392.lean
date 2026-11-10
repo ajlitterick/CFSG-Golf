@@ -2,10 +2,8 @@ module
 
 public import Certificates.Data.SmithB45ExcRuData
 import Certificates.Kernel.B45.C260392K
-import Certificates.Data.Kernel.B45Perm.Defs
 import Certificates.Data.SmithB45ExcHSData
 import Certificates.Kernel.LocalQT.SV.C4126T
-import Certificates.Kernel.SporSch.Ru.Gens
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.B45PermSound
 import CFSG.Certificates.Kernel.Spor.RawOrbGrp

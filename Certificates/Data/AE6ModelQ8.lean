@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.AE6ModelSmall
-public import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
 
 public section
 

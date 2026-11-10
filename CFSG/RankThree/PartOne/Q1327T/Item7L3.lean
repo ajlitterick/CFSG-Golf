@@ -1,15 +1,9 @@
 module
 
 public import CFSG.RankThree.PartOne.Q1327T.Item7Block
-public import CFSG.RankThree.PartOne.Q1327T.Item7UBasic
 public import CFSG.RankThree.PartOne.Q1327T.Item7U3
-public import CFSG.RankThree.PartOne.K133.MaxItems
-public import CFSG.RankThree.PartOne.KC.CommonEigenbasis
 public import CFSG.RankThree.PartOne.N143.Inspect613Even
 public import CFSG.RankThree.PartOne.N143X.EvenSmall
-public import CFSG.RankThree.PartOne.KF.F128SU
-public import CFSG.Timmesfeld.Orders.Classical
-public import CFSG.Open.StatedAPI
 
 public section
 

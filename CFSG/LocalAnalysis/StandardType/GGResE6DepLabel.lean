@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGKOnlyE6Normalization
 
 public import CFSG.LocalAnalysis.StandardType.GGResCentBoundNbrConj
 
@@ -10,44 +9,32 @@ public import CFSG.LocalAnalysis.StandardType.GGReflExtE6
 
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeE6ConsumerK
 
-public import CFSG.LocalAnalysis.StandardType.GGTriD4NoneTransport
 
-public import CFSG.LocalAnalysis.StandardType.GGResFixedWeylCentralizer
 
-public import CFSG.LocalAnalysis.StandardType.GGTBJConfigFacts
 
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveNbrBasic
 
 public import CFSG.LocalAnalysis.StandardType.GGResHigherFieldI1
 
-public import Mathlib.LinearAlgebra.Matrix.Nondegenerate
 
 public import CFSG.LocalAnalysis.StandardType.GGResExact2KReverse
 
-public import CFSG.LocalAnalysis.StandardType.GGDepAConfig
 
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
 
 public import CFSG.LocalAnalysis.StandardType.GGResNonsingularBase
 
-public import CFSG.LocalAnalysis.StandardType.GGTBXPlumb
 
 public import CFSG.LocalAnalysis.StandardType.GGTBTorLiftRowsHolds
 
 public import CFSG.LocalAnalysis.StandardType.GGResUnitaryExactTwo
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 
-public import CFSG.LocalAnalysis.StandardType.GGResE6DepLabels
 public import CFSG.LocalAnalysis.StandardType.GGResE6DepFieldK
 public import CFSG.LocalAnalysis.StandardType.GGResE6DepFieldL
 public import CFSG.LocalAnalysis.StandardType.GGResE6DepLabelEq
 public import CFSG.LocalAnalysis.StandardType.GGResSchurDvd
 public import CFSG.LocalAnalysis.StandardType.GGResE6DepJ
-public import CFSG.LocalAnalysis.StandardType.GGTPNNarrow
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 
 public section
 

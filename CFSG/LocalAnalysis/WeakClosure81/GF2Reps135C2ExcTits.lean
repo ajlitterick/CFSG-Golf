@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2ExcCommon
 import CFSG.Quasithin.Background.SmithB45TorTits
-import CFSG.Quasithin.Background.SmithB42Tits
-import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.CharacterTheory.CyclicBlocks.Family

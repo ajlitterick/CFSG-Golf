@@ -2,8 +2,6 @@ module
 
 public import CFSG.RankThree.GF2n.Stroth80.Sec715LayerSplitSigma
 public import CFSG.RankThree.GF2n.Stroth80.Sec715LayerSplitAlg
-public import Mathlib.LinearAlgebra.Dual.Lemmas
-public import Mathlib.Algebra.Module.Submodule.Bilinear
 
 public section
 

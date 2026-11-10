@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma27Infra
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

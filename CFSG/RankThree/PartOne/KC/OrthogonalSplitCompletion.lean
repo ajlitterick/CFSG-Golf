@@ -1,20 +1,8 @@
 module
 
-public import CFSG.RankThree.PartOne.KC.OrthogonalAnchoredSpin
 public import CFSG.RankThree.PartOne.KC.OrthogonalSupportCharts
 public import CFSG.RankThree.PartOne.KC.OrthogonalDeletionSpin
 public import CFSG.RankThree.PartOne.KC.OrthogonalSpinPermutations
-public import CFSG.Timmesfeld.Orders.ClassicalHypSum
-public import CFSG.Permutation.SymmetricCoxeter
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogRigidityFieldNormalForm
-public import CFSG.LieType.Universal.Spin.Twisted.Extras
-public import CFSG.LieType.Universal.SpinOmega.CommutatorEquiv
-public import CFSG.LieType.Steinberg.Presentation
-import CFSG.RankThree.PartOne.S15K.FamilyForms
-import CFSG.GroupTheory.WeirSylow.OrthogonalTori
-import CFSG.ClassicalInvolution.WeakCT.TwistedSpinModel
-import CFSG.LocalAnalysis.SeitzReduction.F4PilotTwistLevi
-import CFSG.Timmesfeld.RankTwo.SimplyLaced
 public import CFSG.ClassicalGroups.Orthogonal.RootGroupNormalizer
 public import CFSG.HardMathSupport.Dickson.Bal207.OrthD4Loc
 public import CFSG.Holt.Fixed

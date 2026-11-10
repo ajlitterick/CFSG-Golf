@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeRhoTLiftComm
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeRhoTKer
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeF4Torus
-public import CFSG.RankThree.PartOne.KF.UnitaryTorus
 
 public section
 

@@ -1,9 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Q3E7MStd
-public import CFSG.ClassicalInvolution.Q3.Q3ExcE7
-public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcOrthAdj
-public import CFSG.ClassicalInvolution.ModelFacts.E7ModelAdjoint
 
 public section
 

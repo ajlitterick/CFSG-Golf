@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLayerCenterCyclicCover
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsSL
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismData
 
 public section
 

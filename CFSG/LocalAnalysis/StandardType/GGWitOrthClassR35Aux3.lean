@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGWitOrthClassR35Aux
 public import CFSG.LocalAnalysis.StandardType.GGCoxeterFaithfulE6Three
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
-public import CFSG.Mathlib.Decide.Bounded
 public import CFSG.LocalAnalysis.StandardType.GGWitOrthClassR35Bridge
 
 public section

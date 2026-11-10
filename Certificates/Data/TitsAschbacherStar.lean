@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Sporadic.Schreier.TitsInvCheckInputs
 public import CFSG.Quasithin.Recognition.RuRank3TitsClsInputs
 
 public section

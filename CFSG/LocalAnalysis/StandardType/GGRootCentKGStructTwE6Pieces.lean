@@ -3,19 +3,9 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGRootCentKGStructND
 public import CFSG.LocalAnalysis.StandardType.GGRootCentKGMarkingSU
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcSixETwisted
-public import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotCentralizerT
-public import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotHR6X
-public import CFSG.LieType.Chevalley.E6GraphFullDiagonalCoset
-public import CFSG.LieType.Chevalley.E6GraphHighestRootNormalizer
-public import CFSG.LieType.Steinberg.Exceptional.Fields
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGSpCent
-import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsBasic
-import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotPerfectT
 import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotQ2Fusion
-import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotNeighbourStandard
 import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotQ2PosCore
-import CFSG.LocalAnalysis.SeitzReduction.HypothesisOneTwistedE6InnerBasic
-import CFSG.LieType.Chevalley.RootCharacterConjugation
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalSixStructure
 import CFSG.LocalAnalysis.ComponentClassification.ExcSelectorEvenTriality
 import CFSG.LocalAnalysis.ComponentClassification.RankTwoHypIIL3Rigid

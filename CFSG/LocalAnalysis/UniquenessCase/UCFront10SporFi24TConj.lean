@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront10SporFi24TCent
 public import CFSG.Sporadic.FischerOddCore.Fi24Block
-public import CFSG.Monster.B.TwoA.Par3.Main
 public import Certificates.Kernel.J4Count.FixZK
 public import CFSG.LocalAnalysis.ComponentInitial.BlockNormalizerControl
 public import Certificates.Kernel.J4Count.FixZKBase

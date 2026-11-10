@@ -1,8 +1,6 @@
 
 module
 
-public import CFSG.Quasithin.Recognition.RuRank3RuIsoDataBase
-public import CFSG.Quasithin.Recognition.RuRank3TitsSyl
 public meta import CFSG.Quasithin.Recognition.RuRank3RuIsoDataBase
 public meta import CFSG.Quasithin.Recognition.RuRank3TitsSyl
 public meta import CFSG.Sporadic.Schreier.RuOrbit

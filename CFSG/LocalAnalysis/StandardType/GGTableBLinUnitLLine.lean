@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLCx
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoTableB
 
 public section
 

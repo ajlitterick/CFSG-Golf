@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.BabyMonster.Facts3102
 public import Certificates.Kernel.BabyMonster.ForallSt
 public import Certificates.Kernel.BabyMonster.Aligned
-public import CFSG.Certificates.Kernel.BabyMonster.DyStab
 
 public section
 

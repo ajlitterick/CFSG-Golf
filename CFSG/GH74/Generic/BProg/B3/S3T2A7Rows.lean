@@ -2,8 +2,6 @@ module
 
 public import CFSG.GH74.Generic.BProg.B3.S3T2A7WS
 public import CFSG.GH74.Generic.BProg.B2.L3Cover
-public import CFSG.GH74.Generic.ClassicalCerts
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.Assembly.CompletedOddCoreElimination
 public import CFSG.GH74.E2.ComponentsShape
 public import CFSG.GH74.GLS.Bg.Iii2.L41Comp

@@ -1,14 +1,10 @@
 module
 
 public import CFSG.ClassicalGroups.Orthogonal.SixPlane.Basic
-public import CFSG.ClassicalGroups.Orthogonal.Derived
 
 import CFSG.LocalAnalysis.StandardType.GGQTwoDL1OAutFix
 import CFSG.LocalAnalysis.StandardType.GGQTwoDGNOrthRefl
-import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowX1OmCSub
 import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowX1OmCType
-import CFSG.GroupTheory.WeirSylow.OrthogonalModels
-import CFSG.RankThree.Literature.FSmithOrthogonal
 public import CFSG.RankThree.Classical2.OrthogonalIsotropicUnipotent
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LargeExtraspecial.OrthoF2SpRadical
@@ -23,7 +19,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
 public import CFSG.LocalAnalysis.SectionRank.SignLines
 public import CFSG.RankThree.GroupTheory.ClassTwoThree
 public import CFSG.RankThree.OrthogonalInvolutions.SuzukiTypes
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Utils
 
 public section
 

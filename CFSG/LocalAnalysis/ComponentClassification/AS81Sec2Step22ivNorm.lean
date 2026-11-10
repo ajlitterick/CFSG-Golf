@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec2Step22ivStd
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec2Step22ivGold
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoAltHypII
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicActionHom
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 public import CFSG.Permutation.AlternatingAutomorphism
 
 public section

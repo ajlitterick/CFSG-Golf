@@ -1,14 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4LabelH1
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 public import CFSG.LocalAnalysis.StandardType.GGRealKGFiveClassical
-public import CFSG.LocalAnalysis.StandardType.GGRealQFour
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJA2OfKGCent
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJA2PhanDOfEsu
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowSA
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNSCornerMain
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 
 public section
 

@@ -12,7 +12,6 @@ public meta import CFSG.RankThree.Native.PermEnumeration
 public meta import CFSG.Monster.B.Mathieu.SylowCore
 public meta import Certificates.Data.CFSGNative.Schreier.Enum3
 public meta import Mathlib.GroupTheory.Schreier
-public import Mathlib.GroupTheory.Schreier
 
 public section
 

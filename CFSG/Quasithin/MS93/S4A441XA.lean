@@ -2,11 +2,8 @@ module
 
 public import CFSG.Quasithin.MS93.S4A441XS
 public import CFSG.Quasithin.MS93.S4A441D
-import CFSG.Quasithin.MS93.S46Gen
 import CFSG.Quasithin.MS93.S46I463
-import CFSG.Quasithin.MS93.S46Ker
 import CFSG.Quasithin.MS93.S4A432F
-import CFSG.Quasithin.MS93.S4A42Coc
 import CFSG.Quasithin.MS93.S45Vtx
 import CFSG.Quasithin.Background.HConj
 import CFSG.Quasithin.Background.SmithB51SL3A

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyBruhat
-public import CFSG.LieType.Chevalley.KernelComponentRoots
 public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyCover
 
 public section

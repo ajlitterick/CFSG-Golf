@@ -3,8 +3,6 @@ module
 public import CFSG.RankThree.PartTwo.Sec4.Item419Res2ProofTools
 import CFSG.RankThree.PartTwo.Sec4.Item419Res2ProofCensus
 public import Certificates.Kernel.ThCent.Leaves
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Foundations
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.GroupTheory.LocalCores.Fitting
@@ -13,7 +11,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups
 public import CFSG.LocalAnalysis.ComponentInitial.SuzukiModelSchreier
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.TitsGen
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure
@@ -24,7 +21,6 @@ public import CFSG.RankThree.PartTwo.Sec4.Item4Res3Proof419
 public import CFSG.RankThree.PartTwo.Sec8.Pairs
 public import CFSG.RankThree.PartTwo.Sec8.Statements
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import Certificates.Kernel.SporSch.Th.Orb2315
 import Certificates.Kernel.SporSch.Th.Plane2320
 

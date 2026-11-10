@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6RootKillDefs
-import CFSG.LieType.Chevalley.OddDiagramFrobeniusFixedDerived
-import Mathlib.FieldTheory.Finite.Extension
 
 public section
 

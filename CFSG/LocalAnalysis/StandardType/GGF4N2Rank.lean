@@ -1,22 +1,13 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourInputs
-public import CFSG.LocalAnalysis.StandardType.GGTableBTransport
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeProp1010
-public import CFSG.LocalAnalysis.StandardType.GGInnLocalDefs
-public import CFSG.Timmesfeld.Orders.ClassicalOmega
-public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerMinus
-public import CFSG.Fischer.Aut.TwoPower
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs2711c
 public import CFSG.RankThree.PartOne.K159.InnLayer
 public import CFSG.GroupTheory.SupCommute
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusLiftSLBlocks
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveNbr
-public import CFSG.LocalAnalysis.StandardType.GGTableBRank
 public import CFSG.GroupTheory.AllPSubgroupsIsCyclicOfPRankLeOne
-public import CFSG.Adapters.SpecialLinearPerfect
-public import CFSG.LocalAnalysis.ComponentInitial.LinearModelOuterTwoPart
 public import CFSG.ClassicalInvolution.ModelFacts.UnitaryAutLift
 public import CFSG.GroupTheory.PComponentCentralRank
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.Transfer

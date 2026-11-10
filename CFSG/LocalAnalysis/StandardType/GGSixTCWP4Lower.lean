@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.TableC.HypDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcTorus
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Three
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylExcPlusLift
-public import CFSG.LocalAnalysis.StandardType.MarkingChevalley
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 
 public section
 

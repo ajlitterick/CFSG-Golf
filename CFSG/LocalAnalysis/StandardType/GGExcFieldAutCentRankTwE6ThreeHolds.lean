@@ -1,19 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGExcFieldAutCentRankTwE6
 public import CFSG.LocalAnalysis.StandardType.GGOrdPFieldConjAtExc
-public import CFSG.LocalAnalysis.StandardType.GGTwE6FieldDescent
-public import CFSG.LocalAnalysis.StandardType.GGTwInndiagRootBridge
-public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeLift
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeToral
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarNormalizerAutInduces
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcSixETwisted
-public import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpStdE6Core
-public import CFSG.LocalAnalysis.StandardType.GGRootDetectTwE6Torus
-public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerExcModel
-public import CFSG.LocalAnalysis.StandardType.GGExcFieldRankTwE6
-public import CFSG.LieType.SeitzGeneration.TwE6SubfieldInndiag
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeTwField
 
 public section
 

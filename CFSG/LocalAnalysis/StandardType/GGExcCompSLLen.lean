@@ -6,17 +6,11 @@ import CFSG.LocalAnalysis.StandardType.GGExcCompSLInner
 import CFSG.LocalAnalysis.StandardType.GGExcCompSLOuter
 import CFSG.LocalAnalysis.StandardType.GGExcCompSLRankFour
 import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompIdxExc2
-import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcE8Rank1
-import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcA2Generic
 import CFSG.ClassicalInvolution.Q3.Q3TWWMinus
-import CFSG.HardMathSupport.Dickson.Sec6.I1431Lie
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CompsPD4Rank4
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CompsPD4Rank4All
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TriD4
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TwE6
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.D4Graph.Transfer
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeDiag
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.PlanesSetup
 import CFSG.LocalAnalysis.SeitzReduction.F4PilotMainGraphOmegaPlusIota
 import CFSG.LocalAnalysis.SeitzReduction.F4PilotMainGraphUnitaryNormal
 import CFSG.LocalAnalysis.SeitzReduction.LinearPilotQ2RowNeighbour
@@ -38,12 +32,8 @@ import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotQ2RowOmegaClass
 import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotQ2RowOmegaUnitaryRows
 import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotQ2RowUnitaryCover
 import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotInvolutionTwoPartEvenInner
-import CFSG.RankThree.Lattice.SteinbergBIE6EvenBruhat
-import CFSG.RankThree.Lattice.SteinbergBIE6OrderThreeTools
-import CFSG.RankThree.Lattice.SteinbergBIE6Qplus
 import CFSG.RankThree.PartOne.KEXC.Basic
 import CFSG.RankThree.PartOne.TCX.Ree.Perm
-import CFSG.RankThree.PartTwo.Sec8.Item87Proof84
 
 public section
 

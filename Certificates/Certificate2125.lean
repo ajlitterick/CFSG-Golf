@@ -5,9 +5,6 @@ public meta import CFSG.Sporadic.ONOddCore.NonextPayload
 public meta import CFSG.Sporadic.ONOddCore.LiftHomCheck
 public meta import CFSG.Sporadic.Schreier.ONCheckR3E
 import Certificates.Kernel.Sporadic.OddCore.ON2125
-import Certificates.Certificate2212
-import Certificates.Certificate2217
-import Certificates.Certificate3171
 
 public section
 

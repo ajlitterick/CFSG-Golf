@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKFlagCore
-public import CFSG.LieType.Universal.Spin.Generation.Eichler
-public import CFSG.ClassicalGroups.Orthogonal.Eichler
 
 public section
 

@@ -1,8 +1,6 @@
 
 module
 
-public import CFSG.Sporadic.HNSchreier.SeedsCheck
-public import CFSG.Sporadic.HNSchreier.LocalCheckBase
 public meta import CFSG.Sporadic.HNSchreier.SeedsCheck
 public meta import CFSG.Sporadic.HNSchreier.LocalCheckBase
 public import CFSG.Sporadic.HNSchreier.InvolCheckInputs

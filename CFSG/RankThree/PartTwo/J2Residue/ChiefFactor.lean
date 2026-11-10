@@ -4,21 +4,8 @@ public import CFSG.GroupTheory.ABGLocalTools.PStabilityChief
 public import CFSG.Open.LocalVocabulary
 import CFSG.GroupTheory.ChiefFactorScalar
 import CFSG.GroupTheory.PerfectChiefStability
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Centralizer
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Frattini.CoprimeAction
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConj
 import CFSG.LieType.BorelTits.Basic
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import Mathlib.Algebra.CharP.Lemmas
-import Mathlib.Algebra.Group.Action.Defs
-import Mathlib.Algebra.Ring.Basic
-import Mathlib.FieldTheory.IsAlgClosed.Basic
-import Mathlib.LinearAlgebra.Determinant
-import Mathlib.LinearAlgebra.Dimension.Constructions
-import Mathlib.LinearAlgebra.Dual.Lemmas
-import Mathlib.LinearAlgebra.Quotient.Basic
-import Mathlib.LinearAlgebra.TensorProduct.Tower
-import Mathlib.RingTheory.TensorProduct.Finite
 
 public section
 

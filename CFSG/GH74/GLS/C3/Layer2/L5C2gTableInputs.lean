@@ -3,7 +3,6 @@ module
 
 public import CFSG.GH74.GLS.C3.Layer2.L5C2gTableInputsBase
 
-public import CFSG.GH74.GLS.C3.Layer2.L5C2e
 public meta import Mathlib.GroupTheory.SpecificGroups.Alternating
 public meta import CFSG.GH74.GLS.C3.Prop121.ModelFive
 public meta import CFSG.GH74.GLS.C3.Prop121.ModelFiveS
@@ -21,17 +20,9 @@ public meta import CFSG.GH74.GLS.C3.Layer2.L5C2b
 public meta import CFSG.GH74.GLS.C3.Layer2.L5C2c
 public meta import CFSG.GH74.GLS.C3.Layer2.L5C2d
 public meta import CFSG.GH74.GLS.C3.Layer2.L5C2e
-public import CFSG.GH74.GLS.C3.Layer2.L5C2gInputs
 public meta import CFSG.GH74.GLS.C3.Layer2.L5C2gInputs
-public import CFSG.GH74.GLS.C3.Layer2.L5C2gListInputs
 public meta import CFSG.GH74.GLS.C3.Layer2.L5C2gListInputs
-public import CFSG.GH74.GLS.C3.Layer2.L5Fin
-public import CFSG.GH74.GLS.C3.Layer2.L5A1Inputs
-public import CFSG.GH74.GLS.C3.Layer2.L5B2
-public import CFSG.GH74.GLS.C3.Layer2.FinModelEnum
-public import CFSG.GH74.GLS.C3.Layer2.L5C0Inputs
 public import Certificates.Certificate5143
-public import Certificates.Certificate5051Base
 
 public section
 

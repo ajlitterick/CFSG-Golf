@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.WeakClosure81.EightThirteenPGapF4Data
-public import CFSG.LocalAnalysis.ComponentInitial.LinearFlagData
-import CFSG.LocalAnalysis.ComponentInitial.LinearHigherSylowNormalizer
-import CFSG.LocalAnalysis.ComponentInitial.SmallLinearIsomorphisms
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22d
 import CFSG.GroupTheory.AlternatingFive.SylowTwo
 public import CFSG.CGT.Timmesfeld75.Cfg214Gen

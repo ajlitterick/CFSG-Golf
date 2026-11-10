@@ -4,11 +4,9 @@ public import CFSG.LocalAnalysis.StandardType.GGTBJE6ThreeCore
 public import CFSG.LocalAnalysis.StandardType.GGTBJE6ThreeTransfer
 public import CFSG.LocalAnalysis.StandardType.GGTBJE6ThreeInstance
 public import CFSG.LocalAnalysis.StandardType.GGE6D4LocalDatum
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeIndepDatumOfTor
 public import CFSG.LocalAnalysis.StandardType.GGTBJE6ThreeRow
 public import CFSG.LocalAnalysis.StandardType.GGTBE6
 public import CFSG.LocalAnalysis.StandardType.GGTBTorLiftRowsHolds
-public import CFSG.LocalAnalysis.StandardType.GGTBXPlumb
 
 public section
 

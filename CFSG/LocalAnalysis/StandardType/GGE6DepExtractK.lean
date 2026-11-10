@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGE6DepKDefs
 public import CFSG.LocalAnalysis.StandardType.GGE6DepKRefl
-public import CFSG.LocalAnalysis.StandardType.GGE6DepModelRefl36
 public import CFSG.LocalAnalysis.StandardType.GGE6DepStdFrame
 
 public section

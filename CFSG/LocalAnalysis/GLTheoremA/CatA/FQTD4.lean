@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FQOrd
 public import CFSG.HardMathSupport.Lang.Coordinator.OuterFixedOrderTriality
-public import CFSG.LocalAnalysis.StandardType.MarkingChevalley
-public import CFSG.LocalAnalysis.SeitzReduction.F4PilotCatEvenExcOrders
 
 public noncomputable section
 

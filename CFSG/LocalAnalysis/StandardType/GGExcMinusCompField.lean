@@ -1,35 +1,16 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGExcCompFieldInput
-public import CFSG.LocalAnalysis.StandardType.GGInnLocalDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcBasic
 import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitExcPlusLarge
 import CFSG.LocalAnalysis.StandardType.GGPhiTwoRootGenFrame
 import CFSG.LocalAnalysis.StandardType.GGTorusGenExcTwoBase
-import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesCore
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTorus
 import CFSG.LocalAnalysis.StandardType.GGLangRatCompC
 import CFSG.LocalAnalysis.StandardType.GGLangRatCompFieldLen
 import CFSG.LocalAnalysis.StandardType.GGA6GlueTransport
-import CFSG.LocalAnalysis.ComponentClassification.ExcSelectorOddToral
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Defs
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.TorusAtCore
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.TorusAtUntw
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.TwistedE6Base
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.FrobeniusOnRoots
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcRoots
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExcD4
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwE7Model
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwE8Model
-import CFSG.LieType.Chevalley.SingleEdgePerfect
-import CFSG.Blueprint.ChevalleyRoots
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyReflInner
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUElt
-import CFSG.LocalAnalysis.StandardType.GGTableBTypeAEndModel
 import CFSG.LocalAnalysis.StandardType.GGKGAF4Core
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLine
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLineE7
-import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwReduction
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwTorus
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcVacuous

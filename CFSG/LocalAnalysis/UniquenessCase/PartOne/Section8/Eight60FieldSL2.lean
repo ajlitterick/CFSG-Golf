@@ -4,7 +4,6 @@ public import CFSG.Open.StatedDefs
 public import CFSG.GroupTheory.ABGLocalTools.Basic
 import CFSG.Open.StatedAPI
 import CFSG.LocalAnalysis.SectionRank.OddCover.CubicCyclic
-import Mathlib.GroupTheory.PGroup
 
 public section
 

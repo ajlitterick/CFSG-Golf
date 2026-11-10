@@ -2,12 +2,7 @@ module
 
 public import CFSG.HardMathSupport.Dickson.Sec6.I923Fam.E6Aux.Diag
 public import CFSG.HardMathSupport.Lang.Coordinator.OuterFixedOrderTwistedE6Diag
-public import CFSG.LieType.Chevalley.TwistedE6NormalForm
-public import CFSG.ClassicalInvolution.Orders.Twisted
-public import CFSG.RankThree.PartOne.TCX.Tri.TorusCentral
 public import Certificates.Kernel.ThCent.Leaves
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Certificates.WordSubgroupRel
 public import CFSG.Foundations
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcField
@@ -51,7 +46,6 @@ public import CFSG.Monster.B.TwoA.Amalgam.Data
 public import CFSG.Monster.B.TwoA.Sp8.Par1
 public import CFSG.Monster.B.TwoA.Unitary.LinThree
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.A3Structure36BAction
 public import CFSG.Quasithin.Background.A3Structure36BBasic
 public import CFSG.Quasithin.Background.A3Structure36BPrime
@@ -68,11 +62,9 @@ public import CFSG.RankThree.PartOne.S10.ThetaContract
 public import CFSG.RankThree.PartOne.S8.Statements
 public import CFSG.RankThree.PerfectCover.HopfCentralCoversFinite
 public import CFSG.RankThree.Theta.ThreeComponentOrbitCover
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Presentation.Common
 public import CFSG.Sporadic.SmallOddCore.CheckSpec
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.YGroups.Y322Central
 
 public section

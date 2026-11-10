@@ -9,7 +9,6 @@ import CFSG.RankThree.PartTwo.Sec13.Item134SylowBarT
 import CFSG.RankThree.PartTwo.Sec13.Item137Tools
 import CFSG.RankThree.PartTwo.Sec5.Tools
 import CFSG.RankThree.Coprime.ThompsonElementaryComplement
-import CFSG.LocalAnalysis.RankThreeEvenClassification.CoprimeFactorization
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.RankThree.Asc83Table.Automizer
@@ -26,7 +25,6 @@ import CFSG.RankThree.PartTwo.Sec5.Hyp
 import CFSG.Sporadic.J2
 import CFSG.Sporadic.Schreier.MathieuOddCoreModel
 import CFSG.Sporadic.Schreier.MathieuOddCoreWords
-import CFSG.Sporadic.Th.F2Spec
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
 
 public section

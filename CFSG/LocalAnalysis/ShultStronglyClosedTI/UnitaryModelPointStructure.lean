@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
 public import CFSG.StronglyEmbedded.BenderUnitaryBorel
 import CFSG.Models.BenderSuzuki
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Lemma83
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Cardinalities
 
 public noncomputable section
 

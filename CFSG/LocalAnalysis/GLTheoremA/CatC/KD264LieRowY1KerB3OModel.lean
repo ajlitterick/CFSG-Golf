@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowY1KerB3OGeom
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowY1KerD4MModel
-public import CFSG.LieType.Universal.Spin.Forms
 
 public section
 

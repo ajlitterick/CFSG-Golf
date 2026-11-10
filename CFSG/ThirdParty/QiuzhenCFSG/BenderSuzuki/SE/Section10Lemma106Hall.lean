@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section10Lemma106
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.II1Section4
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section10Proposition102Support
 

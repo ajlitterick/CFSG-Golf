@@ -1,9 +1,7 @@
 module
 
 public import Certificates.Kernel.Misc.Perm.CharsCat
-public import Certificates.Kernel.Misc.Perm.HexCmd
 public import Certificates.Kernel.Sporadic.OddCore.MNK
-public import Certificates.Data.Kernel.Spor.Chain
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.FFSporadic.McLCheck
 meta import CFSG.HardMathSupport.Cooperstein.Coordinator.FFSporadic.McLCheck
 import CFSG.Certificates.Kernel.Common.Harness

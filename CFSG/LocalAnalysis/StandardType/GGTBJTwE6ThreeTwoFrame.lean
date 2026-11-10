@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6ThreeFrameA
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6ThreeClassA
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6ThreeKer
-public import CFSG.LocalAnalysis.StandardType.GGTBJE6ThreeWeyl
-public import CFSG.LieType.Steinberg.CentralExt.TwistedE6Center
-public import CFSG.LocalAnalysis.SeitzReduction.F4PilotCTGraphTwisted
 
 public section
 

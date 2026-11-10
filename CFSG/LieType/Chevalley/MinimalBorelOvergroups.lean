@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LieType.Chevalley.BorelOvergroups
-public import CFSG.LieType.Chevalley.RankOneBruhat
 public import CFSG.LieType.Chevalley.RankOneCentralImage
-public import CFSG.LieType.Chevalley.OppositeBorel
 public import CFSG.LieType.Chevalley.ParabolicWeylStabilizer
 
 public noncomputable section

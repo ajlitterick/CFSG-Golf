@@ -1,8 +1,6 @@
 module
 
 public import CFSG.GH74.KGroups.L3EpsBlockLin
-public import CFSG.GH74.KGroups.L3EpsCenter
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Projective
 import CFSG.LocalAnalysis.ComponentInitial.SteinbergBUProjectivePlaneCoprimeCentral
 public import CFSG.GH74.KGroups.L3EpsNoNormalThree
 public import CFSG.GH74.KGroups.L3EpsOutExp
@@ -10,7 +8,6 @@ public import CFSG.GH74.KGroups.L3EpsOuterLin
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBLinearDescentFixedBasis
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalSixStructure
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherScalarSquareSplit
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 import CFSG.Walter.Defs
 
 public section

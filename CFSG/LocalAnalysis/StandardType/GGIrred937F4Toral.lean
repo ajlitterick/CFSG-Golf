@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGIrred937F4Count
 public import CFSG.LocalAnalysis.StandardType.GGIrred937ExcLang
-public import CFSG.LocalAnalysis.StandardType.GGIrred937Lattice
-public import CFSG.RankThree.Chevalley.SteinbergCAF4SplitPrimeTorus
 
 public section
 

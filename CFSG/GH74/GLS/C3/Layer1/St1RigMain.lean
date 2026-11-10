@@ -1,13 +1,8 @@
 module
 
-public import CFSG.GH74.GLS.C3.Layer1.St1RigDiag3
 public import CFSG.GH74.GLS.C3.Layer1.St1RigTwoGrp
 public import CFSG.GH74.GLS.C3.Layer1.St1RigStep4
 public import CFSG.GH74.GLS.C3.Layer1.St1P41L42
-public import CFSG.GH74.GLS.TwoThin.Rank
-public import CFSG.GH74.GLS.Stage1.Thm2.Recip.Gen
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCorrSwapRank
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

@@ -4,7 +4,6 @@ public import CFSG.GH74.KGroups.A5
 public import CFSG.LocalAnalysis.GLTheoremA.PartI.LevelSporTh5
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.YS1011I1416SporS
 public import CFSG.Milestones.CAT_native_realization
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TriA2Minus
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KDL227
 public import CFSG.LocalAnalysis.GLTheoremA.PartI.LevelSporHN
 

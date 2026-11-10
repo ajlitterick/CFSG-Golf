@@ -2,14 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowX1OmCFrame
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowX1OmTransport
-public import CFSG.RankThree.Classical2.OrthogonalIsotropicUnipotent
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264Parts
 public import CFSG.LocalAnalysis.GLTheoremA.S10.Bridge
 public import CFSG.LocalAnalysis.GLTheoremA.S10.Inputs105
 public import CFSG.LocalAnalysis.GLTheoremA.S10.InputsBeta
 public import CFSG.LocalAnalysis.GLTheoremA.S11.Defs
-public import CFSG.LocalAnalysis.GLTheoremA.S3.Inputs
-public import CFSG.LocalAnalysis.GLTheoremA.S4.Inputs
 public import CFSG.LocalAnalysis.GLTheoremA.S4S.I145GW
 public import CFSG.LocalAnalysis.GLTheoremA.S4S.KData
 public import CFSG.LocalAnalysis.GLTheoremA.S9.Inputs

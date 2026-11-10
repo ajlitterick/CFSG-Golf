@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTWRowGenDefs
-public import CFSG.LocalAnalysis.StandardType.GGResXDatumARank
 public import CFSG.LocalAnalysis.StandardType.GGResXDatumAHL
 
 public section

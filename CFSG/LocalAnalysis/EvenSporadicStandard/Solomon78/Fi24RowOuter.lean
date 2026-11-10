@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.Fi24RowEdgeY
 public import CFSG.Sporadic.FischerOddCore.FischerOuterFi24
-public import CFSG.Sporadic.FischerOddCore.Fi24Cent
 public import CFSG.Sporadic.FischerOddCore.Fi24AlmostSimple
 public import CFSG.Sporadic.FischerOddCore.Fi24R2CompBase
 public import CFSG.Sporadic.FischerOddCore.FischerOuterBasic

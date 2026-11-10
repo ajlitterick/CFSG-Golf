@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.In23ExamKFusio
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicMathieu
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.In23ExamKM24Inputs
 import Certificates.Kernel.LocalQT.Base.C4072
-import Certificates.Kernel.LocalQT.Base.C4072Check
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.GroupTheory.PerfectResidualNodes
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBSymplecticTwoKernel
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
@@ -28,9 +26,6 @@ public import CFSG.Quasithin.Background.A3Structure312
 public import CFSG.Quasithin.Background.OrderingMax
 public import CFSG.Quasithin.Vol2.Ch1Local
 public import CFSG.Sporadic.Schreier.J4SSylow
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
 public import CFSG.Walter.Defs
 public import Certificates.Certificate8026Base
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRealKGThreeUDvd
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnit63Main
 public import CFSG.LocalAnalysis.StandardType.GGNbrU63
 
 public section

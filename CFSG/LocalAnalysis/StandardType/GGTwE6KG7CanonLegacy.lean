@@ -2,7 +2,6 @@ module
 
 public import CFSG.Assembly.LargeEvenDefs
 import CFSG.LocalAnalysis.StandardType.GGRawAutRestSmall
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExc
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.TitsGen
 public import CFSG.Perm.ChainSpec
 

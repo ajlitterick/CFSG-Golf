@@ -3,8 +3,6 @@ module
 public import CFSG.ClassicalInvolution.ModelFacts.TG3Small
 public import CFSG.ClassicalInvolution.ModelFacts.TG3SmallSUGen
 public import CFSG.ClassicalInvolution.Asc77.WP3SCURank
-public import CFSG.ClassicalInvolution.RouteD.TypeULocal
-public import CFSG.ClassicalInvolution.Uniform.U5Model
 public import CFSG.ClassicalInvolution.Asc77.WP3ChainVRank3
 public import CFSG.ClassicalInvolution.Asc77.WP3ChainVToral
 public import CFSG.ClassicalInvolution.Asc77.WP3SCUBGU

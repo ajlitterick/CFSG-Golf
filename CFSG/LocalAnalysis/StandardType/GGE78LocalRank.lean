@@ -2,12 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGB36Defs
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixSevenA3ExcRank
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcBasic
 public import CFSG.HardMathSupport.Meierfrankenfeld.Proving.E7Curtis.E7Arith
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.CurtisExc.E8Arith
 public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonInnBridge
-public import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
-public import CFSG.LieType.Simplicity.Exceptional
 public import CFSG.GH74.GLS.IVK.Proofs2.OddTools
 public import CFSG.GH74.GLS.Stage2.Local.P34Main
 public import CFSG.GH74.GLS.Stage2.Local.P34S5A

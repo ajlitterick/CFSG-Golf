@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1Defs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1WeylE
 public import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofRefl
 

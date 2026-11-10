@@ -2,10 +2,7 @@ module
 
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.PlanesToralWeyl
 public import CFSG.LieType.AlgebraicGroups.ToralRootCover
-public import CFSG.LieType.Chevalley.ToralCentralizerQuotient
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeBlock
-import CFSG.HardMathSupport.Timmesfeld.Steinberg.ThreeChar
-import CFSG.HardMathSupport.Timmesfeld.Steinberg.ThreeCharStabilizer
 import CFSG.LieType.Chevalley.C2E6UnitaryFourImages
 import CFSG.RankThree.Classical2.TwistedE6Phi3A2Case
 import CFSG.RankThree.PartOne.KLCE.Sector

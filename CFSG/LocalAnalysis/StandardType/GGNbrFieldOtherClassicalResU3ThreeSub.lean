@@ -2,14 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalResU3ThreeSolv
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalCoreLine
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeThree
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryDvdTorality
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryDvdCodimOne
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeLift
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHypCentral
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T156GUniMat
-public import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
-import CFSG.RankThree.PartOne.S15K.CentralCover
 
 public section
 

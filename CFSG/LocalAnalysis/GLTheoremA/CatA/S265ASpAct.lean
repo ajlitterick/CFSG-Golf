@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265BAct
-public import CFSG.Open.StatedDefs
 import CFSG.GroupTheory.PLayer.Transport
-import CFSG.LieType.Universal.Symplectic
 import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs273d2
-import CFSG.Open.StatedAPI
 public import CFSG.LieType.Multipliers.U62Sylow
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanChevOuterD42Spec
 public import CFSG.LocalAnalysis.ComponentClassification.Foote5CoreEven

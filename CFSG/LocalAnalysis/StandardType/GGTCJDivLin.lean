@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTCJDivDefs
-public import CFSG.Assembly.Subnormal
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinPRed
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinDict
 public import CFSG.Assembly.OpenBridges

@@ -8,7 +8,6 @@ public import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.ClassOdd
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.EvenClass
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.G2Pair
 public import CFSG.RankThree.PartOne.CTP.StrongPG2
-public import CFSG.LieType.SeitzGeneration.ExcHighThree.KillsRootGroup
 public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcE8Rank1
 public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcA2Generic
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4TorusFrame
@@ -43,11 +42,8 @@ public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.SporCaseThreeGen
 public import CFSG.LocalAnalysis.GL83PartI.I_22_5.Setup
 public import CFSG.Quasithin.Background.B216Quotient
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.Quasithin.Background.E3OffenderB
 public import CFSG.Quasithin.EmptyFaithful.S14117
-public import CFSG.Quasithin.EmptyFaithful.S14117Coprime
-public import CFSG.Quasithin.EmptyFaithful.S14117Rank
 public import CFSG.Quasithin.EmptyFaithful.S152N11
 public import CFSG.Quasithin.Vol2.Ch12Sec8NonabHatTen
 public import CFSG.RankThree.Chevalley.SteinbergBNNoninnerComponentNodes

@@ -9,7 +9,6 @@ import CFSG.GH74.GLS.AssemblyComponents
 import CFSG.HardMathSupport.Solomon.Proving.GLBCoreNormalizer
 import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.GroupTheory.LocalCores.Components
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 
 public section

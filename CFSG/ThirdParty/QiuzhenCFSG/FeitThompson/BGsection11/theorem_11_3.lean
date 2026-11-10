@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection11.corollary_11_2_b
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.Remaining
 import Mathlib.GroupTheory.Schreier
 
 namespace CFSG

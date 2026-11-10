@@ -1,13 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitDelete
-public import CFSG.Assembly.LargeEvenDefs
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitDeleteStdA
-import CFSG.ClassicalInvolution.Balance.LayerGenerationTransport
 import CFSG.GroupTheory.QuasisimpleCommutingProductBound
-import CFSG.LocalAnalysis.ComponentInitial.DerivedFixedLayer
-import CFSG.LocalAnalysis.StandardType.GGNbrBalance
-import CFSG.LocalAnalysis.StandardType.GGQTwoSUOrder
 import CFSG.LocalAnalysis.StandardType.GGIOneRestFiveRoot
 
 public section

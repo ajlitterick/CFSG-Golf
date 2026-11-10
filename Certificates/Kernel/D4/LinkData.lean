@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434D42LinkCheck
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.SporSch.Th.GenV4
 public meta import CFSG.RankThree.PartTwo.Sec4.T444.Item434D42LinkCheck
 public meta import CFSG.RankThree.PartOne.KS.PKit

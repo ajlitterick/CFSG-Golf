@@ -1,13 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJNoB2derA1
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.SympInnerExport
-public import CFSG.RankThree.PartOne.KC.SymplecticInnerPlaneFixed
 public import CFSG.LocalAnalysis.StandardType.GGQTwoSymplecticComponent
 public import CFSG.LocalAnalysis.StandardType.GGQTwoSymplecticComponentBounds
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OSpThreeFixed2
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1431cLieEightSpGood
-public import CFSG.LieType.CurtisTits.Recognition
 
 private theorem sympA6_su_not_a6 {m q : ℕ} {E : Type} [Field E] [Fintype E]
     (hcard : Fintype.card E = q ^ 2) (hm : 3 ≤ m)

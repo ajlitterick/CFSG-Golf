@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264Co13Gen
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264Co13ThreeB
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264SporCo15
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co1Three
 public import Certificates.Certificate10146
 
 public section

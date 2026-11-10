@@ -1,8 +1,6 @@
 module
 
 public import Certificates.Kernel.LocalComp.L34Para.Data
-public import Certificates.Kernel.LocalComp.L34SData
-public import Certificates.Kernel.LocalComp.L34RData
 public import Certificates.Data.Kernel.L34Field
 import CFSG.Certificates.Kernel.Common.Harness
 

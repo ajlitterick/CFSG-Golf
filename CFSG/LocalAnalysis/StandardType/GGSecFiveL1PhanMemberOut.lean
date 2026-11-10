@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveL1SolvDefs
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A3NativeSchreier
 public import CFSG.LocalAnalysis.ComponentInitial.KProperOddCoreFreeLayer
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueRelativeBMinimal
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoSplit
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeBasic
 public import CFSG.LocalAnalysis.SectionRank.SectionAssembly

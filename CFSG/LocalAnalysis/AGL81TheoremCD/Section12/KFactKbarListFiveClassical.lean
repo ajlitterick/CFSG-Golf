@@ -8,7 +8,6 @@ import CFSG.RankThree.PartTwo.Sec4.Item413AutGen
 import CFSG.RankThree.PartTwo.Sec6.BThreeCensusSp4Odd
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.KInputs811K1Lin
 import CFSG.Adapters.LieModelSimple
-import CFSG.Adapters.ProjectiveSpecialLinear
 public import CFSG.CGT.PushingUpLit.BHS.NaturalDefs
 public import CFSG.CGT.PushingUpLit.BHS.SymNatDefs
 public import CFSG.CGT.Timmesfeld75.Statements

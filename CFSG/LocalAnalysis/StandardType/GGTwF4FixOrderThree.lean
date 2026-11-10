@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGL45FixA2Comp
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45FieldFixReeMark
 public import CFSG.RankThree.PartTwo.Sec8.Item8KFacts2ProofReeConj
-public import CFSG.LieType.Ree.LargeReeCenterTrivial
 public import CFSG.HardMathSupport.Dickson.SuzukiReeB.Helpers
 public import CFSG.HardMathSupport.Solomon.Coordinator.B3FamPC
 public import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma28

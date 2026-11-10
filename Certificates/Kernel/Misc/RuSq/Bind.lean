@@ -3,8 +3,6 @@ module
 public import Certificates.Kernel.Misc.RuSq.Chain
 public import Certificates.Kernel.Misc.TextBlocks
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.NormNum
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.Spor.TextAtSound
 
 public section

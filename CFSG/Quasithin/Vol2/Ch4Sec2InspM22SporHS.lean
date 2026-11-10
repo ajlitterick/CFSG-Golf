@@ -1,14 +1,7 @@
 module
 
-public import CFSG.Blueprint.NativeSporadic
-public import CFSG.Sporadic.Schreier.MathieuOddCoreCentral
-public import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
 public import CFSG.Sporadic.Schreier.MathieuOddCoreTransport
-public import CFSG.Sporadic.Schreier.PairHSFaithful
-public import CFSG.Sporadic.Schreier.PairMcLFaithful
-public import CFSG.Sporadic.SmallOddCore.HS
 public import CFSG.Sporadic.SmallOddCore.HSAut
-public import CFSG.Sporadic.SmallOddCore.McL
 public import CFSG.Sporadic.SmallOddCore.McLAut
 public import CFSG.Sporadic.Schreier.MathieuOddCoreModel
 

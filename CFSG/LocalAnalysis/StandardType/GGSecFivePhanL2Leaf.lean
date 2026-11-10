@@ -1,13 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePrimDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanWeylTriple
 import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
 import CFSG.LocalAnalysis.StandardType.GGSpJoinBstarSplit
-import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylRest5
 import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyDichotomy
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanCount
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 
 public section
 

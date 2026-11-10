@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08RoNSU
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08RoNDiag
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoSixPermAux
-public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitarySemi
 
 public section
 

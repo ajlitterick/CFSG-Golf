@@ -2,12 +2,8 @@ module
 
 import Lean
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosDefs
-public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitaryMat
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeInner
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUModel
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosRankAux3
-import CFSG.GroupTheory.ElementaryAbelianTransport
-import CFSG.Assembly.GL83LieDefs
 import CFSG.Walter.Bender1970.S3.CoreExchangeTools
 import CFSG.GroupTheory.SupCommute
 import CFSG.Walter.Bender1970.S1

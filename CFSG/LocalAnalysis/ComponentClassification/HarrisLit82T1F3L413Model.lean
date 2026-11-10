@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.HighestRoot.CentSpinBasic
 public import CFSG.LieType.Steinberg.CentralExt.SpinPlusCenter
-public import CFSG.LieType.Universal.SpinOmega.Center
 public import CFSG.LieType.Steinberg.CentralExt.SpinPlusCentrallyClosed
 
 public section

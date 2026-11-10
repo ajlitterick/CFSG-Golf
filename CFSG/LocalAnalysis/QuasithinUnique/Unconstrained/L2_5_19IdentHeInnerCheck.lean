@@ -1,14 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19IdentHeInnerData
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19IdentMathNoLayer
-public import CFSG.Sporadic.HeldB.InnerCheck
 public import CFSG.Sporadic.HeldB.ClassCount
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19IdentHeInnerData
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19IdentMathNoLayer
 public meta import CFSG.Sporadic.HeldB.InnerCheck
 public meta import CFSG.Sporadic.HeldB.ClassCount
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19IdentHeInnerCheckInputs
 public import Certificates.Certificate4148
 
 public section

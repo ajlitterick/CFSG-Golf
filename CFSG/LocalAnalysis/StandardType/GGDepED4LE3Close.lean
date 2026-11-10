@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08Ce6LE3
 public import CFSG.LocalAnalysis.StandardType.GGDepED4LowTwoClose
-public import CFSG.LocalAnalysis.StandardType.GGE6D4TwoNodeLocalInput
 
 public section
 

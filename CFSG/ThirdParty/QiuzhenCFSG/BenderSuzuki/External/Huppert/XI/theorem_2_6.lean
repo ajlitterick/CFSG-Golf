@@ -4,11 +4,8 @@ public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.XI.Sharp
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.MatrixGroups.PSL2
 public import Mathlib.GroupTheory.DoubleCoset
 public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Projective
 public import Mathlib.Topology.Compactification.OnePoint.ProjectiveLine
-import Mathlib.GroupTheory.SpecificGroups.Cyclic
 import Mathlib.NumberTheory.LegendreSymbol.QuadraticChar.Basic
-import Mathlib.RingTheory.IntegralDomain
 
 namespace CFSG
 end CFSG

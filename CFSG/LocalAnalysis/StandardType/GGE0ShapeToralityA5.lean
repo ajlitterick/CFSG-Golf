@@ -4,11 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGE0ShapeRealConj
 public import CFSG.LocalAnalysis.StandardType.GGE0ShapeWeylGoodDefs
 public import CFSG.LocalAnalysis.StandardType.GGE0ShapeBruhat
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfE6Toral
-public import CFSG.HardMathSupport.Timmesfeld.Torality.ToralPairOne
-public import CFSG.LocalAnalysis.StandardType.GGOTwoStarFrame
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeToralityTw
-public import CFSG.LieType.AlgebraicGroups.ToralTwistPinningFrobenius
-public import CFSG.LieType.Chevalley.WeylNormalizerQuotient
 
 public section
 

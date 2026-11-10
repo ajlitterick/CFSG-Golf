@@ -1,6 +1,5 @@
 module
 
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.Orth3Plane
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.OrthQ2Fix
 
 public section

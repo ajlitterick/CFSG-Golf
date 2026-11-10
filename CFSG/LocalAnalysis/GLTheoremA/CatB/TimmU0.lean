@@ -1,7 +1,5 @@
 module
 
-public import CFSG.Open.StatedAPI
-public import CFSG.Open.StatedDefs
 public import CFSG.GF2Type.ModelPSU
 public import CFSG.ClassicalGroups.Unitary.Simple
 public import CFSG.GroupTheory.PCore.PrimeCoreImages

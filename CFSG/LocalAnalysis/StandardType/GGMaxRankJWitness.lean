@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGMaxRankJReflection
-import CFSG.Fischer.Classification.Recognition.Basic
 
 public section
 

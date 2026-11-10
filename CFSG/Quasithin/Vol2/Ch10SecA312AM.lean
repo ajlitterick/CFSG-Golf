@@ -4,8 +4,6 @@ public import CFSG.Quasithin.Vol2.Ch10SecA312AI
 public import CFSG.Quasithin.Vol2.Ch10SecA312AK
 public import CFSG.Quasithin.Vol2.Ch10SecA312AL
 public import CFSG.Quasithin.Vol2.Ch10SecA312LD
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.ClassicalGroups

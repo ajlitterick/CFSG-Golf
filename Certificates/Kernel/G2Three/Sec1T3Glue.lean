@@ -11,8 +11,6 @@ public import CFSG.Certificates.Kernel.G2Three.Sec1T3F11
 public import CFSG.Certificates.Kernel.G2Three.Sec1T3F12
 public import CFSG.Certificates.Kernel.G2Three.Sec1T3F13
 public import CFSG.Certificates.Kernel.Misc.Coset.TableFact
-import CFSG.Certificates.Kernel.Common.Harness
-import CFSG.Certificates.Kernel.Spor.Mat3Sound
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.ModelL
 
 public section

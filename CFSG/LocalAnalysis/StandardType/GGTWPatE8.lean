@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLDType
 public import CFSG.LocalAnalysis.StandardType.GGResLeaf
 
 public section

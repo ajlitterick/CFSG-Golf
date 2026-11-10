@@ -1,11 +1,6 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.lemma_1_22
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.Infrastructure
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.CentralizerControl
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PGroup.NormalSubgroups
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Commutator.Core
-public import Mathlib.GroupTheory.Subgroup.Centralizer
 
 namespace CFSG
 end CFSG

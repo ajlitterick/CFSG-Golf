@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUSigned
 public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOrthNsLabels
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestCenter
 
 public section
 

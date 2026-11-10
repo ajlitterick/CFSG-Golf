@@ -5,7 +5,6 @@ public import Certificates.Certificate1649001
 public import Certificates.Certificate725008
 import CFSG.LocalAnalysis.StandardType.GGQTwoSixPoint
 import CFSG.LocalAnalysis.StandardType.GGQTwoSixGens
-import CFSG.LocalAnalysis.StandardType.GGQTwoSixFarInputs
 import CFSG.Certificates.Kernel.Misc.Coset.PGChain
 public import CFSG.LocalAnalysis.StandardType.GGQTwoSixGensWindowsChart
 

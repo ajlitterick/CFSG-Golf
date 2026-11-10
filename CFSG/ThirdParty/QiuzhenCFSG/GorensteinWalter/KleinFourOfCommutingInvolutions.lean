@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
-public import Mathlib.GroupTheory.SpecificGroups.KleinFour
 import Mathlib.Tactic
 
 namespace CFSG

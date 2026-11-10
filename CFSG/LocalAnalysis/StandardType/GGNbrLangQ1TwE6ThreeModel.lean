@@ -1,13 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLangTorusInnerDiagLie
-public import CFSG.LocalAnalysis.StandardType.GGLangTorusInnerDiagE6
 public import CFSG.LocalAnalysis.StandardType.GGE0ShapeSetupTwPlus
 public import CFSG.LocalAnalysis.StandardType.GGE0ShapeContextToralAux2
-public import CFSG.LocalAnalysis.StandardType.GGE0ShapeToralityA5
 public import CFSG.LocalAnalysis.StandardType.GGE0ShapeWeylGood
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyDichotomy
-public import CFSG.LieType.SemisimpleCentralizers.HeldSLFacts
 
 public section
 

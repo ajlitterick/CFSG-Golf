@@ -3,14 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTBJF4LeviFrame
 public import CFSG.LocalAnalysis.StandardType.GGTBJETypeCells
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitTwE6SplitFrame
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6Split
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylExcPlusFrameFusion
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6RankOuter
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaOutdiag
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-public import CFSG.LocalAnalysis.StandardType.Marking
-public import CFSG.LocalAnalysis.StandardType.GGTBJE8LeviEnnModel
 public import CFSG.LocalAnalysis.StandardType.GGTBTorRelE6Cover
 import CFSG.LocalAnalysis.StandardType.GGF4NbrAutReflKGReduce
 

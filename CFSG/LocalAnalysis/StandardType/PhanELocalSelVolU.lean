@@ -1,7 +1,6 @@
 module
 
 public import Mathlib.LinearAlgebra.FiniteDimensional.Defs
-public import Mathlib.LinearAlgebra.Dimension.Finrank
 import Mathlib.FieldTheory.Finiteness
 import Mathlib.Data.Set.Card.Arithmetic
 

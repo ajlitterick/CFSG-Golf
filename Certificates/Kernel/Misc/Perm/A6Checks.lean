@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Misc.Perm.A6Data
 public import Certificates.Kernel.Misc.Perm.A6Tabs
 public import Certificates.Data.Kernel.Misc.PermA6
-public import Certificates.Data.Kernel.Misc.PermClos
 public import Certificates.Data.Kernel.Misc.PermM22
 import CFSG.Certificates.Kernel.Common.Harness
 

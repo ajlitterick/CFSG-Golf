@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUCover
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63Two
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineL2Remainder
-import CFSG.LieType.Steinberg.CentralExt.UnitaryTwoMultiplier
 
 public section
 

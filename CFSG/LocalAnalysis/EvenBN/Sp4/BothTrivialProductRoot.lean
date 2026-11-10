@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.EvenBN.Sp4.BothTrivialProductCommon
 public import CFSG.LocalAnalysis.EvenBN.Sp4.ProductModelGen
 public import CFSG.LocalAnalysis.EvenBN.Sp4.ProductModelRadical
-public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
 
 public section
 

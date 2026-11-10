@@ -1,12 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagModel
-public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockOmegaIsoOneLinear
-public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockOmegaIsoUnitary
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166Label
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinDict
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.LocalAnalysis.StandardType.KGLangS1ALinTypeDet
 public import CFSG.LocalAnalysis.StandardType.KGLangS1ALinTransfer
 public import CFSG.LocalAnalysis.StandardType.GGSixTCPSUDvd
 

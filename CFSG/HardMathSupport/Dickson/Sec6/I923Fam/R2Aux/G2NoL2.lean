@@ -1,6 +1,5 @@
 module
 
-public import CFSG.HardMathSupport.Dickson.Sec6.I923Fam.R2Aux.G2Part1
 public import CFSG.HardMathSupport.Dickson.Sec6.I923Fam.R2Aux.G2Part2
 public import CFSG.HardMathSupport.Dickson.Sec6.I923Fam.R2Aux.G2Part3
 

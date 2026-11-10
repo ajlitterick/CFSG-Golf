@@ -1,11 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBFixLine
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
 public import CFSG.LocalAnalysis.StandardType.GGSignedCoordProperLines
 public import CFSG.LocalAnalysis.StandardType.GGSignedCoordSwaps
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBProperUnique
-import CFSG.LocalAnalysis.StandardType.GGOneFiveNbr
 
 public section
 

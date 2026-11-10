@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangTorJInputs
 public import CFSG.GroupTheory.ElementaryAbelianTransport
 import CFSG.LocalAnalysis.StandardType.KGLangTorusSpan
-import CFSG.LocalAnalysis.GorensteinLyons.SteinbergBXCentralLift
 
 public section
 

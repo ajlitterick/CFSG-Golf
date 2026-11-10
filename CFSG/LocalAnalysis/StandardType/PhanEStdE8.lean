@@ -5,12 +5,7 @@ public import CFSG.LocalAnalysis.StandardType.PhanEAdjModel
 public import CFSG.LocalAnalysis.StandardType.PhanEChevRank
 public import CFSG.LocalAnalysis.StandardType.PhanEStdLeviOf
 public import CFSG.LocalAnalysis.StandardType.PhanEStdLongest
-public import CFSG.LocalAnalysis.StandardType.PhanEStdBuildingData
-public import CFSG.LocalAnalysis.StandardType.PhanEStdPanel
 public import CFSG.LocalAnalysis.StandardType.PhanEStdTransport
-public import CFSG.LieType.Steinberg.Adjoint.Borel
-public import CFSG.LieType.Chevalley.WeylRoots
-public import CFSG.Timmesfeld.RankTwo.LevisExceptional
 
 public section
 

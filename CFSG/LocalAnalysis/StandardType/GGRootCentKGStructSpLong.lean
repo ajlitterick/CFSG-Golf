@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootCentKGTagsDefs
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotCentralizerPerfect
-import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotCentralizerB1
-import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotQ2Perfect
-import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotBlocks
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGSummand
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGMarking
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGSpCent

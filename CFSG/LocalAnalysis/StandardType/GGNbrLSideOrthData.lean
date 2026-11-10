@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrLSideRSCore
 public import CFSG.LocalAnalysis.StandardType.GGNbrLSideOrthElt
-import CFSG.LocalAnalysis.StandardType.MarkingClassical
-import CFSG.RankThree.Classical.SteinbergBJOrthogonalHighWitt
 import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs256h
 
 public section

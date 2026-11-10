@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4PSpCore
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4DarbouxL
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4HBlocks4
-public import CFSG.ClassicalGroups.Symplectic.Model
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4StabAut
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwo
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueUStatement
@@ -15,10 +14,7 @@ public import CFSG.LocalAnalysis.SectionRank.CentralLift
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Open.QuasithinDefs
-public import CFSG.Sporadic.Th.F2Spec
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Borel
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Lemma83
 public import CFSG.Walter.PSL2Facts
 
 public section

@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public import CFSG.RankThree.PartTwo.Sec21.Holder214ThetaG24Data
 meta import CFSG.RankThree.PartTwo.Sec21.Holder214ThetaG24Data

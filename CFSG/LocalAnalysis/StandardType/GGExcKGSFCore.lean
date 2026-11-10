@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGExcKGSFDefs
 public import CFSG.LocalAnalysis.StandardType.GGExcKGSFCoreAbstract
 public import CFSG.LocalAnalysis.StandardType.GGExcKGFixSpan
 

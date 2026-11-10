@@ -2,8 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.Q3TWY31
 public import CFSG.ClassicalInvolution.Q3.Q3TWY21
-public import CFSG.ClassicalInvolution.Q3.Q3TWY12
-public import CFSG.ClassicalInvolution.RouteD.TWEB6Scalar
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNineClassical
 public import CFSG.LocalAnalysis.StandardType.GGResCentBoundNbrConj
 
 public section

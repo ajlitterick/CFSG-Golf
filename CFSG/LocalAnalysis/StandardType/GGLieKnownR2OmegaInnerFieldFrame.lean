@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaInnerDefs
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaRadicalSettingW
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaRadicalTorus
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaRadicalCore
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaRadicalCoreO2
 
 public section

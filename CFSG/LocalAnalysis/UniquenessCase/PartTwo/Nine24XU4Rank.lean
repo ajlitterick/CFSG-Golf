@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22Defs
 import CFSG.LocalAnalysis.RankThreeTheoremC.SmallRankE3.FongLeviU4Model
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

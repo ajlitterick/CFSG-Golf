@@ -2,11 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeBOddIndex
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.GoodRankOne
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimple
-import CFSG.HardMathSupport.Timmesfeld.RootAut.Main
-import CFSG.RankThree.Chevalley.SteinbergBIRootSL2Tools
-import CFSG.LieType.Chevalley.SignKernelComponentBorel
-import CFSG.Blueprint.ChevalleyPinnedLemmas
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ParabCommLinTransferS3
 
 public section

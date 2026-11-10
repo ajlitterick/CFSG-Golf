@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.SpFixedSpaceSmall
 public import CFSG.LocalAnalysis.StandardType.SpWeightFixes
 public import CFSG.LocalAnalysis.StandardType.SpSimpleOrder
 public import CFSG.LocalAnalysis.StandardType.AlternatingEightCoverOrder
-public import CFSG.Assembly.Subnormal
 
 public section
 

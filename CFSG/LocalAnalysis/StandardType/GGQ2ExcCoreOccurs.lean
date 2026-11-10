@@ -6,15 +6,9 @@ public import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreRawBot
 public import CFSG.LocalAnalysis.StandardType.GGFamSubnormal
 public import CFSG.LocalAnalysis.StandardType.GGLangGammaComponent
 public import CFSG.LocalAnalysis.StandardType.GGFamTameSharp
-public import CFSG.LocalAnalysis.StandardType.GGFamComponent
 public import CFSG.LocalAnalysis.StandardType.GGFamLabelAssembly
-public import CFSG.LocalAnalysis.StandardType.GGFamTrivialGamma
 public import CFSG.LocalAnalysis.StandardType.GGFamAssembly
 
-import CFSG.Assembly.Subnormal
-import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
-import CFSG.LocalAnalysis.StandardType.GGFamTame
-import CFSG.LocalAnalysis.StandardType.GGLangCoroot
 
 public section
 

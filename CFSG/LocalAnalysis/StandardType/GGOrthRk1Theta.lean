@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGOrthRk1Pieces
 public import CFSG.LocalAnalysis.StandardType.GGOrthRk1Model
-import Mathlib.LinearAlgebra.FixedSubmodule
 
 public section
 

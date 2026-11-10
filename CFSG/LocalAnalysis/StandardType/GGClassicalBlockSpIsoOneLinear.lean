@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockDecomp
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBSymplecticBStated
-public import CFSG.RankThree.Classical.SteinbergBJSymplecticPrimaryCentralizer
 public import CFSG.RankThree.Classical.SteinbergBJSymplecticCrossPrimeBlocks
 public import CFSG.LieType.BorelTits.CompleteFlag
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
@@ -34,9 +32,7 @@ public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasFive
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasSix
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalReflectionSplitting
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalStandardFormsRegular
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis

@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.Data.Fintype.Basic
 public import Mathlib.Data.Fintype.Pi
 
 public section

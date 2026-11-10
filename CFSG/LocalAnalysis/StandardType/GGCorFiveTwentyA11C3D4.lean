@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyA11NbrOn
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRootGenKGDefs
 
 public section
 

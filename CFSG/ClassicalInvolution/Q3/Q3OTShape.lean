@@ -1,11 +1,5 @@
 module
 
-public import CFSG.ClassicalInvolution.ModelFacts.TG3VacPSL
-public import CFSG.ClassicalInvolution.ModelFacts.TG3VacPSU
-public import CFSG.ClassicalInvolution.ModelFacts.TG3VacPSp
-public import CFSG.ClassicalInvolution.ModelFacts.TG3Final
-public import CFSG.ClassicalInvolution.ModelFacts.Orth15TwinModel
-public import CFSG.ClassicalInvolution.ModelFacts.Orth15LieTwin
 public import CFSG.ClassicalInvolution.Q3.Q3DInputs3
 
 public section

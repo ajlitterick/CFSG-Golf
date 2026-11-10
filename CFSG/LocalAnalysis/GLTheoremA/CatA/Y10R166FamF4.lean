@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166Cases
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166Label
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.UpperF4
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.LowerExcTorus
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcOut
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.Shared
 public import CFSG.HardMathSupport.Timmesfeld.ComponentBalance.I_11_6_Defs
 public import CFSG.LieType.Multipliers.U62Sylow
 public import CFSG.LocalAnalysis.GLTheoremB.Lemma99Inputs

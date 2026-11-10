@@ -1,8 +1,6 @@
 module
 
 public import Mathlib.LinearAlgebra.Matrix.Cartan.Basic
-public import Mathlib.Data.ZMod.Defs
-public import Mathlib.Algebra.Group.Even
 
 public section
 

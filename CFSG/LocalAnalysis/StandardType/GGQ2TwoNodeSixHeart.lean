@@ -1,22 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2TwoNodeSixCell
-import CFSG.LocalAnalysis.StandardType.GGQ2TwoNodeI1Rank
-import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitarySides
 import CFSG.LocalAnalysis.StandardType.GGTwoNodeRowDimUnitary
-import CFSG.LocalAnalysis.StandardType.GGTwA5ThreeFrame
 import CFSG.LocalAnalysis.StandardType.GGPZNbrResRest
 import CFSG.LocalAnalysis.StandardType.GGD5LabelJ
-import CFSG.LocalAnalysis.StandardType.GGQ2TableBI1Tor
 import CFSG.LocalAnalysis.StandardType.GGQ2LDatumDims
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-import CFSG.LocalAnalysis.StandardType.GGTableBBstar
-import CFSG.LocalAnalysis.StandardType.GGStdSubExist
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyDichotomy
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T171InnerU6U42
-import CFSG.LocalAnalysis.GLTheoremA.CatB.Bridges
-import CFSG.GroupTheory.ElementaryAbelianTransport
 import CFSG.Mathlib.GroupTheory.Automorphism.ConjCommute
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T171Facts
 

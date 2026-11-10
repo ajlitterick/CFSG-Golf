@@ -2,12 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJLabelSides
 public import CFSG.LocalAnalysis.StandardType.GGNbrLabelJOfTcjK
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyNbrFieldRows
 public import CFSG.LocalAnalysis.StandardType.GGTBXPlumb
 public import CFSG.LocalAnalysis.StandardType.GGSignedCoordBlocks
 import CFSG.LocalAnalysis.StandardType.GGTCJDatum
 import CFSG.LocalAnalysis.StandardType.GGTCJCoverGen
-import CFSG.LocalAnalysis.StandardType.GGTCJDivLin
 import CFSG.LocalAnalysis.StandardType.GGTCJDivOrth
 import CFSG.LocalAnalysis.StandardType.GGTCJDivUni
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBLabelCore

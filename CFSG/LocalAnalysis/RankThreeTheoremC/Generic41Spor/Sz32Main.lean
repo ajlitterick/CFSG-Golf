@@ -1,11 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.Sz32Defs
-public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.Sz32SharedProp31
-public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.Sz32SharedLemma33
-public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.Sz32SharedFocal
-public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.Sz32Qdecomp
-public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.Sz32Pgroup
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.Sz32Lemma32
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.Sz32Fusion
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.Sz32Plane
@@ -13,16 +7,8 @@ public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.Sz32Lemma42
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.Sz32Lemma43
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.Sz32Lemma44
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.Sz32Lemma45
-public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.Sz32Case2Core
-public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.Sz32Case2G
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.Sz32NormalCore
-public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.Sz32Fcases
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.Sz32EndgameHyp
-public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.GroupSz32
-public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.SecondPointSz32
-public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.TypeIIEndgame41MaxPair
-public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.GroupTits
-public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.GroupA10
 
 public section
 

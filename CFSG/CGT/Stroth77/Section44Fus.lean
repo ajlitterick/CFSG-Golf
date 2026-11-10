@@ -1,7 +1,6 @@
 module
 
 public import CFSG.CGT.Stroth77.Section43Fus
-public import CFSG.CGT.Stroth77.Section44CoreIII
 public import CFSG.CGT.Stroth77.Section44Facts
 public import CFSG.CGT.Stroth77.Section44FactsII
 public import CFSG.CGT.Stroth77.Section44FactsIII

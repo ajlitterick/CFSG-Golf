@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneDXDrCover
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneDXDrMain
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneDXAdapt
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneDXDrData
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneDXExcAsmA

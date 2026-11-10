@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesWeylPTorsion
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesFixE6
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Basic
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoToralExcAdj
 
 public section

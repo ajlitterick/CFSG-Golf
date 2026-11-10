@@ -4,12 +4,9 @@ public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusExtract
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusRigid
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusJBounds
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusCover
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusLinear
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusFieldTwo
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusSymp
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusOmegaPlus
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusOmegaMinus
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusTwA
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusE6
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusE7
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusE8
@@ -17,7 +14,6 @@ public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusF4
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusTwE6
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusSmall
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1Holds
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBIrred
 
 public section
 

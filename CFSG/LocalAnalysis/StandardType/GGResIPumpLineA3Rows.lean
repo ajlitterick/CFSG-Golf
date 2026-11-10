@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResILineInputs
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrRowFilter
 public import CFSG.LocalAnalysis.StandardType.GGCSRHolds
 public import CFSG.LocalAnalysis.StandardType.GGResJLineA3

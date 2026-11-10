@@ -17,8 +17,6 @@ public import CFSG.Quasithin.Background.C1PackS15212C
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.D2Cyclic
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.E4Solv
 public import CFSG.Quasithin.Background.F9Sixteen
 public import CFSG.Quasithin.EmptyFaithful.S14110
 public import CFSG.Quasithin.EmptyFaithful.S14117
@@ -33,7 +31,6 @@ public import CFSG.Sporadic.Schreier.J4SProfileNode
 public import Certificates.Data.CFSGNative.MonsterB.Rep4371Model
 public import Certificates.Kernel.J4Count.FixC
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 public import Certificates.Kernel.SporSch.J4S.NoCP
 
 public section

@@ -5,9 +5,6 @@ public import CFSG.Sporadic.Recognition.LyonsFinalCore107
 import Certificates.Certificate6114
 import Certificates.Kernel.LyDce.Twist
 import Certificates.Kernel.LyGlue.Bind
-public import CFSG.Fischer.Classification.Recognition.PSU6
-public import CFSG.LocalAnalysis.ComponentClassification.ClassicalModelStatedBridge
-public import CFSG.LocalAnalysis.RankTwoShapes.UnitaryFour.Bridge
 public import CFSG.Sporadic.Recognition.LyonsModelCert
 
 public section

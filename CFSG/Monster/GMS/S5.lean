@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Monster.GMS.TwoAGraph
-public import Mathlib.Algebra.Order.Group.End
 public import CFSG.Blueprint.NativeSporadic
 
 public section

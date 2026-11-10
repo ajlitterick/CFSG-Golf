@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanIdentDefs
-public import CFSG.LocalAnalysis.AGLEmbedding.SporadicBetaAssembly
 public import CFSG.LocalAnalysis.AGLEmbedding.SporadicDataRest
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.BRowsOf
 public import CFSG.Sporadic.Bridge.BFusFive

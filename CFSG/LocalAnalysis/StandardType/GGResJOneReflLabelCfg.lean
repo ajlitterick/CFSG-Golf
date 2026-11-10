@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResJFusion
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154ExcOutdiag
 import CFSG.LocalAnalysis.StandardType.GGTBTorLiftRowsCls
 
 public section

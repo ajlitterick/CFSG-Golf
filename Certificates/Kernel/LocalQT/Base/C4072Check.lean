@@ -4,7 +4,6 @@ public import Certificates.Kernel.LocalQT.Base.GenEnum
 public import Certificates.Data.Kernel.LocalQT.Fusion
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.In23ExamKM24Inputs
 public meta import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicMathieuInputs
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.GroupTheory.PerfectResidualNodes
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBSymplecticTwoKernel
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
@@ -31,9 +30,6 @@ public import CFSG.Quasithin.Vol2.Ch1Local
 public meta import CFSG.Sporadic.M23.M23Group
 public import CFSG.Sporadic.Schreier.J4SSylow
 public meta import CFSG.Sporadic.Schreier.M23
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
 public import CFSG.Walter.Defs
 
 set_option maxRecDepth 100000

@@ -1,11 +1,8 @@
 module
 
-public import Mathlib
-public import CFSG.Blueprint.NativeSporadic
 public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
 import CFSG.Monster.B.Final.PinnedBOrder
 import CFSG.LocalAnalysis.ComponentClassification.BMCaseCbar
-import CFSG.LocalAnalysis.ComponentClassification.BMCaseGeneric
 public import CFSG.Monster.AxisCount.BabyCount
 public import CFSG.Monster.AxisCount.BabyCover
 public import CFSG.Monster.AxisCount.BabyCoverCheck
@@ -15,8 +12,6 @@ public import CFSG.Monster.AxisCount.BabyInvCheck
 public import CFSG.Monster.Visible.SignCompat
 public import CFSG.Open.MonsterY443Defs
 public import CFSG.Sporadic.Co1Base
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.Sporadic.Schreier.RuLocal
 import CFSG.Sporadic.SchreierLemmas.FrattiniProfile
 

@@ -1,11 +1,8 @@
 module
 
-public import Certificates.Kernel.HN25550.Data
 public import Certificates.Kernel.HN25550.Checks
 public import Certificates.Data.Kernel.Spor.WordRegs
-public import CFSG.Sporadic.HNSchreier.Data
 public import CFSG.Sporadic.HNSchreier.LocalData
-public import CFSG.Sporadic.HNOddCore.InvData
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

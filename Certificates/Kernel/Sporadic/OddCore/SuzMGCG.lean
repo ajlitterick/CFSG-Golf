@@ -2,9 +2,6 @@ module
 
 public import Certificates.Kernel.Sporadic.OddCore.ChainCheckGlue
 public import Certificates.Kernel.Sporadic.OddCore.SuzC1BF
-public import CFSG.Certificates.Kernel.Spor.RawSound
-public import CFSG.Sporadic.SuzRecog.ModelGroupsChecks
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

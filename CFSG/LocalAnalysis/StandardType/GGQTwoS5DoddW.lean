@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoS5Defs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDWeyl
-public import Mathlib.LinearAlgebra.Matrix.Cartan.Basic
 public import TauCeti.LinearAlgebra.Matrix.Cartan.Classical
 public import TauCeti.LinearAlgebra.IntegralLattice.RootLattice.TypeD.SimpleRoots
 

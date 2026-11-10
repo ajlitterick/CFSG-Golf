@@ -2,9 +2,6 @@ module
 
 public import CFSG.Quasithin.Recognition.RuRank3TitsSyl
 public import CFSG.Quasithin.Recognition.RuRank3PSL
-public import CFSG.Sporadic.Schreier.TitsAction
-public import CFSG.Sporadic.Schreier.TitsChain
-public import CFSG.Sporadic.Schreier.RuChainSpec
 public import CFSG.Sporadic.Schreier.RuConj
 public meta import CFSG.Quasithin.Recognition.RuRank3TitsSyl
 public meta import CFSG.Quasithin.Recognition.RuRank3PSL

@@ -1,13 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalRk2LU4Weyl
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRanksTri
 public import CFSG.LocalAnalysis.StandardType.GGTriD4KnownInputs
 import CFSG.RankThree.Chevalley.SteinbergCFTrialityToralSylow
 import CFSG.LocalAnalysis.StandardType.GGTriD4SchurHolds
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestTriDiag
-import CFSG.LocalAnalysis.StandardType.GGTableBTypeATorus
-import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeRestCover
 
 public section
 

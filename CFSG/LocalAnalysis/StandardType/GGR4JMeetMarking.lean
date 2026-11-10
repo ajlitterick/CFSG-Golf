@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGR4JMeetKGDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 public import CFSG.LocalAnalysis.StandardType.GGTCJDatum
-public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67AltRed
 
 public section
 

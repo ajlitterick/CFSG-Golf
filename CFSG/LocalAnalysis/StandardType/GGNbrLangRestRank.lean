@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangTypeALabel
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldCyclicLabels
-public import CFSG.LocalAnalysis.StandardType.GGTableBBstar
 public import CFSG.LinearAlgebra.SteinbergBQEvenSL2OddCyclic
-public import CFSG.LocalAnalysis.ComponentInitial.LinearCoverModel
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
 import CFSG.GroupTheory.ElementaryAbelianTransport
 
 public section

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Assembly.LowTwoRankDefs
 public import CFSG.Models
 
 public section

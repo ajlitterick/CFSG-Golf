@@ -1,9 +1,7 @@
 module
 
-public import Mathlib
 public import CFSG.ClassicalInvolution.SmallCases.Hat2A7S25N4
 public import CFSG.ClassicalInvolution.Asc77.AscC25J25
-public import CFSG.ClassicalInvolution.Q3.Induction
 
 public section
 

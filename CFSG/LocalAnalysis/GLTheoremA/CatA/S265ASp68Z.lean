@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.PComp
-public import CFSG.Open.StatedDefs
 import CFSG.GH74.Generic.GKFCover
 import CFSG.LieType.Steinberg.CentralExt.PSpMultiplier
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Foundations
 public import CFSG.GroupTheory.LocalCores.Fitting
@@ -19,8 +16,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
 public import CFSG.LocalAnalysis.GLTheoremB.Lemma911Defs
 public import CFSG.LocalAnalysis.GLTheoremB.SchreierTools
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 import CFSG.GH74.GLS.Classes
 import CFSG.GH74.Generic.Certificates
@@ -30,7 +25,6 @@ import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoProjectiveFormulas
 import CFSG.LocalAnalysis.ComponentInitial.SymplecticSmallFieldPerfect
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

@@ -10,8 +10,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixLayerPDivOmega
 public import CFSG.LocalAnalysis.StandardType.GGLayerCenterCyclicLabels
 public import CFSG.LocalAnalysis.StandardType.GGTableBF4TwoInputs
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerF4
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerOrth
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerSp
 
 public section
 

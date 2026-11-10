@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordDExclWeyl
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylKnownDefs
 public import CFSG.LocalAnalysis.StandardType.GGDepED4ZKE6
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordDExclCensus
 

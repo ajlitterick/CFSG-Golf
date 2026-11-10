@@ -4,9 +4,6 @@ public import Certificates.Data.Kernel.SmithEKCd
 public import CFSG.Certificates.Kernel.SmithEK.OSound
 public import CFSG.LargeExtraspecial.S14SMKTransCheck
 public import CFSG.Sporadic.Th.TableSpec
-public import Mathlib.Data.LawfulXor.Basic
-public import Mathlib.RingTheory.WittVector.IsPoly
-public import Mathlib.Tactic.ReduceModChar
 public import Std.Tactic.BVDecide.Normalize.BitVec
 
 public section

@@ -4,7 +4,6 @@ public import CFSG.RankThree.GF2n.Parrott.Section5LocalT
 public import CFSG.RankThree.GF2n.Parrott.Section5LocalJ
 public import CFSG.RankThree.GF2n.Parrott.SpinFixedCardSigma
 public import CFSG.RankThree.GF2n.Parrott.Section4SpinGlue
-public import CFSG.RankThree.GF2n.Parrott.Section4SylowFiveStructure
 public import CFSG.Holt.PSL2Natural.Defs
 public import CFSG.Holt.PermFacts
 public import CFSG.Holt.ThreePoint

@@ -4,9 +4,7 @@ public import Certificates.Kernel.Q8Wit.J3EnumK
 public import Certificates.Kernel.Q8Wit.J3Data
 public import Certificates.Kernel.Q8Wit.J3Chunks
 public import Certificates.Kernel.Sporadic.OddCore.J3Cent
-public import Certificates.Kernel.Census.J3.Text
 public import Certificates.Data.Kernel.Q8WitP
-public import Certificates.Data.Kernel.PGrp
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

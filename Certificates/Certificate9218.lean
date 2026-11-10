@@ -3,16 +3,10 @@ module
 
 public import Certificates.Certificate9218Base
 
-public import CFSG.Sporadic.Ru
-public import CFSG.Sporadic.Bridge.VecSurj
-public import CFSG.Sporadic.Presentation.RuExact
-public import Certificates.Data.CFSGNative.Bridge.SurjD
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 import Certificates.Kernel.Sporadic.Ru.Rels
 public import CFSG.Certificates.SeededRelations
 public import CFSG.Certificates.WordSubgroupRel
 public import CFSG.Sporadic.Presentation.Common
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

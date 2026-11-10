@@ -11,7 +11,6 @@ public meta import CFSG.Sporadic.Schreier.TitsCentralCheck
 public meta import Certificates.Data.CFSGNative.Schreier.Check
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Data
-public import CFSG.Sporadic.Schreier.TitsQTCheckInputs
 public import Certificates.Certificate4155
 
 public section

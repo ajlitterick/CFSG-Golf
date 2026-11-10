@@ -1,8 +1,6 @@
 module
 
-public import Mathlib.Algebra.Group.Subgroup.Basic
 public import Mathlib.GroupTheory.Subgroup.Centralizer
-public import Mathlib.Algebra.Group.Subgroup.Map
 import Mathlib.Tactic
 
 namespace CFSG

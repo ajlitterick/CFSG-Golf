@@ -1,8 +1,5 @@
 module
 
-public import CFSG.Open.StatedDefs
-public import CFSG.ClassicalGroups.UnitaryFlag.GroupData
-public import CFSG.LocalAnalysis.UniquenessCase.UC22Defs
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23d.Shapes
 public import CFSG.RankThree.Classical.SteinbergBJUnitaryTwoBlock
 public import CFSG.CGT.Timmesfeld75.Statements

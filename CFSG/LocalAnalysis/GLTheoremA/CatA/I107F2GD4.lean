@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I107F2GNot
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.FPD4
 
 public section
 

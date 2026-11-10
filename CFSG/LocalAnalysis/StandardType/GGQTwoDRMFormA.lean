@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDRMLin
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDWeyl
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
-import TauCeti.LinearAlgebra.IntegralLattice.RootLattice.TypeD.SimpleRoots
 
 public section
 

@@ -5,8 +5,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.MatrixGroups.Suzuki
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.Classification
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.Suzuki.Candidate
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.LieType
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.MatrixGroups.PSL2
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.MatrixGroups.Unitary
 
 public section
 

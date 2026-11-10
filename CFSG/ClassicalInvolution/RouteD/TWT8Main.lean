@@ -1,9 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.TWT8Case
-public import CFSG.ClassicalInvolution.RouteD.TWT8Bridge
-public import CFSG.ClassicalInvolution.RouteD.TWEClose
-public import CFSG.ClassicalInvolution.RouteD.TwinYExistsTD
 
 public section
 

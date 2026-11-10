@@ -9,9 +9,6 @@ public import Certificates.Kernel.KGC31M24.Inv3
 public import Certificates.Kernel.KGC31M24.Cls
 public import Certificates.Kernel.KGC31M24.Frame
 public import CFSG.Certificates.Kernel.Common.ForallChunks
-public import CFSG.Quasithin.Vol2.KGFactC31M24Data
-import Mathlib.Tactic.IntervalCases
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.BfsPinSound
 public import CFSG.Certificates.Kernel.HeModelKSound
 public import CFSG.Certificates.Kernel.HexaKSound

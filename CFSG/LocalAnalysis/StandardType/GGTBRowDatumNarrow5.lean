@@ -1,12 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBRowUDatum
-public import CFSG.LocalAnalysis.StandardType.GGTBRowUdDatum
-public import CFSG.LocalAnalysis.StandardType.GGTBRowBFrameDatum
-public import CFSG.LocalAnalysis.StandardType.GGTBRowO2Datum
-public import CFSG.LocalAnalysis.StandardType.GGTBRowVDatum
-public import CFSG.LocalAnalysis.StandardType.GGTBRowR5Parity
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySp
 public import CFSG.LocalAnalysis.StandardType.GGTBJRowR5Narrow
 public import CFSG.LocalAnalysis.StandardType.GGTBRowDatumNarrow4
 

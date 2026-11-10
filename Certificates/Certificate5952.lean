@@ -6,7 +6,6 @@ import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Stage3FinInputs
 public import CFSG.Foundations
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.AppCCases
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.L2_4_27
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 import CFSG.LocalAnalysis.ComponentClassification.LayerMultiplication
@@ -27,18 +26,11 @@ import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 import CFSG.LocalAnalysis.SectionRank.TitsCover
 import CFSG.Quasithin.Background.A3Components
-import CFSG.Quasithin.Background.A3ComponentsAmbient
 import CFSG.Quasithin.Background.A3StructureBasic
 import CFSG.Quasithin.H13.J4Core
-import CFSG.Sporadic.J4.Simple
 import CFSG.Sporadic.J4Base
 import CFSG.Sporadic.Mathieu.M12
 import CFSG.Sporadic.Mathieu.M24
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2RootGroups
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ProjectiveSemilinear
 import Certificates.Certificate43
 
 public section

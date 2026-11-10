@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.EvenBN.Sp4.BothTrivialClosuresExact
 import CFSG.LocalAnalysis.SteinbergSFOneAxisInvolutionExclusion
 import CFSG.LocalAnalysis.ComponentInitial.SteinbergCCQuotientCoset
 import CFSG.LocalAnalysis.EvenBN.Common.FreeSeries
-import CFSG.LocalAnalysis.SteinbergSFOneAxisWeakClosure
-import CFSG.LocalAnalysis.SteinbergSFOneAxisHeisenberg
 import CFSG.GroupTheory.SteinbergCBFTHall
 
 public section

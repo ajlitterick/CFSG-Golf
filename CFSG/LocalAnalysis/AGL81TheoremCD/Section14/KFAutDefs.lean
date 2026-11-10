@@ -5,7 +5,6 @@ public import CFSG.RankThree.PartOne.S12.InputsSec15
 import CFSG.GroupTheory.Fitting.PPrimeCoreGeneralizedFitting
 import CFSG.GroupTheory.HuppertProduct.RankBound
 import CFSG.Quasithin.Vol2.Ch1Sec3Solvable
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

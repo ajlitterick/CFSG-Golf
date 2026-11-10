@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.TabCo1FiveB
 public meta import Certificates.Data.TabCo1FiveB
 public import Certificates.Kernel.Co1B.Chk17325
 public import Certificates.Kernel.Co1B.Tree17325
@@ -8,11 +7,6 @@ public import Certificates.Kernel.Co1B.Lvl17325A
 public import Certificates.Kernel.Co1B.Lvl17325B
 public import Certificates.Kernel.Co1B.C17330
 public import CFSG.Certificates.Kernel.SporSch.Co1BfsSegSound
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
-public import CFSG.Monster.B.TwoA.Par3.Main
-public import CFSG.Monster.B.TwoA.Unitary.Orbit1408Points
-public import CFSG.Monster.B.TwoA.Unitary.Semilinear
 
 public section
 

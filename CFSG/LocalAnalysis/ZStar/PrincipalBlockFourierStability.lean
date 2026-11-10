@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.ZStar.ComponentIntegralLattice
 public import CFSG.LocalAnalysis.ZStar.OddFourierProjectors
 public import CFSG.LocalAnalysis.ZStar.OddRootResidue
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockCharacterStability

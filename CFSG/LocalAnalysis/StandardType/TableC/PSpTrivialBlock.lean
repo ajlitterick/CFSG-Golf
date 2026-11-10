@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
-public import CFSG.Open.StatedDefs
-public import CFSG.Open.StatedAPI
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.GeoAdj
 public import CFSG.CharacterTheory.TwoRankLowerBound.FiniteOrderAverages
 public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockSpIsoOneLinear

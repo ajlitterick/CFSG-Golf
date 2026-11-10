@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
-public import Certificates.Data.CFSGNative.PSL3Four.Certificate
-public import CFSG.ClassicalInvolution.SmallCases.NobqL34CheckInputs
 public import Certificates.Certificate9304
-public import Certificates.Certificate2022
 public meta import Certificates.Data.CFSGNative.PSL3Four.Certificate
 
 public section

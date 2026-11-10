@@ -65,10 +65,7 @@ import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSpWedge
 import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
 import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherEvenOrthogonalModel
 import CFSG.LocalAnalysis.ProperTwoGeneratedCore.CentralInvolutionStructure
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.FamilyBasic
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X7bPairs
 import CFSG.LocalAnalysis.RankThreeTheoremC.GenericLayerReductionComponent
 import CFSG.LocalAnalysis.RankThreeTheoremC.TransitivityKFacts
@@ -78,13 +75,9 @@ import CFSG.Permutation.AlternatingAutomorphism
 import CFSG.Quasithin.Background.B1More13A
 import CFSG.Quasithin.Background.B1More13Defs
 import CFSG.Quasithin.Background.B1MoreEleven
-import CFSG.Quasithin.Background.B4ModelsAction
-import CFSG.Quasithin.Background.B4ModelsIso
 import CFSG.Quasithin.Background.B5CompA
 import CFSG.Quasithin.Background.B5CompB
 import CFSG.Quasithin.Background.B69Core
-import CFSG.Quasithin.Background.C2Inputs
-import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 import CFSG.RankThree.PartOne.CTP.StrongPClassification
 import CFSG.RankThree.PartOne.KC.OrthogonalHighWittFixedSpace
 import CFSG.RankThree.PartOne.KC.OrthogonalSubfieldFixed
@@ -97,7 +90,6 @@ import CFSG.StronglyEmbedded.BenderNormalSeries
 import Certificates.Data.CFSGNative.MonsterB.Rep4371Model
 import Certificates.Kernel.J4Count.FixCE
 import Certificates.Kernel.J4Count.FixCPairBase1
-import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

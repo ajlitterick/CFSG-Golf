@@ -3,7 +3,6 @@ module
 public import Certificates.Data.Kernel.SporLatCodeR
 public import CFSG.Certificates.Kernel.SporLatOmegaSound
 import CFSG.Quasithin.EmptyFaithful.GoldschmidtThreeDLocKer
-import Mathlib.Data.List.Sort
 
 public section
 

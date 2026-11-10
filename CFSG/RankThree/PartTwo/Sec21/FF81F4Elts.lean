@@ -1,9 +1,7 @@
 
 module
 
-public import CFSG.RankThree.PartTwo.Sec21.FF81F4Roots
 public import CFSG.RankThree.PartTwo.Sec21.FF81F4Syl2
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4TwoInputsEndNode
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactsFamilies
 public import CFSG.LocalAnalysis.AGLEmbedding.SporadicAlphaData

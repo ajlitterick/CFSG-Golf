@@ -2,15 +2,6 @@ module
 
 import Lean
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosDefs
-import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosPermAux
-import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosPermAux2
-import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosPermAux3
-import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosPermAux4
-import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosPermAux5
-import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosPermAux6
-import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosPermAux7
-import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosPermAux8
-import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosPermAux9
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosPermAux10
 
 public section

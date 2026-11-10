@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.ControlCore
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.FinalTheorem
-import Mathlib.GroupTheory.SpecificGroups.Cyclic
 import Mathlib.Tactic
 
 namespace CFSG

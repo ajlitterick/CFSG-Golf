@@ -2,21 +2,13 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGKG87BTransDefs
 public import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourToral
-public import CFSG.LieType.Chevalley.TwistedE6NormalForm
-public import CFSG.LieType.Chevalley.TwistedE6NormalFormActors
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.TwE6Order3Defs
-public import CFSG.LieType.Chevalley.CoordinateFieldBaseChange
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwCoreDefs
-public import CFSG.Open.LocalVocabulary
 import all CFSG.LocalAnalysis.StandardType.GGKG87BTransRatAux
 import CFSG.LocalAnalysis.StandardType.GGKG87BTransRat
 import CFSG.LocalAnalysis.StandardType.GGKG87BTransNormal
 import CFSG.LocalAnalysis.StandardType.GGKG87BTransWeyl
-import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeA2ConjOrbit
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24ConnLang
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeDiagTwisted
-import CFSG.LieType.AlgebraicGroups.ToralRootCover
-import CFSG.Blueprint.ChevalleyRoots
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
 public import CFSG.Certificates.FusionF2
@@ -66,7 +58,6 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly
@@ -181,8 +172,6 @@ import CFSG.Quasithin.Background.C1PackS1531Top
 import CFSG.Quasithin.Background.C2PushThree
 import CFSG.Quasithin.Background.D2Cyclic
 import CFSG.Quasithin.Background.E3
-import CFSG.Quasithin.Background.E3Nprime
-import CFSG.Quasithin.Background.E3Uniq
 import CFSG.Quasithin.Background.F918H5
 import CFSG.Quasithin.Background.FFC4Tr2
 import CFSG.Quasithin.Background.GoldschmidtRankOneFacts

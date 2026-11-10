@@ -1,22 +1,14 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTWSmallADefs
 public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3Count
-public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepLarge
-public import CFSG.LocalAnalysis.StandardType.GGRowKFrame
 public import CFSG.LocalAnalysis.StandardType.GGTWR3
-public import CFSG.LocalAnalysis.StandardType.GGTWSmallAL
-public import CFSG.LocalAnalysis.StandardType.GGDepED4LE3Close
-public import CFSG.LocalAnalysis.StandardType.GGDepED4LE3Up7
 public import CFSG.LocalAnalysis.StandardType.GGKSmall7Leaf
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeA5DepConsumer
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeE6DepConsumer
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeRowDimDefs
 import CFSG.LocalAnalysis.StandardType.GGTWR2
 import CFSG.LocalAnalysis.StandardType.GGTWHLNormalizer
 import CFSG.LocalAnalysis.StandardType.GGTwoNodeKFixLineFrameShared
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeNineConsumerK
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeNineDepTwoRestDefs
 public import CFSG.LocalAnalysis.StandardType.GGNineDepKFixLine
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeSmallDepK
 

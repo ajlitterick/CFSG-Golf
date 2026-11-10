@@ -2,8 +2,6 @@ module
 
 public import Certificates.Data.Kernel.OpsV4
 public import CFSG.GH74.Generic.GKFFusion
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.GH74.Generic.Certificates
 public import CFSG.GH74.Generic.Shapes
@@ -14,7 +12,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups
 public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismData
 public import CFSG.LocalAnalysis.SectionRank.CentralLift
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.OpsF2
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.Defs
 
 public section
 

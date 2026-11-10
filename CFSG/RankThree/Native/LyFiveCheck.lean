@@ -1,13 +1,10 @@
 module
 
-public import CFSG.RankThree.Native.LyFiveArrays
-public import CFSG.RankThree.Native.LySeedCheck
 public meta import Certificates.Data.CFSGNative.Ly.Certificate
 public meta import CFSG.Monster.B.Fischer.InducedData
 public meta import CFSG.RankThree.Native.LyFiveArrays
 public meta import CFSG.RankThree.Native.LyFiveData
 public meta import CFSG.RankThree.Native.LySeedCheck
-public import CFSG.RankThree.Native.LyFiveCheckInputs
 public import Certificates.Certificate8130
 
 public section

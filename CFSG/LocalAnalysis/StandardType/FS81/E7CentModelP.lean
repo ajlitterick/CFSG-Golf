@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.E7CentModelBasic
-public import CFSG.LieType.Steinberg.Collection
 
 public section
 

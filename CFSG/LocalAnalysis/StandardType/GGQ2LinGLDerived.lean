@@ -1,9 +1,7 @@
 module
 
-public import CFSG.Assembly.Defs
 public import CFSG.Assembly.LargeEvenDefs
 import CFSG.Assembly.OrderReductions.LinearOrders
-import CFSG.Open.StatedAPI
 import CFSG.Adapters.StatedQuasisimple
 import CFSG.ClassicalInvolution.PerfectCase.Basic
 import CFSG.Foundations.SteinbergCADefinitionNodes
@@ -12,7 +10,6 @@ import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaCard
 import CFSG.LocalAnalysis.StandardType.GGTriD4NoneMarking
 import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalResU3ThreeSolv
 import CFSG.LocalAnalysis.ComponentClassification.RankTwoHypIILinearFiveTwo
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBGeneralLinearSmall
 import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBGraphFieldArithmetic

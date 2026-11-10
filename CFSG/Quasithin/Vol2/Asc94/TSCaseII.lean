@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.Asc94.TSCaseLM
-public import CFSG.Quasithin.Vol2.Asc94.TSFrame4
-public import CFSG.Quasithin.Vol2.Asc94.TS40e
 public import CFSG.Quasithin.Vol2.Asc94.TS40h
 public import CFSG.Quasithin.Vol2.Asc94.TSFrame5
 public import CFSG.Quasithin.Vol2.Asc94.Defs

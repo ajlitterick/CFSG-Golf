@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGTwMult
-public import CFSG.Blueprint.Catalog
-public import CFSG.ClassicalGroups.UnitaryFlag.GramForm
-import CFSG.LieType.Steinberg.CentralExt.UnitaryThreeLift
-import CFSG.LieType.Universal.Unitary.Comparison
 import CFSG.LocalAnalysis.SectionRank.EvenCover.Unitary
 
 public section

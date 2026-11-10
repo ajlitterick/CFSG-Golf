@@ -2,7 +2,6 @@ module
 
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk111cKCliff
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk111cKMain
-public import CFSG.GH74.GLS.IVK.Proofs2.Stmt111c
 
 public section
 

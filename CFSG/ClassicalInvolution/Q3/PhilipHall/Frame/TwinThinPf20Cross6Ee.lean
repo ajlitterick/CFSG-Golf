@@ -1,11 +1,8 @@
 module
 
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinThinPf20Cross6Pair
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinThinPf20Cross6Vec
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinThinPf20Cross6Q8
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinThinPf20Cross6Loc
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinThinPf15Ker
-public import CFSG.ClassicalInvolution.Q3.TL4AECoverH
 public import CFSG.Sporadic.Schreier.J4SNoCompCover
 
 public section

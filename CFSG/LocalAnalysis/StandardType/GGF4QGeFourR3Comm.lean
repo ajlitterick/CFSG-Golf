@@ -3,11 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGF4OriginalRankOne
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourCommPair
 import CFSG.LocalAnalysis.StandardType.GGF4CommPair
-import CFSG.LieType.Universal.SymplecticExtras.Matrices
-import Mathlib.Tactic.Group
 import CFSG.LocalAnalysis.StandardType.GGKGPosSpStd
-import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpStdAssembly
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 
 public section
 

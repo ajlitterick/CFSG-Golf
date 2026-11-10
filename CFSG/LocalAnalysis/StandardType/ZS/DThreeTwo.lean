@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.ZS.ReflQuotient
 public import CFSG.Fischer.Classification.Orthogonal2.SpModel
 public import CFSG.Fischer.Classification.Orthogonal2.Reflect
-public import Mathlib.GroupTheory.Perm.Fin
 
 import CFSG.LocalAnalysis.StandardType.ZS.DThreeWeyl
 import CFSG.LocalAnalysis.StandardType.ZS.DThreeTransport

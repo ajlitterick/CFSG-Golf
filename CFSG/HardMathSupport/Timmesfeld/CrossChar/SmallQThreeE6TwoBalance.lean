@@ -4,9 +4,7 @@ public import CFSG.HardMathSupport.Timmesfeld.CrossChar.SmallQThreeE6TwoSL6CertA
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.SmallQThreeE6TwoSL6CertB
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.SmallQThreeFactsBalance
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.SmallQThreeFactsSplit
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.SmallQThreeFactsLeaf
 public import CFSG.LocalAnalysis.StandardType.GGTableBE6TwoPilotAct
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerF4Toral
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerResiduals
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.Reduction
 public import CFSG.LieType.Chevalley.EvenTrialityOuterInvolutions

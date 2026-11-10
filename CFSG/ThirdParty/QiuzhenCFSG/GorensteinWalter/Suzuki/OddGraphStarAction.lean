@@ -1,10 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphStarClasses
-public import Mathlib.Algebra.Group.Action.Pointwise.Set.Basic
-import Mathlib.GroupTheory.GroupAction.Transitive
-public import Mathlib.GroupTheory.Index
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

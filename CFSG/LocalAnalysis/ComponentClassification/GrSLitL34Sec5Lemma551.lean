@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec5Fixed
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec5Inputs
 public import CFSG.LocalAnalysis.ComponentClassification.FooteLitTypeRank
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitFixedL34
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitReduction
 public import CFSG.Certificates.Kernel.ThDemp.OrbCent
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec5Lemma53
 public import CFSG.LocalAnalysis.QuasithinUnique.Setting

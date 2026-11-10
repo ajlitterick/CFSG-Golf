@@ -1,15 +1,9 @@
 module
 
-public import CFSG.GH74.GLS.C3.Prop121.Card7F1
-public import CFSG.GH74.GLS.C3.Layer2.FinModelEnum
-public import CFSG.GH74.GLS.C3.Layer2.FinModelCard
-public import Mathlib.GroupTheory.Sylow
 public meta import CFSG.GH74.GLS.C3.Prop121.Card7F1
 public meta import CFSG.GH74.GLS.C3.Layer2.FinModelEnum
 public meta import Mathlib.Data.List.Dedup
-public import CFSG.GH74.GLS.C3.Prop121.Card7F5Inputs
 public meta import CFSG.GH74.GLS.C3.Prop121.Card7F5Inputs
-public import Certificates.Certificate5039
 public import Certificates.Certificate5079
 
 public section

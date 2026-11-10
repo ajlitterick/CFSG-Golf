@@ -4,9 +4,6 @@ public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10Fact107c
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10FactCYAux
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10FactCYSplit
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10FactsCCert
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10ModelInv
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10S109CInputs
-public import Certificates.Certificate442006
 public import Certificates.Certificate442018
 
 public section

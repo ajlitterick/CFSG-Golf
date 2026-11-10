@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFrameTBTw
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUElt
 import CFSG.LocalAnalysis.StandardType.GGStdPosC13PermConv
 import CFSG.LocalAnalysis.StandardType.GGFrameClassicalNum
 import CFSG.LocalAnalysis.StandardType.GGQ2TableBI1U

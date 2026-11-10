@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.TableC.HypDefs
 public import CFSG.LocalAnalysis.StandardType.TableC.HypLeaves
-public import CFSG.LocalAnalysis.StandardType.TableC.Extract
 public import CFSG.LocalAnalysis.StandardType.TableC.HypJNorm
 
 public section

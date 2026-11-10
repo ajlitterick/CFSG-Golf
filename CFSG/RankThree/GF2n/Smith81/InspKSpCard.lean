@@ -1,10 +1,6 @@
 module
 
 public import CFSG.RankThree.GF2n.Smith81.InspKSpBase
-public import CFSG.LocalAnalysis.StandardType.GGRootCentKGSpCent
-public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotClassOrders
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagOrder
 
 public section
 

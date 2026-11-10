@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotQ2OverlapValField
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGDefs
-public import CFSG.LieType.Universal.Catalog
-public import CFSG.LieType.BorelTits.UnitaryForm
-public import CFSG.LieType.Universal.Unitary.Basic
-public import CFSG.LocalAnalysis.ComponentInitial.UnitaryDiagonalOuterOrder
 
 public section
 

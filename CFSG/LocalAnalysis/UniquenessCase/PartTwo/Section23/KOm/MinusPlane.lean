@@ -1,13 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KOm.Isometry
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23c.OmegaMinusFour
 public import CFSG.ClassicalGroups.Orthogonal.StatedOmegaElementary
 public import CFSG.ClassicalGroups.Orthogonal.LineStabilizer
-public import CFSG.LieType.Universal.Spin.Forms
-public import CFSG.LieType.Universal.SpinCenterMinus
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KOm.MinusVectors
-import CFSG.Timmesfeld.Orders.ClassicalAnisotropic
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.ClassicalGroups.Orthogonal.RootGroupFixedCard
 public import CFSG.LinearAlgebra.LinearGroups.ProjectiveSimple
@@ -26,16 +22,11 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.B4ModelsAction
 public import CFSG.Quasithin.Background.RealizesFaithful
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 
 public section

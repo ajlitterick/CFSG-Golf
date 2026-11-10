@@ -1,12 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallA8Model
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallNoNilpCheck
 public meta import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallA8Model
 public meta import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallNoNilpCheck
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallQ3A8Inputs
 public import Certificates.Certificate2013
-public import Certificates.Certificate2007
 
 public section
 

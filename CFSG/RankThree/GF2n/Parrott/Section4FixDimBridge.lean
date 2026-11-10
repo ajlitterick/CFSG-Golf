@@ -2,8 +2,6 @@ module
 
 public import CFSG.RankThree.GF2n.Parrott.ActionQA
 public import CFSG.RankThree.GF2n.Parrott.FixDim
-public import CFSG.RankThree.GF2n.Parrott.LocalData
-public import Certificates.Data.ParrottSpin
 public import CFSG.RankThree.GF2n.Parrott.FixCardConj
 public import CFSG.RankThree.GF2n.Parrott.LiftOrderThree
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6LeviFoldCells
 public import CFSG.LocalAnalysis.StandardType.GGTBJE6Rows
-public import CFSG.LocalAnalysis.StandardType.GGTBJETypeCells
 
 public section
 

@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LieType.RootSystem.Basic
 public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
 public import CFSG.LocalAnalysis.StandardType.GGSimplyLacedWeyl
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLFaithful
-import CFSG.LieType.Steinberg.OfCartan
 
 public section
 

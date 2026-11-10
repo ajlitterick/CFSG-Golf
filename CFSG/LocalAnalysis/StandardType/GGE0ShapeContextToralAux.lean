@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGOuterInvAtE6DiagLang
 public import CFSG.LocalAnalysis.StandardType.GGOuterInvAtTwistedE6
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267GenE6ThreeLang
 public import CFSG.LocalAnalysis.StandardType.GGTwE6FrameFixPpdLang
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.RigidDescent
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.RigidTwE6
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixSevenA3BstarCentralizer
 public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcE8Rank1
 public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcA2Generic
@@ -62,11 +60,8 @@ public import CFSG.LocalAnalysis.SeitzReduction.E6PilotUniqueField
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotXiCaseLTorus
 public import CFSG.Quasithin.Background.B216Quotient
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.Quasithin.Background.E3OffenderB
 public import CFSG.Quasithin.EmptyFaithful.S14117
-public import CFSG.Quasithin.EmptyFaithful.S14117Coprime
-public import CFSG.Quasithin.EmptyFaithful.S14117Rank
 public import CFSG.Quasithin.EmptyFaithful.S1414Defs
 public import CFSG.Quasithin.EmptyFaithful.S1417Sylow
 public import CFSG.Quasithin.EmptyFaithful.S152N11

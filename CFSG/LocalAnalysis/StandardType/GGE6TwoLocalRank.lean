@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGExcTwoCompList
 public import CFSG.LocalAnalysis.StandardType.GGSixE6A24Centre
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcBasic
 public import CFSG.Adapters.TauCetiExceptional.EvenBridgeE6E7
 public import CFSG.HardMathSupport.Timmesfeld.Tables.Census.FieldBonusIso
 public import CFSG.RankThree.PartTwo.Census.Exceptional.LocalRankThreeTwo
@@ -26,7 +25,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.S12.Prop123
 public import CFSG.LocalAnalysis.GLTheoremA.Sec5Setup
 public import CFSG.LocalAnalysis.GLTheoremB.Lemma911Proof
 public import CFSG.LocalAnalysis.GLTheoremB.Lemma99Inputs
-public import CFSG.LocalAnalysis.SignalizerFunctor
 public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
 

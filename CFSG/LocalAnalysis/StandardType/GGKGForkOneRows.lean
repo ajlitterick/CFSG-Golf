@@ -1,16 +1,13 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGKGForkRows
 public import CFSG.LocalAnalysis.StandardType.GGKGForkOneGlue
 public import CFSG.LocalAnalysis.StandardType.GGKGForkOmMinusOne
-public import CFSG.LocalAnalysis.StandardType.GGKGForkLinearOne
 public import CFSG.LocalAnalysis.StandardType.GGRealKGUSplitRoot
 public import CFSG.LocalAnalysis.StandardType.GGKGForkOmPlusOne
 public import CFSG.LocalAnalysis.StandardType.GGKGForkUnitaryOne
 public import CFSG.LocalAnalysis.StandardType.GGKGForkUnitaryDvdOne
 public import CFSG.LocalAnalysis.StandardType.GGKGForkLinearDvdOne
 public import CFSG.LocalAnalysis.StandardType.GGKGForkSpOne
-public import CFSG.LocalAnalysis.StandardType.GGKGForkExcRows
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcRowsTw
 
 public section

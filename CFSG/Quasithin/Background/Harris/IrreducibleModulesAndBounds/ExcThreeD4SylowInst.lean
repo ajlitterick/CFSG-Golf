@@ -2,8 +2,6 @@ module
 
 public import CFSG.Quasithin.Background.Harris.IrreducibleModulesAndBounds.ExcThreeD4SylowRank
 public import CFSG.Quasithin.Background.SmithB42D4Rel
-public import CFSG.LieType.Chevalley.EvenTrialityOrbitParametrization
-public import CFSG.LieType.Chevalley.EvenTrialityTraceCommutators
 
 public section
 

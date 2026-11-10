@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.LocalComp.CubParts
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.Fi24SevenData
-import Certificates.Kernel.LocalQT.Cmd
 import Certificates.Kernel.LocalComp.PartsCmd
 import all CFSG.Blueprint.NativeSporadic
 public meta import Certificates.Data.Kernel.LocalComp.CubParts

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBOffSpSpQTwoDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBDenseLabelDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBJoinDefs
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBQTwoSpVacuous

@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitLocalBalanceComp
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitInputs
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuotIso
-public import CFSG.Walter.AStar.Subnormal
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 
 public section

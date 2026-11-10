@@ -7,7 +7,6 @@ import CFSG.RankThree.PartTwo.Sec20.SimsAsc1412L2Tools
 import CFSG.RankThree.PartTwo.Sec20.SimsAsc1411L2Gen
 import CFSG.RankThree.PartTwo.Sec20.SimsAsc1411Hyp
 import CFSG.RankThree.PartTwo.Sec18.Item181ThreeProofThompson
-import CFSG.RankThree.PartTwo.Sec3.TwoOfThreeNormal
 import CFSG.RankThree.PartTwo.Sec4.ProjSLEquiv
 import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 import CFSG.LocalAnalysis.ComponentClassification.LayerMultiplication

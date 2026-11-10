@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylCompDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 
 public section
 

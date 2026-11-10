@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallUnitDvdCount
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallUnitDvdSmall
-public import CFSG.LocalAnalysis.StandardType.GGLinearFusionSURepairBlock
 
 public section
 

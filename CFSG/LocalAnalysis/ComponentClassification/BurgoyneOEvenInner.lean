@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneOEvenPc
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneOSplitMain
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneOField
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneUGraphCore
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneUGraphDescent

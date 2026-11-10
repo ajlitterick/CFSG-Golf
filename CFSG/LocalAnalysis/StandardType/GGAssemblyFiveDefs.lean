@@ -1,14 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGAssemblyFourDefs
 public import CFSG.LocalAnalysis.StandardType.GGAssemblyFourTypeA
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsOmegaFinal
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutPSLNonsplit
 public import CFSG.LocalAnalysis.StandardType.GGKGroupFusionSeitzExc
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcThreeSplit
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6
 public import CFSG.LocalAnalysis.StandardType.GGRoundFourSmallBIsoAssembly
-public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperUnitaryLabel
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmega
 public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergTrialityHolds
 public import CFSG.LocalAnalysis.StandardType.GGTypeACompatFar

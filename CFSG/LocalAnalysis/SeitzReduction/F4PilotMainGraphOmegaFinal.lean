@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.SeitzReduction.F4PilotMainGraphOmegaPlusFinal
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotMainGraphOmegaMinusFinal
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotMainGraphUnitaryFinal
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotXiPartnerClass
@@ -46,7 +45,6 @@ public import CFSG.LocalAnalysis.ShultStronglyClosedTI.MinimalLocalFailureSylowA
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure
 public import CFSG.Monster.B.TwoA.Unitary.Orbit1408Points
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.G11Stmts
 public import CFSG.RankThree.LocalRank.SelectorCases
 public import CFSG.RankThree.PartOne.Assembly

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.NoG2D4Row
-public import CFSG.ClassicalInvolution.RouteD.NoG2D4Shared
-public import CFSG.ClassicalInvolution.RouteD.NoG2D4Pair
 public import CFSG.ClassicalInvolution.SmallCases.NDBH2T2
 
 public section

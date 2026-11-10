@@ -2,7 +2,6 @@ module
 
 public import CFSG.Sporadic.Co1Patterson.AmalgamEdge
 public import CFSG.Sporadic.Co1Patterson.Setting
-public import CFSG.LargeExtraspecial.S3bConj
 public import CFSG.Sporadic.Co1Patterson.GraphDefs
 public import CFSG.GroupTheory.ABGLocalTools.PStabilityDefs
 public import CFSG.LargeExtraspecial.GLRElimInv
@@ -40,8 +39,6 @@ public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Open.QuasithinDefs
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970_18
 public import CFSG.Timmesfeld.RankOne
 public import CFSG.Timmesfeld.Special.TwoCore

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveZSMatrices
-public import Mathlib.Data.Fin.VecNotation
 public import Mathlib.Algebra.BigOperators.Fin
 public import Mathlib.Data.Matrix.Mul
 

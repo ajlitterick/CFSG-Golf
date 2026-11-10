@@ -1,11 +1,9 @@
 module
 
 public import CFSG.Sporadic.HeldB.AutData
-public import Certificates.Data.CFSGNative.Schreier.Check
 public meta import CFSG.Sporadic.HeldB.AutData
 public meta import Certificates.Data.CFSGNative.Schreier.Check
 public meta import Mathlib.GroupTheory.Schreier
-public import Mathlib.GroupTheory.Schreier
 
 public section
 

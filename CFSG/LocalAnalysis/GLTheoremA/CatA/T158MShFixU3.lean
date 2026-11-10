@@ -1,28 +1,17 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T158MShDefs
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.MIAut3
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeInnAutCore
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.OutCycGroup
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.Bridges
-public import CFSG.LocalAnalysis.GLTheoremA.S4.FullCover.MultLie
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.L2CentField
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieOuterUnitary
-public import CFSG.LocalAnalysis.GLTheoremA.S3.ChevTools
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.Basic
-public import CFSG.HardMathSupport.Dickson.KD.CharPAux.Layer
-public import CFSG.HardMathSupport.Solomon.Coordinator.L3AFix
-public import CFSG.RankThree.PartTwo.KFacts.AutPSUOrderThree
 public import CFSG.LocalAnalysis.StandardType.GGL45FixA2Comp
 public import CFSG.LocalAnalysis.StandardType.GGL45FixA2UniFix
 public import CFSG.LocalAnalysis.StandardType.GGL45FixA2UniSolv
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldUnitary
 public import CFSG.Adapters.CatalogueFieldBridges.Unitary
 public import CFSG.Adapters.Certificate43Check
-public import CFSG.LocalAnalysis.GLTheoremB.PCompBasics
-public import CFSG.LocalAnalysis.GLTheoremB.Lemma911ATL
-public import CFSG.LocalAnalysis.ComponentClassification.InnAutDerived
-public import CFSG.Quasithin.Background.A3ComponentsQuotient
 public import CFSG.Adapters.CatalogueFieldBridges.UnitarySU
 public import CFSG.Blueprint.LieModelAPI
 public import CFSG.Goldschmidt.Steps.G37Core

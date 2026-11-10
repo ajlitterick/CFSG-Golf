@@ -4,10 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.FS81.E7FrameTrans
 public import CFSG.LocalAnalysis.StandardType.FS81.E7FrameNativeRoots
 public import CFSG.LocalAnalysis.StandardType.FS81.RootD6EltDefs
 public import CFSG.LocalAnalysis.StandardType.FS81.N7MainRecOut
-public import CFSG.GroupTheory.CommutingProductFixedSubgroup
-public import CFSG.GroupTheory.ElementaryAbelianTransport
-public import CFSG.LieType.Chevalley.LangRootRankOneTorus
-public import Mathlib.GroupTheory.PGroup
 
 public noncomputable section
 

@@ -2,9 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec8.Item812Res3ProofAutY
 public import CFSG.RankThree.SubgroupLists.SymplecticTransvections
-import CFSG.RankThree.PartTwo.Sec4.Item47Bridges
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LieType.Chevalley.LangRootArithmetic
 public import CFSG.LinearAlgebra.LinearGroups.ProjectiveSimple
@@ -49,7 +46,6 @@ public import CFSG.RankThree.PartTwo.Sec4.Item47Witness
 public import CFSG.RankThree.PartTwo.Sec4.LThreePiItem411
 public import CFSG.RankThree.PartTwo.Sec4.ProjSLEquiv
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis

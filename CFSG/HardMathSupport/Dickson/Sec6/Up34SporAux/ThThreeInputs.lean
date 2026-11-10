@@ -1,6 +1,5 @@
 module
 
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThSlpInputs
 public meta import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThSlpInputs
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThSevenInputs
 public meta import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThSevenInputs

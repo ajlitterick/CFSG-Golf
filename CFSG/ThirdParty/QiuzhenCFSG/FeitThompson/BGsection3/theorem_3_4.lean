@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.Infrastructure
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.lemma_3_3
 
 namespace CFSG
 end CFSG

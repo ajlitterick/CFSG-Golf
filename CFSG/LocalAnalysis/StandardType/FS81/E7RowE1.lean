@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.FS81.E7RowA5
 public import CFSG.LocalAnalysis.ZStar
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 
 public section
 

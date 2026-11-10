@@ -8,16 +8,9 @@ import CFSG.LocalAnalysis.StandardType.GGRootCentKGStructE6Levi
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGMarkingSL
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGOTwoE6
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGOTwoExcStep
-import CFSG.LocalAnalysis.StandardType.GGRootCentralizerExcConj
 import CFSG.LocalAnalysis.SeitzReduction.E6PilotPositionPerfectX
-import CFSG.LieType.Steinberg.Adjoint.Group
-import CFSG.LieType.Steinberg.Isogeny.E6
-import CFSG.LieType.Steinberg.Minuscule.Datum
-import CFSG.LieType.Steinberg.Minuscule.Valid
-import CFSG.LieType.Chevalley.RootOps.All
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.JRFacts
 import CFSG.LocalAnalysis.ComponentInitial.LinearCoverFour
 import CFSG.LocalAnalysis.SeitzReduction.F4PilotHR7Split

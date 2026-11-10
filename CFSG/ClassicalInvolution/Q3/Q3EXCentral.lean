@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.Q3EXGlue
 public import CFSG.ClassicalInvolution.Q3.Q3EXD4Model
-public import CFSG.ClassicalInvolution.RouteD.ExoticSingleGeom
 public import CFSG.ClassicalInvolution.RouteD.ExoticSingleClique
 public import CFSG.ClassicalInvolution.Q3.Q3WMain
 

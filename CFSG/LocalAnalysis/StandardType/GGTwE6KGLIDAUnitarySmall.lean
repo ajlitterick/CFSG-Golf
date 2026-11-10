@@ -2,12 +2,9 @@ module
 
 public import CFSG.LieType.Universal.Unitary.Basic
 public import CFSG.LieType.BorelTits.UnitaryForm
-public import CFSG.Open.Defs
 import CFSG.CharacterTheory.Burnside
 import CFSG.ClassicalGroups.UnitaryFlag.GroupData
-import CFSG.LieType.Universal.Unitary.Comparison
 import CFSG.LinearAlgebra.LinearGroups.UnitaryOrder
-import Mathlib.GroupTheory.IsPerfect
 public import CFSG.LieType.BorelTits.CompleteFlag
 
 public section

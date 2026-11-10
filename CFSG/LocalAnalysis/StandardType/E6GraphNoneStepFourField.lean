@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGOuterInvLangDatumThrough
 public import CFSG.LocalAnalysis.StandardType.E6GraphNoneF4Transport
 public import CFSG.LocalAnalysis.StandardType.E6GraphNoneStepFour
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRanksTri
 
 public section
 

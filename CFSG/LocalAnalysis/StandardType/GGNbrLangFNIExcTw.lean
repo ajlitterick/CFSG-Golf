@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIExcUntw
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIVacTwisted
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154ExcDataTw
 
 public section
 

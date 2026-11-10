@@ -1,13 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallL34Out
-public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
-public import CFSG.GH74.KGroups.Generic5
-public import CFSG.GH74.KGroups.Checks3
 public meta import CFSG.GH74.KGroups.Checks3
 public meta import CFSG.LocalAnalysis.ComponentClassification.PSL3FourActionData
-public import Certificates.Certificate2022
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallL34RankInputs
 public import Certificates.Certificate2011
 
 public section

@@ -4,9 +4,7 @@ public import CFSG.LocalAnalysis.StandardType.ExcPos.UnitDefs
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Three
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRestDefs
 public import CFSG.LieType.Steinberg.CentralExt.FieldFourMultiplier
-public import CFSG.LieType.CurtisTits.ExceptionalQuasisimple
 public import CFSG.Walter.Bender1970.S2.Components
-public import CFSG.LocalAnalysis.ComponentInitial.FixedComponentCorrespondence
 public import CFSG.LieType.Steinberg.CentralExt.F4E8Multiplier
 public import CFSG.Walter.Bender1970.S2.TwoSubgroup
 public import CFSG.Walter.PSL2Facts

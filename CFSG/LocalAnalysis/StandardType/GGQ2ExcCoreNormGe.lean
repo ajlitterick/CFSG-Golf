@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreNormFrame
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreNormLe
 import CFSG.LieType.Chevalley.RootComponentType
-import CFSG.LieType.Chevalley.SimplyLacedFieldTwoCoverRoots
 
 public section
 

@@ -1,12 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinPrimed
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRMModuleThree
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBarBridge
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveLRankThree
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylPath
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNarrowInputs
 
 public section
 

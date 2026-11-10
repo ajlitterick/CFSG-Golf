@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGKG3Coord
 public import CFSG.LocalAnalysis.StandardType.GGKG3Cent
-public import CFSG.LocalAnalysis.StandardType.GGKG3ZE
-public import CFSG.RankThree.Chevalley.SteinbergCAF4SplitPrimeTorus
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeE6ToralDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeCompDesc
-public import CFSG.LocalAnalysis.ComponentClassification.FixedCommutingProduct
 
 public section
 

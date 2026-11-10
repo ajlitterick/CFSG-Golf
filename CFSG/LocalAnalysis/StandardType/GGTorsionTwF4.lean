@@ -2,12 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorsionTwF4Comp
 public import CFSG.LocalAnalysis.StandardType.GGTorsionTwF4Card
-public import CFSG.LocalAnalysis.StandardType.GGTorsionQuot
 public import CFSG.LocalAnalysis.StandardType.GGTorsionQuotComp
 public import CFSG.LocalAnalysis.StandardType.GGTorsionSmallOrd
-import CFSG.LocalAnalysis.StandardType.Marking
 import CFSG.LocalAnalysis.StandardType.GGTwistedF4Diag
-import CFSG.LocalAnalysis.SeitzReduction.F4PilotCatTypeDet
 
 public section
 

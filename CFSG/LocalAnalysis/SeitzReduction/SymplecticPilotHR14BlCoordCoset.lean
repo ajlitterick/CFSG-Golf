@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotHR14BlCoordSetup
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotHR14BlModelToral
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotHR14BlModelTorus
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotHR14BlSiegel
-import CFSG.LocalAnalysis.SeitzReduction.LinearPilotSetup
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotHR14LagAssembly
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotHR14LagMain
 

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsCoresFamily
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsCoresAssembly
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsCore
-public import CFSG.Assembly.Subnormal
 
 public section
 

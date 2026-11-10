@@ -1,8 +1,6 @@
 module
 
 public import CFSG.GH74.GLS.C3.Prop121.CentK
-public import CFSG.GH74.GLS.C3.Layer2.FinModelCard
-public import Mathlib.GroupTheory.Perm.Centralizer
 public meta import CFSG.GH74.GLS.C3.Prop121.MooreFinite7
 public meta import Mathlib.Algebra.Group.End
 public meta import Mathlib.GroupTheory.Perm.Sign
@@ -11,7 +9,6 @@ public meta import Mathlib.GroupTheory.Perm.Fin
 public meta import Mathlib.Logic.Equiv.Fin.Basic
 public meta import Mathlib.Logic.Equiv.Option
 public meta import Mathlib.Data.List.FinRange
-public import CFSG.GH74.GLS.C3.Prop121.CzCoordInputs
 public meta import CFSG.GH74.GLS.C3.Prop121.CzCoordInputs
 public import Certificates.Certificate5086
 public import CFSG.CharacterTheory.CyclicBlocks.Family
@@ -37,10 +34,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups
 public import CFSG.Permutation.UnitaryThreeRecognition.Model
 public import CFSG.StronglyEmbedded.MatrixGroups.PSL2
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_1_12
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 
 public section

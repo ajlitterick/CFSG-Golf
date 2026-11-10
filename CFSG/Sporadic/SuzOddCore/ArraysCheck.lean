@@ -1,10 +1,7 @@
 module
 
-public import CFSG.Sporadic.SuzOddCore.Arrays
-public import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 public meta import CFSG.Sporadic.SuzOddCore.Arrays
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
-public import CFSG.Sporadic.SuzOddCore.ArraysCheckInputs
 public import Certificates.Certificate2289
 
 public section

@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormCartanScalar
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormE7Split
 public import CFSG.LieType.SeitzGeneration.ExcTorusPowerMap
-public import CFSG.LieType.SeitzGeneration.ExcTorusE7Three
-public import CFSG.LieType.SeitzGeneration.ExcTorusE7Six
-public import CFSG.LieType.SeitzGeneration.ExcTorusArith
 
 public noncomputable section
 

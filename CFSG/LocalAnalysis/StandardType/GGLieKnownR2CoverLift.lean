@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2Transport
-public import CFSG.LocalAnalysis.StandardType.GGRootNormInner
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixFiveKnownForms
 
 public section

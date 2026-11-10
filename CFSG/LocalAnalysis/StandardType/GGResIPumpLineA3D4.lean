@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOrthNsLabels
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorus
 public import CFSG.LocalAnalysis.StandardType.GGSignedPermCount
-public import CFSG.LocalAnalysis.StandardType.GGResILineInputs
 
 public section
 

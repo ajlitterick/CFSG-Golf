@@ -1,13 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResE6DepCardSixRank5
-public import CFSG.LocalAnalysis.StandardType.GGResE6DepLabels
-public import CFSG.LocalAnalysis.StandardType.GGResE6DepLabel
-public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3Bridge
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
 public import CFSG.LocalAnalysis.StandardType.GGResCentBoundNbrHolds
 public import CFSG.LocalAnalysis.StandardType.GGResSingularAExactTwo
-public import CFSG.LocalAnalysis.StandardType.GGResTwoSettledDefs
 
 public section
 

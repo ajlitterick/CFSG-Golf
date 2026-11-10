@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.M23Dc.Lit
 public import CFSG.Quasithin.EmptyFaithful.S151S9TM23Inputs
 public import CFSG.Certificates.Kernel.SporLatDcPair
-import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 100000
 

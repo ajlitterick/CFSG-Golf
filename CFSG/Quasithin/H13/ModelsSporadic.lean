@@ -8,9 +8,6 @@ public meta import CFSG.Blueprint.NativeSporadic
 public meta import CFSG.Quasithin.Recognition.ModelBridgesJ3
 import all CFSG.Blueprint.NativeSporadic
 public import Certificates.Certificate7033
-public import Certificates.Certificate3167
-public import Certificates.Certificate3172
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

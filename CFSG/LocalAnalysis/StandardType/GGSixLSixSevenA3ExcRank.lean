@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixSevenA3BstarCentralizer
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTags
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfTwoLocal
 
 public section

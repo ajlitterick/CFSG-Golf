@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.Zassenhaus.PartA.S7Xhat
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.Zassenhaus.PartA.S7Orbit
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.Zassenhaus.PartA.S7Core
-public import CFSG.GroupTheory.OrderBelowSixtySolvable
 
 public section
 

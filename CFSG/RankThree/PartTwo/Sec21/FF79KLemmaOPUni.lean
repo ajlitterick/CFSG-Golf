@@ -6,9 +6,6 @@ public import CFSG.RankThree.PartTwo.Sec21.FF79KLemmaOPUniB
 
 import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs256h
 import CFSG.LocalAnalysis.AGLEmbeddingD2.McLaughlin.OrdinaryProofs.OutL5Proof
-import CFSG.RankThree.SteinbergR3ELinearUnitaryOuterOrder
-import CFSG.LocalAnalysis.QuasithinUnique.SQTK.UnitaryTauCeti
-public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 import CFSG.Holt.Centralizer
 import CFSG.LocalAnalysis.AGLEmbeddingD2.McLaughlin.PairFacts
 import CFSG.LocalAnalysis.AGLEmbeddingD2.McLaughlin.TightPairAndPureRank.FixedBlock

@@ -8,7 +8,6 @@ public import Certificates.Kernel.Census.J2.TExc
 public import Certificates.Kernel.Census.J2.LExc0
 public import Certificates.Kernel.Census.J2.LExc1
 public import CFSG.Certificates.Kernel.Census.PackedLProof
-public import CFSG.Certificates.Kernel.Census.SoundProof
 public import CFSG.Certificates.Kernel.Census.ExcProof
 public import CFSG.Certificates.Kernel.Common.ForallChunks
 

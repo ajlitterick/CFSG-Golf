@@ -16,14 +16,7 @@ public import CFSG.LocalAnalysis.GLTheoremA.S3.Inputs
 public import CFSG.LocalAnalysis.GLTheoremA.S4.Lemma41
 public import CFSG.LocalAnalysis.GLTheoremA.S6.Defs
 public import CFSG.LocalAnalysis.LargeEvenClassification.TopScalarLiftSquare
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremB
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremC
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.ZJTheorem
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GW1965RemarkDGroup
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29Helpers
 
 public section
 

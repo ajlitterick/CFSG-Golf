@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Sporadic.OddCore.SuzRgK0
 public import Certificates.Kernel.Sporadic.OddCore.SuzRgK1
 public import Certificates.Kernel.Sporadic.OddCore.SuzRgP
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

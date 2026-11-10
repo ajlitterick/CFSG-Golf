@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGNbrLSideRSExcU2TypeA
 public import CFSG.LocalAnalysis.StandardType.GGNbrLSideRSExcU2NonA
 public import CFSG.LocalAnalysis.StandardType.GGNbrLSideRSExcU2E6
 public import CFSG.LocalAnalysis.StandardType.GGNbrLSideKitExcl
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofLieOrder
 
 public section
 

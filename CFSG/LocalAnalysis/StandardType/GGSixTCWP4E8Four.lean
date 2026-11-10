@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4E8Five
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4E8Large
 
 public section

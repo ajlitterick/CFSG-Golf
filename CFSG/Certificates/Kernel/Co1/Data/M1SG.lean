@@ -2,7 +2,6 @@ module
 
 public import CFSG.Certificates.Kernel.Common.DceS
 public import CFSG.Certificates.Kernel.Co1.Data.M1S_0
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.NatItemsGz
 import CFSG.Certificates.Kernel.Common.Repo
 

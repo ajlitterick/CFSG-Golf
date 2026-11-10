@@ -3,7 +3,6 @@ module
 public import CFSG.ClassicalInvolution.RouteD.TWZSmall
 public import CFSG.ClassicalInvolution.RouteD.TWZSpinMinus
 public import CFSG.ClassicalInvolution.RouteD.TWZPlanes
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 
 public section
 

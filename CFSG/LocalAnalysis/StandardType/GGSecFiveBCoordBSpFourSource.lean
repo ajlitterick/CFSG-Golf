@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpPlaneBlocks
-import CFSG.LocalAnalysis.StandardType.GGKGroupFusionSeitzExcComp
-import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotRecognizeSwap
 import CFSG.LocalAnalysis.StandardType.GGSpJoinBstarSplit
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpKFrame
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniBlocks
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBSpCoordFrameFacts

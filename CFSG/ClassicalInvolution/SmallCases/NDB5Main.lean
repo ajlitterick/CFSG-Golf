@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.SmallCases.NDB5Sec
-public import CFSG.ClassicalInvolution.SmallCases.NDBStmt
 public import CFSG.ClassicalInvolution.SmallCases.NDB3Vertex
 public import CFSG.ClassicalInvolution.SmallCases.NDB2Main
 public import CFSG.ClassicalInvolution.AschTight.S1911C8c

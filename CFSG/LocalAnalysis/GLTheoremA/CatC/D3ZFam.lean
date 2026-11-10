@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.D3ZDiag
-public import CFSG.HardMathSupport.Timmesfeld.DFour.TrialityFix
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.YS04I117K2
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.D3ZNorm
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.D3ZW

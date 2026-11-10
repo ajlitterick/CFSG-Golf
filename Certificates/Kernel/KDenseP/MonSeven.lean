@@ -1,27 +1,17 @@
 module
 
 public import Certificates.Kernel.KDenseP.AgreeB
-public import Certificates.Kernel.KDenseP.Axis.Base
-public import CFSG.Certificates.Kernel.KDense.Data.Checks
 public import CFSG.Certificates.Kernel.KDenseP.MonSeven.MonoAll
 public import CFSG.Certificates.Kernel.KDenseP.MonSeven.R13695pc
 public import CFSG.Certificates.Kernel.KDenseP.MonSeven.R13695aut
 public import CFSG.Certificates.Kernel.KDenseP.MonSeven.R13695rat
 public import CFSG.Certificates.Kernel.KDenseP.MonSeven.R136300
 public import CFSG.Certificates.Kernel.KDenseP.MonSeven.R136301
-public import CFSG.Certificates.Kernel.KDenseP.MonSeven.Look
 public import CFSG.LocalAnalysis.AGLEmbedding.Norton.MON5_7.ThreeBData
-public import CFSG.YGroups.Y443.Native.Words
-public import CFSG.Certificates.Kernel.Common.Plan
 import CFSG.Certificates.Kernel.Common.Each
 public import CFSG.Certificates.Kernel.KDenseP.MonSeven.LookChk
 public import CFSG.Certificates.Kernel.KDenseP.LookSound
-public import CFSG.Certificates.Kernel.KDenseP.ReplaySound
 import Certificates.Kernel.KDenseP.MonoTabL
-public import CFSG.Certificates.Kernel.KDenseP.MonSeven.MonoEChk0
-public import CFSG.Certificates.Kernel.KDenseP.MonSeven.MonoEChk1
-public import CFSG.Certificates.Kernel.KDenseP.MonSeven.MonoEChk2
-public import CFSG.Certificates.Kernel.KDenseP.MonSeven.MonoEChk3
 
 public section
 

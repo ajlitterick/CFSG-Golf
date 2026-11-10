@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGE6DepModelRefl36
 public import CFSG.LocalAnalysis.StandardType.GGE6DepModelActs
 public import CFSG.LocalAnalysis.StandardType.GGE6DepModelCoord
 public import CFSG.LocalAnalysis.StandardType.GGE6DepCorootDefs
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
 public import CFSG.LocalAnalysis.StandardType.GGE6DepModelOrbit
 
 public section

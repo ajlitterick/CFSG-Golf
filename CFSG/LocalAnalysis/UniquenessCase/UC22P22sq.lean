@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22sp
-import CFSG.LocalAnalysis.UniquenessCase.UC22P22e
-import CFSG.LocalAnalysis.UniquenessCase.UC22P22t
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22ya
-import CFSG.LocalAnalysis.UniquenessCase.UC22Bridge3
-import CFSG.Open.StatedAPI
 public import CFSG.Quasithin.Background.B610
 
 public section

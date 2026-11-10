@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4LabelH4Pieces
-public import CFSG.LocalAnalysis.StandardType.GGTPNNarrow
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 public import CFSG.LocalAnalysis.StandardType.GGNbrLabelJOfTcjK
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrEnnola
 
 public section

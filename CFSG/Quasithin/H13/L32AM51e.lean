@@ -4,9 +4,6 @@ public import CFSG.Quasithin.H13.L32AC51b
 public import CFSG.Quasithin.H13.L32AC51d
 public import CFSG.Quasithin.Background.SmithB42LnL4Models
 public import CFSG.Quasithin.Background.P4GLAut
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismData
-public import CFSG.LocalAnalysis.ComponentInitial.SteinbergBXBinaryIndexThreeParabolics
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListFlag
 
 public section
 

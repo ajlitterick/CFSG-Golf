@@ -2,22 +2,13 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixExcPosRangeDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixLieKnownPosExcDefs
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2PSLPos
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2SUForms
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2SpForms
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaForms
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TriD4Forms
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2F4Inner
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2F4NC
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2E6Root
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2E6NC
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2E7Root
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2E8Inner
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2E8NC
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TwE6Root
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TwE6NC
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TwE6ShortRoot
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TwE6Conj
 
 public section
 

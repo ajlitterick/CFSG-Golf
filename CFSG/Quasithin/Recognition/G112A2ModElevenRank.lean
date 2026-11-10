@@ -1,9 +1,6 @@
 module
 
 public import CFSG.Quasithin.Background.Harris.L2.Steinberg8Tensor
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesTensor
-public import CFSG.Quasithin.Background.G9StmtsModels
-public import CFSG.Adapters.ProjectiveSpecialLinear
 
 public section
 

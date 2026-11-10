@@ -19,7 +19,6 @@ import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
 import CFSG.LocalAnalysis.ComponentInitial.LayerComponentOrbit
 import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19IdentLieAlt
 import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
-import CFSG.LocalAnalysis.SectionRank.PRank
 import CFSG.Quasithin.Background.Basic
 import CFSG.RankThree.GroupTheory.SteinbergBYSectionNineResidual
 import CFSG.RankThree.LocalRank.SelectorCases
@@ -27,7 +26,6 @@ import CFSG.RankThree.PartOne.Assembly
 import CFSG.RankThree.PartOne.S10.ThetaContract
 import CFSG.RankThree.PartOne.S12.InputsBase
 import CFSG.RankThree.PartOne.TAIL.KSideCen
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

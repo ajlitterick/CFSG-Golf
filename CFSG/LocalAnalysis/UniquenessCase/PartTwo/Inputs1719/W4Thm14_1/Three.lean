@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm14_1.Defs
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm14_1.Two
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenLin
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Fourteen1
 public import CFSG.GroupTheory.SylowIntersectionControl.GomiGstar
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm14_1.SimpleGen2
 public import CFSG.Adapters.StatedClassicalSmallOrders

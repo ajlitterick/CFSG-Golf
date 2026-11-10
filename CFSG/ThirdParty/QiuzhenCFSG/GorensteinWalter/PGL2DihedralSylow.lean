@@ -1,7 +1,6 @@
 module
 
 
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2Cardinality
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2TwoPartArithmetic
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2SplitTorus
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2NonsplitTorus

@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGIrred937ExcLang
 import CFSG.LocalAnalysis.StandardType.GGPhiTwoRootGenFrame
-import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesCore
-import CFSG.LieType.Chevalley.GraphFixedF4GroupDescent
 
 public section
 

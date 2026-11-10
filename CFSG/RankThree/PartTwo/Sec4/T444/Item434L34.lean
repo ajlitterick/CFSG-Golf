@@ -1,19 +1,13 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434Sec
-public import CFSG.RankThree.PartTwo.KFacts.L34Aut
 public import CFSG.RankThree.PartTwo.KFacts.L34Models
 public import CFSG.RankThree.PartTwo.KFacts.AutKindsCentral
-public import CFSG.RankThree.PartTwo.KFacts.AutKindsStd
 import CFSG.RankThree.Coprime.InvolutionFixedRankBound
 import CFSG.RankThree.PartTwo.Sec4.Item413Cases
 import CFSG.RankThree.PartTwo.Sec13.Item134Residual
-import CFSG.ThirdParty.BrauerInduction.Background.Group.InternalDirectProduct
-import CFSG.GroupTheory.QuasisimpleCommutingProductBound
-import CFSG.RankThree.PartTwo.Sec4.LThreePiCaseIb
 import CFSG.RankThree.PartTwo.Sec4.Census.CoverSLThree46
 import CFSG.RankThree.PartTwo.KFacts.KS12SLCenter
-import CFSG.RankThree.PartTwo.Sec4.LThreePiKind
 import CFSG.RankThree.PartTwo.Sec13.Item131Transport
 import CFSG.RankThree.PartTwo.Sec4.Steps434
 import CFSG.RankThree.Asc83Table.E27
@@ -28,7 +22,6 @@ public import CFSG.LieType.Multipliers.U62Kernel
 public import CFSG.LieType.Universal.Spin.Roots
 public import CFSG.LieType.Universal.SpinOmega
 public import CFSG.LocalAnalysis.ComponentClassification.BlockTwoProductAction
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHermitianIsometry
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 public import CFSG.LocalAnalysis.ComponentClassification.MinimalBCenter
@@ -67,7 +60,6 @@ public import CFSG.Sporadic.ON.ActionBase
 public import CFSG.Sporadic.ON.CertificateBase
 public import CFSG.Sporadic.ON.ChainBase
 public import CFSG.Sporadic.ON.LinesBase
-public import CFSG.Sporadic.ON.PrimitiveBase
 public import CFSG.Sporadic.ON.SimpleBase
 public import CFSG.Sporadic.Presentation.HeExact
 public import CFSG.Sporadic.Presentation.J4
@@ -76,7 +68,6 @@ public import CFSG.Sporadic.Presentation.M24Exact
 public import CFSG.Sporadic.Presentation.ONan
 public import CFSG.Sporadic.Schreier.M23
 public import CFSG.Sporadic.SmallOddCore.CheckSpec
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 public import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 import CFSG.RankThree.PartTwo.Sec4.Item47

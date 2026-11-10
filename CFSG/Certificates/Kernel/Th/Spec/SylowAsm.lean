@@ -6,7 +6,6 @@ public import CFSG.Certificates.Kernel.Th.S.SeedS
 public import CFSG.Blueprint.NativeSporadic
 import CFSG.Certificates.Kernel.Th.Spec.Seed
 import CFSG.Certificates.Kernel.Th.Spec.SylowOrbitBase
-import CFSG.Sporadic.Th.F2Spec
 
 public section
 

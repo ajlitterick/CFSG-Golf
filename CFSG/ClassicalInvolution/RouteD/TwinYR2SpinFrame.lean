@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.TwinYR2SpinStmt
-public import CFSG.ClassicalInvolution.ModelFacts.Orth15TwinStd
 
 public section
 

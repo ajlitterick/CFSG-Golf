@@ -2,8 +2,6 @@ module
 
 public import CFSG.LieType.Chevalley.EvenTrialityTorusCoordinates
 public import CFSG.LieType.Chevalley.EvenTrialityTraceCommutators
-public import CFSG.LieType.Chevalley.EvenTrialityOrbitParametrization
-public import CFSG.LieType.Chevalley.ExceptionalLargeEvenCoverHeight
 public import CFSG.LieType.Chevalley.TwistedE6EvenCoverTorus
 
 public noncomputable section

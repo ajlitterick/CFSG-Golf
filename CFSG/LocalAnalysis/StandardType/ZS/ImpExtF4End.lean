@@ -3,27 +3,19 @@ module
 public import CFSG.LocalAnalysis.StandardType.ZS.ImpExtF4
 public import CFSG.LocalAnalysis.StandardType.ZS.ImpExtDeg
 public import CFSG.LocalAnalysis.StandardType.ZS.ImpExtF4Irred
-public import CFSG.LocalAnalysis.StandardType.ZS.ImpExtRankThree
 public import CFSG.LocalAnalysis.StandardType.ZS.ImpExtRankThreeCard
 public import CFSG.LocalAnalysis.StandardType.ZS.ImpExtRankFour
 import CFSG.LocalAnalysis.StandardType.ZS.MonomialCard
-import CFSG.LocalAnalysis.StandardType.ZS.MovedGroup
 import CFSG.LocalAnalysis.StandardType.ZS.ReflQuotient
 import CFSG.LocalAnalysis.StandardType.ZS.RootMatrix
 import CFSG.LocalAnalysis.StandardType.ZS.CommutingRefl
-import CFSG.LocalAnalysis.StandardType.ZS.PrimExtBond
-import CFSG.LocalAnalysis.StandardType.ZS.Basic
 import CFSG.LocalAnalysis.StandardType.ZS.ImpExtF4Weyl
 import CFSG.LocalAnalysis.StandardType.ZS.ImpExtAdapted
-import CFSG.LocalAnalysis.StandardType.ZS.ImpExtSetting
 import CFSG.LocalAnalysis.StandardType.ZS.MonomialBasic
 import CFSG.LocalAnalysis.StandardType.ZS.ImpExtF4B3
 import CFSG.LocalAnalysis.StandardType.ZS.PrimExtH3Gen
 import CFSG.LocalAnalysis.StandardType.ZS.SubgroupSpaces
-import CFSG.LocalAnalysis.StandardType.ZS.ImpExtNonMonomial
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelBasic
 import CFSG.LocalAnalysis.StandardType.ZS.InitialPair
-import Mathlib.Tactic.ReduceModChar
 
 attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent
 

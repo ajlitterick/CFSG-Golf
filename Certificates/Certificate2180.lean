@@ -3,7 +3,6 @@ module
 
 public import Certificates.Certificate2180Base
 
-public import CFSG.Sporadic.Schreier.J4SRankData
 public meta import CFSG.Sporadic.Schreier.J4SRankData
 import Certificates.Kernel.SporSch.J4S.RankP
 

@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Sporadic.Co1Row26683.DataM
 public import Certificates.Kernel.Co1B.Vecs
 public import Certificates.Data.Kernel.Co1BAct
-public import Certificates.Data.Kernel.Spor.Mathieu
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

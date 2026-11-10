@@ -1,12 +1,9 @@
 module
 
-public import Certificates.Data.E27.Co1S0
 public import Certificates.Kernel.Co1B.Chk131301
 public import Certificates.Kernel.SporSch.Co1.Packed
-public import CFSG.Certificates.Kernel.Co1BSpinSound
 public import CFSG.Certificates.Kernel.Co1BPairSound
 public import CFSG.Certificates.Kernel.Co1BTriKSound
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.Co1BTriSortSound
 public import CFSG.LocalAnalysis.ComponentInitial.Finkelstein1977Commuting
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.WeylData

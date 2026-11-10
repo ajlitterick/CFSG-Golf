@@ -6,17 +6,6 @@ public import CFSG.Certificates.Kernel.Bounds.XGRuP12t.T1vC0
 public import CFSG.Certificates.Kernel.Bounds.XGRuP12t.T1vW0
 import Certificates.Kernel.Bounds.Assemble
 import CFSG.Certificates.Kernel.Bounds.XGRuP12t.All
-import CFSG.Certificates.Kernel.Bounds.XGRuP12t.T1vK000
-import CFSG.Certificates.Kernel.Bounds.XGRuP12t.T1vK001
-import CFSG.Certificates.Kernel.Bounds.XGRuP12t.T1vK002
-import CFSG.Certificates.Kernel.Bounds.XGRuP12t.T1vK003
-import CFSG.Certificates.Kernel.Bounds.XGRuP12t.T1vK004
-import CFSG.Certificates.Kernel.Bounds.XGRuP12t.T1vK005
-import CFSG.Certificates.Kernel.Bounds.XGRuP12t.T1vK006
-import CFSG.Certificates.Kernel.Bounds.XGRuP12t.T1vK007
-import CFSG.Certificates.Kernel.Bounds.XGRuP12t.T1vK008
-import CFSG.Certificates.Kernel.Bounds.XGRuP12t.T1vK009
-import CFSG.Certificates.Kernel.Bounds.XGRuP12t.T1vK010
 
 public section
 

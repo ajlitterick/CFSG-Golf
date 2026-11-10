@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public import Certificates.Kernel.SporSch.Co2M.Seeds
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co2FiveRankInputs

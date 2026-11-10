@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarE8FiveLangTorus
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarE8FiveConjClass
-public import CFSG.RankThree.PartOne.KE.CTLangData
 
 public section
 

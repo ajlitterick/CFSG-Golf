@@ -1,15 +1,8 @@
 module
 
 public import CFSG.ClassicalInvolution.SmallCases.NobqBender
-public import CFSG.Dihedral.BrauerSuzuki.Helpers
 public import CFSG.LieType.Suzuki.SuzukiOuterCyclic
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructureTransport
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiCoverRootData
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Borel
-public import CFSG.Blueprint.Catalog
 public import CFSG.Adapters.QiuzhenLegacy.BenderSuzuki.BenderSuzukiBorel
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.ClassicalInvolution.SmallCases.NobqOut
 public import CFSG.LieType.Ree.SuzukiSimple
 public import CFSG.LocalAnalysis.ComponentInitial.SuzukiModelSchreier

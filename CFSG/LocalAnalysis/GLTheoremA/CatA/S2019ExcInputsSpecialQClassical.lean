@@ -3,13 +3,7 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S2019ExcInputsSpecialQ
 import CFSG.GH74.GLS.IVK.Proofs2.Lemma41dL3Mat
 import CFSG.GH74.GLS.IVK.Proofs2.Lemma41dU3Mat
-import CFSG.ClassicalGroups.UnitaryFlag.ModelTransport
-import CFSG.ClassicalGroups.UnitaryFlag.GroupData
-import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedTools
 import CFSG.RankThree.SubgroupLists.SymplecticHeisenberg
-import CFSG.Adapters.SpecialLinearPerfect
-import CFSG.Open.StatedAPI
-import CFSG.LocalAnalysis.ComponentInitial.BasicFacts
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
 public import CFSG.Certificates.FusionF2
@@ -25,13 +19,8 @@ public import CFSG.CharacterTheory.Wreathed.WreathCentralSquare
 public import CFSG.Dihedral.DihedralFusionPrefixes
 public import CFSG.Goldschmidt.Basic
 public import CFSG.GroupTheory.HallHigmanPiCore
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6DInputs
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6FInputs
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec7Interface
 public import CFSG.LieType.Universal.Spin.Roots
 public import CFSG.LieType.Universal.SpinOmega
-public import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeFamilies
-public import CFSG.LocalAnalysis.AGLEmbedding.ResidualTools
 public import CFSG.LocalAnalysis.AGLEmbedding.SporadicBetaSmall
 public import CFSG.LocalAnalysis.ComponentClassification.BlockCentralSylowEquality
 public import CFSG.LocalAnalysis.ComponentClassification.BlockFourFactorSupport
@@ -84,8 +73,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.S6.Lemma62Aux
 public import CFSG.LocalAnalysis.GLTheoremA.S9.Inputs95
 public import CFSG.LocalAnalysis.GLTheoremA.S9.Lemma94
 public import CFSG.LocalAnalysis.GLTheoremA.S9.Lemma95A
-public import CFSG.LocalAnalysis.GLTheoremB.Lemma911Defs
-public import CFSG.LocalAnalysis.GLTheoremB.SchreierTools
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.CentralInvolutionStructure
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionNormalTwoFixedPointHull
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionThreePointFullTransport
@@ -98,7 +85,6 @@ public import CFSG.LocalAnalysis.ShultStronglyClosedTI.MinimalLocalFailureProper
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.MinimalLocalFailureSylowAssemblyData
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.MinimalLocalFailureSylowAssemblyProper
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure
-public import CFSG.LocalAnalysis.SignalizerFunctor
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Monster.AxisCount.HSIdentBaby
@@ -132,18 +118,6 @@ public import CFSG.Sporadic.Schreier.RuLOdd
 public import CFSG.Sporadic.Schreier.RuZClass
 public import CFSG.Sporadic.Schreier.TitsOther
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldPrimeOrderFixedSubfield
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OrderThreeNormalizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2PSLRangeCentralizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinInvolutionCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinRestrictionSixCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinUDecomposition
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationEleven
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTen
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTenStructuralIdentities
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2FieldProjectionArithmetic
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2OrderPSubgroupCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphReconstruction
 public import CFSG.Walter.Ree.Model.JTHyp
 public import CFSG.YGroups.DCE.B433Check
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement

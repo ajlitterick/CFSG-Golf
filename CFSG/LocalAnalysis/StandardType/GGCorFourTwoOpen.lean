@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOpenVac
 public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOpenUnitaryIrred
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6
 
 public section
 

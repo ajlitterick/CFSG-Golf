@@ -3,11 +3,9 @@ module
 
 public import Certificates.Certificate2213Base
 
-public import CFSG.Sporadic.Schreier.ONCheckLocalInputs
 public meta import CFSG.Sporadic.Schreier.ONCheckChain
 public meta import CFSG.Sporadic.Schreier.ONOuterData
 import Certificates.Kernel.Sporadic.ON4.Final
-import Certificates.Data.CFSGNative.ON.Certificate
 
 public section
 

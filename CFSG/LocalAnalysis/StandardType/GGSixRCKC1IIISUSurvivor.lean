@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIISUCore
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIISUCoordRoot
 public import CFSG.LocalAnalysis.StandardType.GGSixRCK1416Defs
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortSUDefs
-public import TauCeti.Algebra.Group.Subgroup.ZPowers
 
 public section
 

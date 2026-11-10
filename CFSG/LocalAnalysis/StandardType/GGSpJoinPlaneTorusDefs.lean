@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylBLevi
 public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticLift
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticTorusWeylMatrices
 
 public section
 

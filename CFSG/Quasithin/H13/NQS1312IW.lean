@@ -1,11 +1,8 @@
 module
 
 public import CFSG.Quasithin.H13.NQS1312I
-public import CFSG.Quasithin.Background.C134L32CorrM
-public import CFSG.Quasithin.MS93.Burnside.C134Big
 public import CFSG.Quasithin.H13.NQS1312AW
 public import CFSG.Quasithin.H13.NQS1312OW
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

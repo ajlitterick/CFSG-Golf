@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenCalculus
 public import CFSG.LieType.Chevalley.SylowOpposition
-public import CFSG.LieType.Chevalley.LongestElement
 
 public noncomputable section
 

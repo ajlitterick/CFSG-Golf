@@ -1,13 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcTwE6Defs
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TwoDefs
-public import CFSG.LocalAnalysis.StandardType.GGTriD4KnownInputs
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TwoLeafComponent
-import CFSG.LocalAnalysis.StandardType.GGSixStepOneDefs
-import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaBase
-import CFSG.LocalAnalysis.StandardType.GGInndiagCommRestE6
-import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
 
 public section

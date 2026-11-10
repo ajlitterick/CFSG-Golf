@@ -1,43 +1,22 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S2114E3R880
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section21.StatementsFive
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KStrongEmbedded72Holds
-public import CFSG.LocalAnalysis.UniquenessCase.UC6S846e
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs13
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section19.NoL2SzSectionNormality
-import CFSG.LocalAnalysis.StronglyEmbedded.Normalizer
-import CFSG.RankThree.PartOne.CTP.StrongPQuotient
-import CFSG.GroupTheory.PCore.PrimeSetCore
-import CFSG.LocalAnalysis.RankThreeEvenClassification.Helpers
-import CFSG.LocalAnalysis.UniquenessCase.UC6S846b
-import CFSG.GroupTheory.PGroup.CardCoprime
-import CFSG.LocalAnalysis.RankThreeCoreUniqueness.CoprimeQuotientRank
-import CFSG.LocalAnalysis.SectionRank.SubgroupRank
-import CFSG.LocalAnalysis.SectionRank.PRank
-import CFSG.GroupTheory.ABGLocalTools.Basic
-import CFSG.Quasithin.Background.TwoReduced
-import CFSG.LocalAnalysis.QuasithinUnique.Defs
 import CFSG.LocalAnalysis.UniquenessCase.UC22S2114D4Seven
-import CFSG.LocalAnalysis.UniquenessCase.UC22S2114D4Syl
 import CFSG.LocalAnalysis.UniquenessCase.UC22S2114a
 import CFSG.LocalAnalysis.UniquenessCase.UC22S218Center
 import CFSG.LocalAnalysis.UniquenessCase.UC22S218Ua
-import CFSG.LocalAnalysis.UniquenessCase.UC22P21k
 import CFSG.LocalAnalysis.UniquenessCase.UC22P21a
 import CFSG.LocalAnalysis.UniquenessCase.UC22P2251h
 import CFSG.LocalAnalysis.UniquenessCase.UC22OddPRank
-import CFSG.LocalAnalysis.UniquenessCase.UC6S846g
-import CFSG.LocalAnalysis.UniquenessCase.UC6Syl
-import CFSG.LocalAnalysis.UniquenessCase.UCR638
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SylowCentralOuter
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.OutPRankBound
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Fourteen3a
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.ThreeD4RankBounds
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.ThreeD4TwoOrderFacts
 import CFSG.Quasithin.H13.NQCatExceptional
 import CFSG.Quasithin.Vol2.Ch5Sec2LocalLem522D42Lift
-import CFSG.GH74.Uniqueness.SU.SU1Basic
 import CFSG.GroupTheory.CoprimeActionSupport.CoprimeAutomorphismFixedQuotientLift
 import CFSG.GroupTheory.PCentralElement
 public import CFSG.CGT.PushingUpLit.CGT6.SixFourCoreSL

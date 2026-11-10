@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGAdjDefs
-public import CFSG.LocalAnalysis.SeitzReduction.LongRootPairsRoots
 
 public section
 

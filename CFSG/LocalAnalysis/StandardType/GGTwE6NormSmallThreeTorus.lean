@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6EltSmallFrame
 public import CFSG.LocalAnalysis.StandardType.GGLangRatStep
-import CFSG.RankThree.Chevalley.SteinbergBIRootSL2Tools
 
 public section
 

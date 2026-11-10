@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6TTUnits
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.TorusAtTwE6
-public import CFSG.LieType.SeitzGeneration.ExcTorusTwE6Two
 public import CFSG.CGT.PushingUpLit.BHSSym.SylowTransfer
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 
 public section
 

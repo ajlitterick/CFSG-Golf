@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoDepSurv
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDepSix
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDepFive
 public import CFSG.LocalAnalysis.StandardType.GGQTwoAssemble
-public import CFSG.LocalAnalysis.StandardType.GGQTwoAssembleCaseII
 
 public section
 

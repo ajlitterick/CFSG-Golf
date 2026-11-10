@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.RuThree.QData
 public import Certificates.Kernel.RuThree.Chain
 public import Certificates.Data.Kernel.LinesPK
-public import Certificates.Data.Kernel.Spor.Prim
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

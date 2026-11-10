@@ -6,7 +6,6 @@ public import Certificates.Kernel.McLAS.RecKChk1
 public import Certificates.Kernel.McLAS.RecKChk2
 public import Certificates.Kernel.McLAS.RecKChk3
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

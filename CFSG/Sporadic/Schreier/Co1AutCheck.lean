@@ -1,8 +1,5 @@
 module
 
-public import CFSG.Sporadic.Schreier.Co1StabCheck
-public import CFSG.Sporadic.Schreier.Co1ChainCheck
-public import CFSG.Sporadic.Schreier.Co1AutData
 public meta import CFSG.Sporadic.Schreier.Co1StabCheck
 public meta import CFSG.Sporadic.Schreier.Co1ChainCheck
 public meta import CFSG.Sporadic.Schreier.Co1AutData
@@ -15,7 +12,6 @@ public meta import Certificates.Data.CFSGNative.Co1.Data
 public meta import Certificates.Data.CFSGNative.HS.SmallF2
 public meta import Certificates.Data.CFSGNative.Th.Tables
 public meta import Certificates.Data.CFSGNative.Th.Orbit
-public import CFSG.Sporadic.Schreier.Co1AutCheckInputs
 public import Certificates.Certificate2130
 
 public section

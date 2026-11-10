@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixAutKFinerChoiceTwoKey
-public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitSpNsComp
 
 public section
 

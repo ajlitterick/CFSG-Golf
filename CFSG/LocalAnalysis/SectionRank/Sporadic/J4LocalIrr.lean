@@ -2,11 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.LocalWitness
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.OpsF2
-public import Certificates.Data.J4SylowThreeIrr
 public meta import Certificates.Data.J4SylowThreeIrr
 import all CFSG.Blueprint.NativeSporadic
 public import Certificates.Certificate1015335
-public import CFSG.Open.Defs
 
 public section
 

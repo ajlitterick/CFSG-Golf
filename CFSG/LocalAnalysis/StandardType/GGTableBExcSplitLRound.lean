@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLBstarE6
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLineE6
 public import CFSG.LocalAnalysis.StandardType.GGAssemblyElevenDefs
 

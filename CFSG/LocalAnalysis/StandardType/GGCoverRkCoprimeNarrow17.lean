@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCoverRkCoprimeNarrow17Defs
 public import CFSG.LocalAnalysis.StandardType.GGCoverRkCoprime
 
 public section

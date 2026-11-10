@@ -2,9 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Phan.PhanB2Family
 public import CFSG.ClassicalInvolution.Asc77.AscB3C2
-import CFSG.ClassicalInvolution.Phan.Coherent
-import CFSG.ClassicalInvolution.Phan.TorusAgree
-import CFSG.ClassicalInvolution.Phan.AutSU3
 public import CFSG.ClassicalInvolution.Phan.PhanD5Mat
 
 public section

@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.E6GraphNoneStepFive
-public import CFSG.LocalAnalysis.StandardType.E6GraphNoneFrobIndex
-public import CFSG.LieType.Chevalley.AmbientTwistedFrobeniusFixedNormalizer
-public import CFSG.LieType.Chevalley.CLSOddE7RationalDerivedIndex
 
 public section
 

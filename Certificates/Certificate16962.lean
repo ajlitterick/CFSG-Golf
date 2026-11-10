@@ -4,12 +4,10 @@ public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.BSevenElementsPart
 import Certificates.Kernel.BabyMonster.B7EParts
 public import CFSG.Certificates.Kernel.BabyMonster.Sound
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.OpsF2Fast
-public import CFSG.Monster.B.Cbar.SimpleBase
 public import CFSG.Monster.B.Max2.Pinned
 public import Certificates.Certificate3101
 public import Certificates.Certificate3103
 public import Certificates.Certificate3106
-public import Certificates.Certificate3109Base
 public import Certificates.Data.CFSGNative.MonsterB.DyadicFile
 
 public section

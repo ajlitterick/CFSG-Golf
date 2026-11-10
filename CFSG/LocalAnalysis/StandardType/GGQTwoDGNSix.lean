@@ -3,15 +3,9 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDGN6Assembly
 import CFSG.LocalAnalysis.StandardType.GGQTwoDNbr6Raw
 import CFSG.LocalAnalysis.StandardType.GGQTwoDNbr6TwE6
-import CFSG.LocalAnalysis.StandardType.GGQTwoDNbrEsu
 import CFSG.LocalAnalysis.StandardType.GGQTwoDSelModuleOfB2
 import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthTorHolds
 import CFSG.LocalAnalysis.StandardType.GGQTwoNbrRecAuxCore
-import CFSG.LocalAnalysis.StandardType.GGQTwoNbrG1
-import CFSG.LocalAnalysis.StandardType.GGQTwoNbrG2
-import CFSG.LocalAnalysis.StandardType.GGQTwoNbrG3
-import CFSG.LocalAnalysis.StandardType.GGQTwoNbrG4
-import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSLieEsuAux
 import CFSG.LocalAnalysis.StandardType.GGQTwoDSelBases
 
 public section

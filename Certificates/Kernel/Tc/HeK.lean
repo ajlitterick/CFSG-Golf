@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Tc.HeKDefs
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import Certificates.Data.Kernel.MonsterB.BfsReplay
 public import Certificates.Data.Kernel.TcF
 

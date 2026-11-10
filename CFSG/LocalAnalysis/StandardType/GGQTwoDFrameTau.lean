@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDFrameStd
 public import CFSG.LocalAnalysis.StandardType.GGQ2AmbModelOfLin
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7DLModelDefs
-public import CFSG.LocalAnalysis.StandardType.GGHdRo7CCoordDefs
 import CFSG.LocalAnalysis.StandardType.ZS.MonomialBasic
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDCoxRefl
 

@@ -4,12 +4,9 @@ public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Classification
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.MatrixGroups.PSL2
 import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonClassification
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.NormalOddPSubgroupAlternating
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.NormalOddPSubgroupAlternatingFour
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.NormalOddPSubgroupPGL2
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.NormalOddPSubgroupPSL2
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.NormalOddPSubgroupSymmetricFour
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2DihedralSylow
-import Mathlib.GroupTheory.Complement
 import Mathlib.Tactic
 
 namespace CFSG

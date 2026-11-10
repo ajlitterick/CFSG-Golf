@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.GF2n.Parrott.Section4Lemma42Sylow
 public import CFSG.RankThree.GF2n.Parrott.LiftSquare
-public import CFSG.RankThree.GF2n.Parrott.Section1Fusion
 
 public section
 

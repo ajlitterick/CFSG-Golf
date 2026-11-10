@@ -1,13 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBJNoB2derModelDefs
 public import CFSG.LocalAnalysis.StandardType.GGTBJNoB2derLayer
-public import CFSG.LocalAnalysis.StandardType.GGTBJNoB2derSpComm
-public import CFSG.LocalAnalysis.StandardType.GGTBJNoB2derFixOrth
 public import CFSG.LocalAnalysis.StandardType.GGTBJNoB2derLayerSimple
 public import CFSG.LocalAnalysis.StandardType.GGTBJNoB2derPrePairTrans
 public import CFSG.LocalAnalysis.StandardType.GGTBJNoB2derPrePairCent
-import CFSG.GroupTheory.ElemAbelianClosure
 import CFSG.LocalAnalysis.StandardType.GGTriD4NoneTwE6
 
 public section

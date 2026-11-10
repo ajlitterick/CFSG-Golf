@@ -3,10 +3,7 @@ module
 public import CFSG.Quasithin.Vol2.Ch12Sec8Three
 public import CFSG.Quasithin.Vol2.Ch12Sec8Four
 public import CFSG.Quasithin.EmptyFaithful.S142Statements
-public import CFSG.Quasithin.Background.B2Thompson
-public import CFSG.Quasithin.Background.G2L2
 public import CFSG.Quasithin.Background.G2L2Three
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Frattini.Core
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups
 public import CFSG.LocalAnalysis.SectionRank.EvenCover.Catalog
 public import CFSG.LocalAnalysis.SectionRank.LargeRee.SuzukiData
@@ -19,12 +16,9 @@ public import CFSG.Quasithin.Background.A1bGroups
 public import CFSG.Quasithin.Background.A3Components
 public import CFSG.Quasithin.Background.A3Structure312Defs
 public import CFSG.Quasithin.Vol2.Ch1Faithful
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

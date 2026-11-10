@@ -6,21 +6,11 @@ public import Certificates.Kernel.Sporadic.OddCore.S8147KC4
 public import Certificates.Kernel.Sporadic.OddCore.S8147KC
 public import Certificates.Kernel.Sporadic.OddCore.S8147KD
 public import Certificates.Kernel.Sporadic.OddCore.S8147C
-public import CFSG.Certificates.Kernel.BfsPinAlg
-public import CFSG.Certificates.Kernel.BfsPinSliceSound
-public import CFSG.Certificates.Kernel.BfsPinBaseSound
-public import CFSG.Certificates.Kernel.BfsPinSetSound
-public import CFSG.Certificates.Kernel.Spor.PcompFacts
 public import CFSG.Certificates.Kernel.B3S3KSound
-public import CFSG.Certificates.Kernel.Misc.ArrEnumUnpack
 public import CFSG.Certificates.Kernel.Spor.HNAOrbSound
-public import CFSG.Certificates.Kernel.PermToolSound
 public import CFSG.Certificates.Kernel.Spor.CardBaseSep
 public import CFSG.Certificates.Kernel.Spor.EnumBaseSound
-public import CFSG.Certificates.Kernel.Misc.HexFlatSound
-public import CFSG.RankThree.Native.SuzFiveCheckInputs
 import all CFSG.RankThree.Native.SuzFiveData
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

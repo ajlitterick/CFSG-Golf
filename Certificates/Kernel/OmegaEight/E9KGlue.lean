@@ -5,7 +5,6 @@ public import Certificates.Kernel.OmegaEight.Aut
 public import CFSG.Certificates.Kernel.PGrpMul
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434SporE81Local
 import CFSG.Certificates.Kernel.BfsPinBaseSound
-import CFSG.Certificates.Kernel.Spor.PcompFacts
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.BfsPinSound
 

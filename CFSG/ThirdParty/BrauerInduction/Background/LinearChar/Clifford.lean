@@ -6,7 +6,6 @@ public import CFSG.ThirdParty.BrauerInduction.Background.LinearChar.Mackey
 public import CFSG.ThirdParty.BrauerInduction.Background.LinearChar.OneDimensional
 public import CFSG.ThirdParty.BrauerInduction.Background.LinearChar.QuotientDescent
 public import CFSG.ThirdParty.BrauerInduction.Background.Group.Nilpotent
-public import CFSG.ThirdParty.BrauerInduction.Background.Fintype.Basic
 
 public section
 

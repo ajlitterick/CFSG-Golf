@@ -2,12 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGA8NbrOmDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelOmMvMoves
-public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelSp
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172CRankWitt
 public import CFSG.ClassicalInvolution.Q3.Q3TLNeg
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointDataCoordinateRegular
-public import CFSG.LieType.Universal.Catalog
-public import CFSG.GroupTheory.WeirSylow.OrthogonalOrders
 public import CFSG.ClassicalInvolution.Q3.ModelOddCentralizerCentralKernel
 public import CFSG.ClassicalInvolution.SmallOrth.Orth3Split
 

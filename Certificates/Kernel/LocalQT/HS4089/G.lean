@@ -7,7 +7,6 @@ public import Certificates.Kernel.LocalQT.HS4089.C2
 public import CFSG.Certificates.Kernel.LocalQTPcOmSound
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporHSLit
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporHSCheckInputs
-import Mathlib.Tactic.IntervalCases
 public import Certificates.Kernel.SporSch.J4S.NoCP
 
 set_option maxRecDepth 100000

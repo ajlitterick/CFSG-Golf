@@ -1,24 +1,17 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorsionDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 public import CFSG.LocalAnalysis.StandardType.GGTwistedLabelModels
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinNbrModel
 import CFSG.LocalAnalysis.StandardType.GGLayerCenterCyclicTransfer
 import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UGroup
 import CFSG.Quasithin.EmptyFaithful.SzC4ChiGrpSq
-import TauCeti.GroupTheory.DerivedCentralQuotient
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.OrthInnerExport
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.FactorSL
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.FactorSU
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.FactorOmega
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnOrthModel
-import CFSG.LieType.Universal.Symplectic
-import CFSG.LieType.Universal.Unitary.Clause0
-import CFSG.Adapters.ProjectiveSpecialLinear
 import CFSG.GroupTheory.CenterlessInnerCentralizer
-import CFSG.Open.StatedAPI
-import CFSG.Assembly.Subnormal
 import CFSG.GroupTheory.PCore.SubgroupCore
 
 public section

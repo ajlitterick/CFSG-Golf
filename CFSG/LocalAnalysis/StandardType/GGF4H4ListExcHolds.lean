@@ -3,26 +3,13 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGF4H4ListFamilies
 public import CFSG.LocalAnalysis.StandardType.GGF4SmallBook
 public import CFSG.LocalAnalysis.StandardType.GGF4H4ListExcRank
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylKnownDefs
 public import CFSG.LocalAnalysis.StandardType.GGRootGenExcLabels
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMoreSix
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMoreExc
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMoreExcB
 public import CFSG.LocalAnalysis.StandardType.GGTBTorLiftRowsCls
 public import CFSG.LocalAnalysis.StandardType.GGTBTorLiftRowsExc
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylE6TwoThree
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6Lift
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6
 public import CFSG.LocalAnalysis.StandardType.GGResRowF4ThreeOn
 public import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeExcSevenAux
 public import CFSG.LocalAnalysis.StandardType.GGTCJHolds
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenTables
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.LocalAnalysis.StandardType.GGExclNoIso
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45ConfigIso
-public import CFSG.LocalAnalysis.StandardType.GGAssemblyFiveDefs
-public import CFSG.LocalAnalysis.StandardType.GGTwistedF4DiagRaw
 
 public section
 

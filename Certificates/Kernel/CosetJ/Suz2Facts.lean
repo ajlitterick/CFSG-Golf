@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.Kernel.LceSTab
 public import CFSG.Certificates.Kernel.Bounds.CJSuz2.Route
 public import Certificates.Kernel.LceSTab.Chain
 import CFSG.Certificates.Kernel.Common.Harness

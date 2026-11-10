@@ -7,9 +7,7 @@ public import Certificates.Kernel.Sporadic.ON3.Words
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ONWitnessInputs
 public import CFSG.Certificates.Kernel.BfsPinAlg
 public import CFSG.Certificates.Kernel.Spor.RawOrbEval
-public import CFSG.Monster.B.Co2.PermArr
 public import CFSG.Sporadic.Schreier.ONPermArr
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Sporadic.Schreier.ONCheckAuxInputs
 public import Certificates.Kernel.Sporadic.ON.Seven
 

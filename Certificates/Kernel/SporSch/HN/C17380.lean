@@ -2,9 +2,7 @@ module
 
 public import Certificates.Kernel.SporSch.HN.C17380K
 public import Certificates.Kernel.SporSch.HN.C13609
-public import Certificates.Kernel.SporSch.HN.Pt2109
 public import CFSG.Certificates.Kernel.RelTabSound
-public import CFSG.Sporadic.HNSchreier.ThreeBRels
 public import CFSG.Sporadic.HNSchreier.ThreeBGroup
 
 public section

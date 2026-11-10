@@ -1,12 +1,10 @@
 module
 
 public import CFSG.Sporadic.Bridge.VecSurj
-public import Certificates.Data.CFSGNative.Ru.Data
 public import Certificates.Data.GMS78RuNECheck
 import Certificates.Kernel.GMS78.W115
 import Certificates.Kernel.GMS78.WNE
 import Certificates.Kernel.GMS78.Coset.Cards115
-public import CFSG.Sporadic.Th.F2Spec
 import CFSG.Certificates.CosetTableShort
 
 public section

@@ -6,7 +6,6 @@ public import CFSG.GroupTheory.CentralizerMap
 import CFSG.GH74.Uniqueness.Section14Primary
 import CFSG.RankThree.PartOne.K1214.CycAlg
 import CFSG.GroupTheory.ConjClassGeneration
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 
 public section
 

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLevTwoS4bAux2
-public import CFSG.LocalAnalysis.StandardType.GGWeylCartan
-public import CFSG.LocalAnalysis.StandardType.GGSimplyLacedWeyl
 
 public section
 

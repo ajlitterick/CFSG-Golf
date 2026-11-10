@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLFrameFDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLFrameFGU
 public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLFrameFTorus2
 public import CFSG.RankThree.Classical2.OrthogonalIsotropicUnipotent

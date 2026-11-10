@@ -1,10 +1,8 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section10Lemma101
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Permutation
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.PermutationQuotient
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.PermutationRegular
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.lemma_a
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition84Base
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.FinalTheorem
 

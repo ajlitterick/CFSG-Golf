@@ -9,7 +9,6 @@ import CFSG.LocalAnalysis.UniquenessCase.UCFront09R93a
 import CFSG.GroupTheory.PElementSubgroup
 import CFSG.GroupTheory.ThreeTranspositions.QuotientLift
 import CFSG.RankThree.GroupTheory.SteinbergBMCrossPrimeLocalCore
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

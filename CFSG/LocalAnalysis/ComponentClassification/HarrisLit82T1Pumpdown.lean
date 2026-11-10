@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitLiftField
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitTwoComp
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuotIso
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.CentralizerLemmas
 public import CFSG.GroupTheory.ConjugatePairSubnormality
 public import CFSG.LocalAnalysis.ComponentClassification.BlockTwoProductAction
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitLemma45c
@@ -12,8 +10,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.TwoActionFixedInvolutio
 public import CFSG.LocalAnalysis.ComponentClassification.TwoActionInvariantSylow
 public import CFSG.LocalAnalysis.LargeEvenClassification.CyclicCongruenceCut
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.CentralInvolutionStructure
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public noncomputable section
 

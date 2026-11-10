@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGLabelDef
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGTyLabelAux
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaCard
-public import CFSG.LocalAnalysis.StandardType.MarkingClassical
 
 public section
 

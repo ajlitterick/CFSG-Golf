@@ -3,7 +3,6 @@ module
 public import CFSG.Quasithin.Vol2.Asc94.He42P422K
 public import CFSG.Quasithin.Vol2.Asc94.He42SE8
 public import CFSG.Quasithin.Recognition.M12AscEx166
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
 
 public section
 

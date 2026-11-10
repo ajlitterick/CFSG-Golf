@@ -6,10 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortSU
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortSp
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortTwE6
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2LongF4
-public import CFSG.LieType.HighestRoot.GenModels
-public import CFSG.LieType.Steinberg.CentralExt.SpinMinus
-public import CFSG.LieType.Steinberg.Classical.SpinPlus.Basic
-public import CFSG.LieType.HighestRoot.CentIsogenyE6E7
 
 public section
 

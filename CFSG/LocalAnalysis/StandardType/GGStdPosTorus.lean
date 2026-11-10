@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
-public import CFSG.LieType.TitsSimplicity.Core
-import Mathlib.Tactic.Group
 
 public section
 

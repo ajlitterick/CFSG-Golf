@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQ2SpFrameDefs
-public import CFSG.LocalAnalysis.StandardType.GGQ2SpBlocksDefs
 public import CFSG.LocalAnalysis.StandardType.GGQ2CoverDefs
 public import CFSG.LocalAnalysis.StandardType.GGQ2SpRealizationDefs
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
 
 public section
 

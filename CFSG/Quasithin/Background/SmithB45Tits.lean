@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.Background.SmithB45F4
 public import CFSG.Quasithin.Background.SmithB45TorTits
-public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.LieType.Chevalley.C2E6SubsystemBruhat
 public import CFSG.LieType.Ree.LargeReeEightTorus
 public import CFSG.LieType.Ree.SmallReeModelSchreier

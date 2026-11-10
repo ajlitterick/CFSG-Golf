@@ -1,20 +1,12 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTPNNarrow
-public import CFSG.LocalAnalysis.StandardType.GGHalfFiveConjFive
-public import CFSG.LocalAnalysis.StandardType.GGHalfFiveAlphaZeta
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveInnerDiag
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveAutNb
-public import CFSG.LocalAnalysis.StandardType.GGHalfFiveInputs
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveSl4Model
-public import CFSG.LocalAnalysis.StandardType.GGHalfFiveNbrBasic
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaCard
-public import CFSG.LocalAnalysis.StandardType.GGHalfFivePerm
-public import CFSG.LocalAnalysis.StandardType.GGHalfFiveLevi
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveGraph
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveNoGraph
-public import CFSG.LocalAnalysis.StandardType.GGHalfFiveNbr
 public import CFSG.LocalAnalysis.StandardType.GGHalfEndNodes
 
 public section

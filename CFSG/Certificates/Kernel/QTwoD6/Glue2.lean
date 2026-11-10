@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Certificates.Kernel.QTwoD6.Glue
-public import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
 
 public section
 

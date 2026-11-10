@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePZKnown
-public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutClassicalUField
-public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutNonsplitFieldSUDelta
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePZOrderNine
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveFieldTwoCommon
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S2019UniOuter

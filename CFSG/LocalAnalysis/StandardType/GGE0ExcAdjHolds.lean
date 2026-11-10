@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGE0ChevStMarking
-public import CFSG.LocalAnalysis.StandardType.GGE0ExcNoSuzukiRee
 public import CFSG.LocalAnalysis.StandardType.GGE0ExcF4
 public import CFSG.LocalAnalysis.StandardType.GGE0ExcE7
 public import CFSG.LocalAnalysis.StandardType.GGE0ExcE8

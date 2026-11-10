@@ -1,8 +1,6 @@
 module
 
-public import CFSG.Certificates.Kernel.Th.S.DceS
 public import CFSG.Certificates.Kernel.Th.S.Data.DA_Sel
-import CFSG.Certificates.Kernel.Common.Harness
 public import Certificates.Data.Kernel.LceSSeg
 public import CFSG.Certificates.Kernel.Bounds.Core3
 import CFSG.Certificates.Kernel.Bounds.LoadRoot

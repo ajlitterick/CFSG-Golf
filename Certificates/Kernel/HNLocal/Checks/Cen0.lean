@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.HNLocal.Data
-public import CFSG.Certificates.Kernel.Orders.HN.Data.Const
 import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 100000

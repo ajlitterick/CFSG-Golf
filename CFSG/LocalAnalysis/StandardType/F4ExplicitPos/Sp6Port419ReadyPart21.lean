@@ -5,7 +5,6 @@ public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Detect.F4.Leaf.A
 public import CFSG.LieType.Steinberg.Classical.SpinOdd.Frame
 public import CFSG.Quasithin.Background.SmithCurtisChevAmb
 public import CFSG.RankThree.PartOne.KE6.Phi3Kernel
-public import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.Sp6Port419ReadyPart20
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Detect.F4.Frame
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Detect.GroupTheory

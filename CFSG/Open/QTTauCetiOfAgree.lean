@@ -2,10 +2,6 @@ module
 
 public import CFSG.Open.QTUniqueMaximalLocalTauCeti
 public import CFSG.Adapters.CatalogAgree
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3J4D4Data
-public import CFSG.Sporadic.J4.QT2LocX0Native
-public import Certificates.Data.CFSGNative.J4.PentScan
-import Certificates.Kernel.J4Q.QTBase
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
 public import CFSG.Certificates.FusionF2

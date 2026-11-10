@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.ShapeVCheck
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.CayleySpec
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.FixSpec
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.ShapeGlue
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.Sl25Strict
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.Words
 
 public section
 

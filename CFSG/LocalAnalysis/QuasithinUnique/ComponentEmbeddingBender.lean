@@ -5,10 +5,8 @@ public import CFSG.LocalAnalysis.QuasithinUnique.EscapingLocal
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherLinearSchreier
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherClassicalSchreier
 public import CFSG.LocalAnalysis.ComponentInitial.SuzukiModelSchreier
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.UnitaryCentralCover
 public import CFSG.LieType.BorelTits.Suzuki
-public import CFSG.Adapters.ProjectiveSpecialLinear
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.Foundations
 public import CFSG.LieType.BorelTits.CompleteFlag
@@ -24,9 +22,7 @@ public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
 public import CFSG.LocalAnalysis.ComponentInitial.BlockOvergroupDichotomy
 public import CFSG.LocalAnalysis.ComponentInitial.GeneralizedFittingProduct
 public import CFSG.LocalAnalysis.ComponentInitial.PerfectOuterInjection
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

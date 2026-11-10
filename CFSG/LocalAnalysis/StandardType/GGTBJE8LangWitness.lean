@@ -1,11 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJMaxRankRow
-public import CFSG.LocalAnalysis.StandardType.GGMaxRankJModel
 public import CFSG.LocalAnalysis.StandardType.GGTBJE8LangModel
 public import CFSG.LocalAnalysis.StandardType.GGTBJE8InnerModel
 public import CFSG.LocalAnalysis.StandardType.GGTBJE8ComponentTransport
-import CFSG.LieType.Chevalley.GraphFixedF4Canonical
 
 public section
 

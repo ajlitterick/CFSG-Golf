@@ -2,7 +2,6 @@ module
 
 public import CFSG.Sporadic.HNSchreier.OrbitCheckInputs
 public import CFSG.Sporadic.HN.F5Group
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

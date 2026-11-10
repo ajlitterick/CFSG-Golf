@@ -1,11 +1,5 @@
 module
 
-public import Mathlib
-public import CFSG.Foundations.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
-public import CFSG.Open.LocalVocabulary
-public import CFSG.LocalAnalysis.SectionRank.NativeKGroup
-public import CFSG.Milestones.ASVolI.I1
 public import CFSG.Milestones.ASVolI.I2
 
 public section

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoPairsDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoTableBI1
 
 public section

@@ -10,7 +10,6 @@ import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinCore
 import CFSG.Assembly.GL83StatedBridge
 import CFSG.HardMathSupport.Solomon.Coordinator.L3BDeltaOuter
 import CFSG.RankThree.PartTwo.Sec4.Ronan148LComp
-import CFSG.Foundations.SteinbergCADefinitionNodes
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GU64Pieces
 
 public section

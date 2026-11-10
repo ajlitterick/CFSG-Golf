@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.SeitzGeneration.ExcTorusUntw
-public import CFSG.RankThree.E6.RootLatticeTools
 public import CFSG.Blueprint.ChevalleyRootArtifact
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LieType.SeitzGeneration.Lift

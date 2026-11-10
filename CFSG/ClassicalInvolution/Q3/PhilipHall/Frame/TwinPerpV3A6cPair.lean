@@ -1,9 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6cEStrOf
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6cMain
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6cFrame
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6bOdd
 public import CFSG.Sporadic.Th.Chain
 public import CFSG.Sporadic.ThSchreier.AutCore
 

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6ThreeTwoInstSetup
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6ThreeTwoWeyl
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6ThreeTwoDesc
-public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6ThreeClassA
 public import CFSG.HardMathSupport.S2MathAs1.I1486.Geometry
 
 public section

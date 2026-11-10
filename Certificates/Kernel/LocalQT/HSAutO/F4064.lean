@@ -9,15 +9,8 @@ public import Certificates.Kernel.LocalQT.HSAutO.C4064E4
 public import Certificates.Kernel.LocalQT.SV.C4126TB
 public import Certificates.Kernel.Sporadic.OddCore.MulHGlue
 public import CFSG.Certificates.Kernel.LocalQTRestrSound
-public import CFSG.Certificates.Kernel.Spor.PackWord
-public import CFSG.Certificates.Kernel.Spor.PcompFacts
-public import CFSG.Certificates.Kernel.Spor.RawOrbHead
-public import CFSG.Certificates.Kernel.Spor.RawOrbEval
 public import CFSG.Certificates.Kernel.Spor.RawSiftK
-public import CFSG.Certificates.Kernel.Spor.Loops
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19HSAutOuterCheckInputs
-public import CFSG.Sporadic.SmallOddCore.CentSpec
-import Mathlib.Tactic.IntervalCases
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Sporadic.SmallOddCore.ClassSimple
 public import CFSG.Sporadic.SmallOddCore.HSAut

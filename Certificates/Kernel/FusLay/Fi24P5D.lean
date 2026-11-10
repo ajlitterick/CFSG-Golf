@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.OpsLayFill
-public import Certificates.Data.Kernel.OpsRenL
 public import Certificates.Kernel.LocalComp.LaySnapsChunksF
 public import Certificates.Kernel.FusLay.Fi24Seeds
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.FusD2Fi24primeInputs

@@ -2,13 +2,9 @@ module
 
 public import CFSG.Quasithin.Vol2.Ch3T316WAll
 public import CFSG.Quasithin.Vol2.Ch3E213MP6BM
-public import CFSG.Quasithin.Vol2.Ch3E213MP6BG
 public import CFSG.Quasithin.Vol2.Ch3E213MG41S5
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtAsc80Eps
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtAsc80Main
 public import CFSG.Quasithin.EmptyFaithful.A38c15IrrClose
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312U3Quasi
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312U3L3
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312U3Psu3
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312U3B6Main
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312U3Small
@@ -19,24 +15,11 @@ public import CFSG.GH74.GLS.C3.Layer1.BackLeaves
 public import CFSG.GH74.GLS.C3.Layer1.Split
 public import CFSG.GH74.GLS.C3.Layer3.Main
 public import CFSG.GH74.GLS.Defs
-public import CFSG.GH74.GLS.IVK.A7.Glue
-public import CFSG.GH74.GLS.IVK.L2.BN
-public import CFSG.GH74.GLS.IVK.L2.BorelFive
-public import CFSG.GH74.GLS.IVK.L2.Lemma113
-public import CFSG.GH74.GLS.IVK.L2.Lemma114
-public import CFSG.GH74.GLS.IVK.L2.Lemma12ib
-public import CFSG.GH74.GLS.IVK.L2.Lemma12j
-public import CFSG.GH74.GLS.IVK.L2.Lemma12k
-public import CFSG.GH74.GLS.IVK.L2.Lemma14f
-public import CFSG.GH74.GLS.IVK.L2.Lemma14j
-public import CFSG.GH74.GLS.IVK.L2.Lemma19b
-public import CFSG.GH74.GLS.IVK.Prod.Lemma31
 public import CFSG.GH74.GLS.IVK.Proofs
 public import CFSG.GH74.GLS.IVK.Proofs2.C3Ivk102L
 public import CFSG.GH74.GLS.IVK.Proofs2.Lemma12hb
 public import CFSG.GH74.GLS.IVK.Proofs2.Lemma13d
 public import CFSG.GH74.GLS.IVK.Proofs2.Lemma13g
-public import CFSG.GH74.GLS.IVK.Statements
 public import CFSG.GH74.GLS.Stage1.Thm3.Sec5.Closed
 public import CFSG.GH74.GLS.Stage1.Thm3.Sec5.Statements
 public import CFSG.GH74.GLS.Stage1.Thm6.Sec12.Defs
@@ -88,7 +71,6 @@ public import CFSG.SignalizerFunctorTheorem.NonLocal.Cross
 public import CFSG.SignalizerFunctorTheorem.NonLocal.SpData
 public import CFSG.Sporadic.Schreier.J4SCommGenBase1
 public import CFSG.Sporadic.Schreier.J4SNoCompCover
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ConjugatedInvertedSubgroup
 public import CFSG.Walter.W67.W2Lemma26A
 
 public section

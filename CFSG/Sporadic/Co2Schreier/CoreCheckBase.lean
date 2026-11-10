@@ -1,8 +1,6 @@
 
 module
 
-public import CFSG.Sporadic.Co2Schreier.ChainCheckBase
-public import Std.Data.HashMap
 public meta import CFSG.Sporadic.Co2Schreier.ChainCheckBase
 public meta import Std.Data.HashMap
 public import CFSG.Sporadic.Co2Schreier.CoreCheckInputs

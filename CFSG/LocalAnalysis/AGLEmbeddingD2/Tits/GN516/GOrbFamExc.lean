@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.GN516.GOrbCore
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.GN516.GOrbEdgeLevi
 public import CFSG.Timmesfeld.RankTwo.LevisExceptional
-public import CFSG.ClassicalInvolution.ModelFacts.ChevAutLift
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.MsideParabolicEscape.ExcBorelQuotientMin
 
 public section

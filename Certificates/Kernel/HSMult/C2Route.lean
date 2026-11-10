@@ -1,9 +1,7 @@
 module
 
-public import CFSG.Certificates.Kernel.Bounds.Hdr
 public import Certificates.Kernel.HSMult.C2Data
 public import Certificates.Kernel.HSMult.Words
-import CFSG.Certificates.Kernel.Bounds.Load
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.Certificates.NativeSchreierCard
 public import CFSG.GroupTheory.LocalCores.Fitting

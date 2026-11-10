@@ -2,11 +2,7 @@ module
 
 public import CFSG.Monster.GMS.R433Cover.Y432IdentitiesInputs
 public import CFSG.Monster.GMS.R433Cover.Y432Transport
-public import CFSG.YGroups.Exact.Y432Inputs
-public import CFSG.YGroups.Defs
-public import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 public import Certificates.Kernel.YModel.Y432
-import CFSG.Certificates.Kernel.Common.Harness
 public import Mathlib
 
 public section

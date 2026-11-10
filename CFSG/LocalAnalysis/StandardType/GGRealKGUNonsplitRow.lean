@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGRealKG
-public import CFSG.LocalAnalysis.StandardType.GGKGForkRows
 import CFSG.LocalAnalysis.StandardType.GGKGForkUnitaryOne
 public import CFSG.LocalAnalysis.StandardType.GGRealKGOmegaRow
 

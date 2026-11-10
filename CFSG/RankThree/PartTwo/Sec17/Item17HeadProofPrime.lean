@@ -8,7 +8,6 @@ import CFSG.Adapters.RankTwoModelTransports
 import CFSG.RankThree.Coprime.EvenCenterSectionCover
 import CFSG.RankThree.PartTwo.Sec6.Item612Local
 public import CFSG.GroupTheory.LocalCores.Components
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 
 public section

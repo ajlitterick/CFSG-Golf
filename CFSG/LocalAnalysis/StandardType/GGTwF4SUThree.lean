@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRanksTwF4
 public import CFSG.RankThree.PartTwo.Sec4.Item413Eigen
 public import CFSG.RankThree.PartTwo.Sec21.ReeF4Cent2ProofFix
 public import CFSG.RankThree.PartOne.SEITZQ1.Plane
-public import CFSG.LieType.Steinberg.CentralExt.SUThreeOrder
-public import CFSG.LieType.Universal.Unitary.Comparison
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LieType.Ree.SmallReeModelSchreier
 public import CFSG.LocalAnalysis.ComponentInitial.SuzukiModelSchreier

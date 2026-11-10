@@ -3,7 +3,6 @@ module
 public import CFSG.RankThree.PartTwo.KFacts.KS18OuterHeisCore
 public import CFSG.RankThree.PartTwo.KFacts.L34Sections
 public import CFSG.RankThree.Asc83Table.E27
-public import CFSG.LinearAlgebra.LinearGroups.Perfect
 public import CFSG.RankThree.PartTwo.KFacts.KS18Basic
 
 public section

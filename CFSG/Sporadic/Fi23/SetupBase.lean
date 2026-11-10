@@ -2,7 +2,6 @@
 module
 
 public import CFSG.Sporadic.Fi23.WideSpec
-public import CFSG.Blueprint.NativeSporadic
 import all CFSG.Blueprint.NativeSporadic
 public import Certificates.Data.CFSGNative.Fi23.Certificate
 

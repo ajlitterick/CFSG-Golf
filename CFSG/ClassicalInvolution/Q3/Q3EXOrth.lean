@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.ModelFacts.TG3Models
-public import CFSG.ClassicalInvolution.RouteD.ExoticTwinProofOrthBridge
-public import CFSG.ClassicalInvolution.RouteD.ExoticTwinProofOrthGeom
 public import CFSG.ClassicalInvolution.Uniform.U8Basic
 public import CFSG.ClassicalInvolution.Uniform.U5Three2
 

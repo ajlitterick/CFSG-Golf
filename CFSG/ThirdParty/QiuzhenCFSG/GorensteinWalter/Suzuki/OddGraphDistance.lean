@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphGlobal
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

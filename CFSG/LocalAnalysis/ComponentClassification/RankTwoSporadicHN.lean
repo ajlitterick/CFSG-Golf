@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicHNA
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicHNT4
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicHNData
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicPairCensus
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicYCriterion
 public import CFSG.Sporadic.HNOddCore.FusB
 public import CFSG.Sporadic.HNSchreier.FullAut
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicGenCensus

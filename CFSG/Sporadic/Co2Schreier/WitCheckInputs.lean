@@ -6,7 +6,6 @@ public import CFSG.Sporadic.Co2Schreier.TextCheckBase
 public meta import CFSG.Sporadic.Co2Schreier.WitText
 public meta import CFSG.Sporadic.Co2Schreier.TextCheckBase
 public meta import CFSG.Sporadic.Co2Schreier.TextCheckInputs
-public import CFSG.Sporadic.Co2Schreier.TextCheckInputs
 
 public section
 

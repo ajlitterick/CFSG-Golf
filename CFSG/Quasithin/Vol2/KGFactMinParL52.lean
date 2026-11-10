@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.KGFactMinParBase
-public import CFSG.Quasithin.Vol2.KGFactMinParL52Inputs
 public import CFSG.Literature.GL52Chain
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatIncl
 public import Certificates.Certificate7156

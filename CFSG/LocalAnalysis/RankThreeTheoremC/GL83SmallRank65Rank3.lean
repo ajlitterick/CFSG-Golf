@@ -8,7 +8,6 @@ import CFSG.LocalAnalysis.RankThreeTheoremC.GL83SmallRank65Wreath
 import CFSG.LocalAnalysis.RankThreeTheoremC.GL83SmallRank632Step0
 import CFSG.LocalAnalysis.RankThreeUC.TheoremDClauseCCore
 import CFSG.GroupTheory.ElemAbelianClosure
-import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups

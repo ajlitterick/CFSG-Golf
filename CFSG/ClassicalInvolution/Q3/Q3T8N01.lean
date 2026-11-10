@@ -1,26 +1,7 @@
 module
 
-public import CFSG.ClassicalInvolution.Q3.Q3T8Std8
-public import CFSG.ClassicalInvolution.Q3.Q3T8P1Seven
-public import CFSG.ClassicalInvolution.Q3.Q3T8Sect
-public import CFSG.ClassicalInvolution.Q3.Q3T8C262Stmt
-public import CFSG.ClassicalInvolution.Q3.Q3T8C261
-public import CFSG.ClassicalInvolution.Q3.Q3T8C262A
-public import CFSG.ClassicalInvolution.Q3.Q3T8ThompsonD
-public import CFSG.ClassicalInvolution.Q3.Q3T8E4Base
-public import CFSG.ClassicalInvolution.Q3.Q3T8L278A
-public import CFSG.ClassicalInvolution.Q3.Q3T8L278B
-public import CFSG.ClassicalInvolution.Q3.Q3T8C262Sec
-public import CFSG.ClassicalInvolution.Q3.Q3T7E9BarNbr
-public import CFSG.ClassicalInvolution.Q3.Q3T8E4A
-public import CFSG.ClassicalInvolution.Q3.Q3T8E4Gen
 public import CFSG.ClassicalInvolution.Q3.Q3T8E4B
 public import CFSG.ClassicalInvolution.Q3.Q3T8E4NRDef
-public import CFSG.ClassicalInvolution.Asc77.AscT8Y3
-public import CFSG.ClassicalInvolution.Asc77.AscT8V2
-public import CFSG.ClassicalInvolution.Asc77.AscT8Y4
-public import CFSG.ClassicalInvolution.Asc77.AscT8V6
-import CFSG.ClassicalInvolution.Asc77.AscT8RepEng
 import CFSG.ClassicalInvolution.Q3.Q3T8RepHooks
 
 public section

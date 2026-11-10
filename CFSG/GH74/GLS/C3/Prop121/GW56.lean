@@ -1,9 +1,7 @@
 module
 
-public import CFSG.Adapters.QiuzhenLegacy.Compat.G7.ASeven
 public import CFSG.Quasithin.Background.I4Dihedral
 public import CFSG.GH74.KGroups.A6
-public import CFSG.LocalAnalysis.ComponentInitial.FieldNineAlternatingSix
 public import CFSG.Dihedral.GorensteinWalter
 public import CFSG.GroupTheory.QuasiDihedralFusion.WreathedSupport
 public import CFSG.CharacterTheory.Wreathed.WreathCentralSquare
@@ -12,35 +10,9 @@ public import CFSG.GroupTheory.QuasiDihedralFusion.Basic
 public import CFSG.CharacterTheory.Semidihedral.Local.LocalNormalizerQuotients
 public import CFSG.LocalAnalysis.ComponentInitial.OddLinearTwoAliases
 public import CFSG.Dihedral.DihedralFusionPrefixes
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.Walter.Defs
-public import CFSG.Assembly.OrderReductions.OddInversion
-public import Mathlib.Algebra.AffineMonoid.Basic
-public import Mathlib.Algebra.CharP.Basic
-public import Mathlib.Algebra.Group.Pointwise.Set.Card
-public import Mathlib.Algebra.Group.Subgroup.Even
-public import Mathlib.Algebra.Order.Ring.GeomSum
-public import Mathlib.Algebra.Ring.Commute
-public import Mathlib.Data.Fin.VecNotation
-public import Mathlib.Data.Finite.Perm
-public import Mathlib.Data.Fintype.EquivFin
-public import Mathlib.Data.List.Basic
-public import Mathlib.Data.Set.Card
-public import Mathlib.Data.Vector.Basic
-public import Mathlib.GroupTheory.GroupAction.Defs
-public import Mathlib.GroupTheory.GroupExtension.Basic
-public import Mathlib.GroupTheory.Perm.Basic
-public import Mathlib.GroupTheory.Perm.Closure
-public import Mathlib.GroupTheory.Perm.Finite
-public import Mathlib.GroupTheory.RegularWreathProduct
-public import Mathlib.LinearAlgebra.Determinant
-public import Mathlib.LinearAlgebra.TensorProduct.Tower
-public import Mathlib.Logic.Equiv.Option
-public import Mathlib.NumberTheory.Fermat
-public import Mathlib.RingTheory.TensorProduct.Finite
-public import TauCeti.Algebra.Group.Subgroup.Map
 
 public section
 

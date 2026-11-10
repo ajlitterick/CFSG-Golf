@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.AGLEmbedding.LinTwoCatalog
 public import CFSG.CharacterTheory.PSL2Table.Basic
 import CFSG.Dihedral.Glauberman.DicksonMaxStructure
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

@@ -4,7 +4,6 @@ module
 
 public import CFSG.Sporadic.HS.Simple
 public import CFSG.Sporadic.Co1.Certificate
-public import CFSG.Blueprint.NativeSporadic
 import all CFSG.Blueprint.NativeSporadic
 
 public section

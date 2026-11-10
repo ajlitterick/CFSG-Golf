@@ -1,12 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGA6GlueDefs
-public import CFSG.LocalAnalysis.StandardType.GGSixA6RedDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKDefs
-public import CFSG.LocalAnalysis.StandardType.GGInterfaceFive
 public import CFSG.LocalAnalysis.StandardType.GGExclNoIso
-public import CFSG.LocalAnalysis.StandardType.Marking
-public import CFSG.LocalAnalysis.StandardType.MarkingSmall
 
 public section
 

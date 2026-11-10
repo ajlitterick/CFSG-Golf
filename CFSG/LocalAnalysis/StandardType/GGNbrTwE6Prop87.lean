@@ -1,14 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6ThreeDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6ThreeLine
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTriD4Three
-public import CFSG.LocalAnalysis.StandardType.GGD4OddCentVocab
 public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6
-import CFSG.GroupTheory.ElemAbelianClosure
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLExcLabel
-public import CFSG.LocalAnalysis.StandardType.GGTableBE6TwoTBTv
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6TBModel
 
 public section
 

@@ -2,18 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIITwE6ComponentPrime
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIISUCoord
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeDiagTwisted
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S265BTwE6Line
-import CFSG.HardMathSupport.Solomon.Coordinator.LayerCentralFix
 import CFSG.RankThree.PartTwo.Sec4.Ronan148LComp
 import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourCoverMark
-import CFSG.LocalAnalysis.StandardType.GGTriD4NoneMarking
-import CFSG.LocalAnalysis.ComponentInitial.DerivedFixedLayer
-import CFSG.Assembly.Subnormal
-import CFSG.LocalAnalysis.ComponentClassification.PerfectAutomorphisms
 import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIISUActAux
-import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotCatAlt
-import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotCatAlt
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.BlockFactsThreeDvd
 
 public section

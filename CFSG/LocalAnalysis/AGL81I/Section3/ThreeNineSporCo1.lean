@@ -1,14 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.AGL81I.Section3.ThreeNineSporBigOvergroup
-public import CFSG.Monster.Existence.StdOdd.Defs
-public import Certificates.Data.CFSGNative.Chevalley.C2E6CertLie
-public import CFSG.LieType.Chevalley.C2E6StdMatrixData
-public import CFSG.Monster.B.Classical.E6AdjointGroup
 import Certificates.Kernel.Misc.E6StdSlp
-public import CFSG.YGroups.Y443.Native.CoverFactsWords
 import Certificates.Kernel.KDense.Y443
-public import CFSG.YGroups.Y443.Native.Swap13Word
 
 import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co1Five
 import CFSG.LocalAnalysis.AGL81I.Section3.ThreeNineSporCo1Local

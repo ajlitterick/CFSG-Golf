@@ -1,12 +1,8 @@
 module
 
-public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Intrinsic
 public import CFSG.LocalAnalysis.UniquenessCase.FundamentalLie
 import CFSG.ClassicalInvolution.ModelFacts.TG3VacPSp
-import CFSG.ClassicalInvolution.Models.SymplecticPairs.TypeCModel
 import CFSG.ClassicalInvolution.Q3.Q3ZFraFrame
-import CFSG.ClassicalInvolution.SmallCases.UpgradeCover
-import CFSG.CharacterTheory.Wreathed.OriginalAllPrimeV4InputsLinear
 import CFSG.LocalAnalysis.UniquenessCase.UC22FunCountAmbient
 import CFSG.LocalAnalysis.UniquenessCase.UC22FunSplitAmbient
 public import CFSG.ClassicalInvolution.LBalance.Main
@@ -34,7 +30,6 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.TitsGen
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Perm.ChainSpec
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 import CFSG.GH74.GLS.IVK.Proofs2.OddTools
 import CFSG.GH74.GLS.Stage2.Bender.Thm1.Der61a
 import CFSG.GH74.GLS.Stage2.Bender.Thm1.Der69
@@ -70,7 +65,6 @@ import CFSG.LocalAnalysis.UniquenessCase.UC6S846e
 import CFSG.LocalAnalysis.UniquenessCase.UCR638
 import CFSG.Quasithin.Background.A3Structure319
 import CFSG.Quasithin.Background.B6
-import CFSG.Quasithin.Background.B6Example
 import CFSG.Quasithin.Background.E2Hyp
 import CFSG.Quasithin.Background.E2SolvTwo
 import CFSG.Quasithin.Background.F2Equiv

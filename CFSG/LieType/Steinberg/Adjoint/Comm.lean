@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.Steinberg.Adjoint.BaseChange
 public import CFSG.LieType.Steinberg.Adjoint.Pairs
-public import Mathlib.Algebra.MvPolynomial.Eval
 
 public noncomputable section
 

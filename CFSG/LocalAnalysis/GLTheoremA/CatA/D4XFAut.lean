@@ -3,14 +3,12 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.D4XFIso
 public import CFSG.LocalAnalysis.StandardType.GGNbrGraphD4ProofOut
 public import CFSG.LocalAnalysis.GLTheoremA.S9.L94Transport
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
 public import CFSG.Blueprint.LieModelAPI
 public import CFSG.GH74.GLS.IVK.Proofs2.OddTools
 public import CFSG.GH74.GLS.Stage2.Local.P34Main
 public import CFSG.GH74.GLS.Stage2.Local.P34S5A
 public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87CoatomAbs
 public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87GenCell
-public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma32
 public import CFSG.HardMathSupport.Solomon.LocalBalance.PartIInputs
 public import CFSG.HardMathSupport.Solomon.LocalBalance.Sec5Statements
@@ -31,7 +29,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.SQTK.TypeB2
 public import CFSG.LocalAnalysis.QuasithinUnique.SQTK.Unitary
 public import CFSG.Models.Transport
 public import CFSG.RankThree.PartTwo.Census.Spin.Main
-public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.RankThree.PartTwo.Sec4.Census.RankOmegaF4
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 

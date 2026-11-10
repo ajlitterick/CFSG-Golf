@@ -1,13 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1431cLieEightD4Tri
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1431cLieEightExc
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1431cLieEightF4
-public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1431cLieEightOrth
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1431cLieEightRee
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1431cLieEightSpInn
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1431cLieEightTwD4
-public import CFSG.HardMathSupport.Foote.FamilyReduction.ClassicalFive
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I1431ChevTwoE
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I1431ChevTwoTwE6
 

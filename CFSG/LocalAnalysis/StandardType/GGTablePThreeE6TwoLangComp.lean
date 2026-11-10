@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TwoDefs
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6RatLabel
 public import Certificates.Certificate707002
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6FrobAdd
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TwoRatLabelD
@@ -17,7 +15,6 @@ public import CFSG.LocalAnalysis.StandardType.GGJ4dRankOne
 public import CFSG.LocalAnalysis.StandardType.GGLangSixRoot
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TypeAOne
 import CFSG.Quasithin.H13.NQTermLinearThreeTools
-import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TwoLangCompAdm
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TwoLangCompLabel
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Basic
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Certs

@@ -1,10 +1,8 @@
 module
 
 public import CFSG.Quasithin.Recognition.St84.Gen.TransferLeftData
-public import CFSG.Quasithin.Recognition.St84.Gen.L2SectionBorel
 public import CFSG.Quasithin.Recognition.St84.TransferInner
 
-import CFSG.Quasithin.Recognition.St84.TransferVertex
 import CFSG.Quasithin.Recognition.St84.Gen.TreeLLBase
 import CFSG.Quasithin.Recognition.St84.Gen.L2RankOne
 import CFSG.Quasithin.Recognition.St84.Gen.L2SectionHall
@@ -16,7 +14,6 @@ import CFSG.Quasithin.Recognition.St84.Gen.TransferL2Inner
 import CFSG.Quasithin.Recognition.St84.Gen.TransferLL
 import CFSG.Quasithin.Recognition.St84.Gen.TransferL2Torus
 import CFSG.GroupTheory.PermSylowTwo.SymCore
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition84Residual
 public import CFSG.CharacterTheory.Wreathed.BrauerWongSylowCentralizer
 public import CFSG.CharacterTheory.Wreathed.OddKernelSylowQuotient
 public import CFSG.CharacterTheory.Wreathed.WreathCentralSquare

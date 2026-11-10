@@ -1,14 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.SplitTorusSpinMinus
-public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourSpinLifts
-public import CFSG.LocalAnalysis.StandardType.GGOmegaMinusRootGenWeyl
-public import CFSG.LocalAnalysis.StandardType.GGTriD4NoneRank
-public import CFSG.LocalAnalysis.StandardType.GGStdPosLocalDefs
 public import CFSG.LocalAnalysis.StandardType.GGKGPosOmegaMinusStd
 public import CFSG.LocalAnalysis.StandardType.StarFour.Dictionary
 public import CFSG.RankThree.PartOne.K159.InnLayer
-import Mathlib.Tactic.Group
 public import CFSG.LocalAnalysis.StandardType.StarFour.CentralizerSL
 
 public noncomputable section

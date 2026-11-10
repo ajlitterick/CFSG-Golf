@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8G2Shult
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition84Residual
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8G2Short
 
 public noncomputable section

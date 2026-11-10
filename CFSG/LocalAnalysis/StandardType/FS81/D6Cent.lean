@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.FS81.D6Inner
 public import CFSG.LocalAnalysis.StandardType.FS81.RowCent
 public import CFSG.LocalAnalysis.StandardType.FS81.ConstructYD6
-public import CFSG.LocalAnalysis.StandardType.FS81.D6CentAux
 public import CFSG.LocalAnalysis.StandardType.FS81.D6CentAux2
 
 public section

@@ -14,7 +14,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinear
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalReflectionSplitting
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherEvenOrthogonalModel
 public import CFSG.LocalAnalysis.SectionRank.SignLines
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 
 public section

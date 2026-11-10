@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6KGLNoJ1MarkTriality
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLNoJ1Ppd
-import CFSG.LocalAnalysis.SeitzReduction.F4PilotCatEvenExcOrders
 import CFSG.LocalAnalysis.StandardType.GGKnownInputsNoA5
-import CFSG.LocalAnalysis.StandardType.GGTableB
-import CFSG.LocalAnalysis.StandardType.Marking
 
 public section
 

@@ -4,13 +4,8 @@ public import CFSG.Monster.Existence.ELevelFullness
 public import CFSG.Monster.Existence.NormalizerF
 public import CFSG.Monster.Existence.DLevelRank
 public import CFSG.Monster.Existence.FullnessAssembly
-import Mathlib.Tactic.Group
 public import CFSG.Monster.B.TwoA.Co2Inv.Kernel
 public import CFSG.StronglyEmbedded
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 
 public section
 

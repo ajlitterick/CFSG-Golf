@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.Ch6Sec1Lem19D
-public import CFSG.Quasithin.Background.G6Transvection
 
 public section
 

@@ -1,13 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeRetE6
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeRetTwAut
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeRetTwSK
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeRetTwCover
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeRetTwPair
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeRetTwDiag
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeRetTwAssembly
-import CFSG.RankThree.PartOne.KE.CTLangData
 
 public section
 

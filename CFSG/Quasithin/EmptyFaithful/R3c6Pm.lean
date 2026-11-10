@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.MatrixFieldTransport
 public import CFSG.Quasithin.Background.A318PL3Iso
 public import CFSG.Quasithin.EmptyFaithful.R3c6Pa
 public import CFSG.Assembly.QuasithinDefs
@@ -16,14 +15,10 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A318PL3Unit
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.A3Structure318Defs
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
 public import CFSG.Sporadic.Schreier.J4SNoCompCover
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

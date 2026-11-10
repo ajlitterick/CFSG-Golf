@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.TypeE8Excl
-public import CFSG.ClassicalInvolution.RouteD.NonClassicalShape
-public import CFSG.ClassicalInvolution.RouteD.GapsOrthSpin
 
 public section
 

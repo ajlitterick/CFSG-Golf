@@ -4,8 +4,6 @@ module
 public import Certificates.Kernel.SporSch.HN.Prim2104K
 public import Certificates.Kernel.SporSch.HN.Pt2109
 public import CFSG.Certificates.Kernel.SporSch.HNXSubSound
-public import CFSG.Sporadic.HNSchreier.PrimCheckInputs
-public import CFSG.Sporadic.Th.TableSpec
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

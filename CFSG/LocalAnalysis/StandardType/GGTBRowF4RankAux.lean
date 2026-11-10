@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeAEndModel
 public import CFSG.LocalAnalysis.StandardType.GGTBRowDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwenty
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4
 public import CFSG.LocalAnalysis.StandardType.GGTableBF4Three
 
 public section

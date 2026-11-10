@@ -5,18 +5,7 @@ import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.XI.theorem_2_6
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_6_14
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_1_12
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.MatrixGroups.PSL2
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.XI.SharpNearField
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.XI.example_1_3
-import Mathlib.GroupTheory.DoubleCoset
-import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Projective
-import Mathlib.Topology.Compactification.OnePoint.ProjectiveLine
-import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.ElementaryAbelianAction
-import Mathlib.Algebra.Algebra.Subalgebra.Lattice
-import Mathlib.Algebra.Field.ULift
-import Mathlib.Algebra.Group.Units.Equiv
-import Mathlib.FieldTheory.Finite.GaloisField
-import Mathlib.RingTheory.IntegralDomain
-import Mathlib.RingTheory.SimpleModule.Basic
 import Mathlib.NumberTheory.LegendreSymbol.QuadraticChar.Basic
 
 namespace CFSG

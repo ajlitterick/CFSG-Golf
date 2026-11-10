@@ -3,12 +3,9 @@ module
 
 public import Certificates.Kernel.T46K.ChainChecks
 public import Certificates.Kernel.T46K.Letters
-public import CFSG.Certificates.Kernel.Spor.PChainSound
 public import CFSG.Fischer.T46UnitaryBase
-public import CFSG.Fischer.UnitaryAction
 import Certificates.Kernel.Sporadic.ON.Gen
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Sporadic.Fi22.LocalCertBase
 
 public section

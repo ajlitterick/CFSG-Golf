@@ -1,12 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepLE3E6
-public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeDefs
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeIndepDefs
-public import CFSG.LocalAnalysis.StandardType.GGResKnownGroup
-public import CFSG.LocalAnalysis.StandardType.GGRCTransfer
-import CFSG.LocalAnalysis.StandardType.GGResLeviLE3Nodes
-import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepFrame
 import CFSG.LocalAnalysis.StandardType.GGTWHLNormalizer
 
 public section

@@ -8,8 +8,6 @@ public import Certificates.Kernel.Census.Co3C.N1
 public import CFSG.Certificates.Kernel.Census.ConjYProof
 public import CFSG.Certificates.Kernel.Common.ForallChunks
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicCo3Base
-import CFSG.Sporadic.Schreier.Co3Arrays
-import CFSG.Sporadic.Schreier.Co3OrderCheckInputs
 meta import CFSG.Sporadic.Schreier.Co3Cert
 meta import Certificates.Data.CFSGNative.Schreier.Check
 public import CFSG.Certificates.Kernel.Census.ConjSound

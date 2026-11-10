@@ -5,7 +5,6 @@ import CFSG.LocalAnalysis.StandardType.GGA2Conj
 import CFSG.LocalAnalysis.StandardType.GGSecFiveL2SplitOrthE
 import CFSG.LocalAnalysis.StandardType.GGFrameRouteA4Thm
 import CFSG.LocalAnalysis.StandardType.GGKGPosRootPairs
-import CFSG.LocalAnalysis.StandardType.GGSimplyLacedWeyl
 import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoAux
 import CFSG.LocalAnalysis.StandardType.GGReflClosedOfWeyl
 import CFSG.LocalAnalysis.StandardType.GGSpJoinReflTypeE

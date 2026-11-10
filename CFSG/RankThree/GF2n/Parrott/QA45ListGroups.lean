@@ -1,12 +1,8 @@
 
 module
 
-public import CFSG.RankThree.GF2n.Parrott.QA45ListGroupsBase
 
 public import Certificates.Certificate946017
-public import CFSG.RankThree.GF2n.Parrott.SylowHFacts
-public import CFSG.RankThree.GF2n.Parrott.LiftOrderThree
-public import CFSG.GroupTheory.ConjTransport
 
 public section
 

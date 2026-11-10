@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.TD4LeGrp
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.TD4LeParab
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.TD4LeTorus
 

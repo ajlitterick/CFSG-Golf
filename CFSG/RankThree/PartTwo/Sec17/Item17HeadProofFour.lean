@@ -3,7 +3,6 @@ module
 public import CFSG.GroupTheory.FourGroupOddOrderIdentity
 public import CFSG.LocalAnalysis.SectionRank.Ccomm.OddCritical
 public import CFSG.RankThree.PartTwo.ExponentPrimeSmallRank
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Centralizer
 
 public section
 

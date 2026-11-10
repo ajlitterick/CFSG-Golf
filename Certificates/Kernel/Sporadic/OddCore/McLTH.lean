@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Sporadic.OddCore.McLTG
-import Mathlib.Tactic.IntervalCases
 
 public section
 

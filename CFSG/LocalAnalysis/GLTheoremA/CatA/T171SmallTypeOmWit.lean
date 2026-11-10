@@ -4,10 +4,7 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171SmallTypeOmOrder
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171SmallTypeDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172BCentFrame
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172BRankFrame
-public import CFSG.GroupTheory.WeirSylow.Orthogonal
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172BRankSiegel
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowX1OmCMax
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowX1OmCType
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172BRankTorus
 public import CFSG.LocalAnalysis.RankFourTheoremC.InvariantTwo.KFacts.I294CrossFamBCDEvenWeir
 public import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma28b

@@ -1,21 +1,10 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148TOddDefs
-public import CFSG.RankThree.PartTwo.Sec4.LThreePiProj
-public import CFSG.RankThree.PartTwo.Sec4.LThreePiSinger
-import CFSG.RankThree.PartTwo.Sec4.LThreePiAct
-import CFSG.RankThree.PartTwo.Sec4.LThreePiFrob
 import CFSG.RankThree.PartTwo.Sec13.Item138NMod9
 import CFSG.RankThree.SubgroupLists.RationalFiveExclusions
-import CFSG.RankThree.SubgroupLists.QuasisimpleRankTwo
 import CFSG.RankThree.SubgroupLists.CommutatorScalarBound
-import CFSG.RankThree.SubgroupLists.KleinFourCentralizer
-import CFSG.RankThree.SubgroupLists.SL3Involutions
 import CFSG.RankThree.SubgroupLists.UnitaryThreeFour
-import CFSG.RankThree.SubgroupLists.CentralThreeLift
-import CFSG.GroupTheory.PRankCoprimeQuotient
-import CFSG.CharacterTheory.TwoRankLowerBound.RankTransport
-import CFSG.GroupTheory.ABGLocalTools.PStabilityQSL2
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.ClassicalGroups.Symplectic.Simple
 public import CFSG.LinearAlgebra.LinearGroups.ProjectiveSimple

@@ -1,17 +1,11 @@
 module
 
-public import CFSG.Sporadic.Schreier.Co1ThreeLocal
-public import Certificates.Data.CFSGNative.Solomon.Co1T13
 public import Certificates.Kernel.Co1T13K.Chk
 public import Certificates.Kernel.Co1T13K.Cnt0
 public import Certificates.Kernel.Co1T13K.Cnt1
 public import Certificates.Kernel.Co1T13K.Span
 public import Certificates.Certificate13504Base
 public import Certificates.Kernel.Co1FiveL.Glue
-public import CFSG.Certificates.Kernel.SporSch.Co1MatWSound
-public import CFSG.Certificates.Kernel.Co1Seven.CenSound
-import Mathlib.Tactic.IntervalCases
-public import CFSG.Monster.B.TwoA.Par3.Main
 public import CFSG.Sporadic.Co1Block.TwoBTri
 
 public section

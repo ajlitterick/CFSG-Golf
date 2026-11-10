@@ -1,29 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGOuterInvGraphInv
-public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockDefs
-public import CFSG.Blueprint.SourceClassicalTransportOrthogonal
-public import CFSG.HardMathSupport.Curtis.Coordinator.PLTypeOrthCentCoord
-public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalModelOuterTwoPart
-public import CFSG.RankThree.OrthogonalInvolutions.Dickson
-public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotRecognizeSwap
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotQ2PositionBHigh
-public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotTorus
 public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockDict
 public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockGUOrder
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockDecomp
-public import CFSG.RankThree.PartOne.S11d.OrthCaseN
-public import CFSG.RankThree.PartOne.S11d.OrthSplitAbs
-public import CFSG.RankThree.PartOne.KC.OrthogonalCommutatorBridge
-public import CFSG.ClassicalGroups.Orthogonal.Matrix
-public import CFSG.RankThree.GF2n.Smith81.Orth28Omega
-public import CFSG.RankThree.GF2n.Stroth80.Sec310ClOmegaPlusFour
-public import CFSG.HardMathSupport.Timmesfeld.OrthogonalGeneration.Commutator
-public import CFSG.LargeExtraspecial.DWFldOrth
 public import CFSG.HardMathSupport.Curtis.Coordinator.TorCenterSL3Order
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.StepA2
-public import CFSG.RankThree.PartOne.KC.OrthogonalCommutatorRot
 public import CFSG.LocalAnalysis.StandardType.GGFusionOrthPlaneComp
 public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockOmegaDecomp
 public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockOmegaIsoOneLinear

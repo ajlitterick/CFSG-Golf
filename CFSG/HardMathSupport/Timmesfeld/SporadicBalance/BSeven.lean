@@ -7,10 +7,7 @@ public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.BSevenElems
 public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.SporadicGammaPairs
 public import Certificates.Certificate6032
 public import Certificates.Certificate6033
-public import CFSG.Monster.Existence.StdOdd.Defs
 public import Certificates.Data.CFSGNative.Chevalley.C2E6CertLie
-public import CFSG.LieType.Chevalley.C2E6StdMatrixData
-public import CFSG.Monster.B.Classical.E6AdjointGroup
 import Certificates.Kernel.Misc.E6StdSlp
 public import Certificates.Certificate6036
 public import Certificates.Certificate6037

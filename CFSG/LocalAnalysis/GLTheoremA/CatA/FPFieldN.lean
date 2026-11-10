@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FPTransport
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.MIAut2
 public import CFSG.LocalAnalysis.GLTheoremA.S10.Inputs103
-public import CFSG.Adapters.TauCetiExceptional.EvenAll
-public import CFSG.LocalAnalysis.StandardType.Marking
 public import CFSG.LocalAnalysis.GLTheoremA.S9.Inputs
 
 public section

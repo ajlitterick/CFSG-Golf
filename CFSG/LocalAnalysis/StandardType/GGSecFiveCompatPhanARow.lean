@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanARowDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinPhanA5Defs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveCompatPhanA
 
 public section

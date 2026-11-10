@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionSL
-public import CFSG.LieType.Universal.SpecialLinearExtras
-public import CFSG.LieType.Steinberg.CentralExt.Unipotent
-public import CFSG.LieType.Steinberg.PartBHalfSpace
-public import CFSG.LieType.Steinberg.Classical.SpecialLinear
 public import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofCoxeter
 
 public section

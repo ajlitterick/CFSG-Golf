@@ -2,10 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeF4Cat
 public import CFSG.LocalAnalysis.StandardType.GGTorsionDatum
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6Bridge
 import CFSG.LocalAnalysis.StandardType.GGTorsionQuotComp
-import CFSG.LocalAnalysis.StandardType.GGRoundFourSmallBIso
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeInnAutCore
 import CFSG.LocalAnalysis.ComponentClassification.ONanTauCetiPartitionEven
 

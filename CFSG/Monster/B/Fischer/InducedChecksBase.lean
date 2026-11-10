@@ -1,7 +1,6 @@
 
 module
 
-public import CFSG.Monster.B.Fischer.InducedEncodingBase
 public meta import CFSG.Monster.B.Fischer.InducedEncodingBase
 public import CFSG.Monster.B.Fischer.InducedChecksInputs
 

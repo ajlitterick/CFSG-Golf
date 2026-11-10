@@ -1,13 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResJLineA3
 public import CFSG.LocalAnalysis.StandardType.GGResJLinearCubeAutomizer
 public import CFSG.LocalAnalysis.StandardType.GGPGLToralityEigenspace
-public import CFSG.LocalAnalysis.StandardType.GGPGLTorality
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentLSide
 public import CFSG.LocalAnalysis.StandardType.GGTBJConfigFacts
-public import CFSG.Mathlib.RingTheory.RootsOfUnity.ZModUnits
-public import Mathlib.Algebra.Group.TypeTags.Basic
 
 public section
 

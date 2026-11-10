@@ -4,7 +4,6 @@ public import CFSG.RankThree.PartOne.S12.PushingUp
 import CFSG.RankThree.PartOne.LIT.RankMatrix
 import CFSG.RankThree.PartOne.LIT.RankPSL3
 import CFSG.RankThree.PartOne.LIT.RankSuzuki
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

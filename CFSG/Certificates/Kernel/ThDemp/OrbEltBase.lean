@@ -2,8 +2,6 @@
 module
 
 public import CFSG.Certificates.Kernel.ThDemp.OrbCentBase
-import Mathlib.GroupTheory.IndexNormal
-import Mathlib.Tactic.NormNum.Prime
 
 @[expose] public section
 

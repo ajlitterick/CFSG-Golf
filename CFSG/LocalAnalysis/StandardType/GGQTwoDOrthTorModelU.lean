@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthTorModelUAux
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthTorSU
 
 public section
 

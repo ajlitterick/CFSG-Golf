@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsLieD4Facts
 public import CFSG.LieType.Chevalley.TrialityCover
-public import CFSG.LieType.Chevalley.GraphFixedSylowOpposition
 public import CFSG.Quasithin.H13.NQCatLieCartan
 public import CFSG.LocalAnalysis.ComponentInitial.CentralCoverAbelian
 public import CFSG.Quasithin.Vol2.Ch7Sec77Inputs

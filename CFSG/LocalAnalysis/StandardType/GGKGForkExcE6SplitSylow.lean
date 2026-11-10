@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcE6SplitTor
-public import CFSG.LocalAnalysis.StandardType.GGKGForkExcE6SplitFrame
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.TorusAtDatum
 
 public section
 

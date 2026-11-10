@@ -1,11 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGRootCentKGTagsDefs
 public import CFSG.LocalAnalysis.StandardType.GGRootCentKGOTwoExc
 public import CFSG.LocalAnalysis.StandardType.GGRootCentKGOTwoTwE6Step
 public import CFSG.LocalAnalysis.StandardType.GGStructSOnePrimeRootExcTwE6
-public import CFSG.LocalAnalysis.SeitzReduction.HypothesisOneTwistedE6ClassListBasic
-public import CFSG.LieType.Steinberg.Isogeny.E6
 
 public section
 

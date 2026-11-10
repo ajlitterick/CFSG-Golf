@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.GapsFrBLast
-public import CFSG.ClassicalInvolution.RouteD.GapsFrBGen
 public import CFSG.ClassicalInvolution.RouteD.TWEB6Star
 
 public section

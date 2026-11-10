@@ -1,15 +1,9 @@
 module
 
 public import CFSG.GH74.Generic.BProg.B2.T1Pre
-public import CFSG.GH74.Generic.BProg.B2.ListedG5
 import CFSG.GH74.Generic.BProg.B2.T1ThetaBar
-import CFSG.GH74.Generic.BProg.B2.Thm2AssemblyBasic
 import CFSG.GH74.Generic.BProg.B2.Thm2AssemblyC1
 import CFSG.GH74.Generic.BProg.B2.Thm2AssemblyC2
-import CFSG.GH74.Generic.BProg.B2.Thm2AssemblyG4
-import CFSG.ClassicalInvolution.Balance.LocalBalance.Fixed
-import CFSG.Assembly.OddCoreSpan
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

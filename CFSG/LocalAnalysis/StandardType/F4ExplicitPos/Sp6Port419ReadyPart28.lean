@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.PerfectC3
 
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CompsPReduction
-public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.Sp6Port419ReadyPart25
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.Sp6Port419ReadyPart27
 
 @[expose] public section

@@ -3,20 +3,7 @@ module
 public import CFSG.Monster.B.TwoA.Fischer.CertFixed
 public meta import CFSG.Monster.B.TwoA.Fischer.CertFixed
 public meta import Certificates.Data.CFSGNative.MonsterB.BinaryRank
-public import CFSG.Monster.B.TwoA.Fischer.CertSieveInputs
 public import Certificates.Certificate3067
-public import Certificates.Certificate3030
-public import Certificates.Certificate3031
-public import Certificates.Certificate3033
-public import Certificates.Certificate3065
-public import Certificates.Certificate3066
-public import Certificates.Certificate3017
-public import Certificates.Certificate3029
-public import Certificates.Certificate3034
-public import Certificates.Certificate3035
-public import Certificates.Certificate3036
-public import Certificates.Certificate16010
-public import Certificates.Certificate16023
 
 public section
 

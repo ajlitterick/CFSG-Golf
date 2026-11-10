@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTorusGenE6TwoSetup
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenE6TwoDiag
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenE6TwoCoroot
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenExcTwoComp
-import CFSG.LocalAnalysis.ComponentInitial.BlockCentralQuotient
 
 public section
 

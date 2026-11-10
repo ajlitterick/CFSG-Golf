@@ -3,9 +3,6 @@ module
 public import CFSG.Quasithin.EmptyFaithful.SBd8Trio
 public import CFSG.Quasithin.EmptyFaithful.LRed3FourB
 public import CFSG.Quasithin.Background.GoldschmidtS146RLatSmall
-public import CFSG.Quasithin.H13.U3U33Fixed
-public import CFSG.Quasithin.Background.B5FinG2U33
-public import CFSG.Quasithin.Vol2.Ch3Sec2Lem328Cases
 public import CFSG.CharacterTheory.Blocks.BrauerInduction
 public import CFSG.CharacterTheory.Semidihedral.Principal.PrimeOrderSylowColumn
 public import CFSG.CharacterTheory.TwoRankLowerBound.BrauerCharacterCriterion
@@ -14,12 +11,7 @@ public import CFSG.Quasithin.Background.A1cA132Action
 public import CFSG.Quasithin.Background.A1cA133Three
 public import CFSG.Quasithin.Background.B69Core
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3OffenderB
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.E4Solv
 public import CFSG.Quasithin.Background.FFC7G
 public import CFSG.Quasithin.Background.FFC8A
 public import CFSG.Quasithin.Background.InternalSecB56B

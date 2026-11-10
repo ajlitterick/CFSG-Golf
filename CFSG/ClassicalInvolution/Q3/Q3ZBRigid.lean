@@ -1,8 +1,5 @@
 module
 
-public import CFSG.ClassicalInvolution.Q3.Q3ZAHeisPres
-public import CFSG.ClassicalInvolution.Q3.Q3ZACalc
-public import CFSG.ClassicalInvolution.Q3.Q3ZAHeisDatum
 public import CFSG.ClassicalInvolution.Q3.Q3ZACrossModel
 
 public section

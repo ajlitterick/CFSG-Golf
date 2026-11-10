@@ -5,11 +5,8 @@ public import CFSG.LocalAnalysis.StandardType.GGTableBF4TwoTBIrred
 public import CFSG.LocalAnalysis.StandardType.GGF4TwoNTMain
 public import CFSG.LocalAnalysis.StandardType.GGF4TwoThreeCCentHolds
 public import CFSG.LocalAnalysis.StandardType.GGF4AutWeyl
-public import CFSG.LocalAnalysis.StandardType.GGFieldNbrTableB
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63H5LayerGroup
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.I2610HF4Comp
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265SGF4Comp
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264X1ExcF4Conj
 public import CFSG.LieType.Chevalley.ParabolicSylowSubsystem
 public import CFSG.Quasithin.EmptyFaithful.S146zMListCl
 import CFSG.GroupTheory.ConjClassGeneration

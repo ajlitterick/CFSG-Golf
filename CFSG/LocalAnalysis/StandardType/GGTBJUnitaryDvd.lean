@@ -1,15 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJUnitaryTorusCard
-public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitary
-public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitaryDatum
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitarySix
-public import CFSG.LocalAnalysis.StandardType.GGTBJTypeAPermutationDatumLE3
-public import CFSG.LocalAnalysis.StandardType.GGTBJTypeAParabolicLE3
-public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkTransport
-public import CFSG.LocalAnalysis.StandardType.GGLinearTorusCompSUBlock
 public import CFSG.LocalAnalysis.StandardType.GGTBJLinearSplitA
-public import CFSG.LocalAnalysis.StandardType.GGTBJFamilyInputs
 
 public section
 

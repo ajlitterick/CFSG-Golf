@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSporKStepBOne
 public import CFSG.LocalAnalysis.StandardType.GGSporKStepZero
 public import CFSG.LocalAnalysis.StandardType.GGSporKLayer
-import CFSG.Walter.AStar.Subnormal
-import CFSG.GroupTheory.HyperplaneGeneration
-import CFSG.GroupTheory.LocalCores.Components
 
 public section
 

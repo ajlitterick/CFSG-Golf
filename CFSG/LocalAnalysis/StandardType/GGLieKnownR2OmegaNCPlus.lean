@@ -1,11 +1,5 @@
 module
 
-import CFSG.LieType.Universal.Spin.Generation.Eichler
-import CFSG.LocalAnalysis.StandardType.GGRootCentralizerOmegaSpin
-public import CFSG.LieType.Universal.Spin.Datum
-public import CFSG.LieType.Universal.Spin.Twisted.Datum
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
-public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2FixedPointOdd
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaRadicalCoreO2
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaRadicalSettingW

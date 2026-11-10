@@ -3,7 +3,6 @@ module
 public import CFSG.Quasithin.Background.SmithB42U33Six
 public import CFSG.Quasithin.Background.SmithB42U33Iso
 public import CFSG.Quasithin.H13.U3SixUnique
-public import CFSG.Quasithin.Background.B5FinG2U33
 public import CFSG.Quasithin.Background.HSecTransfer
 public import CFSG.LinearAlgebra.SL2MinimalFaithful
 

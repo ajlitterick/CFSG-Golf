@@ -3,11 +3,8 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OFiveDefs
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcAssemblyE
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcAssemblyTw
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeBlock
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeDiagTwisted
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarE6ThreeFaithful
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FBase
-public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotNeighbourParam
 public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcLeviToral
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4TorusFrame
 public import CFSG.HardMathSupport.Solomon.Coordinator.B3FamPC

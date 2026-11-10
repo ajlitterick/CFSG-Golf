@@ -1,15 +1,10 @@
 module
 
-public import CFSG.RankThree.PartOne.KE6.E6LStdIso
 public import CFSG.RankThree.PartOne.KE6.E6LLayer
 public import CFSG.RankThree.PartOne.KE6.E8T3Torus
 public import CFSG.LocalAnalysis.StandardType.E8SevenLayerOrderCenter
 public import CFSG.RankThree.PartOne.KD4L.TrialityEquiv
 public import CFSG.LieType.Steinberg.CentralExt.TwistedE6Center
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcBasic
-public import CFSG.LieType.CurtisTits.Minuscule
-public import CFSG.LieType.Steinberg.Isogeny.E6
-public import CFSG.LieType.Chevalley.AdjointCenter
 public import CFSG.LocalAnalysis.StandardType.GGE6TwoSevenLabelTriD4
 public import CFSG.RankThree.PartOne.KE6.E8T3A2
 public import CFSG.RankThree.PartOne.KE6.E8T3Act

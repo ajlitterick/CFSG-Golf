@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoNbrAAuxBlk
 public import CFSG.LocalAnalysis.StandardType.GGQTwoNbrAAuxDiag
 public import CFSG.LocalAnalysis.StandardType.GGQTwoNbrAAuxMod
 public import CFSG.LocalAnalysis.StandardType.GGQTwoNbrAAuxFld
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 
 public section
 

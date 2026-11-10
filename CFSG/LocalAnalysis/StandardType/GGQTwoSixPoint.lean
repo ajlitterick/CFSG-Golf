@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoSixPointGen
-public import CFSG.LocalAnalysis.StandardType.GGQTwoSixPointInputs
-public import CFSG.LocalAnalysis.StandardType.GGQTwoSUOrder
-public import CFSG.Certificates.CosetTablePresented
 public import CFSG.Certificates.PerfectCoverBound
 public import Certificates.Certificate1649001
 

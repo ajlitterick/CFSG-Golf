@@ -11,9 +11,7 @@ public import Certificates.Kernel.ThCensus.Letters
 public import CFSG.Certificates.Kernel.ThCensus.CensusSound
 public import CFSG.Certificates.Kernel.Th.Spec.SylowOrbit
 public import CFSG.Certificates.Kernel.Th.Checks2.Sm_C
-import CFSG.Certificates.Kernel.Th.Spec.DceMat
 import CFSG.Certificates.Kernel.Th.Spec.FwdSlp
-import CFSG.Certificates.Kernel.DceLoops
 import CFSG.Certificates.Kernel.Common.ForallTree
 public import CFSG.Certificates.Kernel.ThDemp.OrbCent
 public import CFSG.Certificates.Kernel.Th.Spec.SylowPc

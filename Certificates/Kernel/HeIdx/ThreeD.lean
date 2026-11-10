@@ -3,11 +3,8 @@ module
 
 public import CFSG.Quasithin.EmptyFaithful.S151S9THeKInputs
 public import CFSG.Quasithin.EmptyFaithful.S151S9THeCen
-public import CFSG.Quasithin.EmptyFaithful.S151S9TLat
 public import CFSG.Quasithin.EmptyFaithful.S151S9TNineW
 public import CFSG.Quasithin.EmptyFaithful.S151S9TNineM
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHe
-public import CFSG.Quasithin.EmptyFaithful.S151S9TThreeDFact
 
 public section
 

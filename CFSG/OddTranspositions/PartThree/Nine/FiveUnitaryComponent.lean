@@ -1,13 +1,9 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Nine.FiveUnitaryLocal
-public import CFSG.GroupTheory.PCore.Defs
 public import CFSG.GH74.Uniqueness.Bender.UnitaryAut
 import CFSG.LocalAnalysis.SeitzReduction.RankOneUnitaryCentralizer
-import CFSG.GroupTheory.SolvableHallNodes
 import CFSG.OddTranspositions.InvertMember
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Centralizer
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Core
 import CFSG.OddTranspositions.SevenThreeQuotient
 import CFSG.Timmesfeld.Bridge.OddTranspGenL2
 import CFSG.OddTranspositions.PartThree.Nine.FiveUnitaryTranslationAux

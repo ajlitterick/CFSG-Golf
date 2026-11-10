@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeFramePairCore
 import CFSG.LocalAnalysis.StandardType.ExcPos.StableOppositePairLang
-import CFSG.RankThree.PartOne.D4RC.Descent
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.HallSubgroups.Conjugacy
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.TwoDHighAssembly
 import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.AmbientPairDescentPart1
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCompPairIncidence
 

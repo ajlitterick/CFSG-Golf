@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderExc
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderClassicalDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixStepOneOutdiagStep
 
 public section

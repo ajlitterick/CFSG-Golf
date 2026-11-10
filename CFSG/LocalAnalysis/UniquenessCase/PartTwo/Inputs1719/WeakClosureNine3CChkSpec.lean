@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.WeakClosureNine3CChk
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.A6FactsGeneric
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.WeakClosureNineNA6Spec
-public import Certificates.Kernel.Sporadic.Fi22.C3151
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.CharacterTheory.CyclicBlocks.Family

@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6ThreeRank
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6ThreeLine
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylRest13Known
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6Lift
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenTwE6Three
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6ThreeDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrKGTwE6ThreeAtHolds
 public import CFSG.LocalAnalysis.StandardType.GGKG82Holds
 public import CFSG.LocalAnalysis.StandardType.GGKG84FTwE6

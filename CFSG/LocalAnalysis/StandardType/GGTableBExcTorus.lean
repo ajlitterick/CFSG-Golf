@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcBasic
 public import CFSG.LocalAnalysis.StandardType.GGTableBF4Torus
-public import CFSG.LieType.Chevalley.LangRootArithmeticDet
 
 public section
 

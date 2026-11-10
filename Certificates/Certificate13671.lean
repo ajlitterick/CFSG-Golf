@@ -4,9 +4,7 @@ module
 public import CFSG.Sporadic.Schreier.Co1ThreeLocal
 public import CFSG.Open.GLADefs
 public import Certificates.Data.CFSGNative.Timmesfeld.Co1Five
-public import Certificates.Data.CFSGNative.Co1.Data
 import Certificates.Kernel.Co1FiveL.GlueT
-import CFSG.Sporadic.Co1Block.PermCheckInputs
 meta import CFSG.Sporadic.Co1Block.PermData
 meta import CFSG.Sporadic.Schreier.Co1StabFix
 meta import CFSG.Sporadic.Schreier.Co1StabCheck
@@ -16,10 +14,6 @@ meta import Certificates.Data.CFSGNative.Co1.Data
 meta import Certificates.Data.CFSGNative.HS.SmallF2
 meta import Certificates.Data.CFSGNative.MonsterB.Co2Data
 meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
-import CFSG.Sporadic.Schreier.Co1FullOrbCheckInputs
-import CFSG.Sporadic.Schreier.Co1OrbEnum
-import CFSG.Sporadic.Schreier.Co1XSet
-import CFSG.Sporadic.Schreier.Co1StabCheckInputs
 meta import CFSG.Sporadic.Schreier.Co1OrbEnumCheck
 meta import CFSG.Sporadic.Schreier.Co1StabData
 meta import CFSG.Sporadic.Schreier.Co1FullOrbCheck

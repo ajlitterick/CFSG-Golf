@@ -3,7 +3,6 @@ module
 public import Mathlib.GroupTheory.Sylow
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_4
 import CFSG.GroupTheory.ABGLocalTools.CoreLemmas
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
 
 public section
 

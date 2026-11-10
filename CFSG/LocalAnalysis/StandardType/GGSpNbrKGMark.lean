@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSpNbrKGQuot
 public import CFSG.LocalAnalysis.StandardType.GGSpNbrKGInj
 
 public section

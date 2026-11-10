@@ -3,11 +3,7 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267P3UniModel
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267P3Iso
 import CFSG.LocalAnalysis.QuasithinUnique.SQTK.UnitaryTauCeti
-import CFSG.LieType.Steinberg.CentralExt.PSUMultiplier
 import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
-import CFSG.LieType.Steinberg.CentralExt.UnitaryPerfect
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Foundations
 public import CFSG.GroupTheory.LocalCores.Fitting
@@ -24,8 +20,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.Pump
 public import CFSG.LocalAnalysis.GLTheoremA.S6.InputsProp65
 public import CFSG.LocalAnalysis.GLTheoremB.Lemma911Defs
 public import CFSG.LocalAnalysis.GLTheoremB.SchreierTools
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHermitianIsometry
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 

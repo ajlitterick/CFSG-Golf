@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.CTUSol76SigSingle
-public import CFSG.LocalAnalysis.ComponentClassification.PrimeComplementQuotientComponents
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancingLocalCorrespondenceTools
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuotTools
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.CentralizerLemmas
 public import CFSG.Certificates.Kernel.LocalCompTits.Span
 public import CFSG.Certificates.LiftedSchreierData
 public import CFSG.Goldschmidt.StatementsG4
@@ -29,11 +25,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.Sol76T13L32Props
 public import CFSG.LocalAnalysis.ComponentClassification.Sol78Functor
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSUFieldOddCore
 public import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeThree
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Equivariance
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 public import CFSG.LocalAnalysis.SignalizerFunctor
 public import CFSG.Monster.AxisCount.HSIdentBaby
 public import CFSG.Monster.AxisCount.HSIdentRec0
@@ -45,40 +36,6 @@ public import CFSG.Monster.AxisCount.HSIdentRec5
 public import CFSG.Monster.AxisCount.HSIdentRec6
 public import CFSG.Monster.AxisCount.HSIdentRec7
 public import CFSG.Monster.AxisCount.HSIdentSmall
-public import CFSG.Quasithin.Background.A3Structure318Red
-public import CFSG.Quasithin.Background.A3Structure36A
-public import CFSG.Quasithin.Background.A3Structure36BAction
-public import CFSG.Quasithin.Background.A3Structure36BBase
-public import CFSG.Quasithin.Background.A3Structure36BCase3Base
-public import CFSG.Quasithin.Background.A3Structure36BCasesBase
-public import CFSG.Quasithin.Background.A3Structure36BCommonBase
-public import CFSG.Quasithin.Background.A3Structure36BFrattini
-public import CFSG.Quasithin.Background.A3Structure36BHeisBase
-public import CFSG.Quasithin.Background.A3Structure36BHomocyclic
-public import CFSG.Quasithin.Background.A3Structure36BPrimeDataBase
-public import CFSG.Quasithin.Background.A3Structure36BStarBase
-public import CFSG.Quasithin.Background.A3Structure36Base
-public import CFSG.Quasithin.Background.A3Structure37Base
-public import CFSG.Quasithin.Background.A3Structure37Comm
-public import CFSG.Quasithin.Background.A3Structure37Frattini
-public import CFSG.Quasithin.Background.A3Structure37KeyBase
-public import CFSG.Quasithin.Background.A3Structure37Schur
-public import CFSG.Quasithin.Background.A3Structure38Part3
-public import CFSG.Quasithin.Background.B1MoreElevenE
-public import CFSG.Quasithin.Background.B1MoreNineG
-public import CFSG.Quasithin.Background.B4ModelsAction
-public import CFSG.Quasithin.Background.B4ModelsIso
-public import CFSG.Quasithin.Background.C2Basic
-public import CFSG.Quasithin.Background.C2Inputs
-public import CFSG.Quasithin.Background.E1
-public import CFSG.Quasithin.Background.E1Sec4
-public import CFSG.Quasithin.Background.E1Sec5
-public import CFSG.Quasithin.Background.E1Sec8
-public import CFSG.Quasithin.Background.E1Solv
-public import CFSG.Quasithin.Background.E1Twelve
-public import CFSG.Quasithin.Background.E3Cent
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
-public import CFSG.Quasithin.Vol2.Ch1Local
 public import CFSG.RankThree.GroupTheory.ClassTwoThree
 public import CFSG.RankThree.OrthogonalInvolutions.SuzukiTypes
 public import CFSG.RankThree.PartOne.S11d.OutLinear
@@ -92,7 +49,6 @@ public import CFSG.Sporadic.Ly.ActionBase
 public import CFSG.Sporadic.Ly.CertificateBase
 public import CFSG.Sporadic.Ly.FaithSpec
 public import CFSG.Sporadic.Ly.OrbitSpec
-public import CFSG.Sporadic.Ly.PrimitiveBase
 public import CFSG.Sporadic.LyBase
 public import CFSG.Sporadic.Presentation.Ly
 public import CFSG.Sporadic.Schreier.LyChain11
@@ -103,7 +59,6 @@ public import CFSG.Walter.PSL2Facts
 public import CFSG.Walter.W67.Statements
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

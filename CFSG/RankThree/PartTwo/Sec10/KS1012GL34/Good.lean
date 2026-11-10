@@ -2,10 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec10.KS1012GL34.Defs
 import all CFSG.Fischer.F4
-public import Mathlib.LinearAlgebra.Matrix.CharP
-public import Mathlib.RingTheory.WittVector.IsPoly
-public import Mathlib.Tactic.Polynomial.Basic
-public import Mathlib.Tactic.ReduceModChar
 public import Std.Tactic.BVDecide.Normalize.Prop
 
 public section

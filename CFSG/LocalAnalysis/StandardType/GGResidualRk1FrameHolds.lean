@@ -4,12 +4,7 @@ module
 import CFSG.LocalAnalysis.StandardType.GGNSJoinQFourFrame
 import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylInputHolds
 import CFSG.LocalAnalysis.StandardType.GGResCentBoundNbrHolds
-import CFSG.LocalAnalysis.StandardType.GGRemTableBLExc11R
-import CFSG.LocalAnalysis.StandardType.GGNsq2U62
-import CFSG.LocalAnalysis.StandardType.GGTCJHolds
-import CFSG.LocalAnalysis.StandardType.GGTPNNarrowC6
 import CFSG.LocalAnalysis.StandardType.GGFieldTwoFinal
-import CFSG.LocalAnalysis.StandardType.GGK0ExcB3Holds
 import CFSG.LocalAnalysis.StandardType.GGSecFiveRemainingHolds
 import CFSG.LocalAnalysis.StandardType.GGResidualGenFrameHolds
 import CFSG.LocalAnalysis.StandardType.PhanEStdClassified
@@ -22,13 +17,6 @@ import CFSG.LocalAnalysis.StandardType.GGNSJoinResiduals
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrD4TwoUnitaryBase
 import CFSG.LocalAnalysis.StandardType.GGTwE6TwoMember
-import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoBridge
-import CFSG.LocalAnalysis.StandardType.GGPumpupBalance
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
-import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrOfEnnola
-import CFSG.LocalAnalysis.StandardType.GGSecFiveWeakNbr
-public import Certificates.Certificate707001
 public import Certificates.Certificate707002
 public import Certificates.Certificate707010
 public import Certificates.Certificate707011

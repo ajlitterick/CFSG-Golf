@@ -1,29 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockDefs
 public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockOmegaDict
-public import CFSG.LocalAnalysis.StandardType.GGOuterInvFieldTags
-public import CFSG.LocalAnalysis.StandardType.GGE0Frame
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockDecomp
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockDegreeParity
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.GeoAdj
-public import CFSG.ClassicalGroups.Orthogonal.Matrix
-public import CFSG.ClassicalGroups.Orthogonal.RootGroupStabilizerFour
-public import Mathlib.LinearAlgebra.Matrix.ToLin
-public import Mathlib.LinearAlgebra.Dimension.Free
-public import Mathlib.RingTheory.AdjoinRoot
-public import Mathlib.RingTheory.Ideal.Quotient.Operations
-public import CFSG.Open.StatedDefs
-public import CFSG.Open.StatedAPI
-public import CFSG.RankThree.GF2n.Smith81.Orth28Omega
-public import CFSG.RankThree.GF2n.Stroth80.Sec310ClOmegaPlusFour
-public import CFSG.HardMathSupport.Timmesfeld.OrthogonalGeneration.Commutator
-public import CFSG.RankThree.PartOne.KC.OrthogonalSupportedScalarConj
 public import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagBlocks
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.StepA2
 public import CFSG.HardMathSupport.Dickson.Bal207.OrthSU38Torus
-public import CFSG.LargeExtraspecial.DWFldOrth
 public import CFSG.HardMathSupport.Dickson.Bal207.Glue
 public import CFSG.HardMathSupport.Dickson.Bal207.OrthSU38Comp
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.Bal209F4

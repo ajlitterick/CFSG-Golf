@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenCore
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenWeylLift
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenTwE6Three
 import TauCeti.GroupTheory.SpecificGroups.Dihedral.Basic
 

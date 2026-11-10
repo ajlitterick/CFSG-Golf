@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSpJoinPlaneTorusDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpPlaneFrameDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticEndNode
 import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotQ2EightModel
 import CFSG.CharacterTheory.BrauerThirdMainTheorem.CentralResidueMaps
 import CFSG.CharacterTheory.BrauerThirdMainTheorem.NormalizerClassLifting

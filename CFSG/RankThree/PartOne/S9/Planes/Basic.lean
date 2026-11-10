@@ -4,7 +4,6 @@ public import CFSG.RankThree.PartOne.S9.Defs
 import CFSG.LocalAnalysis.SectionRank.DerivedQuotient
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
 import CFSG.GroupTheory.ElementaryAbelianTransport
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

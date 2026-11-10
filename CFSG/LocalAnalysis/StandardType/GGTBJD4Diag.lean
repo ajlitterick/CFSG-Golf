@@ -6,8 +6,6 @@ public import CFSG.RankThree.Classical2.OrthogonalIsotropicUnipotent
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGCentOmCorank
 import CFSG.LocalAnalysis.StandardType.GGSecFiveJRootCoreOmEigen
 import CFSG.LocalAnalysis.StandardType.GGA8NbrOmFrameCore
-import CFSG.LocalAnalysis.StandardType.GGRootCentralizerOmegaSpin
-import CFSG.LieType.Universal.SpinOmega.Range
 import CFSG.RankThree.PartOne.KC.UnitaryRigidityScalar
 public import CFSG.ClassicalGroups.Orthogonal.ProjectiveSimple
 

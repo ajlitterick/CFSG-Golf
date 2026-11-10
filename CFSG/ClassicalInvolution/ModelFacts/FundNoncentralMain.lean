@@ -1,11 +1,9 @@
 module
 
-public import CFSG.ClassicalInvolution.ModelFacts.FundNoncentralSimple
 public import CFSG.ClassicalInvolution.ModelFacts.FundNoncentralSp
 public import CFSG.ClassicalInvolution.ModelFacts.FundNoncentralG2
 public import CFSG.ClassicalInvolution.ModelFacts.FundNoncentralD4
 public import CFSG.ClassicalInvolution.ModelFacts.FundNoncentralPSU
-public import CFSG.ClassicalInvolution.Generic.Induction
 public import CFSG.ClassicalInvolution.LBalance.Main
 public import CFSG.ClassicalInvolution.Models.LinearFrames.Frame
 public import CFSG.ClassicalInvolution.Models.LinearPairs
@@ -23,7 +21,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.GeneralizedFittingProduct
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Basic
 
 public section

@@ -2,10 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGCoverPToral
 public import CFSG.LocalAnalysis.StandardType.GGCoverPClassicalInner
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticOmega
 public import CFSG.LocalAnalysis.StandardType.GGOmegaPlusRootGenConj
 public import CFSG.LocalAnalysis.StandardType.GGOmegaPlusCentrallyClosed
-public import CFSG.LocalAnalysis.StandardType.GGCoverRkFieldFix
 import CFSG.LocalAnalysis.SeitzReduction.HypothesisOneClassicalSymplecticField
 
 public section

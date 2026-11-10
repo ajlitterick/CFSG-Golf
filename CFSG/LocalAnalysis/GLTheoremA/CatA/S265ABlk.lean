@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265ACount
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Blocks4
-import TauCeti.LinearAlgebra.Dimension.DirectSum
 
 public section
 

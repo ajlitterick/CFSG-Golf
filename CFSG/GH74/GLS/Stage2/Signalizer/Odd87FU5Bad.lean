@@ -1,11 +1,6 @@
 module
 
 public import CFSG.RankThree.SubgroupLists.UnitaryThreeFamily
-public import CFSG.Timmesfeld.Orders.ClassicalLinear
-public import CFSG.ClassicalGroups.Unitary.Simple
-public import CFSG.ClassicalGroups.Unitary.Perfect
-public import CFSG.LieType.Steinberg.CentralExt.UnitaryThreeLift
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Definitions
 
 public section
 

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.CyclotomicBlockKernelOrder
 public import CFSG.LocalAnalysis.StandardType.E8SubsystemBlockMatrix
 public import CFSG.LieType.Chevalley.E7SupportedBruhat
-public import CFSG.HardMathSupport.Foote.Coordinator.LangTorus.Monomial
 public import CFSG.RankThree.PartOne.KE.StabGeneral
 
 public section

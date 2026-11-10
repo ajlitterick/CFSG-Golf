@@ -9,10 +9,7 @@ public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.CosetNormalizerSolvableO
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.CosetNormalizerSolvableOrSevenAffine
 public import CFSG.LocalAnalysis.QuasithinUnique.CompNormSylow
 public import CFSG.Timmesfeld.Bridge.Asc72Bender
-public import CFSG.StronglyEmbedded.MatrixGroups.SzModel
 public import CFSG.GH74.Uniqueness.Bender.Models
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
-public import CFSG.Adapters.QiuzhenLegacy.BenderSuzuki.Models
 public import CFSG.Assembly.OrderReductions.CharacterInflation
 public import CFSG.LinearAlgebra.LinearGroups.CoordinateData
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionCosetNormalizerIndexNormalizer

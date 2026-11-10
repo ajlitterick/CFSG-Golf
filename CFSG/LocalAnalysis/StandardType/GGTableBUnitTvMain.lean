@@ -2,12 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitTvCore
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitTvModel
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLTv
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthLSp
 public import CFSG.LocalAnalysis.StandardType.GGNoTransvectionAutUnit
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUCoverTwo
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestUnitaryCenter
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOpenOrth
 
 public section
 

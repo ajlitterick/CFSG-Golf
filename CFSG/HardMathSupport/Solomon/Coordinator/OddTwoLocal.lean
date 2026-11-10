@@ -2,7 +2,6 @@ module
 
 public import CFSG.GroupTheory.FrobeniusNormalComplement
 public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Inputs
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.Milestones.OO_odd_order_solvable
 public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Basic
 

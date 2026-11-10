@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixPositionDefs
-public import CFSG.Blueprint.Catalog
 
 public section
 

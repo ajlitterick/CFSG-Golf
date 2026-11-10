@@ -1,8 +1,6 @@
 module
 
 public import CFSG.CGT.Timmesfeld75.Sec4TwoQuot
-public import CFSG.CGT.Timmesfeld75.Sec3Iso
-public import CFSG.CGT.Timmesfeld75.Sec3L2
 public import CFSG.CGT.Timmesfeld75.Lemma25
 public import CFSG.CGT.Timmesfeld75.Sec4TwoBasic
 

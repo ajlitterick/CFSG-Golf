@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJEThree
 public import CFSG.LocalAnalysis.StandardType.GGTBJUnitaryDvd
-public import CFSG.LocalAnalysis.StandardType.GGTBJFamilyStages
 
 public section
 

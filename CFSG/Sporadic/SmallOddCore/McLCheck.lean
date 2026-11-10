@@ -1,10 +1,7 @@
 module
 
-public import CFSG.Sporadic.SmallOddCore.McLData
-public import CFSG.Sporadic.Schreier.PairMcLCheck
 public meta import CFSG.Sporadic.SmallOddCore.McLData
 public meta import CFSG.Sporadic.Schreier.PairMcLCheck
-public import CFSG.Sporadic.SmallOddCore.McLCheckInputs
 public import Certificates.Certificate2284
 
 public section

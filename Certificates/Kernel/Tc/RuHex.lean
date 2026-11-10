@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.Census219.RuTcData
-public import Certificates.Data.Kernel.Misc.HexFlat
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public import Certificates.Kernel.SporSch.GenPerms
 public meta import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.Census219.RuTcData

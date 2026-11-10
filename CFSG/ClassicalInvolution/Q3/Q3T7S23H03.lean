@@ -5,7 +5,6 @@ public import CFSG.ClassicalInvolution.Asc77.AscT7L14
 public import CFSG.ClassicalInvolution.Q3.Q3TD3R4Ord
 public import CFSG.ClassicalInvolution.Q3.Q3TWY1
 public import CFSG.ClassicalInvolution.Q3.Q3TY14
-public import CFSG.ClassicalInvolution.ModelFacts.TG3OrthTags
 public import CFSG.ClassicalInvolution.Q3.Q3VF4Row
 public import CFSG.LieType.Chevalley.E7SupportedBruhat
 

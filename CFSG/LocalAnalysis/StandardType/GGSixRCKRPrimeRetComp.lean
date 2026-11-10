@@ -1,11 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeRetIota
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeRetDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeRetCompFin
-import CFSG.LieType.Chevalley.CoordinateFieldBaseChange
-import CFSG.LieType.Chevalley.LangFrobeniusFixedDerived
-import CFSG.LieType.Chevalley.BruhatCellFactorization
 
 public section
 

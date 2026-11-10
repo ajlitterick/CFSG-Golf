@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FQOrd
-public import CFSG.RankThree.PartOne.KE.SuzukiFinal
-public import CFSG.LieType.Ree.SuzukiOrder
-public import CFSG.LocalAnalysis.StandardType.MarkingChevalley
-public import CFSG.LocalAnalysis.SeitzReduction.F4PilotCatEvenExcOrders
 
 public section
 

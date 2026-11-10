@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneD4Conj
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneD4T2
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1F3ThetaOEven
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1F3ThetaOOdd
-public import Certificates.Kernel.ThCent.Leaves
 
 public noncomputable section
 

@@ -1,7 +1,5 @@
 module
 
-public import Certificates.Data.Kernel.ThCent.Pin
-public import CFSG.Certificates.Kernel.ThCent.PinSound
 public import CFSG.Certificates.Kernel.ThCent.ListSound
 public import CFSG.Sporadic.ThSchreier.LocalData
 

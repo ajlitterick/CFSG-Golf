@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGE0ShapeDefs
 public import CFSG.LocalAnalysis.StandardType.GGE0ModelFrame
-public import CFSG.LocalAnalysis.StandardType.GGE0ShapeOddIndex
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarE6ThreeFrameOn
-public import CFSG.LocalAnalysis.StandardType.GGE0ShapeContextRankAux
 public import CFSG.LocalAnalysis.StandardType.GGE0ShapeTwFrob
 public import CFSG.LocalAnalysis.StandardType.GGE0ShapeTwTransport
 public import CFSG.LocalAnalysis.StandardType.GGE0ShapeTwLongest

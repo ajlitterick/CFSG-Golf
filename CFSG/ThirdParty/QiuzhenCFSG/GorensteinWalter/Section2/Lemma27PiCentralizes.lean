@@ -1,11 +1,7 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970API
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970_18
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970_17ii
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.ControlCore
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma27FittingDecomposition
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection5.theorem_5_5_a
 import Mathlib.Tactic
 

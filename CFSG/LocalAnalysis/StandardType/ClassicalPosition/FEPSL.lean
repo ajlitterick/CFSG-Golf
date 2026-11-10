@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixPositionDefs
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockDegreeParity
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.ReducedAlgebra
 public import CFSG.RankThree.PartOne.CTP.PhanBridge
 public import CFSG.Dihedral.GorensteinWalter.FieldTransport
 public import CFSG.ClassicalInvolution.WeakCT.StandardPair

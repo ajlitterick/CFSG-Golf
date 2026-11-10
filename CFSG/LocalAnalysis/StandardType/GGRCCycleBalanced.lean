@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRCLatticeTripleTwo
-public import CFSG.LocalAnalysis.StandardType.GGLatticeRootsDefs
 
 public section
 

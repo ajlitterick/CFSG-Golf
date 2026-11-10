@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGLieInnerDiagDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompAlgUnitaryBlock
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLIDAUnitaryBridge
 import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompAlgUnitary
-import CFSG.RankThree.PartOne.KC.UnitaryPrimaryAlgebra
 import CFSG.HardMathSupport.Solomon.LocalBalance.I1433.LinUnitUnitaryBlocks
 public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeOrbits
 import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67LnToral

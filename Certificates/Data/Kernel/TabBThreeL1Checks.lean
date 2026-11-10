@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Monster.B.Classical.E6AdjointTable
 public import Certificates.Data.TabBThreeL1Levels
 
 public section

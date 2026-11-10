@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Monster.B.TwoA.Fischer.CertRemOrbitInputs
-public import Certificates.Data.Kernel.MonsterB.Rem3069
 import Certificates.Kernel.MonsterB.Rem3069.K00
 import Certificates.Kernel.MonsterB.Rem3069.K01
 import Certificates.Kernel.MonsterB.Rem3069.K02

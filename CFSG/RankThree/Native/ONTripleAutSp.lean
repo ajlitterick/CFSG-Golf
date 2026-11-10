@@ -3,13 +3,9 @@ module
 
 public import CFSG.RankThree.Native.ONTripleAutSpBase
 
-public import CFSG.RankThree.Native.ONTripleAutData
-public import CFSG.RankThree.Native.ONTripleNorm
-public import CFSG.RankThree.Native.ONTripleA6
 public meta import CFSG.RankThree.Native.ONTripleNorm
 public meta import CFSG.RankThree.Native.ONTripleAutData
 public meta import CFSG.RankThree.Native.ONTripleA6
-public import CFSG.RankThree.Native.ONTripleAutSpInputs
 public import Certificates.Certificate8138
 
 public section

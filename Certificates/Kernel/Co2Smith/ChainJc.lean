@@ -1,8 +1,6 @@
 module
 
 public import Certificates.Kernel.Co2Smith.ChainJcK
-public import CFSG.Certificates.Kernel.Spor.RawSound
-public import CFSG.Certificates.Kernel.Spor.RawOrbHead
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

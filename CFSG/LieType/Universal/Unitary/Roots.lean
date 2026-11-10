@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LieType.Universal.Unitary.Basic
 public import CFSG.LieType.Universal.SymplecticRoots
-public import CFSG.LieType.RootSystem.Cartan
-public import CFSG.LieType.CurtisTits.Reduction
 public import CFSG.LieType.BorelTits.UnitaryForm
 public import CFSG.LieType.Universal.Unitary.Roots.Levels
 public import CFSG.LieType.BorelTits.CompleteFlag

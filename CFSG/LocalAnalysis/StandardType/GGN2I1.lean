@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGN2Defs
 public import CFSG.LocalAnalysis.StandardType.GGN2I1Core
-public import CFSG.LocalAnalysis.StandardType.GGTPNI1
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UGroup
 
 public section

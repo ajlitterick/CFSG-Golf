@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeGSCertInputs
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeldFixSylowCheckInputs
 public import CFSG.Sporadic.HeldB.OuterCentCheckInputs
 public meta import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeGSCertInputs
 public meta import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeldFixSylowCheckInputs

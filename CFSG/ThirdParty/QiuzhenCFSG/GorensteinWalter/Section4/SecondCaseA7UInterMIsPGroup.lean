@@ -3,9 +3,6 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseA7FittingIsPGroup
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OddNormalizerOrderThreeCentralizes
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CentralizerSup
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma27Infra
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section1
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

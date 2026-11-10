@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.CFSGNative.SporadicSchreier.Count
 public import CFSG.Quasithin.Vol2.KGFactC31OrbCheck
 public import Certificates.Data.CFSGNative.Insp443.PermTests
 

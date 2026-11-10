@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBSpCoordFrameDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBSpDefs
-public import CFSG.LocalAnalysis.StandardType.GGAssemblyTwoHypSix
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpFrame
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpLFrameMp
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBSpField

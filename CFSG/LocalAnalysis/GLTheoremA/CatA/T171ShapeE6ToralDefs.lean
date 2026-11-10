@@ -1,13 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeDefs
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.I171Facts
-public import CFSG.LocalAnalysis.GLTheoremA.S10.Defs
 public import CFSG.LocalAnalysis.StandardType.GGTwE6RecipeTransport
-public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRankFiveAmbient
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaOutdiag
-public import CFSG.RankThree.Classical2.TwistedE6Phi3Torus
-public import CFSG.HardMathSupport.Lang.E6Descent.OuterFixed27TwistedE6Torus
 
 public section
 

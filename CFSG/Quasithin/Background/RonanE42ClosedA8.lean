@@ -2,48 +2,23 @@ module
 
 public import CFSG.Quasithin.Background.RonanE42Closed
 public import CFSG.Dihedral.Glauberman.DicksonMaxList
-public import CFSG.LocalAnalysis.SectionRank.OddCover.PSL2
-public import CFSG.Adapters.ProjectiveSpecialLinear
-public import CFSG.GroupTheory.PerfectResidualNodes
-public import CFSG.RankThree.SubgroupLists.SL2Perfect
-public import CFSG.GroupTheory.NonabelianSimpleOrderSixty
-public import CFSG.LinearAlgebra.LinearGroups.TameProjectiveSubgroups
 public import CFSG.RankThree.PartTwo.Sec20.Item20Res6ProofL2KFact
-public import CFSG.Milestones.ASVolI.E4
-public import CFSG.Milestones.CL_LIT_SQTK_simple_list
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.MatrixFieldTransport
-public import CFSG.LocalAnalysis.ComponentInitial.AlternatingOuterBound
-public import CFSG.Open.StatedAPI
 public import CFSG.Adapters.StatedPSLTwo
-public import CFSG.RankThree.SubgroupLists.CentralizerPerfect
 public import CFSG.RankThree.SubgroupLists.IrreducibleGL3
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312U3IrrRed
 public import CFSG.LocalAnalysis.SeitzReduction.PerfectCentralizer
 public import CFSG.RankThree.PartOne.KF.F1322OmegaSeven
-public import CFSG.RankThree.SubgroupLists2.OmegaThree
-public import CFSG.LocalAnalysis.ComponentInitial.SmallLinearIsomorphisms
 public import CFSG.Quasithin.Background.A3FactsA134
 public import CFSG.LocalAnalysis.EvenBN.Tits.I21LA6Aut
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L246C123SylowA7
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.GN.AltSevenA1Orbit
 public import CFSG.Quasithin.H13.GoldschmidtC137S168Main
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312U3L3
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312U3Psu3
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312U3SmArith
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312U3Klein
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312U3Five
 public import CFSG.Quasithin.EmptyFaithful.S146zYOutPSL
-public import CFSG.CharacterTheory.Semidihedral.GL2Recognition.M11Order
 public import TauCeti.GroupTheory.Perm.Jordan
-public import CFSG.GH74.Exceptional.LinearFourTwo
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L246C123Alt7
 public import CFSG.RankThree.PartTwo.Sec20.Alt20
 public import CFSG.Sporadic.Schreier.TitsOther
-public import CFSG.Walter.J1Props
-public import CFSG.Walter.J1Recog
-public import CFSG.Walter.PSL2Facts
-public import CFSG.Walter.W67.Statements
 
 public section
 

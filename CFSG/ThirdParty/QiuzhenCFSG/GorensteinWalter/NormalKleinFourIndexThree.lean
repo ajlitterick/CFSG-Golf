@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FourPointAction
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
 import Mathlib.GroupTheory.SchurZassenhaus
 
 namespace CFSG

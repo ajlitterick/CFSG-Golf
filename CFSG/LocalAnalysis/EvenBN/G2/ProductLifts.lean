@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.EvenBN.G2.ProductN1Decomp
-public import CFSG.Adapters.SpecialLinearPerfect
-public import CFSG.Quasithin.H13.J4Core
-public import CFSG.Quasithin.H13.J4Order
 
 public section
 

@@ -1,12 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGK1ADefs
-public import CFSG.LinearAlgebra.LinearGroups.UnitaryScalarKernel
 public import CFSG.LinearAlgebra.MatrixPlanes
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeBoundGenKernel
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T156GUniMat
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagProj
-public import CFSG.Timmesfeld.Orders.Classical
 
 public section
 

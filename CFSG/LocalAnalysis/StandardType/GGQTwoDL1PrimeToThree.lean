@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBaseThm
 import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthChart
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBShape
 import CFSG.LocalAnalysis.StandardType.GGQTwoDSevenPrelim
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6
 
 public section
 

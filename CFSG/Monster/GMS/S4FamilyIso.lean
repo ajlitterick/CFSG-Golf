@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Monster.GMS.S4AssemblyIso
-public import CFSG.Monster.GMS.Orbits
 public import CFSG.Monster.GMS.Facts.Interfaces
 public import CFSG.Monster.GMS.S35
 

@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.SporSch.Pair.J2Chain
 public import Certificates.Data.Kernel.SporSch.J2OddWit
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo
 

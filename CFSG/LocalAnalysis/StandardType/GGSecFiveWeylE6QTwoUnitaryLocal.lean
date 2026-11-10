@@ -1,14 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoUnitaryAux
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoPairing
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoTransfer
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoInner
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoInnerQ
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoAutL
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoModel
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoCover
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoCoverTwo
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoSixAux
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoLocalSetting
 

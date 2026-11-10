@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.PermCent.AllPermsC
-public import Certificates.Data.Kernel.PermCent.SmallK
 
 public section
 

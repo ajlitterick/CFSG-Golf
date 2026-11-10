@@ -3,12 +3,7 @@ module
 public import CFSG.RankThree.PartOne.Census3.OpenCases
 public import CFSG.RankThree.PartTwo.Census.Spin.Exclude
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.Co2
-public import CFSG.Monster.Existence.Co2Bridge
-public import CFSG.Monster.Existence.DLevelRank
-public import CFSG.Monster.B.Cbar.LocalStructure
-public import CFSG.Monster.B.Cbar.FourGroupBar
 public import CFSG.RankThree.PartOne.TCB.BabyRoute
-public import CFSG.Monster.B.TwoA.Unitary.Semilinear
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 public import CFSG.YGroups.DCE.B433Check
 

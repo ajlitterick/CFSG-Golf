@@ -11,7 +11,6 @@ import Certificates.Kernel.Sporadic.Fi23Br.Seed
 import CFSG.Certificates.Kernel.Spor.Dec3Sound
 import CFSG.Certificates.Kernel.Spor.BytesFSound
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 import Certificates.Kernel.Sporadic.BrChain
 public import CFSG.Blueprint.MatrixSeedIdentification
 public import CFSG.Certificates.SchreierStabilizerGenerators

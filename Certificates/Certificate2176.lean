@@ -3,17 +3,8 @@ module
 
 public import Certificates.Certificate2176Base
 
-public import CFSG.Sporadic.Schreier.J4SOddData
 public meta import CFSG.Sporadic.Schreier.J4SOddData
 import Certificates.Kernel.SporSch.J4S.OddP
-public import CFSG.Sporadic.Schreier.J4SCheckBase
-public import CFSG.Sporadic.Schreier.J4SBinaryBase
-public import Mathlib.Algebra.Group.Subgroup.Actions
-public import Mathlib.GroupTheory.GroupAction.Defs
-public import Mathlib.GroupTheory.GroupAction.Quotient
-public import Mathlib.GroupTheory.NoncommCoprod
-public import Mathlib.GroupTheory.QuotientGroup.Defs
-public import Mathlib.GroupTheory.Schreier
 
 public section
 

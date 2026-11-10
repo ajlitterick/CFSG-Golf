@@ -6,18 +6,11 @@ public import CFSG.LocalAnalysis.SeitzReduction.LongRootPairsRoots
 public import CFSG.LocalAnalysis.StandardType.GGInnerDiagBridgeInner
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGOTwoExc
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGOTwoExcStep
-import CFSG.LocalAnalysis.SeitzReduction.E8PilotLevi
-import CFSG.LocalAnalysis.SeitzReduction.E7PilotNeighbourLevi
 import CFSG.LocalAnalysis.StandardType.GGStructSOnePrimeRootExc
-import CFSG.LocalAnalysis.StandardType.GGRootCentralizerExcRoots
-import CFSG.LocalAnalysis.StandardType.GGRootCentralizerExcConj
-import CFSG.LocalAnalysis.SeitzReduction.E8PilotQ2PositionPerfect
 import CFSG.LocalAnalysis.SeitzReduction.E7PilotPositionPerfect
-import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerMinus
 import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutInnerExcCore
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.JRFacts
 
 public section

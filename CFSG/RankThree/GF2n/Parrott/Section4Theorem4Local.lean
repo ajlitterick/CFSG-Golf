@@ -3,9 +3,7 @@ module
 public import CFSG.RankThree.GF2n.Parrott.Section4FusionIntoN
 public import CFSG.RankThree.GF2n.Parrott.Section4InvolutionCoset
 public import CFSG.RankThree.GF2n.Parrott.Section4SylowCentralizer
-public import CFSG.RankThree.GF2n.Parrott.Section4SylowFiveFusion
 public import CFSG.RankThree.GF2n.Parrott.Section4SylowFiveStructure
-public import CFSG.RankThree.GF2n.Parrott.Section4Theorem4
 
 public section
 

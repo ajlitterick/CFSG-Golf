@@ -2,13 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22Defs2
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S20
-public import CFSG.Open.StatedDefs
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm14_5.ParNAllBasic
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm14_5.ParNAllShapes
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.ProofsFiveKNshape
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23d.Shapes
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KNatBorelIrr.OmegaMinusFourL2
-import CFSG.Adapters.ProjectiveSpecialLinear
 public import CFSG.CGT.Timmesfeld75.Statements
 public import CFSG.Foundations
 public import CFSG.GroupTheory.LocalCores.Fitting
@@ -59,8 +57,6 @@ import CFSG.Quasithin.Background.C1PackS15212C
 import CFSG.Quasithin.Background.C1PackS1531Top
 import CFSG.Quasithin.Background.D2
 import CFSG.Quasithin.Background.E3
-import CFSG.Quasithin.Background.E3Nprime
-import CFSG.Quasithin.Background.E3Uniq
 import CFSG.Quasithin.Background.FFC4Res
 import CFSG.Quasithin.Background.GoldschmidtS146RBend1
 import CFSG.Quasithin.Background.InternalSecFF

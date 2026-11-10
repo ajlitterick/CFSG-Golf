@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Co1SevenK.SylData
 public import Certificates.Data.Kernel.SporSch.Co1Bfs
-public import Certificates.Data.Kernel.Co1BW
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

@@ -1,12 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.DefsWeakClosure
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.DefsModule
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22u
-public import CFSG.Quasithin.Background.E3Basic
 public import CFSG.GroupTheory.PCore.Transport
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.theorem_3_4
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.Defs
 
 public section
 

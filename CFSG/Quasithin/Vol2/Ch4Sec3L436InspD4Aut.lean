@@ -1,12 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.RootDataD4
-public import CFSG.Quasithin.Background.SmithB42D4Main
-public import CFSG.LieType.Chevalley.EvenTrialityAutomorphismNormalForm
-public import CFSG.LieType.Chevalley.TwistedE6NormalFormActors
-public import CFSG.LieType.Chevalley.RootCharacterConjugation
-public import CFSG.LieType.Chevalley.DiagramCoordinateFixedStructure
-public import CFSG.LieType.Chevalley.ExactNormalFormE
 
 public section
 

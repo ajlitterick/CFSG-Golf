@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6FixedComponent
-public import CFSG.LocalAnalysis.StandardType.GGTwE6HyperplaneTypes
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarE8FiveFrameCentralizer
-public import CFSG.RankThree.CentralCover.SteinbergBNLinearTorus
 public import CFSG.HardMathSupport.Foote.Proving.RootStringOne
-public import CFSG.RankThree.PartOne.KE.A1Centralizer
 public import CFSG.LieType.AlgebraicGroups.RootSL2Centralizer
 
 public noncomputable section

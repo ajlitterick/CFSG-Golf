@@ -1,13 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.FS81.Defs
-public import CFSG.LocalAnalysis.StandardType.FS81.OrthMaxTorus
-public import CFSG.LocalAnalysis.StandardType.FS81.RowFacts
 public import CFSG.LocalAnalysis.StandardType.FS81.OrthRowCanonAux
 public import CFSG.LocalAnalysis.AGLEmbedding.ToralCensusCentOrthModel
 public import CFSG.Blueprint.SourceClassicalTransport
-public import CFSG.GroupTheory.WeirSylow.OrthogonalOrders
-public import CFSG.LieType.Universal.Spin.Forms
 
 public section
 

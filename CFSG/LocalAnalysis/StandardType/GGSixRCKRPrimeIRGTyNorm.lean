@@ -1,12 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGTyShape
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGCoSpSu
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGCoOmTwo
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGCoKleinMinus
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGCoKleinPlus
-public import CFSG.LieType.CurtisTits.Reduction
 
 public section
 

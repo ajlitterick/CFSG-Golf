@@ -5,19 +5,14 @@ public import CFSG.LocalAnalysis.StandardType.GGQ2SpFrame
 public import CFSG.LocalAnalysis.StandardType.GGQ2FrameAmbient
 public import CFSG.LocalAnalysis.StandardType.GGQ2SpInnerDiagData
 public import CFSG.LocalAnalysis.StandardType.GGQ2SpEleH
-public import CFSG.LocalAnalysis.StandardType.GGQ2SpBlocksIdem
-public import CFSG.LocalAnalysis.StandardType.GGQ2SpBlocksGroup
 public import CFSG.LocalAnalysis.StandardType.GGQ2SpBlocksQuasi
-public import CFSG.LocalAnalysis.StandardType.GGQ2SpBlocksCentExt
 public import CFSG.LocalAnalysis.StandardType.GGQ2SpBlocksMark
 public import CFSG.LocalAnalysis.StandardType.GGQ2SpBlocksComp
-public import CFSG.LocalAnalysis.StandardType.GGQ2SpRealization
 public import CFSG.LocalAnalysis.StandardType.GGQ2CoverComponents
 public import CFSG.LocalAnalysis.StandardType.GGQ2AutomizerCover
 public import CFSG.LocalAnalysis.StandardType.GGQ2SpTorusAutAmb
 public import CFSG.LocalAnalysis.StandardType.GGQ2SpTorusAutZero
 public import CFSG.LocalAnalysis.StandardType.GGQ2SpTorusAutExt
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 
 public section
 

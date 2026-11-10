@@ -4,13 +4,7 @@ public import CFSG.LocalAnalysis.StandardType.GGQ2PrimePumpUpAut
 import CFSG.LocalAnalysis.StandardType.GGQ2PrimePumpUpTenLin
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S265BSClEl
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanO10CentOut
-import CFSG.RankThree.Classical.SteinbergR3EHigherSymplecticOuterOrder
-import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
-import CFSG.LocalAnalysis.ComponentClassification.PerfectAutomorphisms
-import CFSG.Adapters.LieModelSimple
-import CFSG.Adapters.StatedClassicalUnitaryOrders
 import CFSG.Open.StatedZModTwo
-import CFSG.LocalAnalysis.EvenSporadicStandard.HypOne.Generic
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.OmegaMinusCentModel
 
 public section

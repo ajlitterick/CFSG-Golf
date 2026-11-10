@@ -1,9 +1,6 @@
 module
 
-public import Certificates.Data.CFSGNative.MonsterB.Primes
-public import Certificates.Data.CFSGNative.MonsterB.IntertwinerCheck
 public import CFSG.Monster.B.Pinned.Primes.FiveRelations
-public import CFSG.Monster.B.Intertwiner.PairFacts
 public import CFSG.Monster.Existence.BabyW2Classes
 public import Certificates.Certificate13610
 

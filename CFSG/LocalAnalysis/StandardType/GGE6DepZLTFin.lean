@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.Chevalley.LangFrobeniusFixedDerived
-public import CFSG.LieType.Chevalley.E6GraphInvolutionFiniteReduction
 
 public section
 

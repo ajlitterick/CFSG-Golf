@@ -2,21 +2,13 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P2213TDefs
 public import CFSG.LocalAnalysis.UniquenessCase.UC22InE229N
-public import CFSG.LocalAnalysis.UniquenessCase.UC22S22a
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22ud
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront08UsePair
 import CFSG.LocalAnalysis.UniquenessCase.UC22P2213a
 import CFSG.LocalAnalysis.UniquenessCase.UC22P2213c
 import CFSG.LocalAnalysis.UniquenessCase.UC22P20c
-import CFSG.LocalAnalysis.UniquenessCase.UC22P21a
-import CFSG.LocalAnalysis.UniquenessCase.UC22P21j
-import CFSG.LocalAnalysis.UniquenessCase.UC22P22a
-import CFSG.LocalAnalysis.UniquenessCase.UC22P22i
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.JankoOne
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.ShapeDisjoint
-import CFSG.RankThree.PartOne.CTP.StrongPGlue
 import CFSG.Adapters.StatedPSLTwo
-import CFSG.LocalAnalysis.EvenBN.GMSK.SzFacts
 import CFSG.Mathlib.Arithmetic.TwoPowModThree
 public import CFSG.LocalAnalysis.UniquenessCase.UC22Bridge
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P2214a

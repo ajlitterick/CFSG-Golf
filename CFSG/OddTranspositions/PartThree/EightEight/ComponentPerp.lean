@@ -1,7 +1,6 @@
 module
 
 public import CFSG.OddTranspositions.HalphaQuotient
-public import CFSG.Timmesfeld.Bridge.Asc72Defs
 public import CFSG.OddTranspositions.WreathBase
 public import CFSG.Quasithin.Background.A3ComponentsBasic
 import CFSG.GroupTheory.PerfectCoreSolvableQuotient

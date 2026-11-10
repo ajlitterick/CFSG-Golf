@@ -5,7 +5,6 @@ public import Certificates.Kernel.Co3Pair.EnumA
 public import Certificates.Kernel.Co3Pair.EnumB
 public import Certificates.Data.Kernel.Misc.ArrEnum
 public import Certificates.Data.Kernel.BfsPinBase
-public import CFSG.Sporadic.Schreier.Co3OrderCheckInputs
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

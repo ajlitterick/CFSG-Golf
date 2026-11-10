@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.KleinFourSymmetricFourEndpoint
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
-import Mathlib.GroupTheory.Subgroup.Centralizer
 import Mathlib.Tactic
 
 namespace CFSG

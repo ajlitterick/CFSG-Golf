@@ -1,7 +1,6 @@
 module
 
 public import Mathlib
-public import CFSG.ClassicalInvolution.SmallCases.Hat2A7FactsInputs
 public import Certificates.Certificate9300
 public meta import Mathlib.GroupTheory.SpecificGroups.Alternating
 

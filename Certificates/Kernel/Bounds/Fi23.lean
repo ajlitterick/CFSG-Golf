@@ -3,26 +3,6 @@ module
 public import Certificates.Kernel.Bounds.Data.Fi23
 import Certificates.Kernel.Bounds.Assemble
 import CFSG.Certificates.Kernel.Bounds.Fi23Alt.All
-import CFSG.Certificates.Kernel.Bounds.Fi23.T1vK000
-import CFSG.Certificates.Kernel.Bounds.Fi23.T1vK001
-import CFSG.Certificates.Kernel.Bounds.Fi23.T1vK002
-import CFSG.Certificates.Kernel.Bounds.Fi23.T1vK003
-import CFSG.Certificates.Kernel.Bounds.Fi23.T1vK004
-import CFSG.Certificates.Kernel.Bounds.Fi23.T1vK005
-import CFSG.Certificates.Kernel.Bounds.Fi23.T1vK006
-import CFSG.Certificates.Kernel.Bounds.Fi23.T1vK007
-import CFSG.Certificates.Kernel.Bounds.Fi23.T1vK008
-import CFSG.Certificates.Kernel.Bounds.Fi23Alt.Binding
-import CFSG.Certificates.Kernel.Bounds.Fi23Alt.Neg
-import CFSG.Certificates.Kernel.Bounds.Fi23Alt.T2vK000
-import CFSG.Certificates.Kernel.Bounds.Fi23Alt.T2vK001
-import CFSG.Certificates.Kernel.Bounds.Fi23Alt.T2vK002
-import CFSG.Certificates.Kernel.Bounds.Fi23Alt.T3vK000
-import CFSG.Certificates.Kernel.Bounds.Fi23Alt.T4vK000
-import CFSG.Certificates.Kernel.Bounds.Fi23Alt.T5vK000
-import CFSG.Certificates.Kernel.Bounds.Fi23Alt.T6vK000
-import CFSG.Certificates.Kernel.Bounds.Fi23Alt.T7vK000
-import CFSG.Certificates.Kernel.Bounds.Fi23Alt.T8vK000
 
 public section
 

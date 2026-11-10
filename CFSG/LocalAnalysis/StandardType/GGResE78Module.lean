@@ -1,25 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3Bridge
 public import CFSG.LocalAnalysis.StandardType.GGResDepType
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeProp1010
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-public import CFSG.LocalAnalysis.StandardType.GGTableBBstar
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoBstar
-public import CFSG.LocalAnalysis.StandardType.GGTBTorE8Plus
 public import CFSG.LocalAnalysis.StandardType.GGTBTorE7
-public import CFSG.LocalAnalysis.StandardType.GGTBTorDatum
-public import CFSG.LocalAnalysis.ComponentInitial.BasicFacts
-public import CFSG.HardMathSupport.Cooperstein.Coordinator.CurtisExc.E8Arith
 public import CFSG.HardMathSupport.Meierfrankenfeld.Proving.E7Curtis.E7Arith
 import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoAux
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
-import TauCeti.LinearAlgebra.IntegralLattice.RootLattice.TypeD.SimpleRoots
-import TauCeti.LinearAlgebra.Matrix.Cartan.Classical
-import TauCeti.LinearAlgebra.RootSystem.FiniteType.Classical
-import TauCeti.LinearAlgebra.RootSystem.FiniteType.Dynkin
 
 public section
 

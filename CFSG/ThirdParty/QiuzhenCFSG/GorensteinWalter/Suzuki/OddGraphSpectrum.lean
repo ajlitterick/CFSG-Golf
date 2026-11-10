@@ -1,11 +1,8 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphDistance
-import Mathlib.Algebra.Polynomial.AlgebraMap
-import Mathlib.Combinatorics.SimpleGraph.AdjMatrix
 public import Mathlib.Combinatorics.SimpleGraph.Clique
 import Mathlib.Combinatorics.SimpleGraph.LapMatrix
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

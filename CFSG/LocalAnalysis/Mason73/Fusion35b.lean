@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.Mason73.NotIsolated
 public import CFSG.LocalAnalysis.Mason73.Powers
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 
 public section
 

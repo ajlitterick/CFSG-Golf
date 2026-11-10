@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.J2Cover.KerChains
 public import Certificates.Kernel.J2Cover.TxtExternal
-public import CFSG.LocalAnalysis.ComponentClassification.J2CoverExternalData
 meta import CFSG.LocalAnalysis.ComponentClassification.J2CoverExternalData
 import CFSG.Certificates.Kernel.Common.Harness
 import Mathlib.Tactic.IntervalCases

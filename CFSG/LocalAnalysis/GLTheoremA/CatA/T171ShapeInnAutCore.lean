@@ -1,12 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeInnAutDefs
-public import CFSG.LocalAnalysis.StandardType.GGInndiagCommRestClassical
-public import CFSG.LocalAnalysis.StandardType.GGInndiagCommRestE6
-public import CFSG.LocalAnalysis.StandardType.GGInndiagCommRestExc
-public import CFSG.LocalAnalysis.StandardType.GGRoundFourSmallBIsoAssembly
-public import CFSG.LocalAnalysis.StandardType.GGReverseMarking
-public import CFSG.LocalAnalysis.StandardType.GGTwistedF4DiagRaw
 
 public section
 

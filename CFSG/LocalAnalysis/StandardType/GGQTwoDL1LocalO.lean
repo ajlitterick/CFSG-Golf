@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoDShared
 public import CFSG.LocalAnalysis.StandardType.GGOrthFrameCore
 import CFSG.LocalAnalysis.StandardType.GGQTwoChartTwoThreeOdd
 import CFSG.LocalAnalysis.StandardType.GGQTwoSixGensWindows
-import CFSG.LocalAnalysis.StandardType.GGLinearFusionSLCent
 
 public section
 

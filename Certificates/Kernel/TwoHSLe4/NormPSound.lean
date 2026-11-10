@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.TwoHSLe4.NormP
 public import CFSG.Certificates.Kernel.F4M3BSound
-import Mathlib.Tactic.IntervalCases
 
 public section
 

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcDefs
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Defs
-public import CFSG.LieType.AlgebraicGroups.ToralRootCover
 
 public section
 

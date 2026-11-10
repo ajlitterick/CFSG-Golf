@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.Kernel.LocalQT.TcP
 public import Certificates.Data.Kernel.LocalQT.J2Idx
 
 public section

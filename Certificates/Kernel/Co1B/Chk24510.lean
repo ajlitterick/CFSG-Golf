@@ -4,8 +4,6 @@ public import Certificates.Kernel.Co1B.Dag24510
 public import Certificates.Kernel.Co1B.Dag2044
 public import Certificates.Kernel.Co1B.IotaData
 public import Certificates.Data.Kernel.SporSch.Co1Stab
-public import Certificates.Data.Kernel.Co1F2
-public import Certificates.Data.Kernel.Co1B
 public import Certificates.Data.Kernel.Co1BW
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoCo1.HypOneInputs
 import CFSG.Certificates.Kernel.Common.Harness

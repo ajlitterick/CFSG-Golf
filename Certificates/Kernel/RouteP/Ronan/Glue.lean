@@ -14,9 +14,6 @@ public import Certificates.Kernel.RouteP.Geom.Dist
 public import CFSG.Certificates.Kernel.RouteP.RonanSound
 public import CFSG.Certificates.Kernel.RouteP.RonanSpan
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoFi22.DS81.RouteP.Geom.Spheres
-import CFSG.Certificates.Kernel.Common.ForallTree
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.Certificates.Kernel.RouteP.MemSBits
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
@@ -32,7 +29,6 @@ public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoFi22.DS81.RouteP.Model.
 public import CFSG.LocalAnalysis.SectionRank.CentralLift
 public import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Coordinator.OrderCheckF
 public import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Coordinator.PrimaryCells
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.Defs
 
 public section
 

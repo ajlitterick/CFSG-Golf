@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixStepThreeCFSeventeen
-public import CFSG.LocalAnalysis.StandardType.MarkingDict
-public import CFSG.Adapters.LinearSmallCatalog
 
 public section
 

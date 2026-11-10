@@ -2,13 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoT31Diag
 public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoT31Weyl
-public import CFSG.LieType.Chevalley.CoordinateFieldBaseChange
-public import CFSG.LocalAnalysis.ComponentInitial.RootDiagonalConjugation
-public import Mathlib.FieldTheory.Finite.Extension
-import CFSG.LocalAnalysis.SeitzReduction.E6PilotLeviKer
 import CFSG.LocalAnalysis.SeitzReduction.E6PilotLeviBaseChange
 import CFSG.LieType.SeitzGeneration.NonabLift
-import Mathlib.FieldTheory.Finite.GaloisField
 
 public section
 

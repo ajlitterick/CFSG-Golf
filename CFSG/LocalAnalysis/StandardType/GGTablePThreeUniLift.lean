@@ -1,15 +1,12 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniModel
-import CFSG.Assembly.GL83StatedBridge
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S267ClsCaseLSU
 import CFSG.LocalAnalysis.StandardType.GGTableBUnitarySixThreeCases
-import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherPrimeForm
 import CFSG.LocalAnalysis.ComponentClassification.BurgoyneUNormal
 import CFSG.LocalAnalysis.StandardType.GGSUNonsplitTwoBlockRestrict
 import CFSG.HardMathSupport.Lang.UnitaryAutomorphisms.UnitaryMain
 import CFSG.LocalAnalysis.GLTheoremA.CatA.L154Symp2
-import CFSG.LinearAlgebra.LinearGroups.UnitaryBasics
 import CFSG.RankThree.PartTwo.KFacts.K71PSU3
 import CFSG.GroupTheory.HallHigmanPiCore
 import CFSG.LocalAnalysis.ComponentClassification.BurgoyneUSlice

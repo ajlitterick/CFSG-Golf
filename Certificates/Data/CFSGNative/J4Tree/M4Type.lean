@@ -1,7 +1,5 @@
 module
 
-public import Certificates.Data.CFSGNative.J4Tree.Aff
-public import Certificates.Data.CFSGNative.J4Tree.Index
 public import Certificates.Data.CFSGNative.J4Tree.Node
 public import Certificates.Data.CFSGNative.J4Tree.VerdictJ
 

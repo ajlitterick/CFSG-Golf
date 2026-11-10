@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoTableBI1
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
 
 public section
 

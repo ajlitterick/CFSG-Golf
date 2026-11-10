@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGLevTwoStd
 public import TauCeti.LinearAlgebra.Matrix.Cartan.Classical
 public import TauCeti.LinearAlgebra.IntegralLattice.RootLattice.TypeD.SimpleRoots
 public import CFSG.LieType.Chevalley.LangRootArithmeticDet
-import Mathlib.LinearAlgebra.Matrix.Rank
 
 public section
 

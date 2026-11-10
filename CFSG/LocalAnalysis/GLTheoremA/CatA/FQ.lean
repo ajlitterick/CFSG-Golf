@@ -2,16 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FQLin
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FQSp
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.FQUni
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.FQChev
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FQSz
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FQRee
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FQTD4
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.FQOmega
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FQOmegaMinus
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FQTwE6
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.FPFieldN
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.FPMarking
 public import CFSG.LocalAnalysis.GLTheoremA.S10.YS09Cat7
 
 public section

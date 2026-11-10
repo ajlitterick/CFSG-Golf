@@ -2,12 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRawAutRestCore
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldCyclicLabels
-public import CFSG.LocalAnalysis.StandardType.Marking
-public import CFSG.LocalAnalysis.StandardType.MarkingSmall
 public import CFSG.LocalAnalysis.ComponentInitial.InvolutionFixedFourGroupTransport
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherPrimeFormRealization
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherAntiunitaryTransport
-public import CFSG.ClassicalGroups.UnitaryFlag.GroupData
 public import CFSG.Sporadic.Schreier.TitsOuter
 public import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
 public import CFSG.Sporadic.Schreier.TitsOther

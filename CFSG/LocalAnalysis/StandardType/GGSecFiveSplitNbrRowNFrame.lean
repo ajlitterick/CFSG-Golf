@@ -1,15 +1,12 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeakNbr
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrKnownDefs
 import CFSG.LocalAnalysis.StandardType.GGTypeANbrTableBLift
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
 import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrCoxOrder
 import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrPRank
 import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrSmallRank
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 
 public section
 

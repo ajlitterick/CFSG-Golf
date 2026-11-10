@@ -11,7 +11,6 @@ public import Certificates.Kernel.Co1FiveL.TrB
 public import Certificates.Kernel.Co1FiveL.ClB
 public import Certificates.Kernel.Co1FiveK.GlueB
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co1FiveBaseBase
-import Mathlib.Tactic.IntervalCases
 
 public section
 

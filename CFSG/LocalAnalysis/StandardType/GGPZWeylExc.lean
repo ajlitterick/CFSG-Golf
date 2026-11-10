@@ -1,13 +1,6 @@
 module
 
-public import Mathlib.GroupTheory.Coxeter.Basic
-public import Mathlib.GroupTheory.Coxeter.Matrix
-public import Mathlib.SetTheory.Cardinal.Finite
-public import Mathlib.GroupTheory.Subgroup.Center
 public import CFSG.LieType.Chevalley.LatticeWeylGroup
-public import CFSG.LieType.Chevalley.ConnectedDiagram
-public import CFSG.LieType.Chevalley.LongestElement
-public import CFSG.LieType.Chevalley.RootCommutatorData
 public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLFaithful
 
 public section

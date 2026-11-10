@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.MsideParabolicEscape.I811.U3.RestEvenCount
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.MsideParabolicEscape.I811.U3.RestEvenRoot
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.McLaughlin.OddIndex.U3OddNormalizer
-public import CFSG.Open.BenderStronglyEmbeddedMilestoneDefs
 
 public section
 

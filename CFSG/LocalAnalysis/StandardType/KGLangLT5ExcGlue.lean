@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.KGLangTorusMPartDefs
-public import CFSG.LocalAnalysis.StandardType.GGLFourFourThreeMarking
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45KGForms
 public import CFSG.LocalAnalysis.StandardType.GGL45NtDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangKGInputs
-public import CFSG.LocalAnalysis.StandardType.GGInnLocalDefs
 
 public section
 

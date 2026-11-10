@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGroupFusionFlatFamilies
 public import CFSG.LocalAnalysis.StandardType.GGKGroupFusionFlatSeitzExc
-public import CFSG.LocalAnalysis.StandardType.GGKGroupFusionSeitzExc
-public import CFSG.LocalAnalysis.StandardType.GGKGroupFusionRestOuter
-public import CFSG.LocalAnalysis.StandardType.GGKGroupFusionRestAlt
-public import CFSG.LocalAnalysis.StandardType.GGKGroupFusionAutKHolds
 public import CFSG.LocalAnalysis.StandardType.GGSeitzExcInputsHolds
 public import CFSG.LocalAnalysis.StandardType.GGKGroupFusionFlatRestEight
 

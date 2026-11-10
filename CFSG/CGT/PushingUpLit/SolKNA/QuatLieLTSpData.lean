@@ -1,11 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.ModelFacts.TG3VacPSp
-public import CFSG.ClassicalInvolution.ModelFacts.CommutingFundamentalSymplectic
-public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Complement
-public import CFSG.ClassicalInvolution.Models.SymplecticPairs.TypeCFrame
-public import CFSG.LieType.Universal.Symplectic
-public import CFSG.GroupTheory.LocalCores.Components
 
 public section
 

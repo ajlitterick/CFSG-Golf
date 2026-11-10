@@ -1,18 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGCentOmMinus
-public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerMinusTorus
-public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
-public import CFSG.LieType.Universal.Spin.Twisted.Extras
-public import CFSG.LieType.Steinberg.BruhatWeyl
 public import CFSG.LocalAnalysis.StandardType.GGF4ReflLin
-public import CFSG.LieType.Universal.Spin.Roots.TypeB
-public import CFSG.LieType.Universal.Spin.OddCT.Weyl
-public import CFSG.GroupTheory.ElemAbelianClosure
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourSpinLifts
-public import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpStdAssembly
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosDefs
-public import CFSG.LocalAnalysis.StandardType.GGSixRootCentralizerBasic
 
 public section
 

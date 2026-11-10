@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBPosition
-public import CFSG.LocalAnalysis.StandardType.GGTableBTransport
 
 public section
 

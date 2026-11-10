@@ -3,7 +3,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGReflMovingSound
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeE6DepChart
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeE6DepAllDefs
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeA5DepExclusion
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeE6AllDefs
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeNineConsumer

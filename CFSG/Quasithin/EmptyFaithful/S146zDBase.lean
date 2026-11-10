@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.EmptyFaithful.S146zNCount
 public import CFSG.Quasithin.Background.C1PackS1461Five
-public import CFSG.Quasithin.EmptyFaithful.S146F22
 public import CFSG.Quasithin.Vol2.Ch1Sec3E9Quot
 public import CFSG.Quasithin.Background.F9Eighteen
 public import CFSG.Quasithin.Background.A1cA133Three

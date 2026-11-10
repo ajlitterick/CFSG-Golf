@@ -1,7 +1,5 @@
 module
 
-public import Mathlib
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ElementaryAbelian
 public import CFSG.LocalAnalysis.SignalizerFunctor.CentralizerImages
 public import CFSG.SignalizerFunctorTheorem.Quadratic.Core
 public import CFSG.GroupTheory.PCore.Defs

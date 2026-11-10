@@ -4,7 +4,6 @@ public import Certificates.Data.Kernel.Spor.PEnumB
 public import CFSG.Certificates.Kernel.Spor.MulHSound
 public import Certificates.Data.Kernel.Spor.MulHQ
 import CFSG.Certificates.Kernel.Spor.PcompFacts
-import CFSG.Certificates.Kernel.Spor.PackWord
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
 import CFSG.Certificates.Kernel.J2ModelsSound
 

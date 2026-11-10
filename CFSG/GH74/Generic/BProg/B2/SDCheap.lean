@@ -3,35 +3,17 @@ module
 public import CFSG.GH74.Generic.BProg.B2.SDUnique
 public import CFSG.GH74.Generic.BProg.B2.GenLoc4Defs
 import CFSG.GH74.Generic.BProg.B2.SDGen
-import CFSG.GH74.Generic.BProg.B2.Lemma82
-import CFSG.GH74.Generic.BProg.B2.Lemma83Bar
 import CFSG.GH74.Generic.BProg.B2.Prop31
 import CFSG.GH74.Generic.BProg.B2.Thm2AssemblyBasic
 import CFSG.GH74.Generic.BProg.B2.Thm2Comp
 import CFSG.GH74.Generic.BProg.B2.TwoA7
-import CFSG.GH74.Generic.BProg.B1.PilotS3
-import CFSG.GH74.Generic.JMaxCongr
-import CFSG.FeitThompson.OddOrderTheorem
-import CFSG.Walter.AStar.Subnormal
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GH74.GLS.C3.Layer1.Back112Iv2
 public import CFSG.GH74.GLS.C3.Layer1.Th2Cent5
 public import CFSG.GH74.GLS.C3.Layer1.Thm1P31s
 public import CFSG.GH74.GLS.C3.Layer2.FusionTools
 public import CFSG.GH74.GLS.C3.Layer3.Main
-public import CFSG.GH74.GLS.IVK.L2.BN
-public import CFSG.GH74.GLS.IVK.L2.BorelFive
 public import CFSG.GH74.GLS.IVK.L2.Hilbert90Core
-public import CFSG.GH74.GLS.IVK.L2.Lemma113
-public import CFSG.GH74.GLS.IVK.L2.Lemma114
-public import CFSG.GH74.GLS.IVK.L2.Lemma12ib
-public import CFSG.GH74.GLS.IVK.L2.Lemma12j
-public import CFSG.GH74.GLS.IVK.L2.Lemma13fc
-public import CFSG.GH74.GLS.IVK.L2.Lemma14f
-public import CFSG.GH74.GLS.IVK.L2.Lemma19b
-public import CFSG.GH74.GLS.IVK.Prod.Lemma31
 public import CFSG.GH74.GLS.IVK.Proofs
-public import CFSG.GH74.GLS.IVK.Statements
 public import CFSG.GH74.GLS.LU.Ident
 public import CFSG.GH74.GLS.Stage1.Thm3.Sec4.Equiv
 public import CFSG.GH74.GLS.Stage1.Thm3.Sec5.Closed
@@ -65,7 +47,6 @@ public import CFSG.RankThree.PartOne.S9.OddCore.RecognitionBasic
 public import CFSG.RankThree.PartOne.S9.StatementsTwoAction
 public import CFSG.Sporadic.Th.Simple
 public import CFSG.Sporadic.ThSchreier.AutCore
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ConjugatedInvertedSubgroup
 public import CFSG.Walter.W67.Section5.Lemma57
 import CFSG.ClassicalInvolution.Models.OrthogonalPairs
 import CFSG.ClassicalInvolution.Models.Transfer
@@ -82,45 +63,6 @@ import CFSG.GH74.Generic.BProg.B2.TwoA7Comp
 import CFSG.GH74.Generic.BProg.B2.TwoA7Syl
 import CFSG.GH74.Generic.S3.LeavesFine
 import CFSG.GH74.Generic.S3.Lem37
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeThree
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Equivariance
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
-import CFSG.Quasithin.Background.A3Structure318Red
-import CFSG.Quasithin.Background.A3Structure36A
-import CFSG.Quasithin.Background.A3Structure36BAction
-import CFSG.Quasithin.Background.A3Structure36BBase
-import CFSG.Quasithin.Background.A3Structure36BCase3Base
-import CFSG.Quasithin.Background.A3Structure36BCasesBase
-import CFSG.Quasithin.Background.A3Structure36BCommonBase
-import CFSG.Quasithin.Background.A3Structure36BFrattini
-import CFSG.Quasithin.Background.A3Structure36BHeisBase
-import CFSG.Quasithin.Background.A3Structure36BHomocyclic
-import CFSG.Quasithin.Background.A3Structure36BPrimeDataBase
-import CFSG.Quasithin.Background.A3Structure36BStarBase
-import CFSG.Quasithin.Background.A3Structure36Base
-import CFSG.Quasithin.Background.A3Structure37Base
-import CFSG.Quasithin.Background.A3Structure37Comm
-import CFSG.Quasithin.Background.A3Structure37Frattini
-import CFSG.Quasithin.Background.A3Structure37KeyBase
-import CFSG.Quasithin.Background.A3Structure37Schur
-import CFSG.Quasithin.Background.A3Structure38Part3
-import CFSG.Quasithin.Background.B1MoreElevenE
-import CFSG.Quasithin.Background.B1MoreNineG
-import CFSG.Quasithin.Background.B4ModelsAction
-import CFSG.Quasithin.Background.B4ModelsIso
-import CFSG.Quasithin.Background.C2Basic
-import CFSG.Quasithin.Background.C2Inputs
-import CFSG.Quasithin.Background.E1
-import CFSG.Quasithin.Background.E1Sec4
-import CFSG.Quasithin.Background.E1Sec5
-import CFSG.Quasithin.Background.E1Sec8
-import CFSG.Quasithin.Background.E1Solv
-import CFSG.Quasithin.Background.E1Twelve
-import CFSG.Quasithin.Background.E3Cent
-import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
-import CFSG.Quasithin.Vol2.Ch1Local
 import CFSG.Sporadic.Schreier.LyFixedSet
 import Certificates.Kernel.J4Count.FixCE
 

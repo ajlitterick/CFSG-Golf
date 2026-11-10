@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.OddStandard.Solomon75LPlusDefs
 import CFSG.RankThree.GF2n.Parrott.A1CentralizerOrders
 import CFSG.RankThree.GF2n.Parrott.Proposition6D8SquareOne
 import CFSG.Quasithin.EmptyFaithful.S143UA
-import CFSG.GroupTheory.QuasisimpleCommutingProductBound
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.U33.Lemma38
 public import CFSG.LocalAnalysis.OddStandard.Solomon75Basic
 

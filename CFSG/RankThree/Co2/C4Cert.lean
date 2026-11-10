@@ -1,6 +1,5 @@
 module
 
-public import CFSG.RankThree.Co2.C4Facts
 public import Certificates.Certificate8100
 
 public section

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.EvenBN.Sp4.BothTrivialField
 public import CFSG.LocalAnalysis.EvenBN.Sp4.Main
 import CFSG.LocalAnalysis.EvenBN.Sp4.BothTrivialSwap
-import CFSG.LocalAnalysis.EvenBN.Sp4.OneAxisNormalizer
 import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionSquareFieldFullAutomorphism
 
 public section

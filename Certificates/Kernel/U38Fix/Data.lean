@@ -2,10 +2,6 @@ module
 
 public import Certificates.Data.HuppertU38Fix.Data
 public import Certificates.Kernel.U38Q.Data
-public import Certificates.Kernel.Misc.Perm.HexCmd
-public import Certificates.Kernel.Misc.Perm.CharsLits
-public import Certificates.Kernel.B3S3.GenL
-public import CFSG.Certificates.Kernel.Spor.PackWord
 public meta import Certificates.Data.HuppertU38Fix.Check
 public meta import Certificates.Kernel.Sporadic.RawGen
 

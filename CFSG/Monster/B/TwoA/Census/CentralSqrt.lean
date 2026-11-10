@@ -1,19 +1,10 @@
 module
 
-public import CFSG.Monster.B.TwoA.Census.CosetSquares
 public import CFSG.Monster.B.Cbar.GenData
 public meta import CFSG.Monster.B.TwoA.Census.CosetSquares
 public meta import CFSG.Monster.B.Rep4371.Model
 public meta import CFSG.Monster.B.TwoA.Census.MonoCert
 public import Certificates.Certificate3053
-public import Certificates.Certificate3020
-public import Certificates.Certificate3021
-public import Certificates.Certificate3022
-public import Certificates.Certificate3015
-public import Certificates.Certificate3016
-public import Certificates.Certificate3017
-public import Certificates.Certificate3018
-public import Certificates.Certificate3019
 
 public noncomputable section
 

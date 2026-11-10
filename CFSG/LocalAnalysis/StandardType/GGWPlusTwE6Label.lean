@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGWPlusTwE6
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6Delta
 
 public section
 

@@ -4,7 +4,6 @@ module
 public import CFSG.Monster.B.Fischer.Fi22LocalCheckBase
 
 public import CFSG.Monster.B.Fischer.Fi22OuterCheck
-public import CFSG.Monster.B.Fischer.Fi22OrderCheck
 public meta import CFSG.Monster.B.Fischer.Fi22OuterCheck
 public meta import CFSG.Monster.B.Fischer.Fi22OrderCheck
 public import Certificates.Certificate3150

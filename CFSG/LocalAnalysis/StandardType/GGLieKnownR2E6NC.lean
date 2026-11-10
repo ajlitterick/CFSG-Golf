@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2LongE6
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ExcNCRoots
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2CoverNC
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortTransport
-public import CFSG.LieType.Chevalley.AdjointCenter
 
 public section
 

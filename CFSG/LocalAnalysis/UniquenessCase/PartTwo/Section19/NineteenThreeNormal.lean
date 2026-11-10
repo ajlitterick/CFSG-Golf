@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.VZeroSmall17
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.TwelveSevenA
 public import CFSG.Quasithin.Vol2.Ch3Sec3Comp
-public import CFSG.Quasithin.Background.E3Weak
-public import CFSG.Quasithin.Background.B6Basic
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22e
 public import CFSG.LocalAnalysis.StronglyEmbedded.PSubgroups
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.NineThreeSylData

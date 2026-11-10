@@ -1,11 +1,7 @@
 
 module
 
-public import CFSG.Literature.GL52BFS
-public import CFSG.Literature.GL52Elements
-public import CFSG.LocalAnalysis.ComponentInitial.SmallLinearIsomorphisms
 public import CFSG.Literature.GL52IsosInputs
-public import CFSG.Literature.GL52Pass
 public meta import CFSG.Literature.GL52Pass
 
 public section

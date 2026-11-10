@@ -2,8 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.Isotypic
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.ConjugateRep
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.SubrepresentationLattice
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.RepEquiv
 
 namespace CFSG
 end CFSG

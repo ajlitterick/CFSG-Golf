@@ -4,8 +4,6 @@ public import Certificates.Kernel.Sporadic.Fi24Sev.Cent
 public import Certificates.Kernel.Sporadic.Fi24Sev.Points
 public import Certificates.Kernel.Sporadic.Fi24Sev.CovA
 public import Certificates.Kernel.Sporadic.Fi24Sev.CovB
-public import Certificates.Kernel.Sporadic.Fi24OrbL.Bridge
-import Mathlib.Tactic.IntervalCases
 
 public section
 

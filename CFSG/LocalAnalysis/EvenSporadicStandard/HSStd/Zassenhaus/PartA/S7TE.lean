@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.Zassenhaus.PartA.S7T
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.Zassenhaus.PartA.S7Lam
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.Zassenhaus.PartA.S5
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.S5SecOdd
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.Zassenhaus.InnerFusionHS
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.Zassenhaus.InnerI1I2

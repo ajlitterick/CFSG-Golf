@@ -4,9 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTBJUnitaryDvd
 public import CFSG.LocalAnalysis.StandardType.GGTBJLE3Transport
 public import CFSG.LocalAnalysis.StandardType.GGTWZKQuotient
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitarySixOriginal
-public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitSU
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallUnitDvdSmall
-public import CFSG.LocalAnalysis.StandardType.GGTBJFamilyInputs
 
 public section
 

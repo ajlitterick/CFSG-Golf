@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.HNCenter
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoHS.HNFactsProof
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoHS.Main
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoHS.HarMain
-public import CFSG.Sporadic.HN
 
 public section
 

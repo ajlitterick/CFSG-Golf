@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGE0Frame
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentVocab
 public import CFSG.LocalAnalysis.StandardType.GGHalfCentGroup
 public import CFSG.LocalAnalysis.StandardType.GGRootCentKGMarking
-public import CFSG.LocalAnalysis.ComponentInitial.DerivedFixedLayer
-public import CFSG.GroupTheory.ABGDGroups.LinearCentralizers
 
 public section
 

@@ -4,7 +4,6 @@ public import CFSG.RankThree.Asc83Table.MatGroup
 public import CFSG.RankThree.Asc83Table.HeCheck
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.OpsFp
 public import CFSG.Sporadic.He.Simple
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

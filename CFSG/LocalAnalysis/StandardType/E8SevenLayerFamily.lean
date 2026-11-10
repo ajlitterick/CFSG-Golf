@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.E8SevenLayerOrderCenter
 public import CFSG.LocalAnalysis.StandardType.E8SevenFactorModels
 public import CFSG.LocalAnalysis.StandardType.GGE6TwoSevenLabelA2
 public import CFSG.RankThree.PartOne.KE6.E8T3Layers

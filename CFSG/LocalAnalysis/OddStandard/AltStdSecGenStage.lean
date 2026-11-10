@@ -9,7 +9,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.KProperLocal
 public import CFSG.LocalAnalysis.OddStandard.AltStdSecGenPerm
 public import CFSG.LocalAnalysis.OddStandard.AltStdSecStd
 public import CFSG.LocalAnalysis.SectionRank.KGroupSectionClosure
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 
 public section

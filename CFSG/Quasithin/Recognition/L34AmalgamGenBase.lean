@@ -1,22 +1,11 @@
 
 module
 
-public import CFSG.Quasithin.Recognition.L34AmalgamDataBase
 public meta import CFSG.Quasithin.Recognition.L34AmalgamDataBase
 public meta import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22Count
 public meta import CFSG.Quasithin.Recognition.M22UniqueData
-public import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22Hexads
-public import CFSG.Sporadic.Schreier.M22Data
 public meta import CFSG.Sporadic.Schreier.M22Data
 public import CFSG.Quasithin.Recognition.L34AmalgamGenInputs
-public import CFSG.Quasithin.Recognition.L34AmalgamDataInputs
-public import CFSG.Quasithin.Recognition.M22WittData
-public import CFSG.Certificates.CosetTablePresented
-public import CFSG.Quasithin.Recognition.M22UniqueDataInputs
-public import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22Transitive
-public import CFSG.Sporadic.Mathieu.M22
-public import CFSG.Quasithin.Recognition.M22UniqueSystem
-public import Certificates.Data.CFSGNative.Mathieu.M22
 
 @[expose] public section
 

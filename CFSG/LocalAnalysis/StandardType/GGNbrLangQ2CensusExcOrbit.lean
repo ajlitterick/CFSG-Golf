@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGExcCompSLDefs
 public import CFSG.LocalAnalysis.StandardType.GGJ4dOrthogonalRank
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleOrbit
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExc
 import CFSG.RankThree.Chevalley.SteinbergBID4CentralKernel
 import CFSG.RankThree.PartOne.KE.E8D4Family

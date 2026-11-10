@@ -1,28 +1,18 @@
 module
 
-public import Certificates.Data.TabSuzB
-public import CFSG.Sporadic.SuzOddCore.Perms
-public import CFSG.RankThree.Native.PermEnumeration
 public import Certificates.Kernel.SuzB17322.ChecksX
 public import Certificates.Kernel.SuzPump.PairFacts
 public import CFSG.Certificates.Kernel.K426KSound
-public import CFSG.Certificates.Kernel.BfsPinSliceSound
 public import CFSG.Certificates.Kernel.D4Sound
 public import CFSG.Certificates.Kernel.Misc.ArrEnumSound
-public import CFSG.Certificates.Kernel.Misc.ArrEnumOps
 public import CFSG.Certificates.Kernel.Misc.CentHeadSound
 public import CFSG.Certificates.Kernel.Misc.SupPow
 public import CFSG.Certificates.Kernel.PermCent.OrbGroup
-public import CFSG.Certificates.NativeValidSchreier
 public import CFSG.Sporadic.SuzOddCore.SmallChain
-import CFSG.Sporadic.SuzOddCore.ArraysCheckInputs
-import CFSG.Sporadic.SuzOddCore.SmallChainCheckInputs
 meta import CFSG.Sporadic.SuzOddCore.ArraysCheck
 meta import Certificates.Data.CFSGNative.Schreier.Check
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.Misc.ArrBind
 public import CFSG.Certificates.LiftedSchreierData
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

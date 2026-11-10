@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.UnitarySix.Sec3.K3607Chk
 public import Certificates.Kernel.UnitarySix.Sec3.K3606
 public import Certificates.Kernel.UnitarySix.Sec3.Chains3607
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7CCoordDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixA6InsideSpFrame
-public import CFSG.LocalAnalysis.StandardType.GGSixAutKFinerChoiceTwoKey
 public import CFSG.LocalAnalysis.StandardType.GGSixA6InsideSpTorus
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7CKCoordBWeight
 import CFSG.LocalAnalysis.StandardType.GGHdRo7CKCoordBAux7

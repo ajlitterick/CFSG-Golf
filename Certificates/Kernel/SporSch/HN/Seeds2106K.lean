@@ -1,13 +1,10 @@
 module
 
 public import Certificates.Kernel.SporSch.HN.GenF5
-public import Certificates.Kernel.Sporadic.RawGen
 public import CFSG.Certificates.Kernel.SporSch.HNF5Sound
 public import CFSG.Certificates.Kernel.SporSch.AnyN
 public import Certificates.Data.Kernel.SporSch.Closure
-public import CFSG.Certificates.Kernel.Spor.RawSlSound
 public import CFSG.Sporadic.Schreier.Co3SecondImageCheckInputs
-public import CFSG.Sporadic.HNSchreier.SeedsCheckInputs
 meta import CFSG.Sporadic.HNSchreier.SeedsCheckInputs
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Spor.RawSound

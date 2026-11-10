@@ -4,11 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1Absence
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1Rows
 public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 public import CFSG.LocalAnalysis.StandardType.GGCSRLabels
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSmall
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestTri
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestTwF4
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRanksTri
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRanksTwF4
 import CFSG.LocalAnalysis.StandardType.GGTwF4SUThreeRank
 
 public section

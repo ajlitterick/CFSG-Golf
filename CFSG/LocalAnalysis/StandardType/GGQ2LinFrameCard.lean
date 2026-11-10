@@ -2,16 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2LinFrameStatements
 import CFSG.Assembly.GL83StatedBridge
-import CFSG.Open.StatedAPI
-import CFSG.LocalAnalysis.StandardType.GGTableBLinear
-import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
 import CFSG.LocalAnalysis.StandardType.GGForkJrPumpLattice
-import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalDefs
 import CFSG.LocalAnalysis.StandardType.GGTwAutBasic
 import CFSG.LocalAnalysis.StandardType.GGTwSLRank
 import CFSG.LocalAnalysis.StandardType.GGK1ScLin
 import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2Res
-import CFSG.LocalAnalysis.StandardType.GGSlNsRootGenModel
 import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowY1ClsLinBound
 
 public section

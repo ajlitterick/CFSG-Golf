@@ -8,15 +8,9 @@ public import Certificates.Kernel.Sporadic.SuzInv.Text1
 public import Certificates.Kernel.Sporadic.SuzInv.Text2
 public import Certificates.Kernel.Sporadic.SuzInv.Text3
 public import Certificates.Kernel.Sporadic.OddCore.Glue
-public import CFSG.Certificates.Kernel.BfsPinSound
 public import CFSG.Sporadic.SuzOddCore.InvTCheckInputs
-public import CFSG.Sporadic.SuzOddCore.InvGraphCheckInputs
 meta import CFSG.Sporadic.SuzOddCore.InvGraphCheckInputs
 meta import CFSG.Sporadic.SuzOddCore.InvTCheckInputs
-import CFSG.Sporadic.SuzOddCore.Arrays
-import CFSG.Sporadic.SuzOddCore.InvArrays
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

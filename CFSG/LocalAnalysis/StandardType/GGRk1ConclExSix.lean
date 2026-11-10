@@ -2,12 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinQFourExact
 import CFSG.LocalAnalysis.StandardType.GGRankOneShared
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
-import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ParabCommLinTransferS3
 import CFSG.Quasithin.EmptyFaithful.SBdK36Abs
 public import CFSG.LocalAnalysis.StandardType.GGMemberE7TwoRankOne
 import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseLabel
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 
 public section
 

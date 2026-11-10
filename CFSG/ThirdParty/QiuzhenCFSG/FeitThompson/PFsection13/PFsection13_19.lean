@@ -1,7 +1,6 @@
 module
 
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection5.RealVirtualParity
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection7.PFsection7_11
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection7.PFsection7_8_a
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection7.PFsection7_8_b
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection13.PFsection13_18

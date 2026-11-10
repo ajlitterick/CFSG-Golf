@@ -3,8 +3,6 @@ module
 public import CFSG.CGT.T75Q.Comp
 public import CFSG.CGT.T75Q.CentAdj
 public import CFSG.CGT.T75Q.Endgame
-public import CFSG.CGT.Timmesfeld75.Sec6Four
-public import CFSG.CGT.Timmesfeld75.Sec66Stmt
 
 public section
 

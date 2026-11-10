@@ -1,14 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosHolds
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwenty
 import CFSG.LocalAnalysis.StandardType.GGStdPosRankBase
 import CFSG.LocalAnalysis.StandardType.GGStdPosRankHolds
 import CFSG.LocalAnalysis.StandardType.GGStdPosRankLift
 import CFSG.LocalAnalysis.StandardType.GGStdPosLocalConj
 import CFSG.LocalAnalysis.StandardType.GGStdPosTableBPos
-import CFSG.LocalAnalysis.StandardType.GGTableBRank
-import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpRest
 
 public section
 

@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.BabyMonster.CTIB.Signs
 public import Certificates.Kernel.BabyMonster.RowChain
 public import Certificates.Data.Kernel.BabyMonster.CTIB.DeltaMasks
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

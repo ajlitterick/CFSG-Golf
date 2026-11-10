@@ -1,11 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeakNbr
-public import CFSG.LocalAnalysis.StandardType.GGTBFixDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNSQ2U62Setup
 import CFSG.LocalAnalysis.StandardType.GGResidualRk1UnitaryTwoNbr
 import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoUnitary
-import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoAux
 import CFSG.LocalAnalysis.StandardType.GGFrameRouteLower
 import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseTwoE
 

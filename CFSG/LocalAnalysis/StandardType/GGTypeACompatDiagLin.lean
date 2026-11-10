@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTypeAFarActsVec
 public import CFSG.LocalAnalysis.StandardType.GGLinearFusionCyclic
-public import CFSG.LocalAnalysis.StandardType.GGTypeAEndNodeBlock
 
 public section
 

@@ -1,14 +1,6 @@
 module
 
-public import Mathlib.Algebra.Field.ZMod
-public import Mathlib.LinearAlgebra.QuadraticForm.Basic
-public import Mathlib.GroupTheory.Coxeter.Matrix
 public import Mathlib.GroupTheory.Coxeter.Basic
-public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalGroup.Basic
-public import TauCeti.LinearAlgebra.QuadraticForm.CartanDieudonne.Basic
-public import TauCeti.LinearAlgebra.QuadraticForm.Diagonal.Basic
-public import TauCeti.LinearAlgebra.QuadraticForm.Hyperbolic
-public import TauCeti.LinearAlgebra.QuadraticForm.RegularFormClass.Discriminant
 public import TauCeti.LinearAlgebra.QuadraticForm.Quaternary.Basic
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthRefl
 

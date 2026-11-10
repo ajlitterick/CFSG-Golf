@@ -1,15 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGHdRo7CCoordDefs
-public import CFSG.LocalAnalysis.StandardType.GGSixA6InsideSpFrame
-public import CFSG.LocalAnalysis.StandardType.GGSixAutKFinerChoiceTwoKey
-public import CFSG.LocalAnalysis.StandardType.GGSixA6InsideSpTorus
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7CKCoordBCore
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7CKCoordAAux2
 public import CFSG.LocalAnalysis.StandardType.GGTPNI1BCComm
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
-public import CFSG.Assembly.Subnormal
 
 public section
 

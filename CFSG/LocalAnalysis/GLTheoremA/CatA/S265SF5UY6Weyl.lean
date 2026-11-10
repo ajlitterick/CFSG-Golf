@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderExcRestProofE8
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSylowE8Five
-import CFSG.LocalAnalysis.StandardType.GGTableBF4Three
-import CFSG.LocalAnalysis.StandardType.GGTableBExcThreeE8
-import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderExcWeyl
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S265SF5UY6Nil
 
 public section

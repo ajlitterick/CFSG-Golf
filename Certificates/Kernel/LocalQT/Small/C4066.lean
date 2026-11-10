@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Misc.Perm.HSMcL
 public import CFSG.Certificates.Kernel.LocalQTA6Sound
-public import CFSG.Certificates.Kernel.Spor.PrimSound
 public meta import CFSG.Sporadic.Schreier.PairHSCheckInputs
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19UHSClass

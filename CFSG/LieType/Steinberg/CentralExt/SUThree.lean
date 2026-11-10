@@ -4,9 +4,7 @@ public import CFSG.LieType.Steinberg.CentralExt.SUTwo
 public import CFSG.LieType.Steinberg.CentralExt.SUThreeOrder
 public import CFSG.LieType.Steinberg.CentralExt.UnitaryRootGroups
 public import CFSG.LieType.Steinberg.CentralExt.Split
-public import CFSG.LieType.CentralExt.SL2Lift
 public import CFSG.LieType.Universal.Unitary.Extras
-public import CFSG.LieType.Universal.Unitary.Extras.Unipotent
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 
 public section

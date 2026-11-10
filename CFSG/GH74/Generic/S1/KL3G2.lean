@@ -2,12 +2,8 @@ module
 
 public import CFSG.GH74.Generic.S1.KL3G2Shape
 public import CFSG.GH74.Generic.S1.KL3SurvDef
-public import CFSG.LieType.Chevalley.G2ThreeAutomorphismNormalForm
-public import CFSG.LieType.Chevalley.ExceptionalG2F4ModelSchreier
-public import CFSG.GH74.Orders.LieType
 public import CFSG.GH74.GLS.IVK.Proofs2.GHInvExcShape
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk94G4E8
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.ClassicalInvolution.ModelFacts.G2D4G2Edge
 public import CFSG.GH74.GLS.IVK.L2.Torus
 public import CFSG.GH74.GLS.IVK.L2.TorusGeneral

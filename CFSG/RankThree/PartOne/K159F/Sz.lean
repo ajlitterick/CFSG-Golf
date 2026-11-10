@@ -30,7 +30,6 @@ public import CFSG.RankThree.PartTwo.Sec12.Notation
 public import CFSG.RankThree.PartTwo.Sec4.LThreePiItem411
 public import CFSG.RankThree.PartTwo.Sec8.Statements
 public import CFSG.Sporadic.M23.M23Group
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

@@ -1,14 +1,11 @@
 module
 
-public import CFSG.Quasithin.Recognition.Stroth.Weiss80Route
 public import CFSG.Quasithin.Recognition.Stroth.WeissFQ
 public import CFSG.Quasithin.Recognition.Stroth.OctagonIdentification
 public import CFSG.Quasithin.Recognition.Stroth.BorelResidualSplitTransport
 public import CFSG.Quasithin.Recognition.Stroth.ExtensionOfStabilizers
 public import CFSG.Quasithin.Recognition.Stroth.OctLieModel
-public import CFSG.Quasithin.Vol2.GoldschmidtF431TwoF4Simple
 public import CFSG.Quasithin.Vol2.GoldschmidtF431TwoF4OctRGD2
-public import CFSG.Quasithin.Recognition.Stroth.Weiss80AssemblyFacts
 public import CFSG.Quasithin.Recognition.Stroth.Weiss80OctagonModelFacts
 
 public section

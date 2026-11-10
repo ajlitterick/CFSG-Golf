@@ -1,7 +1,6 @@
 module
 
 public import TauCeti.LinearAlgebra.BilinearForm.Isometry
-public import Mathlib.LinearAlgebra.BilinearForm.Orthogonal
 
 public section
 

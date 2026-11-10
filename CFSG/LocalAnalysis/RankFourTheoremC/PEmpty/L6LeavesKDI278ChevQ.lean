@@ -1,13 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.P64AsmTwoDefs
-public import CFSG.LocalAnalysis.AGLEmbeddingD2.LieCross
-public import CFSG.LocalAnalysis.AGLEmbeddingD2.Escape
-public import CFSG.LocalAnalysis.PreuniquenessRankFour.Helpers
 public import CFSG.LieType.SeitzGeneration.SeitzStatus
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.GroupTits
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.GroupSz32
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanSmallShape
 
 public section

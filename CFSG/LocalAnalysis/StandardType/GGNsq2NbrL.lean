@@ -9,12 +9,9 @@ import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEsu
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSLieEsu
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosAdapter
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosFinal
-import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosDiag
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSCornerMain
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
 import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoAux
-import CFSG.LocalAnalysis.StandardType.GGRCWeylCard
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.TitsOrder
 
 public section

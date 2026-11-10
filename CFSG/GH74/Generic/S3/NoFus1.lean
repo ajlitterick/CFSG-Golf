@@ -1,10 +1,7 @@
 module
 
 public import CFSG.GH74.Generic.S3.LyTrans
-public import CFSG.GH74.Generic.S3.L3Sylow
-public import CFSG.GH74.Generic.S3.Local
 public import CFSG.GH74.Generic.S3.V1InnerLib
-public import CFSG.GH74.KGroups.L3EpsFour
 public import CFSG.GH74.Generic.S3.V1InnerEps
 public import CFSG.RankThree.PartTwo.Sec4.LThreePiTypes
 public import CFSG.Sporadic.Th.Max3.Packet

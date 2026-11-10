@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.K426McL
 public import Certificates.Kernel.K426.EnumSl
-public import CFSG.Sporadic.Schreier.PairMcLCheckInputs
 public meta import Certificates.Data.K426McL
 public meta import CFSG.Sporadic.Schreier.PairMcLCheckInputs
 public meta import Certificates.Kernel.K426.EnumSl

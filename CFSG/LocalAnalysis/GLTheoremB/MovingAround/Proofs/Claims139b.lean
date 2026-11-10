@@ -1,15 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Leaves
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.ClassicalEA2
-public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Lemma138b
-public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs71
-public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Lemma1312b
-public import CFSG.LocalAnalysis.GLTheoremB.Lemma99Inputs
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticHigherGeneration
-public import CFSG.LocalAnalysis.ComponentInitial.BinaryNonsingularStabilizer
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_16FactsA6Model
-public import CFSG.CharacterTheory.Semidihedral.Local.CoprimeCentralizerQuotient
 import all CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Sec13a
 
 public section

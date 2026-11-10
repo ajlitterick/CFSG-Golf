@@ -1,23 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResTwoCells
 public import CFSG.LocalAnalysis.StandardType.GGResE6TwoUnitaryK3
-public import CFSG.LocalAnalysis.StandardType.GGResE6DepLabels
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBRes
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylE6TwoThree
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1CenterE6
-public import CFSG.LocalAnalysis.StandardType.GGResJOpenLabel
-public import CFSG.LocalAnalysis.StandardType.GGTCJHolds
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.LocalAnalysis.StandardType.GGTBE6
-public import CFSG.LocalAnalysis.StandardType.GGTBTorLiftRowsHolds
-public import CFSG.LocalAnalysis.StandardType.GGResNonsingularBase
-import CFSG.LocalAnalysis.StandardType.GGResFixedWeylCentralizer
-import CFSG.LocalAnalysis.StandardType.GGResHigherFieldI1
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelTypeABridge
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
 
 public section
 

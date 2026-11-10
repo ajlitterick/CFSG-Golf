@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListBender
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListAlt
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListL3
 public import CFSG.LocalAnalysis.ComponentInitial.QuasisimpleRankOne
 public import CFSG.SignalizerFunctorTheorem.NearModels.Unitary.Bridge
@@ -11,8 +10,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.SymplecticHigherSylow
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X6Containment
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ProjectiveSemilinear
 public import CFSG.Walter.Defs
 
 public section

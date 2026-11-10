@@ -1,10 +1,8 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveMultModels
-public import CFSG.ClassicalGroups.Symplectic.OrthogonalFiveModel
 public import CFSG.ClassicalGroups.Orthogonal.FiveDimensionalSimilarity
 public import CFSG.RankThree.CentralLift.ClassicalCenterTrivial
-public import CFSG.LieType.Universal.Spin.Forms
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1PU2
 public import CFSG.ClassicalInvolution.Asc77.Lemma310
 public import CFSG.ClassicalInvolution.Asc77.ThmEStatement

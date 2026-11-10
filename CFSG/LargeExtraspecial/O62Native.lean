@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LargeExtraspecial.O62Check
 public import Certificates.Certificate10001
 public meta import CFSG.LargeExtraspecial.O62Check
 public meta import CFSG.Fischer.Uniq.CompTau

@@ -2,7 +2,6 @@ module
 
 public import CFSG.OddTranspositions.O4PairTenInvolutions
 public import CFSG.GroupTheory.SymmetricFiveTranspositions
-public import Mathlib.Order.Defs.Unbundled
 
 public section
 

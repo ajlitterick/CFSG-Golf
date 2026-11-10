@@ -13,7 +13,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.MinimalBCenter
 public import CFSG.LocalAnalysis.ComponentClassification.OrdinaryComponentJoins
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 import CFSG.GroupTheory.LocalCores.Fitting
 import CFSG.LocalAnalysis.ComponentClassification.LBalanceComponentLifts

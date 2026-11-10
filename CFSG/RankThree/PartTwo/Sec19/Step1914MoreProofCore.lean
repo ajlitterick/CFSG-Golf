@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec19.Step1914MoreProofMat
 public import CFSG.RankThree.PartTwo.Sec19.Statements
-public import CFSG.RankThree.PartTwo.Sec12.Coordinates
 public import CFSG.RankThree.PartTwo.KFacts.K74Bloom
 import CFSG.RankThree.PartTwo.Sec13.Item13Plane
 import CFSG.RankThree.PartTwo.Sec13.Item133Mono

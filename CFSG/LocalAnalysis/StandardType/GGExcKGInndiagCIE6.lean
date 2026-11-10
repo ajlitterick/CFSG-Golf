@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGExcKGInndiagCIUntw
-public import CFSG.LocalAnalysis.StandardType.GGExcFieldRankE6
 public import CFSG.LocalAnalysis.StandardType.GGExcFieldRankTwE6
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesIsogenyE6
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesIsogenyTwE6

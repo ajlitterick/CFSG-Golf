@@ -1,41 +1,20 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3Defs
-public import CFSG.LocalAnalysis.StandardType.GGPZWeylType
 public import CFSG.LocalAnalysis.StandardType.GGR4JMeetRow
-public import CFSG.LocalAnalysis.StandardType.GGKGAF4Core
-public import CFSG.LocalAnalysis.StandardType.GGTBWNorm
 public import CFSG.LocalAnalysis.StandardType.GGKGAF4Holds
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.LocalAnalysis.StandardType.GGR4AutInn
-public import CFSG.LocalAnalysis.StandardType.GGR4Lemma47c
-public import CFSG.LocalAnalysis.StandardType.GGR4JMeetTransport
 public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3Bridge
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBRkConfig
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48RkF4Holds
 public import CFSG.GroupTheory.ConjKerCenter
 public import CFSG.LocalAnalysis.StandardType.GGR4JMeetData
-public import CFSG.LocalAnalysis.StandardType.GGResJLineA3
 public import CFSG.LocalAnalysis.StandardType.GGResJLinearCubeAutomizer
 public import CFSG.LocalAnalysis.StandardType.GGF4ThreeSCCube
 public import CFSG.LocalAnalysis.StandardType.GGF4ThreeSCCubeHolds
-public import CFSG.LocalAnalysis.StandardType.GGF4ThreeNbrRank
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4Torus
-public import CFSG.LocalAnalysis.StandardType.GGTBTorDatum
 public import CFSG.LocalAnalysis.StandardType.GGTBTorF4
-public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpLattice
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrWeylA
-public import CFSG.LocalAnalysis.StandardType.GGLargeRowCard
-public import CFSG.LocalAnalysis.StandardType.GGResLeaf
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalCover
-public import CFSG.Timmesfeld.Orders.Classical
-public import CFSG.Timmesfeld.Orders.Distinct
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
 public import CFSG.LocalAnalysis.StandardType.GGR4JMeetCard
 public import CFSG.LocalAnalysis.StandardType.GGR4JMeetDecomp
 public import CFSG.LocalAnalysis.StandardType.GGF4OrderThreeRank
-public import CFSG.LocalAnalysis.StandardType.GGF4OrderThreeLabel
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
 public import CFSG.LocalAnalysis.GLTheoremB.Prop95IvT2
 
 public section

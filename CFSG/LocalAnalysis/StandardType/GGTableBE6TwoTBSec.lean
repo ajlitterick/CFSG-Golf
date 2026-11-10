@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBE6TwoTBLin
 public import CFSG.LocalAnalysis.StandardType.GGTableBE6TwoPilotToral
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeTwo
 public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOpenTableBMoreElt
 
 public section

@@ -36,7 +36,6 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A1bGroups
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeOrbits
 public import CFSG.RankThree.PartOne.KF.R7Final
 public import CFSG.RankThree.PartOne.KF.UnitaryModel
@@ -45,13 +44,9 @@ public import CFSG.RankThree.PartOne.KFOUT3.KtyWCtx
 public import CFSG.RankThree.PartOne.S12.InputsKF2
 public import CFSG.RankThree.PartOne.S12.Sec1322Inputs
 public import CFSG.RankThree.PartTwo.Census.Classical.EvenUnitary
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.CGT.PushingUp.BenderBridge
 import CFSG.CGT.PushingUp.BlockOrder
 import CFSG.CGT.PushingUpLit.BHS.SymNatDefs
@@ -94,7 +89,6 @@ import CFSG.Quasithin.Vol2.Ch12Sec2Lem10
 import CFSG.RankThree.PartTwo.Late.GammaZero
 import CFSG.RankThree.PartTwo.NotationBlocks
 import CFSG.RankThree.PartTwo.Sec18.Notation
-import CFSG.RankThree.PartTwo.Sec18.Tools
 import CFSG.RankThree.PartTwo.Sec21.Item229Diagram
 import CFSG.RankThree.PartTwo.Sec21.Item23Tools
 import CFSG.RankThree.PartTwo.Sec21.Membership
@@ -105,18 +99,6 @@ import CFSG.RankThree.PartTwo.Sec6.Statements
 import CFSG.RankThree.PartTwo.Sec8.Pairs
 import CFSG.RankThree.PartTwo.Sec8.Statements
 import CFSG.Sporadic.Schreier.TitsOther
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldPrimeOrderFixedSubfield
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OrderThreeNormalizer
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2PSLRangeCentralizer
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinInvolutionCount
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinRestrictionSixCount
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinUDecomposition
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationEleven
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTen
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTenStructuralIdentities
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2FieldProjectionArithmetic
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2OrderPSubgroupCount
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphReconstruction
 import CFSG.Walter.JRFacts
 import CFSG.Walter.PSL2Facts
 

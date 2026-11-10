@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGKGTag
 public import CFSG.LocalAnalysis.StandardType.GGKGOrd
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I141FDynExc
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154NonCfgF4

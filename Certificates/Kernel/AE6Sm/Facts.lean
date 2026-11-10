@@ -8,11 +8,7 @@ public import Certificates.Kernel.AE6Q8.Facts
 public import Certificates.Kernel.AE6Core.Final
 public import Certificates.Kernel.OmegaEight.E4O8CentGlue
 public import CFSG.Certificates.Kernel.RootPairZSound
-public import CFSG.Certificates.Kernel.SporSch.MOCChain
 public import CFSG.Certificates.Kernel.SporSch.ChainKPack
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Thm3Step.S5.RowsBasic
-public import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.FS81.Defs
 public import CFSG.LocalAnalysis.StandardType.FS81.Realized
 public import CFSG.LocalAnalysis.StandardType.FS81.SpMatAlg
 public import CFSG.ClassicalInvolution.Asc77.AscP1SevenDihedral

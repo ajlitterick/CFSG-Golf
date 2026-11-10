@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoLemmaD
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoModule
-public import CFSG.LargeExtraspecial.S3Basic
-public import CFSG.LinearAlgebra.CoprimeActions.CoprimePGroupFixedCoset
 public import CFSG.GroupTheory.CoprimeActionSupport.CoprimeAutomorphismFixedQuotientLift
 
 public section

@@ -3,14 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGK1CBlDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrLSideKitTameGU
 public import CFSG.LocalAnalysis.StandardType.GGNbrLSideKitComm
-public import CFSG.LieType.SemisimpleCentralizers.HeldUCDTransfer
-public import CFSG.RankThree.CentralLift.DefiningUnitary
-public import CFSG.ClassicalGroups.UnitaryFlag.GroupData
-public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeLinear
-public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeSpecial
 public import CFSG.LocalAnalysis.ComponentInitial.ProjectiveUnitaryLocalComponentUnitary
-public import CFSG.LinearAlgebra.LinearGroups.UnitaryOrder
-public import CFSG.LocalAnalysis.ComponentInitial.TwoPrimeSolvable
 
 public section
 

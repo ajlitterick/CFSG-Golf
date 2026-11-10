@@ -3,8 +3,6 @@ module
 public import Certificates.Kernel.SporSch.Mathieu.M12Data
 public import CFSG.Certificates.Kernel.SporSch.MathieuOCSound
 public import CFSG.Certificates.Kernel.Spor.BindList
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

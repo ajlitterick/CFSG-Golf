@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExtPlaneLeaf
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExtCoverFrame
-public import CFSG.LocalAnalysis.StandardType.GGWAutModelNorm
-public import TauCeti.LinearAlgebra.Matrix.Cartan.Classical
 
 public section
 

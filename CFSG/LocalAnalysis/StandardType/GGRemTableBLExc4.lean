@@ -2,10 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBE6
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTBMain
-public import CFSG.LocalAnalysis.StandardType.GGBstarLIDUnit63Holds
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLExc3
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLExcReduction
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitTvSixQ2
 
 public section
 

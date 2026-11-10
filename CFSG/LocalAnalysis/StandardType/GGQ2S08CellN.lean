@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoI1FailGlue
-public import CFSG.LocalAnalysis.StandardType.GGQTwoCor123
 
 public section
 

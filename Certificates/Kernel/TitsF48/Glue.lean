@@ -3,10 +3,8 @@ module
 public import Certificates.Kernel.TitsF48.Checks
 public import Certificates.Kernel.TitsD.Checks
 public import Certificates.Kernel.TitsOct.Glue15080
-public import Certificates.Certificate2270
 public import CFSG.Certificates.Kernel.TitsF48Sound
 public import CFSG.Quasithin.Vol2.GoldschmidtF431TitsGeoLocLn
-public import CFSG.Quasithin.Vol2.GoldschmidtF431TitsGeoLocPtMain
 
 public section
 

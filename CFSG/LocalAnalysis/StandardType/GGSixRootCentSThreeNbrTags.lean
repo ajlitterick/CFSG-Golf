@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSThreeNbrDefs
-public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsSpTwo
 public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsOmMinus
 
 public section

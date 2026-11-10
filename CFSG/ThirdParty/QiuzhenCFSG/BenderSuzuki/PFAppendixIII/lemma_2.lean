@@ -1,11 +1,8 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFAppendixIII.Basic
-public import Mathlib.FieldTheory.Finite.Basic
 public import Mathlib.LinearAlgebra.QuadraticForm.Basic
 import Mathlib.LinearAlgebra.QuadraticForm.Basis
-public import Mathlib.LinearAlgebra.Basis.Basic
-public import Mathlib.LinearAlgebra.StdBasis
 
 namespace CFSG
 end CFSG

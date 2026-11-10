@@ -2,14 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanL2DDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJA2PhanDDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpupFork
 import CFSG.LocalAnalysis.StandardType.GGSecFiveL2SplitWeylEquiv
 import CFSG.LocalAnalysis.StandardType.GGSecFiveL2SplitDkRootsConj
 import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1Weyl
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpNbr
-import CFSG.LocalAnalysis.StandardType.GGPumpupBalance
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpJoinWeyl
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpRoute
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanFork

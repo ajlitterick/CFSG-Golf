@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.EvenBN.LinearThree.CaseBModule
-public import Mathlib.GroupTheory.NoncommCoprod
 
 public section
 

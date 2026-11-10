@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.MRowFacts
 public import CFSG.Monster.B.CTIB.UniqueComponentFinal
 public import CFSG.Monster.B.CTIB.Rank2158Final
 public import CFSG.Monster.B.CTIB.Rank2048
-public import CFSG.Monster.B.Co2.Simple
 public import CFSG.Sporadic.ThSchreier.GlobalData
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBAlternatingInclusion
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.CenterAt

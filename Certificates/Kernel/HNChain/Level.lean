@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Sporadic.HNSchreier.Faithful
-public import CFSG.Sporadic.HNSchreier.LevelInputs
 public import Certificates.Kernel.HNChain.Regs
 public import Certificates.Kernel.HNChain.Tree
 import Certificates.Kernel.HNChain.Checks.K
@@ -12,14 +11,9 @@ import Certificates.Kernel.HNChain.Checks.X
 import Certificates.Kernel.HNLocal.Checks.K
 import Certificates.Kernel.HNLocal.Fix
 import Certificates.Kernel.SporSch.HN.OrbCert
-import Certificates.Certificate2102
 public import CFSG.Certificates.Kernel.SporSch.HNXCnt.Base
-public import Certificates.Data.Kernel.SporSch.HNXBind
 public import CFSG.Certificates.Kernel.Local.HN.X.Data
-import CFSG.Certificates.Kernel.SporSch.HNXCnt.Asm
-import CFSG.Certificates.Kernel.SporSch.HNXCnt.Native
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.Spor.Loops
 public import CFSG.Certificates.Kernel.SporSch.HNXCertSound
 public import Certificates.Data.Kernel.SporSch.HNXPrim

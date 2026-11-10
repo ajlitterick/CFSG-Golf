@@ -1,7 +1,5 @@
 module
 
-public import CFSG.RankThree.Co2.Enum
-public import CFSG.RankThree.Co2.CensusData
 public meta import CFSG.RankThree.Co2.Enum
 public meta import CFSG.RankThree.Co2.CensusData
 public meta import CFSG.RankThree.Co2.Rows
@@ -12,19 +10,6 @@ public meta import Certificates.Data.CFSGNative.MonsterB.Co2Matrix
 public import CFSG.RankThree.Co2.SylInputs
 public import CFSG.RankThree.Co2.CrMat
 public import Certificates.Certificate8108
-public import Certificates.Certificate3014
-public import Certificates.Certificate3017
-public import Certificates.Certificate3019
-public import Certificates.Certificate3025
-public import Certificates.Certificate3026
-public import Certificates.Certificate3028
-public import Certificates.Certificate3054
-public import Certificates.Certificate16022
-public import Certificates.Certificate3114
-public import Certificates.Certificate3115
-public import Certificates.Certificate3116
-public import Certificates.Certificate3117
-public import Certificates.Certificate3138
 
 public noncomputable section
 

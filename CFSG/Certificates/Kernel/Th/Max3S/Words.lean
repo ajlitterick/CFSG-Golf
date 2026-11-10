@@ -4,7 +4,6 @@ module
 public import CFSG.Certificates.Kernel.Th.Max3S.WordsBase
 
 public import CFSG.Certificates.Kernel.Th.Max3S.Basic
-public import CFSG.Certificates.Kernel.Th.Max3S.Leaves
 public import CFSG.Sporadic.Th.BaseBase1
 public import CFSG.Sporadic.Th.ChainBase1
 public import CFSG.Sporadic.Th.Max3.AllConjBase1

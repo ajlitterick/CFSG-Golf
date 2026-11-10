@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ThreeOneSporPlaneOf
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ThreeOneSporPlaneThData
 public import CFSG.HardMathSupport.Dickson.I271.SporGenAux.ThFive
-public import CFSG.Sporadic.Bridge.ThSurj
 public import Certificates.Certificate31021
 public import CFSG.CGT.PushingUpLit.BHS.NaturalDefs
 public import CFSG.CGT.PushingUpLit.BHS.SymNatDefs

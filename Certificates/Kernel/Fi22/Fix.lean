@@ -1,8 +1,6 @@
 module
 
 public import Certificates.Kernel.Fi22.Center
-public import CFSG.Certificates.Kernel.Fi22.Bound2.Data.M
-public import CFSG.Certificates.Kernel.Fi22.Bound2.Rels
 import CFSG.Certificates.Kernel.Fi22.Fix.Checks.Base
 import CFSG.Certificates.Kernel.Fi22.Fix.Checks.E
 import CFSG.Certificates.Kernel.Fi22.Fix.Checks.W0
@@ -12,7 +10,6 @@ import CFSG.Certificates.Kernel.Fi22.Fix.Checks.W3
 import CFSG.Certificates.Kernel.Fi22.Fix.Checks.W4
 import CFSG.Certificates.Kernel.Fi22.Fix.Checks.W5
 import CFSG.Certificates.Kernel.Fi22.Fix.Checks.W6
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Fi22.Fix.Sel
 
 public section

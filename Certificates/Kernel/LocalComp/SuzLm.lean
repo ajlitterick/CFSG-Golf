@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.LocalComp.B0SuzMat
 public import Certificates.Data.Kernel.L34K
-public import Certificates.Data.Kernel.HeAutK
 public import Certificates.Data.SuzLmRank
 meta import Certificates.Data.SuzLmRank
 import CFSG.Certificates.Kernel.Common.Harness

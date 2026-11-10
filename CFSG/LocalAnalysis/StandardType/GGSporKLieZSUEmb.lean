@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSporKLieZBlockO2
-public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockDefs
 import CFSG.LocalAnalysis.StandardType.GGClassicalBlockSpIsoUnitary
-import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
 
 public section
 

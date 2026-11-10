@@ -6,11 +6,9 @@ public import CFSG.Certificates.Kernel.RouteP.LineSound
 public import CFSG.Certificates.Kernel.RouteP.TabComplete
 public import CFSG.Certificates.Kernel.Common.ForallTree
 public import CFSG.Certificates.Kernel.BfsPinSound
-public import CFSG.Certificates.Kernel.BfsPinUnpack
 public import Certificates.Data.Kernel.KDense.KeysDistinct
 public import Certificates.Data.Kernel.KDense.LetterOK
 public import Certificates.Data.Kernel.KDense.Plan
-public import Mathlib
 
 public section
 

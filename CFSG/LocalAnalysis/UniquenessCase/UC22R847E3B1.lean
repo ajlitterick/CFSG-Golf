@@ -5,16 +5,10 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs13
 public import CFSG.RankThree.PartTwo.Sec11.Item116R1CensusPure
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.OutPRankNice
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Bridge13
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Fourteen3a
 import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.InputsMisc7
 import CFSG.LocalAnalysis.RankFourTheoremC.Nongeneration.Planes
-import CFSG.LocalAnalysis.UniquenessCase.UC22Bridge4
 import CFSG.LocalAnalysis.UniquenessCase.UC22S206c
-import CFSG.LocalAnalysis.UniquenessCase.UC6S846b
-import CFSG.LocalAnalysis.UniquenessCase.UC6S846c
 import CFSG.LocalAnalysis.UniquenessCase.UC6S846i
-import CFSG.LocalAnalysis.UniquenessCase.UCKPRank1
-import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.Goldschmidt.StatementsG2
 public import CFSG.Goldschmidt.StatementsG3
 public import CFSG.Goldschmidt.Steps.G37Core
@@ -23,8 +17,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSpSuzu
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSpWedge
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X7bPairs
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.DefsHyp13
-public import CFSG.LocalAnalysis.UniquenessCase.UC6S846d
-public import CFSG.LocalAnalysis.UniquenessCase.UCR638
 public import CFSG.RankThree.PartOne.Q1327T.Defs
 public import CFSG.RankThree.PartOne.Q1327T.ThetaLift
 public import CFSG.RankThree.PartOne.S12.Equivariance
@@ -57,7 +49,6 @@ import CFSG.Monster.GMS.Fi23Gen
 import CFSG.Monster.GMS.Fi23GenIso
 import CFSG.Monster.GMS.Fi23GenSix
 import CFSG.Monster.GMS.LeechCoh
-import CFSG.Monster.GMS.LeechCohGroup
 import CFSG.Monster.GMS.S365Center
 import CFSG.Monster.GMS.S37
 import CFSG.Monster.GMS.S4Assembly

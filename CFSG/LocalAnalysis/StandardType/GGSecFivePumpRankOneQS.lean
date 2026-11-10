@@ -1,18 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosDefs
-import CFSG.Adapters.SpecialLinearPerfect
-import CFSG.Assembly.Subnormal
 import CFSG.LocalAnalysis.StandardType.GGKGPosTagWeyl
-import CFSG.LocalAnalysis.StandardType.GGPresentation
-import CFSG.LocalAnalysis.StandardType.GGPsiDiagInner
-import CFSG.LocalAnalysis.StandardType.GGRankOneModel
 import CFSG.LocalAnalysis.StandardType.GGRankOneSl2
 import CFSG.LocalAnalysis.StandardType.GGRankOneTags
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
-import CFSG.LocalAnalysis.StandardType.GGSecFiveRankOneConj
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
-import Mathlib.LinearAlgebra.Projectivization.PSL.PSL2
 
 public section
 

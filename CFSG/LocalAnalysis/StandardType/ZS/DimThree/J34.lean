@@ -36,9 +36,6 @@ import CFSG.RankThree.PartOne.S10.Defs
 import CFSG.RankThree.PartOne.S12.Hyp
 import CFSG.RankThree.PartOne.S12.InputsLinear
 import CFSG.Sporadic.J4Base
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 
 public section

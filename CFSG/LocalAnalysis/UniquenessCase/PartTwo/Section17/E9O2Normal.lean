@@ -1,13 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22Defs
-public import CFSG.Blueprint.Catalog
-public import CFSG.Open.LocalVocabulary
-import CFSG.Adapters.ProjectiveSpecialLinear
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Center
 import CFSG.GroupTheory.ABGLocalTools.PStabilityQDickson
 import CFSG.ClassicalInvolution.SubnormalClosure
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition84Sylow
 import CFSG.GroupTheory.PRankQuotientLift
 public import CFSG.CGT.Timmesfeld75.Statements
 public import CFSG.Foundations
@@ -32,8 +28,6 @@ import CFSG.Quasithin.Background.B5Basic
 import CFSG.Quasithin.Background.B5CompA
 import CFSG.Quasithin.Background.B5CompB
 import CFSG.Quasithin.Background.B6
-import CFSG.Quasithin.Background.B6Example
-import CFSG.Quasithin.Background.B6Sections
 import CFSG.Quasithin.Background.C2Basic
 import CFSG.Quasithin.Background.InternalSecAutOn
 import CFSG.Quasithin.Background.InternalSecB4

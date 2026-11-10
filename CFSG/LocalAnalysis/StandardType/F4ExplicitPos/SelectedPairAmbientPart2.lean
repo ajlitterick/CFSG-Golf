@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.NativePinFinalPart2
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.AmbientPairFinishPart2
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.SelectedPairAmbientPart1

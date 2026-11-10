@@ -1,14 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.K6L4Defs
-public import CFSG.LocalAnalysis.SectionRank.PRank
-public import CFSG.LocalAnalysis.ComponentInitial.LinearFlagOrder
-public import CFSG.GroupTheory.PGroup.ElemAbelianSq
 public import CFSG.LocalAnalysis.ComponentInitial.LinearFlagOrder
 public import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedTools
 public import CFSG.LocalAnalysis.SectionRank.Framework.SylowRank
 public import CFSG.GroupTheory.PGroup.RankTwoCommute
-public import TauCeti.LinearAlgebra.Matrix.Diagonal
 public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismData
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.KInputs811CoordDefs
 

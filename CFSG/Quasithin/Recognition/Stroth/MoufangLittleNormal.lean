@@ -1,8 +1,5 @@
 module
-public import CFSG.Quasithin.Recognition.Stroth.Weiss80Route
 public import CFSG.Quasithin.Recognition.Stroth.MoufangApartment
-public import CFSG.Quasithin.Recognition.F4Paths
-public import CFSG.Quasithin.Background.F3PathCons
 public section
 namespace CFSG.Quasithin.Stroth
 open CFSG.Quasithin CFSG.GH74.BNPair CFSG.Geometry.GeneralizedPolygons

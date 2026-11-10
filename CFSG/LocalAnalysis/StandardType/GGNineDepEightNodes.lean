@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTWAlign
 public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3Nodes
 public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3BridgeA
-public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeDefs
 
 public section
 

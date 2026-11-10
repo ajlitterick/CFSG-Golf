@@ -1,15 +1,10 @@
 module
 
-public import CFSG.RankThree.PartTwo.Sec13.KF135Chev2ClassicalCases
-public import CFSG.RankThree.PartTwo.Sec13.KF135Chev2E2Tools
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeLift
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldSpUSp
-public import CFSG.RankThree.SteinbergR3ECASymplecticPrimeSubfield
 public import CFSG.RankThree.PartTwo.Sec13.KF135Chev2ClassicalE2U
 public import CFSG.Blueprint.LieModelAPI
 public import CFSG.Goldschmidt.Steps.G37Core
 public import CFSG.GroupTheory.SteinbergCBFTCores
-public import CFSG.HardMathSupport.Dickson.Sec6.I1431Lie
 public import CFSG.HardMathSupport.Solomon.Coordinator.InndiagLink
 public import CFSG.HardMathSupport.Solomon.Coordinator.L3FATArith
 public import CFSG.HardMathSupport.Solomon.Coordinator.L3G515Core
@@ -38,8 +33,6 @@ public import CFSG.Quasithin.Background.C1GNSolvConnect
 public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.E2Statements
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918C6
 public import CFSG.Quasithin.Background.FFC7G
 public import CFSG.Quasithin.Background.FFC8A
@@ -111,7 +104,6 @@ public import CFSG.RankThree.PartTwo.Sec4.RonanEpsCfgForward
 public import CFSG.RankThree.PartTwo.Sec4.RonanK429RowVTools
 public import CFSG.RankThree.PartTwo.Sec4.RonanK429RowsS
 public import CFSG.RankThree.S4Free.SuzukiEight
-public import CFSG.Walter.J1Props
 public import Certificates.Kernel.J4Count.Prim
 
 public section

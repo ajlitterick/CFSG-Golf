@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.EmptyFaithful.S146F22
-public import CFSG.Quasithin.EmptyFaithful.S146D7
 public import CFSG.Quasithin.EmptyFaithful.S146E4
 public import CFSG.LieType.SteinbergBRAutGL32
 public import CFSG.LieType.SteinbergBRTwoRankBound

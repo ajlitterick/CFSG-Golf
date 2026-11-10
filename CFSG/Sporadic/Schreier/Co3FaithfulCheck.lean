@@ -1,12 +1,8 @@
 module
 
-public import CFSG.Sporadic.Schreier.Co3Cert
-public import CFSG.Sporadic.Schreier.Co3FaithfulData
-public import Certificates.Data.CFSGNative.Co3.Data
 public meta import CFSG.Sporadic.Schreier.Co3Cert
 public meta import CFSG.Sporadic.Schreier.Co3FaithfulData
 public meta import Certificates.Data.CFSGNative.Co3.Data
-public import CFSG.Sporadic.Schreier.Co3FaithfulCheckInputs
 public import Certificates.Certificate2153
 
 public section

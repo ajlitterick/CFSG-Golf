@@ -1,12 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenResults
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenResults2
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven2TwentyTwo
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven2TwentyTwoSmall
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven2TwentyNine
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenThirteenB
-public import CFSG.LocalAnalysis.UniquenessCase.UC6S846e
 
 public section
 

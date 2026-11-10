@@ -1,11 +1,7 @@
 module
 
-public import CFSG.Open.StatedDefs
-public import CFSG.Assembly.Defs
-public import CFSG.LieType.Universal.SpinOmega.Center
 public import CFSG.RankThree.GF2n.Stroth80.GriessOrthSmall
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.InnOrthFix
-public import CFSG.RankThree.PartOne.KC.OrthogonalEvenMinusExtraction
 public import CFSG.Foundations.SteinbergCADefinitionNodes
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
@@ -50,7 +46,6 @@ public import CFSG.LieType.Multipliers.U62Action
 public import CFSG.LieType.Multipliers.U62Bridge
 public import CFSG.LieType.Multipliers.U62Kernel
 public import CFSG.LocalAnalysis.AGLEmbedding.SporadicBetaSmall
-public import CFSG.LocalAnalysis.ComponentClassification.AschbacherWalterSchurEight
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearFieldDeterminant
 public import CFSG.LocalAnalysis.ComponentClassification.ExcSelectorEvenE6
 public import CFSG.LocalAnalysis.ComponentClassification.ExcSelectorOddE6
@@ -103,13 +98,8 @@ public import CFSG.Quasithin.Background.B69Core
 public import CFSG.Quasithin.Background.C1GNSolvConnect
 public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.Quasithin.Background.E2Statements
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.F6CatRecogL2
-public import CFSG.Quasithin.Background.F6CatRecogTools2
 public import CFSG.Quasithin.Background.F918C6
 public import CFSG.Quasithin.Background.FFC7G
 public import CFSG.Quasithin.Background.FFC8A
@@ -190,10 +180,6 @@ public import CFSG.Sporadic.SuzOddCore.GraphData
 public import CFSG.Sporadic.SuzOddCore.SmallActionData
 public import CFSG.Timmesfeld.RankOne
 public import CFSG.Timmesfeld.Transvection.Statement
-public import CFSG.Walter.J1Props
-public import CFSG.Walter.J1Recog
-public import CFSG.Walter.PSL2Facts
-public import CFSG.Walter.W67.Statements
 public import CFSG.YGroups.DCE.B433Check
 public import Certificates.Kernel.J4Count.Prim
 

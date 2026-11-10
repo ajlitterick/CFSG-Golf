@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGB36Final
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrSmallRankExc
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrSmallRank
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNineSmall
 
 public section
 

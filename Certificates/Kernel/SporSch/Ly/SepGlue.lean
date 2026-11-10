@@ -1,17 +1,11 @@
 module
 
-public import Certificates.Data.Kernel.SporSch.LySeed
-public import Certificates.Data.Kernel.LyOmega.Base
-public import Certificates.Kernel.SporSch.Ly.SeedData
 public import CFSG.Sporadic.Schreier.LyCheckSep
 import CFSG.Certificates.Kernel.Common.Eval
 public meta import Certificates.Kernel.SporSch.Ly.SepGen
 import CFSG.Certificates.Kernel.Common.Harness
-public import Certificates.Data.Kernel.SporSch.LySeven
 public import Certificates.Kernel.SporSch.Ly.Seed8132
-public import Mathlib
 public import CFSG.Certificates.Kernel.SporSch.LyTxtLemmas
-public import CFSG.Sporadic.Ly.FaithSpec
 
 public section
 

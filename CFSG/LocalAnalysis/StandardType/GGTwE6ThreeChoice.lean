@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixAutKFinerLastChoice
-public import CFSG.LocalAnalysis.StandardType.GGExcKGToralFrame
 public import CFSG.LocalAnalysis.StandardType.GGStepTwoToralSmallOfFrame
 public import CFSG.LocalAnalysis.StandardType.GGTwE6NormSmallThreeCount
 public import CFSG.LocalAnalysis.StandardType.GGStepTwoToralCertWeyl

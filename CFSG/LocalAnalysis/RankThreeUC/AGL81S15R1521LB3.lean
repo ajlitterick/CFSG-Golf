@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RowStmts
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section15.Ctx
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsPair
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsSmall
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15Ctx2
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15R1521PG
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15R1521PH
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15Row159

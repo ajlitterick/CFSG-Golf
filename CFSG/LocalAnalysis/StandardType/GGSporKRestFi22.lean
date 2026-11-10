@@ -1,75 +1,12 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSporKRestDefs
-public import Certificates.Certificate45
-public import Certificates.Certificate46
-public import Certificates.Certificate47
-public import Certificates.Certificate48
-public import Certificates.Certificate49
-public import Certificates.Certificate50
-public import Certificates.Certificate51
-public import Certificates.Certificate52
-public import Certificates.Certificate53
-public import Certificates.Certificate54
-public import Certificates.Certificate55
-public import Certificates.Certificate56
-public import Certificates.Certificate57
-public import Certificates.Certificate58
-public import Certificates.Certificate59
-public import Certificates.Certificate60
-public import Certificates.Certificate61
-public import Certificates.Certificate62
-public import Certificates.Certificate63
-public import Certificates.Certificate64
-public import Certificates.Certificate65
-public import Certificates.Certificate66
-public import Certificates.Certificate67
-public import Certificates.Certificate68
-public import Certificates.Certificate69
-public import Certificates.Certificate70
-public import Certificates.Certificate71
-public import Certificates.Certificate72
-public import Certificates.Certificate73
-public import Certificates.Certificate74
-public import Certificates.Certificate75
-public import Certificates.Certificate76
-public import Certificates.Certificate77
-public import Certificates.Certificate78
-public import Certificates.Certificate79
-public import Certificates.Certificate80
-public import Certificates.Certificate81
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate115
-public import Certificates.Certificate116
-public import Certificates.Certificate117
-public import Certificates.Certificate118
-public import Certificates.Certificate119
-public import Certificates.Certificate120
-public import Certificates.Certificate121
-public import Certificates.Certificate122
-public import Certificates.Certificate123
-public import Certificates.Certificate1005
-public import Certificates.Certificate3009
-public import Certificates.Certificate3039
-public import Certificates.Certificate3147
-public import Certificates.Certificate3152
-public import Certificates.Certificate8124
-public import Certificates.Certificate9107
-public import Certificates.Certificate9108
-public import Certificates.Certificate9109
-public import Certificates.Certificate9110
 public import Certificates.Certificate9205
-public import Certificates.Certificate13506
-public import Certificates.Certificate13507
 public import Certificates.Certificate1023301
-import CFSG.Assembly.Subnormal
-import CFSG.LocalAnalysis.ComponentInitial.TwoPrimeSolvable
 import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.NativeAut
 import CFSG.LocalAnalysis.StandardType.GGSporKRestTransport
 import CFSG.Monster.B.Fischer.Fi22OmegaMax
 import CFSG.Sporadic.Bridge.Fi22Surj
-import CFSG.Timmesfeld.Final.Simple
 public import CFSG.Certificates.CosetTableOrders
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
@@ -93,7 +30,6 @@ public import CFSG.Sporadic.Presentation.Fi22Exact
 public import CFSG.Sporadic.Presentation.Fi22ExactCover
 public import CFSG.Sporadic.Presentation.Fi22ExactTop
 public import CFSG.Sporadic.SmallOddCore.CheckSpec
-public import CFSG.Sporadic.Th.F2Spec
 import CFSG.Certificates.SuborbitCoatom
 
 public section

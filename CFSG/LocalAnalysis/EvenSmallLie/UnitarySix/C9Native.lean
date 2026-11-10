@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.NativeClasses
 public meta import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.NativeData
-public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.C9NativeInputs
-public import Certificates.Certificate3180
 public import Certificates.Certificate3142
-public import Certificates.Certificate3010
 
 public section
 

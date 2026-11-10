@@ -1,11 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestDefs
-public import CFSG.Open.LocalVocabulary
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S265SGOmA2
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S265SGOmPMerge
 import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorus
-import CFSG.RankThree.PartOne.KC.OrthogonalComponentFacts
 
 public section
 

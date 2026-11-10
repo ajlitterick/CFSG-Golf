@@ -4,10 +4,8 @@ public import CFSG.RankThree.PartTwo.Sec20.One
 public import CFSG.RankThree.PartTwo.Sec3.Item321
 import CFSG.RankThree.PartTwo.Sec18.Item182
 import CFSG.RankThree.PartTwo.Late.Item2010
-import CFSG.RankThree.PartTwo.Sec18.Tools
 import CFSG.GroupTheory.Fitting.CharacteristicP
 import CFSG.RankThree.Coprime.ThompsonElementaryComplement
-import CFSG.Timmesfeld.Orders.ClassicalLinear
 import CFSG.Adapters.RankTwoModelTransports
 import CFSG.RankThree.PartOne.S12.ModelTransport
 import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels

@@ -5,15 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTBRowR1Datum
 public import CFSG.LocalAnalysis.StandardType.GGTBRowR1Kg
 import CFSG.LocalAnalysis.StandardType.GGSecFiveJReflOfCore
 import CFSG.LocalAnalysis.StandardType.GGSecFivePresTags
-import CFSG.LocalAnalysis.StandardType.GGSecFiveRootRefl
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcRefl
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcReflCartan
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
-import CFSG.LocalAnalysis.StandardType.GGTableBBstar
-import CFSG.LocalAnalysis.StandardType.GGRootInvolutionRank
-import CFSG.LocalAnalysis.StandardType.GGSixRootCentralizerBasic
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelTypeAAssembly
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 
 public section
 

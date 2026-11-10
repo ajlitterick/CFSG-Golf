@@ -3,12 +3,10 @@ module
 public import CFSG.Assembly.LargeEvenDefs
 public import CFSG.GroupTheory.CommutatorLeSubgroupOf
 public import CFSG.GroupTheory.InnerCentralizerProjection
-public import CFSG.GroupTheory.LocalCores.Components
 public import CFSG.HardMathSupport.Lang.UnitaryAutomorphisms.Lift
 public import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
 public import CFSG.RankThree.GroupTheory.SteinbergCESolvableLayerQuasisimple
 public import CFSG.RankThree.PartOne.S11d.LieComponentLift
-public import TauCeti.GroupTheory.FixedSubgroup
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 public import CFSG.LocalAnalysis.ComponentClassification.LayerMultiplication
@@ -18,8 +16,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 public import CFSG.RankThree.GroupTheory.ThetaComponents
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Lemma83
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Cardinalities
 
 public section
 

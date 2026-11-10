@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.UnitaryEvenTorusEntries
-public import CFSG.LieType.Universal.Unitary.Basic
-public import CFSG.LieType.BorelTits.UnitaryForm
 public import CFSG.LocalAnalysis.StandardType.UnitaryCubeRoots
-public import CFSG.Open.LocalVocabulary
-public import Mathlib.Algebra.Group.Pi.Units
 
 public section
 

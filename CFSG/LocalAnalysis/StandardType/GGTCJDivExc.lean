@@ -3,11 +3,8 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTCJDivDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnExc
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnExcLabel
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieInputs
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompIdx
 public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonSubcompIdx
 public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonSubcompInn
-public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonInnBridge
 
 public section
 

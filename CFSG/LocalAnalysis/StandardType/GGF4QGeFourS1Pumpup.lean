@@ -2,17 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourS1Plane
 public import CFSG.LocalAnalysis.StandardType.GGPumpupConj
-import CFSG.LocalAnalysis.StandardType.GGF4QGeFourRk1
 import CFSG.LocalAnalysis.StandardType.GGF4QGeFourRk2Cross
 import CFSG.LocalAnalysis.StandardType.GGF4QGeFourOppPumpup
 import CFSG.LocalAnalysis.StandardType.GGRankOneShared
-import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProper
 import CFSG.LocalAnalysis.StandardType.GGIOneRestFiveRoot
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBIrred
-import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagOrder
 import CFSG.LieType.BorelTits.LeviOrder
-import Mathlib.Algebra.Ring.GeomSum
-import Mathlib.Tactic.Group
 
 public section
 

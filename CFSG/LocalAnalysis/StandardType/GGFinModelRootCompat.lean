@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGFinModelRootCompatDefs
 public import CFSG.LocalAnalysis.StandardType.GGFinModelBCAdj
 public import CFSG.LocalAnalysis.StandardType.GGFinModelBCMin
 public import CFSG.LocalAnalysis.StandardType.GGFinModelBCTw

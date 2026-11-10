@@ -1,9 +1,7 @@
 module
 
 public import CFSG.Timmesfeld.Bridge.Asc72Defs
-public import Mathlib.GroupTheory.Index
 import TauCeti.Data.Fin.Basic
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
 
 public section
 

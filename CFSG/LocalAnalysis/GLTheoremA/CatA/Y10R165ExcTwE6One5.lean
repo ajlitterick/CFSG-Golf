@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165ExcTwE6One4
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Uni5
-public import CFSG.LinearAlgebra.LinearGroups.UnitaryBasics
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.ClassicalEA
 public import CFSG.ClassicalGroups.UnitaryFlag.PointSylow
 public import CFSG.ClassicalGroups.UnitaryFlag.StatedBridge

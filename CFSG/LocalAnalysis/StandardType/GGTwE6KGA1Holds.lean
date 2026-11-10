@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTwE6KGA1Defs
 public import CFSG.LocalAnalysis.StandardType.GGTwE6KGA1Compat
 public import CFSG.LocalAnalysis.StandardType.GGTwE6KGA1O0
 public import CFSG.LocalAnalysis.StandardType.GGTwE6KGA1O2
@@ -8,7 +7,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTwE6KGA1O3
 public import CFSG.LocalAnalysis.StandardType.GGTwE6KGA1O4
 public import CFSG.LocalAnalysis.StandardType.GGTwE6KGA1RankSix
 public import CFSG.LocalAnalysis.StandardType.GGTwE6KGA1TIn
-public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeToralCentHolds
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGFinModelG5Defs
 public import CFSG.LocalAnalysis.StandardType.GGFinModelG5PlainFix
 
 public section

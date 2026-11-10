@@ -1,13 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTorus
-public import CFSG.LieType.Chevalley.FoldedWeylIdentification
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ToralMax
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticBstar
-public import CFSG.Blueprint.ChevalleyRoots
-public import CFSG.Timmesfeld.Orders.ExceptionalTwistedBruhat
-public import CFSG.ClassicalInvolution.Orders.Twisted
-public import CFSG.LieType.Chevalley.GraphFixedE6DiagonalCubes
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenBN.U5.Sec3M2
 import CFSG.LocalAnalysis.EvenBN.LinearThree.ModelRadicals
-import CFSG.LocalAnalysis.ComponentInitial.LinearCoverModel
 
 public noncomputable section
 

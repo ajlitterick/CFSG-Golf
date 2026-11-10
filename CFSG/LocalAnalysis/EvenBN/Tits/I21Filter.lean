@@ -5,11 +5,6 @@ public import CFSG.Adapters.StatedClassicalOrders
 public import CFSG.Adapters.StatedClassicalUnitaryOrders
 public import CFSG.CharacterTheory.Semidihedral.GL2Recognition.M11Order
 public import CFSG.Walter.J1Props.Elt
-public import CFSG.Open.Defs
-public import CFSG.Open.StatedDefs
-public import CFSG.Open.WalterAbelianSylowTwoMilestoneDefs
-public import Mathlib.Algebra.CharP.Lemmas
-public import Mathlib.LinearAlgebra.Matrix.CharP
 public import CFSG.LieType.BorelTits.CompleteFlag
 public import CFSG.LocalAnalysis.EvenBN.Tits.Prelim.SecTwoConstrained
 public import CFSG.LocalAnalysis.EvenBN.Tits.Prelim.SecTwoQuotient

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGK1ADefs
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 
 public section
 

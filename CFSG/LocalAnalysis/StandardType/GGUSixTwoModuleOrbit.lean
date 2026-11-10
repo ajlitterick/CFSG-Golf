@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoModuleTorus
-public import Mathlib.Algebra.Group.Submonoid.BigOperators
 
 attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent
 attribute [-instance] instCommGroupOfIsSimpleGroupOfIsNilpotent

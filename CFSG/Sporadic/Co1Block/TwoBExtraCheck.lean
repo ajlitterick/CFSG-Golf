@@ -3,8 +3,6 @@ module
 
 public import CFSG.Sporadic.Co1Block.TwoBExtraCheckBase
 
-public import CFSG.Sporadic.Co1Block.ConjBData
-public import CFSG.Sporadic.Co1Block.TwoBCheckBase
 public import CFSG.Sporadic.Co1.Module.InvData
 public meta import CFSG.Sporadic.Co1Block.ConjBData
 public meta import CFSG.Sporadic.Co1Block.TwoBData
@@ -18,7 +16,6 @@ public meta import Certificates.Data.CFSGNative.Co1.Data
 public meta import Certificates.Data.CFSGNative.Co1.Involutions
 public meta import Certificates.Data.CFSGNative.HS.SmallF2
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
-public import CFSG.Sporadic.Co1Block.TwoBExtraCheckInputs
 public import Certificates.Certificate2046
 
 public section

@@ -1,14 +1,8 @@
 module
 
 public import CFSG.RankThree.PartOne.K159.AutSzIso
-public import CFSG.RankThree.PartOne.K159.AutSzAbs
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
-public import CFSG.RankThree.PartOne.CTP.SeitzExcModels
 public import CFSG.LieType.Suzuki.SuzukiOuterCyclic
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ElementaryAbelian
 import CFSG.GroupTheory.ElementaryAbelianTransport
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LieType.BorelTits.CompleteFlag

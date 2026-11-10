@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestOddLayer
 public import CFSG.RankThree.PartOne.AUTSL.FourData
-public import CFSG.RankThree.PartOne.AUTSL.OmegaOut
 public import CFSG.Quasithin.Background.BlueprintB2Defs
 public import CFSG.RankThree.PartOne.KF1514B.Siegel
 public import CFSG.RankThree.PartOne.KF1514B.Torus4

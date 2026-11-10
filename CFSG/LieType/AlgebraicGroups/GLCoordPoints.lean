@@ -2,8 +2,6 @@ module
 
 public import CFSG.LieType.AlgebraicGroups.GLCoordDomain
 public import CFSG.Blueprint.ChevalleyRoots
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
-public import Mathlib.LinearAlgebra.Matrix.ToLin
 
 public noncomputable section
 

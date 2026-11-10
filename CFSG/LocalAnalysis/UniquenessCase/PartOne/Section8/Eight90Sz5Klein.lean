@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight90Sz5Defs
 import CFSG.LocalAnalysis.EvenBN.GMSK.SzFacts
 import CFSG.CharacterTheory.TwoRankLowerBound.RankOneClassification
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

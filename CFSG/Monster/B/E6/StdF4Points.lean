@@ -29,7 +29,6 @@ public import CFSG.LocalAnalysis.SectionRank.SporadicCover
 public import CFSG.Monster.B.Geometry.CoxeterWords
 public import CFSG.Monster.B.Geometry.ProductModel
 public import CFSG.Sporadic.M23.M23Group
-public import CFSG.Sporadic.Th.F2Spec
 public import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 
 public noncomputable section

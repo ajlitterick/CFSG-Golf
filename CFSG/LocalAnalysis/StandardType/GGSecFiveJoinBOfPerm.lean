@@ -5,10 +5,8 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinBPermDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermLabel
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBRes
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBLabelCore
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinBGuarded
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveCompatJoinB
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPosition
-import CFSG.LocalAnalysis.StandardType.GGSecFiveBPositionFrame
 
 public section
 

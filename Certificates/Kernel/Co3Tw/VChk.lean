@@ -5,7 +5,6 @@ public import Certificates.Kernel.Co3Tw.EnumV4
 public import Certificates.Kernel.Co3Tw.SrchData
 public import Certificates.Kernel.Sporadic.Co3.C
 public import Certificates.Data.Kernel.Misc.CentSrch
-public import Certificates.Data.Kernel.Misc.ArrEnum
 public import Certificates.Data.Kernel.Misc.PermWit
 import CFSG.Certificates.Kernel.Common.Harness
 

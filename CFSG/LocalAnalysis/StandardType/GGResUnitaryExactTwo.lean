@@ -1,40 +1,12 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTorusGenUFour
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalanceSchreier
-public import CFSG.RankThree.PartOne.TCB.SchreierFinal
 
-public import CFSG.LocalAnalysis.StandardType.GGResIPumpLineTransfer
-public import Certificates.Certificate13723
-public import Certificates.Certificate13724
-public import Certificates.Certificate19953
-public import Certificates.Certificate8081
-public import Certificates.Certificate8080
 
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7SULCoordModel
-public import CFSG.LocalAnalysis.StandardType.GGFamLabelDefs
-public import CFSG.LocalAnalysis.StandardType.GGPZWeylType
-public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3Defs
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUModelCoprime
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylUnitaryCover
-public import CFSG.LocalAnalysis.StandardType.GGLinearTorusCompSUTwo
-public import CFSG.LocalAnalysis.StandardType.GGLinearTorusCompSUModel
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeInner
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
-public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkTransport
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.F3.Lift
-public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionSURepFactsBlock
-public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitaryDatum
-public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitarySixReduced
-public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitarySixCover
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitarySixOriginal
-public import CFSG.LocalAnalysis.ComponentClassification.PerfectCentralQuotient
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeRowDimUnitary
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63Q2ProofLift
-public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3BridgeA2
 import CFSG.LocalAnalysis.StandardType.GGHdRo7SULin
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 import CFSG.LocalAnalysis.StandardType.GGLieModelPSULabel
 
 public section

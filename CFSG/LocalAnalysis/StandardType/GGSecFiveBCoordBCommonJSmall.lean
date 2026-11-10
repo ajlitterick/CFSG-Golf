@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJLink
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJLift
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJNativeConj
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBIrred
 import CFSG.LocalAnalysis.StandardType.GGIOneOrthEndSmall
 import CFSG.GroupTheory.IsComponentOfMap
 import CFSG.GroupTheory.PCore.PCoreOfMulEquiv

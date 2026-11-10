@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Quasithin.AppendixH.H12.ModelM0
-import CFSG.Quasithin.AppendixH.H12.ModelM0K
-import CFSG.Quasithin.AppendixH.H12.ModelV2K
 import CFSG.Quasithin.AppendixH.H12.ModelV2T0K
 
 public section

@@ -2,13 +2,9 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2NonsplitTorusFieldFixed
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2TorusCentralizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2DerivedSubgroup
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFAppendixIII.Basic
-public import Mathlib.Algebra.Field.Defs
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2DeterminantSquare
 import Mathlib.Tactic
-import Mathlib.Tactic.Group
 
 namespace CFSG
 end CFSG

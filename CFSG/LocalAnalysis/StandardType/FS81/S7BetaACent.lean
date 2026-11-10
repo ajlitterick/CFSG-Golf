@@ -1,19 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.RootE8Defs
-public import CFSG.LocalAnalysis.StandardType.FS81.S7Model
-public import CFSG.LocalAnalysis.SeitzReduction.E8PilotMainLift
 public import CFSG.LocalAnalysis.StandardType.FS81.S7E7Incl
 import CFSG.LocalAnalysis.StandardType.FS81.S7E7InclRange
-import CFSG.LocalAnalysis.StandardType.FS81.Realized
 import CFSG.LocalAnalysis.StandardType.FS81.BasisMonomial
-import CFSG.LocalAnalysis.StandardType.FS81.OddCoreTransvOrth
 import CFSG.LocalAnalysis.StandardType.FS81.E7FrameSigma
-import CFSG.LocalAnalysis.SeitzReduction.E8PilotPositionF5
 import CFSG.LocalAnalysis.SeitzReduction.E8PilotQ2SwapDescent
-import CFSG.LocalAnalysis.SeitzReduction.E6PilotNonsplit
-import CFSG.LocalAnalysis.SeitzReduction.E8PilotLeviDescent
-import CFSG.LieType.Chevalley.WeylRootTransport
 import CFSG.Mathlib.GroupTheory.ConjCentralizer
 import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.PlanesTwo.SL2Two
 import CFSG.Certificates.CentralKernel
@@ -53,7 +45,6 @@ import CFSG.Monster.GMS.Fi23Gen
 import CFSG.Monster.GMS.Fi23GenIso
 import CFSG.Monster.GMS.Fi23GenSix
 import CFSG.Monster.GMS.LeechCoh
-import CFSG.Monster.GMS.LeechCohGroup
 import CFSG.Monster.GMS.S365Center
 import CFSG.Monster.GMS.S37
 import CFSG.Monster.GMS.S4Assembly

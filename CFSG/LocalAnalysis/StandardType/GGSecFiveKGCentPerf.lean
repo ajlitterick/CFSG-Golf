@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LieType.CurtisTits.Reduction
 public import CFSG.LieType.Steinberg.PartB
 public import CFSG.Assembly.Defs
 import CFSG.LieType.CurtisTits.Perfect

@@ -3,7 +3,6 @@ module
 public import CFSG.Certificates.Kernel.LocalQTSylSound
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1M12CheckInputs
 public import CFSG.Sporadic.Schreier.MathieuOddCoreM12Outer
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Foundations
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 public import CFSG.LocalAnalysis.ComponentClassification.LayerMultiplication

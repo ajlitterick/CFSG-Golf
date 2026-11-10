@@ -1,7 +1,6 @@
 module
 
 public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
-public import Mathlib.Data.ZMod.Basic
 import Mathlib.LinearAlgebra.Matrix.ElementaryRowOperations
 
 public section

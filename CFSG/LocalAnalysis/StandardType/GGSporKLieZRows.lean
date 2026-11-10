@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSporKLieZOmega
 public import CFSG.LocalAnalysis.StandardType.GGSporKLieZSL
 public import CFSG.LocalAnalysis.StandardType.GGSporKLieZSU
 public import CFSG.LocalAnalysis.StandardType.GGSporKLieZExc
-public import CFSG.LocalAnalysis.StandardType.MarkingDict
 
 public section
 

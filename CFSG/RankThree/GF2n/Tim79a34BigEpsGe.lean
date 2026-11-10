@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.GF2n.Tim79a34BigAlpha
-public import Certificates.Kernel.J4Count.FixCE
 
 public section
 

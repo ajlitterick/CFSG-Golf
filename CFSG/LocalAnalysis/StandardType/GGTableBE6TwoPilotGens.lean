@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTableBE6TwoPilotMat
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeTwoTorus
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotClasses
 public import CFSG.RankThree.Chevalley.SteinbergCEF4EvenQPlusWeyl
-public import CFSG.LieType.Chevalley.RelativeWeylTwist
 import CFSG.LocalAnalysis.StandardType.GGTableBE6TwoPilotMatK
 
 public section

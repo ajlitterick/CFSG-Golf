@@ -5,7 +5,6 @@ public import Certificates.Data.Kernel.Misc.ArrEnum
 public meta import Certificates.Kernel.U52.Defs
 public meta import Certificates.Kernel.Misc.Perm.HexCmd
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public meta import CFSG.LieType.BorelTits.CompleteFlag
 public import CFSG.LieType.BorelTits.CompleteFlag
 public import Certificates.Kernel.Misc.Perm.HexCmd

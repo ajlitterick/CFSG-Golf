@@ -4,7 +4,6 @@ public import Certificates.Kernel.GammaU.Census0Data
 public import Certificates.Kernel.GammaU.Census1Data
 public import Certificates.Kernel.GammaU.CensusCfgData
 public import CFSG.GF2Type.Smith1979.GammaU.StepAInputs
-public import CFSG.GF2Type.Smith1979.GammaU.SpanList
 import CFSG.Certificates.Kernel.Common.EachTrue
 import CFSG.Certificates.Kernel.Common.ForallChunks
 

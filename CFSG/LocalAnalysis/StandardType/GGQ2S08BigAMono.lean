@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigDefs
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigMonoTrans
-public import CFSG.LocalAnalysis.StandardType.GGQ2S08CoreRescale
-public import CFSG.LocalAnalysis.StandardType.GGQ2S08CorePerms
 
 public section
 

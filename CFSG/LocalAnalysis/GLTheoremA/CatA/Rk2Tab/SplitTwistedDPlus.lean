@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.OmegaMinusTorus
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.LowerCover
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.PRankSmall
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.LowerSymplecticOrth
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.SplitTwisted
-public import CFSG.LieType.Steinberg.CentralExt.GriessClassical
 
 public section
 

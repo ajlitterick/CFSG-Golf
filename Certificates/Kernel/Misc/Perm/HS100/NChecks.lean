@@ -2,8 +2,6 @@ module
 
 public import Certificates.Kernel.Misc.Perm.HS100.NData
 public import Certificates.Kernel.Misc.Perm.HS100.S0Checks
-public import Certificates.Data.Kernel.Misc.ArrEnum
-public import Certificates.Data.Kernel.BfsPinBase
 import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 400000

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcLat3
-public import CFSG.LocalAnalysis.StandardType.GGKGForkExcNorm
-public import CFSG.LieType.Chevalley.WeylNormalizerQuotient
 
 public section
 

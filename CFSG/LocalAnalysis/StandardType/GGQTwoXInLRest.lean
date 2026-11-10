@@ -2,13 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2InLCommonMain
 public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLSplit
-public import CFSG.LocalAnalysis.StandardType.GGQ2ExtCoverSmall
-public import CFSG.LocalAnalysis.StandardType.GGQ2ClassicalCatalogueU
 public import CFSG.LocalAnalysis.StandardType.GGQ2NoTwoNodeExc
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcInsideMoved
 public import CFSG.LocalAnalysis.StandardType.GGExcGen
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.LocalAnalysis.StandardType.GGQTwoAssemble
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinDict
 public import CFSG.LocalAnalysis.StandardType.GGQ2InLCommonMainBase
 

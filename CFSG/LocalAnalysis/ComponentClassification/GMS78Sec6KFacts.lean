@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GMS78Sec6Main
-public import CFSG.GroupTheory.SolvableHallNodes
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Cardinality
 public import CFSG.Adapters.FrobeniusKernel
 public import CFSG.Adapters.GeneralizedFitting
 public import CFSG.CharacterTheory.BrauerThirdMainTheorem.CentralResidueMaps
@@ -23,19 +20,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.GMS78Push29Defs
 public import CFSG.LocalAnalysis.ComponentClassification.GMS78Sec6Local
 public import CFSG.Sporadic.Bridge.M11CheckInputs
 public import CFSG.Sporadic.Schreier.J4SProfileNode
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldPrimeOrderFixedSubfield
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OrderThreeNormalizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2PSLRangeCentralizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinInvolutionCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinRestrictionSixCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinUDecomposition
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationEleven
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTen
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTenStructuralIdentities
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2FieldProjectionArithmetic
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2OrderPSubgroupCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2S0LeQuotientTorus
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphReconstruction
 public import CFSG.Walter.Bender1970.S2
 public import CFSG.Walter.Bender1970.S3.Basic
 public import CFSG.Walter.Bender1970.S3.OStar

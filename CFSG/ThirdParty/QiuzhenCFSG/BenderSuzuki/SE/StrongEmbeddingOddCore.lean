@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.StrongEmbedding
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Compat
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.proposition_1_16
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConj
 
 namespace CFSG

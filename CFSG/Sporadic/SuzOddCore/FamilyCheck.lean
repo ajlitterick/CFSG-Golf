@@ -1,12 +1,8 @@
 module
 
-public import CFSG.Sporadic.SuzOddCore.ArraysCheck
-public import Certificates.Data.CFSGNative.Schreier.Refine
-public import Certificates.Data.CFSGNative.Perm.Chain
 public meta import CFSG.Sporadic.SuzOddCore.ArraysCheck
 public meta import Certificates.Data.CFSGNative.Schreier.Refine
 public meta import Certificates.Data.CFSGNative.Perm.Chain
-public import CFSG.Sporadic.SuzOddCore.FamilyCheckInputs
 public import Certificates.Certificate2293
 
 public section

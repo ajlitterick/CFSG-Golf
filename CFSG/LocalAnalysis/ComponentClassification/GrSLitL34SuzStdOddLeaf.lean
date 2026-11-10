@@ -3,12 +3,10 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34SuzStdOddSwapDefs
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34SuzStdOddLeafPin
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34SuzStdOddLeafFusion
-public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec3B0AutBound
 public import CFSG.GroupTheory.InvolutionPow
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34SuzStdOddLeafTransport
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34SuzStdOddLeafRigid
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.LocBSSuzEquiv
-public import CFSG.Sporadic.SuzOddCore.SmallModel
 public import CFSG.LocalAnalysis.ComponentClassification.GS79bSec5.SuzukiTwoACentralizerAutomorphismExtension
 public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalTwistedE6Export
 public import CFSG.ClassicalInvolution.ModelFacts.FundPerfectMain
@@ -71,7 +69,6 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly

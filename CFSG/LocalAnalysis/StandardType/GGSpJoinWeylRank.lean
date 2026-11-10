@@ -1,15 +1,5 @@
 module
 
-public import Mathlib.GroupTheory.Coxeter.Matrix
-public import Mathlib.GroupTheory.Coxeter.Basic
-public import Mathlib.LinearAlgebra.Eigenspace.Pi
-public import Mathlib.LinearAlgebra.Dimension.Finite
-public import Mathlib.LinearAlgebra.FiniteDimensional.Basic
-public import Mathlib.Data.Fintype.BigOperators
-public import Mathlib.SetTheory.Cardinal.NatCard
-public import Mathlib.Algebra.Module.ZMod
-public import Mathlib.Algebra.Field.ZMod
-public import CFSG.Open.LocalVocabulary
 public import CFSG.GroupTheory.ElemAbelianClosure
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylBRealize
 import all CFSG.LieType.Universal.SymplecticRoots

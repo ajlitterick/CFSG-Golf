@@ -5,12 +5,7 @@ public import CFSG.LocalAnalysis.StandardType.GGTwE6D4GammaLayer
 public import CFSG.LocalAnalysis.StandardType.GGTwE6RawFrame
 public import CFSG.LocalAnalysis.StandardType.GGTwE6D4RootFacts
 public import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourCover
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
 public import CFSG.LocalAnalysis.StandardType.GGLangLatSolv
-public import CFSG.LocalAnalysis.ComponentClassification.ExcSelectorOddToral
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24A2CubeClass
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.LangQuasisimpleOfNotSmallSolv
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Inner
 
 public section
 

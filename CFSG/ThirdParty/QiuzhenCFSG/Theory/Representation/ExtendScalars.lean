@@ -1,10 +1,8 @@
 module
 
-public import Mathlib.RepresentationTheory.Irreducible
 public import Mathlib.RepresentationTheory.Invariants
 public import Mathlib.RingTheory.Flat.FaithfullyFlat.Algebra
 
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.SubrepresentationLattice
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.RepEquiv
 
 namespace CFSG

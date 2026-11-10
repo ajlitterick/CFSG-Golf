@@ -3,10 +3,6 @@ module
 public import CFSG.LocalAnalysis.WeakClosure81.GF2RepsAsch54SporLat
 public import CFSG.LocalAnalysis.WeakClosure81.GF2RepsAsch5CalL0
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatJ3Dc
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofLieOrder
-public import CFSG.Sporadic.SmallOddCore.J3Aut
-public import CFSG.Sporadic.Bridge.J3Surj
-public import CFSG.Sporadic.Schreier.PairJ3Faithful
 
 public section
 

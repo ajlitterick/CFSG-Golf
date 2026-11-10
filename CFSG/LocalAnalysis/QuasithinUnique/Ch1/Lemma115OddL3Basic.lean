@@ -1,10 +1,7 @@
 module
 
-public import CFSG.Assembly.LowTwoRankDefs
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115CharTwoTools
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.ConfinedInvolution
 public import CFSG.LieType.Steinberg.CentralExt.SUThree
-public import CFSG.Open.StatedAPI
 public import CFSG.Foundations
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
@@ -14,7 +11,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.OrdinaryComponentJoins
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Reduce
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 
 public section

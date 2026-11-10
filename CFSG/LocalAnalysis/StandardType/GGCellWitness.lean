@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBWInputDefs
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRootGen
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
-public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneBasic
 public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelProofFork
 
 public section

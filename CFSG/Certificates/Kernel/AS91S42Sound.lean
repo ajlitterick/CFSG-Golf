@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.AS91S42
 public import CFSG.Certificates.Kernel.HJ12KTSound
-public import CFSG.GF2Type.Smith1979.GammaU.NativeBridge
 public import CFSG.Quasithin.H13.AS91Sec4TwoInputs
 import CFSG.Certificates.Kernel.Common.Harness
 

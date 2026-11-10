@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.Background.Sp4InfA6Basic
 public meta import CFSG.Quasithin.Background.Sp4InfA6Basic
-public import CFSG.Quasithin.Background.Sp4InfA6GenInputs
 public import Certificates.Certificate8067
 public meta import CFSG.Quasithin.Background.Sp4InfA6BasicBase
 public import CFSG.Quasithin.Background.Sp4InfA6BasicBase

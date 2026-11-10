@@ -17,10 +17,6 @@ public import CFSG.Quasithin.Background.B5CompA
 public import CFSG.Quasithin.Background.B5CompB
 public import CFSG.Quasithin.Background.E2Statements
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3OffenderB
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.E4Solv
 public import CFSG.Quasithin.Background.F6CatRecogOut
 public import CFSG.Quasithin.Background.G2Omega4PlusQuot
 public import CFSG.Quasithin.Background.G2Relaxed

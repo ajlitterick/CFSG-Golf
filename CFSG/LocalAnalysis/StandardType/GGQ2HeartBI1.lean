@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoHeartDerive
-public import CFSG.LocalAnalysis.StandardType.GGQTwoTableBI1
 
 public section
 

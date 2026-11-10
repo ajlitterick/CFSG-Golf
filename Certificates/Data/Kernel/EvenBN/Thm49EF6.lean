@@ -2,11 +2,7 @@ module
 
 public import Certificates.Data.Kernel.Spor.Prim
 public import CFSG.Certificates.Kernel.Spor.RawDefs
-public import CFSG.Sporadic.Schreier.TitsArrays
-public import CFSG.Sporadic.Schreier.TitsCertCheckInputs
-public import CFSG.Sporadic.Schreier.TitsCentralCheckInputs
 public import Certificates.Data.Thm49ECore
-public import Certificates.Data.CFSGNative.Co3Schreier.Basic
 
 public section
 

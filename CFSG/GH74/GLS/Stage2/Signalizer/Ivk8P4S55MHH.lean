@@ -1,11 +1,8 @@
 module
 
 public import CFSG.GH74.GLS.Stage2.Signalizer.Ivk8S12Weak
-public import Certificates.Data.GH74.Ivk8Weak
-public import CFSG.Certificates.Kernel.ThDemp.OrbCent
 public import CFSG.Sporadic.SmallOddCore.CentSpec
 public import CFSG.GH74.GLS.Stage2.Signalizer.Ivk8P4S55N1
-public import Certificates.Data.CFSGNative.SmallOddCore.Check
 public import CFSG.GH74.GLS.IVK.Proofs2.OddTools
 public import CFSG.GH74.GLS.Stage2.Local.P34Main
 public import CFSG.GH74.GLS.Stage2.Local.P34S5A

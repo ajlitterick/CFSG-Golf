@@ -5,8 +5,6 @@ public import CFSG.RankThree.PartOne.KEXC.Torsion
 public import CFSG.RankThree.PartOne.KLR.SectorOrder
 public import CFSG.RankThree.PartOne.KLR.SectorSixTwelve
 public import CFSG.RankThree.PartOne.S11d.FieldFFTwo
-public import CFSG.LocalAnalysis.SectionRank.PRank
-public import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.LieType.Ree.SmallReeModelSchreier
 public import CFSG.LinearAlgebra.LinearGroups.LinearTwo

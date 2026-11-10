@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LieType.Chevalley.LangStronglyOrthogonalCommute
 public import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotRoots
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcDiagramAutomorphisms
 public import CFSG.LocalAnalysis.StandardType.GGLangCoroot

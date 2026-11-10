@@ -2,8 +2,6 @@ module
 
 public import CFSG.Milestones.CL_LIT_Griess_Schur_multipliers_Lie_type
 public import CFSG.RankThree.PerfectCover.HopfCentralCoversSetup
-public import CFSG.Models
-public import CFSG.Open.StatedDefs
 public import CFSG.Certificates.WordSubgroupRel
 public import CFSG.LieType.Chevalley.RootCommutatorData
 public import CFSG.LieType.Multipliers.ProductKernel

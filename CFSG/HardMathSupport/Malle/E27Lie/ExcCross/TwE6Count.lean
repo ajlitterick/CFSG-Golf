@@ -1,15 +1,11 @@
 module
 
 public import CFSG.HardMathSupport.Malle.E27Lie.ExcCross.TwE6Order
-public import CFSG.HardMathSupport.Malle.E27Lie.ExcCross.TorsionTorus
-public import CFSG.HardMathSupport.Malle.E27Lie.ExcCross.WeylE6Sylow
 public import CFSG.HardMathSupport.Malle.E27Lie.ExcCross.E6OneBound
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.LinearAlgebra.LinearGroups.LinearTwo
 public import CFSG.RankThree.Chevalley.SteinbergCFOddG2QPlusTorus
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Borel
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Lemma83
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Cardinalities
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import CFSG.Walter.Defs
 

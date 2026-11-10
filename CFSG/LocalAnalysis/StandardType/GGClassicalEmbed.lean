@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGR4JMeetKGDefs
 public import CFSG.LocalAnalysis.StandardType.GGClassicalEmbedLinUni
 public import CFSG.LocalAnalysis.StandardType.GGClassicalEmbedSymp
 public import CFSG.LocalAnalysis.StandardType.GGClassicalEmbedOrth

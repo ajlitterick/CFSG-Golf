@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public import CFSG.OddTranspositions.PartThree.Eleven.Minus.QuandleCheck
 public meta import CFSG.OddTranspositions.PartThree.Eleven.Minus.QuandleCheck

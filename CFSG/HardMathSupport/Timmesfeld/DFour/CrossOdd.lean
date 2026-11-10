@@ -6,7 +6,6 @@ public import CFSG.HardMathSupport.Timmesfeld.DFour.CodimTwo
 public import CFSG.HardMathSupport.Timmesfeld.DFour.FixDescent
 public import CFSG.HardMathSupport.Timmesfeld.DFour.FixParity
 public import CFSG.HardMathSupport.Timmesfeld.DFour.OddRank4
-import Mathlib.Tactic.Group
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X7bPairs
 public import CFSG.RankThree.PartOne.KD4T.Certs
 public import CFSG.RankThree.PartOne.S11d.OddOutPSL2

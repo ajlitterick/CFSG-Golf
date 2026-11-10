@@ -1,12 +1,7 @@
 module
 
-public import Certificates.Data.Kernel.LocalQT.Six
-public import CFSG.Certificates.Kernel.LocalQTSmallSound
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_16FactsSixInputs
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Aut6Inputs
 public import CFSG.Certificates.Kernel.LocalQTSix35Sound
 public import CFSG.Certificates.Kernel.LocalQTSix51Sound
-public import Certificates.Data.Kernel.LocalQT.SixRank
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.GH74.Exceptional.LinearFourTwo
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Glue

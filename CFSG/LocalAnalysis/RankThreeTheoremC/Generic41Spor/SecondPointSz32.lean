@@ -1,13 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.SecondPoint
-public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.GroupSz32
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.GroupSz32Loc
-public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.TypeIICommon
-import CFSG.RankThree.PartOne.K159.AutSzIso
-import CFSG.RankThree.PartOne.K159F.SzAbs
-import CFSG.RankThree.PartOne.CTP.SeitzExcModels
-import CFSG.LieType.Ree.SuzukiSimple
 import CFSG.LocalAnalysis.RankThreeUC.TheoremDClauseCCore
 import CFSG.LocalAnalysis.RankThreeTheoremC.GL83Generic4_10Core
 import CFSG.LocalAnalysis.RankThreeTheoremC.GL83Generic4_10Lemmas

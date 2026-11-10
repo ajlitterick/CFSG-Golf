@@ -2,8 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseLinearPSL2TorusPartition
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseLinearEquationElevenData
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Cardinality
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

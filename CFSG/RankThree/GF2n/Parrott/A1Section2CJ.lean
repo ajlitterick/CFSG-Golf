@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.GF2n.Parrott.A1LocalData
 public import CFSG.RankThree.GF2n.Parrott.Section3RemarksCJ
-public import CFSG.RankThree.GF2n.Parrott.Section1Extraspecial
 import CFSG.GroupTheory.ConjTransport
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeLineSum
 import all CFSG.RankThree.GF2n.Parrott.A1LocalData

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Open.StatedDefs
 public import CFSG.ClassicalGroups.Orthogonal.CharTwoTransvection
 public import CFSG.ClassicalGroups.Orthogonal.Matrix
 public import CFSG.LieType.Universal.Spin.Forms

@@ -61,7 +61,6 @@ import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
 import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
 import CFSG.Sporadic.Schreier.J4SProfileNode
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 import Certificates.Kernel.SporSch.Th.Plane2320
 
 public section

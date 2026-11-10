@@ -1,17 +1,12 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.GF2RepsA
 public import CFSG.LocalAnalysis.WeakClosure81.GF2RepsAsch5Shape
-public import CFSG.LocalAnalysis.ComponentInitial.FieldNineAlternatingSix
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog82A10Sym
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListAlt7
 public import CFSG.Blueprint.LieModelAPI
 public import CFSG.Quasithin.H13.A6S1356S6Fr
-public import CFSG.Adapters.ProjectiveSpecialLinear
 public import CFSG.Quasithin.Vol2.Ch11SecBNPAut
-public import CFSG.Assembly.OrderReductions.PrimeQuotientFrattini
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.TwelveShort
-public import CFSG.LocalAnalysis.UniquenessCase.UCFront12
 public import CFSG.GroupTheory.Fitting.MulEquiv
 public import CFSG.GH74.Orders.LieType
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB7Basic

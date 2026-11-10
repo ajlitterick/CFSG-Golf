@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallPSp43Model
-public import CFSG.GH74.Exceptional.UnitaryFourTwo
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallPSp43ModelData
-public import CFSG.LocalAnalysis.EvenSporadicStandard.M22Std.P21HCommCheck
 public import Certificates.Certificate26121
 
 public section

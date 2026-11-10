@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2Triple
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
 
 namespace CFSG
 end CFSG

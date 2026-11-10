@@ -1,7 +1,5 @@
 module
 
-public import Mathlib.Data.Fintype.Perm
-public import Mathlib.Tactic.NormNum.Ineq
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC11A11KernK
 
 public section

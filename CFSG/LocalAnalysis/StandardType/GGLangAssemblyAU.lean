@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLangDictOrbits
-public import CFSG.LocalAnalysis.StandardType.GGLangDictTransport
 public import CFSG.LocalAnalysis.StandardType.GGLangFamily
-public import CFSG.LocalAnalysis.StandardType.GGLangReidx
 public import CFSG.LocalAnalysis.StandardType.GGLangDictCentralizer
 
 public section

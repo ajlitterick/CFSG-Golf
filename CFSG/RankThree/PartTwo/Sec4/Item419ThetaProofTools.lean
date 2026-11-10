@@ -10,7 +10,6 @@ import CFSG.Sporadic.Schreier.TitsOuter
 import CFSG.LocalAnalysis.SignalizerFunctor.InvariantSylowAmbient
 import CFSG.LocalAnalysis.RankThreeEvenClassification.CoprimeCentralizer
 public import CFSG.LieType.Simplicity.ReeLargeModel
-import CFSG.Sporadic.Schreier.J4SSylowBase
 
 public section
 

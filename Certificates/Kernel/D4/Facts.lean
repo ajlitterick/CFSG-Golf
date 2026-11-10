@@ -8,9 +8,7 @@ public import Certificates.Kernel.D4.OrbA
 public import CFSG.Certificates.Kernel.D4Sound
 public import CFSG.Certificates.Kernel.Misc.HexFlatSound
 public import CFSG.Quasithin.Recognition.CertChain
-public import CFSG.Certificates.Kernel.B3S3KSound
 public import CFSG.Certificates.Kernel.Misc.ChainTailOrbSound
-public import CFSG.Certificates.NativeSchreierArrays
 
 public section
 

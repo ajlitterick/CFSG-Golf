@@ -3,13 +3,6 @@ module
 public import CFSG.Fischer.F4
 public import CFSG.LieType.Chevalley.C2E6MinusSixDefs
 import all CFSG.Fischer.F4
-public import Mathlib.Algebra.Polynomial.SpecificDegree
-public import Mathlib.RingTheory.WittVector.IsPoly
-public import Mathlib.Tactic.Basify
-public import Mathlib.Tactic.ENatToNat
-public import Mathlib.Tactic.Monotonicity.Lemmas
-public import Mathlib.Tactic.ReduceModChar
-public import Mathlib.Topology.Sheaves.Presheaf
 
 public section
 

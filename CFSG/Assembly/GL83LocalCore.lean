@@ -1,6 +1,5 @@
 module
 
-public import Mathlib
 public import CFSG.Open.GeneratedCore
 public meta import Lean.Elab.Term
 public meta import Lean.Meta.Tactic.Delta

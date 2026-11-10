@@ -1,19 +1,11 @@
 module
 
-public import TauCeti.Algebra.AlgebraicGroup.Torus.Basic
 public import CFSG.LieType.AlgebraicGroups.TorusCoordinates
 public import CFSG.LieType.AlgebraicGroups.TangentSpace
 public import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 public import CFSG.Mathlib.RingTheory.UnitOrderOf
 public import CFSG.Mathlib.RingTheory.RootsOfUnity.ZModUnits
 
-import TauCeti.Algebra.AlgebraicGroup.Torus.AlgebraicallyClosed
-import TauCeti.Algebra.AlgebraicGroup.SplitTorus.Basic
-import TauCeti.Algebra.AlgebraicGroup.Hopf.Map
-import TauCeti.RingTheory.RootsOfUnity.ZMod
-import Mathlib.Algebra.MonoidAlgebra.Module
-import Mathlib.LinearAlgebra.Finsupp.LSum
-import Mathlib.Data.ZMod.Basic
 
 public noncomputable section
 

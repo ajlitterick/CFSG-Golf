@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
 public import CFSG.LocalAnalysis.StandardType.GGTableBRank
-import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOrthNsLabels
 import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestTailHolds
-import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestTorus
 import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeNbrKnownLemmas
 
 public section

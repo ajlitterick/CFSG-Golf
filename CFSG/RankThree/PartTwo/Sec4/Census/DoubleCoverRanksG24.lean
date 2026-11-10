@@ -4,13 +4,9 @@ public import CFSG.RankThree.PartTwo.Census.TransitiveLift
 public import CFSG.RankThree.PartTwo.Sec4.Census.Item44TwoCoverList
 public import CFSG.LocalAnalysis.EvenSmallLie.GTwoFour.CoverRoots
 public import CFSG.Adapters.TauCetiExceptional.EvenBridgeG2
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenCalculus
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Certificates.WordSubgroupRel
 public import CFSG.GH74.GLS.Classes
 public import CFSG.GH74.Statements
-public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LieType.Chevalley.EvenRootCommutatorF4
 public import CFSG.LieType.Multipliers.ProductKernel
 public import CFSG.LieType.Multipliers.U42Bridge
@@ -22,7 +18,6 @@ public import CFSG.LieType.Multipliers.U62Kernel
 public import CFSG.LocalAnalysis.ComponentClassification.StandardRecognitionQuaternion
 public import CFSG.LocalAnalysis.ComponentClassification.TBLitCover
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedGSBFixedLayer
-public import CFSG.LocalAnalysis.ComponentInitial.SuzukiModelSchreier
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.NativeCheckBase
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.NativeModel
 public import CFSG.LocalAnalysis.EvenSmallLie.Sp6JCondition
@@ -32,7 +27,6 @@ public import CFSG.Monster.B.TwoA.Amalgam.Data
 public import CFSG.Monster.B.TwoA.Sp8.Par1
 public import CFSG.Monster.B.TwoA.Unitary.LinThree
 public import CFSG.Open.QuasithinDefs
-public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.Sporadic.Presentation.Common
 public import CFSG.Sporadic.SmallOddCore.CheckSpec
 public import CFSG.YGroups.Y322Central

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGMemberRowsDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSLieEsuTwo
 public import CFSG.LocalAnalysis.StandardType.GGMemberUnitaryPair
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge

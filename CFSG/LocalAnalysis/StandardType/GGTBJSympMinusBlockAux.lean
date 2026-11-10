@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTorCNormalizer
 public import CFSG.LocalAnalysis.StandardType.GGTBJFrameBs
 public import CFSG.LocalAnalysis.StandardType.GGTBJTypeBShape
-public import CFSG.LocalAnalysis.StandardType.GGSpJoinPlaneWeyl
-public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotBlocks
 
 public section
 

@@ -1,14 +1,7 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Definitions
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremA
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.Defs
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.CentralizerLemmas
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.PLengthLemmas
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection6.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PPrimeCore
-public import Mathlib.GroupTheory.Solvable
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
 
 namespace CFSG

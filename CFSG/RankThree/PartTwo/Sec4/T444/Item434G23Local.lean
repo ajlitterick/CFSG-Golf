@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434G23Words
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434CoverFinal
-public import CFSG.RankThree.PartTwo.Sec4.T444.Item434SporE81Gen
 public import CFSG.Certificates.Kernel.ThDemp.Sound
 public import CFSG.Permutation.AlternatingAutomorphism
 

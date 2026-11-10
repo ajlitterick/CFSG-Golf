@@ -5,9 +5,6 @@ public import Mathlib.GroupTheory.Solvable
 
 import Mathlib.GroupTheory.GroupAction.OfQuotient
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.FinalTheorem
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ChiefFactors.BaerCore
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ChiefFactors.Core
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.HallSubgroups.Conjugacy
 
 namespace CFSG
 end CFSG

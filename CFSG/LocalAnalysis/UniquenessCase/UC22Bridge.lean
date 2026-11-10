@@ -1,14 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S21d
-public import CFSG.LocalAnalysis.UniquenessCase.UCFront12
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront05
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront07
-public import CFSG.LocalAnalysis.UniquenessCase.UCFront08
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront09
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront10
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront13
-public import CFSG.LocalAnalysis.UniquenessCase.UC6R2
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.CharacterTheory.CyclicBlocks.Family

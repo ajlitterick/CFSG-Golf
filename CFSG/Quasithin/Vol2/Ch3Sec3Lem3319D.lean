@@ -58,8 +58,6 @@ public import CFSG.Quasithin.Background.C1PackS15212C
 public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.FFC4Tr2
 public import CFSG.Quasithin.Background.GoldschmidtS146RBend1
@@ -106,8 +104,6 @@ public import CFSG.RankThree.PartOne.S11d.OutSymplectic
 public import CFSG.RankThree.PartOne.S11d.OutUnitary
 public import CFSG.RankThree.PartOne.S9.Sylow.ExclusionBasic
 public import CFSG.RankThree.Theta.ThreeComponentOrbitCover
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis

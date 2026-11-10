@@ -3,10 +3,8 @@ module
 public import CFSG.Monster.GMS.EdgeSqFact
 public import CFSG.Monster.GMS.S365Root
 public import CFSG.Sporadic.Co1.Module.TwoB
-public import Certificates.Data.CFSGNative.Co1.EdgeSq
 public import CFSG.Monster.GMS.EdgeSqCo1Inputs
 public import Certificates.Kernel.Co1M.C10041
-public import Certificates.Kernel.Co1M.C10044
 public import Certificates.Kernel.Co1M.Edge10030
 public import CFSG.Certificates.Kernel.Co1M.GmsEdgeSound
 import CFSG.Certificates.Kernel.Common.Harness

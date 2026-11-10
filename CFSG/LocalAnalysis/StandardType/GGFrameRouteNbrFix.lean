@@ -1,11 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFrameRouteNbrDefs
-public import CFSG.LocalAnalysis.StandardType.Marking
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
-public import CFSG.LocalAnalysis.StandardType.GGTableBRank
-public import CFSG.LocalAnalysis.StandardType.GGTableBTransport
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerCore
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylNoLine
 
 public section

@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoGenE7Defs
 public import CFSG.LieType.SeitzGeneration.ExcHigh.E7FrameTorus
-public import CFSG.LieType.Chevalley.E7SupportedBruhat
-public import CFSG.LieType.Chevalley.C2E6SubsystemBruhatDefs
 public import CFSG.ClassicalInvolution.RouteD.GapsOrthChain
 public import CFSG.HardMathSupport.Lang.AnisoE8.D8Planes
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Assembly

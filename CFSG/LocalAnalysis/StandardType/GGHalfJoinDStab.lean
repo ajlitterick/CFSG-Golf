@@ -1,13 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGHalfJoinSigned
-public import CFSG.LocalAnalysis.StandardType.GGHalfWeylBasic
 public import CFSG.LocalAnalysis.StandardType.GGHalfWeylRank
-public import CFSG.LocalAnalysis.StandardType.GGHalfWeylAutomizer
 public import CFSG.LocalAnalysis.StandardType.GGHalfTorusFrame
-public import CFSG.LocalAnalysis.StandardType.GGSpFrameIso
 public import CFSG.LocalAnalysis.StandardType.GGSpFrameOrbit
-public import CFSG.LocalAnalysis.StandardType.GGSpJoinOrbitBound
 
 public section
 

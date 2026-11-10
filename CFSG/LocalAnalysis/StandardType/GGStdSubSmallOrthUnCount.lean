@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallOrthInRest
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestOddLayer
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestThreeUnitary
-public import CFSG.LieType.SeitzGeneration.OrthSdMixing
 
 public section
 

@@ -1,13 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLinCentBlock
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinear
-public import CFSG.LocalAnalysis.StandardType.GGTriD4KnownInputs
-public import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagConcl
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1CentLin
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1TorLinLift
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaCard
-public import CFSG.LocalAnalysis.StandardType.Marking
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinDict
 
 public section

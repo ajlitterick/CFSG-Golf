@@ -7,7 +7,6 @@ import CFSG.LocalAnalysis.RankThreeCoreUniqueness.CoprimeQuotientRank
 public import CFSG.Adapters.ProjectiveSpecialLinear
 public import CFSG.Foundations.HigherElementaryThompson
 public import CFSG.GroupTheory.ABGLocalTools.Basic
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.RankThree.PartTwo.Sec4.Census.Item44EndRep
 

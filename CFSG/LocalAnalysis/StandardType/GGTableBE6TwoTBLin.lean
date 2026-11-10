@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBE6TwoPilotAct
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeTwoTorus
 
 public section
 

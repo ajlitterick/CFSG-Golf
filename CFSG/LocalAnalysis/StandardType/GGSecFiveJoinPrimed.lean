@@ -1,13 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinHC
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1Weyl
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylKnownDefs
-public import CFSG.LocalAnalysis.StandardType.GGCellWitness
 public import CFSG.LocalAnalysis.StandardType.GGRealQFour
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 
 public section
 

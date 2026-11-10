@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBJTypeBDatum
 public import CFSG.LocalAnalysis.StandardType.GGTBJFrameBs
-public import CFSG.LocalAnalysis.StandardType.GGSpJoinPlaneTorusDefs
 import CFSG.LocalAnalysis.StandardType.GGTBJSympMinusFixed
 import CFSG.LocalAnalysis.StandardType.GGTBJOmAutomizerAux
 import CFSG.LocalAnalysis.StandardType.GGTBJFrameCorank

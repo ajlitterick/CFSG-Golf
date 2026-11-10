@@ -1,9 +1,5 @@
 module
 
-public import Mathlib.GroupTheory.Perm.Fin
-public import Mathlib.GroupTheory.Subgroup.Centralizer
-public import Mathlib.Data.ZMod.Basic
-public import CFSG.RankThree.PartTwo.Sec7.ThreeTranspositions
 public import CFSG.RankThree.PartOne.FIS.Item74
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.Section3.Fischer.LocalZ2S5
 public import CFSG.Fischer.Uniq.CompTau
@@ -12,7 +8,6 @@ public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Open.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Basic
 
 public section

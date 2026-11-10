@@ -5,8 +5,6 @@ public import CFSG.RankThree.GF2n.Stroth80.Sec7TailLeviQuotient
 public import CFSG.RankThree.GF2n.Stroth80.Sec7TailCaseOneLie
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.TD4LeParab
 public import CFSG.RankThree.PartTwo.Sec4.Item417Res7ProofD4Levi
-public import CFSG.LieType.Chevalley.OddExceptionalOuterTwoRank
-public import CFSG.RankThree.Chevalley.EvenTrialityElementaryNine
 public import CFSG.Quasithin.SteinbergCDRankOneLeviOddCyclic
 public import CFSG.ClassicalGroups.Orthogonal.RootGroupSwap
 public import CFSG.RankThree.GF2n.Stroth80.Sec5NatStmt

@@ -2,11 +2,8 @@ module
 
 public import CFSG.Sporadic.Schreier.ONActions
 public import CFSG.Sporadic.Schreier.ONPermArr
-public import CFSG.LocalAnalysis.RankThreeTheoremC.ONPair.ModelData
 public import CFSG.LocalAnalysis.RankThreeTheoremC.ONPair.FixCheck
-public import CFSG.LocalAnalysis.RankThreeTheoremC.ONPair.AlphaCheck
 public import CFSG.Sporadic.ON.Lines
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

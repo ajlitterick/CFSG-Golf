@@ -1,21 +1,8 @@
 module
 
 public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
-public import Mathlib.Data.ZMod.Defs
-import Mathlib.GroupTheory.Perm.Cycle.Type
 import Mathlib.FieldTheory.Finiteness
 import Mathlib.Algebra.Field.ZMod
-import Mathlib.Data.Nat.Prime.Basic
-import Mathlib.LinearAlgebra.Matrix.ToLin
-import Mathlib.Data.Matrix.Mul
-import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
-import Mathlib.LinearAlgebra.FiniteDimensional.Basic
-import Mathlib.LinearAlgebra.Dimension.Finite
-import Mathlib.LinearAlgebra.Dimension.Constructions
-import Mathlib.Algebra.Module.Equiv.Basic
-import Mathlib.Algebra.Module.Submodule.Lattice
-import Mathlib.Tactic.IntervalCases
-import Mathlib.Tactic.NormNum
 import TauCeti.LinearAlgebra.Eigenspace.Separation
 
 public section

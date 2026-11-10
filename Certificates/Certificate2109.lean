@@ -3,11 +3,9 @@ module
 
 public import Certificates.Certificate2109Base
 
-public import CFSG.Sporadic.HNSchreier.ThreeCheckInputs
 public meta import CFSG.Sporadic.HNSchreier.LocalCheckBase
 public meta import CFSG.Sporadic.HNSchreier.FAData
 import Certificates.Kernel.SporSch.HN.Pt2109
-import CFSG.Sporadic.HNSchreier.OrbitCheckInputs
 
 public section
 

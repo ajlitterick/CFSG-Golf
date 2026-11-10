@@ -3,7 +3,6 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFAppendixI.Basic
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection2.EndFieldRep
 public import Mathlib.RingTheory.SimpleModule.Rank
-public import Mathlib.GroupTheory.SpecificGroups.Cyclic.Basic
 
 namespace CFSG
 end CFSG

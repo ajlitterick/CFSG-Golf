@@ -2,13 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGFinModelPkg
 public import CFSG.LocalAnalysis.StandardType.GGFinModelTwCent
-public import CFSG.LieType.Chevalley.GraphFixedData
-public import CFSG.LieType.Chevalley.GraphFixedFinitePerfect
-public import CFSG.LieType.Chevalley.GraphFixedCenterTrivial
-public import CFSG.LieType.Steinberg.Exceptional.Fields
-public import CFSG.LieType.Steinberg.Isogeny.TwistedE6
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.TorusAtTwE6
-public import CFSG.RankThree.Classical2.TwistedE6RationalOrder
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotSwapConjGenArith
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerFiveLang
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerResiduals
@@ -52,7 +46,6 @@ public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
 public import CFSG.Sporadic.Schreier.J4SProfileNode
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 
 public section
 

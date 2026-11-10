@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGKGAF4Defs
 public import CFSG.LocalAnalysis.StandardType.GGKGAF4AutCard
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4Basic
-public import CFSG.LocalAnalysis.StandardType.GGF4AutWeylTableB
 
 public section
 

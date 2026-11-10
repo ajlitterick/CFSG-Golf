@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.OddStandard.ONan76Sylow
 public import CFSG.LocalAnalysis.OddStandard.ONanFusInvert
-import Mathlib.Tactic.Group
 
 public section
 

@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcSixEMain
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcPilotNonsplit
-public import CFSG.LocalAnalysis.SeitzReduction.E6PilotNonsplit
-public import CFSG.LocalAnalysis.SeitzReduction.E6PilotLeviModel
 
 public section
 

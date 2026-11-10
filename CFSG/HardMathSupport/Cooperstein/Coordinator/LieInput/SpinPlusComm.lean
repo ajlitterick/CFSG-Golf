@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LieType.CurtisTits.Spin
 public import CFSG.Assembly.RankThreeEvenDefs
 public import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockUniMatrix
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.SquareLinear

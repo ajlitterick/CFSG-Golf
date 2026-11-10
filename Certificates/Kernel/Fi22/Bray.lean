@@ -4,13 +4,11 @@ public import Certificates.Kernel.Fi22.Rels
 public import Certificates.Kernel.Fi22.Facts
 public import CFSG.Certificates.Kernel.HOrbSound
 public import CFSG.Certificates.Kernel.McLLabSound
-public import CFSG.Certificates.Kernel.LceSTabSound
 public import CFSG.Certificates.Kernel.Fi22.Bound.Checks.P_H_0
 public import CFSG.Certificates.Kernel.Fi22.Bound.Checks.A
 public import CFSG.Certificates.Kernel.Fi22.Bound.Data.A
 public import CFSG.Certificates.Kernel.Common.LceSRange
 import Certificates.Kernel.Co2.Intro
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

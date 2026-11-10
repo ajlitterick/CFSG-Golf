@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeGlue
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenTables
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNarrowNSDefs
 
 public section
 

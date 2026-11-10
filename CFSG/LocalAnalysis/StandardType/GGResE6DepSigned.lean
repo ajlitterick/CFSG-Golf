@@ -1,11 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResE6DepLabels
-public import CFSG.LocalAnalysis.StandardType.GGTwAutHolds
 public import CFSG.LocalAnalysis.StandardType.GGResE6DepRank
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMoreCl
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMoreU
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.YS1011LabUniq2
 
 public section
 

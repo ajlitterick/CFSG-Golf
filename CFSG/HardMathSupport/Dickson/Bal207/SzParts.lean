@@ -2,15 +2,8 @@ module
 
 public import CFSG.HardMathSupport.Dickson.Bal207.Sz
 public import CFSG.HardMathSupport.Dickson.Bal207.Center
-public import CFSG.Blueprint.Catalog
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
 import CFSG.LieType.Suzuki.SuzukiOuterCyclic
-import CFSG.LieType.Ree.SuzukiOrder
-import CFSG.StronglyEmbedded.Catalog.Suzuki
-import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructureTransport
 import CFSG.HardMathSupport.Timmesfeld.Tables.Multiplier.Models
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.HardMathSupport.Dickson.I271.I202Full
@@ -55,15 +48,8 @@ public import CFSG.RankThree.PartOne.S12.InputsBase
 public import CFSG.RankThree.PartTwo.KFacts.KS14SzLie
 public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.Sporadic.Schreier.TitsOther
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremB
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremC
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.ZJTheorem
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GW1965RemarkDGroup
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29Helpers
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 public import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 import CFSG.GH74.GLS.Classes

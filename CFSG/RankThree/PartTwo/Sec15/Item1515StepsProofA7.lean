@@ -4,16 +4,12 @@ public import CFSG.RankThree.PartTwo.Sec15.Item1515StepsProofPoints
 public import CFSG.RankThree.PartTwo.Sec15.Item1515StepsProofA10
 import CFSG.RankThree.PartTwo.Sec15.Item1514StepsQuot
 import CFSG.RankThree.PartTwo.Sec15.Item156ProofType
-import CFSG.RankThree.PartTwo.Sec13.Item131Facts
 import CFSG.RankThree.PartTwo.Sec13.Item13Sporadic
 import CFSG.RankThree.PartTwo.Sec13.Item13SLTwo
 import CFSG.RankThree.PartTwo.Sec13.Item136PGL
 import CFSG.RankThree.PartTwo.Sec13.Item133
 import CFSG.RankThree.PartTwo.Sec13.Item13GL
-import CFSG.RankThree.PartTwo.KFacts.KS14Orders
-import CFSG.RankThree.PartTwo.KFacts.KS14MathieuAutCore
 import CFSG.RankThree.PartTwo.KFacts.KS18A7M22Proof
-import CFSG.RankThree.LocalRank.SolvablePrimeComplementCore
 import CFSG.GroupTheory.Fitting.CharacteristicP
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer

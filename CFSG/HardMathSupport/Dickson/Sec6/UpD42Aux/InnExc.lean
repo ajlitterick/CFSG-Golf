@@ -1,20 +1,13 @@
 module
 
 public import CFSG.HardMathSupport.Dickson.Sec6.UpD42Aux.InnExcRank
-public import CFSG.HardMathSupport.Dickson.Sec6.UpD42Aux.InnOrth
 public import CFSG.HardMathSupport.Dickson.Sec6.UpD42Aux.InnClassical
-public import CFSG.HardMathSupport.Dickson.KD.CharP
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.AssemblyExc
 public import CFSG.LocalAnalysis.StandardType.GGCompListMarked
 public import CFSG.LocalAnalysis.StandardType.GGE6TwoThreeComp
 public import CFSG.LocalAnalysis.StandardType.GGE7TwoThreeComp
 public import CFSG.LocalAnalysis.StandardType.GGE8TwoThreeComp
 public import CFSG.LocalAnalysis.StandardType.GGF4TwoThree
 public import CFSG.LocalAnalysis.StandardType.GGK0CompREMult
-public import CFSG.LocalAnalysis.StandardType.GGK0ExcB3Holds
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.LocalAnalysis.StandardType.GGTwistedF4DiagRaw
-public import CFSG.LocalAnalysis.StandardType.GGReverseMarkingRaw
 public import CFSG.GroupTheory.PCore.SubgroupCore
 public import CFSG.HardMathSupport.Dickson.Sec6.I923Fam.E7
 public import CFSG.HardMathSupport.Dickson.Sec6.I923Fam.E8

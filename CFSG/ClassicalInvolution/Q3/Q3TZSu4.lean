@@ -3,11 +3,6 @@ module
 public import CFSG.ClassicalInvolution.Q3.Q3TZMax
 public import CFSG.ClassicalInvolution.Q3.Q3TZAniso
 public import CFSG.ClassicalInvolution.Q3.Q3TZCenter
-public import CFSG.ClassicalInvolution.Q3.Q3TY32
-public import CFSG.ClassicalInvolution.Q3.Q3TY4
-public import CFSG.ClassicalInvolution.WeakCT.SpinMinus6Generated
-public import CFSG.ClassicalInvolution.WeakCT.SU4SpinMinusBridge
-public import CFSG.ClassicalInvolution.RouteD.TypeULocal
 
 public section
 

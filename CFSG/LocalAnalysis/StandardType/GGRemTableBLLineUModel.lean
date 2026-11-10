@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUAct
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryDvdNode
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryDvdCodimOne
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeACover
 public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLLine
 
 public section

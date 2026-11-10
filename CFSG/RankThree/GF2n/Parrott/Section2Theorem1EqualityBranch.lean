@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.GF2n.Parrott.Section2ClassCover
-public import CFSG.RankThree.GF2n.Parrott.Section2Cases
 public import CFSG.RankThree.GF2n.Parrott.Lemma15
 public import CFSG.RankThree.GF2n.Parrott.Lemma16
 public import CFSG.RankThree.GF2n.Parrott.Lemma16FusionSubgroup

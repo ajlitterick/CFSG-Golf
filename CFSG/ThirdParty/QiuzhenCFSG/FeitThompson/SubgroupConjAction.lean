@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.Algebra.Group.Action.Defs
 public import Mathlib.Algebra.Group.Subgroup.Basic
 
 namespace CFSG

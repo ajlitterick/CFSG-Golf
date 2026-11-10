@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.Th3Local.Defs
 public import CFSG.Certificates.Kernel.Th.S.Data.Sm_Sel
-public import CFSG.Certificates.Kernel.Th.S.Data.Sm_const
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34SporAux.ThThreeInputs
 import CFSG.Certificates.Kernel.BabyMonster.Load
 

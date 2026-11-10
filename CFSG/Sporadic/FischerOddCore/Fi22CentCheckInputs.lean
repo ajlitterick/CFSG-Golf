@@ -2,7 +2,6 @@ module
 
 public import CFSG.Sporadic.FischerOddCore.Fi22CentData
 public import CFSG.Monster.B.Fischer.Fi22OuterCheck
-public import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 public meta import CFSG.Sporadic.FischerOddCore.Fi22CentData
 public meta import CFSG.Monster.B.Fischer.Fi22OuterCheck
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain

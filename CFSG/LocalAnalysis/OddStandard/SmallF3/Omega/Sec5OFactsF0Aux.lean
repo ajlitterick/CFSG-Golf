@@ -1,13 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec2TrCover
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec2GenLift
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10TwoCore
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10KS2a
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.FrameCaseIINbrSQ8
 public import CFSG.Timmesfeld.Bridge.SchurNarrowCore
 public import CFSG.GroupTheory.PCore.OpenTransport
-public import CFSG.LieType.BorelTits.CentralQuotient
 public import CFSG.GroupTheory.PCore.Transport
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBLinearDescentFixedBasis
@@ -15,9 +13,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPoi
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointDataModelWitness
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalSemilinearDataCompatibility
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherEvenOrthogonalModel
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.Timmesfeld.Bridge.Asc73Central
 public import CFSG.Timmesfeld.Moufang.Exceptional
 public import CFSG.Timmesfeld.Moufang.Three

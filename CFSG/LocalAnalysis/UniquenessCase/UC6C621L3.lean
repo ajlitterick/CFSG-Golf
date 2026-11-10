@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC6C621L2
-public import CFSG.Fischer.F4
 import all CFSG.Fischer.F4
 
 public section

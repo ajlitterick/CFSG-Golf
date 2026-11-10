@@ -8,9 +8,7 @@ import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.FactorSp
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldSympMark
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnSympRed
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GCenterQuot
-import CFSG.LieType.Universal.Unitary.Clause0
 import CFSG.SignalizerFunctorTheorem.NonLocal.SpTwoTwo
-import CFSG.Assembly.Subnormal
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FBase2
 import CFSG.LocalAnalysis.GLTheoremA.CatA.YS1011U64Types
 import CFSG.LocalAnalysis.GLTheoremA.S11.Inputs119

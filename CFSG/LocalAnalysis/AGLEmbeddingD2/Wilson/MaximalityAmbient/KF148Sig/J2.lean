@@ -2,11 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.Coordinator.KF148Sig.Defs
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.MaximalityAmbient.KF148Sig.Cores
-public import CFSG.RankThree.PartTwo.Sec4.Sporadic.J2Check45Inputs
-public import CFSG.RankThree.PartTwo.Sec4.Sporadic.J2Data45
-public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutData
-public import Certificates.Data.CFSGNative.MonsterB.Co2Chain
-public import CFSG.RankThree.PartTwo.Sec4.Sporadic.J2Sig5
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.MaximalityAmbient.KF148Sig.FiveSylow
 public import CFSG.RankThree.PartTwo.KFacts.KS14HJBasic
 public import CFSG.RankThree.PartTwo.Sec4.Sporadic.Item415

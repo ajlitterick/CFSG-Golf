@@ -1,10 +1,5 @@
 module
 
-public import Mathlib.LinearAlgebra.Matrix.ToLin
-public import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
-public import Mathlib.LinearAlgebra.Dimension.Finrank
-public import Mathlib.LinearAlgebra.FiniteDimensional.Defs
-public import Mathlib.Algebra.Polynomial.Roots
 public import Mathlib.FieldTheory.Finite.Basic
 
 public section

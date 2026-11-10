@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGLevTwoS3bMeasure
 public import CFSG.LocalAnalysis.StandardType.GGLevTwoS3bE8LinkCheckBool
 public import CFSG.Mathlib.Decide.Bounded
 

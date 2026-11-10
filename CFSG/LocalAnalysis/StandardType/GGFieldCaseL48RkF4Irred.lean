@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBBridge
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBRkDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBE6TwoTBSec
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4TwoTBTorus
 public import CFSG.LocalAnalysis.StandardType.GGF4TwoNTFrame
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTBE7E8
 

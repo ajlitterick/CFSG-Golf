@@ -1,7 +1,5 @@
 module
 
-public import CFSG.RankThree.PartTwo.Sec21.FF81Defs
-public import CFSG.Milestones.CL_LIT_Curtis_Tits_presentation_theorem
 public import CFSG.Holt.H78.Bridge
 public import CFSG.Holt.H78.Theorem1
 public import CFSG.RankThree.PartTwo.Sec21.FF81Holt
@@ -10,26 +8,14 @@ public import CFSG.RankThree.PartTwo.Sec21.FF81McLaughlin
 public import CFSG.RankThree.PartTwo.Sec21.FF81SE3
 public import CFSG.RankThree.PartTwo.Sec21.FF81S0
 public import CFSG.RankThree.PartTwo.Sec21.FF81T0
-public import CFSG.RankThree.PartTwo.Sec21.FF81Prop33
 public import CFSG.RankThree.PartTwo.Sec21.FF81Prop51
-public import CFSG.RankThree.PartTwo.Sec21.FF81P51
 public import CFSG.RankThree.PartTwo.Sec21.FF81Sec4Proofs
 public import CFSG.RankThree.PartTwo.Sec21.FF81HoltHyp4
 public import CFSG.RankThree.PartTwo.Sec21.FF81Sec44
-public import CFSG.RankThree.PartTwo.Sec21.FF81Sec526
-public import CFSG.RankThree.PartTwo.Sec21.FF81Sec55
-public import CFSG.RankThree.PartTwo.Sec21.FF81Sec56C
-public import CFSG.RankThree.PartTwo.Sec21.FF81Sec57B
-public import CFSG.RankThree.PartTwo.Sec21.RudvalisFF81Sp6Over
-public import CFSG.RankThree.PartTwo.Sec21.FF81Sec52
 public import CFSG.RankThree.PartTwo.Sec21.FF81SL32Fix
 public import CFSG.RankThree.PartTwo.Sec21.FF81Sp6Levi
 public import CFSG.RankThree.PartTwo.Sec21.FF81F4Local
-public import CFSG.RankThree.PartTwo.Sec21.RudvalisFF81Sp6RefS
 public import CFSG.RankThree.PartTwo.Sec21.RudvalisFF81Sp8Local
-public import CFSG.RankThree.PartTwo.Sec21.RudvalisFF81Sp6Transv
-public import CFSG.RankThree.PartTwo.Sec21.FF81Am6Defs
-public import CFSG.RankThree.PartTwo.Sec21.FF81Sec43T
 public import CFSG.RankThree.PartTwo.Sec21.FF81Sec42
 public import CFSG.RankThree.PartTwo.Sec21.HeringFF81K
 public import CFSG.RankThree.PartTwo.Sec21.FF81Sec32
@@ -40,7 +26,6 @@ public import CFSG.RankThree.PartTwo.Sec21.FF81F4Holt6Prime
 public import CFSG.RankThree.PartTwo.Sec21.FF81F4Sec62Prime
 public import CFSG.RankThree.PartTwo.Sec21.FF81F4Graph
 public import CFSG.RankThree.PartTwo.Sec21.RudvalisFF81Sp6Torus
-public import CFSG.RankThree.PartTwo.Sec21.RudvalisFF81Sp6ShortRoot
 public import CFSG.RankThree.PartTwo.Sec21.FF81Am4Main
 public import CFSG.RankThree.PartTwo.Sec21.RudvalisFF81Sp6O7
 public import CFSG.RankThree.PartTwo.Sec21.FF81Sec57E
@@ -48,17 +33,11 @@ public import CFSG.RankThree.PartTwo.Sec21.RudvalisFF81Sp4CenGL6
 public import CFSG.RankThree.PartTwo.Sec21.RudvalisFF81Sp6ShortRootCen
 public import CFSG.RankThree.PartTwo.Sec21.FF81S58Main
 public import CFSG.RankThree.PartTwo.Sec21.FF81S58Act
-public import CFSG.RankThree.PartTwo.Sec21.FF81S59
 public import CFSG.RankThree.PartTwo.Sec21.FF81Sec57SR3
 public import CFSG.RankThree.PartTwo.Sec21.FF81Sec57Cls
 public import CFSG.RankThree.PartTwo.Sec21.FF81GL6
 public import CFSG.RankThree.PartTwo.Sec21.FF81Am6LSideMain
 public import CFSG.RankThree.PartTwo.Sec21.FF81Am6A2Main
-import CFSG.LieType.Universal.Symplectic
-import CFSG.LieType.Chevalley.AdjointCenter
-import CFSG.Timmesfeld.Orders.ClassicalLinear
-import CFSG.Timmesfeld.Orders.ExceptionalUntwisted
-import CFSG.LocalAnalysis.SectionRank.NativeKGroup
 import all CFSG.RankThree.PartTwo.Sec21.RudvalisFF81Sp8Local
 public import CFSG.ClassicalInvolution.Q3.Q3VCtLevi
 public import CFSG.GroupTheory.CardSupInf

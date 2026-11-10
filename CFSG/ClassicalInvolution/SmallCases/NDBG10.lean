@@ -1,10 +1,7 @@
 module
 
 public import CFSG.ClassicalInvolution.SmallCases.NDBG9Main
-public import CFSG.ClassicalInvolution.SmallCases.NDBS1Exo
 public import CFSG.ClassicalInvolution.SmallCases.NDBS1Main
-import CFSG.ClassicalInvolution.Asc77.AscBSD4
-import CFSG.ClassicalInvolution.Asc77.AscBSD10
 import CFSG.ClassicalInvolution.Asc77.AscBSE8
 
 public section

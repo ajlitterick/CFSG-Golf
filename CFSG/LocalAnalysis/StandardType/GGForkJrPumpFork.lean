@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGForkCellsDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcReflCartan
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcReflLinear
 
 public section

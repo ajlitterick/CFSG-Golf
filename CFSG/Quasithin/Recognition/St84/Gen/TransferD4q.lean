@@ -8,7 +8,6 @@ import CFSG.Quasithin.Recognition.St84.Gen.TransferL2OuterTorus
 import CFSG.Quasithin.Recognition.St84.Gen.TransferEdgeHyp
 import CFSG.Quasithin.Recognition.St84.Gen.TransferLL
 import CFSG.Quasithin.Recognition.St84.Gen.TreeLLBase
-import CFSG.Quasithin.Recognition.St84.Gen.D4qAmalBorel
 import CFSG.Quasithin.Recognition.St84.Gen.D4qAmalIndecRight
 import CFSG.Quasithin.Recognition.St84.Gen.CoprimeLift
 public import CFSG.CharacterTheory.Wreathed.BrauerWongSylowCentralizer

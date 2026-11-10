@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGExcMaxToral
-public import CFSG.LocalAnalysis.StandardType.GGPRankBoundsExc
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesE8RestTorus
 public import CFSG.GroupTheory.ElemAbelianRank
 

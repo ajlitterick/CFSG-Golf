@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2SpForms
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2SUForms
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2PSUPos
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2PSLPos
 
 public section
 

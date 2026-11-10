@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.Misc.Perm.J2C3B
 public import Certificates.Kernel.Misc.Perm.J2C3C
 public import Certificates.Kernel.Misc.Perm.J2Fam
 public import CFSG.RankThree.PartTwo.Sec4.Sporadic.J2Check45Inputs

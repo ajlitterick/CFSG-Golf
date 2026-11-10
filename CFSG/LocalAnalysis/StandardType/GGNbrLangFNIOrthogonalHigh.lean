@@ -2,20 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIOrthogonalSemilin
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIOrthogonalBlocks
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIOrthogonal
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIOrthogonalUnitary4
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIVac
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIRows
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIRestr
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointSemilinearRealizationBasic
 public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockOmegaDecomp
-public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockOmegaIsoOneLinear
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIOne
 public import CFSG.LocalAnalysis.SteinbergBMEvenG2FixedNoNormalSL2
 public import CFSG.RankThree.PartOne.F106.OddRadTools
 public import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagOmega
-public import CFSG.RankThree.PartOne.S11d.OrthGoodSingle
-public import CFSG.GroupTheory.WeirSylow.OrthogonalModels
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431Fam.OrtHFixed
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431Fam.KeyAbstract
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431Fam.OrtHShell

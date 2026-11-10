@@ -8,7 +8,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHS
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatRu
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHe
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312J2Model
-public import CFSG.Sporadic.J2
 import all CFSG.Blueprint.NativeSporadic
 import all CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicHS
 import all CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicRu

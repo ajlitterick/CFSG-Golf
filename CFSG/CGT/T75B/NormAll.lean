@@ -1,6 +1,5 @@
 module
 
-public import CFSG.CGT.Timmesfeld75.Sec3Thirteen
 public import CFSG.CGT.Timmesfeld75.Sec3Results
 public import CFSG.CGT.Timmesfeld75.Sec4CaseIJBasic
 public import CFSG.CGT.Timmesfeld75.Sec3TenCaseA
@@ -13,9 +12,6 @@ public import CFSG.CGT.Timmesfeld75.Sec5FiveEng
 public import CFSG.CGT.Timmesfeld75.Step511Card
 public import CFSG.CGT.Timmesfeld75.Step57Reduction
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Lemma83
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.theorem_4_18_b
 
 public section
 

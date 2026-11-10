@@ -1,11 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22InE229ZB
-public import CFSG.LocalAnalysis.UniquenessCase.UCFront10
 import CFSG.LocalAnalysis.UniquenessCase.UCKPOut
 import CFSG.LocalAnalysis.UniquenessCase.UCKPRank1
 import CFSG.LocalAnalysis.UniquenessCase.UCKPCenter
-public import CFSG.RankThree.PerfectCover.HopfCentralCoversSetup
 
 public section
 

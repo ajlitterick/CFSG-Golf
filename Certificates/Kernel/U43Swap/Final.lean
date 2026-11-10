@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.U43Swap.Facts
 public import Certificates.Kernel.U43Swap.Glue
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

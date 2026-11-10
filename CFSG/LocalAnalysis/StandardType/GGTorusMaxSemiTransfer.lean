@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusMaxSemiLift
-public import CFSG.Open.LocalVocabulary
-public import Mathlib.GroupTheory.Commutator.Basic
-public import Mathlib.GroupTheory.Perm.Basic
 
 import CFSG.LocalAnalysis.StandardType.GGTorusMaxSemiCore
 import CFSG.GroupTheory.Frattini.PSubgroupLift

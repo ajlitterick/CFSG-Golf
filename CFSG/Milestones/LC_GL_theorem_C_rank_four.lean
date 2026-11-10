@@ -1,22 +1,11 @@
 module
 
-public import Mathlib
-public import CFSG.Open.Catalog
-public import CFSG.Open.Defs
-public import CFSG.Open.GLBDefs
-public import CFSG.Sporadic.Schreier.LyCheckSep
-public import CFSG.Sporadic.Ly.KeySpec
-public import CFSG.Sporadic.He.FpSpec
 import Certificates.Kernel.SporSch.Ly.SepGlue
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3J4D4Data
-public import CFSG.Sporadic.J4.QT2LocX0Native
 public import Certificates.Data.CFSGNative.J4.PentScan
-import Certificates.Kernel.J4Q.QTBase
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312HsKInputs
 import Certificates.Kernel.HSA312.Struct
 import Certificates.Kernel.HSQuot.Final
 public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87F3Abs
-public import CFSG.Sporadic.Ly.Setup
 import CFSG.Sporadic.Ly.GenSpecBase
 public import CFSG.GroupTheory.TwoWeightData
 import CFSG.Sporadic.Ly.TwoWeightsSpecBase
@@ -26,14 +15,10 @@ public import Certificates.Data.CFSGNative.Chevalley.C2E6CertLie
 public import CFSG.LieType.Chevalley.C2E6StdMatrixData
 public import CFSG.Monster.B.Classical.E6AdjointGroup
 import Certificates.Kernel.Misc.E6StdSlp
-public import CFSG.Blueprint.NativeSporadic
 public import CFSG.RankThree.PartOne.CTP.FusionSound
-import CFSG.Sporadic.Bridge.BFusSevenGen
 public import CFSG.YGroups.Y443.Native.CoverFactsWords
 import Certificates.Kernel.KDense.Y443
 public import CFSG.YGroups.Y443.Native.Swap13Word
-public import CFSG.Sporadic.Ly.FiveFacts
-import CFSG.Sporadic.Ly.Certificate
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeSc
 import Certificates.Kernel.E6RegPair.Assembly
 import CFSG.Yardstones.Md8ed6d263d89.MilestoneProof
@@ -53,7 +38,6 @@ public import CFSG.ClassicalInvolution.Phan.Phan3KerA3
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6cTransport
 public import CFSG.ClassicalInvolution.Q3.Sec13End16N
 public import CFSG.ClassicalInvolution.Q3.TA3SOLCore
-public import CFSG.ClassicalInvolution.Q3.TA3SOLCoreRank
 public import CFSG.ClassicalInvolution.Q3.TA3SmallModelM12
 public import CFSG.ClassicalInvolution.SmallCases.Hat2A7S8Lift
 public import CFSG.GH74.E2.A6Sylow
@@ -260,7 +244,6 @@ public import CFSG.Sporadic.Th
 public import CFSG.Sporadic.Th.CertificateBase
 public import CFSG.Sporadic.Th.CertificateBase1
 public import CFSG.Sporadic.ThSchreier.KernelAut
-public import CFSG.Sporadic.ThSchreier.KernelAutBase
 public import CFSG.Sporadic.ThSchreier.KernelAutBase1
 public import CFSG.Timmesfeld.ARS.CaseMSU
 public import CFSG.Timmesfeld.ARS.CaseMSpLevi

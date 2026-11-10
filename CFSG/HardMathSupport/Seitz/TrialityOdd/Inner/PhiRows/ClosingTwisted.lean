@@ -2,8 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Seitz.TrialityOdd.Inner.PhiRows.ClosingAbstract
 public import CFSG.GH74.GLS.Stage4.HexCoordD4
-public import CFSG.GH74.GLS.Stage4.HexModelD4
-public import CFSG.LieType.Steinberg.TwistedD4.RankOne
 
 set_option linter.unusedSectionVars false
 

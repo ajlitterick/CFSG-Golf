@@ -2,7 +2,6 @@ module
 
 public import CFSG.Certificates.Kernel.KDenseP.MW.Run
 public import CFSG.HardMathSupport.Dickson.I271.SporGenAux.M13Inputs
-public import CFSG.Certificates.Kernel.Common.Chain
 import CFSG.Certificates.Kernel.Common.Each
 public import CFSG.YGroups.DCE.MaximalB
 public import CFSG.YGroups.Y443.Native.AlignB

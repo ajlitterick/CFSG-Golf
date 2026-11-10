@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S2019ClassicalParts
-public import CFSG.Open.StatedDefs
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
 public import CFSG.CharacterTheory.Wreathed.WreathCentralSquare
@@ -37,7 +34,6 @@ public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeOrbits
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

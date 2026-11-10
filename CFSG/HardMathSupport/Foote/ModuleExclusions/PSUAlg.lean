@@ -1,8 +1,5 @@
 module
 
-public import Mathlib.LinearAlgebra.Matrix.ToLin
-public import Mathlib.FieldTheory.Finite.Basic
-public import Mathlib.GroupTheory.SpecificGroups.Cyclic
 public import CFSG.Open.StatedDefs
 
 public section

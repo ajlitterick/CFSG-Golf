@@ -1,14 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResQTwoSideTypes
 public import CFSG.LocalAnalysis.StandardType.GGResQTwoA2Endpoint
 public import CFSG.LocalAnalysis.StandardType.GGResQTwoBTwoEndpoint
 public import CFSG.LocalAnalysis.StandardType.GGResQTwoGOForm
 public import CFSG.LocalAnalysis.StandardType.GGResQTwoTits
-public import CFSG.LocalAnalysis.StandardType.GGResKnownGroup
-public import CFSG.LocalAnalysis.StandardType.GGFrameRouteQTwo
 public import CFSG.LocalAnalysis.StandardType.GGResQTwoFamily
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLExc11R
 
 public section

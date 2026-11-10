@@ -1,39 +1,19 @@
 module
 
-public import CFSG.RankThree.PartTwo.Sec12.Hering129HKFacts
-public import CFSG.RankThree.PartTwo.Sec12.Hering129KModels
-public import CFSG.RankThree.PartTwo.Sec12.Hering129KOrders
 public import CFSG.RankThree.PartTwo.Sec12.Hering129LRank
-public import CFSG.RankThree.PartTwo.Sec4.Item41Narrow
 import CFSG.RankThree.PartTwo.Sec12.Gap128OTwoHJE8
 import CFSG.RankThree.PartTwo.Sec21.Hering233iSL2
-import CFSG.ClassicalInvolution.SL2Facts
-import CFSG.LocalAnalysis.SectionRank.PRank
-import CFSG.LocalAnalysis.SectionRank.SQT
-import CFSG.RankThree.PartTwo.Sec4.Census.Item44Basic
-import CFSG.RankThree.PartTwo.Sec4.StatementsCensus
 import CFSG.GH74.QTGen4.Stmt1317
 import CFSG.LocalAnalysis.GLTheoremA.CatA.H248Glue6
-import CFSG.RankThree.PartTwo.Sec4.Item413Orders
 import CFSG.RankThree.PartTwo.Sec6.BThreeCensusOrders
 import CFSG.RankThree.PartTwo.Sec4.Item462AltProofCases
-import CFSG.Foundations.Basic
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PPrimeCore
-import CFSG.RankThree.LocalRank.SolvablePrimeComplementCore
-import CFSG.GH74.Generic.ExceptionalRank
-import CFSG.RankThree.PartOne.S11c.G2Torus
-import CFSG.LocalAnalysis.SectionRank.ExceptionalModels
-import CFSG.GH74.Filter.Lie.TwistedD4Even
 import CFSG.RankThree.PartTwo.KFacts.KS14Mult
-import CFSG.RankThree.PartTwo.Sec4.Census.DoubleCoverRanksG24
-import CFSG.GH74.Generic.GKFTables
 import CFSG.GH74.Generic.BProg.B2.SDOrders
 import CFSG.GH74.Generic.S3.L3ClassC2T2
 import CFSG.RankThree.PartTwo.Sec8.Item8ModelProofL3
 import CFSG.RankThree.PartTwo.KFacts.K71OddChar
 import CFSG.RankThree.PartTwo.Sec17.Item17HeadProofPrime
 import CFSG.RankThree.PartTwo.Sec4.HeringK419UnitaryTwoRank
-import CFSG.RankThree.PartTwo.Sec13.Item13Models
 import CFSG.RankThree.PartTwo.Sec21.Item21Early2ProofTwoRank
 public import CFSG.LocalAnalysis.ComponentInitial.GL3TwoFixedModelSelector
 public import CFSG.RankThree.Asc83Table.PermTables

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.CGT.Timmesfeld75.L2Sylow
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGDefs
 
 public section

@@ -1,18 +1,12 @@
 module
 
-public import CFSG.Foundations.Basic
 public import CFSG.Open.LocalVocabulary
 public import CFSG.GroupTheory.ABGLocalTools.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.Defs
 public import CFSG.RankThree.PartTwo.ClassTwoEightActionInverting
 import CFSG.RankThree.Transfer.Yoshida
 import CFSG.Milestones.OO_odd_order_solvable
 import CFSG.RankThree.PartTwo.Sec16.Item167StepsProofComp
-import CFSG.RankThree.PartTwo.Sec16.Item167ProofCrit
-import CFSG.GroupTheory.LocalCores.Components
 import CFSG.GroupTheory.Fitting.CharacteristicP
-import CFSG.Permutation.FiveTransitive.CoprimeAutomorphismDisplacement
-import CFSG.RankThree.PartTwo.KFacts.KP10LinearTwo
 import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 import CFSG.LocalAnalysis.ComponentClassification.LayerMultiplication
 import CFSG.LocalAnalysis.ComponentClassification.MinimalBCenter

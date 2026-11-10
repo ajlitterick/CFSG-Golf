@@ -2,7 +2,6 @@ module
 
 public import CFSG.Sporadic.Co1Block.TwoBData
 public import CFSG.Sporadic.Co1Block.TwoBCheckDefs
-public import CFSG.Sporadic.Schreier.TitsBasic
 public meta import CFSG.Sporadic.Co1Block.TwoBData
 public meta import CFSG.Sporadic.Co1Block.TwoBCheckDefs
 public meta import CFSG.Sporadic.Co1Block.CentCheck

@@ -3,7 +3,6 @@ module
 
 public import Certificates.Kernel.J2Cover.EnumData
 public import Certificates.Kernel.J2Cover.K21
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

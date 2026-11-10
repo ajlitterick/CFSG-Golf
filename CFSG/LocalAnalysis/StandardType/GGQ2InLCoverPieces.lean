@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQ2InLCoverFrame
 public import CFSG.LocalAnalysis.StandardType.GGQ2InLLeafLin
 public import CFSG.LocalAnalysis.StandardType.GGQ2InLLeafHeart
 public import CFSG.LocalAnalysis.StandardType.GGQ2NoTwoNodeExc
-public import CFSG.LocalAnalysis.StandardType.GGQ2FrameSmall
 public import CFSG.LocalAnalysis.StandardType.GGQ2InLLeafUnitFull
 public import CFSG.LocalAnalysis.StandardType.GGQ2InLLeafExcVacuous
 public import CFSG.LocalAnalysis.StandardType.GGQ2InLCoverE7

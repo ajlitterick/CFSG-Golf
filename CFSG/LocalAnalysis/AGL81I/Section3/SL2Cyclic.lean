@@ -1,20 +1,12 @@
 module
 
-public import CFSG.CharacterTheory.PSL2Table.Basic
-public import CFSG.CharacterTheory.PSL2Table.Tori
 public import CFSG.Dihedral.Glauberman.DicksonMaxStructure
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenDefs
 public import CFSG.LocalAnalysis.GLTheoremA.S9.Lemma95A
-public import Mathlib.FieldTheory.Finite.GaloisField
 public import CFSG.CGT.PushingUpLit.BHS.NaturalDefs
 public import CFSG.CGT.PushingUpLit.BHS.SymNatDefs
 public import CFSG.CGT.Timmesfeld75.Statements
 public import CFSG.Goldschmidt.Basic
-public import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma32
-public import CFSG.HardMathSupport.Solomon.LocalBalance.Sec5Statements
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6DInputs
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6FInputs
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec7Interface
 public import CFSG.Holt.Centralizer
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanParabThree
 public import CFSG.LocalAnalysis.AGLEmbedding.MSideAtFusion
@@ -46,8 +38,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.S6.Lemma62Aux
 public import CFSG.LocalAnalysis.GLTheoremA.S6.Setup
 public import CFSG.LocalAnalysis.GLTheoremA.S9.Inputs95
 public import CFSG.LocalAnalysis.GLTheoremA.S9.Lemma94
-public import CFSG.LocalAnalysis.GLTheoremB.Lemma911Defs
-public import CFSG.LocalAnalysis.GLTheoremB.SchreierTools
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.FamilyBasic
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.WreathA3Sub3
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.WreathShortMap
@@ -60,7 +50,6 @@ public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15GNPair
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15GNSetting
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15Reduction
 public import CFSG.LocalAnalysis.RankThreeUC.TheoremDFFDatum
-public import CFSG.LocalAnalysis.SignalizerFunctor
 public import CFSG.Quasithin.Background.B1More13A
 public import CFSG.Quasithin.Background.B1More13Defs
 public import CFSG.Quasithin.Background.B1MoreEleven

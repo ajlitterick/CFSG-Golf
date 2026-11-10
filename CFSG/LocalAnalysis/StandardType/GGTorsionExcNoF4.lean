@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGExcCompSLMarking
 public import CFSG.LocalAnalysis.StandardType.GGTorsionExcDefs
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 public import CFSG.LocalAnalysis.StandardType.GGTorsionTwF4Card
 import CFSG.LocalAnalysis.StandardType.GGExcCompSLLen
 

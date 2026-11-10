@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagOrder
-public import CFSG.Open.StatedDefs
-public import Mathlib.FieldTheory.Finite.GaloisField
 
 public section
 

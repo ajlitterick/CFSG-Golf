@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGK0StageDefs
 public import CFSG.LocalAnalysis.StandardType.GGK0LEGamma
 public import CFSG.LocalAnalysis.StandardType.GGK0LQAlgSetup
-public import CFSG.LieType.Chevalley.EvenE7E8AutomorphismNormalForm
-public import CFSG.Sporadic.ThSchreier.GlobalData
 
 public section
 

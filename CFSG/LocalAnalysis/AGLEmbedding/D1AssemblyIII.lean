@@ -1,84 +1,48 @@
 module
 
 public import CFSG.LocalAnalysis.AGLEmbedding.D1Assembly
-public import CFSG.LocalAnalysis.AGLEmbedding.SporadicBetaAssembly
-public import CFSG.LocalAnalysis.AGLEmbedding.SporadicAlpha
-public import CFSG.LocalAnalysis.AGLEmbedding.CoverModule
-public import CFSG.LocalAnalysis.AGLEmbedding.CoverRankLift
-public import CFSG.LocalAnalysis.AGLEmbedding.CoverAbelianSylow
-public import CFSG.LocalAnalysis.AGLEmbedding.SporadicBetaSmall2
-public import CFSG.LocalAnalysis.AGLEmbedding.SporadicBetaSmall3
-public import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeFamilies
-public import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeLie
-public import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeSporAlt
-public import CFSG.LocalAnalysis.AGLEmbedding.NoXBlockBridge
-public import CFSG.LocalAnalysis.AGLEmbedding.AltOuterOdd
-public import CFSG.LocalAnalysis.AGLEmbedding.ResidualFive
 public import CFSG.RankThree.PartOne.LIT.KFCGTList
 public import CFSG.LocalAnalysis.AGLEmbedding.AltCaseThreeK
-public import CFSG.LocalAnalysis.AGLEmbedding.SporCaseThreeData
 public import CFSG.LocalAnalysis.AGLEmbedding.ThreeOrFiveDvd
 public import CFSG.LocalAnalysis.AGLEmbedding.JStarElimAlt
 public import CFSG.LocalAnalysis.AGLEmbedding.POneThreeAlt
 public import CFSG.LocalAnalysis.AGLEmbedding.GapROneBS
-public import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeAThreeP
 public import CFSG.LocalAnalysis.AGLEmbedding.JStarElimSpor
 public import CFSG.LocalAnalysis.AGLEmbedding.NoXBlockBridgeK
-public import CFSG.LocalAnalysis.AGLEmbedding.SporadicOuterAux
-public import CFSG.Sporadic.Bridge.Catalogue
-public import CFSG.LocalAnalysis.AGLEmbedding.LocalCGTBridge
 public import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeRee
 public import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeUnitary
 public import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeJ3
 public import CFSG.LocalAnalysis.AGLEmbedding.J3Data
-public import CFSG.LocalAnalysis.AGLEmbedding.J3Target
-public import CFSG.LocalAnalysis.AGLEmbedding.BlockInnerNormalizer
 public import CFSG.LocalAnalysis.AGLEmbedding.OneLieAssembly
 public import CFSG.LocalAnalysis.AGLEmbedding.OneLieZZCompClose
 public import CFSG.LocalAnalysis.AGLEmbedding.OneLieZZK0BigClose
-public import CFSG.LocalAnalysis.AGLEmbedding.OneLieZN
-public import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeChevTwo
-public import CFSG.LocalAnalysis.AGLEmbedding.OneLieZZClose
-public import CFSG.LocalAnalysis.AGLEmbedding.CaseTwoAssembly
 public import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeA9
 public import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeA15
-public import CFSG.LocalAnalysis.AGLEmbedding.CaseTwoEscapeBlocks
 public import CFSG.LocalAnalysis.AGLEmbedding.OneLieMSideCore
 public import CFSG.LocalAnalysis.AGLEmbedding.OneLieTorusFamilies
 import CFSG.LocalAnalysis.AGLEmbedding.OneLieMSideCompThree
-import CFSG.LocalAnalysis.AGLEmbedding.OneLieMSideBlocksThree
-import CFSG.LocalAnalysis.AGLEmbedding.OneLieMData
 public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallAssembly
 public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallPosA
-public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallPoszOut
-public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallGEVNormal
-public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallGEVNormalThree
 public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallGEVNormalAlt
 public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallGEVIa
-public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallGEVIaL34Third
-public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallGEVIaL34PUCons
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.L34NotOrthogonal
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.U62ThreeCentKFact
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanU62O10CentMain
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanSmallCaseTwoInv
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanSmallL34InvolveIso
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanSmallSylowExp
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanSmallSylowShape
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanSmallSylowShapeThree
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanSmallOutPPrime
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanSmallInvolveCard
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanSp48CenFact
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanFi22AltSection
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanOutFive
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanOutElemRank
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.J3CoverA6
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanSz32Local
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanChevInnerMain
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanG28LocalKFact
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanSp48Data
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.P1ThreeSpor
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanU33Invert
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanSp48NSLoc
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanSp48NSCent
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanSmallOrbitsCube
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanSmallNoTwo
@@ -88,57 +52,27 @@ public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanSmallUPrimeRest
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanSmallOneRest
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanCoprimeAutRankTwo
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanRankOneCore
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.BRowsOf
-public import CFSG.Sporadic.Bridge.BFusFive
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanAltTwoPGamma
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanChevTwoOuterGen
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.OmegaMinusCentKFact
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.OmegaMinusPerfKFact
 public import CFSG.LocalAnalysis.AGLEmbedding.OneLieUnitaryZ
 public import CFSG.LocalAnalysis.AGLEmbedding.OneLieLambda
-public import CFSG.LocalAnalysis.AGLEmbedding.CaseTwoNTwoA
-public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallGuest
-public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallSP
-public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallSPLHatAssembly
-public import CFSG.LocalAnalysis.AGLEmbedding.SPLMSide
 public import CFSG.LocalAnalysis.AGLEmbedding.SPLMSidePieces
-public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallSPLZeroIa
-public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallPosT
 public import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeChevTwoClosed
 public import CFSG.LocalAnalysis.AGLEmbedding.CaseTwoSP
 public import CFSG.CGT.T75P.Inputs
-public import CFSG.CGT.PushingUpLit.SolKAb.Residue
 public import CFSG.HardMathSupport.Seitz.G2Anisotropic.Coordinator.Cover
-public import CFSG.LieType.SeitzGeneration.LowNarrow
-public import CFSG.LocalAnalysis.AGLEmbedding.CaseTwoSPResidues
-public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallBOne
-public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallSPThree
-public import CFSG.LocalAnalysis.AGLEmbedding.LemmaBDefs
-public import CFSG.LocalAnalysis.AGLEmbedding.OneLieMSideDefsAux
-import CFSG.LocalAnalysis.AGLEmbedding.A9MSideBlocksAux
-import CFSG.LocalAnalysis.AGLEmbedding.LemmaBGlue
-import CFSG.LocalAnalysis.AGLEmbedding.LemmaBGroup
 public import CFSG.LocalAnalysis.AGLEmbedding.LemmaBIrr
 public import CFSG.LocalAnalysis.AGLEmbedding.CaseTwoNoSP
 public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallBZero
-public import CFSG.LocalAnalysis.AGLEmbedding.Sp48NClose
 public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallGEV
-public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallSmallP
-public import CFSG.LocalAnalysis.AGLEmbedding.Sp48NCentApply
-public import CFSG.LocalAnalysis.AGLEmbedding.CaseTwoEVK
-public import CFSG.LocalAnalysis.AGLEmbedding.CaseTwoIn
-public import CFSG.LocalAnalysis.AGLEmbedding.CaseTwoStarTwoA
 public import CFSG.LocalAnalysis.AGLEmbedding.CaseTwoNFRest
-public import CFSG.LocalAnalysis.AGLEmbedding.CaseTwoCycRest
-public import CFSG.LocalAnalysis.AGLEmbedding.CaseTwoThreeA6Rest
 public import CFSG.LocalAnalysis.AGLEmbedding.CaseTwoToralCenter
 public import CFSG.LocalAnalysis.AGLEmbedding.BlockFactReductions
-public import CFSG.LocalAnalysis.AGLEmbedding.BlockFoundationsLie
 public import CFSG.LocalAnalysis.AGLEmbedding.BlockFoundationsLieNorm
-public import CFSG.LocalAnalysis.AGLEmbedding.BlockFoundationsPL
 public import CFSG.LocalAnalysis.AGLEmbedding.AscEightFour
 public import CFSG.LocalAnalysis.AGLEmbedding.AscEightFive
-public import CFSG.LocalAnalysis.AGLEmbedding.AscEightSix
 import CFSG.CGT.PushingUpLit.Glue.LocalFactorization
 import CFSG.LocalAnalysis.AGLEmbedding.SPLMSidePiecesGlue
 import CFSG.LocalAnalysis.AGLEmbedding.SPLMSidePieceZK
@@ -150,69 +84,28 @@ import CFSG.LocalAnalysis.AGLEmbedding.SPLMSidePieceTorus
 import CFSG.LocalAnalysis.AGLEmbedding.OneLieListInvolveWClose
 import CFSG.LocalAnalysis.AGLEmbedding.OneLieListInvolveWProof
 import CFSG.LocalAnalysis.AGLEmbedding.OneLieSubElim
-public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallSPLZeroIbRest
-public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallSPLZeroThreeSplit
 public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallSPLZeroIaThree
 public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallSPLZeroIbThreeBridge
 import CFSG.LocalAnalysis.AGLEmbedding.OneSmallSPLZeroIbThreeCenter
 import CFSG.LocalAnalysis.AGLEmbedding.OneSmallSPLZeroIaThreeSuzuki
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.PPrimeCompInvolution
 public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallSPLIbU3Rank
-public import CFSG.LocalAnalysis.AGLEmbedding.Sp48NCoverShape
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanThreeCoverLie
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanThreeCoverSpor
-public import CFSG.RankThree.PartTwo.Sec4.Census.Item44TwoCoverList
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanCoverRankFive
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanAlphaFive
-public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallKCInKFact
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanCoverThreeCases
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanCoverThreeLin
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanCoverThreeRank
-public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallAlphaThree
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanAlphaThreeWeakRes
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanAlphaThreeWeakMult
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanAlphaThreeWeakSmall
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanAlphaThreeWeakSpor
-public import Certificates.Certificate2326
-public import Certificates.Certificate3029
-public import Certificates.Certificate3171
-public import Certificates.Certificate9127
-public import Certificates.Certificate9217
-public import Certificates.Certificate9590
-public import Certificates.Certificate3170
-public import Certificates.Certificate9216
-public import Certificates.Certificate9417
-public import Certificates.Certificate3173
-public import Certificates.Certificate9130
-public import Certificates.Certificate9219
-public import Certificates.Certificate9500
-public import Certificates.Certificate1005
-public import Certificates.Certificate9107
-public import Certificates.Certificate9108
-public import Certificates.Certificate9109
-public import Certificates.Certificate9110
-public import Certificates.Certificate9205
-public import Certificates.Certificate9501
-public import Certificates.Certificate1016
-public import Certificates.Certificate9113
-public import Certificates.Certificate9207
-public import Certificates.Certificate9511
-import CFSG.RankThree.PartTwo.Sec4.Census.Item43Narrow
-import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanCoverRankFiveCensus
-import CFSG.GH74.Generic.GKFCover
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanAlphaThreeLie
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanDiagOuter
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanDiagOuterE6
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanWeakGenG23
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanWeakGenO73
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanWeakGenU43
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanOneLieNonUnitary
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanJStarA9
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanIdentFamilies
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanIdentAlt
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanIdentCharPSmall
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanIdentCharPOne
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanCharPGen
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanIdentOffCharGen
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanIdentOffCharAut
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanIdentSporSmall
@@ -221,123 +114,60 @@ public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanIdentSporOneLie
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanP1ThreeLieCharPAll
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.BCoverFiveOf
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanMonsterThreeY
-public import CFSG.LocalAnalysis.AGLEmbedding.OneLieZZK0ShapeFacts
-public import Certificates.Certificate10093
-public import Certificates.Certificate10098
-public import Certificates.Certificate10103
-import CFSG.LocalAnalysis.ComponentClassification.Helpers
-import CFSG.Sporadic.Bridge.Y322Central
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanSL3CoverGenFix
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.KlingenSpFour
 public import CFSG.LocalAnalysis.AGLEmbedding.BlockFoundationsSpTwo
 public import CFSG.LocalAnalysis.AGLEmbedding.SporadicAlphaMultipliers
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanSL3FourGen
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanCoverE6RankMain
-public import CFSG.LocalAnalysis.ComponentClassification.GoldschmidtTDGriess
-public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallFiKC
-public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallFiKCFi22
-public import CFSG.LocalAnalysis.AGLEmbedding.Sp62BlockCM
-public import CFSG.LocalAnalysis.AGLEmbedding.Sp62BlockCMAlpha
-public import CFSG.LocalAnalysis.AGLEmbedding.Sp62BlockCMSmall
-public import CFSG.LocalAnalysis.AGLEmbedding.Sp62BlockCMPrime
 public import CFSG.LocalAnalysis.AGLEmbedding.Sp48NCentBeta
-public import CFSG.LocalAnalysis.AGLEmbedding.Sp48NCentRankComp
 public import CFSG.LocalAnalysis.AGLEmbedding.Sp48NCoverClose
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.CatalogSchreier
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.Fi22GuestRank
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.L28AutThree
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.AltSixSevenAut
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.L34Local
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.L28Parabolic
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ChevTwoSurvivorSchur
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.Unitary
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.UnitarySchur
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.UnitaryTorus
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.UnitaryPPD
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.UnitaryAut
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.Ree
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.JStarElim
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.JStarElimFive
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.JStarElimThree
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.A9Local
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.A15Local
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.UnitaryUnipotentCentralizer
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.UnitaryBorelPCore
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.UnitaryAutElemRank
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.UnitaryAutPCard
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.JStarElimSporTargets
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.JStarElimReeLie
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.JStarElimUnitaryLie
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.JStarElimLieFinal
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.SplitExc
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.UPrimeExcL34
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.CaseTwoLocalL28
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.J3Sylow
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.Sp62Local
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ReeIdInvolve
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.CaseTwoNoTwo
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.CaseTwoSylow
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.Sp48Target
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ReeF4Target
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.SmallRankOneKFacts
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.SmallThreeOrders
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.L34AutExp
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.L34OuterGen
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.J3Involve
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.JStarE6TwoTwo
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.JStarD4TwoThree
-public import CFSG.RankThree.PartOne.TCB.Final
 public import CFSG.Milestones.FAM_M_finiteness
-public import CFSG.Milestones.FAM_M_simplicity
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactReduceTorus
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactReduceRankOne
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactReduceCaseTwo
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactReduceBlocks
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactReduceJ3
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.J3CoverWeakGen
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.J3OuterInvClosed
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.OmegaEightMinusElemRank
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.Sp62Escape
-public import CFSG.LocalAnalysis.AGLEmbedding.SporadicDataRest
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanE6TwoRank
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanOneLieSylow
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanSmallGamma
-public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallGEVDefs
-public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallGEVStarRes
-public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallResidues
-public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallGEVCoverDefs
 public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallGEVCoverFree
-public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallBZeroKFacts
-import CFSG.LocalAnalysis.AGLEmbedding.OneSmallBZeroChar
-import CFSG.LocalAnalysis.AGLEmbedding.OneSmallGEVEven
-import CFSG.LocalAnalysis.AGLEmbedding.OneSmallGEVIdent
-import CFSG.LocalAnalysis.AGLEmbedding.OneSmallGEVStar
 public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallGEVCoreAssembly
-public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallGEVIbCubeAll
-public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallGEVIbFi22
-public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallKCIn
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.Fi22FiveMain
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.Sp62AutElemRank
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.UnitaryInvolution
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ThompsonGen
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.Fi22FiveCoreMain
-public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallGEVIbAltAll
 public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallGEVIbThreeAll
-public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallGEVIaL34Ph5
-public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallGEVIbL34Rest9
-public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallGEVL34Ph6
-public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallGEVL34Ph7
 public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallGEVL34Close
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.AltTwoPGammaSylow
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactCaseTwoAlphaHoldsElim
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactCaseTwoAlphaHoldsThree
-public import Certificates.Certificate9726
-public import Certificates.Certificate8064
 public import Certificates.Certificate14953
-public import CFSG.Blueprint.NativeSporadic
-public import CFSG.RankThree.PartOne.CTP.FusionSound
-public import Certificates.Certificate3109
-import CFSG.Sporadic.Bridge.BFusSevenGen
 public import Certificates.Certificate4058
 public import Certificates.Certificate4071
 public import Certificates.Certificate4082
@@ -346,16 +176,10 @@ public import Certificates.Certificate4124
 public import Certificates.Certificate4125
 public import Certificates.Certificate4130
 public import Certificates.Certificate5133
-public import Certificates.Certificate8080
-public import Certificates.Certificate8081
 public import Certificates.Certificate9750
 public import Certificates.Certificate9751
-public import CFSG.LieType.SeitzGeneration.Regimes
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactsFamiliesNarrow
-import CFSG.Sporadic.Bridge.BTc
-import CFSG.LocalAnalysis.RankThreeTheoremC.D2LocalCGT3
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanTwoGenInner
-import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanParabThree
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanParabPrime
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanLieOutPrimeClosed
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanLieOutRankMain
@@ -363,43 +187,24 @@ import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanLieOutDiagFinal
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanLieOutDiagBadMain
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanSeitzCyc
 import CFSG.LieType.SeitzGeneration.ConsumerEx
-import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanCenterOver
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanReeCenterOver
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanCaseTwoCM
-import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanMonsterRows
-import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanIdentSporB7
-import CFSG.LocalAnalysis.AGLEmbedding.BlockFactReductionsIIASix
-import CFSG.LocalAnalysis.AGLEmbedding.BlockFactReductionsIICenter
-import CFSG.LocalAnalysis.AGLEmbedding.BlockOutNine
-import CFSG.LocalAnalysis.RankThreeTheoremC.OutCyclicThree
 import CFSG.LocalAnalysis.AGLEmbedding.CompCenterNine
-import CFSG.LocalAnalysis.AGLEmbedding.BlockAltSevenPL
 import CFSG.LocalAnalysis.AGLEmbedding.RankOneAutFactsHolds
 public import CFSG.CGT.PushingUpLit.ThmOne.SectionThreeInputs
-public import CFSG.LocalAnalysis.AGLEmbedding.BlockFoundationsPLType
 public import CFSG.LocalAnalysis.AGLEmbedding.BlockFactsThreeFivesParabolic
-public import Certificates.Certificate10023
 public import Certificates.Certificate5148
 public import Certificates.Certificate9541
 public import Certificates.Certificate9703
 import CFSG.CGT.PushingUpLit.K1R.Dispatch
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanBlockFiveComplete
-import CFSG.LocalAnalysis.AGLEmbedding.BlockFactReductionsIVMain
 import CFSG.LocalAnalysis.AGLEmbedding.BlockParabThreeLeviMain
-import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanBlockCycThreeMain
-import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanBlockCycG2
-import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanO8pCent
 import CFSG.LocalAnalysis.AGLEmbedding.BlockFactReductionsIVOrbit
 import CFSG.LocalAnalysis.AGLEmbedding.UnitaryParabThreeRank
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanOuterSylowFixed
-import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanOuterSylowCases
-import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofLieOrder
 public import CFSG.LocalAnalysis.AGLEmbedding.BlockToralCensusAssembly
-import CFSG.LocalAnalysis.AGLEmbedding.BlockToralCensusRadical
-import CFSG.LocalAnalysis.AGLEmbedding.BlockToralReduceOddMain
 import CFSG.LocalAnalysis.AGLEmbedding.BlockToralReduceThreeIb
 import CFSG.LocalAnalysis.AGLEmbedding.BlockToralReduceThreeCyc
-import CFSG.Milestones.CL_LIT_Griess_Schur_multipliers_Lie_type
 import CFSG.LocalAnalysis.AGLEmbedding.BlockTransvectionCyclic
 public import Certificates.Certificate134001
 public import Certificates.Certificate134002
@@ -446,19 +251,14 @@ public import Certificates.Certificate291373
 public import Certificates.Certificate291380
 public import Certificates.Certificate291381
 public import Certificates.Certificate4018
-public import Certificates.Certificate4019
 public import Certificates.Certificate4020
 public import Certificates.Certificate4021
 public import Certificates.Certificate4022
 public import Certificates.Certificate4023
-public import Certificates.Certificate4024
-public import Certificates.Certificate4025
 public import Certificates.Certificate4026
 public import Certificates.Certificate4036
 public import Certificates.Certificate4037
 public import Certificates.Certificate4038
-public import Certificates.Certificate4057
-public import Certificates.Certificate4059
 public import Certificates.Certificate4069
 public import Certificates.Certificate4070
 public import Certificates.Certificate4126
@@ -466,70 +266,33 @@ public import Certificates.Certificate4127
 public import Certificates.Certificate4129
 public import Certificates.Certificate4134
 public import Certificates.Certificate4135
-public import Certificates.Certificate4136
 public import Certificates.Certificate4137
 public import Certificates.Certificate7154
 public import Certificates.Certificate7067
-public import Certificates.Certificate8010
-public import Certificates.Certificate8011
-public import Certificates.Certificate8014
-public import Certificates.Certificate8015
-public import Certificates.Certificate8016
-public import Certificates.Certificate8017
-public import Certificates.Certificate8022
-public import Certificates.Certificate8025
-public import Certificates.Certificate8030
-public import Certificates.Certificate8031
 public import Certificates.Certificate8063
-public import Certificates.Certificate8952
-public import Certificates.Certificate8953
-public import Certificates.Certificate17000
 public import Certificates.Certificate17001
 public import Certificates.Certificate17002
 public import Certificates.Certificate17006
 public import Certificates.Certificate17022
 public import Certificates.Certificate17023
-public import Certificates.Certificate17026
-public import Certificates.Certificate17028
 public import Certificates.Certificate17951
 public import Certificates.Certificate18950
-public import Certificates.Certificate19953
 public import Certificates.Certificate260140
-public import Certificates.Certificate2024
-public import Certificates.Certificate2072
-public import Certificates.Certificate2142
 public import Certificates.Certificate2143
 public import Certificates.Certificate2334
 public import Certificates.Certificate2335
 public import Certificates.Certificate5150
-public import Certificates.Certificate11003
-public import Certificates.Certificate11004
 public import Certificates.Certificate10028
 public import Certificates.Certificate125500
 public import Certificates.Certificate125501
 import CFSG.HardMathSupport.RichardWeiss.ExceptionalClosure.NoA5.Final
-import CFSG.LocalAnalysis.AGLEmbedding.Norton.OrdinaryProofs.MonsterThirteenCubic
-import CFSG.HardMathSupport.Curtis.Coordinator.ToralThreeReduce
-import CFSG.HardMathSupport.Curtis.Coordinator.AutNineReduce
-import CFSG.LocalAnalysis.AGLEmbedding.ToralCensusHubCenter
 import CFSG.LocalAnalysis.AGLEmbedding.FixedThreeOutSmallFree
-import CFSG.LocalAnalysis.AGLEmbedding.SporadicOuter
 import CFSG.LocalAnalysis.AGLEmbedding.BlockInvThree
 public import CFSG.HardMathSupport.Curtis.Coordinator.AutCenterIb
-import CFSG.HardMathSupport.Curtis.Coordinator.PerfThreeAssembly
 import CFSG.HardMathSupport.Meierfrankenfeld.Coordinator.Final
 import CFSG.HardMathSupport.Curtis.NaturalModuleCensus.KFactBlockToralAltFinal
-import CFSG.HardMathSupport.Curtis.NaturalModuleCensus.SpResidual.Glue
-import CFSG.HardMathSupport.Curtis.Proving.FixThreeSmallFour
-import CFSG.HardMathSupport.Curtis.NaturalModuleCensus.NodeWitnesses.FixPrimeCycD
 import CFSG.LocalAnalysis.AGLEmbedding.ToralCensusAltEight
-public import Certificates.Certificate2176
-public import Certificates.Certificate4003
 public import Certificates.Certificate4008
-public import Certificates.Certificate4016
-public import Certificates.Certificate4017
-public import Certificates.Certificate4200
-public import Certificates.Certificate4201
 public import Certificates.Certificate4202
 public import Certificates.Certificate12601
 public import Certificates.Certificate12602
@@ -546,18 +309,12 @@ public import Certificates.Certificate12632
 public import Certificates.Certificate12680
 public import Certificates.Certificate133001
 public import CFSG.HardMathSupport.Curtis.Coordinator.SPLTorusFamilies
-import CFSG.HardMathSupport.Curtis.Coordinator.SPLTorus
 import CFSG.HardMathSupport.Curtis.Coordinator.ToralThreeFinal
-import CFSG.HardMathSupport.Curtis.NaturalModuleCensus.ResidualD.Glue
-import CFSG.HardMathSupport.Curtis.NaturalModuleCensus.ResidualTwistedD.Glue
 import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.Coordinator.J4Eleven
 public import Certificates.Certificate10036
-public import Certificates.Certificate10041
 public import Certificates.Certificate10060
-public import Certificates.Certificate10061
 public import Certificates.Certificate10062
 public import Certificates.Certificate10063
-public import Certificates.Certificate10064
 public import Certificates.Certificate10065
 public import Certificates.Certificate10066
 public import Certificates.Certificate10079
@@ -582,10 +339,7 @@ public import Certificates.Certificate15034
 public import Certificates.Certificate15035
 public import Certificates.Certificate15042
 public import Certificates.Certificate15043
-public import Certificates.Certificate16007
-public import Certificates.Certificate16034
 public import Certificates.Certificate18010
-public import Certificates.Certificate2081
 public import Certificates.Certificate24000
 public import Certificates.Certificate24050
 public import Certificates.Certificate24051
@@ -602,7 +356,6 @@ public import Certificates.Certificate291101
 public import Certificates.Certificate291110
 public import Certificates.Certificate291111
 public import Certificates.Certificate291120
-public import Certificates.Certificate291130
 public import Certificates.Certificate291350
 public import Certificates.Certificate291351
 public import Certificates.Certificate291360
@@ -611,35 +364,7 @@ public import Certificates.Certificate291362
 public import Certificates.Certificate291390
 public import Certificates.Certificate4103
 public import Certificates.Certificate5113
-public import Certificates.Certificate5126
-public import Certificates.Certificate6041
-public import Certificates.Certificate6042
-public import Certificates.Certificate6043
-public import Certificates.Certificate6044
-public import Certificates.Certificate6045
-public import Certificates.Certificate6046
-public import Certificates.Certificate6059
-public import Certificates.Certificate6060
-public import Certificates.Certificate6061
-public import Certificates.Certificate6062
-public import Certificates.Certificate6063
-public import Certificates.Certificate6064
-public import Certificates.Certificate6065
-public import Certificates.Certificate6066
-public import Certificates.Certificate6067
-public import Certificates.Certificate6068
-public import Certificates.Certificate6069
-public import Certificates.Certificate6070
-public import Certificates.Certificate6071
-public import Certificates.Certificate6072
-public import Certificates.Certificate6091
-public import Certificates.Certificate6092
-public import Certificates.Certificate6094
-public import Certificates.Certificate6095
-public import Certificates.Certificate6096
 public import Certificates.Certificate6103
-public import Certificates.Certificate6107
-public import Certificates.Certificate6110
 public import Certificates.Certificate6114
 public import Certificates.Certificate6116
 public import Certificates.Certificate6117
@@ -680,7 +405,6 @@ public import Certificates.Certificate125557
 public import Certificates.Certificate125558
 public import Certificates.Certificate125559
 public import Certificates.Certificate125561
-public import Certificates.Certificate6106
 public import Certificates.Certificate9456
 public import Certificates.Certificate9457
 public import Certificates.Certificate9458
@@ -720,9 +444,6 @@ public import Certificates.Certificate131301
 public import Certificates.Certificate131302
 public import Certificates.Certificate5153
 public import Certificates.Certificate8053
-public import Certificates.Certificate8054
-public import Certificates.Certificate8055
-public import Certificates.Certificate8056
 public import Certificates.Certificate9300
 public import Certificates.Certificate10021
 public import Certificates.Certificate14982
@@ -732,7 +453,6 @@ public import Certificates.Certificate14988
 public import Certificates.Certificate14989
 public import Certificates.Certificate15950
 public import Certificates.Certificate15951
-public import Certificates.Certificate15952
 public import Certificates.Certificate21102
 public import Certificates.Certificate21190
 public import Certificates.Certificate21191
@@ -752,42 +472,16 @@ public import Certificates.Certificate271032
 public import Certificates.Certificate271033
 public import Certificates.Certificate271070
 public import Certificates.Certificate271071
-public import Certificates.Certificate9704
-public import Certificates.Certificate9706
-public import Certificates.Certificate9707
 public import Certificates.Certificate21198
 public import Certificates.Certificate21199
 public import Certificates.Certificate17430
-public import Certificates.Certificate431004
 public import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.UniversalCoverMonster.HopfPrimaryBridge
-import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Coordinator.PrimaryCells
-import CFSG.RankThree.PartOne.MultRes.Trim
-import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Proving.KernelCells
-import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Proving.SporadicPerfect
-import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Coordinator.TrivialRows
-import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Coordinator.ProvedRows
-import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Coordinator.SuzRow
-import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Coordinator.M12CoverRow
-import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Coordinator.J2CoverRow
-import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Coordinator.KernelTrivialThreeCo1
-import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Coordinator.KernelTrivialThreeCo2
-import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Coordinator.KernelTrivialThreeCo3
-import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Coordinator.KernelTrivialThreeTh
-import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Coordinator.LyKernelTrivialThree
-import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.UniversalCoverMonster.MonsterLargePrime
-import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.UniversalCoverMonster.KernelTrivialBridge
-import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.UniversalCoverMonster.MonsterAmalgamCarrier
-import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.ComponentPrimary.BFive
-import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.ComponentPrimary.BSeven
-import CFSG.RankThree.PartOne.MultRes.Co1Five
-import CFSG.RankThree.PartOne.MultRes.Co1
 import CFSG.LocalAnalysis.AGLEmbedding.SporadicMultD1ThreeCover
 import CFSG.LocalAnalysis.AGLEmbedding.SporadicMultD1Five
 import CFSG.LocalAnalysis.AGLEmbedding.SporadicMultD1CoverThree
 import CFSG.LocalAnalysis.AGLEmbedding.SporadicMultD1ThreeWeak
 import CFSG.LocalAnalysis.AGLEmbedding.SporadicMultD1CenterNineOut
 import CFSG.LocalAnalysis.AGLEmbedding.SporadicMultD1AlphaSpor
-import CFSG.HardMathSupport.Curtis.Coordinator.TorCenterFinal
 import CFSG.HardMathSupport.Malle.Coordinator.KFactReeF4LocalProof
 import CFSG.HardMathSupport.Lang.Coordinator.ONanOuterSylowCyc
 import CFSG.HardMathSupport.Curtis.Coordinator.SPLCellFinal
@@ -797,7 +491,6 @@ import CFSG.HardMathSupport.Curtis.NaturalModuleCensus.SPLCellUni
 import CFSG.HardMathSupport.Curtis.NaturalModuleCensus.SPLCellOrth
 import CFSG.HardMathSupport.Foote.SPLScalar.Closed
 public import CFSG.HardMathSupport.Cooperstein.AlternatingGeometry.EightTenNode
-public import CFSG.LocalAnalysis.ComponentClassification.StandardRecognitionQuaternion
 public import CFSG.CGT.PushingUpLit.SolKNA.Quaternion
 public import CFSG.LocalAnalysis.AGLEmbedding.SeitzCyc.D1
 import CFSG.HardMathSupport.RichardWeiss.Coordinator.AltNormalizerSq.Assembly
@@ -824,14 +517,12 @@ import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockLinFives
 import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockSympMain
 import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockGTwoVoid
 import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockOrthPlusMain
-import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockOrthMinusVoid
 import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockOrthMinusFives
 import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockOrthMinusPosLevi
 import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockUniPosSU
 import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockUniPosLevi
 import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockUniPosFives
 import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockSmall
-import CFSG.LocalAnalysis.AGLEmbedding.ToralCensusHubCenter
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanBlockThreeFivesTypes
 import CFSG.LocalAnalysis.AGLEmbedding.BlockThreeCentCoprime
 import CFSG.LocalAnalysis.AGLEmbedding.ThreeCentLieTwo
@@ -857,7 +548,6 @@ public import CFSG.Certificates.Kernel.LocalCompTits.Span
 public import CFSG.ClassicalInvolution.Balance.PassTwoConj
 public import CFSG.ClassicalInvolution.RouteD.TypeAChain
 public import CFSG.GH74.GLS.Defs
-public import CFSG.GH74.GLS.IVK.Proofs2.Stmt111c
 public import CFSG.GH74.GLS.Stage1.Thm3.Sec5.Closed
 public import CFSG.GH74.GLS.Stage1.Thm3.Sec5.Statements
 public import CFSG.GH74.GLS.Stage1.Thm6.Sec12.Defs
@@ -900,7 +590,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.AutL2FactsFieldAut
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafOddB
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofComponentLift
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddCentralFixed
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalSixStructure
 public import CFSG.LocalAnalysis.ComponentClassification.ExcSelectorEvenE6
 public import CFSG.LocalAnalysis.ComponentClassification.ExcSelectorEvenTriality
 public import CFSG.LocalAnalysis.ComponentClassification.ExcSelectorOddE6
@@ -909,14 +598,11 @@ public import CFSG.LocalAnalysis.ComponentClassification.GMS78Lemma39
 public import CFSG.LocalAnalysis.ComponentClassification.GMS78Sec4
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeMax
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverModels
-public import CFSG.LocalAnalysis.ComponentClassification.OddSelector
-public import CFSG.LocalAnalysis.ComponentClassification.OutcomeLocalCTILinearSocle
 public import CFSG.LocalAnalysis.ComponentClassification.OutcomeLocalOddCentralizer
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicCo1Cen2BData
 public import CFSG.LocalAnalysis.ComponentClassification.RestrictedSporCaseB
 public import CFSG.LocalAnalysis.ComponentClassification.RestrictedStdFamilies
 public import CFSG.LocalAnalysis.ComponentInitial.GL3TwoFixedModelCases
-public import CFSG.LocalAnalysis.ComponentInitial.ProjectiveEigenspaceComponent
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Reduce
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.ThreeCoverBase
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L246C123Alt7
@@ -936,7 +622,6 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly
@@ -1031,7 +716,6 @@ public import Certificates.Data.CFSGNative.Co1.CoTwoAutData
 public import Certificates.Data.CFSGNative.Co1.CoTwoAutOrbit
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 public import Certificates.Kernel.J4Count.Prim
 import CFSG.CGT.T75D.QuasiLemmas
 import CFSG.CGT.T75P.Ctx
@@ -1133,7 +817,6 @@ import CFSG.Sporadic.Fi24
 import CFSG.Sporadic.Recognition.HNMultiplier
 import CFSG.Sporadic.Recognition.LyonsFinalDist2
 import CFSG.Sporadic.Suz
-import CFSG.Walter.J1Props
 import Certificates.Data.HSFiveCheck
 
 public section

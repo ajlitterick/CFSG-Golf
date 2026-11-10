@@ -3,8 +3,6 @@ module
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabFi23Cent
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabFi23O7
 public import Certificates.Certificate17339
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabFi23O7Leaf
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabFi23O7Rec
 public import CFSG.RankThree.PartOne.N143.SecRankHard
 public import CFSG.RankThree.PartOne.N143.SectionCenter
 public import CFSG.RankThree.PartOne.N143.SectionReduce

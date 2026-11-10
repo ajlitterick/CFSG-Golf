@@ -4,8 +4,6 @@ public import Certificates.Kernel.Sporadic.OddCore.Suz27216D
 public import Certificates.Kernel.Sporadic.OddCore.Suz2302
 public import Certificates.Kernel.Sporadic.SuzInv.Full1
 public import Certificates.Data.Kernel.Spor.Suz27216
-public import Certificates.Data.Kernel.Spor.PEnum
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

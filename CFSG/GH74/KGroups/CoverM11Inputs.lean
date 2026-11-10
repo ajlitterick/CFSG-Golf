@@ -1,14 +1,10 @@
 module
 
-public import Mathlib
-public import CFSG.GH74.KGroups.Generic3
 public import CFSG.GH74.KGroups.Generic5
 public import CFSG.GH74.KGroups.Generic7
 public import CFSG.GH74.KGroups.M11Tables
 public import CFSG.GH74.Generic.Shapes
 public meta import CFSG.GH74.KGroups.M11Tables
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.GH74.GLS.Classes
 public import CFSG.GH74.Generic.Certificates
@@ -18,7 +14,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups
 public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismData
 public import CFSG.LocalAnalysis.SectionRank.CentralLift
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.Defs
 
 public section
 

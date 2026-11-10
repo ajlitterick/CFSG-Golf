@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGInnerDiagBridgeTypeA
-public import CFSG.LieType.Universal.SpecialLinearRoots
 
 public section
 

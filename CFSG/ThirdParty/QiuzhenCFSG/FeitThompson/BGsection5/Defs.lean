@@ -1,34 +1,6 @@
 module
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.Defs
 
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.CyclicQuotientExtension
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.SolvableDimension
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.LinearAlgebra.PrimitiveRootEigenspaces
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.ExtraspecialFixedPoints
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.TwoDimensionalOddOrder
-public import Mathlib.Algebra.CharP.LinearMaps
-public import Mathlib.LinearAlgebra.Eigenspace.Triangularizable
-public import Mathlib.LinearAlgebra.Eigenspace.Zero
-public import Mathlib.LinearAlgebra.Lagrange
-public import Mathlib.LinearAlgebra.Semisimple
-public import Mathlib.LinearAlgebra.TensorProduct.Pi
-public import Mathlib.RepresentationTheory.Character
-public import Mathlib.RepresentationTheory.Coinduced
-public import Mathlib.RepresentationTheory.Semisimple
-public import Mathlib.RepresentationTheory.Submodule
-public import Mathlib.RingTheory.RootsOfUnity.AlgebraicallyClosed
-public import Mathlib.RingTheory.SimpleModule.Isotypic
-public import Mathlib.RingTheory.ZMod.Torsion
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.CriticalSubgroupLemmas
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Burnside.NormalComplement
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Extraspecial
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.LinearAlgebra.BlockElementaryMap
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.ConjugateRep
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection2.EndFieldRep
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GeneratorRank
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.Defs
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PGroup.NormalSubgroups
 import Mathlib.GroupTheory.Schreier
 
 namespace CFSG

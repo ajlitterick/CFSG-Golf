@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Asc77.AscBSD7
-public import CFSG.ClassicalInvolution.RouteD.ExoticTwinProofPSp
 public import CFSG.ClassicalInvolution.RouteD.SCRTwinGenSp4
 public import CFSG.Timmesfeld.ARS.CaseEFrame
 public import CFSG.Timmesfeld.ARS.CaseMLevi

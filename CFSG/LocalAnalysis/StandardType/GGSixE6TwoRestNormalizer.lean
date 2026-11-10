@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestDefs
-public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestFrame
 public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestBasic
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotCentralizerYF3Exact
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotHR7Split

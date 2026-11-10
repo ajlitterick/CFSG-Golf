@@ -4,17 +4,11 @@ public import Certificates.Data.Kernel.D42T2
 public import CFSG.Certificates.Kernel.B433Alt.ChainCount
 public import CFSG.Certificates.Kernel.LyBase.Stab
 public import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
-import CFSG.Certificates.Kernel.Spor.Loops
 import CFSG.Certificates.Kernel.Spor.CommBaseSound
-import Mathlib.Tactic.Ring
-import Mathlib.Tactic.GCongr
 import CFSG.Certificates.Kernel.Spor.RawOrbGrp
 import CFSG.LocalAnalysis.EvenSporadicStandard.HypOne.Generic
 import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 import CFSG.Walter.JRFacts
 
 public section

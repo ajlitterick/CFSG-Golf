@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePrimDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpupFork
 import CFSG.LocalAnalysis.StandardType.GGSecFiveL2SplitWeylEquiv
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpBstar

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGExcReflTBWeylDatum
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRest
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
 import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepNine
 import CFSG.LocalAnalysis.StandardType.GGReflClosedOfWeyl
 import CFSG.LocalAnalysis.StandardType.GGSecFiveRootRefl

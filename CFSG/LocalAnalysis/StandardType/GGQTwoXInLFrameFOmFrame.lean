@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLFrameFOmNorm
 public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLFrameFOmFrame2
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalanceBasic
 
 public section
 

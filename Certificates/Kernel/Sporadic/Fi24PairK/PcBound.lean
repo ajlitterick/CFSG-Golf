@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.Sporadic.Fi24PairK.PcData
 public import Certificates.Kernel.Sporadic.Fi24PairK.Pc.R0
 public import Certificates.Kernel.Sporadic.Fi24PairK.Pc.A0
 public import Certificates.Kernel.Sporadic.Fi24PairK.Pc.A1

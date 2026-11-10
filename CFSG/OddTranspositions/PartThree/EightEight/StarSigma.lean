@@ -3,7 +3,6 @@ module
 public import CFSG.OddTranspositions.PartThree.EightEight.StarBlocks
 public import CFSG.OddTranspositions.SixNineUnconditional
 
-import CFSG.OddTranspositions.BlockCover
 import CFSG.OddTranspositions.PartFour.Line
 import CFSG.OddTranspositions.PartThree.EightEight.DeltaOrbit
 import CFSG.OddTranspositions.PartThree.EightEight.Eighteen

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLSideRSExcDefs
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleOrbit
-import CFSG.LieType.Chevalley.SignKernelSimpleWeyl
 import CFSG.LocalAnalysis.StandardType.GGLangSixRoot
 
 public section

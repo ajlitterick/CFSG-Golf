@@ -5,17 +5,12 @@ public import Certificates.Kernel.Sporadic.Co2.HypT
 public import Certificates.Kernel.Sporadic.Co2.HypU
 public import Certificates.Kernel.Sporadic.Co2.HypE8
 public import Certificates.Kernel.Co2Smith.ChainCard
-public import Certificates.Kernel.SporSch.Co2M.FratG
 public import CFSG.Certificates.Kernel.Spor.CommBaseSound
 public import CFSG.Sporadic.Co2Schreier.ThirdOrder
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HypOne.Rank
-public import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HypOne.Generic
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 public import CFSG.Walter.JRFacts
 
 public section

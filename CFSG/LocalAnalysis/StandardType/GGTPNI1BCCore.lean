@@ -1,12 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTPNI1BC
-public import CFSG.LocalAnalysis.StandardType.GGTPNI1BCSupp
 public import CFSG.LocalAnalysis.StandardType.GGTPNI1BCComm
-public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherEvenSymplecticNormalForm
-public import CFSG.HardMathSupport.Solomon.Coordinator.LayerCentralFix
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.SympInnerExport
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.SympInner
 
 public section
 

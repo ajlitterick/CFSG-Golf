@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinRMDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRMPrimeInputs
-import CFSG.LocalAnalysis.StandardType.GGSecFiveReflMaxBasic
-import CFSG.LocalAnalysis.StandardType.GGSecFiveRankOneConj
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpAbsorb
-import CFSG.LocalAnalysis.ComponentInitial.SolvableCoreComponents
 
 public section
 

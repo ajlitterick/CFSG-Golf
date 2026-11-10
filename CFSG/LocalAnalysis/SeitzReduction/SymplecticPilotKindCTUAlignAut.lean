@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotKindCTUnitaryModel
-public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherPrimeFormRealization
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotMainGraphUnitaryModel
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotMainGraphTorusLift
-public import CFSG.LocalAnalysis.SeitzReduction.F4PilotCatStatement
 
 public section
 

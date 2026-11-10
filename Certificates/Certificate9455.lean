@@ -3,11 +3,6 @@ module
 public import CFSG.Sporadic.HNSchreier.FALocal
 public import CFSG.Assembly.Defs
 import Certificates.Kernel.SporE81.HN27Glue
-import Certificates.Certificate2100
-import Certificates.Certificate2102
-import Certificates.Certificate2107
-import Certificates.Certificate2108
-import Certificates.Certificate2109
 
 public section
 

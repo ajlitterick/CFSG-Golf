@@ -1,14 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6RootAsCoroot
-public import CFSG.Assembly.LargeEvenDefs
 import CFSG.LocalAnalysis.StandardType.GGTwE6DeltaThreeEndComp
-import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
-import CFSG.LocalAnalysis.GorensteinLyons.SteinbergCBExponentFourLayer
 import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotBLiftYBasic
 import CFSG.LieType.SeitzGeneration.ExcHighThree.TwKillsRoot
-import CFSG.LieType.Steinberg.Adjoint.Pairs
-import CFSG.GroupTheory.ElemAbelianClosure
 import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcE8Rank1
 import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Detect.E8.MPart
 import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Transport

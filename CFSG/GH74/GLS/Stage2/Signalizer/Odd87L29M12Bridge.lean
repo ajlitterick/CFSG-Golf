@@ -5,9 +5,6 @@ public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87L29M12Abs
 public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87L29M12Faith
 import CFSG.GH74.GLS.Stage2.Signalizer.Odd87NCDm12Aux
 import CFSG.GH74.GLS.Stage2.Signalizer.Odd87L29NonSwap
-import CFSG.GH74.GLS.TwoThin.Equivariance
-import CFSG.GH74.GLS.AssemblyComponents
-public import Certificates.Kernel.ThCent.Leaves
 import CFSG.GH74.GLS.Bg.TwoGroups.Lemma21i
 import CFSG.GH74.GLS.IVK.Proofs2.Ivk5AnSL23
 import CFSG.GH74.GLS.IVK.Proofs2.Ivk5AnUT3B

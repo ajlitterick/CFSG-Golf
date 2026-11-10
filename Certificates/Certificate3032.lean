@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Monster.B.Fischer.HexadAffineInputs
-public import CFSG.Certificates.Kernel.SortTreeSound
 public import Certificates.Kernel.MonsterB.Orb3032Data
 import CFSG.Certificates.Kernel.Common.Harness
 

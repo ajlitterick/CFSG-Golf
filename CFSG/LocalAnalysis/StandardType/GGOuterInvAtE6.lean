@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGOuterInvModelData
-public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergE6
 public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerExcE6
 
 public section

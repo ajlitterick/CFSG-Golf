@@ -1,9 +1,6 @@
 module
 
 public import CFSG.Quasithin.Recognition.St84.Basic
-public import CFSG.Quasithin.Recognition.GoldschmidtFan86TreeBasic
-public import Mathlib.Algebra.BigOperators.Group.List.Basic
-public import Mathlib.Data.List.GetD
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Quasithin.Background.Basic
 public import CFSG.Quasithin.Background.GoldschmidtAmalgamL3TSlide

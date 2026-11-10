@@ -4,9 +4,7 @@ public import Certificates.Data.Kernel.ThCentU.Defs
 public import Certificates.Kernel.ThCentU.Data
 public import Certificates.Kernel.ThCent.Data3C
 public import CFSG.Certificates.Kernel.Th.S.Data.Sm_Sel
-public import CFSG.Certificates.Kernel.Th.S.Data.Sm_const
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabThCensusInputs
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.Each
 
 public section

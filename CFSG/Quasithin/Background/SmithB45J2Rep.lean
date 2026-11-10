@@ -3,7 +3,6 @@ module
 public import CFSG.Quasithin.Background.SmithB45J2Iso
 public import CFSG.Quasithin.Background.SmithB45MatRep
 public import Certificates.Certificate260411
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.SubrepresentationLattice
 
 public section
 

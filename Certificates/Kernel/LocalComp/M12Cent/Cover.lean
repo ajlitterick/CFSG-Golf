@@ -4,7 +4,6 @@ public import Certificates.Kernel.LocalComp.M12Cent.Data
 public meta import Certificates.Kernel.LocalComp.M12Cent.Data
 public import Certificates.Data.E3S3GenM12
 public meta import Certificates.Data.E3S3GenM12
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

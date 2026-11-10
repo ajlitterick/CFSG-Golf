@@ -5,11 +5,8 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniBlocks
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpEquiv
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelSLGenerate
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermLFrameSwap
-import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermQTwoCentralizer
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpLFrame
-import CFSG.LocalAnalysis.SeitzReduction.LinearPilotWeakCTBlocks
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermQTwoCrossing
-import CFSG.LocalAnalysis.SeitzReduction.LinearPilotRoots
 
 public section
 

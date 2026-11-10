@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4E6Root
 public import CFSG.LieType.Chevalley.SignKernelSimpleWeyl
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UE6Disc
 
 public section
 

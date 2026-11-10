@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.Background.HMathieuSyl24
 public meta import CFSG.Quasithin.Background.HMathieuSyl24
-public import Certificates.Certificate7074
 public import Certificates.Certificate7076
 
 public section

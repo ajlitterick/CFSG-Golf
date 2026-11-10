@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.ZS.OrthExtSpecialForm
 public import CFSG.LocalAnalysis.StandardType.ZS.OrthExtSpecialData
 import CFSG.LocalAnalysis.StandardType.ZS.ReflQuotient
 public import CFSG.LocalAnalysis.StandardType.ZS.OrthExtBadRefl

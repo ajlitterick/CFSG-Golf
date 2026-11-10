@@ -1,10 +1,7 @@
 module
 
-public import CFSG.Sporadic.SuzOddCore.InvTCheck
-public import Certificates.Data.CFSGNative.PSL3Four.Basic
 public meta import CFSG.Sporadic.SuzOddCore.InvTCheck
 public meta import Certificates.Data.CFSGNative.PSL3Four.Basic
-public import CFSG.Sporadic.SuzOddCore.OddCoreCheckInputs
 public import Certificates.Certificate2303
 
 public section

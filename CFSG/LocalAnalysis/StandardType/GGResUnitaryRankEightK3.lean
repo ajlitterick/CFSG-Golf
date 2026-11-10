@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGResKHighDegree
 public import CFSG.LocalAnalysis.StandardType.GGDepAThreeNine
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7SUClassLarge
-public import CFSG.LocalAnalysis.StandardType.GGRCTransfer
-public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepWeyl
 
 public section
 

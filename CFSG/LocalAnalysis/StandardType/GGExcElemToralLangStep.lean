@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Timmesfeld.Torality.LangAssembly
-public import CFSG.HardMathSupport.Timmesfeld.Steinberg.ToralCentralizerGenerated
 
 public section
 

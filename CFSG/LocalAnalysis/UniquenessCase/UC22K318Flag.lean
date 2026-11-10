@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.SubgroupLists.SymplecticReducible
-public import CFSG.RankThree.SubgroupLists.SchurCommutant
 
 public section
 

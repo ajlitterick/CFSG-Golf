@@ -1,10 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixA6RedClDefs
-public import CFSG.LocalAnalysis.StandardType.GGSixA6RedShapeSUCore
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedCoreShapeGL
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsCommutant
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsPiGL
 
 public section
 

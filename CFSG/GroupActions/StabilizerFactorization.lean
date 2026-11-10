@@ -1,9 +1,6 @@
 module
 
-public import Mathlib.Algebra.Group.Subgroup.Actions
-public import Mathlib.GroupTheory.GroupAction.Defs
 public import Mathlib.GroupTheory.Index
-public import Mathlib.GroupTheory.QuotientGroup.Defs
 
 public section
 

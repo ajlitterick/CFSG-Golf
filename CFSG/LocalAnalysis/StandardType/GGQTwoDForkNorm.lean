@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoForkTransport
 public import CFSG.LocalAnalysis.StandardType.GGWAutModelNorm
-public import TauCeti.LinearAlgebra.RootSystem.DiagramPermutations
 
 public section
 

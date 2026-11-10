@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGK0NormalFrob
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreSmallSetup
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleOrbit
 public import CFSG.LocalAnalysis.StandardType.GGK0NormalTypes
-public import CFSG.Sporadic.ThSchreier.GlobalData
 public import CFSG.LieType.AlgebraicGroups.ConnectedToralLang
 
 public section

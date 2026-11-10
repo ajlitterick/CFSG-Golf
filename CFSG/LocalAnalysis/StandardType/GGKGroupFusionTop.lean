@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGroupFusionDefs
 public import CFSG.LocalAnalysis.StandardType.GGLemmaThreeThirteenBasic
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ChiefFactors.Core
-public import CFSG.GroupTheory.Fitting.CharacteristicP
 public import CFSG.LocalAnalysis.ComponentInitial.KProperPumpUpStatement
 public import CFSG.LocalAnalysis.ComponentInitial.LayerComponentOrbit
 

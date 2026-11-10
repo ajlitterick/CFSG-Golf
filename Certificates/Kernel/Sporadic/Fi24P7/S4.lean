@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.Sporadic.Fi24P7.Defs
 public import Certificates.Kernel.Sporadic.Fi24P7.S4a
 public import Certificates.Kernel.Sporadic.Fi24P7.S4b
 public import Certificates.Kernel.Sporadic.Fi24P7.S4c

@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
-public import CFSG.ClassicalGroups.UnitaryFlag.GroupData
 public import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotBlocks
-public import TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.Diagonal.Basic
 import CFSG.CGT.Stroth77.Arch76Lemma2Coord
 import CFSG.Quasithin.Background.RonanF57Unitary
 import CFSG.HardMathSupport.Curtis.UnitaryLevi.SemilinearPm

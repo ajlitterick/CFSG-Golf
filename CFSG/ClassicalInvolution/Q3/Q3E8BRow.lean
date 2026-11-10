@@ -5,8 +5,6 @@ public import CFSG.ClassicalInvolution.Q3.Q3E8BRowOrth
 public import CFSG.ClassicalInvolution.Q3.Q3E8BRowExc
 public import CFSG.ClassicalInvolution.ModelFacts.E8D8RowShape
 public import CFSG.ClassicalInvolution.Uniform.U8Final
-public import CFSG.ClassicalInvolution.RouteD.TypeDLocal
-public import CFSG.ClassicalInvolution.RouteD.TypeTwistedE6PerpClassical
 public import CFSG.Sporadic.Schreier.J4SProfileNode
 
 public section

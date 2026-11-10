@@ -20,7 +20,6 @@ import CFSG.LocalAnalysis.RankThreeUC.AGL81CZComm
 import CFSG.LocalAnalysis.GLTheoremA.S8.Lemma83
 import CFSG.HardMathSupport.Solomon.Coordinator.L5Conj
 import CFSG.LocalAnalysis.GLTheoremA.CatA.I167ExcFieldGen
-import CFSG.LieType.SeitzGeneration.HeisTorusU87Arith
 import CFSG.LocalAnalysis.GLTheoremA.CatA.YS09I133Small
 import CFSG.Sporadic.Co2Smith.Transport
 

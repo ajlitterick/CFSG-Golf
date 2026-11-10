@@ -3,7 +3,6 @@ module
 public import CFSG.Certificates.Kernel.Misc.F42Sound
 public import Certificates.Kernel.Misc.F42Data
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

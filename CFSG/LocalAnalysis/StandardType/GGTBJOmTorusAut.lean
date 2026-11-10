@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBJOmTorus
-public import CFSG.LocalAnalysis.StandardType.GGTBJOmAutomizer
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmCompFixed
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmCompNf
 public import CFSG.LocalAnalysis.StandardType.GGTBJFrameBs

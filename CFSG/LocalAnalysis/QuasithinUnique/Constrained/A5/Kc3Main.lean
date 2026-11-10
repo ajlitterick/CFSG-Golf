@@ -1,13 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3L4
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3Tits
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3Odd
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3L3
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3F4
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3L5
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3Sp4
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3Data
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3M22
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3M23
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3M24

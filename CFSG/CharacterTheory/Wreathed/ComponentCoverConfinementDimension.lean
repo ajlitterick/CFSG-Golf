@@ -1,7 +1,6 @@
 module
 
 public import CFSG.CharacterTheory.Wreathed.ComponentCoverConfinementSetup
-public import CFSG.CharacterTheory.Wreathed.FullCentralizerFromProjectiveModel
 public import CFSG.CharacterTheory.Semidihedral.ExchangedEigensubgroups
 public import CFSG.CharacterTheory.Semidihedral.Local.LocalNormalizerQuotients
 public import CFSG.CharacterTheory.Wreathed.ComponentCoverTwoInvolutions
@@ -10,8 +9,6 @@ public import CFSG.CharacterTheory.Wreathed.OriginalCoveringLocalFamilyMembers
 public import CFSG.CharacterTheory.Wreathed.SameFieldOddKernelCharacterInputs
 public import CFSG.CharacterTheory.Wreathed.StationaryInvertedSylow
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.QuotientGraph
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

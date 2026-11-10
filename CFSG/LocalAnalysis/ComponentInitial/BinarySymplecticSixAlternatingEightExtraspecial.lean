@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentInitial.BinarySymplecticSixAlternatingEightPointTwoGroup
-public import CFSG.LocalAnalysis.ComponentInitial.BinaryOddQuadraticFiveSplitting
 
 public noncomputable section
 

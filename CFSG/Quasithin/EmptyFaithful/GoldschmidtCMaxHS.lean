@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtCMaxCen
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHS
 import all CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHS
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporHS
 public import CFSG.LocalAnalysis.ComponentClassification.HSFLitKDA6

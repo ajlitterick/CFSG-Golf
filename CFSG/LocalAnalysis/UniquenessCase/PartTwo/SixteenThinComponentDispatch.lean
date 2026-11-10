@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC1677ThreeDefs
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenH154H5Cfg
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenLThreeComponentCases
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenAltFiveComponentCases
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSLTwoFourRow

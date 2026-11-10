@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.Sol76LStruct
 public import CFSG.LocalAnalysis.ComponentClassification.Sol76AltClass
 public import CFSG.LocalAnalysis.ComponentClassification.Sol76Transport
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitLayerTools
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LinearAlgebra.LinearGroups.CoordinateData
 public import CFSG.LocalAnalysis.ComponentClassification.FooteLitBalanceCore
 public import CFSG.LocalAnalysis.ComponentClassification.Sol76Props

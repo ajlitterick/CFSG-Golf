@@ -1,10 +1,8 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Eleven.Five.Refl
-public import CFSG.ClassicalGroups.Orthogonal.Derived
 public import CFSG.ClassicalInvolution.Orders.OrthogonalIndex
 public import CFSG.LocalAnalysis.ComponentInitial.LinearOrthogonalBasis
-public import Mathlib.Algebra.Field.ZMod
 public import TauCeti.LinearAlgebra.QuadraticForm.Diagonal.Basic
 public import CFSG.LieType.Universal.SpinOmega.Range
 

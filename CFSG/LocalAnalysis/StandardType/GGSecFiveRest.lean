@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRestFrame
-public import CFSG.LocalAnalysis.StandardType.GGWeylCasePrime
 public import CFSG.LocalAnalysis.StandardType.GGTypeAEndNode
 
 public section

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.EmptyFaithful.S143NF
-public import CFSG.Quasithin.EmptyFaithful.S143NB
 
 public section
 

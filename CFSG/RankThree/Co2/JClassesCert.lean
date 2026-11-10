@@ -1,6 +1,5 @@
 module
 
-public import CFSG.RankThree.Co2.JConjFacts
 public import Certificates.Certificate8104
 
 public section

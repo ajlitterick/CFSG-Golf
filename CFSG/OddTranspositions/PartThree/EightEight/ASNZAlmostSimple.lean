@@ -1,20 +1,14 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Statements
-public import CFSG.Timmesfeld.Bridge.Asc72Defs
-public import CFSG.Timmesfeld.Closure.MinCex
 
 import CFSG.GroupTheory.SupZpowersIndexTwo
-import CFSG.LocalAnalysis.GH72.OuterFacts
-import CFSG.OddTranspositions.HypothesisC
 import CFSG.OddTranspositions.PartThree.EightSix.AlmostSimpleSub
 import CFSG.OddTranspositions.PartThree.Eleven.OneTwo.ConnLemmas
 import CFSG.OddTranspositions.PartThree.Eleven.OneTwo.Wreath
 import CFSG.OddTranspositions.TheoremTwo.ImageConnected
 import CFSG.OddTranspositions.WidthOne
 import CFSG.Quasithin.Background.A3Structure314Radical
-import CFSG.Timmesfeld.Bridge.Asc72Bender
-import CFSG.Timmesfeld.Bridge.OddLocalBlock
 import CFSG.Timmesfeld.Bridge.OddLocalRootCore
 import TauCeti.Algebra.Group.Subgroup.ZPowers
 import CFSG.CGT.Timmesfeld75.Statements
@@ -40,13 +34,11 @@ import CFSG.OddTranspositions.Disconnected
 import CFSG.OddTranspositions.O4PairTenWidth
 import CFSG.OddTranspositions.WreathQuotient
 import CFSG.Quasithin.Background.A3Components
-import CFSG.Quasithin.Background.A3ComponentsAmbient
 import CFSG.Quasithin.Background.A3Structure312Iso
 import CFSG.Quasithin.Background.A3Structure313SL2
 import CFSG.Sporadic.FischerOddCore.Fi24AlmostSimple
 import CFSG.Sporadic.FischerOddCore.Fi24R2CompBase
 import CFSG.Sporadic.FischerOddCore.FischerOuterBasic
-import CFSG.Sporadic.J4.Simple
 import CFSG.Sporadic.J4Base
 import CFSG.Sporadic.Mathieu.M12
 import CFSG.Sporadic.Mathieu.M24

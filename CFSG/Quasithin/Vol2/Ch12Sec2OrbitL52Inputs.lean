@@ -28,20 +28,13 @@ public meta import CFSG.Monster.Code.Weights
 public meta import CFSG.Quasithin.Background.A3Components
 public import CFSG.Quasithin.Background.A3Components
 public meta import CFSG.Quasithin.Background.A3ComponentsAmbient
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.B1Basic
 public import CFSG.Quasithin.Background.E1
-public import CFSG.Quasithin.Background.E1Sec4
-public import CFSG.Quasithin.Background.E1Sec5
-public import CFSG.Quasithin.Background.E1Sec8
-public import CFSG.Quasithin.Background.E1Solv
-public import CFSG.Quasithin.Background.E1Twelve
 public meta import CFSG.Quasithin.Background.JonesParshallNatural
 public meta import CFSG.Quasithin.Background.JonesParshallSmallSL
 public meta import CFSG.Quasithin.Background.Module
 public import CFSG.Quasithin.H13.StatementsL2
 public import CFSG.Quasithin.Vol2.Ch12Sec2OrbitCount
-public import CFSG.Sporadic.J4.Simple
 public meta import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public meta import CFSG.Sporadic.J4Base
@@ -50,10 +43,7 @@ public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
 public meta import CFSG.Sporadic.Mathieu.M24
 public meta import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
 public meta import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public meta import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public meta import Certificates.Certificate43
 

@@ -1,13 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGK1Defs
 public import CFSG.LocalAnalysis.StandardType.GGK1Cover
-public import CFSG.Assembly.GL83LieDefs
 public import CFSG.LieType.SemisimpleCentralizers.HeldLangSL
-public import CFSG.LieType.SemisimpleCentralizers.HeldLinearComponents
 public import CFSG.LieType.SemisimpleCentralizers.HeldUnitaryComponents
-public import CFSG.LieType.SemisimpleCentralizers.HeldSLFacts
-public import CFSG.RankThree.PartOne.KC.PrimaryDecomposition
 public import CFSG.LocalAnalysis.StandardType.GGK1SigmaAbs
 
 public section

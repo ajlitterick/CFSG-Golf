@@ -3,7 +3,6 @@ module
 public import Certificates.Data.TitsAschbacherE32Pairs
 public import Certificates.Kernel.EvenBN.Lists
 import CFSG.Certificates.Kernel.Common.Harness
-public import Certificates.Certificate7050Base
 
 public section
 

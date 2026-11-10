@@ -1,13 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBJSuRow
 public import CFSG.LocalAnalysis.StandardType.GGTBJSudRow
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmRow
 public import CFSG.LocalAnalysis.StandardType.GGTBJRowR5O2
 public import CFSG.LocalAnalysis.StandardType.GGTBRowVDatum
 public import CFSG.LocalAnalysis.StandardType.GGTBRowR5Parity
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySp
-public import CFSG.LocalAnalysis.StandardType.GGTBJRowR4Narrow
 
 public section
 

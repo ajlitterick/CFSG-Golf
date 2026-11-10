@@ -1,14 +1,9 @@
 module
 
-public import CFSG.GroupTheory.PerfectResidualNodes
-public import CFSG.GH74.Generic.GKFCover
 public import CFSG.GH74.Generic.GKFTables
 public import CFSG.GH74.Generic.GKFBridge
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCorrSourceChange
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitLift
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuotIso
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Certificates.WordSubgroupRel
 public import CFSG.GH74.GLS.Classes
 public import CFSG.GH74.Generic.Certificates

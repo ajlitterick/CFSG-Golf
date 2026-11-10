@@ -1,16 +1,9 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.TheoremA
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTen
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTenStructuralIdentities
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Hyp11Bridge
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.PreambleInvolutions
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.PreambleHSU
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.DihedralStructure
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section2.Lemma22
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section1
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

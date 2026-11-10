@@ -2,7 +2,6 @@
 module
 
 public import CFSG.Monster.B.TwoA.Unitary.OrbitBase
-public import CFSG.Monster.B.TwoA.Base.FrameBase
 public import CFSG.Monster.B.Classical.ThreePlaneData
 public meta import CFSG.Monster.B.TwoA.Census.PermCert
 public meta import CFSG.Monster.B.TwoA.Census.PermBFS

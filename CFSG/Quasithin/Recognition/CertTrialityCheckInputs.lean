@@ -4,7 +4,6 @@ public import CFSG.Quasithin.Recognition.CertChain
 public import CFSG.Quasithin.Recognition.CertTrialityModel
 public import CFSG.Quasithin.Recognition.CertDataTriality
 public import Certificates.Data.CFSGNative.YGroups.ExactCheck
-public import Certificates.Data.CFSGNative.Schreier.Check
 public meta import CFSG.Open.QuasithinDefs
 public meta import CFSG.Quasithin.Recognition.CertF8
 public meta import CFSG.Quasithin.Recognition.CertTrialityModel

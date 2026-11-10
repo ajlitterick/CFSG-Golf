@@ -1,12 +1,8 @@
 module
 
-public import Mathlib.Algebra.Group.Defs
-public import Mathlib.Data.Finite.Defs
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.CyclicTwoCorePPg
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.FUFittingContainment
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma25
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

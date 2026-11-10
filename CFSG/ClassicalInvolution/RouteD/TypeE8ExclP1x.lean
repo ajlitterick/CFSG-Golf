@@ -3,7 +3,6 @@ module
 public import CFSG.ClassicalInvolution.RouteD.TypeE8Excl
 public import CFSG.ClassicalInvolution.RouteD.TwinSL4BridgeBase
 public import CFSG.ClassicalInvolution.Balance.Q27FuzzyMain
-public import CFSG.ClassicalInvolution.Balance.Q27Layers
 public import CFSG.ClassicalInvolution.Balance.LayerGenerationPairFinalAll
 public import CFSG.ClassicalInvolution.ModelFacts.CommutingFundamentalTwAll
 public import CFSG.ClassicalInvolution.Balance.Theorem5Models

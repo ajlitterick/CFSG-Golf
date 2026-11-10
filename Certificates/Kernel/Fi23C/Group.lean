@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Fi23C.Facts
 public import Certificates.Kernel.Fi23M.Keys
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import Mathlib
 public import CFSG.Sporadic.Fi23.Class
 
 public section

@@ -2,7 +2,6 @@ module
 
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinJ3ExtraInvolution
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

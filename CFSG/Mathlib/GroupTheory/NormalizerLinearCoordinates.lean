@@ -1,12 +1,7 @@
 module
 
 public import CFSG.Sporadic.Schreier.RuElemAut
-public import Mathlib.GroupTheory.Subgroup.Centralizer
 public import Mathlib.GroupTheory.IsPerfect
-public import Mathlib.Algebra.Module.Pi
-public import Mathlib.Algebra.Group.Subgroup.Pointwise
-public import Mathlib.Algebra.Group.Subgroup.Finite
-public import Mathlib.LinearAlgebra.Matrix.Action
 
 public noncomputable section
 

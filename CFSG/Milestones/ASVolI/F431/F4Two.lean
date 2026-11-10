@@ -1,10 +1,6 @@
 module
 
 public import CFSG.Milestones.ASVolI.F431.A35LieI
-public import CFSG.Quasithin.Vol2.GoldschmidtF431TwoF4Model
-public import CFSG.Quasithin.Vol2.GoldschmidtF431TwoF4Zid
-import CFSG.Milestones.ASVolI.F4
-import CFSG.Milestones.ASVolI.F4Conjugacy
 public import CFSG.LocalAnalysis.EvenBN.U4.Model.AutSection
 public import CFSG.Milestones.ASVolI.F431.Asm
 public import CFSG.Quasithin.Vol2.GoldschmidtF431SpOut2Complete

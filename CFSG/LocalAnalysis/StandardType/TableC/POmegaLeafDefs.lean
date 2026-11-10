@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.TableC.Extract
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
-public import CFSG.LieType.Universal.Spin.Action
-public import CFSG.LieType.Universal.Spin.Forms
 
 public section
 

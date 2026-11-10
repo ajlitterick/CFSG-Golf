@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4FinalGData
-public import CFSG.Quasithin.Background.A1cTransferVariants
 public import CFSG.LocalAnalysis.ComponentInitial.BinarySymplecticSixFusionOrbits
 public import CFSG.Sporadic.ThSchreier.AutCore
 public import CFSG.GroupTheory.QuasisimpleCommutingProductBound

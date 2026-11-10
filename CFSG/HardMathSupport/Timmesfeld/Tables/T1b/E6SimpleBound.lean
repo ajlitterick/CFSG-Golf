@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Timmesfeld.Tables.T1b.E6WeylFix
-public import CFSG.HardMathSupport.Timmesfeld.Tables.T1b.E6SimpleWeylCheck
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarE6ThreeHyperplane
 public import CFSG.HardMathSupport.Lang.E6Descent.OuterFixed27DiagTorus
 public import CFSG.HardMathSupport.Timmesfeld.Tables.T1b.TorusBound

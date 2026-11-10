@@ -3,13 +3,11 @@ module
 public import CFSG.GroupTheory.SylowIntersectionControl.GomiLeviExc.Transfer
 public import CFSG.GroupTheory.SylowIntersectionControl.GomiLeviExc.SLChevTwo
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.ParabLeviComponents
-public import CFSG.LieType.Steinberg.TwistedE6.Defs
 import CFSG.ClassicalInvolution.ModelFacts.LinearAutLift
 import CFSG.LocalAnalysis.AGLEmbeddingD2.SquareUnitary
 import CFSG.LieType.Steinberg.CentralExt.FieldFourMultiplier
 import CFSG.LieType.Steinberg.CentralExt.TwistedE6Torus
 import CFSG.ClassicalInvolution.Models.LinearPairs.Pairs
-import CFSG.ClassicalInvolution.WeakCT.TwistedE6Levi
 import CFSG.ClassicalInvolution.WeakCT.TwistedE6Model
 public import CFSG.Adapters.ClassicalCatalogLinearUnitary
 public import CFSG.CharacterTheory.Blocks.BrauerInduction

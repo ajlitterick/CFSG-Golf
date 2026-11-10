@@ -3,7 +3,6 @@ module
 public import CFSG.RankThree.PartTwo.Sec18.Components
 public import CFSG.RankThree.PartTwo.Sec18.Item181
 import CFSG.GroupTheory.PerfectResidualNodes
-public import CFSG.RankThree.PartTwo.Sec18.Tools
 
 public section
 

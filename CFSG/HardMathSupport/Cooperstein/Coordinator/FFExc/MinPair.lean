@@ -3,16 +3,7 @@ module
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.FFExc.MinLead
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.FFExc.PairTransfer
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.FFExc.PairDataE6
-public import CFSG.HardMathSupport.Cooperstein.Coordinator.FFExc.PairDataE7
-public import CFSG.HardMathSupport.Cooperstein.Coordinator.FFExc.PairGraph
-public import CFSG.LieType.Steinberg.Minuscule.Form
-public import CFSG.Blueprint.ChevalleyRootArtifact
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate115
-public import Certificates.Certificate116
 public import Certificates.Certificate129090
-import Certificates.Data.Kernel.PairBnb
 import CFSG.Certificates.Kernel.PairBnbSound
 import CFSG.Certificates.Kernel.Common.ForallTree
 import CFSG.Certificates.Kernel.Common.EachTrue

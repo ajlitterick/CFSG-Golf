@@ -23,8 +23,6 @@ public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.E2Statements
 public import CFSG.Quasithin.Background.E2Three
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F9G2
 public import CFSG.Quasithin.Background.FFC7G
 public import CFSG.Quasithin.Background.G64SymCase

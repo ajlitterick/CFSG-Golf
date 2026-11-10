@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeRowCover1585Holds
-public import CFSG.Assembly.GL83LieDefs
 public import CFSG.LocalAnalysis.StandardType.GGResLeaf
 
 public section

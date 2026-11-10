@@ -2,12 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.HypA2Leaves.A2lCoverIso
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.HypA2Leaves.A2lCoverBasic
-public import CFSG.LieType.Steinberg.CentralExt.Families
-public import CFSG.LieType.Steinberg.CentralExt.UnitaryHigher
-public import CFSG.LieType.Steinberg.CentralExt.UnitaryPerfect
 public import CFSG.LieType.Classical.SteinbergBLSymplectic
-public import CFSG.LieType.Universal.Unitary.Comparison
-public import CFSG.Adapters.ProjectiveSpecialLinear
 public import CFSG.ClassicalInvolution.Asc77.Lemma310
 public import CFSG.ClassicalInvolution.Asc77.ThmEStatement
 public import CFSG.ClassicalInvolution.Asc77.WP1Section18

@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHeCertificate
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtE68SporAsm
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtE68SporCen
 public import CFSG.Quasithin.EmptyFaithful.S151S9THeCen
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHe
 public import Certificates.Certificate4215
 
 public section

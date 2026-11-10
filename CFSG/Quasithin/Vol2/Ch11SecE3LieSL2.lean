@@ -4,8 +4,6 @@ public import CFSG.Quasithin.Vol2.Ch11SecE3LieLow
 public import CFSG.Quasithin.Vol2.KGNatSL2
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Theorem5_1
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListRank2
-public import CFSG.LocalAnalysis.ComponentInitial.BasicFacts
-public import CFSG.Quasithin.Background.A3StructureDefs
 public import CFSG.GroupTheory.PerfectResidualNodes
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierAlternatingSix
@@ -37,8 +35,6 @@ public import CFSG.Quasithin.Vol2.Ch11StatementsC
 public import CFSG.Quasithin.Vol2.Ch1Local
 public import CFSG.Quasithin.Vol2.KGNatCoord
 public import CFSG.Sporadic.Schreier.J4SSylow
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ProjectiveSemilinear
 public import CFSG.Walter.Defs
 
 public section

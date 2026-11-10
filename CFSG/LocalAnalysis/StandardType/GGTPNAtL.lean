@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoDefs
 import CFSG.LocalAnalysis.StandardType.GGTPNAtLLocal
 import CFSG.LocalAnalysis.StandardType.GGTPNAtLRank
 import CFSG.LocalAnalysis.StandardType.GGTPNAtLOnly
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 import CFSG.LocalAnalysis.StandardType.GGD4OddCentJLevel
 
 public section

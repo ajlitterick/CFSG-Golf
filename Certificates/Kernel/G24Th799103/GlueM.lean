@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.G24Th799103.GlueBase
-import CFSG.Certificates.Kernel.Spor.RawOrbEval
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

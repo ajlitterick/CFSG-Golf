@@ -1,8 +1,6 @@
 module
 
 public import CFSG.RankThree.SubgroupLists.MitchellThmEightSplit
-public import CFSG.RankThree.SubgroupLists.SymplecticBaseChange
-public import CFSG.RankThree.SubgroupLists.MitchellQOne
 
 public section
 

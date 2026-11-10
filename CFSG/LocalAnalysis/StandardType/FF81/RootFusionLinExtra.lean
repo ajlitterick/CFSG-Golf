@@ -1,13 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FF81.RootFusionLinCent
-import Mathlib.FieldTheory.Finite.Basic
 import Mathlib.Algebra.Module.ZMod
 import Mathlib.LinearAlgebra.BilinearForm.Orthogonal
-import Mathlib.Algebra.Field.ZMod
-import Mathlib.Data.Matrix.Basis
-import Mathlib.FieldTheory.Finiteness
-import Mathlib.LinearAlgebra.Dimension.Constructions
 
 public section
 

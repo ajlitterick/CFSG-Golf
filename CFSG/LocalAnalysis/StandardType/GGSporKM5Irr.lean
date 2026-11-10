@@ -3,7 +3,6 @@ module
 public import Mathlib.Data.ZMod.Basic
 public import Mathlib.LinearAlgebra.Matrix.ToLin
 import Mathlib.FieldTheory.Finite.GaloisField
-import Mathlib.GroupTheory.Perm.Cycle.Type
 
 public section
 

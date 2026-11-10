@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGCartanReflLift
 public import CFSG.Mathlib.LinearAlgebra.Matrix.GramDetModP
 public import CFSG.Mathlib.LinearAlgebra.Matrix.SignedPathDet
-public import TauCeti.LinearAlgebra.RootSystem.FiniteType.Dynkin
 
 public section
 

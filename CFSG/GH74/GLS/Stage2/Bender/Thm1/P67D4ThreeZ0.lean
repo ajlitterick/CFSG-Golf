@@ -2,8 +2,6 @@ module
 
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4ThreePerX
 public import CFSG.RankThree.PartOne.KGD.D4T36Plane
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LinearAlgebra.OddSolvableUnitary.HomologySaturation
 public import CFSG.RankThree.Chevalley.SteinbergCFOddG2SplitInnerActor
 public import CFSG.RankThree.PartOne.KC.UnitaryPlaneOrthogonal

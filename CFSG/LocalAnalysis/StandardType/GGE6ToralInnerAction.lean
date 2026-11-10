@@ -1,24 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGExcToralInnerAction
-public import CFSG.LieType.Chevalley.RootDiagonalWeylTransporter
-public import CFSG.LieType.Chevalley.E6ToralGraphInvolution
-public import CFSG.LieType.Chevalley.GraphFixedF4GroupRestriction
-public import CFSG.LieType.Chevalley.GraphFixedBruhatEquivariance
-public import CFSG.LieType.Chevalley.ExactNormalFormE
-public import CFSG.LieType.Chevalley.TwistMap
-public import CFSG.HardMathSupport.Lang.E6Descent.RankTwistedE6
 public import CFSG.HardMathSupport.Lang.E6Descent.OuterFixed27TwistedE6Normalizer
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeDiagLift
-public import CFSG.LieType.Chevalley.LangRootArithmeticDet
-public import CFSG.RankThree.Classical2.TwistedE6Phi3Torus
-public import CFSG.LieType.Chevalley.GraphFixedCompatibleDiagonal
-public import CFSG.RankThree.Chevalley.G2CyclotomicTori
-public import CFSG.RankThree.PartOne.Q1327T.Item7D4W
-public import CFSG.RankThree.PartOne.KE.CTLang
-public import CFSG.LieType.Chevalley.OddDiagramFrobeniusFixedDerived
-public import CFSG.LieType.AlgebraicGroups.ToralTwistPinningFrobenius
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfMaxToral
 public import CFSG.HardMathSupport.Lang.E6Descent.OuterFixed27TwistedE6Arith
 public import CFSG.RankThree.PartOne.SLB4A.ClassExcRest
 

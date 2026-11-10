@@ -1,8 +1,6 @@
 module
 
 public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
-public import Mathlib.Data.ZMod.Basic
-public import Mathlib.GroupTheory.Subgroup.Centralizer
 
 public section
 

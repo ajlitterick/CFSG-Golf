@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2POmegaPosDefs
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaCores
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaForms
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2PSLPos
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2PSUPos
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.OmegaSmallPlus
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.OmegaSmallMinus

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Background.F6CatRecogTools2
-public import CFSG.CharacterTheory.Semidihedral.ElementOrders
 
 public section
 

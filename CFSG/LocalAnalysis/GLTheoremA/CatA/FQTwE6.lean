@@ -2,13 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FQChev
 public import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotUniqueFieldTorus
-public import CFSG.LocalAnalysis.StandardType.MarkingChevalley
-public import CFSG.LieType.Chevalley.DiagramCoordinateFixedStructure
-public import CFSG.LieType.Chevalley.GraphFixedCenterTrivial
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.YS09Field
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FQUni
-public import CFSG.LocalAnalysis.ComponentInitial.FieldFiniteAutomorphism
-public import CFSG.LocalAnalysis.SeitzReduction.F4PilotCatEvenExcOrders
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotHR4
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotUniqueField
 

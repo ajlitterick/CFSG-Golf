@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154NonCfgRank4C
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154NonCfgDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154NonCfgRank4B
-public import CFSG.RankThree.Chevalley.SteinbergBIWE8Code
 
 public section
 

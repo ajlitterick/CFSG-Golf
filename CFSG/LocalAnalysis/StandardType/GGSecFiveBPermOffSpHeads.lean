@@ -1,12 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermOffSpCases
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermLinDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermQTwoRecFive
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermProperDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermProperQTwoDefs
-import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpStdAssembly
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermLin
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermLinOmKFrameMp
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSU

@@ -1,7 +1,6 @@
 
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallConfP45Inputs
 public meta import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallQ3P45
 public meta import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallConfChecks2
 public import Certificates.Data.Kernel.Census.CatFacts.C2009Defs

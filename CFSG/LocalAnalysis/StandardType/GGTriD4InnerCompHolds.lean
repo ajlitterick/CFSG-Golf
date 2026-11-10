@@ -3,13 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTriD4InnerCompDefs
 import CFSG.LocalAnalysis.GLTheoremA.S12.CanonTriCentHolds
 import CFSG.LocalAnalysis.GLTheoremA.S12.CanonL2Holds
-import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestTri
-import CFSG.LocalAnalysis.StandardType.GGLemmaThreeThirteenFourteen
-import CFSG.RankThree.PartTwo.Sec11.KS11Lie6ProofACent
 import CFSG.RankThree.PartTwo.Sec11.KS11Lie6ProofBCent
-import CFSG.RankThree.PartTwo.Sec11.KS11Lie6ProofShort
-import CFSG.RankThree.PartTwo.Sec21.Item219LieProofD4A
 
 public section
 

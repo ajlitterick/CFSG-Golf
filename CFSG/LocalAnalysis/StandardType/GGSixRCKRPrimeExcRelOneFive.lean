@@ -1,13 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcRelOneAt
-public import CFSG.LocalAnalysis.StandardType.GGLatRootBridge
-import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcOrbit
-import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcShapeFour
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcShapeFourHolds
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcClass
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcClassE6
-import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcEigen
 
 public section
 

@@ -1,21 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResILineInputs
-public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3BridgeA2
-public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkTransport
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitDvdAct
-public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitary
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitarySix
-public import CFSG.LocalAnalysis.StandardType.GGTBTorAIndHolds
 public import CFSG.LocalAnalysis.StandardType.GGTBTorAIndUFourTwo
-public import CFSG.LocalAnalysis.StandardType.GGRCWeylCard
 public import CFSG.LocalAnalysis.StandardType.GGTwA5ThreeFrame
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorusRank
 public import CFSG.LocalAnalysis.StandardType.GGResJUnitaryCubicBlock
-public import CFSG.LocalAnalysis.StandardType.GGUSixThreeKGWeyl
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitarySixThreeCases
-public import CFSG.LocalAnalysis.StandardType.GGUSixThreeKGFieldStruct
-public import CFSG.LocalAnalysis.StandardType.GGNbrU63StepTwo
 public import CFSG.LocalAnalysis.StandardType.GGUSixShSub
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeRowDimReduced
 

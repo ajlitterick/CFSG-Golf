@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2OrthPlaneCoord
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP9SignOmega
-import CFSG.RankThree.PartOne.S11d.OrthDicksonOmega
 import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs141d2
 import CFSG.GH74.GLS.IVK.Proofs2.Lemma12hb
 import CFSG.GH74.GLS.IVK.Proofs2.Lemma13d

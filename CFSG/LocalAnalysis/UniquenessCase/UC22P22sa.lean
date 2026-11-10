@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22s
-public import CFSG.RankThree.PartOne.S12.PushingUp
-import CFSG.GroupTheory.Fitting.CharacteristicP
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.CampbellBaumannTools
 import CFSG.Quasithin.Background.BlueprintB2Bridge
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22e

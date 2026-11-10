@@ -1,8 +1,5 @@
 module
 
-public import CFSG.Certificates.Kernel.Orders.Cert
-public import CFSG.Certificates.Kernel.Orders.Co1.Data.Sel
-public import CFSG.Certificates.Kernel.Orders.Co1.Rels
 public import CFSG.Certificates.Kernel.Orders.Co1.Checks.R
 public import CFSG.Certificates.Kernel.Orders.Co1.Checks.H
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Conway.One

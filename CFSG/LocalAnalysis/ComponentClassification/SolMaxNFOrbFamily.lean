@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.SolMaxNFOrbAlt
-public import Mathlib.GroupTheory.PGroup
 
 public section
 

@@ -1,8 +1,6 @@
 module
 
-import CFSG.LocalAnalysis.StandardType.GGQTwoLMMod
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordInnerDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordInnerTorMono
 
 public section

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.LowerTwD
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.LowerCover
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.PRankSmall
-public import CFSG.LieType.Steinberg.CentralExt.POmegaMinusMultiplier
 public import CFSG.GH74.Uniqueness.SU.SU7Gen3
 public import CFSG.GH74.Uniqueness.SU.SU7Gen2
 public import CFSG.LocalAnalysis.GL83PartI.I713.Basic

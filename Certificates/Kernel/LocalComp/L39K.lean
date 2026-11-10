@@ -4,10 +4,8 @@ public import Certificates.Kernel.LocalComp.L39Data
 public import Certificates.Kernel.LocalComp.Child3Lemmas
 public import Certificates.Kernel.LocalComp.FendelBridge
 public import Certificates.Data.Kernel.Co3Bfs
-public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Child3SelL39Data
 public import CFSG.Certificates.Kernel.Spor.SiftRSound
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.FendelSound
 public import CFSG.Certificates.Kernel.Spor.RawSlSound
 

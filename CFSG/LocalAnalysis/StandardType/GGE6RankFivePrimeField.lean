@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfE6Toral
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeA2BlockTwoCore
-public import CFSG.GroupTheory.ElemAbelianClosure
 
 public noncomputable section
 

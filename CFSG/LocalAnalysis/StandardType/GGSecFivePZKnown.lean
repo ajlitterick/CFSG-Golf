@@ -2,12 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrderSixPZ
 import CFSG.LocalAnalysis.StandardType.GGInnerDiagPowers
-import CFSG.LocalAnalysis.StandardType.GGStdSubIOneSix
-import CFSG.LocalAnalysis.StandardType.GGInnerDiagMarkingE6
-import CFSG.LocalAnalysis.StandardType.GGInnerDiagMarkingE6TwRankOne
-import CFSG.LocalAnalysis.StandardType.GGSixTrialityL613
-import CFSG.LocalAnalysis.StandardType.Marking
-import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotCatTypeDet
 
 public section
 

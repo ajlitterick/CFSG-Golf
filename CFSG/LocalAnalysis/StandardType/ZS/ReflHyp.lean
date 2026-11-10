@@ -1,14 +1,11 @@
 module
 
 public import CFSG.Fischer.Classification.Basic.SixObstruction
-public import CFSG.Fischer.Classification.Skeleton
 public import CFSG.LocalAnalysis.StandardType.ZS.NoNormalTwoThree
 public import CFSG.LocalAnalysis.StandardType.ZS.ReflGraph
-public import CFSG.LocalAnalysis.StandardType.ZS.ReflQuotient
 public import CFSG.LocalAnalysis.StandardType.ZS.SixReflections
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 
 public section
 

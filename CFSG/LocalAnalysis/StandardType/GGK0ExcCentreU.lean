@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGK0ExcB3OfProducers
-public import CFSG.LocalAnalysis.StandardType.GGK1ScExcPair
 public import CFSG.LocalAnalysis.StandardType.GGK0ExcCentreOutdiag
 public import CFSG.LocalAnalysis.StandardType.GGK0ExcCentreLift
 public import CFSG.LocalAnalysis.StandardType.GGK0ExcCentreCentralTorsion

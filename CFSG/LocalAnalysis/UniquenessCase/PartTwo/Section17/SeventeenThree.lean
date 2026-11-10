@@ -2,16 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.StatementsA
 public import CFSG.LocalAnalysis.UniquenessCase.UC22DataExt
-public import CFSG.LocalAnalysis.UniquenessCase.UC22R847G4
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.R847Narrow
 public import CFSG.LocalAnalysis.AGLEmbedding.RankTools
-public import CFSG.Adapters.ProjectiveSpecialLinear
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Center
 public import CFSG.ClassicalInvolution.SubnormalClosure
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition84Sylow
 public import CFSG.LocalAnalysis.UniquenessCase.UC22OddPRank
-public import CFSG.GroupTheory.ABGLocalTools.PStabilityQDickson
-public import CFSG.GroupTheory.PRankQuotientLift
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22n
 public import CFSG.Blueprint.LieModelAPI
 public import CFSG.CGT.Timmesfeld75.L2Pair
@@ -63,7 +57,6 @@ public import CFSG.Quasithin.Background.B5Basic
 public import CFSG.Quasithin.Background.B5CompA
 public import CFSG.Quasithin.Background.B5CompB
 public import CFSG.Quasithin.Background.B6
-public import CFSG.Quasithin.Background.B6Example
 public import CFSG.Quasithin.Background.InternalSecAutOn
 public import CFSG.Quasithin.Background.InternalSecB4
 public import CFSG.Quasithin.Background.SmithC27Star

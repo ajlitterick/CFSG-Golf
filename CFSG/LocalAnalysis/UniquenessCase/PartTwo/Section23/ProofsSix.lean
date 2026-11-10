@@ -1,23 +1,12 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.StatementsComponents
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.ProofsComponents
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.ContextFacts
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22qy
-public import CFSG.LocalAnalysis.UniquenessCase.UC6R2
-public import CFSG.LocalAnalysis.UniquenessCase.UC6Syl
-public import CFSG.LocalAnalysis.UniquenessCase.UC22Main1
-public import CFSG.LocalAnalysis.UniquenessCase.UC22P22qa
-public import CFSG.LocalAnalysis.UniquenessCase.UC22P22qs
-public import CFSG.LocalAnalysis.UniquenessCase.UC22P22qw
-public import CFSG.LocalAnalysis.UniquenessCase.UCR638
 public import CFSG.LocalAnalysis.RankThreeTheoremC.WreathThompson
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma27QuotientIndex
 public import CFSG.GroupTheory.OddOrderSylowThree
-public import CFSG.GroupTheory.ElemAbelianRank
 public import CFSG.GroupTheory.PGroupFixedPointCongruence
 public import CFSG.GroupTheory.WielandtProductAux
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition84Residual
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.UEqZ
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22t
 public import CFSG.LocalAnalysis.UniquenessCase.UC6S846d

@@ -1,11 +1,8 @@
 module
 
-public import Certificates.Data.Kernel.LocalQT.SylE
 public import Certificates.Data.Kernel.LocalQT.SylL
 public import CFSG.Certificates.Kernel.LocalQTWordSound
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1M24TCheckInputs
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1M24CheckInputs
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.LieType.CurtisTits.Recognition
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1M24TChain
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1M24TUniq

@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.LocalComp.L34Cos.Gen
 public import Certificates.Kernel.LocalComp.L34RDefs
-public import Certificates.Kernel.Misc.Perm.HexCmd
 meta import Certificates.Kernel.LocalComp.L34Cos.Gen
 
 public section

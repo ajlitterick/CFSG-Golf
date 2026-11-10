@@ -9,14 +9,6 @@ public import CFSG.GH74.E2.Alpha1Core
 public meta import Mathlib
 public meta import CFSG.CharacterTheory.Semidihedral.Model
 public meta import CFSG.GH74.E2.SD16Cert
-public import CFSG.GH74.E2.Alpha1CoreInputs
-public import CFSG.GH74.E2.SD16CertInputs
-public import Mathlib
-public import CFSG.GH74.KGroups.Generic
-public import CFSG.GH74.KGroups.PermCheck
-public import CFSG.GH74.KGroups.Checks
-public import CFSG.GH74.KGroups.PSLN
-public import CFSG.GH74.KGroups.L33Inputs
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBGeneralLinear
 public import CFSG.LocalAnalysis.ComponentInitial.SylowPointRecovery

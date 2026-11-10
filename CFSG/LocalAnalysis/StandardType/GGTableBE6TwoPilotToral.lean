@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBE6TwoPilotAct
 public import CFSG.LocalAnalysis.StandardType.GGTableBE6ThreeEndTwo
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeTwo
 
 public section
 

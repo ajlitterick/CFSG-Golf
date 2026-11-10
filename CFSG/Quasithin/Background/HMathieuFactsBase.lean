@@ -2,55 +2,13 @@
 module
 
 public import CFSG.Quasithin.Background.HMathieuFacts23Base
-public import CFSG.Quasithin.Background.HMathieuFacts24Base
 public import CFSG.Quasithin.Background.HMathieuCodeCent
 public import CFSG.Quasithin.Background.HMathieuCodeInvBase
-public import CFSG.Sporadic.Schreier.M22Data
 public meta import CFSG.Sporadic.Schreier.M22Data
-public import CFSG.Sporadic.Schreier.M23Data
-public import CFSG.Sporadic.Schreier.M23PinnedInputs
-public import CFSG.Sporadic.Schreier.M24Data
 public meta import CFSG.Sporadic.Schreier.M24Data
-public import CFSG.Sporadic.Schreier.MathieuOddCoreM22Data
 public meta import CFSG.Sporadic.Schreier.MathieuOddCoreM22Data
-public import CFSG.Sporadic.Schreier.MathieuOddCoreM23Data
 public meta import CFSG.Sporadic.Schreier.MathieuOddCoreM23Data
-public import CFSG.Sporadic.Schreier.MathieuOddCoreM24Data
 public meta import CFSG.Sporadic.Schreier.MathieuOddCoreM24Data
-public import Certificates.Data.CFSGNative.Mathieu.M24
-public import Certificates.Data.CFSGNative.Mathieu.M22
-public import CFSG.Monster.B.Mathieu.M24CheckInputs
-public import CFSG.Monster.B.Mathieu.M22CheckInputs
-public import CFSG.Quasithin.Background.HMathieuCentInputs
-public import CFSG.Quasithin.Background.HMathieuMask
-public import CFSG.Quasithin.Background.HMathieuCodeCentInputs
-public import CFSG.Quasithin.Background.HMathieuCodeMask
-public import CFSG.Quasithin.Background.HMathieuNorm
-public import CFSG.Quasithin.Background.HMathieuCodeInvInputs
-public import CFSG.Quasithin.Background.HMathieuSyl22
-public import CFSG.Quasithin.Background.HMathieuSyl23
-public import CFSG.Quasithin.Background.HMathieuSyl24
-public import CFSG.Quasithin.Background.HMathieuSyl22Inputs
-public import CFSG.Quasithin.Background.HMathieuPT24
-public import CFSG.Quasithin.Background.HMathieuPred
-public import CFSG.Quasithin.Background.HMathieuSyl23Inputs
-public import CFSG.Quasithin.Background.HMathieuSyl24Inputs
-public import CFSG.Quasithin.Background.HMathieuAvoid
-public import CFSG.Quasithin.Background.HMathieuEnumAll
-public import CFSG.Quasithin.Background.HMathieuFacts24Inputs
-public import CFSG.Quasithin.Background.HMathieuFacts22Base
-public import CFSG.Quasithin.Background.HMathieuSyl24GreedyBase
-public import CFSG.Quasithin.Background.HMathieuSyl24Odd
-public import CFSG.Quasithin.Background.HMathieuNormInputs
-public import CFSG.Quasithin.Background.HMathieuCent
-public import CFSG.Monster.B.TwoA.Base.M22
-public import CFSG.Monster.CodeAut.Bridge
-public import CFSG.Sporadic.Schreier.MathieuOddCoreM22
-public import CFSG.Sporadic.Schreier.MathieuOddCoreM23
-public import CFSG.Sporadic.Schreier.MathieuOddCoreM24
-public import CFSG.Sporadic.Schreier.M22
-public import CFSG.Sporadic.Schreier.M23
-public import CFSG.Sporadic.Schreier.M24
 
 @[expose] public section
 

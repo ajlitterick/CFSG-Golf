@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.FooteLitTypeRank
-public import CFSG.LocalAnalysis.ComponentClassification.FooteLitMaximal
 public import CFSG.LocalAnalysis.ComponentClassification.Sol78Basic
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedGSASymplecticExclusion
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.QdSLNotInvolvedOfDihedralSylowTwo
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.Basic
 public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.Sol78Seven
 public import CFSG.LocalAnalysis.QuasithinUnique.Setting

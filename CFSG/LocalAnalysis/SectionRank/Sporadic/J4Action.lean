@@ -1,11 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.SectionRank.Sporadic.LocalWitness
-public import CFSG.Sporadic.J3.F2Spec
-public import Certificates.Data.CFSGNative.SectionRank.J4Local
 public meta import Certificates.Data.CFSGNative.SectionRank.J4Local
 public meta import Certificates.Data.CFSGNative.J3.Basic
-public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4ActionInputs
 public import Certificates.Certificate8023
 import all CFSG.Blueprint.NativeSporadic
 

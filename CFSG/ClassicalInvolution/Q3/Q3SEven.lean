@@ -2,10 +2,8 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.Q3SSylow
 public import CFSG.ClassicalInvolution.Q3.Q3RSectionalFour
-public import CFSG.ClassicalInvolution.SmallCases.EvenLie
 public import CFSG.ClassicalInvolution.SmallCases.NobqL34
 public import CFSG.LieType.Multipliers.Sz8Matrix
-public import CFSG.Adapters.QiuzhenLegacy.BenderSuzuki.BenderLinearBorel
 public import CFSG.CharacterTheory.CyclicBlocks.Family
 public import CFSG.CharacterTheory.PSL2Table.BlocksProduct
 public import CFSG.CharacterTheory.Semidihedral.Principal.LargePrimeTorusSylowCentralizers
@@ -60,9 +58,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherEvenOrthogonalMod
 public import CFSG.Open.GorensteinHaradaSectionalRankFourMilestoneDefs
 public import CFSG.Permutation.UnitaryThreeRecognition.Model
 public import CFSG.Sporadic.McL
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_1_12
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis

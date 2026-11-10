@@ -3,7 +3,6 @@ module
 public import CFSG.HardMathSupport.Timmesfeld.Tables.Census.Witness
 public import CFSG.RankThree.PartTwo.Census.Carrier.ReeF4Catalog
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsLieF4
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.LieType
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.LieType
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.AmbientGroup
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Classification

@@ -2,13 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutOddCore
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatFactsK
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatCode
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatRows
 public import Certificates.Data.Kernel.SporLatDcCode
 public import Certificates.Data.Kernel.AutJ2Lat.Lat
 public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
 public import CFSG.Sporadic.J2
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

@@ -3,7 +3,6 @@ module
 
 public import CFSG.Sporadic.Schreier.RuCheckOrbitsBase
 
-public import CFSG.Sporadic.Schreier.RuArrays
 public meta import CFSG.Sporadic.Schreier.RuArrays
 public import Certificates.Certificate2256
 

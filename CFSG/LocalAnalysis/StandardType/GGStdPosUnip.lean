@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdPosTorus
-public import CFSG.LieType.Steinberg.Bridge
-public import CFSG.LieType.Steinberg.Collection
-public import CFSG.LieType.TitsSimplicity.Unipotent
-import Mathlib.Tactic.Group
 
 public section
 

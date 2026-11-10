@@ -3,11 +3,9 @@ module
 public import CFSG.RankThree.PartTwo.Sec18.SimsBridge189Tools
 public import CFSG.RankThree.PartTwo.Sec18.SimsBridge189L16
 public import CFSG.RankThree.PartTwo.Sec20.SimsAsc1411Statements
-public import CFSG.RankThree.PartTwo.Sec18.SimsItem186HStatement
 import CFSG.RankThree.PartTwo.Sec18.Item189StepProofO3
 import CFSG.RankThree.PartTwo.Sec18.Item189StepsProof
 import CFSG.RankThree.PartTwo.Sec18.Item189StepProofOddL2
-import CFSG.RankThree.PartTwo.Sec18.Transport
 import CFSG.RankThree.PartTwo.Sec20.SimsAsc1411L2
 import CFSG.RankThree.PartTwo.Sec20.SimsAsc1411L3
 import CFSG.RankThree.PartTwo.Sec20.SimsAsc1411U3
@@ -45,10 +43,8 @@ import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasSix
 import CFSG.LocalAnalysis.ComponentInitial.OrthogonalReflectionSplitting
 import CFSG.LocalAnalysis.ComponentInitial.OrthogonalStandardFormsRegular
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X7bPairs
-import CFSG.LocalAnalysis.SectionRank.PRank
 import CFSG.LocalAnalysis.SectionRank.SQT
 import CFSG.StronglyEmbedded.BenderUnitaryCenter
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_1_12
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis

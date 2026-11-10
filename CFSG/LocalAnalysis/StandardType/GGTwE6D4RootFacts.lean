@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGWeylRootFacts
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeAd
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderExcRestProofE6Ad
 public import CFSG.LieType.Chevalley.OrthogonalSemilinearFixedCells
-public import CFSG.LieType.Chevalley.WeylNormalizerQuotient
-public import CFSG.LieType.Chevalley.LangRootRankOne
 
 public section
 

@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDRMFiveLin
-public import CFSG.LocalAnalysis.StandardType.GGSimplyLacedWeyl
 
 import CFSG.LocalAnalysis.StandardType.ZS.ClassReflOrder
-import CFSG.LocalAnalysis.StandardType.ZS.ClassReflClosure
 import CFSG.LocalAnalysis.StandardType.ZS.DimThree.OrthRefl
 import CFSG.LocalAnalysis.StandardType.ZS.Adapter
 import CFSG.LocalAnalysis.StandardType.GGFLWReflForm

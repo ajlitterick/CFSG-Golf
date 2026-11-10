@@ -4,9 +4,7 @@ public import Certificates.Kernel.FiveStd.Data
 public import Certificates.Kernel.FiveStd.ClsData
 public import Certificates.Kernel.FiveStd.PlData
 public import Certificates.Kernel.FiveStd.Cover
-public import Certificates.Data.Kernel.FiveStdKOrb
 public import Certificates.Data.Kernel.FiveStdKPl
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.EachTrue
 
 public section

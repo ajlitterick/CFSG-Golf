@@ -5,13 +5,11 @@ public import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.PurePairGeneration
 public import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.PureBlocks
 public import CFSG.ClassicalInvolution.Phan.PhanDn.Dictionary
 public import CFSG.RankThree.PartOne.KFR4.DerivedLe
-public import CFSG.LocalAnalysis.SectionRank.EvenCover.UnitaryThree
 public import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.ThreePlaneFourierGeneration
 public import CFSG.ClassicalInvolution.Phan.PhanDn.StdFamilyGood
 public import CFSG.LocalAnalysis.StandardType.PhanELiftOfFamily
 public import CFSG.Mathlib.GroupTheory.SimpleFactorPair
 public import CFSG.ClassicalInvolution.Phan.SuTwoSimple
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
 import all CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.PureEmbed
 public import CFSG.ClassicalGroups.SpecialLinear.InvariantForms
 public import CFSG.ClassicalGroups.SpecialLinear.NaturalDualSum

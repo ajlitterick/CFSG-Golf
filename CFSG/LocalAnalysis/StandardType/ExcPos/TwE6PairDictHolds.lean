@@ -5,7 +5,6 @@ import CFSG.LocalAnalysis.StandardType.GGFamLabelIndex
 import CFSG.LocalAnalysis.StandardType.GGLieCoreSmallSetup
 import CFSG.LocalAnalysis.StandardType.GGLieCorePlane3Pair
 import CFSG.LocalAnalysis.StandardType.GGFamTame
-import CFSG.LocalAnalysis.StandardType.GGFamComponent
 
 public noncomputable section
 

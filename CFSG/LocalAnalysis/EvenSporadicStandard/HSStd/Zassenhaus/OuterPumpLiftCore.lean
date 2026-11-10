@@ -2,13 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.S5Section
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.H35Comp
-public import CFSG.GroupTheory.LocalCores.Components
 public import CFSG.Foundations.SteinbergCADefinitionNodes
-public import Mathlib.GroupTheory.SpecificGroups.Alternating.Simple
 public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.Adapters.GeneralizedFitting
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Blueprint.OddStandardExact
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.QuasiAssembly
 public import CFSG.LocalAnalysis.ComponentClassification.GSLitInputs

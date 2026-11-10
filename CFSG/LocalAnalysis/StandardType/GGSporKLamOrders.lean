@@ -1,13 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGHypThreeSixteenFlat
-public import CFSG.LocalAnalysis.StandardType.Marking
-public import CFSG.LocalAnalysis.StandardType.MarkingDict
-public import CFSG.LocalAnalysis.EvenSmallLie.CatalogOrdersLie
 public import CFSG.Adapters.LieModelOrders
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotCatTypeDet
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LieType.Ree.LargeReeEightTorus
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasFive
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasSix

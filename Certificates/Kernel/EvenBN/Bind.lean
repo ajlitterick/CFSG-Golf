@@ -4,8 +4,6 @@ module
 public import Certificates.Kernel.SporSch.Tits.Central2263
 public import Certificates.Kernel.SporSch.Tits.GenList
 public import Certificates.Data.TitsAschbacherParrott
-public import CFSG.Certificates.Kernel.Spor.PackWord
-public import CFSG.Certificates.Kernel.BfsPinUnpack
 meta import Certificates.Data.TitsAschbacherParrott
 import CFSG.Certificates.Kernel.Common.Harness
 

@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4Inputs
-public import CFSG.LieType.Chevalley.RootCharacterConjugation
-public import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
-public import CFSG.LieType.Chevalley.RootCharacterKernelProduct
 
 public section
 

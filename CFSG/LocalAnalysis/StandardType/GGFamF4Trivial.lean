@@ -1,12 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGFamComponent
 public import CFSG.LocalAnalysis.StandardType.GGFamF4Orbit
 public import CFSG.LocalAnalysis.StandardType.GGLieCorePlane3F4Gamma
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.RigidDescent
-import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddExc
-import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofEvenE6
-import CFSG.LieType.Chevalley.GraphFixedF4Canonical
 import CFSG.HardMathSupport.Dickson.Sec6.Up34OddAux.SsTwAux.RatLayer
 import CFSG.HardMathSupport.Dickson.Sec6.Up34OddAux.SsTwAux.ExcD4Layer
 

@@ -2,20 +2,14 @@ module
 
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.Coordinator.KF148Sig.J2Data
 public import CFSG.RankThree.PartTwo.Sec4.Sporadic.J2Base
-import Certificates.Certificate8168
-import Certificates.Certificate8169
-import Certificates.Certificate10019
 import Certificates.Kernel.J2Sig12648.Checks
 import Certificates.Kernel.J2Sig12648.Small
 import Certificates.Kernel.J2Sig12648.TwoChecks
 import Certificates.Kernel.Misc.Perm.J2Enum
 import CFSG.Certificates.Kernel.J2Sig12648Sound
-import CFSG.Certificates.Kernel.Misc.PermClosSound
 import CFSG.RankThree.PartTwo.Sec4.Sporadic.J2Local45
 import CFSG.Certificates.Kernel.Common.ForallChunks
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.Group
-import Mathlib.Tactic.IntervalCases
 
 set_option maxRecDepth 400000
 

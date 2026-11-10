@@ -4,9 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGHdRo7A3Basic
 import CFSG.LocalAnalysis.StandardType.GGHdRo7SUSmallBridge
 import CFSG.LocalAnalysis.StandardType.GGQTwoTransvectionFreeRules
 import CFSG.LocalAnalysis.StandardType.GGWAutCommon
-import Mathlib.Tactic.Module
-import Mathlib.Tactic.LinearCombination
-import Mathlib.Tactic.IntervalCases
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2SpWitness
 public import CFSG.LieType.Universal.Spin.Roots.TypeD
-import CFSG.Timmesfeld.ARS.CaseOAWeyl
 import CFSG.LocalAnalysis.StandardType.GGSecFiveL2SplitDkRootsWeyl
 
 public section

@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.J2Cover.M22Lk
 public import CFSG.GH74.KGroups.CoverJ2TablesInputs
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.J2ModelsGen
 public import Certificates.Kernel.J2Cover.M22Blocks
 

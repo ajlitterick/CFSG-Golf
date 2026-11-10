@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentInitial.BinarySymplecticSixRadicalLabels
-public import CFSG.LocalAnalysis.ComponentInitial.BinarySymplecticSixCongruenceOrbits
-public import CFSG.LocalAnalysis.ComponentInitial.BinarySymmetricThreeFullCosetMiddleSubgroup
 
 public noncomputable section
 

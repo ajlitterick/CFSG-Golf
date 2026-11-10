@@ -1,8 +1,6 @@
 module
 
 public import CFSG.RankThree.PartOne.K133Spor.RhoPlane
-public import CFSG.RankThree.PartOne.K133Spor.HNHom
-public import CFSG.RankThree.PartOne.K133Spor.HNKlein
 
 public section
 

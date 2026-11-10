@@ -2,8 +2,6 @@ module
 
 public import CFSG.Open.StatedDefs
 import CFSG.ClassicalGroups.Unitary.Finite
-import CFSG.ClassicalGroups.Unitary.Form
-import CFSG.LieType.Universal.Unitary.Comparison
 import CFSG.LieType.BorelTits.CompleteFlag
 
 public section

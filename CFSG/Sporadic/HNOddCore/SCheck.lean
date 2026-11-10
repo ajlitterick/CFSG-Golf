@@ -1,12 +1,8 @@
 module
 
-public import CFSG.Sporadic.HNOddCore.InvArrays
-public import CFSG.Sporadic.HNOddCore.ChainUtil
-public import CFSG.Sporadic.HNOddCore.OrbitCert
 public meta import CFSG.Sporadic.HNOddCore.InvArrays
 public meta import CFSG.Sporadic.HNOddCore.ChainUtil
 public meta import CFSG.Sporadic.HNOddCore.OrbitCert
-public import CFSG.Sporadic.HNOddCore.SCheckInputs
 public import Certificates.Certificate2091
 
 public section

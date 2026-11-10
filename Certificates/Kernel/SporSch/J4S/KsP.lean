@@ -2,8 +2,6 @@
 module
 
 public import Certificates.Kernel.SporSch.J4S.KsK
-public import Certificates.Kernel.SporSch.J4S.NoCPBase
-public import Certificates.Kernel.J4Q.Mat
 import CFSG.Certificates.Kernel.Common.Harness
 public import Certificates.Kernel.SporSch.J4S.NoCP
 

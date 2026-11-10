@@ -1,11 +1,9 @@
 module
 
-public import CFSG.RankThree.PartOne.AUTSL.L4Push
 public import CFSG.RankThree.PartOne.AUTSL.L4Act
 public import CFSG.RankThree.PartOne.AUTSL.L4Torus
 public import CFSG.RankThree.PartOne.AUTSL.L4Out
 public import CFSG.LocalAnalysis.ComponentInitial.LinearCoverFour
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.Defs
 
 public section

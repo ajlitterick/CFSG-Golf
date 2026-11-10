@@ -2,11 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGKD2SmallPieces1615
 public import CFSG.LocalAnalysis.StandardType.GGTBJNoB2derA6
-public import CFSG.LocalAnalysis.StandardType.Marking
 public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Child3SelOrders
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FQSz
 public import CFSG.RankThree.PartTwo.KFacts.KP7Suzuki
-public import CFSG.Adapters.ProjectiveSpecialLinear
 public import CFSG.Assembly.OrderReductions.LinearOrders
 public import CFSG.Assembly.GL83StatedBridge
 public import CFSG.Alternating.Multipliers.Small

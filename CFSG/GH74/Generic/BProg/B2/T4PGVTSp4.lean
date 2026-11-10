@@ -1,17 +1,9 @@
 module
 
 public import CFSG.GH74.Generic.BProg.B2.T4PGVTL2
-public import CFSG.GH74.Generic.BProg.B2.PumpupTableSp4
 public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87Sp4OutMain
-import CFSG.LocalAnalysis.ComponentClassification.CatFactsSp4OneComp
-import CFSG.LocalAnalysis.ComponentClassification.CatFactsSp4TwoComp
-import CFSG.LocalAnalysis.ComponentClassification.CatFactsSp4Inner
-import CFSG.LocalAnalysis.ComponentClassification.CatFactsSp4Transport
-import CFSG.LocalAnalysis.ComponentInitial.LocalBMaximalPropagation
-import CFSG.LinearAlgebra.LinearGroups.TwoQuadraticOddSections
 import CFSG.GH74.GLS.Stage2.Signalizer.Odd87Sp4OutDiag
 import CFSG.GH74.GLS.Stage2.Signalizer.Odd87Sp4OutField
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.LyCert
 public import CFSG.GH74.AS16.Defs
 public import CFSG.GH74.E2.Components

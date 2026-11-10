@@ -7,7 +7,6 @@ public import Certificates.Kernel.J1Dc.Tabs
 public import Certificates.Kernel.Sporadic.J1K.Final
 public import CFSG.Certificates.Kernel.SporLatDcSound
 public import CFSG.Quasithin.Background.E2TwoProofSporJ1Base
-import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 100000
 

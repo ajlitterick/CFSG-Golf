@@ -1,18 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResidualRk1Frame
-public import CFSG.LocalAnalysis.StandardType.GGResidualGenFrame
-public import CFSG.LocalAnalysis.StandardType.GGNSJoinQFourExact
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinQFourTop
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinLinGlue
-public import CFSG.LocalAnalysis.StandardType.GGNSJoinOutWeakPosDefs
 import CFSG.LocalAnalysis.StandardType.GGNSJoinWeakOrthPosD
 import CFSG.LocalAnalysis.StandardType.GGResidualGenFrameRest
 import CFSG.LocalAnalysis.StandardType.GGResidualRk1FrameRest
-import CFSG.LocalAnalysis.StandardType.GGSecFivePhanUnitaryAnyA
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
-import CFSG.LocalAnalysis.StandardType.GGSecFiveRankOneCard
 
 public section
 

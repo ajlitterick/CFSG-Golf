@@ -18,7 +18,6 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.A3Structure36BAction
 public import CFSG.Quasithin.Background.A3Structure36BBasic
 public import CFSG.Quasithin.Background.A3Structure36BPrime

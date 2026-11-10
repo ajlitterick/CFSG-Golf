@@ -2,14 +2,11 @@ module
 
 public import CFSG.GH74.KGroups.L3EpsTest
 public import CFSG.GH74.KGroups.L3EpsAbs
-public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherPrimeFormRealization
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryDiagonalOuterOrder
 public import CFSG.ClassicalGroups.Unitary.Simple
-public import CFSG.ClassicalGroups.Unitary.Finite
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.LieType.BorelTits.CompleteFlag
 public import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

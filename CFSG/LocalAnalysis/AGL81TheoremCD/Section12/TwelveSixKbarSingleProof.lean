@@ -2,18 +2,14 @@ module
 
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveSixKbarInputs
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveSixKbarSingleFacts
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenInputs
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveSixKbarPair
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveSixNineTenOne
-import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.NineTenBridge
 import CFSG.LocalAnalysis.AGL81TheoremCD.RankThree.NineSettingOfHypC
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.PCompNonempty
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineSixTwoComp
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenKStar
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CStarImgEquiv
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTwelveOneComp
-import CFSG.HardMathSupport.Solomon.Coordinator.I11_2FullTypes
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBPrimeJoinTransport
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81NineEightBridge
 
 public section

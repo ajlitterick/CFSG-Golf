@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSignedTorusAutomizer
 public import CFSG.LocalAnalysis.StandardType.GGTBJCoverBstar
 import CFSG.LocalAnalysis.StandardType.GGNbrReflectionLift
 import CFSG.Mathlib.GroupTheory.Automorphism.ConjCommute
-import Mathlib.Tactic.Group
 
 public noncomputable section
 

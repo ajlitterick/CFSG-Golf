@@ -3,11 +3,7 @@ module
 public import CFSG.ClassicalInvolution.Q3.Q3OTSqCore
 public import CFSG.ClassicalInvolution.Q3.Q3NMRows
 public import CFSG.ClassicalInvolution.Q3.Q3TY14
-public import CFSG.ClassicalInvolution.Q3.Q3TY13
 public import CFSG.ClassicalInvolution.Q3.Q3TWY1
-public import CFSG.ClassicalInvolution.ModelFacts.TG3OrthTags
-public import CFSG.ClassicalInvolution.ModelFacts.Orth15TwinStd
-public import CFSG.ClassicalInvolution.ModelFacts.Orth15TwinModel
 public import CFSG.ClassicalInvolution.Asc77.AscT7JSq
 public import CFSG.ClassicalInvolution.Q3.Q3TIRed
 public import CFSG.ClassicalInvolution.Q3.Q3VF4Row

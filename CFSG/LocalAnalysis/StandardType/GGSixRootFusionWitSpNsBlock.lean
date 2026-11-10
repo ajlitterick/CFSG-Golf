@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionWitSpNs
 public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionWitClRest
-public import CFSG.Sporadic.Suz.Setup
 
 public section
 

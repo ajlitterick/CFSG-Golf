@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Sporadic.Schreier.TitsInvCheck
-public import CFSG.RankThree.PartOne.KE.TitsFiveCheckInputs
 public import Certificates.Certificate10050
 public meta import CFSG.Sporadic.Schreier.TitsData
 public meta import CFSG.Sporadic.Schreier.TitsArrays

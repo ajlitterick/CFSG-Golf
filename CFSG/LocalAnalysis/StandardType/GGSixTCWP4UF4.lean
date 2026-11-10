@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UExc
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UComb
 public import CFSG.LocalAnalysis.StandardType.GGExcFiveFour
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.PlanesToral
 
 public section
 

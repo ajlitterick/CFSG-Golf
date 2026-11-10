@@ -3,7 +3,6 @@ module
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThListFacts
 public import CFSG.Certificates.Kernel.ThCent.ListSound
 public import Certificates.Kernel.ThCent.Consumers
-public import Certificates.Kernel.ThCent.LDefs
 public import Certificates.Kernel.ThCent.L7Pin
 public import Certificates.Kernel.ThCent.L5Pin
 public import Certificates.Kernel.ThCent.L7C0

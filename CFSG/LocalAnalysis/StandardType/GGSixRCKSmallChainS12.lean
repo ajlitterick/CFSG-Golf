@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonTriLHolds2
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265CDynE
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I141FDynExc
 

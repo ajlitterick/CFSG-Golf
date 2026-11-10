@@ -4,8 +4,6 @@ public import CFSG.RankThree.GF2n.Parrott.Section3RemarksU
 public import CFSG.RankThree.GF2n.Parrott.Section3RemarksQ8
 import CFSG.RankThree.GF2n.Parrott.Section3RemarksE9
 import CFSG.RankThree.GF2n.Parrott.A1LocalData
-import CFSG.RankThree.GF2n.Parrott.ActionZSimplicity
-import CFSG.GroupTheory.SupCommute
 import CFSG.LocalAnalysis.RankThreeUC.ModuleHypotheses
 import CFSG.LocalAnalysis.RankThreeUC.ModuleRanks
 import CFSG.LocalAnalysis.RankThreeUC.SourceSetting.AschbacherCommon

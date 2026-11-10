@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResLeaf
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
 import TauCeti.LinearAlgebra.Matrix.Cartan.Classical
 import TauCeti.LinearAlgebra.IntegralLattice.RootLattice.TypeD.SimpleRoots
 

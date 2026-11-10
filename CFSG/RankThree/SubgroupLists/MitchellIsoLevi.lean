@@ -1,8 +1,6 @@
 module
 
 public import CFSG.RankThree.SubgroupLists.MitchellIsotropic
-import CFSG.RankThree.SubgroupLists.SymplecticInvolutionPairs
-import Mathlib.Tactic.LinearCombination
 
 public section
 

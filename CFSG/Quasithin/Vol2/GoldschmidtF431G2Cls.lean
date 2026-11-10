@@ -4,9 +4,6 @@ public import CFSG.Quasithin.Vol2.GoldschmidtF431G2UNorm
 public import CFSG.Quasithin.Vol2.GoldschmidtF431G2ClsRoot
 public import CFSG.Quasithin.Vol2.GoldschmidtF431G2ClsChar2
 public import CFSG.Quasithin.Vol2.GoldschmidtF431NFSpecial
-public import CFSG.LocalAnalysis.QuasithinUnique.Defs
-import Mathlib.FieldTheory.Finite.Basic
-import Mathlib.Tactic.FieldSimp
 public import CFSG.Sporadic.Schreier.J4SFrattini
 public import CFSG.GroupTheory.PerfectResidualNodes
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
@@ -27,9 +24,7 @@ public import CFSG.Quasithin.Background.A3Structure318Red
 public import CFSG.Quasithin.Background.A3Structure36A
 public import CFSG.Quasithin.Background.A3Structure36BAction
 public import CFSG.Quasithin.Background.A3Structure36BBase
-public import CFSG.Quasithin.Background.A3Structure36BCase3Base
 public import CFSG.Quasithin.Background.A3Structure36BCasesBase
-public import CFSG.Quasithin.Background.A3Structure36BCommonBase
 public import CFSG.Quasithin.Background.A3Structure36BFrattini
 public import CFSG.Quasithin.Background.A3Structure36BHeisBase
 public import CFSG.Quasithin.Background.A3Structure36BHomocyclic
@@ -44,17 +39,8 @@ public import CFSG.Quasithin.Background.B4ModelsIso
 public import CFSG.Quasithin.Background.C2Basic
 public import CFSG.Quasithin.Background.C2Inputs
 public import CFSG.Quasithin.Background.E1
-public import CFSG.Quasithin.Background.E1Sec4
-public import CFSG.Quasithin.Background.E1Sec5
-public import CFSG.Quasithin.Background.E1Sec8
-public import CFSG.Quasithin.Background.E1Solv
-public import CFSG.Quasithin.Background.E1Twelve
 public import CFSG.Quasithin.Background.E3Cent
 public import CFSG.Quasithin.Vol2.Ch1Local
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ProjectiveSemilinear
 public import CFSG.Walter.Defs
 
 public noncomputable section

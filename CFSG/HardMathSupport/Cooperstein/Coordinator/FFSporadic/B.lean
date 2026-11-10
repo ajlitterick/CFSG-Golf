@@ -4,17 +4,11 @@ public import CFSG.HardMathSupport.Cooperstein.Coordinator.FFSporadic.Split
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.FFSporadic.BHeis
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.FFSporadic.RouteBGlue
 public import CFSG.HardMathSupport.Meierfrankenfeld.FFToolkit.NoIrrEngines
-public import CFSG.RankThree.PartOne.SPOR.OuterB
-public import CFSG.Monster.B.Final.PinnedBOrder
-public import CFSG.Sporadic.Bridge.BBound
-public import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Coordinator.Ledger
 public import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Coordinator.CarrierFactsProof
 public import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Coordinator.KernelTrivialThreeFi23
 public import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Coordinator.DoubleCoversCo1B
 public import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.UniversalCoverMonster.BThreeFromFi23
 public import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Proving.BigPrimes
-public import CFSG.LocalAnalysis.EvenSporadicStandard.CentralTwoRowsLarge
-public import CFSG.GH74.Generic.GKFCover
 public import CFSG.ClassicalInvolution.ModelFacts.FundPerfectMain
 public import CFSG.ClassicalInvolution.ModelFacts.OddCover
 public import CFSG.ClassicalInvolution.Models.LinearFrames
@@ -70,7 +64,6 @@ public import CFSG.Quasithin.Background.SmithB42L2L32
 public import CFSG.Quasithin.Background.SmithB42L2Nat
 public import CFSG.Quasithin.Background.SmithB51LnRealB
 public import CFSG.RankThree.PartOne.Mult.Sec68
-public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.Sporadic.Fi22
 public import CFSG.Sporadic.Fi24
 public import CFSG.Sporadic.Recognition.HNMultiplier

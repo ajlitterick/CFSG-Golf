@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.OmegaEight.T3KChecks
 public import Certificates.Kernel.OmegaEight.E9KGlue
 import CFSG.Certificates.Kernel.BfsPinBaseSound
-import CFSG.Certificates.Kernel.Spor.PcompFacts
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.BfsPinSound
 

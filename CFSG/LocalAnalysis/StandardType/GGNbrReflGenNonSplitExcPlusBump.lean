@@ -2,14 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitExcPlusLift
 public import CFSG.LieType.SeitzGeneration.ExcTorusSylow
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyReflInner
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUElt
-import CFSG.LocalAnalysis.StandardType.GGTableBTypeAEndModel
 import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLine
 import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylExcPlusFrameFusion
 import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutInnerExcF4TwoTorus
 import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfSylow
-import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.LieType.SeitzGeneration.Lift
 public import CFSG.LieType.SeitzGeneration.RegimesExcFamilies
 

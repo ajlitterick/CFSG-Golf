@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGKD2Connected1619Contracts
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172CCentComp
 public import CFSG.LocalAnalysis.StandardType.GGKD2Connected1619OrthFixed
 public import CFSG.LocalAnalysis.StandardType.GGKD2Connected1619OrthMoving
 

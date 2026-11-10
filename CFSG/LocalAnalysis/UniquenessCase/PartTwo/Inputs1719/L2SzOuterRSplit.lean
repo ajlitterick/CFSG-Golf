@@ -6,11 +6,8 @@ public import CFSG.Quasithin.Vol2.Ch11SecE3LieSL2
 public import CFSG.ClassicalInvolution.AschTight.S19COrd
 public import CFSG.RankThree.SteinbergR3ESuzukiFieldSplitting
 public import CFSG.LieType.Ree.SuzukiSplitTorusCentralizers
-public import CFSG.LieType.Ree.SuzukiBorelStructure
 public import CFSG.Blueprint.LieModelAPI
 public import CFSG.LocalAnalysis.UniquenessCase.UC22Defs
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CGT.Timmesfeld75.Statements
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHeldSmallCorePrimeCore

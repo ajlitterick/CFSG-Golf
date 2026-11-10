@@ -1,20 +1,13 @@
 module
 
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThCentSound
-public import CFSG.Open.LocalVocabulary
-public import Certificates.Certificate1020
-public import Certificates.Certificate1021
-public import Certificates.Certificate1022
 import Certificates.Kernel.ThLocal.Facts
 import Certificates.Kernel.ThCensus.Pin
 import Certificates.Kernel.ThCent.Consumers
-import CFSG.Certificates.Kernel.ThCent.PinSound
-import CFSG.Certificates.Kernel.Th.Spec.DceMat
 import CFSG.Sporadic.Th.Max3.AllConjFinal
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThCentSoundBase2
 public import CFSG.Sporadic.Th.CertificateBase
 public import CFSG.Sporadic.ThSchreier.KernelAut
-public import CFSG.Sporadic.ThSchreier.KernelAutBase
 public import CFSG.Sporadic.ThSchreier.KernelAutBase1
 
 public section

@@ -1,22 +1,17 @@
 module
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatRows
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatOfFacts
 import all CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicHS
-public import CFSG.Blueprint.NativeSporadic
 import all CFSG.Blueprint.NativeSporadic
-public import Certificates.Data.CFSGNative.SporLat.Build
 public meta import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicHS
 public meta import Certificates.Data.CFSGNative.SporLat.Build
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatPt
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatQuot
 public meta import Certificates.Data.CFSGNative.HS.Data
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHSInputs
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHSDcInputs
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312HsInputs
 public import CFSG.Quasithin.Background.A312SporHSInputs
 public import CFSG.Quasithin.Background.A312SporE8
-public import CFSG.Quasithin.Background.A3Structure312Defs
 
 public section
 

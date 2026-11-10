@@ -3,7 +3,6 @@ module
 public import CFSG.Certificates.Kernel.SporSch.Co1TernSound
 public import CFSG.Sporadic.Schreier.Co1TernaryCodeInputs
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

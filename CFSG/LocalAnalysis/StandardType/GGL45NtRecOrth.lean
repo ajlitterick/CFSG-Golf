@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGL45NtDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOpenOrth
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaPlus
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaMinus
 
 public section
 

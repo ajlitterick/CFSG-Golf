@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenRDefs
-public import CFSG.LocalAnalysis.StandardType.GGLinTwoCent
 public import CFSG.LocalAnalysis.StandardType.GGLinTwoComp
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinTwoTBFrame
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinTwoTBAlg
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrTableBPSL
 
 public section

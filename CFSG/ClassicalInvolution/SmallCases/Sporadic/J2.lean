@@ -1,15 +1,6 @@
 module
 
-public import CFSG.ClassicalInvolution.SmallCases.Sporadic.Basic
-public import CFSG.ClassicalInvolution.SmallCases.Sporadic.ChainTools
-public import CFSG.ClassicalInvolution.SmallCases.Sporadic.Normalizer
-public import CFSG.ClassicalInvolution.SmallCases.Sporadic.J2Data
-public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutOddCore
-public import CFSG.Sporadic.Schreier.RuEnum
-public import Certificates.Certificate10019
-public import CFSG.ClassicalInvolution.SmallCases.Sporadic.J2Inputs
 public import Certificates.Certificate9308
-public import Certificates.Certificate3139
 public meta import CFSG.ClassicalInvolution.SmallCases.Sporadic.ChainTools
 public meta import CFSG.ClassicalInvolution.SmallCases.Sporadic.J2Data
 public meta import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutCheck

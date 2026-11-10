@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Sporadic.OddCore.J2Cn
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Data.Kernel.SporSch.BasePtWit
 public import Certificates.Data.Odd87F3J2
 public meta import Certificates.Kernel.Sporadic.OddCore.J2Cn

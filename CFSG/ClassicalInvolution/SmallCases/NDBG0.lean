@@ -2,9 +2,7 @@ module
 
 public import CFSG.ClassicalInvolution.Asc77.AscBSE3
 public import CFSG.ClassicalInvolution.SmallCases.NDBC8
-import CFSG.ClassicalInvolution.Asc77.AscT7AAlpha
 import CFSG.ClassicalInvolution.Asc77.AscAETCyc
-import CFSG.ClassicalInvolution.ModelFacts.Orth15RVertexExcl
 import CFSG.ClassicalInvolution.Asc77.AscE187Cop
 import CFSG.ClassicalInvolution.Asc77.AscT7CExit25
 import CFSG.ClassicalInvolution.Asc77.AscT7CWz

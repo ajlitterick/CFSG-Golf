@@ -3,7 +3,6 @@ module
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3S22YN
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6aMain
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6iTwin
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3Pf93Steps
 public import CFSG.YGroups.Y443.Native.Hom
 public import CFSG.Certificates.Kernel.BfsPinSound
 public import CFSG.Certificates.Kernel.Census.SiftSound

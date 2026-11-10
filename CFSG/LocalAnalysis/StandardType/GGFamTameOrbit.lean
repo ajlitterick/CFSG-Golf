@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGFamRatComp
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4ULang
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleOrbit
 
 public section
 

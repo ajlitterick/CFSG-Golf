@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.A10EndPhi
-public import CFSG.Milestones.ASVolI.I2
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.A10EndFactsPerm
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.A10EndSylow
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.A10EndWeakClosure

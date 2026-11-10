@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGInnerD4RAMarking
 public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonInnBridge
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiag
 public import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
 public import CFSG.CharacterTheory.Wreathed.WreathCentralSquare
 public import CFSG.HardMathSupport.Solomon.LocalBalance.ScpQuot
@@ -19,7 +18,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.S12.Bridge
 public import CFSG.LocalAnalysis.GLTheoremA.S12.Prop123
 public import CFSG.LocalAnalysis.GLTheoremA.Sec5Setup
 public import CFSG.LocalAnalysis.GLTheoremB.Lemma911Proof
-public import CFSG.LocalAnalysis.SignalizerFunctor
 public import CFSG.LocalAnalysis.StandardType.GGInnerD4RegimeDefs
 public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent

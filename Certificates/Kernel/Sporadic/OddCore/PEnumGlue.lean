@@ -2,10 +2,7 @@ module
 
 public import CFSG.Certificates.Kernel.Spor.PEnumSound
 public import CFSG.Certificates.Kernel.BfsPinSound
-public import CFSG.Certificates.Kernel.Spor.PackWord
-public import CFSG.Certificates.Kernel.Spor.Loops
 public import Certificates.Kernel.Sporadic.OddCore.Glue
-public import CFSG.Certificates.Kernel.BfsPinUnpack
 
 public section
 

@@ -3,11 +3,9 @@ module
 public import CFSG.Certificates.Kernel.TwoAC.Fact
 public import CFSG.Certificates.Kernel.TwoAC.Sound
 public import CFSG.Certificates.Kernel.BabyMonster.Chain4
-public import CFSG.Certificates.Kernel.BabyMonster.FixSound
 public import CFSG.Certificates.Kernel.BabyMonster.Seeds.Check0
 public import Certificates.Kernel.BabyMonster.ForallLt
 public import Certificates.Kernel.BabyMonster.FiveA.RankLin
-public import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
 public import Certificates.Kernel.TwoAC.Check0
 public import Certificates.Kernel.TwoAC.Check1
 public import Certificates.Kernel.TwoAC.Check2

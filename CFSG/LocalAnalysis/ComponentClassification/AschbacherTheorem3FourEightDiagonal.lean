@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.AschbacherTheorem3FourE
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherTheorem3SixGoldOne
 public import CFSG.Walter.AStar.CenterOdd
 public import CFSG.Walter.AStar.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.ControlCore
 
 public section
 

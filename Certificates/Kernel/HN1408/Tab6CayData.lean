@@ -4,7 +4,6 @@ public import Certificates.Kernel.HN1408.RecGen
 public import Certificates.Kernel.Sporadic.OddCore.MulHCmd
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.Section3Model.Tab6Data
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.ClassData
 meta import Certificates.Kernel.HN1408.RecGen
 meta import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.Section3Model.Tab6Data
 meta import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.ClassData

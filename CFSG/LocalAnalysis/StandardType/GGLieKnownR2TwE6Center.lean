@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TwE6Comm
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TwE6Coord
 
 public section

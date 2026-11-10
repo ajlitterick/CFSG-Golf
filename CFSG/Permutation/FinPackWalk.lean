@@ -2,7 +2,6 @@ module
 
 public import CFSG.Permutation.FinPack
 public import Mathlib.GroupTheory.Perm.Sign
-public import Mathlib.Algebra.BigOperators.Group.Finset.Sigma
 public import Mathlib.Data.Fintype.BigOperators
 
 public section

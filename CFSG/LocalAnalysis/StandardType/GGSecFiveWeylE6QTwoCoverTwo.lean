@@ -4,8 +4,6 @@ public import CFSG.GroupTheory.CoprimeActionSupport.NormalSubgroupSylowJoin
 public import CFSG.GroupTheory.PCore.RelPPrimeCoreMap
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoStepZero
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoLemmaA
-public import CFSG.LocalAnalysis.StandardType.GGUSixTwoTorus
-public import CFSG.Open.LocalVocabulary
 
 public section
 

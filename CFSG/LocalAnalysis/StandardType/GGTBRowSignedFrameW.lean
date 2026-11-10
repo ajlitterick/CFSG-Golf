@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBRowSignedFrame
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 
 public section
 

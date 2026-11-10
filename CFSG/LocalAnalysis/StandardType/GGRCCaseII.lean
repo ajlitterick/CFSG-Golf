@@ -2,11 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRCCaseI
 public import CFSG.LocalAnalysis.StandardType.GGRCFixedVector
-public import CFSG.LocalAnalysis.StandardType.GGRCCardMonomial
 public import CFSG.LocalAnalysis.StandardType.GGRCPermMonomial
 public import CFSG.LocalAnalysis.StandardType.GGRCWeylCardGe
-public import CFSG.LocalAnalysis.StandardType.GGRCWeylOfPerm
-public import CFSG.LocalAnalysis.StandardType.GGRCClassify
 public import CFSG.LocalAnalysis.StandardType.GGRCCaseIIBasic
 public import CFSG.LocalAnalysis.StandardType.GGRCRestrict
 public import CFSG.LocalAnalysis.StandardType.GGRCKoneKerConn

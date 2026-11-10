@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7A3SideDefs
-import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
 
 public section
 

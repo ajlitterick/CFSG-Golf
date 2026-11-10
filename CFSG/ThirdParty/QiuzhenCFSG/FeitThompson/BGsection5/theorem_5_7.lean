@@ -1,8 +1,5 @@
 module
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.Defs
 
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GeneratorRank
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection5.theorem_5_3
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection5.theorem_5_5_a
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.corollary_4_19
 

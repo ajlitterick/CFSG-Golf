@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenFieldInvolutions
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenWeyl
 public import CFSG.LieType.Chevalley.DiagramCoordinateFixedStructure
-public import CFSG.LieType.Chevalley.GraphFixedF4GroupRestriction
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogRigidityCommon
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSpField
 public import CFSG.LieType.BorelTits.CompleteFlag
@@ -36,9 +35,7 @@ public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasFive
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasSix
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalReflectionSplitting
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalStandardFormsRegular
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis

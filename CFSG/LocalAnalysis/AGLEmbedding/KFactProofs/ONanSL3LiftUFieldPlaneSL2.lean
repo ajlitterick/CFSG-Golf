@@ -3,7 +3,6 @@ module
 public import Mathlib.GroupTheory.IsPerfect
 import CFSG.Dihedral.Glauberman.DicksonMaxList
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2Cardinality
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Cardinality
 import CFSG.LinearAlgebra.LinearGroups.Perfect
 import CFSG.LinearAlgebra.LinearGroups.TameProjectiveSubgroups
 public import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup

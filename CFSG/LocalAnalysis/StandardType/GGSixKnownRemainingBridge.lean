@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixJNotA6KnownDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixKnownRemainingDefs
 public import CFSG.RankThree.PartOne.S12K.Rigidity
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LieType.Ree.LargeReeEightTorus
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasFive
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasSix

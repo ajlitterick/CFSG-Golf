@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNineDepDefs
 public import CFSG.LocalAnalysis.StandardType.GGNineDepConnected
 public import CFSG.LocalAnalysis.StandardType.GGNineDepRestrict
 

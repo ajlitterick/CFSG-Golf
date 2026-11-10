@@ -2,14 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixA6InsideSpTransport
 import CFSG.LocalAnalysis.StandardType.GGSixA6InsideSpFrame
-import CFSG.LocalAnalysis.StandardType.GGSixA6InsideSpTorus
-import CFSG.LocalAnalysis.StandardType.GGSixA6InsideSpPull
 import CFSG.LocalAnalysis.StandardType.GGSixA6InsideSpStepThree
 import CFSG.LocalAnalysis.StandardType.GGSixA6InsideSpStepFour
 import CFSG.LocalAnalysis.StandardType.GGSixA6InsideSpStepFive
 import CFSG.LocalAnalysis.StandardType.GGSixA6InsideSpComb
 import CFSG.LocalAnalysis.StandardType.GGSixA6InsideSpSep
-import CFSG.LocalAnalysis.StandardType.GGIOneOrthEndSmall
 
 public section
 

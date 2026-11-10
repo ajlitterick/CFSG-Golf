@@ -6,7 +6,6 @@ import CFSG.Certificates.Kernel.Common.Repo
 import CFSG.Certificates.Kernel.Common.EachUnfold
 import CFSG.Certificates.Kernel.Bounds.HSAlt.Data.M
 import CFSG.Certificates.Kernel.Bounds.HSAlt.Pair
-import CFSG.Certificates.Kernel.Bounds.HSAlt.Rels
 import CFSG.Certificates.Kernel.Bounds.HSAlt.Data.B_Sel
 
 #kc_repo #kc_items_root CFSG.KD.HSKM.PairRows.P "CFSG/Certificates/Kernel/Bounds/HSAlt/Data/M/rows/Pair_0_P.bin" 29446 14591379525683841840

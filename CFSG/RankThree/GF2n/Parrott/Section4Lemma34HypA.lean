@@ -1,10 +1,7 @@
 module
 
 public import CFSG.RankThree.GF2n.Parrott.CaseIICentreSylow
-public import CFSG.RankThree.GF2n.Parrott.Section4Defs
-public import CFSG.GroupTheory.ElemAbelianClosure
 public import CFSG.RankThree.GF2n.Parrott.CaseIIIndex
-public import CFSG.RankThree.GF2n.Parrott.Cardinality
 public import CFSG.RankThree.GF2n.Parrott.Section4EInv
 public import CFSG.RankThree.GF2n.Parrott.Section4Lemma34Instance
 

@@ -1,17 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosDefs
 public import CFSG.LocalAnalysis.StandardType.GGSimplyLacedWeyl
 public import CFSG.LocalAnalysis.StandardType.GGKGPosTagWeyl
-public import CFSG.LieType.RootSystem.Form
-public import CFSG.LieType.Steinberg.OfCartan
-public import CFSG.LieType.Steinberg.Extras
-public import CFSG.LieType.CurtisTits.Spin
-public import CFSG.LieType.Steinberg.Minuscule.Datum
-public import CFSG.LieType.Steinberg.Adjoint.Presentation
-public import CFSG.LieType.Universal.SpecialLinearExtras
-public import Mathlib.Tactic.Module
-public import Mathlib.Tactic.IntervalCases
 
 public section
 

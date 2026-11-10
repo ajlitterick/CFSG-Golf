@@ -33,10 +33,8 @@ import CFSG.Monster.B.TwoA.Amalgam.Data
 import CFSG.Monster.B.TwoA.Sp8.Par1
 import CFSG.Monster.B.TwoA.Unitary.LinThree
 import CFSG.RankThree.PartTwo.Census.Spin.Main
-import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 import CFSG.Sporadic.Presentation.Common
 import CFSG.Sporadic.SmallOddCore.CheckSpec
-import CFSG.Sporadic.Th.F2Spec
 import CFSG.YGroups.Y322Central
 import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 

@@ -3,14 +3,10 @@ module
 public import CFSG.HardMathSupport.Solomon.Coordinator.I28_14Assembly
 public import CFSG.HardMathSupport.Solomon.Coordinator.I28_14Map
 public import CFSG.HardMathSupport.Solomon.Coordinator.I28_14ClassC
-public import CFSG.HardMathSupport.Solomon.Coordinator.I28_14ClassNOrth
 public import CFSG.HardMathSupport.Solomon.Coordinator.I28_14SymMain
 public import CFSG.HardMathSupport.Solomon.Coordinator.I28_14SymAut
 public import CFSG.HardMathSupport.Solomon.Coordinator.McLaughlinTypes
 public import CFSG.LocalAnalysis.ComponentClassification.OutcomeLocalMcLaughlin
-public import CFSG.HardMathSupport.Solomon.Coordinator.I28_14ClassCGL
-public import CFSG.HardMathSupport.Solomon.Coordinator.I28_14ClassCOrth
-public import CFSG.HardMathSupport.Solomon.Coordinator.I28_14ClassCSp
 
 public section
 

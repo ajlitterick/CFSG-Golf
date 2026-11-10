@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22qq
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22ql
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22qo
-public import CFSG.GroupTheory.ABGLocalTools.ZJFactorization
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22qp
 
 public section

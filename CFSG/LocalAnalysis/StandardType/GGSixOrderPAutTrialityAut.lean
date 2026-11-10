@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixTrialityL613KG
 public import CFSG.LocalAnalysis.StandardType.GGNbrGraphD4ProofOut
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45RankXTriality
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutClassicalGraphPlus
-public import CFSG.Monster.B.TwoA.Sp8.A8
 
 public section
 

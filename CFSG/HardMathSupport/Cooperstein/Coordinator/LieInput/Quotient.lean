@@ -1,10 +1,7 @@
 module
 
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.LieInput.Defs
-public import CFSG.LocalAnalysis.AGLEmbeddingD2.ParabLevi
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.SquareGeneric
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanParabHub
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanParabPrimeCore
 public import CFSG.Foundations
 public import CFSG.GroupTheory.Fitting.CharacteristicP
 public import CFSG.LocalAnalysis.AGLEmbedding.D1GlobalU
@@ -24,16 +21,11 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.B2Thompson
 public import CFSG.Quasithin.Background.SmithC27RDefs
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.RouteD.TypeTwistedE6PerpOrthFrame
 public import CFSG.ClassicalInvolution.RouteD.ExoticTwinProofOrthGeom
-public import CFSG.ClassicalInvolution.RouteD.GapsOrthModel
 
 public section
 

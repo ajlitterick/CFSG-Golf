@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.Sol78F5EndN
-public import CFSG.LocalAnalysis.ComponentClassification.FooteLitLemma21Rel
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuotTools
 public import CFSG.LocalAnalysis.ComponentClassification.TBLitCoverExclusion
 public import CFSG.GroupTheory.PCore.PrimeSetCore
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bLemma26

@@ -3,10 +3,8 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisEndBL3U3Z
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisEndBL3U3K
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisEndBL3U3J
-public import CFSG.LocalAnalysis.ComponentClassification.HarrisEndBL3U3Inputs
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitL3U3
 public import CFSG.Sporadic.Schreier.J4SProfileNode
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GH74.BNPair.Defs
 public import CFSG.GH74.GLS.IVK.L2.F1
 public import CFSG.Goldschmidt75.WeakClosure
@@ -17,7 +15,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsInvCentMo
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsOuter
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsParabolicGen
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsRealModel
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsRealModelBase
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsSec5Center
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsStandard
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisEnd413

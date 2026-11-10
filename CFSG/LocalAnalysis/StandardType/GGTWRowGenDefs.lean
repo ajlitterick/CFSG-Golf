@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResHdRoNarrowDefs
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeDepAssembly
 
 public section

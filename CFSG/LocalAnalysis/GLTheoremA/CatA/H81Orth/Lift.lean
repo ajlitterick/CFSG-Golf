@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.H81Orth.Cent
-public import CFSG.LocalAnalysis.ComponentClassification.OddSelectorOrthogonal
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofQ81P2L33OCOmTools
 public import CFSG.ClassicalInvolution.Models.LinearPairs
 public import CFSG.ClassicalInvolution.SubnormalClosure

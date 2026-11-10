@@ -2,7 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Timmesfeld.DefChar.OuterOrth
 public import CFSG.HardMathSupport.Timmesfeld.DefChar.LieOuterFamilies
-public import CFSG.RankThree.PartTwo.Census.Carrier.SpinBBridge
 public import CFSG.RankThree.PartOne.S11d.OutClassicalTwo
 public import CFSG.RankThree.PartOne.MB3.OddOutSymplectic
 public import CFSG.LieType.BorelTits.CompleteFlag

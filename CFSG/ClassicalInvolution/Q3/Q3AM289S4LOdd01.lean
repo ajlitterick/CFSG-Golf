@@ -2,8 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.Q3AM289S4LSpin
 public import CFSG.ClassicalInvolution.Q3.Q3AM289S4LConj
-public import CFSG.ClassicalInvolution.Q3.Q3TWY1
-public import CFSG.ClassicalInvolution.ModelFacts.TG3OrthTags
 
 public section
 

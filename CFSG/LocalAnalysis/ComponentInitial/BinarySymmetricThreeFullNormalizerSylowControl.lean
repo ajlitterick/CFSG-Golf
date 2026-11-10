@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentInitial.BinarySymmetricThreeAffineOrbitTwoGroup
 public import CFSG.LocalAnalysis.ComponentInitial.EightPointEvenQuotientRankBound
 public import CFSG.LocalAnalysis.ComponentInitial.BasicFacts
-public import Mathlib.LinearAlgebra.Matrix.Transvection
-public import Mathlib.GroupTheory.Perm.Cycle.Type
-import CFSG.GroupTheory.ElementaryAbelianTransport
 import CFSG.GroupTheory.ElemAbelianClosure
 import CFSG.Open.Defs
 

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneOFieldFrame
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneOOddInner
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneOForm
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneOSliceNF
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneOSplitCases

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTableBE6ThreeEndAut
 public import CFSG.LocalAnalysis.StandardType.GGTableBE6ThreeEndWeyl
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeHat
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcEndNode
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotLeviModel
 
 public section

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.SubgroupLists.MitchellDegenerate
-public import CFSG.RankThree.SubgroupLists.SymplecticHeisenberg
 public import CFSG.RankThree.SubgroupLists.SymplecticRegulus
 
 public section

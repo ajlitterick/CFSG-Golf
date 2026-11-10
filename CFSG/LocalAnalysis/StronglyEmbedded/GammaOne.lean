@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StronglyEmbedded.WeaklyClosed
 import CFSG.GroupTheory.ElemAbelianClosure
 import CFSG.HardMathSupport.Solomon.Proving.GLBCoreNormalizer
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

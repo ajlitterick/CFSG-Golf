@@ -4,12 +4,7 @@ public import CFSG.RankThree.PartTwo.Sec14.Ronan148WU3Rank
 public import CFSG.RankThree.PartTwo.Sec13.Ronan138P5Core
 import CFSG.RankThree.PartTwo.Sec14.Ronan148WU3Aut
 import CFSG.RankThree.PartTwo.Sec14.Item1413Res3ProofTools
-import CFSG.RankThree.PartTwo.Sec6.Item612Local
 import CFSG.RankThree.PartTwo.Sec19.Step1914Tri
-import CFSG.RankThree.PartTwo.Sec4.LThreePiKind
-import CFSG.RankThree.PartTwo.Sec4.LThreePiCaseI
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Foundations
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.GroupTheory.LocalCores.Fitting
@@ -18,21 +13,18 @@ public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups
 public import CFSG.LocalAnalysis.ComponentInitial.SuzukiModelSchreier
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure
 public import CFSG.RankThree.PartTwo.NotationBlocks
 public import CFSG.RankThree.PartTwo.Sec8.Pairs
 public import CFSG.RankThree.PartTwo.Sec8.Statements
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHermitianIsometry
 import CFSG.RankThree.PartTwo.KFacts.KS12MovesSL
 import CFSG.RankThree.PartTwo.Sec14.Item1413Res2ProofSimple
 import CFSG.RankThree.PartTwo.Sec14.Item1413Res2ProofTools
 import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 import CFSG.RankThree.PartTwo.Sec4.Census.Interface46
-import CFSG.Sporadic.Schreier.J4SProfileNode
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 
 public section

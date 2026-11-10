@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.Q3TIYPKind
 public import CFSG.ClassicalInvolution.Q3.Q3P21L1
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 public import CFSG.ClassicalInvolution.Q3.Q3TIYSmall
 
 public section

@@ -7,8 +7,6 @@ import CFSG.LocalAnalysis.StandardType.GGQ2ExcE6SplitOccursDict
 import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreOccursDict
 import CFSG.LocalAnalysis.StandardType.GGLinImageSubspace
 import CFSG.LocalAnalysis.StandardType.GGFamLabelIndex
-import CFSG.LocalAnalysis.StandardType.GGSixTCWP4ULang
-import CFSG.ClassicalInvolution.WeakCT.Defs
 
 public section
 

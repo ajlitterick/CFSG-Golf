@@ -6,13 +6,10 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFivePumpBstar
 public import CFSG.LocalAnalysis.StandardType.GGStdUnitaryFourExcl
 public import CFSG.LocalAnalysis.StandardType.GGNsq2Cited
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseE8TwoFrame
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeakNbr
 import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseTwoE
 import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseOrthFrame
-import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseLabel
 import CFSG.LocalAnalysis.StandardType.GGRk1ConclExSix
 import CFSG.LocalAnalysis.StandardType.GGResidualRk1Frame
-import CFSG.LocalAnalysis.StandardType.GGTWReflConj
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSQ2U62Setup
 
 public section

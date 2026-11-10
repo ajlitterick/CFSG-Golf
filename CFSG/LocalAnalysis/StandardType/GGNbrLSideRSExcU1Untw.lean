@@ -1,14 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrLSideRSExcDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrLSideRSExcU1Core
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangChev
 import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangInj
 import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcInnerLang.Untw
 import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcMonomial
 import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcToralityFive
-import CFSG.LieType.Chevalley.SingleEdgePerfect
-import CFSG.LieType.Steinberg.G2.Perfect
 import CFSG.HardMathSupport.Solomon.Coordinator.B3FamPC
 import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.LayerBridge
 import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma28

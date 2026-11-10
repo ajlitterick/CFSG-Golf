@@ -7,7 +7,6 @@ import CFSG.RankThree.PartTwo.Sec4.LThreePiCaseI
 import CFSG.RankThree.PartOne.S12.ModelTransport
 import CFSG.ClassicalInvolution.SmallCases.UpgradeCoverClassical
 import CFSG.GroupTheory.ElementaryAbelianTransport
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinRMDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeAssembly
 public import CFSG.LocalAnalysis.StandardType.GGRealNbrNSTwE6
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-import CFSG.LocalAnalysis.StandardType.GGNbrCenterPCyclicHolds
 import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeVac
 import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeUnitary
 import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeUnitaryHyp

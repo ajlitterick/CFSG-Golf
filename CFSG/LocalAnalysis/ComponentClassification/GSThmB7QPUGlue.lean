@@ -2,19 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB7QPUAbs
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB7NPDiag
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB7NPLift
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB516PumpTools
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aFStar
-public import CFSG.LocalAnalysis.ComponentClassification.GSLitFixedLayer
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSp4Inner
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSp4OneComp
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSp4TwoComp
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSp4Outer
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSp4LayerH
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSp4Order
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedGSAFixedPrimeLayer
-public import CFSG.LocalAnalysis.SectionRank.NativeKGroup
-public import CFSG.RankThree.GroupTheory.SteinbergCEThetaSubnormalDichotomy
 
 public section
 

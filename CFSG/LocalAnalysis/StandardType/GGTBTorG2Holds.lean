@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBTorRest
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmall
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeAEndModel
 
 public section
 

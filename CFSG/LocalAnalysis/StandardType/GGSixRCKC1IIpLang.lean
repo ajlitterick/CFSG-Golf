@@ -5,10 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGLieCoreA3DictPhi
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreLang
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreSmallSetup
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreRatFinite
-public import CFSG.LocalAnalysis.StandardType.GGLieBridgeHom
-public import CFSG.LocalAnalysis.StandardType.GGLieBridgeComp
-public import CFSG.GroupTheory.ElementaryAbelianTransport
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTamePrime
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.RationalComponentEq
 
 public section

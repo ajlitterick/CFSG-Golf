@@ -4,7 +4,6 @@ public import CFSG.RankThree.GF2n.Parrott.A1Section2Lemma11FirstHalf
 import all CFSG.RankThree.GF2n.Parrott.A1Section2Lemma11FirstHalf
 import CFSG.RankThree.GF2n.Parrott.QA45SylowFacts
 import CFSG.Monster.Existence.StdOdd.Coprime
-import CFSG.GroupTheory.SupCommute
 import TauCeti.Algebra.Group.Subgroup.ZPowers
 
 public section

@@ -5,10 +5,7 @@ public meta import CFSG.GH74.KGroups.L34Tables
 public meta import CFSG.GH74.KGroups.L34Aut
 public meta import CFSG.GH74.KGroups.L34
 public meta import CFSG.GH74.KGroups.Checks
-public import CFSG.GH74.Uniqueness.SU.KI1r4F61L34MInputs
 public meta import CFSG.GH74.Uniqueness.SU.KI1r4F61L34MInputs
-public import Certificates.Certificate5122
-public import Certificates.Certificate5123
 public import Certificates.Certificate5138
 
 public section

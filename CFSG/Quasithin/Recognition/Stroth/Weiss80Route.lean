@@ -1,18 +1,11 @@
 module
 
-public import CFSG.Quasithin.Recognition.Stroth.WeissMoufang
 public import CFSG.Quasithin.Recognition.Stroth.WeissQuotient
-public import CFSG.Quasithin.Recognition.F4Basic
-public import CFSG.Quasithin.EmptyFaithful.S1421Inputs
 public import CFSG.Quasithin.Recognition.Stroth.WeissStrothLeaves
 public import CFSG.Geometry.GeneralizedPolygons.Basic
-public import CFSG.GH74.GLS.SP.GlueDefs
-public import CFSG.GH74.BNPair.Defs
-public import CFSG.GH74.BNPair.Statements
 public import CFSG.Quasithin.Vol2.GoldschmidtF431TwoF4OctSys
 public import CFSG.Quasithin.Vol2.GoldschmidtF431Un5System
 public import CFSG.Quasithin.Background.SimsG4Defs
-public import Mathlib.Combinatorics.SimpleGraph.Girth
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.ClassicalGroups

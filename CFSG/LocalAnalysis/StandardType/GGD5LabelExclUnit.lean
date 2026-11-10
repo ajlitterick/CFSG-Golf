@@ -3,10 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGD5LabelGlue
 import CFSG.LocalAnalysis.StandardType.GGStdUFourExcl
 import CFSG.LocalAnalysis.StandardType.GGResE6DepUnitaryTwo
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUDefs
-import CFSG.LocalAnalysis.StandardType.GGNbrReflGenCore
-import CFSG.LocalAnalysis.StandardType.GGForkJrPumpLattice
-import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaBase
 
 public section
 

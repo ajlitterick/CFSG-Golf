@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFrameReflTransport
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenCore
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySplitRefl
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyQSplit
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaBase
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRest
 import CFSG.GroupTheory.ElemAbelianClosure
 
 public section

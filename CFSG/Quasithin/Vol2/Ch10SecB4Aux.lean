@@ -2,14 +2,8 @@ module
 
 public import CFSG.Quasithin.Vol2.Ch10SecBXiAct
 public import CFSG.Quasithin.Background.C2Nine
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeThree
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L122ASimple
-public import CFSG.LieType.Simplicity.Classical
-public import CFSG.Adapters.LinearFieldTransport
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.FamilySmall
 public import CFSG.GroupTheory.ABGLocalTools.PStabilityQSL2
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.ClassicalGroups
@@ -27,11 +21,6 @@ public import CFSG.Quasithin.Background.A3Structure36BPrimeDataBase
 public import CFSG.Quasithin.Background.B1Restrict
 public import CFSG.Quasithin.Background.B4Statement
 public import CFSG.Quasithin.Background.E1
-public import CFSG.Quasithin.Background.E1Sec4
-public import CFSG.Quasithin.Background.E1Sec5
-public import CFSG.Quasithin.Background.E1Sec8
-public import CFSG.Quasithin.Background.E1Solv
-public import CFSG.Quasithin.Background.E1Twelve
 public import CFSG.Quasithin.Vol2.Ch10SecABasicCent
 public import CFSG.Quasithin.Vol2.Ch10SecBInner3
 public import CFSG.Quasithin.Vol2.Ch10StatementsE
@@ -41,9 +30,6 @@ public import CFSG.Sporadic.Schreier.J4SSylow
 public import CFSG.Sporadic.Schreier.M11
 public import CFSG.Sporadic.Schreier.M22
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CPrime
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralAut
 public import CFSG.Walter.J1
 
 public section

@@ -1,11 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps139Defs
-public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps139Basic
 public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps139B
 public import CFSG.LocalAnalysis.WeakClosure81.SixFourteenOmega4UniqueAbstract
-public import CFSG.Quasithin.Vol2.KGNatComm
-public import CFSG.Quasithin.Background.B1Coprime
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.CharacterTheory.CyclicBlocks.Family

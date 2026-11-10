@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoRationalComponent
-public import CFSG.LocalAnalysis.StandardType.GGLangSixRoot
 public import CFSG.ClassicalInvolution.RouteD.Root
-public import CFSG.LieType.Chevalley.WeylRoots
 public import CFSG.ClassicalInvolution.RouteD.Basic
 
 public section

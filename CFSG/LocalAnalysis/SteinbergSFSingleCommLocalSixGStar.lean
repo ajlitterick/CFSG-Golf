@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.SteinbergSFSingleCommLocalSixGSquares
 public import CFSG.LocalAnalysis.SteinbergSFSingleCommLocalSixFElementary
-public import CFSG.LocalAnalysis.SteinbergSFSingleCommNextTwoCoresComplement
 
 public section
 

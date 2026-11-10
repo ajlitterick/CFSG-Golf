@@ -2,13 +2,8 @@ module
 
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusE6RelativeLangWeyl
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesE6SplitNormalizer
-public import CFSG.LieType.Chevalley.ExactNormalFormE
 public import CFSG.LocalAnalysis.StandardType.GGNoTransvectionAutFrame
-public import CFSG.LocalAnalysis.ComponentInitial.SuzukiTwoAAutomorphisms
-public import CFSG.LieType.Chevalley.CoordinateFieldBaseChange
 public import CFSG.RankThree.Chevalley.SteinbergBNG2QPlusLocalCore
-public import CFSG.LieType.Chevalley.E6GraphLeviIntersections
 public import CFSG.RankThree.Chevalley.SteinbergBUF4CyclotomicFourDescent
 public import CFSG.RankThree.Chevalley.SteinbergBNF4NativeB2
 public import CFSG.RankThree.Chevalley.SteinbergBUF4B2QuarticDescent

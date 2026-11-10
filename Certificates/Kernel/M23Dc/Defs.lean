@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.M23Dc.Data
-public import Certificates.Data.Kernel.SporLatDcCode
 public import Certificates.Data.Kernel.SporLatDcSort
 
 public noncomputable section

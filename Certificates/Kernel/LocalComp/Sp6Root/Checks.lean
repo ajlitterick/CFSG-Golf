@@ -3,11 +3,9 @@ module
 public import Certificates.Kernel.LocalComp.Sp6Root.Data
 public import Certificates.Kernel.LocalComp.Sp6J.ClsX
 public import Certificates.Data.Kernel.Sp6Root
-public import Certificates.Data.Kernel.Child3
 public import Certificates.Data.Kernel.J2Cover
 public import Certificates.Data.Kernel.SporSch.MathieuBT
 public import Certificates.Data.Kernel.Spor.MCount
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

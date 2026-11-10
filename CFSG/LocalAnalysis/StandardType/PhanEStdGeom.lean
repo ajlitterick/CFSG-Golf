@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.PhanEBridgeGeom
 public import CFSG.LocalAnalysis.StandardType.PhanEPanelStab
 public import CFSG.LocalAnalysis.StandardType.PhanEGood
 public import CFSG.LocalAnalysis.StandardType.PhanELangIso
-public import CFSG.LocalAnalysis.StandardType.PhanEStdPanel
-public import CFSG.LocalAnalysis.StandardType.PhanEStdBuildingData
 
 public section
 

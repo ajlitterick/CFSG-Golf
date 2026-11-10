@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSporKLieZReduce
-public import CFSG.Open.StatedDefs
 import CFSG.LocalAnalysis.StandardType.GGSporKLieZBlockO2
 import CFSG.LocalAnalysis.StandardType.ClassicalPosition.ReducedAlgebra
 

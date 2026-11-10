@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusRootGenAvoidModel
 public import CFSG.LocalAnalysis.StandardType.GGTwE6WeylTorusTransferCore
-public import CFSG.LocalAnalysis.StandardType.GGRootGenAvoidInduced
 public import CFSG.LocalAnalysis.StandardType.GGTorusInducedTransfer
 public import CFSG.LocalAnalysis.StandardType.GGSuSplitRootGenCover
 

@@ -1,17 +1,12 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGA2EightDefs
 public import CFSG.LocalAnalysis.StandardType.GGA2EightSlices
 public import CFSG.LocalAnalysis.StandardType.GGA2EightRA
 public import CFSG.LocalAnalysis.StandardType.GGTPNClassicalCover
 public import CFSG.LocalAnalysis.StandardType.GGTPNExcCover
-public import CFSG.LocalAnalysis.StandardType.GGTPNNarrowC6
-public import CFSG.LocalAnalysis.StandardType.GGTPNA8SevenR
 public import CFSG.LocalAnalysis.StandardType.GGTPNE6TwoSeven
 public import CFSG.LocalAnalysis.StandardType.GGE6TwoSevenComp
 public import CFSG.LocalAnalysis.StandardType.GGTPNI1Holds
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.LocalAnalysis.StandardType.GGK0ExcB3
 
 public section
 

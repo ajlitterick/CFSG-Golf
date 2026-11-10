@@ -4,10 +4,6 @@ public import CFSG.RankThree.Chevalley.EvenTrialityElementaryNine
 public import CFSG.LieType.Chevalley.TrialityAllCharTorusCoordinates
 public import CFSG.RankThree.Chevalley.EvenFourCommutingSL2
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Borel
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Lemma83
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Cardinalities
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ProjectiveSemilinear
 public import CFSG.Walter.Defs
 
 public noncomputable section

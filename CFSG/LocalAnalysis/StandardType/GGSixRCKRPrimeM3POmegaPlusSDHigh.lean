@@ -7,10 +7,7 @@ import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeSUBlock
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeSpinFlag
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeFEBlockPOmegaPlus
 import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IRootLine
-import CFSG.LocalAnalysis.StandardType.GGSixOrderPAut
 import CFSG.LocalAnalysis.StandardType.ClassicalPosition.GeoOrth
-import CFSG.LieType.Steinberg.CentralExt.OrthogonalPerfect
-import CFSG.LieType.Universal.SpinOmega.Kernel
 
 public section
 

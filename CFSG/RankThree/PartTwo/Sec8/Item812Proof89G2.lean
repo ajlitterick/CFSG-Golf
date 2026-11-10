@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec8.Item812Proof89
 import CFSG.Adapters.TauCetiExceptional.EvenBridgeG2
-import CFSG.LieType.Chevalley.AdjointCenter
 import CFSG.RankThree.PartTwo.KFacts.K71G2
 import CFSG.RankThree.PartTwo.KFacts.K71Item89
 import CFSG.LieType.Chevalley.EvenRootCommutatorF4

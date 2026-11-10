@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGWitOrthNormal
 public import CFSG.LocalAnalysis.StandardType.GGWitOrthTransport
 public import CFSG.LocalAnalysis.StandardType.GGWitOrthSpin
 public import CFSG.Mathlib.Decide.Bounded
-public import Mathlib.Algebra.Module.Pi
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section1
-import Mathlib.GroupTheory.SpecificGroups.Cyclic
 import Mathlib.Tactic
 
 namespace CFSG

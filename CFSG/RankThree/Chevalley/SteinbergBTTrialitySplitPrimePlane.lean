@@ -2,11 +2,9 @@ module
 
 public import CFSG.RankThree.Chevalley.SteinbergCFTrialityToralCentralizer
 public import CFSG.RankThree.Chevalley.SteinbergCBTrialityOpposition
-public import CFSG.LieType.Chevalley.TrialityAllCharTorusCoordinates
 public import CFSG.LieType.Chevalley.TrialityExactFiniteOrder
 public import CFSG.LieType.Chevalley.CLSOddE7RationalEightGroup
 public import CFSG.LieType.Chevalley.OrthogonalFixedOrbitMaps
-public import CFSG.LieType.Chevalley.ParabolicRadicalLevi
 
 public noncomputable section
 

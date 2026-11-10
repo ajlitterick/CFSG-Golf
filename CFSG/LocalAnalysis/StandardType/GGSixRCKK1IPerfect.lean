@@ -1,12 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IDefs
-public import CFSG.LieType.CurtisTits.Spin
-public import CFSG.LieType.CurtisTits.Adjoint
-public import CFSG.LieType.CurtisTits.ExceptionalQuasisimple
-public import CFSG.LieType.CurtisTits.TwistedE6
-public import CFSG.LieType.Universal.Unitary.Clause0
-public import CFSG.ClassicalInvolution.SL2Facts
 
 public section
 

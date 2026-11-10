@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.CoreD2Lines
 public import CFSG.Sporadic.Co2Cert.Data
-public import Mathlib.GroupTheory.Schreier
 
 public section
 

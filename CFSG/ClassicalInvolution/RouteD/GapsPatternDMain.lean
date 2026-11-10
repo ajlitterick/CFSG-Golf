@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.GapsPatternD
-public import CFSG.ClassicalInvolution.RouteD.PatternD
 public import CFSG.ClassicalInvolution.RouteD.Pattern
 public import CFSG.ClassicalInvolution.RouteD.GapsEnd4Final
 public import CFSG.ClassicalInvolution.Balance.LayerGenerationRoots

@@ -2,14 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.TableC.HypDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutInnerExcSixE
-public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerAdj
-public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerE7
-public import CFSG.GroupTheory.ElemAbelianClosure
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267BadExcAutRank
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267BadExcE8Five
 public import CFSG.RankThree.PartOne.Mult.Exceptional
-public import CFSG.Adapters.TauCetiExceptional.EvenAll
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerSylow
 public import CFSG.LieType.SeitzGeneration.ExcHigh.FrameLayer
 public import CFSG.RankThree.Classical2.TwistedE6Phi3Centralizer
 public import CFSG.RankThree.Lattice.SteinbergBIE6EvenBruhat

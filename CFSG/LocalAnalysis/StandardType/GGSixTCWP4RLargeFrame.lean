@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RLargeEig
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RE8Frame
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UData
 
 public section
 

@@ -4,7 +4,6 @@ public import CFSG.Monster.B.Co2.PermArr
 public import Mathlib.SetTheory.Cardinal.Finite
 import CFSG.Certificates.Kernel.Spor.RawOrbHead
 public import CFSG.Certificates.Kernel.Spor.RawDefs
-public import Certificates.Data.CFSGNative.Co3Schreier.Basic
 import CFSG.Certificates.Kernel.Spor.RawOrbGrp
 
 public section

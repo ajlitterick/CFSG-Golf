@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Certificates.Kernel.Mols4Sound
-public import CFSG.LocalAnalysis.ComponentClassification.WittDesignPlaneSquaresInputs
 import CFSG.Certificates.Kernel.Common.Harness
 public import Mathlib
 

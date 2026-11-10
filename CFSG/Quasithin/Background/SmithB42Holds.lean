@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Background.SmithB42Dispatch
-public import CFSG.Quasithin.Background.SmithB42Vacuous
 public import CFSG.Quasithin.Background.SmithB42L2Even
 public import CFSG.Quasithin.Background.SmithB42L2Alt5
 public import CFSG.Quasithin.Background.SmithB42L2L32
@@ -10,7 +9,6 @@ public import CFSG.Quasithin.Background.SmithB42Alt7
 public import CFSG.Quasithin.Background.SmithB42G2Main
 public import CFSG.Quasithin.Background.SmithB42SL3Even
 public import CFSG.Quasithin.Background.SmithB42Sp4Main
-public import CFSG.Quasithin.Background.SmithB42HatA6
 public import CFSG.Quasithin.Background.SmithB42U33
 public import CFSG.Quasithin.Background.SmithB42Tits
 public import CFSG.Quasithin.Background.SmithB42F4Main

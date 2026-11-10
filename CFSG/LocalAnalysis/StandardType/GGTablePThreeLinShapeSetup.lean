@@ -3,10 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeLinDefs
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeRLeaf
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.LinearInner
-import CFSG.Assembly.Subnormal
-import CFSG.LocalAnalysis.StandardType.GGOneFiveNbr
 import CFSG.RankThree.PartTwo.Sec21.Hering214KEig
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearAction
 import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs256h
 import CFSG.RankThree.PartTwo.Sec6.BThreeCensusL4
 import CFSG.RankThree.PartTwo.Sec4.RonanK432DiagThree

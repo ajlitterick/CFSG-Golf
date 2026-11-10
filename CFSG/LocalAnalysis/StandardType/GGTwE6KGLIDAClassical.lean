@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTwE6KGLIDADefs
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLIDARefute
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLIDAOrthModel
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLIDASpUnitary
-import CFSG.LocalAnalysis.StandardType.GGSixStepOneOutdiagLabels
-import CFSG.LocalAnalysis.StandardType.Marking
 
 public section
 

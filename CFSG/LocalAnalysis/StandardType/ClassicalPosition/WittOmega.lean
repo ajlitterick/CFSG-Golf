@@ -1,10 +1,7 @@
 module
 
-public import CFSG.ClassicalGroups.Orthogonal.Eichler
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthogonalDiag
-public import CFSG.LocalAnalysis.StandardType.GGOppositeRadicalOmegaPlusModel
 public import CFSG.LocalAnalysis.StandardType.GGOppositeRadicalOmegaMinusModel
-public import CFSG.RankThree.PartOne.KC.OrthogonalSupportedScalarElementary
 
 public section
 

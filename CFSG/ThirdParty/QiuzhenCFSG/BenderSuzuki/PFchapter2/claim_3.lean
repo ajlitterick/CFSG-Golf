@@ -7,12 +7,7 @@ import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.Clifford
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.XV.theorem_15_16
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.V.theorem_8_15
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFAppendixII.proposition_2
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.Remaining
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.lemma_3_1
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.HallSubgroups.Core
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection6.PFsection6_5_a
-import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.SubrepresentationLattice
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Wielandt.FixedPointProduct
 
 namespace CFSG
 end CFSG

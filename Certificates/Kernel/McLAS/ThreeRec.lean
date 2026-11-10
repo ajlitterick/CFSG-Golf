@@ -1,13 +1,10 @@
 module
 
-public import Certificates.Kernel.Sporadic.OddCore.MulHCmd
 public import Certificates.Kernel.Sporadic.OddCore.RowsCmd
-public import Certificates.Kernel.Misc.Perm.HexCmd
 public import Certificates.Kernel.McLAS.Rec3A
 public import Certificates.Kernel.McLAS.RecK
 public import Certificates.Kernel.McLAS.Tabs
 public import Certificates.Kernel.Sporadic.OddCore.McLTL
-public import Certificates.Kernel.Census.McLChain
 public import Certificates.Data.Kernel.McLAS.Three
 meta import Certificates.Kernel.McLAS.Meta
 meta import Certificates.Kernel.Sporadic.OddCore.McLTL

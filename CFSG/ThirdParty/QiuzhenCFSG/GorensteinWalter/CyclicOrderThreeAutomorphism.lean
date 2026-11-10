@@ -3,7 +3,6 @@ module
 
 public import Mathlib.GroupTheory.SpecificGroups.Cyclic
 
-import Mathlib.GroupTheory.Perm.Cycle.Type
 import Mathlib.Tactic
 
 namespace CFSG

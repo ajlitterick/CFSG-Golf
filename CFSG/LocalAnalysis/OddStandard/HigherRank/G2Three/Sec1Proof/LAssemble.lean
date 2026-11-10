@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.S3Kit
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.F16
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.F17
-public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.F18a
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.F18b
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.F18c
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.F18d

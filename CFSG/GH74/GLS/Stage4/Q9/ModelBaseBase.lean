@@ -1,7 +1,6 @@
 
 module
 
-public import Mathlib
 public meta import Mathlib
 public import CFSG.GH74.GLS.Stage4.Q9.ModelBaseInputs
 public meta import CFSG.GH74.GLS.Stage4.Q9.ModelBaseInputs

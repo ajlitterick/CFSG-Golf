@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylKnownDefs
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyWeylNS
 public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpPump

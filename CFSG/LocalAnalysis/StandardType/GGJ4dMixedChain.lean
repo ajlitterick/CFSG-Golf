@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LieType.Chevalley.RationalToralSignDiagramTheta
-public import CFSG.LieType.Steinberg.Adjoint.Pairs
-public import CFSG.LieType.Chevalley.KernelComponentRoots
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.RigidRank
 public import CFSG.LocalAnalysis.StandardType.GGLatDefs
 

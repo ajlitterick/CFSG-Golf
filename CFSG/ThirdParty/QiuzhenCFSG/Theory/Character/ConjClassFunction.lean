@@ -1,12 +1,7 @@
 module
 
-public import Mathlib.Data.Complex.Basic
 public import Mathlib.Algebra.Group.ConjFinite
-public import Mathlib.Algebra.Group.Conj
-public import Mathlib.RepresentationTheory.Character
-public import Mathlib.LinearAlgebra.Basis.Defs
 public import Mathlib.RepresentationTheory.Induced
-public import Mathlib.GroupTheory.GroupAction.Quotient
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.ClassFunction
 
 namespace CFSG

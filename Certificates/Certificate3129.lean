@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenSmallLie.TwoE6.OddSquareCertInputs
 import Certificates.Kernel.TwoE6.OddSquare
-import Certificates.Data.Kernel.CTIBqBind
-import Certificates.Kernel.TwoE6.CTIBqData
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

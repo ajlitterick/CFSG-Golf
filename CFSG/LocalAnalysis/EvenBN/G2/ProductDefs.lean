@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.EvenBN.G2.SeriesCenters
-public import CFSG.LocalAnalysis.EvenBN.Sp4.BothTrivialCases
 public import CFSG.LocalAnalysis.EvenBN.Sp4.BothTrivialProduct
-public import CFSG.LocalAnalysis.EvenBN.Common.ProductClosure
 public import CFSG.LocalAnalysis.EvenBN.Common.Diagonal
 public import CFSG.LocalAnalysis.EvenBN.TrialityD4.ProductToolbox
 

@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDWeyl
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDCoord
-public import CFSG.LocalAnalysis.StandardType.GGQTwoS1Transport
 public import CFSG.LocalAnalysis.StandardType.GGQTwoQuandleE
-public import CFSG.LocalAnalysis.StandardType.GGQTwoBCZ1
-public import CFSG.LocalAnalysis.StandardType.GGQTwoInnerDefs
 
 public section
 

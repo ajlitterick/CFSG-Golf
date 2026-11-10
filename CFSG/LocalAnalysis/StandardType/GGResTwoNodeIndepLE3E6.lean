@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndep
 public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3Count
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeKFixLineDefs
-public import CFSG.LocalAnalysis.StandardType.GGTBFixDefs
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeA5Consumer
 
 public section

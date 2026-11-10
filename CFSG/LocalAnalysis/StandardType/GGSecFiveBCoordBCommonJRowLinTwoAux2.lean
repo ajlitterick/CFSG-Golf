@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJRowLinTwoAux1
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySpCoord
 import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP9LinearTorus
-import CFSG.Mathlib.GroupTheory.AutomorphismNormalFactors
 
 public section
 

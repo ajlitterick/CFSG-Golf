@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGMaxRankSide
-public import CFSG.LocalAnalysis.StandardType.GGMaxRankLinear
-public import CFSG.LocalAnalysis.StandardType.GGMaxRankPairing
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepTransfer
-public import CFSG.LocalAnalysis.StandardType.GGResMaxRankDefs
 
 public section
 

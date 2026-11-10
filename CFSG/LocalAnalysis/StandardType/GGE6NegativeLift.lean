@@ -2,20 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieM6cDescent
 public import CFSG.LocalAnalysis.StandardType.GGReflCentralLift
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeTorality
 public import CFSG.LieType.Steinberg.Isogeny.E6Algebraic
 public import CFSG.LieType.Steinberg.Minuscule.E6BCBlocks
-public import CFSG.RankThree.PartOne.KF.ClsLiftS3
-public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcA2IsogenyCenter
-public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.W2.E6HeisenbergAux.PairAuxSc
 public import CFSG.RankThree.PartOne.KE.D4LayerAlgebraic
 public import CFSG.LieType.AlgebraicGroups.ClosedIdentityComponentFunctorial
-public import Mathlib.GroupTheory.Subgroup.Centralizer
-public import Mathlib.GroupTheory.Subgroup.Center
-public import Mathlib.Algebra.Group.Subgroup.Ker
-public import Mathlib.Tactic.Group
-public import Mathlib.GroupTheory.OrderOfElement
-public import CFSG.LocalAnalysis.StandardType.GGReflectionBasic
 public import CFSG.RankThree.PartTwo.Sec21.Item224KFactsProofSL3BT
 
 public noncomputable section

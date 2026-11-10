@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResKnownGroup
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import CFSG.LocalAnalysis.StandardType.GGRCCaseI
 public import CFSG.LocalAnalysis.StandardType.GGRCCaseII
 
 public section

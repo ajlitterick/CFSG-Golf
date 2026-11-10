@@ -4,7 +4,6 @@ public import CFSG.CGT.Timmesfeld75.L2Orbit
 public import CFSG.CGT.Timmesfeld75.Sec3TwelveAlg
 public import CFSG.RankThree.GF2n.Tim81.Sec2.NatSumRecog
 public import CFSG.RankThree.GF2n.Tim81.Sec2.InvolutionModule
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X7Conj
 
 public section
 

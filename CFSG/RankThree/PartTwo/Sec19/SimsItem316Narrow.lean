@@ -1,10 +1,7 @@
 module
 
 public import CFSG.RankThree.PartTwo.NotationBlocks
-public import CFSG.Foundations.Basic
 public import CFSG.Open.StatedDefs
-import CFSG.LocalAnalysis.RankThreeEvenClassification.Helpers
-import CFSG.LocalAnalysis.SectionRank.PRank
 import CFSG.RankThree.PartTwo.Sec19.F194Item316Glue
 import CFSG.RankThree.PartTwo.Sec19.Item19Res3ProofCensus194
 import CFSG.RankThree.PartTwo.Sec19.Census194.RonanC194OmegaPlanes
@@ -31,10 +28,8 @@ import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 import CFSG.LocalAnalysis.SectionRank.TitsCover
 import CFSG.Monster.Code.Weights
 import CFSG.Quasithin.Background.A3Components
-import CFSG.Quasithin.Background.A3ComponentsAmbient
 import CFSG.RankThree.PartTwo.Sec19.Item194Used
 import CFSG.RankThree.PartTwo.Sec6.Statements
-import CFSG.Sporadic.J4.Simple
 import CFSG.Sporadic.J4Base
 import CFSG.Sporadic.Mathieu.M12
 import CFSG.Sporadic.Mathieu.M24

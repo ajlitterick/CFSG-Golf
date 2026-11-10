@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2CentInternal
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenUFourTwoCent
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestUnitaryCenter
 public import CFSG.LocalAnalysis.StandardType.KGLangTorusClassicalInner
-public import CFSG.LocalAnalysis.StandardType.GGTableBBstar
 public import CFSG.LocalAnalysis.StandardType.GGTBJConfigFacts
 
 public section

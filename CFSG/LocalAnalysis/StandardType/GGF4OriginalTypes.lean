@@ -10,16 +10,6 @@ import CFSG.LocalAnalysis.StandardType.GGF4RankFour
 import CFSG.LocalAnalysis.StandardType.GGF4OrigRep
 import CFSG.LocalAnalysis.StandardType.GGAutomizerJoinInduced
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBMaxToPair
-import CFSG.LocalAnalysis.StandardType.GGSpJoinReflAlgebra
-import CFSG.LocalAnalysis.StandardType.GGSecFiveRootRefl
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelTypeABridge
-import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofRefl
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelTypeAAssembly
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
-import TauCeti.GroupTheory.Coxeter.Geometric
-import Mathlib.Algebra.Group.Subgroup.Finite
-import Mathlib.GroupTheory.Coset.Card
-import Mathlib.GroupTheory.OrderOfElement
 
 public section
 

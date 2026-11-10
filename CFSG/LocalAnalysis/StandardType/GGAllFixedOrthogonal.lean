@@ -3,11 +3,7 @@ module
 public import CFSG.LieType.SemisimpleCentralizers.OrthogonalCentralizerSolvable
 public import CFSG.LocalAnalysis.StandardType.GGAllFixedLinear
 public import CFSG.LocalAnalysis.StandardType.GGAllFixedTwA
-public import CFSG.LocalAnalysis.StandardType.GGAllFixedA8Seven
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestCenter
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthogonalBasic
 public import CFSG.LocalAnalysis.StandardType.GGLayerCycModelOmegaSec
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 
 public section
 

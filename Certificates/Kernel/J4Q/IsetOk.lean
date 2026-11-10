@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.J4Q.IsetAll
 public import Certificates.Kernel.J4Q.X0OrbOk
 public import Certificates.Kernel.J4Q.MaskU
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

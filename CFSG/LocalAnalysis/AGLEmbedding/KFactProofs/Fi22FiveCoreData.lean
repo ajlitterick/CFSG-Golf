@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.Fi22FiveData
-public import Certificates.Data.CFSGNative.Schreier.Check
-public import Certificates.Data.CFSGNative.Schreier.SetOrbit
-public import Std.Data.HashSet
 public meta import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.Fi22FiveData
 public meta import Certificates.Data.CFSGNative.Schreier.Check
 public meta import Certificates.Data.CFSGNative.Schreier.SetOrbit

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.H13.A7CoverFree
-public import CFSG.Quasithin.Background.BlueprintB2Thompson
 public import CFSG.Quasithin.Background.BlueprintB2Bridge
 public import CFSG.Quasithin.H13.A7SplitWitness
 public import CFSG.LocalAnalysis.ComponentClassification.BlockTwoProductAction
@@ -23,9 +22,6 @@ public import CFSG.Quasithin.Background.A3Structure36BPrimeDataBase
 public import CFSG.Quasithin.H13.A7Escape
 public import CFSG.Quasithin.H13.A7EscapeLocal
 public import CFSG.Quasithin.Vol2.Ch1Unique
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CPrime
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralAut
 
 public section
 

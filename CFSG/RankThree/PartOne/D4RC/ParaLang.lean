@@ -3,11 +3,6 @@ module
 public import CFSG.RankThree.PartOne.D4RC.ParaBruhat
 public import CFSG.RankThree.PartOne.D4RC.ParaConn
 public import CFSG.LieType.AlgebraicGroups.RationalCentralizerCocycleLang
-public import CFSG.LieType.AlgebraicGroups.ExactAffineRealizationGroups
-public import CFSG.LieType.Chevalley.TwistMap
-public import CFSG.LieType.Chevalley.GraphFixedData
-public import CFSG.LieType.Chevalley.GraphFixedHighestRoot
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 
 set_option linter.unusedSectionVars false
 

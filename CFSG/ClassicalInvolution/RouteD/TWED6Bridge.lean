@@ -4,13 +4,11 @@ public import CFSG.ClassicalInvolution.RouteD.TWEB6Bridge
 public import CFSG.ClassicalInvolution.RouteD.TWEB6Layer
 public import CFSG.ClassicalInvolution.RouteD.GapsFrBGen
 public import CFSG.ClassicalInvolution.RouteD.GapsPatternD
-public import CFSG.ClassicalInvolution.RouteD.TypeELocal
 public import CFSG.ClassicalInvolution.LBalance.Main
 public import CFSG.ClassicalInvolution.ModelFacts.OrthAutDiagC
 public import CFSG.LocalAnalysis.ComponentClassification.PrimeComplementQuotientComponents
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 
 public section
 

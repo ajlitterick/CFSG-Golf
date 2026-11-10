@@ -1,14 +1,7 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.TWEBigFrame
-public import CFSG.ClassicalInvolution.Asc77.AscAETSecViol
-public import CFSG.ClassicalInvolution.Asc77.AscAETWeak
-public import CFSG.ClassicalInvolution.Asc77.AscT3Final
-public import CFSG.ClassicalInvolution.Asc77.AscT3TypedClass
-public import CFSG.ClassicalInvolution.Asc77.AscT3TypedQuot
-public import CFSG.ClassicalInvolution.ModelFacts.Orth15Section
 public import CFSG.ClassicalInvolution.Asc77.WP3SCRP1Base
-public import CFSG.ClassicalInvolution.Asc77.WP3FrameBootRows
 public import CFSG.ClassicalInvolution.Asc77.AscAETProved
 public import CFSG.ClassicalInvolution.Asc77.AscT8Setup
 public import CFSG.ClassicalInvolution.AschTight.Sec7L713E

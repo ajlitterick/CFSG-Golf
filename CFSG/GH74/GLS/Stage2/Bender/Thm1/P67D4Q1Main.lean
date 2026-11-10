@@ -1,11 +1,9 @@
 module
 
-public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4InNF
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4Q1Line
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4MpAlg2
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4Q1Twist
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4Q1Lang
-public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4Q1Class
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4Q1Pair
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4TorusFrame2
 public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcLeviToral

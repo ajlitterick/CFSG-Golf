@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelA2BlockB
-public import CFSG.RankThree.SteinbergR3ESL3RootPermutingFixed
 
 public noncomputable section
 

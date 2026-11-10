@@ -3,7 +3,6 @@ module
 public import CFSG.Quasithin.Background.SmithB45J2Rep
 public import CFSG.Quasithin.Background.SmithB45MatFrob
 public import CFSG.CharacterTheory.SteinbergBYAlternatingSixModular
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.RepMap
 
 public section
 

@@ -1,10 +1,8 @@
 module
 
-public import CFSG.Foundations.Basic
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 public import CFSG.RankThree.PartOne.KC.OrthogonalFixedDerived
 public import CFSG.GroupTheory.WeirSylow.OrthogonalModels
-public import CFSG.Open.Defs
 public import CFSG.ClassicalInvolution.Orders.OrthogonalCount
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointActionModels

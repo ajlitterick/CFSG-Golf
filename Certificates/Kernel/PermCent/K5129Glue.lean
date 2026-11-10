@@ -2,7 +2,6 @@ module
 
 public import CFSG.Certificates.Kernel.PermCent.Sz8DSound
 public import Certificates.Kernel.PermCent.K5129
-public import Certificates.Certificate5128
 
 public section
 

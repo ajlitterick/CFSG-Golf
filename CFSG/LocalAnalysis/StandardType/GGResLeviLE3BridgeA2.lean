@@ -1,26 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3BridgeA
-public import CFSG.LocalAnalysis.StandardType.GGResLeaf
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallUnitDvdSwap
-public import CFSG.LocalAnalysis.StandardType.GGBstarLemmaC
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6
 public import CFSG.LocalAnalysis.StandardType.GGNbrTwE6Prop87
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePumpBstar
-public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitaryOutdiag
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryDvdCodimTwo
-public import CFSG.LocalAnalysis.StandardType.GGTriD4NoneTwE6
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinNbrModel
-public import CFSG.LocalAnalysis.ComponentClassification.PerfectCentralQuotient
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallUnitDvdPair
-public import CFSG.ClassicalGroups.UnitaryFlag.GroupData
-public import CFSG.LieType.Universal.Unitary.Clause0
-public import CFSG.LocalAnalysis.StandardType.GGBstarLIDUnit63Holds
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLExc3
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLExcReduction
-public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBE6
-public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitTvSixQ2
 
 public section
 

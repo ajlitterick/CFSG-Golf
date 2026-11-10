@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.StarFour.CentralizerSLDecomp
-public import CFSG.Assembly.Defs
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerPDivBasic
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsPiGL
 

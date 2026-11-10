@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1ShortCore
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1ShortOmMCentral
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1L5
 
 public section
 

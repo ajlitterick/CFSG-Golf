@@ -2,13 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalRk2LU4Weyl
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherExcFixG2
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmall
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerRestExc
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestCenter
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATorus
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangNorm
-public import CFSG.LieType.Steinberg.CentralExt.G2FourMultiplier
-public import CFSG.RankThree.Chevalley.G2SplitPrimeToralCentralizers
 
 public section
 

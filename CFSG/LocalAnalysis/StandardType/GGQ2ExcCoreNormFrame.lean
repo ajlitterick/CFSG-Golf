@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreDefs
-public import CFSG.LocalAnalysis.StandardType.GGQTwoRationalWeyl
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcToralityFive
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompE8
-import CFSG.HardMathSupport.Timmesfeld.Torality.E8Chain
 
 public section
 

@@ -4,7 +4,6 @@ public import Certificates.Kernel.Co1SevenK.BndData
 public import Certificates.Kernel.Co1SevenK.Syl
 public import Certificates.Kernel.Co1B.XB17591
 public import Certificates.Data.Kernel.Co1BBoundP
-public import Certificates.Data.Kernel.Co1BW
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

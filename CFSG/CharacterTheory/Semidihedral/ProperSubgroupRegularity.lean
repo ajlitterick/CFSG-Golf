@@ -1,23 +1,16 @@
 module
 
-public import CFSG.CharacterTheory.Semidihedral.SameParameterQuotientTransport
-public import CFSG.Sporadic.Mathieu.M11
 public meta import CFSG.Sporadic.Mathieu.M11
 public meta import CFSG.Blueprint.NativeSporadic
 public meta import CFSG.CharacterTheory.Semidihedral.ActualSimpleLayerLocalPackage
 public import CFSG.CharacterTheory.Semidihedral.GL2Recognition.M11Order
-public import CFSG.CharacterTheory.Wreathed.DegreeThreeModelFullCenter
-public import CFSG.CharacterTheory.Wreathed.ProjectiveTwoParameterUniqueness
 public import CFSG.CharacterTheory.Semidihedral.Principal.DegreeThreeReducedCentralizer
 public import CFSG.CharacterTheory.Semidihedral.Principal.DegreeThreeModelRegularity
 public import CFSG.CharacterTheory.Semidihedral.Local.OddKernelLocalParameter
-public import CFSG.CharacterTheory.Semidihedral.SameParameterInheritance
 public import CFSG.CharacterTheory.Semidihedral.ProperSubgroupRegularityInputs
 public import Certificates.Certificate8046
 public import CFSG.CharacterTheory.Semidihedral.ProperSubgroupRegularityCoordInputs
-public import Certificates.Certificate8048
 public import Certificates.Certificate8049
-public import Certificates.Certificate3120
 public import Certificates.Certificate1
 public import Certificates.Certificate2
 public import Certificates.Certificate3
@@ -33,8 +26,6 @@ public import Certificates.Certificate12
 public import Certificates.Certificate42
 public import Certificates.Certificate43
 public import Certificates.Certificate44
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public meta import CFSG.CharacterTheory.Blocks.BrauerInduction
 public import CFSG.CharacterTheory.Semidihedral.Local.OddCoreQuotientSimple
 public meta import CFSG.CharacterTheory.TwoRankLowerBound.BrauerCharacterCriterion

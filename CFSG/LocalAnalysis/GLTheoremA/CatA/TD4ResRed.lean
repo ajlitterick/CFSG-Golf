@@ -6,10 +6,7 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.TD4ResG2
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.TD4ResDefs
 public import CFSG.LocalAnalysis.StandardType.GGTriD4ComponentsFix
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRanksTri
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcVacuousTriality
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowX1Transport
-public import CFSG.LieType.Chevalley.EvenTrialityAutomorphismNormalForm
-public import CFSG.Timmesfeld.Orders.Classical
 public import CFSG.GroupTheory.CenterlessInnerCentralizer
 public import CFSG.GroupTheory.PLayer.PIndex
 public import CFSG.HardMathSupport.Solomon.Coordinator.I18_3LInput

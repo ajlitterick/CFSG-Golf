@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIUnitaryBlock
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIISULevi
 public import CFSG.GroupTheory.InvolutionPair
 
 public section

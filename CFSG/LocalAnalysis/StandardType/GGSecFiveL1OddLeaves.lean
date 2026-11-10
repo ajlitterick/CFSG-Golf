@@ -1,22 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosHolds
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePrimDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePumpJoin
-public import CFSG.LocalAnalysis.StandardType.GGPumpupCentral
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalancePumpup
-public import CFSG.LocalAnalysis.StandardType.GGCoxReflConv
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRankOneConj
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveNormalizer
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6
-public import CFSG.LocalAnalysis.StandardType.GGSixStepOneCompPCore
 public import CFSG.LocalAnalysis.StandardType.GGSixStepOneSmallImage
-public import CFSG.LocalAnalysis.StandardType.GGSixStepOneSmallBasic
 public import CFSG.LocalAnalysis.StandardType.GGSixStepOneRestSeven
 public import CFSG.LocalAnalysis.StandardType.GGKGPosTagWeyl
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
-public import CFSG.LocalAnalysis.StandardType.GGSimplyLacedWeyl
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveL1CitedDefs
 
 public section

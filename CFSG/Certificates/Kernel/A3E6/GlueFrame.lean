@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Certificates.Kernel.A3E6.Glue
-public import CFSG.Certificates.Kernel.ThDemp.ChainEx
 
 public section
 

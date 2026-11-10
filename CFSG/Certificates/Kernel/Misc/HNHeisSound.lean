@@ -3,8 +3,6 @@ module
 public import Certificates.Data.Kernel.Misc.HNHeis
 public import CFSG.Certificates.Kernel.SporSch.LyMatSound
 public import CFSG.Sporadic.HNSchreier.SeedsCheckInputs
-import CFSG.Certificates.Kernel.SporSch.LyMatLemmas
-import CFSG.Certificates.Kernel.Spor.OrdSound
 public import CFSG.Sporadic.Schreier.LyCheckSeven
 
 public section

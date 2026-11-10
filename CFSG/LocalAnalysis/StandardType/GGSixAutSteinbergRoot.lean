@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LieType.Steinberg.Adjoint.Group
-public import CFSG.LieType.Chevalley.E6CanonicalFieldGraphFixed
 public import CFSG.LocalAnalysis.StandardType.GGRootDetectExcCore
 
 public section

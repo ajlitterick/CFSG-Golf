@@ -4,8 +4,6 @@ module
 public import Certificates.Certificate2225Base
 import all Certificates.Certificate2225Base
 
-public import CFSG.Sporadic.Schreier.PairHeCheck
-public import Certificates.Data.CFSGNative.PairSchreier.Counts
 import Certificates.Kernel.SporSch.PairHe.Cnt2225
 
 public section

@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S2114R3LCentralizer
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.OutPRankNice
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.OutPRankBound
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.PRankModPCore
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenFortySixB
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.CartanTorusSp6
 import all CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.RankThreeCentTorusOmegaMinus8

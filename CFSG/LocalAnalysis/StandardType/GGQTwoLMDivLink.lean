@@ -1,11 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
 public import CFSG.LocalAnalysis.StandardType.GGQTwoFrameLDefs
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordInnerRigid
 public import CFSG.GroupTheory.CoprimeConjNormalizer
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 
 public section
 

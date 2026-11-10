@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ClassicalInvolution.RouteD.TypeTwistedE6PerpOrthTransport
 public import CFSG.ClassicalInvolution.RouteD.TwinYR2SpinV
 
 public section

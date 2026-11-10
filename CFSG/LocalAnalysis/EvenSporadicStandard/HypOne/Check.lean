@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
 public import CFSG.Sporadic.Schreier.MathieuOddCoreOuter
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HypOne.Rank
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
@@ -8,7 +7,6 @@ public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Sporadic.Schreier.MathieuOddCoreModel
 public import CFSG.Sporadic.Schreier.MathieuOddCoreWords
 public import CFSG.Sporadic.Schreier.Outer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Basic
 
 public section

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoChartDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoChartMatchModel
-import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofRefl
 import CFSG.LocalAnalysis.StandardType.GGTypeAReflOverEmb
 
 public section

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.FF81.PropOne.B2Module
 public import CFSG.LocalAnalysis.StandardType.FF81.PropOne.QSylowNor
 public import CFSG.Mathlib.GroupTheory.SylowOfUniqueSubgroup
 public import CFSG.CGT.PushingUpLit.SYMB.ProdCard

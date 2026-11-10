@@ -1,12 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172XDefs
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172BRankBound
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172BRankFrame
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172BRankInv
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172BRankSiegel
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172BRankTorus
-public import CFSG.RankThree.Literature.FSmithOrthogonal
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172Facts
 public import CFSG.LocalAnalysis.GLTheoremA.S10.InputsSetup
 public import CFSG.LocalAnalysis.GLTheoremA.S6.Lemma62AuxComp

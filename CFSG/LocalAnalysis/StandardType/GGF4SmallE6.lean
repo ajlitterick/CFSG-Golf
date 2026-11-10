@@ -1,12 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGExcTwoCompList
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 import CFSG.LocalAnalysis.StandardType.GGE6OppConjDatum
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-import CFSG.LocalAnalysis.StandardType.GGD4OddCentVocab
-import Mathlib.Algebra.Group.Commutator
-import Mathlib.GroupTheory.Commutator.Basic
 
 public section
 

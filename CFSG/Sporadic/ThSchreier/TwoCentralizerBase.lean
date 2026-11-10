@@ -1,23 +1,11 @@
 
 module
 
-public import CFSG.Sporadic.ThSchreier.OrbitCheck819Base
-public import CFSG.Sporadic.Th.Max3.PacketBase
 public meta import CFSG.Sporadic.ThSchreier.OrbitCheck819Base
 public meta import CFSG.Sporadic.Th.Max3.PacketBase
 public import CFSG.Sporadic.ThSchreier.TwoCentralizerInputs
-public import CFSG.Sporadic.ThSchreier.LocalOrbitInputs
 public meta import CFSG.Sporadic.ThSchreier.WordsBase
 public meta import CFSG.Sporadic.ThSchreier.LocalDataBase
-public import Mathlib
-public import CFSG.Blueprint.NativeSporadic
-public import CFSG.Blueprint.MatrixSeedIdentification
-public import CFSG.Sporadic.Th.F2Spec
-public import CFSG.Certificates.SchreierStabilizerGenerators
-public import Certificates.Data.CFSGNative.Th.Certificate
-public import CFSG.Sporadic.Th.Max3.CoreBase
-public import CFSG.Sporadic.Th.Max3.PacketInputs
-public import CFSG.Sporadic.Th.Max3.DataBase
 
 @[expose] public section
 

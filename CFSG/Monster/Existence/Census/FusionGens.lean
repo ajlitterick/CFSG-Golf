@@ -4,16 +4,7 @@ public import CFSG.Monster.Existence.Census.TrialityWitnesses
 public meta import Certificates.Data.CFSGNative.MonsterAxis.Dense
 public meta import CFSG.Monster.Existence.Census.Rigid
 public meta import CFSG.Monster.Existence.Census.TrialityWitnesses
-public import CFSG.Monster.Existence.Census.FusionGensInputs
 public import Certificates.Certificate6022
-public import Certificates.Certificate6023
-public import Certificates.Certificate6007
-public import Certificates.Certificate1020
-public import Certificates.Certificate1022
-public import Certificates.Certificate3015
-public import Certificates.Certificate3016
-public import Certificates.Certificate3017
-public import Certificates.Certificate3018
 
 public section
 

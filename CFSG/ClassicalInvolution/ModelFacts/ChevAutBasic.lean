@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LieType.CentralExt.CoprimeLift
-public import CFSG.LieType.CurtisTits.Reduction
 public import CFSG.LieType.Steinberg.CentralExt.Unipotent
 public import CFSG.LocalAnalysis.SectionRank.EvenCover.SLTwo
 

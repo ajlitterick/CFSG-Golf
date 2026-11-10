@@ -1,9 +1,7 @@
 module
 
 public import CFSG.RankThree.GF2n.Parrott.Section3Lemma34
-public import CFSG.RankThree.GF2n.Parrott.Section4Lemma34Local
 public import CFSG.RankThree.GF2n.Parrott.Section4Lemma34Model
-public import CFSG.RankThree.GF2n.Parrott.HPrimeJ1
 public import CFSG.RankThree.GF2n.Parrott.ActionQAIdentificationOutsideEquality
 
 import CFSG.RankThree.GF2n.Parrott.SpinFixedCardMore

@@ -4,7 +4,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.ElementaryAbelia
 public import CFSG.LocalAnalysis.SectionRank.Ccomm.NonabelianCube
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.lemma_4_5_a
 public import CFSG.RankThree.Coprime.ThetaPlaneNormalizesComponent
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.theorem_3_4
 
 public section
 

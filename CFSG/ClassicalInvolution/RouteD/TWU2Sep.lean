@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.TWU2Model
-public import CFSG.ClassicalInvolution.RouteD.TWT9Spin
 
 public section
 

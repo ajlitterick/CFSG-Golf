@@ -8,7 +8,6 @@ public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CompsPD4Layer
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CompsPTwoDChainO
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CompsPTwoDExport
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CompsPTwoDMain
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwoDFour
 
 public section
 

@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQ2S08CellBridge
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08StabGlueAll
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigHSmall
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigCardAut
-public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigInputs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoGammaXDetDefs
 
 public section

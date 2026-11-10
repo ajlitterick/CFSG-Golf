@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoRootGenF4Rat
-public import CFSG.LocalAnalysis.StandardType.GGPhiTwoRootGenLayer
 public import CFSG.HardMathSupport.Lang.AnisoF4.B4Even
 public import CFSG.ClassicalGroups.Symplectic.StandardForm
 public import CFSG.ClassicalGroups.Symplectic.ComponentCartanRank

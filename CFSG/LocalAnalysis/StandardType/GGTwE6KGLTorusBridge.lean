@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeNbrKnownLemmas
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcTorus
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylExcPlusLift
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangTorARankBound
 

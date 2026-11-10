@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Hyp.Desc1
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.LitComp
 
 public section

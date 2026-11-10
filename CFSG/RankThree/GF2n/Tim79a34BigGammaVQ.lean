@@ -2,7 +2,6 @@ module
 
 import CFSG.RankThree.GF2n.Tim79a34BigB
 public import CFSG.RankThree.GF2n.Tim79a34BigPAct
-import CFSG.RankThree.GF2n.Tim79a34BigAssembly
 import CFSG.RankThree.GF2n.Tim79a34BigNaturalProof
 import CFSG.RankThree.GF2n.Tim79a34BigIWProof
 public import CFSG.RankThree.GF2n.Tim79a34BigGammaBasic

@@ -1,15 +1,12 @@
 module
 
 public import CFSG.Sporadic.Schreier.ONCentralQuotient
-public import CFSG.Sporadic.Schreier.ONStandardAction
-public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourExactModel
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallL34Rank
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.LocBSFuse
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.Chain
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.GlobLemma39N
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.GlobSylow
 public import CFSG.Sporadic.Schreier.ONSylowCenter
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.JRFacts
 
 public section

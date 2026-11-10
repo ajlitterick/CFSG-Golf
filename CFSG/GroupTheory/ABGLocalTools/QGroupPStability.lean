@@ -1,15 +1,12 @@
 module
 
 public import CFSG.GroupTheory.ABGLocalTools.PStabilityCoreQGroup
-import CFSG.GroupTheory.ABGLocalTools.PStabilityQBorel
 import CFSG.GroupTheory.ABGLocalTools.PStabilityQChoice
 import CFSG.GroupTheory.ABGLocalTools.PStabilityQDickson
 import CFSG.GroupTheory.ABGLocalTools.PStabilityQOuter
 import CFSG.GroupTheory.ABGLocalTools.SL2FieldAut
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
 public import CFSG.CharacterTheory.Blocks.BrauerInduction
 public import CFSG.CharacterTheory.TwoRankLowerBound.BrauerCharacterCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

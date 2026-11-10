@@ -2,10 +2,7 @@ module
 
 public import Certificates.Kernel.J2Cover.EncRep
 public import Certificates.Kernel.J2Cover.M22Out
-public import Certificates.Kernel.J2Cover.K20D
 public import Certificates.Kernel.J2Cover.K20F
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.OddTranspositions.PartThree.Twelve.FiveDefs
 public import CFSG.OddTranspositions.PartThree.Twelve.FiveChart
 import CFSG.OddTranspositions.PartThree.Twelve.NineFive
 import CFSG.OddTranspositions.PartThree.Twelve.SixFiveLocal

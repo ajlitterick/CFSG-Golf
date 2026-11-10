@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanCharTwoDefs
 public import CFSG.ClassicalInvolution.Phan.AmalgamMaps
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OddCenter
 public import CFSG.ClassicalInvolution.Models.LinearPairs

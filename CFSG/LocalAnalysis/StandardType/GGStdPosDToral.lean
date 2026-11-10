@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGStdPosDTorus
 public import CFSG.RankThree.OrthogonalInvolutions.Dickson
 import CFSG.LocalAnalysis.StandardType.GGTableBOrthogonalDiag
 import CFSG.LocalAnalysis.StandardType.GGOppositeRadicalOmegaPlusModel
-import CFSG.RankThree.PartOne.KC.OrthogonalSupportedScalarElementary
 
 public section
 

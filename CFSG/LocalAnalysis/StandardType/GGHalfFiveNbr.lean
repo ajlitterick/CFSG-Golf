@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveStdSub
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveKbNb
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveNbrBasic
-public import CFSG.LocalAnalysis.StandardType.GGHalfFiveSl3Facts
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalancePumpup
-public import CFSG.LocalAnalysis.StandardType.GGPumpupBalance
 
 public section
 

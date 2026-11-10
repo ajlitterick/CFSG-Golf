@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.J3Local.Seeds
 public import Certificates.Kernel.TcGen.F2
-public import Certificates.Data.Kernel.OpsMcertN
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.FongSporLocalMGenData
 import CFSG.Certificates.Kernel.Common.Harness
 

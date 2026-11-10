@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGE6DepKGlueDefs
 public import CFSG.LocalAnalysis.StandardType.GGE6DepModelShapeDefs
 public import Mathlib.Tactic.NoncommRing
-public import Mathlib.Tactic.Abel
 public import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
 
 public section

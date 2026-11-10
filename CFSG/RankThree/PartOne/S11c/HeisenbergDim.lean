@@ -1,14 +1,8 @@
 module
 
-public import Mathlib.LinearAlgebra.FiniteDimensional.Defs
-public import Mathlib.LinearAlgebra.Dimension.Constructions
 import CFSG.LinearAlgebra.ExtraspecialCyclotomicModule
-import Mathlib.LinearAlgebra.Charpoly.Basic
 import Mathlib.LinearAlgebra.Charpoly.ToMatrix
 public import Mathlib.RingTheory.Polynomial.Cyclotomic.Basic
-import Mathlib.RingTheory.AdjoinRoot
-import Mathlib.FieldTheory.Minpoly.Field
-public import Mathlib.Data.ZMod.Basic
 
 public section
 

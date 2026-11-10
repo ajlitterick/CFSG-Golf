@@ -8,7 +8,6 @@ public import Certificates.Certificate753503
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoProjectiveFormulas
 public import CFSG.Sporadic.ONOddCore.PrimBase
 public import CFSG.Sporadic.ONOddCore.TreeOrbit
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

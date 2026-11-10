@@ -1,20 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.StatementsA
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.TwelveTwentyThreeOne
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.TwelveShort
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P21k
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P20p
-public import CFSG.LocalAnalysis.WeakClosure81.SixFifteen
-public import CFSG.LocalAnalysis.WeakClosure81.FourteenNine
-public import CFSG.LocalAnalysis.UniquenessCase.UC6Basic
 public import CFSG.Models.Transport
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P20r
-public import CFSG.Alternating.Multipliers.Small
 public import CFSG.GH74.KGroups.A5
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.ComponentCalV1
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FSqIndex
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenUniqueMax
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenFifteen
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenSixteen
 public import CFSG.LocalAnalysis.UniquenessCase.FundamentalLie

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTBJF4RootsAux
 public import CFSG.LocalAnalysis.StandardType.GGTBJF4Weyl
 public import CFSG.LocalAnalysis.StandardType.GGExcSplitRootGenModel
-public import CFSG.LieType.Chevalley.SignKernelSimpleWeyl
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourOppSp
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticBstar
 
 public section
 

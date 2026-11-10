@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanLieOutRadical
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanParabPrimeTits
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.LeviSection
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.LinearAlgebra.LinearGroups.ProjectiveSimple

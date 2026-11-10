@@ -1,11 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBJF4LeviFrame
-public import CFSG.LocalAnalysis.StandardType.GGTBJETypeCells
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6LeviSplitClass
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6LeviSplitThreeFrame
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6LeviSplitModel
-public import CFSG.LocalAnalysis.StandardType.GGTwE6SplitRootGenRoot
 
 public section
 

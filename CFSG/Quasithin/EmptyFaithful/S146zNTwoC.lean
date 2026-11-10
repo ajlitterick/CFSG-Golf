@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.EmptyFaithful.S146zNCov
 public import CFSG.Quasithin.EmptyFaithful.S146zNTwoB
-public import Certificates.Kernel.J4Count.FixCE
 
 public section
 

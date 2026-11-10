@@ -1,13 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.Foote5CoreLieDefs
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenAutomorphisms
-public import CFSG.LieType.Chevalley.EvenF4AutomorphismNormalForm
-public import CFSG.LieType.Chevalley.ExceptionalG2F4ModelSchreier
 public import CFSG.LocalAnalysis.EvenSmallLie.TwoE6.CoverUniqueOuter
 public import CFSG.LieType.Chevalley.C2E6StdMatrixModel
-public import CFSG.LocalAnalysis.ComponentInitial.DiagonalSemilinear
-public import CFSG.LocalAnalysis.ComponentInitial.BasicFacts
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.QuasiAssembly
 public import CFSG.LieType.Chevalley.EvenRootCommutatorF4
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogSchreierCases

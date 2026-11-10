@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergRoot
-public import CFSG.LieType.Chevalley.OrdinaryEFieldGraphQuotient
-public import CFSG.LieType.Steinberg.Adjoint.CertE6Valid
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ParabCommOrthMinusPlane
-import CFSG.LocalAnalysis.ComponentInitial.OrthogonalTailSylow
 
 public section
 

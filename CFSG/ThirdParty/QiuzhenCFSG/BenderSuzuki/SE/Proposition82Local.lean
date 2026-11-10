@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Corollary713
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Theorem2
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Borel
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition84Action
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition84Sylow
 

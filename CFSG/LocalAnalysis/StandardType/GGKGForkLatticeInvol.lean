@@ -1,16 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLatticeRootsDefs
-public import Mathlib.Data.ZMod.Basic
-public import Mathlib.Data.Nat.Prime.Defs
-public import Mathlib.SetTheory.Cardinal.Finite
 public import Mathlib.Algebra.Field.ZMod
-public import Mathlib.Algebra.GCDMonoid.Finset
-public import Mathlib.Data.Int.GCD
 public import Mathlib.FieldTheory.Finiteness
-public import Mathlib.LinearAlgebra.Dimension.Finrank
 public import Mathlib.LinearAlgebra.Matrix.Rank
-public import Mathlib.LinearAlgebra.Matrix.ToLin
 
 public section
 

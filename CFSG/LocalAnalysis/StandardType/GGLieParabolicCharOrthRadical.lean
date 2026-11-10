@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalGroups.Orthogonal.Eichler
-public import Mathlib.LinearAlgebra.BilinearForm.Orthogonal
 
 public section
 

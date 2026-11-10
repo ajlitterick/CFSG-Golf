@@ -2,10 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.ExcPos.Assembly
 public import CFSG.LocalAnalysis.StandardType.ExcPos.U1a
-public import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6PairOneHolds
 public import CFSG.LocalAnalysis.StandardType.ExcPos.ExcURHolds
 public import CFSG.LocalAnalysis.StandardType.ExcPos.ExcU7Holds
-public import CFSG.LocalAnalysis.StandardType.ExcPos.OrdinaryNeighbour
 public import CFSG.LocalAnalysis.StandardType.ExcPos.OrdinaryNeighbourPinned
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ExcPosRange
 public import CFSG.LocalAnalysis.StandardType.GGSixLieKnownPosExcNoF4NoPSUPSpNoPOmegaDefs

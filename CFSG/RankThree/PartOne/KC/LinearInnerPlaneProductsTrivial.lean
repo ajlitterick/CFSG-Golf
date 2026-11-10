@@ -1,6 +1,5 @@
 module
 
-public import Mathlib
 public import CFSG.RankThree.PartOne.KC.LinearPlaneStatements
 public import CFSG.RankThree.PartOne.KC.LinearPlaneCore
 public import CFSG.RankThree.PartOne.KC.CentralizerOfInnerTrivial
@@ -17,7 +16,6 @@ public import CFSG.RankThree.PartOne.KC.LinearEndpointStatements
 public import CFSG.RankThree.PartOne.KC.LinearSplitInner
 public import CFSG.RankThree.PartOne.KC.PlaneReductionGeneral
 public import CFSG.RankThree.Theta.ThreeComponentOrbitCover
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 
 public section
 

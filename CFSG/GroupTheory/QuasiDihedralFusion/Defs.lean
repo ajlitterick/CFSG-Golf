@@ -2,8 +2,6 @@ module
 
 public import CFSG.CharacterTheory.Semidihedral.FocalFusion
 public import CFSG.CharacterTheory.Wreathed.VNormalizerAction
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Classification
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Hall.Basic
 public import CFSG.CharacterTheory.Wreathed.BaseFrattini
 public import CFSG.GroupTheory.SylowActionKernel

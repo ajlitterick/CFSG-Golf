@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniBlocks
-public import CFSG.LocalAnalysis.StandardType.GGSignedCoordBlocks
 import CFSG.LocalAnalysis.StandardType.GGTBRowSignedFrameAux
 import CFSG.LocalAnalysis.StandardType.GGQTwoSUThreeDiagonalComm
 import CFSG.LocalAnalysis.StandardType.GGSuNsRootGenTriples

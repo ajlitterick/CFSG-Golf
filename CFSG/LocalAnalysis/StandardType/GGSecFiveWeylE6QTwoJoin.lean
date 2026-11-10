@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoBridgeDefs
-public import CFSG.LocalAnalysis.StandardType.GGSkeleton
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoRowE
-public import CFSG.Blueprint.Catalog
 
 public section
 

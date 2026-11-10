@@ -51,12 +51,7 @@ public import CFSG.LocalAnalysis.ComponentClassification.OutcomeLocalOddCentrali
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSpExclusion
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSpWedge
 public import CFSG.LocalAnalysis.ComponentInitial.GL3TwoFixedModelCases
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeThree
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Equivariance
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.FamilyBasic
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X7bPairs
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19IdentLieAlt
 public import CFSG.LocalAnalysis.SectionRank.QTK.CentreFact.Bounded
@@ -93,8 +88,6 @@ public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps128Move
 public import CFSG.Mathlib.LinearAlgebra.BilinForm.Determinant
 public import CFSG.Milestones.ASVolI.I2
 public import CFSG.Permutation.UnitaryThreeRecognition.Model
-public import CFSG.Quasithin.Background.A3Structure318Red
-public import CFSG.Quasithin.Background.A3Structure38Part3
 public import CFSG.Quasithin.Background.B1More13Defs
 public import CFSG.Quasithin.Background.B1MoreEleven
 public import CFSG.Quasithin.Background.B5CompA
@@ -103,8 +96,6 @@ public import CFSG.Quasithin.Background.B5FinOut
 public import CFSG.Quasithin.Background.B6
 public import CFSG.Quasithin.Background.B69Main
 public import CFSG.Quasithin.Background.B69Struct
-public import CFSG.Quasithin.Background.B6Example
-public import CFSG.Quasithin.Background.C2Inputs
 public import CFSG.Quasithin.Background.E2SolvTwo
 public import CFSG.Quasithin.Background.E3Gen
 public import CFSG.Quasithin.Background.F918V3QB1
@@ -115,7 +106,6 @@ public import CFSG.Quasithin.Background.H16TwoM22
 public import CFSG.Quasithin.Background.HPairBridge
 public import CFSG.Quasithin.Background.RonanH143Main
 public import CFSG.Quasithin.Background.SmithA36
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import CFSG.RankThree.CentralLiftSO.SplitTorusWeyl
 public import CFSG.RankThree.Chevalley.SteinbergCEF4EvenQPlusWeyl
 public import CFSG.RankThree.Chevalley.SteinbergCFEvenF4PointwiseInner
@@ -137,7 +127,6 @@ public import CFSG.Sporadic.Schreier.J4SProfileNode
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

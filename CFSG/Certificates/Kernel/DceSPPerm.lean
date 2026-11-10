@@ -2,7 +2,6 @@ module
 
 public import CFSG.Certificates.Kernel.Bounds.HNAlt.DceSP
 public import CFSG.Certificates.Kernel.DceLoops
-public import Mathlib.Data.Fintype.Card
 public import Mathlib.Data.Fintype.EquivFin
 import Mathlib.Data.Nat.Bitwise
 public import Mathlib.Algebra.Group.End

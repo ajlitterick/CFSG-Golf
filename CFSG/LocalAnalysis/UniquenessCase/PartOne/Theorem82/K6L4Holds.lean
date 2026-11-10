@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.KInputs811
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.K6L4Out
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.K6L4Types
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.K6L4DiagPSL

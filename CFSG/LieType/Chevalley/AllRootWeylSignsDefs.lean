@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LieType.Chevalley.PinnedBridge
-public import CFSG.LieType.Chevalley.RootOps.All
-public import CFSG.LieType.Chevalley.BraidWalk
 
 public section
 

@@ -6,8 +6,6 @@ public import Certificates.Kernel.Fi22Twist.TxFacts
 public import Certificates.Kernel.Fi22Twist.PrFacts
 public import CFSG.Certificates.Kernel.Fi22Twist.ConjSound
 public import CFSG.Certificates.Kernel.Fi22Twist.LeafSound
-public import CFSG.Certificates.Kernel.Common.ForallTree
-import CFSG.Certificates.Kernel.Spor.Loops
 
 public section
 

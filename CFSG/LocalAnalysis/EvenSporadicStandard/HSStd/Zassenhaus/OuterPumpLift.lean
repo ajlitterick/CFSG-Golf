@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.Zassenhaus.OuterPumpLiftCore
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.Zassenhaus.OuterStructCases
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.Zassenhaus.OuterAbstract
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.Zassenhaus.OuterSylow
 

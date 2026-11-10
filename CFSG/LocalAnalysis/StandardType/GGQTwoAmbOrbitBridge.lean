@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoAmbModelBridge
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDefs
 public import CFSG.LocalAnalysis.StandardType.GGLineStabNormalizes
 
 public section

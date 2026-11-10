@@ -3,12 +3,9 @@ module
 public import Certificates.Kernel.Fi23Five.Glue
 public import Certificates.Kernel.Fi23Five.MooreChk
 public import Certificates.Kernel.Fi23Five.MooreFam
-public import Certificates.Kernel.Fi23K.OrbEq
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Fi23FiveSylow
 import Certificates.Kernel.Fi23Five.Small
-public import CFSG.Sporadic.SchreierLemmas.MooreChain
 public import Certificates.Data.Fi23Moore
-import Mathlib
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
 public import CFSG.Certificates.FusionF2
@@ -63,7 +60,6 @@ public import CFSG.Monster.AxisCount.HSIdentRec7
 public import CFSG.Monster.AxisCount.HSIdentSmall
 public import CFSG.Quasithin.H13.J4Order
 public import CFSG.Quasithin.H13.J4OrderBase
-public import CFSG.Quasithin.H13.J4Words
 public import CFSG.RankThree.LocalRank.SelectorCases
 public import CFSG.RankThree.Native.Fi22FiveCheckInputs
 public import CFSG.RankThree.PartOne.Assembly

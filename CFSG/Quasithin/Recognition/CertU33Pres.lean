@@ -1,8 +1,6 @@
 module
 
-public import CFSG.Certificates.CosetTablePresented
 public meta import CFSG.Certificates.CosetTablePresented
-public import CFSG.Quasithin.Recognition.CertU33PresInputs
 public import Certificates.Certificate8081
 
 public section

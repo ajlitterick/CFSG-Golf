@@ -2,11 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.WeakClosure81.EightFiveRootRankMod
 public import CFSG.LocalAnalysis.WeakClosure81.EightFiveTwoSplitDefs
-public import CFSG.LocalAnalysis.WeakClosure81.SevenKUnitary
-public import CFSG.ClassicalGroups.Unitary.Simple
-public import CFSG.LocalAnalysis.SectionRank.EvenCover.UnitaryThree
 public import CFSG.RankThree.GF2n.Smith81.Sec220DihLin
-public import CFSG.RankThree.PartOne.U5K.Perfect
 public import CFSG.Adapters.LieModelSimple
 public import CFSG.Certificates.Kernel.LocalCompTits.Span
 public import CFSG.ClassicalInvolution.QuaternionStructure
@@ -34,12 +30,8 @@ public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeMax
 public import CFSG.LocalAnalysis.ComponentClassification.OutcomeLocalOddCentralizer
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenCanonicalField
 public import CFSG.LocalAnalysis.ComponentInitial.GL3TwoFixedModelCases
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Equivariance
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.In23FiveDefs
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.InA3Five
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X6Containment
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.D8
 public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotCatEvenOuterPSL
@@ -63,10 +55,7 @@ public import CFSG.Quasithin.Background.B216Quotient
 public import CFSG.Quasithin.Background.C1GNSolvConnect
 public import CFSG.Quasithin.Background.C2A3Orbits
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import CFSG.Quasithin.EmptyFaithful.S14117
-public import CFSG.Quasithin.EmptyFaithful.S14117Coprime
-public import CFSG.Quasithin.EmptyFaithful.S14117Rank
 public import CFSG.Quasithin.EmptyFaithful.S1417Glue
 public import CFSG.Quasithin.EmptyFaithful.S1421Defs
 public import CFSG.Quasithin.EmptyFaithful.S151cA2
@@ -95,11 +84,9 @@ public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeSetting
 public import CFSG.RankThree.PartOne.KC.UnitaryLiftBlocks
 public import CFSG.RankThree.PartOne.KF.UnitaryModel
 public import CFSG.RankThree.PartTwo.Census.Classical.EvenUnitary
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ConjugatedInvertedSubgroup
 public import CFSG.Timmesfeld.Bridge.RootSetsSolv
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

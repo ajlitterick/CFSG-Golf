@@ -2,7 +2,6 @@ module
 
 public import Mathlib.Combinatorics.Pigeonhole
 public import Mathlib.GroupTheory.Coset.Card
-public import Mathlib.SetTheory.Cardinal.Finite
 public import Mathlib.GroupTheory.Subgroup.Center
 public import Mathlib.Tactic.Group
 public import Mathlib.GroupTheory.QuotientGroup.Defs

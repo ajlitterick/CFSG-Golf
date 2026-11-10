@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGAllFixedExceptionalToral
 public import CFSG.LocalAnalysis.StandardType.GGAllFixedA8Seven
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcBasic
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerRestExc
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 
 public section
 

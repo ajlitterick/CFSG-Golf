@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourToral
 public import CFSG.LieType.AlgebraicGroups.ToralRootCover
-public import CFSG.LieType.Chevalley.ToralCentralizerQuotient
-public import CFSG.Open.LocalVocabulary
 
 public section
 

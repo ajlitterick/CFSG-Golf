@@ -6,8 +6,6 @@ public import CFSG.LocalAnalysis.EvenSporadicStandard.HypOne.BClassB
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HypOne.BOddCore
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.BRowFinal
 public import CFSG.Monster.B.Final.PinnedBOrder
-public import CFSG.Monster.B.Pinned.Primes.SeedGL
-public import CFSG.RankThree.PartOne.SPOR.OuterB
 
 public section
 

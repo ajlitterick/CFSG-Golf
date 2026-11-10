@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourRk2OmegaBond
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourRk2OmegaComm
-public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourA2PSU
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourRk2OmegaLinear
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourRk2PSU
 

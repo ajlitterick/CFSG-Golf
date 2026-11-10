@@ -1,8 +1,6 @@
 module
 
 public import CFSG.GroupTheory.ABGDGroups.LinearASeven
-public import Certificates.Certificate7
-public import CFSG.Adapters.QiuzhenLegacy.Compat.G7.ASeven
 
 public section
 

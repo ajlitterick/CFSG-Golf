@@ -4,7 +4,6 @@ public import Certificates.Kernel.LocalComp.Weyl3222K
 public import Certificates.Kernel.LocalComp.Weyl3186
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.WeylUData
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.WeylAbelData
 
 public section

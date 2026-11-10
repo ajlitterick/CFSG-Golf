@@ -1,6 +1,5 @@
 module
 
-public import CFSG.GH74.GLS.C3.Layer2.L4ModelE1
 public meta import Mathlib.GroupTheory.SpecificGroups.Alternating
 public meta import CFSG.GH74.GLS.C3.Layer2.FinModelDefs
 public meta import CFSG.GH74.GLS.C3.Layer2.FinModelEmb
@@ -10,9 +9,6 @@ public meta import CFSG.GH74.GLS.C3.Layer2.FinModelTab
 public meta import CFSG.GH74.GLS.C3.Layer2.FinModelClaim
 public meta import CFSG.GH74.GLS.C3.Layer2.L4ModelGen
 public meta import CFSG.GH74.GLS.C3.Layer2.L4ModelE1
-public import Certificates.Certificate5038
-public import Certificates.Certificate5039
-public import Certificates.Certificate5041
 public import Certificates.Certificate5042
 public import CFSG.GH74.GLS.C3.Layer2.FinModelClaimCheck
 

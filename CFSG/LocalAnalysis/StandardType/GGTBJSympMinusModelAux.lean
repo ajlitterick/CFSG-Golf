@@ -3,11 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTBJSpTorus
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmModelLift
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmModelWeyl
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUElt
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalSpSC
-public import CFSG.LocalAnalysis.ComponentInitial.DerivedFixedLayer
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticTorusWeylMatrices
 
 public section
 

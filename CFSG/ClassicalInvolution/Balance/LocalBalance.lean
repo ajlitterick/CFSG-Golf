@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Balance.LocalBalance.Faithful
 public import CFSG.ClassicalInvolution.Balance.LocalBalance.Fixed
-public import CFSG.ClassicalInvolution.Balance.LocalBalance.Moved
 public import CFSG.ClassicalInvolution.Balance.LocalBalance.Normalizes
 
 public section

@@ -1,10 +1,6 @@
 module
 
-public import CFSG.HardMathSupport.Lang.D4Three.NormalForm
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.OuterFourSeitzD4
-public import CFSG.LieType.Chevalley.TwistMap
-public import CFSG.LieType.Chevalley.GraphFixedData
-public import CFSG.LieType.Chevalley.ExactNormalFormE
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
 public import CFSG.Certificates.FusionF2
@@ -35,7 +31,6 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly

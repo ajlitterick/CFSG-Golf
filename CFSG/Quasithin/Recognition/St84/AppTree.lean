@@ -1,25 +1,12 @@
 module
 
-public import CFSG.Quasithin.Recognition.St84.Hyp
-public import CFSG.Quasithin.Recognition.St84.Basic
 public import CFSG.Quasithin.Recognition.St84.Gold26
 public import CFSG.Quasithin.Recognition.GoldschmidtF112RY9
-public import CFSG.Quasithin.EmptyFaithful.S1421F112
-public import CFSG.Quasithin.Background.F1Borel
-public import CFSG.Quasithin.Background.F1Rank
 public import CFSG.Quasithin.Background.GoldschmidtRankOneFacts
-public import CFSG.Quasithin.Background.A4Reduced
 public import CFSG.Quasithin.Background.F6Amalgams
-public import CFSG.Quasithin.Recognition.GoldschmidtCompletion
-public import CFSG.Quasithin.Recognition.GoldschmidtTreeAcyclic
-public import CFSG.Quasithin.Recognition.GoldschmidtStatement
-public import CFSG.Quasithin.Recognition.GoldschmidtFan86UnivAct
-public import CFSG.Quasithin.Recognition.GoldschmidtFan86UnivStab
 public import CFSG.Quasithin.Recognition.GoldschmidtFan86UnivLoc
 public import CFSG.Quasithin.Recognition.GoldschmidtFan86UnivAmalgam
-public import CFSG.Quasithin.Recognition.GoldschmidtFan86UnivTransl
 public import CFSG.Quasithin.Recognition.GoldschmidtF112RSt84HypA
-public import CFSG.Quasithin.EmptyFaithful.S1422Local
 public import CFSG.HardMathSupport.Solomon.Coordinator.WeakBalance
 import CFSG.Quasithin.Recognition.St84.Gen.L2RankOne
 public import CFSG.Quasithin.EmptyFaithful.F112HypW
@@ -36,9 +23,6 @@ public import CFSG.Quasithin.Background.A3Structure312Defs
 public import CFSG.Quasithin.Background.A3StructureFacts
 public import CFSG.Quasithin.Background.B4Statement
 public import CFSG.Quasithin.Background.E1
-public import CFSG.Quasithin.Background.E1Sec4
-public import CFSG.Quasithin.Background.E1Sec5
-public import CFSG.Quasithin.Background.E1Sec8
 public import CFSG.Quasithin.Background.F9FiveStruct
 public import CFSG.Quasithin.Background.F9G2
 public import CFSG.Quasithin.Background.F9Geometry

@@ -3,13 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154ExcReeThree
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154ExcReeUnitary
 public import CFSG.RankThree.PartTwo.Sec8.Item8KFacts2ProofReeCore
-public import CFSG.RankThree.PartTwo.Sec8.Item8KFactsProofRee
-public import CFSG.RankThree.PartTwo.KFacts.AutLargeRee
-public import CFSG.RankThree.PartTwo.KFacts.K71Basic
-public import CFSG.RankThree.PartOne.RF4.FinalKFacts
-public import CFSG.RankThree.PartOne.KC.ExactLiftingGeneric
-public import CFSG.LocalAnalysis.StandardType.GGReverseMarking
-public import CFSG.LocalAnalysis.GLTheoremA.PartI.KDSU3Base
 
 public section
 

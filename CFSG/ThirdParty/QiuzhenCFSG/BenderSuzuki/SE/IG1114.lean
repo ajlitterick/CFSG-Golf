@@ -3,10 +3,6 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.Remaining
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.V.theorem_8_14
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.FinalTheorem
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Frattini.CoprimeAction
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Cardinalities
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.CoprimeHall
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
 
 namespace CFSG
 end CFSG

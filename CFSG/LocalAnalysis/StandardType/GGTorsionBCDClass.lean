@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTorsionDefs
 import CFSG.LocalAnalysis.StandardType.GGTorsionBC
 import CFSG.LocalAnalysis.StandardType.GGTorsionOrth
 import CFSG.LocalAnalysis.StandardType.GGTorsionTwF4
-import CFSG.LocalAnalysis.StandardType.Marking
 
 public section
 

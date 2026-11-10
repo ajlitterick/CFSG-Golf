@@ -1,11 +1,7 @@
 module
 
-public import CFSG.RankThree.GF2n.Stroth80.Sec717LayerModelDefs
 public import CFSG.RankThree.GF2n.Stroth80.Sec717KleinRel
-public import CFSG.RankThree.GF2n.Stroth80.Sec5NatScalars
 public import CFSG.RankThree.GF2n.Stroth80.Sec717LayersRoot
-public import CFSG.Open.StatedDefs
-public import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
 public import CFSG.RankThree.GF2n.Stroth80.SL4AutTransport
 public import CFSG.RankThree.GF2n.Stroth80.Sec717OrbitOddProof
 public import CFSG.RankThree.GF2n.Stroth80.Sec717QLayersW1

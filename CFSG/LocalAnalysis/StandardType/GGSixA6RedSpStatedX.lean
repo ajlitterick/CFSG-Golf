@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixA6RedSpDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedSpCoreAbs
-public import CFSG.ClassicalGroups.Symplectic.StandardForm
-public import CFSG.LocalAnalysis.ComponentInitial.DerivedFixedLayer
 
 public section
 

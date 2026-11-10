@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpFrameDefs
-public import CFSG.LocalAnalysis.StandardType.GGAssemblyTwoHypSix
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpKFrameCore
 import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
 

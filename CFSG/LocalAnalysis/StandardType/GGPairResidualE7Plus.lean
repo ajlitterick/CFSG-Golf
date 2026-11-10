@@ -3,24 +3,11 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGExcPlusPairConj
 public import CFSG.LocalAnalysis.StandardType.GGResidualExcRows
 public import CFSG.LocalAnalysis.StandardType.GGResidualRk1ExcTops
-public import CFSG.LocalAnalysis.StandardType.GGResidualGenFrame
-public import CFSG.LocalAnalysis.StandardType.GGMemberRowsDefs
 public import CFSG.LocalAnalysis.StandardType.ExcPay.Defs
-import CFSG.LocalAnalysis.StandardType.ExcPay.E7
 import CFSG.LocalAnalysis.StandardType.ExcPay.RouteE7Three
-import CFSG.LocalAnalysis.StandardType.ExcPay.CoverE7
 import CFSG.LocalAnalysis.StandardType.GGPairConjugation
 import CFSG.LocalAnalysis.StandardType.GGRankOneShared
-import CFSG.LocalAnalysis.StandardType.GGNbrReflGenOver
-import CFSG.LocalAnalysis.StandardType.GGNbrReflGenCore
-import CFSG.LocalAnalysis.StandardType.GGForkJrPumpLattice
-import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeExcPlusAux
-import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSAPairAux2
-import CFSG.LocalAnalysis.StandardType.GGSecFiveRowMemberAux
-import CFSG.LocalAnalysis.StandardType.GGSecFiveWeakNbr
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 import CFSG.ClassicalInvolution.Phan.StandardPairNotComm
-import CFSG.LieType.Chevalley.AdjointCenter
 
 public section
 

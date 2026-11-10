@@ -5,7 +5,6 @@ public import Certificates.Kernel.AS91K468.Data46
 public import Certificates.Kernel.AS91K468.Data46F
 public import Certificates.Kernel.AS91K468.Data46C
 import CFSG.Certificates.Kernel.Common.EachTrue
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

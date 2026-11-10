@@ -2,8 +2,6 @@ module
 
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.TwE6LongRootParEq
 public import CFSG.LieType.Chevalley.EvenOddCentralizerRadicalLevels
-public import CFSG.LieType.Chevalley.GraphFixedHighestRoot
-public import CFSG.Open.LocalVocabulary
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
 public import CFSG.Certificates.FusionF2
@@ -53,7 +51,6 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly

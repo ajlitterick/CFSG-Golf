@@ -1,13 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KNatBorelIrr.Model
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KNatBorelIrr.SU4Root
-public import CFSG.Open.StatedDefs
 
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KNatBorelIrr.RootTransfer
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KAdj.SU4Parabolic
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23d.UnitaryTransport
-import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherSylow
 import CFSG.ClassicalGroups.UnitaryFlag.StatedBridge
 public import CFSG.CGT.Timmesfeld75.Statements
 public import CFSG.Foundations
@@ -28,17 +25,12 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A1bGroups
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.Module
 public import CFSG.RankThree.PartOne.S10.ThetaContract
 public import CFSG.RankThree.PartOne.S12.InputsBase
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 import CFSG.ClassicalGroups.UnitaryFlag.PointSylow
 import CFSG.LocalAnalysis.SteinbergSFSingleCommModel3UnitaryGen
 

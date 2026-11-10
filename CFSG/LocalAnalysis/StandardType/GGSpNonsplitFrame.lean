@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameMatrix
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderPSLRestSp
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelSLFrame
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticTorusWeylMatrices
 
 public section
 

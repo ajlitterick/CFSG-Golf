@@ -2,12 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeTriD4Model
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeReturnedFrame
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExcD4
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.AmbientPairDescentPart1
-public import CFSG.LieType.Chevalley.GraphFixedOrbitCollection
-public import CFSG.LieType.Chevalley.SignKernelComponentBorel
-public import CFSG.LieType.Steinberg.TwistedD4.Perfect
-public import CFSG.LocalAnalysis.SectionRank.TrialityEvenCover
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TriD4BridgeLongRoot
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1LemmaHTriD4
 

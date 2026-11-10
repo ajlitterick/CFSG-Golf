@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixSevenA3ExcRank
-public import CFSG.LocalAnalysis.StandardType.GGSixLSixSevenA3OmEntry
-public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerSp
 public import CFSG.LocalAnalysis.StandardType.SpTwoLocalRankLower
 public import CFSG.LocalAnalysis.StandardType.SpRangeEightCover
 

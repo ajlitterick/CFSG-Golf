@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.CFSGNative.Th.Tables
 public import Certificates.Data.CFSGNative.Bridge.SurjA
 
 public section

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJNoRankOneDefs
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 
 import CFSG.LocalAnalysis.StandardType.GGTBJNoRankOneMarking
 import CFSG.LocalAnalysis.StandardType.GGTBJNoRankOneCard
@@ -9,9 +8,6 @@ import CFSG.LocalAnalysis.StandardType.GGTBJNoRankOneTorus
 import CFSG.LocalAnalysis.StandardType.GGTBJNoRankOneToral
 import CFSG.LocalAnalysis.StandardType.GGTBJNoRankOneCaseOne
 import CFSG.LocalAnalysis.StandardType.GGTBJNoRankOneCases
-import CFSG.LocalAnalysis.StandardType.GGOneFiveNormalizer
-import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseL4546Defs
 import CFSG.LocalAnalysis.StandardType.GGTBJConfigFacts
 import CFSG.HardMathSupport.Timmesfeld.Coordinator.LocalThreeReduction
 import CFSG.GroupTheory.PLayer.CenterQuotientAction

@@ -1,15 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeSympLinAux
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 public import CFSG.LocalAnalysis.StandardType.GGStdPosC24Sp
 public import CFSG.LocalAnalysis.StandardType.GGStdPosC24SlNsNorm
 public import CFSG.LocalAnalysis.StandardType.GGSlNsRootGenModel
 public import CFSG.LocalAnalysis.StandardType.GGSlNsRootGenTorus
 public import CFSG.LocalAnalysis.StandardType.GGSlNsRootGenWeyl
-public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameTorus
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATorus
 public import CFSG.LocalAnalysis.StandardType.GGTorusWeylTypeSigned
 
 public section

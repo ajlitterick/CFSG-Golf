@@ -2,11 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.ElementaryAbelian.Basic
 
-public import Mathlib.Algebra.Group.Defs
-public import Mathlib.Algebra.Group.TypeTags.Basic
-public import Mathlib.Algebra.Field.ZMod
-public import Mathlib.Algebra.Module.ZMod
-public import Mathlib.LinearAlgebra.Basis.VectorSpace
 
 namespace CFSG
 end CFSG

@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGExcElemToralCyclic
 public import CFSG.LocalAnalysis.StandardType.GGExcToralSylowElem
 public import CFSG.HardMathSupport.Timmesfeld.Torality.F4Block
 public import CFSG.HardMathSupport.Timmesfeld.Steinberg.ThreeCharF4
-public import CFSG.LieType.Chevalley.EvenCartanRootDiagonals
 
 public section
 

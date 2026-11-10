@@ -1,7 +1,6 @@
 module
 
 public import CFSG.OddTranspositions.PartFour.LineVmem
-public import CFSG.OddTranspositions.PartFour.LineSpan
 public import CFSG.OddTranspositions.PartFour.Fourteen.RootBlock
 public import CFSG.OddTranspositions.PartThree.Eleven.Injective
 import CFSG.OddTranspositions.PartThree.Ten.DalphaBlocks

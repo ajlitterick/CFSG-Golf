@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166TwE6B6
 public import CFSG.HardMathSupport.Malle.E27Lie.ExcCross.TwE6Core
 public import CFSG.HardMathSupport.Lang.E6Descent.OuterFixed27TwistedE6Arith
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166TwE6B2
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Reduce
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeBasic
 public import CFSG.Mathlib.RingTheory.UnitOrderOf
 public import CFSG.Quasithin.Vol2.Ch1Local
@@ -43,10 +42,6 @@ public import CFSG.RankThree.PartOne.KLCE.TypeSL
 public import CFSG.RankThree.PartOne.S8.Statements
 public import CFSG.RankThree.PartOne.SLB4A.ClassExcRest
 public import CFSG.RankThree.PartOne.TCX.F4.LayerClaims
-public import CFSG.Walter.J1Props
-public import CFSG.Walter.J1Recog
-public import CFSG.Walter.PSL2Facts
-public import CFSG.Walter.W67.Statements
 
 public noncomputable section
 

@@ -2,11 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Input289b
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Input289
-public import CFSG.Adapters.TauCetiExceptional.EvenB1
-public import CFSG.Adapters.TauCetiExceptional.EvenD4
-public import CFSG.LieType.Chevalley.OddExceptionalOuterTwoRank
-public import CFSG.LieType.Chevalley.EvenTrialityOuterInvolutions
-import Mathlib.Tactic.ReduceModChar
 public import CFSG.CGT.PushingUp.BenderBridge
 public import CFSG.CGT.PushingUp.BlockOrder
 public import CFSG.CGT.PushingUpLit.BHS.SymNatOrbitsSL
@@ -48,8 +43,6 @@ public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.T29.Defs
 public import CFSG.Quasithin.Background.A3Structure314
 public import CFSG.Quasithin.Background.C1GNSolvConnect
 public import CFSG.Quasithin.Background.E2Statements
-public import CFSG.Quasithin.Background.F6CatRecogL2
-public import CFSG.Quasithin.Background.F6CatRecogTools2
 public import CFSG.Quasithin.Background.FFC7G
 public import CFSG.Quasithin.Background.FFC8A
 public import CFSG.Quasithin.Background.GoldschmidtRankOneFacts
@@ -89,7 +82,6 @@ public import CFSG.RankThree.PartTwo.Sec11.Data
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434SmallTwoOtherDefs
 public import CFSG.RankThree.PartTwo.Sec6.Statements
 public import CFSG.RankThree.PartTwo.Sec8.Item87Proof84
-public import CFSG.Walter.J1Props
 public import Certificates.Kernel.J4Count.Prim
 
 public section

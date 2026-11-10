@@ -3,7 +3,6 @@ module
 public import CFSG.RankThree.PartTwo.Census.Carrier.ReeF4Index
 public import CFSG.LieType.BorelTits.DerivedQuotient
 public import CFSG.LocalAnalysis.QuasithinUnique.B1.Interface
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.LieType
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.LieType
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.AmbientGroup
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Classification

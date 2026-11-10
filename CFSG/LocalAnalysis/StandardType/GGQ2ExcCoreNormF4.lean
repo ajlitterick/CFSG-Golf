@@ -3,13 +3,9 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreNormalizer
 import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreNormF4Desc
 import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreInsideGe
-import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreAmbientRefl
 import CFSG.LocalAnalysis.StandardType.GGQ2ExcInsideMoved
 import CFSG.LocalAnalysis.StandardType.GGQ2ExcRawF4Norm
-import CFSG.LocalAnalysis.StandardType.GGQTwoRationalWeyl
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
 import CFSG.GroupTheory.PermSixSylowThree
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwRigid
 
 public section
 

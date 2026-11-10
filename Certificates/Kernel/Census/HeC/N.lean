@@ -11,20 +11,6 @@ import all Mathlib.Data.List.Sort
 import all Init.Data.Nat.Fold
 import all Init.Data.Range.Basic
 import CFSG.Certificates.Kernel.Common.Harness
-public import Certificates.Kernel.SporSch.HeT.Tab
-public import Mathlib.Algebra.Group.Action.End
-public import Mathlib.Algebra.Group.Subgroup.Finite
-public import Mathlib.Algebra.Group.Subgroup.Lattice
-public import Mathlib.Data.List.Basic
-public import Mathlib.Data.Set.Card
-public import Mathlib.Data.Vector.Basic
-public import Mathlib.Data.ZMod.Basic
-public import Mathlib.GroupTheory.Commutator.Basic
-public import Mathlib.GroupTheory.GroupAction.Defs
-public import Mathlib.GroupTheory.GroupAction.Quotient
-public import Mathlib.GroupTheory.Perm.Basic
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
-public import Mathlib.SetTheory.Cardinal.Finite
 
 public section
 

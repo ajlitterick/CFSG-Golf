@@ -3,7 +3,6 @@ module
 public import CFSG.Quasithin.Recognition.CertU33Pres
 public import CFSG.Quasithin.Recognition.CertChain
 public import Certificates.Data.CFSGNative.YGroups.ExactCheck
-public import Certificates.Data.CFSGNative.Schreier.Check
 public meta import Certificates.Data.CFSGNative.YGroups.ExactCheck
 public meta import Certificates.Data.CFSGNative.Schreier.Check
 

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6Partner
 public import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6Placement
 public import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6BaseOfPlacement
-public import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6FrameDefs
 public import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6TTFiveHolds
 public import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6TTThreeSplit
 public import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6TTThreeUnitary

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneSpSkewCore
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBUnitaryAllDimensions
-public import Certificates.Kernel.ThCent.Leaves
 
 public noncomputable section
 

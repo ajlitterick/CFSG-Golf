@@ -5,11 +5,9 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveBJoinDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRestOriginalWeyl
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBJoinCore
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBNbrType
-import CFSG.LocalAnalysis.StandardType.GGSecFiveBFixLine
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSp
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSU
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSUCharts
-import CFSG.LocalAnalysis.StandardType.GGSharedInvolution
 
 public section
 

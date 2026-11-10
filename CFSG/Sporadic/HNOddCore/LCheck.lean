@@ -7,7 +7,6 @@ public import CFSG.Sporadic.HNOddCore.XCheck
 public import CFSG.Sporadic.HNOddCore.PCheck
 public meta import CFSG.Sporadic.HNOddCore.XCheck
 public meta import CFSG.Sporadic.HNOddCore.PCheck
-public import CFSG.Sporadic.HNOddCore.LCheckInputs
 public import Certificates.Certificate2086
 
 public section

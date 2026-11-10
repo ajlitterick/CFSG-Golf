@@ -1,13 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs2711d2
-public import CFSG.RankThree.Asc83Table.J3
-public import CFSG.RankThree.Asc83Table.MatGroup
-public import CFSG.RankThree.PartOne.CTP.FusionSound
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.DerSound
-public import CFSG.LocalAnalysis.SectionRank.Sporadic.OpsF2Fast
-public import CFSG.LocalAnalysis.SectionRank.Sporadic.OpsF3
-public import CFSG.Sporadic.ON
 public import Certificates.Certificate271101
 public import Certificates.Certificate271102
 

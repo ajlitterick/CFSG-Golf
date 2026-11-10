@@ -1,6 +1,5 @@
 module
 
-public import CFSG.HardMathSupport.Dickson.BMRows.Co2ElevenInputs
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co2Seven
 public import Certificates.Certificate17707
 

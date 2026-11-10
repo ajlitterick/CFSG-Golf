@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23d.Defs
-public import CFSG.Open.StatedDefs
 public import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockOrthMinusCuts
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalTailModelCoordinates
 import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockOrthMinusData

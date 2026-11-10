@@ -1,8 +1,6 @@
 module
 
-public import CFSG.ClassicalGroups.Orthogonal.Derived
 public import CFSG.GroupTheory.WeirSylow.OrthogonalModels
-public import Mathlib.FieldTheory.Perfect
 public import CFSG.ClassicalInvolution.Orders.OrthogonalCount
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointActionModels

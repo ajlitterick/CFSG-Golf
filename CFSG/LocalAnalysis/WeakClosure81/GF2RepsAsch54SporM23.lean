@@ -3,11 +3,7 @@ module
 public import CFSG.LocalAnalysis.WeakClosure81.GF2RepsAsch54SporLat
 public import CFSG.Quasithin.Background.E2TwoProofSporM23
 
-import CFSG.Blueprint.NativeSporadic
-import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofLieOrder
 import CFSG.LocalAnalysis.WeakClosure81.GF2RepsAsch5CalL0
-import CFSG.Sporadic.Bridge.M23Surj
-import CFSG.Sporadic.Schreier.M23
 
 public section
 

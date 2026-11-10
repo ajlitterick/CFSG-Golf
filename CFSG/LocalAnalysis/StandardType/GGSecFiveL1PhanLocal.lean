@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveL1PhanTransfer
 public import CFSG.LocalAnalysis.StandardType.GGMemberUnitaryPos
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanPrimDefs
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
 
 public section
 

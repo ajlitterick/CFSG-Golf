@@ -3,18 +3,12 @@ module
 public import Certificates.Kernel.Sporadic.OddCore.J2CnK
 public import Certificates.Kernel.Sporadic.OddCore.J3Cent
 public import Certificates.Kernel.SporSch.PairJ3.Chain
-public import Certificates.Kernel.Misc.Perm.HexCmd
 public import Certificates.Data.Kernel.PkPow
-public import Certificates.Data.Kernel.Spor.Prim
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.TS16RYCheck
 meta import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.TS16RYCheck
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.BetaCheck
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 public import CFSG.Walter.JRFacts
 meta import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.BetaCheck
 meta import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion

@@ -3,11 +3,7 @@ module
 public import CFSG.CGT.PushingUpLit.SolKNA.Reduce
 public import CFSG.LocalAnalysis.ComponentClassification.Asc76XMain
 import CFSG.CGT.PushingUp.TwoLocals
-import CFSG.LieType.BorelTits.Suzuki
-import CFSG.LocalAnalysis.ComponentClassification.Asc76BenderFacts
 import CFSG.LocalAnalysis.ComponentClassification.Asc76L28
-import CFSG.LocalAnalysis.ComponentClassification.AschbacherTheorem3Sylow
-import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
 public import CFSG.CGT.PushingUpLit.SolK.Inputs
 public import CFSG.CGT.PushingUpLit.Statements
 public import CFSG.CGT.Timmesfeld75.Statements
@@ -42,7 +38,6 @@ public import CFSG.RankThree.GroupTheory.SteinbergBYSectionNineResidual
 public import CFSG.RankThree.LocalRank.SelectorCases
 public import CFSG.RankThree.PartOne.S10.Defs
 public import CFSG.Sporadic.Bridge.M11CheckInputs
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2S0LeQuotientTorus
 public import CFSG.Walter.J1Recog
 public import CFSG.Walter.Ree.Thompson2.BaseFin
 public import CFSG.Walter.ReeOrder.WardLocal

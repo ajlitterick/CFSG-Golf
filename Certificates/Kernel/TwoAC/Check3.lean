@@ -4,8 +4,6 @@ import CFSG.Certificates.Kernel.BabyMonster.LoadFour
 import CFSG.Certificates.Kernel.BabyMonster.Load
 public import CFSG.Certificates.Kernel.BabyMonster.F2Four
 public import Certificates.Data.Kernel.TwoAC.Check
-public import CFSG.Certificates.Kernel.BabyMonster.Seeds.Data0
-public import Certificates.Kernel.TwoAC.Data0
 public import Certificates.Kernel.TwoAC.Data1
 public import Certificates.Kernel.TwoAC.Data2
 

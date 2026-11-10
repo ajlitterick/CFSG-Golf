@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RFrame
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarE8FiveConjClass
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarE8FiveLangRational
 
 public section
 

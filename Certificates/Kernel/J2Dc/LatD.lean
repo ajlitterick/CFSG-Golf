@@ -6,8 +6,6 @@ public import Certificates.Kernel.J2Dc.LatDCheck
 public import Certificates.Data.J2T3K
 public import Certificates.Data.J2Y9K
 public import CFSG.Certificates.Kernel.S151IdxGAct
-public import CFSG.Certificates.Kernel.SporLatDcSound
-import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 100000
 

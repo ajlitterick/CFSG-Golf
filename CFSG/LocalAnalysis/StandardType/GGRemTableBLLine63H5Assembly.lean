@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63H5Setup
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63H5Marking
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63H5StepOneMarking
 
 public section

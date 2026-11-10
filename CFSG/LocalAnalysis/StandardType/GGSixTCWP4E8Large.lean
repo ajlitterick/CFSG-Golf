@@ -1,20 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RLargeFrame
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RC1
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RWeyl
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RDual
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RConj
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RDualFrob
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RFive
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RDefs
-public import CFSG.LieType.Chevalley.SignKernelSimpleWeyl
-public import CFSG.LieType.Steinberg.Adjoint.Pairs
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RC3Roots
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RC3FlagFree
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4ULang
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4E8Five
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UExc
 
 public section
 

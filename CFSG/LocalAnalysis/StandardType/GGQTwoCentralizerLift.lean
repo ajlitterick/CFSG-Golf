@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GroupTheory.FixedCentralQuotientFamily
-public import CFSG.Assembly.Subnormal
 public import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.ComponentNormal
 public import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates

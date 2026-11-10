@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.EvenBN.U5.Model
-public import CFSG.RankThree.PartOne.U5K.Hyp.Aut
 
 public noncomputable section
 

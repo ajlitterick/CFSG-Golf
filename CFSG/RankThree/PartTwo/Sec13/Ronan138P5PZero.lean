@@ -4,19 +4,15 @@ public import CFSG.RankThree.PartTwo.Sec13.Ronan138P5Res
 import CFSG.RankThree.PartTwo.Sec13.Ronan138P5Main
 public import CFSG.RankThree.PartTwo.Sec13.Ronan138P5Lift
 import CFSG.RankThree.PartTwo.KFacts.K71Coprime
-import CFSG.RankThree.PartTwo.Sec6.Item612Plus
-import CFSG.RankThree.PartTwo.Sec13.Ronan138SP
 import CFSG.RankThree.PartTwo.Sec13.Item138ProofExists
 import CFSG.RankThree.PartTwo.Sec13.Item138NMod9
 import CFSG.RankThree.PartTwo.Sec13.Item137ProofOrbit
 import CFSG.RankThree.PartTwo.Sec13.Item136Moreover
-import CFSG.RankThree.PartTwo.Sec11.Item113
 import CFSG.RankThree.PartTwo.Sec11.Item116H3Rank
 import CFSG.RankThree.PartTwo.Sec14.Item143StepsProofBalTools
 import CFSG.RankThree.PartTwo.Sec14.Ronan148WU3Aut
 import CFSG.RankThree.PartTwo.Sec4.Item424ProofInner
 import CFSG.GroupTheory.ElemAbelianClosure
-import CFSG.GroupTheory.ABGLocalTools.Basic
 public import CFSG.RankThree.PartTwo.Sec13.Ronan138P5Core
 public import CFSG.RankThree.PartTwo.Sec13.Ronan138SSyl
 import CFSG.LocalAnalysis.ComponentClassification.TwoLayer

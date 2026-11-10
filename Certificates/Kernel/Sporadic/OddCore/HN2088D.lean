@@ -1,8 +1,6 @@
 module
 
-public import Certificates.Kernel.Sporadic.OddCore.PEnumCmd
 public import Certificates.Kernel.Sporadic.OddCore.RowsCmd
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public import CFSG.Sporadic.HNOddCore.PCheckInputs
 meta import CFSG.Sporadic.HNOddCore.PCheckInputs

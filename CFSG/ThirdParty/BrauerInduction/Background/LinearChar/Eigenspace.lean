@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ThirdParty.BrauerInduction.Background.LinearChar.Inertia
-public import CFSG.ThirdParty.BrauerInduction.Background.FDRep.Res
-public import Mathlib.CategoryTheory.Simple
 
 public section
 

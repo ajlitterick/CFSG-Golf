@@ -3,10 +3,8 @@ module
 public import CFSG.OddTranspositions.PartFour.Fourteen.IOne
 public import CFSG.OddTranspositions.PartThree.EightEight.Shapes
 public import CFSG.OddTranspositions.PartThree.Twelve.Branches
-import CFSG.OddTranspositions.PartThree.EightEight.Star
 import CFSG.OddTranspositions.PartThree.EightSix.Holds
 import CFSG.OddTranspositions.TheoremTwo.TheoremTwo
-import CFSG.OddTranspositions.PartFour.Fourteen.TheoremFourPrinted
 import CFSG.OddTranspositions.PartThree.Nine.Main
 import CFSG.OddTranspositions.PartThree.Nine.Wreath
 import CFSG.OddTranspositions.PartThree.Nine.Simple
@@ -19,25 +17,17 @@ import CFSG.OddTranspositions.PartThree.Nine.Seven
 import CFSG.OddTranspositions.PartThree.Nine.FinalHolds
 import CFSG.CGT.Foote82.T66.Proof511Two
 import CFSG.OddTranspositions.PartThree.Ten.TheoremTenOne
-import CFSG.OddTranspositions.PartThree.EightFive.Holds
 import CFSG.OddTranspositions.PartThree.Eleven.OneOne.Main
 import CFSG.OddTranspositions.PartThree.Eleven.OneTwo.Main
 import CFSG.OddTranspositions.PartThree.Eleven.Wong.Main
 import CFSG.OddTranspositions.PartFour.Fourteen.OFour.Main
 import CFSG.OddTranspositions.PartFour.TheoremFiveHolds
-public import CFSG.Sporadic.Schreier.LyCheckSep
-public import CFSG.Sporadic.Ly.KeySpec
-public import CFSG.Sporadic.He.FpSpec
 import Certificates.Kernel.SporSch.Ly.SepGlue
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3J4D4Data
-public import CFSG.Sporadic.J4.QT2LocX0Native
 public import Certificates.Data.CFSGNative.J4.PentScan
-import Certificates.Kernel.J4Q.QTBase
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312HsKInputs
 import Certificates.Kernel.HSA312.Struct
 import Certificates.Kernel.HSQuot.Final
 public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87F3Abs
-public import CFSG.Sporadic.Ly.Setup
 import CFSG.Sporadic.Ly.GenSpecBase
 public import CFSG.GroupTheory.TwoWeightData
 import CFSG.Sporadic.Ly.TwoWeightsSpecBase
@@ -50,8 +40,6 @@ import Certificates.Kernel.Misc.E6StdSlp
 public import CFSG.YGroups.Y443.Native.CoverFactsWords
 import Certificates.Kernel.KDense.Y443
 public import CFSG.YGroups.Y443.Native.Swap13Word
-public import CFSG.Sporadic.Ly.FiveFacts
-import CFSG.Sporadic.Ly.Certificate
 public import CFSG.CGT.A8S.N0EnumInputs
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.J3CheckInputs
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.QuasiAssembly
@@ -68,7 +56,6 @@ public import CFSG.GH74.Uniqueness.SU.KI1r3FamBender
 public import CFSG.GH74.Uniqueness.SU.KI1r4F61Mod
 public import CFSG.GH74.Uniqueness.SU.KI1r4L34Model
 public import CFSG.LargeExtraspecial.OrthoF2
-public import CFSG.LargeExtraspecial.OrthoF2SpRadical
 public import CFSG.LargeExtraspecial.S12InspSplit
 public import CFSG.LieType.Chevalley.CLSEvenE6AllInvolutionFourGroup
 public import CFSG.LieType.Chevalley.CLSEvenTrialityFourGroup
@@ -225,7 +212,6 @@ import CFSG.LocalAnalysis.ComponentClassification.ExcSelectorOddE6
 import CFSG.LocalAnalysis.ComponentClassification.FittingNilpotence
 import CFSG.LocalAnalysis.ComponentClassification.GSFMMaximal
 import CFSG.LocalAnalysis.ComponentClassification.GSThmB83Outer
-import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog7L4EUFour
 import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeMax
 import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeSteps
 import CFSG.LocalAnalysis.ComponentClassification.HarrisLitLemma412
@@ -233,13 +219,11 @@ import CFSG.LocalAnalysis.ComponentClassification.HarrisLitLemma415Inputs
 import CFSG.LocalAnalysis.ComponentClassification.HarrisLitLemma46d
 import CFSG.LocalAnalysis.ComponentClassification.HarrisLitLemma47Lift
 import CFSG.LocalAnalysis.ComponentClassification.J2CoverModels
-import CFSG.LocalAnalysis.ComponentClassification.OutcomeLocalCTILinearSocle
 import CFSG.LocalAnalysis.ComponentClassification.OutcomeLocalOddCentralizer
 import CFSG.LocalAnalysis.ComponentClassification.RestrictedStdFamilies
 import CFSG.LocalAnalysis.ComponentClassification.Sp4RecLinearHigh
 import CFSG.LocalAnalysis.ComponentClassification.Sp4RecPair
 import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenCanonicalField
-import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSLAllInvolutions
 import CFSG.LocalAnalysis.ComponentInitial.GL3TwoFixedModelCases
 import CFSG.LocalAnalysis.EvenSporadicStandard.Common
 import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.Main
@@ -275,7 +259,6 @@ import CFSG.Monster.GMS.Fi23Gen
 import CFSG.Monster.GMS.Fi23GenIso
 import CFSG.Monster.GMS.Fi23GenSix
 import CFSG.Monster.GMS.LeechCoh
-import CFSG.Monster.GMS.LeechCohGroup
 import CFSG.Monster.GMS.S365Center
 import CFSG.Monster.GMS.S37
 import CFSG.Monster.GMS.S4Assembly

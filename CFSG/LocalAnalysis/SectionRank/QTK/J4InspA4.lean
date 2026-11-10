@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.SectionRank.QTK.J4InspA2
 public import CFSG.LieType.BorelTits.AllModels
-public import CFSG.Blueprint.Catalog
-public import CFSG.Open.StatedDefs
 public import CFSG.LocalAnalysis.SectionRank.QTK.List
 public import CFSG.CharacterTheory.Wreathed.SmallerRecognitionOriginalFieldQuaternionConjugation
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
@@ -49,7 +47,6 @@ public import CFSG.Open.SplitBNPair
 public import CFSG.Quasithin.Background.A3Structure319
 public import CFSG.Quasithin.Background.B216Quotient
 public import CFSG.Quasithin.Background.B6
-public import CFSG.Quasithin.Background.B6Example
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.D2Cyclic
 public import CFSG.Quasithin.Background.D2Tools
@@ -66,8 +63,6 @@ public import CFSG.Quasithin.Background.HZ82Base
 public import CFSG.Quasithin.Background.InternalSecReal
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtF112ListC
 public import CFSG.Quasithin.EmptyFaithful.S14117
-public import CFSG.Quasithin.EmptyFaithful.S14117Coprime
-public import CFSG.Quasithin.EmptyFaithful.S14117Rank
 public import CFSG.Quasithin.EmptyFaithful.S152N11
 public import CFSG.Quasithin.SteinbergCCPrimeWitness
 public import CFSG.Quasithin.Vol2.Ch10SecD33

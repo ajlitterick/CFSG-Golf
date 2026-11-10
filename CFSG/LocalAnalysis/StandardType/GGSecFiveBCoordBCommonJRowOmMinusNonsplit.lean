@@ -2,11 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJNativeConj
 
-import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJRowOmMinusNonsplitAux1
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJRowOmMinusNonsplitAux2
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJRowOmMinusNonsplitAux3
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJRowOmMinusNonsplitAux4
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorus
 
 public section
 

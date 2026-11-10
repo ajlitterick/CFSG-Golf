@@ -4,9 +4,6 @@ public import CFSG.Quasithin.Vol2.GoldschmidtSec53FactsYam
 public import CFSG.Quasithin.Vol2.GoldschmidtF431D4qYamLoc
 public import CFSG.Quasithin.Vol2.GoldschmidtF431D4qYamLat
 import CFSG.LieType.Chevalley.TrialityFullAmbientFixedGroup
-import CFSG.LieType.Chevalley.GraphFixedFinitePerfect
-import CFSG.LocalAnalysis.ComponentInitial.BasicFacts
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

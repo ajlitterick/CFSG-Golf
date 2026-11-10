@@ -6,10 +6,7 @@ public import Certificates.Kernel.Sporadic.Fi22.C3150
 public import Certificates.Kernel.Sporadic.Fi22.C3039
 public import Certificates.Kernel.Sporadic.Fi22.E2067
 public import CFSG.Certificates.Kernel.BfsPinAlg
-public import CFSG.Monster.B.Fischer.Fi22GraphCheckInputs
-public import CFSG.Monster.B.Fischer.Fi22OrderCheckInputs
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.NormNum
 
 public section
 

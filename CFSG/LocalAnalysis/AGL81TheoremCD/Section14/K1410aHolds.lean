@@ -2,26 +2,16 @@ module
 
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.CaseOneFourteenTen
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanParabAutIrrModel
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsLie
 public import CFSG.RankThree.PartOne.S11d.OutAbstract
-public import CFSG.Open.StatedDefs
-public import CFSG.Open.LocalVocabulary
-public import CFSG.Adapters.TauCetiExceptional.EvenBridgeG2
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.K1410aOut
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.K1410aL3U3
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.T29.Parrott.RankFourLin
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.T29.Parrott.RankFourOrth
 import CFSG.RankThree.PartOne.S11d.OutClassicalTwo
-import CFSG.RankThree.PartOne.S11d.OutLinear
 import CFSG.RankThree.PartOne.S11d.OutUnitary
 import CFSG.RankThree.PartOne.S11d.OutSymplectic
 import CFSG.RankThree.PartOne.S11d.OutOrthogonal
-import CFSG.LieType.Chevalley.ExceptionalG2F4ModelSchreier
-import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenAutomorphisms
-import CFSG.LocalAnalysis.ComponentInitial.DiagonalSemilinear
-import CFSG.LocalAnalysis.SectionRank.SubgroupRank
 import CFSG.HardMathSupport.Cooperstein.Proving.NineThreeTransfer
-import CFSG.Blueprint.Catalog
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalSixStructure
 import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeMax
 import CFSG.LocalAnalysis.ComponentClassification.OutcomeLocalOddCentralizer

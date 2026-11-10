@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivLink
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordInnerTlift
-public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordInnerTor
-public import CFSG.LocalAnalysis.StandardType.GGQTwoFrameLDefs
 
 public section
 

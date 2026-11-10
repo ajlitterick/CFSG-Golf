@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Sporadic.M23.DeletedPermutation
-public import CFSG.Sporadic.M23.IsotypicCount
 public import CFSG.Sporadic.M23.M23Simplicity
 
 public section

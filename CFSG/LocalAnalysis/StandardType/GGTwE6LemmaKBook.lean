@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTwE6LemmaKDefs
 public import CFSG.LocalAnalysis.StandardType.GGTwE6LemmaKCop
 public import CFSG.LocalAnalysis.StandardType.GGTwE6KGA1Defs
 public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyBruhat
-public import CFSG.HardMathSupport.Lang.E6Descent.RankTwistedE6
 public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyCover
 
 public noncomputable section

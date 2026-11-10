@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.SubgroupLists.MitchellThmEight
 public import CFSG.RankThree.SubgroupLists.MitchellDegenerate
-public import CFSG.RankThree.SubgroupLists.SymplecticSkewElations
 public import CFSG.RankThree.SubgroupLists.MitchellQOne
 
 public section

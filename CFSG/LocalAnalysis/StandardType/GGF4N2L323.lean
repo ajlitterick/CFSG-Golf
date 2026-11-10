@@ -1,17 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4N2JPacket
-public import CFSG.Foundations.KCore
-public import CFSG.Assembly.InCatalog
 import CFSG.Quasithin.Background.B1More13A
 import CFSG.SignalizerFunctorTheorem.McBride.Prelim.DirectProduct
-import CFSG.LocalAnalysis.StandardType.GGNbrBalanceBasic
-import CFSG.LocalAnalysis.StandardType.GGOneFiveNormalizer
 import CFSG.LocalAnalysis.StandardType.GGNbrBalancePumpup
 import CFSG.LocalAnalysis.GLTheoremA.CatA.I142Abs
 import CFSG.RankThree.PartTwo.Sec4.T444.Item4443SLTools
-import CFSG.GroupTheory.LocalCores.Components
-import CFSG.Assembly.Subnormal
 public import Certificates.Kernel.Sporadic.Fi22.C3151
 public import Certificates.Kernel.Sporadic.Fi22.C2068
 import CFSG.CharacterTheory.Semidihedral.OddFieldLift

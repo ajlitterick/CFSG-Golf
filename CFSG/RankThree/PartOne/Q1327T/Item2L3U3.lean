@@ -3,13 +3,8 @@ module
 public import CFSG.RankThree.PartOne.Q1327T.ItemBasic
 public import CFSG.RankThree.PartOne.Q1327T.KleinThree
 public import CFSG.RankThree.PartOne.K133.Leaf2
-public import CFSG.RankThree.PartOne.K133.MaxItems
-import CFSG.Adapters.LinearCatalog
 import CFSG.Adapters.ClassicalCatalogLinearUnitary
-import CFSG.LocalAnalysis.QuasithinUnique.SQTK.UnitaryTauCeti
 public import Certificates.Kernel.ThCent.Leaves
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Certificates.WordSubgroupRel
 public import CFSG.LieType.Chevalley.RootCommutatorData
@@ -54,13 +49,11 @@ public import CFSG.RankThree.PerfectCover.HopfCentralCoversFinite
 public import CFSG.RankThree.Theta.ThreeComponentOrbitCover
 public import CFSG.Sporadic.Presentation.Common
 public import CFSG.Sporadic.SmallOddCore.CheckSpec
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.CommutatorNormalizer
 public import CFSG.YGroups.Y322Central
 import CFSG.LinearAlgebra.LinearGroups.CoordinateData
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHermitianIsometry
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoAllFields
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 

@@ -9,7 +9,6 @@ public import CFSG.Certificates.Kernel.Spor.PrimSound
 public import CFSG.Sporadic.Schreier.Co3CentralizerCheckBase
 public import CFSG.Certificates.Kernel.Spor.SiftRSound
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.Spor.RawSlSound
 
 public section

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Sporadic.Schreier.ONCheckAuxInputs
-public import CFSG.Sporadic.Schreier.ONCheckSmallAuxInputs
 public import CFSG.Sporadic.ONOddCore.SylowEightCheckInputs
 public meta import CFSG.Sporadic.Schreier.ONCheckAuxInputs
 public meta import CFSG.Sporadic.Schreier.ONCheckSmallAuxInputs

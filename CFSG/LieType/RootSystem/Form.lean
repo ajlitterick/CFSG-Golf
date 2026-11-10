@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.RootSystem.Positivity
-public import Mathlib.LinearAlgebra.Matrix.BilinearForm
 
 public section
 

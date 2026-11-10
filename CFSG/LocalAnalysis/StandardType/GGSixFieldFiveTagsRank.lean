@@ -2,12 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixFieldFiveProof
 public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerAdj
-public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerE7
 public import CFSG.Timmesfeld.Orders.ExceptionalUntwisted
 public import CFSG.ClassicalInvolution.ModelFacts.ChevAutLift
 public import CFSG.LieType.Steinberg.CentralExt.MinusculeCenter
 public import CFSG.LocalAnalysis.StandardType.GGInnerDiagBridgeSUExc
-public import CFSG.LieType.Steinberg.Isogeny.TwistedE6
 
 public section
 

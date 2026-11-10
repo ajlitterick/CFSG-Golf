@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8ExcDefs
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoExceptionalDefs
 public import CFSG.LieType.Chevalley.EvenTrialityTorusCoordinates
-public import CFSG.LieType.Chevalley.GraphFixedSimpleComplement
-public import CFSG.LieType.Chevalley.GraphFixedSimplePairs
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.GroupTheory.LocalCores.MinimalNormal
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bHypII
@@ -17,10 +15,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
 public import CFSG.Open.QuasithinDefs
 public import CFSG.Quasithin.Background.A3ComponentsBasic
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Borel
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Lemma83
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Cardinalities
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ProjectiveSemilinear
 public import CFSG.Walter.Defs
 
 public noncomputable section

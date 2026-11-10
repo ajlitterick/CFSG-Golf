@@ -4,15 +4,7 @@ public import CFSG.Quasithin.H13.L32ACSkPfB
 public import CFSG.Quasithin.H13.L32ACSk10
 public import CFSG.RankThree.PartTwo.KFacts.KS116ProofTorus
 public import CFSG.RankThree.PartTwo.KFacts.AutG2
-public import CFSG.LieType.Chevalley.BorelSelfNormalizer
-public import CFSG.LieType.Chevalley.RootDiagonalTorusWords
-public import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
 public import CFSG.LieType.Chevalley.DiagonalFieldActorData
-public import CFSG.LieType.Chevalley.SylowOpposition
-public import CFSG.LieType.Chevalley.ChevalleySplitBN
-public import CFSG.LieType.Chevalley.AdjointCenter
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LieType.Chevalley.LangRootArithmetic
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalDescentEndpoint
@@ -57,9 +49,6 @@ public import CFSG.RankThree.Asc83Table.PermTables
 public import CFSG.Sporadic.J4.QT2LocProof
 public import CFSG.Sporadic.Schreier.MathieuOddCore
 public import CFSG.Sporadic.Schreier.TitsOther
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CPrime
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralAut
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import CFSG.Walter.J1
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension

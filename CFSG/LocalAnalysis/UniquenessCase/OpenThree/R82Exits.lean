@@ -1,36 +1,19 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ExitsSetup
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.CaseOneONanFinal
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.SCFrontier
-import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.KInputs812Outer
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.SEFive.Holds
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.KInputsSolvableAltTenOf
-public import CFSG.LocalAnalysis.UniquenessCase.UC6K35Holds
-public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.Coordinator.J4Eleven
-import CFSG.LocalAnalysis.AGLEmbedding.CatalogSchreier
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsLie
 public import CFSG.LocalAnalysis.UniquenessCase.UC6K332THolds
 
-public import CFSG.Sporadic.Schreier.LyCheckSep
-public import CFSG.Sporadic.Ly.KeySpec
-public import CFSG.Sporadic.He.FpSpec
 import Certificates.Kernel.SporSch.Ly.SepGlue
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3J4D4Data
-public import CFSG.Sporadic.J4.QT2LocX0Native
 public import Certificates.Data.CFSGNative.J4.PentScan
-import Certificates.Kernel.J4Q.QTBase
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312HsKInputs
 import Certificates.Kernel.HSA312.Struct
 import Certificates.Kernel.HSQuot.Final
 public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87F3Abs
-public import CFSG.Sporadic.Ly.Setup
 import CFSG.Sporadic.Ly.GenSpecBase
 public import CFSG.GroupTheory.TwoWeightData
 import CFSG.Sporadic.Ly.TwoWeightsSpecBase
 import CFSG.GH74.GLS.Stage2.Signalizer.Ivk8P4S55LyHHBase
-public import CFSG.Sporadic.Ly.FiveFacts
-import CFSG.Sporadic.Ly.Certificate
 public import CFSG.CGT.A8S.N0EnumInputs
 public import CFSG.CGT.PushingUpLit.SolKNA.R4.TwinEdgeDefs
 public import CFSG.CGT.PushingUpLit.SolKNA.R4.TwinEdgeSocCyc4
@@ -41,7 +24,6 @@ public import CFSG.ClassicalInvolution.Phan.Phan3KerA3
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6cTransport
 public import CFSG.ClassicalInvolution.Q3.Sec13End16N
 public import CFSG.ClassicalInvolution.Q3.TA3SOLCore
-public import CFSG.ClassicalInvolution.Q3.TA3SOLCoreRank
 public import CFSG.ClassicalInvolution.Q3.TA3SmallModelM12
 public import CFSG.ClassicalInvolution.SmallCases.Hat2A7S8Lift
 public import CFSG.GH74.E2.A6Sylow
@@ -105,7 +87,6 @@ import CFSG.CGT.PushingUpLit.CGT6X.End3L2Model
 import CFSG.CGT.PushingUpLit.CGT6X.End3L2Prof
 import CFSG.CGT.PushingUpLit.CGT6X.End3L2Z
 import CFSG.CGT.Timmesfeld75.SimpleAssembly
-import CFSG.GH74.GLS.IVK.Proofs2.Stmt111c
 import CFSG.HardMathSupport.Cooperstein.Coordinator.FFSporadic.Co2DfsSound
 import CFSG.HardMathSupport.Cooperstein.Coordinator.FFSporadic.Co2Sylow
 import CFSG.HardMathSupport.Cooperstein.Coordinator.FFSporadic.Fi22CoverCheck

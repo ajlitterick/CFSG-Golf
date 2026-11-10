@@ -4,11 +4,9 @@ public import CFSG.LocalAnalysis.StandardType.GGStdPosRootKerDefs
 public import CFSG.LocalAnalysis.StandardType.GGStdPosRootKerForm
 public import CFSG.LocalAnalysis.StandardType.GGStdPosRootKerTorus
 public import CFSG.LocalAnalysis.StandardType.GGStdPosRootKerLift
-public import CFSG.LieType.Steinberg.Classical.Symplectic
 import CFSG.LocalAnalysis.StandardType.GGStdPosAutWeyl
 import CFSG.LocalAnalysis.StandardType.GGStdPosLeviSub
 import CFSG.LocalAnalysis.StandardType.GGRootInvolutionSp
-import Mathlib.Tactic.Group
 
 public section
 

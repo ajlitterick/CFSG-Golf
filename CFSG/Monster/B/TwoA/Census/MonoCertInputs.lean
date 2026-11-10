@@ -2,7 +2,6 @@ module
 
 public import CFSG.Monster.B.TwoA.Census.MonoData
 public import CFSG.Monster.B.TwoA.Census.SignCls
-public import CFSG.Monster.B.TwoA.Census.NatCert
 public meta import CFSG.Monster.B.TwoA.Census.MonoData
 public meta import CFSG.Monster.B.TwoA.Census.SignCls
 public meta import CFSG.Monster.B.TwoA.Census.NatCert

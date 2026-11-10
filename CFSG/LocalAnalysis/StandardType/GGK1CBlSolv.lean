@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGK1CBlDefs
-public import CFSG.RankThree.PartOne.KC.SymplecticIsotypicFixed
-public import CFSG.ClassicalInvolution.Models.SymplecticPairs.RootSp2
 public import CFSG.LieType.SemisimpleCentralizers.HeldUCDTransfer
-public import CFSG.LocalAnalysis.ComponentInitial.LinearUnitaryField
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearFieldAction
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven10Case2LnIdentA
 public import CFSG.LieType.SemisimpleCentralizers.HeldUCDField
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenDefs2

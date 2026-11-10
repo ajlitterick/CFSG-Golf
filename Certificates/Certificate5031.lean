@@ -4,7 +4,6 @@ public import Certificates.Data.CFSGNative.Filter.HSData
 import CFSG.Certificates.Kernel.OpsF2KSound
 import CFSG.Certificates.Kernel.OpsF2KQSound
 import Certificates.Kernel.SectionRankHS.SecQ
-public import CFSG.Blueprint.NativeSporadic
 import all CFSG.Blueprint.NativeSporadic
 public import CFSG.GH74.Filter.Witness
 

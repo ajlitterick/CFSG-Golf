@@ -1,10 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallModelConj
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.AutAlternating
-public import CFSG.GH74.KGroups.Checks
 public meta import CFSG.GH74.KGroups.Checks
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallA8ModelInputs
 public import Certificates.Certificate2007
 
 public section

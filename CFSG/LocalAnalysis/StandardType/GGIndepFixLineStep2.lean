@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGIndepFixLineStep2Defs
-public import CFSG.LocalAnalysis.StandardType.GGIndepFixLineStep1
 
 public section
 

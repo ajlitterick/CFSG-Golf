@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4N2NbrReflection
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRestGen
 import CFSG.LocalAnalysis.StandardType.GGTPNA3PlusFinal
 import CFSG.LocalAnalysis.StandardType.GGF4QGeFourEndsCover
 import CFSG.LocalAnalysis.StandardType.GGResQTwoLinearJ

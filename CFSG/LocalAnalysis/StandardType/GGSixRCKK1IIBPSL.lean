@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIBPair
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIBPSLAux
 
 public section

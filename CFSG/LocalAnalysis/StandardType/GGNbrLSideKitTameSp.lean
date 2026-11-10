@@ -2,11 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.K1419ClsDefs
 import CFSG.LocalAnalysis.StandardType.GGNbrLSideKitComm
-import CFSG.LieType.Universal.Symplectic
-import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagOrder
-import CFSG.LocalAnalysis.ComponentInitial.TwoPrimeSolvable
-import CFSG.RankThree.PartOne.KC.SymplecticInnerPlaneAlt6
-import CFSG.RankThree.Classical.SteinbergBJSymplecticCrossPrimeBlocks
 public import CFSG.HardMathSupport.Solomon.Coordinator.I18_3LInput
 public import CFSG.HardMathSupport.Solomon.Coordinator.L3C143AltMain
 public import CFSG.HardMathSupport.Solomon.Coordinator.YS08.LieQ.Derivation

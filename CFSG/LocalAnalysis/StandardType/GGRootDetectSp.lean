@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootDetectCore
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticHigherGeneration
 public import CFSG.LieType.Universal.SymplecticExtras.Matrices
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBSymplecticTwoGeneration
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion

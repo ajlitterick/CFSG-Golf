@@ -1,8 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec4.Item423ResProof424
-public import CFSG.RankThree.Asc83Table.M24
-public import CFSG.RankThree.Asc83Table.He
 public import CFSG.RankThree.PartTwo.Sec14.Item148StepPGLAbel
 public import CFSG.RankThree.PartTwo.Sec4.Item423Res2ProofTools
 

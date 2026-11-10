@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8G2LeviSL2
 public import CFSG.LieType.Steinberg.RankTwo.Statement
-public import CFSG.LieType.Steinberg.Classical.SpecialLinear
-public import CFSG.LieType.Universal.SpecialLinear
-public import CFSG.LieType.CurtisTits.Recognition
 
 public section
 

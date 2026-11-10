@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OConj
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallExcC5E6Orb
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeTwoTorus
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co3ThreeKit
-public import CFSG.LieType.Chevalley.SingleEdgePerfect
-public import CFSG.LocalAnalysis.GLTheoremA.Basic
 public import CFSG.HardMathSupport.Timmesfeld.Coordinator.LocalThreeSporadicRank
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Core
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Reduction

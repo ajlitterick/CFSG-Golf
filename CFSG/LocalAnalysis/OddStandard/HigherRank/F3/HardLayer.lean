@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T23Basic
-public import CFSG.GroupTheory.LocalCores.Layer
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.F3.HardComp
 public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 public import CFSG.Certificates.Kernel.LocalCompTits.Span
@@ -14,7 +13,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit35LieHalf
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T23Defs
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitN36SporMult
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverModels
-public import CFSG.LocalAnalysis.ComponentClassification.OddSelector
 public import CFSG.LocalAnalysis.ComponentClassification.RestrictedStdFamilies
 public import CFSG.Monster.B.TwoA.Base.FourNorm
 public import CFSG.Monster.SteinbergMY443SimpleIsomorphism
@@ -27,7 +25,6 @@ public import CFSG.YGroups.Y443.Native.Parabolic2CheckB
 public import CFSG.YGroups.Y443.Native.Parabolic2CheckW
 public import Certificates.Kernel.J4Count.FixC
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 public import Certificates.Kernel.SporSch.J4S.NoCP
 
 public section

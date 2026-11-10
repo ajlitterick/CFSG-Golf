@@ -1,17 +1,13 @@
 module
 
-public import Certificates.Kernel.LocalComp.Fi24TwoB.D15027
 public import Certificates.Kernel.LocalComp.Fi24TwoB.Kd15027
-public import Certificates.Kernel.Misc.Perm.HexCmd
 public import Certificates.Kernel.SporSch.Th.GenV4
 public import Certificates.Kernel.Sporadic.Fi24K.T2077
 public import Certificates.Data.Kernel.BfsPinBase
-public import Certificates.Data.Kernel.Spor.ConjTree
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicFi24TwoBK
 meta import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicFi24TwoBK
 meta import Certificates.Kernel.Sporadic.RawGen
 import CFSG.Certificates.Kernel.Common.Harness
-import Certificates.Kernel.Sporadic.ON.Gen
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 public import CFSG.LocalAnalysis.ComponentClassification.GeneralizedFitting
 public import CFSG.LocalAnalysis.ComponentClassification.LayerMultiplication

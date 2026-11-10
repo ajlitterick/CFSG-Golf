@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusE6RelativeWeyl
 public import CFSG.LocalAnalysis.StandardType.GGNoTransvectionAutFrame
-public import CFSG.LocalAnalysis.SeitzReduction.E6PilotFieldNormalizeTorus
-public import CFSG.LieType.Chevalley.TwistedE6NormalForm
 
 public noncomputable section
 

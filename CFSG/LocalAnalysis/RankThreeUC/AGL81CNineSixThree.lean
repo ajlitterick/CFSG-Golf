@@ -8,11 +8,8 @@ import CFSG.LocalAnalysis.RankThreeUC.AGL81CKStarComponent
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CZBridge
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section15.StarQuot
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.SevenThreeSetup
-import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.L34Sylow
 import CFSG.RankThree.PartTwo.Census.CenterThreeTransfer
 import CFSG.RankThree.PartTwo.KFacts.KS12SLCenter
-import CFSG.LocalAnalysis.SectionRank.Framework.Semisimple
-import CFSG.Adapters.LinearFieldTransport
 public import CFSG.RankThree.PartTwo.Sec4.Census.Interface46
 
 public section

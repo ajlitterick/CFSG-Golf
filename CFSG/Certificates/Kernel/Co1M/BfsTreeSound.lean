@@ -2,8 +2,6 @@ module
 
 public import Certificates.Data.Kernel.BfsTreeK
 public import CFSG.Sporadic.Co1.Module.PairsCheckInputs
-public import Mathlib.RingTheory.WittVector.IsPoly
-public import Mathlib.Tactic.ReduceModChar
 
 public section
 

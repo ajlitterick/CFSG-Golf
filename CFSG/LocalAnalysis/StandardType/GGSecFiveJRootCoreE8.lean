@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJRootCoreTorus
 import CFSG.LocalAnalysis.StandardType.GGSecFiveJRootCoreExcAdj
 import CFSG.LocalAnalysis.StandardType.GGSteinbergAutLemmas
-import CFSG.LieType.Steinberg.Adjoint.Borel
-import CFSG.LieType.Chevalley.PerfectSimpleRoot
 
 public section
 

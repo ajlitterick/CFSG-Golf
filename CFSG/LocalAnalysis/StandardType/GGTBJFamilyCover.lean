@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTBJE7Tag
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6LeviOn
 public import CFSG.LocalAnalysis.StandardType.GGLangE8Recognition
-public import CFSG.LocalAnalysis.StandardType.GGTBJETypeCells
 
 public section
 

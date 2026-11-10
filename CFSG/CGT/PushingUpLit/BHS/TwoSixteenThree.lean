@@ -1,9 +1,7 @@
 module
 
-public import CFSG.CGT.PushingUpLit.BHS.TwoSixteenAlt
 public import CFSG.CGT.PushingUpLit.BHS.ThreeNormalizer
 public import CFSG.Quasithin.EmptyFaithful.S145Cop
-public import CFSG.Quasithin.Background.D2Coprime
 
 public section
 

@@ -4,7 +4,6 @@ public import CFSG.Sporadic.HNSchreier.IntrinsicCheckInputs
 public meta import CFSG.Sporadic.HNSchreier.SylowCheck
 public meta import CFSG.Sporadic.HNSchreier.IntrinsicData
 import Certificates.Kernel.SporSch.HN.Intr2098
-import Certificates.Certificate2102
 public import Mathlib.Algebra.Order.Floor.Extended
 public import Mathlib.Algebra.Order.Interval.Basic
 public import Mathlib.Analysis.Complex.UpperHalfPlane.Basic

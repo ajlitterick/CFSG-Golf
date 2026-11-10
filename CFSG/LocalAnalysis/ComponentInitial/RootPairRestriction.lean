@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentInitial.GroupOuter
-public import Mathlib.GroupTheory.Sylow
-public import Mathlib.GroupTheory.Solvable
 
 public section
 

@@ -5,7 +5,6 @@ public import Certificates.Data.CFSGNative.MonsterB.BinarySha
 public meta import CFSG.Sporadic.Schreier.J1CertData
 public meta import Certificates.Data.CFSGNative.MonsterB.BinarySha
 public meta import Mathlib.GroupTheory.Schreier
-public import Mathlib.GroupTheory.Schreier
 
 public section
 

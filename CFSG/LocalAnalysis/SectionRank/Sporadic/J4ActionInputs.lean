@@ -5,7 +5,6 @@ public import CFSG.Sporadic.J3.F2Spec
 public import Certificates.Data.CFSGNative.SectionRank.J4Local
 public meta import Certificates.Data.CFSGNative.SectionRank.J4Local
 public meta import Certificates.Data.CFSGNative.J3.Basic
-public import CFSG.Open.Defs
 
 public section
 

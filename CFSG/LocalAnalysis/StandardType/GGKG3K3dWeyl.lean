@@ -1,6 +1,5 @@
 module
 
-public import CFSG.RankThree.E6.RootLatticeTools
 public import CFSG.LocalAnalysis.StandardType.GGKG3K3dCheck
 
 public section

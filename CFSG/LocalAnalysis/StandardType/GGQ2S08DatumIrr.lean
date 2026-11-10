@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08DatumSplit
-public import CFSG.LocalAnalysis.StandardType.GGQ2S08DatumRefl
 
 public section
 

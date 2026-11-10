@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixSevenA3KnownForms
-public import CFSG.LocalAnalysis.StandardType.GGSixLSixSevenA3OmEntry
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6
 
 public section
 

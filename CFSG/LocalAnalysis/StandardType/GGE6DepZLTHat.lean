@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGE6DepZLTFin
 public import CFSG.LocalAnalysis.StandardType.GGE6DepZLTHatCore
 public import CFSG.LocalAnalysis.StandardType.GGE6DepZLTQGeo
 public import CFSG.LocalAnalysis.StandardType.GGE6DepZLTV0
-public import CFSG.LocalAnalysis.StandardType.GGE6DepZLScBase
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelTFrame
 
 public section
 

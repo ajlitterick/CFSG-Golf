@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGExcKGSFDefs
-public import CFSG.LieType.Chevalley.IntrinsicDiagramPermutation
 
 public section
 

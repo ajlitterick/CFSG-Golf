@@ -1,11 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentInitial.LinearCoverModel
 public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 public import CFSG.LocalAnalysis.StandardType.GGPGLTorality
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoTableBReduce
-public import CFSG.LocalAnalysis.StandardType.GGTableBBstar
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBIrred
 
 public section
 

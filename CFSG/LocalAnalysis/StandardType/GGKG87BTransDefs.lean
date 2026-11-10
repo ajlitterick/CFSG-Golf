@@ -2,8 +2,6 @@ module
 
 public import CFSG.LieType.Chevalley.RootCharacterConjugation
 public import CFSG.LieType.Chevalley.KernelComponentRoots
-public import CFSG.LieType.Chevalley.Canonical
-public import CFSG.Blueprint.ChevalleyPinned
 
 public section
 

@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeReturnAssembly
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeStepA
 
 public section
 

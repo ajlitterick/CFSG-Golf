@@ -12,7 +12,6 @@ import CFSG.RankThree.PartTwo.Sec15.Sylow155R3K9SuzTh
 import CFSG.RankThree.PartTwo.Sec15.Sylow155R3K9LieRows
 import CFSG.RankThree.PartTwo.Sec15.Sylow155R3K9LieThree
 import CFSG.RankThree.PartTwo.KFacts.KS14HJNative
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.AssemblyAll
 import CFSG.RankThree.PartTwo.Sec4.Ronan148LUSa
 
 public section

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.LayerMultiplication
 public import CFSG.LocalAnalysis.ComponentClassification.InvolutionOrbitComponentLocation
-public import CFSG.LocalAnalysis.ComponentClassification.SemisimpleComponentStructure
 
 public section
 

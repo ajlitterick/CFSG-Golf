@@ -1,16 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGLieCoreA3LatticeE6Defs
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreA3GrpWeyl
-public import CFSG.LocalAnalysis.StandardType.GGLieCoreA3DictPhi
-public import CFSG.HardMathSupport.Timmesfeld.Torality.LangAssembly
-public import CFSG.LieType.Chevalley.LangStronglyOrthogonalCommute
-public import CFSG.LieType.Chevalley.E6GraphInvertedRootRotation
-public import CFSG.LieType.Chevalley.GraphFixedHighestRoot
-public import CFSG.LieType.Chevalley.OrthogonalFixedOrbitMaps
-public import CFSG.RankThree.Chevalley.SteinbergCEF4EvenQPlusWeyl
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.BigAnyTorus
-public import CFSG.LieType.AlgebraicGroups.ToralTwistPinningFrobenius
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.BigAnyDefs
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.CentralizerTrivialPoly
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.RigidField

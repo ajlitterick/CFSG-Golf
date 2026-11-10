@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGA8NbrSpJClass
 public import CFSG.LocalAnalysis.StandardType.GGA8NbrOrder73
-public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionLinear
 
 public section
 

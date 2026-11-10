@@ -4,11 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutTrialityBridge
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutTrialityLayerPGL
 public import CFSG.RankThree.PartTwo.KFacts.K71D4G2Group
 public import CFSG.LieType.Chevalley.TrialityFullAmbientFixedGroup
-public import CFSG.LieType.Steinberg.G2.Perfect
-public import CFSG.LieType.CurtisTits.Recognition
-public import CFSG.LocalAnalysis.ComponentInitial.FieldFiniteAutomorphism
-public import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
-public import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
 
 public section
 

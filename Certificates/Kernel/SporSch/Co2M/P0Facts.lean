@@ -1,8 +1,6 @@
 module
 
 public import Certificates.Kernel.SporSch.Co2M.EnumP0
-public import CFSG.Certificates.Kernel.SporSch.Co2LESound
-public import CFSG.Sporadic.Co2Schreier.ThreeCheckInputs
 public meta import CFSG.Sporadic.Co2Schreier.ThreeCheckInputs
 
 public section

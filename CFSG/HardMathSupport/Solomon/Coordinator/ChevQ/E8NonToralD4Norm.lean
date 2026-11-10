@@ -1,9 +1,7 @@
 module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E8NonToralD4Basic
-public import CFSG.LieType.Chevalley.LangRootRankOne
 public import CFSG.LieType.AlgebraicGroups.CocharacterCurve
-public import CFSG.LieType.AlgebraicGroups.FrobeniusDiagramRealized
 import CFSG.LieType.SeitzGeneration.ExcHighThree.KillsRootGroup
 import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Frames
 import CFSG.HardMathSupport.Timmesfeld.Coordinator.LocalThreeSporadicRank

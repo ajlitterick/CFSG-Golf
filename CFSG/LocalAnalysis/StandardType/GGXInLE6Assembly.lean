@@ -1,21 +1,13 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGXInLCommTwE6
-public import CFSG.LocalAnalysis.StandardType.GGXInLE6Sylow
 public import CFSG.LocalAnalysis.StandardType.GGXInLE6Frame
 public import CFSG.LocalAnalysis.StandardType.GGXInLUCover
 public import CFSG.LocalAnalysis.StandardType.GGXInLE6
-public import CFSG.LocalAnalysis.StandardType.GGXInLUDefs
-public import CFSG.LocalAnalysis.StandardType.GGXInLQuot
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRootGenFrame
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnit63Desc
-public import CFSG.LocalAnalysis.StandardType.GGTwE6R4CoverNine
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelFrameMap
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaOutdiag
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInner937TwE6Center
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelModuleMT
 public import CFSG.LocalAnalysis.StandardType.GGCoverRkTwE6Frame
-public import CFSG.LocalAnalysis.StandardType.GGBstarLemmaCNoTwoSub
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1TwE6Three
 
 public section

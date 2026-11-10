@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneUGraph
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoynePSL
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneUInnerPaired
 

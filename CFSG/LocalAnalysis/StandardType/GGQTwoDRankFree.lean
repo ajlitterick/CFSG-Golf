@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoDInputs
 import CFSG.LocalAnalysis.StandardType.GGQTwoDLocalComm
 import CFSG.LocalAnalysis.StandardType.GGQTwoPThree
 import CFSG.LocalAnalysis.StandardType.GGAutomizerJoinInduced
-import CFSG.LocalAnalysis.StandardType.GGSimplyLacedWeyl
 
 public section
 

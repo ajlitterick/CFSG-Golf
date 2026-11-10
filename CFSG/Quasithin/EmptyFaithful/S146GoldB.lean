@@ -1,19 +1,7 @@
 module
 
-public import CFSG.Quasithin.EmptyFaithful.S146ThreeB
-public import CFSG.Quasithin.EmptyFaithful.S146Main
-public import CFSG.Quasithin.EmptyFaithful.S146G5
-public import CFSG.Quasithin.EmptyFaithful.S146B1
-public import CFSG.Quasithin.EmptyFaithful.S146B4
-public import CFSG.Quasithin.EmptyFaithful.S146R6
-public import CFSG.Quasithin.EmptyFaithful.S146R7
-public import CFSG.Quasithin.EmptyFaithful.S146C6
-public import CFSG.Quasithin.EmptyFaithful.S146C7
-public import CFSG.Quasithin.EmptyFaithful.S146E1
-public import CFSG.Quasithin.Background.C1PackS1461Two
 public import CFSG.Quasithin.Background.C1PackS1461Five
 public import CFSG.Quasithin.Background.C1PackS14612One
-public import CFSG.Quasithin.EmptyFaithful.S146E4
 public import CFSG.Quasithin.EmptyFaithful.S146E12
 public import CFSG.Quasithin.EmptyFaithful.S146GoldA
 

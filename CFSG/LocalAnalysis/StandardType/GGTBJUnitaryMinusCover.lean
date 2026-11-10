@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJUnitaryMinusDefs
 public import CFSG.LocalAnalysis.StandardType.GGSuSplitRootGenModel
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUDefs
 public import CFSG.LocalAnalysis.StandardType.GGTBTorDatum
-public import CFSG.LocalAnalysis.StandardType.GGTableBTransport
 
 public section
 

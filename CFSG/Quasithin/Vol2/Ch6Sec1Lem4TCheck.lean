@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Quasithin.Vol2.Ch6Sec1Lem4TInputs
 public import Certificates.Certificate7195
 public meta import CFSG.Sporadic.Schreier.TitsData
 public meta import CFSG.Sporadic.Schreier.TitsArrays

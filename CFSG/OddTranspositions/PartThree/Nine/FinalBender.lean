@@ -3,7 +3,6 @@ module
 public import CFSG.OddTranspositions.PartThree.Nine.Statements
 public import CFSG.GH74.Uniqueness.Bender.FixedLinear
 public import CFSG.GH74.Uniqueness.Bender.UnitaryFixed
-public import CFSG.GH74.Uniqueness.Bender.Aut
 public import CFSG.SignalizerFunctorTheorem.CatalogBridge.NearPSL2
 public import CFSG.Timmesfeld.Bridge.Asc72Bender
 public import CFSG.GH74.Uniqueness.Bender.Outer

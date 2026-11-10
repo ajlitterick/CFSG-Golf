@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.Background.GoldschmidtAmalgamL2DLarge
 public import CFSG.Quasithin.Background.GoldschmidtAmalgamL2T
-public import CFSG.Quasithin.Background.GoldschmidtAmalgamLarge
 public import CFSG.Quasithin.Background.GoldschmidtAmalgamLab3Ker
 public import CFSG.Quasithin.Background.GoldschmidtAmalgamLab2Main
 public import CFSG.Quasithin.Background.GoldschmidtAmalgamL3dMain

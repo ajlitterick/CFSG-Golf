@@ -2,7 +2,6 @@ module
 
 public import CFSG.Certificates.Kernel.Bounds.Core3
 public import Certificates.Data.Kernel.LceSSeg
-public import CFSG.Certificates.Kernel.Common.LceS
 public import CFSG.Certificates.Kernel.He.Bound.Data.Q_Sel
 import CFSG.Certificates.Kernel.Bounds.LoadRoot
 import CFSG.Certificates.Kernel.Common.Repo

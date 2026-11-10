@@ -1,13 +1,10 @@
 module
 
 public import CFSG.RankThree.PartOne.KC.OrthogonalBlockDet
-import CFSG.RankThree.PartOne.KC.OrthogonalSelfDualBlock
 import CFSG.RankThree.PartOne.KC.OrthogonalFixedDerived
 import CFSG.RankThree.PartOne.KC.UnitaryOrthonormalEigenbasis
 import CFSG.LocalAnalysis.AGLEmbedding.ToralCensusCentOrthFactor
-import CFSG.LocalAnalysis.AGLEmbedding.ToralCensusCentBlocks
 import CFSG.RankThree.CentralLift.DefiningUnitary
-import CFSG.LocalAnalysis.ComponentInitial.FieldUnitaryHermitian
 public import CFSG.LieType.BorelTits.CompleteFlag
 import CFSG.Assembly.QuasithinDefs
 import CFSG.Foundations

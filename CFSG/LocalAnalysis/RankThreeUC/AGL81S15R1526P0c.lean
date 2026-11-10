@@ -1,16 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RowStmts
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsPair
-public import CFSG.LocalAnalysis.RankThreeUC.Basic
-public import CFSG.Open.LocalVocabulary
-public import CFSG.Open.RankThreeDefs
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
-public import CFSG.GroupTheory.ABGLocalTools.Basic
-public import CFSG.RankThree.PartOne.S12.InputsSec15
-import CFSG.GroupTheory.ABGLocalTools.CoreLemmas
-import CFSG.LocalAnalysis.SectionRank.PRank
-import CFSG.LocalAnalysis.RankThreeCoreUniqueness.LocalCore
 
 public section
 

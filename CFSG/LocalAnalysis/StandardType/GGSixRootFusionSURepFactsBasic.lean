@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionSURepFactsAlpha
 public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionSLRestAlpha
 public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotSwapFactorNormalField
-public import CFSG.LieType.Universal.Unitary.Comparison
 public import CFSG.CharacterTheory.BrauerThirdMainTheorem.CentralResidueMaps
 public import CFSG.CharacterTheory.BrauerThirdMainTheorem.NormalizerClassLifting
 public import CFSG.CharacterTheory.BrauerThirdMainTheorem.PrincipalClassDefects
@@ -61,18 +60,6 @@ public import CFSG.RankThree.PartOne.KC.UnitaryLiftBlocks
 public import CFSG.RankThree.PartOne.KF.UnitaryModel
 public import CFSG.RankThree.PartTwo.Census.Classical.EvenUnitary
 public import CFSG.Sporadic.Schreier.TitsOther
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldPrimeOrderFixedSubfield
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OrderThreeNormalizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2PSLRangeCentralizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinInvolutionCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinRestrictionSixCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinUDecomposition
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationEleven
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTen
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTenStructuralIdentities
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2FieldProjectionArithmetic
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2OrderPSubgroupCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphReconstruction
 
 public section
 

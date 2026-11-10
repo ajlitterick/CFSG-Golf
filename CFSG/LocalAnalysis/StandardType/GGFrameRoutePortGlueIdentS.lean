@@ -2,12 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortGlueIdentDefs
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortGlueRootModel
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNormalClosureRefl
 import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortGlueIdentW
 import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortGlueIdentSSigned
 import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortGlueIdentSRoot
-import Mathlib.GroupTheory.GroupAction.Quotient
 
 public section
 

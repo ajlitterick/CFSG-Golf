@@ -3,9 +3,6 @@ module
 public import CFSG.ClassicalInvolution.Q3.TL4LinkB2b0
 public import CFSG.ClassicalInvolution.Q3.TL4LinkB2b9
 public import CFSG.LocalAnalysis.ComponentClassification.QuaternionComponentWired27
-public import CFSG.Goldschmidt.Final
-public import CFSG.ClassicalInvolution.Q3.TL4VtxE4
-public import CFSG.ClassicalInvolution.Q3.TL4OmegaAOFD4OG
 public import CFSG.ClassicalInvolution.Q3.TL4LinkDiscC
 public import CFSG.Holt.Centralizer
 public import CFSG.Holt.MaximalFixer

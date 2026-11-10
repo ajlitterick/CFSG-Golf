@@ -2,7 +2,6 @@ module
 
 public import CFSG.Assembly.GL83SuzukiModel
 public import CFSG.Assembly.LargeEvenDefs
-public import CFSG.Blueprint.Catalog
 
 public section
 

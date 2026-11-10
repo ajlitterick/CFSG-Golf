@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Sporadic.Fi22.C2079A
 public import CFSG.Certificates.Kernel.Spor.OrbTreeKProof
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.NormNum
 
 public section
 

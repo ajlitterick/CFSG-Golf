@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.PhanEBruhat
-public import CFSG.LieType.RootSystem.Form
 public import CFSG.Monster.B.Geometry.Coxeter
 
 public section

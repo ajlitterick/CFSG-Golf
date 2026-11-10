@@ -1,18 +1,11 @@
 module
 
-public import CFSG.Open.StatedDefs
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsLie
-public import CFSG.LocalAnalysis.ComponentInitial.LinearFlagElation
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismData
-public import CFSG.LocalAnalysis.ComponentInitial.LinearUnitaryField
-public import CFSG.ClassicalGroups.UnitaryFlag.GroupData
 public import CFSG.RankThree.PartTwo.KFacts.AutPSU
 import CFSG.GroupTheory.ExtraspecialThreeFive
 import CFSG.RankThree.PartTwo.Sec4.E27.L3FLinear
 import CFSG.RankThree.PartTwo.Sec4.E27.L3FUnitaryCount
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.CaseOneFourteenTen
-import CFSG.Adapters.ProjectiveSpecialLinear
-import CFSG.LocalAnalysis.ComponentInitial.LinearCoverModel
 public import CFSG.Sporadic.Schreier.J4SProfileNode
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 import CFSG.LieType.SeitzGeneration.Hyper

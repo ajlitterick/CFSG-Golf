@@ -1,11 +1,8 @@
 module
 
 public import CFSG.Open.StatedDefs
-public import Mathlib.FieldTheory.Finite.GaloisField
 import CFSG.ClassicalGroups.Symplectic.Simple
 import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagOrder
-import CFSG.Open.StatedAPI
-import Mathlib.GroupTheory.SpecificGroups.Cyclic
 
 public section
 

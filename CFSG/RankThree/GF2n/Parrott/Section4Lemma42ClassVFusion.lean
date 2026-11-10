@@ -2,9 +2,6 @@ module
 
 public import CFSG.RankThree.GF2n.Parrott.SpinFusionChecks
 public import CFSG.RankThree.GF2n.Parrott.XAbelianCrux
-public import CFSG.RankThree.GF2n.Parrott.XAbelianTools
-public import CFSG.RankThree.GF2n.Parrott.SpinXFacts
-public import CFSG.RankThree.GF2n.Parrott.Section4Lemma42ClassV
 public import CFSG.RankThree.GF2n.Parrott.Section4Lemma42ClassVSpin
 public import CFSG.RankThree.GF2n.Parrott.Section4Lemma42
 public import CFSG.Holt.PSL2Natural.Defs

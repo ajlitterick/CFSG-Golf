@@ -2,35 +2,17 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight8xKLeaves
 import CFSG.Adapters.LieModelOrders
-import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67A2Hom
-import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67A2Sylow
 import CFSG.GH74.Orders.Sporadic
-import CFSG.GroupTheory.ABGLocalTools.Basic
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GeneratorRank
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PGroup.Omega
 import CFSG.HardMathSupport.Solomon.Coordinator.L3BL34
 import CFSG.LargeExtraspecial.DW2AOut
-import CFSG.LieType.Chevalley.AdjointCenter
-import CFSG.LieType.Chevalley.ExactG2FiniteOrder
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanG2QThree
 import CFSG.LocalAnalysis.AGLEmbeddingD2.SporadicTable
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.gorenstein_5_4_15
-import CFSG.LocalAnalysis.ComponentClassification.PSL3FourAlternatingExclusion
-import CFSG.LocalAnalysis.ComponentInitial.LinearFlagOrder
 import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.Co1Hyp31B
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.T29.Parrott.Fusion
-import CFSG.LocalAnalysis.RankThreeTheoremC.KFacts.WeakClosureHeis.AbelianTransfer
 import CFSG.LocalAnalysis.SectionRank.AmbientRank
-import CFSG.LocalAnalysis.SectionRank.OddCover.ScalarCover
-import CFSG.LocalAnalysis.SectionRank.PRank
-import CFSG.LocalAnalysis.SectionRank.SubgroupRank
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight8xKSU5Center
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22rk
 import CFSG.RankThree.PartTwo.Sec11.Item1120V0BarL3Mat
-import CFSG.RankThree.PartTwo.Sec4.Census.Item44PartOne
-import Mathlib.GroupTheory.Rank
-import Mathlib.GroupTheory.Sylow
-import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
 public import CFSG.Blueprint.LieModelAPI
 public import CFSG.GroupTheory.CoprimeActionSupport.AbelianEquivalence
 public import CFSG.GroupTheory.CoprimeActionSupport.Geometry
@@ -50,7 +32,6 @@ import CFSG.Goldschmidt.StatementsG2
 import CFSG.Goldschmidt.StatementsG3
 import CFSG.Goldschmidt.Steps.G37Core
 import CFSG.GroupTheory.SteinbergCBFTCores
-import CFSG.HardMathSupport.Dickson.Sec6.I1431Lie
 import CFSG.HardMathSupport.Solomon.Coordinator.InndiagLink
 import CFSG.HardMathSupport.Solomon.Coordinator.L3FATArith
 import CFSG.HardMathSupport.Solomon.Coordinator.L3G515Core
@@ -84,7 +65,6 @@ import CFSG.LocalAnalysis.AGLEmbeddingD2.PairMaximal
 import CFSG.LocalAnalysis.AGLEmbeddingD2.ScalarTorus
 import CFSG.LocalAnalysis.AGLEmbeddingD2.Survivor
 import CFSG.LocalAnalysis.AGLEmbeddingD2.ThreeStrong
-import CFSG.LocalAnalysis.ComponentClassification.AschbacherWalterSchurEight
 import CFSG.LocalAnalysis.ComponentClassification.AutL2FactsCentModel
 import CFSG.LocalAnalysis.ComponentClassification.AutL2FactsFieldAut
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalSixStructure
@@ -125,13 +105,8 @@ import CFSG.Quasithin.Background.B69Core
 import CFSG.Quasithin.Background.C1GNSolvConnect
 import CFSG.Quasithin.Background.C1PackS1531Top
 import CFSG.Quasithin.Background.D2
-import CFSG.Quasithin.Background.D2Dihedral
 import CFSG.Quasithin.Background.E2Statements
 import CFSG.Quasithin.Background.E3
-import CFSG.Quasithin.Background.E3Nprime
-import CFSG.Quasithin.Background.E3Uniq
-import CFSG.Quasithin.Background.F6CatRecogL2
-import CFSG.Quasithin.Background.F6CatRecogTools2
 import CFSG.Quasithin.Background.F918C6
 import CFSG.Quasithin.Background.FFC7G
 import CFSG.Quasithin.Background.FFC8A
@@ -221,10 +196,6 @@ import CFSG.Sporadic.SuzOddCore.SmallActionData
 import CFSG.Timmesfeld.Outcome
 import CFSG.Timmesfeld.RankOne
 import CFSG.Timmesfeld.Transvection.Statement
-import CFSG.Walter.J1Props
-import CFSG.Walter.J1Recog
-import CFSG.Walter.PSL2Facts
-import CFSG.Walter.W67.Statements
 import Certificates.Kernel.J4Count.Prim
 
 public section

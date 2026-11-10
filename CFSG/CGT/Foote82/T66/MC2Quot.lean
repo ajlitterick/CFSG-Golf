@@ -6,7 +6,6 @@ import CFSG.LocalAnalysis.ComponentClassification.StandardSubgroupAPI
 import CFSG.GH74.Uniqueness.SU.SU4Quot
 public import CFSG.CGT.Foote82.T66.Basic
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.Open.StandardComponentRecognitionMilestoneDefs
 
 public section

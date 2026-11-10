@@ -1,12 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC6N588C4
-public import CFSG.LocalAnalysis.UniquenessCase.UC6S25
 public import CFSG.LocalAnalysis.UniquenessCase.UC6S27
-public import CFSG.LocalAnalysis.UniquenessCase.UC6S28
 public import CFSG.LocalAnalysis.UniquenessCase.UC6C636a
 public import CFSG.LocalAnalysis.UniquenessCase.UC6S15
-public import CFSG.GroupTheory.SteinbergBKOddNoncyclicRankTwo
 public import CFSG.Holt.Basic
 public import CFSG.LocalAnalysis.UniquenessCase.UC6K47d
 public import CFSG.Walter.Bender1970.S2

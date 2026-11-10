@@ -1,9 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec21.Item211Lie3ProofSpXi
-public import CFSG.RankThree.SubgroupLists.TransvectionRecognition
-import Mathlib.FieldTheory.Finite.Basic
-import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
 
 public section
 

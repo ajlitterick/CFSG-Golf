@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GH74.KGroups.TwoA7Cover
-public import CFSG.GH74.GLS.Stage1.Thm6.Prelude
 public import CFSG.Assembly.ComponentTypeDefs
 public import CFSG.GH74.Uniqueness.SU.SU13TA1Invol
 

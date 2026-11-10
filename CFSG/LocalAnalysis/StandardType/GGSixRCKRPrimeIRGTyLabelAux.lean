@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGDefs
-public import CFSG.ClassicalInvolution.ModelFacts.ClauseZero
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.HSubTQuot
 
 public section

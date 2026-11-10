@@ -9,7 +9,6 @@ public meta import CFSG.Certificates.Kernel.Common.AddThm
 public meta import Std.Data.HashMap
 public import CFSG.Certificates.Kernel.Common.AddThm
 public import CFSG.Certificates.Kernel.Common.Tab
-public import CFSG.Sporadic.Th.F2Spec
 
 open Lean Elab Command
 

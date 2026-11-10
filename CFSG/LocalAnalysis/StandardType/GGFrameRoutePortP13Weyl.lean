@@ -1,6 +1,5 @@
 module
 
-import Mathlib.Data.ZMod.Defs
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.E7RootSetStab
 public import CFSG.LieType.Chevalley.KernelComponentRoots
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP13Roots
@@ -8,7 +7,6 @@ public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP13Roots
 import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP13Refl
 import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.E7RootSetRootsAux
 import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.E7RootSetLiftAux
-import CFSG.LieType.Chevalley.EvenOddCentralizerRadicalRoots
 import CFSG.Mathlib.Decide.Bounded
 
 public section

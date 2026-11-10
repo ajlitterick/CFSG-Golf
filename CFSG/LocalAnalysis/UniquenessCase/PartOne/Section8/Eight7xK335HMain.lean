@@ -1,27 +1,19 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight7xK335HNorm
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight7xK335Inputs
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight7xKGammaLemmas
 public import CFSG.Monster.Existence.StdOdd.Defs
 public import Certificates.Data.CFSGNative.Chevalley.C2E6CertLie
 public import CFSG.LieType.Chevalley.C2E6StdMatrixData
 public import CFSG.Monster.B.Classical.E6AdjointGroup
 import Certificates.Kernel.Misc.E6StdSlp
-public import CFSG.Blueprint.NativeSporadic
-public import CFSG.RankThree.PartOne.CTP.FusionSound
-import CFSG.Sporadic.Bridge.BFusSevenGen
 public import CFSG.YGroups.Y443.Native.CoverFactsWords
 import Certificates.Kernel.KDense.Y443
 public import CFSG.YGroups.Y443.Native.Swap13Word
-import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofLieOrder
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight7xK335HG2
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight7xK335HNormJ2
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight7xK335HOrders
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight7xK335HRee
-import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.KInputs811K1Holds
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPK3H
-import CFSG.LocalAnalysis.UniquenessCase.UC6K332K33
 import CFSG.LocalAnalysis.UniquenessCase.UC6K35OmDirect
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight7xK335Normal
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight7xK335RankTwo

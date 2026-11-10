@@ -1,10 +1,7 @@
 module
 
 public import CFSG.GH74.KGroups.L3EpsUniInv
-public import CFSG.GH74.KGroups.L3EpsCenter
 public import CFSG.LocalAnalysis.UniquenessCase.UC22L3LinBasic
-import CFSG.LocalAnalysis.ComponentInitial.UnitaryDiagonalOuterOrder
-import CFSG.LocalAnalysis.ComponentInitial.FieldFiniteAutomorphism
 import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherIsotropicRadical
 public import CFSG.GH74.Generic.S45.LUniLift
 public import CFSG.GH74.KGroups.L3EpsUniGraph

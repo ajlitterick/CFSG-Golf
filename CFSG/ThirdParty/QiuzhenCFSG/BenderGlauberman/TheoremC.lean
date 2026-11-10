@@ -1,32 +1,19 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Lemma19
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section1
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section2.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section2.Coherence
 import all CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section2.Coherence
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section2.Lemma24
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section2.Lemma25
 import all CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section2.Lemma25Core
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section3.Remark31
 import all CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section3.Remark31
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section3.Lemma33
 import all CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section3.Lemma33
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section3.Lemma34
 import all CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section3.Lemma34
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section3.Theorem32
 import all CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section3.Theorem32
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section3.Lemma36
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section4.Theorem43
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section3.Basic
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Hyp12OfHyp11
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section3.Remark35
 import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.TheoremBProof
 import all CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section2.Basic
 import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.Clifford
-import Mathlib.Algebra.DirectSum.LinearMap
-import Mathlib.LinearAlgebra.Trace
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection1.PFsection1_1
 
 namespace CFSG

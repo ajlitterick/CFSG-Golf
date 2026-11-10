@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Sporadic.Co2Jc.Words
-public import CFSG.Certificates.Kernel.Enum.Defs
 public meta import CFSG.Sporadic.Co2Jc.Words
 meta import Certificates.Kernel.Misc.Perm.HexCmd
 public meta import CFSG.Certificates.InvariantMerge

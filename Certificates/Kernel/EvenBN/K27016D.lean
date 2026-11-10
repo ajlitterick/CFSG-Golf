@@ -1,8 +1,5 @@
 module
 
-public import Certificates.Data.TitsAschbacherSecFour
-public import Certificates.Kernel.EvenBN.CNtAux
-public import Certificates.Kernel.EvenBN.Lists
 public import Certificates.Kernel.EvenBN.K27016B
 import CFSG.Certificates.Kernel.Common.Harness
 

@@ -3,7 +3,6 @@ module
 
 public import Certificates.Certificate2042Base
 
-public import CFSG.Sporadic.Co1Block.IotaCheckInputs
 public meta import CFSG.Sporadic.Co1Block.IotaData
 public meta import CFSG.Sporadic.Schreier.Co1StabCheck
 public meta import CFSG.Sporadic.Schreier.Co1ThreeLocal

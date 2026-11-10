@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGResJFusion
 import CFSG.GroupTheory.OmegaCentral.Cyclic
-import CFSG.LocalAnalysis.StandardType.GGNbrU63StepTwo
-import CFSG.LocalAnalysis.StandardType.GGCorFourTwoTableBReduce
 
 public section
 

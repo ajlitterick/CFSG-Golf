@@ -1,16 +1,10 @@
 module
 
 public import CFSG.Quasithin.H13.L32ACSkPfSp4
-public import CFSG.LocalAnalysis.UniquenessCase.UC22Defs
 public import CFSG.LocalAnalysis.UniquenessCase.UC6S846b
-public import CFSG.GroupTheory.ABGLocalTools.Basic
 import CFSG.LocalAnalysis.UniquenessCase.Lie.Shared
-import CFSG.LocalAnalysis.SectionRank.SubgroupRank
 import CFSG.RankThree.PartOne.LIT.RankProjective
 import CFSG.RankThree.PartOne.LIT.RankMatrix
-import CFSG.Open.PGLModelStated
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Centralizer
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
 public import CFSG.CGT.Timmesfeld75.Statements
 public import CFSG.LocalAnalysis.ComponentInitial.LayerComponentOrbit
 public import CFSG.LocalAnalysis.RankThreeUC.Asc1930

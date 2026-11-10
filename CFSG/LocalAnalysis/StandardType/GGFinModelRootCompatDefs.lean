@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFinModelInput
-public import CFSG.LieType.Chevalley.GraphFixedF4GroupDescent
 public import CFSG.LieType.Chevalley.E6GraphRadicalCocycle
 public import CFSG.LieType.Chevalley.C2E6StandardFixedData
 public import CFSG.LieType.Chevalley.C2E6UnitaryFourImages

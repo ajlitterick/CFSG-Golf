@@ -5,15 +5,9 @@ import CFSG.LocalAnalysis.StandardType.KGLangS1EToralLiftE6Even
 import CFSG.LocalAnalysis.StandardType.KGLangS1EIndexBridge
 import CFSG.LocalAnalysis.StandardType.KGLangS1EFixedLift
 import CFSG.LocalAnalysis.StandardType.GGL45NtExcBridgeAt
-import CFSG.LocalAnalysis.StandardType.GGL45NtExcBridgeU
 import CFSG.LocalAnalysis.StandardType.GGTBTorRelE6Cover
 import CFSG.LocalAnalysis.StandardType.KGLangS1AGlue
 import CFSG.LocalAnalysis.StandardType.KGLangTorAGeneric
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangChev
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldE6
-import CFSG.LocalAnalysis.StandardType.MarkingChevalley
-import CFSG.LieType.SeitzGeneration.ExcTorusThreeRank
-import CFSG.LieType.Simplicity.Exceptional
 
 public section
 

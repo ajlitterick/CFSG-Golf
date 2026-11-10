@@ -3,8 +3,6 @@ module
 public import CFSG.Monster.GMS.S365Root
 public import CFSG.Monster.GMS.S365CosetSpec
 public import CFSG.Monster.GMS.S365USpec
-public import Certificates.Data.CFSGNative.Co1.S365CentRoot
-public import CFSG.Monster.GMS.S365CentRootSpecInputs
 public import Certificates.Certificate10038
 public meta import CFSG.Monster.GMS.S365Root
 public meta import CFSG.Sporadic.Co1.Module.PairsCheck

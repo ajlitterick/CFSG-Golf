@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBTorE8Split
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcThreeE7
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplit
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcRank
 
 public noncomputable section
 

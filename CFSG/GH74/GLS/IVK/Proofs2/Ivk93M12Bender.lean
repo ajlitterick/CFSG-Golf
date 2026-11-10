@@ -2,8 +2,6 @@ module
 
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk93M12Crit
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk95Bender
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
-public import CFSG.LieType.BorelTits.Suzuki
 public import CFSG.GH74.GLS.LU.Local.A3Reduce2
 public import CFSG.GH74.GLS.Stage2.Final.Thm4.Core
 public import CFSG.GH74.GLS.Stage2.Local.Statements

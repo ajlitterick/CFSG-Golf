@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveCaseZeroData
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveCaseZeroCore
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveCaseZeroSignedB
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveCaseZeroF4
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveCaseZeroF4Dual

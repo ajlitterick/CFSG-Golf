@@ -1,18 +1,10 @@
 module
 
 public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyCover
-public import CFSG.LieType.AlgebraicGroups.ConnectedToralLangFrobenius
 public import CFSG.LieType.AlgebraicGroups.ToralTwistPinningFrobenius
-public import CFSG.LieType.AlgebraicGroups.FrobeniusDiagramRealized
 public import CFSG.RankThree.Classical2.TwistedE6Phi3Centralizer
 public import CFSG.RankThree.PartOne.KE.CTLang
-public import CFSG.LieType.Chevalley.GraphFixedOrbitCollection
-public import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
-public import CFSG.LieType.Chevalley.RootDiagonalWeylTransporter
-public import CFSG.LieType.Chevalley.WeylNormalizerQuotient
 public import CFSG.LieType.Chevalley.OrthogonalFixedOrbitMaps
-public import CFSG.LieType.Chevalley.ParabolicRadicalLevi
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 public import CFSG.RankThree.PartOne.KE.EDualStabilizer
 
 public noncomputable section

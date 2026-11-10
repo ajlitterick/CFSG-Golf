@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Sporadic.SmallOddCore.McLLocalCheckInputs
-public import CFSG.Sporadic.SmallOddCore.ClassSimple
 public meta import CFSG.Sporadic.SmallOddCore.McLLocalCheckInputs
 public meta import CFSG.Sporadic.SmallOddCore.ClassSimple
 public meta import Certificates.Data.CFSGNative.PSL3Four.Basic

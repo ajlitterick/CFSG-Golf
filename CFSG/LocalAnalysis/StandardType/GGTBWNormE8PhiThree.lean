@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LieType.SeitzGeneration.ExcTorusPowerMap
-public import CFSG.LieType.SeitzGeneration.ExcTorusE8Three
 public import CFSG.RankThree.PartOne.KE6.E8T3Arith
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerSylow
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormE8PowerMap

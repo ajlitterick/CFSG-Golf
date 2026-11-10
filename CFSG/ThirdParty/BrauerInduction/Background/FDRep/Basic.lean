@@ -1,10 +1,5 @@
 module
 
-public import Mathlib.Algebra.Category.ModuleCat.Abelian
-public import Mathlib.RepresentationTheory.Basic
-public import Mathlib.Algebra.Category.ModuleCat.Colimits
-public import Mathlib.CategoryTheory.Preadditive.Schur
-public import Mathlib.CategoryTheory.Limits.Shapes.ZeroObjects
 public import Mathlib.RepresentationTheory.FDRep
 
 public section

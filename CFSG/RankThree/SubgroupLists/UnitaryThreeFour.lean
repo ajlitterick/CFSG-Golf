@@ -1,8 +1,6 @@
 module
 
 public import CFSG.RankThree.SubgroupLists.KleinFourCentralizer
-public import CFSG.LieType.Steinberg.CentralExt.UnitaryField
-public import CFSG.LieType.Universal.Unitary.Comparison
 public import CFSG.GroupTheory.ABGLocalTools.PStabilityQSL2
 public import CFSG.CharacterTheory.CyclicBlocks.Family
 public import CFSG.CharacterTheory.PSL2Table.BlocksProduct
@@ -19,10 +17,6 @@ public import CFSG.LinearAlgebra.LinearGroups.UnitaryThreeOverNine
 public import CFSG.LinearAlgebra.LinearGroups.UnitaryThreeOverNineInvolutions
 public import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
 public import CFSG.Permutation.UnitaryThreeRecognition.Model
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_1_12
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 
 public section

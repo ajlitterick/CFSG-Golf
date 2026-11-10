@@ -2,9 +2,6 @@
 module
 
 public import Certificates.Kernel.J2Cover.K20B
-public import CFSG.Monster.B.Co2.PermArr
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

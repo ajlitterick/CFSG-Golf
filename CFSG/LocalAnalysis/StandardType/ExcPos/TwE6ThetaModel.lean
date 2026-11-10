@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6RootModelDecomp
-public import CFSG.LieType.Chevalley.TwistedE6NormalForm
-public import CFSG.LocalAnalysis.StandardType.GGFinModelRat
 
 public noncomputable section
 

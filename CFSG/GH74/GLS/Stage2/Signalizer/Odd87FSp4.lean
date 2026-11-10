@@ -1,9 +1,7 @@
 module
 
 public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87FSp4Out
-public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87FSp4Kind
 public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87U42Idx
-public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87GenCell
 public import CFSG.GH74.GLS.IVK.Proofs2.NoOuter
 public import CFSG.GH74.GLS.IVK.Proofs2.TwoTori
 public import CFSG.GH74.GLS.Stage2.Local.Prop27Cfg

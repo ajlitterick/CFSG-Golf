@@ -3,7 +3,6 @@ module
 public import CFSG.RankThree.GF2n.Tim79a34BigB
 public import CFSG.RankThree.GF2n.Tim79a34BigPAct
 public import CFSG.RankThree.GF2n.Tim79a34BigGammaBasic
-import CFSG.RankThree.GF2n.Tim77Prop24Core
 
 public section
 

@@ -1,9 +1,6 @@
 module
 
-public import CFSG.Sporadic.Presentation.Fi22ExactData
 public import CFSG.Certificates.CentralizerWalks
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
-public import CFSG.Sporadic.Presentation.Fi22ExactWalksInputs
 public import Certificates.Certificate9110
 public meta import CFSG.Sporadic.Presentation.Fi22ExactData
 public meta import CFSG.Certificates.CentralizerWalks

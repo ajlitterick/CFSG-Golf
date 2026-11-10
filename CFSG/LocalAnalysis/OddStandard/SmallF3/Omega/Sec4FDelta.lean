@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec4FSetup
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec4FType
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec4IPocketL
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec4IBProj
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec7Helpers
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec2FiveInv
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec3L34Syl
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoTableBI1
 public import CFSG.LocalAnalysis.StandardType.GGQTwoP3Heart
 public import CFSG.LocalAnalysis.StandardType.GGQ2P3Hyp
 public import CFSG.LocalAnalysis.StandardType.GGQ2LDatumLongest

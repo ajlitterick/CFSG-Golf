@@ -4,16 +4,10 @@ public import CFSG.LocalAnalysis.StandardType.GGK1ADefs
 public import CFSG.Assembly.GL83StatedBridge
 public import CFSG.LieType.SemisimpleCentralizers.HeldCompTrivLinear
 public import CFSG.LieType.SemisimpleCentralizers.HeldTwoDimUnitaryBlock
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniComp
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniScal
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniLabelPSU
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniCore
 public import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockUniMatrix
-public import CFSG.ClassicalInvolution.Phan.Blocks
-public import CFSG.LieType.BorelTits.UnitaryForm
-public import CFSG.LieType.Universal.Unitary.Comparison
-public import CFSG.Open.StatedAPI
-public import CFSG.RankThree.SubgroupLists.UnitaryThreeFamily
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalAS76aProofUTypes
 public import CFSG.Assembly.OpenBridges
 public import CFSG.GroupTheory.HallHigmanPiCore

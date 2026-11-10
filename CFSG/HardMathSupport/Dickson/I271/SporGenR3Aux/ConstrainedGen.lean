@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Centralizer
 public import CFSG.CharacterTheory.Burnside
 public import CFSG.Assembly.RankThreeEvenDefs
 public import CFSG.Fischer.Classification.Recognition.PSU6

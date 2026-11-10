@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Sporadic.Fi24ThreeO.Group
 public import CFSG.Certificates.Kernel.Spor.Fi24SevSound
-import Certificates.Kernel.Sporadic.Fi24OrbL.Bridge
 public import CFSG.Sporadic.FischerOddCore.Fi24AlmostSimple
 public import CFSG.Sporadic.FischerOddCore.Fi24R2CompBase
 public import CFSG.Sporadic.FischerOddCore.FischerOuterBasic

@@ -2,10 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangS1ExcInputs
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeDatum
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TorsionLabel
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TwoLeafComponent
 import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1Absence
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
 
 public section

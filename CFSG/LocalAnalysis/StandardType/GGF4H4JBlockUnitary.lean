@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4H4JBlockLinear
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSLieEsu
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosAdapter
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosDiag
@@ -12,11 +10,7 @@ import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosRankAux2
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSCornerMain
 import CFSG.LocalAnalysis.StandardType.GGNSJoinJA2AAuxBlock
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinJA2AAuxCover
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeBlock
 import CFSG.LocalAnalysis.StandardType.GGNSJoinJA2AAuxRank
-import CFSG.LocalAnalysis.StandardType.GGLinearTorusCompSUModel
-import CFSG.LocalAnalysis.StandardType.GGSixRootFusionSURepFrame
 import CFSG.LocalAnalysis.StandardType.GGSixRootFusionSURepResidual
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniLabelPSU
 import CFSG.RankThree.PartOne.KFOUT3.L12Levi

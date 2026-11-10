@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UCKInputs3
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

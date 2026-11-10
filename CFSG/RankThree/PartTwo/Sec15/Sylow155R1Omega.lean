@@ -2,23 +2,14 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec15.Item1513Proof
 public import CFSG.RankThree.PartTwo.KFacts.KS18A7M22Proof
-import CFSG.RankThree.PartTwo.KFacts.KS14MathieuAutCore
-import CFSG.RankThree.PartTwo.KFacts.KS14Orders
-import CFSG.RankThree.PartTwo.Sec13.Item131Facts
 import CFSG.RankThree.PartTwo.Sec13.Item13Sporadic
 import CFSG.RankThree.PartTwo.Sec13.Item13SLTwo
-import CFSG.RankThree.PartTwo.Sec13.Item13Basic
 import CFSG.RankThree.PartTwo.Sec13.Item133
-import CFSG.RankThree.PartTwo.Sec13.Item136PGL
 import CFSG.RankThree.PartTwo.Sec14.Concl142NHJInner
-import CFSG.RankThree.PartTwo.Sec14.Item1413ProofTools
 import CFSG.RankThree.PartTwo.Sec14.Item1413Res2ProofTools
 import CFSG.RankThree.PartTwo.Sec14.Item148PtRes2ProofTypes
 import CFSG.RankThree.PartTwo.Sec15.Item1510ProofTools
-import CFSG.RankThree.PartTwo.Sec15.Item1511ProofTools
-import CFSG.RankThree.PartTwo.Sec15.Item1514Steps1515
 import CFSG.RankThree.PartTwo.Sec15.Item1513StepsProofTransv
-import CFSG.RankThree.LocalRank.SolvablePrimeComplementCore
 import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
 
 public section

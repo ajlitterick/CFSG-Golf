@@ -4,7 +4,6 @@ public import CFSG.RankThree.PartTwo.Sec21.Item2130Res3ProofLift
 public import CFSG.RankThree.PartTwo.Sec21.Item2130Res4ProofU4Plus
 import CFSG.RankThree.PartTwo.Sec13.Item134Residual
 import CFSG.RankThree.PartTwo.Sec13.Item13Res5ProofCenter
-import CFSG.RankThree.PartTwo.Sec18.Transport
 import CFSG.RankThree.PartTwo.KFacts.K72SLPiCField
 import CFSG.RankThree.PartTwo.Sec9.Item95
 import CFSG.RankThree.PartTwo.Sec4.Item413Setup

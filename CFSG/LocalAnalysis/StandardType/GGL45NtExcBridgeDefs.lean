@@ -1,12 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGL45NtExcAbs
-public import CFSG.LocalAnalysis.StandardType.GGL45NtDefs
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Defs
 public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyClosedLang
-public import CFSG.LieType.AlgebraicGroups.RationalCentralizerCocycle
-public import CFSG.LieType.Chevalley.CoordinateFieldBaseChange
-public import CFSG.LieType.Ree.Endo
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwReduction
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwTorus
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcVacuous
@@ -20,7 +16,6 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.A3Structure36BAction
 public import CFSG.Quasithin.Background.A3Structure36BBasic
 public import CFSG.Quasithin.Background.A3Structure36BPrime

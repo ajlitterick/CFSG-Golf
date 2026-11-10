@@ -1,12 +1,9 @@
 module
 
-public import CFSG.Certificates.Kernel.Spor.RawFam
 public import CFSG.Monster.B.Mathieu.CertDataK
 public meta import Certificates.Data.Kernel.Mathieu.Raw
 public meta import Certificates.Kernel.Sporadic.RawGenFam
-import CFSG.Certificates.Kernel.Common.Harness
 public import Certificates.Kernel.Sporadic.RawGenFam
-public import Mathlib.GroupTheory.Schreier
 
 public section
 

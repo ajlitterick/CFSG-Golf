@@ -4,8 +4,6 @@ module
 public import Certificates.Certificate5045Base
 import all Certificates.Certificate5045Base
 
-public import CFSG.GH74.GLS.C3.Layer2.L5Fin
-public import CFSG.GH74.GLS.C3.Layer2.L5A1Inputs
 meta import Mathlib.GroupTheory.SpecificGroups.Alternating
 meta import CFSG.GH74.GLS.C3.Prop121.ModelFive
 meta import CFSG.GH74.GLS.C3.Layer2.FinModelDefs

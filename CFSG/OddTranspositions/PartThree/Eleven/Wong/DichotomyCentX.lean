@@ -1,8 +1,6 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Eleven.Wong.NormalForm
-import CFSG.OddTranspositions.PartThree.Eleven.Wong.Basic
-import CFSG.OddTranspositions.PartThree.Eleven.Wong.CentralProduct
 import CFSG.OddTranspositions.PartThree.Eleven.Wong.CentLocal
 
 public section

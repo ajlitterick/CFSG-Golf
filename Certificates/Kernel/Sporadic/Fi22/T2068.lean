@@ -4,7 +4,6 @@ module
 public import Certificates.Kernel.Sporadic.Fi22.P2068
 public import Certificates.Kernel.Sporadic.Fi22.X2069Final
 public import Certificates.Kernel.Sporadic.Fi22.E2067
-public import Certificates.Kernel.Sporadic.ON.Gen
 public meta import CFSG.Monster.B.Fischer.Fi22OuterCheckBase
 import CFSG.Certificates.Kernel.Common.Harness
 

@@ -12,14 +12,9 @@ import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight102KTypesCore
 import CFSG.GroupTheory.SylowIntersectionControl.Basic
 import CFSG.Adapters.LieModelSimple
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.KS.ExactSU
-import CFSG.Quasithin.Background.B6Basic
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X6Basic
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22c
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22e
 import CFSG.LocalAnalysis.UniquenessCase.UC22Main1
-import CFSG.ClassicalInvolution.LBalance.Glauberman.SylowTools
-import CFSG.ClassicalGroups.Unitary.Finite
-import CFSG.LieType.BorelTits.Basic
 import CFSG.Certificates.Kernel.LocalCompTits.Span
 import CFSG.HardMathSupport.Solomon.Coordinator.I14_20Alt
 import CFSG.HardMathSupport.Solomon.Coordinator.L3C143AltMain
@@ -56,21 +51,15 @@ import CFSG.LocalAnalysis.ComponentClassification.UnbalancingLocalSmallSourceLin
 import CFSG.LocalAnalysis.GL83PartI.I_22_5.Setup
 import CFSG.LocalAnalysis.GLTheoremB.Lemma911Defs
 import CFSG.LocalAnalysis.GLTheoremB.Lemma99Inputs
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S16UnitCase
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight102Sylow
 import CFSG.Quasithin.Background.A3Structure319
-import CFSG.Quasithin.Background.A3Structure38Part3
 import CFSG.Quasithin.Background.D2
-import CFSG.Quasithin.Background.D2Dihedral
 import CFSG.Quasithin.Background.F9FiveStruct
 import CFSG.Quasithin.Background.GoldschmidtRankOneFacts
 import CFSG.Quasithin.Background.InternalSecB51
 import CFSG.Quasithin.Background.InternalSecData
 import CFSG.Quasithin.EmptyFaithful.GoldschmidtF112ListC
-import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 import CFSG.Quasithin.EmptyFaithful.S151Basic
 import CFSG.Quasithin.EmptyFaithful.S152N2Star
 import CFSG.Quasithin.H13.A5S1326
@@ -93,7 +82,6 @@ import CFSG.RankThree.PartTwo.KFacts.KS14SzLie
 import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
 import Certificates.Kernel.J4Count.FixCE
 import Certificates.Kernel.J4Count.FixCPairBase1
-import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

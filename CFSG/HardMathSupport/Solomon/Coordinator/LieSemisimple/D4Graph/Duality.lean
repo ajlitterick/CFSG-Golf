@@ -1,21 +1,10 @@
 module
 
 public import CFSG.HardMathSupport.Lang.E6Descent.OuterFixed27D4AmbientDescent
-public import CFSG.LieType.Chevalley.TrialityFullAmbientFixedGroup
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4OutTorus
-public import CFSG.HardMathSupport.Lang.D4Three.NormalForm
-public import CFSG.LieType.Chevalley.LangAdjointDiagonalLift
-public import CFSG.LieType.Chevalley.CLSOddE7RationalDerivedIndex
-public import CFSG.LieType.Chevalley.OrdinaryEFieldGraphQuotient
-public import CFSG.LocalAnalysis.ComponentInitial.FieldFiniteAutomorphism
-public import CFSG.LieType.Chevalley.OddTrialityAutomorphismNormalForm
-public import CFSG.LieType.Chevalley.EvenTrialityAutomorphismNormalForm
 public import CFSG.RankThree.PartOne.KGD.D4T36Core
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.D4Graph.Transfer
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.D4Graph.Layer
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.D4Graph.ClassOne
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
 public import CFSG.CharacterTheory.Wreathed.WreathCentralSquare
 public import CFSG.ClassicalInvolution.Balance.LocalBalance.Faithful
@@ -45,14 +34,7 @@ public import CFSG.LocalAnalysis.GLTheoremB.SchreierTools
 public import CFSG.LocalAnalysis.LargeEvenClassification.CyclicCongruenceCut
 public import CFSG.LocalAnalysis.LargeEvenClassification.TopScalarLiftSquare
 public import CFSG.LocalAnalysis.SectionRank.Framework.SylowRank
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremB
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremC
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.ZJTheorem
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GW1965RemarkDGroup
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29Helpers
 
 public noncomputable section
 

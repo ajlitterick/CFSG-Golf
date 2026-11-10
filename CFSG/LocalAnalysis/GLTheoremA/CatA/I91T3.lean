@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I91T2
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieOrderBridgeHolds
-public import CFSG.HardMathSupport.Solomon.Coordinator.I14_20LieOrd
 
 public section
 

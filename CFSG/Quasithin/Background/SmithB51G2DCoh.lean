@@ -1,9 +1,6 @@
 module
 
 public import CFSG.Quasithin.Background.SmithB51G2DOct
-public import CFSG.Quasithin.Background.JonesParshallG2TwoH1
-public import CFSG.Quasithin.Background.JonesParshallG2H1
-public import CFSG.Quasithin.Background.JonesParshallG2Field
 public import CFSG.Quasithin.Background.B5FinOut
 
 public section

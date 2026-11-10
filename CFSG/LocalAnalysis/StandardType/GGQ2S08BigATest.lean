@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigDefs
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigDichot
-public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigPairIndep
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigWCard
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigARed
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigAIrr

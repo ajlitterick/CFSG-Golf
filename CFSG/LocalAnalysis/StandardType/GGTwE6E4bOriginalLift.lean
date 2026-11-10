@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGKG87BSCBridge
 public import CFSG.LocalAnalysis.StandardType.GGTwE6E4bLift
 public import CFSG.LocalAnalysis.StandardType.GGTwE6E4bTorus
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryLift
-public import CFSG.LieType.CentralExt.CoprimeLift
 
 public noncomputable section
 

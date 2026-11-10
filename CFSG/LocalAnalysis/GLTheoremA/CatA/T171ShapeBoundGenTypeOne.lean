@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeBoundGenKernel
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeBlockDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagUnitary
 
 public section
 

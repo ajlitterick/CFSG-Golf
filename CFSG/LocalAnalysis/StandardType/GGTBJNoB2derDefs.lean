@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import CFSG.LocalAnalysis.StandardType.GGFixSub
 public import CFSG.LocalAnalysis.StandardType.GGResLeaf
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRuleSpRank
 

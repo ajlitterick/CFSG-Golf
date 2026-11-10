@@ -2,11 +2,8 @@ module
 
 public import CFSG.RankThree.Native.ONTripleCent
 public import CFSG.RankThree.Native.ONTripleA6
-public import CFSG.RankThree.PartTwo.Sec4.Sporadic.SetAction
 public import CFSG.RankThree.PartTwo.Sec4.Sporadic.J2Local3
 public meta import CFSG.RankThree.Native.ONTripleCent
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LieType.Chevalley.LangRootArithmetic
@@ -22,7 +19,6 @@ public import CFSG.Sporadic.J2
 public import CFSG.Sporadic.Schreier.MathieuOddCoreModel
 public import CFSG.Sporadic.Schreier.MathieuOddCoreWords
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public noncomputable section
 

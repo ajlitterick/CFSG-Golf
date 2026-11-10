@@ -2,10 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.SmallCases.NDBE2SLift
 public import CFSG.ClassicalInvolution.SmallCases.NDBE2Frame
-import CFSG.ClassicalInvolution.SmallCases.DSplitEdge
-import CFSG.ClassicalInvolution.Balance.Q27FuzzyBalance
-import CFSG.ClassicalInvolution.Asc77.WP3LayerPair
-import CFSG.ClassicalInvolution.Asc77.WP3FrameData
 
 public section
 

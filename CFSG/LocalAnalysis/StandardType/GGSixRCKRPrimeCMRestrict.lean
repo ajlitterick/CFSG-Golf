@@ -1,10 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.GeoAdj
-public import Mathlib.RingTheory.Adjoin.Basic
-public import Mathlib.Algebra.Algebra.Subalgebra.Lattice
-public import CFSG.Open.StatedDefs
 public import CFSG.Open.StatedAPI
 
 public section

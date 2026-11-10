@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.Asc76BenderFactsAut
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.Lemma37.CoversExclusion
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.Lemma37.CoversSuzuki
-import CFSG.Models.BenderSuzuki
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.LieType.BorelTits.CompleteFlag
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherTightEmbeddingData
@@ -22,9 +19,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.SuzukiModelSchreier
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.BenderGroupFactsUnitary
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 
 public section
 

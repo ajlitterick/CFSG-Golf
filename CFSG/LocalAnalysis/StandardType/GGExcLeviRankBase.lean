@@ -3,11 +3,8 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.UpperE8
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.UpperE7
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.ExcE7
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofE6Frame
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RankArith
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.ClassicalArith
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431Fam.ExcResOthStd
-public import CFSG.LocalAnalysis.StandardType.GGSixOddIndexF4RestLevi
 public import CFSG.ClassicalInvolution.ModelFacts.OddCover
 public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcE8Rank1
 public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcA2Generic
@@ -51,8 +48,6 @@ public import CFSG.Quasithin.Background.B5CompB
 public import CFSG.Quasithin.Background.C1GNSolvConnect
 public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F9G2
 public import CFSG.Quasithin.Background.InternalSecFF
 public import CFSG.Quasithin.EmptyFaithful.R3cBlocks

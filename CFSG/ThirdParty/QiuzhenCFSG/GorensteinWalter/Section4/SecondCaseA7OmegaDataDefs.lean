@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section1
-public import Mathlib.GroupTheory.Exponent
 
 namespace CFSG
 end CFSG

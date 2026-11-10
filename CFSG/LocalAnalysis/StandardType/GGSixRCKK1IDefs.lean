@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1Defs
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRG
 public import CFSG.LocalAnalysis.StandardType.GGLieOddCoverDefs
 

@@ -2,12 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.WeakClosure81.SixFourteenN2F4Module
 import all CFSG.LocalAnalysis.WeakClosure81.SixFourteenN2F4Module
-public import CFSG.Blueprint.SourceClassicalTransport
-public import CFSG.GroupTheory.GL52.OrderThreeFour
-public import CFSG.LocalAnalysis.RankTwoShapes.UnitaryFour.Bridge
 public import CFSG.Quasithin.H13.ModelsSymplectic
-public import CFSG.RankThree.PartTwo.Sec4.Census.Item44TwoCoverModels
-public import CFSG.Sporadic.Schreier.J4SSylowBase
 
 public noncomputable section
 public section

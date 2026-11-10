@@ -4,9 +4,7 @@ public import Certificates.Kernel.LocalComp.L34Bo.Data
 public import Certificates.Kernel.LocalComp.L34Un.Data
 public import Certificates.Kernel.LocalComp.L34SChk
 public import Certificates.Kernel.Sporadic.OddCore.PEnumGlue
-public import Certificates.Data.Kernel.L34Scan
 public import Certificates.Data.Kernel.L34Pre
-public import CFSG.Certificates.Kernel.Common.Loop
 
 public section
 

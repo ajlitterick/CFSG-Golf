@@ -3,12 +3,9 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Defs
 
 public import Mathlib.GroupTheory.SemidirectProduct
-import Mathlib.Tactic.Basic
 
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Commutator.Core
-public import Mathlib.Data.Nat.Prime.Defs
 public import Mathlib.GroupTheory.PGroup
-public import Mathlib.GroupTheory.SpecificGroups.Cyclic
 
 namespace CFSG
 end CFSG

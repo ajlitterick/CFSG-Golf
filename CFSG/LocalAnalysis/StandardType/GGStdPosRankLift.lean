@@ -3,11 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGStdPosLocalDefs
 public import CFSG.LocalAnalysis.StandardType.GGTableBRank
 import CFSG.LocalAnalysis.StandardType.GGReverseMarkingRaw
-import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
-import CFSG.LocalAnalysis.StandardType.GGTableBTypeATorus
-import CFSG.LocalAnalysis.StandardType.GGTableBTypeACover
 import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticOmega
-import CFSG.LocalAnalysis.StandardType.GGTableBExcTorus
 import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Three
 
 public section

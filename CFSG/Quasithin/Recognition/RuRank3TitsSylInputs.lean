@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Sporadic.Schreier.TitsInv
-public import CFSG.Sporadic.Schreier.TitsAbel
 public import CFSG.Sporadic.Schreier.RuOrbit
 public import CFSG.Quasithin.Recognition.RuRank3Defs
 public meta import CFSG.Sporadic.Schreier.TitsInv
@@ -9,8 +8,6 @@ public meta import CFSG.Sporadic.Schreier.TitsAbel
 public meta import CFSG.Sporadic.Schreier.RuOrbit
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 public meta import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public meta import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public meta import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
@@ -39,8 +36,6 @@ public meta import CFSG.Sporadic.Schreier.TitsOther
 public import CFSG.Sporadic.Schreier.TitsOuter
 public meta import CFSG.Sporadic.Schreier.TitsOuter
 public meta import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 public meta import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 
 public section

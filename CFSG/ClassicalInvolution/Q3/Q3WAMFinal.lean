@@ -1,12 +1,8 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Q3WAMulti
-public import CFSG.ClassicalInvolution.Q3.Q3WAMBase
 public import CFSG.ClassicalInvolution.Q3.Q3WAMOrth
 public import CFSG.ClassicalInvolution.Q3.Q3WAMExc
-public import CFSG.ClassicalInvolution.RouteD.MultiModelFacts
-public import CFSG.ClassicalInvolution.RouteD.MultiModelShortU5
-public import CFSG.ClassicalInvolution.RouteD.MultiModelShortE6
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoOddLieDefs
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoStandardDefs
 

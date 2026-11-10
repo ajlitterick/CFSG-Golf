@@ -2,13 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGPZTrivJ
 public import CFSG.LocalAnalysis.StandardType.GGResXDatumSurj
-public import CFSG.LocalAnalysis.StandardType.GGPZWeylType
-public import CFSG.LocalAnalysis.StandardType.GGPZCartanRank
 public import CFSG.LocalAnalysis.StandardType.GGPZFixA
 public import CFSG.LocalAnalysis.StandardType.GGPZFixTwA
 public import CFSG.LocalAnalysis.StandardType.GGPZFixD4
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 
 public section
 

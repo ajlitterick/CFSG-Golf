@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResE6DepRank
 public import CFSG.LocalAnalysis.StandardType.GGDepEDim6
-public import CFSG.Monster.B.Geometry.InitialIsometryParabolic
-public import CFSG.LocalAnalysis.StandardType.GGRCWeylCard
 public import CFSG.LocalAnalysis.StandardType.GGResE6DepRecognition
 public import CFSG.LocalAnalysis.StandardType.GGE6DepZLKnown
 public import CFSG.LocalAnalysis.StandardType.GGE6DepZLData
@@ -11,14 +8,9 @@ public import CFSG.LocalAnalysis.StandardType.GGE6DepZLPhiAct
 public import CFSG.LocalAnalysis.StandardType.GGE6DepZLNormalizes
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepNine
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoSixAux
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveBarBridge
 public import CFSG.LocalAnalysis.StandardType.GGDepED4LowModel
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeDepFrame
-public import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofRefl
-public import CFSG.LocalAnalysis.StandardType.GGE6DepFrameCentral
 public import CFSG.LocalAnalysis.StandardType.GGTPJLabel
 public import CFSG.LocalAnalysis.StandardType.GGTPJLayerHolds
-public import CFSG.LocalAnalysis.StandardType.GGSpFrameConfig
 
 public section
 

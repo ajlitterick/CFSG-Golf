@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Nine92Syl
 public import CFSG.HardMathSupport.Dickson.Sec6.UpD42Aux.Defs
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.JStarElimOrders
-import CFSG.LieType.SeitzGeneration.ExcTorusCatTw
 import CFSG.LieType.SeitzGeneration.ExcHighThree.TwE6InF4Order
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34Aux.Defs
 public import CFSG.HardMathSupport.Solomon.Coordinator.C25Borel

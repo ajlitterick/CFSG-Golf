@@ -7,8 +7,6 @@ import CFSG.LocalAnalysis.StandardType.GGQTwoBSFamily
 import CFSG.LocalAnalysis.StandardType.GGQTwoBSFive
 import CFSG.LocalAnalysis.StandardType.GGQTwoBSStep
 import CFSG.LocalAnalysis.StandardType.GGQTwoBSGen
-import CFSG.LieType.Universal.Unitary.Clause0
-import CFSG.LieType.CurtisTits.Recognition
 
 public section
 

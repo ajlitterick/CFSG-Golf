@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.OddStandard.Seitz77PlaneLine
-public import CFSG.LocalAnalysis.ComponentClassification.AS81L34Transport
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Step15Points
 public import CFSG.Blueprint.OddStandardExact
 public import CFSG.Blueprint.RecognitionDefs

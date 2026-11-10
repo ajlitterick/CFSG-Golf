@@ -2,8 +2,6 @@ module
 
 public import CFSG.GroupTheory.SylowPQMaximal.Defs
 public import CFSG.Blueprint.Catalog
-public import CFSG.Open.StatedDefs
-import CFSG.LieType.Universal.Spin.Forms
 import CFSG.LocalAnalysis.UniquenessCase.UC22S2112aR34Q35ClassicalE
 import CFSG.LocalAnalysis.UniquenessCase.UC22S2112aR34Q35OmegaCore
 import CFSG.LocalAnalysis.UniquenessCase.UC22S2112aR34Q35OmegaFrame

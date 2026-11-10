@@ -13,8 +13,6 @@ public import CFSG.Certificates.Kernel.Fi22Snd.Colour
 public import CFSG.Certificates.Kernel.Suz2301Sound
 public import CFSG.Sporadic.SuzOddCore.InvGraphBase
 public import CFSG.Sporadic.FischerOddCore.LabelSpec
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.Spor.RawOrbGrp
 
 public section

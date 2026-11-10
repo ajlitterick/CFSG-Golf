@@ -10,7 +10,6 @@ import CFSG.RankThree.PartTwo.Sec4.Census.Transfer
 import CFSG.RankThree.OddKernel.ThreeComplementQuotient
 import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.GroupTheory.LocalCores.Components
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.RankThree.PartTwo.Sec13.Item131Transport
 
 public section

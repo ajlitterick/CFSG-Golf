@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.MathieuExtTodd
-public import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22Count
 public meta import Certificates.Data.CFSGNative.Th.Tables
 
 public section

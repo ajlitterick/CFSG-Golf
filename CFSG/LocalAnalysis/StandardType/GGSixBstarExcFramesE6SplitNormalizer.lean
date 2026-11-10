@@ -2,12 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarE6ThreeWeylDiagGen
 public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyBruhat
-public import CFSG.LieType.Chevalley.GraphFixedBruhatEquivariance
-public import CFSG.LieType.Chevalley.E6ToralGraphInvolution
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitTwE6SplitFrame
 import CFSG.Blueprint.ChevalleyRootArtifact
-import CFSG.LieType.Chevalley.WeylRoots
-import CFSG.RankThree.Chevalley.SteinbergCAG2ToralPrimePlane
 public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyCover
 
 public section

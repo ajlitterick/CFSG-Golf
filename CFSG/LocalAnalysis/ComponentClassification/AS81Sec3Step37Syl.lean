@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec3Step17
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec3G2NQ0
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec3B0
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec3Q0Model
-public import CFSG.LocalAnalysis.ComponentClassification.CentralCoverLemmasBActionKernel
 public import CFSG.Sporadic.SuzOddCore.SmallAut
 public import CFSG.Sporadic.SuzOddCore.GraphData
 public import CFSG.Sporadic.SuzOddCore.SmallActionData

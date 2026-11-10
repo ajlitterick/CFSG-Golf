@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJNoB2derLinUni
 public import CFSG.LocalAnalysis.StandardType.GGTCJDivOrth
-public import CFSG.LocalAnalysis.StandardType.GGTCJDatum
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalanceBasic
-public import CFSG.ClassicalGroups.Orthogonal.Simple
 
 public section
 

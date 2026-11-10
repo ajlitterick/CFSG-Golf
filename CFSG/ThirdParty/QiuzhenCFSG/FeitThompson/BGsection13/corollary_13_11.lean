@@ -1,9 +1,7 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection13.theorem_13_10
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.HallSubgroups.Conjugacy
 import Mathlib.Data.Finset.NatDivisors
-import Mathlib.GroupTheory.Schreier
 
 namespace CFSG
 end CFSG

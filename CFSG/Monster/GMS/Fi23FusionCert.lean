@@ -1,12 +1,10 @@
 module
 
 public import CFSG.Sporadic.Fi23.InvCover
-public import CFSG.Monster.GMS.Fi23FusionCertInputs
 public import Certificates.Certificate10031
 public meta import CFSG.Sporadic.Fi23.InvCert
 public meta import Certificates.Data.CFSGNative.Fi23.Classes
 public meta import Certificates.Data.CFSGNative.Fi23.Centralizer
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

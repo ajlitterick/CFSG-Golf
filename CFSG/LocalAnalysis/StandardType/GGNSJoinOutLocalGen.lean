@@ -1,19 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinGenMember
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveL1PhanLocal
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveL1PhanTransfer
 public import CFSG.LocalAnalysis.StandardType.GGMemberUnitaryGen
 public import CFSG.LocalAnalysis.StandardType.GGMemberUnitaryRk1
 public import CFSG.LocalAnalysis.StandardType.GGRk1SplitMember
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosAssemble
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNbrRefl
-import CFSG.LocalAnalysis.StandardType.GGNbrBalance
-import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
 import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrCoxOrder
-import CFSG.LocalAnalysis.StandardType.GGSimplyLacedWeyl
-import CFSG.LocalAnalysis.StandardType.GGNSJoinRankOneOfRk1
-import CFSG.LocalAnalysis.StandardType.GGReflectionBasic
 
 public section
 

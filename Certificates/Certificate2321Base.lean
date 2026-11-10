@@ -3,8 +3,6 @@ module
 
 public import CFSG.Sporadic.ThSchreier.RigidityInputs
 public meta import CFSG.Sporadic.ThSchreier.Enc8
-import CFSG.Sporadic.Th.Max3.QuotientBase
-import CFSG.Sporadic.ThSchreier.Enc8
 meta import CFSG.Sporadic.ThSchreier.RigidityInputs
 
 @[expose] public section

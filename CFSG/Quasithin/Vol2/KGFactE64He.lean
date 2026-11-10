@@ -3,12 +3,8 @@ module
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHeCertificate
 
 public import CFSG.Quasithin.Vol2.KGFactE64Lat
-public import CFSG.Quasithin.Vol2.KGFactE64HeData
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHe
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatRows
-public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicHe
 public import Certificates.Certificate7149
-import CFSG.Blueprint.NativeSporadic
 
 public section
 

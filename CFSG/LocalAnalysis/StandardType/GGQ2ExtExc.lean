@@ -3,8 +3,6 @@ module
 public import Certificates.Data.CFSGNative.ExcCensus.ExtCore
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcCensusScan
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcCensusAmb
-public import CFSG.LocalAnalysis.StandardType.GGWAutModelNorm
-public import CFSG.LocalAnalysis.StandardType.GGQTwoLemma112Lin
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLemma112WeylE7
 
 public section

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ToralInner
-public import CFSG.LieType.Chevalley.TwistedE6NormalForm
 
 public section
 

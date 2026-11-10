@@ -1,12 +1,8 @@
 module
 
-public import CFSG.GH74.GLS.C3.Layer1.BkIv10
 public import CFSG.GH74.GLS.C3.Layer1.Th2PumpTerm
 public import CFSG.GH74.GLS.C3.Layer1.Th2L84
-public import CFSG.GH74.GLS.C3.Layer1.Th2Main
-public import CFSG.GH74.GLS.IVK.Proofs2.C3Ivk102L
 public import CFSG.GH74.GLS.Stage2.Bender.Thm2.Der10C2
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GH74.GLS.Bg.TwoGroups.Lemma21i
 public import CFSG.GH74.GLS.C3.Layer1.Th2L83GenCore
 public import CFSG.GH74.GLS.Stage1.Thm3.Sec8.GrpBasic4

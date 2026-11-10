@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGPosSULevi
-import Mathlib.Tactic.Group
-public import CFSG.Sporadic.Suz.Setup
 
 public section
 

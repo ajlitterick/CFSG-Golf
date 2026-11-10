@@ -3,17 +3,12 @@ module
 public import CFSG.Sporadic.Co3
 public import CFSG.Sporadic.Bridge.VecSurj
 public import CFSG.Sporadic.Presentation.Co3
-public import Certificates.Data.CFSGNative.Bridge.SurjD
 public meta import Certificates.Data.CFSGNative.Bridge.SurjD
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
-public import Certificates.Certificate9105
 public import Certificates.Certificate9204
-public import Certificates.Certificate3091
 public import CFSG.Sporadic.Bridge.HomSurj
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 import all CFSG.Blueprint.NativeSporadic
 public import CFSG.Sporadic.Presentation.Common
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

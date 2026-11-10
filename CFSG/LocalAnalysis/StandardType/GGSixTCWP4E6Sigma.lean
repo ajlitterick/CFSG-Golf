@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4E6FrameDef
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4E6Form
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UE6Disc
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22Defs
 import CFSG.LocalAnalysis.UniquenessCase.UC6S846g
-import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
 public import CFSG.CGT.Timmesfeld75.Statements
 public import CFSG.Foundations
 public import CFSG.GroupTheory.LocalCores.Fitting

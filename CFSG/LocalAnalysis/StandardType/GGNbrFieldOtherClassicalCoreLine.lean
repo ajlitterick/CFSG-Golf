@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalCoreTwo
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoLayer
-public import CFSG.Assembly.Subnormal
 
 public section
 

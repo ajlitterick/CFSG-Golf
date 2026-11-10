@@ -5,7 +5,6 @@ public import CFSG.HardMathSupport.Timmesfeld.SporadicRank.Assembly
 public import CFSG.Sporadic.Bridge.M22
 public import CFSG.Sporadic.Bridge.ONSurj
 public import CFSG.Sporadic.ON
-public import CFSG.Sporadic.Bridge.J3Surj
 public import CFSG.RankThree.Asc83Table.J3
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.J3CoverWeakGen
 public import CFSG.LocalAnalysis.SectionRank.ClassicalEven.Basic
@@ -35,7 +34,6 @@ public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.Sporadic.Presentation.McLExactData
 public import CFSG.Sporadic.Presentation.McLExactInputs
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 public import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials

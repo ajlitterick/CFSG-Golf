@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJOrthLeft
 public import CFSG.LocalAnalysis.StandardType.GGTBJOrthNbr
-public import CFSG.LocalAnalysis.StandardType.GGTBJFamilyStages
 
 public section
 

@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldCyclic
 public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergOmegaPlusFour
-public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergOmegaMinus
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthogonalBasic
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointDataReindexGroups
 
 public section
 

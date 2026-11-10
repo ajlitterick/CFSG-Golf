@@ -1,14 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.UC22S22c
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22t
-public import CFSG.LocalAnalysis.UniquenessCase.UC22Bridge4
-public import CFSG.Quasithin.Background.A1bKrullSchmidt
 public import CFSG.LocalAnalysis.GLTheoremB.Prop95L97Sigma3Dec
-public import CFSG.Adapters.ProjectiveSpecialLinear
-public import Mathlib.LinearAlgebra.Projectivization.PSL.PSL2
 import all CFSG.Quasithin.Background.A1bKrullSchmidt
-import CFSG.GroupTheory.QuasisimpleCommutingProductBound
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22d
 
 public section

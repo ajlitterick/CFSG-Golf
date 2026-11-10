@@ -5,11 +5,7 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm14_5.Sma
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm14_5.SmallD4Par
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm14_5.MBound
 import CFSG.Quasithin.Background.E3MParamAttained
-import CFSG.Quasithin.Background.B1Basic
 import CFSG.Quasithin.Background.SmithB45D4
-import CFSG.Quasithin.Background.SmithB42D4Main
-import CFSG.Quasithin.Background.SmithB42D4Pure
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X6Triality
 import CFSG.Timmesfeld.Orders.Exceptional
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic

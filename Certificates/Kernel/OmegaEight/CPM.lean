@@ -5,7 +5,6 @@ public import Certificates.Kernel.OmegaEight.Aut
 public import Certificates.Kernel.OmegaEight.CPChains
 public import Certificates.Kernel.OmegaEight.Forms
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.CPrimeModelData
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.ChainSplitConeData
 

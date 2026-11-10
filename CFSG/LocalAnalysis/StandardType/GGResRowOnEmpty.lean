@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResRowOnDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 
 public section
 

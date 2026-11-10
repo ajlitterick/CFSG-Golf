@@ -1,12 +1,7 @@
 
 module
 
-public import CFSG.Quasithin.Background.HSporLatM23Sg
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312M23Core
-public import CFSG.LieType.Multipliers.L34Data
 
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312M23Inputs
-public import CFSG.Quasithin.Background.HSporLatMathieu
 public import Certificates.Certificate4170
 
 public section

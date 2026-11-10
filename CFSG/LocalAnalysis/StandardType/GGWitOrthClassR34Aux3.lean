@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGWitOrthClassR34DataD4
 public import CFSG.LocalAnalysis.StandardType.GGWitOrthTypeD4
 public import CFSG.LocalAnalysis.StandardType.GGWitOrthCrAux
 public import CFSG.LocalAnalysis.StandardType.GGWitOrthCoord

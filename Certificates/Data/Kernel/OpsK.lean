@@ -1,11 +1,8 @@
 module
 
 public import CFSG.Sporadic.GLQ.RegisterProgram
-public import CFSG.Certificates.Kernel.Common.Loop
 public import Certificates.Data.Kernel.M1F2
 public import Certificates.Data.Kernel.F2Word
-public import CFSG.LocalAnalysis.SectionRank.Sporadic.LocalWitness
-public import CFSG.Open.Defs
 
 public section
 

@@ -6,8 +6,6 @@ import Certificates.Kernel.U52.ChainX
 import Certificates.Kernel.U52.ChainSub
 import Certificates.Kernel.Sporadic.OddCore.ChainCheckGlue
 import CFSG.Certificates.Kernel.Misc.ArrBind
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.LieType.BorelTits.CompleteFlag
 import CFSG.CGT.Timmesfeld75.L2Pair
 import CFSG.CGT.Timmesfeld75.ListWCBasic
@@ -19,7 +17,6 @@ import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSpExclusion
 import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSpWedge
 import CFSG.LocalAnalysis.ProperTwoGeneratedCore.AschbacherCanonicalRemaining
 import CFSG.LocalAnalysis.ProperTwoGeneratedCore.ExceptionalEightPlaneCentralizer
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.Basic
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.In2421Cfg4
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.InPartI2
@@ -33,7 +30,6 @@ import CFSG.Milestones.ASVolI.F48.Small.Base
 import CFSG.Milestones.ASVolI.F4Native
 import CFSG.Permutation.BurnsideSchur
 import CFSG.Quasithin.Background.F6Basic
-import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 import CFSG.Quasithin.Recognition.CertTwoLocalPair
 import CFSG.Quasithin.Recognition.CertU33Wreath
 import CFSG.Quasithin.Recognition.GoldschmidtTripleQuotient

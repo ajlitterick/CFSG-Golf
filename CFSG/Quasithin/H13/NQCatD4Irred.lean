@@ -3,8 +3,6 @@ module
 public import CFSG.Quasithin.H13.NQCatG2RadFacts
 public import CFSG.Quasithin.H13.NQCatD4Center
 public import CFSG.Quasithin.Background.SmithB42D4Main
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X6ResidualTriality
-public import CFSG.Sporadic.Schreier.J4SSylow
 public import CFSG.Assembly.OrderReductions.LinearOrders
 public import CFSG.Certificates.Kernel.LocalCompTits.Span
 public import CFSG.GH74.GLS.Classes
@@ -17,11 +15,9 @@ public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasSix
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalReflectionSplitting
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListA7Iso
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L122AProved
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
 public import CFSG.Permutation.AlternatingAutomorphism
 public import CFSG.Quasithin.Background.B5FinOut
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.Quasithin.Background.E3OffenderB
 public import CFSG.Quasithin.Background.F1VertexCore
 public import CFSG.Quasithin.Background.F420Orders
@@ -30,7 +26,6 @@ public import CFSG.Quasithin.Background.F6SolvableQuotient
 public import CFSG.Quasithin.Background.G2A5Seven
 public import CFSG.Quasithin.Background.G2L2Seven
 public import CFSG.Quasithin.Background.InternalSecB51
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import CFSG.Quasithin.EmptyFaithful.S1417Sylow
 public import CFSG.Quasithin.EmptyFaithful.S1421L246
 public import CFSG.Quasithin.EmptyFaithful.S143Pre
@@ -63,15 +58,12 @@ public import CFSG.Quasithin.Vol2.Ch6Sp
 public import CFSG.RankThree.Asc83Table.PermTables
 public import CFSG.Sporadic.Schreier.M11
 public import CFSG.Sporadic.Schreier.M22
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CPrime
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralAut
 public import CFSG.Timmesfeld.RankOne
 public import CFSG.Timmesfeld.Transvection.Statement
 public import CFSG.Walter.J1
 public import Certificates.Data.CFSGNative.MonsterB.Rep4371Model
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

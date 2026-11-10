@@ -1,13 +1,9 @@
 module
 
-public import CFSG.Sporadic.Schreier.J4SElevenData
 public meta import CFSG.Sporadic.Schreier.J4SElevenData
 public import Certificates.Certificate2170
 public meta import CFSG.LocalAnalysis.SectionRank.Sporadic.LocalWitness
-public import CFSG.LocalAnalysis.SectionRank.Sporadic.LocalWitness
 public meta import CFSG.Open.Defs
-public import CFSG.Open.Defs
-public import CFSG.Sporadic.Th.F2Spec
 public meta import CFSG.Sporadic.Th.F2Spec
 
 public section

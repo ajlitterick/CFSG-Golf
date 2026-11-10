@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestBasic
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotLeviHom
-public import CFSG.LieType.Steinberg.Isogeny.E6
-public import CFSG.LieType.Chevalley.CoordinateFieldBaseChange
 public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.YamadaParF2
 
 public section

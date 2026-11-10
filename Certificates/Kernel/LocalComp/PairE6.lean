@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.LocalComp.PairE6Sound
 public import Certificates.Kernel.Misc.E6SlpGens
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoExceptionalStep83PairE6Tests
 meta import CFSG.LocalAnalysis.ComponentClassification.RankTwoExceptionalStep83PairE6Tests
 import CFSG.Certificates.Kernel.Common.Harness
 

@@ -1,11 +1,9 @@
 module
 
 import all CFSG.LieType.Universal.Unitary.Roots
-import CFSG.LieType.Universal.Unitary.Extras.Basic
 import CFSG.Timmesfeld.Transvection.OddModelHeis
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
 public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
-public import CFSG.LieType.Universal.Unitary.Extras
 
 public section
 

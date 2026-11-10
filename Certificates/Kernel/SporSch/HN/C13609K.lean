@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.SporSch.HN.C13609Data
 public import Certificates.Data.Kernel.SporSch.ConjKey
 public import Certificates.Data.Kernel.SporSch.HNXPrim
-public import CFSG.Certificates.Kernel.Local.HN.Lib
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

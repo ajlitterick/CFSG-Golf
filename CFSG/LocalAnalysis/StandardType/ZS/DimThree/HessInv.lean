@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.ZS.DimThree.Basic
-public import CFSG.Foundations.Basic
 import CFSG.RankThree.PartOne.N1322.ExtraspecialAbs
 import CFSG.RankThree.PartOne.N1322.CaseConj
-import Mathlib.Tactic.Group
-import Mathlib.Tactic.Ring
 import CFSG.RankThree.PartOne.N1322.CasePair
 
 public section

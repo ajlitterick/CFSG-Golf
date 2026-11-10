@@ -3,8 +3,6 @@ module
 public import Certificates.Kernel.LocalQT.Lat.C4053
 public import CFSG.Certificates.Kernel.LocalQTLatMSound
 public import Certificates.Data.Kernel.LocalQT.LatT
-public import CFSG.Certificates.Kernel.LocalQTLatESound
-public import Certificates.Data.Kernel.LocalQT.ChainInj
 import CFSG.Certificates.Kernel.LocalQTTleTSound
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.G3M22DataInputs
 import CFSG.Certificates.Kernel.Common.Harness

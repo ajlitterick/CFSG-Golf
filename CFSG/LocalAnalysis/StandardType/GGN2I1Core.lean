@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGN2Defs
 public import CFSG.LocalAnalysis.StandardType.GGTPNI1
-import CFSG.LocalAnalysis.GLTheoremA.CatB.HU42SE27
 import CFSG.LocalAnalysis.GLTheoremA.CatB.HU42SE27CRed
 import CFSG.LocalAnalysis.GLTheoremA.CatB.HU42SE27CD4
 import CFSG.LocalAnalysis.GLTheoremA.CatB.HU42SE27CU5

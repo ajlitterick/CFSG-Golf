@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitHinSocle
 public import CFSG.LocalAnalysis.ComponentClassification.OddClassSelectorU
-public import CFSG.LocalAnalysis.ComponentClassification.OddSelectorSplitFour
 
 public section
 

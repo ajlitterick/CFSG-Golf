@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Th.JLet.Chk
 public import Certificates.Kernel.Th.Fam.C687006Data
 public import CFSG.Sporadic.Th.Recog.PlacementInputs
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

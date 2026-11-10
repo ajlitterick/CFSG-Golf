@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.FS81.LocalOrthCore
 public import CFSG.LocalAnalysis.StandardType.GGFrameFSxOrth
 public import CFSG.LieType.ChevTwo.Orthogonal
-public import CFSG.LieType.ChevTwo.OrthogonalAutEquiv
-public import CFSG.LieType.Universal.Spin.Forms
 public import CFSG.RankThree.PartOne.S11d.LieCentralizerPOmega
 
 public section

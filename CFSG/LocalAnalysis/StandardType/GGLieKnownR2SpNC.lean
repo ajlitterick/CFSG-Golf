@@ -36,34 +36,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.AschbacherToolkitBender
 public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoBenderAutE4Unitary
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoBenderONan
-public import CFSG.LocalAnalysis.ComponentInitial.PGroupRankOneClassification
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeThree
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Equivariance
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
-public import CFSG.Quasithin.Background.A3Structure318Red
-public import CFSG.Quasithin.Background.A3Structure36A
-public import CFSG.Quasithin.Background.A3Structure36BAction
-public import CFSG.Quasithin.Background.A3Structure36BBase
-public import CFSG.Quasithin.Background.A3Structure36BCase3Base
-public import CFSG.Quasithin.Background.A3Structure36BCasesBase
-public import CFSG.Quasithin.Background.A3Structure36BCommonBase
-public import CFSG.Quasithin.Background.A3Structure36BFrattini
-public import CFSG.Quasithin.Background.A3Structure36BHeisBase
-public import CFSG.Quasithin.Background.A3Structure36BHomocyclic
-public import CFSG.Quasithin.Background.A3Structure36BPrimeDataBase
-public import CFSG.Quasithin.Background.A3Structure36BStarBase
-public import CFSG.Quasithin.Background.A3Structure36Base
-public import CFSG.Quasithin.Background.A3Structure38Part3
-public import CFSG.Quasithin.Background.B1MoreElevenE
-public import CFSG.Quasithin.Background.B1MoreNineG
-public import CFSG.Quasithin.Background.B4ModelsAction
-public import CFSG.Quasithin.Background.B4ModelsIso
-public import CFSG.Quasithin.Background.C2Basic
-public import CFSG.Quasithin.Background.C2Inputs
-public import CFSG.Quasithin.Background.E3Cent
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import CFSG.RankThree.GF2n.Tim79aCase1End
 public import CFSG.RankThree.GF2n.Tim79aCentreClause
 public import CFSG.RankThree.GF2n.Tim79aIdentU3
@@ -73,7 +45,6 @@ public import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec2.Defs
 public import CFSG.Sporadic.Th.Max3.Involutions
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

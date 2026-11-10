@@ -2,7 +2,6 @@
 module
 
 public import CFSG.Monster.B.TwoA.Unitary.ActionBase
-public import CFSG.Monster.B.TwoA.Census.NatCert
 public meta import CFSG.Monster.B.TwoA.Census.NatCert
 public meta import CFSG.Monster.B.TwoA.Unitary.NData
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Matrix

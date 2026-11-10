@@ -1,19 +1,10 @@
 module
 
-public import CFSG.Assembly.QuasithinDefs
-import CFSG.FeitThompson.OddOrderTheorem
-import CFSG.Open.QTFaithfulEmptyTauCeti
 import CFSG.Milestones.QT_faithful_local_nonempty_classification
-import CFSG.Open.QTUniqueMaximalLocalTauCeti
 import CFSG.Open.QTTauCetiOfAgree
 import CFSG.LocalAnalysis.QuasithinUnique.QTKEAssembly
-public import CFSG.Sporadic.J4.QT2LocFixLNative
-import Certificates.Kernel.J4Q.QTBase
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3J4D4Data
-public import CFSG.Sporadic.J4.QT2LocX0Native
 public import Certificates.Data.CFSGNative.J4.PentScan
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312HsKInputs
-import Certificates.Kernel.HSA312.Struct
 import Certificates.Kernel.HSQuot.Final
 public import CFSG.Monster.Existence.StdOdd.Defs
 public import Certificates.Data.CFSGNative.Chevalley.C2E6CertLie
@@ -22,25 +13,16 @@ public import CFSG.Monster.B.Classical.E6AdjointGroup
 import Certificates.Kernel.Misc.E6StdSlp
 public import CFSG.Quasithin.Recognition.RuRank3T1CertInputs
 import Certificates.Kernel.RuT1.Data
-import Certificates.Data.Kernel.TitsOver.Check
 import Certificates.Kernel.Sporadic.Tits.Words2264
-import Certificates.Kernel.MaxD2.TitsD.Data
 import CFSG.Certificates.Kernel.Common.Each
-import CFSG.Certificates.Kernel.Common.Harness
-import CFSG.Certificates.Kernel.MaxD2.Basic
-import CFSG.Certificates.Kernel.TitsOver.Base
 import CFSG.Certificates.Kernel.Spor.TextAtSound
 import Certificates.Kernel.TitsOver.TitsBase
-import CFSG.LocalAnalysis.StandardType.TitsGeneratorsBase
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Quasithin.Background.A312SporHSKInputs
-import Certificates.Kernel.HSA312.Y1
 import Certificates.Kernel.HSA312.Y2
 public import CFSG.YGroups.Y443.Native.CoverFactsWords
 import Certificates.Kernel.KDense.Y443
 public import CFSG.YGroups.Y443.Native.Swap13Word
 public import CFSG.Quasithin.Vol2.Ch8Sec2L822CovP3
-public import CFSG.LocalAnalysis.QuasithinUnique.Defs
 import Certificates.Kernel.M24Dc.Over
 public import Certificates.Data.DcHeOverV
 import Certificates.Kernel.He589203.Final
@@ -217,13 +199,11 @@ public import CFSG.Sporadic.Ly.ActionBase
 public import CFSG.Sporadic.Ly.CertificateBase
 public import CFSG.Sporadic.Ly.FaithSpec
 public import CFSG.Sporadic.Ly.OrbitSpec
-public import CFSG.Sporadic.Ly.PrimitiveBase
 public import CFSG.Sporadic.LyBase
 public import CFSG.Sporadic.ON.ActionBase
 public import CFSG.Sporadic.ON.CertificateBase
 public import CFSG.Sporadic.ON.ChainBase
 public import CFSG.Sporadic.ON.LinesBase
-public import CFSG.Sporadic.ON.PrimitiveBase
 public import CFSG.Sporadic.ON.SimpleBase
 public import CFSG.Sporadic.Presentation.Co1
 public import CFSG.Sporadic.Presentation.Co2FusionInputs
@@ -246,10 +226,6 @@ public import CFSG.Sporadic.Schreier.TitsAutD
 public import CFSG.Sporadic.Schreier.TitsQTModel
 public import CFSG.Sporadic.Th
 public import CFSG.Sporadic.Th.CertificateBase
-public import CFSG.Sporadic.Th.KernelPlanesBase
-public import CFSG.Sporadic.Th.KernelSimpleBase
-public import CFSG.Sporadic.ThSchreier.FullAutCoreBase
-public import CFSG.Sporadic.ThSchreier.KernelAutBase
 public import CFSG.Timmesfeld.Moufang.A6
 public import CFSG.Timmesfeld.Moufang.Cases
 public import CFSG.Timmesfeld.Moufang.J2Check

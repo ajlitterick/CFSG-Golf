@@ -2,7 +2,6 @@ module
 
 public import CFSG.GroupTheory.FrattiniQuotient
 public import CFSG.LocalAnalysis.ComponentInitial.BasicFacts
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Frattini.Core
 
 public section
 

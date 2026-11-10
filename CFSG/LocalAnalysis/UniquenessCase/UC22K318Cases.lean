@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22K318Rank
 public import CFSG.LocalAnalysis.UniquenessCase.UC22K318Flag
-public import Mathlib.FieldTheory.Finite.GaloisField
 import CFSG.RankThree.SubgroupLists.SymplecticRegulus
 import CFSG.RankThree.SubgroupLists.SymplecticInvolutionPairs
 import CFSG.RankThree.CentralCover.SteinbergBNSL2Elements

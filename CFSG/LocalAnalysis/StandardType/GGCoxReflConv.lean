@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFivePrimDefs
 public import CFSG.LocalAnalysis.StandardType.GGReflShape
 public import CFSG.LocalAnalysis.StandardType.GGReflModule
 public import CFSG.LocalAnalysis.StandardType.GGWeylReflection
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLTypeA
 
 public section
 

@@ -2,9 +2,7 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec19.Statements
 import CFSG.RankThree.PartTwo.Sec19.Step1916Proof2
-import CFSG.RankThree.PartTwo.Sec19.Step1916Proof2Tools
 import CFSG.RankThree.PartTwo.Sec19.O2Centralizer
-import CFSG.RankThree.PartTwo.Late.GammaZero
 import CFSG.RankThree.PartTwo.Sec13.Item13Theta
 
 public section

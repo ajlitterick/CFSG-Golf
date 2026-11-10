@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.SporSch.PairHe.S2Fns
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangRegNT
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangTorARank
-public import CFSG.RankThree.PerfectCover.HopfCover
 
 public section
 

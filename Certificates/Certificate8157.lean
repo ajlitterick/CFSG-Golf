@@ -4,7 +4,6 @@ public import CFSG.RankThree.PartTwo.Census.Sporadic.Fi23W4Data
 import CFSG.Certificates.Kernel.OpsW4NSound
 import CFSG.Certificates.Kernel.OpsW4CSound
 import Certificates.Kernel.Census.W4Fi23
-public import CFSG.Blueprint.NativeSporadic
 import all CFSG.Blueprint.NativeSporadic
 public import Certificates.Certificate1012Base
 public import Certificates.Data.CFSGNative.SectionRank.F3

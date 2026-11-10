@@ -1,9 +1,7 @@
 module
 
 public import CFSG.GroupTheory.SuzukiPointTorus.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Frattini.Core
 public import CFSG.Walter.Cited.HuppertBasic
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.Defs
 public import Mathlib.GroupTheory.FixedPointFree
 
 public section

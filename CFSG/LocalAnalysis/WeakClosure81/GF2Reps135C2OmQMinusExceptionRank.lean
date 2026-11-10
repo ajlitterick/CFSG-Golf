@@ -4,10 +4,7 @@ public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmQMinusInterfaces
 public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmQMinusException
 public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmQMinusNFWeyl
 import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmQMinusWeightRank
-import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmQMinusTorus
-import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmQMinusWeights
 import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmQMinusWeightsInj
-import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmQMinusWeightsTorus
 import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmQMinusLabelsLong
 public import CFSG.HardMathSupport.GuralnickMalle.EndFieldDescent.Basic
 public import CFSG.HardMathSupport.Meierfrankenfeld.GeneralFF.OffenderBasic

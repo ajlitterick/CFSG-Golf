@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.Chevalley.GraphFixedRootBruhat
 public import CFSG.LieType.Chevalley.GraphFixedOrbitCollection
-public import CFSG.LieType.Chevalley.OppositeBorel
 
 public noncomputable section
 

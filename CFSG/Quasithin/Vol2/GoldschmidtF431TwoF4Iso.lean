@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Quasithin.Recognition.RuTypeJ47k
 public import CFSG.Quasithin.Recognition.CertSzZero
 public import CFSG.Quasithin.Vol2.GoldschmidtF431TwoF4Model
 

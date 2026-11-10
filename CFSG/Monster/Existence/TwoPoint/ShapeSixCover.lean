@@ -1,13 +1,9 @@
 module
 
 public import CFSG.Monster.Existence.Assembly
-public import CFSG.Monster.Existence.DLevelRank
-public import CFSG.Monster.Existence.InvolutionClasses
 public import CFSG.Monster.Existence.Census.TwoClasses
-public import CFSG.Monster.Existence.TwoPointTwoB
 public import CFSG.Monster.AxisCount.HSCount
 public import CFSG.Monster.GMS.BabyCover
-public import CFSG.Monster.B.TwoA.Sp8.QuadData
 public import CFSG.Monster.AxisCount.BabyCoverSpec
 
 public section

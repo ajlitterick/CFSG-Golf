@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FROmegaMinus
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownChevGeom
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaMinus
-public import CFSG.LocalAnalysis.StandardType.MarkingClassical
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FQOmegaMinus
 
 public section

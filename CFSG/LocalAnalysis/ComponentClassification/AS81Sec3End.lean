@@ -1,18 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec3Step31
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec3Coords
-public import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8G2Step
-public import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8G2Centr
-public import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8Lemma815
-public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec3Defs
-public import CFSG.LargeExtraspecial.S14Inputs
-public import CFSG.Sporadic.Co1Patterson.Defs
-public import CFSG.LocalAnalysis.ComponentClassification.AS76bLemma34
 public import CFSG.LocalAnalysis.ComponentClassification.Asc75T4Layer
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoExcHypIIG2
-public import CFSG.LargeExtraspecial.BridgeSetting
-public import CFSG.LargeExtraspecial.Transport
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec3NotWeaklyClosed
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec3Co1TwoB
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoExceptionalHoltFree

@@ -1,17 +1,12 @@
 module
 
-public import Certificates.Data.SuzOutComp
 public import Certificates.Kernel.SuzOut.T3Fix
 public import Certificates.Kernel.Sporadic.SuzInv.Inner3
 public import Certificates.Kernel.Sporadic.OddCore.ChainCheckGlue
 public import CFSG.Certificates.Kernel.Misc.SuzOutSound
 public import CFSG.Certificates.Kernel.Misc.TitsPrimSound
-public import CFSG.Certificates.Kernel.Spor.RawSound
-public import CFSG.Certificates.Kernel.Spor.StrongOfSound
 public import CFSG.Certificates.Kernel.LocalQTCovTPrim
 import CFSG.Certificates.Kernel.Spor.Co2ChainSound
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

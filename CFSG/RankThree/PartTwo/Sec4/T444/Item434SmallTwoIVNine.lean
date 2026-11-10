@@ -2,13 +2,8 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434SmallTwoIVKit
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434SmallTwoIVTorus
-public import CFSG.RankThree.PartTwo.Sec4.Census.WiringInputs
 public import CFSG.RankThree.PartTwo.Sec4.Item47CasesEven
 import CFSG.RankThree.PartTwo.Census.TripleCoverU62
-import CFSG.RankThree.PartTwo.Census.Classical.Bridges
-import CFSG.RankThree.PartTwo.Sec4.Census.Item44TwoCoverRanks
-import CFSG.LocalAnalysis.SectionRank.EvenCover.Unitary
-import CFSG.LocalAnalysis.SectionRank.EvenCover.CoverMap
 public import CFSG.Permutation.AlternatingAutomorphism
 public import CFSG.RankThree.PartTwo.Sec12.Notation
 public import CFSG.RankThree.PartTwo.Sec4.LThreePiItem411

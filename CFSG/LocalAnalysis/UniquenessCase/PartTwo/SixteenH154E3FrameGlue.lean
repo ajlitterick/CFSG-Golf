@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenH154Std
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenH154E3Frame
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenTwo
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven2Seventeen
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC7SixtyTwoKer
 public import CFSG.Adapters.StatedClassicalSmallOrders
 public import CFSG.GH74.GLS.Stage2.Final.LayerFDerive

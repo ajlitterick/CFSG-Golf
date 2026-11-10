@@ -4,12 +4,7 @@ module
 public import Certificates.Certificate2173Base
 import all Certificates.Certificate2173Base
 
-public import CFSG.Sporadic.Schreier.J4SFiveBase
-public import CFSG.Sporadic.Schreier.J4SPointwise
 public meta import CFSG.Sporadic.J4.PrimSpec
-public import CFSG.Sporadic.Schreier.J4SNative
-public import CFSG.Sporadic.Schreier.J4SCols
-public import CFSG.Sporadic.Schreier.J4SOrbitsBase
 public meta import CFSG.Sporadic.Schreier.J4SOrbitsBase
 
 public section

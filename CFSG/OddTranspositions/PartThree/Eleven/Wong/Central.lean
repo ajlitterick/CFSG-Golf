@@ -2,13 +2,6 @@ module
 
 public import CFSG.OddTranspositions.PartThree.Eleven.Wong.Hyp
 public import CFSG.ClassicalInvolution.SL2Facts
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
-public import Mathlib.GroupTheory.QuotientGroup.Basic
-public import Mathlib.GroupTheory.IndexNormal
-public import Mathlib.GroupTheory.SpecificGroups.Cyclic.Basic
-public import Mathlib.GroupTheory.Commutator.Basic
-public import Mathlib.Algebra.Group.Subgroup.Finite
-public import Mathlib.GroupTheory.Coset.Card
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.Open.Defs
 

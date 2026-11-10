@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Certificate188001
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434U38Facts
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434U38Model2
 public import CFSG.Models.PGLOrders
@@ -24,8 +23,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalStandardFormsRegular
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalTailModelBorel
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalTailPolar
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherEvenOrthogonalModel
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_1_12
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 

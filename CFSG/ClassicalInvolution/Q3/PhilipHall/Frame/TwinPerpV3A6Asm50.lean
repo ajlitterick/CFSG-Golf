@@ -1,12 +1,10 @@
 module
 
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6S
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6eMain
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6dOrb
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6CentE
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6h1
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6NoWt1
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6jB
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6ModelC
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6ModelSmall
 

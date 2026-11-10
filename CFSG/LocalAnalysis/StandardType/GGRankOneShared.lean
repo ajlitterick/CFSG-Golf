@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 import CFSG.LocalAnalysis.StandardType.GGSecFiveRankOneConj
 import CFSG.LocalAnalysis.StandardType.GGSharedInvolution
-import Mathlib.Tactic.Group
 public import CFSG.Certificates.Kernel.ThDemp.OrbCent
 
 public section

@@ -1,10 +1,7 @@
 module
 
-public import Certificates.Data.CFSGNative.SporLat.Spec
-public import CFSG.Quasithin.Background.HSporLatInputs
 public import CFSG.Quasithin.Background.E2TwoProofSporM23
 public import Certificates.Certificate121001
-import CFSG.Quasithin.Background.HSporLatMathieu
 
 public section
 

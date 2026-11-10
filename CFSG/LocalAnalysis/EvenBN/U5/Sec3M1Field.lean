@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.EvenBN.U5.Sec3M1Gam
-public import Mathlib.FieldTheory.Finite.Extension
 
 public noncomputable section
 

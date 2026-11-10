@@ -3,12 +3,9 @@ module
 public import Certificates.Kernel.Fi23Y322.ChkDefs
 public import Certificates.Kernel.Fi23Cls.Glue
 public import CFSG.Certificates.Kernel.Fi23Y322.Sound
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Fi23FiveSylow
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.BThreeFi23Census
 public import Certificates.Data.TabFi23Y
 public meta import Certificates.Data.TabFi23Y
 import Certificates.Kernel.Fi23Y322.Chk
-import Mathlib
 
 public section
 

@@ -1,10 +1,6 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970API
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.ControlCore
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.ThompsonPQ
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ChiefFactors.Core
-import Mathlib.SetTheory.Cardinal.NatCard
 public import Mathlib.GroupTheory.IsPerfect
 
 namespace CFSG

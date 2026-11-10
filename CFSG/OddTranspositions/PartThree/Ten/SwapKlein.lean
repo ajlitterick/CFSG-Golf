@@ -2,7 +2,6 @@ module
 
 public import CFSG.OddTranspositions.PartThree.Ten.WreathEndgame
 import CFSG.OddTranspositions.PartThree.Ten.WreathClass
-import CFSG.Timmesfeld.Bridge.Asc72Bender
 
 public section
 

@@ -3,7 +3,6 @@ module
 public import CFSG.ClassicalInvolution.Q3.Q3ZBTriple
 public import CFSG.ClassicalInvolution.Q3.Q3ZBOdd
 public import CFSG.ClassicalInvolution.Q3.Q3T6FaAut
-public import CFSG.ClassicalInvolution.Q3.Q3ZAModel
 public import CFSG.ClassicalInvolution.Q3.Q3T6FaField
 
 public section

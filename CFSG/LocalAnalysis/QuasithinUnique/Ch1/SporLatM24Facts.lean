@@ -1,22 +1,14 @@
 module
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatRows
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatCode
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatOfFacts
-import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicMathieu
-public import CFSG.Blueprint.NativeSporadic
-public import Certificates.Data.CFSGNative.SporLat.Build
-public import Certificates.Data.CFSGNative.SporLat.Code
 public meta import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicMathieu
 public meta import Certificates.Data.CFSGNative.SporLat.Build
 public meta import Certificates.Data.CFSGNative.SporLat.Code
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatCode
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatRows
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatM24Inputs
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatM24DcInputs
 public import CFSG.Quasithin.EmptyFaithful.S151S9TM24Inputs
 public import CFSG.Quasithin.Background.TwoReduced
-public import CFSG.LocalAnalysis.QuasithinUnique.Defs
 public import CFSG.Quasithin.Vol2.Ch12Sec5KGM24Inputs
 public import CFSG.Quasithin.H13.KGFactT3J4Inputs
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatQuot

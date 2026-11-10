@@ -3,19 +3,11 @@ module
 
 public import CFSG.Sporadic.Schreier.PairJ3CertBase
 
-public import CFSG.Certificates.NativeSchreierArrays
-public import CFSG.Certificates.SchreierChainOrderGenerators
-public import CFSG.Sporadic.Schreier.PairF2Quad
-public import CFSG.Sporadic.Schreier.PairText
-public import CFSG.Sporadic.Schreier.PairClasses
-public import Certificates.Data.CFSGNative.MonsterB.Co2Data
-public import Certificates.Data.CFSGNative.PairSchreier.Core
 public meta import Certificates.Data.CFSGNative.PairSchreier.Core
 public meta import CFSG.Sporadic.Schreier.PairF2Quad
 public meta import CFSG.Sporadic.Schreier.PairText
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Data
 public meta import Certificates.Data.CFSGNative.Schreier.Check
-public import CFSG.Sporadic.Schreier.PairJ3CertInputs
 public import Certificates.Certificate2236
 
 public noncomputable section

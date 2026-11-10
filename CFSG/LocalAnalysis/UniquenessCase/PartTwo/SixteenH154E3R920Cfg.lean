@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.UCFront09R93a
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section9.R920OddChain
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenH154E3MixedSL8RA3BAABDA1A
 public import CFSG.GroupTheory.PElementSubgroup
-public import CFSG.LocalAnalysis.SectionRank.PRank
 import CFSG.Adapters.LieModelSimple
 
 public section

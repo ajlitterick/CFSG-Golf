@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGE0ShapeDefs
 public import CFSG.LocalAnalysis.StandardType.GGE0ShapeCheckSound
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeSc
 public import CFSG.RankThree.Chevalley.SteinbergBID4A2CharStab
 
 public section

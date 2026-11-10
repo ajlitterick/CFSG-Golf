@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.D3ZB2
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.D3ZP6
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.D3ZSyl
 
 set_option linter.unusedSectionVars false
 

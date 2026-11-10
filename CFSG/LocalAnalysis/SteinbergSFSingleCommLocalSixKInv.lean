@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.SteinbergSFSingleCommLocalSixKDefs
 public import CFSG.LocalAnalysis.SteinbergSFSingleCommLocalSixHGeneric
-public import CFSG.LocalAnalysis.SteinbergSFSingleCommRootStandardTorus
-public import CFSG.LocalAnalysis.SteinbergSFFullCenterRootNormalizersOrbit
-public import CFSG.LocalAnalysis.SteinbergSFFullCenterTorusComplementBase
-public import CFSG.LocalAnalysis.SteinbergSFSingleCommLocalSixFNontrivial
 
 public section
 

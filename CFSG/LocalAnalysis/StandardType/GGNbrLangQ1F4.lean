@@ -2,12 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1RLevel
 public import CFSG.LocalAnalysis.StandardType.GGE0ExcAdjHolds
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4Basic
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265CDynO2
-public import CFSG.LocalAnalysis.StandardType.GGReverseMarking
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.SFM2Marking
 import CFSG.GroupTheory.ConjKerCenter
-import CFSG.HardMathSupport.Solomon.Coordinator.B3SporGen
 
 public section
 

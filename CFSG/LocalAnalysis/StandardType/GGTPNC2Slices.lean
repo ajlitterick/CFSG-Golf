@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTPNC2Defs
 public import CFSG.LocalAnalysis.StandardType.GGTPNThmRACore
-public import CFSG.LocalAnalysis.StandardType.GGTPNExcKacDatum
-public import CFSG.LocalAnalysis.StandardType.GGTPNThmUClauses
-public import CFSG.LocalAnalysis.StandardType.GGB36JExcE6Core
 public import CFSG.LocalAnalysis.StandardType.GGExcCentred
 public import CFSG.LocalAnalysis.StandardType.GGTypeAExcOneThree
 

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LieType.Steinberg.Bruhat
-public import Mathlib.GroupTheory.Nilpotent
-import Mathlib.Tactic.Group
 
 public section
 

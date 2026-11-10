@@ -5,7 +5,6 @@ public import CFSG.RankThree.PerfectCover.HopfFormula
 public import CFSG.RankThree.PerfectCover.HopfCentralCoversSetup
 public import CFSG.Open.GriessAllModelsStatement
 public import CFSG.LocalAnalysis.SectionRank.PRank
-public import CFSG.Open.Defs
 
 public section
 

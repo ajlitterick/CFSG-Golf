@@ -1,9 +1,7 @@
 module
 
 public import Certificates.Data.Kernel.Spor.Raw
-public import Certificates.Data.Kernel.Spor.Mathieu
 public import CFSG.Sporadic.Co2Cert.Types
-public import Mathlib.GroupTheory.Schreier
 
 public section
 

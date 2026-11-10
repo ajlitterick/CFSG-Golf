@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.FS81.TwD7M0Model
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD7BetaNormElements
 public import CFSG.LocalAnalysis.StandardType.FS81.D6MarkOfModel
 public import CFSG.LocalAnalysis.StandardType.FS81.OddCoreTransvOrth
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.Mathlib.GroupTheory.SubgroupSupCommute
 
 public section

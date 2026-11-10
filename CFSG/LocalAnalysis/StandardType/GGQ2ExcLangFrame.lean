@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2ModelFrameMap
-public import CFSG.LocalAnalysis.StandardType.GGExcMaxToral
 public import CFSG.LocalAnalysis.StandardType.GGQTwoExceptionalComponent
 
 public section

@@ -2,12 +2,7 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec21.Item211Res4ProofPlusL4
 public import CFSG.RankThree.PartTwo.Sec21.Item228Census3ProofMain
-import CFSG.ClassicalGroups.Unitary.Simple
-import CFSG.ClassicalGroups.Unitary.Finite
-import CFSG.RankThree.PartTwo.Census.Classical.Bridges
-import CFSG.RankThree.PartTwo.Sec4.Item47CasesEven
 import CFSG.RankThree.PartTwo.Sec21.Item211Lie2ProofExcInner
-import CFSG.RankThree.PartOne.KC.UnitaryRegularUnipotentLift
 
 public section
 

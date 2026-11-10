@@ -1,7 +1,6 @@
 
 module
 
-public import CFSG.Sporadic.HNSchreier.LocalCheckInputs
 public import CFSG.Certificates.Kernel.SporSch.HNArr
 
 public section

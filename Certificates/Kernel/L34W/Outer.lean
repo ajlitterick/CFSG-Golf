@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.L34W.Tabs
 public import Certificates.Kernel.L34W.Gens
 public import Certificates.Data.Kernel.L34W.Outer
-import Certificates.Kernel.Misc.Perm.HexCmd
 meta import Certificates.Kernel.L34W.OutData
 
 public section

@@ -1,10 +1,7 @@
 module
 
 public import Certificates.Kernel.SporSch.Mathieu.M12MData
-public import CFSG.Certificates.Kernel.SporSch.MathieuClsSound
 public import CFSG.Certificates.Kernel.Spor.BindList
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

@@ -3,14 +3,10 @@ module
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.HSCoverCheck
 import Certificates.Kernel.LocalQT.Cov.C4085A
 import Certificates.Kernel.LocalQT.Cov.C4085B
-import Certificates.Data.Kernel.LocalQT.CovH
-import Certificates.Kernel.LocalQT.Cov.D4085
-import Certificates.Kernel.LocalQT.Cov.T4085
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Misc.HexFlatSound
 public import CFSG.Certificates.Kernel.Spor.RawDefs
 import CFSG.Certificates.Kernel.LocalQTCovHSound
-public import Certificates.Data.CFSGNative.Co3Schreier.Basic
 import CFSG.Certificates.Kernel.Spor.RawSound
 
 set_option maxRecDepth 400000

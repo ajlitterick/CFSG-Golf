@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.HypA2Leaves.A2lCl2FamCore
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofTwE6Frame
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofTwE6Kernel
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofE6Frame
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofE7FrameE6
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.ClassicalGroups

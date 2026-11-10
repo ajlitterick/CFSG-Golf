@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.FF81.PropOne.Setup
 public import CFSG.LocalAnalysis.StandardType.FF81.LocalSetupCen
-public import Mathlib.GroupTheory.Solvable
-public import Mathlib.GroupTheory.SpecificGroups.Alternating.Simple
 
 @[expose] public section
 

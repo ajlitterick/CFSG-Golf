@@ -4,7 +4,6 @@ module
 public import CFSG.Sporadic.Schreier.J4SKCentBase
 public meta import CFSG.Sporadic.Schreier.J4SKCentBase
 public meta import CFSG.Sporadic.Schreier.J4SSylowBase
-public import CFSG.Sporadic.Schreier.J4SSylowBase
 
 public section
 

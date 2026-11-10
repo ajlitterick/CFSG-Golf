@@ -1,15 +1,8 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec4.Ronan148LH1Ree
-public import CFSG.RankThree.PartTwo.KFacts.KS14Orders
-public import CFSG.RankThree.PartTwo.KFacts.KSListsProofCard
-public import CFSG.LocalAnalysis.ComponentInitial.LinearTwoOuterOrder
-public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherLinearOuterOrder
-public import CFSG.RankThree.PartTwo.Sec4.Item47Unitary
-public import CFSG.RankThree.PartTwo.Sec4.Item47Bridges
 public import CFSG.RankThree.PartTwo.Sec4.Ronan148RH1A11Gen
 public import CFSG.RankThree.PartTwo.Sec4.Ronan148RH1Alt
-public import CFSG.Dihedral.Glauberman.DicksonMaxCases
 public import CFSG.LocalAnalysis.EvenBN.Tits.I21LA6Aut
 public import CFSG.ClassicalInvolution.Asc77.AscE184Basic
 public import CFSG.ClassicalInvolution.Asc77.AscE184Graph
@@ -77,7 +70,6 @@ public import CFSG.Goldschmidt.StatementsX
 public import CFSG.GroupTheory.SteinbergCBFTCores
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabCo2Shape
 public import CFSG.HardMathSupport.Dickson.KD.CharPAux.Exc
-public import CFSG.HardMathSupport.Dickson.Sec6.I1431Lie
 public import CFSG.HardMathSupport.Solomon.Coordinator.GFR2SporCo3
 public import CFSG.HardMathSupport.Solomon.Coordinator.GFR2SporRed
 public import CFSG.HardMathSupport.Solomon.Coordinator.InndiagLink

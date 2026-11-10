@@ -1,10 +1,7 @@
 module
 
-public import Certificates.Data.Kernel.LceSTab
-public import Certificates.Data.Kernel.LceSHeRu
 public import Certificates.Kernel.CosetJ.Suz2Labs
 public import Certificates.Kernel.CosetJ.Suz2Facts
-import Certificates.Kernel.HeRu.Assemble
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Bounds.CJSuz2.Checks.TL0
 public import CFSG.Certificates.Kernel.Bounds.CJSuz2.Checks.TL1

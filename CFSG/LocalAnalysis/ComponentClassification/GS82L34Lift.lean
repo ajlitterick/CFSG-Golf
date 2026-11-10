@@ -1,11 +1,6 @@
 module
 
-public import CFSG.CharacterTheory.Semidihedral.Principal.CoprimeFixedPointLifting
 public import CFSG.LocalAnalysis.ComponentClassification.GS82L34Omega
-public import CFSG.GH74.GLS.Basic
-public import CFSG.GH74.GLS.TwoThin.Basic
-public import Mathlib.FieldTheory.Finite.Basic
-public import CFSG.Certificates.Kernel.ThDemp.OrbCent
 
 public section
 

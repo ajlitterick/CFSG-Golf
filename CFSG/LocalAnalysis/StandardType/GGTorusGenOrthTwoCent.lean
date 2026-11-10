@@ -1,11 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenSCDefs
-public import CFSG.RankThree.Classical2.OrthogonalIsotropicUnipotent
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsOmegaSplit
-public import CFSG.LocalAnalysis.ComponentInitial.FieldUnitaryHermitian
-public import CFSG.GroupTheory.ElementaryAbelianTransport
-public import CFSG.LieType.SeitzGeneration.OrthThree
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenSpTwoCentFrame
 import CFSG.LocalAnalysis.AGLEmbedding.ThreeCentLieTwoOFix
 import CFSG.LocalAnalysis.AGLEmbedding.ThreeCentLieTwoBasic

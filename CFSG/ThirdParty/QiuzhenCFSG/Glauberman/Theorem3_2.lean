@@ -3,11 +3,6 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Theorem3_1
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.pStability
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Theorem5_1
-public import Mathlib.GroupTheory.Sylow
-public import Mathlib.GroupTheory.PGroup
-public import Mathlib.GroupTheory.Index
-public import Mathlib.GroupTheory.Commutator.Basic
-public import Mathlib.GroupTheory.GroupAction.ConjAct
 
 namespace CFSG
 end CFSG

@@ -1,11 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.D4YCRed
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.D4YDNorm
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.D4YERest
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.D4YGRest
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.D4YIRest
-public import CFSG.Milestones.CL_LIT_Griess_Schur_multipliers_Lie_type
 public import CFSG.HardMathSupport.Solomon.Coordinator.GFR1Basic
 public import CFSG.HardMathSupport.Solomon.Coordinator.GFR2Layer
 public import CFSG.HardMathSupport.Solomon.Coordinator.ONNotIso

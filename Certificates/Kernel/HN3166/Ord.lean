@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.HN3166.Seed
-public import CFSG.Certificates.Kernel.Orders.HN.Data.Sel
 public import CFSG.Certificates.Kernel.Orders.HN.Checks.D
 public import CFSG.Certificates.Kernel.Orders.HN.Checks.K
 public import CFSG.Certificates.Kernel.Orders.HN.Checks.O

@@ -1,10 +1,6 @@
 module
 
 public import CFSG.RankThree.GF2n.Stroth78.Sec2Five
-public import CFSG.RankThree.GF2n.Stroth78.Sec2Centralizer
-public import Mathlib.GroupTheory.SpecificGroups.Quaternion
-public import CFSG.GroupTheory.WeirSylow.OrthogonalOrders
-public import CFSG.Timmesfeld.Orders.ClassicalOrthogonal
 public import CFSG.HardMathSupport.Solomon.Coordinator.McLTypeFactsSmall
 public import CFSG.CGT.PushingUpLit.BHS6.ThreeEightS3
 public import CFSG.CGT.PushingUpLit.BHS.SymNatDefs
@@ -78,12 +74,7 @@ public import CFSG.RankThree.GF2n.Stroth78.Sec2Sqrt
 public import CFSG.RankThree.GF2n.Stroth78.Sec2Two
 public import CFSG.RankThree.GroupTheory.ClassTwoThree
 public import CFSG.Sporadic.M23.M23Group
-public import CFSG.Sporadic.Th.F2Spec
 public import CFSG.StronglyEmbedded
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 

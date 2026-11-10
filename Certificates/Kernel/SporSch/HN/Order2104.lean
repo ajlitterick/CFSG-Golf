@@ -1,11 +1,7 @@
 
 module
 
-public import CFSG.Certificates.Kernel.SporSch.HNArr
-public import CFSG.Sporadic.HNSchreier.PrimCheckInputs
-public import CFSG.Sporadic.HNSchreier.Seeds
 public import Certificates.Kernel.SporSch.HN.Intr2098
-public import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
 
 public section
 

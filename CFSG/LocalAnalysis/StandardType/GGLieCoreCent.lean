@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreDefs
-public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyBruhat
 public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyClosedLang
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Subnormal
 public import CFSG.LocalAnalysis.StandardType.GGL45NtLattice

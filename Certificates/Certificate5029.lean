@@ -3,7 +3,6 @@ module
 public import Certificates.Data.CFSGNative.Filter.Fi24primeData
 import CFSG.Certificates.Kernel.LocalCompCubPartsSound
 import Certificates.Kernel.LocalComp.F3.Fi24Sec
-public import CFSG.Blueprint.NativeSporadic
 import all CFSG.Blueprint.NativeSporadic
 public import CFSG.GH74.Filter.Witness
 

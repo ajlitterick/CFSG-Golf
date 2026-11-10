@@ -3,10 +3,8 @@ module
 public import Certificates.Kernel.SporSch.Mathieu.M23FourChecks
 public import Certificates.Kernel.SporSch.Mathieu.M23Facts
 public import Certificates.Kernel.Sporadic.OddCore.CentGlue
-public import Certificates.Kernel.Sporadic.OddCore.PEnumGlue
 public import Certificates.Data.GH74.BTFinCkM23
 public import CFSG.Certificates.Kernel.SporSch.CodesImg
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutCheckBase
 public import CFSG.Sporadic.SmallOddCore.ClassSimple
 

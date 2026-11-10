@@ -4,7 +4,6 @@ public import Certificates.Kernel.J4Q.Mask
 public import Certificates.Kernel.J4Q.MaskActData
 public import CFSG.Sporadic.J4.QTOutActNative
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Data.List.Nodup
 public import Certificates.Kernel.J4Q.Orbits
 
 public section

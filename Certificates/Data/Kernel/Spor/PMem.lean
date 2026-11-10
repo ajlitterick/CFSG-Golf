@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.Kernel.Spor.Prim
 public import Certificates.Data.Kernel.Spor.PEnum
 
 public section

@@ -14,8 +14,6 @@ public import CFSG.Quasithin.Background.C1GNC124
 public import CFSG.Quasithin.Background.C1GNSolvConnect
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.E4Solv
 public import CFSG.Quasithin.Background.F420Orders
 public import CFSG.Quasithin.Background.F6Amalgams
 public import CFSG.Quasithin.Background.F6SolvableQuotient

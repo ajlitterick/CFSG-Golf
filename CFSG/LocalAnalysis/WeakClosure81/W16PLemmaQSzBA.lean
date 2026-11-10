@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RepresentationTheory.SzMartineau.Relations
-public import Mathlib.Algebra.CharP.Two
 
 public section
 

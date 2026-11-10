@@ -2,20 +2,12 @@ module
 
 public import CFSG.OddTranspositions.PartThree.EightFive.CaseTwoStatement
 public import CFSG.OddTranspositions.PartThree.EightFive.QNotCentralCore
-public import CFSG.OddTranspositions.HypothesisC
 
 import CFSG.OddTranspositions.PartThree.EightFive.CaseTwoBlocks
 import CFSG.OddTranspositions.PartThree.EightFive.CaseTwoCore
 import CFSG.OddTranspositions.PartThree.EightFive.QNotCentralBlocks
-import CFSG.OddTranspositions.SixEight
-import CFSG.OddTranspositions.SecondKindCentralizer
-import CFSG.OddTranspositions.SevenThreeKind
-import CFSG.OddTranspositions.DeltaCentSet
 import CFSG.OddTranspositions.SixFiveInputs
 import CFSG.OddTranspositions.SixNineUnconditional
-import CFSG.OddTranspositions.BlockGraph
-import CFSG.OddTranspositions.BlockTransitive
-import CFSG.Timmesfeld.Bridge.OddTranspSecondKind
 public import CFSG.LinearAlgebra.LinearGroups.CoordinateData
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.AschbacherCanonicalRemaining
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.ExceptionalEightPlaneCentralizer

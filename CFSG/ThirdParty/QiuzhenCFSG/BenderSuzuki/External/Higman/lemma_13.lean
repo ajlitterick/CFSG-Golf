@@ -1,14 +1,7 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Higman.lemma_9
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Higman.lemma_11
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Higman.lemma_12
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Higman.InvariantComplement
-import Mathlib.Order.RelSeries
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Frattini.Core
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Commutator.Core
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Invariant
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Quotient
 
 namespace CFSG
 end CFSG

@@ -3,16 +3,8 @@ module
 public import CFSG.RankThree.GF2n.Parrott.Section5Theorem5
 public import CFSG.RankThree.GF2n.Parrott.Section5LocalWOrbits
 public import CFSG.RankThree.GF2n.Parrott.Section5LocalK
-public import CFSG.RankThree.GF2n.Parrott.Section5LocalSigma
-public import CFSG.RankThree.GF2n.Parrott.Section5CenterT1
-public import CFSG.RankThree.GF2n.Parrott.Section5LocalSpin
-public import CFSG.RankThree.GF2n.Parrott.Section5LocalT
-public import CFSG.RankThree.GF2n.Parrott.Section5LocalT23
-public import CFSG.RankThree.GF2n.Parrott.Section5NoE16T1
 public import CFSG.RankThree.GF2n.Parrott.Section5SqrtT1
 public import CFSG.RankThree.GF2n.Parrott.Section5Choice
-public import CFSG.RankThree.GF2n.Parrott.E27LineCount
-public import CFSG.RankThree.GF2n.Parrott.ActionQAIdentificationOutsideEquality
 public import CFSG.RankThree.GF2n.Parrott.Section5KL
 public import CFSG.LieType.Multipliers.U62Sylow
 public import CFSG.LocalAnalysis.ComponentInitial.UnitarySixFieldTwoAut

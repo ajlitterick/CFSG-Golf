@@ -20,9 +20,6 @@ import CFSG.RankThree.GF2n.SupIndepDecomp
 import CFSG.RankThree.GF2n.Tim79CentC
 import CFSG.RankThree.GF2n.Tim79CentL
 import CFSG.RankThree.GF2n.Tim79Mod
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

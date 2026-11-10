@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.Claim1Assembly
-import Mathlib.Tactic.Group
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Certificates.Kernel.KDenseP.Axis.C6011
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

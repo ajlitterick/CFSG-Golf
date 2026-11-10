@@ -1,12 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTwE6ReflectionRadical
-public import CFSG.LocalAnalysis.StandardType.GGTwE6FixedComponent
-public import CFSG.LocalAnalysis.StandardType.GGTwE6HyperplaneTypes
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeNonToralFpf
-public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeA2BlockTwoCore
 public import CFSG.LocalAnalysis.StandardType.GGTwE6FixedA2SL3
-public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 
 public noncomputable section
 

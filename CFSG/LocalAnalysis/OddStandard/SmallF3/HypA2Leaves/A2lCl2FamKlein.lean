@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.HypA2Leaves.A2lCl2FamCore
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofKleinSixB
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofKleinSix
-public import CFSG.LieType.Universal.Spin.Generation.Eichler
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddOrthLow
 public import CFSG.RankThree.PartOne.KC.OrthogonalFieldDescentTags
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic

@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFrameModelNumB
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7CDefs
-public import Mathlib.LinearAlgebra.Basis.Fin
 
 public section
 

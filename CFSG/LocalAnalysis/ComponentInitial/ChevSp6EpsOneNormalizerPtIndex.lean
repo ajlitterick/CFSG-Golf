@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentInitial.ChevSp6EpsOneNormalizerPtSylow
 public import CFSG.LocalAnalysis.ComponentInitial.ChevSp6EpsOneNormalizerPtN
 public import CFSG.LocalAnalysis.ComponentInitial.ChevSp6EpsOneNormalizerPtF1
-public import CFSG.LocalAnalysis.ComponentInitial.BinarySymplecticSixDegree64NoncentralPoint
-public import CFSG.LocalAnalysis.ComponentInitial.BinarySymplecticSixMaximalElementaryRadicals
 
 public noncomputable section
 

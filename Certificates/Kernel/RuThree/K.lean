@@ -1,14 +1,11 @@
 module
 
-public import Certificates.Kernel.RuThree.Chain
 public import Certificates.Kernel.RuThree.Tab
 public import Certificates.Kernel.RuThree.Data
 public import Certificates.Kernel.Misc.RuInv.Data
 public import Certificates.Kernel.SporSch.GenPerms
-public import Certificates.Data.Kernel.HeLoc.Tree
 public import Certificates.Data.Kernel.HeLoc.PTail
 public import Certificates.Data.Kernel.MonsterB.BfsReplay
-public import Certificates.Data.Kernel.Spor.Prim
 public meta import CFSG.LocalAnalysis.EvenSporadicStandard.RuStd.S2.RuThreeInputs
 import CFSG.Certificates.Kernel.Common.Harness
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentInitial.BasicFacts
 public import Mathlib.FieldTheory.Finite.GaloisField
-public import Mathlib.FieldTheory.Fixed
 
 public section
 

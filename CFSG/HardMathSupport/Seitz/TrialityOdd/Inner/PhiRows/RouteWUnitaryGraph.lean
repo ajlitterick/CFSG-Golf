@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartOne.KGD.D4T36Family
-public import CFSG.RankThree.Chevalley.SteinbergCBTrialityOpposition
 public import CFSG.LieType.Chevalley.C2E6RootOperators
 public import CFSG.LieType.Chevalley.C2E6StandardFixedData
 public import CFSG.LieType.Chevalley.C2E6UnitaryFourImages

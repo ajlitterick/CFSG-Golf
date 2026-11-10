@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGR4JMeetKGDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoTableB
-public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6
 public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6Holds
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBRkTwE6
 

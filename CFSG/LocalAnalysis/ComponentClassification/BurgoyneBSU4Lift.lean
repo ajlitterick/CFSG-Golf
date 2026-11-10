@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneBSU4Twin
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneBSp4Lift
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneBInputsU
 public import CFSG.LieType.Steinberg.CentralExt.UnitaryHigher
-public import CFSG.LieType.Universal.Unitary.Comparison
-public import Certificates.Kernel.ThCent.Leaves
 
 public noncomputable section
 

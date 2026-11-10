@@ -2,14 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentGraphMark
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentGraphPGU
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45RankXTriality
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentFieldReduce
-public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutTrialityBridgeFix
-public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutTrialityBridgeLang
-public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutTrialityLayer
-import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutTrialityBridgeClassInput
 import CFSG.LocalAnalysis.StandardType.GGD4OddCentFieldFixed
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestTri
 
 public section
 

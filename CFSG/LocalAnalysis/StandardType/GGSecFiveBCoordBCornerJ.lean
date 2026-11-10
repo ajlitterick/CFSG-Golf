@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCornerFrame
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCornerStd
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCornerRaw
 public import CFSG.LocalAnalysis.StandardType.GGQ2PlaneSignedPermFix
 public import CFSG.LocalAnalysis.StandardType.GGSixA6InsideSpTransport
 

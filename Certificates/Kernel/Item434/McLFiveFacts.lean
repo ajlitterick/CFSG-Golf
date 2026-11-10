@@ -3,8 +3,6 @@ module
 public import Certificates.Kernel.Item434.McLFive
 public import Certificates.Kernel.Census.McLN
 public import CFSG.Certificates.Kernel.Item434.PkSound
-public import CFSG.Certificates.Kernel.Misc.HexFlatSound
-public import CFSG.Certificates.Kernel.Spor.SiftRSound
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.BfsPinSound
 public import CFSG.Certificates.Kernel.Misc.ArrBind

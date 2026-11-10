@@ -1,11 +1,9 @@
 
 module
 
-public import CFSG.Sporadic.Th.Max3.PacketBase
 import all CFSG.Sporadic.Th.Max3.PacketBase
 
 public import CFSG.Sporadic.Th.Max3.CoreBase1
-public import CFSG.Sporadic.Th.Max3.PacketInputs
 public meta import CFSG.Sporadic.Th.Max3.Data
 public import CFSG.Sporadic.Th.Max3.RelationsBase1
 

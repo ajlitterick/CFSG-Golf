@@ -3,19 +3,11 @@ module
 public import CFSG.RankThree.PartOne.S12.Sec1511L225Abs
 public import CFSG.RankThree.PartOne.S12.Sec1511Y2Aut
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2NormalExtension
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2RootGroups
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2FixedPointBound
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Cardinality
-public import CFSG.Dihedral.Glauberman.DicksonMaxStructure
 public import CFSG.Dihedral.Glauberman.DicksonMaxUp
-public import CFSG.LocalAnalysis.ComponentInitial.FieldFiniteAutomorphism
 public import CFSG.LocalAnalysis.ComponentInitial.QTNQRLinearUnitaryOuterDerivedLinear
 public import CFSG.RankThree.PartOne.CTP.StrongPSylow
-public import CFSG.RankThree.PartOne.CTP.OutEmbed
-public import CFSG.RankThree.PartOne.Census3.Interface
 public import CFSG.Adapters.LinearCatalog
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.LieType.Chevalley.OddF4CosetDescent
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
@@ -31,14 +23,12 @@ public import CFSG.LocalAnalysis.ComponentInitial.LayerComponentOrbit
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 public import CFSG.LocalAnalysis.SectionRank.Ccomm.Supercritical
 public import CFSG.LocalAnalysis.SectionRank.KGroupSectionClosure
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.Quasithin.Background.Basic
 public import CFSG.RankThree.GroupTheory.SteinbergBYSectionNineResidual
 public import CFSG.RankThree.LocalRank.SelectorCases
 public import CFSG.RankThree.PartOne.S12.InputsBase
 public import CFSG.RankThree.PartOne.S12.Sec1511Y1
 public import CFSG.RankThree.PartOne.S12.Sec15Items
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.Defs
 
 public section

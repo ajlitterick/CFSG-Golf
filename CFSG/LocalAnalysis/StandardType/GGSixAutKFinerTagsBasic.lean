@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixAutKFinerLastChoice
-public import CFSG.LocalAnalysis.StandardType.GGSixStepThreeCFSeventeenTable
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsCore
-import CFSG.Timmesfeld.Orders.ClassicalLinear
-import CFSG.Adapters.ProjectiveSpecialLinear
 
 public section
 

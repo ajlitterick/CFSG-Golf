@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGRealKGExcNegJ
 public import CFSG.LocalAnalysis.StandardType.GGRealKGExcNegRefl
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcRootC
-public import CFSG.LocalAnalysis.StandardType.GGKGForkTransfer
 
 public section
 

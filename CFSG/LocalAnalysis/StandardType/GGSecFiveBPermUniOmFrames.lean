@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniDefs
-public import CFSG.LocalAnalysis.StandardType.GGAssemblyTwoHypSix
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermOmKFrameDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniLFrame
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpPlaneFrameDefs
@@ -13,13 +12,7 @@ import CFSG.LocalAnalysis.StandardType.GGSuNsRootGenTriples
 import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.CastBlockSU
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniOmKFrame
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniModelTwoCenter
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBIrred
-import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaBase
-import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.Models
 import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.Simple
-import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.PlaneTorus
-import CFSG.Assembly.Subnormal
 public import CFSG.ClassicalGroups.Orthogonal.RootGroupNormalizer
 public import CFSG.HardMathSupport.Dickson.Bal207.OrthD4Loc
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172CCentLayer

@@ -1,9 +1,5 @@
 module
 
-public import Mathlib
-public import Mathlib.GroupTheory.SpecificGroups.Cyclic
-public import CFSG.Open.Defs
-public import CFSG.Open.OrderForm
 public import CFSG.LocalAnalysis.ComponentClassification.Helpers
 public import CFSG.LocalAnalysis.ComponentClassification.OddCore
 public import CFSG.Assembly.Subnormal

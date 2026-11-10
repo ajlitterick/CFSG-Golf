@@ -1,39 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_2FinM2Tab
-public import CFSG.Sporadic.Mathieu.M23
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_2FinM2Tab
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_2FinM23Inputs
 public import Certificates.Certificate4047
-public import Certificates.Certificate13
-public import Certificates.Certificate14
-public import Certificates.Certificate15
-public import Certificates.Certificate16
-public import Certificates.Certificate17
-public import Certificates.Certificate18
-public import Certificates.Certificate19
-public import Certificates.Certificate20
-public import Certificates.Certificate21
-public import Certificates.Certificate22
-public import Certificates.Certificate23
-public import Certificates.Certificate24
-public import Certificates.Certificate25
-public import Certificates.Certificate26
-public import Certificates.Certificate27
-public import Certificates.Certificate28
-public import Certificates.Certificate29
-public import Certificates.Certificate30
-public import Certificates.Certificate31
-public import Certificates.Certificate32
-public import Certificates.Certificate33
-public import Certificates.Certificate34
-public import Certificates.Certificate35
-public import Certificates.Certificate36
-public import Certificates.Certificate37
-public import Certificates.Certificate38
-public import Certificates.Certificate39
-public import Certificates.Certificate40
-public import Certificates.Certificate41
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Reduce
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Reduce
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_2

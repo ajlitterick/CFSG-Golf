@@ -1,12 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2E7Bridge
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2LongExcDatum
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2LongExcC2
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2HighestRootLong
 public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionExceptional
-public import CFSG.LocalAnalysis.StandardType.GGRootNormInner
-public import CFSG.LieType.CurtisTits.ExceptionalQuasisimple
 
 public section
 

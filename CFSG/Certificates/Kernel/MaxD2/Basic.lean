@@ -3,7 +3,6 @@ module
 public import Certificates.Data.MaxD2Perm
 public import Certificates.Data.Kernel.MaxD2.Check
 public import CFSG.Certificates.Kernel.Spor.PEnumSound
-public import CFSG.Certificates.Kernel.Spor.PcompFacts
 public import CFSG.Certificates.Kernel.Spor.PK.Basic
 public import CFSG.Certificates.Kernel.Spor.PrimSound
 public import CFSG.Certificates.Kernel.Spor.PackWord

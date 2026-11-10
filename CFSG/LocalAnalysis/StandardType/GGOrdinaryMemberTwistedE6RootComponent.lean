@@ -1,12 +1,8 @@
 module
 public import CFSG.LocalAnalysis.StandardType.GGOrdinaryMemberTwistedE6Lang
-public import CFSG.LocalAnalysis.StandardType.GGReverseMarking
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKSmallChainS12
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeRetE7Shape
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePairTwE6
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimple
 public noncomputable section
 set_option autoImplicit false
 namespace CFSG.StandardType

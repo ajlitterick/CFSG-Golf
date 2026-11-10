@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGPZNbrResRestDefs
-public import CFSG.LocalAnalysis.StandardType.GGTwA5ThreeRestDefs
 
 public section
 

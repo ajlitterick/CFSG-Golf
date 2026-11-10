@@ -2,7 +2,6 @@ module
 
 public import CFSG.Certificates.Kernel.J4.DceS
 public import CFSG.Certificates.Kernel.LceSP.Popcount
-public import Mathlib.GroupTheory.Index
 import Mathlib.Data.Rat.Cast.Order
 import Mathlib.Tactic.NormNum.Abs
 import Mathlib.Tactic.NormNum.DivMod

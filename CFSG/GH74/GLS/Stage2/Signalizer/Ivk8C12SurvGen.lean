@@ -2,10 +2,7 @@ module
 
 public import CFSG.GH74.GLS.Stage2.Signalizer.Ivk8YCfg
 public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87NatMod
-public import CFSG.GroupTheory.ABGLocalTools.CoreLemmas
 public import CFSG.GH74.GLS.Stage2.Signalizer.Ivk8C12Mono
-public import CFSG.Open.StatedDefs
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
 public import CFSG.GH74.GLS.IVK.Proofs2.OddTools
 public import CFSG.GH74.GLS.Stage2.Local.P34Main
 public import CFSG.GH74.GLS.Stage2.Local.P34S5A

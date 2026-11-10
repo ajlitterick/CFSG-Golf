@@ -4,13 +4,9 @@ public import CFSG.GH74.AS16.E2.Outer4
 public import CFSG.GH74.AS16.E2.OuterChecks
 public import CFSG.GH74.AS16.E2.Local3Models
 public import CFSG.GH74.AS16.E2.Tables
-public import CFSG.GH74.KGroups.L33Tables
 public meta import CFSG.GH74.AS16.E2.OuterChecks
 public meta import CFSG.GH74.KGroups.L33Tables
-public import Certificates.Certificate5000
 public import Certificates.Certificate5001
-public import Certificates.Certificate5120
-public import Certificates.Certificate5121
 public import CFSG.GH74.AS16.E2.Data3
 public meta import CFSG.GH74.AS16.E2.Delta3
 

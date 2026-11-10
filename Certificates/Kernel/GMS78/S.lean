@@ -2,8 +2,6 @@ module
 
 public import Certificates.Kernel.GMS78.Q
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
-import Batteries.Tactic.Init
 
 public section
 

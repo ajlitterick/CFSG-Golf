@@ -6,10 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeTriD4FrameD4
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeTriD4FrameETw
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCarrierSL
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeExcActOuterCartan
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExc
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExcD4
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcKacCount
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompAlcove
 
 public section
 

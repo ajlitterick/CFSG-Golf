@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.Vol2.Ch3Sec3InspA312KG
 public import CFSG.Quasithin.Vol2.F134Orders
-public import CFSG.Quasithin.Background.A3Structure312Quotient
 public import CFSG.GH74.KGroups.L3EpsUniSyl
 
 public section

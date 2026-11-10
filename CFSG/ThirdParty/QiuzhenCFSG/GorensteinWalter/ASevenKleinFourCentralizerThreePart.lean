@@ -1,9 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ASevenInvariantOddPSubgroupCentralized
-public import Mathlib.GroupTheory.PGroup
-public import Mathlib.GroupTheory.Perm.Centralizer
-public import Mathlib.GroupTheory.SpecificGroups.KleinFour
 import Mathlib.Tactic
 import all Mathlib.GroupTheory.Perm.Cycle.Factors
 

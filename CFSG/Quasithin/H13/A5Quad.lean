@@ -24,9 +24,7 @@ public import CFSG.Quasithin.Background.A3Structure318Red
 public import CFSG.Quasithin.Background.A3Structure36A
 public import CFSG.Quasithin.Background.A3Structure36BAction
 public import CFSG.Quasithin.Background.A3Structure36BBase
-public import CFSG.Quasithin.Background.A3Structure36BCase3Base
 public import CFSG.Quasithin.Background.A3Structure36BCasesBase
-public import CFSG.Quasithin.Background.A3Structure36BCommonBase
 public import CFSG.Quasithin.Background.A3Structure36BFrattini
 public import CFSG.Quasithin.Background.A3Structure36BHeisBase
 public import CFSG.Quasithin.Background.A3Structure36BHomocyclic
@@ -55,7 +53,6 @@ public import CFSG.Quasithin.H13.A5S1520c
 public import CFSG.Quasithin.H13.A5S1520d
 public import CFSG.Quasithin.H13.A5Top
 public import CFSG.Quasithin.Vol2.Ch1Prop121
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970_18
 public import CFSG.Timmesfeld.RankOne
 public import CFSG.Timmesfeld.Transvection.Statement

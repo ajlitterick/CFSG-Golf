@@ -5,9 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGInnerD4RASelectedMarking
 public import CFSG.LocalAnalysis.StandardType.GGInnerD4RALinearBranch
 public import CFSG.LocalAnalysis.StandardType.GGInnerD4RAUnitaryBranch
 public import CFSG.LocalAnalysis.StandardType.GGInnerD4RAAssembly
-public import CFSG.LocalAnalysis.StandardType.GGInnerD4RAContracts
-public import CFSG.LocalAnalysis.StandardType.GGInnerD4RegimeDefs
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.UC22Defs
 public import CFSG.LocalAnalysis.UniquenessCase.UC6R2
 public import CFSG.RankThree.FFModules.Offenders
 

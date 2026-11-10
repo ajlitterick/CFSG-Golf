@@ -3,7 +3,6 @@ module
 public import CFSG.ClassicalInvolution.Q3.Q3P21Y3C
 public import CFSG.ClassicalInvolution.Q3.Q3P21Y3S
 public import CFSG.ClassicalInvolution.Q3.Q3P21Y1S
-public import CFSG.ClassicalInvolution.Q3.Q3P21S4
 
 public section
 

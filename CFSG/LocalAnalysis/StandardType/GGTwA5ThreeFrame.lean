@@ -2,11 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwA5ThreeAx
 public import CFSG.LocalAnalysis.StandardType.GGTwA5ThreeTwo
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63Q2ProofFinal
 public import CFSG.LocalAnalysis.StandardType.GGNbrU63
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenTwE6Three
-public import CFSG.LocalAnalysis.StandardType.GGTDAutomizer
 
 public section
 

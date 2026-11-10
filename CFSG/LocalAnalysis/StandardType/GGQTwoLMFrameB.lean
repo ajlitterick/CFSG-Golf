@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMFrame
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRestDefs
 import CFSG.LocalAnalysis.StandardType.GGE6DepZLTv
 import CFSG.LocalAnalysis.StandardType.GGTDAutomizer
 

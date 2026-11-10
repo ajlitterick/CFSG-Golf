@@ -6,7 +6,6 @@ import CFSG.RankThree.PartTwo.Sec13.Item131Transport
 import CFSG.Foundations
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups
-import CFSG.LocalAnalysis.SectionRank.PRank
 import CFSG.LocalAnalysis.SectionRank.SQT
 import CFSG.RankThree.PartTwo.NotationBlocks
 import CFSG.RankThree.PartTwo.Sec8.Pairs

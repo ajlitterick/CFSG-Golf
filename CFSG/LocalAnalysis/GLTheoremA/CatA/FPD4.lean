@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaPlus
-public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergTrialityHolds
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FPCanon
 
 public section

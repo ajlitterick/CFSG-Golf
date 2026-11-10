@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitOmFix
 public import CFSG.LieType.SeitzGeneration.OrthBlocks
-public import CFSG.RankThree.OrthogonalInvolutions.Basic
 public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitOmBlock
 
 public section

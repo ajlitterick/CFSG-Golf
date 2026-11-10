@@ -1,12 +1,8 @@
 module
 
 public import Certificates.Kernel.LocalComp.Co3IdentFactsK
-public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Co3IdentCubeInputs
-import CFSG.Monster.B.Co2.PermArr
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.EachUnfold
 import CFSG.Certificates.Kernel.Common.ForallChunks
-import Mathlib.Tactic.IntervalCases
 
 public section
 

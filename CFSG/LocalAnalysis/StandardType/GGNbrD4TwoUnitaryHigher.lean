@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNbrD4TwoField
 public import CFSG.LocalAnalysis.StandardType.GGNbrD4TwoCommonJ
 public import CFSG.LocalAnalysis.StandardType.GGResidualRk1FrameRest
-import CFSG.LocalAnalysis.StandardType.GGTCJHolds
 import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseOrthFrame
 import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseRankFive
 

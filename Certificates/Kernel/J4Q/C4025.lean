@@ -5,7 +5,6 @@ public import Certificates.Kernel.J4Q.MaskBlk
 public import Certificates.Kernel.J4Q.MaskRep
 import Certificates.Kernel.J4Q.AllN
 import CFSG.Certificates.Kernel.Common.Harness
-public import Certificates.Kernel.J4Q.QTBase
 
 public section
 

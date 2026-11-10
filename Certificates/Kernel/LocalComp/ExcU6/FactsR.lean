@@ -13,7 +13,6 @@ public import Certificates.Kernel.LocalComp.ExcU6.RSb
 public import Certificates.Kernel.LocalComp.ExcU6.RSc
 public import Certificates.Kernel.LocalComp.ExcU6.RSd
 public import Certificates.Kernel.LocalComp.SliceJoin
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.Ch8Sec2L822Kz3Steps
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.CGT.PushingUpLit.BHS.SymNatDefs
 public import CFSG.CGT.PushingUpLit.Statements
 public import CFSG.GH74.GLS.LU.Local.A3Reduce2
@@ -49,8 +48,6 @@ public import CFSG.Quasithin.Background.B69Stab
 public import CFSG.Quasithin.Background.C4Statement
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.E4Solv
 public import CFSG.Quasithin.Background.FFC7G
 public import CFSG.Quasithin.Background.HTriSolv
 public import CFSG.Quasithin.Background.HTriU3

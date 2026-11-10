@@ -1,10 +1,7 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Q3TY13
-public import CFSG.ClassicalInvolution.ModelFacts.Orth15TwinSpin
-public import CFSG.ClassicalInvolution.RouteD.TwinYR2SpinFrame
 public import CFSG.ClassicalInvolution.RouteD.TWT9Twin
-public import CFSG.ClassicalInvolution.ModelFacts.TG3OrthTags
 
 public section
 

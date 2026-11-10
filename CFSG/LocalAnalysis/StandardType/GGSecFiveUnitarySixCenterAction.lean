@@ -1,13 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63Q2ProofRed
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySpCoord
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniBlocks
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniQTwoExcFrame
 public import CFSG.LocalAnalysis.StandardType.GGNsq2U62
-public import CFSG.ClassicalInvolution.ModelFacts.UnitaryAutMain
-public import CFSG.ClassicalInvolution.Phan.AutSU2
 
 public section
 

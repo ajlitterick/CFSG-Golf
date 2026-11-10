@@ -4,11 +4,8 @@ public import CFSG.OddTranspositions.PartThree.Twelve.Four
 public import CFSG.OddTranspositions.PartFour.Fourteen.RootBlockSp
 import CFSG.OddTranspositions.PartFour.SpLineCount
 import CFSG.LocalAnalysis.WeakClosure81.W16Gt2KFactsC
-import CFSG.LocalAnalysis.WeakClosure81.EightSixBorelSpNormal
 import CFSG.RankThree.PartOne.KC.SymplecticFullRankTwo
 import CFSG.RankThree.GF2n.Tim78a.GriessSpMultiplier
-import CFSG.ClassicalGroups.Symplectic.ProjectivePerfect
-import CFSG.Adapters.RankTwoModelTransports
 import CFSG.GroupTheory.ABGLocalTools.PStabilityQSL2
 import CFSG.OddTranspositions.WidthSylow
 public import CFSG.LocalAnalysis.WeakClosure81.EightFiveDefs

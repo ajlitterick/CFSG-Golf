@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec21.FF79Vocab
-public import CFSG.Open.StatedDefs
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 
 @[expose] public section

@@ -1,11 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.WeakClosure81.GF2RepsAsch54Chev2Defs
-public import CFSG.Open.StatedDefs
 
 import CFSG.Adapters.LieModelSimple
 import CFSG.LocalAnalysis.GL83PartI.I713.UnitaryDiag
-import CFSG.LocalAnalysis.SectionRank.PRank
 import CFSG.LocalAnalysis.UniquenessCase.Lie.BorelSU
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic

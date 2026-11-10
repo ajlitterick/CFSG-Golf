@@ -2,8 +2,6 @@
 module
 
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.ThreeCore.M23Check
-public import CFSG.Blueprint.NativeSporadic
-public import CFSG.Sporadic.Th.TableSpec
 public import CFSG.Sporadic.Schreier.M23PinnedInputs
 import Certificates.Kernel.M23Cent3.Final
 

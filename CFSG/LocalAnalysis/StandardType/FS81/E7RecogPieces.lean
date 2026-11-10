@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.E7RecogDefs
 public import CFSG.LocalAnalysis.StandardType.FS81.Defs
-public import CFSG.LocalAnalysis.SeitzReduction.EPilotCentralizerHigh
-public import CFSG.LocalAnalysis.SeitzReduction.EPilotFusionEntrywise
 public import CFSG.LocalAnalysis.SeitzReduction.E7PilotQ2OverlapRoots
 public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcLevi
 public import CFSG.ClassicalInvolution.ModelFacts.StandardPairChevalley

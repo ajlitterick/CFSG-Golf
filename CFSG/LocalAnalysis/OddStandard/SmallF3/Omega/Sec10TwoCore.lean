@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10FrameSyl
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
-public import Mathlib.GroupTheory.Sylow
 
 public section
 

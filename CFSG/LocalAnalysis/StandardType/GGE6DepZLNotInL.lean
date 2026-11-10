@@ -4,11 +4,7 @@ public import CFSG.LocalAnalysis.StandardType.GGE6DepZLFrame
 public import CFSG.LocalAnalysis.StandardType.GGE6DepZLPair
 public import CFSG.LocalAnalysis.StandardType.GGE6DepZLDict
 public import CFSG.LocalAnalysis.StandardType.GGE6DepZLCore
-public import CFSG.LocalAnalysis.StandardType.GGE6DepKnownInputsDefs
 public import CFSG.LocalAnalysis.StandardType.GGE6DepConjAssembly
-public import CFSG.LocalAnalysis.StandardType.GGE6DepModelIndep
-public import CFSG.LocalAnalysis.StandardType.GGE6DepKRefl
-public import CFSG.LocalAnalysis.StandardType.GGE6DepKMatrix
 
 public section
 

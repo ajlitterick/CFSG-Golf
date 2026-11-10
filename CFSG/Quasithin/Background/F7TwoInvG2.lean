@@ -5,9 +5,6 @@ public import CFSG.Quasithin.Background.F7TwoInvG2Short
 public import CFSG.Quasithin.Background.F7TwoInvG2Field
 public import CFSG.Quasithin.Background.F7TwoInvSQTKFam
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenAllInvolutions
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenFieldInvolutions
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenInvolutions
-public import CFSG.LieType.Chevalley.AdjointCenter
 
 public noncomputable section
 

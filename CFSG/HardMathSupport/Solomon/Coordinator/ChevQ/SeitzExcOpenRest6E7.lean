@@ -1,11 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.SeitzExcOpenRest5
-public import CFSG.LieType.SeitzGeneration.ExcHigh.E7FrameFamily
-public import CFSG.LieType.SeitzGeneration.ExcHigh.E7FrameProd
-public import CFSG.LieType.SeitzGeneration.ExcHigh.E7Two
-public import CFSG.LieType.SeitzGeneration.ExcHigh.E7TwoSevenDescent
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 
 public noncomputable section
 

@@ -6,10 +6,6 @@ public import Certificates.Kernel.Sporadic.Fi22.F3151S0
 public import Certificates.Kernel.Sporadic.Fi22.F3151S1
 public import Certificates.Kernel.Sporadic.Fi22.F3151S2
 public import Certificates.Kernel.Sporadic.Fi22.F3151S3
-public import CFSG.Certificates.Kernel.Spor.LevelTrSound
-public import CFSG.Certificates.Kernel.Spor.TextSound
-public import CFSG.Monster.B.Fischer.Fi22CoverCheckInputs
-import Mathlib.Tactic.NormNum
 
 @[expose] public section
 

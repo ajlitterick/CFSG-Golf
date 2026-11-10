@@ -6,7 +6,6 @@ import all CFSG.LocalAnalysis.StandardType.GGF4N2KComponents
 import CFSG.LocalAnalysis.StandardType.GGF4N2JPositions
 import CFSG.RankThree.PartOne.S15K.JointEigen
 import CFSG.Quasithin.Vol2.Ch9Sec3FactsLieSL3
-import TauCeti.LinearAlgebra.Dimension.DirectSum
 
 public section
 

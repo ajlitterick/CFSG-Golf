@@ -1,17 +1,9 @@
 module
 
 public import CFSG.ClassicalInvolution.SmallCases.NDBH3T2
-public import CFSG.ClassicalInvolution.ModelFacts.Orth15TwinU
-import CFSG.ClassicalInvolution.Asc77.AscT7AHyp51
-import CFSG.ClassicalInvolution.Asc77.AscE187Img
-import CFSG.ClassicalInvolution.Asc77.WP3L52Main
 import CFSG.ClassicalInvolution.Asc77.AscT3UMain
-import CFSG.ClassicalInvolution.Asc77.AscIH8Thm678
 import CFSG.ClassicalInvolution.ModelFacts.Orth15TwinRowsOuter
-import CFSG.ClassicalInvolution.ModelFacts.Orth15D4Outer
 import CFSG.ClassicalInvolution.ModelFacts.Orth15RFixLift
-import CFSG.ClassicalInvolution.ModelFacts.Orth15SSec
-import CFSG.ClassicalInvolution.RouteD.G2D4Ih8Free
 import CFSG.ClassicalInvolution.Asc77.AscE187Cop
 import CFSG.ClassicalInvolution.Asc77.AscT7CExit25
 import CFSG.ClassicalInvolution.Asc77.AscT7CWz

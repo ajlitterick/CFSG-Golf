@@ -2,7 +2,6 @@
 module
 
 public import Certificates.Kernel.Sporadic.L2C.G1Base
-public import CFSG.Sporadic.SuzRecog.LevelTwoCoverElim
 
 public section
 

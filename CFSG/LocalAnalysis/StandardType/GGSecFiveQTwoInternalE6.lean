@@ -4,13 +4,8 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveQTwoInternal
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoSix
 public import CFSG.LocalAnalysis.StandardType.GGTBRowUCartan
 public import CFSG.LocalAnalysis.StandardType.GGTBRowDCartan
-public import CFSG.LocalAnalysis.StandardType.GGPZCartanRank
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBWeylInfType
-public import CFSG.LocalAnalysis.StandardType.GGRCWeylCard
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthWeylOrdD
-public import CFSG.LocalAnalysis.StandardType.GGSpJoinCoxeterCard
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoEnd
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoEndExc
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoOmegaMinusEnd
 public import CFSG.LocalAnalysis.StandardType.GGAutomizerJoinInduced
 

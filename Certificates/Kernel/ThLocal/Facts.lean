@@ -3,10 +3,7 @@ module
 public import Certificates.Kernel.ThLocal.Checks
 public import Certificates.Kernel.ThCensus.Facts
 public import CFSG.Certificates.Kernel.ThLocal.Sound
-import CFSG.Certificates.Kernel.Th.Spec.DceMat
-import CFSG.Certificates.Kernel.DceLoops
 import CFSG.Certificates.Kernel.Common.ForallTree
-import Mathlib.Tactic.Group
 
 public section
 

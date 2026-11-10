@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ClassicalGroups.UnitaryFlag.GroupData
-public import CFSG.LocalAnalysis.ComponentInitial.LinearUnitaryField
-public import Mathlib.LinearAlgebra.Matrix.SchurComplement
 public import CFSG.LieType.BorelTits.CompleteFlag
 
 public section

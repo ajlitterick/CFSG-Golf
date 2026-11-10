@@ -5,7 +5,6 @@ public import Certificates.Kernel.LocalComp.BlockGen
 public import Certificates.Data.Kernel.Child3
 public import Certificates.Kernel.J2Cover.Gens19
 meta import Certificates.Kernel.J2Cover.Gens19
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

@@ -3,16 +3,11 @@ module
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotHR14ModelLagBasis
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotHR14ModelLagCore
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotHR14SpAMain
-public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotHR14OPNonembed
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotHR14OPLagrangian
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotHR14BlModelToral
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotHR14BlModelTorus
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotHR14BlSiegel
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotHR14LagAssembly
-public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotHR14LagMinus
-public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotRecognizeSwap
-public import CFSG.Timmesfeld.Orders.Bang
-public import CFSG.ClassicalGroups.Symplectic.Perfect
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotHR14LagMain
 public import CFSG.Monster.B.TwoA.Unitary.Orbit1408Points
 public import CFSG.Sporadic.Schreier.J4SProfileNode

@@ -1,10 +1,8 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.TL4OmegaAOFL4
-public import CFSG.ClassicalInvolution.Q3.TL4OmegaAOFBase
 public import CFSG.ClassicalInvolution.Q3.TL4OmegaAOFEven
 public import CFSG.ClassicalInvolution.Q3.TL4OmegaAOFSpLevi
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherGraphFieldInvolution
 public import CFSG.ClassicalInvolution.Q3.Q3MFO4Top
 
 public section

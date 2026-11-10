@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdPosAct
 public import CFSG.LocalAnalysis.StandardType.GGStdPosUnip
-import Mathlib.Tactic.Group
 
 public section
 

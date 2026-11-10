@@ -6,7 +6,6 @@ public import CFSG.RankThree.PartTwo.Sec3.TwoGroupPrimeFiveAction
 import CFSG.RankThree.PartOne.S10.PlaneHyperplane
 import CFSG.Assembly.OrderReductions.FrattiniAutomorphisms
 import CFSG.LinearAlgebra.OddSolvableUnitary.CommutatorForm
-import CFSG.LocalAnalysis.SectionRank.PRank
 import CFSG.LocalAnalysis.SectionRank.SQT
 import CFSG.LocalAnalysis.SignalizerFunctor.Maximality
 import CFSG.Assembly.OrderReductions.FrattiniElementary

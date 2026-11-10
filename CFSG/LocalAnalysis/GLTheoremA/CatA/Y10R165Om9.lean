@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Om14
-public import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165OmFam2
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165OmFam3
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165OmTorus8

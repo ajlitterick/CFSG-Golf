@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsOmegaDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsSp
-public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerSpin
 public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerMinus
 public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerOmegaSpin
 

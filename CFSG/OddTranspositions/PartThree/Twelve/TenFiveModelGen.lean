@@ -2,9 +2,6 @@ module
 
 public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveModelWalk
 public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveModelBridge
-public import CFSG.OddTranspositions.PartThree.Eleven.Five.FiveFormAux
-public import CFSG.ClassicalGroups.Orthogonal.Hyperbolic
-public import CFSG.ClassicalGroups.Orthogonal.Restrict
 public import CFSG.Mathlib.QuadraticFormReflectionFix
 public import CFSG.Sporadic.Th.Max3.Data
 

@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.Algebra.Group.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.Basic
 
 namespace CFSG

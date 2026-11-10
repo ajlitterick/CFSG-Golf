@@ -17,19 +17,14 @@ import Certificates.Kernel.NT44.ChainP
 import Certificates.Kernel.NT44.Restrict
 import Certificates.Kernel.NT44.PtsPos
 import CFSG.Certificates.Kernel.Misc.ConjTree
-import CFSG.Certificates.Kernel.Spor.PrimSound
 import CFSG.Certificates.Kernel.Spor.RawSiftK
-import CFSG.Certificates.Kernel.Spor.RawOrbHead
 import CFSG.Certificates.Kernel.Misc.ArrBind
 import CFSG.Certificates.Kernel.Misc.RowsBind
 import CFSG.Certificates.Kernel.Misc.ArrEnumUnpack
 import CFSG.Certificates.Kernel.Misc.PermClosSound
 import CFSG.Certificates.Kernel.Enum.ZCSound
 import CFSG.Certificates.Kernel.LocalQTCovTPrim
-import CFSG.Certificates.Kernel.BfsPinAlg
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.Group
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.Open.Defs

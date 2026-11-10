@@ -1,17 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylClauseFive
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylIrredLabels
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTypeA
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylUnitaryDvd
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylScIrred
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylUnitFive
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylOpenLabels
-public import CFSG.LocalAnalysis.StandardType.GGStdSubExistDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangWeylRestVac
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylExc
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylField
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylRest13Label
 
 public section
 

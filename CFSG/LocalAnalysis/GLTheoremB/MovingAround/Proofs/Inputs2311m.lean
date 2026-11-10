@@ -2,16 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs2311k2
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.OuterHighD4OddMinus
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.OuterHighD4Three4
-public import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.A2Nonsplit.Statements
-public import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.A2NonsplitGen.Closing
-public import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.A2NonsplitGen.Top
-public import CFSG.LieType.SeitzGeneration.ExcWideThree.D4MaxBase
 public import CFSG.RankThree.PartTwo.Sec4.RonanK429RowLiePGL
 public import CFSG.RankThree.PartTwo.Sec13.Ronan138SPGL
-public import CFSG.RankThree.PartTwo.Sec13.Item136PGL
 public import CFSG.LocalAnalysis.SolvableSignalizer.CoprimeAction
-public import CFSG.Quasithin.Background.A3Structure36BPrime
 public import CFSG.RankThree.PartTwo.Sec21.Item223CensusResProofCrossLin
 public import CFSG.RankThree.PartTwo.Sec21.Item223CensusResProofHighWit
 

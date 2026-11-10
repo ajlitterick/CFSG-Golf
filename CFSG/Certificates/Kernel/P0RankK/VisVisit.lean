@@ -2,7 +2,6 @@ module
 
 public import CFSG.Certificates.Kernel.P0RankK.VisFark
 public import CFSG.Certificates.Kernel.P0RankK.VisFix
-public import Mathlib.Algebra.Order.Ring.Nat
 
 public section
 

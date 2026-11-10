@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitSixInner
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitTableP
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDTablePFinal
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 
 public section
 

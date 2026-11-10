@@ -1,11 +1,8 @@
 module
 
 public import Certificates.Kernel.Sporadic.OddCore.HN2089D
-public import CFSG.Certificates.Kernel.Spor.PrimSound
 public import CFSG.Certificates.Kernel.BfsPinSound
-import CFSG.Sporadic.Schreier.ONPermArr
 import CFSG.Certificates.Kernel.Common.Harness
-public import CFSG.Certificates.Kernel.BfsPinUnpack
 
 public section
 

@@ -3,8 +3,6 @@ module
 public import Mathlib.GroupTheory.SemidirectProduct
 public import Mathlib.LinearAlgebra.Matrix.Permutation
 public import Mathlib.RingTheory.RootsOfUnity.AlgebraicallyClosed
-public import Mathlib.RingTheory.RootsOfUnity.EnoughRootsOfUnity
-public import Mathlib.FieldTheory.IsAlgClosed.Basic
 
 public section
 

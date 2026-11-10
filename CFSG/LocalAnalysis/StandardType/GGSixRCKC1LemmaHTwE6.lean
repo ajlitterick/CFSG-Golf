@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1LemmaHDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1L5
 public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
-public import CFSG.LieType.Steinberg.TwistedE6.Fixed
-public import CFSG.LieType.Steinberg.TwistedE6.Weyl
 
 public section
 

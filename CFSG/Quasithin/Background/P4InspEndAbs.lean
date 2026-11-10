@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.AutAlternating
-public import Mathlib.GroupTheory.Sylow
 public import Mathlib.NumberTheory.Padics.PadicVal.Basic
 
 public section

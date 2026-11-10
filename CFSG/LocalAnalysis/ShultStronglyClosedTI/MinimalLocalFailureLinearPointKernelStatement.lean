@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.MinimalLocalFailureTwoCoreGrowthStructure
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherAbelianNormalizer
 public import CFSG.Assembly.LowTwoRankDefs
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.MatrixGroups.PSL2
 
 public noncomputable section
 

@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoBCDefs
-public import CFSG.LocalAnalysis.StandardType.GGQTwoBCRefl
 public import CFSG.LocalAnalysis.StandardType.GGQTwoBCZ1
 public import CFSG.LocalAnalysis.StandardType.GGQTwoBCZN
 public import CFSG.LocalAnalysis.StandardType.GGQTwoBCNorm

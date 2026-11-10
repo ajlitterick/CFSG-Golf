@@ -2,7 +2,6 @@
 module
 
 public import Certificates.Kernel.Ly3085.SimpleBase
-public import CFSG.Sporadic.Ly.Setup
 
 @[expose] public section
 

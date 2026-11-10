@@ -2,11 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveNbr
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveInnAll
-public import CFSG.LocalAnalysis.StandardType.GGHalfFiveNbrBasic
-public import CFSG.LocalAnalysis.StandardType.GGHalfFiveBstar
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveBasis
-public import CFSG.LocalAnalysis.StandardType.GGHalfFiveStdSub
-public import CFSG.LocalAnalysis.StandardType.GGHalfFiveSl3Facts
 
 public section
 

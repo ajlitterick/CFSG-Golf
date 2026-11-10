@@ -1,11 +1,9 @@
 module
 
-public import CFSG.Certificates.Kernel.Bounds.Hdr
 public import CFSG.Certificates.Kernel.Bounds.J3Cov.T1vData
 public import CFSG.Certificates.Kernel.Bounds.J3Cov.T2vData
 public import CFSG.Certificates.Kernel.Misc.Coset.PG
 public import Certificates.Data.CoverCenterThreeJ3
-import CFSG.Certificates.Kernel.Bounds.Load
 
 open CFSG.Certificates CFSG.SectionRank.Native CFSG.KC.MiscCoset
 

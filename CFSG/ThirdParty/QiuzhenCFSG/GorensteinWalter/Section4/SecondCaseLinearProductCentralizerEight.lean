@@ -2,8 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.PreambleInvolutions
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.PreambleHSU
-import Mathlib.GroupTheory.Index
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

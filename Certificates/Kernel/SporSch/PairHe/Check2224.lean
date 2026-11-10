@@ -9,14 +9,11 @@ public import Certificates.Kernel.SporSch.Pair.GenCertK
 public import CFSG.Certificates.Kernel.SporSch.PairHSCntSound
 public import CFSG.Certificates.Kernel.SporSch.ClosNFTClosedProof
 public import CFSG.Sporadic.Schreier.PairHeClassesBase
-public import CFSG.Sporadic.Schreier.PairHeCheck
-public import Certificates.Data.CFSGNative.PairSchreier.Counts
 public meta import CFSG.Sporadic.Schreier.PairHeCheck
 public meta import CFSG.Sporadic.HeldB.HeBlocks
 public meta import CFSG.Sporadic.HeldB.CertPChainData
 public meta import Certificates.Data.CFSGNative.PairSchreier.Core
 public meta import Certificates.Data.CFSGNative.PairSchreier.Counts
-import Mathlib.Tactic
 
 public section
 

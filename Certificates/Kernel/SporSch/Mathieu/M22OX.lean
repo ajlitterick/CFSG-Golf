@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.SporSch.Mathieu.M22OData
 public meta import Certificates.Kernel.SporSch.Mathieu.M22OData
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

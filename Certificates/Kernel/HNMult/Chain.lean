@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.HNMult.Data
 public import Certificates.Data.Kernel.LaneChain
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo
 

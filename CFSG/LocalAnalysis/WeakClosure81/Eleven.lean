@@ -31,13 +31,9 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Monster.Code.Weights
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.B6
-public import CFSG.Quasithin.Background.B6Example
-public import CFSG.Quasithin.Background.B6Offenders
 public import CFSG.Quasithin.Background.E3Cent
 public import CFSG.RankThree.PartTwo.Sec6.Statements
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit35AltUniq
-public import CFSG.LocalAnalysis.ComponentInitial.GroupAlternatingCover
 public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.ClassicalInvolution.Models.LinearPairs
 public import CFSG.ClassicalInvolution.WeakCT.Main

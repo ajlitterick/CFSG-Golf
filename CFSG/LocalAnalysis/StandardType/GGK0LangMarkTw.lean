@@ -6,16 +6,11 @@ public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangTwE6Conj
 import CFSG.LocalAnalysis.StandardType.GGK0KacRowTw
 import CFSG.LocalAnalysis.StandardType.GGK0LangModelTw
 import CFSG.LocalAnalysis.StandardType.GGK0LangMarkUntw
-import CFSG.LocalAnalysis.StandardType.GGTableBTwE6Delta
 import CFSG.LocalAnalysis.StandardType.GGTwE6DD2Recipe
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompAlcoveLangNormalTw
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompTree
 import CFSG.LocalAnalysis.StandardType.GGFinModelEps
 import CFSG.LocalAnalysis.StandardType.GGL45NtExcBridgeTwE6
-import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRankFiveAmbient
 import CFSG.LieType.Chevalley.AlgebraicClosurePrimeField
-import CFSG.LieType.Chevalley.GraphFixedBruhatEquivariance
-import CFSG.LieType.Chevalley.TwistMap
 
 public section
 

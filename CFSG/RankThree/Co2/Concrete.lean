@@ -16,7 +16,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.TwoActionFixedInvolutio
 public import CFSG.LocalAnalysis.ComponentClassification.TwoActionInvariantSylow
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.CentralInvolutionStructure
 public import CFSG.Monster.B.Gen.Max2Assembly
-public import CFSG.Sporadic.Th.F2Spec
 
 public noncomputable section
 

@@ -2,8 +2,6 @@ module
 
 public import CFSG.GH74.Uniqueness.SU.SU1Basic
 public import CFSG.GH74.Uniqueness.SU.SU0Bender
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.CentralizerLemmas
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PPrimeCore
 import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.GroupTheory.LocalCores.Fitting

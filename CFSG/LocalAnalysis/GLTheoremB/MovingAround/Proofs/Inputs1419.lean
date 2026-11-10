@@ -5,10 +5,6 @@ public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.AltFacts5
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.OmegaFacts2
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.CrossCharOdd
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Claims1314
-public import CFSG.LocalAnalysis.GLTheoremB.Prop95I1920Three
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofLieOrder
-public import CFSG.LocalAnalysis.SeitzReduction.CrossChar
-public import CFSG.LocalAnalysis.ComponentClassification.Helpers
 public import CFSG.Blueprint.OddStandardExact
 public import CFSG.ClassicalInvolution.Asc77.AscE184Basic
 public import CFSG.ClassicalInvolution.Asc77.AscE184Graph

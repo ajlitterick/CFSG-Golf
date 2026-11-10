@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.Kernel.U6.Core
 public meta import Certificates.Data.CFSGNative.F4.Unitary
 public meta import Certificates.Data.CFSGNative.Fischer.Polar
 public import Certificates.Kernel.Sporadic.RawGen

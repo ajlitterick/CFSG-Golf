@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22L3UniBasic
 import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherIsotropicRadical
-public import Certificates.Kernel.ThCent.Leaves
 
 public noncomputable section
 

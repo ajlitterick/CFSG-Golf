@@ -2,13 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.TwE6LeviRank
 public import CFSG.LieType.Chevalley.ParabolicGradedDet
-public import CFSG.LieType.Chevalley.GraphFixedData
-public import CFSG.LieType.Chevalley.GraphFixedParabolicRootFactors
-public import CFSG.LieType.Chevalley.TwistMap
 public import CFSG.LieType.Chevalley.E6EvenRootTorus
-public import CFSG.RankThree.PartTwo.Census.Carrier.D4EvenLevi
-public import CFSG.LieType.Chevalley.C2E6SubsystemBruhatDefs
-public import Mathlib.FieldTheory.Finite.Basic
 public import CFSG.LieType.Chevalley.C2E6StandardFixedData
 public import CFSG.LieType.Chevalley.C2E6UnitaryFourImages
 

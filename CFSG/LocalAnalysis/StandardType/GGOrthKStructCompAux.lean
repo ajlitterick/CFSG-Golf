@@ -3,11 +3,6 @@ module
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.LinearInner
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrLabels
 public import CFSG.LocalAnalysis.StandardType.GGHalfBlockCentral
-public import CFSG.RankThree.PartOne.KC.PrimaryDecomposition
-public import CFSG.RankThree.PartOne.KC.LinearPlaneBlocks
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismData
-public import CFSG.LocalAnalysis.ComponentInitial.LinearFlagElation
-public import CFSG.Adapters.ProjectiveSpecialLinear
 public import CFSG.LocalAnalysis.StandardType.GGE0PSLComp
 public import CFSG.HardMathSupport.Solomon.Coordinator.B3FamPC
 public import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma28

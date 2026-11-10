@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GS79bSec5.CanonicalRoute
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB82KStatements
-import CFSG.LocalAnalysis.ComponentClassification.GS82Step2L34Free
 import CFSG.LocalAnalysis.ComponentClassification.Foote1978.FooteTypeMaximalRoute
 
 public section

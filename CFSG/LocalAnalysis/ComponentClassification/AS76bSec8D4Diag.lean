@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8D4LeviZ
-public import Mathlib.LinearAlgebra.Matrix.Transvection
-public import Mathlib.FieldTheory.Finite.Basic
 
 public noncomputable section
 

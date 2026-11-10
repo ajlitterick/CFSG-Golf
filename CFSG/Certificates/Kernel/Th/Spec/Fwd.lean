@@ -4,13 +4,8 @@ module
 public import CFSG.Certificates.Kernel.Th.Spec.FwdBase
 import all CFSG.Certificates.Kernel.Th.Spec.FwdBase
 
-public import CFSG.Certificates.Kernel.Th.Gen.Fwd
-public import CFSG.Certificates.Kernel.Th.Spec.FwdSlp
-public import CFSG.Certificates.Kernel.Th.Spec.FwdPlane
 public import CFSG.Certificates.Kernel.Th.Spec.FwdRel
 public import CFSG.Sporadic.Th.KernelInputs
-public import CFSG.Sporadic.Th.F2Spec
-import CFSG.Certificates.Kernel.Th.Spec.Seed
 import CFSG.Certificates.Kernel.Th.Max3S.Basic
 public import CFSG.Sporadic.ThSchreier.LocalData
 import CFSG.Sporadic.ThSchreier.WordsBase1

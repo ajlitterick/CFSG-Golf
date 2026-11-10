@@ -6,8 +6,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismData
 import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.L6LeavesKD291OuterTorus
 import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.L6LeavesKD291OuterDiag
 import CFSG.HardMathSupport.Lang.UnitaryAutomorphisms.LinDiag
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.Assembly.QuasithinDefs
 import CFSG.Foundations
 import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeFamilies
@@ -34,7 +32,6 @@ import CFSG.RankThree.PartOne.Assembly
 import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeOrbits
 import CFSG.SignalizerFunctorTheorem.McBride.Prelim.Basic
 import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

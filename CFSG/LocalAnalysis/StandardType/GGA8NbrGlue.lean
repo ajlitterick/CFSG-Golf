@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGA8NbrFinite
 public import CFSG.LocalAnalysis.StandardType.GGA8NbrInf
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 
 public section
 

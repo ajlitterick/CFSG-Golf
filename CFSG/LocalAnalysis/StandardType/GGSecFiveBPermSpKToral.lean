@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGAssemblyTwoHypSix
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinPlaneTorusDefs
-import CFSG.GroupTheory.ElemAbelianClosure
 import CFSG.LocalAnalysis.StandardType.GGSpJoinNbrCentralizer
 
 public section

@@ -2,7 +2,6 @@ module
 
 public import CFSG.Assembly.InCatalog
 public import CFSG.LocalAnalysis.ComponentClassification.FixedCommutingProduct
-public import CFSG.Open.LocalVocabulary
 
 @[expose] public section
 

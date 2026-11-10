@@ -4,14 +4,7 @@ public import Certificates.Kernel.Misc.RuCoverNet.Final7295
 public import Certificates.Kernel.Misc.RuCoverNet.Checks7296E
 public import Certificates.Kernel.Misc.RuCoverNet.Checks7296N
 public import CFSG.Certificates.Kernel.Misc.RuCoverNetWSound
-public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoRu.CentCoverNative
 import CFSG.Certificates.Kernel.Common.ForallTree
-import Mathlib.Tactic.IntervalCases
-import CFSG.Sporadic.Recognition.RuMultiplierInputs
-import CFSG.Sporadic.Presentation.RuExactInputs
-import CFSG.LieType.Multipliers.CoverWords
-import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
-import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Rudvalis
 
 public section
 

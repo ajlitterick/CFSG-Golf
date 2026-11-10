@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63H5StepTwoA
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63H5Frame
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63H5Det
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitarySixThreeCases
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoTableBReduce
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmall
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63H5LayerMain
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63H5StepOneMarking
 

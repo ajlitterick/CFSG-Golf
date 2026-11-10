@@ -2,11 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267ClsCaseLSL
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267ClsCaseLLU
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267ClsCaseLUMain
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267ClsCompFamOut
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267ClsDiag
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
 public import CFSG.CharacterTheory.Wreathed.WreathCentralSquare
@@ -40,9 +37,6 @@ public import CFSG.LocalAnalysis.LargeEvenClassification.CyclicCongruenceCut
 public import CFSG.LocalAnalysis.LargeEvenClassification.TopScalarLiftSquare
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

@@ -2,11 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154Red
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154LinT
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinPieces
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GClsLin
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldLinMark
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.MICore
-public import CFSG.Adapters.LinearCatalog
 public import CFSG.Assembly.GL83StatedBridge
 public import CFSG.HardMathSupport.Solomon.Coordinator.I18_3LInput
 public import CFSG.HardMathSupport.Solomon.Coordinator.L3C143AltMain

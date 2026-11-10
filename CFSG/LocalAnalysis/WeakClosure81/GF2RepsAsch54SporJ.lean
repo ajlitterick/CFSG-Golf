@@ -4,15 +4,7 @@ public import CFSG.LocalAnalysis.WeakClosure81.GF2RepsAsch54SporLat
 public import CFSG.Quasithin.Background.E2TwoProofSporJ1
 public import CFSG.Quasithin.Background.E2TwoProofSporJ2
 
-import CFSG.Blueprint.NativeSporadic
-import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofLieOrder
 import CFSG.LocalAnalysis.WeakClosure81.GF2RepsAsch5CalL0
-import CFSG.Sporadic.Bridge.J1
-import CFSG.Sporadic.Bridge.J2
-import CFSG.Sporadic.J1.Setup
-import CFSG.Sporadic.J2.Setup
-import CFSG.Sporadic.Schreier.PairJ2Pairs
-import CFSG.Sporadic.Schreier.PairOuter
 
 public section
 

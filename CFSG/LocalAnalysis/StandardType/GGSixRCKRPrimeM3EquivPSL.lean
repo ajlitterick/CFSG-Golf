@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeM3RSHom
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeM3RSConj
-public import CFSG.LocalAnalysis.StandardType.GGInnerDiagBridgeTypeA
 public import TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.SymmetricGroup
 
 public section

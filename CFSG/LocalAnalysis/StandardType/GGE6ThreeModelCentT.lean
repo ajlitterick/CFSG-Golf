@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelTSpec
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelCentE
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelTFrame
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.GH74.GLS.C3.Prop121.ModelFiveInputs
 public import CFSG.GH74.GLS.C3.Layer2.L5B7
 public meta import Certificates.Data.A5
 import CFSG.GH74.GLS.C3.Layer2.L5B10
@@ -42,10 +41,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure
 public import CFSG.Permutation.UnitaryThreeRecognition.Model
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_1_12
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 
 public section

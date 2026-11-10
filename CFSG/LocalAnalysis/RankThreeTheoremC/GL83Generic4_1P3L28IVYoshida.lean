@@ -2,20 +2,13 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83Generic4_1P3L28IVQStruct
 public import CFSG.GH74.GLS.Basic
-import Mathlib.Algebra.Group.Commutator
-import Mathlib.GroupTheory.Commutator.Basic
 import CFSG.LocalAnalysis.RankThreeTheoremC.GL83Generic4_1P3L28IVPsi
 import CFSG.LocalAnalysis.RankThreeTheoremC.GL83Generic4_1P3L28IVQP
 import CFSG.LocalAnalysis.RankThreeTheoremC.GL83Generic4_1P3L28IVWreath
 import CFSG.RankThree.Transfer.Yoshida
 import CFSG.RankThree.PartTwo.Sec8.Transfer
-import CFSG.LocalAnalysis.PreuniquenessRankFour.Helpers
-import CFSG.LocalAnalysis.RankThreeTheoremC.GL83Generic4_1P3L28Model
-import CFSG.LocalAnalysis.RankThreeTheoremC.GL83Generic4_1P3PlaneLines
 import CFSG.LocalAnalysis.RankThreeTheoremC.GL83Generic4_1P3FusionLines
 import CFSG.LocalAnalysis.RankThreeTheoremC.GL83Generic4_1P3U3Lemma42
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeFamilies
 public import CFSG.LocalAnalysis.AGLEmbedding.JStarReducedDefs
 public import CFSG.LocalAnalysis.AGLEmbedding.ResidualTools

@@ -1,12 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239InspM23Data
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239InspM23CheckInputs
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239InspM22Orb
 import Certificates.Kernel.LocalQT.Insp.C4088a
 import Certificates.Kernel.LocalQT.Insp.C4088b
 import Certificates.Kernel.LocalQT.Insp.C4088g
-import Certificates.Data.Kernel.LocalQT.Insp
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Foundations
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangS1KGInputs
 import CFSG.LocalAnalysis.StandardType.KGLangTorAGeneric
 import CFSG.LocalAnalysis.StandardType.KGLangTorAUniLift
-import CFSG.LocalAnalysis.StandardType.KGLangTorAFields
 import CFSG.LocalAnalysis.StandardType.KGLangS1AUniFrame
 import CFSG.LocalAnalysis.StandardType.KGLangS1AUniFixed
 import CFSG.LocalAnalysis.StandardType.KGLangS1AUniCore
@@ -12,7 +11,6 @@ import CFSG.LocalAnalysis.StandardType.KGLangS1AUniTransfer
 import CFSG.LocalAnalysis.StandardType.KGLangS1AUniComp
 import CFSG.LocalAnalysis.StandardType.KGLangS1AUniCover
 import CFSG.LocalAnalysis.StandardType.KGLangS1AGlue
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldSpUUnitary
 import CFSG.LocalAnalysis.StandardType.GGL45TGSU
 
 public section

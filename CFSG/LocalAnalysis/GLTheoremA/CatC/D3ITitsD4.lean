@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.D3ITits
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.D3IInner
-public import CFSG.LieType.BorelTits.Classical
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointReindexCovarianceBasic
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointDataCoordinates
 
 set_option linter.unusedSectionVars false
 

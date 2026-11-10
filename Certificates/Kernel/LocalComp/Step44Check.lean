@@ -5,7 +5,6 @@ public import Certificates.Kernel.LocalComp.Step44EnumL
 public import Certificates.Kernel.LocalComp.Step44EnumP
 public import Certificates.Kernel.LocalComp.Step44EnumQ
 public import Certificates.Kernel.LocalComp.HexaEnum
-public import Certificates.Kernel.LocalComp.HeAutPin
 public import Certificates.Kernel.LocalComp.HeSylowQECheck
 public import CFSG.Certificates.Kernel.Step44KSound
 public import CFSG.Certificates.Kernel.LocalCompUnpackList

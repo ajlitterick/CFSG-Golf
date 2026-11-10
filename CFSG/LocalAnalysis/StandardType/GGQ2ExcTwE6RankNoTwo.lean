@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcTwE6Defs
 public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6Holds
-public import CFSG.LocalAnalysis.StandardType.GGSixStepOneDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrU63Setup
 
 public section

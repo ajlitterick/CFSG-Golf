@@ -4,7 +4,6 @@ public import CFSG.Open.StatedDefs
 import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherIsotropicRadical
 import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 import CFSG.LieType.BorelTits.CompleteFlag
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

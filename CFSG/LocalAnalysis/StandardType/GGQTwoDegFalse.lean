@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDegDefs
-import CFSG.LocalAnalysis.StandardType.GGTypeAFiveProof
 import CFSG.LocalAnalysis.StandardType.GGTDAutomizer
 import CFSG.LocalAnalysis.AGLEmbedding.ToralCensusCentLift
-import Mathlib.Algebra.Group.Commutator
-import Mathlib.GroupTheory.Sylow
 
 public section
 

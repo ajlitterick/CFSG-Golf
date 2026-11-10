@@ -1,10 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaInnerFieldFrame
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaInnerSimilarity
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaInnerMatrixFrame
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaRadicalSetting
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaRadicalSettingW
 
 public section
 

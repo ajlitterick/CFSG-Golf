@@ -5,16 +5,8 @@ public import CFSG.Sporadic.Schreier.J4SInvolutionBase
 
 public import CFSG.Sporadic.Schreier.J4SInvCheck
 public import CFSG.Sporadic.Schreier.J4SProfileNodeBase1
-public import CFSG.Sporadic.Schreier.J4SLocalNodesBase1
-public import CFSG.Sporadic.Schreier.J4SNative
-public import CFSG.Sporadic.Schreier.J4SCols
-public import CFSG.Sporadic.Schreier.J4SInvData
-public import CFSG.Sporadic.Schreier.J4SOrbits
 public meta import CFSG.Sporadic.Schreier.J4SOrbits
-public import CFSG.Sporadic.Schreier.J4SSylowData
 public meta import CFSG.Sporadic.Schreier.J4SSylowData
-public import CFSG.Sporadic.J4.Local
-public import CFSG.Sporadic.J4.QT2LocCntProofBase
 
 @[expose] public noncomputable section
 

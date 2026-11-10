@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB82A10TLayer
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog82A10Perm
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBAlternatingLocal
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.AutAlternating
-import CFSG.LocalAnalysis.ComponentClassification.GSThmB8Action
-import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuotTools
 
 public section
 

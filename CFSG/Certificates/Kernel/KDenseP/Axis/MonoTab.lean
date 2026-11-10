@@ -8,7 +8,6 @@ public import CFSG.Certificates.Kernel.KDenseP.Axis.MonoG4
 public import CFSG.Certificates.Kernel.KDenseP.Axis.MonoG5
 public import CFSG.Certificates.Kernel.KDenseP.Axis.MonoG6
 public import CFSG.Certificates.Kernel.KDenseP.Axis.MonoG7
-public import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Common.ListOf
 
 public section

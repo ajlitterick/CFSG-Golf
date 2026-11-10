@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGAssemblyTwoHypSix
 public import CFSG.LocalAnalysis.StandardType.GGInnerDiagBridge
 public import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOther
-public import CFSG.LocalAnalysis.StandardType.GGSixStepOneOutdiagLabels
 
 public section
 

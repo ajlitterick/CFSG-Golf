@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Sec10Closed3
-public import CFSG.LocalAnalysis.RankFourTheoremC.PPointRankFour
-public import CFSG.HardMathSupport.Timmesfeld.ComponentBalance.PGroupNormalE4
 import CFSG.RankThree.PartOne.S9.Planes.Basic
 
 public section

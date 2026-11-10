@@ -2,23 +2,17 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RankLists
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.McLaughlin.WeakBlockModuleData.GlaubermanNiles
-public import CFSG.Open.StatedDefs
 public import CFSG.HardMathSupport.Cooperstein.StructureLie.OutTwoRank
-public import CFSG.LocalAnalysis.ComponentClassification.PerfectAutomorphisms
 public import CFSG.Alternating.Multipliers.Main
 public import CFSG.RankThree.PerfectCover.HopfCentralCoversSetup
 public import CFSG.Foundations.SteinbergCADefinitionNodes
-public import CFSG.Open.GriessAllModelsStatement
 public import CFSG.Milestones.CL_LIT_Griess_Schur_multipliers_Lie_type
-import CFSG.RankThree.PerfectCover.HopfFormula
 import CFSG.RankThree.PartOne.N143.Inspect613Even
 import CFSG.LocalAnalysis.QuasithinUnique.SQTK.UnitaryTauCeti
-import CFSG.LocalAnalysis.QuasithinUnique.SQTK.TypeB2Carrier
 import CFSG.RankThree.PartTwo.Census.Carrier.SpinBBridge
 import CFSG.RankThree.PartTwo.Census.Carrier.SpinTDBridge
 import CFSG.LargeExtraspecial.DW2AOut
 import CFSG.LocalAnalysis.ComponentClassification.SymmetricLocalLinearFourTwo
-import CFSG.LocalAnalysis.ComponentInitial.SmallLinearIsomorphisms
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Certificates.WordSubgroupRel
 public import CFSG.Foundations

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
 public import CFSG.GroupTheory.ABGLocalTools.Basic
 public import CFSG.RankThree.PartOne.CTP.StrongPGlue
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3BridgeA
 public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3BridgeA2
 
 public section

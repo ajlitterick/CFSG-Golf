@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Quasithin.Background.H12OneHatM22PfInputs
 public import CFSG.Certificates.Kernel.H12KSound
 
 public section

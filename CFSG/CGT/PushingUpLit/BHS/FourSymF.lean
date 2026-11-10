@@ -1,6 +1,5 @@
 module
 
-public import CFSG.CGT.PushingUpLit.BHS.FourSymA
 public import CFSG.CGT.PushingUpLit.BHS.FourSymE
 
 public section

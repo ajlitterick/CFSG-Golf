@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGOuterInvAtTwistedE6
 public import CFSG.LocalAnalysis.StandardType.GGTwE6OuterGenInvol
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Aut
 public import CFSG.LocalAnalysis.StandardType.GGRootCentKGStructE6Diag
-public import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
 public import CFSG.HardMathSupport.Dickson.Sec6.I923Fam.E6Aux.Diag
 
 public section

@@ -1,14 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockDefs
 public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockGUOrder
 public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockSpDecomp
 public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockSpIsoOneLinear
 public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockSpIsoUnitary
 public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockDict
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockDecomp
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.GeoAdj
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.StepA2
 public import CFSG.LocalAnalysis.EvenBN.U5.Sec3ProofModelL3
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotHR14SpAMain

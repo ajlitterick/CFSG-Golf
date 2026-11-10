@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec21.Commute33Rank
 public import CFSG.RankThree.PartTwo.Sec21.Item21EarlyProofQuasi
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Centralizer
 
 public section
 

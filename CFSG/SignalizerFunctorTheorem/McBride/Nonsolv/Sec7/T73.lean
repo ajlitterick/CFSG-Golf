@@ -1,6 +1,5 @@
 module
 
-public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec7.T73.Basic
 public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec7.T73.Inf
 
 public section

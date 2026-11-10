@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoBSStab
-import CFSG.LocalAnalysis.StandardType.GGQTwoSU34
-import CFSG.LocalAnalysis.StandardType.GGQTwoNativeGen
 import CFSG.LocalAnalysis.StandardType.GGQTwoSixGensWindows
 public import CFSG.LocalAnalysis.StandardType.GGQTwoSixDefs
 

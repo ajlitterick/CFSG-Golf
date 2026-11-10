@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGRealKGThree
 public import CFSG.LocalAnalysis.StandardType.GGRootSL2CoverTorus
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeRootGenKG
 public import CFSG.LocalAnalysis.StandardType.GGKGWeylReflOn
-import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Three
 
 public section
 

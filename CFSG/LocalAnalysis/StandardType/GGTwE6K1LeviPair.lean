@@ -54,7 +54,6 @@ import CFSG.Monster.GMS.Fi23Gen
 import CFSG.Monster.GMS.Fi23GenIso
 import CFSG.Monster.GMS.Fi23GenSix
 import CFSG.Monster.GMS.LeechCoh
-import CFSG.Monster.GMS.LeechCohGroup
 import CFSG.Monster.GMS.S365Center
 import CFSG.Monster.GMS.S37
 import CFSG.Monster.GMS.S4Assembly

@@ -1,10 +1,8 @@
 module
 
 public import CFSG.Sporadic.SmallOddCore.J2CheckInputs
-public import CFSG.Sporadic.SmallOddCore.CentData
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutNative
 public import Certificates.Data.GH74EvSporData
-public import Certificates.Data.CFSGNative.SporadicSchreier.Count
 public import CFSG.LocalAnalysis.ComponentClassification.M12CoverAutCentralizerData
 public meta import CFSG.Sporadic.SmallOddCore.J2CheckInputs
 public meta import CFSG.Sporadic.SmallOddCore.CentData

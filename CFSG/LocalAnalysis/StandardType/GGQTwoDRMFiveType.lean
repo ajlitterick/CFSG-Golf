@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDRMBridge
 public import CFSG.LocalAnalysis.StandardType.GGFrameRouteCard
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrWeylA
-public import CFSG.LocalAnalysis.StandardType.GGSpJoinCoxeterCard
-public import CFSG.LocalAnalysis.StandardType.GGSpFrameCoxeterCard
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthWeylOrdD
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoAux
 

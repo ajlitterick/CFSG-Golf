@@ -3,11 +3,8 @@ module
 
 public import Certificates.Certificate2274Base
 
-public import CFSG.Sporadic.SmallOddCore.HSWordBoundInputs
 public meta import CFSG.Sporadic.Schreier.PairHSCheck
 public meta import Certificates.Data.CFSGNative.PairSchreier.Counts
-public import CFSG.Sporadic.Schreier.PairHSCertInputs
-public import CFSG.Sporadic.Schreier.PairHSCheckInputs
 public meta import CFSG.Sporadic.Schreier.PairHSCert
 public meta import Certificates.Data.CFSGNative.PairSchreier.Core
 public meta import Certificates.Data.CFSGNative.Schreier.Check

@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.D42Tri.T2Data
 public import Certificates.Kernel.Sporadic.OddCore.MulHCmd
-public import Certificates.Data.Kernel.Spor.MulH
 public import Certificates.Data.Kernel.D42T2
 public import Certificates.Kernel.OmegaEight.Arr3009K
 meta import Certificates.Kernel.D42Tri.T2Data

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Timmesfeld.Tables.Census.Witness
-public import CFSG.Open.StatedDefs
 
 public section
 

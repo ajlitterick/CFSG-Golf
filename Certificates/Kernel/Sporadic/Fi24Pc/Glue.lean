@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.Sporadic.Fi24Pc.Data
 public import Certificates.Kernel.Sporadic.Fi24Pc.Checks.N
 public import Certificates.Kernel.Sporadic.Fi24Pc.Checks.R
 public import Certificates.Kernel.Sporadic.Fi24Pc.Checks.P0
@@ -11,13 +10,10 @@ public import Certificates.Kernel.Sporadic.Fi24Pc.Checks.X0
 public import Certificates.Kernel.Sporadic.Fi24Pc.Checks.X1
 public import Certificates.Kernel.Sporadic.Fi24Pc.Checks.X2
 public import Certificates.Kernel.Sporadic.Fi24Pc.Checks.X3
-public import Certificates.Kernel.Sporadic.Fi24Net.Letters
 public import CFSG.Certificates.Kernel.Spor.Fi24PcSound
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Fi24ThreeClasses
-public import CFSG.Certificates.Kernel.Spor.Fi24FixSound
 import CFSG.Certificates.Kernel.Common.ForallTree
 import CFSG.Certificates.Kernel.Common.SliceRange
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Sporadic.Fi24.Faithful
 public import CFSG.Sporadic.Fi24.SepSpec
 

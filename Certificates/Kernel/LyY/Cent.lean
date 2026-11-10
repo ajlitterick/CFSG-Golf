@@ -3,10 +3,8 @@ module
 public import Certificates.Kernel.LyY.ChainData
 public import Certificates.Kernel.LyY.ScanData
 public import Certificates.Kernel.LyTr.Data
-public import Certificates.Kernel.Misc.Perm.HexCmd
 public import Certificates.Data.Kernel.LyY.Cov
 public import Certificates.Data.Kernel.LyY.Orb
-public import CFSG.Sporadic.Recognition.LyonsAmalgamYInputs
 meta import CFSG.Sporadic.Recognition.LyonsAmalgamYInputs
 import CFSG.Certificates.Kernel.Common.Harness
 

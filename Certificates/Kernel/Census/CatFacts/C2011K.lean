@@ -2,8 +2,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallL34RankInputs
-public import CFSG.GH74.KGroups.Checks3
-public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourActionData
 public import Certificates.Data.Kernel.Census.CatFacts.PkDefs
 import all CFSG.LocalAnalysis.ComponentClassification.PSL3FourActionData
 

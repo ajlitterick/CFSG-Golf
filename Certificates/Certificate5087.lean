@@ -1,7 +1,5 @@
 module
 
-public import CFSG.GH74.GLS.C3.Prop121.L122Fin
-public import Mathlib.GroupTheory.Perm.Cycle.Type
 public import CFSG.GH74.GLS.C3.Prop121.Fin6ClauseInputs
 meta import CFSG.GH74.GLS.C3.Prop121.L122Fin
 meta import Mathlib.Algebra.Group.End

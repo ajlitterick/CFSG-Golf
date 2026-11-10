@@ -2,8 +2,6 @@ module
 
 public import CFSG.RankThree.PartOne.KP.MSection
 public import CFSG.Monster.SteinbergMY443NativeSurjective
-public import CFSG.Monster.Existence.DLevelRank
-public import CFSG.Sporadic.Bridge.Y443Relabel
 public import CFSG.Sporadic.Bridge.MonsterModels
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.GroupTheory.LocalCores.Fitting
@@ -14,7 +12,6 @@ public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Quasithin.Background.Basic
 public import CFSG.RankThree.PartOne.KP.MReduction
 public import CFSG.RankThree.PartOne.S8.Statements
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Basic
 public import CFSG.YGroups.DCE.MaximalB
 public import CFSG.YGroups.Y443.Native.AlignB

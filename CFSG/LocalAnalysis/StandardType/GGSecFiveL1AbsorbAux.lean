@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
-public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalanceBasic
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveL1PhanProjection
 
 public section

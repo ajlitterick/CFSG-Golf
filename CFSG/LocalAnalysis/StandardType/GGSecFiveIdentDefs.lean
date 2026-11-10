@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveCompatRestDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixRootCentralizerBasic
 public import CFSG.ClassicalInvolution.WeakCT.Defs
-public import CFSG.Quasithin.Background.A3ComponentsBasic
 public import CFSG.ClassicalInvolution.Phan.Blocks
 
 public section

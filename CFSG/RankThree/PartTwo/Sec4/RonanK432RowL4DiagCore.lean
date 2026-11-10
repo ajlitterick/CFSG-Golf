@@ -4,8 +4,6 @@ public import CFSG.RankThree.PartTwo.Sec4.RonanK432RowL4DiagPerm
 public import CFSG.RankThree.PartTwo.Sec4.RonanK432DiagThree
 public import CFSG.RankThree.PartTwo.Sec4.RonanK432L3HardAbs
 public import CFSG.RankThree.PartTwo.Sec4.RonanK432RowSL4W
-public import CFSG.RankThree.PartTwo.Sec4.RonanK432Rows
-public import CFSG.Open.PGLModelStated
 public import CFSG.Open.SplitBNPair
 public import CFSG.Quasithin.Vol2.Ch10StatementsE
 public import CFSG.Quasithin.Vol2.Ch10StatementsInputs

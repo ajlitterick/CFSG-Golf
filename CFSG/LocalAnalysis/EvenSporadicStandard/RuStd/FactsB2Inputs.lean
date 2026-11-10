@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HypOne.SylowFour
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoRu.HypOneInputs
-public import CFSG.Sporadic.Schreier.RuCheckInvInputs
 public meta import CFSG.LocalAnalysis.EvenSporadicStandard.HypOne.SylowFour
 public meta import CFSG.LocalAnalysis.EvenSporadicStandard.TwoRu.HypOneInputs
 public meta import CFSG.Sporadic.Schreier.RuCheckInvInputs
@@ -12,11 +11,8 @@ public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public meta import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public meta import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public meta import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public meta import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 public meta import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 public import CFSG.Walter.JRFacts
 public meta import CFSG.Walter.JRFacts

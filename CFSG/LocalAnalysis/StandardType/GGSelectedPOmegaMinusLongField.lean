@@ -1,13 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSelectedPOmegaMinusLong
-public import CFSG.LocalAnalysis.StandardType.GGSelectedModelOfChevalley
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosDefs
 import CFSG.LocalAnalysis.StandardType.PhanDNativeNodeMinus
-import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerMinusRank
 import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerMinusTorus
-import CFSG.LieType.Universal.Spin.Twisted.Extras
-public import CFSG.Sporadic.ThSchreier.GlobalData
 
 public section
 

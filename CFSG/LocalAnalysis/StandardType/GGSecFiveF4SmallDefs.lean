@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveDataResDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRest
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 
 public section
 

@@ -2,11 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentInnerBridge
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentInnerLeafDefs
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointDataCoordinateRegular
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.OrthBlocksComp
 public import CFSG.RankThree.PartOne.S11d.OrthLayer
 import CFSG.HardMathSupport.Dickson.Bal207.OrthFixedType
-import CFSG.RankThree.PartOne.KC.OrthogonalDerivedInLayer
 import CFSG.LocalAnalysis.StandardType.GGD4OddCentFieldMark
 public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Inputs
 public import CFSG.RankThree.PartOne.S11d.LieGoodConclusion

@@ -1,9 +1,6 @@
 module
 
-public import CFSG.Adapters.SpecialLinearPerfect
-public import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
 public import CFSG.LieType.Steinberg.CentralExt.SLMilnor
-public import CFSG.LieType.Steinberg.CentralExt.SLCentrallyClosed
 public import CFSG.LocalAnalysis.ComponentInitial.LinearFlagElation
 public import TauCeti.GroupTheory.QuotientGroup.KerEquiv
 public import CFSG.Assembly.Subnormal

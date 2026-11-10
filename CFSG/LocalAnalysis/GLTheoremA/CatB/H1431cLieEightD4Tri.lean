@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1431cLieEightOrth
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.OuterFourSeitzBal2
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.LayerCriterion
 
 public section
 

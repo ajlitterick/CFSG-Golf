@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.Sporadic.RawTreeGen
 public import Certificates.Data.Asch54SporFi22
 public meta import Certificates.Data.Asch54SporFi22
 import CFSG.Certificates.Kernel.Common.Harness

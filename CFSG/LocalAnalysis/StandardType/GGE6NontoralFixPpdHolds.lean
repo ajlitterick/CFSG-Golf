@@ -4,19 +4,12 @@ public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutOutdiagE6Glue
 import CFSG.LocalAnalysis.StandardType.GGE6OutdiagPpdToral
 import CFSG.LocalAnalysis.StandardType.GGE6OutdiagPpdKernel
 import CFSG.LocalAnalysis.StandardType.GGE6OutdiagPpdComp
-import CFSG.LocalAnalysis.StandardType.GGSixBstarE6ThreeIndex
 import CFSG.LocalAnalysis.StandardType.GGSixBstarE6ThreeFaithful
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T158MShE6ModelUntw
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.Subnormal
 import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcMonomial
 import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcToralityFive
 import CFSG.RankThree.GF2n.Stroth80.Sec3Zsig
 import CFSG.CGT.Timmesfeld75.Forms
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.LayerBridge
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.PlanesSetup
-import CFSG.HardMathSupport.Timmesfeld.LocalTwo.ExcInnerTorus
-import CFSG.RankThree.Chevalley.SteinbergBID4CentralKernel
-import CFSG.RankThree.Classical2.TwistedE6Phi3A2Case
 import CFSG.RankThree.GF2n.Stroth80.Anisotropic
 import CFSG.RankThree.GF2n.Stroth80.FrobClause
 import CFSG.RankThree.GF2n.Stroth80.GlobalModel
@@ -25,8 +18,6 @@ import CFSG.RankThree.GF2n.SupIndepDecomp
 import CFSG.RankThree.GF2n.Tim79CentC
 import CFSG.RankThree.GF2n.Tim79CentL
 import CFSG.RankThree.GF2n.Tim79Mod
-import CFSG.RankThree.PartOne.KE.E7FiveBlock
-import CFSG.RankThree.PartOne.KLCE.Sector
 
 public section
 

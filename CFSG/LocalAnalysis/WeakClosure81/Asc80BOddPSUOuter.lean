@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.WeakClosure81.Asc80BOddPSUOuterModel
 import CFSG.LocalAnalysis.WeakClosure81.Asc80BOddPSUOuterIso
 import CFSG.LocalAnalysis.WeakClosure81.Asc80BOddPSUOuterDiag
 import CFSG.LocalAnalysis.WeakClosure81.Asc80BOddPSUOuterGraph
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CGT.Timmesfeld75.Cfg214Gen
 public import CFSG.CGT.Timmesfeld75.L2Real
 public import CFSG.CGT.Timmesfeld75.Statements

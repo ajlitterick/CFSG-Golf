@@ -2,9 +2,7 @@ module
 
 public import Certificates.Data.Kernel.SmithEK
 public import CFSG.LargeExtraspecial.SMod20AutPluck
-import CFSG.Fischer.F4
 public import CFSG.Fischer.UnitaryAction
-public import Mathlib
 
 public section
 

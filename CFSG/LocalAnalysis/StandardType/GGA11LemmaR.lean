@@ -1,17 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGA11NbrDefs
-public import Mathlib.Data.Matrix.Mul
-public import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
-public import Mathlib.Algebra.Field.ZMod
-public import Mathlib.Tactic.LinearCombination
-public import Mathlib.Tactic.Module
-public import Mathlib.Data.Fintype.BigOperators
-public import Mathlib.GroupTheory.Perm.Fin
-public import Mathlib.LinearAlgebra.Matrix.SchurComplement
-public import Mathlib.GroupTheory.Perm.Sign
-public import Mathlib.Algebra.Group.Submonoid.Operations
-public import Mathlib.LinearAlgebra.FiniteDimensional.Basic
 
 public section
 

@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Fi24Syl.Data
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.AlphaFi24Data
 import CFSG.Certificates.Kernel.Common.EachTrue
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.AlphaOrbDefs
 
 set_option maxRecDepth 100000

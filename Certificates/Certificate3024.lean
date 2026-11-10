@@ -3,7 +3,6 @@ module
 
 public import Certificates.Certificate3024Base
 
-public import Certificates.Data.CFSGNative.Co1.Data
 import Certificates.Kernel.VecCert.Co1Final
 
 public section

@@ -2,10 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1CollinearDefs
 public import CFSG.LieType.HighestRoot.RootInvolution
-public import CFSG.Timmesfeld.Special.TwoCore
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortTransport
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OddCenter
-public import CFSG.Mathlib.GroupTheory.CardTwo
 
 public section
 

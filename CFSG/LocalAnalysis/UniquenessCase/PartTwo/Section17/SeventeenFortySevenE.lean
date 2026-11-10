@@ -1,27 +1,14 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.StatementsC
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.CartanRankBridge
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenFortyFourTorus
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.OutPRankBound
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.OutPRankNice
-public import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.Section17KFacts
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.Section17KFactsSmallRank
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenFortySix
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Fourteen3a
-public import CFSG.LocalAnalysis.UniquenessCase.UC6S846e
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P20w
-public import CFSG.LocalAnalysis.UniquenessCase.UC22P21c
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RankTable
 public import CFSG.RankThree.PartOne.MB3.OddOutLinear
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.InputsMisc7d
-public import CFSG.GroupTheory.CoprimeCentralizerRank
 public import CFSG.GroupTheory.PRankQuotientLift
-public import CFSG.GroupTheory.PGroup.RankTwoCommute
-public import CFSG.GroupTheory.ConjClosureCentralProduct
-public import CFSG.LocalAnalysis.SectionRank.GroupRankTransport
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentStepFour
 public import CFSG.GH74.GLS.Balance.Bender.Aux1
 public import CFSG.ClassicalGroups.Orthogonal.RootGroupFixedCard
 public import CFSG.GH74.GLS.Balance.PStarComp
@@ -41,7 +28,6 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly

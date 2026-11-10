@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TriA2Weyl
-public import CFSG.LieType.Steinberg.TwistedD4.RankOne
 
 public section
 

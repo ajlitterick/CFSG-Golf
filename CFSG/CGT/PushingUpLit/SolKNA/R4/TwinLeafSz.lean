@@ -1,9 +1,6 @@
 module
 
 public import CFSG.CGT.PushingUpLit.SolKNA.R4.TwinLeafAut
-public import CFSG.ClassicalInvolution.SmallCases.NobqSz
-public import CFSG.LieType.Suzuki.SuzukiOuterCyclic
-public import CFSG.LieType.Ree.SuzukiSimple
 public import CFSG.CGT.PushingUpLit.SolKNA.R4.TwinEdgeDefs
 public import CFSG.CGT.PushingUpLit.SolKNA.R4.TwinEdgeSocCyc4
 public import CFSG.CGT.PushingUpLit.SolKNA.R4.TwinLeafLocal
@@ -28,7 +25,6 @@ public import CFSG.ClassicalInvolution.Q3.Q3T8P26T01
 public import CFSG.ClassicalInvolution.Q3.Q3T8P26T02
 public import CFSG.ClassicalInvolution.Q3.Q3T8P26TH01
 public import CFSG.ClassicalInvolution.Q3.TA3SOLCore
-public import CFSG.ClassicalInvolution.Q3.TA3SOLCoreRank
 public import CFSG.ClassicalInvolution.Q3.TA3SmallModelM12
 public import CFSG.ClassicalInvolution.Q3.TL3S8Gold
 public import CFSG.ClassicalInvolution.Q3.TL3S8Sd
@@ -64,7 +60,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.AschbacherTheorem3WeakC
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.AschbacherCanonicalRemaining
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.ExceptionalEightPlaneCentralizer
 public import CFSG.Permutation.BurnsideSchur
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ConjugatedInvertedSubgroup
 public import CFSG.Timmesfeld.Moufang.Three
 
 public section

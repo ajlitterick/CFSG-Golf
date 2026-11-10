@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1P54F3E7Theta
-public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcE7Data
 
 public section
 

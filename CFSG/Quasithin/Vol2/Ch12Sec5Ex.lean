@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.Ch12Sec5Aut
-public import CFSG.Quasithin.Vol2.Ch12Sec2OrbitL52Rep
-public import CFSG.Quasithin.Vol2.Ch12Sec4Pre
 public import CFSG.Quasithin.Vol2.Ch12Sec4L5Cx
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic

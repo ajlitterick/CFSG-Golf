@@ -4,12 +4,8 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight91Defs
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KStrongEmbedded72Holds
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight102Quot
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.OutPRankBound
-import CFSG.GroupTheory.CoprimeCentralizerRank
-import CFSG.GroupTheory.PRankCoprimeQuotient
-import CFSG.GroupTheory.PGroup.ElemAbelianSq
 import CFSG.GroupTheory.PerfectSubgroupNormalMeet
 import CFSG.GroupTheory.PRankCommutingSup
-import CFSG.LocalAnalysis.GLTheoremB.PCompBasics
 public import CFSG.CGT.PushingUpLit.CGT6.SixFourCoreSL
 public import CFSG.CGT.PushingUpLit.Glue.NineContentGlue
 public import CFSG.CGT.PushingUpLit.NineContent

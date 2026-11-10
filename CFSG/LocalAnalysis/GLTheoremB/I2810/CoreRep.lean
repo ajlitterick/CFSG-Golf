@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremB.I2810.Defs
 import CFSG.SignalizerFunctorTheorem.NonLocal.ModuleOfV
 import CFSG.HardMathSupport.Solomon.Coordinator.I28_5
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Semidihedral.ElementStructure
 public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Inputs
 public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec7Layer
@@ -22,9 +20,6 @@ public import CFSG.Quasithin.Background.A3ComponentsCore
 public import CFSG.Quasithin.Background.B15P4LayerDict
 public import CFSG.Quasithin.Background.B1MoreNineG
 public import CFSG.Quasithin.Background.F2Equiv
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.Sporadic.Recognition.SuzMultiplierInputs
 public import Certificates.Kernel.Misc.Coset.SuzRhoJ2A.All
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public import CFSG.Certificates.Kernel.Misc.HexFlatSound
 public import CFSG.Certificates.Kernel.Misc.Coset.ActPermRep
@@ -11,8 +10,6 @@ public import Certificates.Kernel.CosetJ.Cover
 public import Certificates.Kernel.Bounds.Suz.Binding
 import Certificates.Kernel.CosetJ.RhoPerm
 import CFSG.Sporadic.Recognition.CoverTransferWords
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 import all CFSG.Sporadic.Recognition.SuzMultiplierInputs
 import all CFSG.LieType.Multipliers.CoverWords
 import all CFSG.Certificates.CentralizerRelations

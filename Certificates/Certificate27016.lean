@@ -1,8 +1,6 @@
 module
 
-public import Certificates.Data.TitsAschbacherSecFour
 public import Certificates.Kernel.EvenBN.CNtEq
-public import Certificates.Kernel.EvenBN.Lists
 public import Certificates.Kernel.EvenBN.K27016S0
 public import Certificates.Kernel.EvenBN.K27016S1
 public import Certificates.Kernel.EvenBN.K27016S2
@@ -11,8 +9,6 @@ public import Certificates.Kernel.EvenBN.K27016S4
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.EvenBN.BaseTwCSound
 import CFSG.Certificates.Kernel.MonsterB.Co2MatSound
-import CFSG.Certificates.Kernel.Spor.SiftRSound
-public import Certificates.Certificate7050Base
 
 public section
 

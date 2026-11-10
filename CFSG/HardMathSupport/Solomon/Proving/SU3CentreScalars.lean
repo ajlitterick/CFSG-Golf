@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.Ch10SecKGA318
-public import CFSG.Open.StatedDefs
 public import CFSG.Quasithin.Background.A3Structure319
 public import CFSG.Quasithin.Vol2.Ch11SecAFacts02
 public import CFSG.Quasithin.Vol2.Ch11SecAFacts03

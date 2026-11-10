@@ -1,15 +1,8 @@
 module
 
 public import CFSG.GF2Type.Smith1980Orth.W4PlusP3
-public import CFSG.GF2Type.Smith1980Orth.W4PlusInv
 public import CFSG.GF2Type.Smith1980Orth.W4PlusSum
-public import CFSG.GF2Type.Smith1980Orth.S3Good
-public import CFSG.GF2Type.Smith1980Orth.S3Count
-public import CFSG.GF2Type.Smith1980Orth.S3ThmACaseI
 public import CFSG.GF2Type.Smith1980Orth.S3ThmAW4
-public import CFSG.LargeExtraspecial.S14SMFOne
-public import CFSG.LargeExtraspecial.S14SMKTransLift
-public import CFSG.LargeExtraspecial.S3bThirteen
 
 public section
 

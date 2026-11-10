@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaGroup
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldLinearLang
-public import CFSG.GroupTheory.WeirSylow.OrthogonalOrders
 
 public section
 

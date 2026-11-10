@@ -4,13 +4,9 @@ public import CFSG.LocalAnalysis.StandardType.GGTBJXDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyWeylGenModel
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyWeylGenLift
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcWeylGenAdjoint
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcWeylNormAdjoint
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Basic
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSylow
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267BadExcToralRank
 public import CFSG.LocalAnalysis.StandardType.GGLatRootBridge
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwE8Model
 
 public section
 

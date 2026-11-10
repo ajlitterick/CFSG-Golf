@@ -3,14 +3,11 @@ module
 
 public import Certificates.Certificate2301Base
 
-public import CFSG.Sporadic.SuzOddCore.InvGraphCheckInputs
 public meta import CFSG.Sporadic.SuzOddCore.InvArraysCheck
 public meta import Certificates.Data.CFSGNative.Schreier.Refine
 public meta import Mathlib.Data.Fintype.Card
 import Certificates.Kernel.Sporadic.OddCore.S2301Final
 import Certificates.Kernel.Sporadic.OddCore.S2301Neg
-import CFSG.Sporadic.SuzOddCore.ArraysCheckInputs
-import CFSG.Sporadic.SuzOddCore.FamilyCheckInputs
 meta import CFSG.Sporadic.SuzOddCore.ArraysCheck
 meta import Certificates.Data.CFSGNative.Perm.Chain
 

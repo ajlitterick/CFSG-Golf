@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoVACSplit
 public import CFSG.LocalAnalysis.StandardType.GGHalfCentralizer
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
 
 public section
 

@@ -5,9 +5,6 @@ public meta import CFSG.Sporadic.ONOddCore.LiftPayload
 public meta import CFSG.Sporadic.ONOddCore.QuotOuterCheck
 public meta import CFSG.Sporadic.Schreier.ONCheckAux
 import Certificates.Kernel.Sporadic.OddCore.ON2120K
-import Certificates.Certificate2212
-import Certificates.Certificate2217
-import Certificates.Certificate3171
 
 public section
 

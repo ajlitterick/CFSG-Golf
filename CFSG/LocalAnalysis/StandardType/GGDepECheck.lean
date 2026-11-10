@@ -1,9 +1,7 @@
 module
 
-public import Certificates.Data.DepASmall
 public import CFSG.LocalAnalysis.StandardType.GGDepEDefs
 public import CFSG.LocalAnalysis.StandardType.GGDepAThreeCheck
-public import CFSG.LocalAnalysis.StandardType.GGDepASmallNat
 
 public section
 

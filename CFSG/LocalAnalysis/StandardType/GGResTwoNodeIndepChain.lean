@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeIndepDefs
-public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeDefs
 public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3Defs
 public import TauCeti.GroupTheory.Coxeter.Matrix
-public import CFSG.YGroups.Y443.Native.Hom
 
 public section
 

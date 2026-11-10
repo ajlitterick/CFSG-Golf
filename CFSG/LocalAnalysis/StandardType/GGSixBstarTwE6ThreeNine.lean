@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcSixETwisted
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarNormalizerAut
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarNormalizerAutTwoLocal
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarNormalizerAutInduces
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderExcRestProof

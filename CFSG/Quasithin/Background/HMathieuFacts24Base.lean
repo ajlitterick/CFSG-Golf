@@ -1,24 +1,10 @@
 
 module
 
-public import CFSG.Quasithin.Background.HMathieuFacts22Base
-public import CFSG.Quasithin.Background.HMathieuSyl24GreedyBase
-public import CFSG.Quasithin.Background.HMathieuSyl24Odd
 public meta import CFSG.Quasithin.Background.HMathieuSyl24
-public import CFSG.Sporadic.Schreier.M24Data
 public meta import CFSG.Sporadic.Schreier.M24Data
-public import CFSG.Sporadic.Schreier.MathieuOddCoreM24Data
 public meta import CFSG.Sporadic.Schreier.MathieuOddCoreM24Data
-public import Certificates.Data.CFSGNative.Mathieu.M24
-public import CFSG.Monster.B.Mathieu.M24CheckInputs
 public import CFSG.Quasithin.Background.HMathieuFacts24Inputs
-public import CFSG.Quasithin.Background.HMathieuCentInputs
-public import CFSG.Quasithin.Background.HMathieuMask
-public import CFSG.Quasithin.Background.HMathieuSyl24Inputs
-public import CFSG.Quasithin.Background.HMathieuPT24
-public import CFSG.Quasithin.Background.HMathieuAvoid
-public import CFSG.Quasithin.Background.HMathieuEnumAll
-public import CFSG.Quasithin.Background.HMathieuSyl24
 
 @[expose] public section
 

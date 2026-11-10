@@ -2,11 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwoPlaneThree
 public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitOmGlue
-public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitOmFix
 public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionWitOmBlkCore
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthogonalDiag
-public import CFSG.LocalAnalysis.StandardType.GGInterfaceSix
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.Data.Nat.Notation
 public import CFSG.LieType.Multipliers.Sz8Matrix
 public import CFSG.LieType.Multipliers.CoverWords
 public import CFSG.Certificates.CosetTableShort

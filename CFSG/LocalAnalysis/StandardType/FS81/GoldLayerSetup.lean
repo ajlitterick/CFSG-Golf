@@ -3,8 +3,6 @@ module
 public import CFSG.Goldschmidt.Steps.G41
 public import CFSG.Goldschmidt.Steps.G310Comp
 import CFSG.Goldschmidt.Steps.Red1
-import CFSG.Goldschmidt.Steps.G3aGlue
-import CFSG.Goldschmidt.Steps.G3aFStar
 public import CFSG.Adapters.GeneralizedFitting
 public import CFSG.Goldschmidt.Statements
 public import CFSG.Goldschmidt.StatementsH
@@ -23,7 +21,6 @@ public import CFSG.LocalAnalysis.LargeEvenClassification.MacWilliamsReduction
 public import CFSG.LocalAnalysis.LargeEvenClassification.SmallCfourFullObstruction
 public import CFSG.LocalAnalysis.LargeEvenClassification.SmallCfourProperSubgroups
 public import CFSG.LocalAnalysis.RankTwoShapes.AlperinFusion
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.Bender1970.S3.Setup
 public import Certificates.Certificate1
 public import Certificates.Certificate10

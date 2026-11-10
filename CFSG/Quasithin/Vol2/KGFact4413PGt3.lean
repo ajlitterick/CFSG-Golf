@@ -1,9 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.KGFact4413L3K
-public import CFSG.Quasithin.Vol2.KGFact4413One
-public import CFSG.Quasithin.Vol2.KGFact4413L2
-public import CFSG.Quasithin.Vol2.KGFact4413Sz
 public import CFSG.Quasithin.Vol2.KGFact4413U3
 public import CFSG.Quasithin.Vol2.KGFact4413Sp
 public import CFSG.Quasithin.Vol2.KGFact4413Bridge
@@ -55,9 +52,7 @@ public import CFSG.Quasithin.Background.A3Structure318Red
 public import CFSG.Quasithin.Background.A3Structure36A
 public import CFSG.Quasithin.Background.A3Structure36BAction
 public import CFSG.Quasithin.Background.A3Structure36BBase
-public import CFSG.Quasithin.Background.A3Structure36BCase3Base
 public import CFSG.Quasithin.Background.A3Structure36BCasesBase
-public import CFSG.Quasithin.Background.A3Structure36BCommonBase
 public import CFSG.Quasithin.Background.A3Structure36BFrattini
 public import CFSG.Quasithin.Background.A3Structure36BHeisBase
 public import CFSG.Quasithin.Background.A3Structure36BHomocyclic
@@ -92,7 +87,6 @@ public import CFSG.Quasithin.Vol2.Ch11StatementsInputs
 public import CFSG.Quasithin.Vol2.Ch4Sec4W443
 public import CFSG.Quasithin.Vol2.Ch5Sec1Lem512
 public import CFSG.Quasithin.Vol2.KGFact4413Borel
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis

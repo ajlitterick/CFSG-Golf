@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.MaxD2.McLP.Enum
 public import Certificates.Kernel.MaxD2.McLP.Data
-public import Certificates.Data.Kernel.MaxD2.Check
 public import Certificates.Data.Kernel.MaxD2.Heis
 public import Certificates.Data.McLFiveLocalP
 import CFSG.Certificates.Kernel.Common.Harness

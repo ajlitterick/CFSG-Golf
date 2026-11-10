@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallOrthUnFinal
-public import CFSG.LocalAnalysis.StandardType.GGBstarLIDTwDFieldRad
 public import CFSG.LocalAnalysis.StandardType.GGIOneRestFiveOrthMinusLayer
 
 public section

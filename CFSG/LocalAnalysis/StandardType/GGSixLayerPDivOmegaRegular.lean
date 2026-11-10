@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerPDivBasic
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsOmegaRegular
-public import CFSG.GroupTheory.WeirSylow.OrthogonalOrders
 
 public section
 

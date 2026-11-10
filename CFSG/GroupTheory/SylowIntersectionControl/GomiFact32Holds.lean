@@ -1,9 +1,7 @@
 module
 
 public import CFSG.GroupTheory.SylowIntersectionControl.GomiFactsGF2
-import CFSG.Quasithin.Background.D2Basic
 import CFSG.Quasithin.Background.G64NatTop
-import CFSG.Quasithin.Background.ConjTransport
 import CFSG.Quasithin.Background.F918Z8Kw2
 import CFSG.GroupTheory.ABGLocalTools.FixedPointCount
 import CFSG.Quasithin.Vol2.Ch12Sec2Lem25A
@@ -28,19 +26,14 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.DefsE
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs12d
 public import CFSG.Monster.Code.Weights
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.B1Restrict
 public import CFSG.Quasithin.Background.B4Statement
 public import CFSG.Quasithin.Background.F6GoldschmidtList
 public import CFSG.Quasithin.EmptyFaithful.Setting
 public import CFSG.Quasithin.Recognition.GoldschmidtTripleQuotient
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 import CFSG.CGT.PushingUp.BenderBridge
 import CFSG.CGT.PushingUp.BlockOrder
 import CFSG.CGT.PushingUpLit.BHS.SymNatDefs

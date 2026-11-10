@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GroupTheory.CommutingMovingElemAbelian
-public import TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.Symplectic.Diagonal.Basic
 
 public section
 

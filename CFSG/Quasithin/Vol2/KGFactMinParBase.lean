@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Background.B6Defs
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatCore
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatExport
 public import CFSG.Quasithin.Background.Basic
 

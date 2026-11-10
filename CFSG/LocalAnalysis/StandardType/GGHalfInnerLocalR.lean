@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGHalfInnerLocal
 public import CFSG.LocalAnalysis.StandardType.GGHalfInnerCommB
 public import CFSG.LocalAnalysis.StandardType.GGHalfInnerConj
 

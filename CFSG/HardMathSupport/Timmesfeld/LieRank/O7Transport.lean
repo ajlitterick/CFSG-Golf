@@ -1,8 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Timmesfeld.LieRank.O7Elts
-public import CFSG.Open.StatedDefs
-public import Mathlib.LinearAlgebra.Matrix.Reindex
 public import CFSG.ClassicalInvolution.Orders.Orthogonal
 public import CFSG.LieType.Universal.SpinOmega.Range
 

@@ -4,10 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTBJE6LeviFrame
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6LeviClass
 public import CFSG.LocalAnalysis.StandardType.GGTBE6IndTwistAlign
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcTwE6Sylow
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTorus
-public import CFSG.HardMathSupport.Timmesfeld.Torality.Conjugacy
-public import CFSG.RankThree.PartOne.TCX.Tri.TorusCentral
-public import CFSG.LieType.Chevalley.CLSOddE7RationalDerivedIndex
 
 public section
 

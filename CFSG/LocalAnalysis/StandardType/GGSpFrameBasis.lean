@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSpFrameRefl
-public import Mathlib.LinearAlgebra.Basis.VectorSpace
-public import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
-public import Mathlib.Data.Fin.Basic
-public import Mathlib.Logic.Equiv.Fin.Basic
 
 public section
 

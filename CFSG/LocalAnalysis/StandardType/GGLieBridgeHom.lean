@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Assembly.Defs
-public import CFSG.Open.LocalVocabulary
 
 public section
 

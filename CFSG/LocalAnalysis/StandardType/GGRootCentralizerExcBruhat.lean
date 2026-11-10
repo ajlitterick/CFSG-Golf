@@ -1,18 +1,8 @@
 module
 
-public import CFSG.LieType.Chevalley.StandardParabolicCells
-public import CFSG.LieType.Chevalley.ParabolicWeylStabilizer
-public import CFSG.LieType.Chevalley.ProductInjectivity
-public import CFSG.LieType.Chevalley.OppositeBorel
-public import CFSG.LieType.Chevalley.LongestElement
-public import CFSG.LieType.Chevalley.PositiveRootCollection
-public import CFSG.LieType.Chevalley.GraphFixedCoordinateDetection
-public import CFSG.LieType.Chevalley.SimpleWeylComplement
 public import CFSG.LieType.Chevalley.KernelComponentRoots
 public import CFSG.LieType.Chevalley.ParabolicRadicalLevi
 public import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
-public import CFSG.LieType.Chevalley.RootCharacterConjugation
-public import CFSG.LieType.Chevalley.HeightSeries
 
 public section
 

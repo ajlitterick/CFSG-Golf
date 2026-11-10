@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312M24Z4b
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312ExtShapesExtra
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312M24Glue
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312M24Subs
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListBender
 

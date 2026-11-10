@@ -6,10 +6,7 @@ public import Certificates.Kernel.Sporadic.ON8.Lin
 public import Certificates.Kernel.Sporadic.ON3.Final
 public import Certificates.Kernel.Sporadic.OddCore.ON2129F
 public import CFSG.Certificates.Kernel.L34KSnd.Tab
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.ONanParCheckInputs
 public meta import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.ONanParCheckInputs
-import CFSG.Certificates.Kernel.Common.Harness
-import Certificates.Kernel.Sporadic.ON.Gen
 import Certificates.Kernel.Sporadic.ONPar.Neg
 import Certificates.Kernel.Sporadic.ONPar.NegE
 

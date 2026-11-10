@@ -1,10 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.FS81.EvenN0Mat
-public import CFSG.LocalAnalysis.StandardType.FS81.EvenN0Rep
-public import CFSG.LocalAnalysis.StandardType.FS81.EvenN0Line
 public import CFSG.LocalAnalysis.StandardType.FS81.N7N0Line
-public import CFSG.LocalAnalysis.StandardType.FS81.N6Split
 public import CFSG.LocalAnalysis.StandardType.FS81.N7MainRecOut
 public import CFSG.LocalAnalysis.StandardType.FS81.N6All
 

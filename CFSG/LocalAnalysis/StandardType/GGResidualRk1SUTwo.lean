@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinQFourExact
-public import CFSG.ClassicalInvolution.Phan.Defs
-import CFSG.ClassicalInvolution.Models.UnitaryPairs.RootSU2
-import CFSG.LieType.Steinberg.CentralExt.UnitaryField
 import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylEltOfAutomizer
 import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseLabel
 

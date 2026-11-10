@@ -4,11 +4,7 @@ public import Certificates.Kernel.He7222.GlueScan
 public import Certificates.Kernel.He7222.KBndK
 public import CFSG.Certificates.Kernel.He7222.ChainPRepLe
 public import CFSG.Certificates.Kernel.He7222.FibGrp
-public import CFSG.Certificates.Kernel.He7222.KChSound
-public import CFSG.Certificates.Kernel.He7222.ClsSound
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.OrbRow.LevelSound
-import CFSG.Certificates.Kernel.Spor.PcompFacts
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1Defs
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.B113LieSpCent
 
 public section
 

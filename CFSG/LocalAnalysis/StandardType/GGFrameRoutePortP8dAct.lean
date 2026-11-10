@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBTransport
 public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
-public import CFSG.LocalAnalysis.StandardType.GGTableBBstar
 
 public section
 

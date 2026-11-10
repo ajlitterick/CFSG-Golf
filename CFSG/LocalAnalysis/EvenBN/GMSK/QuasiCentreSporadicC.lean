@@ -39,7 +39,6 @@ public import CFSG.Sporadic.Schreier.LyFixedSet
 public import CFSG.Sporadic.SuzOddCore.SmallActionData
 public import CFSG.Sporadic.Th.CertificateBase
 public import CFSG.Sporadic.Th.CertificateBase1
-public import CFSG.Sporadic.ThSchreier.KernelAutBase
 public import CFSG.Sporadic.ThSchreier.KernelAutBase1
 public import CFSG.Sporadic.ThSchreier.ThSchreierCase
 

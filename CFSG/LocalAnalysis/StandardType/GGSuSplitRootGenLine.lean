@@ -2,10 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSuSplitRootGenDefs
 public import CFSG.LocalAnalysis.StandardType.GGSlNsRootGenTorus
-public import TauCeti.LinearAlgebra.Matrix.Diagonal
 public import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockUniBlocks
 public import CFSG.HardMathSupport.Curtis.UnitaryLevi.UnitaryBlocks
-public import CFSG.Assembly.Defs
 
 public section
 

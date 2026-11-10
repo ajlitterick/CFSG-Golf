@@ -1,19 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeTableZDefs
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6RatLabel
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeScLift
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUStd
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcInnerLang.TwE6
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24CentreHom
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24A2CubeCentre
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeE6ToralCoreUntwCore
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUAut
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.PlanesSetup
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.RigidCriterion
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.RigidNorm
-public import CFSG.RankThree.PartOne.KE.E7FiveBlock
 import CFSG.Goldschmidt.Steps.G37Core
 import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.Basic
 import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.InnExcLang
@@ -24,9 +15,6 @@ import CFSG.HardMathSupport.Solomon.Coordinator.L3FATArith
 import CFSG.HardMathSupport.Solomon.Coordinator.L3G515Core
 import CFSG.HardMathSupport.Solomon.Coordinator.L3NoSLInner
 import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma55
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.CentralizerTrivialPoly
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.OuterField
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.RigidField
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Block
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Basic245C61
 import CFSG.Quasithin.Background.A3Structure314
@@ -35,10 +23,6 @@ import CFSG.Quasithin.Background.C1GNSolvConnect
 import CFSG.Quasithin.Background.C1PackS1531Top
 import CFSG.Quasithin.Background.E2Statements
 import CFSG.Quasithin.Background.E3
-import CFSG.Quasithin.Background.E3Nprime
-import CFSG.Quasithin.Background.E3Uniq
-import CFSG.Quasithin.Background.F6CatRecogL2
-import CFSG.Quasithin.Background.F6CatRecogTools2
 import CFSG.Quasithin.Background.F918C6
 import CFSG.Quasithin.Background.FFC7G
 import CFSG.Quasithin.Background.FFC8A
@@ -62,24 +46,10 @@ import CFSG.Quasithin.Vol2.Ch10SecB6Rank
 import CFSG.Quasithin.Vol2.Ch10SecB6S21
 import CFSG.Quasithin.Vol2.Ch10SecB6Syl
 import CFSG.Quasithin.Vol2.Ch10SecKGC27b
-import CFSG.Quasithin.Vol2.Ch11SecA02NatFix
-import CFSG.Quasithin.Vol2.Ch11SecA02Setup
-import CFSG.Quasithin.Vol2.Ch11SecA03Basic
-import CFSG.Quasithin.Vol2.Ch11SecA04Glue
-import CFSG.Quasithin.Vol2.Ch11SecA11Exists
-import CFSG.Quasithin.Vol2.Ch11SecA14Conj
 import CFSG.Quasithin.Vol2.Ch11SecAFacts12b
-import CFSG.Quasithin.Vol2.Ch11SecAFactsDelta
-import CFSG.Quasithin.Vol2.Ch11SecAViN13
 import CFSG.Quasithin.Vol2.Ch11SecQ9bKGC
-import CFSG.Quasithin.Vol2.Ch11SecSFacts2
-import CFSG.Quasithin.Vol2.Ch11SecSFacts3
-import CFSG.Quasithin.Vol2.Ch11SecSG2Sp4
-import CFSG.Quasithin.Vol2.Ch11SecSI3
-import CFSG.Quasithin.Vol2.Ch11SecSObl
 import CFSG.Quasithin.Vol2.Ch9KGFFQR
 import CFSG.Quasithin.Vol2.Ch9KGFFQRCase
-import CFSG.Walter.J1Props
 import Certificates.Kernel.J4Count.Prim
 
 public section

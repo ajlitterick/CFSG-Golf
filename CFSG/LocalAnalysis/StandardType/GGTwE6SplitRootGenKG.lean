@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTwE6SplitRootGenSCFive
 public import CFSG.LocalAnalysis.StandardType.GGTwE6SplitRootGenSCThree
 public import CFSG.LocalAnalysis.StandardType.GGRootGenAvoidCenterPrime
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaCenter
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInner937TwE6Inn
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInner937TwE6Center
 

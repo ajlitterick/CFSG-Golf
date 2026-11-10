@@ -1,15 +1,12 @@
 
 module
 
-public import Certificates.Kernel.SporSch.Ru.E64K
 public import Certificates.Kernel.SporSch.Ru.E64Misc
 public import CFSG.Quasithin.Vol2.KGFactG2RuE64Base
 import Certificates.Kernel.SporSch.Ru.G2Ru7164
 import Certificates.Kernel.Misc.RuSq.Bind
 import CFSG.Certificates.Kernel.Misc.RuInvCov
 import CFSG.Certificates.SchreierBaseImageDecoding
-import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import Mathlib.Tactic.IntervalCases
 import CFSG.Certificates.Kernel.Common.ForallTree
 public import Certificates.Kernel.SporSch.Ru.E64Rows0
 public import Certificates.Kernel.SporSch.Ru.E64Rows1

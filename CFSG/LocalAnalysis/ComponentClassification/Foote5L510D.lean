@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.Foote5L510C
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.Asc76Defs
 public import CFSG.LocalAnalysis.ComponentClassification.AutL2FactsFieldAut
 public import CFSG.LocalAnalysis.ComponentClassification.AutL2FactsSquareProd

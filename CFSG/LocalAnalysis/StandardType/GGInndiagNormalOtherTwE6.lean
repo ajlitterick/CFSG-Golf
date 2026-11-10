@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOtherE6
-public import CFSG.LieType.Chevalley.TwistedE6NormalForm
 
 public section
 

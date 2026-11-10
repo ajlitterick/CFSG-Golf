@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRootCentNotExcRows
 public import CFSG.LocalAnalysis.StandardType.GGKGroupFusionFlatSeitzExc
-public import CFSG.LocalAnalysis.StandardType.GGKGroupFusionSeitzExcTransport
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.MsideParabolicEscape.I811.Tools
 public import CFSG.Holt.Centralizer
 public import CFSG.LocalAnalysis.AGLEmbedding.MSideAtFusion

@@ -3,7 +3,6 @@ module
 public import CFSG.ClassicalInvolution.RouteD.TWS8Geo3
 public import CFSG.ClassicalInvolution.RouteD.TWS8CA
 public import CFSG.ClassicalInvolution.RouteD.TWS6SCount
-public import CFSG.ClassicalInvolution.ModelFacts.G2D4Block
 
 public section
 

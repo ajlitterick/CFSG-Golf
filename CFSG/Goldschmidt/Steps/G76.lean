@@ -1,26 +1,15 @@
 module
 
 public import CFSG.Goldschmidt.StatementsG3
-import CFSG.Goldschmidt.StrongClosure
 import CFSG.Goldschmidt.Steps.G76Basic
 import CFSG.Goldschmidt.Steps.G76L2
 import CFSG.Goldschmidt.Steps.G76TypeI
-import CFSG.Goldschmidt.Steps.G73Basic
 import CFSG.Goldschmidt.Steps.G74Basic
-import CFSG.Goldschmidt.Steps.G36Setup
 import CFSG.Goldschmidt.Steps.G36
-import CFSG.Goldschmidt.Steps.G3aBorel
 import CFSG.Goldschmidt.Steps.G3NewPair
 import CFSG.Goldschmidt.Steps.PaperClosure
 import CFSG.Goldschmidt.Steps.G3aFStar
-import CFSG.Walter.Bender1970.S3.Basic
-import CFSG.Walter.Bender1970.S3.FStar
-import CFSG.Walter.Bender1970.S4.Rank
 import CFSG.Walter.Bender1970.S4.ComponentTools
-import CFSG.Walter.Bender1970.S2.Layer
-import CFSG.Walter.Bender1970.S2.Subnormal
-import CFSG.Walter.Bender1970.S38.Basic
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970_18
 public import CFSG.Goldschmidt.Statements
 public import CFSG.Goldschmidt.StatementsG
 public import CFSG.Goldschmidt.StatementsG2
@@ -40,7 +29,6 @@ public import CFSG.LocalAnalysis.LargeEvenClassification.MacWilliamsReduction
 public import CFSG.LocalAnalysis.LargeEvenClassification.SmallCfourFullObstruction
 public import CFSG.LocalAnalysis.LargeEvenClassification.SmallCfourProperSubgroups
 public import CFSG.LocalAnalysis.RankTwoShapes.AlperinFusion
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.JRFacts
 import CFSG.Walter.Bender1970.S1
 import CFSG.Walter.Bender1970.S2

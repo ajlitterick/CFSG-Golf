@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIpIso
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIpData
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIpK1b
 
 public section

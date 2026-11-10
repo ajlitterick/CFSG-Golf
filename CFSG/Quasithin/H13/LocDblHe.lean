@@ -1,19 +1,12 @@
 module
 
-public import CFSG.Quasithin.H13.LocDblHeData
-public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicHe
-public import Certificates.Data.CFSGNative.H13.LocDblDc
 public meta import CFSG.Quasithin.H13.LocDblHeEdges1
 public meta import CFSG.Quasithin.H13.LocDblHeEdges2
 public meta import CFSG.Quasithin.H13.LocDblHeEdges3
 public meta import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicBaseNative
 public meta import Certificates.Data.CFSGNative.He.Certificate
 public import CFSG.Quasithin.H13.LocDblHeCheckInputs
-public import CFSG.Quasithin.H13.LocDblDcSylow
-import CFSG.Blueprint.NativeSporadic
-public import Certificates.Certificate3168
 public import Certificates.Certificate7030
-public import Certificates.Certificate4141
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListMain
 
 public section

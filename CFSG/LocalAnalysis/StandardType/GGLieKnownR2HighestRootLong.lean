@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2HighestRootCores
-public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
-public import CFSG.LieType.HighestRoot.Gen
 
 public section
 

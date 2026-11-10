@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.M24Std.CU43Inputs
 public import Certificates.Data.CatFactsL4U4P1U43Defs
-public import Certificates.Data.CFSGNative.SmallOddCore.Check
 public import Certificates.Data.E4QuatArr
 
 public section

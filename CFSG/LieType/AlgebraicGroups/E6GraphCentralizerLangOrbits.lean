@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LieType.AlgebraicGroups.E6GraphCentralizerLangCurves
-public import CFSG.LieType.Chevalley.GraphFixedOrbitParametrization
-public import CFSG.LieType.Chevalley.E6SignedGraphRankOneGroups
 public import CFSG.LieType.Chevalley.E6SignedGraphPerfect
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 public import CFSG.Monster.B.Geometry.CoxeterWords
 
 public noncomputable section

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.Ch8Sec2L828USL2Card
-public import Mathlib.LinearAlgebra.Determinant
-public import Mathlib.GroupTheory.IsPerfect
 
 public section
 

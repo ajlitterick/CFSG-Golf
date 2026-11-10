@@ -4,9 +4,6 @@ public import Certificates.Data.Fi24Rank.PlanesCheck
 import Certificates.Kernel.LocalComp.Fi24Pl.Checks
 import Certificates.Kernel.LocalComp.Fi24TwoB.F15027
 import CFSG.Certificates.Kernel.Fi24Pl.Sound
-import CFSG.Certificates.Kernel.Spor.HexNumsSound
-import CFSG.Certificates.Kernel.Spor.RawOrbHead
-import Certificates.Kernel.Sporadic.ON.Gen
 
 #kon_join CertificateChecks.KernelLC.Fi24PlK.iotaAll CertificateChecks.KernelLC.Fi24PlK.iotaC 16
 #kon_join CertificateChecks.KernelLC.Fi24PlK.rowAll CertificateChecks.KernelLC.Fi24PlK.row 64

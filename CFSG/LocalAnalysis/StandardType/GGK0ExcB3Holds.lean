@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGK0ExcB3OfProducers
 public import CFSG.LocalAnalysis.StandardType.GGK0RationalProducerHolds
 public import CFSG.LocalAnalysis.StandardType.GGK0ExcTrivialHolds
 public import CFSG.LocalAnalysis.StandardType.GGK0ExcCentreU
-public import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
 
 public section
 

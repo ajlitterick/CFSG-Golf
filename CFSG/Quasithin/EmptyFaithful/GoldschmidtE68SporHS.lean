@@ -3,7 +3,6 @@ module
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtE68SporAsm
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtE68SporCen
 public import CFSG.Quasithin.EmptyFaithful.S151S9THeCen
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHS
 public import Certificates.Certificate4214
 import all CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHS
 

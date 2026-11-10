@@ -3,11 +3,6 @@ module
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.HypA2Leaves.A2lCl2FamCore
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddOrthLow
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofComponentLift
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalLowDimensionFrontiers
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalAssemblyCases
-public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalLowDimCoverageCases
-public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalLowDimCoverageSplit
-public import CFSG.LieType.Universal.SymplecticRoots
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.ClassicalGroups

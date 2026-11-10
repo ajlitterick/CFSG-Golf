@@ -1,11 +1,6 @@
 module
 
 public import Mathlib.FieldTheory.Finite.GaloisField
-public import Mathlib.FieldTheory.IsAlgClosed.Basic
-public import Mathlib.FieldTheory.IntermediateField.Adjoin.Basic
-public import Mathlib.FieldTheory.Minpoly.Field
-public import Mathlib.FieldTheory.Separable
-public import Mathlib.FieldTheory.Perfect
 
 public section
 

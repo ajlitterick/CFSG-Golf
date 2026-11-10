@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTorusScalar
 public import CFSG.LocalAnalysis.StandardType.GGTBTorF4Cover
 public import CFSG.LocalAnalysis.StandardType.GGTBTorF4SplitFrame
 public import CFSG.LocalAnalysis.StandardType.GGTBTorF4NonsplitFrame

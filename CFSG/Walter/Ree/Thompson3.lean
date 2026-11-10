@@ -2,7 +2,6 @@ module
 
 public import CFSG.Walter.Ree.Thompson3.Unique
 public import CFSG.Walter.W67.RouteReeNative
-import CFSG.Walter.Ree.Thompson3.ThompsonAut
 import CFSG.Walter.Ree.Thompson3.FromBase
 import CFSG.Walter.Ree.Hopkins.Thm26
 import CFSG.Walter.Ree.Bombieri

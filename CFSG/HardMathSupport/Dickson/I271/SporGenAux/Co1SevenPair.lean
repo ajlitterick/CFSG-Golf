@@ -1,9 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Dickson.I271.SporGenAux.Co1Seven
-public import CFSG.HardMathSupport.Dickson.I271.SporGenAux.ThreeKill
-public import CFSG.Sporadic.Schreier.Co1OddInner
-public import CFSG.Sporadic.Co2Schreier.FullAut
 
 public section
 

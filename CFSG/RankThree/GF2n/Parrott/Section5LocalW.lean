@@ -3,7 +3,6 @@ module
 public import CFSG.RankThree.GF2n.Parrott.SpinFixedCardW
 public import CFSG.RankThree.GF2n.Parrott.SpinBridge
 public import CFSG.RankThree.GF2n.Parrott.Section5LocalT23
-public import CFSG.RankThree.GF2n.Parrott.Section5LocalT
 public import CFSG.RankThree.GF2n.Parrott.Lemma16
 public import CFSG.RankThree.GF2n.Parrott.OddLiftCentralizer
 

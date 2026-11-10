@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Phan.PhanDn.FlipFrame
 import CFSG.ClassicalInvolution.Phan.PhanDn.Perp
-import CFSG.ClassicalInvolution.Phan.PhanDn.FlipSpace
 import all CFSG.ClassicalInvolution.Phan.PhanDn.FlipFrame
 public import CFSG.LieType.BorelTits.CompleteFlag
 

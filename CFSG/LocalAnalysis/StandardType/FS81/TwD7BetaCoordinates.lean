@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.AutMat
-public import CFSG.LocalAnalysis.StandardType.FS81.Defs
-import Mathlib.Tactic.FinCases
-import Mathlib.Tactic.IntervalCases
 
 public noncomputable section
 

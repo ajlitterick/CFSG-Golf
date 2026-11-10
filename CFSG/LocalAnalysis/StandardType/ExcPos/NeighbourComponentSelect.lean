@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreDefs
 import CFSG.LocalAnalysis.StandardType.GGLieCoreCentOrbit
 import CFSG.LocalAnalysis.StandardType.ExcPos.ContainingComponent
-import CFSG.LieType.Chevalley.GraphFixedOrbitParametrization
 
 public section
 

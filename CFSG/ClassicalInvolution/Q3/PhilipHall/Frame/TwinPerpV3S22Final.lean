@@ -7,11 +7,6 @@ public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6STriProof
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6Asm56
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinDiscPf63E64Final
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3S22DShapesE64
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6Asm52
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6h2Final
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6SAE8Proof
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6CertBAE8
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6CertC2
 
 public section
 

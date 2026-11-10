@@ -2,11 +2,9 @@ module
 
 public import Certificates.Kernel.Fi22.Bray
 public import CFSG.Certificates.Kernel.Fi22KillSound
-public import CFSG.Certificates.Kernel.Fi22.Bound2.Data.M
 public import CFSG.Certificates.Kernel.Fi22.Bound.Data.O
 import CFSG.Certificates.Kernel.Fi22.Bound2.Checks.Pair
 import CFSG.Certificates.Kernel.Fi22.Bound.Checks.O
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

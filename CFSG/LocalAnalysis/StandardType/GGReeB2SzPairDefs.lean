@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGReeB2PairDefs
 public import CFSG.LocalAnalysis.SectionRank.LargeRee.SuzukiRelations
-public import CFSG.LocalAnalysis.SectionRank.LargeRee.Weyl
 public import CFSG.LocalAnalysis.StandardType.GGSixOddIndexF4Chief
-public import CFSG.LieType.Chevalley.ParabolicRadicalLevi
 
 public section
 

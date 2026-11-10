@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Th.Fam.K
 public import Certificates.Data.Th687.MFactsB
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

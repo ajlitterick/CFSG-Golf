@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.G2Three.Sec1T1Glue
-public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.TabHom
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

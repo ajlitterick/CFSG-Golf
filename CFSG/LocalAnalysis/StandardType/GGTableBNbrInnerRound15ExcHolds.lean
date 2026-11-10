@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerRound15Label
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNineSCr
-import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerClassicalModel
 import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylExcPlus
 import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6
 import CFSG.LocalAnalysis.StandardType.GGTwE6WeylTorusHolds

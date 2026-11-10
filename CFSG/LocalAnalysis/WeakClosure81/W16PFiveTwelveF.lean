@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.WeakClosure81.W16PFiveTwelveFA
 public import CFSG.LocalAnalysis.WeakClosure81.W16PFiveTwelveFB
 public import CFSG.LocalAnalysis.WeakClosure81.W16PFiveTwelveQ
-public import CFSG.LocalAnalysis.WeakClosure81.W16PFiveElevenA
-public import CFSG.LocalAnalysis.WeakClosure81.TwelveFour
 import all CFSG.LocalAnalysis.WeakClosure81.FiveDefs
 
 public section

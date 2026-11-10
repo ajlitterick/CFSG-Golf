@@ -41,9 +41,6 @@ public import CFSG.RankThree.PartOne.S10.ThetaContract
 public import CFSG.RankThree.PartOne.S12.InputsBase
 public import CFSG.RankThree.PartTwo.Sec20.Contra
 public import CFSG.StronglyEmbedded
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 import CFSG.LocalAnalysis.SectionRank.EvenCover.Catalog
 import CFSG.LocalAnalysis.SectionRank.LargeRee.SuzukiData
 import CFSG.LocalAnalysis.SectionRank.OddCover.CatalogOdd
@@ -53,7 +50,6 @@ import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 import CFSG.LocalAnalysis.SectionRank.TitsCover
 import CFSG.Permutation.AlternatingAutomorphism
 import CFSG.Quasithin.Background.A3Components
-import CFSG.Quasithin.Background.A3ComponentsAmbient
 import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeOrbits
 import CFSG.RankThree.PartOne.KF.ClsBasic
 import CFSG.RankThree.PartOne.KF.R10Final

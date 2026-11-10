@@ -1,11 +1,9 @@
 module
 
 public import Certificates.Kernel.SporSch.GenPerms
-public import Certificates.Kernel.Sporadic.RawGen
 public import CFSG.Sporadic.Schreier.RuArrays
 meta import CFSG.Sporadic.Schreier.RuArrays
 public import CFSG.Sporadic.Schreier.RuEnum
-public import Mathlib.GroupTheory.Schreier
 meta import CFSG.Sporadic.Schreier.RuEnum
 meta import Mathlib.GroupTheory.Schreier
 

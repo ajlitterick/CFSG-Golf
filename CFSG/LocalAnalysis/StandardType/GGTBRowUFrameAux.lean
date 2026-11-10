@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBRowPermFrame
 public import CFSG.LocalAnalysis.StandardType.GGTBRowR5Defs
-public import CFSG.LocalAnalysis.StandardType.GGStdPosC13Unitary
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUModel
-public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitClassical
 
 public section

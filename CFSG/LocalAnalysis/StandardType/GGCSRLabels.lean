@@ -1,13 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBRank
-public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyReflDom
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRanks
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSmall
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestG2
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestTwF4
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRanksTwF4
 import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallTits
 import CFSG.LocalAnalysis.StandardType.GGTwF4SUThreeRank
 import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestVac

@@ -4,7 +4,6 @@ public import Certificates.Kernel.Misc.Perm.J2C3D
 public import Certificates.Data.Kernel.Misc.ConjWit
 public import CFSG.RankThree.PartTwo.Sec4.Ronan148VJ2OverInputs
 import Certificates.Kernel.Misc.Perm.HexCmd
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo
 meta import CFSG.RankThree.PartTwo.Sec4.Ronan148VJ2OverInputs

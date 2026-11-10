@@ -11,11 +11,9 @@ import CFSG.Sporadic.Mathieu.M24
 import CFSG.Sporadic.J1
 import CFSG.Sporadic.J2
 import CFSG.Sporadic.J3
-import CFSG.Sporadic.J4
 import CFSG.Sporadic.McL.Simple
 import CFSG.Sporadic.HS
 import CFSG.Sporadic.He.Simple
-import CFSG.Sporadic.Schreier.J4SSylowBase
 import CFSG.Sporadic.Schreier.M23Base
 
 public section

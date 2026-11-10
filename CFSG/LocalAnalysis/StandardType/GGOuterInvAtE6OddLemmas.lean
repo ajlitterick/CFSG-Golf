@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFieldOuterInvSolvable
-public import CFSG.LieType.Chevalley.LangWeylInvolutionStrong
-public import CFSG.FeitThompson.OddOrderTheorem
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcMonomial
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcToralityFive
 public import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
@@ -35,13 +33,7 @@ public import CFSG.RankThree.Classical2.TwistedE6Phi3A2Case
 public import CFSG.RankThree.PartOne.KE.E7FiveBlock
 public import CFSG.RankThree.PartOne.KE.ThreeA1Group
 public import CFSG.RankThree.PartOne.KLCE.Sector
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremB
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremC
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.ZJTheorem
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GW1965RemarkDGroup
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29Helpers
 
 public section
 

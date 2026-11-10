@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreA3LatticeDefs
-public import Certificates.Data.A3LatticeF4
 public import Certificates.Certificate715501
 public import CFSG.RankThree.PartOne.KF4.Strings
 

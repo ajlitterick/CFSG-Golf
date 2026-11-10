@@ -3,12 +3,7 @@ module
 import Lean
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeakNbr
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrEnnola
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoTableB
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
-public import CFSG.LocalAnalysis.StandardType.GGTBFixDefs
 public import CFSG.LocalAnalysis.StandardType.GGTBFixNbrDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 
 public section
 

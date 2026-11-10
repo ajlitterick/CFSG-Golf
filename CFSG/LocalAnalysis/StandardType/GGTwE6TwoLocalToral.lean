@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTwE6TwoLocalLevi
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfMaxDefs
 public import CFSG.LocalAnalysis.StandardType.GGTwE6FieldDescent
-public import CFSG.GroupTheory.ElemAbelianClosure
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
 
 public section
 

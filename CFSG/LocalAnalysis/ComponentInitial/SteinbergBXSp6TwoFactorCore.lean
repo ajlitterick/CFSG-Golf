@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentInitial.BinarySymplecticSixDegreeEightRankOneExclusion
-public import CFSG.LocalAnalysis.ComponentInitial.BinarySymmetricThreeFullNormalizerSylowControl
 public import CFSG.LocalAnalysis.ComponentInitial.PairedBinaryLinearThreeTensorOrbitsAut
-public import CFSG.LocalAnalysis.ComponentInitial.CentralCoverAbelian
 
 public section
 

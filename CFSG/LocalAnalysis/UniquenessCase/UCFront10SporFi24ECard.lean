@@ -4,11 +4,6 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront10SporFi24ECardBase
 
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront10SporFi24ERigid
-public import CFSG.Sporadic.Fi24.Local
-public import CFSG.Sporadic.Fi24.OctadsInputs
-public import CFSG.Fischer.NoF25.Octads
-public import CFSG.Sporadic.Fi24.OctadAction
-public import CFSG.Sporadic.Fi24.OctadData
 
 public section
 

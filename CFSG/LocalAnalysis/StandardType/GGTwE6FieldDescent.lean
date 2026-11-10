@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownE6Descent
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRankFiveAmbient
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangTwE6Lang
-public import CFSG.RankThree.Chevalley.SteinbergBTCanonicalFieldCommon
-public import CFSG.LieType.Chevalley.DiagramCoordinateFixedStructure
 
 public section
 

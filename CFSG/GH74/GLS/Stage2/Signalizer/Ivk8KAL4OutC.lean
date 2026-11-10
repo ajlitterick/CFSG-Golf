@@ -2,8 +2,6 @@ module
 
 public import CFSG.GH74.GLS.Stage2.Signalizer.Ivk8KAL4Out
 public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87FSp4Out
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismGeneration
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismTransport
 public import CFSG.GH74.GLS.Stage2.Signalizer.Ivk8KAL4Def
 public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87FL4
 public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87FL4Cases

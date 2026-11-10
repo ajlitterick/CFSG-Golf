@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LieType.SeitzGeneration.ExcWideThree.TwE6LongRootLeviBase
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.TwE6LongRootLeviEven
-import CFSG.Timmesfeld.Orders.ExceptionalTwistedUnipotent
 
 public section
 

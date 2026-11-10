@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGR4JMeetKGDefs
 public import CFSG.LocalAnalysis.StandardType.GGPDDefs
 public import CFSG.LocalAnalysis.StandardType.GGPDReflInv
 public import CFSG.GroupTheory.ElementaryAbelianTransport

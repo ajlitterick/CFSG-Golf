@@ -4,10 +4,7 @@ public import CFSG.HardMathSupport.C14IdxFrobAction
 public import CFSG.LieType.Chevalley.UnionPositiveSystems
 public import CFSG.LieType.Chevalley.CharTwoWeylLifts
 public import CFSG.HardMathSupport.C14IdxBorelHolds
-public import CFSG.LieType.Chevalley.GraphFixedCoordinateDetection
-public import CFSG.LieType.Chevalley.WeylNormalizerQuotient
 public import CFSG.LieType.AlgebraicGroups.KernelRootBruhat
-public import CFSG.LieType.AlgebraicGroups.ToralTwistPinningFrobenius
 public import CFSG.LieType.Chevalley.E6EvenRootTorus
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X6Containment
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X6LargeRee

@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.HSStd.PumpH39Data
 public import Certificates.Kernel.HSStd.PumpU3Checks
-public import Certificates.Data.Kernel.ConjOrb
 public import Certificates.Kernel.LocalComp.L39Data
 import CFSG.Certificates.Kernel.Common.Harness
 

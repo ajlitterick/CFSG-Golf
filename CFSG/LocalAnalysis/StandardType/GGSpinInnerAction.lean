@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGAssemblyTwoHypSix
-public import CFSG.LieType.Universal.Catalog
-import CFSG.LocalAnalysis.StandardType.MarkingClassical
 import CFSG.LocalAnalysis.StandardType.GGSpJoinNbrModel
 import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerMinus
-import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerSpin
 
 public section
 

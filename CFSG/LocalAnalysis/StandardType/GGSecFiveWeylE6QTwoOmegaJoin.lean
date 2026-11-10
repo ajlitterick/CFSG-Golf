@@ -5,10 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoOmegaNbr
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoOmegaSpan
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoNbrConj
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoJoinPreimage
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoUnitaryAux
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoLabel
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoPairing
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoAux
 
 public section
 

@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.M24Std.CU43Cover
-public import CFSG.LocalAnalysis.EvenSporadicStandard.M24Std.CU43Inputs
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.U43CoverData
-public import CFSG.Sporadic.SmallOddCore.CentData
 public meta import Certificates.Data.CFSGNative.SmallOddCore.Check
-public import CFSG.Sporadic.SmallOddCore.CentSpec
 public import Certificates.Certificate27271
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.GroupTheory.Fitting.CharacteristicP
@@ -21,9 +17,7 @@ public import CFSG.LocalAnalysis.EvenSporadicStandard.Reduction
 public import CFSG.LocalAnalysis.EvenSporadicStandard.RuStd.Contra
 public import CFSG.LocalAnalysis.EvenSporadicStandard.RuStd.S2.OutU43Main
 public import CFSG.LocalAnalysis.EvenSporadicStandard.RuStd.Stages
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.CharacterTheory.Wreathed.FullCentralizerFromProjectiveModel
 public import CFSG.CharacterTheory.Wreathed.SmallerRecognitionOriginalFieldLayer
 
 public noncomputable section

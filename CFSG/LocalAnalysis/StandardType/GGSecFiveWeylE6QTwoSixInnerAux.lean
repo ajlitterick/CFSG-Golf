@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGUSixTwoTorus
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoAutLQAux
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T156GUniMat
 

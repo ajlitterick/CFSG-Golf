@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.U43Mod.OutDefs
-public import Certificates.Data.Kernel.U43Mod.Aut3962
 public import Certificates.Kernel.U43Mod.OutData
 public import Certificates.Kernel.U43Mod.InvChecks
 public import Certificates.Kernel.U43Mod.Checks3962

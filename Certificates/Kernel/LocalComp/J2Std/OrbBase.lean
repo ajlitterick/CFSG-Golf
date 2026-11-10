@@ -5,7 +5,6 @@ public import Certificates.Kernel.SporSch.Ru.RowsGen
 public import CFSG.Certificates.Kernel.J2StdOrbSound
 public import CFSG.Certificates.Kernel.J2StdKeySound
 public import CFSG.Certificates.Kernel.BfsPinSetSound
-public import CFSG.Certificates.Kernel.BfsPinUnpack
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalSp44J2Tests
 import CFSG.Certificates.Kernel.Common.Harness
 

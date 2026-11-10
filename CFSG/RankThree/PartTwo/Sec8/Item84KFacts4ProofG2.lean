@@ -1,14 +1,9 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec11.KS11Lie4ProofTwist
-import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67A2Hom
 import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67A2Torus
 import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67A2Sylow
 import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67A2Diag
-import CFSG.RankThree.PartTwo.KFacts.K73Lines
-import CFSG.RankThree.Chevalley.SteinbergCAG2ToralPrimePlane
-import CFSG.LieType.Chevalley.RootDiagonalWeylTransporter
-public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 
 public section
 

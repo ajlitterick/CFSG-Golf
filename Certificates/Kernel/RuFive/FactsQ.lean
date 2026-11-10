@@ -1,9 +1,6 @@
 module
 
 public import Certificates.Kernel.RuFive.Base
-public import CFSG.RankThree.PartOne.KS.PKitLines
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

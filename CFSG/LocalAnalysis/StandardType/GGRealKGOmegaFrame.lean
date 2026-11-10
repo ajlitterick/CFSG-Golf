@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRealKGModelRoot
 public import CFSG.LocalAnalysis.StandardType.GGOmegaNsRootGenDefs
-public import CFSG.RankThree.OrthogonalInvolutions.Dickson
-import CFSG.RankThree.PartOne.S11d.OrthDicksonOmega
 import CFSG.LocalAnalysis.StandardType.GGOmegaNsRootGenTorus
 import CFSG.LocalAnalysis.StandardType.GGOmegaNsRootGenWeyl
 import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorusCore

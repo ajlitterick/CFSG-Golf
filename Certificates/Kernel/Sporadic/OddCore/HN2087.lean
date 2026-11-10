@@ -4,7 +4,6 @@ public import CFSG.Sporadic.HNOddCore.NatCheckInputs
 public import CFSG.Certificates.Kernel.Spor.PWord
 public import CFSG.Sporadic.Schreier.ONPermArr
 import Mathlib.Tactic.IntervalCases
-import Mathlib.Tactic.NormNum
 public import Mathlib.Data.Vector.Basic
 public import Mathlib.GroupTheory.Perm.Basic
 

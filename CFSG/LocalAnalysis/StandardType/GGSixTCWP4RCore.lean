@@ -1,9 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RSet
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4ROrbLen
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RSimple
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RLabel
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RKind
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RVec
 

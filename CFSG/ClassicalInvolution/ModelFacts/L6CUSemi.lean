@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ClassicalInvolution.ModelFacts.L6CUBase
 public import CFSG.ClassicalInvolution.ModelFacts.L6CGraph
 public import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
 import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherInvolutionEigen

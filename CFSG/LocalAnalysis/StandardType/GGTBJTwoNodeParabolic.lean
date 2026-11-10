@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeDefs
-public import CFSG.Monster.B.Geometry.InitialIsometryParabolic
 public import CFSG.LocalAnalysis.StandardType.GGReflClosedOfWeyl
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
 public import CFSG.LocalAnalysis.StandardType.GGResIICell
 public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3BridgeA
 public import CFSG.LocalAnalysis.StandardType.GGTWReflConj

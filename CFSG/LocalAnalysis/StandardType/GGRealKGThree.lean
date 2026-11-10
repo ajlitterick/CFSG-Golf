@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRealKG
 public import CFSG.LocalAnalysis.StandardType.GGRealQFourThree
-public import CFSG.LocalAnalysis.StandardType.GGKGForkRows
 
 public section
 

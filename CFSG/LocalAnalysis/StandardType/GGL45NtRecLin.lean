@@ -1,13 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGL45NtDefs
 public import CFSG.LocalAnalysis.StandardType.GGL45NtRecLinSmall
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldLinear
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeACover
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoTableBTypeA
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMonomialIrred
 public import CFSG.RankThree.PartOne.KC.LinearNoninnerPlaneInner
-public import CFSG.RankThree.SteinbergR3ELinearRegularUnipotent
 public import CFSG.RankThree.PartOne.KC.LinearCommutatorOdd
 public import CFSG.RankThree.PartOne.KC.LinearDegreeFive
 public import CFSG.RankThree.PartOne.KC.PlaneReductionGeneral

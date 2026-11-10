@@ -1,13 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.U42
-public import CFSG.LocalAnalysis.GLTheoremA.CatB.Lift
-public import CFSG.LocalAnalysis.GLTheoremA.CatB.Bridges
 public import CFSG.LocalAnalysis.GLTheoremA.S10.Inputs103
-public import CFSG.GH74.Exceptional.UnitaryFourTwo
-public import CFSG.Fischer.Classification.Unitary.Basic
-public import CFSG.LieType.Universal.Unitary.Comparison
-public import CFSG.LocalAnalysis.SectionRank.EvenCover.Unitary
 public import CFSG.RankThree.PartOne.Q1327C.BU5Diag
 public import CFSG.Blueprint.LieModelAPI
 public import CFSG.GH74.GLS.IVK.Proofs2.OddTools

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165ExcE8Three5
-public import CFSG.RankThree.PartOne.KE6.E8T3Stab
-public import CFSG.RankThree.PartOne.KE6.E8T3Check
 public import CFSG.LocalAnalysis.StandardType.E8SevenLayerFamily
 public import CFSG.GroupTheory.PLayer.PIndex
 public import CFSG.HardMathSupport.Cooperstein.AlternatingGeometry.AltCentre

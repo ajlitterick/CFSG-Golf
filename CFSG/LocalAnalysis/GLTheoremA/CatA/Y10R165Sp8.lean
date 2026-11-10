@@ -1,18 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Sp7
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Sp10
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Blocks7
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165ExcEngine
-public import CFSG.LocalAnalysis.SectionRank.PRank
-public import CFSG.HardMathSupport.Solomon.Coordinator.McLaughlinTypesForms
-public import CFSG.RankThree.PartOne.KC.SymplecticFullCentralizerLines
-public import CFSG.SignalizerFunctorTheorem.NonLocal.SpTwoTwo
-public import CFSG.CGT.PushingUpLit.BHS.TwoSixteen
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.HSubTFinComm
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165OmDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Sp
-public import CFSG.GroupTheory.ElemAbelianPlaneAction
 
 public noncomputable section
 

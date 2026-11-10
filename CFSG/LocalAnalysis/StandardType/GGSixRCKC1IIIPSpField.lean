@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIUnitaryRecognition
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIINativeSp
-import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeF1PSp
 import CFSG.LocalAnalysis.StandardType.ClassicalPosition.FEPSp
-import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockModelSelfDualPSp
-import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockModelSelfDualTwoPSp
 import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockModelDualPairPSp
 
 public section

@@ -2,12 +2,8 @@ module
 
 public import CFSG.ClassicalInvolution.Asc77.WP3FrameBootTwinLift
 public import CFSG.ClassicalInvolution.Asc77.AscT7AHyp51Stmt
-import CFSG.ClassicalInvolution.Asc77.AscT7AHyp51
 import CFSG.ClassicalInvolution.ModelFacts.Orth15SylowFrame
 import CFSG.ClassicalInvolution.Asc77.AscE187Img
-import CFSG.ClassicalInvolution.Asc77.ModOApi
-import CFSG.ClassicalInvolution.ModelFacts.ClauseZero
-import CFSG.ClassicalInvolution.Balance.PassTwoModelFacts
 import CFSG.ClassicalInvolution.Balance.WeakFrameExistsBasic
 public import CFSG.ClassicalInvolution.Asc77.AscE189Basic
 public import CFSG.ClassicalInvolution.Asc77.WP2Thompson

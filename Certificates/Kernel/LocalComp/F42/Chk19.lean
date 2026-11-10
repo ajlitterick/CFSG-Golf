@@ -3,7 +3,6 @@ module
 public import Certificates.Data.Kernel.F42Lev.L19
 public import Certificates.Data.Kernel.F42Lev.L20
 public import Certificates.Kernel.LocalComp.BlockGen
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

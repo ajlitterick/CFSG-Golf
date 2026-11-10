@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthExclOfInputs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthD4Discharge
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylBranchOfInputs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNarrowInputs
 
 public section
 

@@ -7,11 +7,7 @@ public import CFSG.Certificates.Kernel.SporSch.NfGroupSound
 public import CFSG.Certificates.Kernel.HexArrsSound
 public import CFSG.HardMathSupport.Solomon.Coordinator.B3Spor3SylowCrit
 public import CFSG.RankThree.PartTwo.KFacts.K426Kit
-public import CFSG.Monster.B.Mathieu.Order
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
 public import CFSG.CharacterTheory.Wreathed.WreathCentralSquare
 public import CFSG.ClassicalInvolution.Balance.LocalBalance.Faithful
@@ -49,14 +45,7 @@ public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Quasithin.H13.J4Order
 public import CFSG.Quasithin.H13.J4OrderBase
-public import CFSG.Quasithin.H13.J4Words
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremB
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremC
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.ZJTheorem
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GW1965RemarkDGroup
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29Helpers
 
 public section
 

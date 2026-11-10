@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoInnerQAux
 public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOrthNsLabels
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestBstar
-public import CFSG.GroupTheory.CardMapInfKer
 public import CFSG.LieType.SeitzGeneration.ExcHigh.Generic
 
 public section

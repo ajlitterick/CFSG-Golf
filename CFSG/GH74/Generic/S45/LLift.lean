@@ -2,8 +2,6 @@ module
 
 public import CFSG.GH74.Generic.S45.LPump
 public import CFSG.GH74.Generic.GKFFinal
-public import CFSG.Walter.J1Props.Multiplier
-public import CFSG.GroupTheory.PerfectResidualNodes
 public import Certificates.Kernel.SporSch.Th.Key2311
 public import Certificates.Kernel.SporSch.Th.Orb2315
 public import Certificates.Kernel.SporSch.Th.Plane2320
@@ -20,7 +18,6 @@ public import CFSG.GH74.GLS.Stage1.Thm6.Sec12.After
 public import CFSG.GH74.GLS.Stage1.Thm6.Sec12.Lemma12_7
 public import CFSG.GH74.GLS.Stage1.Thm6.Sec12b.Statements129b
 public import CFSG.GH74.Generic.Front.Final
-public import CFSG.GH74.Generic.FrontEnd
 public import CFSG.GH74.Generic.S1.LinFull
 public import CFSG.GH74.Generic.S45.PumpC2
 public import CFSG.GH74.Generic.S45.PumpTail
@@ -51,7 +48,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSpExcl
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedGSBFixedLayer
 public import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalStandardFormsRegular
-public import CFSG.LocalAnalysis.ComponentInitial.SylowPointRecovery
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherAllInvolutionFourGroup
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.NativeCheckBase
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.NativeModel
@@ -61,25 +57,11 @@ public import CFSG.Monster.B.TwoA.Amalgam.Data
 public import CFSG.Monster.B.TwoA.Sp8.Par1
 public import CFSG.Monster.B.TwoA.Unitary.LinThree
 public import CFSG.Monster.B.TwoA.Unitary.Orbit1408Points
-public import CFSG.Sporadic.Bridge.LyData
-public import CFSG.Sporadic.Bridge.TableSurj
-public import CFSG.Sporadic.HN.LevelChainSpec
-public import CFSG.Sporadic.Ly.ActionBase
-public import CFSG.Sporadic.Ly.CertificateBase
-public import CFSG.Sporadic.Ly.FaithSpec
-public import CFSG.Sporadic.Ly.OrbitSpec
-public import CFSG.Sporadic.Ly.Simple
-public import CFSG.Sporadic.LyBase
-public import CFSG.Sporadic.McL
-public import CFSG.Sporadic.Presentation.Common
-public import CFSG.Sporadic.Presentation.Ly
-public import CFSG.Sporadic.Schreier.LyChain11
 public import CFSG.Sporadic.SmallOddCore.CheckSpec
 public import CFSG.Walter.J1
 public import CFSG.YGroups.Y322Central
 public import Certificates.Kernel.J4Count.FixC
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 public import Certificates.Kernel.SporSch.J4S.NoCP
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoAutLQAux
-public import Mathlib.Tactic.NormNum
 public import Certificates.Kernel.ThCent.Leaves
 
 public section

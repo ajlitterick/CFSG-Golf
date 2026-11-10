@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJE6TwoBase
-public import CFSG.LocalAnalysis.StandardType.GGLangCorootPair
 
 public section
 

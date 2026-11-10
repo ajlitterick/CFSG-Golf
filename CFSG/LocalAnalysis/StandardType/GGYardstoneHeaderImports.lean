@@ -7,18 +7,8 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveBProperRootDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordDExclRestDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBFourPermExcDefs
 public import CFSG.LocalAnalysis.StandardType.GGFieldTwoCornerDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIRows
-public import CFSG.LocalAnalysis.StandardType.GGExcCompFieldInput
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcWeylGenAdjoint
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyWeylGenModel
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyWeylGenLift
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOpenTableBMoreExc
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRestGen
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRestScalar
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthExcEvenLabels
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcWeylNormAdjoint
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcWeylAutInner
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyWeylNormModel
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2OffRows
 public import CFSG.LocalAnalysis.StandardType.GGResUnitaryKRankFiveLDefs
 public import CFSG.LocalAnalysis.StandardType.GGResTwoSettledDefs
@@ -76,8 +66,6 @@ public import CFSG.LocalAnalysis.StandardType.GGResidualRk1Frame
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoBridgeDefs
 public import CFSG.LocalAnalysis.StandardType.GGFrameRouteJoinTBDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanAQTwoBDefs
-public import CFSG.LocalAnalysis.StandardType.GGLieCoreStruct
-public import CFSG.Blueprint.Catalog
 public import CFSG.LocalAnalysis.StandardType.GGLieCorePlane3Defs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoPhanDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLSplit

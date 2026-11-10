@@ -2,7 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.CurtisExc.OffenderData
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.F4Exc.FixDim
-public import CFSG.Quasithin.Background.SmithCurtisBasic
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.CurtisExc.BinRep
 
 set_option linter.unusedSectionVars false

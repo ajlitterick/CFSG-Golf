@@ -7,8 +7,6 @@ import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJRowSpSplitAux3
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJRowSpSplitAux4
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJRowSpSplitAux5
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJRowSpSplitAux6
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyReflSp
-import CFSG.GroupTheory.ABGLocalTools.PStabilityQSL2
 
 public section
 

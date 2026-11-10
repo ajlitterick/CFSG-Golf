@@ -2,8 +2,6 @@ module
 
 public import CFSG.Quasithin.Recognition.Stroth.Weiss80Route
 public import CFSG.Quasithin.Recognition.Stroth.LemmaSDegree
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.ComplementConjugacy
-public import Mathlib.GroupTheory.GroupAction.MultipleTransitivity
 
 public section
 

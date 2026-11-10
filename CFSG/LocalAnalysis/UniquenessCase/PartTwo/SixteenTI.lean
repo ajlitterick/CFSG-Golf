@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenFiveTen
-public import CFSG.LocalAnalysis.UniquenessCase.UC6R
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.Walter.W67.Section6.Util
 public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83Lemma43Lift
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConj
 
 public section
 

@@ -1,66 +1,17 @@
 module
 
-public import CFSG.Blueprint.Catalog
-public import CFSG.HardMathSupport.Cooperstein.Coordinator.FFSporadic.LyThirtyOneCheck
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.OuterG2Lie
-public import Certificates.Certificate45
-public import Certificates.Certificate46
-public import Certificates.Certificate47
-public import Certificates.Certificate48
-public import Certificates.Certificate49
-public import Certificates.Certificate50
-public import Certificates.Certificate51
-public import Certificates.Certificate52
-public import Certificates.Certificate53
-public import Certificates.Certificate54
-public import Certificates.Certificate55
-public import Certificates.Certificate56
-public import Certificates.Certificate57
-public import Certificates.Certificate58
-public import Certificates.Certificate59
-public import Certificates.Certificate60
-public import Certificates.Certificate61
-public import Certificates.Certificate62
-public import Certificates.Certificate63
-public import Certificates.Certificate64
-public import Certificates.Certificate65
-public import Certificates.Certificate66
-public import Certificates.Certificate67
-public import Certificates.Certificate68
-public import Certificates.Certificate69
-public import Certificates.Certificate70
-public import Certificates.Certificate71
-public import Certificates.Certificate72
-public import Certificates.Certificate73
-public import Certificates.Certificate74
-public import Certificates.Certificate75
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
-public import Certificates.Certificate2185
-public import CFSG.Sporadic.Schreier.LyCheckSep
-public import CFSG.Sporadic.Ly.KeySpec
-public import CFSG.Sporadic.He.FpSpec
 import Certificates.Kernel.SporSch.Ly.SepGlue
-public import Certificates.Certificate2189
-public import Certificates.Certificate3085
 public import Certificates.Certificate8025
-public import Certificates.Certificate8130
-public import Certificates.Certificate8131
 public import Certificates.Certificate9310
 public import Certificates.Certificate1322151
-public import CFSG.Sporadic.Ly.FiveFacts
-import CFSG.Sporadic.Ly.Certificate
 public import Certificates.Certificate14967
 public import Certificates.Certificate14968
 public import Certificates.Certificate14970
 
 import CFSG.GH74.Generic.S1.KL5LyRee
 import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.HNFiveOrders
-import CFSG.LocalAnalysis.SectionRank.Sporadic.Ly
-import CFSG.RankThree.Native.LyFiveLocal
 import CFSG.RankThree.PartOne.KS.LyFiveCore
-import CFSG.Sporadic.Ly
 public import CFSG.GroupTheory.Fitting.CharacteristicP
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
@@ -91,52 +42,11 @@ import CFSG.GH74.GLS.Stage4.RestP93
 import CFSG.GH74.GLS.Stage4.RestSetup
 import CFSG.LinearAlgebra.LinearGroups.CoordinateData
 import CFSG.LocalAnalysis.ComponentInitial.SylowPointRecovery
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeThree
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Equivariance
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
-import CFSG.Quasithin.Background.A3Structure318Red
-import CFSG.Quasithin.Background.A3Structure36A
-import CFSG.Quasithin.Background.A3Structure36BAction
-import CFSG.Quasithin.Background.A3Structure36BBase
-import CFSG.Quasithin.Background.A3Structure36BCase3Base
-import CFSG.Quasithin.Background.A3Structure36BCasesBase
-import CFSG.Quasithin.Background.A3Structure36BCommonBase
-import CFSG.Quasithin.Background.A3Structure36BFrattini
-import CFSG.Quasithin.Background.A3Structure36BHeisBase
-import CFSG.Quasithin.Background.A3Structure36BHomocyclic
-import CFSG.Quasithin.Background.A3Structure36BPrimeDataBase
-import CFSG.Quasithin.Background.A3Structure36BStarBase
-import CFSG.Quasithin.Background.A3Structure36Base
-import CFSG.Quasithin.Background.A3Structure37Base
-import CFSG.Quasithin.Background.A3Structure37Comm
-import CFSG.Quasithin.Background.A3Structure37Frattini
-import CFSG.Quasithin.Background.A3Structure37KeyBase
-import CFSG.Quasithin.Background.A3Structure37Schur
-import CFSG.Quasithin.Background.A3Structure38Part3
-import CFSG.Quasithin.Background.B1MoreElevenE
-import CFSG.Quasithin.Background.B1MoreNineG
-import CFSG.Quasithin.Background.B4ModelsAction
-import CFSG.Quasithin.Background.B4ModelsIso
-import CFSG.Quasithin.Background.C2Basic
-import CFSG.Quasithin.Background.C2Inputs
-import CFSG.Quasithin.Background.E1
-import CFSG.Quasithin.Background.E1Sec4
-import CFSG.Quasithin.Background.E1Sec5
-import CFSG.Quasithin.Background.E1Sec8
-import CFSG.Quasithin.Background.E1Solv
-import CFSG.Quasithin.Background.E1Twelve
-import CFSG.Quasithin.Background.E3Cent
-import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
-import CFSG.Quasithin.Vol2.Ch1Local
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ConjugatedInvertedSubgroup
 import Certificates.Certificate3953
 import Certificates.Certificate5007
 import Certificates.Certificate5022
 import Certificates.Kernel.J4Count.FixCE
 import Certificates.Kernel.J4Count.FixCPairBase1
-import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

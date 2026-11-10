@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallA10Act
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aFStar
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedLayerIsoCorrSylowGrowth
-public import CFSG.LocalAnalysis.ComponentClassification.PrimeComplementQuotientComponents
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuotTools
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBPrimeJoinTransport
 
 public section
 

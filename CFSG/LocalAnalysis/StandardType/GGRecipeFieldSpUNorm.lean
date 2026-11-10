@@ -1,7 +1,6 @@
 module
 
 public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
-public import Mathlib.Algebra.BigOperators.Ring.Finset
 import CFSG.RankThree.PartTwo.KFacts.AutPSpOrderThree
 import CFSG.GroupTheory.ABGLocalTools.SL2FieldAutSemilinear
 import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore

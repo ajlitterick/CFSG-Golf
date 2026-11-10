@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySpModel
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticLift
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyReflSp
 
 public section
 

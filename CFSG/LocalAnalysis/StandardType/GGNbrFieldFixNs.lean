@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixNsKnown
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixNsKnownOmegaPlus
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixNsRows
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixNsWrap
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylFieldVacOther
 
 public section
 

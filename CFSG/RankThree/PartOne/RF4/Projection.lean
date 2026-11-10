@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartOne.RF4.Bound
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 
 public noncomputable section
 

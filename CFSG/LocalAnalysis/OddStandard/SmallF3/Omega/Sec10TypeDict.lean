@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10AutDict
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec2FiveAut
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec2Vocab
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointActionModels
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointDataModelWitness

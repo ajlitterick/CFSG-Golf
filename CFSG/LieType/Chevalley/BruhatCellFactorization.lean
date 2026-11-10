@@ -2,8 +2,6 @@ module
 
 public import CFSG.LieType.Chevalley.BruhatDecomposition
 public import CFSG.LieType.Chevalley.OppositeBorel
-public import CFSG.LieType.Chevalley.PositiveRootCollection
-public import CFSG.LieType.Chevalley.WeylInversion
 
 public noncomputable section
 

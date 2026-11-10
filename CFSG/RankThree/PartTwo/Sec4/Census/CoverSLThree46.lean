@@ -2,14 +2,10 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec4.Census.Open46
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.ThreeCoverBase
-import CFSG.LocalAnalysis.SectionRank.OddCover.ScalarCover
 import CFSG.LocalAnalysis.SectionRank.OddCover.PrimeThree
-import CFSG.LocalAnalysis.SectionRank.EvenCover.LinearSplit
 import CFSG.LocalAnalysis.SectionRank.EvenCover.UnitaryThree
 import CFSG.LieType.Steinberg.CentralExt.SLCentrallyClosed
 import CFSG.RankThree.PartTwo.Sec13.Item13Models
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LieType.Chevalley.LangRootArithmetic
@@ -20,7 +16,6 @@ public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure
 public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.RankThree.PartTwo.Sec4.Census.Interface46
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 
 public section

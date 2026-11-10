@@ -4,7 +4,6 @@ public import Certificates.Data.Kernel.J4NP7850
 public import Certificates.Kernel.J4NPVerdict.Defs
 public import Certificates.Kernel.J4Q.VOrbData
 public import CFSG.Quasithin.Vol2.KGFactC31J4M4Native
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo
 

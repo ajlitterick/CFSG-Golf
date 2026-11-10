@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitMarking
-public import CFSG.LocalAnalysis.StandardType.Marking
-public import CFSG.LocalAnalysis.StandardType.GGInnerDiagBridgeTypeA
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45
 public import CFSG.LocalAnalysis.StandardType.GGLinearFusionCyclic
-public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
 public import CFSG.LocalAnalysis.StandardType.GGRoundFourSmallBIsoLinear
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldSymplectic
 public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotCatTypeDet
@@ -56,7 +52,6 @@ public import CFSG.LocalAnalysis.ShultStronglyClosedTI.MinimalLocalFailureSylowA
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.MinimalLocalFailureSylowAssemblyProper
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.B1MoreElevenD
 public import CFSG.Quasithin.Background.B1MoreElevenF
 public import CFSG.Quasithin.Background.B1MoreNineG
@@ -64,11 +59,6 @@ public import CFSG.Quasithin.Background.B4ModelsAction
 public import CFSG.Quasithin.Background.B4ModelsIso
 public import CFSG.Quasithin.Background.C2Basic
 public import CFSG.Quasithin.Background.E1
-public import CFSG.Quasithin.Background.E1Sec4
-public import CFSG.Quasithin.Background.E1Sec5
-public import CFSG.Quasithin.Background.E1Sec8
-public import CFSG.Quasithin.Background.E1Solv
-public import CFSG.Quasithin.Background.E1Twelve
 public import CFSG.Quasithin.Background.E3Cent
 public import CFSG.Quasithin.EmptyFaithfulMultiple.InputB19Proof
 public import CFSG.RankThree.GroupTheory.SteinbergBYSectionNineResidual
@@ -83,18 +73,6 @@ public import CFSG.RankThree.PartTwo.Census.Classical.EvenUnitary
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
 public import CFSG.Sporadic.Schreier.TitsOther
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldPrimeOrderFixedSubfield
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OrderThreeNormalizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2PSLRangeCentralizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinInvolutionCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinRestrictionSixCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinUDecomposition
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationEleven
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTen
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTenStructuralIdentities
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2FieldProjectionArithmetic
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2OrderPSubgroupCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphReconstruction
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGR4PumpDefs
 public import CFSG.LocalAnalysis.StandardType.GGR4Lemma47c
 public import CFSG.LocalAnalysis.StandardType.GGR4AutInn
 public import CFSG.LocalAnalysis.StandardType.GGR4Centre

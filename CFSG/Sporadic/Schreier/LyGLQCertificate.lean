@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Sporadic.Schreier.LyCheckGLQ
 public meta import CFSG.Sporadic.Schreier.LyCheckGLQ
 public import Certificates.Certificate2334
 public meta import CFSG.Sporadic.Schreier.LyCheckSeven

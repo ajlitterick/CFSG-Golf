@@ -1,10 +1,6 @@
 module
 
 public import CFSG.Open.StatedDefs
-public import Mathlib.LinearAlgebra.Matrix.ToLin
-public import Mathlib.LinearAlgebra.Matrix.SchurComplement
-public import Mathlib.FieldTheory.Finite.Basic
-public import Mathlib.GroupTheory.SpecificGroups.Cyclic
 
 public section
 

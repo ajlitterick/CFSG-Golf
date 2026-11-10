@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7SUKCoordD
-import CFSG.LocalAnalysis.StandardType.GGOneFiveNormalizer
 import CFSG.LocalAnalysis.StandardType.GGSpJoinNbrModel
 import CFSG.LocalAnalysis.StandardType.GGHdRo7SUKCoordHA
-import CFSG.LocalAnalysis.StandardType.GGSpJoinBstarSplit
 
 public section
 

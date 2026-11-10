@@ -1,12 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQ2OrthTorusAutBasic
 public import CFSG.LocalAnalysis.StandardType.GGQ2OrthTorusAutCoord
 public import CFSG.LocalAnalysis.StandardType.GGQ2PlaneMoveExp
 public import CFSG.LocalAnalysis.StandardType.GGQ2SpNormalizerStatements
 import CFSG.LocalAnalysis.StandardType.GGQ2PlaneSignedPerm
 import CFSG.LocalAnalysis.StandardType.GGQ2SpTorusAutExt
-import CFSG.LocalAnalysis.StandardType.GGQ2SpBlocksCent
 import CFSG.LocalAnalysis.StandardType.GGQ2OrthPlaneForm
 
 public section

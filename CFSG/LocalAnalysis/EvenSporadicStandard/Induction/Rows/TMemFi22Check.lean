@@ -2,7 +2,6 @@ module
 
 public import CFSG.Monster.B.Fischer.PinnedChainData
 public import CFSG.Sporadic.FischerOddCore.Fi22ExtCheckInputs
-public import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 public meta import CFSG.Monster.B.Fischer.PinnedChainData
 public meta import CFSG.Sporadic.FischerOddCore.Fi22ExtCheckInputs
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain

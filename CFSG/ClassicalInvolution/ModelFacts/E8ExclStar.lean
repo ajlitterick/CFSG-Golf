@@ -3,7 +3,6 @@ module
 public import CFSG.ClassicalInvolution.ModelFacts.E8ExclRound
 public import CFSG.ClassicalInvolution.ModelFacts.E8ExclStarData
 public import CFSG.ClassicalInvolution.ModelFacts.E8ExclFrame
-public import CFSG.ClassicalInvolution.RouteD.TypeE8Excl
 
 public section
 

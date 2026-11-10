@@ -5,9 +5,7 @@ public import CFSG.RankThree.PartTwo.Sec4.Ronan148LComp
 import CFSG.RankThree.PartTwo.Sec4.Ronan148LH1
 import CFSG.LocalAnalysis.StandardType.GGStructSOnePrimeCent
 import CFSG.Quasithin.Background.C126RFSurj
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Export
 public import CFSG.RankThree.PartTwo.Sec15.Liebeck155R1T150Core
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.I142TInd
 public import CFSG.LocalAnalysis.StandardType.GGStructSOneHolds
 
 public section

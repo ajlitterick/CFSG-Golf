@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08CellD7FullK
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08RestOut
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRootGen
 
 public section
 

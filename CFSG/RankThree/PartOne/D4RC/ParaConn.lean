@@ -1,12 +1,6 @@
 module
 
-public import CFSG.LieType.AlgebraicGroups.RootWordBruhatCover
 public import CFSG.LieType.AlgebraicGroups.ToralRootCoverWords
-public import CFSG.LieType.AlgebraicGroups.ConstructibleSubgroupGL
-public import CFSG.LieType.Chevalley.StandardParabolicCells
-public import CFSG.LieType.Chevalley.ParabolicRadicalLevi
-public import CFSG.LieType.Chevalley.ParabolicRadicalLeviRoots
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 
 set_option linter.unusedSectionVars false
 

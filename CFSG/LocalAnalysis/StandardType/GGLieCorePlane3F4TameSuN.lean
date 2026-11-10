@@ -1,12 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGFamTame
 public import CFSG.LocalAnalysis.StandardType.GGLieCorePlane3F4A2outFixed
 public import CFSG.LocalAnalysis.StandardType.GGLieCorePlane3F4Gamma
 public import CFSG.LocalAnalysis.StandardType.GGLieCorePlane3F4Orbit
 import CFSG.LocalAnalysis.StandardType.GGLieCorePlane3F4Shapes
 import CFSG.LocalAnalysis.StandardType.GGLieCorePlane3Pair
-import CFSG.LocalAnalysis.StandardType.GGFamSLRecogDefs
 import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.RationalA2FinishPart1
 import CFSG.HardMathSupport.Dickson.Sec6.Up34OddAux.SsTwAux.RatLayer
 import CFSG.HardMathSupport.Dickson.Sec6.Up34OddAux.SsTwAux.ExcD4Layer

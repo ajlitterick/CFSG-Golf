@@ -6,7 +6,6 @@ import CFSG.GroupTheory.ConjKerCenter
 public import CFSG.LieType.SeitzGeneration.NonabHeisThreeCore
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeOrbits
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

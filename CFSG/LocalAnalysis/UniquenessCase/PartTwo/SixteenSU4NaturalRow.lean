@@ -6,14 +6,10 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC1677ThreeNatStar
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC1677ThreeSig
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenStarRank
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC1SchurU4
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC165Model
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenInfra
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven10NatRank
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TwelveLeU42O8U42
 public import CFSG.Quasithin.Vol2.GoldschmidtF431UnModel
 public import CFSG.Quasithin.Vol2.GoldschmidtF431U42Model
 public import CFSG.LocalAnalysis.EvenSporadicStandard.M22Std.OutU42Aut
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.HardMathSupport.Timmesfeld.Tables.Multiplier.Aut
 public import CFSG.GroupTheory.E3Params
 public import CFSG.GroupTheory.PRankZeroOfPrimeNotDvd

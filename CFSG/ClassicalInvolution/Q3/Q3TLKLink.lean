@@ -4,7 +4,6 @@ public import CFSG.ClassicalInvolution.Q3.Q3TLKAct
 public import CFSG.ClassicalInvolution.RouteD.TWZSpinModel
 public import CFSG.ClassicalInvolution.RouteD.TWSLinked
 public import CFSG.ClassicalInvolution.Q3.Q3WAComp
-public import CFSG.ClassicalInvolution.Q3.Q3WShape
 public import CFSG.ClassicalInvolution.Q3.Q3WADict
 public import CFSG.ClassicalInvolution.Q3.Q3WAEDict
 public import CFSG.ClassicalInvolution.Q3.Q3WMain

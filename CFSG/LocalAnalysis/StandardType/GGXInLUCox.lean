@@ -1,13 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGXInLUDefs
-import CFSG.Assembly.GL83StatedBridge
-import CFSG.RankThree.PartOne.KF.ClsSUUpper
 import CFSG.LocalAnalysis.StandardType.GGUSixTwoTorus
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T156GUniMat
 import CFSG.HardMathSupport.Foote.E27.UniMonomial
 import CFSG.LocalAnalysis.StandardType.GGTDAutomizer
-import TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.Diagonal.Normalizer
 import CFSG.HardMathSupport.Foote.E27.NormalAbelianEquiv
 
 public section

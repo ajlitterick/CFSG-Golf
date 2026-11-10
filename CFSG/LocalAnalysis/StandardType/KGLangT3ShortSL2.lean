@@ -2,9 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec11.KS11Lie4ProofD4
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangTorJInputs
-import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
-import CFSG.LocalAnalysis.ComponentInitial.LinearFlagOrder
-import CFSG.LocalAnalysis.ComponentInitial.SLTwoInvolution
 import CFSG.GH74.KGroups.L3EpsBlockLin
 import CFSG.LargeExtraspecial.S8CBFSL2
 import CFSG.GH74.KGroups.L3EpsNoNormalThree

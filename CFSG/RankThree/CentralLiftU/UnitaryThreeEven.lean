@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.CentralLiftU.UnitaryThreeLift
 public import CFSG.LocalAnalysis.SectionRank.EvenCover.UnitaryThree
-public import CFSG.RankThree.CentralLift.LinearTwoLifting
 public import CFSG.LinearAlgebra.LinearGroups.UnitaryOrder
 
 public section

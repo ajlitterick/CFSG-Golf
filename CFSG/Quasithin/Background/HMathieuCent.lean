@@ -1,9 +1,7 @@
 module
 
-public import CFSG.Quasithin.Background.HMathieuMask
 public meta import CFSG.Quasithin.Background.HMathieuMask
 public meta import CFSG.Monster.Code.Basis
-public import CFSG.Quasithin.Background.HMathieuCentInputs
 public import Certificates.Certificate7060
 
 public section

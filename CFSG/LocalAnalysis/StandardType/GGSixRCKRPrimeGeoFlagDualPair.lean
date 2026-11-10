@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeGeoFlag
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.GeoAdj
-public import Mathlib.LinearAlgebra.Matrix.BilinearForm
-public import Mathlib.LinearAlgebra.BilinearForm.Orthogonal
 
 public section
 

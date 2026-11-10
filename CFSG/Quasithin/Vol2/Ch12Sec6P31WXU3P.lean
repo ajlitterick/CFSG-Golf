@@ -2,9 +2,6 @@ module
 
 public import CFSG.Quasithin.Vol2.Ch12Sec6P31WXU
 public import CFSG.Quasithin.Vol2.Ch12Sec6P31WXU3M
-public import CFSG.Quasithin.Vol2.Ch12Sec6P31WXBT
-public import CFSG.Quasithin.Vol2.Ch12Sec6P31WXCS
-public import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
 public import CFSG.GH74.GLS.IVK.Proofs2.OddTools
 public import CFSG.GH74.GLS.Stage2.Local.P34Main
 public import CFSG.GH74.GLS.Stage2.Local.P34S5A
@@ -34,9 +31,6 @@ public import CFSG.RankThree.PartTwo.Sec4.Statements423
 public import CFSG.RankThree.PartTwo.Sec6.Statements
 public import CFSG.RankThree.PartTwo.Sec8.Steps
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
-public import CFSG.Walter.J1Props
-public import CFSG.Walter.J1Recog
-public import CFSG.Walter.PSL2Facts
 
 public section
 

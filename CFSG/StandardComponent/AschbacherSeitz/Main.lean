@@ -1,9 +1,7 @@
 module
 
 public import CFSG.RankThree.GF2n.Tim79aCitedAS
-public import CFSG.StandardComponent.AschbacherSeitz.SpClassical
 public import CFSG.StandardComponent.AschbacherSeitz.SpSmall
-public import CFSG.StandardComponent.AschbacherSeitz.SpConversions
 public import CFSG.StandardComponent.AschbacherSeitz.Sp44EndgameNF
 
 public section

@@ -1,9 +1,7 @@
 module
 
 public import CFSG.Sporadic.Schreier.ONLocalOrders
-public import CFSG.Sporadic.Schreier.ONEightNormalizersCheck
 public import CFSG.CGT.Stroth77.Section43CoreIII
-public import CFSG.Blueprint.NativeSporadic
 public import Certificates.Certificate13790
 
 public noncomputable section

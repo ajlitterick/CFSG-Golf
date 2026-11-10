@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallSpLift
 public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticEndNode
-public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Embed
-public import CFSG.LieType.Universal.Symplectic
 import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotTorus
 
 public section

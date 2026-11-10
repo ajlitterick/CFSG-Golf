@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGLieCoreA3DatumDefs
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreA3LatticeDefs
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreA3DictTorus
 

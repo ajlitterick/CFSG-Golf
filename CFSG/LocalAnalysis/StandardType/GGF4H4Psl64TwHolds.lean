@@ -5,14 +5,7 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthKSLOrder
 import CFSG.LocalAnalysis.StandardType.GGF4H4Psl64TwComp
 import CFSG.LocalAnalysis.StandardType.GGF4H4Psl64TwLin
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLNoJ1Ppd
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-import CFSG.LocalAnalysis.StandardType.GGNbrBalance
-import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrEnnola
-import CFSG.LocalAnalysis.StandardType.GGTableBLinear
 import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2Res
-import CFSG.LocalAnalysis.StandardType.Marking
-import CFSG.LocalAnalysis.SeitzReduction.F4PilotCatTypeDetOrders
-import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotCatTypeDet
 import CFSG.Quasithin.EmptyFaithfulMultiple.L3213Basic
 import all CFSG.LocalAnalysis.StandardType.GGF4H4Psl64Proj
 

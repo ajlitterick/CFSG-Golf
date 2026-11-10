@@ -8,7 +8,6 @@ public import CFSG.LieType.Steinberg.CentralExt.SUThreeCharThree
 public import CFSG.LieType.Steinberg.CentralExt.SUThreeFieldTwo
 public import CFSG.LieType.Steinberg.CentralExt.SUOddFieldThree
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryOddCoverOddChar
-public import CFSG.RankThree.CentralLiftU.UnitaryThreeSplit
 public import CFSG.RankThree.CentralLiftU.EvenSplit
 
 public section

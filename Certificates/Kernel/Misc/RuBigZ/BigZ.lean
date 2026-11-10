@@ -9,9 +9,6 @@ public import Certificates.Kernel.Misc.RuBigZ.E3
 public import Certificates.Kernel.Misc.RuBigZ.E5
 public import Certificates.Kernel.Misc.RuBigZ.Fix
 public import CFSG.Certificates.Kernel.Misc.RuBigZElSound
-public import CFSG.Quasithin.Vol2.KGFactC31RuRefDefs
-public import CFSG.Sporadic.Schreier.RuEnum
-public import CFSG.Sporadic.Schreier.RuCentralizer
 import CFSG.Certificates.Kernel.Common.ForallTree
 
 public section

@@ -1,11 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTorusFieldTransferSh
-public import CFSG.LocalAnalysis.StandardType.GGUSixThreeKGMain
-public import CFSG.LocalAnalysis.StandardType.GGUSixThreeKGFieldCase
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T156GUniGeom
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldSpUUnitary
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
 public import CFSG.LocalAnalysis.StandardType.GGNbrKGFieldShInputs
 public import CFSG.LocalAnalysis.StandardType.GGUSixShKGCover
 

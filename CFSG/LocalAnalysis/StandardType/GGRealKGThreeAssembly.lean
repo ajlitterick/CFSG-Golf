@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRealKGThreeSplit
-public import CFSG.LocalAnalysis.StandardType.GGRealKGThreeLin
 public import CFSG.LocalAnalysis.StandardType.GGRealKGThreeNs
 public import CFSG.LocalAnalysis.StandardType.GGRealKGThreeU63
 public import CFSG.LocalAnalysis.StandardType.GGRealKGThreeSmall
@@ -13,7 +12,6 @@ import CFSG.LocalAnalysis.StandardType.GGRealKGExcNegRows
 public import CFSG.LocalAnalysis.StandardType.GGRealKGThreeF4Nonsplit
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRootGenKG
 public import CFSG.LocalAnalysis.StandardType.GGTwE6HyperplaneFrame
-public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6
 
 public section
 

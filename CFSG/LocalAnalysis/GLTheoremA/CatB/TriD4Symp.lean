@@ -1,12 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatB.TriD4Defs
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.TriD4Comp
 import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompIdxSymplectic
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.LayerBridge
-import CFSG.RankThree.PartOne.KC.SymplecticSubfieldRadical
 import CFSG.GroupTheory.CenterlessInnerCentralizer
-import CFSG.LocalAnalysis.QuasithinUnique.SQTK.TypeCCarrier
 import CFSG.GroupTheory.PCore.SubgroupCore
 import CFSG.HardMathSupport.Timmesfeld.LocalTwo.CrossSp
 import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieOuterIdxSymplectic

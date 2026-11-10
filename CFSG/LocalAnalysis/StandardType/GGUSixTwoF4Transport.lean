@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.PartOne.KF.UnitaryTorus
 public import CFSG.Fischer.F4
-public import Mathlib
 
 public section
 

@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUCoord
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUDefs
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySpElt
-public import CFSG.LocalAnalysis.StandardType.GGInnLocalDefs
 public import CFSG.LocalAnalysis.StandardType.GGR4PumpDefs
 
 public section

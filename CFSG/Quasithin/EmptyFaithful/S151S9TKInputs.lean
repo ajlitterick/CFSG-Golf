@@ -1,13 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatFactsK
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatM24DcInputs
 public import CFSG.Quasithin.EmptyFaithful.S151S9TJ2Inputs
 public import CFSG.Quasithin.EmptyFaithful.S151S9TM12Inputs
 public import CFSG.Quasithin.EmptyFaithful.S151S9TM22Check
 public import CFSG.Quasithin.EmptyFaithful.S151S9TM23Inputs
-public import CFSG.Quasithin.EmptyFaithful.S151S9TM24Inputs
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312M23Inputs
 public import CFSG.Quasithin.Background.E2TwoProofSporJ2
 public import CFSG.Quasithin.Background.HSporLatMathieu
 

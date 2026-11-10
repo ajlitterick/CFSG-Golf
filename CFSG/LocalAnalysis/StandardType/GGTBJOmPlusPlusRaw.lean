@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJR1OmPlusRow
-import CFSG.LocalAnalysis.StandardType.GGKGForkOrthRow
 
 public section
 

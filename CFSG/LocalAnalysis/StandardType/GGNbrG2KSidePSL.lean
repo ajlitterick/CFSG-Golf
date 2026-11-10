@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrG2ASidesIso
-public import CFSG.RankThree.PartTwo.KFacts.AutKindsUnique
-import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerTypeADvdModel
 
 public section
 

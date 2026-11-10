@@ -1,11 +1,6 @@
 
 module
 
-public import CFSG.Sporadic.Ru
-public import CFSG.Sporadic.Bridge.VecSurj
-public import CFSG.Sporadic.Presentation.RuExact
-public import Certificates.Data.CFSGNative.Bridge.SurjD
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 public import Certificates.Kernel.CosetJ.RuTab
 public import CFSG.Certificates.Kernel.Orders.Ru.RelsBind
 public import CFSG.Certificates.Kernel.Orders.Ru.Checks.R
@@ -13,7 +8,6 @@ public import CFSG.Certificates.Kernel.Spor.WordsTxtSound
 public import Certificates.Kernel.Sporadic.ON2.GenWords
 public meta import Certificates.Data.CFSGNative.Bridge.SurjD
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

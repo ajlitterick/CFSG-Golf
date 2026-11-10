@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Ly3085.Omega.Data
 public import Certificates.Data.Kernel.LyOmega.Cent
 public import Certificates.Data.Kernel.LyOmega.Base
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.NatItemsGz
 import CFSG.Certificates.Kernel.Common.Repo
 

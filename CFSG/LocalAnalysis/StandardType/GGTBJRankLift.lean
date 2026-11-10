@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGB36JExcE6Hard
 public import CFSG.LocalAnalysis.StandardType.GGResLeaf
-import CFSG.LocalAnalysis.StandardType.GGTriD4NoneTwE6
-import CFSG.HardMathSupport.Solomon.LocalBalance.TwoLocalTools
 import CFSG.HardMathSupport.Timmesfeld.Proving.TwoLocalAttain
 import CFSG.Assembly.LargeEvenGLABridge
 import CFSG.Assembly.OpenBridges

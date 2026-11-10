@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBRkNarrowDefs
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBBridgeLabels
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerLinearNonsplit
-public import CFSG.LocalAnalysis.StandardType.GGAssemblyTwoTableB
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2SpStatements
 public import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourCoverMark
-public import CFSG.LocalAnalysis.StandardType.GGD4OddCentVocab
 
 public section
 

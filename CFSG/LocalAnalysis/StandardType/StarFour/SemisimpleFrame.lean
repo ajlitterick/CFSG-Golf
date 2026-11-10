@@ -1,13 +1,8 @@
 module
 
-public import Mathlib.LinearAlgebra.Pi
-public import Mathlib.RingTheory.Adjoin.Basic
 public import Mathlib.FieldTheory.Finite.Basic
-import Mathlib.RepresentationTheory.Basic
 import Mathlib.RepresentationTheory.Maschke
 import Mathlib.Algebra.Module.Torsion.Basic
-import Mathlib.RingTheory.Artinian.Module
-import Mathlib.LinearAlgebra.Dimension.Free
 import Mathlib.RingTheory.FiniteLength
 
 public section

@@ -1,7 +1,6 @@
 module
 
 public import Mathlib.GroupTheory.Frattini
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.ElementaryAbelian.Basic
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.ElementaryAbelian.VectorSpace
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.PGroup
 

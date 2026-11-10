@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeOmegaFourMinusPOmegaMinus
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourLocalMaps
-import Mathlib.Tactic.Group
-import Mathlib.Tactic.Linarith
 
 public noncomputable section
 

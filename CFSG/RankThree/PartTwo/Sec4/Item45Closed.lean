@@ -5,8 +5,6 @@ public import CFSG.RankThree.PartOne.TCB.Final
 public import CFSG.RankThree.PartOne.KP.BExclusion
 public import CFSG.RankThree.PartOne.KP.MSection
 public import CFSG.RankThree.PartOne.SPOR.OuterM
-public import CFSG.Monster.Existence.DLevelRank
-public import CFSG.Sporadic.Bridge.Y443Relabel
 public import CFSG.Sporadic.Bridge.MonsterModels
 public import CFSG.Sporadic.Co2Schreier.ThirdChain
 public import CFSG.Certificates.CentralKernel
@@ -57,8 +55,6 @@ public import CFSG.Sporadic.Presentation.Co2Fusion
 public import CFSG.Sporadic.Presentation.Co2FusionInputs
 public import CFSG.Sporadic.Presentation.McLExactData
 public import CFSG.Sporadic.Presentation.McLExactInputs
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.Remaining
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.theorem_3_6
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import CFSG.YGroups.DCE.B433Check
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement

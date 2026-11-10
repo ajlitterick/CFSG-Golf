@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OModel
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.ExcE6
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.SplitTwistedE6
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.YS1011U6Mult
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Split
 public import CFSG.Holt.Fixed
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8ExcAction

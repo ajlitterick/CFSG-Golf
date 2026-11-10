@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.A5GL42
 public import Certificates.Data.CFSGNative.HS.SmallF2
-public import Std.Data.HashMap
 public import Std.Data.HashSet
 
 public section

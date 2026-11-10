@@ -1,11 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalElementary
-public import CFSG.LieType.Universal.Spin.Forms
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1Basic
-public import CFSG.Open.StatedDefs
-public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalSplitCoverModel
-public import CFSG.LieType.Steinberg.CentralExt.POmegaPlusMultiplier
 public import CFSG.LieType.Steinberg.CentralExt.GriessOmegaEightTwo
 public import CFSG.HardMathSupport.Meierfrankenfeld.FFToolkit.OffenderBound
 public import CFSG.HardMathSupport.Solomon.Coordinator.I10_21Hopf
@@ -23,7 +17,6 @@ public import CFSG.LocalAnalysis.SectionRank.SporadicCover
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Sporadic.M23.M23Group
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

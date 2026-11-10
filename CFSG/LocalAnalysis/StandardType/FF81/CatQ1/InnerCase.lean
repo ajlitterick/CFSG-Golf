@@ -1,6 +1,5 @@
 module
 
-import Mathlib.Algebra.Group.Subgroup.Pointwise
 
 public import CFSG.LocalAnalysis.StandardType.FF81.CatQ1.JFacts
 

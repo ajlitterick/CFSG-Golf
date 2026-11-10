@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Child3GapG1Defs
 public import CFSG.LocalAnalysis.ComponentInitial.ChevSp6EpsOneMain
-public import CFSG.LocalAnalysis.ComponentInitial.SteinbergBISp6ActionParameters
 public import CFSG.LocalAnalysis.ComponentInitial.ChevSp6EpsOneLambdaZeroMain
 public import CFSG.LocalAnalysis.ComponentInitial.ChevSp6EpsOneNormalizerPoint
 

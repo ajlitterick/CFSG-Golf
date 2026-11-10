@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLangRootSL2Rational
-public import CFSG.LocalAnalysis.StandardType.GGLangCorootPair
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.Monster.B.Classical.PlaneData
 import all CFSG.Fischer.F4
-public import Mathlib.Tactic.Basify
 
 public section
 

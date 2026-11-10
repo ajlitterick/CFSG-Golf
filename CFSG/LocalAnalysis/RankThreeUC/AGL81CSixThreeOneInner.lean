@@ -1,30 +1,8 @@
 module
 
-public import CFSG.Open.StatedDefs
-public import CFSG.Foundations.Basic
 public import Certificates.Certificate1022
 public import Certificates.Certificate7059
 public import Certificates.Certificate7023
-public import Certificates.Certificate1000
-public import Certificates.Certificate1001
-public import Certificates.Certificate1002
-public import Certificates.Certificate1003
-public import Certificates.Certificate1004
-public import Certificates.Certificate1005
-public import Certificates.Certificate1006
-public import Certificates.Certificate1007
-public import Certificates.Certificate1008
-public import Certificates.Certificate1009
-public import Certificates.Certificate1010
-public import Certificates.Certificate1011
-public import Certificates.Certificate1012
-public import Certificates.Certificate1013
-public import Certificates.Certificate1014
-public import Certificates.Certificate1015
-public import Certificates.Certificate1016
-public import Certificates.Certificate1017
-public import Certificates.Certificate1018
-public import Certificates.Certificate1019
 public import Certificates.Certificate1
 public import Certificates.Certificate10
 public import Certificates.Certificate11
@@ -44,14 +22,11 @@ public import Certificates.Certificate9
 import CFSG.RankThree.SubgroupLists.MitchellQuasisimple
 import CFSG.RankThree.SubgroupLists.MitchellPartThreeProof
 import CFSG.RankThree.SubgroupLists.SymplecticFischerSp
-import CFSG.RankThree.SubgroupLists.SymplecticFischerOrth
 import CFSG.RankThree.SubgroupLists.SymplecticFischerUnitary
 import CFSG.RankThree.SubgroupLists.SymplecticFischerRefl
 import CFSG.GH74.GLS.LU.Local.SL2Aut2
-import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
 import CFSG.Quasithin.EmptyFaithful.S152VR1
 import CFSG.LieType.SteinbergBRSmallAltSylow
-import Mathlib.FieldTheory.Finite.GaloisField
 public import CFSG.Certificates.Kernel.Th.Gen.Dce
 public import CFSG.Certificates.Kernel.Th.Gen.DceStruct
 public import CFSG.Certificates.Kernel.Th.Gen.Fwd
@@ -88,7 +63,6 @@ import CFSG.LocalAnalysis.ComponentInitial.BlockOvergroupDichotomy
 import CFSG.LocalAnalysis.ComponentInitial.GeneralizedFittingProduct
 import CFSG.LocalAnalysis.SectionRank.Ccomm.Critical
 import CFSG.Permutation.AlternatingAutomorphism
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ConjugatedInvertedSubgroup
 
 public section
 

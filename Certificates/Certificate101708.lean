@@ -1,8 +1,6 @@
 module
 
 public import Certificates.Data.BabyTwoBD0
-import Certificates.Certificate9206
-import Certificates.Certificate9111
 import Certificates.Kernel.Fi23M.Keys
 import Certificates.Kernel.Fi23BD0.Glue
 

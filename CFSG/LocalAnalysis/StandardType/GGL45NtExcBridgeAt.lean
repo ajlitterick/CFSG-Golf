@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGL45NtExcBridgeE6
 public import CFSG.LocalAnalysis.StandardType.GGL45NtExcBridgeTwE6
 import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangInj
 

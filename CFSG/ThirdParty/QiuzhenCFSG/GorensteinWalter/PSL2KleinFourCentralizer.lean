@@ -2,8 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.KleinFourCentralizerTransport
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2RootCentralizer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.MatrixGroups.PSL2
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

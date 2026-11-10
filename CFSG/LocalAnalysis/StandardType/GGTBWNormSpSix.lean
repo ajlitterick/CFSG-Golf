@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBWNorm
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormNbr
 public import CFSG.Mathlib.GroupTheory.PerfectCentralAut
 public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticBstar

@@ -2,11 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCornerSign
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBNbrType
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBProperNbr
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBSpSp
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
-import CFSG.LocalAnalysis.StandardType.GGSignedCoordFix
 import CFSG.LocalAnalysis.StandardType.GGSignedCoordReflGroup
 
 public section

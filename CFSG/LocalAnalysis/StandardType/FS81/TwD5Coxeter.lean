@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Mat
 public import CFSG.LocalAnalysis.StandardType.FS81.MonoRefl
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoAux
-public import Mathlib.GroupTheory.Coxeter.Basic
-public import Mathlib.GroupTheory.Index
 
 public section
 

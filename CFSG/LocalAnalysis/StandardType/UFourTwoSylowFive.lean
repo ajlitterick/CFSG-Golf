@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.Sp62LocalData
 public import CFSG.LocalAnalysis.StandardType.SylowOvergroupReduction
 public import CFSG.LocalAnalysis.StandardType.GGKGroupFusionSeitzExcSolv
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.Sp62LocalViso

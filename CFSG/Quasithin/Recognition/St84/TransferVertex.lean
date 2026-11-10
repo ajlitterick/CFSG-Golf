@@ -10,7 +10,6 @@ import CFSG.Quasithin.EmptyFaithful.S1421QNSSurv
 import CFSG.Quasithin.Recognition.St84.Gen.OTwoPrimeL2
 import CFSG.Quasithin.Recognition.St84.Gen.TreeSLB
 public import CFSG.GH74.QTGen4.DSGen4.Statements
-public import CFSG.GroupTheory.PCore.OpenTransport
 
 public section
 

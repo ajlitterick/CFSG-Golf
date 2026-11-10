@@ -4,7 +4,6 @@ public import CFSG.GH74.GLS.Stage2.Local.P27.P1Abs
 public import CFSG.GH74.GLS.Stage1.Main.BrTwoClassS
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk93OneCls
 public import CFSG.GH74.GLS.Stage1.Thm2.Recip.IG327Proof
-public import CFSG.GH74.GLS.IVK.Proofs2.Ivk93Cls
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk93L4G
 
 public section

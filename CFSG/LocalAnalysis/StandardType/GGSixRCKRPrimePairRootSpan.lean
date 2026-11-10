@@ -1,11 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeReturnedFrame
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimple
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePairFix
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePairCover
-import CFSG.LieType.Chevalley.CoordinateFieldBaseChange
-import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
 
 public section
 

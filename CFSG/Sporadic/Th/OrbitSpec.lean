@@ -1,6 +1,5 @@
 module
 
-public import Mathlib
 public import CFSG.Sporadic.Th.F2Spec
 
 public section

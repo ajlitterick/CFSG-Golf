@@ -1,10 +1,8 @@
 module
 
-public import CFSG.Quasithin.Background.B4Models
 public meta import Mathlib.Algebra.Field.ZMod
 public meta import Mathlib.Data.Matrix.Mul
 public meta import Mathlib.Data.Fin.VecNotation
-public import CFSG.Quasithin.Background.HL42DataInputs
 public import Certificates.Certificate7026
 
 public section

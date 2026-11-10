@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LieType.SeitzGeneration.HyperEx
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.TwE6RegularLieCore
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.TwE6NegDatumPlane
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.TwE6NegDatumCoroot

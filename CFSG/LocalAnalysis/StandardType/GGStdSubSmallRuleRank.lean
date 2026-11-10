@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwoThreeRank
-public import Mathlib.LinearAlgebra.BilinearForm.Orthogonal
 public import CFSG.LocalAnalysis.StandardType.GGTableBRank
 
 public section

@@ -1,12 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLFrameUDefs
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDefs
 public import CFSG.LocalAnalysis.StandardType.GGXInLUDefs
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUModelCoprime
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylUnitaryCover
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRestDefs
 
 public section
 

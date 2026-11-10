@@ -1,15 +1,9 @@
 module
 
 public import Certificates.Kernel.LocalComp.FendelWit
-public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.FendelDataInputs
 meta import CFSG.LocalAnalysis.EvenSmallLie.SympSix.FendelDataInputs
 meta import CFSG.Sporadic.Schreier.Co3Arrays
-import CFSG.GH74.M12.HypCore
-import CFSG.GH74.M12.HypCoreInputs
-import Certificates.Data.CFSGNative.Co3Schreier.Basic
-import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

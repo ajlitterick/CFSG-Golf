@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeLabel
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4EndNode
 
 public section
 

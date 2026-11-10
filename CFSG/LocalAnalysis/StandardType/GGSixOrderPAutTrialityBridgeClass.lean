@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutTrialityBridgeLang
-public import CFSG.RankThree.PartTwo.Sec21.LangTwistedProofD4Geom
-public import CFSG.RankThree.PartTwo.Sec21.LangTwistedProofD4Cent
 public import CFSG.RankThree.PartTwo.Sec21.LangTwistedProofD4SecIrred
 
 public section

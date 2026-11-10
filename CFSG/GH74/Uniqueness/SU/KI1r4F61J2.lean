@@ -1,14 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutOddCore
-public import CFSG.GH74.Uniqueness.SU.KI1r4F61Mod
 public import CFSG.GH74.Uniqueness.SU.KI1r4F61Sp
 public meta import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutCheck
-public import CFSG.GH74.Uniqueness.SU.KI1r4F61J2Inputs
 public meta import CFSG.GH74.Uniqueness.SU.KI1r4F61J2Inputs
-public import Certificates.Certificate3139
 public import Certificates.Certificate5136
-public import Certificates.Certificate10019
 public import CFSG.Foundations
 public import CFSG.GH74.Generic.Shapes
 public import CFSG.GH74.Uniqueness.SU.KI1r3FamBender
@@ -38,7 +34,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Reduce
 public import CFSG.Sporadic.J2
 public import CFSG.Sporadic.Schreier.M23
 public import CFSG.Sporadic.Schreier.MathieuOddCore
-public import CFSG.Sporadic.Th.F2Spec
 public import CFSG.Walter.J1
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis

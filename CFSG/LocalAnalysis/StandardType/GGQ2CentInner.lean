@@ -1,15 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2CentInternal
-public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
-public import CFSG.LocalAnalysis.StandardType.GGInnLocalDefs
-import CFSG.LocalAnalysis.StandardType.GGTableBBstar
 import CFSG.LocalAnalysis.StandardType.GGTBJConfigFacts
-import CFSG.LocalAnalysis.StandardType.GGNbrBalance
-import CFSG.LocalAnalysis.StandardType.GGOneFiveNbr
-import CFSG.LocalAnalysis.StandardType.GGCorFourTwoTableBLift
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseL4546Defs
-import CFSG.LocalAnalysis.StandardType.Marking
 
 public section
 

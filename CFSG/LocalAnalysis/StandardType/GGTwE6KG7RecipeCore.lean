@@ -1,17 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGD4OddCentKnownInputs
-public import CFSG.LocalAnalysis.StandardType.GGTwE6RecipeTransport
-public import CFSG.LocalAnalysis.StandardType.GGTwE6DD2Torus
-public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRankFiveAmbient
-public import CFSG.LocalAnalysis.StandardType.GGTwInndiagRootBridge
-public import CFSG.LocalAnalysis.StandardType.GGMarkingAllInduces
-public import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourCoverMark
-public import CFSG.LocalAnalysis.StandardType.GGTwistedF4DiagRaw
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45ConfigIso
-public import CFSG.LocalAnalysis.StandardType.GGAssemblyFiveDefs
-public import CFSG.LocalAnalysis.StandardType.GGExclNoIso
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeE6ToralCoreDefs
 public import CFSG.LocalAnalysis.StandardType.GGTwE6KG7LangTorus
 public import CFSG.LocalAnalysis.StandardType.GGTwE6KG7InnDiagConj
 public import CFSG.LocalAnalysis.StandardType.GGTwE6KG7CanonLegacy

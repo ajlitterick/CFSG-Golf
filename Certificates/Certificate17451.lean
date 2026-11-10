@@ -1,10 +1,8 @@
 module
 
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.BThreeFi23Reps
 public import Certificates.Kernel.BabyMonster.Fi23Fu
 public import Certificates.Kernel.Sporadic.Fi23Fu.Rels
 import CFSG.Monster.Existence.BabyW2Classes
-public import CFSG.Sporadic.Co2Schreier.ThirdChain
 
 public section
 

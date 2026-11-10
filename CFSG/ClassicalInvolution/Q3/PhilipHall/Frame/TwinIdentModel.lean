@@ -2,9 +2,7 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinIdentKind
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.LiftTransfer
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.Transport217
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.Model1520GlueLie
-public import CFSG.ClassicalInvolution.Q3.Induction
 public import CFSG.ClassicalInvolution.Asc77.AscT8V1
 public import CFSG.ClassicalInvolution.Asc77.AscT8V2
 public import CFSG.ClassicalInvolution.Asc77.AscT8V3

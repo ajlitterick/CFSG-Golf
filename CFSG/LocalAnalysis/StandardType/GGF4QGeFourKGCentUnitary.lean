@@ -2,15 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourUnitaryLifts
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.LiftAutPSU
-import CFSG.LocalAnalysis.StandardType.GGTableBTransport
 import CFSG.Mathlib.GroupTheory.ConjugationLift
 import CFSG.LocalAnalysis.StandardType.GGF4QGeFourOmegaMinusTorus
 import CFSG.LocalAnalysis.StandardType.GGF4QGeFourL1
-import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaBase
 import CFSG.LocalAnalysis.StandardType.GGSCNoTVCyclic
-import CFSG.LocalAnalysis.StandardType.GGOneFiveNbr
-import CFSG.LocalAnalysis.StandardType.GGOneFiveNormalizer
-import CFSG.LocalAnalysis.StandardType.GGF4QGeFourOrb
 import CFSG.LocalAnalysis.StandardType.GGF4SharedRefl
 import CFSG.LocalAnalysis.StandardType.GGRankOneShared
 import CFSG.LocalAnalysis.StandardType.GGF4QGeFourRk2Cross

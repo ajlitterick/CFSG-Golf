@@ -10,10 +10,8 @@ public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.SectionRank.Ccomm.OddCritical
 import CFSG.Foundations
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.InA3Five
-import CFSG.LocalAnalysis.SectionRank.PRank
 import CFSG.LocalAnalysis.SectionRank.SQT
 import CFSG.Quasithin.Background.A1cTransfer
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

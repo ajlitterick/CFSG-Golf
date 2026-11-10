@@ -4,7 +4,6 @@ public import Certificates.Kernel.SporSch.J4S.RealK
 public import CFSG.Certificates.Kernel.SporSch.J4SRunSound
 meta import CFSG.Sporadic.Schreier.J4SNative
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

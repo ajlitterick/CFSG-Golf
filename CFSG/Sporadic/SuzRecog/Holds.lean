@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec2SuzNWC
 public import CFSG.Sporadic.SuzRecog.Assembly
 public import CFSG.Sporadic.SuzRecog.B0Gluing
 public import CFSG.Sporadic.SuzRecog.B0TwistExcl

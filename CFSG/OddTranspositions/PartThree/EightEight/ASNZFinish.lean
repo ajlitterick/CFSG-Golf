@@ -4,11 +4,7 @@ public import CFSG.OddTranspositions.PartThree.EightEight.ASNZShape
 public import CFSG.OddTranspositions.PartThree.EightEight.ASNZWreath
 public import CFSG.OddTranspositions.PartThree.OddTranspClosure
 
-import CFSG.OddTranspositions.BlockTransitive
-import CFSG.OddTranspositions.PartThree.EightEight.ASFacts
-import CFSG.OddTranspositions.PartThree.EightEight.ASNZTypes
 import CFSG.OddTranspositions.PartThree.EightEight.KOneBender
-import CFSG.OddTranspositions.PartThree.EightEight.StarConj
 import CFSG.OddTranspositions.PartThree.EightEight.StarOrbit
 import CFSG.OddTranspositions.PartThree.EightEight.StarSigma
 import CFSG.OddTranspositions.PartThree.EightEight.WreathFourAut

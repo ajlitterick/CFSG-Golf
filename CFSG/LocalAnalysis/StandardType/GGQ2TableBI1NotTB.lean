@@ -1,25 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2TableBI1Exc
-public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperMoreE6Two
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallTits
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestG2
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRanksTri
 public import CFSG.LocalAnalysis.StandardType.GGStdUFourExcl
 import CFSG.LocalAnalysis.StandardType.GGQ2TableBI1Sp
 import CFSG.LocalAnalysis.StandardType.GGQ2TableBI1U
 import CFSG.LocalAnalysis.StandardType.GGQ2TableBI1Omega
 import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBVac
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestTri
-import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestVac
-import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperMoreNarrow
-import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperMoreOrth
-import CFSG.LocalAnalysis.StandardType.GGCorFourTwoRestTwo
-import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperRestLabels
-import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperRestDefs
-import CFSG.LocalAnalysis.StandardType.GGTableBTwDThree
-import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
-import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6
 
 public section
 

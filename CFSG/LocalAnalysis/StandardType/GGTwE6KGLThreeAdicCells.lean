@@ -1,14 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6KGLPairs
-import CFSG.LocalAnalysis.StandardType.GGAssemblyThreeHypSix
 import CFSG.LocalAnalysis.StandardType.GGInndiagThreeAdicInner
-import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpRestInner
-import CFSG.LocalAnalysis.StandardType.GGTableB
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLNoJ1Mark
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLThreeAdic
-import CFSG.LocalAnalysis.StandardType.Marking
-import CFSG.Timmesfeld.Orders.ExceptionalUntwisted
 
 public section
 

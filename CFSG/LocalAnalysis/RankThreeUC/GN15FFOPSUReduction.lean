@@ -4,9 +4,6 @@ public import CFSG.LocalAnalysis.RankThreeUC.GN15FFOPSUOuter
 public import CFSG.LocalAnalysis.RankThreeUC.GN15FFOPSUCover
 public import CFSG.LocalAnalysis.RankThreeUC.GN15FFOVacuity
 public import CFSG.HardMathSupport.Meierfrankenfeld.FFToolkit.TransvectionPair
-public import CFSG.Quasithin.Background.D2Involutions
-public import CFSG.Quasithin.Background.StabSubBasics
-public import CFSG.Certificates.Kernel.ThDemp.OrbCent
 public import CFSG.GH74.GLS.C3.Layer1.BkIvk73Q
 public import CFSG.GH74.GLS.C3.Layer2.L5C19
 public import CFSG.GH74.GLS.C3.Layer2.L5C5c
@@ -56,14 +53,8 @@ public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.MsidePrelim.Kmax
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.MsidePrelim.ThompsonFactor
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneProjSlice
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4Cover
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearFieldDeterminant
 public import CFSG.LocalAnalysis.ComponentClassification.OddClassSelectorU
-public import CFSG.LocalAnalysis.ComponentClassification.OddSelector
-public import CFSG.LocalAnalysis.ComponentClassification.OutcomeLocalCTILinearSocle
 public import CFSG.LocalAnalysis.ComponentClassification.Sp4RecPair
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSLAllInvolutions
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSUFieldOddCore
-public import CFSG.LocalAnalysis.ComponentInitial.ProjectiveEigenspaceComponent
 public import CFSG.LocalAnalysis.GLTheoremB.Lemma911Defs
 public import CFSG.LocalAnalysis.GLTheoremB.SchreierTools
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionSquareFieldNaturalAction

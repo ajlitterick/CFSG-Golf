@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.S8.I2014Core
 public import CFSG.LocalAnalysis.GLTheoremA.S8.I1423HN
-public import CFSG.Sporadic.HNSchreier.FullAut
-public import CFSG.Sporadic.HNSchreier.Intrinsic
 public import CFSG.SignalizerFunctorTheorem.CatalogBridge.Parity
 public import CFSG.LocalAnalysis.GLTheoremA.S6.InputsAlt73
 public import Certificates.Certificate431002

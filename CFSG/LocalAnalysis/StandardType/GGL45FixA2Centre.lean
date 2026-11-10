@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
-public import CFSG.LocalAnalysis.ComponentInitial.LinearCoverModel
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.CenterHopf
-public import CFSG.LieType.Steinberg.CentralExt.PSLMultiplier
-public import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylFieldVacOther
 
 public section

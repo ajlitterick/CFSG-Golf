@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec16.Item166Res6ProofFix
 public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismGeneration
-import CFSG.LocalAnalysis.ComponentInitial.LinearFlagOrder
 import CFSG.RankThree.PartTwo.Sec16.Item166Res6ProofNT
 
 public section

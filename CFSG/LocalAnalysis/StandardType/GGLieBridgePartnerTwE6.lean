@@ -2,14 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieBridgeHom
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreBridge
-public import CFSG.LocalAnalysis.StandardType.GGInterfaceFive
-public import CFSG.LocalAnalysis.StandardType.GGFinModelRootCompatDefs
-public import CFSG.LocalAnalysis.StandardType.GGFinModelInput
-public import CFSG.LocalAnalysis.StandardType.GGFinModelTw
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcSixETwisted
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangTwE6
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangTwE6Lang
-public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerExcTwE6Cyc
 
 public section
 

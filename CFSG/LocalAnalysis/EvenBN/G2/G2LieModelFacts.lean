@@ -3,12 +3,9 @@ module
 public import CFSG.Blueprint.Catalog
 public import CFSG.RankThree.GF2n.Stroth80.Sec117Config
 import CFSG.Quasithin.Vol2.GoldschmidtF431G2ModelData
-import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenInvolutions
 import CFSG.LocalAnalysis.EvenBN.G2.Automorphisms
 import CFSG.RankThree.Chevalley.EvenPinnedRootSL2
 import CFSG.ClassicalGroups.SpecialLinear.InvolutionInverts
-import CFSG.LieType.Simplicity.Exceptional
-import CFSG.Timmesfeld.Orders.ExceptionalUntwisted
 public import CFSG.LieType.Chevalley.RootCommutatorData
 import CFSG.GroupTheory.HallHigmanPiCore
 import CFSG.LieType.Chevalley.LangStronglyOrthogonalCommute

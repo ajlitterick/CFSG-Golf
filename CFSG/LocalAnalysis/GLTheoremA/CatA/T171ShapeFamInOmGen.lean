@@ -30,21 +30,13 @@ public import CFSG.LocalAnalysis.GLTheoremA.S10.Lemma106107
 public import CFSG.LocalAnalysis.GLTheoremA.S3.Lemma35
 public import CFSG.LocalAnalysis.GLTheoremA.S6.Lemma62Aux
 public import CFSG.LocalAnalysis.GLTheoremA.Sec5Setup
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Reduce
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Equivariance
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
-public import CFSG.LocalAnalysis.SignalizerFunctor
 public import CFSG.Quasithin.Background.A3Structure319
-public import CFSG.Quasithin.Background.A3Structure36Base
-public import CFSG.Quasithin.Background.A3Structure38Part3
 public import CFSG.Quasithin.Background.F9FiveStruct
 public import CFSG.Quasithin.Background.F9G2
 public import CFSG.Quasithin.Background.F9Geometry
 public import CFSG.Quasithin.Background.GoldschmidtRankOneFacts
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtF112ListC
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import CFSG.Quasithin.EmptyFaithful.S1421Defs
 public import CFSG.Quasithin.EmptyFaithful.S142Statements
 public import CFSG.Quasithin.H13.A5S1326
@@ -57,7 +49,6 @@ public import CFSG.Quasithin.Vol2.Ch11StatementsC
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 import CFSG.LocalAnalysis.GLTheoremA.CatA.I2015Defs
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S267Cover
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T156Facts

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LieType.Chevalley.GraphFixedCompatibleDiagonal
 public import CFSG.LieType.Chevalley.DiagramCoordinateFixedStructure
 
 public section

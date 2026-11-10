@@ -1,8 +1,6 @@
 module
 
 public import Certificates.Kernel.LocalComp.ExcU6.Derivs
-public import Certificates.Data.Kernel.Griess13.Packed
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Sporadic.Co1Block.TwoACheckInputs
 public meta import CFSG.Sporadic.Co1Block.TwoAData
 public meta import CFSG.Sporadic.Co1Block.IotaData
 public meta import CFSG.Sporadic.Co1Block.Iota
@@ -15,13 +14,11 @@ public meta import Certificates.Data.CFSGNative.Co1.Involutions
 public meta import Certificates.Data.CFSGNative.Co1.TwoB
 public meta import Certificates.Data.CFSGNative.HS.SmallF2
 public import Certificates.Kernel.Co1B.Chk2044
-public import Certificates.Kernel.Co1B.Iota
 public import Certificates.Kernel.Co1B.Fix2041
 public import Certificates.Kernel.SporSch.Co1.Packed
 public import CFSG.Certificates.Kernel.SporSch.Co1CentSound
 public import CFSG.Certificates.Kernel.SporSch.Co1BfsSound
 public import CFSG.Certificates.Kernel.Co1FixCount
-import Mathlib.Tactic.IntervalCases
 
 public section
 

@@ -6,12 +6,7 @@ public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourPlusForcing
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourPlusOm
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourR3CommPlus
 import CFSG.LocalAnalysis.StandardType.GGF4OriginalRankOnePlus
-import CFSG.LocalAnalysis.StandardType.GGF4QGeFourEndsCover
-import CFSG.LocalAnalysis.StandardType.GGPumpupBalance
-import CFSG.LocalAnalysis.StandardType.GGF4QGeFourOrb
-import CFSG.LocalAnalysis.StandardType.GGF4OrigRep
 import CFSG.LocalAnalysis.StandardType.GGF4QGeFourPlusAutomizer
-import Mathlib.Tactic.Group
 
 public section
 

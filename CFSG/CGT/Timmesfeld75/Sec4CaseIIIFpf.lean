@@ -1,7 +1,6 @@
 module
 
 public import CFSG.CGT.Timmesfeld75.Sec4CaseIIIConj
-public import CFSG.CGT.Timmesfeld75.Sec3Fpf
 public import CFSG.CGT.Timmesfeld75.Sec3Ten
 public import CFSG.CGT.Timmesfeld75.Sec4CaseIIIFour
 public import CFSG.CGT.Timmesfeld75.Sec4CaseIIINorm

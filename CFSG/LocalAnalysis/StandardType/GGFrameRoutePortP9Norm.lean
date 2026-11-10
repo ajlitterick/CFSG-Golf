@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixAutKFinerChoiceTwoOmMoves
-public import CFSG.LocalAnalysis.StandardType.GGSixAutKFinerChoiceTwoTorus
-import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderOmegaMono
 
 public section
 

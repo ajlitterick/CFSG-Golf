@@ -4,23 +4,15 @@ public import CFSG.OddTranspositions.PartThree.EightEight.ASNZBase
 public import CFSG.OddTranspositions.PartThree.Eleven.OneOne.ConjShared
 
 import CFSG.GroupTheory.InvolutionConjParity
-import CFSG.OddTranspositions.BlockCover
-import CFSG.OddTranspositions.BlockGraph
-import CFSG.OddTranspositions.BlockTransitive
-import CFSG.OddTranspositions.PartThree.EightEight.ASBase
-import CFSG.OddTranspositions.PartFour.LineTransport
 import CFSG.OddTranspositions.SixSevenLocalStep
 import CFSG.OddTranspositions.TheoremTwo.DiffBlock
 import CFSG.Mathlib.GroupTheory.SimpleConj
 import CFSG.OddTranspositions.PartThree.EightEight.DeltaOrbit
 import CFSG.OddTranspositions.PartThree.Ten.DalphaBlocks
-import CFSG.OddTranspositions.PartThree.EightEight.StarBlocks
 import CFSG.OddTranspositions.PartThree.EightEight.StarSigma
 import CFSG.OddTranspositions.PartThree.EightFive.Transitive
 import CFSG.OddTranspositions.PartThree.EightSeven
 import CFSG.OddTranspositions.PartThree.HalphaCentralizer
-import CFSG.Timmesfeld.Basic
-import CFSG.Timmesfeld.Bridge.Asc72ConjOrbit
 import CFSG.CGT.T75E.Lemma26
 import CFSG.CGT.Timmesfeld75.Sec3TenCaseA
 import CFSG.CGT.Timmesfeld75.Sec4CaseIBasic

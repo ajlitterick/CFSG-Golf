@@ -4,7 +4,6 @@ public import Certificates.Data.Kernel.Sp6Insp443.Sub
 public import Certificates.Data.Sp6Insp443
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Common.Lce
 
 public section

@@ -1,10 +1,8 @@
 module
 
 public import Certificates.Kernel.Sporadic.Fi24G2e.Own
-public import Certificates.Kernel.Sporadic.Fi24Orb.Simple
 public import Certificates.Kernel.Sporadic.Fi24Ext.Final
 public import CFSG.Sporadic.Fi24.OctadAction
-import Mathlib.Tactic.Group
 
 public section
 

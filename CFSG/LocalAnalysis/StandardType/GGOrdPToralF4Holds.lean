@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutInnerExcHardF4
 public import CFSG.LocalAnalysis.StandardType.GGExcFieldAutCentRankF4Rank
 public import CFSG.HardMathSupport.Timmesfeld.Steinberg.ThreeCharF4
 public import CFSG.HardMathSupport.Timmesfeld.Torality.F4Block
-public import CFSG.RankThree.Chevalley.G2F4FiniteFieldFixedMatrices
 public import CFSG.RankThree.Chevalley.SteinbergBUF4CyclotomicFourDescent
 public import CFSG.RankThree.Chevalley.SteinbergBNF4NativeB2
 public import CFSG.RankThree.Chevalley.SteinbergBUF4B2QuarticDescent

@@ -5,9 +5,7 @@ public import CFSG.Certificates.Kernel.L34KSound
 public import CFSG.Certificates.Kernel.L34KSnd.Tab
 public import Certificates.Data.CFSGNative.PSL3Four.L34Aut
 import CFSG.Certificates.Kernel.BfsPinSetSound
-import CFSG.Certificates.Kernel.HeAutKLoops
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import CFSG.Certificates.Kernel.Spor.PackWord
 public import CFSG.Certificates.Kernel.BfsPinSound
 public import CFSG.Certificates.Kernel.HeAutKSound
 

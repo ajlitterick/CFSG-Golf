@@ -2,8 +2,6 @@ module
 
 public import CFSG.LieType.AlgebraicGroups.E6TwoSevenCentralizer
 public import CFSG.LocalAnalysis.StandardType.GGAllFixedA8Seven
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcBasic
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExc
 public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 
 public section

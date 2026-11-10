@@ -3,10 +3,7 @@ module
 public import Certificates.Kernel.Sporadic.OddCore.Suz26990
 public import Certificates.Kernel.Sporadic.OddCore.SuzDBind
 public import Certificates.Kernel.Sporadic.OddCore.SuzCT
-public import Certificates.Kernel.Sporadic.OddCore.PEnumCmd
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.LocBSSuzData
 meta import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.LocBSSuzCheck
-import CFSG.Certificates.Kernel.Common.Harness
 
 namespace CertificateChecks.KernelSpor.S26680
 

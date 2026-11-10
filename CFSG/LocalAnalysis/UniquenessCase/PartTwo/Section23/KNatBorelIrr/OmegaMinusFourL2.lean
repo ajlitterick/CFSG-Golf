@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22Defs
-public import CFSG.Open.StatedDefs
-public import Mathlib.GroupTheory.Sylow
 
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23bOmega4
-import Mathlib.FieldTheory.Finite.Basic
 public import CFSG.CGT.Timmesfeld75.Statements
 public import CFSG.Foundations
 public import CFSG.GroupTheory.LocalCores.Fitting
@@ -33,7 +30,6 @@ import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddCentralFixed
 import CFSG.LocalAnalysis.ComponentClassification.GSThmB83Outer
 import CFSG.LocalAnalysis.ComponentClassification.HarrisLit35AltConf
 import CFSG.LocalAnalysis.ComponentClassification.HarrisLit35AltSmall
-import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1C3Props
 import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1S73Props
 import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1S74Defs
 import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1Solomon

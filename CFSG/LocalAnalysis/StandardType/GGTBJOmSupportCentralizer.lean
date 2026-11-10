@@ -2,13 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmCoordinates
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenOrthPieces
-public import CFSG.RankThree.PartOne.KC.OrthogonalSupportedScalarDefs
-public import CFSG.RankThree.PartOne.KC.OrthogonalFixedBlock
 import CFSG.ClassicalGroups.SpecialLinear.TvModLinAlg
 import CFSG.LinearAlgebra.QuadraticPieceDihedral
 import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestOddLayer
-import CFSG.RankThree.PartOne.K159.RowFourType
-import CFSG.RankThree.PartOne.KC.OrthogonalEvenMinusExtraction
 import CFSG.ClassicalInvolution.Q3.Q3PlanParams
 import CFSG.LargeExtraspecial.A2ModLines
 

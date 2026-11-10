@@ -1,11 +1,8 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.TheoremA
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.DihedralStructure
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.A5
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.PLengthLemmas
-import Mathlib.GroupTheory.Perm.Cycle.Type
-import Mathlib.Tactic.IntervalCases
 
 namespace CFSG
 end CFSG

@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.FS81.E7CentPieces
 public import CFSG.LocalAnalysis.StandardType.FS81.E7RecogO2
-public import CFSG.LocalAnalysis.SeitzReduction.E7PilotQ2OverlapCent
 
 public section
 

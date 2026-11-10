@@ -22,20 +22,8 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeTwE6CompAct
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeTwE6Conn
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeTwSmall
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeUniInner
-public import CFSG.Quasithin.Background.B1
-public import CFSG.Quasithin.Background.B3Q
-public import CFSG.Quasithin.Background.B3ThreeModel
-public import CFSG.Quasithin.Background.B3ThreeStruct
-public import CFSG.Quasithin.Background.G2Omega4PlusModule
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtS143W2CompO
 public import CFSG.Quasithin.EmptyFaithful.R3c19B
-public import CFSG.Quasithin.EmptyFaithful.S143FF
-public import CFSG.Quasithin.EmptyFaithful.S143Final
-public import CFSG.Quasithin.EmptyFaithful.S143HD
-public import CFSG.Quasithin.EmptyFaithful.S143IG
-public import CFSG.Quasithin.EmptyFaithful.S143JB
-public import CFSG.Quasithin.EmptyFaithful.S143KO
-public import CFSG.Quasithin.EmptyFaithful.S143KP
 public import CFSG.Quasithin.EmptyFaithfulMultiple.Lemma15421
 public import CFSG.RankThree.PartOne.N143.HighEvenU
 

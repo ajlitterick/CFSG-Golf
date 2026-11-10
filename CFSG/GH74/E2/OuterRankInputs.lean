@@ -5,8 +5,6 @@ public import CFSG.CharacterTheory.Semidihedral.NormalForm
 public import CFSG.GH74.E2.FrattiniRank
 public meta import Mathlib
 public meta import CFSG.CharacterTheory.Semidihedral.Model
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.GH74.SectionalRank
 public import CFSG.GroupTheory.FrattiniQuotient
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper

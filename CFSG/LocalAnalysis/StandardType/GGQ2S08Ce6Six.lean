@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08Ce6Adapt
 public import CFSG.LocalAnalysis.StandardType.GGE6D4LocalJ
-public import CFSG.LocalAnalysis.StandardType.GGTBXDatumOfTor
 public import CFSG.LocalAnalysis.StandardType.GGNbrU63Setup
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangTorJInputs
 
 public section
 

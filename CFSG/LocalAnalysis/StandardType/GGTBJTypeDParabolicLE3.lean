@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTBJWeylParabolicLE3
 public import CFSG.LocalAnalysis.StandardType.GGTWReflConj
 public import CFSG.LocalAnalysis.StandardType.GGReflClosedOfWeyl
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLDType
 public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3Bridge
 
 public section

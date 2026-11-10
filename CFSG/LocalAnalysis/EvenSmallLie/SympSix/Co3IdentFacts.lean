@@ -3,30 +3,19 @@ module
 
 public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Co3IdentFactsBase
 
-public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Co3IdentModel
 public meta import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Co3IdentModel
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 public meta import Certificates.Data.CFSGNative.Co3Schreier.Basic
-public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Co3IdentFactsInputs
 public import Certificates.Certificate3094
-public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Co3IdentDataInputs
-public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Co3IdentModelInputs
-public import CFSG.Sporadic.Schreier.Co3CentralizerCheckInputs
 public meta import CFSG.Sporadic.Schreier.Co3SylowCheck
 public meta import Certificates.Data.CFSGNative.Schreier.SetOrbit
-public import CFSG.Sporadic.Schreier.Co3Arrays
-public import CFSG.Sporadic.Schreier.Co3FirstCheckInputs
 public meta import CFSG.Sporadic.Schreier.Co3CentralizerCheck
 public meta import CFSG.Sporadic.Schreier.Co3Sp6Check
-public import CFSG.Sporadic.Schreier.Co3OrbitZCheckInputs
 public meta import CFSG.Sporadic.Schreier.Co3Cert
 public meta import Certificates.Data.CFSGNative.Co3Schreier.Orbit
-public import CFSG.Sporadic.Schreier.Co3OrderCheckInputs
 public meta import Certificates.Data.CFSGNative.Schreier.Check
-public import CFSG.Sporadic.Schreier.Co3Sp6CheckInputs
 public meta import CFSG.Sporadic.Schreier.Co3Outer
 public meta import Mathlib.Data.Matrix.Block
-public import CFSG.Sporadic.Schreier.Co3SylowCheckInputs
 public meta import CFSG.Sporadic.Schreier.Co3OrderCheck
 public import Certificates.Certificate3094Base
 

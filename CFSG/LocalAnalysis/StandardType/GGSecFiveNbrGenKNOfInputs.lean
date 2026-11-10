@@ -1,14 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinPrimed
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosPrimed
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJNormOfFrame
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJReflOfCore
-public import CFSG.LocalAnalysis.StandardType.GGFieldNbr
 public import CFSG.LocalAnalysis.StandardType.GGRankOneModel
 import CFSG.LocalAnalysis.StandardType.GGKGPosGenCox
 import CFSG.LocalAnalysis.StandardType.GGSecFiveRk1OfKGPos
-import CFSG.LocalAnalysis.StandardType.GGCoxReflConv
 import CFSG.LocalAnalysis.StandardType.GGKGPosTagWeyl
 import CFSG.Quasithin.Vol2.Ch10SecHeLMain
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Reduce
@@ -23,7 +19,6 @@ import CFSG.Quasithin.Background.B5CompA
 import CFSG.Quasithin.Background.B5CompB
 import CFSG.Quasithin.Background.B5FinOut
 import CFSG.Quasithin.Background.B6
-import CFSG.Quasithin.Background.B6Example
 import CFSG.Quasithin.Background.E2Hyp
 import CFSG.Quasithin.Background.E2SolvTwo
 import CFSG.Quasithin.Background.F9FiveStruct

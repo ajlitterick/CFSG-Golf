@@ -2,11 +2,6 @@ module
 
 public import CFSG.CGT.Timmesfeld75.PaperSteps
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ElementaryAbelian
-public import Mathlib.LinearAlgebra.GeneralLinearGroup.Basic
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
-public import Mathlib.FieldTheory.Finite.Basic
-public import Mathlib.FieldTheory.Finite.GaloisField
 public import CFSG.CGT.Timmesfeld75.Derivations
 public import CFSG.CGT.Timmesfeld75.SimpleCase
 public import CFSG.CGT.Timmesfeld75.Targets

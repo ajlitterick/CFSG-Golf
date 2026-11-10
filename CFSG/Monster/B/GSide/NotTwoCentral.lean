@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Monster.B.Recog.GenericNotTwoCentral
-public import CFSG.Monster.B.GSide.HSylowCenter
 public import CFSG.Monster.B.GSide.CommutatorTest
 public import CFSG.Monster.B.GSide.HInnerFusion
 

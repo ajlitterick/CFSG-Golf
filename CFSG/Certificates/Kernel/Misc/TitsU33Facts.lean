@@ -1,7 +1,5 @@
 module
 
-public import Certificates.Data.Kernel.G28.R2
-public import Certificates.Data.Kernel.Misc.PermClos
 public import CFSG.Certificates.Kernel.G28.R2Sound
 import CFSG.Certificates.Kernel.Misc.PermClosSound
 public import CFSG.Quasithin.H13.L32NKGG22

@@ -1,19 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.SeitzReduction.EPilotCentralizerHigh
-public import CFSG.Assembly.Defs
 
-import CFSG.LieType.Chevalley.BorelSelfNormalizer
-import CFSG.LieType.Chevalley.OppositeBorel
-import CFSG.LieType.Chevalley.IntrinsicSimplePairs
-import CFSG.LieType.Chevalley.GraphFixedCenterTrivial
-import CFSG.Blueprint.ChevalleyPinnedLemmas
-import CFSG.LieType.Chevalley.LangStronglyOrthogonalCommute
-import CFSG.LieType.Chevalley.SylowOpposition
 import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsBasic
 import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotQ2PosCore
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LieType.Chevalley.C2E6StandardFixedData
@@ -31,9 +21,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
 public import CFSG.LocalAnalysis.ComponentInitial.SylowPointRecovery
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 public import CFSG.Walter.JRFacts
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalSixStructure
 import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherEvenOrthogonalModel

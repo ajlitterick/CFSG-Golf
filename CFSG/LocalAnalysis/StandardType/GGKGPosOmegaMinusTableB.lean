@@ -2,11 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGPosOmegaMinusRankOne
 public import CFSG.LocalAnalysis.StandardType.GGKGPosOmegaMinusStd
-public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourKGPos
-public import CFSG.LocalAnalysis.StandardType.GGStdPosLocalDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRankOneConj
-public import CFSG.LocalAnalysis.StandardType.GGOTwoPrimeMap
-import Mathlib.Tactic.Group
 
 public section
 

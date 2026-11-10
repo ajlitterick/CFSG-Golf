@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenEightF8Pred
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenEightF8Nat
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenEightF8Gen
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenEightKSUGenA
-public import CFSG.Open.StatedDefs
 public import CFSG.ClassicalGroups.Orthogonal.RootGroupSwap
 
 public section

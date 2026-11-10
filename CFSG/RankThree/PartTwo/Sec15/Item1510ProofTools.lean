@@ -1,18 +1,11 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec15.Item1511ProofTools
-public import CFSG.GroupTheory.ABGLocalTools.Basic
 import CFSG.GroupTheory.ABGLocalTools.CoreLemmas
-import CFSG.RankThree.PartTwo.Sec13.Item13Prod
-import CFSG.RankThree.PartTwo.Sec13.Item13Theta
 import CFSG.RankThree.PartTwo.Sec13.Item13Plane
 import CFSG.RankThree.PartTwo.Sec13.Item133
 import CFSG.RankThree.PartTwo.Sec13.OmegaNonempty
 import CFSG.RankThree.PartTwo.Sec6.Item612Plus
-import CFSG.RankThree.LocalRank.SolvablePrimeComplementCore
-import CFSG.RankThree.Theta.PartTwoLocalQuotientAlphaNormalizer
-import CFSG.RankThree.PartTwo.Sec6.Item612Basic
-import CFSG.LieType.BorelTits.Basic
 import CFSG.RankThree.PartTwo.Sec6.Item612Core
 
 public section

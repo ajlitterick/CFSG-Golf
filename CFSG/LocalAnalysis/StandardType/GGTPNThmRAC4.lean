@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTPNThmRACore
 public import CFSG.LocalAnalysis.StandardType.GGB36Defs
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 
 public section
 

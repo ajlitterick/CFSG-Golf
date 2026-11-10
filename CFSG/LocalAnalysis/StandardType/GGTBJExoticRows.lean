@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJLabelSides
 public import CFSG.LocalAnalysis.StandardType.GGResE6DepSmall
-public import CFSG.LocalAnalysis.StandardType.GGTBWNormSmall
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1Absence
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 public import CFSG.LocalAnalysis.StandardType.GGTwF4SUThreeRank
 
 public section

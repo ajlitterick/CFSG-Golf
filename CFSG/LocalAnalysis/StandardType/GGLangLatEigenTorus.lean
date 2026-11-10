@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGLatEigenOrbit
-public import CFSG.LocalAnalysis.StandardType.GGLangRatComp
 public import CFSG.LocalAnalysis.StandardType.GGLangOrbitTorus
 
 public section

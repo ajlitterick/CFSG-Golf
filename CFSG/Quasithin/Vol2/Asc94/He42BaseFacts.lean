@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.Asc94.He42Spec
-public import CFSG.Sporadic.Schreier.J4SBinary
-public import CFSG.Sporadic.Schreier.J4SOrder
 
 public section
 

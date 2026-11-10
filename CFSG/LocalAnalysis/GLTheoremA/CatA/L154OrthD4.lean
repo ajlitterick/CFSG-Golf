@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154Orth2
-public import CFSG.RankThree.PartOne.S11d.OrthDicksonOmega
-public import CFSG.RankThree.Classical.SteinbergBJOrthogonalDerivedCentralizer
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaModel
 
 public section
 

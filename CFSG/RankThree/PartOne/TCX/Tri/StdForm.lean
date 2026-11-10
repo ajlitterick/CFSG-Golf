@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.Chevalley.SteinbergCDTrialityTwelveLocalCore
 public import CFSG.RankThree.PartOne.S11c.Sec66Exc
-public import CFSG.RankThree.PartOne.S11d.FixedFacts
 public import CFSG.LieType.Chevalley.OddExceptionalOuterTwoRank
 public import CFSG.RankThree.PartOne.K128.FixCenter
 public import CFSG.RankThree.PartOne.KF.ClsExcE

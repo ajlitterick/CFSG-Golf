@@ -1,16 +1,6 @@
 module
 
 public import Certificates.Kernel.Co2Cls.Classes
-public import CFSG.Monster.B.TwoA.Co2Inv.CentOrder
-public import Certificates.Certificate3014
-public import Certificates.Certificate3017
-public import Certificates.Certificate3019
-public import Certificates.Certificate3025
-public import Certificates.Certificate3026
-public import Certificates.Certificate3028
-public import Certificates.Certificate3054
-public import Certificates.Certificate3055
-public import Certificates.Certificate16022
 
 public noncomputable section
 

@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabel
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLFaithful
 public import CFSG.LocalAnalysis.StandardType.GGReflModule
 public import CFSG.LocalAnalysis.StandardType.GGWeylReflection
 

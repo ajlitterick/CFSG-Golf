@@ -5,7 +5,6 @@ public import CFSG.ClassicalInvolution.ModelFacts.E8D8RowOrth
 public import CFSG.ClassicalInvolution.ModelFacts.E8D8RowShape
 public import CFSG.ClassicalInvolution.RouteD.TypeTwistedE6PerpExc
 public import CFSG.ClassicalInvolution.RouteD.ExoticTwinProofExcLayerTwisted
-public import CFSG.ClassicalInvolution.RouteD.TypeDLocal
 public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalE6
 public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalE7
 public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalTwistedE6

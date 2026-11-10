@@ -4,18 +4,10 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267ClsCaseLBar
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267ClsAutFieldUni
 import CFSG.RankThree.SteinbergR3EUnitaryFieldDescent
 import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherIsotropicRadical
-import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherPrimeFormRealization
-import CFSG.LocalAnalysis.ComponentInitial.UnitaryDiagonalOuterOrder
 import CFSG.LieType.SeitzGeneration.HyperCoverUnitary
-import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
-import CFSG.ClassicalGroups.Unitary.Finite
-import CFSG.LocalAnalysis.ComponentInitial.DiagonalSemilinear
 import CFSG.LocalAnalysis.GL83PartI.I_22_5.Basic
 import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.SchurFactsCore
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S267RankAut
-import CFSG.Open.StatedAPI
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
 public import CFSG.CharacterTheory.Wreathed.WreathCentralSquare
@@ -49,9 +41,6 @@ public import CFSG.LocalAnalysis.LargeEvenClassification.CyclicCongruenceCut
 public import CFSG.LocalAnalysis.LargeEvenClassification.TopScalarLiftSquare
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
 
 public section

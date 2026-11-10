@@ -1,15 +1,6 @@
 module
 
 public import CFSG.Monster.B.TwoA.Amalgam.FischerSliceNative
-public import CFSG.Monster.B.TwoA.Fischer.CliqueKernel
-public import CFSG.Monster.B.TwoA.Fischer.FullIntertwinerMain
-public import CFSG.Monster.B.TwoA.Fischer.CanonicalIdent
-public import CFSG.Monster.B.TwoA.Fischer.GramMinor
-public import CFSG.Monster.B.TwoA.Fischer.AdjointIntertwiner
-public import CFSG.Monster.B.TwoA.Fischer.AmbientRootFixed
-public import CFSG.Monster.B.TwoA.Fischer.AmbientRootClique
-public import CFSG.Monster.B.TwoA.Fischer.AmbientRootOrbit
-public import CFSG.Monster.B.TwoA.Fischer.AmbientRootSeed
 public import CFSG.Monster.B.TwoA.Fischer.AmbientRootComplete
 public import CFSG.Monster.B.TwoA.Fischer.ChoiceExists
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7CDefs
-import CFSG.LocalAnalysis.StandardType.GGHdRo7CLCoordModelI
 import CFSG.LocalAnalysis.StandardType.GGHdRo7CLOrderSpAux1
 
 public section

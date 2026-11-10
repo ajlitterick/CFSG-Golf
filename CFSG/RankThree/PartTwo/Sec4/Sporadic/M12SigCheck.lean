@@ -1,10 +1,7 @@
 module
 
-public import CFSG.RankThree.PartTwo.Sec4.Sporadic.M12SigData
-public import CFSG.RankThree.PartTwo.Toolkit.M12Local
 public meta import CFSG.RankThree.PartTwo.Sec4.Sporadic.M12SigData
 public meta import CFSG.RankThree.PartTwo.Toolkit.M12Local
-public import CFSG.RankThree.PartTwo.Sec4.Sporadic.M12SigCheckInputs
 public import Certificates.Certificate8170
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 

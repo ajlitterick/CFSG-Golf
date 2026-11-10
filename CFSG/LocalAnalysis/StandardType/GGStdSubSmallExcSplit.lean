@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallOrthDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwoThreeSp
-public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperMore
 
 public section
 

@@ -1,8 +1,6 @@
 module
 
-public import Mathlib
 public import CFSG.GH74.KGroups.L33
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoL33Check
 public meta import Mathlib
 public meta import CFSG.GH74.KGroups.L33
 public meta import CFSG.LocalAnalysis.ComponentClassification.RankTwoL33Check

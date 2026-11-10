@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LieType.Chevalley.IntrinsicSimplePairs
-public import CFSG.LieType.Chevalley.A2Commutator
-public import CFSG.LieType.Chevalley.SimplyLacedCommutation
 
 public noncomputable section
 

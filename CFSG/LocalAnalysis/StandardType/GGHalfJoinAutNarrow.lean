@@ -1,14 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGHalfJoinDefs
 public import CFSG.LocalAnalysis.StandardType.GGHalfJoinDStab
 public import CFSG.LocalAnalysis.StandardType.GGHalfJoinNorm
 public import CFSG.LocalAnalysis.StandardType.GGHalfJoinRows
 public import CFSG.LocalAnalysis.StandardType.GGHalfJoinSL
 public import CFSG.LocalAnalysis.StandardType.GGHalfJoinTorus
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
-public import CFSG.LocalAnalysis.StandardType.GGSpJoinNbrModel
-public import TauCeti.GroupTheory.ExponentPrime
 public import CFSG.LocalAnalysis.StandardType.GGTPNNarrow
 
 public section

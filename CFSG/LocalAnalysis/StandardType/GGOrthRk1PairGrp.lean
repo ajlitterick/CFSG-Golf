@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Models.OrthogonalPairs.Anisotropic.Embed
-public import CFSG.ClassicalInvolution.Phan.Defs
-public import CFSG.LieType.BorelTits.UnitaryForm
 public import CFSG.RankThree.PartOne.CTP.PhanBridge
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.ClassicalInvolution.Models.OrthogonalPairs.Anisotropic.Plane
@@ -22,14 +20,12 @@ public import CFSG.LieType.Universal.Unitary
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.Quasithin.Background.Basic
 public import CFSG.RankThree.GroupTheory.SteinbergBYSectionNineResidual
 public import CFSG.RankThree.LocalRank.SelectorCases
 public import CFSG.RankThree.PartOne.Assembly
 public import CFSG.RankThree.PartOne.S10.Defs
 public import CFSG.RankThree.PartOne.S12.Hyp
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 
 public section

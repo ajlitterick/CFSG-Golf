@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmFrame
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172CRankBound
 public import CFSG.LocalAnalysis.StandardType.GGIOneRestFiveOrthMinusLayer
-public import CFSG.LocalAnalysis.StandardType.GGIOneOrthEndElt
-public import CFSG.RankThree.PartOne.S11d.OrthCaseH
-public import CFSG.RankThree.PartOne.S11d.OrthCyclic
 public import CFSG.HardMathSupport.Dickson.Bal207.OrthFixedType
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC

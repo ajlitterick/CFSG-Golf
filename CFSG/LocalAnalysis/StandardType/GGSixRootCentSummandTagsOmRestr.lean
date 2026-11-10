@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsOmModel
-public import CFSG.RankThree.PartOne.S11d.OrthDicksonOmega
 public import CFSG.RankThree.PartOne.KC.OrthogonalFixedDerived
 public import CFSG.RankThree.PartOne.KC.OrthogonalBinaryDickson
 public import CFSG.RankThree.PartOne.KC.OrthogonalBlockProduct

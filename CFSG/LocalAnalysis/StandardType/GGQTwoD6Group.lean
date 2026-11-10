@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoD6Frame
-public import CFSG.LocalAnalysis.StandardType.GGQTwoFinishGen
 
 public section
 

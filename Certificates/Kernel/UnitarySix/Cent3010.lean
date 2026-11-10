@@ -4,9 +4,6 @@ module
 public import Certificates.Kernel.UnitarySix.Cent3010Base
 
 public import Certificates.Kernel.UnitarySix.KQFacts
-public import CFSG.Sporadic.Schreier.RuEnum
-public import CFSG.Certificates.NativeSchreierEnum
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

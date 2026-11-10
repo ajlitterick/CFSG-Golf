@@ -1,6 +1,5 @@
 module
 
-public import CFSG.CGT.Foote82.T66.CitedBAS
 public import CFSG.CGT.Foote82.T66.CertProofsBASOmegaEight
 public import Certificates.Certificate919011
 public import Certificates.Certificate7093
@@ -13,7 +12,6 @@ import CFSG.CGT.Foote82.T66.CertProofsBASMaximalAlt
 import CFSG.CGT.Foote82.T66.OmegaMinusMatrix
 import CFSG.CGT.Foote82.T66.FaithfulBasic
 import CFSG.ClassicalGroups.Orthogonal.NormalizerOmega
-import Mathlib.Tactic.Group
 import CFSG.Fischer.Uniq.CompTau
 import CFSG.LargeExtraspecial.OrthoF2
 import CFSG.LargeExtraspecial.S2Basic

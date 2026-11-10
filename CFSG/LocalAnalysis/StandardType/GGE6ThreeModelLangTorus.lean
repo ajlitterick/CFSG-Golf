@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelTFrame
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelTwE6Val
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelModule
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 
 public noncomputable section
 

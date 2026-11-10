@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixDefs
-public import CFSG.GroupTheory.ElemAbelianClosure
-public import Mathlib.GroupTheory.Index
-public import Mathlib.GroupTheory.SpecificGroups.Cyclic
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylFieldVacOther
 
 public section

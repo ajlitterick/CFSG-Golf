@@ -2,17 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSpProofJoin
 public import CFSG.LocalAnalysis.StandardType.GGTypeAFiveProof
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylBLevi
-import CFSG.LieType.Universal.SymplecticRoots
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinBstarSplit
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinPlaneConj
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinLeviNormalizer
-public import CFSG.LocalAnalysis.StandardType.GGSpJoinPlaneRank
-public import CFSG.GroupTheory.ElemAbelianClosure
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinPlaneWeyl
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinWeylRank
-public import CFSG.LocalAnalysis.StandardType.GGFieldNbrTableB
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveInputs
 
 public section
 

@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLFrameUCoord
 public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLFrameUJ
 public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLFrameUNbr
 public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLFrameUAut
-import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosAdapterAux
 
 public section
 

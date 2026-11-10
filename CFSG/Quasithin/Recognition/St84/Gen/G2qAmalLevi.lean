@@ -3,8 +3,6 @@ module
 public import CFSG.Quasithin.Recognition.St84.Gen.G2qAmalRoots
 public import CFSG.Quasithin.Recognition.St84.Gen.Sp4qAmalDefs
 public import CFSG.LocalAnalysis.EvenBN.G2.Radicals
-public import CFSG.LieType.Chevalley.LangRootRankOne
-public import CFSG.LieType.Chevalley.ParabolicGradedAction
 import CFSG.RankThree.Chevalley.EvenPinnedRootSL2
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSpExclusion

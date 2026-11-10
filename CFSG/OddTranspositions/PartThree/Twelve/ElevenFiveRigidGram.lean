@@ -1,9 +1,6 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Twelve.ElevenFiveForm
-public import CFSG.OddTranspositions.PartThree.Eleven.Five.FiveFormAux
-public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveModelBridge
-public import TauCeti.LinearAlgebra.QuadraticForm.Witt.Extension
 
 public section
 

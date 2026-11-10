@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.OddClassicalFusion
-public import CFSG.Open.StatedDefs
-public import CFSG.Open.StatedAPI
 public import CFSG.Foundations
 public import CFSG.GroupTheory.Fitting.CharacteristicP
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
@@ -14,7 +12,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.Interface
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 
 public section
 

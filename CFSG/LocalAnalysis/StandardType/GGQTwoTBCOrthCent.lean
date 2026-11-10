@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Open.LocalVocabulary
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1017Gen
 public import CFSG.RankThree.Classical.SteinbergBYKernelBlockUnitary
 public import CFSG.Certificates.CentralKernel

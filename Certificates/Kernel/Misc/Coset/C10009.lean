@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.Multipliers.TitsCheckInputs
-public import CFSG.Certificates.Kernel.Misc.Coset.PG
 public import CFSG.Certificates.Kernel.Misc.Coset.PGChain
 public import CFSG.Certificates.Kernel.Misc.Coset.ActPermRep
 public import Certificates.Kernel.Misc.Tits.Text
@@ -10,11 +9,6 @@ public import Certificates.Kernel.Misc.Coset.XTitsRBC
 public import Certificates.Kernel.Misc.Coset.XTitsC
 public import Certificates.Kernel.Misc.Coset.XTitsCBC
 public import Certificates.Kernel.Misc.Coset.XTitsPA.All
-import CFSG.Certificates.Kernel.Common.Harness
-import CFSG.LieType.Multipliers.CoverWords
-import CFSG.Certificates.CosetTablePresented
-import CFSG.Monster.B.Co2.PermArr
-import CFSG.Certificates.PresentationLetters
 public import CFSG.Certificates.NativeSchreierCard
 
 public section

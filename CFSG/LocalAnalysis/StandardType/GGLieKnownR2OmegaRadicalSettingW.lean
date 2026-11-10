@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaRadicalSetting
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaRadicalIrr
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaRadicalIrrFour
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.GeoSiegelConj
 public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerOmegaSpin

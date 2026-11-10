@@ -6,26 +6,14 @@ public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeldFixPermTools
 public import CFSG.Sporadic.HeldB.InnerRestrict
 public import CFSG.Sporadic.HeldB.OuterCentRestrict
 public import CFSG.Sporadic.HeldB.AutModelCore
-public import CFSG.Sporadic.HeldB.CertPChainData
-public import Certificates.Data.CFSGNative.Schreier.Check
-public import CFSG.Sporadic.HeldB.InnerCheckInputs
 public meta import CFSG.Sporadic.HeldB.InnerData
 public meta import CFSG.Sporadic.HeldB.Common
 public meta import CFSG.Sporadic.Schreier.MathieuOddCoreCentral
-public import CFSG.Sporadic.HeldB.OuterArithCheckInputs
 public meta import CFSG.Sporadic.HeldB.AutData
 public meta import Certificates.Data.CFSGNative.Schreier.Check
-public import CFSG.Sporadic.HeldB.OuterCentCheckInputs
 public meta import CFSG.Sporadic.HeldB.OuterCentAux
 public meta import CFSG.Sporadic.HeldB.OuterArithCheck
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeldFixSylowData
-public import CFSG.Sporadic.HeldB.InnerCheck
-public import CFSG.Sporadic.HeldB.OuterArithCheck
-public import CFSG.Sporadic.SmallOddCore.ClassSimple
-public import CFSG.Sporadic.SuzOddCore.RestrictDefs
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeldFixSylowCheckInputs
 public import CFSG.Sporadic.He
-public import CFSG.Sporadic.Th.F2Spec
 
 @[expose] public noncomputable section
 

@@ -1,14 +1,7 @@
 module
 
-public import CFSG.Sporadic.Schreier.J4SSylow
-public import CFSG.Quasithin.H13.J4Words
 public meta import CFSG.Sporadic.Schreier.J4SData
-public import CFSG.Quasithin.H13.J4SylowInputs
 public import Certificates.Certificate7021
-public import Certificates.Certificate2168
-public import Certificates.Certificate2177
-public import Certificates.Certificate2182
-public import Certificates.Certificate3084
 
 public noncomputable section
 

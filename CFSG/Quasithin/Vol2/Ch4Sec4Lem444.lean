@@ -3,7 +3,6 @@ module
 public import CFSG.Quasithin.Vol2.Ch4Sec4Hyp
 public import CFSG.Quasithin.Vol2.Ch4Sec4Frattini
 public import CFSG.Quasithin.Vol2.Ch4Sec4Inputs
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Centralizer
 
 public section
 

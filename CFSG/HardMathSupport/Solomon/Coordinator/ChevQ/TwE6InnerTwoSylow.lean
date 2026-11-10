@@ -2,18 +2,11 @@ module
 
 public import CFSG.LieType.Chevalley.TwistedE6NormalForm
 public import CFSG.LieType.Chevalley.CoordinateFieldBaseChange
-public import CFSG.LieType.Chevalley.BorelStructure
-public import CFSG.LieType.Chevalley.Canonical
-public import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
 import CFSG.HardMathSupport.Malle.E27Lie.ExcCross.TwE6Order
 import CFSG.HardMathSupport.Malle.E27Lie.ExcTwisted.SylowN
 import CFSG.HardMathSupport.Malle.E27Lie.ExcTwisted.OrdTwoMod
-import CFSG.LieType.Chevalley.AmbientTwistedFrobeniusFixedNormalizer
-import CFSG.LieType.Chevalley.WeylNormalizerQuotient
 import CFSG.LieType.SeitzGeneration.ExcTorusThreeTw
 import CFSG.LocalAnalysis.StandardType.GGTableBF4Three
-import CFSG.RankThree.Chevalley.SteinbergBTE6HighestRootGraph
-import CFSG.RankThree.PartOne.KE.CTLangData
 import CFSG.LieType.SeitzGeneration.ExcTorusBlocks
 import CFSG.LieType.SeitzGeneration.ExcTorusTw
 import CFSG.LieType.SeitzGeneration.Lift

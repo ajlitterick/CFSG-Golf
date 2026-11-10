@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneOCentFix
-public import CFSG.LieType.Universal.Unitary.Clause0
-public import CFSG.ClassicalGroups.UnitaryFlag.GroupData
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.ClassicalGroups.Orthogonal.Matrix
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneOEAlg

@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGR4JMeetKGDefs
 public import CFSG.LocalAnalysis.StandardType.GGPDDefs
 public import CFSG.RankThree.PartTwo.Sec4.Item413Eigen
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
 public import CFSG.LocalAnalysis.ComponentInitial.SuzukiModelSchreier

@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TwelveNotLeAltSix
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanSmallFamAltMaxThree
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanSmallFamAltLocal
-public import CFSG.LocalAnalysis.AGLEmbedding.AltSix
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 public import CFSG.LocalAnalysis.StandardType.GGB48OmReduce
 public import CFSG.LocalAnalysis.StandardType.GGF4AutWeyl
 public import CFSG.LocalAnalysis.StandardType.GGQTwoOriginalNormalizerLift

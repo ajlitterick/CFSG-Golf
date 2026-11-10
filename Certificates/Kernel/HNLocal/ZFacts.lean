@@ -10,8 +10,6 @@ import Certificates.Kernel.HNLocal.Checks.Z2
 import Certificates.Kernel.HNLocal.Checks.Z3
 import Certificates.Kernel.HN3166.Seed
 import CFSG.Certificates.Kernel.Orders.HN.Checks.K
-import Mathlib.Tactic.IntervalCases
-import Mathlib.Tactic.Group
 
 set_option maxRecDepth 400000
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.ExponentPrimeSmallRank
 public import CFSG.LocalAnalysis.SectionRank.Ccomm.PowerMap
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 
 public section

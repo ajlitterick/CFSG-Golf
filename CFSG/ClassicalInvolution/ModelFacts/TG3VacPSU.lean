@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.ModelFacts.TG3Common
 public import CFSG.ClassicalInvolution.Asc77.WP3SCURank
-public import CFSG.ClassicalInvolution.RouteD.TypeULocal
 public import CFSG.ClassicalInvolution.Uniform.U5Model
 public import CFSG.ClassicalInvolution.Asc77.WP3ChainVRank3
 public import CFSG.ClassicalInvolution.Asc77.WP3ChainVToral

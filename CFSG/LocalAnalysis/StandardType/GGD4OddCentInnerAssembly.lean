@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentInnerModelTorus
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentInnerModelG2
-public import CFSG.LocalAnalysis.StandardType.GGD4OddCentInnerCentJ
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentInnerE9
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentInnerMarkDiag
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentInnerSemilin

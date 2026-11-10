@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGLayerCycModelSp
 public import CFSG.LocalAnalysis.StandardType.GGLayerCycModelSU
 public import CFSG.LocalAnalysis.StandardType.GGLayerCycModelOmegaSec
-public import CFSG.LocalAnalysis.StandardType.GGTableB
 
 public section
 

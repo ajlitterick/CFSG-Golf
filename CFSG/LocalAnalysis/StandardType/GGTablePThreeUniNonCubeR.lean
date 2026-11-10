@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniShapeDefs
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeSplitR
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniNonCubeCompR
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniNonCubeRankR
 

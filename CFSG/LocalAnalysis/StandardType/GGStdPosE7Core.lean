@@ -2,11 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdPosLocalDefs
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcRank
-public import CFSG.LieType.Steinberg.Minuscule.Datum
 import CFSG.LocalAnalysis.StandardType.GGStdPosIsogCore
 import CFSG.LocalAnalysis.StandardType.GGStdPosE8Core
 import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerE7
-import CFSG.LieType.Steinberg.Isogeny.E7
 import CFSG.LocalAnalysis.SeitzReduction.E8PilotLevi
 
 public section

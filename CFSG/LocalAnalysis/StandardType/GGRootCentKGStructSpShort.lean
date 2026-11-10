@@ -5,13 +5,7 @@ public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotAutUCenter
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGSummand
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGMarking
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGSpCent
-import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsSpTwo
 import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsCoresAlt
-import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotCentralizerA2
-import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotQ2Perfect
-import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotQ2PerfectEight
-import CFSG.Quasithin.Background.A3ComponentsBasic
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Commutator.Core
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Quadruple
 
 public section

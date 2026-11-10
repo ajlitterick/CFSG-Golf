@@ -1,10 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGIrred937F4Base
-public import CFSG.LocalAnalysis.StandardType.GGIrred937F4BDescent
-public import CFSG.LocalAnalysis.StandardType.GGIrred937F4BSplit
 public import CFSG.LocalAnalysis.StandardType.GGIrred937F4BFrames
-public import CFSG.RankThree.PartOne.KF4.F4ThreeFamily
 
 public section
 

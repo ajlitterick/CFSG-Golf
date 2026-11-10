@@ -6,7 +6,6 @@ public import CFSG.Sporadic.Co1Block.Cent
 public import CFSG.Sporadic.Co1Block.CentGA
 public import CFSG.Sporadic.Co1Block.Co1Equiv
 public import CFSG.Sporadic.Co1.Module.TwoBCertBase
-public import CFSG.Sporadic.Co1Block.TwoBCheckInputs
 public meta import CFSG.Sporadic.Co1Block.TwoBData
 public meta import CFSG.Sporadic.Co1Block.TwoBCheckDefs
 public meta import CFSG.Sporadic.Co1Block.CentCheck
@@ -23,16 +22,10 @@ public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 public meta import Certificates.Data.CFSGNative.Schreier.Check
 public meta import Certificates.Data.CFSGNative.Schreier.Merge
 public meta import Certificates.Data.CFSGNative.ONSchreier.Compact
-public import CFSG.Sporadic.Co1Block.TwoBExtraCheckInputs
 public meta import CFSG.Sporadic.Co1Block.ConjBData
 public meta import CFSG.Sporadic.Co1.Module.InvDataBase
 public meta import CFSG.Sporadic.Co1.Module.FormsBase
 public meta import CFSG.Sporadic.Co1.Module.OrbitsBase
-public import Certificates.Data.CFSGNative.Co1.Data
-public import CFSG.Sporadic.Co1.Module.InvGroupBase
-public import CFSG.Sporadic.Co1.Module.InvDataInputs
-public import CFSG.Sporadic.Co1.Module.InvFamInputs
-public import CFSG.Sporadic.Co1.Module.TwoBFrameInputs
 public import CFSG.Sporadic.Co1.Module.TwoBCertBase1
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.Sporadic.Co1Block.Tools

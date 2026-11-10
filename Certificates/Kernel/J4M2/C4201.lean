@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.J4M2.QStruct
 public import Certificates.Kernel.J4M2.Base
 import CFSG.Certificates.Kernel.Common.Harness
 

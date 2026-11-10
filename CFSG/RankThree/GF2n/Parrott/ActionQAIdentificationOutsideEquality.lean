@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.GF2n.Parrott.ActionQAIdentificationRigid
-public import CFSG.RankThree.GF2n.Parrott.Section2CJ
 public import CFSG.RankThree.GF2n.Parrott.E27LineCount
 
 public section

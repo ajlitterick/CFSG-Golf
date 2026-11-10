@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionWitSpNsFrame
-public import CFSG.Sporadic.Suz.Setup
 
 public section
 

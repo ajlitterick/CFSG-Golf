@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNTPlaneInput
 public import CFSG.RankThree.Chevalley.SteinbergBID4Restrict
 public import CFSG.RankThree.PartOne.KE.D4TranspositionInterface
-public import CFSG.LieType.Chevalley.GraphFixedCoordinateDetection
 
 public section
 

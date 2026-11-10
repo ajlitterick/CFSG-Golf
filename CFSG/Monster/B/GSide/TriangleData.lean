@@ -1,11 +1,6 @@
 module
 
 public import CFSG.Monster.B.GSide.HClasses
-public import CFSG.Monster.B.GSide.NativeCompletion
-public import CFSG.Monster.B.TwoA.Amalgam.NativeChainFinal
-public import CFSG.Monster.B.TwoA.Amalgam.GlobalTypeRemain
-public import CFSG.Monster.B.CTIB.FourClasses
-public import CFSG.Monster.B.TwoA.Unitary.Stab891
 
 public noncomputable section
 

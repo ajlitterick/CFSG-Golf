@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFrames
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesAutTrivial
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesIsogenyTwE6
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesResidualLabels
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTags
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTwE6NonsplitThree
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTwistedCentralize
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTwistedTorus

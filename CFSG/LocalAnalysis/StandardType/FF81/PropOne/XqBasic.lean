@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FF81.PropOne.HCen
-import Mathlib.GroupTheory.Sylow
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PPrimeCore
 
 @[expose] public section
 

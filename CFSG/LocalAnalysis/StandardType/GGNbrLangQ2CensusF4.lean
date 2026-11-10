@@ -4,9 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusF4Rank
 import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusF4Lang
 import CFSG.Assembly.ComponentFreeOddCores
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeF4Comp
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-import CFSG.LocalAnalysis.StandardType.GGReverseMarking
-import CFSG.LocalAnalysis.StandardType.Marking
 
 public section
 

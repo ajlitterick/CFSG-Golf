@@ -2,7 +2,6 @@
 module
 
 public import Certificates.Data.Kernel.HMathieu.Odd
-public import CFSG.Quasithin.Background.HMathieuCodeMask
 public import CFSG.Quasithin.H13.A5M12Inputs
 public import CFSG.Quasithin.Background.HF22Inputs
 public import CFSG.Certificates.Kernel.Common.Each

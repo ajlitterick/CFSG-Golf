@@ -5,15 +5,10 @@ public import Certificates.Kernel.Sporadic.OddCore.PEnumGlue
 public import CFSG.Certificates.Kernel.Spor.RowWordSound
 public import CFSG.Certificates.Kernel.Spor.MulHSound
 public import CFSG.Certificates.Kernel.Spor.RawOrbEval
-public import CFSG.Monster.B.Co2.PermArr
 import CFSG.Certificates.Kernel.Spor.RawOrbHead
 import CFSG.Certificates.Kernel.Spor.PackFld
 import CFSG.Certificates.Kernel.BfsPinAlg
-import CFSG.Sporadic.SuzOddCore.Arrays
-import CFSG.Sporadic.SuzOddCore.GraphArrays
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
-import Mathlib.Data.List.Sort
 import CFSG.Certificates.Kernel.Spor.RawOrbGrp
 
 public section

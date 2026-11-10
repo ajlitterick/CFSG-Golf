@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGFamTameRange
 public import CFSG.LocalAnalysis.StandardType.GGFamTameTransfer
-public import CFSG.LocalAnalysis.StandardType.GGFamTameOrbit
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimple
 
 public section
 

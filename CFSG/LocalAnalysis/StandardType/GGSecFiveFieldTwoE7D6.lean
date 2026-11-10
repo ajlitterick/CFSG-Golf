@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.SeitzGeneration.ExcHigh.E8TwPin
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofFrameRecog
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofE7Frame
 public import CFSG.LocalAnalysis.StandardType.GGSelectedF2
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofComponentLift

@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveZSInputs
 public import CFSG.LocalAnalysis.StandardType.ZS.CommutingRefl
-public import Mathlib.LinearAlgebra.Reflection
 
 public section
 

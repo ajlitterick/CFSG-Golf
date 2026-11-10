@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTwAutBasic
 public import CFSG.LocalAnalysis.StandardType.GGTwOmPlusFacts
 public import CFSG.LocalAnalysis.StandardType.GGTwOmPlusRankLE
 public import CFSG.LocalAnalysis.StandardType.GGTwOmPlusScRank
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorus
 
 public section
 

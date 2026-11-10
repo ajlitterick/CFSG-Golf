@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.TitsAschbacherFive
 public import Certificates.Kernel.EvenBN.K27585R
 public import Certificates.Kernel.MaxD2.TitsD.TransGlue
 import CFSG.Certificates.Kernel.Common.Harness

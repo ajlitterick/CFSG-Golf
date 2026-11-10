@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofLin
 import CFSG.LocalAnalysis.StandardType.GGRCSignedCoxeterB
-import CFSG.LocalAnalysis.StandardType.GGSpJoinSignedPermGen
 import CFSG.LocalAnalysis.StandardType.GGOrthKStructClass4CombAux2
 
 public section

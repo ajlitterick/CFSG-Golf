@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.OmegaEight.C3006D
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

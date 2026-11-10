@@ -7,7 +7,6 @@ public import Certificates.Certificate919122
 public import Certificates.Certificate919123
 import CFSG.HardMathSupport.Timmesfeld.Balance.Alt.AutSix
 import CFSG.LocalAnalysis.Asc75.Helpers
-import Mathlib.Tactic.Group
 import CFSG.LocalAnalysis.Asc75.Conj
 
 public section

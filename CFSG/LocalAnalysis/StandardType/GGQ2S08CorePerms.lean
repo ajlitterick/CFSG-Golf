@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08CorePermsAux
-public import CFSG.LocalAnalysis.StandardType.GGQ2S08CoreDefs
-public import CFSG.LocalAnalysis.StandardType.GGRCMonomialRefl
 
 public section
 

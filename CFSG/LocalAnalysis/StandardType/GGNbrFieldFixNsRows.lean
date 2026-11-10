@@ -1,12 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOpenTableBMoreSp
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOrthNsLabels
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixNsDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixNsLiftOmega
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixNsLiftSp
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylIrredLabels
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldSymplectic
 
 public section
 

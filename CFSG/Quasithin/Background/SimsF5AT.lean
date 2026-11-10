@@ -1,12 +1,6 @@
 module
 
-public import CFSG.Milestones.ASVolI.F4
-public import CFSG.Quasithin.Background.B6Defs
-public import CFSG.Quasithin.Background.Basic
 public import CFSG.Quasithin.Background.SimsF5Ah
-public import CFSG.Quasithin.Vol2.GoldschmidtF431U42AutP7Cl
-public import CFSG.Quasithin.Vol2.GoldschmidtF431U42AutP7E16
-public import CFSG.Quasithin.Vol2.GoldschmidtF431U42AutP7Sub
 public import CFSG.Quasithin.Vol2.GoldschmidtF431U42AutP7Tra
 public import CFSG.Certificates.Kernel.LocalCompTits.Span
 public import CFSG.Quasithin.Vol2.GoldschmidtF431U42AutP4Mod
@@ -18,7 +12,6 @@ public import CFSG.Quasithin.Vol2.GoldschmidtF431U42AutP6Mov
 public import Certificates.Data.CFSGNative.MonsterB.Rep4371Model
 public import Certificates.Kernel.J4Count.FixC
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

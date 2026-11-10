@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJRow
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJSmall
 

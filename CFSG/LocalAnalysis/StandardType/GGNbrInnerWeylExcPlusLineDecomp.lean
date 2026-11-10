@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylOpenLabels
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylExcPlusPrimes
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylExcPlusLargeE7
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylExcPlusLargeE8
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylExcPlusLargeF4

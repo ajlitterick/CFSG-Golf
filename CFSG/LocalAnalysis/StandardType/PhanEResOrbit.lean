@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.PhanEResSeam
-public import CFSG.LocalAnalysis.StandardType.PhanEResPsiAct
 public import CFSG.LocalAnalysis.StandardType.PhanEResOrbitBlock
 public import CFSG.LocalAnalysis.StandardType.PhanEResOrbitPanel
 

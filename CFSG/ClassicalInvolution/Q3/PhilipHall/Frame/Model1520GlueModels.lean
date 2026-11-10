@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.Model1520GlueSpin
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.Model1520Tags
-public import CFSG.ClassicalInvolution.ModelFacts.TG3OrthTags
 public import CFSG.ClassicalInvolution.ModelFacts.TG3Models
 
 public section

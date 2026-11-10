@@ -2,11 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcTwE6Defs
 public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitaryDesc
-import CFSG.LocalAnalysis.StandardType.GGSixStepOneDefs
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBIrred
 import CFSG.LocalAnalysis.StandardType.GGQTwoXInLFrameFIn2
 import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRankFiveAmbient
-import CFSG.GroupTheory.InnerCentralizerProjection
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormUnitarySingular
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUModel
 public import CFSG.LocalAnalysis.StandardType.GGPGUQuadPhase
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormQuotMovePSU
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormLinearTwicePrime

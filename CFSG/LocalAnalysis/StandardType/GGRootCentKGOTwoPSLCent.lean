@@ -2,13 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixAutStructurePSLFixed
 public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsBasic
-import CFSG.LocalAnalysis.StandardType.GGLinearFusionSLCent
-import CFSG.LocalAnalysis.SeitzReduction.LinearPilotInvolutionCentralizer
-import CFSG.LocalAnalysis.SeitzReduction.LinearPilotInvolutionCentralizerBasic
-import CFSG.LocalAnalysis.SeitzReduction.LinearPilotInvolutionCentralizerLevi
-import CFSG.LocalAnalysis.SeitzReduction.LinearPilotRoots
 import CFSG.GroupTheory.CentralExtensionPGroup
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.Nilpotent
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ParabCommSpOTwo
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentLinUnitParabLin
 import CFSG.Certificates.CosetTableShort

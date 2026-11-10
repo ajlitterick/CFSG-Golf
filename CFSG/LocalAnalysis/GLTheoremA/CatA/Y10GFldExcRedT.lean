@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldExcGap
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldExcRed
 
 public section

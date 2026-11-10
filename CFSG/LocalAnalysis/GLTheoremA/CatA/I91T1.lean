@@ -5,12 +5,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.FRResTwF4
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FRResTD4
 public import CFSG.LocalAnalysis.GLTheoremA.S10.YS09Cat11
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.D4XAsm2
-public import CFSG.Adapters.ClassicalCatalogLinearUnitary
-public import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotCatTypeDet
-public import CFSG.LocalAnalysis.SeitzReduction.CrossCharCert
-public import CFSG.LocalAnalysis.GLTheoremA.CatB.Bridges
-public import CFSG.LocalAnalysis.GLTheoremA.S10.InputsBeta
-public import CFSG.LocalAnalysis.GLTheoremA.S4.FullCover.MultLie
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.LieType
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Index
 public import CFSG.LieType.Multipliers.U62Sylow

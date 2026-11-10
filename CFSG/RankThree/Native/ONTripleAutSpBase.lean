@@ -1,9 +1,6 @@
 
 module
 
-public import CFSG.RankThree.Native.ONTripleAutData
-public import CFSG.RankThree.Native.ONTripleNorm
-public import CFSG.RankThree.Native.ONTripleA6
 public meta import CFSG.RankThree.Native.ONTripleNorm
 public meta import CFSG.RankThree.Native.ONTripleAutData
 public meta import CFSG.RankThree.Native.ONTripleA6

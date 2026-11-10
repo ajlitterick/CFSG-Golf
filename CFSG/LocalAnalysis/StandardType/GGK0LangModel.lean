@@ -2,13 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGFinModelRat
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangPow
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Defs
 import CFSG.LocalAnalysis.StandardType.GGLangUniform
 import CFSG.LocalAnalysis.StandardType.GGL45NtExcBridgeE6
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwRigidSplit
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcRoots
 import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangInj
-import CFSG.LieType.Chevalley.SingleEdgePerfect
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwLangConsumers
 import CFSG.HardMathSupport.Timmesfeld.LocalTwo.LangFrame
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanDiagOuterE6Adj

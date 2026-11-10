@@ -4,10 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGLieOddCoverLift
 public import CFSG.LocalAnalysis.StandardType.GGLieOddCoverModel
 public import CFSG.LocalAnalysis.StandardType.GGLieOddCoverSplit
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OddCenter
-public import CFSG.LocalAnalysis.SectionRank.TrialityEvenCover
-public import CFSG.Timmesfeld.RankTwo.Presentation
-public import CFSG.ClassicalInvolution.SmallCases.UpgradeCoverChevalley
-public import CFSG.LieType.Chevalley.SylowOpposition
 
 public section
 

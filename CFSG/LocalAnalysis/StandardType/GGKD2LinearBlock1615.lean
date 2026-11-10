@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTCJDivLin
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagProj
 public import CFSG.LieType.SemisimpleCentralizers.HeldCompTrivLinear
-public import CFSG.Assembly.GL83StatedBridge
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.K1419ClsLinBlock
 public import CFSG.HardMathSupport.Solomon.Coordinator.I18_3LInput
 public import CFSG.HardMathSupport.Solomon.Coordinator.L3C143AltMain

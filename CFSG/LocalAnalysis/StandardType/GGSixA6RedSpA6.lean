@@ -4,13 +4,8 @@ public import CFSG.LocalAnalysis.StandardType.GGSixA6RedSpRestr
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedSpRestrStd
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedNotShape
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedShapeSUCore
-public import CFSG.ClassicalGroups.Symplectic.Simple
 public import CFSG.ClassicalGroups.Symplectic.ComponentCartanRank
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagOrder
-public import CFSG.Open.StatedAPI
-public import CFSG.LieType.Universal.SpecialLinear
 public import CFSG.RankThree.GF2n.Stroth80.Sec4Classical
-public import CFSG.Adapters.ProjectiveSpecialLinear
 public import CFSG.ClassicalGroups.Symplectic.DiagonalTorusRank
 public import CFSG.RankThree.GF2n.Stroth80.FrobClause
 public import CFSG.RankThree.GF2n.Stroth80.Sec12Stmt

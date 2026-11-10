@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.Adapters.ProjectiveSpecialLinear
 public import CFSG.Assembly.ComponentTypeDefs
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

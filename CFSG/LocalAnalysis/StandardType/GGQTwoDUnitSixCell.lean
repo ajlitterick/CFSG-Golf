@@ -6,16 +6,10 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitFiveCell
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDFiveSix
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDFarSix
 import CFSG.LocalAnalysis.StandardType.GGQTwoDFarSixUnit
-import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBShapeQuot
-import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitSixXTrans
-import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitXFacts
 import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthMemberLe
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 import CFSG.LocalAnalysis.StandardType.GGQTwoDRMFiveSix
 import CFSG.LocalAnalysis.StandardType.GGQTwoDNbr6TwE6
 import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthTorHolds
-import CFSG.LocalAnalysis.StandardType.GGQTwoDSelModuleOfB2
-import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6
 
 public section
 

@@ -6,8 +6,6 @@ import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.In23FiveSp4Out
 import CFSG.RankThree.PartTwo.Sec4.T444.Item434SmallTwoIIISp48
 import CFSG.Timmesfeld.Orders.Classical
 public import Certificates.Kernel.ThCent.Leaves
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Foundations
 public import CFSG.GroupTheory.LocalCores.Fitting

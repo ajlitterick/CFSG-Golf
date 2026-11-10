@@ -11,7 +11,6 @@ import Certificates.Kernel.Fi23Five.F1
 import Certificates.Kernel.Fi23Five.F2
 import Certificates.Kernel.Fi23Five.F3
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import Mathlib
 public import CFSG.Sporadic.Fi23.Simple
 
 public section

@@ -1,9 +1,6 @@
 module
 
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312M23Members
-public import CFSG.Quasithin.Background.A312SporGen
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListFamilies
-import CFSG.Quasithin.Background.HSporLatMathieu
 
 public section
 

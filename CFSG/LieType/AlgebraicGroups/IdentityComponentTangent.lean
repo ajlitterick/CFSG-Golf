@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LieType.AlgebraicGroups.TangentSpace
 public import CFSG.LieType.AlgebraicGroups.IdentityComponentLang
 
-import CFSG.LieType.AlgebraicGroups.AffinePointGeometry
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 import CFSG.LieType.AlgebraicGroups.ToralCentralizerComponent
 
 public noncomputable section

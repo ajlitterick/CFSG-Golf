@@ -1,15 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGE6D4LocalJ
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
-public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeDefs
 public import CFSG.LocalAnalysis.StandardType.GGE6D4ReflConj
 import CFSG.LocalAnalysis.StandardType.GGE6D4LocalDatum
 import CFSG.LocalAnalysis.StandardType.GGTBRowE6Equiv
 import CFSG.LocalAnalysis.StandardType.GGReflClosedOfWeyl
 import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofRefl
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
-import CFSG.LocalAnalysis.StandardType.GGTBXDatumOfTor
 
 public section
 

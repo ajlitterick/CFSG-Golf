@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GNegBCExc
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldExcRedG
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GField
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GClsExc
 
 public section

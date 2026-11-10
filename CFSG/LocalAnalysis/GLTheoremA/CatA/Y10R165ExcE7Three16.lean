@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165ExcE7Three15
-public import CFSG.RankThree.PartOne.KE.E7ThreeFrame
 
 public noncomputable section
 

@@ -1,9 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixLSixFiveKnownForms
-public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
-public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerOmegaSpin
-public import CFSG.RankThree.PartOne.CTP.SpinCenterEven
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaInner
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaNC
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2CoverNC

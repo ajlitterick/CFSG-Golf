@@ -19,7 +19,6 @@ public import CFSG.LocalAnalysis.LargeEvenClassification.MacWilliamsReduction
 public import CFSG.LocalAnalysis.LargeEvenClassification.SmallCfourFullObstruction
 public import CFSG.LocalAnalysis.LargeEvenClassification.SmallCfourProperSubgroups
 public import CFSG.LocalAnalysis.RankTwoShapes.AlperinFusion
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.Bender1970.S3.Setup
 public import CFSG.Walter.JRFacts
 

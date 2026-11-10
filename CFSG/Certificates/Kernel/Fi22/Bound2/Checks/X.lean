@@ -2,7 +2,6 @@ module
 
 public import CFSG.Certificates.Kernel.Bounds.Core3
 public import Certificates.Data.Kernel.LceSSeg
-public import CFSG.Certificates.Kernel.Common.LceS
 public import CFSG.Certificates.Kernel.Fi22.Bound2.Data.X1_Sel
 public import CFSG.Certificates.Kernel.Fi22.Bound2.Data.X2_Sel
 public import CFSG.Certificates.Kernel.Fi22.Bound2.Data.X3_Sel

@@ -1,10 +1,7 @@
 module
 
 public import CFSG.RankThree.PartOne.S13K.BlockAt
-public import CFSG.RankThree.PartOne.S13K.KFLiftRows
-public import CFSG.RankThree.PartOne.KF.U4Multiplier
 public import CFSG.RankThree.PartOne.KF.LayerCover
-public import CFSG.RankThree.PartOne.S12.Equivariance
 public import CFSG.RankThree.PartOne.S9.OddCore.TorsionCommon
 public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.Assembly.QuasithinDefs
@@ -62,7 +59,6 @@ public import CFSG.Sporadic.Schreier.J4SNoCompCover
 public import CFSG.Sporadic.SmallOddCore.CheckSpec
 public import CFSG.Sporadic.ThSchreier.GlobalData
 public import CFSG.Sporadic.ThSchreier.LocalOrbitBase1
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import CFSG.YGroups.Y322Central
 public import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 

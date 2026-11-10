@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Misc.GL52.IsoLemmas
-public import CFSG.Literature.GL52LocalCheckInputs
 public meta import CFSG.Literature.GL52Isos
 public meta import CFSG.Literature.GL52Pass
 import CFSG.Certificates.Kernel.Common.Harness

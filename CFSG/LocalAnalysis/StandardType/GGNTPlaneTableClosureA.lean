@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNTPlaneTableOrbits
-public import CFSG.Mathlib.Decide.Nodup
 
 public section
 

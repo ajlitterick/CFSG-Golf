@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedClDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedSpDefs
 public import CFSG.ClassicalGroups.Symplectic.StandardForm
-public import TauCeti.LinearAlgebra.BilinearForm.SymplecticBasis
 
 public section
 

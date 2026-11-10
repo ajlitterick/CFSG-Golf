@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGStdPosLocalDefs
 public import CFSG.LocalAnalysis.StandardType.GGStdPosRankDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosDefs
 import CFSG.LocalAnalysis.StandardType.GGStdPosTableBPos

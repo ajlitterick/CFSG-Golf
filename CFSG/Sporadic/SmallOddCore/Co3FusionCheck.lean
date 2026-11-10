@@ -1,10 +1,7 @@
 module
 
-public import CFSG.Sporadic.SmallOddCore.CentData
-public import CFSG.Sporadic.Schreier.Co3SylowCheck
 public meta import CFSG.Sporadic.SmallOddCore.CentData
 public meta import CFSG.Sporadic.Schreier.Co3SylowCheck
-public import CFSG.Sporadic.SmallOddCore.Co3FusionCheckInputs
 public import Certificates.Certificate2271
 
 public section

@@ -4,17 +4,10 @@ public import CFSG.RankThree.PartOne.K133Spor.HN
 public import CFSG.RankThree.PartOne.K133Spor.HNClassA
 public import Certificates.Certificate14998
 public import CFSG.Sporadic.HNOddCore.Fusion
-public import CFSG.Sporadic.HNOddCore.FusB
-public import CFSG.Sporadic.HNOddCore.ThreeInvol
-public import CFSG.Sporadic.HNSchreier.Faithful
 public import CFSG.RankThree.PartOne.S12.InputsSec15
 public import CFSG.RankThree.PartOne.S12.Sec137
 public import CFSG.RankThree.PartOne.S12.Sec15FA
 public import CFSG.RankThree.PartOne.S12.Sec15Items
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.CommutatorNormalizer
 public import CFSG.Walter.ReeOrder.JT.Section7B
 public import Certificates.Certificate1

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ParabCommOrthMinusLevi
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ParabCommOrthMinusModel
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ParabCommOrthMinusBorel
-import CFSG.LocalAnalysis.ComponentInitial.OrthogonalTailSylow
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Pairs
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ParabCommSpAut

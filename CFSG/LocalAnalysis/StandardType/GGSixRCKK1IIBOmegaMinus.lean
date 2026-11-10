@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIBPair
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaCores
-public import CFSG.CGT.Foote81L6.Basic
 public import CFSG.GH74.GLS.C3.Layer1.St1P89Tools
 public import CFSG.CGT.Foote81L6.TStruct.DihSub
 public import CFSG.ClassicalInvolution.NormalQuaternion

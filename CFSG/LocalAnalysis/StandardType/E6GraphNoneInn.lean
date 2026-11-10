@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.E6GraphNoneStepTwo
 public import CFSG.LocalAnalysis.StandardType.E6GraphNoneProof
-public import CFSG.LieType.Chevalley.E6SecondGraphFixedSubgroup
-public import CFSG.LieType.Chevalley.GraphFixedCenterTrivial
-public import CFSG.LieType.Chevalley.AdjointCenter
-public import CFSG.LieType.Chevalley.GraphFixedF4Canonical
 
 public section
 

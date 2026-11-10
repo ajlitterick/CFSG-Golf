@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Co1N4Spin.Check
 public import Certificates.Kernel.Co1M.C10071
 public import CFSG.Certificates.Kernel.F2AlgRankSound
-public import CFSG.Sporadic.Co1.Module.LeechOddChecksInputs
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

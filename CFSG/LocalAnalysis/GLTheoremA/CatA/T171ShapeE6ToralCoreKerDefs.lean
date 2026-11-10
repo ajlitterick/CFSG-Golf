@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeExcAdjDefs
-public import CFSG.LocalAnalysis.ComponentInitial.RootDiagonalConjugation
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeE6ToralCoreUntwDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeE6ToralCoreDefs
 public import CFSG.Goldschmidt.Steps.G37Core
@@ -48,11 +47,8 @@ public import CFSG.Quasithin.Background.B69Core
 public import CFSG.Quasithin.Background.C1GNSolvConnect
 public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.Quasithin.Background.E2Statements
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918C6
 public import CFSG.Quasithin.Background.FFC7G
 public import CFSG.Quasithin.Background.FFC8A
@@ -102,9 +98,6 @@ public import CFSG.Quasithin.Vol2.Ch11SecSObl
 public import CFSG.Quasithin.Vol2.Ch9KGFFQR
 public import CFSG.Quasithin.Vol2.Ch9KGFFQRCase
 public import CFSG.Sporadic.Schreier.Fi22Schreier
-public import CFSG.Walter.J1Props
-public import CFSG.Walter.J1Recog
-public import CFSG.Walter.PSL2Facts
 public import Certificates.Kernel.J4Count.Prim
 
 public section

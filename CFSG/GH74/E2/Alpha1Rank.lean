@@ -4,15 +4,10 @@ public import CFSG.GH74.E2.SD16Cert
 public import CFSG.GH74.E2.Cl2Quot
 public import CFSG.GH74.E2.FrattiniRank
 public import CFSG.GH74.E2.DirectProd
-public import CFSG.CharacterTheory.Semidihedral.Presentation
-public import CFSG.CharacterTheory.Semidihedral.NormalForm
 public meta import Mathlib
 public meta import CFSG.CharacterTheory.Semidihedral.Model
-public import CFSG.GH74.E2.Cl2Rank
 public import CFSG.GH74.Uniqueness.SU.SU1BgMaxClass
 public import CFSG.GH74.Uniqueness.SU.SU1BgTwoMaxClass
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.GH74.GLS.Defs
 public import CFSG.GH74.GLS.Statements
 public import CFSG.GH74.SectionalRank

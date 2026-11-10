@@ -1,15 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.HSubTFinOmega
-public import CFSG.LocalAnalysis.GLTheoremA.CatB.U4InnSp8b
-public import CFSG.RankThree.Classical.SteinbergBJSymplecticCrossPrimeBlocks
-public import CFSG.RankThree.OrthogonalInvolutions.Dickson
-public import CFSG.ClassicalGroups.Orthogonal.Matrix
-public import CFSG.LieType.Universal.Spin.Forms
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanChevInnerOmega
 import CFSG.LinearAlgebra.ExtraspecialCyclotomicModule
-import CFSG.RankThree.Literature.FSmithOrthogonal
-import CFSG.ClassicalGroups.Orthogonal.Simple
 public import CFSG.Goldschmidt.Steps.G310Comp
 public import CFSG.LargeExtraspecial.S4CEA6Basic
 public import CFSG.LargeExtraspecial.S4CESmallThree

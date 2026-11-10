@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBSpSpDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBJoinDefs
 import CFSG.ClassicalInvolution.WeakCT.SpSpCharts
 import CFSG.LocalAnalysis.StandardType.GGSecFivePresTagClassical
-import CFSG.LocalAnalysis.StandardType.GGSignedCoordFix
 import CFSG.LocalAnalysis.StandardType.GGSignedCoordReflGroup
 import CFSG.LocalAnalysis.StandardType.GGSignedCoordSwaps
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBNbrType
@@ -12,8 +11,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTPNNarrow
 public import CFSG.LocalAnalysis.StandardType.GGForkA8NotRefl
 public import CFSG.LocalAnalysis.StandardType.GGTBRowR5Defs
 import CFSG.LocalAnalysis.StandardType.GGTBJOrthLeft
-import CFSG.LocalAnalysis.StandardType.GGNbrBalance
-import CFSG.LocalAnalysis.StandardType.GGRowKFrame
 
 public section
 

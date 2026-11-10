@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoGenLang
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoGenE7D0
-public import CFSG.LieType.Chevalley.SignCharacterMasks
 public import CFSG.RankThree.PartOne.KE.EvenE7E8QPlusDescent
-public import CFSG.RankThree.PartOne.KE.ConjRootSpan
 
 public section
 

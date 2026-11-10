@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.Sol76PclsLinear
 public import CFSG.LieType.Steinberg.CentralExt.UnitaryHigher
-public import CFSG.LieType.Universal.Unitary.Comparison
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LieType.Steinberg.Classical.SpinFrame
 public import CFSG.LieType.Steinberg.Exceptional.E6E7
@@ -27,8 +26,6 @@ public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.RankThree.PartOne.SLB4A.Basic
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.FinalTheorem
 public import CFSG.Walter.J1
 public import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials

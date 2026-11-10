@@ -2,9 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.Q3T6XCore
 public import CFSG.ClassicalInvolution.Q3.Q3T6YFinal
-public import CFSG.ClassicalInvolution.Q3.Q3T6LinMember
-public import CFSG.ClassicalInvolution.Q3.TL3C6
-public import CFSG.ClassicalInvolution.SolvableCase.Tight
 public import CFSG.ClassicalInvolution.Q3.TL4SepDefs
 
 public section

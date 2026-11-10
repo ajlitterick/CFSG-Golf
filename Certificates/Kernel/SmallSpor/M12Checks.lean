@@ -4,7 +4,6 @@ public import Certificates.Kernel.SmallSpor.M12Data
 public import Certificates.Kernel.SporSch.Mathieu.M12Data
 public import Certificates.Data.Kernel.ListBridge
 public import Certificates.Data.Kernel.ListBridgeTree
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

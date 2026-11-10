@@ -2,9 +2,7 @@
 module
 
 public import Certificates.Kernel.SporSch.HN.Pt2108Defs
-public import Certificates.Kernel.SporSch.HN.Pt2108Tab
 public import CFSG.Sporadic.HNSchreier.SylowCheckInputs
-public import CFSG.Sporadic.HNSchreier.ThreeCheckInputs
 public import Certificates.Kernel.LocalQT.Tc.Gen
 public import CFSG.Sporadic.Schreier.ONPermArr
 import CFSG.Certificates.Kernel.Common.Harness

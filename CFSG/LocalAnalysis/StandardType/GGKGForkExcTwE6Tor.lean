@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcTwE6Orders
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcTwE6Fix
-public import CFSG.LocalAnalysis.StandardType.GGKGForkExcTwCent
-public import CFSG.LocalAnalysis.StandardType.GGKGForkExcTwNorm2
 public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.ExcFiveToralAux.SylowFrame
 
 public section

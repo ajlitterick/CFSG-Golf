@@ -7,7 +7,6 @@ public import Certificates.Kernel.SporSch.Mathieu.GenNL
 public import CFSG.Certificates.Kernel.SporSch.NoLayerSound
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19IdentMathData
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19IdentMathData
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

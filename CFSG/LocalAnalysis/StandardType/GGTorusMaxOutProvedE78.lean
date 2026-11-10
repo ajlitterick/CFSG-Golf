@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusMaxSieveDefs
-import CFSG.LieType.SeitzGeneration.ExcPlaneModel
-import CFSG.LieType.Chevalley.OrdinaryEOuterOrder
-import CFSG.LieType.Chevalley.EvenE7E8AutomorphismNormalForm
 import CFSG.RankThree.PartTwo.Sec13.K135GL12Out
 import CFSG.LocalAnalysis.StandardType.GGSporKOrdBMOut
 import CFSG.HardMathSupport.Solomon.Coordinator.I22_4Glue

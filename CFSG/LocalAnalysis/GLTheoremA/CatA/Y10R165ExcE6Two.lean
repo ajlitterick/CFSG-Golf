@@ -11,8 +11,6 @@ public import CFSG.LieType.Universal.Unitary
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotLeviPerp
 public import CFSG.RankThree.SteinbergR3ELinearTwoOddFieldFixed
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Borel
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Lemma83
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Cardinalities
 public import CFSG.Walter.Defs
 
 public section

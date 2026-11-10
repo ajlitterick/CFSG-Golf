@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Lang.AnisoE6.ThirdA2
-public import CFSG.RankThree.Chevalley.EvenPinnedRootSL2
 public import CFSG.RankThree.Chevalley.SteinbergBUF4CyclotomicFourDescent
 public import CFSG.LieType.Chevalley.C2E6UnitaryFourImages
 public import CFSG.LinearAlgebra.LinearGroups.LinearTwo

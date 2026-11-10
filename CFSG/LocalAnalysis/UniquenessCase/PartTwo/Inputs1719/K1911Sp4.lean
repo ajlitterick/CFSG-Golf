@@ -1,13 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.K1911Concl
-public import CFSG.Open.StatedDefs
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section19.TorusSp4
 public import CFSG.ClassicalGroups.Symplectic.Sp4TorusTwoSubgroup
 public import CFSG.GroupTheory.TwoGroupAutFixOfNoInvariant
 public import CFSG.RankThree.PartTwo.KFacts.AutPSp4EvenTorus
 public import CFSG.ClassicalGroups.Symplectic.Sp4ElemAbelianPlus
-public import CFSG.Timmesfeld.Transvection.PresSp
 
 public section
 

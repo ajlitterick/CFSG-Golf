@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedShapeOrthRegular
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedShapeOrthFree
-public import CFSG.LocalAnalysis.StandardType.GGSixA6RedShapeSUCore
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsOmegaSplit
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22rj
 public import CFSG.CharacterTheory.CyclicBlocks.Family
 public import CFSG.CharacterTheory.Semidihedral.Principal.LargePrimeTorusSylowCentralizers

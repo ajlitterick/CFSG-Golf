@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.FF81.Defs
 import CFSG.ClassicalInvolution.WeakCT.FieldTwo
-import CFSG.ClassicalInvolution.WeakCT.Amalgam
 import CFSG.ClassicalInvolution.WeakCT.Main
 import CFSG.ClassicalInvolution.WeakCT.SpPair
 

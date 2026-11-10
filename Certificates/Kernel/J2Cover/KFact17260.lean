@@ -10,7 +10,6 @@ meta import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.J2KFactNative
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutTables
 public import CFSG.Sporadic.SmallOddCore.LocalSpec
-public import Mathlib
 meta import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutTables
 meta import CFSG.Sporadic.SmallOddCore.LocalSpec
 meta import Certificates.Data.CFSGNative.SporadicSchreier.MathieuOddCore

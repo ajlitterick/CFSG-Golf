@@ -6,11 +6,7 @@ public import CFSG.LocalAnalysis.UniquenessCase.UC1K327Setup
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.A10EndZWr
 import CFSG.GH74.Generic.BProg.B3.S1ThreeSplit
 import CFSG.HardMathSupport.Solomon.Coordinator.B3Local
-import CFSG.LocalAnalysis.GLTheoremB.PGroupBasics
-import CFSG.GroupTheory.CyclicSylowNormalOddComplement
-import CFSG.LocalAnalysis.SectionRank.PRank
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentStepFour
-import CFSG.GroupTheory.QuasisimpleCommutingProductBound
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Fischer.Classification.Unitary.Coords
 public import CFSG.Fischer.Classification.Unitary.Model

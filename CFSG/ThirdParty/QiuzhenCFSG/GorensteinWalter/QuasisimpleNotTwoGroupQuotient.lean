@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OddPInvertedCentralized
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.FinalTheorem
 import Mathlib.Tactic

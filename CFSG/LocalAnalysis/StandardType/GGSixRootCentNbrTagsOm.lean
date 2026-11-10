@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixRootCentNbr
 public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSThreeNbrTags
 public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsOmPlus
-public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsOmMinus
 
 public section
 

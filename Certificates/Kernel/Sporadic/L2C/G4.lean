@@ -3,7 +3,6 @@ module
 
 public import Certificates.Kernel.Sporadic.L2C.G3
 public import Certificates.Kernel.Sporadic.L2.G5
-import Mathlib.Tactic.IntervalCases
 
 public section
 

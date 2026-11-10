@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitExcPlusLift
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesE6QPlusThreeFrameData
 import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesE6QPlusThreeFrame
-import CFSG.LocalAnalysis.StandardType.GGTableBE6TwoPilotToral
 import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylE6TwoThree
-import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeTwo
 
 public section
 

@@ -2,12 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2UniCover
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1CentLin
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1TorLinLift
 public import CFSG.LocalAnalysis.StandardType.GGTCJDivLin
 public import CFSG.LocalAnalysis.StandardType.GGLinCentBlock
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinHeld
-public import CFSG.Timmesfeld.Orders.ClassicalLinear
-public import CFSG.Timmesfeld.Orders.Distinct
 
 public section
 

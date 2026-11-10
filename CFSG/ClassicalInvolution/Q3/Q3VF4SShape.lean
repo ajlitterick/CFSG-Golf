@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Q3VF4SLink
-public import CFSG.ClassicalInvolution.Q3.Q3E8BShape
 public import CFSG.ClassicalInvolution.Q3.Q3NGStar
 public import CFSG.ClassicalInvolution.Q3.Q3EXOrthLarge
 public import CFSG.ClassicalInvolution.Q3.Q3TCP1

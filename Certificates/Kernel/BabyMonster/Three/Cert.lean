@@ -4,7 +4,6 @@ public import Certificates.Kernel.BabyMonster.Three.Glue
 public import Certificates.Kernel.BabyMonster.Three.Mem
 public import Certificates.Kernel.BabyMonster.ZRk.Glue
 public import CFSG.Certificates.Kernel.Common.RankCert
-public import CFSG.Blueprint.NativeSporadic
 
 public section
 

@@ -1,17 +1,10 @@
 module
 
 public import CFSG.Fischer.Classification.Unitary.Model
-public import CFSG.Open.StatedDefs
 public import CFSG.RankThree.GF2n.Tim79aCitedInvol
-public import Mathlib.GroupTheory.GroupAction.ConjAct
 
-import CFSG.Fischer.Classification.Unitary.Basic
-import CFSG.GH74.Exceptional.UnitaryFourTwo
 import CFSG.LieType.ChevTwo.OrthogonalAutEquiv
-import CFSG.Open.StatedSUFieldChange
 import CFSG.Quasithin.Background.BlueprintB2Frattini
-import CFSG.Timmesfeld.Orders.ClassicalOrthogonal
-import Mathlib.FieldTheory.Finite.GaloisField
 public import CFSG.LieType.BorelTits.CompleteFlag
 import CFSG.Fischer.Uniq.CompTau
 import CFSG.GH74.Generic.Certificates
@@ -49,7 +42,6 @@ import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 import CFSG.LocalAnalysis.SectionRank.TitsCover
 import CFSG.Quasithin.Background.A3Components
-import CFSG.Quasithin.Background.A3ComponentsAmbient
 import CFSG.Quasithin.Background.B1MoreElevenD
 import CFSG.Quasithin.Background.B1MoreElevenF
 import CFSG.Quasithin.Background.B1MoreNineG
@@ -58,11 +50,6 @@ import CFSG.Quasithin.Background.B4ModelsIso
 import CFSG.Quasithin.Background.BlueprintB2Defs
 import CFSG.Quasithin.Background.C2Basic
 import CFSG.Quasithin.Background.E1
-import CFSG.Quasithin.Background.E1Sec4
-import CFSG.Quasithin.Background.E1Sec5
-import CFSG.Quasithin.Background.E1Sec8
-import CFSG.Quasithin.Background.E1Solv
-import CFSG.Quasithin.Background.E1Twelve
 import CFSG.Quasithin.Background.E3Cent
 import CFSG.Quasithin.EmptyFaithfulMultiple.InputB19Proof
 import CFSG.RankThree.PartOne.KC.OrthogonalAutSemilinearBridge
@@ -72,7 +59,6 @@ import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 import CFSG.RankThree.PartTwo.Sec4.Item47Statement
 import CFSG.RankThree.PartTwo.Sec4.Item47Witness
 import CFSG.RankThree.PartTwo.Sec8.Statements
-import CFSG.Sporadic.J4.Simple
 import CFSG.Sporadic.J4Base
 import CFSG.Sporadic.Mathieu.M12
 import CFSG.Sporadic.Mathieu.M24

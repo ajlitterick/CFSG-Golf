@@ -3,13 +3,9 @@ module
 public import CFSG.Certificates.Kernel.ListBridge.Sound
 public import Certificates.Data.Kernel.ListBridge
 public import CFSG.Certificates.Kernel.BfsPinAlg
-public import CFSG.Certificates.Kernel.Spor.RawOrbHead
 public import CFSG.Certificates.Kernel.SporSch.ChainKOdd
 import CFSG.Certificates.Kernel.BfsPinSetSound
 import CFSG.Certificates.Kernel.BfsPinBaseSound
-import CFSG.Certificates.Kernel.Spor.PackWord
-import CFSG.Certificates.Kernel.Spor.PcompFacts
-import CFSG.Certificates.Kernel.Spor.RawOrbEval
 import CFSG.Certificates.Kernel.BfsPinSound
 
 public section

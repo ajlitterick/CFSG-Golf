@@ -1,9 +1,7 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Q3EPExcl
-public import CFSG.ClassicalInvolution.RouteD.TypeE8Excl
 public import CFSG.ClassicalInvolution.ModelFacts.E8ExclLayerStmt
-public import CFSG.ClassicalInvolution.ModelFacts.E8ExclRowStmt
 public import CFSG.ClassicalInvolution.Q3.Q3WMain
 public import CFSG.ClassicalInvolution.RouteD.TypeEPatternTorNodes
 public import CFSG.ClassicalInvolution.RouteD.TypeEPatternTorTwin

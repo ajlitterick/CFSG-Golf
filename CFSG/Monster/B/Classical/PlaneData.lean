@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Fischer.F4
-public import Mathlib.Combinatorics.Colex
 import all CFSG.Fischer.F4
 public import Std.Tactic.BVDecide.Normalize.Prop
 

@@ -2,14 +2,9 @@ module
 
 public import CFSG.RankThree.PartOne.U5E.CenterOdd
 public import CFSG.RankThree.PartOne.K159.CompGenFive
-public import CFSG.RankThree.PartOne.K159.ThetaChain
-public import CFSG.RankThree.PartOne.S12.Sec153Weyl
-public import CFSG.RankThree.PartOne.S12.Sec1510FiveDefs
-public import CFSG.RankThree.PartOne.S15K.LayerData
 import CFSG.RankThree.PartOne.N143.CaseB1Theta
 import CFSG.RankThree.PartOne.S13K.ThetaFixed
 import CFSG.RankThree.PartOne.S10.PlaneTwoGroupLemmas
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.QuasithinUnique.Setting
 public import CFSG.RankThree.PartOne.KC.UnitaryGoodSetting
 public import CFSG.RankThree.PartOne.S12.Sec159Defs

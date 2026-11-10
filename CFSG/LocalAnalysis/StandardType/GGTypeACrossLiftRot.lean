@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTypeAEndNodeRel
 public import CFSG.LocalAnalysis.StandardType.GGTypeAFarPerm
 public import CFSG.ClassicalGroups.SpecialLinear.CyclicRootGroups
 

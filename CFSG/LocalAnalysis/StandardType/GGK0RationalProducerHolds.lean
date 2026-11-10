@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGK0MarkedKacIface1587
-public import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
 import CFSG.LocalAnalysis.StandardType.GGK0ProducerAssembly
 import CFSG.LocalAnalysis.StandardType.GGK0LangMarkUntw
 import CFSG.LocalAnalysis.StandardType.GGK0LangMarkTw

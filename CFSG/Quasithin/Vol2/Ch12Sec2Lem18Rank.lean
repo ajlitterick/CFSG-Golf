@@ -6,7 +6,6 @@ public import CFSG.Quasithin.Vol2.Ch12Sec2Lem7One
 public import CFSG.Quasithin.Vol2.Ch12Sec2Lem18Stmts
 public import CFSG.Quasithin.H13.A6S1372L24a
 public import CFSG.Quasithin.Vol2.Ch12Sec2Lem6
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Centralizer
 
 public section
 

@@ -1,22 +1,14 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.I167CDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I167CCover
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.I167COrth
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.I167COrthTrans
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.I167COrthMinus
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I167COrthFamOuter
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I167COrthFamD4
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I167COrthFamModel
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I167COrthFamTrans
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.I167COrthFamDesc
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I167COrthFamOut
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.I167COrthFamType
-import CFSG.HardMathSupport.Solomon.Coordinator.B3LieRes
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S172CBridge
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S172CBridgePlus
 import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.InputsL33b
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.OrthInner
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnOrth
 public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcLevi
 public import CFSG.LocalAnalysis.SectionRank.EvenCover.Catalog

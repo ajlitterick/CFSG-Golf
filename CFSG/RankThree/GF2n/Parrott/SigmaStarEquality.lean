@@ -2,10 +2,7 @@ module
 
 public import CFSG.RankThree.GF2n.Parrott.DerivedJFusion
 public import CFSG.RankThree.GF2n.Parrott.Lemma16
-public import CFSG.RankThree.GF2n.Parrott.Lemma12
 public import CFSG.RankThree.GF2n.Parrott.Section4Lemma42Centres
-public import CFSG.RankThree.GF2n.Parrott.Section5LocalSigma
-public import CFSG.RankThree.GF2n.Parrott.Section5Lemma53
 public import CFSG.RankThree.GF2n.Parrott.EqualityBranchLift
 
 public section

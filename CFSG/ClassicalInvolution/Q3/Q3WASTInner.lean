@@ -2,10 +2,7 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.Q3WASTAsm
 public import CFSG.ClassicalInvolution.Q3.Q3WASChart3
-public import CFSG.ClassicalInvolution.Q3.Q3WASAut
 public import CFSG.ClassicalInvolution.Q3.Q3WASNorm
-public import CFSG.ClassicalInvolution.Q3.Q3WADict
-public import CFSG.ClassicalInvolution.Q3.Q3WANodes
 import CFSG.ClassicalInvolution.RouteD.SmallTwinChainSLs
 public import CFSG.ClassicalInvolution.ModelFacts.CF3B
 public import CFSG.ClassicalInvolution.Q3.Q3WAEDict

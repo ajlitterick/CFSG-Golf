@@ -5,12 +5,7 @@ public import Certificates.Kernel.Sporadic.OddCore.S16J3Sift27810
 public import Certificates.Kernel.Sporadic.OddCore.J3BetaA5F
 public import Certificates.Kernel.Sporadic.OddCore.J3PGGlue
 public import Certificates.Kernel.Sporadic.OddCore.J2CnF
-public import Certificates.Kernel.Sporadic.OddCore.CentGlue
-public import CFSG.Certificates.Kernel.Spor.JoinSound
-public import CFSG.Certificates.Kernel.Spor.MulHInvSound
-public import CFSG.Certificates.Kernel.Spor.MulHFSound
 public import CFSG.Certificates.Kernel.Common.ForallChunks
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.Misc.RuInvHash
 
 public section

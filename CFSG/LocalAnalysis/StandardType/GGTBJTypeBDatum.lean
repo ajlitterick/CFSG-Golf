@@ -1,13 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3Defs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySpCoord
 public import CFSG.LocalAnalysis.StandardType.GGSignedCoordBlocks
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinSignedPermBase
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySpElt
 import CFSG.LocalAnalysis.StandardType.GGSpJoinSignedPermGen
 import CFSG.LocalAnalysis.StandardType.GGRCSignedCoxeterB
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
 
 public section
 

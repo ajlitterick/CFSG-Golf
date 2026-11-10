@@ -1,22 +1,14 @@
 module
 
 public import CFSG.LocalAnalysis.AGL81I.Section3.ThreeTenBasics
-public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.Defs
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTen
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenInputs
-public import CFSG.GH74.GLS.Stage2.Signalizer.Defs
-public import CFSG.LocalAnalysis.RankThreeCoreUniqueness.PrimeComplementCore
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.ThreeTenAtQuotKer
-import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenKStar
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenThree
-import CFSG.RankThree.PartOne.CTP.StrongPQuotient
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.ThreeNineApplyInputs
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.HGenFinal
 import CFSG.LocalAnalysis.StronglyEmbedded.Normalizer
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveThreeYTransport
 import CFSG.LocalAnalysis.AGL81I.Section3.ThreeNineGamma
 import CFSG.LocalAnalysis.AGL81I.Section3.SL3BorelOvergroups
-import CFSG.LocalAnalysis.AGL81I.Section3.SL3Parabolic
 public import CFSG.GH74.GLS.Defs
 public import CFSG.GH74.GLS.Stage2.Local.Statements
 public import CFSG.LocalAnalysis.AGL81I.Section3.GammaBasics

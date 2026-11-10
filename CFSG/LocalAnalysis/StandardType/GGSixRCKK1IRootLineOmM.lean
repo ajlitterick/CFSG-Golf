@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IRootLine
-public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerOmegaSpin
 
 public section
 

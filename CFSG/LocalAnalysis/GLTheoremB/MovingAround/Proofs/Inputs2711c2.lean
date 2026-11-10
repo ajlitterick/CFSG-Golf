@@ -1,34 +1,16 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs2711b
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs2711c
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.HNFiveShape
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.HNFiveRed
 public import CFSG.HardMathSupport.Solomon.Coordinator.YS08.Spor.HN
 public import CFSG.Adapters.StatedClassicalUnitaryOrders
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabFi23Shape
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabFi23ThreeC
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabFi23O7Leaf
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Chev2SporTh
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.YS10I1416TConv
-public import CFSG.ClassicalGroups.Orthogonal.Simple
 public import CFSG.Quasithin.Background.F918V3S1
 public import CFSG.HardMathSupport.Dickson.BMRows.Defs
 public import CFSG.HardMathSupport.Dickson.BMRows.Types
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.I1416SporRows
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.ChevQ
-public import CFSG.LocalAnalysis.GLTheoremA.PCompJoin
 public import CFSG.LocalAnalysis.GLTheoremA.S10.CaseGamma
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.OmegaFacts
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagOrder
-public import CFSG.ClassicalGroups.Symplectic.ProjectivePerfect
-public import CFSG.HardMathSupport.Timmesfeld.Tables.Multiplier.Identify
-public import CFSG.HardMathSupport.Solomon.Coordinator.GFR2FamSpor
-public import CFSG.HardMathSupport.Solomon.Coordinator.B3SporGen
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabLy
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabFi22Shape
 public import CFSG.HardMathSupport.Meierfrankenfeld.LieOdd.U43Aut
-public import CFSG.LocalAnalysis.GLTheoremA.S3.KData
 public import CFSG.ClassicalInvolution.ModelFacts.UnitaryAutModel
 public import CFSG.HardMathSupport.Meierfrankenfeld.LieOdd.U43Inv
 public import CFSG.HardMathSupport.Solomon.Coordinator.I22_4Glue

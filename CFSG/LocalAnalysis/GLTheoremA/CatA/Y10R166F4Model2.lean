@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166F4Model
 public import CFSG.Quasithin.EmptyFaithful.S1565L4
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticBstar
 
 public section
 

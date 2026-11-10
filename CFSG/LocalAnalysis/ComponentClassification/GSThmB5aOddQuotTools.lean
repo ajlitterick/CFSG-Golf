@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aKernel
-public import CFSG.LocalAnalysis.ComponentClassification.LBalanceQuotient
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancingLocalCorrespondenceTools
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedLayerOddCoreQuotient
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.CentralizerLemmas
 public import CFSG.LocalAnalysis.SignalizerFunctor.Coprime
 public import CFSG.LinearAlgebra.LinearGroups.LinearTwo
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwo
@@ -16,9 +12,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedLayerOddCoreU
 public import CFSG.LocalAnalysis.SectionRank.CentralLift
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.Sporadic.Th.F2Spec
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 
 public section
 

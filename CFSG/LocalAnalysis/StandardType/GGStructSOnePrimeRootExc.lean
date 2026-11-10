@@ -1,16 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGStructSOnePrimeRootBasic
 public import CFSG.LocalAnalysis.StandardType.GGStructSOnePrimeRootExcTwE6
 public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsExcF4
 public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsExcE
-public import CFSG.LieType.ChevTwo.Layered
 public import CFSG.HardMathSupport.Curtis.Coordinator.SeitzOuter.PSLnPlane
-public import CFSG.RankThree.PartTwo.Census.Carrier.SpinBBridge
 public import CFSG.HardMathSupport.Dickson.DefCharOuter.Export.SporthChev
-public import CFSG.Adapters.TauCetiExceptional.EvenAll
-public import CFSG.GH74.Generic.Context
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Basic
 public import CFSG.HardMathSupport.Curtis.Coordinator.SeitzOuter.RankCube
 public import CFSG.HardMathSupport.Dickson.DefCharOuter.Export.SporthGeneric
 

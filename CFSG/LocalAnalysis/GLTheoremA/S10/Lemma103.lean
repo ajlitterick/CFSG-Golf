@@ -11,7 +11,6 @@ public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87Grp4cAut
 public import CFSG.CharacterTheory.Burnside
 public import CFSG.Holt.General.OrbitCountBasic
 public import CFSG.LocalAnalysis.GLTheoremB.Lemma99Glue
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6FInputs
 
 public section
 

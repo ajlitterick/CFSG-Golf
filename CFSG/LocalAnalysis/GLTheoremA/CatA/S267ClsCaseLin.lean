@@ -3,12 +3,9 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267ClsCaseLUMain
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267ClsAutFieldLin
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267ClsCompFamLayer
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267ClsCompFamOut
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267ClsCompFamQS
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267ClsDiag
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267HqRankMain
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267ClsFieldExp
-import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalSixStructure
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherEvenOrthogonalModel
 public import CFSG.LocalAnalysis.GLTheoremA.P55.Inputs

@@ -1,14 +1,10 @@
 module
 
 public import CFSG.Quasithin.Background.SmithB42L2Sl2
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.LayerActorBinary
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1Basic
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X7Basic
 public import CFSG.GroupTheory.OddKernelImage
 public import CFSG.HardMathSupport.GuralnickMalle.BasicGeneral
-public import CFSG.Open.StatedDefs
-public import CFSG.Open.LocalVocabulary
-public import CFSG.Quasithin.Background.Module
 public import CFSG.Quasithin.Vol2.Ch11SecA02Card
 public import CFSG.Dihedral.FourgroupCycleControl
 public import CFSG.Dihedral.OriginalCentralizerOddCore
@@ -25,7 +21,6 @@ public import CFSG.Quasithin.Background.A3Structure312Iso
 public import CFSG.Quasithin.Vol2.Ch11SecAFacts02
 public import CFSG.Quasithin.Vol2.Ch11StatementsB
 public import CFSG.Quasithin.Vol2.Ch11StatementsC
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 
 public section
 

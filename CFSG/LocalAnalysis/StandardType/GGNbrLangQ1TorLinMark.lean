@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1RLevel
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinear
 public import CFSG.LocalAnalysis.StandardType.GGE0PSLComp
 import CFSG.LocalAnalysis.GLTheoremA.CatA.K1419ClsLinBlock
-import CFSG.Assembly.GL83StatedBridge
 import CFSG.LocalAnalysis.StandardType.GGSummandMarkingCentralSurj
 import CFSG.LocalAnalysis.GLTheoremA.CatA.K1419ClsDefs
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FBase2

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergOmegaPlusOTwo
-public import CFSG.LieType.Steinberg.Classical.SpinPlus.Basic
 
 public noncomputable section
 

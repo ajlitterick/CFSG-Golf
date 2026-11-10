@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T158MTriv
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.MIAut3
 public import CFSG.HardMathSupport.Solomon.Coordinator.I18_3LInput
 public import CFSG.HardMathSupport.Solomon.Coordinator.L3C143AltMain
 public import CFSG.HardMathSupport.Solomon.Coordinator.YS08.LieQ.Derivation

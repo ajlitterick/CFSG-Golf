@@ -1,9 +1,6 @@
 module
 
-public import CFSG.GroupTheory.LocalCores.Layer
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtKFComp
-public import CFSG.Open.Defs
-public import CFSG.GroupTheory.Fitting.CharacteristicP
 public import CFSG.LocalAnalysis.WeakClosure81.SixFourteenHyp139N3Layer
 public import CFSG.GroupTheory.ComponentFStarProd
 public import CFSG.GroupTheory.IsComponentOfMap
@@ -11,13 +8,10 @@ public import CFSG.Quasithin.Background.B15P4Comp
 public import CFSG.LocalAnalysis.ComponentClassification.CentralCoverLemmasAFaithful
 public import CFSG.LocalAnalysis.RankThreeUC.WeakClosure.WeakClosureSetting
 public import CFSG.RankThree.GF2n.Stroth80.Sl2Commuting
-public import CFSG.GroupTheory.LocalCores.Components
 public import CFSG.GroupTheory.InnerCentralizerProjection
 public import CFSG.RankThree.PartTwo.KFacts.KS116LinRep
 public import CFSG.LocalAnalysis.WeakClosure81.SixFourteenOmega4TransvectionUnique
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenDefs
 public import CFSG.Quasithin.Background.G64NatTop
-public import CFSG.Quasithin.Vol2.Ch9H11Norm
 public import CFSG.GroupTheory.CosetActionPerm
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.FFInputs
 public import CFSG.LocalAnalysis.AGLEmbedding.D1GlobalU
@@ -30,7 +24,6 @@ public import CFSG.LocalAnalysis.RankThreeUC.WeakModules
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenDefs2
 public import CFSG.LocalAnalysis.WeakClosure81.SixFourteenN2Hyp139LowAll
 public import CFSG.Quasithin.Background.B6
-public import CFSG.Quasithin.Background.B6Example
 public import CFSG.Quasithin.Background.C1GNBlockLemmas
 public import CFSG.Quasithin.Background.C1GNInputs
 public import CFSG.Quasithin.Background.C1GNNotation

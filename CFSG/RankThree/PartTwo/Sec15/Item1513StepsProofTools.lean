@@ -2,16 +2,10 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec15.Item1513StepsProofHJ
 public import CFSG.RankThree.PartTwo.Sec15.Item1513StepsProofTransv
-public import CFSG.RankThree.PartTwo.Sec15.Item1514Steps1515
 import CFSG.RankThree.PartTwo.Sec15.Item1511Meta
 import CFSG.RankThree.PartTwo.Sec15.Item1510ProofTools
-import CFSG.RankThree.PartTwo.Sec13.Item131Facts
 import CFSG.RankThree.PartTwo.Sec13.Item13Sporadic
-import CFSG.RankThree.PartTwo.Sec13.Item13Prod
-import CFSG.RankThree.PartTwo.Sec13.Item13Basic
 import CFSG.RankThree.PartTwo.Sec13.Item133
-import CFSG.RankThree.PartTwo.Sec13.Item136PGL
-import CFSG.RankThree.PartTwo.Sec14.Item145Bot
 import CFSG.RankThree.PartTwo.Sec6.Item612Plus
 import CFSG.RankThree.PartTwo.Sec6.Item612Core
 

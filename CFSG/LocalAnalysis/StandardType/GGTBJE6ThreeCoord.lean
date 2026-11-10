@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6Roots
 public import CFSG.LocalAnalysis.StandardType.GGTBJReflPlain
-public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRootGenRefl
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRootGenCoord
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelModule
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 
 public section
 

@@ -1,8 +1,6 @@
 module
 
 public import Certificates.Kernel.KDenseP.Tp3L
-public import Certificates.Kernel.KDenseP.Axis.Base
-public import CFSG.Certificates.Kernel.KDense.Data.Checks
 public import CFSG.Certificates.Kernel.KDenseP.MonFiveB.MonoAll
 public import CFSG.Certificates.Kernel.KDenseP.MonFiveB.R17489
 public import CFSG.Certificates.Kernel.KDenseP.MonFiveB.R17494
@@ -24,12 +22,7 @@ public import CFSG.Certificates.Kernel.KDenseP.MonFiveB.R17625
 public import CFSG.Certificates.Kernel.KDenseP.MonFiveB.R17626
 public import CFSG.Certificates.Kernel.KDenseP.MonFiveB.LookChk
 public import CFSG.Certificates.Kernel.KDenseP.LookSound
-public import CFSG.Certificates.Kernel.KDenseP.ReplaySound
 import Certificates.Kernel.KDenseP.MonoTabL
-public import CFSG.Certificates.Kernel.KDenseP.MonFiveB.MonoEChk0
-public import CFSG.Certificates.Kernel.KDenseP.MonFiveB.MonoEChk1
-public import CFSG.Certificates.Kernel.KDenseP.MonFiveB.MonoEChk2
-public import CFSG.Certificates.Kernel.KDenseP.MonFiveB.MonoEChk3
 
 public section
 

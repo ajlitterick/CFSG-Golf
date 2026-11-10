@@ -1,10 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGK1DDefs
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogQuadraticNormalForms
-public import CFSG.RankThree.PartOne.S11d.OrthDicksonOmega
-public import CFSG.LocalAnalysis.StandardType.GGK1CBlFF
-public import CFSG.RankThree.PartOne.KC.OrthogonalSelfDualBlock
 public import CFSG.LocalAnalysis.StandardType.GGK1DOm4
 public import CFSG.LocalAnalysis.StandardType.GGK1DTame
 public import CFSG.LocalAnalysis.StandardType.GGK1DFixed

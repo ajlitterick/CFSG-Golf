@@ -4,8 +4,6 @@ public import Certificates.Data.Kernel.Spor.Fi24F4
 public import CFSG.Certificates.Kernel.Spor.PackFld
 public import CFSG.Certificates.Kernel.Spor.RawOrbHead
 public import CFSG.Sporadic.Th.TableSpec
-public import Mathlib.RingTheory.WittVector.IsPoly
-public import Mathlib.Tactic.ReduceModChar
 
 public section
 

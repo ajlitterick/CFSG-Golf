@@ -4,8 +4,6 @@ module
 public import CFSG.Sporadic.Co1.Module.OrbitsBase
 import all CFSG.Sporadic.Co1.Module.OrbitsBase
 
-public import CFSG.Sporadic.Co1
-public import CFSG.Sporadic.Co1.Module.OrbitsInputs
 public import Certificates.Certificate10075
 public meta import Certificates.Data.CFSGNative.Co1.Data
 public meta import Certificates.Data.CFSGNative.Perm.Chain

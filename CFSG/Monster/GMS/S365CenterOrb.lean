@@ -1,9 +1,6 @@
 module
 
-public import CFSG.Monster.GMS.S365CosetSpec
-public import CFSG.Monster.GMS.S365CentBasic
 public import CFSG.Monster.GMS.S365CentPathSpec
-public import CFSG.Monster.GMS.S365CenterOrbInputs
 public import Certificates.Certificate10041
 public meta import CFSG.Sporadic.Co1.Module.PairsCheck
 public meta import CFSG.Sporadic.Co1.Module.InvData

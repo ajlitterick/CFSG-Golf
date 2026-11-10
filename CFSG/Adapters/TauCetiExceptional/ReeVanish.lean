@@ -3,8 +3,6 @@ module
 public import CFSG.Adapters.TauCetiExceptional.FrameworkClosure
 public import CFSG.Adapters.TauCetiExceptional.BigCellCore
 public import TauCeti.Algebra.Lie.G2.ShortRoot.IntegralToralClosure.Generation
-public import TauCeti.Algebra.Lie.G2.ShortRoot.PrimeField.PointsFunctor
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
 
 public noncomputable section
 

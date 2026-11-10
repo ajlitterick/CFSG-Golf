@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Asc77.AscSPN10
 public import CFSG.ClassicalInvolution.Asc77.AscSPN12
-public import CFSG.ClassicalInvolution.ModelFacts.Orth15RFixLift
 public import CFSG.ClassicalInvolution.Asc77.AscT7PF
 
 public section

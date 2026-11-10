@@ -3,8 +3,6 @@ module
 public import CFSG.RankThree.PartTwo.Sec15.Item1510StepsProofTools
 import CFSG.RankThree.PartTwo.Sec14.Concl142NHJInner
 import CFSG.RankThree.PartTwo.Sec13.Item133
-import CFSG.RankThree.PartTwo.Sec13.Item13Basic
-import CFSG.RankThree.PartTwo.Sec13.Item13Models
 import CFSG.RankThree.PartTwo.KFacts.KS14HJSignalizer
 import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 import CFSG.LinearAlgebra.LinearGroups.CoordinateData
@@ -34,8 +32,6 @@ import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasFive
 import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasSix
 import CFSG.LocalAnalysis.ComponentInitial.OrthogonalReflectionSplitting
 import CFSG.LocalAnalysis.ComponentInitial.OrthogonalStandardFormsRegular
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalGroup.LowRank

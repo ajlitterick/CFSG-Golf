@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthSetup
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthWeylOrdD
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthCount
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthTyBridge
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthTyDim

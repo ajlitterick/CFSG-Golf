@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ClassicalInvolution.Q3.Q3URStd
 public import CFSG.ClassicalInvolution.Q3.Q3URTwA
 public import CFSG.ClassicalInvolution.Q3.Q3WASTLift
 

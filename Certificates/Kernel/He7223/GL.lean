@@ -3,7 +3,6 @@ module
 public import Certificates.Data.Kernel.Misc.F2BfsRec
 import CFSG.Certificates.Kernel.Common.F2Bfs
 import CFSG.Certificates.Kernel.Common.Cover
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

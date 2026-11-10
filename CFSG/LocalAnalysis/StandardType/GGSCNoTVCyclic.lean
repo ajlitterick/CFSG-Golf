@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOmega
 import CFSG.LocalAnalysis.StandardType.GGCommutatorSupElemAbelian
 import CFSG.LocalAnalysis.RankThreeEvenClassification.NormalSylowIntersection
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.Basic
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerImageCompletion

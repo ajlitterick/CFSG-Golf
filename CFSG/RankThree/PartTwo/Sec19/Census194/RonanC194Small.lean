@@ -1,23 +1,14 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec19.Census194.Defs
-public import CFSG.Open.StatedDefs
-public import CFSG.Open.PGLModelDefs
 public import CFSG.Blueprint.MultiplierDefs
 import CFSG.RankThree.PartTwo.Sec19.Census194.RonanC194RankOne
 import CFSG.RankThree.PartTwo.Sec19.Census194.RonanC194Mult
-import CFSG.LieType.Steinberg.CentralExt.GriessClassical
 import CFSG.LieType.Steinberg.CentralExt.GriessUnitaryOdd
 import CFSG.LocalAnalysis.ComponentInitial.OddLinearTwoAliases
-import CFSG.LocalAnalysis.ComponentInitial.SmallLinearIsomorphisms
-import CFSG.GH74.Exceptional.LinearFourTwo
 import CFSG.RankThree.PartOne.N143.Inspect613Even
 import CFSG.LocalAnalysis.QuasithinUnique.SQTK.UnitaryTauCeti
-import CFSG.RankThree.PartOne.S12.ModelTransport
 import CFSG.Open.PGLModelStated
-import CFSG.Adapters.ProjectiveSpecialLinear
-import CFSG.Adapters.LinearFieldTransport
-import CFSG.Adapters.RankTwoModelTransports
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.Foundations
 public import CFSG.GroupTheory.Fitting.CharacteristicP

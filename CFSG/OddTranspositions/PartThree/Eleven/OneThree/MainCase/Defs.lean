@@ -3,8 +3,6 @@ module
 public import CFSG.OddTranspositions.PartThree.EightOne.Defs
 public import CFSG.OddTranspositions.PartThree.EightEight.Statement
 public import CFSG.OddTranspositions.PartThree.Nine.ThreeSplit
-public import CFSG.OddTranspositions.SevenThreeTransitive
-public import CFSG.Timmesfeld.Bridge.Asc72Defs
 public import CFSG.OddTranspositions.PartThree.EightFive.Holds
 public import CFSG.OddTranspositions.PartFour.Line
 public import CFSG.OddTranspositions.SixNineUnconditional

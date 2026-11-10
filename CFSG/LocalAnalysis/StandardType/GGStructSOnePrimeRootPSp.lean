@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGStructSOnePrimeRoot
 public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsSp
 public import CFSG.LieType.ChevTwo.LayeredClassical
-public import CFSG.LieType.ChevTwo.LayeredOps
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.LieInput.LeviAssembly
 public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.Basic
 public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.D4Dichotomy

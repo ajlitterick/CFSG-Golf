@@ -2,8 +2,6 @@ module
 
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.D4F2Config
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.D4GraphFieldCentral
-public import CFSG.LieType.Steinberg.TwistedD4.Perfect
-public import CFSG.LieType.Steinberg.TwistedD4.Local
 public import CFSG.LieType.Steinberg.CentralExt.TrialityTorus
 public import CFSG.LieType.SeitzGeneration.ExcParabolicTw
 public import CFSG.LieType.SeitzGeneration.ExcTorusTwE6Four

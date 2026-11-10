@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Sporadic.Co2Cert.CheckInputs
 public import CFSG.Certificates.Kernel.Spor.Co2ShapeSound
 import CFSG.Certificates.Kernel.Common.Harness
 

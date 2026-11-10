@@ -3,10 +3,7 @@ module
 public import Certificates.Data.Kernel.ConjRec
 public import CFSG.Certificates.Kernel.Spor.RawDefs
 public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourEnumSpec
-public import Mathlib.GroupTheory.Sylow
-import CFSG.Certificates.Kernel.Spor.PackWord
 import CFSG.Certificates.Kernel.L34KSnd.Tab
-public import Certificates.Data.CFSGNative.Co3Schreier.Basic
 public import Mathlib
 
 public section

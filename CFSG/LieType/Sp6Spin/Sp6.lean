@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.Universal.SymplecticExtras.TorusWeyl
 import CFSG.LieType.Universal.SymplecticRoots.Weyl
-import TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.Symplectic.TorusGeneration
 
 public section
 

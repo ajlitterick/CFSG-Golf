@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.OpsF2
 import CFSG.Certificates.Kernel.CoverCKSound
 import Certificates.Kernel.CoverCenter.J3
 import Certificates.Kernel.CoverCenter.J3Cov
-public import CFSG.Blueprint.NativeSporadic
 import all CFSG.Blueprint.NativeSporadic
 
 public section

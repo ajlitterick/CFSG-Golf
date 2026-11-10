@@ -1,11 +1,7 @@
 module
 
 public import CFSG.Quasithin.Background.B4Models
-public import CFSG.Open.Defs
-public import CFSG.Open.StatedDefs
 import CFSG.GroupTheory.WeirSylow.OrthogonalOrders
-import CFSG.ClassicalGroups.Orthogonal.Matrix
-import CFSG.LieType.Universal.Spin.Forms
 import CFSG.LocalAnalysis.GLTheoremA.CatA.SFM12Block
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
@@ -17,15 +13,10 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.Module
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointActionModels
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointDataModelWitness

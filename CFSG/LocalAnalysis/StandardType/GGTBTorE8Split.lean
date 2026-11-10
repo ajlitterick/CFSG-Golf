@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBTorE8Plus
-public import CFSG.LocalAnalysis.StandardType.GGTBTorRest
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcThreeE8
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenExcSplit
-public import CFSG.RankThree.PartOne.KE.E8RootCharacterTorus
 
 public noncomputable section
 

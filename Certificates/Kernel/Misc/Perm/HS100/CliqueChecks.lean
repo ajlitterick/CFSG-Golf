@@ -4,7 +4,6 @@ public import Certificates.Kernel.Misc.Perm.HS100.Base
 public import Certificates.Kernel.Misc.Perm.HS100.Class3A
 public import Certificates.Kernel.Misc.Perm.HS100.CliqueData
 public import Certificates.Data.Kernel.Misc.PermAdj
-public import Certificates.Data.Kernel.Misc.PermClos
 import CFSG.Certificates.Kernel.Common.Harness
 import Certificates.Kernel.Sporadic.ON.Gen
 

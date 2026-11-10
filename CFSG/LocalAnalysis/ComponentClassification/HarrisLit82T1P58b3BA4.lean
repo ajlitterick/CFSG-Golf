@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1S73C
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalFourSplitNormal
-public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneCOType
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1P58bOLieComp
-public import CFSG.Certificates.Kernel.ThDemp.OrbCent
 public import CFSG.ClassicalInvolution.Asc77.Lemma310
 public import CFSG.ClassicalInvolution.Asc77.ThmEStatement
 public import CFSG.ClassicalInvolution.Asc77.WP1Section18
@@ -31,7 +28,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeMax
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeSteps
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit35AltConf
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit35AltSmall
-public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1C3Props
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1S73Props
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitKGFieldClass
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitLemma36Inputs

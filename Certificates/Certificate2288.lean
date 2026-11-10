@@ -7,14 +7,10 @@ public import CFSG.Sporadic.SmallOddCore.McLCountA
 public import CFSG.Sporadic.Schreier.PairMcLPairs
 public meta import CFSG.Sporadic.SmallOddCore.McLWords
 public meta import CFSG.Sporadic.Schreier.PairMcLCheck
-public import CFSG.Sporadic.Schreier.PairMcLCertInputs
-public import CFSG.Sporadic.Schreier.PairMcLCheckInputs
 public meta import CFSG.Sporadic.Schreier.PairMcLCert
 public meta import Certificates.Data.CFSGNative.PairSchreier.Core
 public meta import Certificates.Data.CFSGNative.Schreier.Check
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
-public import CFSG.Sporadic.Schreier.PairMcLCheck
-public import Certificates.Data.CFSGNative.PairSchreier.Counts
 public meta import Certificates.Data.CFSGNative.PairSchreier.Counts
 import Certificates.Kernel.Sporadic.OddCore.P2288
 public import CFSG.GroupTheory.Fitting.CharacteristicP
@@ -26,7 +22,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.MinimalBCenter
 public import CFSG.LocalAnalysis.ComponentClassification.OrdinaryComponentJoins
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

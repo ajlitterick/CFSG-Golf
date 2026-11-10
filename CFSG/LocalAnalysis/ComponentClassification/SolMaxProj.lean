@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.Sol76PumpDown
-public import CFSG.LocalAnalysis.ComponentClassification.FooteLitStep
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.FooteLitBalanceCore
 public import CFSG.LocalAnalysis.ComponentClassification.Sol76Props
 public import CFSG.LocalAnalysis.ComponentClassification.Sol76TwoComp

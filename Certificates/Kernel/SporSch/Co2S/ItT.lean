@@ -2,9 +2,7 @@ module
 
 public import Certificates.Kernel.SporSch.HN.GenNTree
 public import Certificates.Kernel.SporSch.Co2S.ItChain
-public import Certificates.Data.Kernel.Spor.Prim
 public import Certificates.Data.Kernel.SporSch.FixK
-public import CFSG.Sporadic.Co2Schreier.Arrays
 meta import CFSG.Sporadic.Co2Schreier.Arrays
 meta import Certificates.Kernel.Sporadic.RawGen
 import CFSG.Certificates.Kernel.Common.Harness

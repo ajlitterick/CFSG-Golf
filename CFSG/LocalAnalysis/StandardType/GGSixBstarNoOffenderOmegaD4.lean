@@ -1,14 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderUO
-public import Mathlib.LinearAlgebra.BilinearForm.Orthogonal
-public import Mathlib.FieldTheory.Finiteness
-public import Mathlib.FieldTheory.Finite.Basic
-public import Mathlib.Algebra.CharP.Lemmas
-public import Mathlib.Algebra.CharP.Algebra
-public import Mathlib.GroupTheory.PGroup
-public import Mathlib.GroupTheory.GroupAction.Quotient
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 
 public section
 

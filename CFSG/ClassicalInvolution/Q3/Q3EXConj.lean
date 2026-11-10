@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Q3EXOrthLarge
-public import CFSG.ClassicalInvolution.RouteD.ExoticSingleFixed
 public import CFSG.ClassicalInvolution.RouteD.ExoticSingleMinus
 
 public section

@@ -2,28 +2,14 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection11.Basic
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection10.PFsection10_11
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection6.lemma_6_5_a
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection6.lemma_6_3_a_1
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection6.PFsection6_2
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection6.PFsection6_3
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection6.PFsection6_5_b
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection2.PFsection2_7_11
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection8.PFsection8_5_a
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection8.PFsection8_5_b
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection8.PFsection8_8
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection8.SourceTypePBridge
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection4.PFsection4_4
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection5.PFsection5_7
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection5.PFsection5_8
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection5.PFsection5_9
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection5.RealVirtualParity
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection9.PFsection9_3
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection9.PFsection9_4
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection9.PFsection9_6
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection9.PFsection9_7
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection9.PFsection9_8
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection9.PFsection9_11
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection4.PFsection4_5_to_10
 
 namespace CFSG
 end CFSG

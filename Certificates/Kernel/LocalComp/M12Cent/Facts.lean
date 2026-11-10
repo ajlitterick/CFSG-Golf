@@ -3,8 +3,6 @@ module
 public import Certificates.Kernel.LocalComp.M12Cent.Data
 public import CFSG.Certificates.Kernel.SporSch.CodesImg
 public import CFSG.Certificates.Kernel.Spor.BindList
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.SporSch.MathieuOCSound
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutCheckBase
 

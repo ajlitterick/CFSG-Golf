@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.SmithEK.BasChk
 public import Certificates.Kernel.SmithEK.IPairsA
 public import Certificates.Kernel.SmithEK.IPairsB
-public import Certificates.Kernel.SmithEK.ChkW
 public import Certificates.Kernel.SmithEK.Span
 public import CFSG.Certificates.Kernel.SmithEK.ISound
 import CFSG.Certificates.Kernel.Common.ForallTree

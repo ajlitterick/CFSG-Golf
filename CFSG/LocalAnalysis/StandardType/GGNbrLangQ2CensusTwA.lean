@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusDefs
 import CFSG.LocalAnalysis.StandardType.GGTCJEnnolaUniComp
 import CFSG.LocalAnalysis.StandardType.GGInnerD4RALabels
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1CentUniLift
 
 public section

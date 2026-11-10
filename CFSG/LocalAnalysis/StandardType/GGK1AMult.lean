@@ -1,13 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGK1ADefs
 public import CFSG.LocalAnalysis.StandardType.GGK1AMultQuad
 public import CFSG.LocalAnalysis.StandardType.GGK1AMultUni
 public import CFSG.LocalAnalysis.AGLEmbedding.ToralCensusTwistedAFactors
-public import CFSG.LinearAlgebra.OddSolvableUnitary.ExtraspecialModule
 public import CFSG.RankThree.PartOne.KC.LinearCommutantFactors
-public import CFSG.RankThree.PartOne.KC.UnitaryPrimaryAlgebra
-public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeModel
 public import CFSG.RankThree.PartOne.CTP.Spectrum4
 public import CFSG.LocalAnalysis.AGLEmbedding.ToralCensusTwistedAKit
 public import CFSG.LocalAnalysis.AGLEmbedding.ToralCensusUnitaryFlag

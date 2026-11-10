@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGKGNotCDefs
 public import CFSG.LocalAnalysis.StandardType.GGKGNotCLabel
-public import CFSG.LocalAnalysis.StandardType.GGKGDefs
 import CFSG.LocalAnalysis.StandardType.GGKGNcRank4
 
 public section

@@ -2,15 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.MIBase
 public import CFSG.LocalAnalysis.StandardType.GGInndiagCommRestExcl
-public import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOther
 public import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpRestInner
-public import CFSG.LocalAnalysis.StandardType.GGRawAutRestCore
-public import CFSG.LocalAnalysis.StandardType.GGRawAutRestSmall
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMoreCl
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMoreSix
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMoreU
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagSp
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ToralInner
 
 public section

@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNTPlaneTableVec
-public import CFSG.LocalAnalysis.StandardType.GGNTPlaneTableOrbits
 public import CFSG.LocalAnalysis.StandardType.GGNTPlaneTableRep
 
 public section

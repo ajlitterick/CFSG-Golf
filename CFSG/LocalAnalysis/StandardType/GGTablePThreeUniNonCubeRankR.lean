@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniModel
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeSplitR
 import CFSG.LocalAnalysis.StandardType.GGSUNonsplitTwoBlockRestrict
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeU6Size
 import CFSG.LocalAnalysis.GLTheoremA.S12.CanonU3UniTorusDiag

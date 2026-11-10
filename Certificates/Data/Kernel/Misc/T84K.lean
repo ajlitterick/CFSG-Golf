@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.Misc.GL4Elt
-public import Certificates.Data.Kernel.Misc.Base
 
 public section
 

@@ -1,33 +1,23 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentCited
-public import CFSG.LocalAnalysis.AGLEmbedding.LinTwoCatalog
-public import CFSG.LocalAnalysis.AGLEmbedding.IIIaLists
-public import CFSG.Open.GLBDefs
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.L34Three
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.Defs
 public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83Generic4_1P3L34Defs
 
-import CFSG.RankThree.PartOne.CTP.OutEmbed
-import CFSG.HardMathSupport.Malle.Proving.ReeF4SolvableY0
 import CFSG.LocalAnalysis.AGLEmbedding.LinTwoUnipotentCentralizer
 import CFSG.LocalAnalysis.AGLEmbedding.LinTwoBorelSolvable
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.UnitaryUnipotentCentralizer
-import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.UnitaryAut
 import CFSG.LocalAnalysis.EvenBN.Tits.I21LA6Aut
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFacts.BlockB.SylowThreeAbelian.L34
 import CFSG.LocalAnalysis.RankThreeTheoremC.GL83Generic4_1P3L34Proved
 import CFSG.LocalAnalysis.RankThreeTheoremC.GL83Generic4_1P3L34MKlein
-import CFSG.LocalAnalysis.AGLEmbeddingD2.PerfectCore
 import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.S3AmalgamBound.L34Exp3
-import CFSG.RankThree.PartTwo.KFacts.L34Sylow
-import CFSG.RankThree.PartTwo.KFacts.L34Aut
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.GLBCoreNormalizer
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.CaseTwoLocalL28
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.CaseTwoSylow
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanSz32Local
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.L28AutThree
-import CFSG.RankThree.PartOne.K159F.SzAbs
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.M11Three
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.TitsFiveLocal
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.McLFiveLocal
@@ -35,8 +25,6 @@ import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.GroupA10
 import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.GroupA10Cent
 import CFSG.HardMathSupport.Malle.Proving.ReeF4NormalizerPlane
 import CFSG.LocalAnalysis.ProperTwoGeneratedCore.BenderGroupFactsAlternating
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Certificates.WordSubgroupRel
 public import CFSG.Foundations
@@ -71,7 +59,6 @@ public import CFSG.Sporadic.Bridge.M11CheckInputs
 public import CFSG.Sporadic.Bridge.McLSurj
 public import CFSG.Sporadic.Presentation.McLExactData
 public import CFSG.Sporadic.Presentation.McLExactInputs
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 import CFSG.GH74.KGroups.L34Aut
 import CFSG.LocalAnalysis.AGLEmbedding.CaseTwoConfig
 import CFSG.LocalAnalysis.AGLEmbedding.OneSmallGEVCoreStar
@@ -84,7 +71,6 @@ import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.S3AmalgamBound.Permutable
 import CFSG.Permutation.UnitaryThreeRecognition.Model
 import CFSG.Quasithin.Background.F6CatRecogOut
 import CFSG.StronglyEmbedded.MatrixGroups.PSL2
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_1_12
 
 public section
 

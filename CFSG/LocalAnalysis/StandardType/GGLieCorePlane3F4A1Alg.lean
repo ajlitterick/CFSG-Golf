@@ -1,15 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGLieCorePlane3F4Defs
 public import CFSG.LocalAnalysis.StandardType.GGFamLabelAssembly
 public import CFSG.LocalAnalysis.StandardType.GGLieCorePlane3F4Orbit
-public import CFSG.LocalAnalysis.StandardType.GGFamTypeAFrames
-public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.NativePinFinalPart2
-public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.RationalA1Part1
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.A1SelectedPair
-public import CFSG.Adapters.ProjectiveSpecialLinear
-public import CFSG.RankThree.Classical2.MatrixFrobeniusLang
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleField
 public import CFSG.LocalAnalysis.StandardType.GGFamAssembly
 
 public section

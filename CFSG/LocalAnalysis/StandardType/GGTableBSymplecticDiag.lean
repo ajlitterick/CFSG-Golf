@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticTorus
 public import TauCeti.LinearAlgebra.Eigenspace.JointEigenvector.Basic
 public import TauCeti.RepresentationTheory.ClassicalGroups.Symplectic
-import TauCeti.LinearAlgebra.BilinearForm.SymplecticBasis
-import CFSG.ClassicalGroups.Symplectic.Model
 
 public section
 

@@ -1,11 +1,8 @@
 module
 
 public import CFSG.GH74.GLS.SP.SpDefs
-import CFSG.LieType.Universal.SymplecticExtras.Matrices
-import CFSG.LieType.Universal.SymplecticExtras.Unipotent
 import CFSG.LieType.Universal.SymplecticExtras.Torus
 import CFSG.LieType.TitsSimplicity.Unipotent
-import CFSG.LieType.Steinberg.Collection
 
 public section
 

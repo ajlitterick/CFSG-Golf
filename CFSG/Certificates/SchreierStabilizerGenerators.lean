@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.GroupTheory.GroupAction.Defs
 public import Mathlib.GroupTheory.Schreier
 
 public section

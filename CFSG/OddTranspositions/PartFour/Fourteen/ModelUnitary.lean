@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.WeakClosure81.SevenKUnitary
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Comparator.Defs
 import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
 import CFSG.LieType.Steinberg.CentralExt.SUTwo
 import CFSG.LocalAnalysis.ComponentClassification.GMS78Sec6Quot

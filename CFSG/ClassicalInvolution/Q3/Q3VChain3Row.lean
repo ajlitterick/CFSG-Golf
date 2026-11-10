@@ -2,9 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.Q3VRow
 public import CFSG.ClassicalInvolution.Q3.Q3VChain3Frame
-public import CFSG.ClassicalInvolution.Q3.Q3VFrameMain
-public import CFSG.ClassicalInvolution.Q3.Q3VLiftMain
-public import CFSG.ClassicalInvolution.Q3.Q3WARow
 
 public section
 

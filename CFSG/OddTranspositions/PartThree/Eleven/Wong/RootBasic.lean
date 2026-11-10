@@ -1,7 +1,6 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Eleven.Wong.RootData
-public import CFSG.OddTranspositions.PartThree.Eleven.Wong.CentBasic
 public import CFSG.OddTranspositions.PartThree.Eleven.Wong.CentDiag
 public import CFSG.GroupTheory.ABGLocalTools.Constraint
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalResCover
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalResHeads
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalResL3Three
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalResL3ThreeFour
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalResU3Three
 

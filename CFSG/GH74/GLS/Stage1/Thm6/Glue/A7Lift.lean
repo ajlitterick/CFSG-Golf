@@ -2,7 +2,6 @@ module
 
 public import CFSG.GH74.GLS.Stage1.Thm6.Glue.Rank
 public import CFSG.GH74.GLS.Stage1.Thm6.Glue.A7CoreCond
-public import CFSG.GH74.GLS.Stage1.Thm6.Lift
 public import CFSG.GH74.GLS.IVK.Statements.Sec1A7
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.GH74.GLS.Stage1.Thm6.Glue.Conf
@@ -20,9 +19,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

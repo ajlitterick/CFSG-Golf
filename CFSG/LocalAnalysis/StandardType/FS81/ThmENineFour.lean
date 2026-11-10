@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Open.LocalVocabulary
 public import CFSG.SignalizerFunctorTheorem.Coprime.CommutatorGeneration
 import CFSG.LieType.BorelTits.Basic
 import CFSG.SignalizerFunctorTheorem.McBride.Prelim.Generation

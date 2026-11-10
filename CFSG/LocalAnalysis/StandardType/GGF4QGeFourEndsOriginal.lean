@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourEndsCover
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourEndsA3
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourEndsA3Lin
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourEndsA3Uni
-import CFSG.LocalAnalysis.StandardType.GGTypeANbrLabels
 import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpStdAssembly
 
 public section

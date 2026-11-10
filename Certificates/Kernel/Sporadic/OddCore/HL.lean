@@ -3,9 +3,7 @@ module
 public import Certificates.Kernel.Sporadic.He.Bind2112
 public import Certificates.Kernel.Sporadic.OddCore.PEnumFamCmd
 public import Certificates.Kernel.Sporadic.OddCore.PEnumGlue2
-public import Certificates.Kernel.Misc.Perm.HexCmd
 public import CFSG.Sporadic.SmallOddCore.HeLocalCheckInputs
-public import CFSG.Sporadic.HeldB.InnerData
 meta import CFSG.Sporadic.SmallOddCore.HeLocalCheckInputs
 import CFSG.Certificates.Kernel.Common.Harness
 public import Certificates.Kernel.Sporadic.OddCore.PEnumGlue

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLang
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseNoBL5Aut
 public import CFSG.LocalAnalysis.StandardType.GGSixStepOneOutdiag
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldCyclic
 

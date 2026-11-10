@@ -4,7 +4,6 @@ public import Certificates.Data.TabCo1ThreeD
 public meta import Certificates.Data.TabCo1ThreeD
 public import Certificates.Kernel.Co1B.Chk17590
 public import Certificates.Kernel.Co1M.C10071
-public import CFSG.Certificates.Kernel.Co1FixCount
 
 public section
 

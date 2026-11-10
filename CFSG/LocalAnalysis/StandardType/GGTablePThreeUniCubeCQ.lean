@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniCubeDefs
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniCubeBridge
-import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotBlocks
 import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotWeakCTNormal
 import CFSG.LocalAnalysis.StandardType.GGSixLinearModelRestSURank
 import CFSG.LocalAnalysis.GLTheoremA.S12.CanonU3UniTorusDiag

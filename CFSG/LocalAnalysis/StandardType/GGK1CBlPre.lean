@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGK1CBlD1
 public import CFSG.LocalAnalysis.StandardType.GGK1CBlD2
 public import CFSG.LocalAnalysis.StandardType.GGK1CBlOne
-public import CFSG.LocalAnalysis.StandardType.GGK1CBlIdx
-public import CFSG.LocalAnalysis.StandardType.GGK1CBlDefs
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.T112MLocal
-public import CFSG.Open.StatedDefs
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 public import CFSG.LocalAnalysis.ComponentClassification.LayerMultiplication
 public import CFSG.LocalAnalysis.ComponentClassification.MinimalBCenter

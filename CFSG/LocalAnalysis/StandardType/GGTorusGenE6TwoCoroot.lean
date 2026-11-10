@@ -1,12 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenE6TwoRoots
-public import CFSG.LocalAnalysis.StandardType.GGLangRatStep
 public import CFSG.LocalAnalysis.StandardType.GGLangOrbitTwoTorus
-import CFSG.LocalAnalysis.StandardType.GGLangWSLGamma
 import CFSG.LocalAnalysis.StandardType.GGLangRootSym3
 import CFSG.LocalAnalysis.StandardType.GGLangTwoPairAux
-import CFSG.LocalAnalysis.StandardType.GGLangCorootPair
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcRoots
 
 public section

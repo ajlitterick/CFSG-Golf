@@ -1,39 +1,15 @@
 module
 
 public import CFSG.LocalAnalysis.OddStandard.AltStdSecTenHSActualV4Support
-public import CFSG.LocalAnalysis.OddStandard.AltStdSecTenHSActualSupplier
-public import Mathlib.Algebra.Group.Subgroup.Ker
-public import Mathlib.Algebra.Group.Prod
-public import Mathlib.Data.ZMod.Basic
-public import Mathlib.GroupTheory.QuotientGroup.Basic
 public import CFSG.ClassicalInvolution.Asc77.AscMuTabGroup
-public import CFSG.LocalAnalysis.OddStandard.AltStdSecTenSwapPair
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec2OddCoreBasic
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec2OddCoreTransport
-public import CFSG.GroupTheory.ElemAbelianClosure
-public import CFSG.GroupTheory.PCore.Defs
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
-import CFSG.LocalAnalysis.ComponentClassification.SymmetricLocalInvolutionOddCore
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBAlternatingLocal
 import CFSG.Quasithin.Background.A3Structure39Odd
-public import CFSG.GroupTheory.ElementaryAbelianTransport
-public import CFSG.ThirdParty.BrauerInduction.Background.Group.InternalDirectProduct
 public import CFSG.GroupTheory.CommutingConjugatePair
-public import CFSG.GroupTheory.CentralizerMap
 public import CFSG.GroupTheory.ConjTransport
 public import CFSG.GroupTheory.PCore.PCoreOfMulEquiv
-public import CFSG.LocalAnalysis.OddStandard.AltStdSecTenHSOddKernelLiftTwoSec
-public import CFSG.LocalAnalysis.OddStandard.AltStdCycTwoTwoSecLift
-public import CFSG.Sporadic.SmallOddCore.HSLocal
-public import CFSG.Sporadic.Schreier.PairHSOrder
 import Certificates.Kernel.Sporadic.HS.L2273F
-import CFSG.Certificates.Kernel.Common.Harness
-public import CFSG.LocalAnalysis.OddStandard.AltStdSecTwoRoot
-public import CFSG.LocalAnalysis.OddStandard.AltStdSecTenSwapData
 public import CFSG.LocalAnalysis.OddStandard.AltStdSecLookupEight
-public import CFSG.Sporadic.HS
-public import Mathlib.GroupTheory.FixedPointFree
-public import Mathlib.GroupTheory.OrderOfElement
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.HSCoverMain
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
@@ -106,7 +82,6 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly
@@ -119,11 +94,6 @@ public import CFSG.Quasithin.Background.B4ModelsAction
 public import CFSG.Quasithin.Background.B4ModelsIso
 public import CFSG.Quasithin.Background.C2Basic
 public import CFSG.Quasithin.Background.E1
-public import CFSG.Quasithin.Background.E1Sec4
-public import CFSG.Quasithin.Background.E1Sec5
-public import CFSG.Quasithin.Background.E1Sec8
-public import CFSG.Quasithin.Background.E1Solv
-public import CFSG.Quasithin.Background.E1Twelve
 public import CFSG.Quasithin.Background.E3Cent
 public import CFSG.Quasithin.EmptyFaithfulMultiple.InputB19Proof
 public import CFSG.Quasithin.H13.J4Core
@@ -149,7 +119,6 @@ public import CFSG.Sporadic.Presentation.McLExactInputs
 public import CFSG.Sporadic.Schreier.LyFixedSet
 public import CFSG.Sporadic.SchreierLemmas.FrattiniProfile
 public import CFSG.Sporadic.SuzOddCore.SmallActionData
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ConjugatedInvertedSubgroup
 public import CFSG.Walter.J1
 
 public section

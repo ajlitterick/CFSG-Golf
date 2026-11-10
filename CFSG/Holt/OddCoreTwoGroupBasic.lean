@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Holt.PointHullTwoGroupBasic
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PPrimeCore
 
 public section
 

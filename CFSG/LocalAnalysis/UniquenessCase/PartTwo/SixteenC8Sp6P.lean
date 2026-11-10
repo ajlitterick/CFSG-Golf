@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticHigherMaximal
 public import CFSG.LocalAnalysis.ComponentInitial.BinarySymplecticSixFusionOrbits
 
 public section

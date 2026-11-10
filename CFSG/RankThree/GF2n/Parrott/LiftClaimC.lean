@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.GF2n.Parrott.LiftSquare
-public import CFSG.RankThree.GF2n.Parrott.Section4EWeak
 public import CFSG.RankThree.GF2n.Parrott.Section4CentreSylow
 
 public section

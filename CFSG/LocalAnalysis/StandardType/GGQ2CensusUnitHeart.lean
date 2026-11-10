@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2ClassicalCensusStatements
 public import CFSG.LocalAnalysis.StandardType.GGQ2CensusChainA
-import CFSG.LocalAnalysis.StandardType.GGQ2UnitHeartCutThree
 import CFSG.LocalAnalysis.StandardType.GGQ2UnitShapes
 
 public section

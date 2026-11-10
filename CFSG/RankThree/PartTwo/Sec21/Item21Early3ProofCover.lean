@@ -1,21 +1,13 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec21.Item21Early2ProofCenterOdd
-public import CFSG.RankThree.PartTwo.Sec4.Census.Item44TwoCoverModels
-import CFSG.RankThree.PartTwo.Census.DoubleCoverLift
-import CFSG.RankThree.PartTwo.Census.TransitiveLift
-import CFSG.RankThree.PartTwo.Sec4.Census.DoubleCoverRanks
 import CFSG.RankThree.PartTwo.Sec4.Census.DoubleCoverRanksL34
-import CFSG.RankThree.PartTwo.Sec4.Census.SporadicTwoCoverJ3
 import CFSG.RankThree.PartTwo.Sec17.Item17HeadProofPrime
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X6G2
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X6Triality
 import CFSG.RankThree.PartTwo.Sec4.T444.Item434SmallTwoOtherU54
 import CFSG.LieType.Simplicity.Classical
-import CFSG.ClassicalGroups.Symplectic.Simple
 import CFSG.Timmesfeld.Orders.Classical
-import CFSG.LocalAnalysis.SectionRank.PRank
-import CFSG.LocalAnalysis.SectionRank.SQT
 import CFSG.CGT.Timmesfeld75.L2Pair
 import CFSG.CGT.Timmesfeld75.ListWCBasic
 import CFSG.ClassicalGroups

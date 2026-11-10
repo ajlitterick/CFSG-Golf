@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Weak
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Offender
-public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Coxeter
 
 public section
 

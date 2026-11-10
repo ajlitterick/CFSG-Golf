@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThreeThreeTransvU42Check
-import Certificates.Certificate2012
 import Certificates.Kernel.U42NoFifteen.Glue
 
 public section

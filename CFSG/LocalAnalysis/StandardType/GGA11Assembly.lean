@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGA11Rho
 public import CFSG.LocalAnalysis.StandardType.GGA11Coherent
-public import CFSG.LocalAnalysis.StandardType.GGA11Present
 public import CFSG.LocalAnalysis.StandardType.GGA11StrongOfPresent
-public import CFSG.LocalAnalysis.StandardType.GGA11GraphAut
-public import CFSG.LocalAnalysis.StandardType.GGA11TorusModel
 public import CFSG.LocalAnalysis.StandardType.GGA11GlueExt
 public import CFSG.LocalAnalysis.StandardType.GGA11Coord
 public import CFSG.LocalAnalysis.StandardType.GGA11LGen
@@ -13,8 +10,6 @@ public import CFSG.LocalAnalysis.StandardType.GGA11FrameAssemble
 public import CFSG.LocalAnalysis.StandardType.GGA11NbrLine
 public import CFSG.LocalAnalysis.StandardType.GGA11NbrInfty
 public import CFSG.LocalAnalysis.StandardType.GGA11NbrFrob
-public import CFSG.LocalAnalysis.StandardType.GGA11J9Gen
-public import CFSG.LocalAnalysis.StandardType.GGA11L89B
 public import CFSG.LocalAnalysis.StandardType.GGA11LemmaR
 public import CFSG.LocalAnalysis.StandardType.GGA11BadFix
 public import CFSG.LocalAnalysis.StandardType.GGA11NbrLabel

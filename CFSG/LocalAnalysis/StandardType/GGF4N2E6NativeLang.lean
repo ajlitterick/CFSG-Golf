@@ -15,8 +15,6 @@ public import CFSG.RankThree.Lattice.SteinbergBIE6Qplus
 public import CFSG.RankThree.Lattice.SteinbergBIGenPerfect
 public import CFSG.RankThree.Lattice.SteinbergBIGenQuasisimple
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Borel
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Lemma83
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Cardinalities
 public import CFSG.Walter.Defs
 
 public noncomputable section

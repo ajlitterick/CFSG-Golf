@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.K36K.M12.Data
 public import Certificates.Data.Kernel.K36K.Planes
 public import Certificates.Data.Kernel.K36K.Exc
-public import Certificates.Data.Kernel.Spor.PEnum
 public import Certificates.Data.K36SporM12
 public import Mathlib.Data.Fintype.Card
 import CFSG.Certificates.Kernel.Common.Harness

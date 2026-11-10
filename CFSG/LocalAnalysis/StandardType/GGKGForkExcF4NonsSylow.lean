@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4Rank
 public import CFSG.LocalAnalysis.StandardType.GGTableBF4TwoRank
 
 public section

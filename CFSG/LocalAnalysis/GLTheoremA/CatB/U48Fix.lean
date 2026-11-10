@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.Bridges
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434SmallTwoIVU48Outer
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434SmallTwoIVU48Descent
-public import CFSG.LocalAnalysis.ComponentInitial.FieldFiniteAutomorphism
-public import CFSG.LieType.Multipliers.U42Bridge
-public import CFSG.LocalAnalysis.SectionRank.EvenCover.Unitary
 public import CFSG.Sporadic.Schreier.J4SOrder
 public import CFSG.Blueprint.LieModelAPI
 public import CFSG.GH74.GLS.IVK.Proofs2.OddTools

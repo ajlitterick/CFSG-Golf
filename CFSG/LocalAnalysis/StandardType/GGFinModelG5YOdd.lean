@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFinModelG5Defs
-public import CFSG.LocalAnalysis.StandardType.GGFinModelAdj
-public import CFSG.RankThree.PartOne.KE.CTLang
 
 public section
 

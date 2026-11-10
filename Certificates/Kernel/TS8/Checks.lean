@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.TS8.Data
 public import Certificates.Data.Kernel.TS8.Defs
 public import Certificates.Data.Kernel.S63K.OrbRun
-public import Certificates.Data.Kernel.Spor.Raw
 public import Certificates.Kernel.Misc.Perm.J5B
 public import Certificates.Kernel.Census.J3.Text
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.TS8D8Words

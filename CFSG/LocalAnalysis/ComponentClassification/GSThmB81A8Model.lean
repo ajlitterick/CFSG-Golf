@@ -3,12 +3,7 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB81A8Perm
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB81A8Lift
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB81S7d
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallQ3Gen
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSp4Sec8
-public import Certificates.Certificate2007
-public import Certificates.Certificate2013
-public import Certificates.Certificate2014
-public import Certificates.Certificate2019
 public import CFSG.GH74.GLS.Classes
 public import CFSG.GH74.Generic.Shapes
 public import CFSG.GH74.Statements

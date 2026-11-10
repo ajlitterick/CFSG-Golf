@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBF4TwoInputsEndNode
 public import CFSG.LocalAnalysis.StandardType.GGTableBF4TwoInputsRee
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagOrder
-public import CFSG.LieType.Simplicity.TitsBits
 
 public section
 

@@ -5,9 +5,7 @@ public import CFSG.RankThree.PartOne.Q1327F.PGroup
 public import CFSG.RankThree.PartOne.Q1327F.Unip
 public import CFSG.RankThree.PartOne.Q1327F.Orders
 public import CFSG.RankThree.PartOne.Q1327T.Item7UBasic
-public import CFSG.RankThree.PartOne.K133.MaxItems
 public import CFSG.LocalAnalysis.QuasithinUnique.SQTK.UnitaryTauCeti
-import CFSG.GroupTheory.PRankCoprimeQuotient
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalSixStructure
 public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherEvenOrthogonalModel
@@ -29,7 +27,6 @@ public import CFSG.RankThree.PartOne.S12.Sec15FA
 public import CFSG.RankThree.PartOne.S12.Sec15Items
 public import CFSG.RankThree.PartOne.S15K.PSylowOrth
 public import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.CommutatorNormalizer
 
 public section

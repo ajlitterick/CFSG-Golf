@@ -1,8 +1,6 @@
 module
 
-public import Mathlib.FieldTheory.Finite.Basic
 public import Mathlib.FieldTheory.Finite.GaloisField
-public import Mathlib.FieldTheory.Galois.Basic
 
 public section
 

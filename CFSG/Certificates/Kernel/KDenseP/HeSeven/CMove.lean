@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Certificates.Kernel.KDenseP.HeSeven.Run
-public import CFSG.Certificates.Kernel.Common.Chain
 import CFSG.Certificates.Kernel.Common.Each
 public import CFSG.YGroups.Y443.Native.EdgeNoncommBase
 

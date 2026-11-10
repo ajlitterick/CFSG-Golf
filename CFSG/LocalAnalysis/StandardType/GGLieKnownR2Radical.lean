@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2Levels
 public import CFSG.LieType.TitsSimplicity.Unipotent
-import Mathlib.Tactic.Group
 
 public section
 

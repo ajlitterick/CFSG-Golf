@@ -6,7 +6,6 @@ public import Certificates.Kernel.Sporadic.Fi22.X2069Ext
 public import Certificates.Kernel.Sporadic.Fi22.X2069PT
 public meta import CFSG.Monster.B.Fischer.Fi22OuterCheckBase
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.NormNum
 
 public section
 

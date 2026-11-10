@@ -1,10 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.Ch9Sec3TNInner
-public import CFSG.Quasithin.Background.A3ComponentsBasic
-public import CFSG.LieType.BorelTits.Basic
-public import CFSG.LocalAnalysis.QuasithinUnique.GammaFamiliesBasic
-public import CFSG.Quasithin.H13.NQCatT513U35
 public import CFSG.Quasithin.Vol2.Ch9Sec3FFCLie
 public import CFSG.Quasithin.Vol2.Ch9Sec3TNSpor
 public import CFSG.Adapters.GeneralizedFitting
@@ -18,9 +14,6 @@ public import CFSG.LocalAnalysis.LargeEvenClassification.MacWilliamsReduction
 public import CFSG.LocalAnalysis.LargeEvenClassification.SmallCfourFullObstruction
 public import CFSG.LocalAnalysis.LargeEvenClassification.SmallCfourProperSubgroups
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListFlag
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtRk2ParMain
 public import CFSG.Walter.Bender1970.S1
 public import CFSG.Walter.Bender1970.S2

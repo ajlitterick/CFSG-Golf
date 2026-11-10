@@ -2,12 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfMaxDefs
 public import CFSG.LieType.Chevalley.KernelComponentRoots
-public import Mathlib.LinearAlgebra.Matrix.Rank
 public import CFSG.LinearAlgebra.IntegralRankOne
-public import Mathlib.FieldTheory.Finiteness
-public import Mathlib.RingTheory.Localization.Module
-public import Mathlib.RingTheory.PrincipalIdealDomain
-public import Mathlib.LinearAlgebra.Dimension.StrongRankCondition
 
 public section
 

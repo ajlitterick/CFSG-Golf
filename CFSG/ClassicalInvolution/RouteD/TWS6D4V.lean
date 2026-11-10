@@ -1,10 +1,7 @@
 module
 
-public import CFSG.ClassicalInvolution.RouteD.TwinYR2SpinV
-public import CFSG.ClassicalInvolution.RouteD.TwinYR2SpinNC
 public import CFSG.ClassicalInvolution.Asc77.WP3SCSD4Gen
 public import CFSG.ClassicalInvolution.Asc77.AscT7HS2
-public import CFSG.ClassicalInvolution.RouteD.TypeTwistedE6PerpOrthLayer
 
 public section
 

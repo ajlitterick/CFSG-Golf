@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonSylow
-public import Mathlib.FieldTheory.Finite.GaloisField
 public import Mathlib.FieldTheory.Finite.Extension
 public import Mathlib.FieldTheory.Finite.Trace
 public import Mathlib.Algebra.CharP.CharAndCard
@@ -16,7 +15,6 @@ import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonSplitTorusMatrices
 import Mathlib.LinearAlgebra.Eigenspace.Basic
 import Mathlib.Algebra.Polynomial.SpecificDegree
 import Mathlib.Algebra.BigOperators.Ring.Nat
-import Mathlib.GroupTheory.GroupAction.ConjAct
 
 namespace CFSG
 end CFSG

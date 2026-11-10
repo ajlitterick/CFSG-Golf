@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Sporadic.Schreier.J1CertCheckInputs
 public import CFSG.Certificates.Kernel.Spor.J1ShapeSound
 import CFSG.Certificates.Kernel.Common.Harness
 

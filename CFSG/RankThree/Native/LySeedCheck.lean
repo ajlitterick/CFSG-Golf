@@ -3,9 +3,7 @@ module
 
 public import CFSG.RankThree.Native.LySeedCheckBase
 
-public import CFSG.RankThree.Native.LyOperatorData
 public meta import Certificates.Data.CFSGNative.Ly.Certificate
-public import CFSG.RankThree.Native.LySeedCheckInputs
 public import Certificates.Certificate8132
 
 public section

@@ -4,13 +4,9 @@ module
 public import CFSG.Sporadic.HeldB.InnerCheckBase
 import all CFSG.Sporadic.HeldB.InnerCheckBase
 
-public import CFSG.Sporadic.HeldB.InnerData
-public import CFSG.Sporadic.HeldB.Common
-public import CFSG.Sporadic.Schreier.MathieuOddCoreCentral
 public meta import CFSG.Sporadic.HeldB.InnerData
 public meta import CFSG.Sporadic.HeldB.Common
 public meta import CFSG.Sporadic.Schreier.MathieuOddCoreCentral
-public import CFSG.Sporadic.HeldB.InnerCheckInputs
 public import Certificates.Certificate2114
 
 public section

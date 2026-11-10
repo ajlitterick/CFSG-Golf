@@ -4,7 +4,6 @@ module
 public import Certificates.Certificate10077Base
 import all Certificates.Certificate10077Base
 
-public import CFSG.Sporadic.Co1.Module.TwoBFrameInputs
 import Certificates.Kernel.Co1M.Frame10077
 import Certificates.Kernel.Co1M.TreeX10077
 import Certificates.Kernel.Co1M.TreeY10077

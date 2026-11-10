@@ -1,13 +1,11 @@
 module
 
-public import Certificates.Data.CFSGNative.CTIB.Coset
 public import CFSG.Monster.B.Dyadic.CTIBK
 public import Certificates.Kernel.BabyMonster.CTIB.CosetQBind
 public import CFSG.Certificates.Kernel.BabyMonster.CTIBNatsSound
 import Certificates.Kernel.BabyMonster.CTIB.Delta
 import CFSG.Certificates.Kernel.BabyMonster.CTIBWordsSound
 import CFSG.Certificates.Kernel.Common.StrLits
-import CFSG.Certificates.Kernel.Common.Harness
 import all Init.Data.List.SplitOn.Basic
 import all Init.Data.Nat.ToString
 

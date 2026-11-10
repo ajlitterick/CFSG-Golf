@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Milestones.ASVolI.H1
-public import CFSG.Quasithin.Vol2.Ch9L34M18
 public import CFSG.Quasithin.Vol2.Ch9L34Norm18
 public import CFSG.Quasithin.Background.HL3NineW9
 public import CFSG.CharacterTheory.Semidihedral.FixedFieldData
@@ -19,7 +18,6 @@ public import CFSG.Quasithin.Background.HFixSylBase
 public import CFSG.Quasithin.Background.HTriSolv
 public import CFSG.Quasithin.Background.HTriU3
 public import CFSG.Quasithin.Background.HZ82Base
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 
 public section

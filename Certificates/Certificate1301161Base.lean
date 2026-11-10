@@ -1,8 +1,6 @@
 module
 
 public import Certificates.Data.TripleM22Sylow
-public import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
-public import Mathlib.Data.ZMod.Basic
 
 @[expose] public section
 

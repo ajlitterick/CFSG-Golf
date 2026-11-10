@@ -3,10 +3,7 @@ module
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.Preamble
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.NineSevenOneGen
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.NineSevenOneFi22
-import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.HypC
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineNineSym
-import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineNineConseq
-import CFSG.LocalAnalysis.RankThreeCoreUniqueness.Helpers
 import CFSG.RankThree.PartOne.S11d.FinalLemmas
 import CFSG.GH74.GLS.Stage2.Signalizer.Ivk8YCfgAct
 public import CFSG.GH74.GLS.Classes

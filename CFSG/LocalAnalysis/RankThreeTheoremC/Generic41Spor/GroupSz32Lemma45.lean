@@ -1,15 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.GroupDefs
-import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.GroupSz32
 import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.GroupSz32Loc
 import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.GroupBridge
 import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.GroupWitness
 import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.GroupCyclic25Compl
 import CFSG.LocalAnalysis.RankFourTheoremC.PPointExoticSigSzCore
-import CFSG.RankThree.PartOne.K159.AutSzIso
-import CFSG.RankThree.PartOne.CTP.SeitzExcModels
-import CFSG.LieType.Ree.SuzukiSimple
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.GroupTheory.LocalCores.Layer
@@ -36,7 +32,6 @@ public import CFSG.RankThree.PartOne.CTP.StrongPClassification
 public import CFSG.RankThree.PartOne.S10.ThetaContract
 public import CFSG.RankThree.PartOne.S12.InputsBase
 public import CFSG.RankThree.PartOne.S8.Statements
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Basic
 
 public section

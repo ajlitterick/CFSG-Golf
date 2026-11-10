@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGLinearFusionSURepair
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallUnitDvdSmall
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeBlock
 
 public section
 

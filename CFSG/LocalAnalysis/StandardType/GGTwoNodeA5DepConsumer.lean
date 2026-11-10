@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeA5DepAllDefs
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeA5DepExclusion
-public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3Defs
-public import CFSG.LocalAnalysis.StandardType.GGTWSmallCarried
 public import CFSG.LocalAnalysis.StandardType.GGTWSmallAL
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeNineConsumer
 

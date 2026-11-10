@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83SmallRank620Main
 public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83SmallRank621Defs
 import CFSG.LocalAnalysis.RankThreeTheoremC.GL83SmallRank621Core
 public import CFSG.LocalAnalysis.QuasithinUnique.GammaFamiliesBasic
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection5.Defs
 
 public section
 

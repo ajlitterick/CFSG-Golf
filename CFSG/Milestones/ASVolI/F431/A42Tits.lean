@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Milestones.ASVolI.F431.A35Tits
-public import CFSG.Quasithin.Vol2.GoldschmidtF431Loc442Main
-public import CFSG.Quasithin.Vol2.GoldschmidtF431TitsDDatum
 import all CFSG.Milestones.ASVolI.F4
 import all CFSG.Milestones.ASVolI.F4Conjugacy
 

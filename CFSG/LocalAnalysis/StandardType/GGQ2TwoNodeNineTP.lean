@@ -3,22 +3,10 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQ2TwoNodeNineTB
 public import CFSG.LocalAnalysis.StandardType.GGQ2TableBTwA6Row
 public import CFSG.LocalAnalysis.StandardType.GGTPNTwA6Defs
-public import CFSG.LocalAnalysis.StandardType.GGB36Defs
-public import CFSG.LocalAnalysis.StandardType.GGTPNPCompDefs
 public import CFSG.LocalAnalysis.StandardType.GGTPNNarrowC6
-public import CFSG.LocalAnalysis.StandardType.GGK0ExcB3
 import CFSG.LocalAnalysis.StandardType.GGTPNAtL
 import CFSG.LocalAnalysis.StandardType.GGTPNTwA6Final
-import CFSG.LocalAnalysis.StandardType.GGB36StepOneK0
-import CFSG.LocalAnalysis.StandardType.GGK0CompREMult
-import CFSG.LocalAnalysis.StandardType.GGKacExcB2
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-import CFSG.LocalAnalysis.StandardType.GGFrameRouteQTwo
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 import CFSG.LocalAnalysis.StandardType.GGNbrU63Setup
-import CFSG.LocalAnalysis.StandardType.GGQ2TwoNodeI1Rank
-import CFSG.LocalAnalysis.StandardType.GGTableBBstar
-import CFSG.LocalAnalysis.StandardType.GGStdSubExist
 
 public section
 

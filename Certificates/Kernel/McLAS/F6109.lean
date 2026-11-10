@@ -8,7 +8,6 @@ public import Certificates.Kernel.McLAS.Rec3AChk2
 public import Certificates.Kernel.McLAS.Rec3AChk3
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Spor.RawOrbHead
-import Mathlib.Tactic.IntervalCases
 import CFSG.Certificates.Kernel.Spor.RawOrbGrp
 
 public section

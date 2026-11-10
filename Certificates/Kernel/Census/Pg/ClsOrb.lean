@@ -6,7 +6,6 @@ public import Certificates.Data.Kernel.W16Cls
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.TS16RWRepData
 public meta import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.TS16RWRepData
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 set_option maxRecDepth 400000
 set_option maxHeartbeats 0

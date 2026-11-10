@@ -2,8 +2,6 @@
 module
 
 public import Certificates.Kernel.J2Cover.K20C
-public import CFSG.Certificates.Kernel.J2CoverSound
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

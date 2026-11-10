@@ -2,10 +2,8 @@ module
 
 public import Certificates.Kernel.TwoHS.Four
 public import Certificates.Kernel.TwoHS.HYOps
-public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoHS.HarTbl2
 meta import CFSG.LocalAnalysis.EvenSporadicStandard.TwoHS.HarTbl2
 meta import Certificates.Kernel.Misc.Perm.HexCmd
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo
 meta import CFSG.Certificates.CosetTableShort

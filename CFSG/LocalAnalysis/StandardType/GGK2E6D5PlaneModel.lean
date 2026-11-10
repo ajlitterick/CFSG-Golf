@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKOnlyE6Normalization
-public import TauCeti.LinearAlgebra.IntegralLattice.RootLattice.TypeD.SimpleRoots
 public import CFSG.LocalAnalysis.StandardType.ZS.AdaptMonomial
 
 public section

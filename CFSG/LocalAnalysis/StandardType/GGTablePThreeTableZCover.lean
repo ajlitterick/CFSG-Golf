@@ -5,7 +5,6 @@ import CFSG.LocalAnalysis.StandardType.GGTablePThreeTableZCatalogue
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeTableZHopf
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeTableZTransport
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeTableZCentre
-import CFSG.LocalAnalysis.StandardType.GGTableBOutdiag
 import CFSG.LieType.Chevalley.TwistedE6RootGroupPerfect
 import CFSG.LocalAnalysis.GLTheoremA.CatA.I141FDynExc
 

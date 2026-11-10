@@ -1,18 +1,10 @@
 module
 
-public import Certificates.Kernel.BabyMonster.ChainN
-public import Certificates.Kernel.BabyMonster.ForallLt
 public import Certificates.Kernel.BabyMonster.ForallApply
 public import Certificates.Kernel.BabyMonster.Facts3106
 public import CFSG.Certificates.Kernel.BabyMonster.FixedLine.All
-public import CFSG.Certificates.Kernel.BabyMonster.NativePair24.Check0
 public import CFSG.Certificates.Kernel.BabyMonster.NativePair24.Check9
-public import CFSG.Certificates.Kernel.BabyMonster.NativePair24.Check24
 public import CFSG.Certificates.Kernel.BabyMonster.CTIB.Check9
-public import CFSG.Certificates.Kernel.Common.Harness
-public import CFSG.Certificates.Kernel.BabyMonster.FixedLine.Check0
-public import CFSG.Certificates.Kernel.BabyMonster.FixedLine.Check1
-public import CFSG.Certificates.Kernel.BabyMonster.FixedLine.Check2
 
 public section
 

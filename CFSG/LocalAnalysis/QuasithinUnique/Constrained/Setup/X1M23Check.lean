@@ -1,12 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1PermCheck
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1M23Data
-public import CFSG.Sporadic.Schreier.M23Gens
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1PermCheck
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1M23Data
 public meta import CFSG.Sporadic.Schreier.M23Gens
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1M23CheckInputs
 public import Certificates.Certificate4037
 public meta import CFSG.Foundations
 public import CFSG.Foundations

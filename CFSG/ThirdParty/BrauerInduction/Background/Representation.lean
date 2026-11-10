@@ -1,8 +1,5 @@
 module
 
-public import Mathlib.LinearAlgebra.Trace
-public import Mathlib.RepresentationTheory.Intertwining
-public import Mathlib.RepresentationTheory.Invariants
 
 public import Mathlib.RepresentationTheory.Character
 

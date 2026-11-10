@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit415PL
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBPrimeJoinSubnormal
 public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.ClassicalInvolution.Models.LinearPairs
 public import CFSG.ClassicalInvolution.WeakCT.Main

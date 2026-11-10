@@ -2,12 +2,9 @@ module
 
 public import CFSG.LieType.Chevalley.CLSOddE7RationalDerivedIndex
 public import CFSG.LieType.Chevalley.ChevalleyLargeRootCentralizerFaithful
-public import CFSG.LieType.Chevalley.LangAdjointDiagonalLift
-public import CFSG.LieType.AlgebraicGroups.AllCharacteristicLang
 public import CFSG.RankThree.PartOne.KE.LangDescent
 public import CFSG.LieType.Chevalley.OddF4CosetDescent
 public import CFSG.LieType.Chevalley.DiagonalFieldActorData
-public import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
 
 public section
 

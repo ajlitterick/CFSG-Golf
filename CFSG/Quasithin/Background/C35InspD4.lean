@@ -4,12 +4,6 @@ public import CFSG.Quasithin.Background.C35InspD4A
 public import CFSG.Quasithin.Background.C35InspBase
 public import CFSG.Quasithin.Vol2.GoldschmidtSec53FactsModD4Perf
 public import CFSG.Quasithin.H13.NQCatD4Irred
-public import CFSG.Quasithin.Background.SmithB42D4Main
-public import CFSG.LieType.Chevalley.GraphFixedBorelOvergroups
-public import CFSG.LieType.Chevalley.GraphFixedParabolicCells
-public import CFSG.LieType.Chevalley.GraphFixedBorelSelfNormalizer
-public import CFSG.LieType.Chevalley.GraphFixedRootBruhat
-public import CFSG.LieType.Chevalley.GraphFixedSylowOpposition
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListBender
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListTits
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_20Facts

@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps139Defs
-public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps139Basic
-public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps139B
 public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps139CTensor
 public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps13FoundB
 public import CFSG.Quasithin.Background.A3Structure318Red

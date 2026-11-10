@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LieType.AlgebraicGroups.E7AdjointTangentFixed
-public import CFSG.LieType.Chevalley.WeylNormalizerQuotient
 
 import CFSG.LieType.AlgebraicGroups.AdTangentRootConj
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeA2ConjDim
 
 public noncomputable section

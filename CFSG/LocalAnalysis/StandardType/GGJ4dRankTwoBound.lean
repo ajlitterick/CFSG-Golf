@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGJ4dComponents
 public import CFSG.LocalAnalysis.StandardType.GGJ4dRankOne
 public import CFSG.LocalAnalysis.StandardType.GGJ4dRankTwo
-public import CFSG.LocalAnalysis.StandardType.GGJ4dOrthogonalRank
 
 public section
 

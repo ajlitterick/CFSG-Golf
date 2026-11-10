@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08A6Stage2
-public import Mathlib.LinearAlgebra.StdBasis
 
 public section
 

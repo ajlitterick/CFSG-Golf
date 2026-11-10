@@ -2,25 +2,6 @@ module
 
 public import CFSG.SignalizerFunctorTheorem.NonLocal.SpTwoTwo
 public import CFSG.RankThree.PartOne.KC.SymplecticSubfieldExceptional
-public import CFSG.ClassicalGroups.Symplectic.ProjectivePerfect
-public import CFSG.ClassicalGroups.Symplectic.Simple
-public import CFSG.Monster.Existence.Compat.Sp8
-public import CFSG.Open.StatedDefs
-public import Mathlib.Algebra.Group.TypeTags.Finite
-public import Mathlib.Algebra.Group.TypeTags.Hom
-public import Mathlib.Algebra.Group.Subgroup.Finite
-public import Mathlib.Algebra.Module.ZMod
-public import Mathlib.Data.Finset.Card
-public import Mathlib.FieldTheory.Finiteness
-public import Mathlib.GroupTheory.IsPerfect
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
-public import Mathlib.GroupTheory.Subgroup.Simple
-public import Mathlib.LinearAlgebra.BilinearForm.Properties
-public import Mathlib.LinearAlgebra.Dimension.Constructions
-public import Mathlib.LinearAlgebra.Dimension.Finite
-public import Mathlib.LinearAlgebra.Dimension.Finrank
-public import Mathlib.LinearAlgebra.Dimension.Free
-public import Mathlib.SetTheory.Cardinal.Finite
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Fischer.Uniq.CompTau
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
@@ -59,7 +40,6 @@ public import CFSG.Quasithin.Background.Basic
 public import CFSG.RankThree.Classical.SteinbergBJSymplecticSquareZeroCentralizer
 public import CFSG.SignalizerFunctorTheorem.NonLocal.Cross
 public import CFSG.SignalizerFunctorTheorem.NonLocal.SpData
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis

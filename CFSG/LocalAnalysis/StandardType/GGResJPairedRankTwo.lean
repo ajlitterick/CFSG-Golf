@@ -1,11 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResJPairedBlock
 public import CFSG.LocalAnalysis.StandardType.GGResJPairedResidual
-public import CFSG.LocalAnalysis.StandardType.GGResJLineBCGamma
-public import CFSG.LocalAnalysis.StandardType.GGStdPosC24SlNs
-public import CFSG.LocalAnalysis.StandardType.GGStdPosC24SlNsNorm
-public import CFSG.LocalAnalysis.StandardType.GGSlNsRootGenWeyl
 public import CFSG.LocalAnalysis.StandardType.GGSlNsRootGenComp
 public import CFSG.LocalAnalysis.StandardType.GGSlNsRootGenTorus
 

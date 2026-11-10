@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthSetup
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthRefl
-public import CFSG.LocalAnalysis.StandardType.GGFixedRealizedConfig
 
 public section
 

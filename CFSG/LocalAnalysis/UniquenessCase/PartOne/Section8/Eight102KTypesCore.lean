@@ -17,8 +17,6 @@ public import CFSG.LocalAnalysis.RankThreeUC.Asc1930
 public import CFSG.Quasithin.Background.A1bGroups
 public import CFSG.RankThree.PartOne.S10.ThetaContract
 public import CFSG.RankThree.PartOne.S12.InputsBase
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.GroupTheory.ABGLocalTools.Constraint
 import CFSG.GroupTheory.BaerSuzuki
 import CFSG.GroupTheory.HallHigmanPiCore
@@ -31,7 +29,6 @@ import CFSG.RankThree.PartTwo.Late.GammaZero
 import CFSG.RankThree.PartTwo.NotationBlocks
 import CFSG.RankThree.PartTwo.Sec13.Statements
 import CFSG.RankThree.PartTwo.Sec18.Notation
-import CFSG.RankThree.PartTwo.Sec18.Tools
 import CFSG.RankThree.PartTwo.Sec21.Item229Diagram
 import CFSG.RankThree.PartTwo.Sec21.Item23Tools
 import CFSG.RankThree.PartTwo.Sec21.Membership
@@ -39,7 +36,6 @@ import CFSG.RankThree.PartTwo.Sec21.SylowThree
 import CFSG.RankThree.PartTwo.Sec4.StatementsCensus
 import CFSG.RankThree.PartTwo.Sec4.StatementsGraphField
 import CFSG.StronglyEmbedded.ParityCriterion
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 
 public section

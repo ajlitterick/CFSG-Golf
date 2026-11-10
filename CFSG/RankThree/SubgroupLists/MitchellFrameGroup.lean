@@ -3,9 +3,6 @@ module
 public import CFSG.RankThree.SubgroupLists.MitchellFrame
 public import CFSG.RankThree.SubgroupLists.MitchellThmEightFull
 public import CFSG.RankThree.SubgroupLists.MitchellOrthogonal
-import CFSG.Foundations.QuasisimpleMulEquiv
-import Mathlib.Tactic.Module
-import Mathlib.Tactic.Ring
 
 public section
 

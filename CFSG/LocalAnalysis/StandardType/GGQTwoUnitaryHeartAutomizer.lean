@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoUnitaryCav
 public import CFSG.LocalAnalysis.StandardType.GGQTwoRationalWeyl
-public import CFSG.RankThree.PartOne.KF.SymTorus
 public import CFSG.GroupTheory.InvolutionPair
 
 public section

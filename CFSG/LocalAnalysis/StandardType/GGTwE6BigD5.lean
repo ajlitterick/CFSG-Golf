@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTwE6BigLineDefs
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24LineLang
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24CentreD5Class
-public import CFSG.LocalAnalysis.StandardType.GGReverseMarking
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CompsPReduction
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcAssemblyFG
 public import CFSG.HardMathSupport.Solomon.Coordinator.YS08.LieQ.Derivation

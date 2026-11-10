@@ -3,7 +3,6 @@ module
 public import CFSG.Foundations.Basic
 import CFSG.GroupTheory.ElementaryAbelianTransport
 import CFSG.LocalAnalysis.SectionRank.SQT
-import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSporKOrdBMRed
-public import CFSG.RankThree.SteinbergR3ELinearUnitaryOuterOrder
-public import CFSG.RankThree.Classical.SteinbergR3EHigherSymplecticOuterOrder
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.YS1011I1416Small
 public import CFSG.Blueprint.OddStandardExact
 public import CFSG.ClassicalInvolution.Asc77.AscE184Basic

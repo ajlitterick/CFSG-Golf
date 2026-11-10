@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoAbsorb
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalancePumpup
 public import Certificates.Kernel.ThCent.Leaves
 
 public section

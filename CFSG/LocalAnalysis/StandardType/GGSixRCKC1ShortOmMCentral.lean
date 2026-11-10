@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1ShortOmMAux
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1ShortOmMS1
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1ShortOmMS2
-public import CFSG.LieType.Universal.SpinOmega.Range
-public import CFSG.ClassicalGroups.Orthogonal.Models
 
 public section
 

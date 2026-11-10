@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDFrameRigid
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDFrameStd
-public import CFSG.LocalAnalysis.StandardType.GGReflShape
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDCoxRefl
 
 public section

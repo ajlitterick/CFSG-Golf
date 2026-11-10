@@ -3,13 +3,7 @@ module
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThirteenPerfectOf
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenNineOneThreeG28Rank
 import CFSG.LocalAnalysis.AGLEmbedding.CatalogSchreier
-import CFSG.LocalAnalysis.AGLEmbedding.AscEightSix
-import CFSG.LocalAnalysis.RankThreeTheoremC.D2LocalCGT3
-import CFSG.LocalAnalysis.AGLEmbedding.BlockFoundationsPLType
-import CFSG.LocalAnalysis.AGLEmbedding.BlockAltSevenPL
-import CFSG.HardMathSupport.Curtis.UnitaryLevi.PLTypeHolds
 import CFSG.LocalAnalysis.AGLEmbedding.ToralCensusHubCenter
-import CFSG.Milestones.CL_LIT_Griess_Schur_multipliers_Lie_type
 import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockReduce
 import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockSplit
 import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockLinVoid

@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.L33.Fritz.KD8cPair3
 public import CFSG.LocalAnalysis.ComponentClassification.HSFLitA7Sec8Elem
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LieType.Ree.SuzukiSimple
 public import CFSG.LocalAnalysis.ComponentClassification.BlockCentralSylowEquality
 public import CFSG.LocalAnalysis.ComponentClassification.BlockFourFactorSupport
@@ -15,15 +13,12 @@ public import CFSG.LocalAnalysis.ComponentClassification.BlockStrictFullSylowAbe
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointActionModels
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointPlusBorelModel
-public import CFSG.LocalAnalysis.ComponentClassification.HSFLitA7Bar
 public import CFSG.LocalAnalysis.ComponentClassification.HSFLitA7E
 public import CFSG.LocalAnalysis.ComponentClassification.HSFLitA7Sec7Local
-public import CFSG.LocalAnalysis.ComponentClassification.HSFLitCong
 public import CFSG.LocalAnalysis.ComponentClassification.KProper
 public import CFSG.LocalAnalysis.ComponentClassification.LabeledBlockPermutation
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalStandardFormsRegular
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.L33.Fritz.SDBase
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.L33.Fritz.SDGeneric
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.CentralInvolutionStructure
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerImageCompletion
@@ -36,9 +31,6 @@ public import CFSG.Sporadic.Suz.Setup
 public import CFSG.Sporadic.Suz.W64Spec
 public import CFSG.Sporadic.Th.Chain
 public import CFSG.Sporadic.ThSchreier.AutCore
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import Certificates.Kernel.SporSch.Th.Key2311
 public import Certificates.Kernel.SporSch.Th.Orb2315
 public import Certificates.Kernel.SporSch.Th.Plane2320

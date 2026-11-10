@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.EvenBN.U4.CaseTwoTwo
-public import CFSG.LocalAnalysis.EvenBN.U4.TorusExclusion
 public import CFSG.LocalAnalysis.EvenBN.U4.CaseTwoCenter
 
 public section

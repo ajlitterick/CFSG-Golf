@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LieType.Chevalley.BorelStructure
 public import CFSG.LieType.Chevalley.WeylRootTransport
 
 public noncomputable section

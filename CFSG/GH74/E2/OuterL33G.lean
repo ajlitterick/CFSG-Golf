@@ -3,22 +3,10 @@ module
 
 public import CFSG.GH74.E2.OuterL33GBase
 
-public import CFSG.GH74.E2.OuterL33
-public import CFSG.GH74.E2.OuterCore
-public import CFSG.GH74.E2.L33AutTable
-public import CFSG.GH74.E2.LocalLeaves
-public import CFSG.GH74.E2.Alpha1Core
 public meta import Mathlib
 public meta import CFSG.CharacterTheory.Semidihedral.Model
 public meta import CFSG.GH74.E2.SD16Cert
-public import CFSG.GH74.E2.Alpha1CoreInputs
 public import Certificates.Certificate5015
-public import Mathlib
-public import CFSG.GH74.KGroups.Generic
-public import CFSG.GH74.KGroups.PermCheck
-public import CFSG.GH74.KGroups.Checks
-public import CFSG.GH74.KGroups.PSLN
-public import CFSG.GH74.KGroups.L33Inputs
 
 public section
 

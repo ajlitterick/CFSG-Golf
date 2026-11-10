@@ -1,19 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNarrowInputs
-import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosPrimed
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNbrGenKNOfInputs
 import CFSG.LocalAnalysis.StandardType.GGSecFiveRootRefl
-import CFSG.LocalAnalysis.StandardType.GGSecFiveRankOneConj
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpAbsorb
 import CFSG.LocalAnalysis.StandardType.GGKGPosTagWeyl
 import CFSG.LocalAnalysis.StandardType.GGRankOneTags
-import CFSG.LocalAnalysis.StandardType.GGPsiDiagInner
-import CFSG.Adapters.SpecialLinearPerfect
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Cardinality
-import Mathlib.LinearAlgebra.Projectivization.PSL.PSL2
-import CFSG.LocalAnalysis.ComponentInitial.SolvableCoreComponents
-import CFSG.HardMathSupport.Solomon.Coordinator.I18_3Bridge
 
 public section
 

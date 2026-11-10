@@ -2,8 +2,6 @@ module
 
 public import CFSG.LargeExtraspecial.AS35ZMPG
 import all CFSG.Fischer.F4
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Fischer.NoF25.Local
 public import CFSG.GroupTheory.GLnTwoSplitting.Transvection
 public import CFSG.LargeExtraspecial.AS35Fis
@@ -39,8 +37,6 @@ public import CFSG.Sporadic.FischerOddCore.Fi24R2CompBase
 public import CFSG.Sporadic.FischerOddCore.FischerOuterBasic
 public import CFSG.Sporadic.Schreier.MathieuOddCoreWords
 public import CFSG.Sporadic.Th.Max3.Data
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 
 public section

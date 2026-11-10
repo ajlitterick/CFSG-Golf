@@ -1,11 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeDepAssembly
-public import CFSG.LocalAnalysis.StandardType.GGTWSurvDefs
-public import CFSG.LocalAnalysis.StandardType.GGTWDFalse
-public import CFSG.LocalAnalysis.StandardType.GGTWDCells36Orb
-public import CFSG.LocalAnalysis.StandardType.GGTWLowStmt
-public import CFSG.LocalAnalysis.StandardType.GGTWCoreDefs
 public import CFSG.LocalAnalysis.StandardType.GGTWPatV
 public import CFSG.LocalAnalysis.StandardType.GGTWDWeyl36
 

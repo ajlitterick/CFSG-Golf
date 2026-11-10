@@ -5,7 +5,6 @@ public import CFSG.Sporadic.Co2Cert.Data
 public meta import CFSG.RankThree.Native.Co2FiveArrays
 public meta import CFSG.Sporadic.Co2Cert.Data
 public meta import Mathlib.GroupTheory.Schreier
-public import Mathlib.GroupTheory.Schreier
 public import Std.Data.HashMap
 
 public section

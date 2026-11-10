@@ -3,9 +3,6 @@ module
 public import CFSG.ClassicalInvolution.Asc77.WP3FrameBootTwinCtx
 import CFSG.ClassicalInvolution.RouteD.TwinYElement
 import CFSG.ClassicalInvolution.Asc77.AscE187Img
-import CFSG.ClassicalInvolution.Asc77.ModOApi
-import CFSG.ClassicalInvolution.ModelFacts.ClauseZero
-import CFSG.ClassicalInvolution.Balance.PassTwoModelFacts
 import CFSG.ClassicalInvolution.Balance.GoodDataBasic
 import CFSG.ClassicalInvolution.Balance.WeakFrameExistsBasic
 import CFSG.ClassicalInvolution.Asc77.AscE187Basic

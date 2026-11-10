@@ -6,7 +6,6 @@ public import Certificates.Kernel.E27Spor.MOrbChecksB
 public import Certificates.Kernel.E27Spor.MOrbChecksC
 public import CFSG.Certificates.Kernel.E27Spor.SlpRec
 public import CFSG.Certificates.Kernel.Common.ForallTree
-public import CFSG.Open.Defs
 
 public section
 

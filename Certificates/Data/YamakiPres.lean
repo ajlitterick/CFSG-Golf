@@ -1,12 +1,8 @@
 module
 
-public import Mathlib.Data.Fintype.Pi
-public import Mathlib.Data.Fintype.Sum
-public import Mathlib.Data.Matrix.Basis
 public import Mathlib.Data.Matrix.Block
 public import Mathlib.Data.ZMod.Defs
 public import Mathlib.LinearAlgebra.Matrix.Notation
-public import Mathlib.Logic.Equiv.Fin.Basic
 
 public section
 

@@ -1,16 +1,8 @@
 
 module
 
-public import CFSG.Quasithin.Background.HMathieuPT24
-public import CFSG.Quasithin.Background.HMathieuAvoid
-public import CFSG.Quasithin.Background.HMathieuEnumAll
-public import CFSG.Quasithin.Background.HMathieuPT24
-public import CFSG.Quasithin.Background.HMathieuAvoid
-public import CFSG.Quasithin.Background.HMathieuEnumAll
-public import CFSG.Monster.Code.Basis
 public import CFSG.Quasithin.Background.HMathieuSyl24Inputs
 public import CFSG.Quasithin.Background.HMathieuCodeMask
-public import CFSG.Quasithin.Background.HMathieuCentInputs
 public meta import CFSG.Quasithin.Background.HMathieuPT24
 public meta import CFSG.Quasithin.Background.HMathieuAvoid
 public meta import CFSG.Quasithin.Background.HMathieuEnumAll

@@ -2,10 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2PSLRangeCentralizer
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2DihedralProjection
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Center
-import Mathlib.GroupTheory.Nilpotent
-import Mathlib.GroupTheory.Commutator.Basic
-import Mathlib.GroupTheory.Subgroup.Simple
 import Mathlib.LinearAlgebra.Projectivization.PSL.PSL2
 import Mathlib.Tactic
 

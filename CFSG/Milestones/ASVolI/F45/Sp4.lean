@@ -2,8 +2,6 @@ module
 
 public import CFSG.Milestones.ASVolI.F45.Lie
 public import CFSG.GH74.GLS.SP.Model
-public import CFSG.LieType.Steinberg.CentralExt.BorelIndex
-public import CFSG.LieType.Universal.SymplecticExtras.Matrices
 public import CFSG.LieType.Universal.SymplecticExtras.Torus
 import all CFSG.Milestones.ASVolI.F4
 

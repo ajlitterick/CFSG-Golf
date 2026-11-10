@@ -3,8 +3,6 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection1.PFsection1_7_Core
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Suzuki.VI.proposition_2_8
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.CharacterValues
-import Mathlib.Tactic.Group
 
 namespace CFSG
 end CFSG

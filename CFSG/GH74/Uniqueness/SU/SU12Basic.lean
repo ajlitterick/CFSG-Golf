@@ -6,7 +6,6 @@ public import CFSG.GH74.Uniqueness.SU.SU10Fusion
 public import CFSG.GH74.Uniqueness.SU.SU10Z
 public import CFSG.GH74.Uniqueness.SU.SU13TB1Core
 public import CFSG.GH74.Uniqueness.SU.SU14Alt
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
 public import CFSG.GH74.Uniqueness.SU.KInputs2
 public import CFSG.GH74.Uniqueness.SU.SU13TB0Syl
 

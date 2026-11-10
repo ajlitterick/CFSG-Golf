@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.Chevalley.GraphFixedRootNormal
-public import CFSG.LieType.Chevalley.RankOneBruhat
 
 public noncomputable section
 

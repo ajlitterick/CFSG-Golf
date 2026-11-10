@@ -4,15 +4,9 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatC.YS04Rank
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.YS04Torus
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.YS04Cover
 public import CFSG.LocalAnalysis.GLTheoremA.PartI.KD26h.Decode
-public import CFSG.Adapters.ProjectiveSpecialLinear
-public import CFSG.LinearAlgebra.LinearGroups.Perfect
 public import CFSG.Assembly.OrderReductions.LinearOrders
 public import CFSG.LieType.Steinberg.CentralExt.LinearPerfect
 public import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
-public import CFSG.LinearAlgebra.LinearGroups.UnitaryScalarKernel
-public import CFSG.LieType.Steinberg.CentralExt.UnitaryPerfect
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.GH74.GLS.Classes
 public import CFSG.GH74.Generic.Certificates
 public import CFSG.GH74.Statements

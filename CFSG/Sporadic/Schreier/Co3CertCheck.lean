@@ -4,7 +4,6 @@ module
 public import CFSG.Sporadic.Schreier.Co3CertCheckBase
 import all CFSG.Sporadic.Schreier.Co3CertCheckBase
 
-public import CFSG.Sporadic.Schreier.Co3Arrays
 public meta import CFSG.Sporadic.Schreier.Co3Arrays
 public import Certificates.Certificate2152
 

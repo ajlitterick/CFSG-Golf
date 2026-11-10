@@ -3,7 +3,6 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ASevenStructureFacts
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ASevenOrderThreeKleinFourThreeCycle
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.KleinFourCentralizerTransport
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

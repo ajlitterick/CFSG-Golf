@@ -4,10 +4,7 @@ public import CFSG.LocalAnalysis.StandardType.GGTBE6IndTwistDescent
 public import CFSG.LocalAnalysis.StandardType.GGTBE6Torus
 public import CFSG.LocalAnalysis.StandardType.GGTorusWeylFrame
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenHomocyclic
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerPDivExcToral
-public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutInnerExc
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcCent
-public import CFSG.LocalAnalysis.StandardType.GGL45NtExcG2Three
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenSCLiftP
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenSLTransfer
 public import CFSG.LieType.Chevalley.ParabolicSylowSubsystem

@@ -2,13 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.KFactOddAutParabolicReduce
 public import CFSG.Open.StatedDefs
-import CFSG.RankThree.PartOne.S11d.OutLinear
-import CFSG.RankThree.PartOne.KC.LinearSubfieldPointwise
 import CFSG.HardMathSupport.Foote.ModuleExclusions.ProjectiveLinear
 import CFSG.LocalAnalysis.ComponentInitial.LinearHigherLinearAutNormal
-import CFSG.LocalAnalysis.ComponentInitial.LinearFlagOrder
-import CFSG.LocalAnalysis.ComponentInitial.LinearCoverModel
-import CFSG.Adapters.ProjectiveSpecialLinear
 import CFSG.Milestones.ASVolI.A3Aut.C5L3
 import CFSG.Dihedral.GorensteinWalter.PSL2EvenOuterOddSylow
 public import CFSG.Assembly.QuasithinDefs
@@ -36,10 +31,6 @@ import CFSG.RankThree.PartTwo.Sec4.Statements423
 import CFSG.RankThree.PartTwo.Sec6.Statements
 import CFSG.RankThree.PartTwo.Sec8.Steps
 import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
-import CFSG.Walter.J1Props
-import CFSG.Walter.J1Recog
-import CFSG.Walter.PSL2Facts
-import CFSG.Walter.W67.Statements
 
 public section
 

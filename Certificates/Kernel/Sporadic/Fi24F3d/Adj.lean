@@ -1,16 +1,11 @@
 module
 
 public import Certificates.Kernel.Sporadic.Fi24G2e.Bridge
-public import Certificates.Kernel.Sporadic.Fi24Orb.Order
-public import Certificates.Kernel.Sporadic.Fi24Orb.Joined
-public import Certificates.Kernel.Sporadic.Fi24Orb.Core
 public import CFSG.Sporadic.Fi24.PtGraph
 public import Certificates.Kernel.Sporadic.Fi24F3d.Kneser
 public import Certificates.Kernel.Sporadic.Fi24F3d.Data
 import Certificates.Kernel.Sporadic.Fi24F3d.P
-import Mathlib.Tactic.Group
 public import CFSG.Sporadic.Fi24.Orbit
-public import Certificates.Certificate1016Base
 
 public section
 

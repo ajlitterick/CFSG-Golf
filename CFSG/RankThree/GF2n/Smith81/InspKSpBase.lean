@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LargeExtraspecial.A2ModOrdFrame
-public import CFSG.LocalAnalysis.StandardType.GGSixAutStructurePSpFixed
-public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerSUSp
-public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsSp
 public import CFSG.LocalAnalysis.StandardType.GGRootCentKGSpCent
 public import CFSG.Timmesfeld.ARS.Sec5Maximal
 public import CFSG.Timmesfeld.ARS.Sec5Ten

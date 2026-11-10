@@ -4,7 +4,6 @@ public import Certificates.Kernel.Ly3085.Omega.Data
 public import Certificates.Data.Kernel.LyOmega.Base
 public import Certificates.Kernel.Ly3085.O2.Data
 public import Certificates.Kernel.SporSch.Ly.SevA
-public import Certificates.Kernel.Sporadic.RawGen
 import CFSG.Certificates.Kernel.Common.Harness
 
 @[expose] public section

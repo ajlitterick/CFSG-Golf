@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.TwinPerpSmSp1Wit
 public import CFSG.CGT.PushingUpLit.SolKNA.R4.TwinLeafQ16J3Data
-public import CFSG.Sporadic.Schreier.PairJ3CertInputs
 public import CFSG.CGT.PushingUpLit.SolKNA.R4.TwinLeafQ16Check
 
 public section

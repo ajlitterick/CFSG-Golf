@@ -4,7 +4,6 @@ public import CFSG.Quasithin.H13.U3Transport6
 public import CFSG.Quasithin.H13.FiveMenu
 public import CFSG.Quasithin.Vol2.Ch12Sec2Statements
 public import CFSG.Quasithin.Background.B5FinG2U33
-public import CFSG.GroupTheory.LocalCores.Components
 public import CFSG.LocalAnalysis.ComponentInitial.QuasisimpleOddCenterFourGroup
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
@@ -15,9 +14,6 @@ public import CFSG.Quasithin.Background.A3Structure36BBase
 public import CFSG.Quasithin.Background.A3Structure36BPrimeDataBase
 public import CFSG.Quasithin.Vol2.Ch1Unique
 public import CFSG.Sporadic.Schreier.J4SProfileNode
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CPrime
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralAut
 
 public section
 

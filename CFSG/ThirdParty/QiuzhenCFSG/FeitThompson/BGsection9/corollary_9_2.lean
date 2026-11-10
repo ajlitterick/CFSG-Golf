@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection9.theorem_9_1
 import Mathlib.GroupTheory.Schreier
-import Mathlib.GroupTheory.Subgroup.Centralizer
 
 namespace CFSG
 end CFSG

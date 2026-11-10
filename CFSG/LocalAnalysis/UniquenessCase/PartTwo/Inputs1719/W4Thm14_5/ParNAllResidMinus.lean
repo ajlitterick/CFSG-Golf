@@ -1,21 +1,14 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S20
-public import CFSG.LocalAnalysis.UniquenessCase.UC22Defs
 public import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockOrthMinusCuts
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalTailModelCoordinates
-public import CFSG.Open.StatedDefs
 
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm14_5.ParNAllResidSL
 import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockOrthMinusData
-import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockOrthMinusResGroup
-import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockOrthMinusPlane
-import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockLinData
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23d.Levi
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KOrdNatural.PCoreOmegaMinus
 import CFSG.LocalAnalysis.RankThreeCoreUniqueness.CanonicalLocalObstruction
-import CFSG.Adapters.SpecialLinearPerfect
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
 public import CFSG.CGT.Timmesfeld75.Statements
 public import CFSG.Foundations
 public import CFSG.GroupTheory.LocalCores.Fitting

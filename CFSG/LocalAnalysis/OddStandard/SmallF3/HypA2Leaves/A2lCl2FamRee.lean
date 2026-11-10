@@ -1,12 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.HypA2Leaves.A2lCl2FamCore
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.HypA2Leaves.A2lCl2Defs
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddTwisted
 public import CFSG.LieType.Ree.SmallReeInvolutionComponents
-public import CFSG.LieType.Ree.SmallReeModelSchreier
-public import CFSG.LieType.Ree.SmallReeOuterThreeKernel
-public import CFSG.LieType.Ree.SmallReeCenterTrivial
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.ClassicalGroups

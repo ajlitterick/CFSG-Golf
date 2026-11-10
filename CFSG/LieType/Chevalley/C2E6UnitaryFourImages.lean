@@ -3,7 +3,6 @@ module
 public import CFSG.LieType.Chevalley.C2E6UnitaryFourLines
 public import CFSG.LieType.Chevalley.C2E6MinusSixPoints
 import all CFSG.Fischer.F4
-public import Mathlib.Tactic.Polynomial.Basic
 
 public noncomputable section
 

@@ -1,14 +1,10 @@
 module
 
-public import Certificates.Data.RuF45Geom
-public import Certificates.Data.TitsF46Words
-public import CFSG.Monster.B.Co2.PermArr
 public import CFSG.Quasithin.Vol2.GoldschmidtF431TitsGeoPtLocThm
 public import CFSG.Quasithin.Vol2.GoldschmidtF431TitsGeoTransport
 public import CFSG.Quasithin.Vol2.GoldschmidtF431TitsGeoAbs
 public import CFSG.Quasithin.Vol2.GoldschmidtF431TitsGeoLocLn
 public import Certificates.Certificate4190
-public import Certificates.Kernel.J4Count.FixCE
 
 public noncomputable section
 

@@ -3,12 +3,8 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGD5LabelGlue
 import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitE6Two
 import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylE6TwoThree
-import CFSG.LocalAnalysis.StandardType.GGPumpTwExcKnownHolds
 import CFSG.LocalAnalysis.StandardType.GGAutomizerGammaCard
-import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLCx
-import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTorus
 import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBRkTwE6
-import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6Holds
 
 public section
 

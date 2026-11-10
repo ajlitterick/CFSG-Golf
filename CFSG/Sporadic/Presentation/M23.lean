@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Sporadic.Presentation.Common
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 public import Certificates.Certificate9121
 public meta import CFSG.Certificates.CosetTablePresented
 public meta import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation

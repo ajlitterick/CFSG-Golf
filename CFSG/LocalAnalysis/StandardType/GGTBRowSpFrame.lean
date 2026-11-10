@@ -1,19 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBRowSignedFrameW
 public import CFSG.LocalAnalysis.StandardType.GGTBRowDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwenty
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyReflSp
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySpModel
 public import CFSG.LocalAnalysis.StandardType.GGTBRowSpFrameAux
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiag
-public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
-public import CFSG.LocalAnalysis.StandardType.GGTableBTransport
-public import CFSG.LocalAnalysis.StandardType.GGTableBRank
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLCx
-public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpLattice
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBIrred
-public import CFSG.LocalAnalysis.StandardType.Marking
 
 public section
 

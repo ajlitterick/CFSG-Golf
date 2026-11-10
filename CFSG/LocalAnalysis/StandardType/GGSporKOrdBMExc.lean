@@ -1,10 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSporKOrdBMRed
 public import CFSG.LieType.ChevTwo.OppCl.D4Lift
-public import CFSG.HardMathSupport.Lang.Coordinator.D4Bridge.Bridge
-public import CFSG.LocalAnalysis.ComponentInitial.BasicFacts
-public import CFSG.LocalAnalysis.ComponentInitial.DiagonalSemilinear
 public import CFSG.LocalAnalysis.StandardType.GGSporKOrdBMOut
 public import CFSG.LocalAnalysis.StandardType.GGSporKOrd7G2
 public import CFSG.LocalAnalysis.StandardType.GGSporKOrd7F4

@@ -2,10 +2,8 @@ module
 
 public import CFSG.ClassicalInvolution.SmallCases.NDBE4SVert
 public import CFSG.ClassicalInvolution.SmallCases.NDBE4SRes
-public import CFSG.ClassicalInvolution.RouteD.ExoticSingleFixed
 public import CFSG.ClassicalInvolution.RouteD.ExoticSingleMinus
 public import CFSG.ClassicalInvolution.ModelFacts.Orth15TwinStd
-public import CFSG.ClassicalInvolution.RouteD.GapsOrthModel
 
 public section
 

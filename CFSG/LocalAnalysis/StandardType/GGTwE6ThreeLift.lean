@@ -2,11 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwInndiagRootBridge
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeDiagTwisted
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6Coker
-public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerExcTwE6Cyc
-public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerExcModel
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeCenHat
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeDiag
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerResiduals
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.Reduction

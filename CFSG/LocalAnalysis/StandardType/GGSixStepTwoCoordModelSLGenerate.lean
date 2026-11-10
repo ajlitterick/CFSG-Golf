@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelSLCompBasic
-public import CFSG.RankThree.SteinbergR3ECALinearSplitBlocks
-import Mathlib.LinearAlgebra.SpecialLinearGroup
 import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelSLCompBlock
 import CFSG.LinearAlgebra.RootGroupSL.ModelGenerate
-import CFSG.LocalAnalysis.SeitzReduction.LinearPilotRoots
 public import CFSG.LinearAlgebra.RootGroupSL.ModelDefs
 import CFSG.LinearAlgebra.RootGroupSL.DatumEquiv
 import CFSG.LinearAlgebra.RootGroupSL.Normalizer

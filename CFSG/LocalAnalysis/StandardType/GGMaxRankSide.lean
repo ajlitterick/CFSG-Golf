@@ -4,9 +4,7 @@ public import CFSG.LocalAnalysis.StandardType.GGMaxRankLinear
 public import CFSG.LocalAnalysis.StandardType.GGMaxRankE8Typed
 public import CFSG.LocalAnalysis.StandardType.GGMaxRankE8Extra
 public import CFSG.LocalAnalysis.StandardType.GGMaxRankE8Gen
-public import CFSG.LocalAnalysis.StandardType.GGMaxRankWeyl
 public import CFSG.LocalAnalysis.StandardType.GGMaxRankChain
-public import CFSG.LocalAnalysis.StandardType.GGResMaxRankDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfMaxNormTwo
 public import CFSG.LocalAnalysis.StandardType.GGMaxRankPairing
 public import CFSG.LocalAnalysis.StandardType.GGTBTorCartan

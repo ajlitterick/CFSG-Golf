@@ -3,14 +3,7 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection6.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.MinCE
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.theorem_3_4
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.HallSubgroups.Conjugacy
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConj
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.CentralizerControl
-import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.SolvableDimension
-import Mathlib.GroupTheory.IndexNormal
-import Mathlib.GroupTheory.IsSubnormal
 import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
-import Mathlib.Order.Preorder.Finite
 
 namespace CFSG
 end CFSG

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Q3TWY13
-public import CFSG.ClassicalInvolution.RouteD.GapsFrBGen
 
 public section
 

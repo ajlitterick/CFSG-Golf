@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTypeAFarActsVec
-public import CFSG.LocalAnalysis.StandardType.GGLinearFusionCyclic
-public import CFSG.LocalAnalysis.StandardType.GGTypeAEndNodeBlock
 public import CFSG.LocalAnalysis.StandardType.GGLinearTorusCompBasic
-public import CFSG.LinearAlgebra.LinearGroups.Perfect
 
 public section
 

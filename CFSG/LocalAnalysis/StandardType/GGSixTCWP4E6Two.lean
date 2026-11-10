@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4E6TwoLang
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4Upper
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UE6
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 
 public section
 

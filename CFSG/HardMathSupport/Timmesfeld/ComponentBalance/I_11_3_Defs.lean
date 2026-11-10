@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Open.GLADefs
 public import CFSG.Assembly.Defs
 public import CFSG.LocalAnalysis.GLTheoremB.Defs
 

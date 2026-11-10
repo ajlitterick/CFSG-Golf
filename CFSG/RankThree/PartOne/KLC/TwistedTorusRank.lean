@@ -6,7 +6,6 @@ public import CFSG.RankThree.PartOne.KE.CTTorus
 public import CFSG.RankThree.PartOne.KE.CTStatement
 public import CFSG.RankThree.Chevalley.G2F4FiniteFieldFixedMatrices
 public import CFSG.LocalAnalysis.SectionRank.SQT
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public noncomputable section
 

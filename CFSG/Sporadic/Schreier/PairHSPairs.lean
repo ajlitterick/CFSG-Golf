@@ -3,29 +3,16 @@ module
 
 public import CFSG.Sporadic.Schreier.PairHSPairsBase
 
-public import CFSG.Sporadic.Schreier.PairHSOrder
 public import CFSG.Sporadic.Schreier.PairHSCount
-public import CFSG.Sporadic.Schreier.Outer
-public import CFSG.Sporadic.Schreier.PairOuter
-public import CFSG.Sporadic.Schreier.PairSimple
-public import CFSG.Sporadic.HS
-public import CFSG.Sporadic.Mathieu.Simple
-public import CFSG.GroupTheory.OrderBelowSixtySolvable
-public import CFSG.Sporadic.Schreier.PairHSCertInputs
-public import CFSG.Sporadic.Schreier.PairHSCheckInputs
 public meta import CFSG.Sporadic.Schreier.PairHSCert
 public meta import Certificates.Data.CFSGNative.PairSchreier.Core
 public meta import Certificates.Data.CFSGNative.Schreier.Check
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
-public import CFSG.Sporadic.Schreier.PairHSCheck
-public import Certificates.Data.CFSGNative.PairSchreier.Preds
 public meta import CFSG.Sporadic.Schreier.PairHSCheck
 public meta import Certificates.Data.CFSGNative.PairSchreier.Preds
-public import CFSG.Sporadic.Schreier.PairHSFaithfulInputs
 public meta import CFSG.Sporadic.Schreier.PairF2Sep
 public meta import Certificates.Data.CFSGNative.HS.Data
 public meta import Certificates.Data.CFSGNative.HS.SmallF2
-public import Certificates.Data.CFSGNative.HS.Data
 
 public noncomputable section
 

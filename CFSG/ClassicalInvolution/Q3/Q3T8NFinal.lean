@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ClassicalInvolution.Q3.Q3T8NAssem
 public import CFSG.ClassicalInvolution.Q3.Q3T8E4NRB
 public import CFSG.ClassicalInvolution.Q3.Q3T8C262
 public import CFSG.ClassicalInvolution.Q3.Q3T8C274

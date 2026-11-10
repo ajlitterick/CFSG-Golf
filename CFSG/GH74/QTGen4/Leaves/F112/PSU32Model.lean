@@ -1,9 +1,6 @@
 module
 
 public import CFSG.Open.StatedDefs
-public import Mathlib.FieldTheory.Finite.Basic
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
-public import Mathlib.LinearAlgebra.Matrix.Notation
 
 public section
 

@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTvFrame
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLTv
-public import CFSG.LocalAnalysis.StandardType.GGNoTransvectionAutForm
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6TBIrred
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBIrred
 
 public section
 

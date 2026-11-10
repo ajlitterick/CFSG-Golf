@@ -3,9 +3,6 @@ module
 
 public import Certificates.Kernel.SporSch.HN.PtCR
 public import CFSG.Certificates.Kernel.SporSch.HNXChunkSound
-public import CFSG.Certificates.Kernel.Spor.PWord
-public import CFSG.Sporadic.HNSchreier.ThreeCheckInputs
-public import Certificates.Data.CFSGNative.ONSchreier.Tools
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.I264bFacts
 public import CFSG.Quasithin.Recognition.CertG2Two
 public import CFSG.RankThree.PartOne.KF.ClsExcG2
 public import CFSG.LargeExtraspecial.S63BU33
-public import CFSG.Timmesfeld.Final.PSU33
 public import CFSG.Adapters.StatedClassicalUnitaryOrders
 public import CFSG.LocalAnalysis.StandardType.ChevTwoMarking
 public import CFSG.LargeExtraspecial.AS35COdd

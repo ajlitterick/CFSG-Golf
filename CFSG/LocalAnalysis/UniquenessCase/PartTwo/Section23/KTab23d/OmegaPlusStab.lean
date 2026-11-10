@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23d.Defs
-public import CFSG.LocalAnalysis.UniquenessCase.UC22Defs
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S20
-public import CFSG.Open.StatedDefs
 
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23d.LeviTools
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23d.Bar2MapInj
@@ -13,8 +11,6 @@ import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23d.OmegaPlusLine
 import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockOrthPlusData
 import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockUniBlocks
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KOrdNatural.PCoreSL
-import CFSG.Open.StatedAPI
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
 public import CFSG.CGT.Timmesfeld75.Statements
 public import CFSG.Foundations
 public import CFSG.GroupTheory.LocalCores.Fitting

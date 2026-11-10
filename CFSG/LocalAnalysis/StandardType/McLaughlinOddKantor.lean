@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.McLaughlinOddKantorComp
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
 
 public section
 

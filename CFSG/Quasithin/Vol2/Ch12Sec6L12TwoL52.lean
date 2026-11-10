@@ -5,7 +5,6 @@ public import CFSG.Quasithin.Vol2.Ch12Sec6L12A6Transport
 public import CFSG.Quasithin.Vol2.KGFact12617L52Leaf.CardPCore
 public import CFSG.Quasithin.Vol2.KGFact12617L52Leaf.Five
 public import CFSG.Quasithin.Vol2.KGFact12617L52Leaf.TwoElt
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.Fischer.NoF25.Local
 public import CFSG.LargeExtraspecial.AS35DFinal
 public import CFSG.LargeExtraspecial.AS35EResid

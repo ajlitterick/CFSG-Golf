@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGWeylNoEichlerBCDAux
 public import CFSG.LocalAnalysis.StandardType.GGQTwoBCCoord
 public import CFSG.LocalAnalysis.StandardType.GGQTwoTransport
-public import CFSG.LocalAnalysis.StandardType.GGQTwoBCZ1
 
 public section
 

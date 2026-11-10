@@ -4,7 +4,6 @@ public import CFSG.Monster.B.CTIB.Cosets
 public import CFSG.Monster.B.CTIB.CensusCert
 public import CFSG.Monster.B.CTIB.OrbitList
 public import CFSG.Monster.B.TwoA.Unitary.Orbit1408Points
-public import CFSG.Monster.B.TwoA.Unitary.Semilinear
 
 public section
 

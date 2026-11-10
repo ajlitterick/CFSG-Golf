@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Co2.Words
 public import CFSG.Certificates.Kernel.Fi22.Bound.RelsTC
 public import CFSG.Certificates.Kernel.Fi22.Bound2.Rels
-import CFSG.Certificates.Kernel.Common.Harness
 public import Mathlib.Tactic.IntervalCases
 
 public section

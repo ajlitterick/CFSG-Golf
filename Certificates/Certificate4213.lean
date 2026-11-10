@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.E68Spor.Chk
 public import Certificates.Data.E68Spor.Words
-public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicMathieuInputs
 public import CFSG.Quasithin.Background.HSporLatInputs
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatM24Inputs
 import Certificates.Kernel.E68Spor4213.Orb

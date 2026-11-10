@@ -1,31 +1,21 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec12.Item128StepsProofAInLEnd
-public import CFSG.RankThree.PartTwo.Sec12.KS128NotHJSLM12
 public import CFSG.RankThree.PartTwo.Sec12.KS128NotHJSLFree
 public import CFSG.RankThree.PartTwo.Sec12.Item125DiagSU
 public import CFSG.RankThree.PartTwo.Sec12.ONanKS128
-import CFSG.RankThree.PartTwo.Sec12.KS128NotHJM12
-import CFSG.RankThree.PartTwo.Sec12.KS128NotHJPGL
 import CFSG.RankThree.PartTwo.Sec12.Item128BarProofBar
 import CFSG.RankThree.PartTwo.Sec12.Item128BarProofTools
 import CFSG.RankThree.PartTwo.Sec4.Sporadic.Item414Local
 import CFSG.RankThree.PartTwo.Sec4.LThreePiCaseI
 import CFSG.RankThree.PartTwo.Sec13.Item13Sporadic
-import CFSG.RankThree.PartTwo.Sec13.Item13GL
 import CFSG.RankThree.PartTwo.Sec13.Item133Mono
 import CFSG.RankThree.PartTwo.Sec13.Item136Lift
 import CFSG.RankThree.PartTwo.Sec13.Item136E
 import CFSG.RankThree.PartTwo.Sec13.Item136Pair
-import CFSG.RankThree.PartTwo.Sec13.Item136PGL
 import CFSG.RankThree.PartTwo.Sec13.Item137NormLe
 import CFSG.RankThree.PartTwo.Sec13.Item137Delta
-import CFSG.RankThree.PartTwo.Sec13.Item137Tools
-import CFSG.RankThree.Asc83Table.GL23
-import CFSG.RankThree.GroupTheory.ThetaQuotientTransport
-import CFSG.GroupTheory.QuasisimpleCommutingProductBound
 import CFSG.RankThree.PartTwo.KFacts.KS12OrderNineProof
-import CFSG.RankThree.PartTwo.KFacts.KS12MovesM22
 public import CFSG.RankThree.Asc83Table.PermTables
 public import CFSG.RankThree.PartTwo.KFacts.K412Alternating
 public import CFSG.RankThree.PartTwo.KFacts.KP4Aut

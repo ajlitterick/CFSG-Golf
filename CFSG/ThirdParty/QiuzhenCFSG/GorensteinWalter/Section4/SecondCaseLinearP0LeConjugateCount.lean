@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseLinearNormalizerOrbit
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

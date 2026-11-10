@@ -1,12 +1,9 @@
 
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQ2ExcRaw
-public import CFSG.LocalAnalysis.StandardType.GGQ2TableBNbrFrameDefs
 public import Certificates.Data.CFSGNative.ExcCensus.Nbr
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcCensusLin
 public import CFSG.LocalAnalysis.StandardType.GGQ2TableBNbrFrameAut
-import CFSG.LocalAnalysis.StandardType.GGQ2ExcRawInternal
 
 @[expose] public section
 

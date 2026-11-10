@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma27
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 public import CFSG.LocalAnalysis.StandardType.GGResLeaf
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 public import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma28

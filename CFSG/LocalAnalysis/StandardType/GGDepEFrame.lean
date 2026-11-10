@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGDepEDefs
 public import CFSG.LocalAnalysis.StandardType.GGDepAConfig
-public import CFSG.LocalAnalysis.StandardType.GGResLeaf
-public import CFSG.LocalAnalysis.StandardType.GGTBFixDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoCartan
 
 public section

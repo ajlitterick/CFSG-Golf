@@ -3,17 +3,10 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I141FU9LemRed
 public import CFSG.LocalAnalysis.GLTheoremA.S4.FullCover.MultLie
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieOrderBridgeHolds
-public import CFSG.LocalAnalysis.EvenBN.GMSK.TypeDetBender
-public import CFSG.Adapters.TauCetiLieModels
 public import CFSG.LocalAnalysis.StandardType.ChevTwoLieModel
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.SmallQThreeFactsTwoE
 public import CFSG.LocalAnalysis.StandardType.GGLayerNotExcThreeAtTwoRat
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.RationalTypeAModel
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcInnerLang.Core
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerFivePairRigid
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Inner
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTamePrime
-public import CFSG.Adapters.TauCetiExceptional.EvenAll
 public import CFSG.GroupTheory.CenterlessInnerCentralizer
 public import CFSG.GroupTheory.PCore.SubgroupCore
 

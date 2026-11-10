@@ -23,9 +23,6 @@ public import CFSG.Certificates.Kernel.BabyMonster.DyConj.Rel18
 public import CFSG.Certificates.Kernel.BabyMonster.DyConj.Rel20
 public import CFSG.Certificates.Kernel.BabyMonster.DyConj.Rel22
 public import CFSG.Certificates.Kernel.BabyMonster.DyConj.Rel23
-import Mathlib.Tactic.IntervalCases
-import Mathlib.Tactic.FinCases
-import Mathlib.Tactic.Positivity
 public import CFSG.Certificates.Kernel.BabyMonster.Dyadic.All
 
 public section

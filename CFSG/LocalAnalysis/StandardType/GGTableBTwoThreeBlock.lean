@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwoThreeRank
 public import CFSG.LocalAnalysis.StandardType.GGTableBTypeAEndDvdBlock
-public import CFSG.RankThree.Classical2.SLnRootPermutingFixedGroups
 
 public section
 

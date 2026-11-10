@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.Native.HSMcLAuxData
 public import CFSG.Sporadic.Schreier.PairHSCert
-public import Certificates.Data.CFSGNative.Schreier.Check
 public meta import CFSG.RankThree.Native.HSMcLAuxData
 public meta import CFSG.RankThree.Native.HSMcLSmallData
 public meta import CFSG.Sporadic.Schreier.PairHSCert

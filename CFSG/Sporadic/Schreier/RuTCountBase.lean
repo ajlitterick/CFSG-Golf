@@ -2,18 +2,9 @@
 module
 
 public import CFSG.Sporadic.Schreier.RuOrbLBase
-public import CFSG.Sporadic.Schreier.RuCheckBasicInputs
-public import CFSG.Sporadic.Schreier.RuCheckChainsInputs
-public import CFSG.Sporadic.Schreier.RuCheckLInputs
 public meta import CFSG.Sporadic.Schreier.RuCheckChains
 public meta import CFSG.Sporadic.Schreier.RuWitArrays
-public import CFSG.Sporadic.Schreier.RuArrays
-public import CFSG.Certificates.NativeSetOrbit
-public import CFSG.Sporadic.Schreier.RuOrbLFacts
-public import CFSG.Sporadic.Schreier.RuCheckOrbLBInputs
 public meta import CFSG.Sporadic.Schreier.RuOrbLDefs
-public import CFSG.Sporadic.Schreier.RuCheckTreeInputs
-public import CFSG.Sporadic.Schreier.RuWitArrays
 
 @[expose] public noncomputable section
 

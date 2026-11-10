@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.GMS78Sec6KFacts
 public import CFSG.LocalAnalysis.ComponentClassification.GMS78Lemma313U
 public import CFSG.LocalAnalysis.ComponentClassification.GMS78Sec4Prelim
-public import CFSG.LocalAnalysis.ComponentClassification.GMS78BenderLift
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.CoprimeHall
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConj
 
 public section
 

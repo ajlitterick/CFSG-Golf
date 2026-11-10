@@ -2,7 +2,6 @@ module
 
 public import Mathlib
 public meta import Mathlib
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_16FactsSixInputs
 public import Certificates.Certificate4051
 
 public section

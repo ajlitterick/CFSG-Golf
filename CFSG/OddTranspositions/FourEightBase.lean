@@ -1,17 +1,13 @@
 module
 
-public import CFSG.OddTranspositions.SevenThreeTransitive
 public import CFSG.OddTranspositions.SevenThreeQuotient
 public import CFSG.OddTranspositions.O4Minus5Pair
 public import CFSG.OddTranspositions.A3Bound
 public import CFSG.OddTranspositions.HypothesisC
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.AutAlternating
 public import CFSG.RankThree.PartOne.CTP.StrongPSporadic
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.InvCent.Cat.Harada.OutRows
-public import Mathlib.GroupTheory.Nilpotent
 public import CFSG.GH74.Generic.S45.LEvSporGen
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent.Radical
-public import Mathlib.Data.ZMod.QuotientGroup
 public meta import Mathlib.Algebra.Group.End
 public meta import Mathlib.GroupTheory.Perm.Basic
 public meta import Mathlib.Data.Fintype.Perm
@@ -64,7 +60,6 @@ public import CFSG.Sporadic.Th
 public import CFSG.Sporadic.Th.CertificateBase
 public import CFSG.Sporadic.Th.CertificateBase1
 public import CFSG.Sporadic.ThSchreier.KernelAut
-public import CFSG.Sporadic.ThSchreier.KernelAutBase
 public import CFSG.Sporadic.ThSchreier.KernelAutBase1
 public import CFSG.Timmesfeld.Bridge.Asc72Lift
 public import CFSG.Timmesfeld.Exceptional.Residual

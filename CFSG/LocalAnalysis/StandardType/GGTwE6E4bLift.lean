@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6E4bField
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeACover
-public import CFSG.LieType.Steinberg.Isogeny.TwistedE6
 
 public noncomputable section
 

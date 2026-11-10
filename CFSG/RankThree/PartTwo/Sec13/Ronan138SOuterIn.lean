@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec13.Ronan138SInnerRes
 public import CFSG.RankThree.PartTwo.Sec13.Item138ProofPGL
-public import CFSG.RankThree.PartTwo.Sec13.Item13Inputs
 public import CFSG.RankThree.PartTwo.KFacts.KS18M12
 public import CFSG.RankThree.PartTwo.Toolkit.Statements
 import CFSG.RankThree.PartTwo.Sec13.Ronan138SInnerFrame

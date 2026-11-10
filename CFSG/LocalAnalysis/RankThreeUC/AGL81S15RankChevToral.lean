@@ -3,7 +3,6 @@ module
 public import CFSG.Open.StatedDefs
 public import CFSG.Open.Defs
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RankChevDiag
-import CFSG.LocalAnalysis.SectionRank.PRank
 import CFSG.LocalAnalysis.SectionRank.SubgroupRank
 import CFSG.Open.StatedAPI
 

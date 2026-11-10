@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4InputsEnd4
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4End43N2
 public import CFSG.GH74.Generic.S45.LSporHe
 public import CFSG.Sporadic.Schreier.J4SProfileNode
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

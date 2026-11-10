@@ -1,14 +1,9 @@
 module
 
-public import Mathlib.FieldTheory.Finite.GaloisField
 public import Mathlib.Algebra.Polynomial.SpecificDegree
 public import Mathlib.Algebra.BigOperators.ModEq
-public import Mathlib.FieldTheory.Finite.Trace
 public import Mathlib.GroupTheory.FiniteAbelian.Duality
 public import Mathlib.NumberTheory.JacobiSum.Basic
-public import Mathlib.NumberTheory.MulChar.Lemmas
-public import Mathlib.RingTheory.RootsOfUnity.Complex
-public import Mathlib.GroupTheory.SemidirectProduct
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.Defs
 
 namespace CFSG

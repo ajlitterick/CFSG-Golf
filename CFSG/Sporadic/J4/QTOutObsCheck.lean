@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Sporadic.J4.QTOutObsNative
 public meta import CFSG.Sporadic.J4.QTOutObsNative
 public import CFSG.Sporadic.J4.QTOutCocCheck
 public import Certificates.Certificate4023

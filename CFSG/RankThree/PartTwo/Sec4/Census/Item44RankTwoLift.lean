@@ -1,9 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec4.Census.Item44EndLift
-import CFSG.RankThree.SubgroupLists.SymplecticReducible
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 public import CFSG.LocalAnalysis.ComponentClassification.LBalanceComponentLifts

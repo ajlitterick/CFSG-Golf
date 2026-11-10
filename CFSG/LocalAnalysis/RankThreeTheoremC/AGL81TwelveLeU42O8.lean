@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TwelveLeDefs
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TwelveLeU42O8U42
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TwelveLeU42O8Omega
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TwelveLeU42O8Levi
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Pairs
 public import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockOrthMinusHas

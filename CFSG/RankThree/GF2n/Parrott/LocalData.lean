@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.GF2n.Parrott.Setup
-public import CFSG.RankThree.GF2n.Parrott.PSp43Model
 
 public section
 

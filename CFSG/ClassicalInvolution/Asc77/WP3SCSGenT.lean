@@ -2,10 +2,8 @@ module
 
 public import CFSG.ClassicalInvolution.Asc77.WP3SCSVertex
 public import CFSG.ClassicalInvolution.Asc77.WP3FrameBootTwinMain
-public import CFSG.ClassicalInvolution.RouteD.SCRTwinGenSL4
 public import CFSG.ClassicalInvolution.RouteD.SCRTwinGenSp4
 public import CFSG.ClassicalInvolution.RouteD.SCRTwinGenSu4
-public import CFSG.ClassicalInvolution.RouteD.SCRTwinGenSmall
 public import CFSG.ClassicalInvolution.Asc77.WP3SCSD4Gen
 import CFSG.ClassicalInvolution.Asc77.AscE187Img
 public import CFSG.ClassicalInvolution.Asc77.WP3SCSGen

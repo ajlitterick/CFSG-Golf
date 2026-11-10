@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Background.HModChk
-public import CFSG.Quasithin.Background.H16TwoM22Check
 public import CFSG.Quasithin.Background.H16TwoM22PfA
 public import CFSG.Quasithin.Background.RonanH143Vocab
 

@@ -3,12 +3,8 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4InputsEnd46
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4Single
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4Tools46
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4Lemma46
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec5Normal
-public import CFSG.LocalAnalysis.ComponentClassification.Sol78PSp4
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4DiagMem
 import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4End46F
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GroupTheory.QuasisimpleCommutingProductBound
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec5InputsCov
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec5Lemma53

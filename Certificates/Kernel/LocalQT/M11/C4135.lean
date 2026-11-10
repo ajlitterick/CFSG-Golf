@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.LocalQT.M11.C4144
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1M11CheckInputs
 import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 100000

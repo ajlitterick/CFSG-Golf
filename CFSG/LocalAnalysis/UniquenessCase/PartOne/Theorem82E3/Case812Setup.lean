@@ -8,15 +8,11 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.KInputP1ParabH
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.KInputK11Holds
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.L3OvergroupHolds
 public import CFSG.LocalAnalysis.UniquenessCase.UC6K332THolds
-public import CFSG.LocalAnalysis.UniquenessCase.UC1K32
 public import CFSG.LocalAnalysis.UniquenessCase.UCK461Holds
 public import CFSG.LocalAnalysis.UniquenessCase.UC1K462Holds
 public import CFSG.LocalAnalysis.UniquenessCase.UC1K49Core
 public import CFSG.LocalAnalysis.UniquenessCase.UC1K326P1CoverHolds
-public import CFSG.LocalAnalysis.ComponentClassification.GoldschmidtTDGriess
-public import CFSG.CGT.PushingUpLit.CGT6.EmbEndSporThree
 public import CFSG.LocalAnalysis.AGLEmbedding.CatalogSchreier
-public import CFSG.LocalAnalysis.RankThreeTheoremC.D2LocalCGT3
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFacts.BlockB.NineThree
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.SEFive.Holds
 import CFSG.CGT.PushingUpLit.SolKNA.RankGe2Sz
@@ -45,15 +41,10 @@ public import Certificates.Certificate9707
 public import Certificates.Certificate9708
 public import Certificates.Certificate9709
 public import Certificates.Certificate9710
-public import CFSG.Blueprint.NativeSporadic
-public import CFSG.RankThree.PartOne.CTP.FusionSound
-public import Certificates.Certificate3109
-import CFSG.Sporadic.Bridge.BFusSevenGen
 public import Certificates.Certificate12601
 public import Certificates.Certificate12602
 public import Certificates.Certificate12603
 public import Certificates.Certificate12604
-public import Certificates.Certificate12605
 public import Certificates.Certificate12606
 public import Certificates.Certificate12607
 public import Certificates.Certificate12608
@@ -114,9 +105,7 @@ public import Certificates.Certificate125557
 public import Certificates.Certificate125558
 public import Certificates.Certificate125559
 public import Certificates.Certificate125561
-public import Certificates.Certificate9726
 public import Certificates.Certificate17430
-public import Certificates.Certificate431004
 public import CFSG.CGT.PushingUpLit.CGT6.SixFour
 public import CFSG.CGT.PushingUpLit.CGT6.SixSixteen
 public import CFSG.CGT.PushingUpLit.CGT6X.End3Irr
@@ -132,7 +121,6 @@ public import CFSG.CGT.Timmesfeld75.Sec5FiveEng
 public import CFSG.CGT.Timmesfeld75.Sec5Nine
 public import CFSG.CGT.Timmesfeld75.Sec5Ten
 public import CFSG.CGT.Timmesfeld75.Step57Reduction
-public import CFSG.GH74.GLS.IVK.Proofs2.Stmt111c
 public import CFSG.HardMathSupport.Cooperstein.AlternatingGeometry.TwoGroupExtension
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.FFSporadic.Co2DfsSound
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.FFSporadic.Co2Sylow
@@ -217,11 +205,9 @@ public import CFSG.LocalAnalysis.RankThreeTheoremC.D1Frontier3
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2AltFiveBlock3
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2Families3
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2HSFive3
-public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3Cover
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3Fusion
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3Impure
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3Kmax
-public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Port3CoreFree
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Residue3
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2LeavesNarrow3
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2SporDatum3

@@ -2,11 +2,7 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.Q3TIYPMinCount
 public import CFSG.ClassicalInvolution.Q3.Q3TIYPOutGlue
-public import CFSG.ClassicalInvolution.Q3.Q3TIYAtT
-public import CFSG.ClassicalInvolution.Q3.Q3ZModel
-public import CFSG.ClassicalInvolution.Q3.Q3EXTwin
 public import CFSG.ClassicalInvolution.RouteD.TWZPlanes
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 
 public section
 

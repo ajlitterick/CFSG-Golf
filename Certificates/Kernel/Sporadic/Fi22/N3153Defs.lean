@@ -1,12 +1,10 @@
 module
 
 public import Certificates.Kernel.Sporadic.Fi22.N3153Data
-public import Certificates.Data.Kernel.Fi22Nbr3153
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public import Certificates.Kernel.Sporadic.Fi22.N3153Dil
 public meta import CFSG.Monster.B.Fischer.Fi22OrderCheckInputs
 public meta import CFSG.Monster.B.Fischer.Fi22OuterArrays
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

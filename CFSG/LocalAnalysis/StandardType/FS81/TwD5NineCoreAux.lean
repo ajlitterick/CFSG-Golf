@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.FS81.TwD5NinePieces
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Cent
 public import CFSG.LocalAnalysis.StandardType.FS81.NoTransvPow
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.KSubTGroup
-public import CFSG.GroupTheory.SupCommute
 
 public section
 

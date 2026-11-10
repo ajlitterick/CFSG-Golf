@@ -6,7 +6,6 @@ public import CFSG.Sporadic.Recognition.McLASEnum
 public import CFSG.Sporadic.SmallOddCore.McL
 public import Certificates.Certificate5186
 public import Certificates.Certificate5254
-public import Certificates.Data.GH74.McLWeights
 public import CFSG.GroupTheory.Fitting.CharacteristicP
 public import CFSG.GroupTheory.LocalCores.Components
 public import CFSG.GroupTheory.LocalCores.Fitting

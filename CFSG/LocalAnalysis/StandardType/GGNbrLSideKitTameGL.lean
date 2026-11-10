@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.K1419ClsDefs
 import CFSG.LocalAnalysis.StandardType.GGNbrLSideKitComm
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBGeneralLinearSmall
-import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeLinear
 public import CFSG.HardMathSupport.Solomon.Coordinator.I18_3LInput
 public import CFSG.HardMathSupport.Solomon.Coordinator.L3C143AltMain
 public import CFSG.HardMathSupport.Solomon.Coordinator.YS08.LieQ.Derivation

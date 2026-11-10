@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQ2S08TestCert
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08CertPerm
 
 public section

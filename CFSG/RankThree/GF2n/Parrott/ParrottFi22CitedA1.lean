@@ -3,7 +3,6 @@ module
 public import CFSG.RankThree.GF2n.Parrott.ParrottFi22Cited
 public import CFSG.RankThree.GF2n.Parrott.A1TheoremA
 public import CFSG.RankThree.GF2n.Parrott.CaseIITheoremA
-public import CFSG.RankThree.GF2n.Parrott.CaseIIF1Local
 
 public section
 

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.EvenBN.TrialityD4.ProductMain
 public import CFSG.LocalAnalysis.EvenBN.TrialityD4.FieldCaseMain
 public import CFSG.LocalAnalysis.EvenBN.TrialityD4.FieldCaseEndgame
-public import CFSG.LocalAnalysis.EvenBN.TrialityD4.Native
 public import CFSG.LocalAnalysis.SeitzReduction.SeitzFamiliesFinalEight
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitGLS3
 public import CFSG.Certificates.CentralKernel
@@ -26,7 +25,6 @@ public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionNumeratorQ
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionThreePointClassFree
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.StrongEmbedding
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.TheoremTwoFixedDegree
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.InTorus
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.FamilyBasic
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19IdInputs3
@@ -69,14 +67,12 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly
 public import CFSG.Monster.GMS.S4CohB
 public import CFSG.Monster.GMS.S5Inputs
 public import CFSG.Monster.SteinbergMY443SimpleIsomorphism
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import CFSG.RankThree.PartOne.CTP.EdgeGeneric
 public import CFSG.RankThree.PartOne.CTP.SpNode
 public import CFSG.RankThree.PartOne.CTP.SpPos
@@ -91,7 +87,6 @@ public import Certificates.Kernel.J4Count.Cent11Base
 public import Certificates.Kernel.J4Count.Fix11
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

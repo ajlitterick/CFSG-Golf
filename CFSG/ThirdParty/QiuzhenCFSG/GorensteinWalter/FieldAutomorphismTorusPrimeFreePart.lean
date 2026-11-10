@@ -3,7 +3,6 @@ module
 public import Mathlib.Data.Nat.MaxPowDiv
 public import Mathlib.Data.Nat.Prime.Defs
 public import Mathlib.Algebra.Ring.Parity
-import Mathlib.FieldTheory.Finite.Basic
 import Mathlib.NumberTheory.Multiplicity
 import Mathlib.Tactic
 

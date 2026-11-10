@@ -1,11 +1,8 @@
 module
 
 public import Mathlib.LinearAlgebra.FiniteDimensional.Basic
-public import Mathlib.Data.ZMod.Basic
 public import Mathlib.Algebra.Field.ZMod
-public import Mathlib.Algebra.BigOperators.Group.Finset.Basic
 public import Mathlib.Tactic.Group
-public import Mathlib.Tactic.Abel
 
 public section
 

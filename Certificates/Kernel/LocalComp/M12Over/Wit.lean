@@ -5,7 +5,6 @@ public import Certificates.Data.Kernel.SporSch.OddConj
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicM12EndTests
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicM12Data
 public import CFSG.Certificates.Kernel.LocalCompUnpack
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 public import CFSG.LocalAnalysis.ComponentClassification.GeneralizedFitting
 public import CFSG.LocalAnalysis.ComponentClassification.LayerMultiplication

@@ -9,9 +9,6 @@ public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.LieType.BorelTits.CompleteFlag
 public import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagOrder
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.Foundations
 import CFSG.GroupTheory.HallHigmanPiCore
 import CFSG.LieType.Chevalley.LangRootArithmetic

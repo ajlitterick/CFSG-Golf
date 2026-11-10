@@ -3,11 +3,7 @@ module
 public import CFSG.Quasithin.EmptyFaithful.S1421QA19U
 public import CFSG.Quasithin.EmptyFaithful.S1421QA19J4A
 public import CFSG.Quasithin.EmptyFaithful.S1421Q9F
-public import CFSG.Quasithin.EmptyFaithful.S1421QEx
 public import CFSG.Quasithin.H13.J4TypeFinal
-public import CFSG.Sporadic.Mathieu.M22
-public import CFSG.LocalAnalysis.SectionRank.OddCover.DegreeThree
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

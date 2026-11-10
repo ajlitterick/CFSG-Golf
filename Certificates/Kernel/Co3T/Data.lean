@@ -6,7 +6,6 @@ public import Certificates.Kernel.SporSch.Th.GenV4
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co3ThreeInputs
 meta import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co3ThreeInputs
 meta import Certificates.Kernel.LocalComp.BfsGen
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Bounds.Core3
 import CFSG.Certificates.Kernel.Bounds.Load
 

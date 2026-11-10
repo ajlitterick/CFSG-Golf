@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeBlock
 public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionSURepFactsBlock
 public import CFSG.LocalAnalysis.StandardType.GGLinearTorusCompSUTwo
 

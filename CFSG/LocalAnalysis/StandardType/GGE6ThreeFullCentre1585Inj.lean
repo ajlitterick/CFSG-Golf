@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeFullCentre1585Defs
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeFullCentre1585Frob
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeCentralizer1585Expl
-public import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
 
 public section
 

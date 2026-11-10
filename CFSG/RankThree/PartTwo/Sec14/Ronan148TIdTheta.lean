@@ -3,10 +3,7 @@ module
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148TIdThetaAux
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148TIdLinDet
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148TIdLinFix
-import CFSG.RankThree.PartTwo.Sec4.LThreePiCaseA
-import CFSG.RankThree.PartTwo.Sec4.LThreePiProj
 import CFSG.GH74.Uniqueness.Section4Lift
-import CFSG.GroupTheory.LocalCores.Components
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
 public import CFSG.Certificates.FusionF2
@@ -36,7 +33,6 @@ public import CFSG.LocalAnalysis.SignalizerFunctor
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.B2Thompson
 public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 public import CFSG.Quasithin.Vol2.KGFactC31RuRefBase
@@ -80,10 +76,6 @@ import CFSG.GH74.Uniqueness.Setup
 import CFSG.LinearAlgebra.LinearGroups.UnitaryThreeOverNine
 import CFSG.LinearAlgebra.LinearGroups.UnitaryThreeOverNineInvolutions
 import CFSG.Permutation.UnitaryThreeRecognition.Model
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_1_12
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 
 public section

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.ComplementConjugacy
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Commutator.ActionTriviality
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Cardinalities
 
 namespace CFSG

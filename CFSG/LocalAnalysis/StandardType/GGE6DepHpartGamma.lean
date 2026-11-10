@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGE6DepKDefs
-public import CFSG.LocalAnalysis.StandardType.GGE6DepModelCoord
 
 public section
 

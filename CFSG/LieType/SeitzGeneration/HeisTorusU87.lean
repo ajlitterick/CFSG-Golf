@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LieType.SeitzGeneration.HeisTorusU86
 public import CFSG.LieType.SeitzGeneration.HeisTorusU87Core
 
 public section

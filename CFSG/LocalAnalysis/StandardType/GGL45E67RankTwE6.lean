@@ -2,16 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGL45E67Config
 public import CFSG.LocalAnalysis.StandardType.GGTwE6FieldTransport
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTorus
-public import CFSG.LocalAnalysis.SeitzReduction.HypothesisOneTwistedE6ClassListFrames
 public import CFSG.LocalAnalysis.StandardType.GGTwE6FieldDescent
-public import CFSG.RankThree.Chevalley.SteinbergBIRootSL2Tools
-public import CFSG.LieType.Chevalley.OrthogonalSemilinearFixedRootPerfectness
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ToralCent
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.TwE6LongRootQ1
 public import CFSG.LocalAnalysis.GL83PartI.I713.LinearDiag
-public import CFSG.LieType.Chevalley.E6GraphLeviTheta
-public import CFSG.RankThree.PartOne.KLAY.SL2
 public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 public import CFSG.Quasithin.Vol2.KGFactC31RuRefBase
 public import CFSG.Sporadic.HeldB.Common

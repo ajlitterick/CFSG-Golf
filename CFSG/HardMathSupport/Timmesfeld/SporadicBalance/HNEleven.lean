@@ -3,13 +3,7 @@ module
 
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.HNElevenBase
 
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.HNElevenInputs
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.PrimeCommute
-public import CFSG.Sporadic.HNOddCore.InvDefs
-public import CFSG.Sporadic.HNSchreier.ThreeSpec
-public import CFSG.Sporadic.HNSchreier.Order
 public import Certificates.Certificate13607
-public import Mathlib.GroupTheory.Perm.Centralizer
 
 public noncomputable section
 

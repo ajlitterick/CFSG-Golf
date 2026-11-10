@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.FooteLitMaximal
-public import CFSG.LocalAnalysis.ComponentClassification.GSLitInputs
 
 public section
 

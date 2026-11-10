@@ -1,15 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordInnerTor
-public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordInnerLift
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordInnerTlift
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordInnerTid
-public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordInnerTker
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordInnerTcl
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordInnerW
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordInnerWf
-public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordInnerQuot
-import CFSG.LocalAnalysis.StandardType.GGQTwoLMMod
 
 public section
 

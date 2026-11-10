@@ -5,19 +5,6 @@ public import CFSG.Monster.B.TwoA.Sp8.ElemAbBase
 public import CFSG.Monster.B.TwoA.Sp8.QuadDataBase
 public meta import CFSG.Monster.B.Rep4371.Model
 public meta import CFSG.Monster.B.TwoA.Sp8.LiftsBase
-public import CFSG.Monster.B.TwoA.Sp8.LiftsBase
-public import CFSG.Monster.B.TwoA.Sp8.LiftsInputs
-public import CFSG.Monster.B.TwoA.Sp8.A8Inputs
-public import Certificates.Data.CFSGNative.MonsterB.Short
-public import Certificates.Data.CFSGNative.Mathieu.M24
-public import CFSG.Certificates.Kernel.AxisPlane.Orbit
-public import Certificates.Data.Kernel.VisFrame.Gens
-public import Certificates.Data.CFSGNative.MonsterB.Co2Chain
-public import Certificates.Data.CFSGNative.MonsterB.Co2Matrix
-public import CFSG.Monster.B.TwoA.Base.WCls
-public import CFSG.Monster.B.TwoA.Census.PermBFS
-public import CFSG.Monster.B.TwoA.Co2Inv.Data
-public import CFSG.Monster.B.TwoA.Co2Inv.RowsInputs
 public import CFSG.Monster.B.TwoA.Base.RankThreeParBase
 public import CFSG.Monster.B.TwoA.Sp8.ZrelBase
 public import CFSG.Monster.Visible.SignCompat.TrialityCycleOctad

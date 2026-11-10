@@ -3,10 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGOppositeRadicalExcAscent
 public import CFSG.GroupTheory.OppositeRadicals
 public import CFSG.LieType.Chevalley.EvenOddCentralizerRadicalKempf
-public import CFSG.LieType.Chevalley.OrdinaryRootCentralizerGeneration
 public import CFSG.LieType.Chevalley.ParabolicRadicalNormalizer
-public import CFSG.LieType.Chevalley.SylowOpposition
-public import CFSG.LieType.Chevalley.BruhatDecomposition
 public import CFSG.LieType.Chevalley.EvenOddCentralizerRadicalLift
 
 public section

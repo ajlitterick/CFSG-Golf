@@ -1,12 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6KGLIDADefs
-public import CFSG.Assembly.GL83LieDefs
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLIDAOrthCore
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLIDARefute
 import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.OrthBlocks
-import CFSG.ClassicalGroups.Orthogonal.Simple
-import CFSG.LocalAnalysis.ComponentClassification.ClassicalModelStatedBridge
 
 public section
 

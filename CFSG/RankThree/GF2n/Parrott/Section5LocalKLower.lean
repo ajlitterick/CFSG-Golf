@@ -1,6 +1,5 @@
 module
 
-public import CFSG.RankThree.GF2n.Parrott.SylowH
 public import CFSG.RankThree.GF2n.Parrott.Section5LocalJ
 public import CFSG.RankThree.GF2n.Parrott.Section5Basic
 public import CFSG.RankThree.GF2n.Parrott.LiftSquare

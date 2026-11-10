@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.FF81.Defs
 import CFSG.LocalAnalysis.StandardType.FF81.RootFusionLin
 import CFSG.LocalAnalysis.StandardType.GGFFModelSL
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
-import CFSG.Adapters.StatedSLTwoField
-import CFSG.Open.StatedAPI
 
 public section
 

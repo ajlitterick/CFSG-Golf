@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTBJNoB2derModelDefs
 public import CFSG.LocalAnalysis.StandardType.GGTBJConfigFacts
 import CFSG.LocalAnalysis.StandardType.GGTBJNoB2derExistsY
 import CFSG.LocalAnalysis.StandardType.GGTBJNoB2derYComp
-import CFSG.LocalAnalysis.ComponentInitial.SymplecticHigherAutomorphismData
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnSympRed
 
 public section

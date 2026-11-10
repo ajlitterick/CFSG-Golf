@@ -3,11 +3,8 @@ module
 
 public import CFSG.Sporadic.Schreier.Co3CentralizerCheckBase
 
-public import CFSG.Sporadic.Schreier.Co3SylowCheck
-public import Certificates.Data.CFSGNative.Schreier.SetOrbit
 public meta import CFSG.Sporadic.Schreier.Co3SylowCheck
 public meta import Certificates.Data.CFSGNative.Schreier.SetOrbit
-public import CFSG.Sporadic.Schreier.Co3CentralizerCheckInputs
 public import Certificates.Certificate2151
 
 public section

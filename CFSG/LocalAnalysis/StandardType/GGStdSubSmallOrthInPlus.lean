@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallOrthInDiag
-public import CFSG.LinearAlgebra.LinearGroups.ProjectiveSimple
 
 public section
 

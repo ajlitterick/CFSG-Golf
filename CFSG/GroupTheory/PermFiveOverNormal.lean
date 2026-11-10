@@ -1,7 +1,6 @@
 module
 
 
-import Mathlib.GroupTheory.SpecificGroups.Alternating.Simple
 import CFSG.Quasithin.Vol2.Ch12Sec6P31Abs3
 public import Mathlib.Data.Finite.Perm
 public import Mathlib.Data.Sym.Sym2.Init

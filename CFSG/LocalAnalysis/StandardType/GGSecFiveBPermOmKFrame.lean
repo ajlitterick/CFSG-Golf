@@ -6,8 +6,6 @@ import CFSG.LocalAnalysis.StandardType.GGSixLSixFiveKnownComp
 import CFSG.LocalAnalysis.EvenBN.U4.Model.Perfect
 import CFSG.ClassicalInvolution.Balance.Q27FuzzyModel
 import CFSG.LocalAnalysis.StandardType.GGKGPosOmegaMinusFix
-import CFSG.ClassicalInvolution.WeakCT.TwistedSpinModel
-import CFSG.ClassicalInvolution.WeakCT.SpModel
 import CFSG.ClassicalInvolution.Balance.BootstrapLayersFuzzyCanon
 import CFSG.ClassicalInvolution.Balance.Q27Layers
 import CFSG.ClassicalInvolution.Balance.Theorem5Models

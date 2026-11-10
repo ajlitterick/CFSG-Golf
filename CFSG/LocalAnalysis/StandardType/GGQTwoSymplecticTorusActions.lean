@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoSymplecticPlaneActions
 public import CFSG.LinearAlgebra.CubeRootBlock
-public import CFSG.Sporadic.Suz.Setup
 
 public section
 

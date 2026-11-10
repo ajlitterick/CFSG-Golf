@@ -1,16 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResIDefs
-public import CFSG.LocalAnalysis.StandardType.GGResIBasic
-public import CFSG.LocalAnalysis.StandardType.GGResIITransport
-public import CFSG.LocalAnalysis.StandardType.GGResQTwoCell
-public import CFSG.LocalAnalysis.StandardType.GGResQTwoTransport
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthCount
 public import CFSG.LinearAlgebra.OrthogonalFourMinusThreeMaximal
 public import CFSG.LocalAnalysis.StandardType.GGResQTwoSideTypes
 public import CFSG.GH74.Generic.S1.Exo.LinMinus
-public import CFSG.GroupTheory.WeirSylow.OrthogonalOrders
-import Mathlib.Tactic.FinCases
 public import CFSG.GH74.Generic.Front.Final
 public import CFSG.GH74.Generic.FrontEnd
 public import CFSG.GH74.Generic.S1.Defs

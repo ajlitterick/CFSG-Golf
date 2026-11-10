@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.SectionRank.PRank
-public import CFSG.LocalAnalysis.QuasithinUnique.Defs
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P20o
-public import TauCeti.Algebra.Group.NormalizerQuotient.Basic
 
 public section
 

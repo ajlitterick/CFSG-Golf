@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGLabelDef
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGTyLabelAux
-public import CFSG.LocalAnalysis.StandardType.MarkingChevalley
-public import CFSG.Timmesfeld.RankTwo.Presentation
 
 public section
 

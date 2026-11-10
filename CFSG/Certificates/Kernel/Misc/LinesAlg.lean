@@ -4,8 +4,6 @@ public import Certificates.Data.CFSGNative.F4.Unitary
 import CFSG.Fischer.UnitaryCode
 import all CFSG.Fischer.F4
 public import Mathlib.Data.Nat.Notation
-import Mathlib.RingTheory.PiTensorProduct
-import Mathlib.Tactic.Polynomial.Basic
 
 public section
 

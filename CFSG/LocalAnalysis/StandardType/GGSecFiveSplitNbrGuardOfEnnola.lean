@@ -1,20 +1,14 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinPrimed
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNbrGenKNOfInputs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrEnnola
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrEnnolaLabel
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyReflDom
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrPRank
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowCases
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowNFrame
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowNTwAMCells
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowZReduce
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrSmallAbsurd
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowDefs
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 public import CFSG.LocalAnalysis.StandardType.GGTCJHolds
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowNAbsurd
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowNMoreAbsurd

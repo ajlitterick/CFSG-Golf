@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGLangDictChar
 public import CFSG.LocalAnalysis.StandardType.GGLangReidx
 
 public section

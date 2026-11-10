@@ -1,49 +1,6 @@
 module
 
-import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonClassification
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonTraceField
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonExceptionalF9
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonTwoTransvections
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonTwoTransvectionsClassification
-import Mathlib.Algebra.Algebra.Equiv
-import Mathlib.Algebra.Group.Commute.Units
-import Mathlib.LinearAlgebra.Projection
-import Mathlib.LinearAlgebra.GeneralLinearGroup.Basic
-import Mathlib.LinearAlgebra.FiniteDimensional.Basic
-import Mathlib.Data.Nat.Prime.Defs
-import Mathlib.Data.ZMod.Basic
-import Mathlib.Algebra.Field.ZMod
-import Mathlib.FieldTheory.Minpoly.Field
-import Mathlib.Algebra.Polynomial.FieldDivision
-import Mathlib.RingTheory.Ideal.Quotient.Basic
-import Mathlib.RingTheory.Ideal.Quotient.Operations
-import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
-import Mathlib.Algebra.Field.IsField
-import Mathlib.RingTheory.IntegralClosure.Algebra.Basic
-import Mathlib.RingTheory.PrincipalIdealDomain
-import Mathlib.RingTheory.AdjoinRoot
-public import Mathlib.Algebra.Ring.Defs
-public import Mathlib.Algebra.Group.Defs
-public import Mathlib.Algebra.Algebra.Defs
-public import Mathlib.Algebra.Algebra.Hom
-public import Mathlib.Algebra.Module.Defs
-public import Mathlib.Data.ZMod.Defs
-public import Mathlib.LinearAlgebra.FiniteDimensional.Defs
-public import Mathlib.Algebra.Field.ZMod
-public import Mathlib.LinearAlgebra.GeneralLinearGroup.Basic
-public import Mathlib.Algebra.Group.Subgroup.Basic
-public import Mathlib.Algebra.Module.Submodule.Basic
-public import Mathlib.Algebra.Module.LinearMap.End
-public import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
-public import Mathlib.Algebra.Group.Equiv.Defs
-public import Mathlib.SetTheory.Cardinal.Finite
-public import Mathlib.Data.Nat.Prime.Defs
-public import Mathlib.Algebra.Group.Hom.Defs
-public import Mathlib.Algebra.Module.Equiv.Defs
-public import Mathlib.Algebra.Module.Submodule.Range
-public import Mathlib.Order.Disjoint
-public import Mathlib.Algebra.Module.LinearMap.Defs
-public import Mathlib.Algebra.Module.LinearMap.Basic
 
 namespace CFSG
 end CFSG

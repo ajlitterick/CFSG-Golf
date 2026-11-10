@@ -30,12 +30,10 @@ public import CFSG.LocalAnalysis.ShultStronglyClosedTI.UnitaryRootAutomorphism
 public import CFSG.Monster.Code.Weights
 public import CFSG.Permutation.BurnsideSchur
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.Module
 public import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec2.Defs
 public import CFSG.SignalizerFunctorTheorem.McBride.Prelim.Generation
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24

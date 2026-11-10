@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront07
-public import CFSG.LocalAnalysis.UniquenessCase.UCFront08
-public import CFSG.LocalAnalysis.UniquenessCase.UCFront09
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.Defs
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs14
 public import CFSG.LocalAnalysis.UniquenessCase.UC6R2

@@ -1,11 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestUnitaryCenter
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6RankOuter
 public import CFSG.LieType.Chevalley.TwistedE6EvenCover
 public import CFSG.RankThree.PartOne.KEXC.OddCenterCover
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotCTGraphTwisted
-public import CFSG.LieType.Steinberg.CentralExt.TwistedE6Coprime
 public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalAdjoint
 public import CFSG.LocalAnalysis.ComponentClassification.ExcSelectorEvenTriality
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotAlignField

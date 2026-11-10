@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec3G2Para
 public import CFSG.LieType.Chevalley.ExceptionalG2F4ModelSchreier
 public import CFSG.LieType.Chevalley.OddF4G2AutomorphismNormalForm
-public import CFSG.LocalAnalysis.ComponentInitial.BasicFacts
-import CFSG.GroupTheory.ElemAbelianClosure
 
 public noncomputable section
 

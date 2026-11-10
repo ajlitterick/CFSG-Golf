@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGKGAdjDefs
-public import CFSG.LocalAnalysis.StandardType.GGKGAutDict
-public import CFSG.LocalAnalysis.StandardType.GGKGLayersTheta
 public import CFSG.LocalAnalysis.StandardType.GGKGLayersClauses
 
 public section

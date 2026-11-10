@@ -7,7 +7,6 @@ import CFSG.LocalAnalysis.StandardType.GGSecFiveNbrGenKNOfInputs
 import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylEltOfAutomizer
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
 
 public section
 

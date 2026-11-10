@@ -1,8 +1,5 @@
 module
 
-public import Mathlib.Algebra.Group.Commutator
-public import CFSG.GroupTheory.PCore.Defs
-public import CFSG.OddTranspositions.HalphaQuotient
 public import CFSG.OddTranspositions.PartThree.EightEight.WreathFourBlocks
 import CFSG.OddTranspositions.PartThree.Nine.NineFiveX
 import CFSG.LocalAnalysis.ComponentClassification.Foote47Lift

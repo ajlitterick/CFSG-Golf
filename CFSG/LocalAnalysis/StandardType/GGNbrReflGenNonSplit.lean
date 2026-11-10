@@ -3,12 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylKnownDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrCenterPCyclicHolds
 public import CFSG.LocalAnalysis.StandardType.GGF4ThreeNbrRankDefs
-import CFSG.LocalAnalysis.StandardType.GGNbrReflGenTwE6Three
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-import CFSG.LocalAnalysis.StandardType.GGTwistedF4DiagRaw
-import CFSG.LocalAnalysis.StandardType.GGExclNoIso
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45ConfigIso
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUDefs
 import CFSG.LocalAnalysis.StandardType.GGNbrU63
 import CFSG.LocalAnalysis.StandardType.GGF4AutWeylTableB
 

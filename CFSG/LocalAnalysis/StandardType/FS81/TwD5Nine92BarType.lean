@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Nine92Bar
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.KS.ExactD
 public import CFSG.HardMathSupport.Dickson.Sec6.UpD42Aux.Descent
-public import Mathlib.Algebra.Group.Subgroup.Ker
 public import CFSG.Goldschmidt.Steps.G37Core
 public import CFSG.HardMathSupport.Dickson.Sec6.I923Fam.TriD4Aux.Basic
 public import CFSG.HardMathSupport.Dickson.Sec6.I923Fam.TriD4Aux.Transport
@@ -20,10 +19,6 @@ public import CFSG.Quasithin.Background.C1GNSolvConnect
 public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.E2Statements
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.F6CatRecogL2
-public import CFSG.Quasithin.Background.F6CatRecogTools2
 public import CFSG.Quasithin.Background.F918C6
 public import CFSG.Quasithin.Background.FFC7G
 public import CFSG.Quasithin.Background.FFC8A
@@ -68,7 +63,6 @@ public import CFSG.Quasithin.Vol2.Ch11SecSI3
 public import CFSG.Quasithin.Vol2.Ch11SecSObl
 public import CFSG.Quasithin.Vol2.Ch9KGFFQR
 public import CFSG.Quasithin.Vol2.Ch9KGFFQRCase
-public import CFSG.Walter.J1Props
 public import Certificates.Kernel.J4Count.Prim
 
 public section

@@ -5,14 +5,11 @@ public import CFSG.LocalAnalysis.ComponentClassification.LieOrderTwoPart
 public import CFSG.LocalAnalysis.EvenSporadicStandard.M12Std.SolomonK.KDSp6Odd
 public import CFSG.LocalAnalysis.EvenSporadicStandard.M12Std.SolomonK.OddLie.LinearFour
 public import CFSG.LocalAnalysis.EvenSporadicStandard.M12Std.SolomonK.OddLie.OmegaModels
-public import CFSG.LocalAnalysis.EvenSporadicStandard.M12Std.SolomonK.OddLie.PosE64
 public import CFSG.LocalAnalysis.EvenSporadicStandard.M12Std.SolomonK.OddLie.QuatCube
 public import CFSG.LocalAnalysis.EvenSporadicStandard.M12Std.SolomonK.OddLie.QuatCubeModels
 public import CFSG.LocalAnalysis.EvenSporadicStandard.M12Std.SolomonK.OddLie.RankOdd
 public import CFSG.LocalAnalysis.EvenSporadicStandard.M12Std.SolomonK.OddLie.SylowA12
 public import CFSG.LocalAnalysis.EvenSporadicStandard.M12Std.SolomonK.OddLie.UnitaryFour
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.BrauerThirdMainTheorem.CentralResidueMaps
 public import CFSG.CharacterTheory.BrauerThirdMainTheorem.NormalizerClassLifting
 public import CFSG.CharacterTheory.BrauerThirdMainTheorem.PrincipalClassDefects
@@ -36,8 +33,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.OutcomeLocalOddCentrali
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCorrCriticalStandard
 public import CFSG.LocalAnalysis.EvenSporadicStandard.M12Std.SolomonK.BasicSylow
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

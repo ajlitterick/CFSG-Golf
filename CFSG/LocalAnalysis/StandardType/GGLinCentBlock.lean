@@ -2,7 +2,6 @@ module
 
 public import CFSG.Assembly.GL83StatedBridge
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinCore
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinHeld
 public import CFSG.LieType.SemisimpleCentralizers.HeldCompTrivSL
 public import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
 public import CFSG.CharacterTheory.Wreathed.WreathCentralSquare

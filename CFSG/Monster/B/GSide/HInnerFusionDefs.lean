@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Monster.B.GSide.HInnerFusion
-public import CFSG.Monster.B.CTIB.Rank2158
 
 public noncomputable section
 

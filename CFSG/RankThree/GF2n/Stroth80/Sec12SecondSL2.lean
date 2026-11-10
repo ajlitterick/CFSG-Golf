@@ -3,12 +3,6 @@ module
 public import CFSG.RankThree.GF2n.Stroth80.Conclusion
 public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
 import CFSG.RankThree.GF2n.Stroth80.ClassicalQuasisimple
-import CFSG.RankThree.PartOne.KC.OrthogonalEvenMinusFourExtract
-import CFSG.RankThree.PartOne.KC.OrthogonalEvenMinusFour
-import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalAS76aProofOMinusFacts
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoAllFields
-import CFSG.Adapters.ProjectiveSpecialLinear
-import CFSG.Open.StatedAPI
 import CFSG.GroupTheory.ABGLocalTools.PStabilityQSL2
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalFourSplitQuotient
@@ -27,7 +21,6 @@ import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 import CFSG.LocalAnalysis.SectionRank.TitsCover
 import CFSG.Quasithin.Background.A3Components
-import CFSG.Quasithin.Background.A3ComponentsAmbient
 import CFSG.Quasithin.Background.G11Stmts
 import CFSG.RankThree.GF2n.Stroth80.FrobClause
 import CFSG.RankThree.GF2n.Stroth80.GlobalModel
@@ -42,7 +35,6 @@ import CFSG.RankThree.GF2n.Tim79Mod
 import CFSG.RankThree.PartOne.KC.OrthogonalAutSemilinearBridge
 import CFSG.SignalizerFunctorTheorem.McBride.Prelim.Basic
 import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
-import CFSG.Sporadic.J4.Simple
 import CFSG.Sporadic.J4Base
 import CFSG.Sporadic.Mathieu.M12
 import CFSG.Sporadic.Mathieu.M24

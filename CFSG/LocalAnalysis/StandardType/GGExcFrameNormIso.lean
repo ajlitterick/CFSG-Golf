@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGExcFrameLang
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoBstar
-public import CFSG.LocalAnalysis.StandardType.GGNoTransvectionAutForm
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesCore
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTvE7E8
 
 public section

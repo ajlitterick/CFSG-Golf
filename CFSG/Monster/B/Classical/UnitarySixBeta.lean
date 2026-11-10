@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Monster.B.Classical.UnitarySixClass
-public import Mathlib.GroupTheory.SemidirectProduct
 import all CFSG.Fischer.F4
 
 public section

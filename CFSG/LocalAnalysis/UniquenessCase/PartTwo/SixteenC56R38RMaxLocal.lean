@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.UC6R
 import CFSG.GroupTheory.PGroup.ElemAbelianSq
 import CFSG.LocalAnalysis.WeakClosure81.SixFifteen
 import CFSG.RankThree.PartOne.CTP.StrongPGlue
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

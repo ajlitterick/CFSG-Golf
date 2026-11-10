@@ -1,13 +1,8 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.CharacterValues
-public import Mathlib.Algebra.MvPolynomial.Equiv
 public import Mathlib.FieldTheory.IsAlgClosed.Classification
 public import Mathlib.NumberTheory.NumberField.Cyclotomic.Galois
-public import Mathlib.NumberTheory.NumberField.Cyclotomic.Basic
-public import Mathlib.Data.ZMod.Units
-public import Mathlib.RingTheory.AlgebraicIndependent.Adjoin
-public import Mathlib.RingTheory.RootsOfUnity.Complex
 
 namespace CFSG
 end CFSG

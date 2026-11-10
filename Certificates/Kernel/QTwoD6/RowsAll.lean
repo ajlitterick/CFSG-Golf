@@ -11,7 +11,6 @@ import Certificates.Kernel.QTwoD6.Line2
 import Certificates.Kernel.QTwoD6.LineT
 import Certificates.Kernel.QTwoD6.Twist
 import CFSG.Certificates.Kernel.Common.RowsForall
-import CFSG.Certificates.Kernel.Common.Repo
 
 public section
 

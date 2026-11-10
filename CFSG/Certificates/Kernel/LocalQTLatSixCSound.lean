@@ -5,7 +5,6 @@ import all CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListPermLat
 import all CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListPermExt
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.G3LatSixCheck
 import all CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.G3LatSixCheck
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.G3LatSixCheckDefs
 
 public section
 

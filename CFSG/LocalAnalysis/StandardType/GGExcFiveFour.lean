@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGExcMaxToral
-public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyBruhat
-public import CFSG.RankThree.PartOne.K133H.WeylKey
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLBstar
-public import CFSG.HardMathSupport.Curtis.NaturalModuleCensus.ExcCross.ExcLangNFix
 public import CFSG.HardMathSupport.Curtis.NaturalModuleCensus.ExcCross.ExcLangNGenFix
 public import CFSG.HardMathSupport.Curtis.NaturalModuleCensus.ExcCross.ExcLangNGenTorus
 public import CFSG.HardMathSupport.Curtis.NaturalModuleCensus.ExcCross.ExcLangNTorus

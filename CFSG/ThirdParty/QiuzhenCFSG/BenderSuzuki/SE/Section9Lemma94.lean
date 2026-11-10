@@ -5,9 +5,7 @@ public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section9Focal
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.II1Section4
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section7
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition84Action
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.Basic
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.X.ConjugationFamily
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.CentralizerLemmas
 
 namespace CFSG
 end CFSG

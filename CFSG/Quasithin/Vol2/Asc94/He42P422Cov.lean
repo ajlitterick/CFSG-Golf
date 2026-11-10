@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Quasithin.Vol2.Asc94.He42Spec
 public import CFSG.Quasithin.Vol2.Asc94.He42BaseFacts
 
 public section

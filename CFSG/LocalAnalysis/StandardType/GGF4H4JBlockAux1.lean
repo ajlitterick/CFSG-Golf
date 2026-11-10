@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrLabels
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeACover
-import CFSG.LocalAnalysis.ComponentInitial.LinearCoverModel
 import CFSG.RankThree.PartOne.KC.LinearSubfieldInclusion
 import TauCeti.LinearAlgebra.Matrix.SpecialLinearGroup.Basic
 

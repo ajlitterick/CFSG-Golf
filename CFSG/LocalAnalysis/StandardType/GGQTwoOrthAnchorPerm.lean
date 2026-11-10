@@ -2,17 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoOrthAnchorChart
 public import CFSG.LocalAnalysis.StandardType.GGQTwoOrthAnchorRecal
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
-public import CFSG.LocalAnalysis.StandardType.GGSkeleton
 import CFSG.LocalAnalysis.StandardType.GGQTwoOrthAnchorOverlap
 import CFSG.LocalAnalysis.StandardType.GGQTwoOrthogonalPairs
-import CFSG.LocalAnalysis.StandardType.GGSpJoinBstarSplit
-import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniOmFrames
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBIrred
-import CFSG.Permutation.SymmetricCoxeter
 import CFSG.GroupTheory.IsComponentOfMap
-import CFSG.GroupTheory.CentralizerMap
-import CFSG.Assembly.Subnormal
 import CFSG.LocalAnalysis.StandardType.GGQTwoOrthAnchorExt
 
 public section

@@ -6,7 +6,6 @@ import all CFSG.Sporadic.Th.Max3.PacketBase
 import all CFSG.Sporadic.Th.Max3.PacketBase1
 
 public import CFSG.Sporadic.Th.Max3.Core
-public import CFSG.Sporadic.Th.Max3.PacketInputs
 public import Certificates.Certificate10090
 public meta import CFSG.Sporadic.Th.Max3.Data
 public import Certificates.Certificate10090Base

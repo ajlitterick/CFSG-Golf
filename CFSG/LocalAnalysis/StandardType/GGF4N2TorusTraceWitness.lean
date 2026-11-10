@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4N2NbrReflection
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRestGen
-import CFSG.RankThree.PartOne.AUTSL.Interface
-import CFSG.RankThree.PartTwo.KFacts.K71L28TwoFree
 import all CFSG.LocalAnalysis.StandardType.GGF4N2JModelExclusions
 
 public section

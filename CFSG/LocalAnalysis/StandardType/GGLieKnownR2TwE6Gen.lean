@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TwE6Rad
 public import CFSG.LieType.HighestRoot.Gen
-public import CFSG.LieType.Steinberg.TwistedE6.Clause0
 
 public section
 

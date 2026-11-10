@@ -4,7 +4,6 @@ public import CFSG.Sporadic.Suz.Simple
 public import CFSG.Sporadic.Presentation.Suz
 public import CFSG.Sporadic.Bridge.Common
 public import Certificates.Certificate9219
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 
 public section

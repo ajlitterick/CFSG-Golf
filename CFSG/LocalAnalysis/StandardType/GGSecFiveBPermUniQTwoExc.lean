@@ -2,11 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniQTwoExcDefs
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitDvdAct
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitary
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 
 public section
 

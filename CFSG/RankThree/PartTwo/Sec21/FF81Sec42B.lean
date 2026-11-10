@@ -1,6 +1,5 @@
 module
 
-public import CFSG.RankThree.PartTwo.Sec21.FF81Defs
 import CFSG.RankThree.PartTwo.Sec21.FF81Sec42A
 import CFSG.RankThree.PartTwo.Sec21.FF81Sec42S6
 import CFSG.RankThree.PartTwo.Sec21.FF81Sec43T
@@ -9,12 +8,9 @@ import CFSG.RankThree.PartTwo.Sec21.FF81Step0
 import CFSG.RankThree.PartTwo.Sec21.FF81Sec32A
 import CFSG.RankThree.PartTwo.Sec21.FF81Sec32
 import CFSG.RankThree.PartTwo.Sec21.FF81Prop51
-import CFSG.RankThree.PartTwo.Sec21.FF81Prop33
 import CFSG.RankThree.PartTwo.Sec21.FF81HoltHyp4
 import CFSG.RankThree.PartTwo.Sec21.FF81J
 public import CFSG.RankThree.PartTwo.Sec21.FF81P51
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Lemma83
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Cardinalities
 
 attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent
 

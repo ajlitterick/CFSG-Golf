@@ -3,15 +3,11 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixFiveKnownForms
 public import CFSG.LocalAnalysis.StandardType.GGSixJNotA6KnownDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixOddIndexF4
-import CFSG.GroupTheory.ElementaryAbelianTransport
-import CFSG.LocalAnalysis.ComponentInitial.BasicFacts
-import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticBstar
 import CFSG.LocalAnalysis.StandardType.GGTableBTwoThreeSp
 import CFSG.LocalAnalysis.StandardType.GGSixJNotA6Step
 import CFSG.LocalAnalysis.StandardType.GGSixJNotA6A6Syl
 import CFSG.LocalAnalysis.StandardType.GGSixLSixSevenCentJLieKnown
 import CFSG.LocalAnalysis.StandardType.GGSixCtxKnownSupply
-import CFSG.LocalAnalysis.StandardType.GGOneFiveNormalizer
 
 public section
 

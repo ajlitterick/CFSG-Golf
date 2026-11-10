@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Sporadic.HNSchreier.Sylow3
-public import CFSG.Assembly.Defs
 public import Certificates.Certificate9455
 
 public section

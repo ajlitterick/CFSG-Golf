@@ -1,10 +1,7 @@
 module
 
-public import Certificates.Data.D4HexLocCheck
 public import Certificates.Kernel.S63K.P4237F
 public import Certificates.Kernel.S63K.PChecksP
-public import Certificates.Kernel.S63K.A21112
-public import CFSG.Certificates.Kernel.S63K.ClassBfsSound
 import CFSG.Certificates.Kernel.Common.ForallTree
 
 public section

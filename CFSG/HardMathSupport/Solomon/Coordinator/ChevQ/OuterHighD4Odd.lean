@@ -3,11 +3,7 @@ module
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.OuterHighD4Three4
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TriA2RecStruct
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TriA2Split
-public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4A2Main
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4TorusCent
-public import CFSG.LieType.Steinberg.TwistedD4.Perfect
-public import CFSG.LieType.Steinberg.TwistedD4.Local
-public import CFSG.HardMathSupport.Seitz.Proving.OrderThreeSLConj
 
 public section
 

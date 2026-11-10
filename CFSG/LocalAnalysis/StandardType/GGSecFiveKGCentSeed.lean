@@ -6,8 +6,6 @@ import CFSG.LocalAnalysis.StandardType.GGSecFiveL1OddLeaves
 import CFSG.LocalAnalysis.StandardType.GGStdPosTagData
 import CFSG.LocalAnalysis.StandardType.GGStdPosTrans
 import CFSG.LocalAnalysis.StandardType.GGStdPosTorusFix
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
-import Mathlib.Tactic.Group
 
 public section
 

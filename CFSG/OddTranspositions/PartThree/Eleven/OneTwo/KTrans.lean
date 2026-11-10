@@ -1,17 +1,9 @@
 module
 
-public import CFSG.OddTranspositions.PartThree.Eleven.Statements
-public import CFSG.OddTranspositions.PartThree.Eleven.OneOne.Hyp
-public import CFSG.OddTranspositions.PartThree.Eleven.Minus.Pair
-public import CFSG.OddTranspositions.PartThree.Eleven.Minus.Quandle
-public import CFSG.OddTranspositions.PartThree.EightFive.KBarSetup
 public import CFSG.OddTranspositions.PartThree.Eleven.OneTwo.Frame
 public import CFSG.OddTranspositions.PartThree.HalphaCentralizer
-import CFSG.Timmesfeld.Bridge.Asc72ConjOrbit
-import CFSG.OddTranspositions.DeltaCentSet
 import CFSG.OddTranspositions.PartThree.EightFive.Transitive
 import CFSG.OddTranspositions.FusionStep
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
 
 public section
 

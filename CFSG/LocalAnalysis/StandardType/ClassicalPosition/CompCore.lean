@@ -1,13 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockDecomp
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.ComponentNormal
 public import CFSG.Walter.Bender1970.S2.Subnormal
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Borel
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Lemma83
 public import CFSG.Walter.Bender1970.S2.TwoSubgroup
 public import CFSG.Walter.PSL2Facts
 

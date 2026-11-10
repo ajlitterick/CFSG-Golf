@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.Universal.Unitary.BinaryModel.Weight
 public import CFSG.LieType.Universal.Unitary.CurtisDatum.TorusSums
-public import CFSG.Quasithin.Background.SmithCurtisMain
 
 public section
 

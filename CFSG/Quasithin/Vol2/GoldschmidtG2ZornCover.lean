@@ -3,11 +3,8 @@ module
 public import CFSG.Quasithin.Background.SmithB42G2Id
 public import CFSG.Quasithin.Vol2.Ch10SecQ1G2Two
 public import CFSG.Quasithin.EmptyFaithful.SBd8SmallU33
-public import CFSG.Quasithin.Background.A3Structure312Iso
-public import CFSG.LieType.CurtisTits.Recognition
 public import CFSG.LieType.Steinberg.CentralExt.G2Multiplier
 public import CFSG.LieType.Steinberg.CentralExt.G2FourMultiplier
-public import CFSG.LieType.Steinberg.CentralExt.SUOddCover
 public import CFSG.LieType.Steinberg.CentralExt.GriessUnitaryOdd
 public import CFSG.RankThree.PartOne.KF.ClsCenter
 public import CFSG.Certificates.WordSubgroupRel

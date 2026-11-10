@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Hall.Basic
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Hall.lemma_14_4_5
 
 namespace CFSG

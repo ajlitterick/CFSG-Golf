@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
 public import CFSG.LocalAnalysis.StandardType.GGSignedCoordBlocks
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
 
 public section
 

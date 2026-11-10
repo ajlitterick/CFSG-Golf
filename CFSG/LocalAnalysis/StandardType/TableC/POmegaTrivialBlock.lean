@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.TableC.PSpTrivialBlock
-public import CFSG.RankThree.PartOne.KC.OrthogonalFixedDerived
 public import CFSG.RankThree.PartOne.S11d.OrthCaseH
-public import CFSG.LieType.Universal.Spin.Action
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalSixStructure
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSpExclusion
@@ -28,7 +26,6 @@ public import CFSG.RankThree.PartOne.S11d.OutUnitary
 public import CFSG.RankThree.PartOne.S9.Sylow.ExclusionBasic
 public import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
 public import CFSG.RankThree.Theta.ThreeComponentOrbitCover
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.Defs
 
 public section

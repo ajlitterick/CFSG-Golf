@@ -3,8 +3,6 @@ module
 public import Certificates.Kernel.MinusFrame.Checks
 public import Certificates.Kernel.MinusEnum.Pin
 public import CFSG.Certificates.Kernel.PermPinKSound
-import CFSG.Certificates.Kernel.BfsPinUnpack
-import CFSG.Certificates.Kernel.Spor.PackWord
 
 public section
 

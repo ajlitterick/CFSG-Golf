@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.UnitarySix.SU42C
 public import CFSG.Quasithin.Recognition.CertChain
 public import CFSG.Monster.B.Mathieu.Order
-public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.YamadaParH1Data
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Spor.RawSound
 public import Certificates.Certificate3195Base

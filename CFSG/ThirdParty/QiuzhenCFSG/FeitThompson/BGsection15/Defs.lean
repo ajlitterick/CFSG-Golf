@@ -1,10 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection14.lemma_14_13
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.CentralizerControl
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.HallSubgroups.Conjugacy
-import Mathlib.Algebra.Group.Subgroup.Order
-import Mathlib.GroupTheory.Schreier
 
 namespace CFSG
 end CFSG

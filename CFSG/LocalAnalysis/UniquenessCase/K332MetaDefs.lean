@@ -1,12 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC6K332Cyc
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GeneratorRank
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PGroup.Omega
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.lemma_4_10
-public import CFSG.RankThree.PartTwo.Sec4.Statements
-public import CFSG.Blueprint.NativeSporadic
-public import Mathlib.GroupTheory.Sylow
 
 public section
 

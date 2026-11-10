@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs16a
-public import CFSG.Quasithin.Background.D2Basic
-public import Mathlib.Combinatorics.SimpleGraph.Connectivity.Connected
-public import Mathlib.GroupTheory.Perm.ClosureSwap
 
 public section
 

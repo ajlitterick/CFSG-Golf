@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGMemberRowsDefs
-public import CFSG.LocalAnalysis.StandardType.GGMemberUnitaryPos
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinQFourExact
 import CFSG.LocalAnalysis.StandardType.GGMemberUnitaryRk1Aux
 

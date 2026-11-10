@@ -1,13 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoLocalDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveReflMaxDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveReflMaxStep6
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveReflMaxFamily
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveReflMaxBasic
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveReflMaxNotG2
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRMPrimeInputs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinPrimed
 public import CFSG.LocalAnalysis.StandardType.GGLevTwoMain
 public import CFSG.LocalAnalysis.StandardType.GGQTwoGlobLin
 

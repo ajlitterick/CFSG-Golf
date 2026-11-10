@@ -1,7 +1,6 @@
 module
 
 public import Mathlib.Combinatorics.SimpleGraph.Connectivity.Connected
-public import Mathlib.Data.Fintype.Powerset
 public import Mathlib.Data.Matrix.Basic
 
 public section

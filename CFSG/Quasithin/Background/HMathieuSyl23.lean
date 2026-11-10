@@ -1,11 +1,8 @@
 module
 
-public import CFSG.Quasithin.Background.HMathieuPT24
-public import CFSG.Quasithin.Background.HMathieuPred
 public meta import CFSG.Quasithin.Background.HMathieuPT24
 public meta import CFSG.Quasithin.Background.HMathieuPred
 public meta import CFSG.Monster.Code.Basis
-public import CFSG.Quasithin.Background.HMathieuSyl23Inputs
 public import Certificates.Certificate7071
 
 public section

@@ -4,7 +4,6 @@ public import Certificates.Kernel.SchreierFam.Ru7234S
 public import Certificates.Kernel.SchreierFam.Ru7234X
 public import Certificates.Kernel.SchreierFam.Ru7234D
 public import Certificates.Kernel.RuInsp443.Checks
-public import Certificates.Data.Kernel.Misc.M64Chain
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

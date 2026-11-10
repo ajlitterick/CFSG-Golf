@@ -4,9 +4,7 @@ public import CFSG.Sporadic.Schreier.Co1ThreeLocalInputs
 public import CFSG.Sporadic.Schreier.Co1StabData
 public import CFSG.Sporadic.Schreier.Co1AutData
 public import CFSG.Sporadic.Co1Block.PermData
-public import Certificates.Data.CFSGNative.Co1Schreier.Base
 public import Certificates.Data.CFSGNative.Co1.TwoB
-public import Std.Data.HashSet
 public meta import CFSG.Sporadic.Schreier.Co1ThreeLocalInputs
 public meta import CFSG.Sporadic.Schreier.Co1StabData
 public meta import CFSG.Sporadic.Schreier.Co1AutData

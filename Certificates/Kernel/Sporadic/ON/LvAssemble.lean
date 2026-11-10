@@ -4,9 +4,7 @@ public import Certificates.Kernel.Sporadic.ON.LvData
 public import Certificates.Kernel.Sporadic.ON.Final
 public import CFSG.Certificates.Kernel.Spor.CBfsKSound
 public import CFSG.Certificates.Kernel.Spor.RawSlSound
-import CFSG.Certificates.Kernel.Common.Harness
 import Mathlib.Tactic.IntervalCases
-import Mathlib.Tactic.NormNum
 
 public section
 

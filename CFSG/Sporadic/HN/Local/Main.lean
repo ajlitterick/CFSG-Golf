@@ -2,7 +2,6 @@ module
 
 public import CFSG.Sporadic.HN.Local.InvolutionClasses
 public import CFSG.Sporadic.HN.Commutant
-public import CFSG.Blueprint.NativeSporadic
 import all CFSG.Blueprint.NativeSporadic
 
 public section

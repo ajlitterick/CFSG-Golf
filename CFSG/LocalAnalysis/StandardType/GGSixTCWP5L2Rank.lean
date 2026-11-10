@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4A5Close
-public import CFSG.Quasithin.Vol2.Ch5Sec2LocalLem522BotD4Aut
 import CFSG.RankThree.PartTwo.Sec8.Hering418L2
 import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma25
 import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma32
@@ -28,13 +27,8 @@ import CFSG.RankThree.PartTwo.Sec4.Item47
 import CFSG.RankThree.PartTwo.Sec4.LThreePiItem411
 import CFSG.RankThree.PartTwo.Sec6.Item612
 import CFSG.Sporadic.ONOddCore.LiftHomCheckInputs
-import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremB
-import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremC
-import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.ZJTheorem
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GW1965RemarkDGroup
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29Helpers
 import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 
 public section

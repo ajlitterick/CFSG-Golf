@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.McLaughlin.WeakBlockModuleData.OrthModel
-public import CFSG.Open.StatedDefs
 
 public section
 

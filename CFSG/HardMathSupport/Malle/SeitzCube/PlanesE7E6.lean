@@ -1,14 +1,7 @@
 module
 
 public import CFSG.HardMathSupport.Malle.SeitzCube.E7PhiSixPlaneData
-public import CFSG.HardMathSupport.Malle.SeitzCube.LandingE6
 public import CFSG.HardMathSupport.Malle.SeitzCube.LandingE7Plane
-public import CFSG.HardMathSupport.Malle.SeitzCube.PlanesE78
-public import CFSG.HardMathSupport.Malle.SeitzCube.RootSingleFixed
-public import CFSG.HardMathSupport.Malle.SeitzCube.TwistedTorusCube
-public import CFSG.HardMathSupport.Malle.Proving.E8CubeOrders
-public import CFSG.HardMathSupport.Malle.Proving.E8CubeSideConditions
-public import Certificates.Kernel.ThCent.Leaves
 
 public noncomputable section
 

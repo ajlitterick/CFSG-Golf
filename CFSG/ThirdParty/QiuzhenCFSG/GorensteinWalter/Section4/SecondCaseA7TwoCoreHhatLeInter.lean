@@ -1,9 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseA7EquationSix
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Theorem26
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.PreambleHSU
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

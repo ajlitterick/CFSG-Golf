@@ -19,7 +19,6 @@ public import CFSG.Quasithin.Background.HLUAlt6
 public import CFSG.Quasithin.Background.HMathieuO2Data
 public import CFSG.Quasithin.Background.HModelTransp
 public import CFSG.Quasithin.EmptyFaithfulMultiple.InputB19Proof
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.JRFacts
 
 public section

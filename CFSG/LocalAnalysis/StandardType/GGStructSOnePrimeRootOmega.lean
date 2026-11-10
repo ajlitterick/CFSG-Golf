@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGStructSOnePrimeRoot
 public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsOmFour
 public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsOmMinus
 public import CFSG.LieType.ChevTwo.LayeredClassical
-public import CFSG.CharacterTheory.Burnside
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.LieInput.LeviAssembly
 public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.Basic
 public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.D4Dichotomy

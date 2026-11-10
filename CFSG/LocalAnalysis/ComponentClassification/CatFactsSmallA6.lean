@@ -1,13 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog8A6
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallModel
-public import CFSG.GH74.KGroups.A6
 public meta import CFSG.GH74.KGroups.Checks
 public meta import CFSG.GH74.KGroups.A6
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallA6Inputs
 public import Certificates.Certificate2006
-public import Certificates.Certificate5108
 
 public section
 

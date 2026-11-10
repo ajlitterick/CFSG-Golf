@@ -1,8 +1,6 @@
 module
 
-public import CFSG.RankThree.GF2n.Parrott.LocalData
 public import CFSG.RankThree.GF2n.Parrott.LiftOrderThree
-public import Mathlib.GroupTheory.SpecificGroups.KleinFour
 
 public section
 

@@ -7,11 +7,7 @@ import CFSG.LocalAnalysis.AGLEmbedding.ToralCensusHubCenter
 import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockReduce
 import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockL33Orders
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.BlockFieldIndexFiveTypes
-import CFSG.HardMathSupport.Curtis.UnitaryLevi.PLTypeHolds
-import CFSG.LocalAnalysis.AGLEmbedding.BlockFoundationsPLType
 import CFSG.LocalAnalysis.AGLEmbedding.BlockAltSevenPL
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Certificates.WordSubgroupRel
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Pairs
 public import CFSG.Foundations
@@ -111,9 +107,6 @@ import CFSG.RankThree.PartOne.S10.ThetaContract
 import CFSG.RankThree.PartOne.S12.InputsBase
 import CFSG.RankThree.PartTwo.Sec19.Item194Used
 import CFSG.StronglyEmbedded
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 
 public section
 

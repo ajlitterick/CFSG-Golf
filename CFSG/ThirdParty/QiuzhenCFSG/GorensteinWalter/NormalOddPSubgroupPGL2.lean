@@ -1,11 +1,8 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.NormalOddPSubgroupPSL2
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.LinearRingEquiv
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.LinearThreeEquiv
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.NormalOddPSubgroupSymmetricFour
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OddSubgroupLeNormalIndexTwo
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2DerivedSubgroup
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2InnerAction
 import Mathlib.Tactic
 

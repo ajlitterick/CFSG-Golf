@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGRootPlaneRestSU
 public import CFSG.LocalAnalysis.StandardType.GGRootPlaneRestSp
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarRest
-public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionNonsplitRestSL
 
 public section
 

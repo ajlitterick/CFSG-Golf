@@ -2,12 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.PartOne
 public import CFSG.Blueprint.LieModelAPI
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.ThreeCoverClassical
-public import CFSG.LocalAnalysis.SectionRank.EvenCover.LinearSplit
 public import CFSG.Quasithin.EmptyFaithful.R3cBlocks
 public import CFSG.LocalAnalysis.UniquenessCase.UC22OddPRank
-public import CFSG.RankThree.PartTwo.KFacts.L34SL
-public import CFSG.Quasithin.Background.A3FactsRank
 public import CFSG.HardMathSupport.Timmesfeld.SporadicRank.Assembly
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListA7Iso
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L122AProved
@@ -20,7 +16,6 @@ public import CFSG.Quasithin.Background.B4Dual
 public import CFSG.Quasithin.Background.B5CompA
 public import CFSG.Quasithin.Background.B5CompB
 public import CFSG.Quasithin.Background.B6
-public import CFSG.Quasithin.Background.B6Example
 public import CFSG.Quasithin.Background.F1Weak
 public import CFSG.Quasithin.Background.F2Equiv
 public import CFSG.Quasithin.Background.InternalSecB51

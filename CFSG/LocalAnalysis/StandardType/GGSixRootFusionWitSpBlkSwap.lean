@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionWitSpBlkFix
-public import CFSG.Sporadic.Suz.Setup
 
 public section
 

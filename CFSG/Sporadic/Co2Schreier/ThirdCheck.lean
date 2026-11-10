@@ -1,17 +1,13 @@
 
 module
 
-public import CFSG.Sporadic.Co2Schreier.ThirdCheckBase
 
-public import CFSG.Sporadic.Co2Schreier.WitCheck
 public import CFSG.Sporadic.Co2Schreier.CoreCheck
-public import CFSG.Sporadic.Co2Cert.FaithfulCheck
 public import CFSG.Sporadic.Co2Schreier.SylowCheck
 public meta import CFSG.Sporadic.Co2Schreier.WitCheck
 public meta import CFSG.Sporadic.Co2Schreier.SylowCheck
 public meta import CFSG.Sporadic.Co2Schreier.CoreCheck
 public meta import CFSG.Sporadic.Co2Cert.FaithfulCheck
-public import CFSG.Sporadic.Co2Schreier.ThirdCheckInputs
 public import Certificates.Certificate2061
 
 public section

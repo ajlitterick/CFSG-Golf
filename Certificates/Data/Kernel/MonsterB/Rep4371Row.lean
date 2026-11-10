@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.KDense.Twins
-public import CFSG.Certificates.Kernel.Common.Loop
 
 public section
 

@@ -1,11 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUElt
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkCent
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkTransport
-public import CFSG.LocalAnalysis.StandardType.GGLayerCenterCyclicTransfer
 public import CFSG.LocalAnalysis.StandardType.GGOPlusEightTwoTransfer
-public import CFSG.GroupTheory.CenterlessInnerCentralizer
 
 public section
 

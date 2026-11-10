@@ -9,8 +9,6 @@ public import CFSG.ClassicalInvolution.WeakCT.StandardPair
 public import CFSG.LieType.CurtisTits.SpecialLinear
 public import CFSG.LieType.Universal.Spin.Roots
 public import CFSG.LieType.Universal.Unitary
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ProjectiveSemilinear
 
 public section
 

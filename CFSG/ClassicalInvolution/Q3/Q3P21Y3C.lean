@@ -1,12 +1,9 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Q3P21Y2C
-public import CFSG.ClassicalInvolution.Q3.Q3TCD4
-public import CFSG.ClassicalInvolution.Q3.Q3TCD4Clique
 public import CFSG.ClassicalInvolution.Q3.Q3PAR1
 public import CFSG.ClassicalInvolution.Q3.Q3TIVFinal
 public import CFSG.ClassicalInvolution.Q3.Q3TPSChart
-public import CFSG.ClassicalInvolution.Q3.Q3EXModel
 public import CFSG.ClassicalInvolution.Q3.Q3TY12
 public import CFSG.ClassicalInvolution.Q3.Q3TIVSm
 

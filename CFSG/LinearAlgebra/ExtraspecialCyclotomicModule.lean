@@ -1,13 +1,6 @@
 module
 
 public import CFSG.Foundations.Basic
-public import Mathlib.Algebra.Ring.GeomSum
-public import Mathlib.FieldTheory.Finiteness
-public import Mathlib.LinearAlgebra.Dimension.Constructions
-public import Mathlib.LinearAlgebra.Dimension.StrongRankCondition
-public import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
-public import Mathlib.RepresentationTheory.Basic
-public import Mathlib.RingTheory.Adjoin.Basic
 public import Mathlib.RingTheory.Polynomial.Cyclotomic.Eval
 public import Mathlib.RingTheory.Polynomial.Cyclotomic.Factorization
 

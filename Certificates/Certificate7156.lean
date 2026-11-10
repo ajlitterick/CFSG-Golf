@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Literature.GL52Basic
 public import CFSG.Quasithin.Vol2.KGFactMinParL52Inputs
 import CFSG.Quasithin.Vol2.KGFactL52Parabolics
 

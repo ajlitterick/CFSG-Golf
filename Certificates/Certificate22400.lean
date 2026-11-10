@@ -4,17 +4,8 @@ public import CFSG.LocalAnalysis.ComponentClassification.HarrisEndBCertInputs
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverKernelCentralizers
 public import CFSG.Sporadic.SmallOddCore.LocalSpec
 import Certificates.Kernel.Census.J2H.Facts
-import Certificates.Kernel.Census.J2H.Checks
-import Certificates.Kernel.Census.J2H.Count
-import CFSG.Certificates.Kernel.Common.Harness
-import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutCheckInputs
-import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutData
-import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutNative
-import Certificates.Data.CFSGNative.J2.Certificate
-import CFSG.LocalAnalysis.ComponentClassification.J2CoverKernelNative
 public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
 public import CFSG.Sporadic.J2
-public import CFSG.Sporadic.Th.F2Spec
 import CFSG.Certificates.Kernel.Spor.RawOrbGrp
 
 public section

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight90Sz5Defs
 import CFSG.RankThree.PartTwo.ExponentPrimeSmallRank
 import CFSG.CharacterTheory.Semidihedral.Principal.CoprimeFixedPointLifting
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2Link
-public import CFSG.LieType.Chevalley.GraphFixedOrbitParametrization
 
 public section
 

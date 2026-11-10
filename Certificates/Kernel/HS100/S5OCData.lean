@@ -1,8 +1,6 @@
 module
 
-public import Certificates.Kernel.LocalComp.BfsGenSl
 public import Certificates.Kernel.HS100.S5OData
-public import Certificates.Data.Kernel.BfsPinBase
 meta import Certificates.Kernel.HS100.S5OData
 import CFSG.Certificates.Kernel.Common.Harness
 

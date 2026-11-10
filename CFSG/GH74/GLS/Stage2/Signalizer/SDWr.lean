@@ -4,7 +4,6 @@ import CFSG.LocalAnalysis.ComponentClassification.AschbacherToolkitTwoGroupShape
 import CFSG.LocalAnalysis.ComponentInitial.CyclicIndexTwoRank
 public import CFSG.CharacterTheory.Wreathed.Coordinates
 public import CFSG.GH74.GLS.Stage2.Signalizer.Stmt42
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

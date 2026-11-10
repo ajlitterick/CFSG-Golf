@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23d.Defs
 public import CFSG.Quasithin.EmptyFaithful.S151S4B
 public import CFSG.HardMathSupport.Curtis.NaturalModuleCensus.AltIb.OmegaPlusTop2
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22rv
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Fischer.Uniq.CompTau
 public import CFSG.Foundations
 public import CFSG.GH74.Generic.Certificates
@@ -47,7 +45,6 @@ public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.B1MoreElevenD
 public import CFSG.Quasithin.Background.B1MoreElevenF
 public import CFSG.Quasithin.Background.B1MoreNineG
@@ -55,11 +52,6 @@ public import CFSG.Quasithin.Background.B4ModelsAction
 public import CFSG.Quasithin.Background.B4ModelsIso
 public import CFSG.Quasithin.Background.C2Basic
 public import CFSG.Quasithin.Background.E1
-public import CFSG.Quasithin.Background.E1Sec4
-public import CFSG.Quasithin.Background.E1Sec5
-public import CFSG.Quasithin.Background.E1Sec8
-public import CFSG.Quasithin.Background.E1Solv
-public import CFSG.Quasithin.Background.E1Twelve
 public import CFSG.Quasithin.Background.E3Cent
 public import CFSG.Quasithin.EmptyFaithfulMultiple.InputB19Proof
 public import CFSG.RankThree.LocalRank.SelectorCases
@@ -69,7 +61,6 @@ public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.RankThree.PartTwo.Sec4.Item47Statement
 public import CFSG.RankThree.PartTwo.Sec4.Item47Witness
 public import CFSG.RankThree.PartTwo.Sec8.Statements
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24

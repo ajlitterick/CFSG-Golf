@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.SporSch.PairJ3.C81Fns
 public import Certificates.Kernel.SporSch.PairJ3.C81Group
 public import Certificates.Kernel.SporSch.PairJ3.C81BindA
 public import Certificates.Kernel.SporSch.PairJ3.C81BindB
@@ -12,7 +11,6 @@ public import CFSG.Certificates.Kernel.Spor.JoinProof
 public import CFSG.Sporadic.SmallOddCore.J3CentFacts
 import CFSG.Certificates.Kernel.HeFixKFix
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic
 public import CFSG.Certificates.Kernel.Misc.HexFlatSound
 
 public section

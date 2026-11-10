@@ -28,11 +28,7 @@ public import Certificates.Kernel.Sporadic.OddCore.SuzC1EP20
 public import Certificates.Kernel.Sporadic.OddCore.SuzC1EP21
 public import Certificates.Kernel.Sporadic.OddCore.SuzC1EP22
 public import Certificates.Kernel.Sporadic.OddCore.SuzC1EP23
-import CFSG.Certificates.Kernel.Common.Harness
-import CFSG.Certificates.Kernel.Spor.PcompFacts
-import CFSG.Certificates.Kernel.Spor.RawOrbEval
 import CFSG.Certificates.Kernel.Spor.RawOrbHead
-import Mathlib.Tactic.IntervalCases
 import CFSG.Certificates.Kernel.Spor.RawOrbGrp
 
 public section

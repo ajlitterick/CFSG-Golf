@@ -1,12 +1,7 @@
 module
 
 public import CFSG.RankThree.Classical2.OrthogonalIsotropicUnipotent
-import CFSG.LieType.BorelTits.OrthogonalEven
 import CFSG.RankThree.PartOne.S11d.OrthModels
-import CFSG.GroupTheory.WeirSylow.OrthogonalModels
-import CFSG.LieType.Universal.Spin.Forms
-import CFSG.ClassicalGroups.Orthogonal.Matrix
-import CFSG.Open.StatedDefs
 public import CFSG.ClassicalGroups.Orthogonal.ProjectiveSimple
 public import CFSG.LocalAnalysis.SectionRank.SignLines
 import CFSG.Assembly.QuasithinDefs
@@ -56,7 +51,6 @@ import CFSG.RankThree.PartOne.S11d.OutSymplectic
 import CFSG.RankThree.PartOne.S11d.OutUnitary
 import CFSG.RankThree.PartOne.S9.Sylow.ExclusionBasic
 import CFSG.RankThree.Theta.ThreeComponentOrbitCover
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 import CFSG.Walter.Defs
 import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension

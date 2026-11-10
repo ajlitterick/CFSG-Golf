@@ -1,17 +1,11 @@
 module
 
-public import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
-public import CFSG.GroupTheory.LangNormOneDescent
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.LangPositionPart1
-public import CFSG.LieType.Chevalley.EvenF4AutomorphismNormalForm
 import CFSG.LocalAnalysis.EvenBN.G2.Automorphisms
-public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.BruhatNo117Part2
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.PinnedBaseChange
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.FixedTorus
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.AmbientActionPart1
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.KS.E6FieldU3Misc
-public import TauCeti.Algebra.CharP.Frobenius.Fixed
-public import TauCeti.FieldTheory.Finite.SepClosedSubfield
 public import CFSG.HardMathSupport.Solomon.Coordinator.I23_26Comp
 public import CFSG.HardMathSupport.Solomon.Coordinator.I271HoldsAlt
 public import CFSG.HardMathSupport.Solomon.Coordinator.I271HoldsHatSixCore

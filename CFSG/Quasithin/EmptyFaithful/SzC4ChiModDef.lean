@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.Algebra.Group.End
 public import Mathlib.NumberTheory.Padics.PadicVal.Basic
 public import Mathlib.SetTheory.Cardinal.Finite
 

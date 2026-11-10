@@ -12,7 +12,6 @@ import Certificates.Kernel.Sporadic.ON.Gen
 import Certificates.Kernel.Sporadic.StrList
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.Spor.RawSound
 public import Mathlib.GroupTheory.Perm.Basic
 

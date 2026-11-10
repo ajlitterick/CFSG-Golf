@@ -3,11 +3,8 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTableBLinTwoTvAut
 public import CFSG.LocalAnalysis.StandardType.GGTableBLinTwoTvFrame
 public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLTvARatio
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLTv
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwoThree
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineL2Cover
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLCover
-public import CFSG.LocalAnalysis.StandardType.GGSixRootCentNotExcFlatDefs
 public import CFSG.LocalAnalysis.StandardType.GGYardstoneLegacyImports
 
 public section

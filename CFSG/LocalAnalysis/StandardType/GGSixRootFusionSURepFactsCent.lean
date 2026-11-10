@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionSURepFactsBasic
 public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionSURepFactsRad
 public import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotBlocks
-public import CFSG.RankThree.Classical.SiegelRadical
 
 public section
 

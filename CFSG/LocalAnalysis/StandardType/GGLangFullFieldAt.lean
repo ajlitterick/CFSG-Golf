@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGExcCompFieldInput
 import CFSG.LocalAnalysis.StandardType.GGCompFieldLieModel
-import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofEvenExc
-import CFSG.Foundations.QuasisimpleMulEquiv
 import CFSG.Blueprint.LieModelAPI
 
 public section

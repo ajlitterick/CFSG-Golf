@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.Kernel.OpsLayMcert
 public import Certificates.Kernel.TcGen.ON
 public import CFSG.RankThree.PartTwo.KFacts.HeringKS12ONData
 import CFSG.Certificates.Kernel.Common.Harness

@@ -2,9 +2,6 @@ module
 
 public import CFSG.LieType.Chevalley.CoordinateFieldBaseChange
 public import CFSG.LieType.Chevalley.ExactNormalFormE
-public import CFSG.LieType.Chevalley.BruhatDecomposition
-public import CFSG.LieType.Chevalley.BruhatCellFactorization
-public import CFSG.LieType.Chevalley.PositiveRootCollection
 public import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
 
 public noncomputable section

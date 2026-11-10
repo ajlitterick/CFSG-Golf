@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTBTorRelDRoot
 public import CFSG.LocalAnalysis.StandardType.GGTorusWeylFrameSigned
 public import CFSG.LocalAnalysis.StandardType.GGTorusWeylFrame
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticLift
 
 public section
 

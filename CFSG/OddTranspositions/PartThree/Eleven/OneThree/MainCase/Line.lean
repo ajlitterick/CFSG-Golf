@@ -1,9 +1,7 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Eleven.OneThree.MainCase.Coset
-import CFSG.OddTranspositions.PartFour.LineSpan
 import CFSG.OddTranspositions.PartFour.LineVmem
-import CFSG.OddTranspositions.PartFour.SeventeenTwo
 import CFSG.OddTranspositions.PartThree.Ten.DalphaBlocks
 import CFSG.OddTranspositions.PartFour.LineStabilizer
 

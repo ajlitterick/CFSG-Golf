@@ -2,9 +2,6 @@ module
 
 public import CFSG.RankThree.PartOne.SPOR.Co1PlanesDerivs
 public import CFSG.Sporadic.Co1Block.Iota
-public import CFSG.Sporadic.Schreier.Co1ThreeLocalInputs
-public import Certificates.Data.CFSGNative.Co1Schreier.Base
-public import Certificates.Data.CFSGNative.Co1.Involutions
 public meta import CFSG.Sporadic.Co1Block.Iota
 public meta import CFSG.Sporadic.Co1Block.IotaData
 public meta import CFSG.Sporadic.Schreier.Co1StabCheck

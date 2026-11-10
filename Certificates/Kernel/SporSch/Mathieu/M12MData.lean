@@ -4,7 +4,6 @@ public import Certificates.Kernel.SporSch.Mathieu.Gen2
 public import Certificates.Kernel.SporSch.Mathieu.Gen3
 public import CFSG.Sporadic.Schreier.MathieuOddCoreM12ModelData
 public meta import CFSG.Sporadic.Schreier.MathieuOddCoreM12ModelData
-import CFSG.Certificates.Kernel.Common.Harness
 public meta import CFSG.Sporadic.Schreier.MathieuOddCoreM12
 public import CFSG.Sporadic.Schreier.MathieuOddCoreM12
 public meta import CFSG.Sporadic.Schreier.MathieuOddCoreModel

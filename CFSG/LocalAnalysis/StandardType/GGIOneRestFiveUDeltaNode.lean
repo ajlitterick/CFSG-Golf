@@ -2,11 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGIOneRestFiveUDeltaCent
 public import CFSG.LocalAnalysis.StandardType.GGIOneRestFiveUDvdRNode
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUModel
 public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUDvdBound
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryDvdCodimTwoLift
-public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperDefs
-public import CFSG.LocalAnalysis.StandardType.GGIOneRestFiveUnitary
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.GoldschmidtF431U42Main
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallPSp43ModelData
 public import CFSG.Quasithin.Vol2.GoldschmidtF431U42AutP4Gen
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierAlternatingSix
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Reduce

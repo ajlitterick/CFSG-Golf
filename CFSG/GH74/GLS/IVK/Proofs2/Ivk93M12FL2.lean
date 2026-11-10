@@ -2,7 +2,6 @@ module
 
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk93M12Leaves
 import CFSG.GH74.SmallRanks
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

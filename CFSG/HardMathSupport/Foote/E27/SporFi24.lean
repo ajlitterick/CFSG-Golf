@@ -2,11 +2,8 @@ module
 
 public import CFSG.HardMathSupport.Foote.E27.SporCommData
 public import CFSG.HardMathSupport.Foote.E27.SporFi24Action
-public import CFSG.RankThree.Asc83Table.MatCert
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.Fi24ThreeChecks
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.TcGenSound
-public import Certificates.Certificate9509
-public import Certificates.Certificate9510
 public import CFSG.Sporadic.Fi24.Simple
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.LocalAnalysis.AGLEmbedding.CoverWeakGenData
@@ -24,7 +21,6 @@ public import CFSG.RankThree.PartOne.S10.ThetaContract
 public import CFSG.RankThree.PartOne.S12.InputsBase
 public import CFSG.Sporadic.Fi24.Faithful
 public import CFSG.Sporadic.Fi24.SepSpec
-public import Certificates.Certificate1016Base
 
 public section
 

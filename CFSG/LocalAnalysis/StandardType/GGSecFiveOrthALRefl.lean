@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthSetup
-public import CFSG.LocalAnalysis.StandardType.GGSimplyLacedWeyl
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRootRefl
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosPrimed
 public import CFSG.LocalAnalysis.StandardType.GGKGPosTagWeyl

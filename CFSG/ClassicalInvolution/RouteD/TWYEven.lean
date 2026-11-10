@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.RouteD.TWYCount
 public import CFSG.ClassicalInvolution.RouteD.TWYType
-public import CFSG.ClassicalInvolution.RouteD.TwinYR3Classify
 public import CFSG.ClassicalInvolution.RouteD.TWYLayer
 public import CFSG.Sporadic.Schreier.J4SProfileNode
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.C14IdxBorel
-public import CFSG.HardMathSupport.C14IdxDerived
 public import CFSG.HardMathSupport.C14IdxProduct
 public import CFSG.LieType.AlgebraicGroups.CocharCurveConnected
 public import CFSG.LieType.AlgebraicGroups.RootSpanConnected

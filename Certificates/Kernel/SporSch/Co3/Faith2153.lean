@@ -7,8 +7,6 @@ public import CFSG.Certificates.Kernel.Spor.BindList
 public import CFSG.Certificates.Kernel.Spor.RawSlSound
 public import Certificates.Data.Kernel.Spor.M11
 public import CFSG.Sporadic.Schreier.Co3FaithfulCheckInputs
-public import CFSG.Sporadic.Schreier.Co3FaithfulData
-public import Certificates.Data.CFSGNative.Co3.Data
 meta import Certificates.Data.CFSGNative.Co3.Data
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.SporSch.F2MatProved

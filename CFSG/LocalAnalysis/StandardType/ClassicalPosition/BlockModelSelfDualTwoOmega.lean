@@ -13,7 +13,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.BlockOvergroupDichotomy
 public import CFSG.LocalAnalysis.ComponentInitial.GeneralizedFittingProduct
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 
 public section
 

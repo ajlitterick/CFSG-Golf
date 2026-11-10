@@ -7,7 +7,6 @@ import CFSG.LocalAnalysis.StandardType.GGTwE6LeviSplit
 import CFSG.LocalAnalysis.StandardType.GGTwE6EnnolaSplit
 import CFSG.LocalAnalysis.StandardType.GGTwE6FieldDescent
 import CFSG.Mathlib.GroupTheory.Automorphism.ConjCommute
-import CFSG.HardMathSupport.Malle.E27Lie.ExcCross.TwE6Core
 
 public section
 

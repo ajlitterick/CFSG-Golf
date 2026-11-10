@@ -1,11 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylOpenLabels
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUElt
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyReflInner
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeAEndModel
-public import CFSG.LocalAnalysis.StandardType.GGInnLocalDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwDThree
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylClauseFive
 
 public section

@@ -3,12 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2HighestRootNormalizer
 public import CFSG.LocalAnalysis.StandardType.GGRootNormInner
 public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionExceptional
-public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerExcRoots
-public import CFSG.LocalAnalysis.StandardType.GGRootDetectExcCore
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2Inndiag
-public import CFSG.LieType.Chevalley.OrdinaryEFieldGraphQuotient
-public import CFSG.LieType.Chevalley.RootCharacterConjugation
-public import CFSG.LieType.Chevalley.ParabolicRadicalLevi
 public import CFSG.LieType.Chevalley.E6EvenRootTorusAutFix
 
 public section

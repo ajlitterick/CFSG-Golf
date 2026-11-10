@@ -1,10 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTamePrime
-public import CFSG.LieType.Steinberg.Adjoint.Pairs
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleOrbit
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSL
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSU
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUAll
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.G2LongFrame
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTame.Order216
@@ -83,14 +79,7 @@ public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
 public import CFSG.Sporadic.Schreier.J4SProfileNode
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremB
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremC
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.ZJTheorem
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GW1965RemarkDGroup
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29Helpers
 public import Certificates.Kernel.SporSch.Th.Plane2320
 
 public section

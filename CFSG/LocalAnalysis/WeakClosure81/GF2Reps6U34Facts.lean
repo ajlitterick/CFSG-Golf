@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps6FourFacts
-public import CFSG.Blueprint.Catalog
 import CFSG.LocalAnalysis.WeakClosure81.GF2Reps6U34Wit
 import CFSG.GH74.KGroups.CoverEven
 import CFSG.GH74.Uniqueness.Bender.UnitaryFixed
@@ -12,12 +11,8 @@ public import CFSG.LieType.SeitzGeneration.NonabHeisThreeCore
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.U34InvolutionGenModel
 public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeOrbits
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.GH74.GLS.Classes
 import CFSG.GH74.Statements
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_1_12
 
 public section
 

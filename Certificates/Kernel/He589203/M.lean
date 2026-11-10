@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.LocalQT.Base.SlpGen
 public meta import Certificates.Kernel.He589203.Q
 public import Certificates.Data.DcHeOverV
 meta import Certificates.Kernel.Sporadic.RawGen

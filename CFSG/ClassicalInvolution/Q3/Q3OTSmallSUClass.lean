@@ -6,8 +6,6 @@ public import CFSG.ClassicalInvolution.Q3.Q3OTSmallLift
 public import CFSG.ClassicalInvolution.Q3.Q3OTSmallSU
 public import CFSG.ClassicalInvolution.Q3.Q3OTSmallExc
 public import CFSG.ClassicalInvolution.Q3.Q3NMRows
-import CFSG.ClassicalInvolution.ModelFacts.Orth15TwinStd
-import CFSG.ClassicalInvolution.ModelFacts.ClauseZero
 public import CFSG.ClassicalInvolution.Asc77.AscT7MW
 public import CFSG.ClassicalInvolution.Asc77.SU4Model
 public import CFSG.ClassicalInvolution.Q3.Q3NMOrth
@@ -15,7 +13,6 @@ public import CFSG.ClassicalInvolution.Q3.Q3P21S4
 public import CFSG.ClassicalInvolution.Q3.Q3TIRed
 public import CFSG.ClassicalInvolution.Q3.Q3TY32
 public import CFSG.ClassicalInvolution.Q3.Q3URDict
-public import CFSG.ClassicalInvolution.Q3.Q3URStd
 
 public section
 

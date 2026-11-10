@@ -1,15 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDNbrDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDNbrField
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDNbrRows
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDNbrOrth
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDNbrEsu
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDNbrFix
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDGen
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNSCornerMain
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 
 public section
 

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGIrred937ExcLang
-public import CFSG.LieType.Chevalley.OrdinaryEAlgebraicTorusCartanIndex
-public import CFSG.RankThree.PartOne.KE.CTLang
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcWeylTorusAut
 
 public section

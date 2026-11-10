@@ -1,14 +1,8 @@
 module
 
-public import CFSG.LieType.Universal.Unitary.Basic
-public import CFSG.LieType.Universal.Unitary.Comparison
-public import CFSG.LieType.BorelTits.UnitaryForm
 public import CFSG.LocalAnalysis.StandardType.GGSixAutStructurePSU
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHermitianIsometry
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBUnitaryBCentralizer
 public import CFSG.LieType.Steinberg.CentralExt.SUOddFieldThreeRadical
-public import Mathlib.LinearAlgebra.Determinant
-public import Mathlib.LinearAlgebra.SesquilinearForm.Basic
 public import CFSG.LieType.Steinberg.CentralExt.UnitaryRankOneLast
 
 public section

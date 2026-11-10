@@ -1,8 +1,6 @@
 module
 
 public import Certificates.Data.Foote82OmegaSix
-public import Mathlib.Algebra.Group.End
-public import Mathlib.Logic.Equiv.Basic
 
 public section
 

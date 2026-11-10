@@ -1,18 +1,14 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Eleven.Statements
-public import CFSG.OddTranspositions.PartThree.Eleven.IsomorphismTransport
 public import CFSG.OddTranspositions.PartThree.Eleven.OneOne.Hyp
 public import CFSG.OddTranspositions.PartThree.Eleven.Minus.Pair
 public import CFSG.OddTranspositions.PartThree.Eleven.Minus.Quandle
 public import CFSG.OddTranspositions.PartThree.EightFive.KBarSetup
 public import CFSG.Timmesfeld.Bridge.Asc72WreathConn
 public import CFSG.Timmesfeld.Bridge.OddTranspGenL2
-public import Mathlib.GroupTheory.IsPerfect
-public import Mathlib.Data.Finite.Perm
 import CFSG.OddTranspositions.PartThree.Ten.SetupQ
 import CFSG.OddTranspositions.PartFour.Fourteen.ModelO4Plus
-import TauCeti.Data.Fin.Basic
 public import CFSG.Certificates.CosetTableShort
 import CFSG.CGT.Timmesfeld75.Cfg214Gen
 import CFSG.LargeExtraspecial.S9TIXC

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionSp
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
-public import CFSG.Open.StatedAPI
 
 public section
 

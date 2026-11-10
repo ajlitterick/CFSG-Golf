@@ -2,10 +2,7 @@ module
 
 public import CFSG.LieType.SeitzGeneration.ExtSeitzFamily
 public import CFSG.LieType.SeitzGeneration.ExcCatModels
-public import CFSG.RankThree.PartOne.CTP.SeitzFineD4
-public import CFSG.RankThree.PartOne.SEITZ3.D4Assembly
 public import CFSG.RankThree.PartOne.SEITZ7.D4Final
-public import CFSG.RankThree.PartOne.D4RC.CentN
 public import CFSG.RankThree.PartOne.D4RC.Phi6
 public import CFSG.Goldschmidt.Final
 public import CFSG.Dihedral.FourgroupCycleControl
@@ -30,11 +27,9 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.A3Structure36BAction
 public import CFSG.Quasithin.Background.A3Structure36BBasic
 public import CFSG.Quasithin.Background.A3Structure36BPrime
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 
 public section

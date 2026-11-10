@@ -4,12 +4,8 @@ import all CFSG.LieType.Universal.Unitary.Roots
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2FixedPointOdd
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2GeoSU
 public import CFSG.Timmesfeld.Transvection.ModelSUCore
-public import CFSG.Timmesfeld.Transvection.ModelSUTheta
-public import CFSG.Timmesfeld.Transvection.ModelSUPerp
-public import CFSG.LieType.Universal.Unitary
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.Timmesfeld.RankOne
 
 public section

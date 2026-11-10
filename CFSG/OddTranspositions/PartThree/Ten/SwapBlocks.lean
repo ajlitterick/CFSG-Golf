@@ -3,7 +3,6 @@ module
 public import CFSG.OddTranspositions.PartThree.Ten.WreathEndgame
 import CFSG.OddTranspositions.PartThree.Ten.WreathClass
 public import CFSG.OddTranspositions.PartThree.Ten.SetupQ
-import CFSG.Timmesfeld.Bridge.Asc72Bender
 import CFSG.RankThree.PartOne.FIS.PermFacts
 
 public section

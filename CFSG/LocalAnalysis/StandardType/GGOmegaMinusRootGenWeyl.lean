@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySpCoord
 import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotQ2FieldDataWeyl
 import CFSG.ClassicalGroups.Orthogonal.StatedOmegaElementary
 import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyReflSp
-import Mathlib.Tactic.Group
 import CFSG.ClassicalGroups.Orthogonal.RootGroupFixedCard
 import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcLevi
 import CFSG.ClassicalInvolution.WeakCT.Main

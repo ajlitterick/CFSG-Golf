@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGForkLatticeElt
 public import CFSG.LocalAnalysis.StandardType.GGKGForkLayerGen
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
-public import CFSG.GroupTheory.CentralizerMap
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.pStability
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.I142NLift
 
 public section
 

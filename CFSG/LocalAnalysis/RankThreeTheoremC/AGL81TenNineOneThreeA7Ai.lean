@@ -1,21 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenNineOneThreeWCQLift
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenNineOneThreeA7Inputs
 public import Certificates.Certificate5175
-public import Certificates.Certificate43
-import CFSG.LocalAnalysis.AGLEmbedding.PhaseThreeConfig
-import CFSG.LocalAnalysis.RankThreeTheoremC.D2LocalCGT3
-import CFSG.LocalAnalysis.AGLEmbedding.AscEightSix
-import CFSG.RankThree.PartTwo.KFacts.KSListsProofCard
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81NineOneThreeProof
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81NineEightFourProof
-import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThreeThreeCfg
-import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenNineOneThreeBlock
-import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ASevenBlockAutProof
 import CFSG.RankThree.PartTwo.Sec13.Item133
-import CFSG.ThirdParty.QiuzhenCFSG.Theory.AutAlternating
-import CFSG.LieType.BorelTits.Basic
 public import CFSG.Blueprint.OddStandardExact
 public import CFSG.ClassicalInvolution.Asc77.AscE184Basic
 public import CFSG.ClassicalInvolution.Asc77.AscE184Graph

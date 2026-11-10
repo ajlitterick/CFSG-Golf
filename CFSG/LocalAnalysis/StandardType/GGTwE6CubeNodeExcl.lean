@@ -1,12 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6CubeNodeFinite
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Defs
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Inner
 import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTamePrime
 import CFSG.LocalAnalysis.StandardType.GGTwE6RootKernelCount
-import CFSG.LieType.Chevalley.RootCharacterConjugation
 public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.CrossLin
 import CFSG.HardMathSupport.Solomon.Coordinator.I14_20Alt
 import CFSG.HardMathSupport.Solomon.Coordinator.L3C143AltMain

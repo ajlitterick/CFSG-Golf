@@ -5,7 +5,6 @@ public import CFSG.Quasithin.MS93.S4A442P1
 public import CFSG.Quasithin.MS93.S45FF
 public import CFSG.Quasithin.MS93.S4A44Nabla
 public import CFSG.Quasithin.MS93.ASIrr
-public import CFSG.Quasithin.MS93.ASGroup
 public import CFSG.Quasithin.Background.HConj
 public import CFSG.Quasithin.Background.SmithB51SL3A
 public import CFSG.Quasithin.MS93.S4A431G

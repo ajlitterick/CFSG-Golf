@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Assembly.OrderReductions.CoprimeFixedSubgroup
 public import CFSG.Assembly.OrderReductions.PrimePart
 public import CFSG.Assembly.OrderReductions.OddInversion
 

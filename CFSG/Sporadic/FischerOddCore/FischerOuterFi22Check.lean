@@ -1,12 +1,9 @@
 module
 
-public import CFSG.Sporadic.FischerOddCore.FischerOuterFi22Data
 public import CFSG.Sporadic.FischerOddCore.Fi24R2KCheck
-public import CFSG.Sporadic.FischerOddCore.Fi22Cent
 public meta import CFSG.Sporadic.FischerOddCore.FischerOuterFi22Data
 public meta import CFSG.Sporadic.FischerOddCore.Fi24R2KCheck
 public meta import CFSG.Sporadic.FischerOddCore.Fi22Cent
-public import CFSG.Sporadic.FischerOddCore.FischerOuterFi22CheckInputs
 public import Certificates.Certificate2079
 
 public section

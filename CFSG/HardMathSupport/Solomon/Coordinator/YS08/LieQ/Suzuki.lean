@@ -4,8 +4,6 @@ public import CFSG.HardMathSupport.Solomon.Coordinator.YS08.LieQ.RankOne
 public import CFSG.Blueprint.Catalog
 import CFSG.Goldschmidt.Steps.G3aBorel
 import CFSG.StronglyEmbedded.Catalog.Suzuki
-import CFSG.Models.BenderSuzuki
-import CFSG.StronglyEmbedded.MatrixGroups.SzModel
 import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructureTransport
 import CFSG.Goldschmidt.Statements
 import CFSG.Goldschmidt.StatementsH
@@ -19,7 +17,6 @@ import CFSG.LocalAnalysis.LargeEvenClassification.SmallCfourFullObstruction
 import CFSG.LocalAnalysis.LargeEvenClassification.SmallCfourProperSubgroups
 import CFSG.LocalAnalysis.RankTwoShapes.AlperinFusion
 import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 import CFSG.Walter.Bender1970.S3.Setup
 import CFSG.Walter.JRFacts
 

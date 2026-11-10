@@ -2,8 +2,6 @@ module
 
 public import CFSG.Milestones.ASVolI.I1
 public import CFSG.Quasithin.SteinbergCBI16
-public import CFSG.ClassicalGroups.Orthogonal.Matrix
-public import CFSG.GroupTheory.WeirSylow.OrthogonalOrders
 
 public section
 

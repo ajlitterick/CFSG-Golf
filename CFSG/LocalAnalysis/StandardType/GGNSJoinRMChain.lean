@@ -1,17 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinRMDefs
-public import CFSG.LocalAnalysis.StandardType.GGTBFixDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylBranchOfInputs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveCaseZeroOfInputs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveReflMaxStep6
 import CFSG.LocalAnalysis.StandardType.GGSecFiveCoxProdHolds
 import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoAux
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelTypeAAssembly
-import CFSG.LocalAnalysis.StandardType.GGSecFiveRootRefl
-import CFSG.LocalAnalysis.StandardType.GGForkJrPumpDichotomy
-import CFSG.LocalAnalysis.StandardType.GGSecFiveCR3OfPump
-import CFSG.LocalAnalysis.StandardType.GGSecFiveCROfInputs
 
 public section
 

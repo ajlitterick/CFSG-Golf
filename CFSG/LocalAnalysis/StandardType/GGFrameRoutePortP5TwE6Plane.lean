@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortDefs
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP5StdSub
 public import CFSG.LocalAnalysis.StandardType.GGNTPlaneHyperplane
 

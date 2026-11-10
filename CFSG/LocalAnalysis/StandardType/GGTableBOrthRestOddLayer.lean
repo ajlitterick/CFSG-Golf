@@ -1,13 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestOddCount
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthogonalEndNode
 public import CFSG.RankThree.PartOne.KC.OrthogonalDerivedInLayer
-public import CFSG.RankThree.PartOne.KC.OrthogonalFixedDerived
-public import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotMinusTenBasic
 public import CFSG.RankThree.PartOne.S11d.OrthCyclic
-public import CFSG.GroupTheory.WeirSylow.OrthogonalModels
-public import CFSG.ClassicalGroups.Orthogonal.Simple
 public import CFSG.RankThree.PartOne.KC.OrthogonalInnerPlane
 public import CFSG.RankThree.PartOne.S11d.LieCentralizerBlock
 public import CFSG.RankThree.PartOne.S11d.LieCentralizerOrth

@@ -4,8 +4,6 @@ public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSL
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.BigAnyTorus
 
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TypeASuConj
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUStd
-import CFSG.RankThree.Classical2.SLnRootPermutingFixedGroups
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerE8Five
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerResiduals
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwE6
@@ -54,7 +52,6 @@ public import CFSG.RankThree.PartTwo.KFacts.KS14SzLie
 public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.InnExcSuNHom
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.OuterField
 

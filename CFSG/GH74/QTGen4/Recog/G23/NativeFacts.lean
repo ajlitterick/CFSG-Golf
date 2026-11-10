@@ -2,7 +2,6 @@ module
 
 public import CFSG.GH74.QTGen4.Recog.G23.Native
 public import Certificates.Certificate320002
-public import CFSG.RankThree.PartTwo.Sec4.T444.Item434G23Words
 public meta import CFSG.RankThree.PartTwo.Sec4.T444.Item434G23Check
 public meta import CFSG.RankThree.PartTwo.Sec4.T444.Item434G23Words
 public meta import CFSG.GH74.QTGen4.Recog.G23.Native

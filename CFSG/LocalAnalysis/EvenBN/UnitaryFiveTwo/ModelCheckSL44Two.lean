@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenBN.UnitaryFiveTwo.ModelCheckSL44
 import all CFSG.Fischer.F4
-public import Mathlib.Tactic.ENatToNat
 
 public section
 

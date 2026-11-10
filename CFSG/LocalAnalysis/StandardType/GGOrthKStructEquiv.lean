@@ -3,7 +3,6 @@ module
 import CFSG.LocalAnalysis.StandardType.GGOrthKStructEquivAux
 
 public import CFSG.LocalAnalysis.StandardType.GGOrthKStructInduces
-public import CFSG.LocalAnalysis.StandardType.GGHalfTorusFrame
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinSignedPermGen
 
 public section

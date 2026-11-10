@@ -6,19 +6,10 @@ public import Certificates.Kernel.E27J3Syl.KFP
 public import Certificates.Kernel.E27J3Syl.KFU
 public import CFSG.Certificates.Kernel.Spor.HKeyUSound
 public import Certificates.Kernel.J3Ref.Faith
-public import Certificates.Data.Kernel.Spor.HSortB
-public import CFSG.Certificates.Kernel.Spor.HKeyBSound
 public import Certificates.Kernel.E27J3Syl.KC
 public import Certificates.Kernel.E27J3Syl.KE
-public import Certificates.Kernel.Sporadic.OddCore.PEnumGlue
 public import Certificates.Kernel.Sporadic.OddCore.MulHGlue
 public import CFSG.Certificates.Kernel.Spor.MulHCaySound
-public import CFSG.Certificates.Kernel.Misc.HexFlatSound
-import Mathlib.Tactic.IntervalCases
-import CFSG.Certificates.Kernel.Common.Harness
-import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import CFSG.Certificates.Kernel.BfsPinAlg
-import CFSG.Certificates.Kernel.Spor.PcompFacts
 
 public section
 

@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotHR4
-public import CFSG.LieType.Chevalley.GraphFixedF4Canonical
-public import CFSG.LieType.Chevalley.E6SecondGraphFixedSubgroup
-public import CFSG.LieType.Chevalley.TwistedE6NormalForm
-public import CFSG.LieType.Chevalley.TwistedE6NormalFormActors
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeDiagTwisted
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeDiag
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerResiduals

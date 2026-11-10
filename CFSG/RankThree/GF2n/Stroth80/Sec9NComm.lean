@@ -1,16 +1,7 @@
 module
 
-public import CFSG.RankThree.GF2n.Stroth80.Sec9Stmt
 public import CFSG.RankThree.GF2n.Stroth80.Sec91b
-public import CFSG.Open.StatedDefs
-public import CFSG.RankThree.GF2n.Stroth80.ClassicalQuasisimple
 public import CFSG.RankThree.GF2n.Stroth80.Sec41iii
-public import CFSG.RankThree.GF2n.Stroth80.Sec311Stmt
-public import Mathlib.Algebra.Group.Prod
-public import Mathlib.Algebra.Group.Subgroup.Basic
-public import Mathlib.Algebra.Group.Subgroup.Ker
-public import Mathlib.GroupTheory.Subgroup.Center
-public import Mathlib.GroupTheory.Subgroup.Simple
 public import CFSG.ClassicalGroups.Orthogonal.RootGroupSwap
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalFourSplitQuotient
@@ -29,7 +20,6 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.G11Stmts
 public import CFSG.RankThree.GF2n.Stroth80.FrobClause
 public import CFSG.RankThree.GF2n.Stroth80.Sec12Stmt
@@ -46,7 +36,6 @@ public import CFSG.RankThree.GF2n.Tim79Mod
 public import CFSG.RankThree.PartOne.KC.OrthogonalAutSemilinearBridge
 public import CFSG.SignalizerFunctorTheorem.McBride.Prelim.Basic
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24

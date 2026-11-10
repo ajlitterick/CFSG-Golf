@@ -1,13 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpPlaneFrameDefs
-import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpPlaneBlocks
-import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniBlocks
 import CFSG.LocalAnalysis.StandardType.GGQTwoSpSmallBlocks
 import CFSG.ClassicalInvolution.Models.SymplecticPairs.EmbedCommute
-public import CFSG.ClassicalInvolution.Models.SymplecticPairs.ShortRoot
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySpCoord
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotLeviFact
 
 public section

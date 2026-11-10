@@ -4,12 +4,7 @@ import Lean
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSLieCover
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoTableB
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSLieEsuAux
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSLieEsuAux2
-import CFSG.RankThree.PartOne.S15K.CentralCover
-import CFSG.LieType.Steinberg.CentralExt.SUThree
 import CFSG.LocalAnalysis.UniquenessCase.Lie.Cover
 
 public section

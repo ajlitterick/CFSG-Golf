@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveBNbrType
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniNbrCell
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniJLabel
 

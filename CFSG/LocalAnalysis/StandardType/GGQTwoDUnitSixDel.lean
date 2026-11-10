@@ -4,10 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitSixBase
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitAnchor
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitDeleteStdA
 import CFSG.LocalAnalysis.StandardType.GGQTwoDRMLin
-import CFSG.LocalAnalysis.StandardType.GGNbrBalanceBasic
-import CFSG.Foundations.QuasisimpleMulEquiv
-import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
-import CFSG.LocalAnalysis.StandardType.GGQTwoDTransport
 
 public section
 

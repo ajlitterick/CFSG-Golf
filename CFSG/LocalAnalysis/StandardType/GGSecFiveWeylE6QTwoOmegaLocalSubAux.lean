@@ -1,20 +1,12 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.HSubTCompD4
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.HSubTOmGaps
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.HSubTResGU
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.HSubTFinZ
-public import CFSG.LocalAnalysis.GLTheoremA.CatB.Bridges
-public import CFSG.LocalAnalysis.QuasithinUnique.SQTK.UnitaryTauCeti
-public import CFSG.LocalAnalysis.StandardType.GGReverseMarkingRaw
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.KS.ExactD
 public import CFSG.GroupTheory.IsComponentOfMap
 public import CFSG.GroupTheory.CentralQuotientCoprime
-public import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Export
 public import CFSG.HardMathSupport.Dickson.Bal207.CoreFreeInner
-public import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
 public import CFSG.Quasithin.Background.F2Inner
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Basic

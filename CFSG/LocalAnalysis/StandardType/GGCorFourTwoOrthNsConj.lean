@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOrthNsTorus
 public import CFSG.LocalAnalysis.SeitzReduction.HypothesisOneClassicalOrthogonalShearCModel
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelOmMvBasic
-public import CFSG.RankThree.OrthogonalInvolutions.Witt
 
 public section
 

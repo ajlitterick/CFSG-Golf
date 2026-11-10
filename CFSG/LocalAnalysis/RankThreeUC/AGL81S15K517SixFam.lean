@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K517SixCover
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsPair
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanParabThreeSL
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanParabThreeSp
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanParabThreeSpinMinus
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.MsideParabolicEscape.ChevGenNode
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.S3AmalgamBound.RankTwoCoverModels
 public import CFSG.Certificates.CentralKernel
@@ -41,9 +38,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSpSuzu
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSpWedge
 public import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherEvenOrthogonalModel
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X7bPairs
 public import CFSG.LocalAnalysis.QuasithinUnique.SQTK.TypeB2
 public import CFSG.LocalAnalysis.QuasithinUnique.SQTK.Unitary
@@ -60,10 +54,6 @@ public import CFSG.Monster.AxisCount.HSIdentRec6
 public import CFSG.Monster.AxisCount.HSIdentRec7
 public import CFSG.Monster.AxisCount.HSIdentSmall
 public import CFSG.Open.SplitBNPair
-public import CFSG.Quasithin.Background.B4ModelsAction
-public import CFSG.Quasithin.Background.B4ModelsIso
-public import CFSG.Quasithin.Background.C2Inputs
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import CFSG.Quasithin.H13.StatementsL1
 public import CFSG.Quasithin.Vol2.Ch10StatementsE
 public import CFSG.Quasithin.Vol2.Ch10StatementsInputs
@@ -110,7 +100,6 @@ public import CFSG.Sporadic.Schreier.RuZClass
 public import CFSG.YGroups.DCE.B433Check
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 
 public section

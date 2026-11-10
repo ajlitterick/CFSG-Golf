@@ -3,13 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGResTwoCells
 import CFSG.LocalAnalysis.StandardType.GGResTwE6PlusIOne
 import CFSG.LocalAnalysis.StandardType.GGResExcSplitExactTwoL
-import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1CenterE6
-import CFSG.LocalAnalysis.StandardType.GGResJOpenLabel
-import CFSG.LocalAnalysis.StandardType.GGTCJHolds
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-import CFSG.LocalAnalysis.StandardType.GGTBE6
-import CFSG.LocalAnalysis.StandardType.GGTBTorLiftRowsHolds
-import CFSG.LocalAnalysis.StandardType.GGTBTorLiftRowsCls
 
 public section
 

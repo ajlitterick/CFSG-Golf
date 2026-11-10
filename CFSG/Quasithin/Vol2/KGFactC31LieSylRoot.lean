@@ -1,8 +1,6 @@
 module
 
 public import Certificates.Certificate617001
-public import Certificates.Data.LieSylRootWt
-public import CFSG.Blueprint.ChevalleyRootsInputs
 public import CFSG.LieType.Chevalley.LangRootArithmeticDet
 
 public section

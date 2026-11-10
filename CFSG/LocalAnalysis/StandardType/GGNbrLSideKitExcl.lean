@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLSideDefs
-public import CFSG.LocalAnalysis.StandardType.MarkingDict
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.YS1011LabUniq
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafInputs
-import CFSG.LocalAnalysis.SeitzReduction.CrossChar
-import CFSG.LocalAnalysis.ComponentInitial.LinearCoverModel
 import all CFSG.LocalAnalysis.GLTheoremA.CatA.YS1011LabUniq
 public import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma32
 public import CFSG.HardMathSupport.Solomon.LocalBalance.PartIInputs

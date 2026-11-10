@@ -1,29 +1,14 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.UniversalCoverMonster.AmalgamAseg
-public import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.UniversalCoverMonster.AmalgamCells
 public import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.UniversalCoverMonster.AmalgamCellsKT
 public import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.UniversalCoverMonster.AmalgamPerfect
 public import CFSG.Monster.GMS.MonsterUniquenessFinal
-public import CFSG.Monster.GMS.TwoBabyUniqueOf
-public import CFSG.Monster.GMS.ASegTitsTri
-public import CFSG.Monster.GMS.ASegConnH87
-public import CFSG.Monster.GMS.TwoAGraphIso
-public import CFSG.Monster.GMS.ExistenceBridge
-public import CFSG.Monster.Existence.AssemblyHS
-public import CFSG.Monster.Existence.BabyOrder
 public import CFSG.Milestones.CL_LIT_Monster_existence_Griess_Conway
-public import CFSG.Milestones.CL_LIT_Stroth_Leon_Sims_Baby_Monster_recognition
-public import CFSG.Sporadic.Co1
-public import CFSG.Sporadic.Co2
-public import CFSG.Sporadic.B
-public import CFSG.LieType.Catalog.Realization
-public import CFSG.LargeExtraspecial.A2ModOrdCard
 public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly
 public import CFSG.Monster.GMS.S4CohB

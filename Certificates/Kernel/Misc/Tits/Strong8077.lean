@@ -3,24 +3,7 @@ module
 
 public import Certificates.Kernel.Misc.Tits.Strong8077Base
 
-public import CFSG.Quasithin.Recognition.CertTitsBase
-public import CFSG.Quasithin.Recognition.CertPermSimple
-public import CFSG.Quasithin.Recognition.CertDataTitsSimple
-public import Certificates.Data.CFSGNative.YGroups.ExactCheck
-public import Certificates.Data.CFSGNative.Schreier.Check
-public import CFSG.Quasithin.Recognition.CertTitsSimpleInputs
 public import Certificates.Certificate8072
-public import Certificates.Kernel.Misc.Tits.Prim8077
-public import Certificates.Kernel.TitsW.Alg
-public import Certificates.Kernel.Sporadic.Tits.GroupT2264
-public import CFSG.Certificates.Kernel.Spor.StrongOfSound
-public import CFSG.Certificates.Kernel.Spor.Co2ChainSound
-public import CFSG.Certificates.Kernel.Spor.DecLinesRead
-public import CFSG.Certificates.Kernel.YModel.Sound
-public import Certificates.Kernel.YModel.Basic
-public import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import Certificates.Certificate8071Base
 
 public section

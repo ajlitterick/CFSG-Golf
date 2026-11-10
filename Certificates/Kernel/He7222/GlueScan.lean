@@ -2,9 +2,7 @@ module
 
 public import Certificates.Kernel.He7222.GlueCls
 public import Certificates.Kernel.He7222.ConjK
-public import CFSG.Quasithin.Vol2.KGFactC31Orb
 public import CFSG.Certificates.Kernel.He7222.FixSound
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.OrbRow.LevelSound
 
 public section

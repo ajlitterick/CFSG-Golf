@@ -1,9 +1,7 @@
 module
 
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.Tab
 public import CFSG.Certificates.Kernel.Bounds.U62Alt.Data.C_0
-public import CFSG.Certificates.Kernel.Common.LceS
 public import CFSG.Certificates.Kernel.Bounds.U62Alt.Rels
 public import Certificates.Data.Kernel.Multipliers.LabZ
 import CFSG.Certificates.Kernel.Common.Repo

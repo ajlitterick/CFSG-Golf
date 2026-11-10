@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Sporadic.Fi22.B9551Chk
 public import Certificates.Kernel.Sporadic.Fi22.FiveK
 public import Certificates.Kernel.Sporadic.Fi22.N3153Final
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

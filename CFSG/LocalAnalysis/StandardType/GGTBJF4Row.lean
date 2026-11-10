@@ -2,12 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJF4Torus
 public import CFSG.LocalAnalysis.StandardType.GGTBJRowGeneric
-public import CFSG.LocalAnalysis.StandardType.GGTBRowDefs
 public import CFSG.LocalAnalysis.StandardType.GGTBRowF4Parity
 public import CFSG.LocalAnalysis.StandardType.GGTBRowF4FrameAux
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrTableBPSL
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLCx
-public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpLattice
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitClassical
 
 public section

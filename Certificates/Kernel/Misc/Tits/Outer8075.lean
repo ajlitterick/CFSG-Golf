@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.Misc.TitsOuter
 public import CFSG.Certificates.Kernel.YModel.TextGenS
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Tits.Pi7092
 public import CFSG.Quasithin.Recognition.CertDataTitsSimple
 meta import CFSG.Quasithin.Recognition.CertDataTitsSimple

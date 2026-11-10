@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.BarOutInner
 public import CFSG.GroupTheory.FixedPointQuotientCard
 import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma43One
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

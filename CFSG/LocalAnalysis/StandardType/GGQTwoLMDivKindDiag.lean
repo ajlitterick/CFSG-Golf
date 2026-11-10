@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ClassicalInvolution.Phan.Center
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosDefs
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosBlockAux3
 

@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.HS3850.Fus
-public import Certificates.Data.Kernel.Spor.Chain
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.HSFixNsData
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.CosetTableShort

@@ -1,15 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.AGL81TheoremCD.Section15.O98Defs
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section15.O97Defs
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineOne
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15Ctx
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTen
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section15.O98Quot
 import CFSG.LocalAnalysis.AGL81TheoremCD.CStarGenRank
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineEightB
-import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineSevenA
-import CFSG.LocalAnalysis.AGLEmbedding.CatalogComponent
 import CFSG.GroupTheory.ElementaryAbelianTransport
 import CFSG.LocalAnalysis.SectionRank.AmbientRank
 import CFSG.GroupTheory.SteinbergBKOddNoncyclicRankTwo

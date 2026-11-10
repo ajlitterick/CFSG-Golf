@@ -1,13 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentStepFiveFive
-public import CFSG.GroupTheory.HallHigmanPiCore
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentStepFiveOne
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentStepFiveTwo
 import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.OrdinaryProofs.PSolvableClosure
 import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.OrdinaryProofs.PSolvableNormalCyclic
-import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.OrdinaryProofs.QuasisimpleSolvableNormal
 import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.InputsMisc5
 import CFSG.Adapters.QiuzhenLegacy.FeitThompson.Gorenstein.RelativeZJ
 import CFSG.Certificates.CentralKernel

@@ -1,15 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTPNDefs
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseNoBL5Aut
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL4546Defs
 import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 import CFSG.LocalAnalysis.StandardType.GGTwistedF4DiagRaw
 import CFSG.LocalAnalysis.StandardType.GGExclNoIso
-import CFSG.LocalAnalysis.StandardType.GGAssemblyFiveDefs
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45ConfigIso
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitMarking
-public import CFSG.LocalAnalysis.StandardType.GGNbrPrimeFieldExcl
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentJLevel
 
 public section

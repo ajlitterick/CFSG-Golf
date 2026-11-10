@@ -1,7 +1,5 @@
 module
 
-public import CFSG.Assembly.Defs
-public import CFSG.LocalAnalysis.StandardType.GGTriD4LineModel
 public import CFSG.LocalAnalysis.StandardType.GGTriD4LineLocalANormal
 import CFSG.Open.StatedCenterThree
 

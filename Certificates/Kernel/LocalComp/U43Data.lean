@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.LocalComp.U43Binds
 public import Certificates.Kernel.LocalComp.Child3Gen
 meta import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Child3SelU43Data
-import CFSG.Certificates.Kernel.Common.Harness
 meta import CFSG.Certificates.CosetTableShort
 meta import CFSG.GroupTheory.LocalCores.Fitting
 meta import CFSG.LieType.Multipliers.ProductKernel

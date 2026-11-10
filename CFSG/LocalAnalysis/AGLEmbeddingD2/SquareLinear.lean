@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.SquareGeneric
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.CyclicSylowGL
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.ParabRealThreeModels
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanParabPrimeRankOne
 import CFSG.RankThree.PartTwo.KFacts.K72Centralizer
 public import CFSG.LinearAlgebra.LinearGroups.CoordinateData
 public import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeFamilies
@@ -15,8 +14,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinear
 public import CFSG.LocalAnalysis.ComponentInitial.FieldNineAlternatingSix
 public import CFSG.LocalAnalysis.ComponentInitial.SmallLinearIsomorphisms
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.FamilyBasic
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.GroupTheory.HallHigmanPiCore
 import CFSG.LieType.Chevalley.LangRootArithmetic
 import CFSG.LocalAnalysis.ComponentInitial.SuzukiModelSchreier

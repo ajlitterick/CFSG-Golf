@@ -1,23 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section18.EighteenFourBarSub
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section18.EighteenFourStruct
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenSixtyEight
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.TwelveShort
-public import CFSG.Quasithin.Background.E1Solv
-public import CFSG.Quasithin.Background.E1Invariance
-public import CFSG.LocalAnalysis.UniquenessCase.UCFront08
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Lemma5_2
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.TwelveEleven
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section19.Ctx19One
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.PartOne
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.NineNineteenA5
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.OppThree
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven3Ctx
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSixtyOne
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Thirteen2
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront09h
-public import CFSG.Quasithin.Background.E3Weak
 public import CFSG.Quasithin.EmptyFaithful.S1421Q9B
 public import CFSG.Quasithin.EmptyFaithful.S14620A
 public import CFSG.GroupTheory.AlternatingFiveSectionAut

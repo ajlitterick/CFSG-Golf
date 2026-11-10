@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.Algebra.Group.Subgroup.Map
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoFi22.DS81.RouteP.F11.Rigid
 
 public section

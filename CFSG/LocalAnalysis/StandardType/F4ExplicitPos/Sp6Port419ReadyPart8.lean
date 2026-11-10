@@ -1,15 +1,9 @@
 module
 
-public import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
-public import CFSG.LieType.Steinberg.Adjoint.Presentation
-public import CFSG.LieType.TitsSimplicity.Core
 public import CFSG.LocalAnalysis.StandardType.GGLieBridgeHom
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.WeylCharStab
 public import CFSG.HardMathSupport.Timmesfeld.Torality.DescentCongruence
-public import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfMaxDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfMaxToral
-public import CFSG.LocalAnalysis.StandardType.GGSixPositionDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixTCKSpace
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.Sp6Port419ReadyPart4
 

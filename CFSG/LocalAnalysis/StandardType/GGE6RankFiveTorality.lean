@@ -1,11 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfE6Toral
 public import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourToral
 public import CFSG.LieType.AlgebraicGroups.FiniteSubgroupConjugacyExtension
 public import CFSG.LocalAnalysis.StandardType.GGE6RankFivePrimeField
 import CFSG.LocalAnalysis.StandardType.GGFinModelEps
-import CFSG.LieType.Chevalley.WeylNormalizerQuotient
 
 public section
 

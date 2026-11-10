@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ElementaryAbelian
 import CFSG.GroupTheory.ElemAbelianClosure
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.OffenderGroup
 

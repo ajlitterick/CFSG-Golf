@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalOpen
 public import CFSG.StandardComponent.AschbacherSeitz.Main
 public import CFSG.StandardComponent.AschbacherSeitz.L3NF
-public import CFSG.StandardComponent.AschbacherSeitz.Cfg76NF
 
 public noncomputable section
 

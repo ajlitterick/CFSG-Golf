@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Monster.B.Dyadic.Max2K
-public import Certificates.Data.CFSGNative.CTIB.Data
 public import Certificates.Data.CFSGNative.CTIB.Lift
 public import Certificates.Data.Kernel.BabyMonster.CTIB.CentWords
 

@@ -5,7 +5,6 @@ public import CFSG.Quasithin.MS93.MSPLeviQ
 public import CFSG.Quasithin.Vol2.Ch5Sec1L34ParModel
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22d
 import CFSG.Quasithin.Vol2.Ch4Sec3L436Sp4Par
-import CFSG.LocalAnalysis.ComponentInitial.SmallLinearIsomorphisms
 import CFSG.GroupTheory.AlternatingFive.SylowTwo
 public import CFSG.CGT.Timmesfeld75.Cfg214Gen
 public import CFSG.Certificates.Kernel.LocalCompTits.Span
@@ -13,12 +12,7 @@ public import CFSG.LargeExtraspecial.S9TIXC
 public import CFSG.LieType.Ree.LargeReeEightTorus
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A134Final
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A3Native38
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeThree
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.Statements
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Equivariance
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 public import CFSG.LocalAnalysis.UniquenessCase.UC22Bridge
 public import CFSG.LocalAnalysis.WeakClosure81.EightThirteenPGapF4Data
 public import CFSG.LocalAnalysis.WeakClosure81.EightThirteenPShape
@@ -29,7 +23,6 @@ public import CFSG.Quasithin.Background.C1GNA7
 public import CFSG.Quasithin.Background.E3OffenderB
 public import CFSG.Quasithin.Background.E6TorusFacts
 public import CFSG.Quasithin.Background.InternalSecIso
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import CFSG.Quasithin.H13.U4ParSp
 public import CFSG.Quasithin.Vol2.Ch10SecKRefA312
 public import CFSG.Quasithin.Vol2.Ch11SecA02NatFix
@@ -58,7 +51,6 @@ public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
 public import CFSG.Sporadic.Schreier.M11
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

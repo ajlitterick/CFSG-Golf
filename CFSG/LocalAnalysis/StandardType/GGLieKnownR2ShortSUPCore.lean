@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortSUNorm
 public import CFSG.LocalAnalysis.StandardType.GGRootNormInner
-public import CFSG.Open.LocalVocabulary
 
 public section
 

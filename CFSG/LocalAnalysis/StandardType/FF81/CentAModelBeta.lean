@@ -10,8 +10,6 @@ public import CFSG.LieType.Universal.Spin.Roots
 public import CFSG.LieType.Universal.Unitary
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotLeviFactPiece
 public import CFSG.Open.QuasithinDefs
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.Assembly.QuasithinDefs
 import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 import CFSG.LieType.Chevalley.C2E6StandardFixedData
@@ -38,15 +36,10 @@ import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotSetup
 import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 import CFSG.Quasithin.Background.A3Components
-import CFSG.Quasithin.Background.A3ComponentsAmbient
 import CFSG.Quasithin.Background.G11Stmts
 import CFSG.RankThree.PartOne.KC.OrthogonalAutSemilinearBridge
-import CFSG.Sporadic.J4.Simple
 import CFSG.Sporadic.J4Base
 import CFSG.Sporadic.Mathieu.M24
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 import CFSG.Walter.JRFacts
 
 public section

@@ -2,11 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosDefs
 import CFSG.LocalAnalysis.StandardType.GGSpJoinReflPairing
-import CFSG.LocalAnalysis.StandardType.GGSpJoinReflAlgebra
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelTypeAAssembly
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
-import CFSG.LocalAnalysis.StandardType.GGTableBTransport
 
 public section
 

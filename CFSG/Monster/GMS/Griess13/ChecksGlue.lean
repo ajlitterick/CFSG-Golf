@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Monster.GMS.Griess13.Checks
-public import CFSG.Monster.GMS.Griess13.ChecksGlueInputs
 public import Certificates.Certificate10033
 public meta import CFSG.Monster.GMS.Griess13.Checks
 public meta import Mathlib

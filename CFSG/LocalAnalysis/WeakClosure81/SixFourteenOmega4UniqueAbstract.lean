@@ -1,11 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.WeakClosure81.SixFourteenOmega4TransvectionUnique
 public import CFSG.LocalAnalysis.WeakClosure81.SixFourteenN3MovedContradiction
 public import CFSG.Quasithin.Background.Harris.CaseClassificationAndDescent.TwoComp.Omega4Plus
-public import CFSG.Quasithin.Background.Harris.CaseClassificationAndDescent.TwoComp.Defs
 public import CFSG.Quasithin.Background.B4L3Coord
-public import CFSG.Quasithin.Background.RealizesFaithful
 public import CFSG.Quasithin.Background.Harris.CaseClassificationAndDescent.TwoComp.Surv14
 public import CFSG.Quasithin.Vol2.Ch9H11Holds
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalAS76aProofLeviFields

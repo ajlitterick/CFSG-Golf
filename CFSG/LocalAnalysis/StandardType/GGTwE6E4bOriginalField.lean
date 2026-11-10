@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6E4bOriginalActorLift
-public import CFSG.LocalAnalysis.StandardType.GGLieM6cDescent
-public import CFSG.LocalAnalysis.StandardType.GGFinModelRat
-public import CFSG.LieType.Chevalley.LangFrobeniusFixedDerived
 
 public noncomputable section
 

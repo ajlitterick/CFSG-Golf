@@ -1,13 +1,8 @@
 module
 
-public import CFSG.Quasithin.Background.HStandard
-public import CFSG.Open.StatedDefs
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section18.EighteenTenCommutant
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22d
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P2121d
-public import CFSG.LocalAnalysis.PreuniquenessRankFour.Nongeneration
-public import CFSG.LocalAnalysis.SectionRank.SubgroupRank
-public import CFSG.LocalAnalysis.SectionRank.TwoGenerators
 public import CFSG.GroupTheory.PRankBound
 public import CFSG.LinearAlgebra.MatrixPlanes
 public import CFSG.Adapters.ClassicalCatalogLinearUnitary

@@ -4,7 +4,6 @@ public import CFSG.Certificates.Kernel.SporLatOmRun
 public import CFSG.Certificates.Kernel.SporLatOrbSound
 public import Certificates.Data.Kernel.SporLatOrbP
 import CFSG.Quasithin.EmptyFaithful.GoldschmidtThreeDLocKer
-import Mathlib.Data.List.Sort
 
 public section
 

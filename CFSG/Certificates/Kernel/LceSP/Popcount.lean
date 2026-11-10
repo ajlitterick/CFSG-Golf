@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Certificates.Kernel.LceSP.Base
-public import Mathlib.Algebra.BigOperators.Group.Finset.Basic
 import Mathlib.Algebra.BigOperators.Ring.Finset
 import Mathlib.Tactic.Ring
 import Mathlib.Tactic.Positivity

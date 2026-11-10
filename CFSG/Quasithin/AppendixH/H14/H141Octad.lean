@@ -1,13 +1,9 @@
 module
 
-public import Mathlib
-public import CFSG.Milestones.ASVolI.H1
-public import CFSG.Quasithin.AppendixH.H14.Vocab
 public import CFSG.Quasithin.AppendixH.H14.H142Conj
 public import CFSG.Quasithin.AppendixH.H14.H142Group
 public import CFSG.Quasithin.AppendixH.Common.OctadTwoCore
 public import CFSG.Quasithin.AppendixH.Common.OctadCentralizer
-public import CFSG.Quasithin.AppendixH.Common.OctadOrbit
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.SubnormalCore
 public import CFSG.Quasithin.Background.H16TwoM22
 

@@ -1,18 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResLeaves
-public import CFSG.LocalAnalysis.StandardType.GGResKnownGroup
-public import CFSG.LocalAnalysis.StandardType.GGResSideDatumDefs
-public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeDefs
-public import CFSG.LocalAnalysis.StandardType.GGResCentBoundNbr
-public import CFSG.LocalAnalysis.StandardType.GGTBFixDefs
-public import CFSG.LocalAnalysis.StandardType.GGTBFixNbrDefs
-public import CFSG.LocalAnalysis.StandardType.GGTBXPlumb
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelProof
-public import CFSG.LocalAnalysis.StandardType.GGE6DepPerpDefs
 public import CFSG.LocalAnalysis.StandardType.GGResXDatumARank
-public import CFSG.LocalAnalysis.StandardType.GGResHdRoNarrowDefs
 public import CFSG.LocalAnalysis.StandardType.GGRowKSide
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeDepTwoK
 

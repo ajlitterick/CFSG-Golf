@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.RouteD.TWED6Rec
 public import CFSG.ClassicalInvolution.RouteD.TWEB6Scalar
-public import CFSG.ClassicalInvolution.RouteD.TWEB6Sign
 
 public section
 

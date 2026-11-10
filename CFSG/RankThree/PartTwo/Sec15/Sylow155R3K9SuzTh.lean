@@ -3,25 +3,9 @@ module
 public import CFSG.RankThree.PartTwo.Sec15.Sylow155R3K9CritJ2
 import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabSuzA
 import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabSuzB
-import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabSuzFuse
-import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabThCensus
 import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabThShapeZ
-import CFSG.HardMathSupport.Dickson.Sec6.Up34SporAux.ThThree
-import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.SuzThree
-import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThThreeClose
-import CFSG.RankThree.PartOne.SPOR.Outer
 import CFSG.RankThree.PartTwo.Sec4.RonanK429RowHComp
 import CFSG.RankThree.PartTwo.Sec4.RonanK432RowSporThCent
-import CFSG.Sporadic.Bridge.SuzSurj
-import CFSG.Sporadic.Bridge.ThSurj
-import CFSG.Sporadic.SuzOddCore.Outer
-import CFSG.Sporadic.SuzOddCore.Perms
-import CFSG.Sporadic.SuzOddCore.SmallModel
-import CFSG.Sporadic.Th
-import CFSG.Sporadic.Th.Setup
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
-public import CFSG.Certificates.CosetTableCompactColumns
 public import CFSG.ClassicalGroups.Symplectic.Simple
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LieType.Chevalley.LangRootArithmetic
@@ -42,10 +26,8 @@ public import CFSG.RankThree.PartTwo.Sec4.Item47Statement
 public import CFSG.RankThree.PartTwo.Sec4.LThreePiItem411
 public import CFSG.RankThree.PartTwo.Sec4.ProjSLEquiv
 public import CFSG.RankThree.PartTwo.Sec8.Statements
-public import CFSG.Sporadic.Presentation.Common
 public import CFSG.Sporadic.Presentation.ThBase
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import CFSG.GH74.GLS.Balance.SolvAPIDefs
 import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabThCentU
 import CFSG.Mathlib.LinearAlgebra.BilinForm.Determinant
@@ -58,7 +40,6 @@ import CFSG.RankThree.PartTwo.Sec20.OneSteps
 import CFSG.RankThree.PartTwo.Sec21.Item211ProofListOf
 import CFSG.RankThree.PartTwo.Sec4.Item41NarrowGriess
 import CFSG.RankThree.PartTwo.Sec4.RonanK432Transport
-import CFSG.Walter.J1Props
 
 public section
 

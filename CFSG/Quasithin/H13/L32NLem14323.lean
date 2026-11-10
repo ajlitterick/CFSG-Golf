@@ -1,11 +1,8 @@
 module
 
-public import CFSG.Quasithin.H13.L32NItems143
 public import CFSG.Quasithin.H13.L32NInputs
 public import CFSG.Quasithin.H13.L32NModule
 public import CFSG.Quasithin.Vol2.Ch12Sec8OneModel
-public import CFSG.Quasithin.Vol2.Ch12Sec8OneLemma8
-public import CFSG.Quasithin.Vol2.Ch12Sec8OneFlag
 public import CFSG.Sporadic.Schreier.J4SSylow
 public import CFSG.Quasithin.Background.G2Relaxed
 

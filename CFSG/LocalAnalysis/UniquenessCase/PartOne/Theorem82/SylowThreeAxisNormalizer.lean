@@ -7,9 +7,7 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Conclusion76Three
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Basic
 public import CFSG.LocalAnalysis.UniquenessCase.UC6S846e
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Fourteen1
-import CFSG.LocalAnalysis.UniquenessCase.UC22P22e
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22n
-import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.Blueprint.LieModelAPI
 public import CFSG.GroupTheory.CoprimeActionSupport.AbelianEquivalence
 public import CFSG.GroupTheory.CoprimeActionSupport.Geometry

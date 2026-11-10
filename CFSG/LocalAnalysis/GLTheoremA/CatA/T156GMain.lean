@@ -3,10 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T156GSplit
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T156GLayer
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T156GKnown
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.FRLift
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.MIAut
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.MIInnDiag
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.MITransport
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T156Layer
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T156Trans
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267Cover

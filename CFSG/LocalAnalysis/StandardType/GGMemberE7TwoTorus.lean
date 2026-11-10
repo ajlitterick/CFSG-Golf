@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowDefs
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeProp1010
 public import CFSG.LocalAnalysis.StandardType.GGTBTorE7Cover
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTBHalf
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLCx
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylNoLine
 public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpLattice
 

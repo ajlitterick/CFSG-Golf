@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowX2E6LModel
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRankFiveAmbient
-public import CFSG.LieType.SeitzGeneration.ExcTorusCatTw
-public import CFSG.LieType.Chevalley.TwistedE6NormalForm
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeLift
 public import CFSG.GroupTheory.PLayer.Transport
 public import CFSG.HardMathSupport.Solomon.Coordinator.L3C143AltMain

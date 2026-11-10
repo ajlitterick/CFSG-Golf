@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSuSplitRootGenPair
 public import CFSG.LocalAnalysis.StandardType.GGSuSplitRootGenGen
 public import CFSG.LocalAnalysis.StandardType.GGSuSplitRootGenModel
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRootGenAvoidKG
-public import CFSG.LocalAnalysis.StandardType.GGSlNsRootGenTorus
 
 public section
 

@@ -1,12 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoGammaXPosAmb
-public import CFSG.LocalAnalysis.StandardType.GGQTwoGraphE7Lin
-public import CFSG.LocalAnalysis.StandardType.GGQTwoGraphSwap
-public import CFSG.LocalAnalysis.StandardType.GGQTwoGraphClassify
-public import CFSG.LocalAnalysis.StandardType.GGQTwoGraphScaled
-public import CFSG.LocalAnalysis.StandardType.GGQTwoGraphCommon
-public import CFSG.LocalAnalysis.StandardType.GGQTwoScalarStable
 
 public section
 

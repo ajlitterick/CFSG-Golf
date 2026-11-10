@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeFullCentre1585Defs
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeFullCentre1585CharCyc
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeFullCentre1585Inj
 

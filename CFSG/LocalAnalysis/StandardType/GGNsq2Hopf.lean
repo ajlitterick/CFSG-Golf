@@ -4,7 +4,6 @@ import Lean
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSLieCover
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHypCentral
 public import CFSG.LocalAnalysis.ComponentClassification.Foote5CoreGriess
-public import CFSG.LieType.Steinberg.CentralExt.GriessNativeModels
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.QuasiAssembly
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogSchreierCases
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSporadicCasesC

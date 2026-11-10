@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.SporSch.HN.C13607Data
 public import Certificates.Kernel.SporSch.HN.Pt2103
-public import CFSG.Certificates.Kernel.SporSch.HNNat
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.HNElevenInputs
 
 public section

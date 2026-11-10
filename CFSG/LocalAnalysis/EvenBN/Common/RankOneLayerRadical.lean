@@ -1,14 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.EvenBN.Sp4.BothTrivialClosuresExact
-public import CFSG.GroupTheory.ABGLocalTools.Basic
-public import CFSG.LinearAlgebra.SL2MinimalFaithfulMatrix
 import CFSG.LocalAnalysis.ComponentInitial.SteinbergCCOddNormalCore
 import CFSG.LocalAnalysis.EvenBN.GMSK.SL2Facts
 import CFSG.GroupTheory.ElemAbelianClosure
 import CFSG.LocalAnalysis.EvenBN.Common.TwoElementary
-import CFSG.LocalAnalysis.EvenBN.GMSK.ConsumerSections
-import CFSG.LocalAnalysis.EvenBN.Common.SL2TorusThree
 import CFSG.LocalAnalysis.EvenBN.Common.SL2TorusFour
 import CFSG.LocalAnalysis.EvenBN.Common.ProductClosure
 import CFSG.LocalAnalysis.ComponentInitial.CentralSL2Semilinear

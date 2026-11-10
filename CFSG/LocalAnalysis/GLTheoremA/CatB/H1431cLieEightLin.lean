@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1431cLieEightDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10RSeitzEvenCentreD4F4
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1431cLieInn
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompIdxLinear
-public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotCatTypeDetOrders
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S171Basic
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T123CTrans
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GU64Glue
@@ -16,18 +14,13 @@ public import CFSG.HardMathSupport.Cooperstein.Coordinator.CurtisExc.OuterTwist
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabBThreeALocalBase
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabBThreeL1Orb
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431Fam.PslBadCover
-public import CFSG.HardMathSupport.Dickson.Sec6.I1431Lie
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34SporAux.BMDownMGmat
 public import CFSG.HardMathSupport.Solomon.Coordinator.GFR2SporBMInvB
 public import CFSG.HardMathSupport.Solomon.Coordinator.GFR2SporBMInvM
 public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.CrossSp
-public import CFSG.LocalAnalysis.AGLEmbedding.CaseTwoConfig
-public import CFSG.LocalAnalysis.AGLEmbedding.CaseTwoEscape
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanParabAutIrrHom
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanParabAutIrrLarge
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanParabAutIrrXGen
-public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallGEVIbDefs
-public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneProjSlice
 public import CFSG.LocalAnalysis.EvenBN.Common.CommutatorFixed
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I1431ChevTwoClMain
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I1431ZMathHS5

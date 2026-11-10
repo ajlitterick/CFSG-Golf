@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcE6SplitDefs
 import CFSG.LocalAnalysis.StandardType.GGQ2ExcE6SplitOccurs
 import CFSG.LocalAnalysis.StandardType.GGQ2ExcE6SplitDatum
-import CFSG.LocalAnalysis.StandardType.GGQ2ExcE6SplitLabel
 import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreOccursDict
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 import CFSG.LocalAnalysis.StandardType.GGLinImageSubspace
 
 public section

@@ -1,12 +1,7 @@
 module
 
-public import Mathlib.Algebra.BigOperators.Group.Finset.Basic
 public import Mathlib.Algebra.Field.ZMod
-public import Mathlib.Algebra.Group.Subgroup.ZPowers.Basic
 public import Mathlib.Algebra.Module.ZMod
-public import Mathlib.Data.ZMod.Basic
-public import Mathlib.GroupTheory.Perm.Basic
-public import Mathlib.SetTheory.Cardinal.Finite
 public import Mathlib.Tactic.LinearCombination
 
 public section

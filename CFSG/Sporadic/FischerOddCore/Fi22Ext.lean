@@ -5,7 +5,6 @@ public import CFSG.Sporadic.FischerOddCore.Fi22ExtBase
 
 public import CFSG.Sporadic.FischerOddCore.Fi22ExtCheck
 public import CFSG.Monster.B.Fischer.Fi22Graph
-public import CFSG.Sporadic.FischerOddCore.Fi22ExtCheckInputs
 public meta import CFSG.Sporadic.FischerOddCore.Fi22ExtData
 public meta import CFSG.Monster.B.Fischer.Fi22OuterCheck
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain

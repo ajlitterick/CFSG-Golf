@@ -2,11 +2,9 @@
 module
 
 public import CFSG.Quasithin.Vol2.Ch12Sec5KG
-public import CFSG.Quasithin.Vol2.Ch12Sec5KGM24Inputs
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatM24Base
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115SporadicMathieu
 public import CFSG.LocalAnalysis.ComponentInitial.TwoPrimeSolvable
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatM24Facts
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Reduce
 public import CFSG.LocalAnalysis.SectionRank.SQT

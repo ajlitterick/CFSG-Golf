@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP5Act
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP5Centre
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UE6
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UOuter
 
 public section

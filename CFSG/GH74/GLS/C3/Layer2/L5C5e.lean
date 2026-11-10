@@ -1,6 +1,5 @@
 module
 
-public import CFSG.GH74.GLS.C3.Layer2.L5C5d
 public meta import Mathlib.GroupTheory.SpecificGroups.Alternating
 public meta import CFSG.GH74.GLS.C3.Prop121.ModelFive
 public meta import CFSG.GH74.GLS.C3.Prop121.ModelFiveS
@@ -15,11 +14,7 @@ public meta import CFSG.GH74.GLS.C3.Layer2.L5C0
 public meta import CFSG.GH74.GLS.C3.Layer2.L5C5b
 public meta import CFSG.GH74.GLS.C3.Layer2.L5C5c
 public meta import CFSG.GH74.GLS.C3.Layer2.L5C5d
-public import CFSG.GH74.GLS.C3.Layer2.L5C5eInputs
 public meta import CFSG.GH74.GLS.C3.Layer2.L5C5eInputs
-public import Certificates.Certificate5051
-public import Certificates.Certificate5065
-public import Certificates.Certificate5066
 public import Certificates.Certificate5068
 
 public section

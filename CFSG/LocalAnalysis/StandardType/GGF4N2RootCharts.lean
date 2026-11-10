@@ -4,9 +4,7 @@ public import CFSG.LargeExtraspecial.A2ModFrBKlein
 public import CFSG.ClassicalGroups.SpecialLinear.CyclicRootGroups
 public import CFSG.LocalAnalysis.StandardType.GGTypeAEndInputsBlock
 public import CFSG.Assembly.OrderReductions.LinearOrders
-public import CFSG.GroupTheory.ElemAbelianClosure
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourInputs
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.RankThree.PartOne.K159.Klein
 public import CFSG.Sporadic.Th.Max3.Core
 

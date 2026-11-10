@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoGenE7StepAux
-public import CFSG.LocalAnalysis.StandardType.GGL45NtExcG2Three
-public import CFSG.LocalAnalysis.StandardType.GGTorusRootGenAvoidModel
 
 public section
 

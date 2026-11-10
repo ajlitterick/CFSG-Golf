@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.OddSelectorBasic
 public import CFSG.RankThree.Classical.SteinbergBYProjectiveInvolutionSign
 public import CFSG.LocalAnalysis.ComponentInitial.BasicFacts
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancingLocalSmallSourceLinear
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public noncomputable section
 

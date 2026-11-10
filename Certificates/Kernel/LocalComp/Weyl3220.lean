@@ -1,9 +1,7 @@
 module
 
-public import Certificates.Kernel.LocalComp.E8Tables
 public import Certificates.Kernel.LocalComp.Weyl3184Facts
 public import CFSG.Certificates.Kernel.LocalCompE8CentSound
-public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.WeylCentData
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.WeylD8Data
 public import CFSG.RankThree.Native.PermEnumeration

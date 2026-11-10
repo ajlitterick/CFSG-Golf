@@ -3,7 +3,6 @@ module
 public import CFSG.GH74.Generic.BProg.Frozen
 public import CFSG.GH74.Generic.S3.BFreePromote
 public import CFSG.GH74.GLS.Balance.OResidual
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

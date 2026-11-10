@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2SubStab
 public import CFSG.LocalAnalysis.StandardType.GGWAutNormalizer
-import CFSG.LocalAnalysis.StandardType.GGIndepFixLineStep2Defs
 import CFSG.LocalAnalysis.StandardType.GGLargeDepRestrictAux
 
 public section

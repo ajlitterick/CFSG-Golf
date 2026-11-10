@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Co2Chain.He12636SylGen
-public import CFSG.Certificates.Kernel.Spor.PackWord
 public meta import Certificates.Kernel.Co2Chain.He12636SylGen
 import CFSG.Certificates.Kernel.Common.Harness
 

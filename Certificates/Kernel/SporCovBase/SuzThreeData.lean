@@ -1,6 +1,5 @@
 module
 
-public import Init
 public import Certificates.Data.Kernel.Spor.PEnum
 import CFSG.Certificates.Kernel.Common.HarnessGzTree
 import CFSG.Certificates.Kernel.Common.JsonGz

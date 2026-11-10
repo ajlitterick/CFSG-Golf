@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionProperHullRank
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.RankOne
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionRecognizedThreePointQuotient
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionRecognizedThreePointRoot
 

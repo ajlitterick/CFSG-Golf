@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection1.PFsection1_7_Mackey
-import Mathlib.GroupTheory.SchurZassenhaus
 
 namespace CFSG
 end CFSG

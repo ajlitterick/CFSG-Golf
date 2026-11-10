@@ -1,10 +1,6 @@
 module
 
-public import Mathlib
 public import CFSG.ClassicalInvolution.SmallCases.SmallConnSetup
-public import CFSG.ClassicalInvolution.PerfectCase.Basic
-public import CFSG.ClassicalInvolution.Balance.BootstrapLevi
-public import CFSG.ClassicalInvolution.Balance.PassTwoWeak
 public import CFSG.ClassicalInvolution.Asc77.WP3Fuzzy
 
 public section

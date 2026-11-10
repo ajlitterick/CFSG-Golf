@@ -14,15 +14,12 @@ public import CFSG.Sporadic.Bridge.M24Surj
 public import CFSG.Sporadic.Bridge.M12
 public import CFSG.Sporadic.Bridge.J2
 public import CFSG.Sporadic.Schreier.RuAutInner
-public import CFSG.Sporadic.Schreier.RuIso
 public import CFSG.Sporadic.Schreier.PairHePairs
 public import CFSG.Sporadic.Schreier.PairJ2Pairs
 public import CFSG.Quasithin.EmptyFaithful.A38c9Out
 public import CFSG.RankThree.PartTwo.Sec4.Item47CoreOut
-public import CFSG.LocalAnalysis.ComponentClassification.M12CoverAut
 public import CFSG.RankThree.PartTwo.Toolkit.M12Clause
 public import CFSG.RankThree.PartTwo.Sec4.Sporadic.Item415
-import CFSG.LieType.SteinbergBRTwoRankBound
 public import CFSG.LocalAnalysis.SectionRank.EvenCover.Catalog
 public import CFSG.LocalAnalysis.SectionRank.LargeRee.SuzukiData
 public import CFSG.LocalAnalysis.SectionRank.OddCover.CatalogOdd
@@ -31,7 +28,6 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.RankThree.PartTwo.KFacts.AutKindsUnique
 public import CFSG.RankThree.PartTwo.Sec12.Notation
 public import CFSG.RankThree.PartTwo.Sec4.Item47Statement
@@ -42,7 +38,6 @@ public import CFSG.Sporadic.Ly.ActionBase
 public import CFSG.Sporadic.Ly.CertificateBase
 public import CFSG.Sporadic.Ly.FaithSpec
 public import CFSG.Sporadic.Ly.OrbitSpec
-public import CFSG.Sporadic.Ly.PrimitiveBase
 public import CFSG.Sporadic.LyBase
 public import CFSG.Sporadic.ONOddCore.LiftHomCheckInputs
 public import CFSG.Sporadic.Presentation.Ly

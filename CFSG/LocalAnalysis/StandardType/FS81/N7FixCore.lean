@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.FS81.GoldSharedSylow
 public import CFSG.LocalAnalysis.StandardType.FS81.GoldSharedNine
 public import CFSG.LocalAnalysis.StandardType.FS81.GoldSharedSection
-public import CFSG.LocalAnalysis.StandardType.FS81.N7FixSylow
 public import CFSG.LocalAnalysis.StandardType.FS81.N7FixDent
-public import CFSG.LocalAnalysis.StandardType.FS81.N7FixQuot
 public import CFSG.LocalAnalysis.StandardType.FS81.N7FixQuotTwo
 
 public section

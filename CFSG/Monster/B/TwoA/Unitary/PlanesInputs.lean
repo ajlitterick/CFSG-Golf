@@ -2,9 +2,7 @@ module
 
 public import CFSG.Monster.B.TwoA.Unitary.Form
 public meta import CFSG.Monster.B.TwoA.Unitary.Form
-import CFSG.Fischer.F4
 public meta import Mathlib
-public import Mathlib
 
 public section
 

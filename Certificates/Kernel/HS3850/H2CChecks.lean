@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.HS3850.H2CData
 public import Certificates.Kernel.LocalQT.HSAut.K4146R
 public import Certificates.Data.Kernel.Spor.PEnumT
-public import Certificates.Data.Kernel.Spor.MulH
 public import Certificates.Kernel.LocalQT.Tc.Gen
 import CFSG.Certificates.Kernel.Common.Harness
 

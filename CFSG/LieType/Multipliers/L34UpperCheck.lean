@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LieType.Multipliers.L34UpperData
 public import CFSG.LieType.Multipliers.ProductKernel
 public meta import CFSG.LieType.Multipliers.L34UpperData
 public meta import CFSG.LieType.Multipliers.ProductKernel

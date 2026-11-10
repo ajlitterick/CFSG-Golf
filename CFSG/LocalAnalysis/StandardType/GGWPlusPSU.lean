@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGWPlusUnitQuot
 public import CFSG.LocalAnalysis.StandardType.GGWPlusPositionRk
 public import CFSG.LocalAnalysis.StandardType.GGWPlusAutomizer
-public import CFSG.LocalAnalysis.StandardType.GGWPlusPosition
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBMeta
 
 public section
 

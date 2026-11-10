@@ -1,7 +1,6 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Twelve.SpChart
-public import CFSG.OddTranspositions.PartThree.Twelve.Minimal
 
 public section
 

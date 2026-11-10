@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Sporadic.OddCore.HNPairC
 public import Certificates.Kernel.Sporadic.OddCore.HN2092
 public import Certificates.Kernel.HS100.Chain
-public import Certificates.Kernel.Sporadic.OddCore.ChainCheckGlue
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

@@ -1,14 +1,9 @@
 module
 
 public import CFSG.ClassicalInvolution.SmallCases.NDBC0
-public import CFSG.ClassicalInvolution.Asc77.WP3FrameBootCtx
-public import CFSG.ClassicalInvolution.SmallCases.DSplitChain
 import CFSG.ClassicalInvolution.Asc77.WP3SCSModel
 import CFSG.ClassicalInvolution.Asc77.WP3SCRBoot
 import CFSG.ClassicalInvolution.Asc77.AscFusionS14
-import CFSG.ClassicalInvolution.Asc77.WP3LayerLie
-import CFSG.ClassicalInvolution.Balance.BootstrapLayersFuzzyEdge
-import CFSG.ClassicalInvolution.Balance.BootstrapLayersFuzzyConnConj
 import CFSG.ClassicalInvolution.Balance.BootNoTripleStrong
 import CFSG.ClassicalInvolution.RouteD.G2D4Ih8
 

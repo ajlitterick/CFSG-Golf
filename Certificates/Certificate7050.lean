@@ -4,9 +4,6 @@ module
 public import Certificates.Certificate7050Base
 import all Certificates.Certificate7050Base
 
-public import CFSG.Quasithin.Recognition.RuRank3TitsClsInputs
-public import CFSG.Quasithin.Recognition.RuRank3Tits13Base
-import CFSG.Sporadic.Schreier.TitsCertCheckInputs
 import Certificates.Kernel.EvenBN.CNtEq
 import Certificates.Kernel.Misc.Tits.Cls7050S0
 import Certificates.Kernel.Misc.Tits.Cls7050S1
@@ -20,22 +17,13 @@ import Certificates.Kernel.Misc.Tits.Cls7050S8
 import Certificates.Kernel.Misc.Tits.Cls7050S9
 import Certificates.Kernel.Misc.Tits.Cls7050S10
 import Certificates.Kernel.Misc.Tits.Cls7050S11
-import Mathlib.Tactic.IntervalCases
 import Certificates.Kernel.Misc.Tits.Bad7050
 import Certificates.Kernel.Misc.Tits.K0Use7050
 import Certificates.Kernel.Sporadic.Tits.Order2264
 import Certificates.Kernel.Misc.Tits.Pi7092
 import CFSG.Certificates.Kernel.Spor.PackFld
-import CFSG.Certificates.Kernel.Spor.RawOrbEval
 import CFSG.Certificates.Kernel.Spor.RawSiftKConv
-import CFSG.Certificates.Kernel.Spor.SiftRSound
-import CFSG.Certificates.Kernel.Spor.RawSound
-import CFSG.Certificates.Kernel.Spor.PackWord
-import CFSG.Certificates.Kernel.Spor.PrimSound
 import CFSG.Certificates.Kernel.BfsPinAlg
-import CFSG.Sporadic.Schreier.TitsCert
-import CFSG.Sporadic.Schreier.TitsCertCheck
-import CFSG.Sporadic.Schreier.TitsChain
 
 public section
 

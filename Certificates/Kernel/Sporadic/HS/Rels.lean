@@ -10,13 +10,10 @@ public import CFSG.Certificates.Kernel.Orders.HS.Checks.R
 public import CFSG.Certificates.Kernel.Orders.HS.Checks.H
 public import CFSG.Certificates.Kernel.Orders.HS.Checks.D
 public import CFSG.Certificates.Kernel.Orders.HS.Checks.K
-public import CFSG.Certificates.Kernel.Orders.HS.Data.Pay
-public import CFSG.Certificates.Kernel.Orders.HS.Data.Sel
 import all CFSG.Blueprint.NativeSporadic
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Spor.OrdSound
 public import CFSG.Perm.ChainSpec
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

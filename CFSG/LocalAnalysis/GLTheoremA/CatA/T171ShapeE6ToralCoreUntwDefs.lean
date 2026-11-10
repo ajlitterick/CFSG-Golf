@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeE6ToralExitDefs
-public import CFSG.LocalAnalysis.ComponentClassification.FixedCommutingProduct
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeCompDesc
 
 public section

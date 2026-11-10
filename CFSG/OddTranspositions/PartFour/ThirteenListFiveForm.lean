@@ -4,12 +4,7 @@ public import CFSG.OddTranspositions.PartFour.Fourteen.TableE1Five
 public import CFSG.OddTranspositions.PartThree.FiveReflectionFischer
 public import CFSG.LocalAnalysis.WeakClosure81.SevenNineDefs
 import CFSG.OddTranspositions.PartThree.Eleven.Five.Refl
-import CFSG.ClassicalInvolution.Orders.OrthogonalIndex
-import CFSG.ClassicalInvolution.Orders.OrthogonalNeg
-import CFSG.ClassicalGroups.Orthogonal.Matrix
-import CFSG.LieType.Universal.Spin.Forms
 import TauCeti.Algebra.Group.Units.Basic
-import TauCeti.FieldTheory.SquareClassGroup.Basic
 public import CFSG.LocalAnalysis.WeakClosure81.SevenFour
 public import CFSG.LocalAnalysis.WeakClosure81.SevenKGen
 public import CFSG.RankThree.GF2n.Tim79aSec2

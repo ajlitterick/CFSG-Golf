@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGHalfSlOn
 public import CFSG.LocalAnalysis.StandardType.GGHalfSlOnLevi
 
 public section

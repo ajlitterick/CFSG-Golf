@@ -1,10 +1,8 @@
 module
 
 public import Mathlib.LinearAlgebra.Matrix.Notation
-public import Mathlib.Data.Matrix.Mul
 public import Mathlib.Algebra.CharP.Two
 public import Mathlib.Tactic.LinearCombination
-public import Mathlib.Tactic.FinCases
 public import Mathlib.Tactic.Ring
 public import Mathlib.Tactic.NormNum
 

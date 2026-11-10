@@ -3,7 +3,6 @@ module
 
 public import CFSG.Sporadic.Fi22.InvCertBase
 
-public import Certificates.Data.CFSGNative.Fi22.Inv
 public meta import Certificates.Data.CFSGNative.Fi22.Inv
 public import Certificates.Certificate1007
 public import Certificates.Certificate1007Base

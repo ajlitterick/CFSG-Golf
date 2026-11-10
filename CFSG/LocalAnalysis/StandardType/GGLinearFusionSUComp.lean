@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLinearFusionSUCompBasic
 public import CFSG.LocalAnalysis.StandardType.GGLinearFusionSU
-public import CFSG.LocalAnalysis.StandardType.GGLinearSemisimple
 
 public section
 

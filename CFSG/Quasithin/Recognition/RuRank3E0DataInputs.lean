@@ -2,7 +2,6 @@
 module
 
 public import CFSG.Quasithin.Recognition.RuRank3RuAutDataBase
-public import CFSG.Quasithin.Recognition.RuRank3PSL
 public meta import CFSG.Quasithin.Recognition.RuRank3RuAutDataBase
 public meta import CFSG.Quasithin.Recognition.RuRank3PSL
 public meta import CFSG.Quasithin.Recognition.RuRank3TitsClsBase

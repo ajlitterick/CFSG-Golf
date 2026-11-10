@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGResLinTwoGammaGap
 public import CFSG.LocalAnalysis.StandardType.GGTBJLinearMinusFrame
 public import CFSG.LocalAnalysis.StandardType.GGResLinTwoHighRankGeneral
-public import CFSG.LocalAnalysis.StandardType.GGTBTorLiftRowsHolds
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLExc11R
 public import CFSG.LocalAnalysis.StandardType.GGResKLinTwoExact3
 

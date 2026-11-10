@@ -1,16 +1,12 @@
 module
 
 public import CFSG.LieType.Steinberg.CurtisDatum
-public import CFSG.LieType.Universal.Unitary.Extras
 public import CFSG.LieType.Universal.Unitary.Comparison
 public import CFSG.LieType.Steinberg.CentralExt.SUBruhatExtras
 public import CFSG.LieType.Steinberg.CentralExt.UnitaryRootGroups
 public import CFSG.LieType.Steinberg.CentralExt.BorelIndex
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.CurtisTw.CoverType
-public import CFSG.HardMathSupport.Cooperstein.Coordinator.CurtisTw.CoverLift
-public import TauCeti.LinearAlgebra.Matrix.Triangular
 public import TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.UpperUnitriangular.Basic
-public import Mathlib.LinearAlgebra.Matrix.CharP
 
 public section
 

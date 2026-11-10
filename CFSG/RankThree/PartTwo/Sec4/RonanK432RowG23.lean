@@ -2,12 +2,8 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec4.RonanK432SylowCenter
 public import CFSG.RankThree.PartTwo.Sec4.RonanK432Rows
-public import CFSG.HardMathSupport.Timmesfeld.LieRank.G2
 public import CFSG.RankThree.PartTwo.Census.Carrier.G2Three
 public import CFSG.RankThree.PartTwo.KFacts.OutFixCentralThreeProof
-public import CFSG.RankThree.PartTwo.Sec4.Census.BridgeG2
-public import CFSG.LocalAnalysis.SectionRank.NativeKGroup
-public import CFSG.Adapters.TauCetiExceptional.BridgeG2
 public import CFSG.Open.SplitBNPair
 public import CFSG.Quasithin.Vol2.Ch10StatementsE
 public import CFSG.Quasithin.Vol2.Ch10StatementsInputs

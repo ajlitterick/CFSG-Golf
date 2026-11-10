@@ -5,7 +5,6 @@ import CFSG.LocalAnalysis.StandardType.GGSixE6TwoTransport
 import CFSG.LocalAnalysis.StandardType.GGSixE6TwoConjSL3
 import CFSG.LocalAnalysis.StandardType.GGSixE6TwoJEq
 import CFSG.LocalAnalysis.StandardType.GGSixE6TwoTransAux
-import CFSG.Assembly.Subnormal
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.LieType.Multipliers.ProductKernel
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotLeviHom

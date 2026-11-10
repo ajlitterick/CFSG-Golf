@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGUSixTwoModuleTorus
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoModuleOrbit
 public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
-public import Mathlib.Tactic.NormNum
 
 public section
 

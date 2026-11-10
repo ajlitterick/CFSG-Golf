@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneSpSelfNormal
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoynePSL
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneSpSkewE
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneSpSkewFour
 

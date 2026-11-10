@@ -1,7 +1,5 @@
 module
 
-public import CFSG.Sporadic.SmallOddCore.McLWords
-public import Certificates.Data.CFSGNative.PairSchreier.Counts
 public meta import CFSG.Sporadic.SmallOddCore.McLWords
 public meta import CFSG.Sporadic.Schreier.PairMcLCheck
 public meta import Certificates.Data.CFSGNative.PairSchreier.Counts

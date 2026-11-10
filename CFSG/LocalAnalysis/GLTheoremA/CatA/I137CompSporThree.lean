@@ -2,13 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I137CompList
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.SporTables
-public import CFSG.HardMathSupport.Timmesfeld.Coordinator.LocalThreeSporadicRank
-public import CFSG.HardMathSupport.Solomon.Coordinator.GFR2FamSpor
-public import CFSG.HardMathSupport.Timmesfeld.Tables.Census.Sporadic
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.Leaf
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.SporRec
-import CFSG.HardMathSupport.Dickson.BMRows.CensusB3
-import CFSG.HardMathSupport.Dickson.BMRows.CensusM3
 import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs273c2
 
 public section

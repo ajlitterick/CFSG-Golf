@@ -7,19 +7,10 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.DataKParam
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.OppThree
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.UniqueConjugacy
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Fourteen3b
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Fourteen1b
 public import CFSG.LocalAnalysis.UniquenessCase.UC611b
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P21k
-public import CFSG.LocalAnalysis.UniquenessCase.UC22P22rq
 public import CFSG.Quasithin.MS93.Sec2Gen
-public import CFSG.ClassicalInvolution.Basic
 public import CFSG.Quasithin.EmptyFaithful.SBc2N34
-public import CFSG.Sporadic.J2
-public import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Coordinator.ProvedRows
-public import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Coordinator.TrivialRows
-public import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Coordinator.M12CoverRow
-public import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Coordinator.J2CoverRow
-public import CFSG.GH74.Generic.GKFCover
 public import CFSG.HardMathSupport.Solomon.Coordinator.YS08.Spor.Classes
 public import CFSG.Adapters.StatedClassicalSmallOrders
 public import CFSG.Certificates.Kernel.LocalCompTits.Span
@@ -63,10 +54,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.OutcomeLocalOddCentrali
 public import CFSG.LocalAnalysis.GLTheoremA.S6.AltSetup
 public import CFSG.LocalAnalysis.GLTheoremA.S6.InputsAlt72
 public import CFSG.LocalAnalysis.GLTheoremB.Lemma911Defs
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Equivariance
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 public import CFSG.LocalAnalysis.SeitzReduction.CrossCharInputs
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotHR4
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotLeviPerp
@@ -97,7 +84,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.UC22P22rp
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22rr
 public import CFSG.LocalAnalysis.UniquenessCase.UC6S846d
 public import CFSG.Quasithin.Background.A3Structure319
-public import CFSG.Quasithin.Background.A3Structure38Part3
 public import CFSG.Quasithin.Background.B1More13A
 public import CFSG.Quasithin.Background.B1More13Defs
 public import CFSG.Quasithin.Background.B1MoreEleven
@@ -105,17 +91,12 @@ public import CFSG.Quasithin.Background.B216Quotient
 public import CFSG.Quasithin.Background.B5CompA
 public import CFSG.Quasithin.Background.B5CompB
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3OffenderB
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.E4Solv
 public import CFSG.Quasithin.Background.F9FiveStruct
 public import CFSG.Quasithin.Background.F9G2
 public import CFSG.Quasithin.Background.F9Sixteen
 public import CFSG.Quasithin.Background.GoldschmidtRankOneFacts
 public import CFSG.Quasithin.Background.ThreePrimeGroup
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtF112ListC
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import CFSG.Quasithin.EmptyFaithful.S14110
 public import CFSG.Quasithin.EmptyFaithful.S14117
 public import CFSG.Quasithin.EmptyFaithful.S1414Defs
@@ -135,7 +116,6 @@ public import CFSG.RankThree.PartTwo.Census.Classical.EvenUnitary
 public import CFSG.Sporadic.Schreier.J1QT
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

@@ -8,7 +8,6 @@ public meta import Certificates.Kernel.SporSch.Co2M.EnumGen
 public meta import CFSG.Sporadic.Co2Schreier.KerCheckInputs
 public meta import CFSG.Sporadic.Co2Cert.Data
 meta import Certificates.Kernel.Misc.Perm.HexCmd
-import CFSG.Certificates.Kernel.Common.Harness
 import Certificates.Kernel.Misc.Perm.HexCmd
 public import CFSG.Certificates.Kernel.Bounds.Core3
 import CFSG.Certificates.Kernel.Bounds.Load

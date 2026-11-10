@@ -1,11 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2LongExcDatum
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2LongExcC2
-public import CFSG.LieType.Steinberg.Adjoint.Perfect
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2HighestRootLong
 public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionExceptional
-public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
 
 public section
 

@@ -5,14 +5,8 @@ public import Certificates.Certificate14970
 public import CFSG.RankThree.PartOne.KS.LyFiveCheck
 public import CFSG.RankThree.PartOne.KS.LyFiveY
 public import CFSG.RankThree.PartOne.KS.LyFiveXCore
-public import CFSG.RankThree.PartOne.KS.LyFiveCover
 public import CFSG.RankThree.PartOne.KS.LyFiveOuter
-public import CFSG.Sporadic.Schreier.LyCheckSep
-public import CFSG.Sporadic.Ly.KeySpec
-public import CFSG.Sporadic.He.FpSpec
 import Certificates.Kernel.SporSch.Ly.SepGlue
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.QuasiAssembly
 public import CFSG.GroupTheory.LocalCores.Fitting

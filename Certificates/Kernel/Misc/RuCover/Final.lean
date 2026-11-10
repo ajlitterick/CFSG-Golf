@@ -4,25 +4,18 @@ public import Certificates.Kernel.Misc.RuCover.Checks
 public import CFSG.Certificates.Kernel.Misc.RuCoverSound
 public import CFSG.Quasithin.Vol2.KGFactC31RuCoverLift
 public import CFSG.Quasithin.Vol2.KGFactC31RuBase
-public import CFSG.Sporadic.Schreier.RuCentersMain
 public import CFSG.Certificates.Kernel.SporSch.ChainKPack
 public import Certificates.Kernel.CosetJ.RhoRu
 public import Certificates.Kernel.CosetJ.RhoCover
 public import Certificates.Kernel.CosetJ.RhoPerm
-public import Certificates.Kernel.SporSch.Ru.Gens
 public import Certificates.Kernel.SporSch.Ru.B1E
 public import Certificates.Certificate15024
-public import Certificates.Certificate15025
 public import Certificates.Certificate15026
-import Mathlib.Tactic.IntervalCases
-import CFSG.Certificates.Kernel.Common.Harness
 import all CFSG.Sporadic.Recognition.RuMultiplierInputs
 import all CFSG.Sporadic.Presentation.RuExactInputs
 import all CFSG.LieType.Multipliers.CoverWords
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Rudvalis
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LieType.Chevalley.RootCommutator
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 public import CFSG.LocalAnalysis.ComponentClassification.LayerMultiplication

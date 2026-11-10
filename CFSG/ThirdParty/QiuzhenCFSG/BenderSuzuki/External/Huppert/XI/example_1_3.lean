@@ -3,15 +3,10 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_6_13
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_6_14
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.MatrixGroups.PSL2
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Projective
-public import Mathlib.LinearAlgebra.Projectivization.Action
-public import Mathlib.LinearAlgebra.Projectivization.Cardinality
-import Mathlib.LinearAlgebra.Center
 import Mathlib.LinearAlgebra.Projectivization.Independence
 import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
 import Mathlib.Data.Fintype.CardEmbedding
 import Mathlib.GroupTheory.SpecificGroups.Alternating.KleinFour
-import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
 
 namespace CFSG
 end CFSG

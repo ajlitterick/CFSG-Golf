@@ -1,12 +1,10 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Theorem26Core
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2DihedralSylowParameter
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.PreambleInvolutions
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Theorem26RelIndex
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Theorem26ComponentTransport
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.DihedralCentralizerInvolutionConjugator
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

@@ -1,9 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.TwinYR2SpinFrame
-public import CFSG.ClassicalInvolution.Asc77.AscE189OrthV
-public import CFSG.ClassicalInvolution.Balance.StrongPowOrthElem
-public import CFSG.LieType.Universal.SpinOmega.Range
 
 public section
 

@@ -7,8 +7,6 @@ public import Certificates.Kernel.SporSch.PairJ3.GenForms
 public import CFSG.Certificates.Kernel.SporSch.PairKSound
 public import CFSG.Certificates.Kernel.SporSch.J4STokSound
 public import CFSG.Certificates.Kernel.Spor.PrimSound
-public import CFSG.Monster.B.Co2.PermArr
-public import CFSG.Sporadic.Schreier.PairJ3CertInputs
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

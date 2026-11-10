@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Theorem4_3
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.pStability
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Definitions
 
 namespace CFSG
 end CFSG

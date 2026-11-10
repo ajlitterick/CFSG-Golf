@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1ShortOmMRefl
-public import CFSG.ClassicalGroups.PCoreSection
-public import Mathlib.FieldTheory.Finite.Basic
 
 public section
 

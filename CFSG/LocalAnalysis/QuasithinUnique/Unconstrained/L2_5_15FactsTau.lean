@@ -4,9 +4,7 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_15FactsSL3
 public meta import Mathlib
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_15FactsGen
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_15FactsSL3
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_15FactsTauInputs
 public import Certificates.Certificate4041
-public import Certificates.Certificate4145
 
 public section
 

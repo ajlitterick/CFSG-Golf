@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTBXPlumb
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowDefs
 public import CFSG.LocalAnalysis.StandardType.GGF4ThreeNbrRankDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylKnownDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthWeylOrdD
 public import CFSG.LocalAnalysis.StandardType.GGRCWeylCard
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoAux

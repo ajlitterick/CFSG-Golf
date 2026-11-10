@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeConfigID
-import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerAdj
 import CFSG.LocalAnalysis.StandardType.E8SevenCentralizerComponent
-import CFSG.LieType.Chevalley.AdjointCenter
-import Mathlib.Tactic.Group
 
 public section
 namespace CFSG.StandardType.RCKC1

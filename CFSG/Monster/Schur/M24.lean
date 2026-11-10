@@ -1,37 +1,9 @@
 module
 
-public import CFSG.Monster.Schur.CentralEps
-public import CFSG.Monster.Schur.M24.Words
-public import CFSG.Monster.Schur.M24.CheckPlain
 public import CFSG.Monster.Schur.M24.Checks
-public import CFSG.Sporadic.Presentation.Common
-public import CFSG.Sporadic.Presentation.M24Exact
 public import CFSG.Sporadic.Bridge.M24Surj
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
-public import Certificates.Certificate9123
-public import CFSG.Monster.Schur.M24Cast
 public import CFSG.Monster.Schur.M24Lift
-public import CFSG.Monster.Schur.M24.Twist
-public import Certificates.Certificate9250
 public import Certificates.Certificate9267
-public import Certificates.Certificate9215
-public import Certificates.Certificate9251
-public import Certificates.Certificate9252
-public import Certificates.Certificate9253
-public import Certificates.Certificate9254
-public import Certificates.Certificate9255
-public import Certificates.Certificate9256
-public import Certificates.Certificate9257
-public import Certificates.Certificate9258
-public import Certificates.Certificate9259
-public import Certificates.Certificate9260
-public import Certificates.Certificate9261
-public import Certificates.Certificate9262
-public import Certificates.Certificate9263
-public import Certificates.Certificate9264
-public import Certificates.Certificate9265
-public import Certificates.Certificate9266
-public import Certificates.Certificate3017
 public meta import CFSG.Monster.Schur.M24.Words
 public meta import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 public meta import TauCeti.GroupTheory.SpecificGroups.CFSG.Index

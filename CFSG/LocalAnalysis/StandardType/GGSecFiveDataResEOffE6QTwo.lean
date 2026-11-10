@@ -1,11 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanEData
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoRowE
 public import CFSG.LocalAnalysis.StandardType.GGFrameRouteJoin
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanRankOneSix
-import CFSG.LocalAnalysis.StandardType.GGSecFiveRankOneCard
 
 public section
 

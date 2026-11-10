@@ -3,12 +3,9 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGResidualRk1UnitaryTwo
 public import CFSG.LocalAnalysis.StandardType.GGTwA5TwoMemberSize
 public import CFSG.LocalAnalysis.StandardType.GGResidualRk1Frame
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyQSplit
-import CFSG.LocalAnalysis.StandardType.GGNsq2Main
 import CFSG.LocalAnalysis.StandardType.GGRk1ConclExSix
 import CFSG.LocalAnalysis.StandardType.GGResidualRk1UnitaryTwoNbr
 import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseTwoE
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSLieEsuAux
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosAdapterAux
 import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseLabel

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseA7AmbientModel
-import Mathlib.GroupTheory.IndexNormal
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

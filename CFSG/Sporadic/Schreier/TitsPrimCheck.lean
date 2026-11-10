@@ -1,8 +1,5 @@
 module
 
-public import CFSG.Sporadic.Schreier.TitsStabCheck
-public import CFSG.Certificates.NativeInvariantMerge
-public import CFSG.Sporadic.Schreier.TitsLocal
 public meta import CFSG.Sporadic.Schreier.TitsLocal
 public meta import CFSG.Sporadic.Schreier.TitsData
 public meta import CFSG.Sporadic.Schreier.TitsArrays
@@ -17,7 +14,6 @@ public meta import Certificates.Data.CFSGNative.Schreier.Check
 public meta import Certificates.Data.CFSGNative.Schreier.Merge
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Data
-public import CFSG.Sporadic.Schreier.TitsPrimCheckInputs
 public import Certificates.Certificate2269
 
 public section

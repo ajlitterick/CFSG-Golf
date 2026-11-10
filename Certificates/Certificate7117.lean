@@ -3,9 +3,6 @@ module
 public import CFSG.Quasithin.Background.HSporLatInputs
 public import CFSG.Quasithin.Background.HSporLatM22Sg
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatFactsK
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatCode
-import Certificates.Certificate3029
-import Certificates.Certificate4075
 import Certificates.Kernel.M22Dc.Final
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicMathieu
 

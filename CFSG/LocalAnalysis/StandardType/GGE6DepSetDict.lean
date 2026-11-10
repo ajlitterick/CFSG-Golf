@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGE6DepKDefs
 public import CFSG.LocalAnalysis.StandardType.GGE6DepStdFrame
 public import CFSG.LocalAnalysis.StandardType.GGE6DepModelForm
 public import CFSG.LocalAnalysis.StandardType.GGE6DepModelReflDict
-public import CFSG.LocalAnalysis.StandardType.GGE6DepCorootDefs
 
 public section
 

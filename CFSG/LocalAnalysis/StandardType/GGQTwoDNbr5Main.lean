@@ -11,13 +11,9 @@ import CFSG.LocalAnalysis.StandardType.GGF4ThreeSCCube
 import CFSG.LocalAnalysis.StandardType.GGF4ThreeSCCubeHolds
 import CFSG.LocalAnalysis.StandardType.GGQTwoDL1PrimeToThree
 import CFSG.LocalAnalysis.StandardType.GGQTwoDSelModuleOfB2
-import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBaseThm
 import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthChart
 import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthTorJ
 import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthTorHolds
-import CFSG.LocalAnalysis.StandardType.GGQTwoDSevenPrelim
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-import CFSG.LocalAnalysis.StandardType.GGSecFiveNSCornerMain
 import CFSG.LocalAnalysis.StandardType.GGQTwoDSelBases
 
 public section

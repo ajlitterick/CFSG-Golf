@@ -4,13 +4,7 @@ public import CFSG.LocalAnalysis.StandardType.GGRootCentKGTagsDefs
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGStructOmFrame
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGStructOmFour
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGPiece
-import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerSpin
 import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergOmegaPlusFour
-import CFSG.LocalAnalysis.StandardType.GGRootCentralizerOmegaSpin
-import CFSG.LieType.Universal.Spin.Datum
-import CFSG.LieType.Universal.Spin.Forms
-import CFSG.LieType.Universal.SpinOmega.Range
-import CFSG.ClassicalGroups.Orthogonal.Simple
 
 public section
 

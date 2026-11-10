@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGroupFusionAutKAssembly
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2InnerAction
 import CFSG.LocalAnalysis.RankThreeTheoremC.OutCyclicThreeFamilies
 
 public section

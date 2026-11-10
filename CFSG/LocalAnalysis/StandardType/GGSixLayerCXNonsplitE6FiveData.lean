@@ -3,7 +3,6 @@ module
 public import CFSG.RankThree.PartOne.KE.A1E6Five
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitE6FiveEmbed
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitComponentEmbed
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBGeneralLinearSmall
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.LieType.Ree.LargeReeSylowOpposition
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenCanonicalField
@@ -17,7 +16,6 @@ public import CFSG.RankThree.Lattice.SteinbergBIOrbitQuotFull
 public import CFSG.RankThree.PartOne.KE.Basic
 public import CFSG.RankThree.PartOne.KE.NativeCyclicMain
 public import CFSG.RankThree.PartOne.S8.Statements
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 
 public noncomputable section
 

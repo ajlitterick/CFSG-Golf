@@ -2,11 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.Defs
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.DefsHyp
-public import CFSG.LocalAnalysis.UniquenessCase.UCFront11
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront12
-public import CFSG.Quasithin.Background.D2Basic
 public import CFSG.Foundations.HigherElementaryThompson
-public import CFSG.Blueprint.Catalog
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.CharacterTheory.CyclicBlocks.Family

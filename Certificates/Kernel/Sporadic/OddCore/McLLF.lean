@@ -5,7 +5,6 @@ public import Certificates.Kernel.Sporadic.OddCore.McLSub
 public import Certificates.Kernel.Sporadic.OddCore.PEnumGlue3
 public import CFSG.Certificates.Kernel.Misc.PairCountSound
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

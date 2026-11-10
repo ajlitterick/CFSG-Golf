@@ -3,8 +3,6 @@ module
 public import Certificates.Kernel.Fi22Twist.DjChk
 public import Certificates.Kernel.Fi22Twist.CjFacts
 public import CFSG.Certificates.Kernel.Fi22Twist.DjSound
-public import CFSG.Certificates.Kernel.Common.ForallTree
-import Mathlib.Tactic.IntervalCases
 
 public section
 

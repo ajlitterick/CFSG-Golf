@@ -6,8 +6,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Sixteen24Defs
 public import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.Quasithin.Background.E3Gen
 public import CFSG.Quasithin.Background.B6
-public import CFSG.Quasithin.Background.B6Example
-public import CFSG.Quasithin.Background.B6Offenders
 public import CFSG.Quasithin.Background.E3Cent
 
 public section

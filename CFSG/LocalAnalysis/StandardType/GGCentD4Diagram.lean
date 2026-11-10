@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGNTPlaneInput
 public import CFSG.LocalAnalysis.StandardType.GGNTPlaneTable
 public import CFSG.RankThree.PartOne.KE.D4TranspositionInterface
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcD4Action
-public import CFSG.RankThree.Chevalley.SteinbergBID4Restrict
-public import CFSG.HardMathSupport.Lang.D4Three.NormalForm
 public import CFSG.RankThree.PartOne.KD4T.Normal
 public import CFSG.RankThree.PartOne.KE6.E6LRes
 

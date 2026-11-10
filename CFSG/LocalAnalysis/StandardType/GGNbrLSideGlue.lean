@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLSideTransport
-import CFSG.LocalAnalysis.StandardType.Marking
 
 public section
 

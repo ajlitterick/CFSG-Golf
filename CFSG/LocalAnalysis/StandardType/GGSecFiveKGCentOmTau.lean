@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergTrialitySpin
 
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGOTwoOmPlusStep
 import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergTrialityModel
-import CFSG.LieType.Universal.Spin.Generation.Eichler
-import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmas
 
 public section
 

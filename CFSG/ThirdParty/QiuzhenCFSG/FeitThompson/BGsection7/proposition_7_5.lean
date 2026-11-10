@@ -1,12 +1,9 @@
 module
 
-import Mathlib.GroupTheory.IndexNormal
 import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection7.theorem_7_4
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection6.theorem_6_1
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection6.theorem_6_7
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection5.theorem_5_3
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.proposition_4_6
 
 namespace CFSG
 end CFSG

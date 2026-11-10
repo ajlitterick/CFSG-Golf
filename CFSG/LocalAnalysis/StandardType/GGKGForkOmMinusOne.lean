@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGKGForkRows
 public import CFSG.LocalAnalysis.StandardType.GGKGForkOrthRow
 public import CFSG.LocalAnalysis.StandardType.GGKGForkOmMinusRoot
-public import CFSG.LocalAnalysis.StandardType.GGKGForkLatticeElt
-public import CFSG.LocalAnalysis.StandardType.GGOmegaMinusRootGenIso
 
 public section
 

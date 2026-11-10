@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperElt
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeRestCover
 public import CFSG.LocalAnalysis.StandardType.GGIOneOrthEndElt
 import CFSG.RankThree.PartOne.S15K.CentralCover
 

@@ -2,10 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGIOneFieldCFElation
 public import CFSG.LocalAnalysis.StandardType.GGIOneFieldCFTwD
-public import CFSG.LocalAnalysis.StandardType.GGPGLTorality
 public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperMoreTypeA
 public import CFSG.LocalAnalysis.ComponentInitial.SteinbergBUProjectivePlaneFieldRoot
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSLInnerInvolution
 
 public section
 

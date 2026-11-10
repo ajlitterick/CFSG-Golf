@@ -2,12 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoInputs
 public import CFSG.LocalAnalysis.StandardType.GGHalfTorusFrame
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwoThreeTorus
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestThreeVac
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrLabels
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaBase
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoTableBReduce
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
 
 public section
 

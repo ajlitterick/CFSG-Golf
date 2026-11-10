@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.Kernel.SmithD6.StabK
 public import Certificates.Data.Kernel.SmithD6.StabTreeK
 
 public section

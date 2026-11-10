@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Blueprint.ChevalleyPinnedLemmas
-public import Certificates.Certificate113
 
 public section
 

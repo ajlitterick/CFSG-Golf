@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBJoinDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPositionDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRestOriginalWeyl
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBEqualJoin
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPosition

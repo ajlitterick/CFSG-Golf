@@ -1,6 +1,5 @@
 module
 
-public import CFSG.RankThree.PartTwo.Sec21.FF81FS79Std
 public import CFSG.RankThree.PartTwo.Sec21.FF81FS79Fr6Pack
 
 @[expose] public section

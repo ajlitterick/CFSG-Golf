@@ -1,24 +1,12 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T1428Facts
-public import CFSG.Open.Defs
-public import CFSG.Open.OrderForm
-public import CFSG.Open.StatedDefs
-public import CFSG.Blueprint.Catalog
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotCatTypeDet
 import CFSG.LocalAnalysis.StandardType.Marking
-import CFSG.LocalAnalysis.StandardType.MarkingDict
-import CFSG.LocalAnalysis.SeitzReduction.F4PilotCatEvenExcOrders
 import CFSG.LocalAnalysis.SeitzReduction.LinearPilotCatTypeDetExc
 import CFSG.LocalAnalysis.EvenBN.GMSK.TypeDetBender
-import CFSG.LocalAnalysis.SeitzReduction.CrossChar
-import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofLieOrder
 import CFSG.HardMathSupport.Solomon.Coordinator.LieOrderBridgeHolds
 import CFSG.LocalAnalysis.GLTheoremA.S10.CatDistinct
-import CFSG.Sporadic.Bridge.M22
-import CFSG.Timmesfeld.Orders.Distinct
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Foundations
 public import CFSG.GroupTheory.LocalCores.Layer
@@ -59,16 +47,7 @@ public import CFSG.LocalAnalysis.SectionRank.LargeReeCover
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Sporadic.Schreier.TitsOther
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremB
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremC
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.ZJTheorem
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GW1965RemarkDGroup
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29Helpers
 public import CFSG.Walter.Defs
 import CFSG.Certificates.CentralKernel
 import CFSG.Certificates.CosetTableWalkC
@@ -130,7 +109,6 @@ import CFSG.Monster.GMS.Fi23Gen
 import CFSG.Monster.GMS.Fi23GenIso
 import CFSG.Monster.GMS.Fi23GenSix
 import CFSG.Monster.GMS.LeechCoh
-import CFSG.Monster.GMS.LeechCohGroup
 import CFSG.Monster.GMS.S365Center
 import CFSG.Monster.GMS.S37
 import CFSG.Monster.GMS.S4Assembly
@@ -154,18 +132,6 @@ import CFSG.Sporadic.Schreier.J1QT
 import CFSG.Sporadic.Schreier.M24
 import CFSG.Sporadic.SuzOddCore.GraphData
 import CFSG.Sporadic.SuzOddCore.SmallActionData
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldPrimeOrderFixedSubfield
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OrderThreeNormalizer
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2PSLRangeCentralizer
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinInvolutionCount
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinRestrictionSixCount
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinUDecomposition
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationEleven
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTen
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTenStructuralIdentities
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2FieldProjectionArithmetic
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2OrderPSubgroupCount
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphReconstruction
 import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 

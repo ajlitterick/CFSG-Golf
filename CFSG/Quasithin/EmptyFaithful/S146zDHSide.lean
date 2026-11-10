@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.EmptyFaithful.S146zDPerf
-public import CFSG.Quasithin.Vol2.Ch1Comm
 
 public section
 

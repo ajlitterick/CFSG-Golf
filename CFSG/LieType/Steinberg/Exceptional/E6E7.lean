@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LieType.Steinberg.Presentation
 public import CFSG.LieType.Steinberg.Minuscule.ChevExtras
 
 public section

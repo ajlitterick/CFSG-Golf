@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.CompPOmegaPlus
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.StepA2
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.GeoOrth
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallOrthUnTwDPlane
-public import Mathlib.LinearAlgebra.Projection
 
 public section
 

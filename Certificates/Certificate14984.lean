@@ -1,10 +1,8 @@
 module
 
-public import CFSG.CGT.T75JM.N6Class
 public import CFSG.CGT.T75JM.N6A6
 public import CFSG.CGT.T75JM.N6Rels
 import Certificates.Kernel.Census.N6.Class
-import CFSG.Certificates.Kernel.Common.Harness
 import Certificates.Kernel.Census.N6.A6
 import Certificates.Kernel.Census.N6.F14984
 import CFSG.Certificates.Kernel.N6ModClassSound

@@ -1,8 +1,6 @@
 module
 
-public import CFSG.Certificates.CosetTableCompactColumns
 public meta import CFSG.Certificates.CosetTableCompactColumns
-public import CFSG.RankThree.Native.ONTriplePresInputs
 public import Certificates.Certificate8144
 
 public section

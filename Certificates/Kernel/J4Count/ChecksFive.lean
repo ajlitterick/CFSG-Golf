@@ -2,7 +2,6 @@
 module
 
 public import Certificates.Data.Kernel.J4Five
-public import Certificates.Kernel.J4Q.MatData
 public import Certificates.Kernel.J4Q.QTData
 public import Certificates.Kernel.J4Q.X0OrbData
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporJ4Data

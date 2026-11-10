@@ -2,13 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.L34MovingSection
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC1677ThreeDefs
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs16a
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenInfra
 public import CFSG.Quasithin.Background.ConjugateSectionAction
-public import CFSG.Quasithin.Background.FixVLattice
-public import CFSG.Quasithin.Background.D2Basic
-public import CFSG.Quasithin.Background.MovingSectionRank
-public import CFSG.Blueprint.Catalog
 public import CFSG.GroupTheory.IsComponentOfMap
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.CenterHopf
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven3Close16CoverR119

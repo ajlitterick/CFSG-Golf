@@ -3,7 +3,6 @@ module
 public import Certificates.Data.Kernel.LocalComp.TitsElem
 public import CFSG.Certificates.Kernel.LocalCompTits.Words
 import CFSG.Certificates.Kernel.Spor.PcompFacts
-import CFSG.Certificates.Kernel.Spor.Loops
 
 public section
 

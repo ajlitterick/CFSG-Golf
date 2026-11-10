@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Sporadic.BfsDataCmd
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public import CFSG.RankThree.Native.SuzFiveCheckInputs
 meta import CFSG.RankThree.Native.SuzFiveCheckInputs

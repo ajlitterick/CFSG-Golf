@@ -11,7 +11,6 @@ public import CFSG.HardMathSupport.Dickson.Bal207.LocalBalClassical
 public import CFSG.HardMathSupport.Dickson.Bal207.LocalBalRows
 public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.W2.SpTwo
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431Fam.PslBadCover
-public import CFSG.HardMathSupport.Dickson.Sec6.I1431Lie
 public import CFSG.HardMathSupport.Dickson.Sec6.I923Fam.D4
 public import CFSG.HardMathSupport.Dickson.Sec6.I923Fam.E7
 public import CFSG.HardMathSupport.Dickson.Sec6.I923Fam.E8
@@ -23,12 +22,9 @@ public import CFSG.HardMathSupport.Solomon.Coordinator.GFR2SporBMInvM
 public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.CrossSp
 public import CFSG.LargeExtraspecial.S4CEA6Basic
 public import CFSG.LargeExtraspecial.S4CESmallThree
-public import CFSG.LocalAnalysis.AGLEmbedding.CaseTwoConfig
-public import CFSG.LocalAnalysis.AGLEmbedding.CaseTwoEscape
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanParabAutIrrHom
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanParabAutIrrLarge
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanParabAutIrrXGen
-public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallGEVIbDefs
 public import CFSG.LocalAnalysis.EvenBN.Common.CommutatorFixed
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.I1015U6
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.U48Fix
@@ -58,7 +54,6 @@ public import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotInvolutionTwoPartEve
 public import CFSG.LocalAnalysis.StandardType.GGSixAutStructurePSpRank
 public import CFSG.Milestones.ASVolI.A2OddAut
 public import CFSG.Milestones.ASVolI.F48.Core
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtX1512DeltaA
 public import CFSG.Quasithin.Vol2.GoldschmidtF431TwoF4Thm
 public import CFSG.RankThree.GF2n.Stroth80.FrobClause
 public import CFSG.RankThree.GF2n.Stroth80.Sec12Stmt

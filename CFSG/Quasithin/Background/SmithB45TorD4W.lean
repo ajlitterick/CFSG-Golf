@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.Chevalley.SteinbergCDTrialityThreeSixSylow
 public import CFSG.RankThree.Chevalley.SteinbergCEF4EvenQPlusWeyl
-public import CFSG.LieType.Chevalley.E6ToralGraphInvolution
 public import CFSG.Quasithin.Background.SmithB45TorOrbit
 public import CFSG.RankThree.PartOne.KE.CTStatement
 public import CFSG.LieType.Chevalley.C2E6SubsystemBruhat

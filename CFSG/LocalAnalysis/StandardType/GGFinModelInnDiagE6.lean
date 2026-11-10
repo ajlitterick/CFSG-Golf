@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGFinModelRootCompatDefs
-public import CFSG.LocalAnalysis.StandardType.GGFinModelAct
 public import CFSG.LocalAnalysis.StandardType.GGFinModelExists
 public import CFSG.LocalAnalysis.StandardType.GGFinModelCore
 public import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpStdE6Core

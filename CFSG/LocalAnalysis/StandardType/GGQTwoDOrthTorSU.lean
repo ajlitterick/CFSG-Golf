@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import CFSG.LocalAnalysis.StandardType.GGReverseMarkingRaw
 public import CFSG.LocalAnalysis.StandardType.GGQTwoNbrAAuxFld
 import CFSG.LocalAnalysis.ComponentInitial.TwoPrimeSolvable
 import CFSG.RankThree.PartOne.LSTD.ClsB

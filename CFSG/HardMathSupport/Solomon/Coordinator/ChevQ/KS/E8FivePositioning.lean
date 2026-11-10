@@ -1,16 +1,10 @@
 module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.KS.E8FiveTwoMono
-public import CFSG.LocalAnalysis.StandardType.GGTableBTransport
-public import CFSG.LieType.Chevalley.GraphFixedF4Canonical
-public import CFSG.LieType.Chevalley.CLSOddE7RationalDerivedIndex
-public import CFSG.GroupTheory.ElemAbelianClosure
-public import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
 public import CFSG.LieType.AlgebraicGroups.FiniteSubgroupConjugacyExtension
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.KS.E8FiveTwoDich
 public import CFSG.LocalAnalysis.StandardType.GGFinModelEps
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfMaxToral
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.Mathlib.GroupTheory.NormalizerActionTransport
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.KS.E8FiveFourLift
 public import CFSG.RankThree.PartOne.KE8F.E8Frame

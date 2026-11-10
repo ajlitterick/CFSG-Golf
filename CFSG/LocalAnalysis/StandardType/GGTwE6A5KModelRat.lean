@@ -1,12 +1,9 @@
 module
 
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Defs
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUStd
-public import CFSG.RankThree.Classical2.SLnRootPermutingFixedGroups
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeBlockPlane
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeDiagTwisted
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24ConnGenUni
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleCycle
 import CFSG.LieType.AlgebraicGroups.KernelRootGroup
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCarrierSLAct
 import CFSG.RankThree.Classical2.SLnConjLemmas
@@ -32,7 +29,6 @@ public import CFSG.HardMathSupport.Timmesfeld.CrossChar.PlanesToralBlocks
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUAut
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.CentralizerTrivialPoly
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.CentralizerTrivialQ3T
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.OuterField
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.RigidField
 public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.CrossLin
 public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.LangFrame
@@ -86,7 +82,6 @@ public import CFSG.RankThree.PartTwo.KFacts.KS14SzLie
 public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 
 public section
 

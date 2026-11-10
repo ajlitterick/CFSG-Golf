@@ -1,6 +1,5 @@
 module
 
-public import CFSG.OddTranspositions.HalphaQuotient
 public import CFSG.OddTranspositions.PartThree.EightEight.Star
 import CFSG.OddTranspositions.PartThree.EightEight.StarBlockMeet
 

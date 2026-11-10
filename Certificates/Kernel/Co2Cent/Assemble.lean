@@ -1,15 +1,11 @@
 module
 
 public import Certificates.Data.Co2CentDefs
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co2ThreeDefs
-public import CFSG.RankThree.PartTwo.Sec4.Census.CoverCenterThreeRestCover
 public import Certificates.Kernel.Co2Cent.CaseAGlue
 public import Certificates.Kernel.Co2Cent.CaseBL
 public import Certificates.Kernel.Co2Cent.Fusion
 public import Certificates.Kernel.Co2Cent.FusBind
 public import Certificates.Kernel.Co2Three.Glue
-public import Certificates.Kernel.Co2Pump.Facts
-public import Certificates.Kernel.Misc.Perm.C2G
 public import CFSG.Certificates.Kernel.Spor.RawSiftMem
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.QuasiAssembly
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.AbelianSylow

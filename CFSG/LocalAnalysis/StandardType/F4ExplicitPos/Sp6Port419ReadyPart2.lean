@@ -5,7 +5,6 @@ public import CFSG.HardMathSupport.Foote.Coordinator.TwistedFrame.Leaf.LangLeviA
 public import CFSG.LocalAnalysis.GL83PartI.I_24_3.Plane
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Position
 public import CFSG.Quasithin.EmptyFaithful.T1515C4Mod
-public import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Defs
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Detect.Heis.NormalForm
 public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyBruhat

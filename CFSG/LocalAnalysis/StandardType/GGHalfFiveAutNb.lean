@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveNbr
-public import CFSG.LocalAnalysis.StandardType.GGHalfFiveNbrBasic
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveAutL
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveAutK
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveAutCount

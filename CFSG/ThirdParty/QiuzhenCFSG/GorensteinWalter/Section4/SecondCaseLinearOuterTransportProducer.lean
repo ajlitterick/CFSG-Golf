@@ -4,8 +4,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePS
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2ActionOuterImage
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseLinearOuterTransportEndpoint
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2ReflectedToriPairAlignment
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Theorem26Core
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

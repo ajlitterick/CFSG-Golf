@@ -1,20 +1,14 @@
 module
 
-import Mathlib.Tactic.Group
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeE6ToralCoreKerDefs
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Inner
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTamePrime
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitN36U4Twin
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.TorusAtExact
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Certs
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcInnerLang
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4PSpU4
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4SteinU
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog7L4EType
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog7L4EUFour
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog7L4EUType
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitPSL
-public import CFSG.LocalAnalysis.ComponentClassification.OutcomeLocalCTILinearSocle
 public import CFSG.LocalAnalysis.ComponentClassification.Sp4RecLinearHigh
 public import CFSG.LocalAnalysis.ComponentClassification.Sp4RecPair
 

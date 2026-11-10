@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmTauOm
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorus
 public import CFSG.LocalAnalysis.StandardType.GGTBJSuTorus
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
-public import CFSG.LocalAnalysis.ComponentInitial.BlockCentralQuotient
 
 public section
 

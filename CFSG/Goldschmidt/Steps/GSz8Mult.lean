@@ -19,8 +19,6 @@ public import CFSG.LocalAnalysis.LargeEvenClassification.SmallCfourProperSubgrou
 public import CFSG.LocalAnalysis.RankTwoShapes.AlperinFusion
 public import CFSG.LocalAnalysis.SectionRank.SporadicCover
 public import CFSG.Sporadic.M23.M23Group
-public import CFSG.Sporadic.Th.F2Spec
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.JRFacts
 
 public noncomputable section

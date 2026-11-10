@@ -1,6 +1,5 @@
 module
 
-import CFSG.Certificates.Kernel.Common.Harness
 public import Init
 import CFSG.Certificates.Kernel.Common.NatItemsGz
 import CFSG.Certificates.Kernel.Common.Repo

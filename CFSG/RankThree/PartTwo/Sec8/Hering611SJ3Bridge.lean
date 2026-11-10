@@ -1,12 +1,8 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec8.Hering611KFJ3Aut
-import CFSG.Sporadic.J3
-import CFSG.Sporadic.SmallOddCore.J3Aut
-import CFSG.Sporadic.Schreier.PairJ3Faithful
 import CFSG.RankThree.Asc83Table.J3
 import CFSG.GroupTheory.ElementaryAbelianTransport
-import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
 import CFSG.RankThree.PartTwo.Sec4.Item47Native
 import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication

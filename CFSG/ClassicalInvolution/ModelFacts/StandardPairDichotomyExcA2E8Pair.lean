@@ -1,11 +1,7 @@
 module
 
 public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcA2E8Rational
-public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcA2E8Levi
 public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcA2Form
-public import CFSG.ClassicalInvolution.ModelFacts.StandardPairChevalley
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.ClassicalInvolution.Balance.BootstrapDischarge
 public import CFSG.ClassicalInvolution.Balance.LayerGenerationInner
 public import CFSG.ClassicalInvolution.Balance.LayerGenerationTriple

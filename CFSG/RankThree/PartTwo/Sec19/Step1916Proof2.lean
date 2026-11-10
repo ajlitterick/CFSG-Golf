@@ -5,17 +5,11 @@ public import CFSG.RankThree.PartTwo.Sec19.Step196KFact
 import CFSG.RankThree.PartTwo.Sec19.Step196Proof
 import CFSG.RankThree.PartTwo.Sec19.Step1914Tri
 import CFSG.RankThree.PartTwo.Sec18.Tools
-import CFSG.RankThree.PartTwo.Late.Uniqueness
-import CFSG.RankThree.PartTwo.Late.GammaZero
-import CFSG.RankThree.PartTwo.Sec6.Item612Basic
-import CFSG.RankThree.PartTwo.Sec6.Item612Local
 import CFSG.RankThree.PartTwo.Sec6.Item612Plus
-import CFSG.RankThree.PartTwo.Sec12.Item123Inputs
 import CFSG.RankThree.PartTwo.Sec13.Item13Theta
 import CFSG.RankThree.PartTwo.Sec4.Item47Bridges
 import CFSG.RankThree.PartTwo.KFacts.KS18M12Proof
 import CFSG.GroupTheory.SteinbergBSQuotientLifting
-import CFSG.GroupTheory.BaerSuzuki.Helpers
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.Misc.Perm.HS100.Base
 public import Certificates.Kernel.Misc.Perm.HS100.S0Checks
 public import Certificates.Data.Inputs256cGen5
 import CFSG.Certificates.Kernel.Common.Harness

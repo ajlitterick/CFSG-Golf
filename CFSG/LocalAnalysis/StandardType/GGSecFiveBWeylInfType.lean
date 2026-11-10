@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPositionFrame
 import CFSG.LocalAnalysis.StandardType.GGSecFiveReflMaxBasic
 import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrCoxOrder
 import CFSG.LocalAnalysis.StandardType.GGSecFiveRootRefl
-import CFSG.LocalAnalysis.StandardType.GGSpJoinReflAlgebra
 import CFSG.LocalAnalysis.StandardType.GGPZWeylB
 import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoRowE
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge

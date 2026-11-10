@@ -1,6 +1,5 @@
 module
 
-public import CFSG.GH74.GLS.Basic
 public import CFSG.GroupTheory.GLS2.GroupTheory.PComponentOrbitClosure
 public import CFSG.ClassicalInvolution.SubnormalClosure.Basic
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper

@@ -1,14 +1,12 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveCompatJoinF4
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBLabelDefs
 import CFSG.LocalAnalysis.StandardType.GGSecFiveF4WeylInf
 import CFSG.LocalAnalysis.StandardType.GGSecFiveF4ReflMax
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBLabelCore
 import CFSG.LocalAnalysis.StandardType.GGF4H1Exceptional
 import CFSG.LocalAnalysis.StandardType.GGTBE6
 import CFSG.LocalAnalysis.StandardType.GGTBTorLiftRowsHolds
-import CFSG.LocalAnalysis.StandardType.GGPZWeylB
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBWeylInfDefs
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNativeImageDefs
 

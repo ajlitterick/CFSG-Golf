@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
 public import Mathlib.GroupTheory.SpecificGroups.Alternating.Simple
 
 public section

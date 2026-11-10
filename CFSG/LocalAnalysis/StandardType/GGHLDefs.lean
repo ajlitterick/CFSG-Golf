@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 
 public section
 

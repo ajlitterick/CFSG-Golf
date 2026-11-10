@@ -2,9 +2,6 @@ module
 
 public import Certificates.Kernel.KDenseP.AgreeB
 public import Certificates.Kernel.KDenseP.SepAt
-public import Certificates.Kernel.KDenseP.Axis.Base
-public import CFSG.Certificates.Kernel.KDense.Data.Checks
-public import CFSG.Certificates.Kernel.KDenseP.ReplaySound
 public import CFSG.Certificates.Kernel.KDenseP.Norton.MonoAll
 public import CFSG.Certificates.Kernel.KDenseP.Norton.C125200
 public import CFSG.Certificates.Kernel.KDenseP.Norton.C125201
@@ -49,8 +46,6 @@ public import CFSG.Certificates.Kernel.KDenseP.Norton.C125559
 public import CFSG.Certificates.Kernel.KDenseP.Norton.C125560
 public import CFSG.Certificates.Kernel.KDenseP.Norton.C125561
 import Certificates.Kernel.KDenseP.MonoTabL
-public import CFSG.Certificates.Kernel.KDenseP.Norton.MonoEChk0
-public import CFSG.Certificates.Kernel.KDenseP.Norton.MonoEChk1
 
 public section
 

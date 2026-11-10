@@ -5,7 +5,6 @@ public import Certificates.Kernel.LocalComp.TW.M23
 public import Certificates.Kernel.LocalComp.TW.M24a
 public import Certificates.Kernel.LocalComp.TW.M24b
 public import CFSG.Certificates.Kernel.LocalCompThreeWitnessSound
-public import CFSG.LocalAnalysis.ComponentClassification.RestrictedSporMathieuData
 public meta import CFSG.LocalAnalysis.ComponentClassification.RestrictedSporMathieuData
 public import CFSG.GroupTheory.LocalCores.Fitting
 public meta import CFSG.GroupTheory.LocalCores.Fitting

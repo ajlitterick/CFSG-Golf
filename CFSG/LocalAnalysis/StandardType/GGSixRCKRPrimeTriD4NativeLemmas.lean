@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeTriD4PinnedFrame
-public import CFSG.RankThree.PartOne.KD4L.TriNu
 
 public section
 

@@ -2,12 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJCount
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenSLComp
-import CFSG.LocalAnalysis.StandardType.GGInnerDiagBridgeTypeA
-import CFSG.LocalAnalysis.StandardType.GGLinearFusionFrame
-import CFSG.LocalAnalysis.StandardType.GGSixBstarUniqueToralA
-import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerTypeADvdModel
-import CFSG.LocalAnalysis.StandardType.GGTableBTypeAEndDvd
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 
 public section
 

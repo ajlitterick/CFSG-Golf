@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoCor81
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalancePumpup
-public import CFSG.LocalAnalysis.StandardType.GGPumpupBalance
 
 public section
 

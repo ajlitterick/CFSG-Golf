@@ -1,20 +1,10 @@
 
 module
 
-public import CFSG.Monster.B.TwoA.Unitary.ActionBase
-public import CFSG.Monster.B.TwoA.Census.NatCert
 public meta import CFSG.Monster.B.TwoA.Census.NatCert
 public meta import CFSG.Monster.B.TwoA.Unitary.NData
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Matrix
 public import CFSG.Monster.B.TwoA.Unitary.OrbitInputs
-public import Certificates.Data.CFSGNative.MonsterB.Short
-public import Certificates.Data.CFSGNative.Mathieu.M24
-public import CFSG.Certificates.Kernel.AxisPlane.Orbit
-public import Certificates.Data.Kernel.VisFrame.Gens
-public import Certificates.Data.CFSGNative.MonsterB.Co2Chain
-public import Certificates.Data.CFSGNative.MonsterB.Co2Matrix
-public import CFSG.Monster.B.TwoA.Unitary.Bridge
-public import CFSG.Monster.B.TwoA.Unitary.ActionInputs
 
 @[expose] public noncomputable section
 

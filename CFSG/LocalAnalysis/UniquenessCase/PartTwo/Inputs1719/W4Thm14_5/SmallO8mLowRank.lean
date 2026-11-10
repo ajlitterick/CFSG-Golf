@@ -1,16 +1,12 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm14_5.SmallO8mCurtis
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm14_5.SmallO8mLowRankGeometry
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm14_5.SmallO8mPerp
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm14_5.SmallO8mPerpPair
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm14_5.SmallO8mRankOne
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm14_5.SmallO8mWeightArithmetic
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm14_5.SmallO8mTorus
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm14_5.SmallO8mShortSection
 public import CFSG.HardMathSupport.Meierfrankenfeld.PSUScalar.EndFieldModel
 public import CFSG.HardMathSupport.GuralnickMalle.EndFieldDescent
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesDensity
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X7bGamma
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.FamilyDisplacement
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.SquareSpinMinus
@@ -19,25 +15,14 @@ import CFSG.HardMathSupport.Cooperstein.Coordinator.CurtisExc.NontrivialFactor
 import CFSG.HardMathSupport.Cooperstein.Coordinator.CurtisExc.DigitConds
 import CFSG.HardMathSupport.Cooperstein.Coordinator.CurtisExc.Digits
 import CFSG.LieType.Steinberg.CurtisDatum.TorusSums
-import CFSG.LieType.TitsSimplicity.Descent
 public import CFSG.Certificates.Kernel.LocalCompTits.Span
 public import CFSG.HardMathSupport.Meierfrankenfeld.GeneralFF.OffenderBasic
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeThree
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Equivariance
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
-public import CFSG.Quasithin.Background.B4ModelsAction
-public import CFSG.Quasithin.Background.B4ModelsIso
-public import CFSG.Quasithin.Background.C2Inputs
 public import CFSG.Quasithin.Background.H16TwoM22
 public import CFSG.Quasithin.Background.RonanH143Main
 public import CFSG.Quasithin.Background.RonanH154Vocab
 public import CFSG.Quasithin.Background.RonanH155Vocab
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

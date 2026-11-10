@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCMBlockCore
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutNonsplitFieldSUDelta
 public import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagUnitary
-public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionSURepWitt
-public import CFSG.Open.StatedSUFieldChange
-public import CFSG.LieType.Universal.Unitary.Comparison
 public import CFSG.RankThree.PartOne.CTP.PhanBridge
 
 public section

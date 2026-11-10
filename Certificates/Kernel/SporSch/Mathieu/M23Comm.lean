@@ -1,11 +1,8 @@
 module
 
-public import Certificates.Data.CommProdM23
 public meta import Certificates.Data.CommProdM23
 public import Certificates.Kernel.SporSch.Mathieu.M23Facts
 public import CFSG.Certificates.Kernel.SporSch.CommWordSound
-import CFSG.Certificates.Kernel.Spor.PrimSound
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutCheckBase
 
 public section

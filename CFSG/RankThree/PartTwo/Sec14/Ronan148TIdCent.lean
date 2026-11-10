@@ -2,13 +2,9 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148TIdDefs
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148TIdCentMat
-public import CFSG.RankThree.PartTwo.Sec4.Item47Inputs
 import CFSG.RankThree.PartTwo.Sec14.Ronan148TIdX
 import CFSG.RankThree.PartTwo.Sec14.Ronan148TIdThetaAux
-import CFSG.RankThree.PartTwo.Sec14.Ronan148TOddModel
 import CFSG.RankThree.PartTwo.Sec4.LThreePiProjInner
-import CFSG.RankThree.PartTwo.Sec4.LThreePiProj
-import Mathlib.FieldTheory.Perfect
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
 public import CFSG.Certificates.FusionF2
@@ -38,7 +34,6 @@ public import CFSG.LocalAnalysis.SignalizerFunctor
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.B2Thompson
 public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 public import CFSG.Quasithin.Vol2.KGFactC31RuRefBase

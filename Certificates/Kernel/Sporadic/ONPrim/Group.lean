@@ -4,8 +4,6 @@ module
 public import Certificates.Kernel.Sporadic.ONPrim.Facts
 public import Certificates.Kernel.Sporadic.ONNQ.Final
 public import CFSG.Quasithin.Recognition.CertPermSimple
-public import CFSG.Sporadic.ONOddCore.PrimPt
-public import CFSG.Sporadic.Schreier.ONSchreierData
 
 public section
 

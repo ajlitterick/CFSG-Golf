@@ -4,8 +4,6 @@ module
 public import Certificates.Certificate3153Base
 import all Certificates.Certificate3153Base
 
-public import CFSG.Monster.B.Fischer.Fi22GraphBoundCheckInputs
-public import Certificates.Data.CFSGNative.FischerOddCore.Checks
 import Certificates.Kernel.Sporadic.Fi22.N3153Final
 
 public section

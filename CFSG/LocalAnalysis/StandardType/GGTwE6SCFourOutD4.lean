@@ -5,8 +5,6 @@ import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourOutD4Cent
 import CFSG.LocalAnalysis.StandardType.GGTwE6D5CoreSpin
 import CFSG.LocalAnalysis.StandardType.GGTwE6K1LineAux
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24D4T2Plumb
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.PlanesToral
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.Assembly
 
 public section
 

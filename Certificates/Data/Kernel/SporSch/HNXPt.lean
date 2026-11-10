@@ -2,8 +2,6 @@ module
 
 public import Certificates.Data.Kernel.SporSch.HNXOrb
 public import Certificates.Data.Kernel.SporSch.HNF5
-public import CFSG.Certificates.Kernel.Local.HN.Lib
-public import CFSG.Certificates.Kernel.Local.HN.X.Lib
 
 public section
 

@@ -4,7 +4,6 @@ public import Certificates.Kernel.Tri.LeechShort
 public import Certificates.Kernel.Tri.LeechTabs
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.EachUnfold
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Monster.B.Short.AxisAction
 public import CFSG.Monster.B.Short.OrbitCertBase
 public import CFSG.Monster.B.Short.OrbitSpec

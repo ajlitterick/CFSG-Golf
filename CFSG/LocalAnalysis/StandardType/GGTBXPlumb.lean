@@ -3,10 +3,8 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTBTorRel
 public import CFSG.LocalAnalysis.StandardType.GGTBXDatumDefs
 public import CFSG.LocalAnalysis.StandardType.GGTBXDatumOfTor
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45KGLabel
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySplitRefl
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenCore
 
 public section
 

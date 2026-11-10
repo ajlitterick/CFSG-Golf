@@ -1,11 +1,8 @@
 module
 
-public import CFSG.OddTranspositions.HalphaQuotient
 public import CFSG.OddTranspositions.PartThree.EightEight.Star
-public import CFSG.Timmesfeld.Bridge.Asc72Defs
 
 import CFSG.OddTranspositions.PartThree.EightEight.ConnectedPerfect
-import CFSG.Timmesfeld.Bridge.Asc72Central
 import CFSG.Timmesfeld.Bridge.Asc72ZMain
 import CFSG.CGT.Timmesfeld75.Statements
 import CFSG.CGT.Timmesfeld75.Targets

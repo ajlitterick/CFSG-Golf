@@ -1,19 +1,12 @@
 module
 
 public import CFSG.HardMathSupport.Timmesfeld.Tables.Census.Lie
-public import CFSG.HardMathSupport.Timmesfeld.Tables.Census.ExcUntwisted
 public import CFSG.HardMathSupport.Timmesfeld.Tables.Census.ExcTwisted
 public import CFSG.HardMathSupport.Timmesfeld.Tables.Census.ExcTits
 public import CFSG.HardMathSupport.Timmesfeld.Tables.Census.ExcLargeRee
-public import CFSG.Adapters.TauCetiExceptional.EvenAll
 public import CFSG.Adapters.TauCetiExceptional.ReeBridge
-public import CFSG.LocalAnalysis.SectionRank.ExceptionalModels
-public import CFSG.LocalAnalysis.SectionRank.SmallRee
-public import CFSG.LieType.Ree.SuzukiOrder
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructureTransport
 public import CFSG.StronglyEmbedded.Catalog.Suzuki
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.GH74.GLS.Classes
 public import CFSG.GH74.Generic.Certificates
 public import CFSG.GH74.Statements

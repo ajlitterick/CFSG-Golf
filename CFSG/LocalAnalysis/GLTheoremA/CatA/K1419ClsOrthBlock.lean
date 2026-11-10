@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.K1419ClsDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniData
-public import CFSG.Open.StatedDefs
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnOrthComp
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnOrthModel
 import all CFSG.HardMathSupport.Solomon.Coordinator.LieComp.OrthInnerExport

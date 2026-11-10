@@ -4,9 +4,7 @@ public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15R15Final18
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K534Holds
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K55Holds
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K517SixGlue
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15ACoreHolds
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RankAlt
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RankChevResCore
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RankChevResMain
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RankSmall
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15InnerK541Free
@@ -16,94 +14,54 @@ public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K63ThreeHolds
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K4143Holds
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K518Res
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15O1517bRes
-import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.MsideParabolicEscape.ChevGenCentreFinal
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section8.Defs
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section15.O1517bMain
-import CFSG.LocalAnalysis.AGL81TheoremCD.Section8.O812sixFi22
-import CFSG.LocalAnalysis.GL83PartI.I_24_3.IsoPlaneMain
-import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.StrongThree
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section8.KFactFi22SPEHolds
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K58Holds
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KLiftA7Holds
-import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.CatalogSchreier
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15A10GenHolds
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15CycHat
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K421LinHolds
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K421OmData
-import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K421SpData
-import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K517ChevGenQFam
-import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K89SMain
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactF2
-import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsLie
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KListI1
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KParU5Holds
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15O1219Sigma
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15R15Rows1CycOne
-import CFSG.Milestones.CL_LIT_Griess_Schur_multipliers_Lie_type
-import CFSG.RankThree.PartTwo.KFacts.KS44Sz
 public import CFSG.LocalAnalysis.RankThreeUC.GN15JOutOdd
 public import CFSG.Yardstones.Me2c15c2c995a.Definitions
-public import CFSG.LocalAnalysis.RankThreeUC.GN15Solv
 public import CFSG.LocalAnalysis.UniquenessCase.UC6K332RowsRest
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.Preamble
 import CFSG.LocalAnalysis.RankThreeUC.GN15Holds
-import CFSG.LocalAnalysis.RankThreeUC.AGL81S15GNInputRed
 import CFSG.LocalAnalysis.RankThreeUC.GN15JOutSupGuard
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section7.KFact76K332
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section7.KFact76Reduction
-import CFSG.LocalAnalysis.AGL81TheoremCD.Section7.KFact76RankThree
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section7.KFact76J2
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section7.KFact76G2Max
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section8.O89
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15O89OfGen
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K37Main
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section15.O98Main
-import CFSG.LocalAnalysis.AGL81TheoremCD.Section15.K35Holds
-import CFSG.LocalAnalysis.AGL81TheoremCD.Section15.OraclesGen
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section15.O1521Gen
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section15.O1521b
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section8.P812Holds
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.O1217SigmaHolds
 import CFSG.LocalAnalysis.AGL81TheoremCD.RankFour.TheoremCDFourS14
 import CFSG.LocalAnalysis.RankThreeUC.K518HMain
-import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineNineOne
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineSevenTwoGen
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CNormalComplementHolds
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.K35CentralHolds
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.NineSixInputOfMoreover
-import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.NineSixMoreoverProof
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.ThreeFiveA11InputHolds
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.TwelveElevenNineSeven
-import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.NineSevenOneFi22GenHolds
-public import CFSG.Sporadic.Schreier.LyCheckSep
-public import CFSG.Sporadic.Ly.KeySpec
-public import CFSG.Sporadic.He.FpSpec
 import Certificates.Kernel.SporSch.Ly.SepGlue
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3J4D4Data
-public import CFSG.Sporadic.J4.QT2LocX0Native
-public import Certificates.Data.CFSGNative.J4.PentScan
-import Certificates.Kernel.J4Q.QTBase
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312HsKInputs
 import Certificates.Kernel.HSA312.Struct
 import Certificates.Kernel.HSQuot.Final
-public import CFSG.Sporadic.Ly.Setup
 import CFSG.Sporadic.Ly.GenSpecBase
-public import CFSG.GroupTheory.TwoWeightData
 import CFSG.Sporadic.Ly.TwoWeightsSpecBase
 import CFSG.GH74.GLS.Stage2.Signalizer.Ivk8P4S55LyHHBase
-public import CFSG.Monster.Existence.StdOdd.Defs
-public import Certificates.Data.CFSGNative.Chevalley.C2E6CertLie
-public import CFSG.LieType.Chevalley.C2E6StdMatrixData
-public import CFSG.Monster.B.Classical.E6AdjointGroup
 import Certificates.Kernel.Misc.E6StdSlp
-public import CFSG.Blueprint.NativeSporadic
-public import CFSG.RankThree.PartOne.CTP.FusionSound
-import CFSG.Sporadic.Bridge.BFusSevenGen
-public import CFSG.YGroups.Y443.Native.CoverFactsWords
 import Certificates.Kernel.KDense.Y443
-public import CFSG.YGroups.Y443.Native.Swap13Word
-public import CFSG.Sporadic.Ly.FiveFacts
-import CFSG.Sporadic.Ly.Certificate
 public import CFSG.CGT.T75P.Ctx
 public import CFSG.CGT.T75P.DecA
 public import CFSG.CGT.Timmesfeld75.Sec5FiveEng
@@ -118,7 +76,6 @@ public import CFSG.GH74.GLS.IVK.Proofs2.Ivk93WPGU
 public import CFSG.HardMathSupport.Dickson.I271.SporGenAux.ThreeKill
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofE7TwistMain
 public import CFSG.LocalAnalysis.ComponentClassification.OddClassSelectorU
-public import CFSG.LocalAnalysis.ComponentClassification.OddSelector
 public import CFSG.LocalAnalysis.ComponentClassification.Sp4RecPair
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.FamilyU3Top
 public import CFSG.LocalAnalysis.QuasithinUnique.SteinbergBIQuaternionBlockObstruction

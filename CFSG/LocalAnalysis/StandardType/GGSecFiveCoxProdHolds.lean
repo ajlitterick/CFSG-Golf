@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveCoxProd
 import CFSG.LocalAnalysis.StandardType.GGWeylCartan
 import CFSG.LocalAnalysis.StandardType.GGKGPosRootPairs
-import CFSG.LocalAnalysis.StandardType.GGSimplyLacedWeyl
-import CFSG.LieType.Steinberg.OfCartan
 
 public section
 

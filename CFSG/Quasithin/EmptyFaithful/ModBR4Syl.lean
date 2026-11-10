@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.IndexNormalSup
-public import Mathlib.GroupTheory.PGroup
 
 public section
 

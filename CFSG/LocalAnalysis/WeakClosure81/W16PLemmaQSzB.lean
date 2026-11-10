@@ -1,10 +1,6 @@
 module
 
-public import CFSG.Open.Catalog
-public import CFSG.Open.LocalVocabulary
 public import CFSG.LocalAnalysis.WeakClosure81.SuzukiGen
-public import CFSG.LocalAnalysis.WeakClosure81.W16PLemmaQSzBA
-public import CFSG.LocalAnalysis.WeakClosure81.W16PLemmaQSzBB
 public import CFSG.LocalAnalysis.WeakClosure81.W16PLemmaQSzBC
 public import CFSG.LocalAnalysis.WeakClosure81.W16PLemmaQSzBD
 public import CFSG.Blueprint.SourceExceptionalModels
@@ -33,11 +29,6 @@ public import CFSG.RankThree.PartOne.S10.ThetaContract
 public import CFSG.RankThree.PartOne.S12.InputsBase
 public import CFSG.RankThree.S4Free.Statement
 public import CFSG.StronglyEmbedded
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_1_12
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.Walter.Defs
 
 public section

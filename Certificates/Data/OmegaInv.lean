@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.OmegaT0
 public import Certificates.Data.OmegaF1051
 
 public section

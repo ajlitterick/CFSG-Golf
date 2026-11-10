@@ -1,13 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieInputs
-public import CFSG.Open.StatedDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieIdx
 public import CFSG.Adapters.CatalogueFieldBridges.Linear
 public import CFSG.Adapters.CatalogueFieldBridges.Unitary
 public import CFSG.Adapters.CatalogueFieldBridges.Symplectic
-public import CFSG.LocalAnalysis.ComponentInitial.LinearCoverModel
-public import CFSG.LieType.Universal.Symplectic
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.FactorSL
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.FactorSU
 public import CFSG.Adapters.CatalogueFieldBridges.UnitarySU
@@ -52,8 +48,6 @@ public import CFSG.Quasithin.Background.C1GNSolvConnect
 public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.E2Statements
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918C6
 public import CFSG.Quasithin.Background.FFC7G
 public import CFSG.Quasithin.Background.FFC8A
@@ -102,7 +96,6 @@ public import CFSG.Quasithin.Vol2.Ch9KGFFQR
 public import CFSG.Quasithin.Vol2.Ch9KGFFQRCase
 public import CFSG.SignalizerFunctorTheorem.NonLocal.Cross
 public import CFSG.SignalizerFunctorTheorem.NonLocal.SpData
-public import CFSG.Walter.J1Props
 public import Certificates.Kernel.J4Count.Prim
 
 public section

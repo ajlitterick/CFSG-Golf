@@ -6,7 +6,6 @@ import CFSG.LocalAnalysis.StandardType.FF81.PropOne.LMonomial
 import CFSG.LocalAnalysis.StandardType.FF81.PropOne.LNormalizer
 import CFSG.LocalAnalysis.StandardType.FF81.PropOne.B2Exp
 import CFSG.Mathlib.GroupTheory.OddInvariantSylow
-import CFSG.LocalAnalysis.StandardType.FF81.LocalSetupCen
 
 @[expose] public section
 

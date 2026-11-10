@@ -1,10 +1,7 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Twelve.FiveChart
-public import CFSG.OddTranspositions.PartThree.Twelve.FiveDefs
-public import CFSG.OddTranspositions.PartFour.LinePolar
 import CFSG.OddTranspositions.PartThree.Nine.Setup
-import CFSG.OddTranspositions.PartThree.Twelve.Seven
 import CFSG.OddTranspositions.PartThree.Twelve.SevenClasses
 import CFSG.OddTranspositions.PartFour.Fourteen.FivePlane
 import CFSG.OddTranspositions.PartFour.Fourteen.FivePlanePerp

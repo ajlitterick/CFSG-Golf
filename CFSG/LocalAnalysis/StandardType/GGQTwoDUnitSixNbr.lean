@@ -3,13 +3,8 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitSixCommon
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitComp
 import CFSG.LocalAnalysis.StandardType.GGQTwoSU34Aux6
-import CFSG.LocalAnalysis.StandardType.GGQTwoSUOrder
 import CFSG.LocalAnalysis.StandardType.GGQTwoDRMLin
-import CFSG.LocalAnalysis.StandardType.GGQTwoDCoxMat
-import CFSG.LocalAnalysis.StandardType.GGNbrBalanceBasic
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitLayer
-import CFSG.LocalAnalysis.ComponentInitial.CommutingBlock
-import CFSG.LocalAnalysis.ComponentInitial.DerivedFixedLayer
 
 public section
 

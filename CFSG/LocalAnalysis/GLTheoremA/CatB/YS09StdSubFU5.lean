@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.YS09StdSubFU4
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.U52Layer
-public import CFSG.LocalAnalysis.GLTheoremA.S4.FullCover.MultLie
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.Blueprint.LieModelAPI
 public import CFSG.GH74.GLS.IVK.Proofs2.OddTools
 public import CFSG.GH74.GLS.Stage2.Local.P34Main

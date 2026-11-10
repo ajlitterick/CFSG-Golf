@@ -1,10 +1,6 @@
 module
 
-public import CFSG.Quasithin.Background.HStandard
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.In23FiveTauGrp
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticTorusWeylMatrices
 public meta import Mathlib.Algebra.Field.ZMod
-public import CFSG.Quasithin.Background.Sp4InfConcInputs
 public import Certificates.Certificate8068
 
 public section

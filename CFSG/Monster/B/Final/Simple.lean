@@ -2,7 +2,6 @@ module
 
 public import CFSG.Monster.B.Final.Assembly
 public import CFSG.Monster.B.Dyadic.A0
-public import CFSG.Monster.B.Gen.PacketGeneration
 public import CFSG.Monster.B.Dyadic.BetaFacts
 public import CFSG.Monster.B.Dyadic.BinElim
 public import CFSG.Monster.B.Dyadic.Jordan

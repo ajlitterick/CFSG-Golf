@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.PermCent.ForceCV
 public import CFSG.GH74.GLS.C3.Layer2.FinModelDefs
-public import Mathlib.GroupTheory.Perm.Fin
 public import Mathlib.GroupTheory.Perm.Centralizer
 public import Mathlib.GroupTheory.SpecificGroups.Alternating
 

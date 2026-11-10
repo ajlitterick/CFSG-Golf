@@ -1,18 +1,13 @@
 module
 
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTwelveKer
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.NineTwelveOneSettingGen
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.NineTwelveTwoGen
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CSixSevenHolds
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.AutRankThree.GLThreeHolds
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.AutRankThree.SpFourHolds
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.AutRankThree.Solvable
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.LowDimSection.Holds
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.NineSixLowDim.KFact.Sp4.Main
-public import CFSG.RankThree.PartOne.KF.BloomClose
-public import CFSG.RankThree.PartOne.A6N.Final
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.NineTenInputsHolds
-public import CFSG.RankThree.PartOne.TCB.SchreierFinal
 public import CFSG.GroupTheory.CoprimeLiftElementaryAbelian
 public import CFSG.GroupTheory.GL52.SylowTools
 public import CFSG.GroupTheory.RegularModuleThree

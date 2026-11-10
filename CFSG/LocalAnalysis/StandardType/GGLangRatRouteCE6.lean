@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLangRatRouteCCore
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeExcActOuterPerfTriKac
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcKacCount
 
 public section
 

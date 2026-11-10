@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec21.FF79Vocab
 import CFSG.RankThree.Transfer.Yoshida
-import Mathlib.GroupTheory.Transfer
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 
 public section

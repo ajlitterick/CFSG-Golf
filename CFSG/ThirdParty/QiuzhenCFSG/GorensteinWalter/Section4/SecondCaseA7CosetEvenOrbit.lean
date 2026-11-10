@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseA7IntersectionLeACentralizer
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.KleinFourSupInvolutionSylow
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralSylowCosetInvolutionConjugacy
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.NormalizedKleinFourInvolutionDihedral
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.InvolutionNormalizerInfConjugate
@@ -10,7 +9,6 @@ import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.TwoCoreCentralizerEqualsHhat
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.KleinFourMapInjective
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CosetInvolutionCount
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.InvertedElementsLeInfConjugate
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

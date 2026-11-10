@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGE6DepKnownDefs
 public import CFSG.LocalAnalysis.StandardType.GGE6DepKnownInputsDefs
 
 public section

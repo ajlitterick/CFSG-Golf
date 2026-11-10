@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootDetectCore
-public import CFSG.LieType.Chevalley.RootCharacterConjugation
 
 public section
 

@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorsionDefs
-public import CFSG.LocalAnalysis.SeitzReduction.F4PilotCatTypeDet
 public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotCatTypeDetExc
-public import CFSG.Timmesfeld.Orders.ClassicalLinear
 
 public section
 

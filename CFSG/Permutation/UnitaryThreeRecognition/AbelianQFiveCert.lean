@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Permutation.UnitaryThreeRecognition.AbelianQFiveModel
 public meta import CFSG.Permutation.UnitaryThreeRecognition.AbelianQFiveModel
 public meta import Mathlib.Data.ZMod.Defs
 public meta import Mathlib.Data.ZMod.Basic

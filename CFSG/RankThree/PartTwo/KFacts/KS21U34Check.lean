@@ -1,10 +1,7 @@
 module
 
-public import CFSG.GH74.KGroups.FieldGF
-public import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
 public meta import CFSG.GH74.KGroups.FieldGF
 public meta import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
-public import CFSG.RankThree.PartTwo.KFacts.KS21U34CheckInputs
 public import Certificates.Certificate8167
 
 public section

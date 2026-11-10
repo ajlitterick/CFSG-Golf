@@ -3,8 +3,6 @@ module
 public import CFSG.Fischer.Classification.Skeleton
 import CFSG.Fischer.Classification.Basic.Center
 import CFSG.Fischer.Classification.Symplectic.Basic
-import Mathlib.Algebra.Module.ZMod
-public import Mathlib.GroupTheory.OrderOfElement
 public import CFSG.Fischer.Pairs
 public import CFSG.Open.Defs
 

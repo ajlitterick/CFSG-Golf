@@ -1,11 +1,8 @@
 module
 
-public import Certificates.Data.Kernel.OpsLayMcert
-public import Certificates.Kernel.LocalComp.LaySnaps
 public import Certificates.Kernel.TcGen.Fi23
 public import Certificates.Kernel.Fi23U3.Prog
 meta import Certificates.Kernel.Fi23U3.Prog
-public import CFSG.Certificates.Kernel.Common.Each
 public import CFSG.Certificates.Kernel.Common.ForallTree
 import CFSG.Certificates.Kernel.Common.Harness
 

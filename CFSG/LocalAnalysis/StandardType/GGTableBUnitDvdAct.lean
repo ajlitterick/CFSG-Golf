@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUModel
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeInner
 
 public section
 

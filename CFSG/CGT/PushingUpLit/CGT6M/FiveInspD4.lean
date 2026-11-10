@@ -2,14 +2,8 @@ module
 
 public import CFSG.CGT.PushingUpLit.CGT6M.FiveInspTrans
 public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalTrialityD4Untwist
-public import CFSG.LieType.Chevalley.OddDiagramFrobeniusFixedDerived
-public import CFSG.LieType.Chevalley.OddExceptionalOuterTwoRank
-public import CFSG.LieType.Chevalley.GraphFixedOrbitParametrization
-public import CFSG.LieType.Chevalley.ToralCentralizerBruhat
-public import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
 public import CFSG.Certificates.Kernel.ThDemp.OrbCent
 public import CFSG.Sporadic.ThSchreier.AutCore
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.Sporadic.ThSchreier.GlobalData
 public import CFSG.Sporadic.ThSchreier.LocalOrbitBase1
 

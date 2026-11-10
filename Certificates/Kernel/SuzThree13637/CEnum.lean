@@ -3,12 +3,10 @@ module
 public import Certificates.Kernel.SuzThree13637.BindSrc
 public import Certificates.Kernel.Sporadic.Suz.Chain2306
 public import Certificates.Data.Kernel.Spor.RebuildK
-public import Certificates.Data.Kernel.Misc.ArrEnum
 public import Certificates.Kernel.B3S3.GenSl
 public meta import Certificates.Kernel.SuzThree13637.BindSrc
 public meta import Certificates.Kernel.B3S3.GenSl
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 set_option maxRecDepth 400000
 

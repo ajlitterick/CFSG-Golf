@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.SmallCases.NDB5dTag
-public import CFSG.ClassicalInvolution.SmallCases.NDB5Sec
 
 public section
 

@@ -2,8 +2,6 @@
 module
 
 public import CFSG.Quasithin.Recognition.L34AmalgamGenInputs
-public import CFSG.Quasithin.Recognition.L34AmalgamDataBase
-import CFSG.Sporadic.Schreier.M22Data
 meta import CFSG.Sporadic.Schreier.M22Data
 import Certificates.Kernel.LocalComp.WittA7035
 

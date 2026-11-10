@@ -2,18 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenFortyFiveWeylFiveCore
 public import CFSG.Quasithin.Vol2.KGFactC31LieSylGen
-public import CFSG.LocalAnalysis.ComponentInitial.RootDiagonalConjugation
 import CFSG.Quasithin.Vol2.KGFactC31LieSylAdjSylow
-import CFSG.LocalAnalysis.RankFourTheoremC.InvariantTwo.KFacts.I294CrossExcToral
 import CFSG.LocalAnalysis.StandardType.GGPhiTwoRootGenLayer
-import CFSG.RankThree.Chevalley.SteinbergCAF4SplitPrimeTorus
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.PlanesToralBlocks
-import CFSG.LocalAnalysis.SeitzReduction.E6PilotFieldNormalizeTorus
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangInner
 import CFSG.HardMathSupport.Lang.D4Three.DiagSquare
-import CFSG.RankThree.PartOne.K133H.G2Plane
-import CFSG.RankThree.PartOne.K133H.F4Weyl
-import CFSG.RankThree.PartOne.KGD.D4Weyl
 public import CFSG.Certificates.Kernel.LocalCompTits.Span
 public import CFSG.CharacterTheory.Semidihedral.Principal.PrimeOrderSylowColumn
 public import CFSG.CharacterTheory.TwoRankLowerBound.NormalComplementCharacterSpace
@@ -31,14 +23,11 @@ public import CFSG.LocalAnalysis.ComponentInitial.LayerComponentOrbit
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasFive
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasSix
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalReflectionSplitting
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Equivariance
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Helpers
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.In23ExamKCover
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.In23FiveDefs
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.InA3Five
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.InS2Listed
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.EvenClassicalStrong
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19IdBasic
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19IdComp
@@ -54,7 +43,6 @@ public import CFSG.Quasithin.Background.A1cA132Action
 public import CFSG.Quasithin.Background.A1cA133Three
 public import CFSG.Quasithin.Background.A3Structure314Cases
 public import CFSG.Quasithin.Background.A3Structure319
-public import CFSG.Quasithin.Background.A3Structure36Base
 public import CFSG.Quasithin.Background.B216Quotient
 public import CFSG.Quasithin.Background.B69Core
 public import CFSG.Quasithin.Background.C1GNC124
@@ -62,15 +50,11 @@ public import CFSG.Quasithin.Background.C1GNSolvConnect
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.E2Statements
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3OffenderB
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.E4Solv
 public import CFSG.Quasithin.Background.F9G2
 public import CFSG.Quasithin.Background.F9Sixteen
 public import CFSG.Quasithin.Background.FFC7G
 public import CFSG.Quasithin.Background.FFC8A
 public import CFSG.Quasithin.Background.G64ProofBasic
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import CFSG.Quasithin.EmptyFaithful.S14110
 public import CFSG.Quasithin.EmptyFaithful.S14117
 public import CFSG.Quasithin.EmptyFaithful.S1421Defs
@@ -124,11 +108,9 @@ public import CFSG.RankThree.PartOne.S12.InputsBase
 public import CFSG.Sporadic.Schreier.J4SProfileNode
 public import CFSG.Sporadic.Schreier.M23
 public import CFSG.Sporadic.Schreier.TitsOther
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
 public import Certificates.Data.CFSGNative.MonsterB.Rep4371Model
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

@@ -5,7 +5,6 @@ public import CFSG.HardMathSupport.Timmesfeld.DefChar.CoreE
 public import CFSG.HardMathSupport.Timmesfeld.DefChar.CoreF4G2
 public import CFSG.HardMathSupport.Timmesfeld.DefChar.CoreTwistedE6
 public import CFSG.HardMathSupport.Timmesfeld.DefChar.CoreReeD4
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.HardMathSupport.Solomon.Coordinator.B3FamPC
 public import CFSG.HardMathSupport.Solomon.Coordinator.B3LieCore
 public import CFSG.HardMathSupport.Solomon.Coordinator.LayerCentral

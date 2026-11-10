@@ -1,9 +1,7 @@
 module
 
 public import CFSG.ClassicalInvolution.Asc77.AscMuTabSmallB
-public import CFSG.ClassicalInvolution.Asc77.AscIHSectD
 public import CFSG.ClassicalInvolution.RouteD.ExoticD4Model
-public import CFSG.ClassicalInvolution.RouteD.ExoticSingleClique
 public import CFSG.ClassicalInvolution.Balance.BootNoTripleStrong
 public import CFSG.ClassicalInvolution.Balance.StrongLocalBalanceGlue
 public import CFSG.ClassicalInvolution.RouteD.G2D4Ih8

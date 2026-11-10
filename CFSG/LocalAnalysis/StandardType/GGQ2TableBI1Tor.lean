@@ -3,13 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQ2TableBI1Frame
 public import CFSG.LocalAnalysis.StandardType.GGTBTorDefs
 import CFSG.LocalAnalysis.StandardType.GGTBXDatumOfTor
-import CFSG.LocalAnalysis.StandardType.GGTBTorDatum
 import CFSG.LocalAnalysis.StandardType.GGPZCartanRank
-import CFSG.LocalAnalysis.StandardType.GGTableBBstar
-import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
-import CFSG.LocalAnalysis.StandardType.GGForkJrPumpLattice
-import CFSG.LocalAnalysis.StandardType.GGStdSubExist
-import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
 
 public section
 

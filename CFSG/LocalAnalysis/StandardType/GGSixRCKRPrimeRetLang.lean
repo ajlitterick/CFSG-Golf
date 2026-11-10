@@ -5,14 +5,9 @@ public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeRetDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeRelOneUse
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.CentralizerTrivialQ2
 import CFSG.GroupTheory.SylowIntersectionControl.GomiLeviExc.ModelMinuscule
-import CFSG.LieType.Steinberg.Isogeny.E6
 import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusExcOrbit
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.GoodRankOne
-import CFSG.LieType.Chevalley.DiagonalFieldActorData
-import CFSG.LieType.Chevalley.LangFiniteRootCentralizer
 import CFSG.RankThree.Chevalley.SteinbergBNG2QPlusLocalCore
-import CFSG.RankThree.PartOne.KE.CTLang
-import CFSG.LieType.Chevalley.LangStronglyOrthogonalCommute
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.CentralizerTrivialQ3T
 
 public section

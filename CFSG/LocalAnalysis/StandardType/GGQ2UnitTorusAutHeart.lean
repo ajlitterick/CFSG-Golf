@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQ2UnitNormalizerStatements
 import CFSG.LocalAnalysis.StandardType.GGQ2UnitDiag
 import CFSG.LocalAnalysis.StandardType.GGQ2CensusChainA
 import CFSG.LocalAnalysis.StandardType.GGTableBUnitActCore
-import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeThree
 import CFSG.Mathlib.Perm.FixingSubgroupSwap
 
 public section

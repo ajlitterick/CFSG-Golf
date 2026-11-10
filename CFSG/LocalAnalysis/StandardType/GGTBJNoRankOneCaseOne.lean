@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 import CFSG.LocalAnalysis.StandardType.GGTBJNoRankOneToral
-import CFSG.LocalAnalysis.StandardType.GGTableBRank
 
 public section
 

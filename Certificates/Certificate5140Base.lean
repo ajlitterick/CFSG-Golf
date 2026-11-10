@@ -1,7 +1,6 @@
 
 module
 
-public import CFSG.GH74.KGroups.L34TablesBase
 public import CFSG.GH74.Uniqueness.SU.KI1r4L34ModelInputs
 import CFSG.Certificates.Kernel.PermCent.CVSound
 import Certificates.Kernel.PermCent.K5140

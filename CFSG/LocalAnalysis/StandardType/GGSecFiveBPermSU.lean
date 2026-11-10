@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermLinDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBJoinDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSUKFrame
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpFrameDefs
@@ -11,10 +10,6 @@ import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSUKSingleton
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSUAgreement
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSUCharts
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpLFrameMp
-import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpStdAssembly
-import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaBase
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBIrred
-import CFSG.LocalAnalysis.StandardType.GGSecFivePresTagUnitary
 public import CFSG.RankThree.PartOne.CTP.SpNode
 public import CFSG.RankThree.PartOne.CTP.SpPos
 

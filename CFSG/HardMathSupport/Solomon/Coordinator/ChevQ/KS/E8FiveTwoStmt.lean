@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.SeitzExcOpenRest4Twist
-public import CFSG.HardMathSupport.Foote.Coordinator.TwistedFrame.Frame
 public import CFSG.Blueprint.SourceClassicalTransport
 public import CFSG.Fischer.Classification.Recognition.PSU6
 public import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma54

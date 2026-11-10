@@ -1,8 +1,6 @@
 module
 
 public import Certificates.Certificate442244
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec5InputsB2
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec5BHeartCoord
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec5BHeartPerm
 
 public section

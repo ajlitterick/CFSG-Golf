@@ -2,14 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortTransport
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2GeoSUShort
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortSUNorm
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortSUPCore
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortSUGen
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortSUCent
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortSUIrr
-public import CFSG.LocalAnalysis.StandardType.GGRootNormInner
 public import CFSG.LieType.Steinberg.CentralExt.UnitaryRootGroups
-public import CFSG.LieType.Universal.Unitary.Extras.Unipotent
 
 public section
 

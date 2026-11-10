@@ -5,11 +5,9 @@ public import CFSG.LocalAnalysis.StandardType.GGZSHallSoicherInputs
 import all CFSG.LocalAnalysis.StandardType.GGZSHallSoicherInputs
 import CFSG.LocalAnalysis.StandardType.GGZSHallSoicherBound
 import CFSG.LocalAnalysis.StandardType.GGZSKModelSound
-import CFSG.LocalAnalysis.StandardType.GGWitExcModelTransfer
 import CFSG.LocalAnalysis.StandardType.ZS.ReflQuotient
 import CFSG.Mathlib.LinearAlgebra.Matrix.ReflectionClass
 import CFSG.Timmesfeld.Components
-import Mathlib.Algebra.Field.ZMod
 
 public section
 

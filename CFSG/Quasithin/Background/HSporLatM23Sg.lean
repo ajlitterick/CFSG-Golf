@@ -1,9 +1,7 @@
 module
 
-public import CFSG.Quasithin.Background.HSporLatInputs
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicMathieu
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312M23Inputs
-public import CFSG.Sporadic.Schreier.M23Gens
 
 public section
 

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGOmegaPlusRootGenDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySpCoord
-public import CFSG.LocalAnalysis.StandardType.GGTableBTransport
 
 public section
 

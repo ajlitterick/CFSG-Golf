@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGInnerDiagBridgeSU
-public import CFSG.Open.Defs
 public import CFSG.HardMathSupport.Solomon.Coordinator.LayerCentralFix
 public import CFSG.GroupActions.SubgroupStabilizerOuterBound
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
 public import CFSG.CharacterTheory.Wreathed.WreathCentralSquare
 public import CFSG.Dihedral.DihedralFusionPrefixes

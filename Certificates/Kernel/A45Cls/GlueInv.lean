@@ -5,7 +5,6 @@ public import Certificates.Kernel.A45Cls.Glue107
 public import Certificates.Kernel.A45Cls.Checks7
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10PermSix
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10F107ModelBase
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog81X11Y
 public import Certificates.Data.OmegaInvFacts
 public import Certificates.Data.OmegaQ2mFacts
 public import CFSG.Quasithin.H13.J4Core

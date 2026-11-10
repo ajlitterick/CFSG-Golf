@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResTwoSettled
-public import CFSG.LocalAnalysis.StandardType.GGTBJSpPlus
 
 public section
 

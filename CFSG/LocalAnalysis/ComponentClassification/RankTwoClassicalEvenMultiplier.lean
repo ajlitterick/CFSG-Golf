@@ -5,12 +5,9 @@ public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSp4CoverMult
 public import CFSG.LocalAnalysis.ComponentClassification.SymmetricLocalLinearFourTwo
 public import CFSG.LieType.Steinberg.CentralExt.PSLMultiplier
 public import CFSG.LieType.Steinberg.CentralExt.LinearPerfect
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Certificates.WordSubgroupRel
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.GH74.GLS.Defs
-public import CFSG.GH74.GLS.Pattern
 public import CFSG.GH74.Generic.Shapes
 public import CFSG.GH74.Statements
 public import CFSG.LieType.Chevalley.RootCommutatorData

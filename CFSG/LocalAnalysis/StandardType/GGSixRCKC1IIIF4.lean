@@ -5,10 +5,7 @@ import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeStepA
 import CFSG.LocalAnalysis.StandardType.GGPsiInnerDiagOfMarking
 import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.AmbientActionPart2
 import CFSG.LocalAnalysis.StandardType.GGSixA6F4ClsThree
-import CFSG.LocalAnalysis.ComponentInitial.BinarySymplecticSixCyclicKernel
-import CFSG.LocalAnalysis.StandardType.GGRootDetectCore
 import CFSG.GroupTheory.PCore.PCoreOfMulEquiv
-import CFSG.Timmesfeld.Orders.ExceptionalUntwisted
 import CFSG.LocalAnalysis.RankThreeUC.CatalogClosureExcF4
 import CFSG.LocalAnalysis.RankThreeUC.Assembly
 

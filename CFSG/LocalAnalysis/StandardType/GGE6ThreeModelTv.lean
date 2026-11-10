@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelNoTv
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelNoTvTop
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelData
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 
 public section
 

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KNatBorelIrr.Model
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KNatBorelIrr.OmegaMinusRoot
 public import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockOrthMinusLevi
-public import CFSG.Open.StatedDefs
 
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KNatBorelIrr.OmegaMinusTransfer
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KNatBorelIrr.RootTransfer
@@ -37,17 +36,12 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A1bGroups
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.Module
 public import CFSG.RankThree.PartOne.S10.ThetaContract
 public import CFSG.RankThree.PartOne.S12.InputsBase
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 import CFSG.Blueprint.LieModelAPI
 import CFSG.Certificates.Kernel.LocalCompTits.Span
 import CFSG.CharacterTheory.CyclicBlocks.Family
@@ -80,10 +74,6 @@ import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSpSuzukiCentr
 import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSpWedge
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListA7Iso
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L122AProved
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Equivariance
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X7bPairs
 import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19Defs
 import CFSG.LocalAnalysis.SectionRank.QTK.CentreFact.Bounded
@@ -98,17 +88,14 @@ import CFSG.Mathlib.LinearAlgebra.BilinForm.Determinant
 import CFSG.Models.Transport
 import CFSG.Open.SplitBNPair
 import CFSG.Permutation.UnitaryThreeRecognition.Model
-import CFSG.Quasithin.Background.A3Structure318Red
 import CFSG.Quasithin.Background.B216Quotient
 import CFSG.Quasithin.Background.B5FinOut
 import CFSG.Quasithin.Background.C1GNSolvConnect
 import CFSG.Quasithin.Background.D2
-import CFSG.Quasithin.Background.D2Dihedral
 import CFSG.Quasithin.Background.E3OffenderB
 import CFSG.Quasithin.Background.F420Orders
 import CFSG.Quasithin.Background.HFixSylBase
 import CFSG.Quasithin.Background.HModelTransp
-import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 import CFSG.Quasithin.EmptyFaithful.S14113bMain
 import CFSG.Quasithin.EmptyFaithful.S1417Sylow
 import CFSG.Quasithin.EmptyFaithful.S1421L246
@@ -170,7 +157,6 @@ import CFSG.Sporadic.Schreier.M11
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 import Certificates.Kernel.J4Count.FixCE
 import Certificates.Kernel.J4Count.FixCPairBase1
-import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

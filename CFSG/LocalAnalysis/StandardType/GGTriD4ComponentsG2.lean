@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTriD4KnownInputs
 public import CFSG.LocalAnalysis.StandardType.GGTriD4ComponentsG2Raw
 public import CFSG.LocalAnalysis.StandardType.GGTriD4ComponentsMark
 import CFSG.LocalAnalysis.StandardType.GGL45FixA2Comp

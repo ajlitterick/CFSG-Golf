@@ -2,11 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGK1ADefs
 public import CFSG.Assembly.GL83StatedBridge
-public import CFSG.LieType.SemisimpleCentralizers.HeldSLFacts
 public import CFSG.LieType.SemisimpleCentralizers.OrderThree.CenterQuot
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniLabelPSU
-public import CFSG.RankThree.SubgroupLists.UnitaryThreeFamily
-public import CFSG.Adapters.ProjectiveSpecialLinear
 public import CFSG.Quasithin.Background.Harris.OrdinaryProofs.CoverSU3
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FBase2
@@ -26,7 +23,6 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.RankThree.PartTwo.Sec12.Notation
 public import CFSG.RankThree.PartTwo.Sec4.Item47Diag
 public import CFSG.RankThree.PartTwo.Sec4.Item47Statement

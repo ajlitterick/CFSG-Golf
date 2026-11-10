@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrEnnola
-public import CFSG.LocalAnalysis.StandardType.GGReverseMarkingRaw
 
 public section
 

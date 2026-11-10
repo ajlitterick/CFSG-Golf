@@ -3,14 +3,12 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.UC6Inst
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.InducedQuotInfAut
 public import CFSG.LocalAnalysis.UniquenessCase.UC6S846e
-import CFSG.LocalAnalysis.ComponentInitial.LinearCoverModel
 import CFSG.LocalAnalysis.UniquenessCase.UC22S2114R3FDiag
 import CFSG.LocalAnalysis.UniquenessCase.UC22S2114R3FLift
 import CFSG.LocalAnalysis.UniquenessCase.UC22P21k
 import CFSG.LocalAnalysis.UniquenessCase.UC22OddPRank
 import CFSG.LocalAnalysis.ComponentInitial.LinearHigherLinearAutNormal
 import CFSG.GH74.GLS.Stage2.Signalizer.Ivk8P4S55L4Desc
-import CFSG.RankThree.PartOne.KC.LinearNoninnerPlaneInner
 import CFSG.LocalAnalysis.UniquenessCase.UC6S846h
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC7Eseven
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.T29.Parrott.RankFourLin
@@ -18,14 +16,11 @@ import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.T29.Parrott.OuterFixedLi
 import CFSG.HardMathSupport.Timmesfeld.LinearRank.LinCover
 import CFSG.HardMathSupport.Timmesfeld.ComponentBalance.TableGeneric
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.LowerLinear
-import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
 import CFSG.LocalAnalysis.SeitzReduction.RankOneHallTwoArithLieTwoBasic
 import CFSG.LocalAnalysis.SteinbergBSEvenSLTwoTorus
 import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutNonsplitOmChar
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaDescent
 import CFSG.LieType.SpecialLinear.Block222.Basic
 import CFSG.RankThree.PartTwo.Sec4.Item424Res3ProofLinFix
-import CFSG.CGT.Timmesfeld75.L2Sylow
 import CFSG.LocalAnalysis.UniquenessCase.UC22S2114a
 public import CFSG.LocalAnalysis.UniquenessCase.UC6S846d
 public import CFSG.LocalAnalysis.UniquenessCase.UCR638
@@ -33,7 +28,6 @@ import CFSG.Goldschmidt.StatementsG2
 import CFSG.Goldschmidt.StatementsG3
 import CFSG.Goldschmidt.Steps.G37Core
 import CFSG.GroupTheory.SteinbergCBFTCores
-import CFSG.HardMathSupport.Dickson.Sec6.I1431Lie
 import CFSG.HardMathSupport.Solomon.Coordinator.InndiagLink
 import CFSG.HardMathSupport.Solomon.Coordinator.L3FATArith
 import CFSG.HardMathSupport.Solomon.Coordinator.L3G515Core
@@ -63,7 +57,6 @@ import CFSG.LocalAnalysis.AGLEmbeddingD2.PairMaximal
 import CFSG.LocalAnalysis.AGLEmbeddingD2.ScalarTorus
 import CFSG.LocalAnalysis.AGLEmbeddingD2.Survivor
 import CFSG.LocalAnalysis.AGLEmbeddingD2.ThreeStrong
-import CFSG.LocalAnalysis.ComponentClassification.AschbacherWalterSchurEight
 import CFSG.LocalAnalysis.ComponentClassification.AutL2FactsCentModel
 import CFSG.LocalAnalysis.ComponentClassification.AutL2FactsFieldAut
 import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalAS76aProofLeviProj
@@ -95,13 +88,8 @@ import CFSG.Quasithin.Background.B69Core
 import CFSG.Quasithin.Background.C1GNSolvConnect
 import CFSG.Quasithin.Background.C1PackS1531Top
 import CFSG.Quasithin.Background.D2
-import CFSG.Quasithin.Background.D2Dihedral
 import CFSG.Quasithin.Background.E2Statements
 import CFSG.Quasithin.Background.E3
-import CFSG.Quasithin.Background.E3Nprime
-import CFSG.Quasithin.Background.E3Uniq
-import CFSG.Quasithin.Background.F6CatRecogL2
-import CFSG.Quasithin.Background.F6CatRecogTools2
 import CFSG.Quasithin.Background.F918C6
 import CFSG.Quasithin.Background.FFC7G
 import CFSG.Quasithin.Background.FFC8A
@@ -180,9 +168,6 @@ import CFSG.Sporadic.Schreier.Fi22Schreier
 import CFSG.Sporadic.Schreier.J1QT
 import CFSG.Sporadic.SuzOddCore.GraphData
 import CFSG.Sporadic.SuzOddCore.SmallActionData
-import CFSG.Walter.J1Props
-import CFSG.Walter.J1Recog
-import CFSG.Walter.PSL2Facts
 import Certificates.Kernel.J4Count.Prim
 
 public section

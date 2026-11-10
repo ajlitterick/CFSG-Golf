@@ -1,16 +1,8 @@
 module
 
 public import CFSG.HardMathSupport.Dickson.Bal207.LocalBalClassicalUniInner
-import CFSG.HardMathSupport.Lang.Coordinator.OuterFixedOrderPSUDescent
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.UnitaryBalNonsplit
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.UnitaryOuter
 import CFSG.HardMathSupport.Timmesfeld.LocalTwo.CrossUniOuter
-import CFSG.LocalAnalysis.ComponentInitial.UnitaryDiagonalOuterOrder
-import CFSG.RankThree.Classical.SteinbergBTUnitarySubfield
-import CFSG.RankThree.PartOne.KC.UnitaryGoodAct
-import CFSG.RankThree.PartOne.KC.UnitaryHigherInnerPlaneLift
-import CFSG.RankThree.PartOne.KC.UnitaryRigidityFrame
-import CFSG.RankThree.PartOne.KC.UnitaryOrthonormalEigenbasis
 public import CFSG.CGT.PushingUpLit.CGT6.SixFour
 public import CFSG.CGT.PushingUpLit.CGT6.SixSixteen
 public import CFSG.CGT.PushingUpLit.Glue.ClassXBasic
@@ -75,8 +67,6 @@ public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.C2PushThree
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.FFC4Tr2
 public import CFSG.Quasithin.Background.GoldschmidtS146RBend1
@@ -133,9 +123,6 @@ public import CFSG.Sporadic.Presentation.Co2Fusion
 public import CFSG.Sporadic.Presentation.Co2FusionInputs
 public import CFSG.Sporadic.Presentation.McLExactData
 public import CFSG.Sporadic.Presentation.McLExactInputs
-public import CFSG.Walter.J1Props
-public import CFSG.Walter.J1Recog
-public import CFSG.Walter.PSL2Facts
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.UnitaryDiag
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.UnitaryFamily
 

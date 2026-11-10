@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.SeitzReduction.HypothesisOneClassicalShearSiegel
-import Mathlib.Algebra.CharP.Two
-import Mathlib.Algebra.CharP.Reduced
-import Mathlib.Tactic.Module
 import Mathlib.Tactic.ReduceModChar
 public import CFSG.LocalAnalysis.SeitzReduction.HypothesisOneClassicalShearQuadratic
 

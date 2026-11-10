@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderExcCore
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcThreeAct
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4Three
 public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLFaithful
-public import CFSG.RankThree.Chevalley.EWeylLengthPolynomials
 public import CFSG.Monster.B.Geometry.F4Weyl
 public import CFSG.Monster.B.Geometry.CoxeterWords
 

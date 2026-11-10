@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBE6TwoTBMain
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoTableBTypeALabel
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoTableBReduce
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesSplit
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticBstar
 
 public section
 

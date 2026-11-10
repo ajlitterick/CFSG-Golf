@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwAutDefs
-public import CFSG.LocalAnalysis.StandardType.GGInnLocalDefs
-import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMoreU
-import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHypCentral
 import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHyperbolic
 import CFSG.LocalAnalysis.StandardType.GGK1ScUni
 

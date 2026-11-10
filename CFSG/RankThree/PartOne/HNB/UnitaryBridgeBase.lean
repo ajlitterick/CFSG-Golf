@@ -4,8 +4,6 @@ module
 public import CFSG.RankThree.PartOne.HNB.F25
 public import CFSG.RankThree.PartOne.HNB.GraphIso
 public import CFSG.Assembly.LowTwoRankDefs
-public import Certificates.Data.HNUnitaryBridge
-public import CFSG.Open.StatedDefs
 public import CFSG.Monster.B.Co2.PermArr
 import CFSG.Monster.B.Mathieu.Order
 import CFSG.RankThree.Classical.SteinbergBJUnitaryThreeInvolutions

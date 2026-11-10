@@ -1,12 +1,7 @@
 module
 
-public import Mathlib.Algebra.Group.Defs
-public import Mathlib.Data.Finite.Defs
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.CyclicTwoCoreCentralizerT1
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.CyclicTwoCoreLayerASeven
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.DihedralStructure
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

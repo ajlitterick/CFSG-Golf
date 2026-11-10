@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Q3WAMOrth
-public import CFSG.ClassicalInvolution.Q3.Q3WALoc
 public import CFSG.ClassicalInvolution.Asc77.AscMuTabHubSpin
 
 public section

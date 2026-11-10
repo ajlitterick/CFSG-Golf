@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFamTwoDModel
-public import CFSG.LocalAnalysis.StandardType.GGFamIsolation
-public import CFSG.LocalAnalysis.StandardType.GGFamTameTransfer
-public import CFSG.LocalAnalysis.StandardType.GGExcCompSLDefs
 public import CFSG.LocalAnalysis.StandardType.GGFamTameTwoDHigh
 
 public section

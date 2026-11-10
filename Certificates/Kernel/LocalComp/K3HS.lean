@@ -1,8 +1,6 @@
 module
 
-public import Certificates.Kernel.LocalComp.K3HSData
 public import CFSG.Certificates.Kernel.K3Sound
-public import Certificates.Kernel.LocalComp.BlockGen
 public import Certificates.Kernel.LocalComp.K3HSP0
 public import Certificates.Kernel.LocalComp.K3HSP1
 public import Certificates.Kernel.LocalComp.K3HSP2
@@ -12,8 +10,6 @@ public import Certificates.Kernel.LocalComp.BlockJoin
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public import CFSG.Certificates.Kernel.Misc.HexFlatSound
 meta import CFSG.Sporadic.Schreier.PairHSCertInputs
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.Spor.RawOrbGrp
 
 public section

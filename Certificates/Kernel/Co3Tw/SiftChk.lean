@@ -4,7 +4,6 @@ public import Certificates.Data.Kernel.Misc.PermWit
 public import Certificates.Kernel.Co3Tw.SrchChk
 public import Certificates.Kernel.Co3Tw.PairsData
 import CFSG.Certificates.Kernel.Common.EachTrue
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

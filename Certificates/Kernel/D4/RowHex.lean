@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.TriD4TwoRow
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Perm.HexCmd
 meta import Certificates.Data.TriD4TwoRow
 

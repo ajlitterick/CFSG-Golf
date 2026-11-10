@@ -2,12 +2,7 @@ module
 
 public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcE7Data
 public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcReduce
-public import CFSG.LieType.Steinberg.Minuscule.Datum
-public import CFSG.LieType.Steinberg.Bruhat
-public import CFSG.ClassicalInvolution.Generic.Frame
 public import CFSG.Timmesfeld.RankTwo.LevisExceptional
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.ClassicalInvolution.Balance.BootstrapDischarge
 public import CFSG.ClassicalInvolution.Balance.LayerGenerationInner
 public import CFSG.ClassicalInvolution.Balance.LayerGenerationTriple
@@ -55,9 +50,6 @@ public import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerRestricti
 public import CFSG.LocalAnalysis.SignalizerFunctor
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalGroup.LowRank

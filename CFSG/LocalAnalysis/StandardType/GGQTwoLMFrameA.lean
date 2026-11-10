@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMFrame
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBTransport
 
 public section
 

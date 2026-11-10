@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.KDenseP.Mono
-public import Certificates.Data.Kernel.KDense.Bind
 public import Certificates.Data.Kernel.KDense.Init
 
 public section

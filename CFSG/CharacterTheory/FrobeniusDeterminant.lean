@@ -1,6 +1,5 @@
 module
 
-public import CFSG.CharacterTheory.FrobeniusDeterminant.Defs
 public import CFSG.CharacterTheory.FrobeniusDeterminant.AW
 public import Mathlib.RepresentationTheory.Maschke
 public import Mathlib.RingTheory.Coalgebra.IsFrobenius

@@ -3,10 +3,8 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonTriFacts
 public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonE6Facts
 public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonU3Core
-import CFSG.LocalAnalysis.GLTheoremA.S12.CanonInnBridge
 import CFSG.LocalAnalysis.GLTheoremA.S12.CanonSubcompInn
 import CFSG.LocalAnalysis.GLTheoremA.S12.CanonE6Rank5
-import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
 public import CFSG.HardMathSupport.Solomon.LocalBalance.ScpQuot
 public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Inputs
 public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec7Layer
@@ -18,7 +16,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.S12.Bridge
 public import CFSG.LocalAnalysis.GLTheoremA.S12.Prop123
 public import CFSG.LocalAnalysis.GLTheoremA.Sec5Setup
 public import CFSG.LocalAnalysis.GLTheoremB.Lemma911Proof
-public import CFSG.LocalAnalysis.SignalizerFunctor
 public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
 

@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGLinearTorusCompSU
 public import CFSG.LocalAnalysis.StandardType.GGLinearTorusCompSUTwo
 public import CFSG.LocalAnalysis.StandardType.GGRootCentKGStructTwE6Levi
 import CFSG.LocalAnalysis.StandardType.GGTwE6CorootCoreOfFuse
-import CFSG.LocalAnalysis.SeitzReduction.F4PilotNonsplitSL2
-import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotFieldImages
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitCompBasic
 public import CFSG.RankThree.PartOne.KC.SymplecticInnerPlane
-public import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
 
 public section
 

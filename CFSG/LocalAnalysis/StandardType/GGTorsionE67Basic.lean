@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorsionExcDefs
-public import CFSG.LocalAnalysis.StandardType.GGTorsionTwF4Card
 public import CFSG.LocalAnalysis.StandardType.GGTorsionClassical
 public import CFSG.LocalAnalysis.StandardType.GGTorsionOrders
 import CFSG.LocalAnalysis.StandardType.GGExclNoIso

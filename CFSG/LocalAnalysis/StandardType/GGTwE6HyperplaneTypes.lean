@@ -1,9 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeModel
-public import CFSG.Blueprint.ChevalleyRoots
-public import CFSG.LieType.Steinberg.Adjoint.Pairs
-public import CFSG.LieType.Chevalley.KernelComponentRoots
 public import CFSG.LocalAnalysis.StandardType.GGTwE6HyperplaneTypesK
 
 public section

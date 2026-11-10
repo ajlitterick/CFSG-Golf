@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesE6NonsplitTorus
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesE6NormalForm
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesIsogenyE6
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesResidualLabels
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTags
 
 public section
 

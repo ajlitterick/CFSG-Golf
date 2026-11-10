@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.M11Spec
 import Certificates.Kernel.HN1408.M11Facts
-import Certificates.Kernel.HN1408.M11Defs
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.ShapeVSpec
 
 public section

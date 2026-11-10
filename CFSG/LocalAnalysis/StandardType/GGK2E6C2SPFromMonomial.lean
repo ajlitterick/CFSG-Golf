@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGHdRo7CDefs
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7CTableSmallAux
 
 public section

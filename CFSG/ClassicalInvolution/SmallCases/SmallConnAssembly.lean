@@ -1,6 +1,5 @@
 module
 
-public import Mathlib
 public import CFSG.ClassicalInvolution.SmallCases.SmallConnSetup
 public import CFSG.ClassicalInvolution.Generic.CoreAssembly
 

@@ -1,16 +1,12 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec16.Item16Res7ProofA7
-public import CFSG.RankThree.PartTwo.Sec13.Steps
 public import CFSG.RankThree.PartTwo.Sec17.Item17Res6ProofA7
 import CFSG.RankThree.PartTwo.Sec16.Item163StepsAltProofA7
-import CFSG.RankThree.PartTwo.Sec16.Item163StepsAltProof
 import CFSG.RankThree.PartTwo.Sec16.Item162Proof
 import CFSG.RankThree.PartTwo.Sec13.Item13Res4ProofA7
 import CFSG.RankThree.PartTwo.Sec13.Item133
 import CFSG.RankThree.PartTwo.Sec13.Item13Plane
-import CFSG.RankThree.PartTwo.Sec13.Item13Basic
-import CFSG.RankThree.PartTwo.Sec13.Naturality
 import CFSG.RankThree.PartTwo.Sec14.Item1413Res3ProofInv
 import CFSG.RankThree.PartTwo.Sec14.Concl142NHJInner
 import CFSG.CharacterTheory.Semidihedral.Principal.CoprimeFixedPointLifting

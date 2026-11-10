@@ -3,10 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSignedCoordBlocks
 import CFSG.LocalAnalysis.StandardType.GGSignedCoordFix
 import CFSG.LocalAnalysis.StandardType.GGSignedCoordRefl
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthExcEven
-import CFSG.LocalAnalysis.StandardType.GGTorusDWeyl
 import CFSG.LocalAnalysis.StandardType.GGTBJTypeBFrameChange
-import CFSG.LocalAnalysis.StandardType.GGSignedPermCount
 import CFSG.LocalAnalysis.StandardType.GGTBWNormOrth
 
 public section

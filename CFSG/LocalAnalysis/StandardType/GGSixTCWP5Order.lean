@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.TableC.HypDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP5Inputs
 import CFSG.Blueprint.LieModelAPI
-import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotCatAlt
-import CFSG.Timmesfeld.Orders.ExceptionalTwisted
 
 public section
 

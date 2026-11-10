@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniBlocks
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBNbrCompare
 import CFSG.LocalAnalysis.StandardType.GGSignedCoordFix
 import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
-import CFSG.Permutation.Embedding
-import Mathlib.Data.Fin.VecNotation
 
 public section
 

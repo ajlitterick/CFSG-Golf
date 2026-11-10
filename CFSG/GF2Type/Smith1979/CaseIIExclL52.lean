@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Open.StatedDefs
-import Mathlib.GroupTheory.FixedPointFree
-import Mathlib.GroupTheory.QuotientGroup.Basic
 import CFSG.Open.StatedZModTwo
 import CFSG.GroupTheory.GL52.SylowSeven
 

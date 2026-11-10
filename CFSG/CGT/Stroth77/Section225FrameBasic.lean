@@ -1,7 +1,6 @@
 module
 
 public import CFSG.CGT.Stroth77.DeviationGeneric
-public import CFSG.CGT.Stroth77.StrothFrameD
 
 public section
 

@@ -3,13 +3,8 @@ module
 
 public import Certificates.Kernel.Sporadic.OddCore.SuzBtTG
 public import Certificates.Kernel.Sporadic.OddCore.SuzBtFF
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import CFSG.Certificates.Kernel.Spor.BTupISound
-import CFSG.Certificates.Kernel.Spor.BTupOSound
 import CFSG.Certificates.Kernel.Spor.PcompFacts
-import Mathlib.Tactic.Group
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Sporadic.Co1.Module.TwoBCert
 public import CFSG.Sporadic.Co1.Module.TwoBCertBase
 

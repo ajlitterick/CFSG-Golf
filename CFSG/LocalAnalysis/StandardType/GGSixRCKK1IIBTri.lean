@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIModel
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIBTriAux
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIBTriPair
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormSigned
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorus
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOrthNsLabels
 public import CFSG.LocalAnalysis.StandardType.GGEvenSignedNormalizer
 public import CFSG.LocalAnalysis.StandardType.GGEvenSignedDiagram
 public import CFSG.LocalAnalysis.StandardType.GGTorusDWeyl

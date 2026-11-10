@@ -2,9 +2,7 @@
 module
 
 public import Certificates.Kernel.SporSch.J4S.Odd
-public import CFSG.Certificates.Kernel.SporSch.J4SSpanSound
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import Certificates.Kernel.SporSch.J4S.NoCP
 
 public section

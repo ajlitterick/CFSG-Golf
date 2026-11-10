@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.A45Cls.Checks
 public import CFSG.Certificates.Kernel.A45Cls.DefsSound
 public import CFSG.Certificates.Kernel.OrbFindSound
-public import CFSG.Certificates.Kernel.ConjOrbSound
 public import CFSG.Certificates.Kernel.PermCent.SylowReps
 public import CFSG.Certificates.Kernel.PermCent.CVSound
 public import CFSG.Sporadic.SmallOddCore.GroupFacts

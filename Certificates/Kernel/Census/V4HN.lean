@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.OpsV4
-public import Certificates.Data.Kernel.OpsRenL
 public import Certificates.Data.RankThree46Odd.HN
 public import Certificates.Kernel.LocalComp.Fp.HN
 public import Certificates.Kernel.LocalComp.LaySnapsChunks

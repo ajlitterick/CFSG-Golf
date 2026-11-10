@@ -33,7 +33,6 @@ public import CFSG.Quasithin.Background.GoldschmidtAmalgamL5Sub
 public import CFSG.Quasithin.Background.GoldschmidtAmalgamSplit
 public import CFSG.Quasithin.H13.J4Order
 public import CFSG.Quasithin.H13.J4OrderBase
-public import CFSG.Quasithin.H13.J4Words
 public import CFSG.Walter.J1
 public import CFSG.Walter.J1Props
 public import CFSG.Walter.J1Recog

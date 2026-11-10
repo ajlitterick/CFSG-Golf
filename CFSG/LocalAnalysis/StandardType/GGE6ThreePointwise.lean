@@ -1,11 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeCompanion1625Pieces
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.CentralizerTrivialOuter
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeFullCentre1585Holds
-public import CFSG.LocalAnalysis.StandardType.GGD4OddCentVocab
-public import CFSG.LieType.AlgebraicGroups.KernelRootCentralizer
-public import CFSG.LieType.Chevalley.RootDiagonalWeylTransporter
 public import CFSG.LieType.AlgebraicGroups.E6CubicCentralizer
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeCompanion1625B1a
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.Sp6Port419ReadyPart14
@@ -28,7 +24,6 @@ public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwE6
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwF4
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwRigid
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.CentralizerTrivialQ3T
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.OuterField
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.RigidField
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.TwoDHighDefs
 public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.LangFrame

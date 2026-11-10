@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoEndpoint
 public import CFSG.LocalAnalysis.StandardType.GGQTwoBlockProd
-public import CFSG.LocalAnalysis.StandardType.GGQTwoRMGen
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanAQTwoBDefs
-public import Mathlib.FieldTheory.Finite.GaloisField
 
 public section
 

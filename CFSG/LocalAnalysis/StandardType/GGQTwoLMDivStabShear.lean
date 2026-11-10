@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivStabAux
-public import CFSG.LocalAnalysis.StandardType.GGQTwoLMFrame
-public import CFSG.LocalAnalysis.StandardType.GGQTwoFrameLDefs
 public import CFSG.LocalAnalysis.StandardType.GGP3LineNormalizer
 
 public section

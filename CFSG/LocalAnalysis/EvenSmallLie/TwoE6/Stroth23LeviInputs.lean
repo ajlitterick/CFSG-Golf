@@ -1,14 +1,11 @@
 module
 
-public import CFSG.Monster.B.Classical.UnitarySixForm
 public import CFSG.Monster.B.Classical.UnitarySixBeta
 public import CFSG.Monster.B.TwoA.Unitary.Form
 public meta import CFSG.Monster.B.Classical.UnitarySixForm
 public meta import CFSG.Monster.B.Classical.UnitarySixBeta
 public meta import CFSG.Monster.B.TwoA.Unitary.Form
-import CFSG.Fischer.F4
 public meta import Mathlib
-public import Mathlib
 
 public section
 

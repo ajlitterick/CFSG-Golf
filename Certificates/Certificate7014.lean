@@ -2,37 +2,12 @@
 module
 
 public import Certificates.Certificate7014Base
-import CFSG.Quasithin.H13.J4CentralizerBase
-import CFSG.Sporadic.Schreier.J4SOrbitsBase
 meta import CFSG.Sporadic.Schreier.J4SOrbitsBase
-import CFSG.Sporadic.Schreier.J4SKCentBase
 
-public import CFSG.Quasithin.H13.J4Defs
-import CFSG.Quasithin.H13.J4CentralizerBase4
 import CFSG.Quasithin.H13.J4CentralizerPrelude
 import CFSG.Quasithin.H13.J4Core
 import CFSG.Quasithin.H13.J4Image
-import CFSG.Sporadic.Schreier.J4SNative
-import CFSG.Sporadic.Schreier.J4SCols
-import CFSG.Sporadic.Schreier.J4SOrbits
 meta import CFSG.Sporadic.Schreier.J4SOrbits
-import CFSG.Sporadic.J4.Local
-import CFSG.Quasithin.H13.J4CoreInputs
-import CFSG.Quasithin.H13.J4Words
-import CFSG.Certificates.ExtraspecialNormalForm
-import CFSG.Sporadic.HS.SmallF2Spec
-import Certificates.Data.CFSGNative.H13.J4Data
-import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
-import CFSG.Quasithin.H13.J4QuotInputs
-import Certificates.Data.CFSGNative.H13.J4Elems
-import CFSG.Quasithin.H13.J4WordsInputs
-import CFSG.Quasithin.H13.J4ChainSpec
-import CFSG.Quasithin.H13.J4FixSpec
-import CFSG.Sporadic.Schreier.J4SLocal
-import CFSG.Quasithin.H13.J4ClassCheckInputs
-import Certificates.Data.CFSGNative.H13.J4Class
-import CFSG.Sporadic.Schreier.J4SKCent
-public import CFSG.Sporadic.J4.ParSpec
 
 public section
 

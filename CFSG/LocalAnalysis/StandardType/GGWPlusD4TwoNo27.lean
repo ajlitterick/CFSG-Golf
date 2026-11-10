@@ -1,10 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutTrialityRank
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderOmegaOrth
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderOmegaGenFrame
-public import CFSG.LocalAnalysis.StandardType.GGWPlusD4TwoPieces
-public import CFSG.LocalAnalysis.StandardType.GGWPlusD4TwoPlanes
 public import CFSG.LocalAnalysis.StandardType.GGWPlusD4TwoAniso
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassical222OrthTwoRot
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassical222Large

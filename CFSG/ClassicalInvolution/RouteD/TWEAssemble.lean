@@ -1,10 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.TWDConfig
-public import CFSG.ClassicalInvolution.RouteD.TwinYR2Rows
-public import CFSG.ClassicalInvolution.RouteD.TwinYExistsD
-public import CFSG.ClassicalInvolution.RouteD.TwinYExistsB
-public import CFSG.ClassicalInvolution.RouteD.TwinYExistsTD
 
 public section
 

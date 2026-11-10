@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154ExcTD4Res
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154ExcTD4Exact
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154ExcTD4E6
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154ExcTD4D4
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.MITD4
 public import CFSG.LocalAnalysis.StandardType.GGLayerNotExcThreeAtTwoKac
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154NonCfgRank4
 

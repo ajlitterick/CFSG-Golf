@@ -3,8 +3,6 @@ module
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6cBase
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6cTransport
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6bOdd
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3Pf25Bridge
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinDiscPf11Twin
 public import CFSG.ClassicalInvolution.Q3.TL3T40
 public import CFSG.ClassicalInvolution.Q3.TL3T42
 public import CFSG.ClassicalInvolution.Q3.TL3T47

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenDefs
-public import CFSG.LocalAnalysis.SectionRank.NativeKGroup
-public import CFSG.RankThree.PartTwo.Sec4.Vocabulary
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CDefs
 
 public section

@@ -5,8 +5,6 @@ public import Mathlib.Algebra.CharP.Two
 public import Mathlib.Tactic.LinearCombination
 public import Mathlib.Tactic.Ring
 public import Mathlib.Tactic.FieldSimp
-public import Mathlib.Algebra.Field.Basic
-public import Mathlib.Algebra.Ring.Hom.Defs
 
 public section
 

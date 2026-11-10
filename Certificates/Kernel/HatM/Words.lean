@@ -1,9 +1,7 @@
 module
 
 public import Certificates.Kernel.HatM.Data
-public import Certificates.Data.Kernel.Spor.Raw
 import Certificates.Kernel.Sporadic.StrList
-import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 400000
 

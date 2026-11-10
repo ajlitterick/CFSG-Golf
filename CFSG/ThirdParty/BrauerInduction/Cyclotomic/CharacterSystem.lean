@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ThirdParty.BrauerInduction.Background.ClassFun.Maps
 public import CFSG.ThirdParty.BrauerInduction.Cyclotomic.Lambda
 public import CFSG.ThirdParty.BrauerInduction.Background.FDRep.Character.Induced
 

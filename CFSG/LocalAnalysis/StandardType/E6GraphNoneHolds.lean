@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.E6GraphNoneInn
-public import CFSG.GroupTheory.ElemAbelianClosure
-public import CFSG.LocalAnalysis.StandardType.E6GraphNoneStepFourField
-public import CFSG.LocalAnalysis.StandardType.E6GraphNoneStepFive
 public import CFSG.LocalAnalysis.StandardType.TwistedE6GraphNoneStepFiveField
 
 public section

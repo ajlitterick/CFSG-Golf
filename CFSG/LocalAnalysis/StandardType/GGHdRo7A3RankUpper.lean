@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7A3SideDefs
 import CFSG.LocalAnalysis.StandardType.GGHdRo7SUKCoordHA
-import CFSG.LocalAnalysis.StandardType.GGOneFiveNormalizer
 import CFSG.LocalAnalysis.StandardType.GGSpJoinBstarSplit
 
 public section

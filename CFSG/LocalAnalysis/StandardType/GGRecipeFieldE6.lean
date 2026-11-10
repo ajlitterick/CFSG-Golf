@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExc
 public import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOtherE6
-public import CFSG.LieType.Chevalley.OrdinaryEFieldGraphQuotient
-public import CFSG.LieType.Chevalley.E6CanonicalFieldGraphFixed
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldCyclic
 
 public section

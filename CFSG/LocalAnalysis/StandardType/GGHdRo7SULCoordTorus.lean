@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7SULCoordSplit
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUCoord
 import CFSG.LocalAnalysis.StandardType.GGHdRo7SULCoordTorusA
 
 public section

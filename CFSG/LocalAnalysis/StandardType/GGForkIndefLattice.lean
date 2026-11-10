@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCellWitness
 public import CFSG.LocalAnalysis.StandardType.GGFixedRealizedConfig
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelProofFork
-public import CFSG.LocalAnalysis.StandardType.GGTBWInputDefs
 public import CFSG.LocalAnalysis.StandardType.GGReflClosedIndep
 
 public section

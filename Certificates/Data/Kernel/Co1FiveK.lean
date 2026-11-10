@@ -3,7 +3,6 @@ module
 public import Certificates.Data.Kernel.SporSch.Co1MatW
 public import Certificates.Data.Kernel.SporSch.Co1Bfs
 public import Certificates.Data.Kernel.Co1End
-public import CFSG.Certificates.Kernel.Enum.Defs
 
 public section
 

@@ -4,7 +4,6 @@ module
 public import Certificates.Kernel.SporSch.J4S.FiveT
 public import CFSG.Sporadic.Schreier.J4SInvData
 public import Certificates.Data.Kernel.J4Q.Mat
-public import CFSG.Certificates.Kernel.SporSch.J4STextSound
 meta import CFSG.Sporadic.Schreier.J4SInvData
 meta import Certificates.Kernel.SporSch.J4S.InvData
 import CFSG.Certificates.Kernel.Common.Harness

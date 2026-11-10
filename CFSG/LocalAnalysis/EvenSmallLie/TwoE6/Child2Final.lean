@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.EvenSmallLie.TwoE6.Stroth23InnerMain
-public import CFSG.LocalAnalysis.EvenSmallLie.TwoE6.CoverUniqueFinal
 public import CFSG.LocalAnalysis.EvenSmallLie.TwoE6.OddSquare
 
 public section

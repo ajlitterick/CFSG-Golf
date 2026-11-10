@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperMoreOrthEnd
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeThree
 public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOpenVac
 
 public section

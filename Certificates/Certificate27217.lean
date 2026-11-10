@@ -6,8 +6,6 @@ public meta import Certificates.Data.CFSGNative.SectionRank.F2
 import Certificates.Kernel.GLQ.Co1Ord
 import Certificates.Kernel.TcGen.F2Glue
 public import CFSG.Certificates.Kernel.OpsKSound
-public import CFSG.Certificates.Kernel.OpsHom
-import CFSG.Blueprint.NativeSporadic
 
 public section
 

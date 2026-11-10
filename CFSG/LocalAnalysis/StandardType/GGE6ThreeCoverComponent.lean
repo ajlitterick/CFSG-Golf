@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGK0MarkedComponents
-public import CFSG.LocalAnalysis.StandardType.GGTCJDescent
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeKacSingle
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeCentralizer1585
 

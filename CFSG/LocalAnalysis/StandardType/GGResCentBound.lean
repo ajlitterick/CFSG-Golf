@@ -3,14 +3,12 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGResKnownGroup
 public import CFSG.LocalAnalysis.StandardType.GGResXDichotomyDefs
 public import CFSG.LocalAnalysis.StandardType.GGTBFixDefs
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveInputs
 public import CFSG.LocalAnalysis.StandardType.GGResSevenNbr
 import CFSG.LocalAnalysis.StandardType.GGResCentBoundLin
 import CFSG.LocalAnalysis.StandardType.GGWeylMatrixAut
 import CFSG.LocalAnalysis.StandardType.GGLineStabNormalizes
 import CFSG.LocalAnalysis.StandardType.GGReflClosedOfWeyl
 import CFSG.LocalAnalysis.StandardType.GGWeylSimpleSystemsConj
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBIrred
 import CFSG.LocalAnalysis.StandardType.GGTBFix
 
 public section

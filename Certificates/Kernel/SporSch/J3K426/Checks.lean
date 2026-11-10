@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.SporSch.J3K426.Text
 public import Certificates.Kernel.SporSch.PairJ3.Chain
 public import Certificates.Data.Kernel.PkPow
-public import Certificates.Data.Kernel.Spor.Prim
 import CFSG.Certificates.Kernel.Common.Harness
 import Certificates.Kernel.Sporadic.OrbRecGen
 public meta import Certificates.Kernel.Misc.Perm.HexWordsCmd

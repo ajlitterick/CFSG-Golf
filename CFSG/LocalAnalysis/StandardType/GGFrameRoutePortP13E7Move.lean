@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP13E7Hyp
 import CFSG.LocalAnalysis.StandardType.GGFinModelG5Orbit
-import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticBstar
 import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoFusionE7
 
 public section

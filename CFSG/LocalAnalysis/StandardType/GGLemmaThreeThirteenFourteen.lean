@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLemmaThreeThirteen
-public import CFSG.GroupTheory.Fitting.CharacteristicP
 public import CFSG.LocalAnalysis.SeitzReduction.PerfectCentralizer
-public import CFSG.LieType.BorelTits.Basic
 public import CFSG.LocalAnalysis.ComponentClassification.M12CoverKernelBasic
 
 public section

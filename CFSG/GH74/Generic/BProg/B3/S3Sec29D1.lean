@@ -2,9 +2,6 @@ module
 
 public import CFSG.GH74.Generic.BProg.B3.S3Ctx29wDefs
 public import CFSG.GH74.Generic.BProg.B3.S3Sec29C
-public import CFSG.Adapters.ProjectiveSpecialLinear
-public import CFSG.GroupTheory.ABGLocalTools.PStabilityQDickson
-public import Mathlib.FieldTheory.Finite.Basic
 public import CFSG.GH74.GLS.Bg.Iii2.L41Comp
 public import CFSG.GH74.Generic.BProg.B3.S3Ctx29Layer
 public import CFSG.GH74.Generic.S45.LUniLift

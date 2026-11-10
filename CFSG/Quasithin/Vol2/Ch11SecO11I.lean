@@ -3,11 +3,6 @@ module
 public import CFSG.Quasithin.Vol2.Ch11SecO11H
 public import CFSG.Quasithin.Background.E2TwoProofSporM23
 public import CFSG.RankThree.PartOne.K1214.Basic
-public import Certificates.Certificate2197
-public import Certificates.Certificate4075
-public import Certificates.Certificate7118
-public import Certificates.Certificate7123
-public import CFSG.Blueprint.NativeSporadic
 
 public section
 

@@ -7,10 +7,6 @@ public import Certificates.Certificate919005
 import CFSG.CGT.Foote82.T66.FaithfulBasic
 import CFSG.CGT.Foote82.T66.MC2Arith
 import CFSG.Quasithin.Background.G11Basic
-import Mathlib.LinearAlgebra.Matrix.ToLin
-import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
-import Mathlib.Algebra.Module.ZMod
-import Mathlib.Tactic.Group
 public import CFSG.CGT.Foote82.T66.MC1Steps
 public import CFSG.CGT.Foote82.T66.Steps
 public import CFSG.CGT.PushingUp.BenderBridge
@@ -36,7 +32,6 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Monster.Code.Weights
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.RankThree.PartTwo.Sec19.Item194Used
 public import CFSG.RankThree.PartTwo.Sec19.SimsTheoremCTypes
 public import CFSG.RankThree.PartTwo.Sec6.Statements

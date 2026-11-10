@@ -14,10 +14,7 @@ import CFSG.RankThree.PartOne.S10.EmbeddingTransport
 import CFSG.RankThree.PartOne.S10.PlaneAuxiliary
 import CFSG.RankThree.Classical2.TwoLocalRankCoprimeQuotient
 import CFSG.RankThree.Classical.EvenSurvivingScalarRank
-import CFSG.LocalAnalysis.SignalizerFunctor.InvariantSylowAmbient
 import CFSG.RankThree.LocalRank.ThetaCoreQuotients
-import CFSG.RankThree.PartTwo.KFacts.K71Lift
-import CFSG.RankThree.PartTwo.KFacts.AutKindsUnique
 public import CFSG.Foundations
 public import CFSG.RankThree.PartTwo.NotationBlocks
 import CFSG.Quasithin.Background.Basic

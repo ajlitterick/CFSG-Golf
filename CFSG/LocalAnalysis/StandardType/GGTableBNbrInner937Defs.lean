@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerRound13Label
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerClassicalModel
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcBasic
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaOutdiag
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
 
 public section
 

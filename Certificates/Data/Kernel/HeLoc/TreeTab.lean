@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.HeLoc.Tree
-public import CFSG.Certificates.Kernel.Enum.Defs
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIBGlue
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIModel
 public import CFSG.LocalAnalysis.StandardType.GGLieOddCover
 
 public section

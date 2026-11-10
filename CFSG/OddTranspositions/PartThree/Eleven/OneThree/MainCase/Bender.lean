@@ -1,7 +1,6 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Eleven.OneThree.MainCase.Defs
-public import CFSG.Timmesfeld.Bridge.Asc72ZMain
 public import CFSG.OddTranspositions.PartFour.Fourteen.ModelWreath
 public import CFSG.OddTranspositions.PartFour.Fourteen.Steps
 public import CFSG.CGT.T75E.Lemma26

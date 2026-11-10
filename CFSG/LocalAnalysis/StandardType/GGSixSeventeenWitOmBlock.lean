@@ -3,10 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitOmFrame
 public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitSpNsComp
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitKGOmFix
-public import CFSG.RankThree.PartOne.KC.OrthogonalComponentFacts
-public import CFSG.RankThree.PartOne.KC.OrthogonalFixedDerived
-public import CFSG.RankThree.PartOne.KC.OrthogonalBlockProduct
-public import CFSG.RankThree.PartOne.KC.OrthogonalSupportedScalarFixed
 
 public section
 

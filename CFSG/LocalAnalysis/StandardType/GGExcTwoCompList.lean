@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTPNDefs
-public import CFSG.LocalAnalysis.StandardType.GGTPNNarrow
 public import CFSG.LocalAnalysis.StandardType.GGKacTable
-public import CFSG.LocalAnalysis.StandardType.GGFixSub
 public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 
 public section
 

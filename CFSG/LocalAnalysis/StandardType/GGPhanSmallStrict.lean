@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGFrameRouteNbrWeyl
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoAux
-public import CFSG.LocalAnalysis.StandardType.GGWeylCasePrime
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRest
 
 public section
 

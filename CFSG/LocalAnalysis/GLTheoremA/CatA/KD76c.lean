@@ -20,10 +20,7 @@ public import CFSG.LocalAnalysis.GLTheoremA.PartI.U42
 public import CFSG.LocalAnalysis.GLTheoremA.S3.KDD4TwoLocal
 public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.DefChar
 public import CFSG.HardMathSupport.Solomon.Coordinator.I19_10OutFive
-public import CFSG.HardMathSupport.Solomon.Coordinator.I19_6OutThree
 public import CFSG.HardMathSupport.Solomon.Coordinator.I19_6D4Outer
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.OrthD4Field
-public import CFSG.RankThree.PartTwo.Census.Carrier.SpinDOdd
 public import CFSG.HardMathSupport.Solomon.Coordinator.B3SporAssemble
 public import CFSG.HardMathSupport.Solomon.Coordinator.I11_2VBarLayer
 public import CFSG.HardMathSupport.Solomon.Coordinator.I14_20Alt
@@ -80,10 +77,6 @@ public import CFSG.Quasithin.Background.C1GNSolvConnect
 public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.E2Statements
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.F6CatRecogL2
-public import CFSG.Quasithin.Background.F6CatRecogTools2
 public import CFSG.Quasithin.Background.F918C6
 public import CFSG.Quasithin.Background.FFC7G
 public import CFSG.Quasithin.Background.FFC8A
@@ -146,7 +139,6 @@ public import CFSG.RankThree.PartOne.N143.SectionRankSplit
 public import CFSG.RankThree.PartOne.SPOR.OuterSimple
 public import CFSG.RankThree.PartTwo.KFacts.K72OutL2
 public import CFSG.RankThree.PartTwo.KFacts.OutFixCentralThree46
-public import CFSG.Walter.J1Props
 public import Certificates.Kernel.J4Count.Prim
 
 public section

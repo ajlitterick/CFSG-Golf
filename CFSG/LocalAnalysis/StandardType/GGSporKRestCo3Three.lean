@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSporKRestClosure
 public import Certificates.Certificate1023401
-public import CFSG.Sporadic.Co3
 public import CFSG.Sporadic.Bridge.Co3Surj
 
 public section

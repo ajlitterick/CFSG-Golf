@@ -1,9 +1,5 @@
 module
 
-public import CFSG.Open.StandardComponentRecognitionMilestoneDefs
-public import CFSG.Blueprint.RecognitionDefs
-public import CFSG.Blueprint.EvenStandardExact
-public import CFSG.Assembly.Reduction
 public import CFSG.LocalAnalysis.EvenSmallLie.TwoE6.Stroth22Native
 public import CFSG.Monster.B.GSide.HInnerFusionY3
 import CFSG.LocalAnalysis.EvenSmallLie.FrontierFinal
@@ -46,13 +42,11 @@ public import CFSG.Sporadic.Ly.ActionBase
 public import CFSG.Sporadic.Ly.CertificateBase
 public import CFSG.Sporadic.Ly.FaithSpec
 public import CFSG.Sporadic.Ly.OrbitSpec
-public import CFSG.Sporadic.Ly.PrimitiveBase
 public import CFSG.Sporadic.LyBase
 public import CFSG.Sporadic.Presentation.Ly
 public import CFSG.Sporadic.Schreier.LyChain11
 public import CFSG.Sporadic.SmallOddCore.CheckSpec
 public import CFSG.Sporadic.ThSchreier.GlobalIndexBase
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.JRFacts
 import CFSG.GH74.M12.Reductions
 import CFSG.LieType.Chevalley.OddE6AllInvolutionComponents

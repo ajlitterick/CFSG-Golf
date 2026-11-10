@@ -4,9 +4,6 @@ public import CFSG.Assembly.GL83LieDefs
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHypCount
 public import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotBlocksBasic
 public import CFSG.Mathlib.LinearAlgebra.Matrix.DiagGLConj
-public import CFSG.Open.StatedAPI
-public import TauCeti.GroupTheory.FixedSubgroup
-public import TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.Diagonal.Basic
 public import CFSG.LieType.BorelTits.CompleteFlag
 
 public section

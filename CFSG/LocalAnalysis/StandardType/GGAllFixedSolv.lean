@@ -1,20 +1,14 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGAllFixedLinear
-public import CFSG.LocalAnalysis.StandardType.GGAllFixedTwA
 public import CFSG.LocalAnalysis.StandardType.GGAllFixedSymplectic
 public import CFSG.LocalAnalysis.StandardType.GGAllFixedOrthogonal
-public import CFSG.LocalAnalysis.StandardType.GGAllFixedExceptionalRegular
 public import CFSG.LocalAnalysis.StandardType.GGAllFixedF4Three
 public import CFSG.LocalAnalysis.StandardType.GGAllFixedE7Three
-public import CFSG.LocalAnalysis.StandardType.GGAllFixedE6Three
 public import CFSG.LocalAnalysis.StandardType.GGAllFixedTwE6
 public import CFSG.LocalAnalysis.StandardType.GGAllFixedE8Five
 public import CFSG.LocalAnalysis.StandardType.GGAllFixedE6Seven
 public import CFSG.LocalAnalysis.StandardType.GGCSRLabels
 public import CFSG.LocalAnalysis.StandardType.GGRootGenSmallRankQFour
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.LocalAnalysis.StandardType.GGExclNoIso
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveL1SolvDefs
 
 public section

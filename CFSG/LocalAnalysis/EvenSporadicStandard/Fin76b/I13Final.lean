@@ -1,19 +1,13 @@
 module
 
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.Rest8
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.NotZ2A6
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.AutEFinal
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.Rest9
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.UCentFinal
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.Lemma69
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.Lemma69Fusion
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.E69Final
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.Lemma610
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.Rest13
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.I13CII2
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.I13CI13
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.I13HFinal
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.I13HRank
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.I13HE64e
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.E611Final
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.E69Sound

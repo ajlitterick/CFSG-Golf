@@ -1,10 +1,7 @@
 module
 
 public import CFSG.Monster.B.Classical.UnitarySixInvolutions
-public import Mathlib.LinearAlgebra.Projectivization.Action
 import all CFSG.Fischer.F4
-public import Mathlib.CategoryTheory.Action.Concrete
-public import Mathlib.Tactic.ENatToNat
 
 public section
 

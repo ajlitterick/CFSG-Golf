@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.Steinberg.Bridge
 public import CFSG.LieType.Steinberg.CoreTorus
-import Mathlib.Tactic.Group
 
 public section
 

@@ -1,14 +1,12 @@
 module
 
 public import CFSG.RankThree.PartOne.KGD.D4T36Plane
-public import CFSG.RankThree.PartOne.KE.Statements
 public import CFSG.RankThree.PartOne.KE.FamilyArith
 public import CFSG.RankThree.PartOne.S8.CatalogAssembly
 public import CFSG.RankThree.Chevalley.SteinbergBLTrialitySplitInnerComponent
 public import CFSG.RankThree.Chevalley.SteinbergBLTrialityNoninnerComponent
 public import CFSG.RankThree.Chevalley.SteinbergCDTrialityTwelveComponent
 public import CFSG.RankThree.Chevalley.SteinbergCFTrialityDefiningComponent
-public import CFSG.RankThree.Chevalley.SteinbergBNExceptionalCyclotomicExhaustion
 public import CFSG.RankThree.OddKernel.ThreeComplementQuotient
 public import CFSG.LieType.Steinberg.Classical.SpinFrame
 public import CFSG.LieType.Steinberg.Families

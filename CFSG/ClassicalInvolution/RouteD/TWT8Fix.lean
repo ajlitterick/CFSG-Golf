@@ -2,13 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.RouteD.TWT8Model
 public import CFSG.ClassicalInvolution.RouteD.TWT8Class
-public import CFSG.ClassicalInvolution.RouteD.TypeTwistedDChain
-public import CFSG.ClassicalInvolution.RouteD.GapsFrMinusNodesImg
-public import CFSG.ClassicalInvolution.RouteD.GapsFrBLast
-public import CFSG.ClassicalInvolution.RouteD.GapsFrMinusFix
-public import CFSG.ClassicalInvolution.RouteD.TypeELocal
-public import CFSG.ClassicalInvolution.RouteD.ExoticSingleMinus
-public import CFSG.ClassicalInvolution.RouteD.TypeF4Lift
 
 public section
 

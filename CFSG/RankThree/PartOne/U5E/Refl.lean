@@ -2,8 +2,6 @@ module
 
 public import CFSG.RankThree.PartOne.U5E.Dict
 public import CFSG.RankThree.PartOne.S15K.KF158A5
-public import CFSG.RankThree.PartOne.S15K.FiveCoord
-public import CFSG.RankThree.PartOne.U5K.Pkg.Mod
 public import CFSG.RankThree.PartOne.S12.Sec153Inn
 public import CFSG.RankThree.PartOne.S13K.KFLiftRows
 public import Certificates.Kernel.ThCent.Leaves
@@ -66,8 +64,6 @@ public import CFSG.Sporadic.Schreier.J4SNoCompCover
 public import CFSG.Sporadic.SmallOddCore.CheckSpec
 public import CFSG.Sporadic.ThSchreier.GlobalData
 public import CFSG.Sporadic.ThSchreier.LocalOrbitBase1
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.Walter.Defs
 public import CFSG.YGroups.Y322Central
 

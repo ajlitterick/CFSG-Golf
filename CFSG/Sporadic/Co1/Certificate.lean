@@ -3,7 +3,6 @@ module
 
 public import CFSG.Sporadic.Co1.CertificateBase
 
-public import Certificates.Data.CFSGNative.Co1.Data
 public meta import Certificates.Data.CFSGNative.Co1.Data
 public import Certificates.Certificate3024
 

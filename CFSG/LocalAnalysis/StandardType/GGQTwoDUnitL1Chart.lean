@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBase
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBaseThm
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDL1Chart
 

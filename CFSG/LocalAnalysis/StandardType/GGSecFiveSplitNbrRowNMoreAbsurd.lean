@@ -1,13 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeakNbr
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowNFrame
 import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowNBCells
 import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowNTwAMCells
 import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 import CFSG.LocalAnalysis.StandardType.GGNbrFrameOneHolds
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
 
 public section
 

@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosCommAux
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosLiftE
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosRank
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosCommCornerLeaf
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosCommCornerLeafBHeis
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosCommCornerLeafBEig

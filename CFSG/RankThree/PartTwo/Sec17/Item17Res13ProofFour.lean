@@ -5,7 +5,6 @@ public import CFSG.RankThree.PartTwo.Source.MinimalFaithfulCentralProduct
 import CFSG.RankThree.PartTwo.Source.OrderThreeMinimalTwoGroup
 import CFSG.GroupTheory.FrattiniQuotient
 import CFSG.LocalAnalysis.SectionRank.Ccomm.OddCritical
-import CFSG.LocalAnalysis.SectionRank.PRank
 import CFSG.LocalAnalysis.SectionRank.SQT
 import CFSG.LocalAnalysis.RankThreeEvenClassification.CoprimeFactorization
 import CFSG.LocalAnalysis.SignalizerFunctor.HyperplaneGeneration

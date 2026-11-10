@@ -2,11 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourOutAd
 public import CFSG.LieType.Seitz.Defs
-import CFSG.Assembly.Subnormal
-import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRankFiveAmbient
-import CFSG.LocalAnalysis.StandardType.GGTriD4NoneMarking
 import CFSG.LocalAnalysis.StandardType.GGD4OddCentFieldMark
-import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourCoverMark
 
 public section
 

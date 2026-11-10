@@ -2,8 +2,6 @@ module
 
 public import CFSG.LieType.Universal.Unitary.Basic
 import CFSG.LocalAnalysis.StandardType.GGSixRootFusionLinearSU
-import Mathlib.GroupTheory.Perm.Cycle.Type
-import Mathlib.Data.ZMod.QuotientGroup
 
 public section
 

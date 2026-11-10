@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagCartan
 public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticEndNode
-public import CFSG.LocalAnalysis.StandardType.MarkingChevalley
-public import CFSG.LieType.Chevalley.AdjointCenter
 
 public section
 

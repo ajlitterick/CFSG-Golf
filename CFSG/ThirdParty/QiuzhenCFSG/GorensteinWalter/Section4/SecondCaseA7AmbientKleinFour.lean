@@ -2,8 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseA7KleinFourInComponent
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseA7EquationSix
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CentralizerSup
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

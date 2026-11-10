@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylOpenLabels
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6Delta
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6SplitEmbed
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4Torus
 
 public section
 

@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQ2OrthAssembly
 public import CFSG.LocalAnalysis.StandardType.GGQ2OrthNormalizerStatements
 public import CFSG.LocalAnalysis.StandardType.GGQ2SpNormalizerStatements
 public import CFSG.LocalAnalysis.StandardType.GGQ2OrthRealization
-public import CFSG.LocalAnalysis.StandardType.GGQ2OrthTauMemOmega
 public import CFSG.LocalAnalysis.StandardType.GGQ2AmbModelOfLin
 
 public section

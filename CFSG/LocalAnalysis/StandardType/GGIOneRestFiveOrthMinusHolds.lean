@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGIOneRestFiveOrthMinus
 public import CFSG.LocalAnalysis.StandardType.GGIOneRestFiveOrthMinusLayer
-public import CFSG.LocalAnalysis.StandardType.GGIOneOrthEndMain
 
 public section
 

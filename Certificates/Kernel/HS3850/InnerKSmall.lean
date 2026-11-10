@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.HS3850.InnerKDefs
-public import Certificates.Kernel.LocalQT.SV.C4126T
 public import Certificates.Data.Kernel.PkPow
 import CFSG.Certificates.Kernel.Common.Harness
 public import Certificates.Kernel.LocalQT.HSAut.K4146R

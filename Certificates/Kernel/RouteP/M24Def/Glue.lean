@@ -7,7 +7,6 @@ public import Certificates.Kernel.RouteP.M24.Bind
 public import CFSG.Certificates.Kernel.RouteP.M24DefSound
 public import CFSG.Certificates.Kernel.Common.ForallTree
 meta import CFSG.Certificates.Kernel.Common.ForallTree
-import Mathlib.Tactic.IntervalCases
 
 public section
 

@@ -2,7 +2,6 @@
 module
 
 public import Certificates.Kernel.Sporadic.Fi24Orb.Order
-public import CFSG.Sporadic.Th.GroupTheory
 public import Certificates.Data.Kernel.Spor.Fi24OrbP
 import Certificates.Kernel.Sporadic.Fi24Orb.Small
 

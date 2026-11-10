@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08RoNFullDiagonal
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08RoNMono
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUAct
 
 public section
 

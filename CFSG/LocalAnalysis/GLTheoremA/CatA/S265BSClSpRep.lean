@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265BSClSpQ
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265BSClBlk
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265BSClEl
-public import CFSG.Open.StatedDefs
-public import CFSG.RankThree.Classical.SteinbergBJSymplecticCrossPrimeBlocks
 import CFSG.GroupTheory.PLayer.CenterQuotientAction
 
 public section

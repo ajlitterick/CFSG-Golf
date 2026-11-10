@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08RoNJBlock
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08RoNCoords
-public import CFSG.LocalAnalysis.StandardType.GGQ2S08RoNData
-public import CFSG.LocalAnalysis.StandardType.GGQ2S08RoNComponents
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08CellA7Full
 
 public section

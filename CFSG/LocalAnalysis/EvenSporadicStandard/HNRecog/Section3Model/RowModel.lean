@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.Section3Model.OrbitRowSpec
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.Section3Model.SubtypeBridge
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.CayleySpec
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.Elems
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.ShapeVSpec
 
 public section

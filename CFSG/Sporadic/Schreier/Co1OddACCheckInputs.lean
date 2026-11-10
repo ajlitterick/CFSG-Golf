@@ -3,7 +3,6 @@ module
 public import CFSG.Sporadic.Schreier.Co1OddData
 public import CFSG.Sporadic.Schreier.Co1StabCheck
 public import CFSG.Sporadic.Co1.Module.InvData
-public import Certificates.Data.CFSGNative.Co1.Odd
 public meta import CFSG.Sporadic.Schreier.Co1OddData
 public meta import CFSG.Sporadic.Schreier.Co1StabCheck
 public meta import CFSG.Sporadic.Schreier.Co1StabData

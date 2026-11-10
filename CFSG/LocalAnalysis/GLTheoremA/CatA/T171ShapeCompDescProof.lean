@@ -17,7 +17,6 @@ import CFSG.LocalAnalysis.GLTheoremA.S11.InputsCE
 import CFSG.LocalAnalysis.GLTheoremA.S11.InputsElim
 import CFSG.LocalAnalysis.GLTheoremA.S9.Inputs
 import CFSG.LocalAnalysis.GLTheoremA.Sec5Setup
-import CFSG.LocalAnalysis.SignalizerFunctor
 import CFSG.Quasithin.Background.A3ComponentsAmbient
 
 public section

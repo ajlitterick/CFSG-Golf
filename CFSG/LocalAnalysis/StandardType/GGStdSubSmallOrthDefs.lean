@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallUnitDvd
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineL2Cover
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestThreeLift
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthogonal
 
 public section
 

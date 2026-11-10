@@ -1,16 +1,10 @@
 module
 
-public import CFSG.GH74.GLS.Stage4.Q9.ThetaModel
-public import CFSG.GH74.GLS.Stage4.Q9.FrobCount
 public meta import CFSG.GH74.GLS.Stage4.Q9.ModelBase
 public meta import CFSG.GH74.GLS.Stage4.Q9.ChatOrders
 public meta import CFSG.GH74.GLS.Stage4.Q9.Tables
 public meta import Mathlib
-public import CFSG.GH74.GLS.Stage4.Q9.ThetaPropsInputs
 public meta import CFSG.GH74.GLS.Stage4.Q9.ThetaPropsInputs
-public import Certificates.Certificate5100
-public import Certificates.Certificate5101
-public import Certificates.Certificate5102
 public import Certificates.Certificate5103
 
 public section

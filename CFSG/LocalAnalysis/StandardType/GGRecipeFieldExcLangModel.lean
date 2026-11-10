@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangInner
 public import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOtherE6
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6
 
 public section
 

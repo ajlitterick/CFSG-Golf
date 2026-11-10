@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdPosTorusFix
 public import CFSG.ClassicalInvolution.ModelFacts.ChevAutTorusBasic
-import Mathlib.Tactic.Group
 
 public section
 

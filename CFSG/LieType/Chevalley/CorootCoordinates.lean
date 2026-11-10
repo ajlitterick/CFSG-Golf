@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.Chevalley.KernelComponentRoots
 public import CFSG.LocalAnalysis.ComponentInitial.RootDiagonalConjugation
-public import CFSG.LieType.Chevalley.SimplyLacedCommutation
 
 public noncomputable section
 

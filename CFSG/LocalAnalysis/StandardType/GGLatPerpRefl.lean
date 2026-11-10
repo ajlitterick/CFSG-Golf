@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGLatDefs
 public import CFSG.LieType.Chevalley.LangRootArithmeticDet
 public import CFSG.LieType.Chevalley.WeylRoots
-public import CFSG.LieType.RootSystem.Basic
-public import Mathlib.Data.Matrix.Mul
-public import Mathlib.LinearAlgebra.Matrix.Nondegenerate
 
 public section
 

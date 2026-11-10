@@ -1,11 +1,6 @@
 module
 
 public import CFSG.GH74.GLS.C3.Prop121.Card7Facts
-public import Mathlib.Data.Finset.Card
-public import Mathlib.Data.Fintype.Card
-public import Mathlib.GroupTheory.Perm.Sign
-public import Mathlib.GroupTheory.Perm.Basic
-public import Mathlib.GroupTheory.Perm.Fin
 public meta import Mathlib.Algebra.Group.End
 public meta import Mathlib.GroupTheory.Perm.Sign
 public meta import Mathlib.GroupTheory.Perm.Basic

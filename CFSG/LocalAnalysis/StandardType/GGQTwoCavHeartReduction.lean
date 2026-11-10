@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoCavHeartImage
 public import CFSG.LocalAnalysis.StandardType.GGQTwoCavAutomizer
-public import CFSG.LocalAnalysis.StandardType.GGQTwoUnitaryHeartAutomizer
 
 public section
 

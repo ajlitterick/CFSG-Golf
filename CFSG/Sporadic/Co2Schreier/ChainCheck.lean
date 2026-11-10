@@ -1,13 +1,9 @@
 
 module
 
-public import CFSG.Sporadic.Co2Schreier.ChainCheckBase
 
-public import CFSG.Sporadic.Co2Schreier.Arrays
-public import Certificates.Data.CFSGNative.Schreier.Check
 public meta import CFSG.Sporadic.Co2Schreier.Arrays
 public meta import Certificates.Data.CFSGNative.Schreier.Check
-public import CFSG.Sporadic.Co2Schreier.ChainCheckInputs
 public import Certificates.Certificate2049
 
 public section

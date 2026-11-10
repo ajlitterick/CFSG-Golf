@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Certificates.Kernel.Local.HN.X.Lib
 public import CFSG.Certificates.Kernel.Local.HN.X.Data
 public import Certificates.Data.Kernel.SporSch.HNXOrb
 public import CFSG.Certificates.Kernel.Bounds.Core3

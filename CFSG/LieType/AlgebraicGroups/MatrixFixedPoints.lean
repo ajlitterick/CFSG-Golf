@@ -3,7 +3,6 @@ public import CFSG.LieType.AlgebraicGroups.ClosedSubgroupInnerCoordinate
 public import CFSG.LieType.AlgebraicGroups.ReductiveFixedComponentsThree
 public import CFSG.LieType.AlgebraicGroups.MatrixComponentQuotient
 public import CFSG.LieType.AlgebraicGroups.CentralizerComponentInduction
-public import TauCeti.RingTheory.Flat.TensorProduct
 
 public noncomputable section
 open WithConv

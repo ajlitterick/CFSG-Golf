@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.SmallCases.NDBC5
 public import CFSG.ClassicalInvolution.ModelFacts.Orth15LieTwin
-import CFSG.ClassicalInvolution.ModelFacts.Orth15VertexTwin
 import CFSG.ClassicalInvolution.Asc77.AscIHSectE
 import CFSG.ClassicalInvolution.Asc77.WP3SCSModel
 public import CFSG.ClassicalInvolution.Asc77.AscE189Basic

@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.CFSGNative.J4Tree.Aff
 public import Certificates.Data.CFSGNative.J4Tree.Inv
 public import Certificates.Data.CFSGNative.J4Tree.Index
 public import Std.Data.HashSet

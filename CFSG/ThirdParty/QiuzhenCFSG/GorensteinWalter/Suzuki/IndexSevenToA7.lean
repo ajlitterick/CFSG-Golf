@@ -1,13 +1,8 @@
 module
 
-public import Mathlib.Algebra.Group.Defs
 public import Mathlib.Data.Finite.Defs
-public import Mathlib.SetTheory.Cardinal.Finite
 public import Mathlib.GroupTheory.Subgroup.Simple
-public import Mathlib.Algebra.Group.Subgroup.Defs
-public import Mathlib.Algebra.Group.Equiv.Defs
 public import Mathlib.GroupTheory.SpecificGroups.Alternating
-public import Mathlib.GroupTheory.GroupAction.Quotient
 import Mathlib.Tactic
 
 namespace CFSG

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.FS81.SpMatAlg
 public import CFSG.LocalAnalysis.StandardType.FS81.N7MainBasic
 
 public section

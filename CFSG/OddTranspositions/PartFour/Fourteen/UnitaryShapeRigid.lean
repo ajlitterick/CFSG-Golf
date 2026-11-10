@@ -4,22 +4,13 @@ public import CFSG.LocalAnalysis.WeakClosure81.SevenKSymplectic
 public import CFSG.LocalAnalysis.WeakClosure81.SevenKUnitary
 public import CFSG.OddTranspositions.PartThree.FiveReflection
 public import CFSG.Timmesfeld.Bridge.Asc72Defs
-import CFSG.ClassicalGroups.Unitary.Finite
-import CFSG.ClassicalInvolution.Models.SymplecticPairs.RootSp2
-import CFSG.LieType.Steinberg.CentralExt.SUTwo
-import CFSG.LieType.Universal.Unitary.Comparison
-import CFSG.LinearAlgebra.LinearGroups.Perfect
 import CFSG.LocalAnalysis.WeakClosure81.SevenTwelveConfPSU
 import CFSG.LocalAnalysis.WeakClosure81.TimTI.BenderTransv
 import CFSG.OddTranspositions.PartFour.Fourteen.SpShapeRigid
 import CFSG.OddTranspositions.PartFour.Fourteen.TableMeetsSq
 import CFSG.OddTranspositions.PartThree.FiveReflectionFischer
-import CFSG.Open.Defs
-import CFSG.Open.StatedAPI
 import CFSG.RankThree.GF2n.Smith81.InspKSpCard
-import CFSG.RankThree.PartOne.S12K.OrdRigid
 import CFSG.Timmesfeld.Bridge.Asc72Theorem
-import CFSG.Timmesfeld.Orders.ClassicalLinear
 import CFSG.CGT.Timmesfeld75.Cfg214Gen
 import CFSG.CGT.Timmesfeld75.Derivations
 import CFSG.CGT.Timmesfeld75.Form2

@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.B3MK.Checks
 public import Certificates.Kernel.WEMK.Glue
 public import CFSG.Certificates.Kernel.B3MKSound
-public import CFSG.LocalAnalysis.StandardType.GGWitExcModelTransfer
 
 public section
 

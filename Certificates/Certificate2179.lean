@@ -3,8 +3,6 @@ module
 
 public import Certificates.Certificate2179Base
 
-public import CFSG.Sporadic.Schreier.J4SFrattiniBase
-public import CFSG.Sporadic.Schreier.J4SProfile
 public meta import CFSG.Sporadic.Schreier.J4SProfile
 import Certificates.Kernel.SporSch.J4S.Profile
 

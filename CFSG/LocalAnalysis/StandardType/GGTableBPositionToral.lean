@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBCoverMarked
 public import CFSG.LocalAnalysis.StandardType.GGWPlusPosition
-import CFSG.GroupTheory.ElemAbelianClosure
 
 public section
 

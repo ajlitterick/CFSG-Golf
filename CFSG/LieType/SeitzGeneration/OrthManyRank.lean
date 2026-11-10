@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LieType.SeitzGeneration.OrthFamily
 public import CFSG.RankThree.PartOne.KC.LinearCommutantFactors
 public import CFSG.LieType.SeitzGeneration.OrthNonsplitTools
 public import CFSG.RankThree.PartOne.CTP.SpGeom

@@ -1,14 +1,7 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970API
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970_18
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma27Infra
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.MinimalCounterexample
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.FinalTheorem
-import Mathlib.GroupTheory.Transfer
-import Mathlib.GroupTheory.Complement
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

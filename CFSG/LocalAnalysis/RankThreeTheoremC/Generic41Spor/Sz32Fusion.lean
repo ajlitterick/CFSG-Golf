@@ -1,10 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.Sz32Defs
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.Sz32Pgroup
-public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.Sz32SharedLemma33
-public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.GroupSz32
-public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.SecondPointSz32
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.Sz32LinesMain
 import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.Sz32ZData
 

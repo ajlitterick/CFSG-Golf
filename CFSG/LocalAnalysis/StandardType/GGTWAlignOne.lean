@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTwoDepSmallS0
 public import CFSG.LocalAnalysis.StandardType.GGTWSurvDefs
 public import CFSG.LocalAnalysis.StandardType.GGTWAlign
 public import CFSG.LocalAnalysis.StandardType.GGTWPositions
-public import CFSG.LocalAnalysis.StandardType.GGResConjWire
 
 public section
 

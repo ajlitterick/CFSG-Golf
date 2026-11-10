@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LieType.Chevalley.LangFrobeniusFixedDerived
-public import CFSG.LieType.Chevalley.CoordinateFieldFixedSubgroup
 public import CFSG.RankThree.Classical2.TwistedE6RationalOrder
 
 public section

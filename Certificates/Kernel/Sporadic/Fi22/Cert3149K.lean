@@ -5,7 +5,6 @@ public import Certificates.Kernel.Misc.Perm.HexCmd
 public import CFSG.Certificates.Kernel.Th.S.Chars
 public import Certificates.Data.Kernel.Spor.HexAt
 public import Certificates.Data.Kernel.Spor.TextAt
-public import CFSG.Certificates.Kernel.Enum.Defs
 public import CFSG.Monster.B.Fischer.Fi22CertInputs
 public meta import CFSG.Monster.B.Fischer.Fi22CertInputs
 import CFSG.Certificates.Kernel.Common.Harness

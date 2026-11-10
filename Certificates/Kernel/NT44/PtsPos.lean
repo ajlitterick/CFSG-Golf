@@ -1,7 +1,5 @@
 module
 
-public import Certificates.Data.NT44Model.Inputs
-public import Certificates.Kernel.Misc.Perm.HexCmd
 public import Certificates.Kernel.NT44.Pack2
 public meta import Certificates.Data.NT44Model.Inputs
 import CFSG.Certificates.Kernel.Common.Harness

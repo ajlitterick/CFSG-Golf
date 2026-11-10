@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGL45NtDefs
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaCenter
 import CFSG.LocalAnalysis.StandardType.GGL45E67Center
-import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaOutdiag
 import CFSG.LocalAnalysis.StandardType.GGTwE6ToralInner
 
 public section

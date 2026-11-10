@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitSixNbr
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitDeleteStd
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitDeleteA
-import CFSG.LocalAnalysis.StandardType.GGQTwoSUOrder
 import CFSG.LocalAnalysis.StandardType.GGIOneRestFiveRoot
 
 public section

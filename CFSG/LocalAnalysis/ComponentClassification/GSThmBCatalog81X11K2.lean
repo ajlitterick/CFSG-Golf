@@ -2,10 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog81X11K1
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB7S3a
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuotIso
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCorrLayerStandardCore
 public import CFSG.LocalAnalysis.ComponentInitial.RankOneCentralizerStandardOrQuaternion
-public import CFSG.LocalAnalysis.ComponentInitial.CommutingBlock
 public import CFSG.Sporadic.ThSchreier.AutCore
 public import CFSG.GH74.GLS.Classes
 public import CFSG.GH74.Generic.Shapes

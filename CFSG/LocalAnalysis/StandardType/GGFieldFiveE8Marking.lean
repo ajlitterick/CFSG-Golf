@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGFieldFiveE8Centralizer
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitKGOmModel
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMoreExcB
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitKGClMark
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcInn
 
 public section
 

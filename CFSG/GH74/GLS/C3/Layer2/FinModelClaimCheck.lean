@@ -1,7 +1,6 @@
 
 module
 
-public import CFSG.GH74.GLS.C3.Layer2.FinModelClaim
 public meta import Mathlib.GroupTheory.SpecificGroups.Alternating
 public meta import CFSG.GH74.GLS.C3.Layer2.FinModelDefs
 public meta import CFSG.GH74.GLS.C3.Layer2.FinModelEmb

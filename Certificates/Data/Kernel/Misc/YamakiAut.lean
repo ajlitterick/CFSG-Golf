@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.Misc.YamakiRepF
-public import Certificates.Data.Kernel.Misc.PermClos
 
 public section
 

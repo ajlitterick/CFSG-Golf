@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7CCoordDefs
-import CFSG.LocalAnalysis.StandardType.GGHdRo7CLCoordAux
 import CFSG.LocalAnalysis.StandardType.GGHdRo7CLCoordModelC
 import CFSG.LocalAnalysis.StandardType.GGSpFrameRank
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7CDefs

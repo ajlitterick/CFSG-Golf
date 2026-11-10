@@ -5,7 +5,6 @@ public import CFSG.Quasithin.Vol2.Ch5Sec2LocalLem528SQ
 public import CFSG.Quasithin.Vol2.Ch5Sec2LocalLem528SGL
 public import CFSG.Quasithin.Vol2.Ch5Sec2LocalLem528SA7
 public import CFSG.Quasithin.Vol2.Ch5Sec2LocalLem528BHat
-public import CFSG.LocalAnalysis.ComponentInitial.LinearCoverModel
 public import CFSG.Quasithin.H13.U4ParX3
 public import CFSG.Quasithin.H13.NQCatD4Irred
 public import CFSG.Quasithin.Background.SpecialPowCenter

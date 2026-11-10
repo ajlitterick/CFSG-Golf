@@ -1,13 +1,10 @@
 module
 
-public import CFSG.ClassicalInvolution.Models.OrthogonalPairs.Fundamental
-public import CFSG.ClassicalInvolution.Models.OrthogonalPairs.Pairs
 public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalOrthConj
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.ClassicalGroups.Orthogonal.Derived
 public import CFSG.ClassicalGroups.Orthogonal.ProjectiveSimple
 public import CFSG.Open.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
 
 public section
 

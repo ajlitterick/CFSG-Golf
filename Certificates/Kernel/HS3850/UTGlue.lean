@@ -7,11 +7,7 @@ public import Certificates.Kernel.HS3850.UTWit
 public import Certificates.Kernel.LocalQT.SV.C4126
 public import Certificates.Kernel.HS3850.Kit
 public import CFSG.Certificates.Kernel.InvTabKSound
-import CFSG.Certificates.Kernel.Spor.RawOrbGrp
-import CFSG.Certificates.Kernel.BfsPinAlg
-import CFSG.Certificates.Kernel.Spor.PackWord
 import CFSG.Certificates.Kernel.Spor.PackFld
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.Misc.RuInvHash
 public import CFSG.Certificates.Kernel.Spor.ClassOneH
 public import Certificates.Kernel.LocalQT.HSAut.F4146

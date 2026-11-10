@@ -1,7 +1,5 @@
 module
 
-public import Mathlib.Data.Finset.SymmDiff
-public import Mathlib.Data.Set.Disjoint
 public import CFSG.LocalAnalysis.StandardType.GGReeB2CoverZero
 public import CFSG.LocalAnalysis.StandardType.GGReeB2Resolve
 

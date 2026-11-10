@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesE6NonsplitThree
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesE6QPlusThreeFrame
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesE6QPlusThreeNormalForm
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTwE6Tools
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderExcWeylTypes
-public import CFSG.GroupTheory.QuasiDihedralFusion.Basic
 public import CFSG.GroupTheory.GL52.Basic
 import all CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesE6NonsplitThree
 

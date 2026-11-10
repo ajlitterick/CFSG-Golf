@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.KFacts.HeringKS12Config
-public import CFSG.RankThree.PartTwo.KFacts.HeringKS12Cases
 public import CFSG.RankThree.PartTwo.Census.Carrier.G2Three
 public import CFSG.CGT.PushingUpLit.CGT6.EmbG23.Model
 public import CFSG.GroupTheory.BaerSuzuki

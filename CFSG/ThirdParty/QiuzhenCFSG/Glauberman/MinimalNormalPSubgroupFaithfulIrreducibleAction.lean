@@ -2,8 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Lemma3_4
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.MinimalNormalPSubgroupIsElementaryAbelian
-public import Mathlib.GroupTheory.GroupAction.ConjAct
-public import Mathlib.GroupTheory.QuotientGroup.Basic
 
 namespace CFSG
 end CFSG

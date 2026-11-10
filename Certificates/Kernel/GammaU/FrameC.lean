@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.GammaU.FrameCOK
 public import Certificates.Kernel.GammaU.BaseBridge
-public import Certificates.Kernel.GammaU.Triple
 public import Certificates.Kernel.GammaU.Orb16963OK
 public import CFSG.Certificates.Kernel.GammaUFrameCSound
 public import CFSG.GF2Type.Smith1979.GammaU.FrameCensusDefs

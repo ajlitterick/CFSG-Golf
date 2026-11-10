@@ -1,29 +1,17 @@
 module
 
-public import CFSG.Sporadic.SuzOddCore.Perms
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.SporadicPermutesPackage
-public import CFSG.Sporadic.SuzOddCore.ArraysCheckInputs
-public import CFSG.Sporadic.SuzOddCore.CertChainCheckInputs
 public meta import CFSG.Sporadic.SuzOddCore.ArraysCheck
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 public meta import Certificates.Data.CFSGNative.Perm.Chain
 public import CFSG.Sporadic.SuzOddCore.FamilyCheckInputs
 public meta import Certificates.Data.CFSGNative.Schreier.Refine
 public import CFSG.Sporadic.SuzOddCore.GammaStab
-public import Certificates.Certificate2289
-public import CFSG.Sporadic.SuzOddCore.GraphArraysCheckInputs
 public meta import CFSG.Sporadic.SuzOddCore.GraphArrays
 public import CFSG.Sporadic.SuzOddCore.RelabelCheckInputs
-public import Certificates.Data.CFSGNative.Suz.Certificate
-public import CFSG.Sporadic.SuzOddCore.InvArrays
-public import CFSG.Sporadic.SuzOddCore.ArraysCheck
-public import Certificates.Data.CFSGNative.Schreier.Refine
 public meta import CFSG.Sporadic.SuzOddCore.InvArrays
-public import CFSG.Sporadic.SuzOddCore.InvArraysCheck
-public import Certificates.Data.CFSGNative.Schreier.Check
 public meta import CFSG.Sporadic.SuzOddCore.InvArraysCheck
 public meta import Certificates.Data.CFSGNative.Schreier.Check
-public import CFSG.Sporadic.SuzOddCore.InvGraphCheckInputs
 public meta import Mathlib.Data.Fintype.Card
 public import CFSG.Sporadic.SuzOddCore.InvTCheckInputs
 public meta import CFSG.Sporadic.SuzOddCore.InvGraphCheck
@@ -31,7 +19,6 @@ public meta import CFSG.Sporadic.SuzOddCore.SmallChainCheck
 public import CFSG.Sporadic.SuzOddCore.OuterCheckInputs
 public meta import CFSG.Sporadic.SuzOddCore.GraphArraysCheck
 public meta import CFSG.Sporadic.SuzOddCore.CertChainCheck
-public import CFSG.Sporadic.SuzOddCore.SmallChainCheckInputs
 public import CFSG.Sporadic.SuzOddCore.ThreeLocalCheckInputs
 public meta import CFSG.Sporadic.SuzOddCore.GammaCheck
 public meta import CFSG.Sporadic.SuzOddCore.RestrictDefs
@@ -53,9 +40,6 @@ public import CFSG.Quasithin.Background.A1cA132Action
 public import CFSG.Quasithin.Background.A1cA133Three
 public import CFSG.Quasithin.Background.B216Quotient
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3OffenderB
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.E4Solv
 public import CFSG.Quasithin.Background.F6Amalgams
 public import CFSG.Quasithin.Background.F6SolvableQuotient
 public import CFSG.Quasithin.Background.F9G2

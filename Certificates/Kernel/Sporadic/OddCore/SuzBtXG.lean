@@ -3,11 +3,9 @@ module
 public import Certificates.Kernel.Sporadic.OddCore.SuzBtXK
 public import CFSG.Sporadic.SuzRecog.SuzL34.Facts
 public import CFSG.Certificates.Kernel.Spor.BTupSound
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
 import CFSG.Certificates.Kernel.Spor.BTupISound
 import CFSG.Certificates.Kernel.Spor.PcompFacts
-import Mathlib.Tactic.IntervalCases
 
 public section
 

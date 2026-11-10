@@ -1,14 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosDefs
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLDType
 import CFSG.LocalAnalysis.StandardType.GGKGPosTagWeyl
-import CFSG.LocalAnalysis.StandardType.GGRootInvolutionRank
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
 import CFSG.LocalAnalysis.StandardType.GGSecFiveL2SplitLabelTwo
 import CFSG.LocalAnalysis.StandardType.GGSecFiveL2SplitOrthA
 import CFSG.LocalAnalysis.StandardType.GGSecFiveL2SplitOrthE
-import CFSG.LocalAnalysis.StandardType.GGSimplyLacedTits
 
 public section
 

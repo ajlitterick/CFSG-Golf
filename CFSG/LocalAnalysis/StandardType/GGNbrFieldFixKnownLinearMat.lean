@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.FQMat
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FQLin
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
-public import CFSG.LinearAlgebra.LinearGroups.Perfect
 
 public section
 

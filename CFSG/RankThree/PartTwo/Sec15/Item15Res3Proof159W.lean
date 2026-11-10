@@ -3,11 +3,7 @@ module
 public import CFSG.RankThree.PartTwo.Sec15.Item158Res2Proof159
 public import CFSG.RankThree.PartTwo.Sec13.Item13Plane
 import CFSG.RankThree.PartTwo.Sec13.Item133
-import CFSG.RankThree.PartTwo.Sec13.Naturality
-import CFSG.RankThree.PartTwo.Sec15.HypS
-import CFSG.RankThree.PartTwo.Sec15.Item1511ProofTools
 import CFSG.RankThree.PartTwo.Sec5.Tools
-import CFSG.RankThree.PartTwo.Sec14.Item145Bot
 import CFSG.RankThree.PartTwo.Sec14.Item148HJProofLB
 import CFSG.RankThree.PartTwo.KFacts.KS14Orders
 import CFSG.Goldschmidt.Steps.G310Basic
@@ -21,7 +17,6 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Vol2.KGFactC31RuRefBase
 public import CFSG.RankThree.PartTwo.Sec15.Item1513ProofTools
 public import CFSG.RankThree.PartTwo.Sec15.Item1514Steps1515S17
@@ -30,8 +25,6 @@ public import CFSG.RankThree.PartTwo.Sec15.Item1514StepsS17
 public import CFSG.RankThree.PartTwo.Sec17.Item175Proof
 public import CFSG.RankThree.PartTwo.Sec17.Item17ParaHJ
 public import CFSG.Sporadic.HeldB.Common
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 import CFSG.RankThree.PartTwo.Sec14.Item148Steps
 
 public section

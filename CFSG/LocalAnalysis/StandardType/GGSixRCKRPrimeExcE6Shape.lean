@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcRelOneAt
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExc
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcKacCount
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompAlcove
 
 public section
 

@@ -3,15 +3,8 @@ module
 
 public import CFSG.Sporadic.Schreier.J4SInvCheckBase
 public import CFSG.Sporadic.Schreier.J4SProfileNodeBase
-public import CFSG.Sporadic.Schreier.J4SLocalNodesBase
-public import CFSG.Sporadic.Schreier.J4SNative
-public import CFSG.Sporadic.Schreier.J4SCols
-public import CFSG.Sporadic.Schreier.J4SInvData
-public import CFSG.Sporadic.Schreier.J4SOrbitsBase
 public meta import CFSG.Sporadic.Schreier.J4SOrbitsBase
-public import CFSG.Sporadic.Schreier.J4SSylowData
 public meta import CFSG.Sporadic.Schreier.J4SSylowData
-public import CFSG.Sporadic.J4.Local
 public import CFSG.Sporadic.Schreier.PairClasses
 public import CFSG.Certificates.NativeSchreierCard
 public import CFSG.Sporadic.Schreier.ImagePairs

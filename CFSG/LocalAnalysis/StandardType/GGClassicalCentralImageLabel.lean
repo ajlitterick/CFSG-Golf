@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourEndsCover
 import CFSG.ClassicalGroups.Symplectic.ComponentCartanRank
-import CFSG.LieType.Steinberg.CentralExt.PSpEvenMultiplier
-import CFSG.LieType.Steinberg.CentralExt.SpinMinusCentrallyClosed
 import CFSG.LocalAnalysis.StandardType.GGTwistedLabelModels
-import CFSG.RankThree.PartOne.CTP.SpinCenterEven
 import CFSG.ClassicalGroups.Symplectic.DiagonalTorusRank
 
 public section

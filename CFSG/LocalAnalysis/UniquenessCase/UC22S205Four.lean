@@ -20,7 +20,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.FooteLitThm47Statement
 public import CFSG.LocalAnalysis.EvenSporadicStandard.CentralTwoJ3
 public import CFSG.LocalAnalysis.EvenSporadicStandard.CentralTwoONan
 public import CFSG.LocalAnalysis.SignalizerFunctor
-public import CFSG.LocalAnalysis.UniquenessCase.UC6R2
 public import CFSG.RankThree.PartOne.Mult.Sec68
 public import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Coordinator.OrderCheckF
 public import CFSG.Sporadic.Fi24

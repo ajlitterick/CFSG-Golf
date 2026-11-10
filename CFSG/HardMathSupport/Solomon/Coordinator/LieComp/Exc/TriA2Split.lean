@@ -1,13 +1,11 @@
 module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TriA2Reduce
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TriA2Forms
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TriA2Rel
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TriA2Wid
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TriA2Fix
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TriA2SL3
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TriA2Rec
-public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4A2Main
 import all CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TriA2Defs
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC

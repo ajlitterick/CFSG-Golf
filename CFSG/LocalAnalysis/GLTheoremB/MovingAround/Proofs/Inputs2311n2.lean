@@ -1,14 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs2311n
-public import CFSG.HardMathSupport.Curtis.Coordinator.AnisoE7.E7SixProved
-public import CFSG.LieType.SeitzGeneration.ExcHigh.CubePlanes
-public import CFSG.LieType.SeitzGeneration.ExcRankVacuous
-public import CFSG.LieType.SeitzGeneration.QuasiHigh
-public import CFSG.LieType.SeitzGeneration.HyperCoverE6
-public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs2311f2
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs2311j2
-public import CFSG.Quasithin.Background.A3Structure36BPrime
 
 public section
 

@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.RootD6ModelDefs
-import CFSG.GroupTheory.ElementaryAbelianTransport
 import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs295e2
 import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTBFull
-import TauCeti.Algebra.Group.Subgroup.Map
 
 public section
 

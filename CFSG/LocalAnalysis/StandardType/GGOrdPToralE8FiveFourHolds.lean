@@ -1,20 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutInnerExcCore
 public import CFSG.LocalAnalysis.StandardType.GGOrdPToralE8Holds
 import CFSG.LocalAnalysis.StandardType.GGOrdPToralE8FiveWeyl
-import CFSG.LocalAnalysis.StandardType.GGSixBstarE8FiveConjClass
-import CFSG.LocalAnalysis.StandardType.GGSixBstarE8FiveFrameDiag
-import CFSG.LocalAnalysis.StandardType.GGSixBstarE8FiveLangRational
 import CFSG.LocalAnalysis.StandardType.GGExcElemToralCyclic
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.PlanesToralE8Five
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.PlanesToralFive
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.PlanesToralE8
-import CFSG.HardMathSupport.Timmesfeld.Torality.Conjugacy
-import CFSG.HardMathSupport.Timmesfeld.Steinberg.PrimeCentralizer
-import CFSG.RankThree.PartOne.KE.EvenE7E8QPlusDescent
-import CFSG.RankThree.PartOne.KE.CTLangData
-import CFSG.RankThree.PartOne.KE.SigmaUntwisted2
 
 public section
 

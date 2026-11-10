@@ -3,14 +3,12 @@ module
 public import CFSG.Fischer.Classification.Orthogonal3.Model
 public import CFSG.Fischer.Classification.PartIII.Beta.Forms
 import CFSG.LocalAnalysis.StandardType.ZS.DThreeTernaryPair
-import CFSG.Fischer.Classification.Orthogonal3.Local
 import CFSG.Fischer.Classification.PartIII.U.SixForms
 public import CFSG.Fischer.Pairs
 public import CFSG.Open.Defs
 import CFSG.Fischer.Uniq.CompTau
 import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Basic
 
 public section

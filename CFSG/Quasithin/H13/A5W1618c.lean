@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.H13.A5W1618b
-public import CFSG.Quasithin.Background.FFC4G2
 
 public section
 

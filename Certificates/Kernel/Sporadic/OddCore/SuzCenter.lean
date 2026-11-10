@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public import CFSG.Certificates.Kernel.Spor.HexAtSound
 public import CFSG.Certificates.Kernel.Spor.PrimSound
@@ -8,7 +7,6 @@ public import CFSG.Sporadic.SuzOddCore.GraphArrays
 meta import CFSG.Sporadic.SuzOddCore.GraphArrays
 import all CFSG.Sporadic.SuzOddCore.GraphArrays
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Sporadic.SuzOddCore.Arrays
 meta import CFSG.Sporadic.SuzOddCore.Arrays
 

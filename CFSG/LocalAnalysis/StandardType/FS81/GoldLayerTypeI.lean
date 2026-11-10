@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.GoldLayerSetup
-import CFSG.Goldschmidt.Steps.G310TypeI
 import CFSG.Goldschmidt.Steps.G310TypeID
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Borel
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Lemma83
 import CFSG.Walter.Bender1970.S2.Subnormal
 import CFSG.Walter.Bender1970.S2.TwoSubgroup
 import CFSG.Walter.PSL2Facts

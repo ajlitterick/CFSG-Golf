@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTypeACompatDiagProof
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveTypeALift
 
 public section
 

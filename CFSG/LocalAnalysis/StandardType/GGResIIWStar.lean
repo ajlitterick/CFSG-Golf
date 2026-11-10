@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLFaithful
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveZSInputs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoCaseIIDual
 

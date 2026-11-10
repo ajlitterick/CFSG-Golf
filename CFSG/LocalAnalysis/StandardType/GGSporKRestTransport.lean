@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSporKRestClosure
 public import CFSG.LocalAnalysis.StandardType.GGSporKRestTransportMark
-public import CFSG.GroupTheory.ElemAbelianClosure
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveNbr
 
 public section
 

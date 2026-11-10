@@ -5,8 +5,6 @@ import Certificates.Kernel.U52.GlueX
 import Certificates.Kernel.U52.ChainSub
 import CFSG.Certificates.Kernel.Misc.PtOrbFSound
 import CFSG.Certificates.Kernel.Spor.RawSiftK
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.LieType.BorelTits.CompleteFlag
 
 set_option maxRecDepth 400000

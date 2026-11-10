@@ -4,7 +4,6 @@ public import CFSG.Quasithin.Vol2.Ch3Sec3NFa2LE7I
 public import CFSG.Quasithin.Vol2.Ch3Sec3NFa2LE7II
 public import CFSG.Quasithin.Vol2.Ch3Sec3NFa2LE7Geo
 public import CFSG.Quasithin.Vol2.Ch3Sec3NFa2LModel
-public import CFSG.Quasithin.Vol2.Ch3Sec3NFa2Alpha
 public import CFSG.Monster.B.TwoA.Unitary.Orbit1408Points
 
 public section

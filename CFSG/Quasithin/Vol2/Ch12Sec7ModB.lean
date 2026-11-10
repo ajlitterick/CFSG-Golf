@@ -2,8 +2,6 @@ module
 
 public import CFSG.Quasithin.Vol2.Ch12Sec7ModA
 public import Certificates.Certificate7213
-public import Mathlib.Tactic.Basify
-public import Mathlib.Tactic.ENatToNat
 
 public section
 

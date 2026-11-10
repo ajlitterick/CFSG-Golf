@@ -4,9 +4,6 @@ public import CFSG.RankThree.PartTwo.Sec16.Item166StepsProofTheta
 public import CFSG.RankThree.PartTwo.Sec16.Item166Res2ProofSix
 import CFSG.RankThree.PartTwo.Sec16.Item166StepsProofSz
 import CFSG.GroupTheory.ABGLocalTools.OddOrderLocal
-import CFSG.LocalAnalysis.RankThreeEvenClassification.CoprimeFactorization
-import CFSG.LocalAnalysis.SectionRank.PRank
-import CFSG.LocalAnalysis.SectionRank.SQT
 import CFSG.RankThree.OddKernel.SimpleQuotient
 import CFSG.LieType.Steinberg.CentralExt.SuzukiMultiplier
 public import CFSG.Certificates.CentralKernel

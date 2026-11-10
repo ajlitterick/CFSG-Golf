@@ -2,8 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.Q3TJD4Out
 public import CFSG.ClassicalInvolution.Q3.Q3TJD4Fam
-public import CFSG.ClassicalInvolution.ModelFacts.OrthAutMain
-public import CFSG.ClassicalInvolution.ModelFacts.OrthAutSim
 public import CFSG.ClassicalInvolution.ModelFacts.TG3Common
 public import CFSG.ClassicalInvolution.Q3.OddCoreCentral
 public import CFSG.ClassicalInvolution.Q3.Q3TIRed

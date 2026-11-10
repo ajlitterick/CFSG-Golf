@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarE8FiveF2Model
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarE8FiveConjClass
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderExcRestProofCore
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesSplit
-public import CFSG.LieType.Chevalley.EvenE7E8AutomorphismNormalForm
-public import CFSG.LieType.Chevalley.AdjointCenter
 
 public section
 

@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGE0Frame
-public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergE6
-public import CFSG.LieType.Chevalley.TwistedE6NormalForm
-public import CFSG.LocalAnalysis.ComponentClassification.FixedCommutingProduct
 
 public section
 

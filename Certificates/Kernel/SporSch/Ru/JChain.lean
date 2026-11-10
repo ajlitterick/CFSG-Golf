@@ -6,7 +6,6 @@ public import Certificates.Kernel.SporSch.Ru.JCPLv0
 public import Certificates.Kernel.SporSch.Ru.JCPLv1
 public import Certificates.Kernel.SporSch.Ru.JCPLv2
 public import Certificates.Kernel.SporSch.Ru.JCPLv3
-public import CFSG.Sporadic.Schreier.RuCheckChainsInputs
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

@@ -1,7 +1,5 @@
 module
 
-public import Mathlib.Algebra.QuadraticAlgebra.Basic
-public import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
 public meta import Mathlib.Algebra.QuadraticAlgebra.Defs
 public meta import Mathlib.Algebra.Field.ZMod
 public meta import Mathlib.Data.ZMod.Defs

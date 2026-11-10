@@ -1,12 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTPDefs
 public import CFSG.LocalAnalysis.StandardType.GGTPJData
 public import CFSG.LocalAnalysis.StandardType.GGTPLayerE6
 public import CFSG.LocalAnalysis.StandardType.GGTPLayerTwE6
-public import CFSG.LocalAnalysis.StandardType.GGReverseMarkingRaw
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6Delta
-public import CFSG.Open.StatedAPI
 
 public section
 

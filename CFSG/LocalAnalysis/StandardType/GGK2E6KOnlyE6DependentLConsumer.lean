@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGK2E6E6DependentD5Span
 public import CFSG.LocalAnalysis.StandardType.GGResExact2KReverse
-public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3BridgeA
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeE6FrameK
 
 public section

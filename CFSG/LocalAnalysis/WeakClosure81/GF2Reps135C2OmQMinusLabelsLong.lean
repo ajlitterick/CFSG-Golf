@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmQMinusTorus
 public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmQMinusLabel
 public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmQMinusWeights
 public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmQMinusWeightsTorus

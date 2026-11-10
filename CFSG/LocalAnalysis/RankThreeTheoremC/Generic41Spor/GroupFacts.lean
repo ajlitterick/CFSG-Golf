@@ -9,7 +9,6 @@ public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.GroupMcLLemma45
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.GroupJ4
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.GroupJ4Trans
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.GroupJ4Lemma45
-public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.GroupSz32
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.GroupSz32Loc
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.GroupSz32Lemma45
 public import CFSG.Certificates.WordSubgroupRel
@@ -34,9 +33,7 @@ public import CFSG.Quasithin.Background.A3Structure318Red
 public import CFSG.Quasithin.Background.A3Structure36A
 public import CFSG.Quasithin.Background.A3Structure36BAction
 public import CFSG.Quasithin.Background.A3Structure36BBase
-public import CFSG.Quasithin.Background.A3Structure36BCase3Base
 public import CFSG.Quasithin.Background.A3Structure36BCasesBase
-public import CFSG.Quasithin.Background.A3Structure36BCommonBase
 public import CFSG.Quasithin.Background.A3Structure36BFrattini
 public import CFSG.Quasithin.Background.A3Structure36BHeisBase
 public import CFSG.Quasithin.Background.A3Structure36BHomocyclic
@@ -51,11 +48,6 @@ public import CFSG.Quasithin.Background.B4ModelsIso
 public import CFSG.Quasithin.Background.C2Basic
 public import CFSG.Quasithin.Background.C2Inputs
 public import CFSG.Quasithin.Background.E1
-public import CFSG.Quasithin.Background.E1Sec4
-public import CFSG.Quasithin.Background.E1Sec5
-public import CFSG.Quasithin.Background.E1Sec8
-public import CFSG.Quasithin.Background.E1Solv
-public import CFSG.Quasithin.Background.E1Twelve
 public import CFSG.Quasithin.Background.E3Cent
 public import CFSG.Sporadic.J4.QT2LocCntMainBase
 public import CFSG.Sporadic.Presentation.McLExactData

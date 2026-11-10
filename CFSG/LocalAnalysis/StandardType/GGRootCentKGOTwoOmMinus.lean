@@ -1,16 +1,12 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootCentKGTagsDefs
-public import CFSG.LieType.Universal.Spin.Twisted.Frame
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGOTwoOmMinusAut
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGOTwoOmMinusConj
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGOTwoOmMinusStep
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGRigid
 import CFSG.LocalAnalysis.StandardType.GGRootNormInner
-import CFSG.LocalAnalysis.StandardType.GGRootCentralizerOmegaSpin
-import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsSp
 import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerMinus
-import CFSG.LieType.Universal.Spin.Twisted.Datum
 
 public section
 

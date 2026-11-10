@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGK1AGlEnd
-public import CFSG.RankThree.PartOne.KC.MatrixAlgebraCenter
-public import CFSG.RankThree.PartOne.KC.LinearSubfieldInclusion
-public import CFSG.RankThree.PartOne.KC.LinearCommutantBlocks
 public import CFSG.RankThree.PartOne.KC.LinearCommutantFactors
 public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeRing
 

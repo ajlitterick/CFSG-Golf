@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesReindex
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesFaithful
-public import Mathlib.RingTheory.PiTensorProduct
 
 public section
 

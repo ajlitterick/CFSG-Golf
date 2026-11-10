@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.WeakClosure81.SixFourteenOmega4TransvectionUnique
 public import CFSG.LocalAnalysis.WeakClosure81.SixFourteenOmega4UniqueAbstract
-public import CFSG.Quasithin.Vol2.Ch9H11Norm
 
 public section
 

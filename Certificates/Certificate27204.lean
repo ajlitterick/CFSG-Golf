@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.G24AutBase
-public import CFSG.Monster.B.Co2.PermArr
 import Certificates.Kernel.G24Cls.C27204
-import CFSG.Sporadic.Co1Block.TwoBCheckInputs
 meta import CFSG.Sporadic.Co1Block.TwoBData
 meta import CFSG.Sporadic.Co1Block.TwoBCheckDefs
 meta import CFSG.Sporadic.Co1Block.CentCheck
@@ -20,15 +18,10 @@ meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 meta import Certificates.Data.CFSGNative.Schreier.Check
 meta import Certificates.Data.CFSGNative.Schreier.Merge
 meta import Certificates.Data.CFSGNative.ONSchreier.Compact
-import CFSG.Sporadic.Co1Block.TwoBExtraCheckInputs
 meta import CFSG.Sporadic.Co1Block.ConjBData
 meta import CFSG.Sporadic.Co1.Module.InvData
 meta import CFSG.Sporadic.Co1.Module.Forms
 meta import CFSG.Sporadic.Co1.Module.Orbits
-import CFSG.Sporadic.Schreier.Co1ThreeLocalInputs
-import Certificates.Data.CFSGNative.Co1.Data
-import Certificates.Certificate10070
-import CFSG.Sporadic.Co1.Module.TwoBFrameInputs
 import CFSG.Sporadic.Co1Block.TwoBComp
 
 public section

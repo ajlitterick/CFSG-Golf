@@ -4,12 +4,8 @@ public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeShapeLeaves
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePairRootSpan
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePairPinE78
 import CFSG.LocalAnalysis.GLTheoremA.CatA.L154NonCfgE7
-import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.KacEAll
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUE8
 import CFSG.LocalAnalysis.StandardType.GGLieOddCoverSplit
 import CFSG.LocalAnalysis.StandardType.GGExcKGSFFinite
-import CFSG.HardMathSupport.Timmesfeld.RootAut.Main
-import CFSG.LocalAnalysis.StandardType.GGSixPositionDefs
 
 public section
 

@@ -1,20 +1,9 @@
 module
 
-public import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.Blocks
-public import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.BlockCast
 public import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.PlaneTorusNormalizer
 public import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.Simple
 public import CFSG.ClassicalInvolution.SmallOrth.Orth3Block
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.H81Orth.Cent
-public import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.PlaneTorus
-public import CFSG.ClassicalGroups.Orthogonal.RootGroupNormalizer
-public import CFSG.HardMathSupport.Dickson.Bal207.OrthD4Loc
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172CCentLayer
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FBaseIso
-public import CFSG.RankThree.PartOne.FOC.CompCommutator
-public import CFSG.RankThree.PartOne.KC.OrthogonalAnchoredGeneration
-public import CFSG.RankThree.PartOne.S15K.FixedWitt
-public import CFSG.RankThree.PartOne.S15K.LayerModel
 
 public section
 

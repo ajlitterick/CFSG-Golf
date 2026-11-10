@@ -8,7 +8,6 @@ public meta import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallPSp43
 public meta import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallArrChecks
 public meta import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallQ3Gen
 public meta import CFSG.GH74.KGroups.Checks3
-public import Certificates.Certificate2012
 public meta import CFSG.LocalAnalysis.ComponentClassification.GSThmB83Outer
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB83Outer
 

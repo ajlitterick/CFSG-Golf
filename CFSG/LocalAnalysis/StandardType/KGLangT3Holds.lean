@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.KGLangT3Defs
 public import CFSG.LocalAnalysis.StandardType.KGLangT3Glue
 public import CFSG.LocalAnalysis.StandardType.KGLangT3Lift
 public import CFSG.LocalAnalysis.StandardType.KGLangT3Data

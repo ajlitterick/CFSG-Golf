@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplit
 public import CFSG.LocalAnalysis.StandardType.GGUSixThreeWeylDescent
 public import CFSG.LocalAnalysis.StandardType.GGStdPosC13UnitaryDvdGen
-import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63Two
 import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUCoverOdd
 
 public section

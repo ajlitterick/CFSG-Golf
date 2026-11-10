@@ -3,12 +3,8 @@ module
 public import CFSG.RankThree.PartTwo.Sec4.Ronan148LD4Pgu
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148WU3Aut
 public import CFSG.RankThree.PartTwo.Sec4.Item462AltProofCases
-public import CFSG.RankThree.PartTwo.Sec4.LThreePiFieldTwo
-public import CFSG.RankThree.PartTwo.Sec4.LThreePiHessian
 public import CFSG.RankThree.PartTwo.Sec4.Ronan148SRankTwo
-public import CFSG.LieType.Chevalley.SylowOpposition
 public import CFSG.RankThree.PartTwo.Sec4.RonanK429RowTools
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TrialityThreeRank
 public import CFSG.LocalAnalysis.ComponentInitial.GL3TwoFixedModelSelector
 public import CFSG.Mathlib.LinearAlgebra.BilinForm.Determinant
 public import CFSG.Open.SplitBNPair
@@ -27,7 +23,6 @@ public import CFSG.RankThree.PartTwo.Sec14.Item142ResProofPGL
 public import CFSG.RankThree.PartTwo.Sec20.OneSteps
 public import CFSG.RankThree.PartTwo.Sec21.Item211ProofListOf
 public import CFSG.RankThree.PartTwo.Sec4.Item41NarrowGriess
-public import CFSG.Walter.J1Props
 
 public section
 

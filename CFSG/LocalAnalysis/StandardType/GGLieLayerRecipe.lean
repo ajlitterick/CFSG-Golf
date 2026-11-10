@@ -1,12 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieLayerBridge
-public import CFSG.LocalAnalysis.StandardType.MarkingChevalley
-public import CFSG.LocalAnalysis.StandardType.GGLayerCycMRestTwo
-public import CFSG.Adapters.TauCetiExceptional.EvenAll
-public import CFSG.Adapters.TauCetiExceptional.ReeModel
-public import CFSG.Adapters.ExceptionalCatalogReverse
-public import CFSG.RankThree.PartTwo.Census.Carrier.ReeF4Catalog
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.LieType
 
 public section

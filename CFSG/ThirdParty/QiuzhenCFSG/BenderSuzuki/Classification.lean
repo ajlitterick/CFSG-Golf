@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.FinalTheorem
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.Converse.StronglyEmbedded
 
 namespace CFSG

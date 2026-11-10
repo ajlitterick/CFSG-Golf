@@ -1,13 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTPNI1
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestTri
 public import CFSG.LocalAnalysis.StandardType.GGRoundFourSmallASpLift
 public import CFSG.LocalAnalysis.StandardType.GGAssemblyThreeHypSix
 public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.LocalAnalysis.ComponentClassification.LocalComponents
-public import CFSG.RankThree.Classical.SteinbergBJSymplecticCrossPrimeBlocks
-public import CFSG.GroupTheory.ElemAbelianClosure
 public import CFSG.ClassicalGroups.Symplectic.ComponentCartanRank
 public import CFSG.ClassicalGroups.Symplectic.DiagonalTorusRank
 public import CFSG.GroupTheory.HallHigmanPiCore

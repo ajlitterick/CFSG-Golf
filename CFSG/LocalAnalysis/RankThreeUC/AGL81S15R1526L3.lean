@@ -1,21 +1,16 @@
 module
 
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15Ctx2
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RowStmts
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15R1526W
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsLie
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsPair
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section15.Ctx
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15R1526D
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15R1526E
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15R1526P0a
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15R1526P0b
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RankBase
-import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsGroup
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KHupGeFive
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15Row159
 import CFSG.LocalAnalysis.RankThreeTheoremC.D2PairStrong3Lift
-import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

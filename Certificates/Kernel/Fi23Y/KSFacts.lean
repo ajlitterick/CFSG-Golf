@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Fi23Y.KSCls
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicCo2Pair
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import Mathlib
 public import CFSG.Foundations.Basic
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bDefs
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels

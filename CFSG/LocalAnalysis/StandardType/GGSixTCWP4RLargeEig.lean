@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UE8Gen
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UEig
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UComb
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UGram
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4C3
 
 public section

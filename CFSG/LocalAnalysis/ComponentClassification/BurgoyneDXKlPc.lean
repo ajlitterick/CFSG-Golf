@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneDXKlComp
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneOKronElts
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneCOPc
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneCOType
 
 public noncomputable section

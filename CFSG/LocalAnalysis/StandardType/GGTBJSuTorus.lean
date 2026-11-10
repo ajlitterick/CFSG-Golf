@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTBJSuCore
 public import CFSG.LocalAnalysis.StandardType.GGTBJSuModel
 public import CFSG.LocalAnalysis.StandardType.GGTBJLift
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyWeylGenLift
-public import CFSG.HardMathSupport.Solomon.Coordinator.LayerCentralFix
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoLayer
 
 public section

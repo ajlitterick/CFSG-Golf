@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorus
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOrthNsLabels
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticOmega
 public import CFSG.LocalAnalysis.StandardType.GGSignedPermCount
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrTableBWeyl
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrTableBCard

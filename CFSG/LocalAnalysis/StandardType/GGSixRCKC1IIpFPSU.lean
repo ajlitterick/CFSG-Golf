@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIpRecDefs
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeF1PSU
 import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIpFPSUSmall
 import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIpFPSUBlocks

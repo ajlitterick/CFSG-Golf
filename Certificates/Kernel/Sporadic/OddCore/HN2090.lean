@@ -1,9 +1,6 @@
 module
 
 public import Certificates.Kernel.Sporadic.OddCore.HN2090K
-public import Certificates.Kernel.SporSch.HN.Strong
-public import CFSG.Certificates.Kernel.SporSch.HNF5RankKronSound
-public import CFSG.Sporadic.Schreier.ONPermArr
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

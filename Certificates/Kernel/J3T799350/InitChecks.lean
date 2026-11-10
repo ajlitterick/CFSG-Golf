@@ -5,7 +5,6 @@ public import Certificates.Kernel.SporSch.J3K426.Checks
 public import Certificates.Kernel.Sporadic.OddCore.J3Cent
 public import Certificates.Data.Kernel.Spor.RawOrbOut
 import CFSG.Certificates.Kernel.Common.Repo
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

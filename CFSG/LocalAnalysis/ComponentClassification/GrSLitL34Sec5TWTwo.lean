@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec5TWOne
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec5SWNonW
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

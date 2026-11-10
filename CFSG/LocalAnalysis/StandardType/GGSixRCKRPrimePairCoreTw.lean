@@ -1,14 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePairCoreGood
-import CFSG.LieType.Chevalley.AmbientTwistedFrobeniusFixedNormalizer
-import CFSG.LieType.Chevalley.GraphFixedBruhatEquivariance
-import CFSG.LieType.Chevalley.TwistMap
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.RigidDescent
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleLang
-import CFSG.LocalAnalysis.StandardType.GGRootCentralizerExcBruhat
-import CFSG.LocalAnalysis.StandardType.GGFinModelRat
-import Mathlib.FieldTheory.Finite.GaloisField
 
 public section
 

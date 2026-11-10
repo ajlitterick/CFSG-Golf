@@ -3,11 +3,9 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGE0ShapeDefs
 public import CFSG.LocalAnalysis.StandardType.GGLangFamily
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.CentralizerTrivialQ2
-public import CFSG.LieType.Chevalley.KernelComponentRoots
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwRigid
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.CentralizerTrivialPoly
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.CentralizerTrivialQ3T
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.OuterField
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.RigidField
 public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.LangFrame
 

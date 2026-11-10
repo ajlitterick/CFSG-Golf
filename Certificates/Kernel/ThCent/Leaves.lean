@@ -4,14 +4,6 @@ module
 public import Certificates.Kernel.ThCent.LeavesBase
 
 public import CFSG.Sporadic.Th.KernelCentJ
-public import Certificates.Kernel.ThCent.Assemble
-public import Certificates.Kernel.ThCent.Shared
-public import Certificates.Kernel.ThCent.C3A
-public import Certificates.Kernel.ThCent.C3B
-public import Certificates.Kernel.ThCent.C7A
-public import Certificates.Kernel.ThCent.C7B
-public import Certificates.Kernel.ThCent.C13A
-public import Certificates.Kernel.ThCent.Wit
 public import CFSG.Sporadic.Th.KernelCoset
 public import CFSG.Sporadic.Th.LocalBase1
 public import CFSG.Sporadic.Th.SimpleBase1

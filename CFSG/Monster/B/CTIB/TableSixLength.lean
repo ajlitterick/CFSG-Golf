@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Monster.B.CTIB.TableSix
-public import CFSG.Monster.B.TwoA.Co2Inv.CentOrder
 
 public section
 

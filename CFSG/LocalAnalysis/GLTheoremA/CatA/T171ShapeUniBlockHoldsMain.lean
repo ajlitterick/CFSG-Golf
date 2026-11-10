@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeUniBlockHoldsPaired
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeUniBlockHoldsSelfDual
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeFamInUniTransPow
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S171Basic
-import CFSG.Foundations.SteinbergCADefinitionNodes
 import CFSG.LocalAnalysis.StandardType.GGTableBUnitarySixThreeCases
 
 public section

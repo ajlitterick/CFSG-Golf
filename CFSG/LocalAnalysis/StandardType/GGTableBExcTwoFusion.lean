@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBExc
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwo
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoFusionE8
 

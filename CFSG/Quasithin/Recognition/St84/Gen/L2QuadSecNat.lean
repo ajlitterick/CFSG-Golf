@@ -9,9 +9,6 @@ import CFSG.Quasithin.Background.Basic
 import CFSG.Quasithin.Background.F1Amalgam
 import CFSG.Quasithin.Background.F1Borel
 import CFSG.Quasithin.Background.F2Equiv
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

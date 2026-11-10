@@ -4,9 +4,6 @@ import CFSG.Certificates.Kernel.BabyMonster.LoadFour
 import CFSG.Certificates.Kernel.BabyMonster.Load
 public import CFSG.Certificates.Kernel.BabyMonster.F2Four
 public import Certificates.Data.Kernel.TwoAC.Check
-public import CFSG.Certificates.Kernel.BabyMonster.Seeds.Data0
-public import Certificates.Kernel.TwoAC.Data0
-public import Certificates.Kernel.TwoAC.Data2
 public import Certificates.Kernel.TwoAC.Data3
 
 #bm_mul4 CFSG.KC.BM.TwoAC cS2A S2 [a] S2A []

@@ -1,19 +1,12 @@
 module
 
-public import CFSG.Monster.Existence.TwoPoint.ThreeRepsDefs
-public import CFSG.Monster.Existence.TwoPoint.ThetaTrace
-public import CFSG.Monster.Existence.TwoPoint.HNRigid
 public import CFSG.Monster.Existence.ELevelBasic
 public import CFSG.Monster.AxisCount.CoverLetters
-public import Certificates.Data.CFSGNative.MonsterAxis.Cover
 public meta import CFSG.Monster.Existence.TwoPoint.ThreeRepsDefs
 public meta import CFSG.Monster.Existence.TwoPoint.ThetaTrace
 public meta import CFSG.Monster.Existence.TwoPoint.HNRigid
 public meta import Certificates.Data.CFSGNative.MonsterAxis.Cover
-public import CFSG.Monster.Existence.TwoPoint.ThreeRepsInputs
 public import Certificates.Certificate6091
-public import Certificates.Certificate6007
-public import Certificates.Certificate6023
 public import CFSG.Monster.B.TwoA.Base.Flags
 public import CFSG.Monster.B.TwoA.Base.Par45A
 public import CFSG.Monster.B.TwoA.Par3.Main
@@ -23,7 +16,6 @@ public meta import CFSG.Open.MonsterY443Defs
 public import CFSG.Open.MonsterY443Defs
 public import CFSG.Sporadic.Co1Base
 public meta import CFSG.Sporadic.Co1Base
-public import CFSG.Sporadic.Th.F2Spec
 public meta import CFSG.Sporadic.Th.F2Spec
 
 public section

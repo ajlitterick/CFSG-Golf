@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LieType.Chevalley.LongestElement
-public import CFSG.LieType.Chevalley.GraphFixedBruhatEquivariance
 public import CFSG.RankThree.PartOne.KE.CTTwisted
 public import CFSG.RankThree.Chevalley.SteinbergBTE6HighestRootGraph
 public import CFSG.Blueprint.ChevalleyRootArtifact

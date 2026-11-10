@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBBridge
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeAEndModel
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC1677ThreeMain
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC165Main
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenTI
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.PartOne
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section18.OmegaSixMinusK
 public import CFSG.GH74.GLS.Stage2.Bender.Thm2.Der10Two

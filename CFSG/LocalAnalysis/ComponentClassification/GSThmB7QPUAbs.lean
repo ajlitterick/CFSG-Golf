@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB7QPUCat
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB58NFc
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuotIso
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancingLocalCorrespondenceTools
-public import CFSG.LocalAnalysis.OddStandard.Solomon75Thm11Transport
 public import CFSG.RankThree.PartOne.S12.Sec1511SPEFStar
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Certificates.WordSubgroupRel

@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Misc.RuCoverNet.Data7296
 public import Certificates.Data.Kernel.Misc.RuCoverNet7296
 import CFSG.Certificates.Kernel.Common.EachTrue
-import CFSG.Certificates.Kernel.Common.Harness
 import all CFSG.Sporadic.Recognition.RuMultiplierInputs
 import all CFSG.LieType.Multipliers.CoverWords
 

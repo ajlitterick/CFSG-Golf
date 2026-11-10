@@ -2,9 +2,7 @@ module
 
 public import CFSG.Adapters.TypeALinearCandidate
 public import CFSG.Adapters.LinearFieldTransport
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.LieType
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.LieType
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.GraphTwisted
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.GraphTwisted
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.TypeA.Agreement
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Index

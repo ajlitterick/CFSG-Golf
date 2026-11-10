@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveInputs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
 public import CFSG.LocalAnalysis.StandardType.GGSignedCoordBlocks
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRest
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNativeImageNormA
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNativeImageNormB
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNativeImageNormD
@@ -12,8 +10,6 @@ import CFSG.LocalAnalysis.StandardType.GGRCWeylCard
 import CFSG.LocalAnalysis.StandardType.GGSpFrameCoxeterCard
 import CFSG.LocalAnalysis.StandardType.GGLineStabNormalizes
 import CFSG.LocalAnalysis.StandardType.GGSecFiveReflMaxBasic
-import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinPrimed
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
 import CFSG.LocalAnalysis.StandardType.GGSignedCoordFix
 
 public section

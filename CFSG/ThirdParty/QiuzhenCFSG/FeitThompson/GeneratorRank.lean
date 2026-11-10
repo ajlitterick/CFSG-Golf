@@ -1,10 +1,6 @@
 module
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.Defs
 
-import Mathlib.GroupTheory.Rank
-import Mathlib.GroupTheory.SpecificGroups.Cyclic
-import Mathlib.GroupTheory.Frattini
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ElementaryAbelian
 
 namespace CFSG
 end CFSG

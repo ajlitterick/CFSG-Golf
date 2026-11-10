@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Certificates.Kernel.Th.S.SurjS
-public import CFSG.Certificates.Kernel.Th.S.BigS
 public import CFSG.Certificates.Kernel.Th.S.Data.Sm_const
 public import CFSG.Certificates.Kernel.Th.S.Data.Seed_const
 public import CFSG.Certificates.Kernel.Th.S.Data.Surj_const

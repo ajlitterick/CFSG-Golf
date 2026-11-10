@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.G23K7b
 public import Certificates.Kernel.G2Three.K7bChecks
 public import Certificates.Kernel.G2Three.Final
 import CFSG.Certificates.Kernel.Common.Harness

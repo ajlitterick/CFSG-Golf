@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGUSixTwoModel
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBRkDefs
-public import CFSG.LocalAnalysis.StandardType.GGWPlusPositionRk
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkModel
 
 public section

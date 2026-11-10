@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCornerDenseDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSpPlaneBlocksTwoDefs
 
-import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
 import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs2311h2
 import CFSG.LocalAnalysis.StandardType.GGOrthFrameModelAux
 import CFSG.LocalAnalysis.StandardType.GGQTwoDL1Odd
@@ -12,7 +11,6 @@ import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCornerRowOne
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBNbrCompare
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBProperNbr
 import CFSG.LocalAnalysis.StandardType.GGSecFiveSpPlaneBlocksTwo
-import CFSG.LocalAnalysis.StandardType.GGSignedCoordFix
 import CFSG.LocalAnalysis.StandardType.GGSignedCoordReflGroup
 import CFSG.CGT.Timmesfeld75.Form2
 import CFSG.CGT.Timmesfeld75.Main

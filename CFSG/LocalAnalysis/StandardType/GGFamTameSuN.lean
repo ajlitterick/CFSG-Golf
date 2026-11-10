@@ -1,13 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGFamTameRangeSpan
-public import CFSG.LocalAnalysis.StandardType.GGFamTameLang
-public import CFSG.LocalAnalysis.StandardType.GGFamTameOrbit
-public import CFSG.LocalAnalysis.StandardType.GGFamTameTransfer
-public import CFSG.LocalAnalysis.StandardType.GGFamIsolation
 public import CFSG.LocalAnalysis.StandardType.GGFamUnitaryFrameRange
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTame.Order216
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTamePrime
 import CFSG.LocalAnalysis.GLTheoremA.CatA.KD147cMat
 
 public section

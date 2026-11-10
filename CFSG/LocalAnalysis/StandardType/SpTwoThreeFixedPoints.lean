@@ -47,8 +47,6 @@ public import CFSG.RankThree.PartOne.S11d.OutUnitary
 public import CFSG.RankThree.PartOne.S11d.PSLDescent
 public import CFSG.RankThree.PartOne.S9.Sylow.ExclusionBasic
 public import CFSG.RankThree.Theta.ThreeComponentOrbitCover
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import CFSG.Walter.Defs
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension

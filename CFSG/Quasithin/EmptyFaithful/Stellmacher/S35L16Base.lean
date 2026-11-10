@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Quasithin.EmptyFaithful.Stellmacher.S34Gen
 public import CFSG.Quasithin.EmptyFaithful.Stellmacher.S35AtFin1
 public import CFSG.Quasithin.EmptyFaithful.Stellmacher.S35Ch2Base
 public import CFSG.Quasithin.EmptyFaithful.Stellmacher.S35Std1

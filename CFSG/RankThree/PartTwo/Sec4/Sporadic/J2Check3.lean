@@ -3,17 +3,11 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec4.Sporadic.J2Check3Base
 
-public import CFSG.RankThree.PartTwo.Sec4.Sporadic.J2Data3
-public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutCheck
-public import CFSG.RankThree.Native.PermEnumeration
-public import CFSG.Monster.B.Mathieu.SylowCore
-public import Certificates.Data.CFSGNative.Schreier.Enum3
 public meta import CFSG.RankThree.PartTwo.Sec4.Sporadic.J2Data3
 public meta import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutCheck
 public meta import CFSG.RankThree.Native.PermEnumeration
 public meta import CFSG.Monster.B.Mathieu.SylowCore
 public meta import Certificates.Data.CFSGNative.Schreier.Enum3
-public import CFSG.RankThree.PartTwo.Sec4.Sporadic.J2Check3Inputs
 public import Certificates.Certificate8168
 public import Certificates.Certificate8168Base
 

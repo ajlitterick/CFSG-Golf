@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Higman.lemma_1
-import Mathlib.LinearAlgebra.StdBasis
-import Mathlib.RingTheory.Nilpotent.Basic
 
 namespace CFSG
 end CFSG

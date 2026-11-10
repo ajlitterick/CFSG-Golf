@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.JointShapesPart1
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.JointShapesPart2
-public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.OddShapesPart2
-public import CFSG.Mathlib.Decide.Bounded
 
 @[expose] public section
 

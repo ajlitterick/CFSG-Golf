@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySpModel
 public import CFSG.LocalAnalysis.StandardType.GGSignedPermCount
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableBWeylOn
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableBOrderRestOn

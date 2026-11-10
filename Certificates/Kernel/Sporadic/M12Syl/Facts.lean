@@ -3,12 +3,10 @@ module
 public import Certificates.Kernel.Sporadic.M12Syl.Checks
 public import CFSG.Certificates.Kernel.Spor.MSylowSound
 public import CFSG.Sporadic.Schreier.MathieuSylowAutM12Inputs
-public import CFSG.Sporadic.Schreier.MathieuSylowAutM12Derivs
 public meta import CFSG.Sporadic.Schreier.MathieuSylowAutMain
 public meta import CFSG.Sporadic.Schreier.M12
 public meta import CFSG.Sporadic.Schreier.M12Pinned
 public meta import Certificates.Data.CFSGNative.SporadicSchreier.MathieuOddCore
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Spor.Loops
 public import CFSG.Certificates.Kernel.Spor.PK.Perm.Inv
 

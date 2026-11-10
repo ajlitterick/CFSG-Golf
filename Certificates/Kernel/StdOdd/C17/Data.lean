@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.StdOdd.CentAssemble
-public import CFSG.Monster.Existence.StdOdd.Cert.RepsInputs
 import CFSG.Certificates.Kernel.Common.Repo
 import CFSG.Certificates.Kernel.Common.Harness
 public import Certificates.Kernel.StdOdd.C17.Slp

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC8HatDefs
 import CFSG.GroupTheory.PCore.PrimeCoreImages
 import CFSG.LocalAnalysis.SectionRank.AmbientRank
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFAppendixIII.Basic
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.CentralizerLemmas
 

@@ -4,7 +4,6 @@ public import CFSG.RankThree.PartTwo.Sec15.Liebeck155R1T150LieRows
 public import CFSG.RankThree.PartTwo.Sec15.Liebeck155R1T150LieThree
 public import CFSG.RankThree.PartTwo.Sec15.Liebeck155R1T150LieL2
 public import CFSG.RankThree.PartTwo.Sec15.Liebeck155R1T150Alt
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.AssemblyAll
 import CFSG.RankThree.PartTwo.Sec4.Ronan148LUSa
 
 public section

@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public import Certificates.Data.Kernel.L34W.Model
 public import Certificates.Data.GrSLitL34FactsRealReps

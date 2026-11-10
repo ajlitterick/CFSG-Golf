@@ -1,6 +1,5 @@
 module
 
-public import CFSG.RankThree.PartTwo.Sec4.T444.Item434U43Class
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434U43Pair
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434U43Out
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434SporGen

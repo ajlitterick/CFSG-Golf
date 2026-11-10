@@ -1,12 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Nine92Bar
-public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Nine92StepAux
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Nine92BarComp
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Nine92BarType
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Nine92BarCJ
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Nine92Pump
-public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Nine92SylCat
 public import CFSG.HardMathSupport.Dickson.Sec6.UpD42Aux.ExclBridge
 public import CFSG.GroupTheory.PCore.FixedSubgroupCore
 public import CFSG.GroupTheory.CenterlessInnerCentralizer

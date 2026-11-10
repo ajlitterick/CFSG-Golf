@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRealKGThree
 public import CFSG.LocalAnalysis.StandardType.GGKGForkUnitaryDvdRoot
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNinePGL
 public import CFSG.LocalAnalysis.StandardType.GGNbrFrameOneUnitaryLabel
 
 public section

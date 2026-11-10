@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Assembly.Defs
 public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
 
 public section

@@ -3,11 +3,7 @@ module
 public import CFSG.GroupTheory.ConjActionModPCore
 public import CFSG.GroupTheory.CoprimeActionSupport.CentralizerOnQuotientMembership
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.CComponents
-public import CFSG.RankThree.PartTwo.Sec17.Item17Res15ProofAut
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanK8K9
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanK2
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPS
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WS6
 
 public section
 

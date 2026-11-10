@@ -5,14 +5,8 @@ public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Models
 import CFSG.StronglyEmbedded.Catalog.TypeA
 import CFSG.StronglyEmbedded.Catalog.Suzuki
 import CFSG.StronglyEmbedded.Catalog.Unitary
-import CFSG.StronglyEmbedded.MatrixGroups.PSU3Model
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma114Models
 import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonClassification
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Compat
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

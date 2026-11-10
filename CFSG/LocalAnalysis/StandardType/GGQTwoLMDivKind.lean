@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoFrameLDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMFrameCBase
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivKindCard
-public import CFSG.LocalAnalysis.StandardType.GGTableBBstar
 
 public section
 

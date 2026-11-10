@@ -1,14 +1,10 @@
 module
 
 public import CFSG.Quasithin.H13.U3Confined
-public import CFSG.Quasithin.H13.U3ElemNine
 public import CFSG.Quasithin.Background.B5FinG2U33
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Borel
 public import CFSG.StronglyEmbedded.BenderUnitaryBorel
 public import CFSG.CharacterTheory.Semidihedral.OddProjectiveCoverKernel
 public import CFSG.LocalAnalysis.ComponentInitial.LinearFlagOrder
-public import CFSG.Adapters.RankTwoModelTransports
-public import CFSG.CharacterTheory.Semidihedral.GL2Recognition.M11Order
 import CFSG.Adapters.QiuzhenLegacy.BenderSuzuki.BenderLinearBorel
 import CFSG.Adapters.QiuzhenLegacy.BenderSuzuki.BenderSuzukiBorel
 public import CFSG.CharacterTheory.Semidihedral.ElementStructure
@@ -23,12 +19,6 @@ public import CFSG.Quasithin.Background.A3Structure36BPrimeDataBase
 public import CFSG.Quasithin.Vol2.Ch1Unique
 public import CFSG.Sporadic.Schreier.J4SProfileNode
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CPrime
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralAut
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 
 public section
 

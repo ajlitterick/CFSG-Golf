@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGDepAThreeSurvWeyl
 public import CFSG.LocalAnalysis.StandardType.GGDepAThreeDefs
-public import CFSG.LocalAnalysis.StandardType.GGDepAFrame
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.Mathlib.SmoothGroupAlgClosed
 public import Mathlib.AlgebraicGeometry.Group.Affine
-public import Mathlib.RingTheory.RingHom.Smooth
 
 public section
 

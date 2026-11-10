@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKD2Connected1619Contracts
-public import CFSG.Open.StatedAPI
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldSympMark
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnSympRed
 public import CFSG.CharacterTheory.Wreathed.BrauerWongTypes

@@ -2,12 +2,8 @@ module
 
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Defs
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotCentralizerTUStd
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.CentralizerTrivialOuterLang
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleOrbit
 import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.OddShapesPart1
 import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.B2Inner
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 public import CFSG.Foundations
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwReduction
@@ -41,7 +37,6 @@ public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Monster.B.Geometry.CoxeterWords
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.A3Structure36BAction
 public import CFSG.Quasithin.Background.A3Structure36BBasic
 public import CFSG.Quasithin.Background.A3Structure36BPrime
@@ -54,10 +49,8 @@ public import CFSG.RankThree.PartOne.KE.SigmaUntwisted
 public import CFSG.RankThree.PartOne.KLR.Master
 public import CFSG.RankThree.PartOne.KLR.SectorAssembly
 public import CFSG.RankThree.PartOne.S8.Statements
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M24
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.JRFacts
 import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67LnToral
 import CFSG.HardMathSupport.Dickson.Sec6.I1431Fam.ExcResidual

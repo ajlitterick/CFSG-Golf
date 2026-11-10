@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.F4Mat
 public import CFSG.Monster.B.TwoA.Unitary.Form
-public import Mathlib.Tactic.ENatToNat
 public import Std.Tactic.BVDecide.Normalize.BitVec
 public import Std.Tactic.BVDecide.Normalize.Prop
 

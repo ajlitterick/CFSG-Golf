@@ -1,11 +1,8 @@
 module
 
 public import Certificates.Kernel.Fi22.Kill
-import Certificates.Kernel.Fi22.Facts
 import CFSG.Certificates.Kernel.Fi22.Bound2.Checks.C_H_0
-import CFSG.Certificates.Kernel.Fi22.Bound2.Checks.C_L
 import CFSG.Certificates.Kernel.Fi22.Bound2.Checks.M
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

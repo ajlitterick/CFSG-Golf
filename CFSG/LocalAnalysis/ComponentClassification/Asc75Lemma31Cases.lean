@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.Asc75Lemma31Basic
-public import CFSG.Goldschmidt.Steps.G2Odd
 
 public section
 

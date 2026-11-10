@@ -2,8 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection8.theorem_8_1
 import Mathlib.GroupTheory.Schreier
-import Mathlib.GroupTheory.Subgroup.Centralizer
-import Mathlib.Order.Atoms
 
 namespace CFSG
 end CFSG

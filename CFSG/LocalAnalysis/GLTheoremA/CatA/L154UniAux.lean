@@ -3,11 +3,7 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154Red
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldUniLabel
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldUniMark
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniData
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniScal
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniCore
-public import CFSG.LocalAnalysis.QuasithinUnique.SQTK.UnitaryTauCeti
-public import CFSG.Quasithin.Background.A3Structure36BPrime
 public import CFSG.Assembly.GL83StatedBridge
 public import CFSG.Assembly.OpenBridges
 public import CFSG.HardMathSupport.Solomon.Coordinator.I18_3LInput

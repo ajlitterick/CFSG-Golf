@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTBJSudBlock
 public import CFSG.LocalAnalysis.StandardType.GGTBJSudCore
 public import CFSG.LocalAnalysis.StandardType.GGTBJSuTorus
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUCoverTwo
 
 public section
 

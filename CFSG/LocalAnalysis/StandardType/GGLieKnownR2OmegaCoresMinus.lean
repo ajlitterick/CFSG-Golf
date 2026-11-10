@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2HighestRootLong
 public import CFSG.ClassicalInvolution.ModelFacts.Families
-public import CFSG.LieType.Universal.Spin.Twisted.Datum
-public import CFSG.LieType.Universal.Spin.Twisted.Extras
-public import CFSG.LieType.Steinberg.CentralExt.SpinMinus
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaRadicalSettingW
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaRadicalCoreO2
 

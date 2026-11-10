@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.problem_7_1
 import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.CrossCharBrauer
-public import Mathlib.FieldTheory.IsAlgClosed.Basic
 
 namespace CFSG
 end CFSG

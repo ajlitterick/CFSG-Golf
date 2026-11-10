@@ -1,17 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanK9bCat
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanK2
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanKFacts
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanK12
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPFF2
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPL
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPL2
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPZ
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPZ2e
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPZ3b
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPZs
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WS6
 import CFSG.Adapters.StatedSLPerfect
 import CFSG.RankThree.PartTwo.Sec4.Item462AltProofModels
 public import CFSG.GroupTheory.ExtraspecialThreeFive

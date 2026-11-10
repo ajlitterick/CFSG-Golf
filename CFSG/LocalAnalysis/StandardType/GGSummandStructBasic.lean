@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixAutKFlatRootCent
-public import Mathlib.Algebra.Group.Commutator
 
 public section
 

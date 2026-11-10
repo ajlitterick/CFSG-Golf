@@ -4,8 +4,6 @@ public import CFSG.ClassicalInvolution.RouteD.TwinSmallSixFix
 public import CFSG.ClassicalInvolution.RouteD.TwinSmallSixJ3
 public import CFSG.ClassicalInvolution.RouteD.TwinSmallSixTwin
 public import CFSG.ClassicalInvolution.RouteD.TwinSmallLift
-public import CFSG.ClassicalInvolution.RouteD.GapsFrMinusSmallPattern
-public import CFSG.ClassicalInvolution.ModelFacts.FundNoncentralBridge
 public import CFSG.ClassicalInvolution.RouteD.TwinSmallCases
 
 public section

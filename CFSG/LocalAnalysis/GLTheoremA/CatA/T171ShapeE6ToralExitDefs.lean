@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeE6ToralDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeHat
-public import CFSG.RankThree.PartOne.KE.CTLang
 
 public section
 

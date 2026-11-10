@@ -7,13 +7,9 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaTwE6
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaTwE6Three
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSExcl
 public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrOfEnnola
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6Holds
 import CFSG.LocalAnalysis.StandardType.GGF4ThreeSCCubeHolds
-import CFSG.LocalAnalysis.StandardType.GGF4ThreeNbrRank
 import CFSG.LocalAnalysis.StandardType.GGF4ThreeSCCube
-import CFSG.LocalAnalysis.StandardType.GGNbrReflGenTwE6Three
 
 public section
 

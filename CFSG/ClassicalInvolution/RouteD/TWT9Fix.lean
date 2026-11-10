@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.TWT8Fix
-public import CFSG.ClassicalInvolution.RouteD.GapsFrMinusNodesImg
 
 public section
 

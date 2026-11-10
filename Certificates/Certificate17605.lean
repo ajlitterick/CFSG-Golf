@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GF2Type.Smith1979.IdxFourModelBasic
-public import CFSG.GF2Type.Smith1979.IdxFourModelData
 public import CFSG.GF2Type.Smith1979.IdxFourModelE0Inputs
 import Certificates.Kernel.IdxFour.Sift
 

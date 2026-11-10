@@ -3,13 +3,10 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldSpUNorm
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherPrimeForm
 import CFSG.LieType.Steinberg.CentralExt.HermitianBasis
-import CFSG.RankThree.Classical.SemilinearFixedBasis
 import CFSG.RankThree.SteinbergR3ELinearTwoFieldDescent
-import CFSG.LocalAnalysis.ComponentInitial.FieldUnitaryNorm
 public import CFSG.LieType.BorelTits.CompleteFlag
 import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 import CFSG.LinearAlgebra.LinearGroups.LinearTwo
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 
 public section

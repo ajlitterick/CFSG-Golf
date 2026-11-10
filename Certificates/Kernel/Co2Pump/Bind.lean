@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Co2Pump.Data
 public import Certificates.Kernel.Co2Pump.Src
 public import Certificates.Kernel.Sporadic.RawGen
-public import CFSG.Sporadic.Co2Cert.Data
 import Certificates.Kernel.Misc.Perm.HexCmd
 meta import Certificates.Kernel.Co2Pump.Data
 meta import Certificates.Kernel.Co2Pump.Src

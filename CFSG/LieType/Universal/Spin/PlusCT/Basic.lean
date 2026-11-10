@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.Universal.Spin.Datum
-public import CFSG.LieType.CurtisTits.Reduction
 public import CFSG.LieType.Universal.Spin.Roots
 
 public section

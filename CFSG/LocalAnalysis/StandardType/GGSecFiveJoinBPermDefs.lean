@@ -1,13 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveCompatJoinCells
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinSelected
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPositionDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBJoinDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNativeImageDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermLabelDefs
 public import CFSG.LocalAnalysis.StandardType.GGTPNNarrow
-public import CFSG.LocalAnalysis.StandardType.GGForkA8NotRefl
 public import CFSG.LocalAnalysis.StandardType.GGTBXPlumb
 public import CFSG.LocalAnalysis.StandardType.GGNsq2Cited
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBWeylInfDefs

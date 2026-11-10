@@ -1,12 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1CollinearExc
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortF4Iso
-public import CFSG.LocalAnalysis.StandardType.GGOppositeRadicalTransfer
 public import CFSG.LieType.Universal.Unitary.RootGroupCard
-public import CFSG.Timmesfeld.Transvection.PresSUHalf
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1ShortTwE6Sc
-import CFSG.Timmesfeld.Transvection.ModelRankSU
 import all CFSG.LocalAnalysis.StandardType.ClassicalPosition.GeoRootConversePSU
 import all CFSG.LocalAnalysis.StandardType.GGSixRCKC1LemmaHNbr
 

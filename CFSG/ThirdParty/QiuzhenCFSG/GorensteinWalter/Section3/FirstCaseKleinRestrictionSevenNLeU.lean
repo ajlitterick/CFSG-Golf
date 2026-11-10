@@ -1,9 +1,7 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinRestrictionSixIndex
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinIntersectionOdd
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OddSubgroupLeOddFactor
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTPNDefs
 import CFSG.LocalAnalysis.StandardType.GGTPNTrCardB
-import CFSG.LocalAnalysis.StandardType.GGTableBBstar
-import CFSG.LocalAnalysis.StandardType.GGTableBTransport
 
 public section
 

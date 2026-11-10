@@ -1,14 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoModel
 public import CFSG.LocalAnalysis.SeitzReduction.EPilotCentralizerHigh
-public import CFSG.LocalAnalysis.SeitzReduction.E6PilotLeviHom
-public import CFSG.LocalAnalysis.StandardType.FF81.CentE6.Std
 public import CFSG.LocalAnalysis.StandardType.FF81.CentE6.CubeElem
 public import CFSG.LocalAnalysis.StandardType.FF81.CentE6.LeviMark
 import CFSG.LocalAnalysis.SeitzReduction.EPilotHeisIrr
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 public import CFSG.LieType.Chevalley.C2E6StandardFixedData
 public import CFSG.LieType.Chevalley.C2E6UnitaryFourImages
@@ -22,7 +17,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
 public import CFSG.LocalAnalysis.ComponentInitial.SylowPointRecovery
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.JRFacts
 import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Defs
 import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Detect.Heis.NormalForm

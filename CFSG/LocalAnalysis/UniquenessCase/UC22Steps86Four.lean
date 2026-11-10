@@ -3,17 +3,10 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.UC22Steps87Four
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S2114R4Holds
 public import CFSG.LocalAnalysis.UniquenessCase.UC22GlobalsYNo
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.U7KFacts
 
 import CFSG.LocalAnalysis.UniquenessCase.UCK35wHolds
-import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.KIZHolds
-import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.SEFive.Holds
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.KInputsSolvableHolds
-import CFSG.LocalAnalysis.UniquenessCase.UC7P3BadNoStrongHolds
 import CFSG.LocalAnalysis.UniquenessCase.UC7P3ThreeKIBA6
-import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.StrongThree
-import CFSG.LocalAnalysis.RankThreeTheoremC.OutCyclicThree
-import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.CatalogSchreier
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.CartanTorusU7
 
 

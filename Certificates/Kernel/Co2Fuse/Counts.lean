@@ -2,12 +2,9 @@ module
 
 public import Certificates.Kernel.Co2Fuse.Checks
 public import Certificates.Kernel.Co2Fuse.RepCheck
-public import Certificates.Kernel.Co2Syl.Facts
-public import Certificates.Kernel.Co2Cls.Classes
 public import Certificates.Kernel.Co2Census.Facts
 public import CFSG.Certificates.Kernel.Co2Fuse.Sound
 public import CFSG.RankThree.Co2.FuseCounts
-import Mathlib.Tactic.IntervalCases
 
 public section
 

@@ -1,12 +1,8 @@
 module
 
-public import CFSG.Sporadic.ONOddCore.NonextPayload
-public import CFSG.Sporadic.ONOddCore.LiftHomCheck
-public import CFSG.Sporadic.Schreier.ONCheckR3E
 public meta import CFSG.Sporadic.ONOddCore.NonextPayload
 public meta import CFSG.Sporadic.ONOddCore.LiftHomCheck
 public meta import CFSG.Sporadic.Schreier.ONCheckR3E
-public import CFSG.Sporadic.ONOddCore.NonextCheckInputs
 public import Certificates.Certificate2125
 
 public section

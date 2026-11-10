@@ -1,6 +1,5 @@
 module
 
-public import CFSG.CGT.PushingUpLit.SolKNA.R4.TwinThmECent
 public import CFSG.CGT.PushingUpLit.SolKNA.R4.TwinThmEQuotOdd
 public import CFSG.CGT.PushingUpLit.SolKNA.R4.TwinThmEQuotCentMain
 public import CFSG.CGT.PushingUpLit.SolKNA.R4.TwinThm4

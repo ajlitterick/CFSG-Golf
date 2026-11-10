@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitFamilies
 import CFSG.LocalAnalysis.StandardType.GGTorusWeylTypeSigned
 import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitClassical
-import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHypCentral
 import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalUnitHypLift
 import CFSG.LocalAnalysis.StandardType.GGStdPosC24HypDescent
 

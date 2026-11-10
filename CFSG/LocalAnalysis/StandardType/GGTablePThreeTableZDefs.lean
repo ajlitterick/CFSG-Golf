@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeLow2Z
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TwoDefs
-public import CFSG.LieType.Steinberg.Isogeny.TwistedE6
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeDiagTwisted
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeDiag
 
 public section
 

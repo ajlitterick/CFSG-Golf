@@ -1,6 +1,5 @@
 module
 
-import CFSG.Certificates.Kernel.Common.LceS
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Bounds.Sz8Alt.Data.C_Sel
 import CFSG.Certificates.Kernel.Common.Repo

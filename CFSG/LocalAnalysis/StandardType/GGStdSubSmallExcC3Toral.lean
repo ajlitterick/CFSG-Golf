@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallExcC3At
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallExcC3ToralCore
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallExcC12Core
-public import CFSG.LocalAnalysis.StandardType.GGTableBE6ThreeEndNode
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarE8FiveFrameCentralizer
-public import CFSG.LieType.SeitzGeneration.ExcHighThree.TwE6InF4ZRootTorus
 
 public section
 

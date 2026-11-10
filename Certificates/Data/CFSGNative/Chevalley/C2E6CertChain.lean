@@ -1,9 +1,6 @@
 module
 
-public import Certificates.Data.CFSGNative.Chevalley.C2E6StdMatrix
-public import Certificates.Data.CFSGNative.Chevalley.C2E6CertLie
 public import Certificates.Data.CFSGNative.Chevalley.C2E6CertOrbit
-public import Std.Data.HashMap
 
 public section
 

@@ -4,14 +4,8 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveFieldTwoCommon
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.FEPSU
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockModelSelfDualPSU
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockModelDualPairPSU
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.CompPSU
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.StepA2
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.IDPSU
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.GeoWittSU
 public import CFSG.LocalAnalysis.StandardType.GGSelectedPSUModel
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGTyLabelAux
-public import CFSG.LocalAnalysis.StandardType.GGSixTCLiftGroup
-public import CFSG.LieType.Steinberg.CentralExt.SUTwo
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveFieldTwoPSUChart
 
 public section

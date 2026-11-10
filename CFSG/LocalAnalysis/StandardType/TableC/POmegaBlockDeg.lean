@@ -2,13 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.TableC.POmegaBlockIso
 public import CFSG.LocalAnalysis.StandardType.TableC.POmegaFieldExtRigid
-public import CFSG.LocalAnalysis.StandardType.TableC.POmegaLeafDefs
 public import CFSG.LocalAnalysis.StandardType.TableC.GramBlockDegree
-public import CFSG.LocalAnalysis.StandardType.TableC.GramBlockRank
-public import CFSG.LocalAnalysis.StandardType.TableC.OrthGram
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.StepA2
-public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockOmegaIsoOneLinear
-public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockOmegaIsoUnitary
 
 public section
 

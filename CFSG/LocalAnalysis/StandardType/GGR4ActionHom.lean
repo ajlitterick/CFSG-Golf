@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGR4JMeetKGDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T2021RankHolds
-public import TauCeti.GroupTheory.QuotientGroup.MulAut
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FBase2
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.YS1011U64Types
 public import CFSG.LocalAnalysis.GLTheoremA.S10.Inputs105

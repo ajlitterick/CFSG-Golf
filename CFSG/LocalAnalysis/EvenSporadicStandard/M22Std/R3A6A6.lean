@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.EvenSporadicStandard.M22Std.R3Assemble
 public import CFSG.LocalAnalysis.EvenSporadicStandard.M22Std.R3WrMain
 public import CFSG.LocalAnalysis.EvenSporadicStandard.M22Std.OutResidue3
-public import CFSG.LocalAnalysis.EvenSporadicStandard.M24Std.LayerA10Basic
 public import CFSG.Permutation.AlternatingAutomorphism
 
 public section

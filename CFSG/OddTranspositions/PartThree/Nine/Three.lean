@@ -2,7 +2,6 @@ module
 
 public import CFSG.OddTranspositions.PartThree.Nine.ThreeOdd
 public import CFSG.OddTranspositions.PartThree.Nine.ThreeTwo
-public import CFSG.LieType.BorelTits.Basic
 
 public section
 

@@ -2,21 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsPair
 public import CFSG.GroupTheory.ElementaryAbelianTransport
-public import Mathlib.GroupTheory.Perm.Sign
-public import Mathlib.GroupTheory.Commutator.Basic
-public import Mathlib.Algebra.CharP.Two
-public import Mathlib.Algebra.GroupWithZero.Units.Fintype
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
-public import Mathlib.GroupTheory.SpecificGroups.Alternating.Centralizer
-public import Mathlib.Logic.Equiv.Fin.Basic
-public import Mathlib.GroupTheory.Index
-public import Mathlib.Data.ZMod.Basic
 
 import CFSG.Mathlib.GroupTheory.PermCenter
 public import CFSG.Quasithin.H13.J4Classes
 public import CFSG.Quasithin.H13.J4Core
 public import CFSG.Sporadic.Schreier.J4SFrattini
-public import CFSG.Sporadic.Schreier.J4SOrder
 
 public section
 

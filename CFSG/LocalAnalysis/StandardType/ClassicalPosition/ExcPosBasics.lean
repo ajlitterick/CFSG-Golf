@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixExcPosRangeDefs
-public import Mathlib.Dynamics.PeriodicPts.Defs
 
 public section
 

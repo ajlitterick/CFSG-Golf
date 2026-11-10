@@ -8,7 +8,6 @@ import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RankTwoUModelU4
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RankTwoUModelU5
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RankTwoUScalarTorus
 import CFSG.LocalAnalysis.UniquenessCase.UC22S218U5
-import CFSG.Quasithin.H13.U4ParModel
 import CFSG.Quasithin.Vol2.GoldschmidtSec53FactsU4
 public import CFSG.Assembly.QuasithinDefs
 import CFSG.GroupTheory.HallHigmanPiCore

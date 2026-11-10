@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.LocalComp.WittLev
 public import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22HexadStabilizerInputs
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

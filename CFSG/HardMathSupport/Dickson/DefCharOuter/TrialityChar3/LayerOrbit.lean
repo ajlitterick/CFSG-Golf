@@ -1,11 +1,7 @@
 module
 
-public import CFSG.HardMathSupport.Lang.E27Lie.TrialityThreeLayers
 public import CFSG.HardMathSupport.Lang.Triality.TraceKernel
 public import CFSG.HardMathSupport.Lang.Triality.Char3Sylow
-public import CFSG.LieType.Chevalley.GraphFixedOrbitCollection
-public import CFSG.RankThree.PartOne.KGD.D4T36Core
-public import CFSG.Timmesfeld.Orders.ExceptionalTwistedUnipotent
 public import CFSG.HardMathSupport.Dickson.DefCharOuter.TrialityChar3.LayerRoots
 public import CFSG.HardMathSupport.Lang.Triality.G2ClassOrder
 public import Certificates.Kernel.SporSch.Th.Plane2320

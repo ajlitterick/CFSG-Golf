@@ -3,7 +3,6 @@ module
 public import CFSG.Goldschmidt.StatementsG
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.Lemma37.CoversSuzuki
 public import CFSG.LocalAnalysis.QuasithinUnique.RankOneRecognitionCover
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiCoverInvariants
 public import CFSG.Goldschmidt.Statements
 public import CFSG.Goldschmidt.StatementsH
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
@@ -21,7 +20,6 @@ public import CFSG.LocalAnalysis.LargeEvenClassification.MacWilliamsReduction
 public import CFSG.LocalAnalysis.LargeEvenClassification.SmallCfourFullObstruction
 public import CFSG.LocalAnalysis.LargeEvenClassification.SmallCfourProperSubgroups
 public import CFSG.LocalAnalysis.RankTwoShapes.AlperinFusion
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.Bender1970.S3.Setup
 public import CFSG.Walter.JRFacts
 

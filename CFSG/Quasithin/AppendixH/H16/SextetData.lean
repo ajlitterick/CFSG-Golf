@@ -1,8 +1,6 @@
 module
 
-public import CFSG.Quasithin.AppendixH.H16.MaskChief
 public import CFSG.Quasithin.Background.HLUBlocks
-public import CFSG.Quasithin.Background.HLUCode24Gen
 public import CFSG.Sporadic.Schreier.J4SSylowBase
 public import CFSG.Quasithin.AppendixH.H16.SextetPack
 

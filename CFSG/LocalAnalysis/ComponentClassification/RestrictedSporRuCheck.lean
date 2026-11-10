@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.RestrictedSporRuData
 public meta import CFSG.LocalAnalysis.ComponentClassification.RestrictedSporRuData
 public import Certificates.Certificate2026
 

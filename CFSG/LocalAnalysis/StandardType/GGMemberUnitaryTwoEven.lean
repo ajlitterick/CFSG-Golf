@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGMemberRowsDefs
-public import CFSG.LocalAnalysis.StandardType.GGNsq2MemberQuotPos
 public import CFSG.LocalAnalysis.StandardType.GGNsq2MemberFix
 public import CFSG.LocalAnalysis.StandardType.GGNsq2DetInv
 public import CFSG.LocalAnalysis.StandardType.GGNsq2PairLift
@@ -9,10 +7,7 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitPairOfPosition
 public import CFSG.LocalAnalysis.StandardType.GGMemberUnitaryPair
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitSixType
 import CFSG.LocalAnalysis.StandardType.GGMemberUnitaryRk1Aux
-import CFSG.LocalAnalysis.StandardType.GGQTwoDShared
 import CFSG.LocalAnalysis.StandardType.GGQTwoDNbrSixEdge
-import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSAPairAux2
-import CFSG.LocalAnalysis.StandardType.GGSixRootCentralizerBasic
 
 public section
 

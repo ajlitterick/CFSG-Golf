@@ -1,11 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTwE6TwA2KDefs
 public import CFSG.LocalAnalysis.StandardType.GGTwE6TwA2KCompLabel
 public import CFSG.LocalAnalysis.StandardType.GGTwE6TwA2KOuterCong
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24EightComps
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcMonomial
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcToralityFive
 public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.W2.D4TrialityAux.Classes
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwCoreAssembly
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24EvenMain

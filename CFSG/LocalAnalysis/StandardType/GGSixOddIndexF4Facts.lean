@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixOddIndexF4
 public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerAdj
 public import CFSG.LieType.Chevalley.EvenF4OuterInvolutionsCanonical
-public import CFSG.LieType.Chevalley.AdjointCenter
 public import CFSG.LieType.Ree.LargeReeFixedGroupOddCore
 
 public section

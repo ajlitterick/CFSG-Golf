@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Quasithin.Recognition.Stroth.LemmaSDegree
-public import CFSG.LocalAnalysis.ComponentClassification.AschbacherToolkitBenderAutSuzuki
-public import Mathlib.LinearAlgebra.Projectivization.Action
 public import CFSG.Quasithin.Recognition.Stroth.Weiss80Route
 
 public section

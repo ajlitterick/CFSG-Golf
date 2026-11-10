@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.LocalQT.M23D.Gens
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Sporadic.Bridge.M11CheckInputs
 public import CFSG.Sporadic.Bridge.M23Surj
 

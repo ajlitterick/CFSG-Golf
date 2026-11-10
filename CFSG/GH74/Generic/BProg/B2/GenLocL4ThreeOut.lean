@@ -1,6 +1,5 @@
 module
 
-public import CFSG.GH74.Generic.BProg.B2.GenLocL4OutAsm
 public import CFSG.GH74.Generic.BProg.B2.GenLocL4ThreeSplit
 public import CFSG.GH74.Generic.BProg.B2.GenLocL4ThreeExt
 public import CFSG.GH74.Generic.BProg.B2.GenLocL4ThreeDa

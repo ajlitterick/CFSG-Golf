@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTableBF4TwoTBIrred
 public import CFSG.LocalAnalysis.StandardType.GGTableBF4TwoTBTv
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLExc6R
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6TwoThreeAct
 public import CFSG.LocalAnalysis.StandardType.GGExcFrameNormIso
 public import CFSG.LocalAnalysis.StandardType.GGExcFrameNormIsoF4
 

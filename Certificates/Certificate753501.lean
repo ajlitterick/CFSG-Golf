@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.ONPair.PlaneFacts
 import Certificates.Kernel.Sporadic.ONPl.Facts
-import Certificates.Certificate2212
 
 public section
 

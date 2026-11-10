@@ -7,7 +7,6 @@ import CFSG.LocalAnalysis.GLTheoremA.CatA.S265SGOmPCent
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S265SGOmPConj
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S265SGOmPFive
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S265SGOmTwoP
-import CFSG.LocalAnalysis.StandardType.MarkingClassical
 
 public section
 

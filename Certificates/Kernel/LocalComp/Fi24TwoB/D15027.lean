@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Sporadic.HexNumsGen
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicFi24TwoBData
-public import Certificates.Data.CFSGNative.Co3Schreier.Basic
 import CFSG.Certificates.Kernel.Common.Harness
 public import Certificates.Kernel.Sporadic.Fi22.C2068
 public import Certificates.Kernel.Sporadic.Fi22.C3151

@@ -5,10 +5,7 @@ public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfE6Toral
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfE7Three
 public import CFSG.LocalAnalysis.StandardType.GGL45TorusPiKCount
 public import CFSG.GroupTheory.CommPowMemCount
-public import CFSG.Open.LocalVocabulary
-public import CFSG.GroupTheory.ElemAbelianClosure
 public import CFSG.LocalAnalysis.StandardType.GGL45NtExcAbs
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 
 public section
 

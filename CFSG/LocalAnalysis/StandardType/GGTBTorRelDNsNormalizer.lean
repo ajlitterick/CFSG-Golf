@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGOmegaNsRootGenDefs
-public import CFSG.ClassicalGroups.Orthogonal.Basic
 
 public section
 

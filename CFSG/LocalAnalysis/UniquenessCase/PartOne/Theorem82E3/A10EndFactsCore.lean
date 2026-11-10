@@ -1,12 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC6K332T3
-public import CFSG.GroupTheory.PCore.Construction
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.A10EndAction
-import CFSG.GroupTheory.CyclicSylowNormalOddComplement
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PPrimeCore
 import CFSG.GroupTheory.ElemAbelianRank
-import CFSG.GroupTheory.ElemAbelianClosure
 import CFSG.Fischer.Classification.Unitary.Coords
 import CFSG.LargeExtraspecial.AS35QThModel
 

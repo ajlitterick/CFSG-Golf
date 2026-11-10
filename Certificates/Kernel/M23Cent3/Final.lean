@@ -1,17 +1,11 @@
 
 module
 
-public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.ThreeCore.M23Check
-public import CFSG.Blueprint.NativeSporadic
-public import CFSG.Sporadic.Th.TableSpec
-public import CFSG.Sporadic.Schreier.M23PinnedInputs
 public import Certificates.Kernel.M23Cent3.Checks
 public import CFSG.Certificates.Kernel.ThreeChain.Sound
 public import CFSG.Certificates.Kernel.ThreeChain.Words
 public import CFSG.Certificates.Kernel.Enum.ZCHSound
-public import CFSG.Certificates.Kernel.Spor.Loops
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.ThreeCore.M23Base
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.Enum.ZChkISound
 public import CFSG.Certificates.Kernel.Misc.PermClosSound
 public import CFSG.Certificates.Kernel.Spor.PRecSound

@@ -4,9 +4,6 @@ public import Certificates.Data.Kernel.Misc.SuzOut
 public import Certificates.Data.SuzOutComp
 public import CFSG.Certificates.Kernel.Spor.RawOrbHead
 public import CFSG.Certificates.Kernel.PermToolSound
-public import CFSG.Certificates.Kernel.Spor.PackWord
-public import CFSG.Certificates.Kernel.BfsPinUnpack
-import CFSG.Certificates.Kernel.Spor.Loops
 import CFSG.Certificates.Kernel.Misc.TitsPrimSound
 import CFSG.Certificates.Kernel.MonsterB.Co2PermSound
 import CFSG.Certificates.Kernel.LocalQTCovTPrim

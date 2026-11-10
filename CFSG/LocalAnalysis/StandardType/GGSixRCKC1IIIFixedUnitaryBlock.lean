@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIUnitaryBlock
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIUnitaryShortModel
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIISpBlock
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1CentralCover
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockModelSelfDualPSU

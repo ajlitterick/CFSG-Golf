@@ -3,21 +3,6 @@ module
 
 public import Certificates.Kernel.Fi22Cls.FinalBase
 
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Fi22ThreeInputs
-public import Certificates.Kernel.Fi22S0.Facts
-public import Certificates.Kernel.Fi22Cls.Conj
-public import Certificates.Kernel.Fi22Cls.Cent
-public import Certificates.Kernel.Fi22Cls.LabKill
-public import Certificates.Kernel.Fi22Cls.LabKillB
-public import Certificates.Kernel.Fi22Cls.LabEq
-public import Certificates.Kernel.Fi22Cls.ParseEq
-public import Certificates.Kernel.Fi22.Letters
-public import Certificates.Kernel.Fi22Core.OrbData
-public import Certificates.Data.CFSGNative.Fi22.Certificate
-public import Certificates.Data.E27.Fi22S0
-public import CFSG.Certificates.Kernel.Fi22Cls.LabSound
-public import CFSG.Certificates.Kernel.Fi22Cls.Sound
-public import CFSG.Certificates.Kernel.Common.ForallTree
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Fi22WitnessBase1
 import all CFSG.Certificates.Kernel.Fi22S0.Sound
 public import Certificates.Certificate131101Base

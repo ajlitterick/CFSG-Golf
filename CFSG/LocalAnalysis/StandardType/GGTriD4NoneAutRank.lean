@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTriD4NoneMarking
 import CFSG.GroupTheory.ElemAbelianClosure
-import CFSG.GroupTheory.ElementaryAbelianTransport
 
 public section
 

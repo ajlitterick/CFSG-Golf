@@ -4,7 +4,6 @@ module
 public import Certificates.Certificate8066Base
 import all Certificates.Certificate8066Base
 
-public import CFSG.Quasithin.Background.Sp4InfA6BasicInputs
 import all CFSG.Quasithin.Background.Sp4InfA6BasicInputs
 import all CFSG.Quasithin.Background.Sp4InfA6BasicBase
 

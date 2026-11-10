@@ -6,7 +6,6 @@ public import CFSG.HardMathSupport.Meierfrankenfeld.GeneralFF.OffenderBasic
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LieType.BorelTits.Basic
 public import CFSG.LocalAnalysis.RankThreeUC.GN15JOutOffender
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 
 public section

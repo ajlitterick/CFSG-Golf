@@ -2,11 +2,7 @@ module
 
 public import Certificates.Kernel.SporSch.PairHe.ClAll
 public import Certificates.Kernel.SporSch.PairHe.Blocks
-public import CFSG.Certificates.Kernel.SporSch.PairKSound
-public import CFSG.Certificates.Kernel.Spor.PrimSound
 public import CFSG.Certificates.Kernel.SporSch.PairClTProof
-public import CFSG.Sporadic.Schreier.PairHeCheckInputs
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.NativeSchreierCard
 public import CFSG.Sporadic.Schreier.ImagePairs
 

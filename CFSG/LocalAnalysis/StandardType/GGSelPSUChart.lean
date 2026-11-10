@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSelPSUEmbed
 public import CFSG.LocalAnalysis.StandardType.GGSelectedRootMatch
-import Mathlib.Tactic.LinearCombination
-import Mathlib.Tactic.Ring
 
 public section
 

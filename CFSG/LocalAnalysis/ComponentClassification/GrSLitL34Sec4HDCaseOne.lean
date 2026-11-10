@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4HDTarget
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4HDModel
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4End43N
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4InputsEnd43
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4InputsEnd43H
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4InputsEnd43N

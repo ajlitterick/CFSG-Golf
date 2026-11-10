@@ -5,7 +5,6 @@ public import CFSG.Certificates.Kernel.Misc.Coset.PG
 public import CFSG.Certificates.Kernel.Misc.Coset.MatSound
 public import Certificates.Kernel.Misc.Coset.C12042K
 public import Certificates.Kernel.Misc.Coset.XG23R
-public import CFSG.LieType.Multipliers.G23Data
 import all CFSG.LieType.Multipliers.G23Data
 import all CFSG.LieType.Multipliers.CoverWords
 

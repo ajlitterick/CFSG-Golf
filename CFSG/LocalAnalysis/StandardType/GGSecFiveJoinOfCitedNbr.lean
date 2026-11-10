@@ -1,17 +1,12 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinPrimed
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveReflMaxOfInputs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNarrowInputs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNbrGenKNOfLeaves
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveJNormOfFrame
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJRootCoreHolds
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylReflTriple
 public import CFSG.LocalAnalysis.StandardType.GGTCJEnnolaOfUniOrth
 public import CFSG.LocalAnalysis.StandardType.GGTCJEnnolaUniFinal
 public import CFSG.LocalAnalysis.StandardType.GGTCJEnnolaOrthFinal
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalanceSchreier
-public import CFSG.RankThree.PartOne.TCB.SchreierFinal
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePumpLOfFrame
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRootGenLOfFrame
 

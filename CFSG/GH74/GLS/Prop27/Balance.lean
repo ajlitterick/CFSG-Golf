@@ -7,7 +7,6 @@ public import CFSG.GroupTheory.LocalCores.Components
 public import CFSG.Assembly.BalancedOddCoreCompletion
 public import CFSG.Monster.B.TwoA.Base.ElemAut
 public import CFSG.Monster.B.TwoA.Census.PermClasses
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.CentralizerLemmas
 
 public section
 

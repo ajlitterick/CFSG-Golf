@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.E7FrameA5
-public import CFSG.LocalAnalysis.SeitzReduction.E7PilotNeighbourLevi
-public import CFSG.LocalAnalysis.SeitzReduction.EPilotRootSL2Levi
 public import CFSG.RankThree.GF2n.Smith81.S81QGraphRoot
 public import CFSG.GroupTheory.ConjTransport
 

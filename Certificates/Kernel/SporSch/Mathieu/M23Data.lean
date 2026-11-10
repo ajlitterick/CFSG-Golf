@@ -4,7 +4,6 @@ module
 public import Certificates.Kernel.SporSch.Mathieu.Gen
 public import CFSG.Sporadic.Schreier.MathieuOddCoreM23Data
 public meta import CFSG.Sporadic.Schreier.MathieuOddCoreM23Data
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Sporadic.M23.M23Group
 public meta import CFSG.Sporadic.M23.M23Group
 public meta import CFSG.Sporadic.Mathieu.Simple

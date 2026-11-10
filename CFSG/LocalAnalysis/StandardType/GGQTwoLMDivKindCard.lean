@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivKindFrame
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivKindConj
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivKindGrp
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
 
 public section
 

@@ -1,18 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGForkLinNsB
-public import CFSG.LocalAnalysis.StandardType.GGNbrFrameOneLinearLabel
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUElt
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerLinearNonsplit
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMoreCl
-public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameTorus
-public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameTorusField
 public import CFSG.LocalAnalysis.StandardType.GGKGForkRows
 public import CFSG.LocalAnalysis.StandardType.GGKGForkSignedPow
-public import CFSG.LocalAnalysis.StandardType.GGKGForkLattice
-public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpDefs
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRootGenTypeA
-public import CFSG.LocalAnalysis.ComponentInitial.LinearCoverModel
 
 public section
 

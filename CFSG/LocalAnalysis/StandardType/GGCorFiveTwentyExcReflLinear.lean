@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcReflCartan
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabel
-import Mathlib.LinearAlgebra.Dual.Lemmas
 
 public section
 

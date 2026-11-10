@@ -4,7 +4,6 @@ public import Certificates.Data.Kernel.J4TreeNode
 public import CFSG.Certificates.Kernel.Bounds.Core3
 import CFSG.Certificates.Kernel.Bounds.LoadRoot
 import CFSG.Certificates.Kernel.Common.Repo
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDCoxEven
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDRMDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRMModuleDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveZSInputs
 import CFSG.LocalAnalysis.StandardType.GGQTwoDRMLin
 import CFSG.LocalAnalysis.StandardType.GGWitOrthClassR35Aux4
 import CFSG.LocalAnalysis.StandardType.GGWitOrthPolar

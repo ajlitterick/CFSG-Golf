@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGBstarLIDTwDFieldGamma
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestEndRankMinus
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoTableBTypeALabel
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestTailFinal
 
 public section

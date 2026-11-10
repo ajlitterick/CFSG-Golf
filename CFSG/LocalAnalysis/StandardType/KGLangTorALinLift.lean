@@ -1,17 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.KGLangTorAFields
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismData
 public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
 public import CFSG.LocalAnalysis.StandardType.GGPGLToralityBasic
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTypeALift
-import CFSG.LieType.Steinberg.CentralExt.SLCentrallyClosed
-import CFSG.LocalAnalysis.ComponentInitial.LinearFlagElation
-import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismTransport
-import CFSG.LocalAnalysis.StandardType.GGTableBTypeALift
-import CFSG.LocalAnalysis.ComponentInitial.LinearHigherFieldInvolution
-import CFSG.LocalAnalysis.StandardType.GGPGLTorality
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldLinear
 import CFSG.LocalAnalysis.StandardType.GGNbrLangTypeALift
 import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownLinearDescent
 

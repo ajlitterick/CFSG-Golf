@@ -1,12 +1,7 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DGroupQuotient
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GW1965RemarkDGroup
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CPrime
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GWLemma21Trichotomy
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FourPointAction
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralAut
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Center
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2DihedralSylow
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2DihedralSylow
@@ -15,24 +10,11 @@ public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.S4SubgroupClassificat
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.NormalCenterlessDihedral
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralCore -- centralizer_le_of_normal_dihedral (the V4 lemma) for the Prop-9 centralizer proofs
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.MinimalNormalOddIndex
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2DerivedSubgroup
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.LinearRingEquiv
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2NormalExtension
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2PureSemilinear
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.LinearThreeNormalExtension
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ASevenNormalExtension
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGroupExtension
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.ZJTheorem
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Burnside.NormalComplement
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PPrimeCore
-import Mathlib.Data.ZMod.Basic
-import Mathlib.GroupTheory.GroupAction.ConjAct
-import Mathlib.GroupTheory.OrderOfElement
-import Mathlib.GroupTheory.PGroup
-import Mathlib.GroupTheory.SpecificGroups.Alternating
-import Mathlib.GroupTheory.SpecificGroups.Dihedral
-import Mathlib.GroupTheory.SpecificGroups.KleinFour
-import Mathlib.GroupTheory.Subgroup.Center
 
 namespace CFSG
 end CFSG

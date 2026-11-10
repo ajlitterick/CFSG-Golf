@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Foote.Coordinator.AnisoCube.E6ThreeAssembly
-public import CFSG.HardMathSupport.Foote.Coordinator.AnisoCube.E7Six
 public import CFSG.HardMathSupport.Lang.TwE6Step3.Assembly
 public import CFSG.HardMathSupport.Curtis.Coordinator.AnisoE7.Assembly
 public import CFSG.LieType.SeitzGeneration.HyperExCubeLevi

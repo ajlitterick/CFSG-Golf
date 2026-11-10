@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabFi22Shape
-public import CFSG.Sporadic.Fi23.Centralizer
 public import CFSG.HardMathSupport.Solomon.Coordinator.B3SporFi22Five
 public import CFSG.HardMathSupport.Solomon.Coordinator.GFR2SporFi22
 public import CFSG.HardMathSupport.Solomon.Coordinator.GFR2SporRed

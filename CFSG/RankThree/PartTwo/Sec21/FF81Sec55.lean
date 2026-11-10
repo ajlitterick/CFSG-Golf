@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec21.FF81Sec55F
-public import CFSG.RankThree.PartTwo.Sec21.FF81Sec526
 public import CFSG.Quasithin.Recognition.M12AscGlobal
 import CFSG.RankThree.PartTwo.Sec21.FF84S36Cp
 import CFSG.RankThree.PartTwo.Sec21.FF84S36Ab
@@ -35,7 +34,6 @@ import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherEvenOrthogonalModel
 import CFSG.LocalAnalysis.ProperTwoGeneratedCore.CentralInvolutionStructure
 import CFSG.LocalAnalysis.ShultStronglyClosedTI.MinimalLocalFailureDatum
 import CFSG.Quasithin.Recognition.M12AscConj
-import CFSG.Sporadic.Th.F2Spec
 import CFSG.StronglyEmbedded.ParityCriterion
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970_18
 import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis

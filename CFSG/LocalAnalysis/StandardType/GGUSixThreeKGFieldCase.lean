@@ -1,11 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGUSixThreeKGDefs
 public import CFSG.LocalAnalysis.StandardType.GGUSixThreeKGShapeDiag
 public import CFSG.LocalAnalysis.StandardType.GGUSixThreeKGShapes
 public import CFSG.LocalAnalysis.StandardType.GGUSixThreeKGWeyl
 public import CFSG.LocalAnalysis.StandardType.GGUSixThreeKGModel
-public import CFSG.LocalAnalysis.StandardType.GGUSixThreeKGFieldAlg
 
 public section
 

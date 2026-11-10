@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Quasithin.Vol2.Asc94.TSFrame
 public import CFSG.Quasithin.Vol2.Asc94.TS39b
 public import CFSG.Quasithin.Vol2.Asc94.TSModel9b
 

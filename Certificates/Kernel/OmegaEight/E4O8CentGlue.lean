@@ -42,7 +42,6 @@ public import CFSG.Sporadic.Schreier.MathieuOddCoreModel
 public import CFSG.Sporadic.Schreier.MathieuOddCoreOuter
 public import CFSG.Sporadic.Schreier.Outer
 public import CFSG.Sporadic.SmallOddCore.CheckSpec
-public import CFSG.Sporadic.Th.F2Spec
 public import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 
 public section

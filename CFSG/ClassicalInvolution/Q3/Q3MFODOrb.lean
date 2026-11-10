@@ -3,8 +3,6 @@ module
 public import CFSG.ClassicalInvolution.Q3.Q3MFODSimAt
 public import CFSG.ClassicalInvolution.Q3.Q3MFODSim
 public import CFSG.ClassicalInvolution.ModelFacts.TG3D4Tri
-public import CFSG.ClassicalInvolution.ModelFacts.Orth15D4Center
-public import CFSG.Sporadic.Ly.Primitive
 
 public section
 

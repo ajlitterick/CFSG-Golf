@@ -4,7 +4,6 @@ public import CFSG.RankThree.PartTwo.Sec15.Item158Res2Proof159Y0
 public import CFSG.RankThree.PartTwo.Sec15.Item1517StepsProofY0
 public import CFSG.RankThree.PartTwo.KFacts.KP4
 import CFSG.RankThree.PartTwo.Sec15.Item1515ResProofLA7
-import CFSG.RankThree.PartTwo.Sec15.HypS
 import CFSG.RankThree.PartTwo.Sec13.Item133
 public import CFSG.RankThree.PartTwo.Sec15.Item1513ProofTools
 public import CFSG.RankThree.PartTwo.Sec15.Item1514Steps1515S17

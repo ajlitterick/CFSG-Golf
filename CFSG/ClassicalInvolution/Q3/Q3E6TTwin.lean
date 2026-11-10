@@ -1,7 +1,5 @@
 module
 
-public import CFSG.ClassicalInvolution.RouteD.TypeTwistedE6TwinModel
-public import CFSG.ClassicalInvolution.Q3.Q3WAPow
 public import CFSG.ClassicalInvolution.Q3.Q3EXOrthLarge
 
 public section

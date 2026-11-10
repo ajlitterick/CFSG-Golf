@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
-public import CFSG.LocalAnalysis.StandardType.GGTableBRank
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBPosition
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBRkDefs
 
 public section

@@ -2,15 +2,12 @@ module
 
 public import CFSG.Open.StatedDefs
 public import CFSG.Open.Defs
-import CFSG.LocalAnalysis.SectionRank.PRank
 import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.FongOFRCLin
 import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.FongOFRCUni
 import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.FongOFRCSp
 import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.FongOFRCOrthOdd
 import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.FongOFRCOrthPlus
 import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.FongOFRCOrthMinus
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.CharacterTheory.BrauerThirdMainTheorem.CentralResidueMaps
 import CFSG.CharacterTheory.BrauerThirdMainTheorem.NormalizerClassLifting
 import CFSG.CharacterTheory.BrauerThirdMainTheorem.PrincipalClassDefects
@@ -62,18 +59,6 @@ import CFSG.RankThree.PartOne.KC.UnitaryPlaneEndpoints
 import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
 import CFSG.RankThree.Theta.ThreeComponentOrbitCover
 import CFSG.Sporadic.M23.M23Group
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldPrimeOrderFixedSubfield
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OrderThreeNormalizer
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2PSLRangeCentralizer
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinInvolutionCount
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinRestrictionSixCount
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinUDecomposition
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationEleven
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTen
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTenStructuralIdentities
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2FieldProjectionArithmetic
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2OrderPSubgroupCount
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphReconstruction
 import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 
 public section

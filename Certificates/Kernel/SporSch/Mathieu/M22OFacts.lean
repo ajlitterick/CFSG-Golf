@@ -2,9 +2,6 @@ module
 
 public import Certificates.Kernel.SporSch.Mathieu.M22OX
 public import Certificates.Kernel.SporSch.Mathieu.M22Facts
-public import CFSG.Certificates.Kernel.SporSch.MathieuClsSound
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

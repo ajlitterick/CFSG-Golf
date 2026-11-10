@@ -1,15 +1,9 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec16.Item166Res2ProofTwoOut
-public import CFSG.RankThree.PartTwo.Sec17.RouteForms
-import CFSG.RankThree.PartTwo.Sec15.HypS
 import CFSG.RankThree.PartTwo.Sec16.Item16Tail
 import CFSG.RankThree.PartTwo.Sec14.Item1411StepsProofTools
-import CFSG.RankThree.PartTwo.Sec14.Item1446
-import CFSG.LocalAnalysis.RankThreeEvenClassification.CoprimeFactorization
-public import Mathlib.GroupTheory.Transfer
 import CFSG.RankThree.PartTwo.Sec16.Item16Tail22
-import CFSG.RankThree.Coprime.ThompsonElementaryComplement
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
 public import CFSG.Certificates.FusionF2

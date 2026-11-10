@@ -3,11 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGKGPosSUTorus
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosDefs
 public import CFSG.LocalAnalysis.StandardType.GGOTwoPrimeMap
-public import CFSG.LieType.Universal.Unitary.Extras.RankOne
-public import CFSG.LieType.Universal.Unitary.Extras.RankOneLast
-import Mathlib.Tactic.Group
-import Mathlib.Tactic.LinearCombination
-import Mathlib.Tactic.FieldSimp
 public import CFSG.Sporadic.Suz.Setup
 public import CFSG.Sporadic.Suz.W64Spec
 

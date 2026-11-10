@@ -2,7 +2,6 @@
 module
 
 public import CFSG.Monster.B.Fischer.InducedChecksBase
-public import CFSG.Monster.B.TwoA.Census.NatCert
 public meta import CFSG.Monster.B.Fischer.InducedChecksBase
 public meta import CFSG.Monster.B.TwoA.Census.NatCert
 

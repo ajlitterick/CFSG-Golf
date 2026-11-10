@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSelectedTwistedE6Scalar
-public import CFSG.LocalAnalysis.StandardType.PhanEStdRootNodes
 
 public noncomputable section
 

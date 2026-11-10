@@ -1,14 +1,8 @@
 module
 
 public import CFSG.Sporadic.Ly
-public import CFSG.Sporadic.Bridge.TableSurj
-public import CFSG.Sporadic.Bridge.LyData
-public import CFSG.Sporadic.Presentation.Ly
 public meta import CFSG.Sporadic.Bridge.LyData
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
-public import Certificates.Certificate9120
 public import Certificates.Certificate9213
-public import Certificates.Certificate3085
 public import CFSG.Sporadic.Bridge.HomSurj
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 public import CFSG.Certificates.CosetTableShort
@@ -18,10 +12,8 @@ public import CFSG.Sporadic.Ly.CertificateBase
 public import CFSG.Sporadic.Ly.FaithSpec
 public import CFSG.Sporadic.Ly.OrbitSpec
 public import CFSG.Sporadic.Ly.Simple
-public import CFSG.Sporadic.LyBase
 public import CFSG.Sporadic.Presentation.Common
 public import CFSG.Sporadic.Schreier.LyChain11
-public import CFSG.Sporadic.Th.F2Spec
 public import CFSG.Sporadic.Th.OrbitSpec
 public import Certificates.Certificate3085Base
 public import Certificates.Certificate9213Base

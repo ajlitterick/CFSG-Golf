@@ -1,7 +1,6 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Statements
-public import CFSG.Timmesfeld.Bridge.Asc72Triangle
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.H13.NQCatT3Perm
 public import CFSG.Quasithin.H13.NQCatT3Inv
-public import CFSG.Quasithin.Background.E2TwoProofSporM23
 public import CFSG.Quasithin.EmptyFaithful.ModHM23b
 public import CFSG.Quasithin.H13.NQCatT3Lat
 public import CFSG.Sporadic.Schreier.MathieuOddCoreM23

@@ -4,21 +4,13 @@ public import CFSG.LocalAnalysis.UniquenessCase.UC22S22c
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22e
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22se
 import CFSG.LocalAnalysis.UniquenessCase.UC22Main1
-import CFSG.LieType.BorelTits.Basic
-import CFSG.ClassicalInvolution.LBalance.Glauberman.SylowTools
 import CFSG.Certificates.Kernel.LocalCompTits.Span
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporJ4Quot
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Reduce
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeThree
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Equivariance
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19Defs
 import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_2
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22x
 import CFSG.Milestones.ASVolI.B6
-import CFSG.Quasithin.Background.A3Structure318Red
-import CFSG.Quasithin.Background.A3Structure38Part3
 import CFSG.Quasithin.Background.B1More13Defs
 import CFSG.Quasithin.Background.B5CompA
 import CFSG.Quasithin.Background.B5CompB
@@ -30,8 +22,6 @@ import CFSG.Quasithin.Background.B69Iso
 import CFSG.Quasithin.Background.B69Lift
 import CFSG.Quasithin.Background.B69Mod
 import CFSG.Quasithin.Background.B69Simple
-import CFSG.Quasithin.Background.B6Example
-import CFSG.Quasithin.Background.C2Inputs
 import CFSG.Quasithin.Background.E2Statements
 import CFSG.Quasithin.Background.E2Three
 import CFSG.Quasithin.Background.F9G2
@@ -39,11 +29,9 @@ import CFSG.Quasithin.Background.F9Geometry
 import CFSG.Quasithin.Background.FFC4Tr2
 import CFSG.Quasithin.Background.InternalSecAutOn
 import CFSG.Quasithin.Background.InternalSecB4
-import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 import CFSG.Quasithin.EmptyFaithfulMultiple.InputD15Proof
 import Certificates.Kernel.J4Count.FixCE
 import Certificates.Kernel.J4Count.FixCPairBase1
-import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

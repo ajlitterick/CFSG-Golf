@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.CGT.PushingUpLit.Transport
 public import CFSG.Fischer.Classification.Recognition.PSU6
 public import CFSG.GroupTheory.ElementaryAbelianTransport

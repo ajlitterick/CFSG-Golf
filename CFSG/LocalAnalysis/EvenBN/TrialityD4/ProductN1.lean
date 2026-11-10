@@ -1,16 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.EvenBN.TrialityD4.ProductN1Layer
-public import CFSG.LocalAnalysis.EvenBN.TrialityD4.FieldCaseSylow
 public import CFSG.LocalAnalysis.EvenBN.Common.SL2CentralTwoSplit
-public import CFSG.LocalAnalysis.EvenBN.Common.SL2Module
-public import CFSG.LocalAnalysis.EvenBN.Common.CoprimeQuotient
 public import CFSG.LocalAnalysis.EvenBN.Common.ProductSplitAmbient
 public import CFSG.LocalAnalysis.EvenBN.U5.PrelimModules
-public import CFSG.LocalAnalysis.EvenBN.Common.SL2TorusNine
-public import CFSG.LocalAnalysis.EvenBN.Common.SL2TorusFive
-public import CFSG.LocalAnalysis.EvenBN.Common.Diagonal
-public import CFSG.Quasithin.H13.J4Core
 public import CFSG.Quasithin.H13.J4Order
 public import CFSG.LocalAnalysis.ABGTheoremB.Basic
 public import CFSG.Quasithin.H13.J4OrderBase

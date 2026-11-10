@@ -1,7 +1,6 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Eleven.Minus.PermData
-public import CFSG.Monster.B.Co2.PermArr
 
 public section
 

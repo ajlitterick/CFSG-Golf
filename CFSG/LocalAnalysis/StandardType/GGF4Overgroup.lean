@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGF4OvergroupData
 public import CFSG.LocalAnalysis.StandardType.GGSignedPermCount
 public import CFSG.LocalAnalysis.StandardType.GGEvenSignedNormalizer
-import Mathlib.Algebra.BigOperators.Fin
-import Mathlib.Tactic.Group
 
 public section
 

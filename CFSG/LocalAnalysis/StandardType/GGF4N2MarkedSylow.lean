@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGF4N2Rank
 public import CFSG.LocalAnalysis.StandardType.GGF4N2JModelExclusions
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRestGen
 import CFSG.RankThree.PartOne.S11d.FinalSylow
 
 public section

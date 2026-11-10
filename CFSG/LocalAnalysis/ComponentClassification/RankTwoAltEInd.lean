@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoAltEL
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalQuot
-public import CFSG.Alternating.Multipliers.OddKernel
 public import CFSG.LocalAnalysis.ComponentClassification.GSLitInputs
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoAltSol
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCorrCentralSylowMaximality

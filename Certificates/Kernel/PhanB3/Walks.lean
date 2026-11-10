@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.PhanB3.Tables
 public import Certificates.Data.Kernel.Misc.Coset.Mem
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

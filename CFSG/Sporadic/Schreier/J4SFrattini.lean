@@ -6,13 +6,8 @@ import all CFSG.Sporadic.Schreier.J4SFrattiniBase
 import all CFSG.Sporadic.Schreier.J4SFrattiniBase1
 
 public import CFSG.Sporadic.Schreier.J4SSylowNode
-public import CFSG.Sporadic.Schreier.J4SNative
-public import CFSG.Sporadic.Schreier.J4SCols
-public import CFSG.Sporadic.Schreier.J4SOrbits
 public meta import CFSG.Sporadic.Schreier.J4SOrbits
-public import CFSG.Sporadic.Schreier.J4SSylowData
 public meta import CFSG.Sporadic.Schreier.J4SSylowData
-public import CFSG.Sporadic.J4.Local
 
 public noncomputable section
 

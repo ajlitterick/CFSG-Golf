@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinLeviCount
-public import CFSG.LocalAnalysis.StandardType.GGSpJoinPlaneRank
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveSpProofJoin
 
 public section
 

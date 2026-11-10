@@ -2,12 +2,8 @@ module
 
 public import CFSG.Quasithin.EmptyFaithful.S152T2F4
 public import CFSG.Quasithin.EmptyFaithful.S152TG2
-public import CFSG.Quasithin.EmptyFaithful.S152SSplit
 public import CFSG.LieType.Chevalley.EvenTrialityAutomorphismNormalForm
 public import CFSG.LieType.Chevalley.EvenTrialityTorusCoordinates
-public import CFSG.LieType.Chevalley.GraphFixedSimpleComplement
-public import CFSG.LieType.Chevalley.GraphFixedSylowOpposition
-public import CFSG.LieType.Chevalley.TorusCentralizer
 
 public section
 

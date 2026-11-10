@@ -1,11 +1,9 @@
 module
 
 public import Certificates.Kernel.Sporadic.OddCore.F1K27811
-public import Certificates.Kernel.Sporadic.OddCore.MulHCmd
 public import Certificates.Data.Kernel.Spor.RawOrbOut
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.TS16RYData
 meta import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.TS16RYData
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.Each
 meta import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 meta import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication

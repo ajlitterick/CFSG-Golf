@@ -1,14 +1,11 @@
 module
 
-public import Mathlib
-public import CFSG.GH74.E2.Q8C2Check
 public import CFSG.GH74.E2.A6Sylow
 public import CFSG.GH74.KGroups.A6
 public meta import Mathlib
 public meta import CFSG.GH74.E2.Q8C2Check
 public meta import CFSG.GH74.KGroups.A6
 public import Certificates.Certificate5003
-public import Certificates.Certificate5108
 public import CFSG.Foundations
 public import CFSG.GH74.SectionalRank
 public import CFSG.GH74.Statements

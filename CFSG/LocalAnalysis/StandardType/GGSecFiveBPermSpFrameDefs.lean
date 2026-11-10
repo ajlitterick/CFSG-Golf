@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpDefs
-public import CFSG.LocalAnalysis.StandardType.GGInnerDiagBridgeTypeA
 public import CFSG.ClassicalInvolution.WeakCT.Torus
 import CFSG.LocalAnalysis.EvenBN.U4.Model.Perfect
 public import CFSG.ClassicalInvolution.WeakCT.StandardPair

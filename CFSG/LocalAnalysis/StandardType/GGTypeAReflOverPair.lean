@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpDichotomy
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrWeylA
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveTypeA
 
 public section
 

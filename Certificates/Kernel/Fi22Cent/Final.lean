@@ -5,8 +5,6 @@ public import Certificates.Kernel.Fi22Core.Chain
 public import Certificates.Kernel.T46K.Chain
 public import Certificates.Data.Kernel.Fi22.CentChecks
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import CFSG.Certificates.Kernel.Spor.PChainSound
-import Mathlib.Tactic.IntervalCases
 
 public section
 

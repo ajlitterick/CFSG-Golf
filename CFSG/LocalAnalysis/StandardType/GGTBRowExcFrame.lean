@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBRowCoordFrame
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitExcPlus
-public import CFSG.LocalAnalysis.StandardType.GGTBRowFrame
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcWeylTorusAut
 
 public section

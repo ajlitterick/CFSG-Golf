@@ -1,11 +1,9 @@
 module
 
-public import Mathlib
 public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeSpecial
 public import CFSG.RankThree.PartOne.KC.SymplecticIsotypicFixed
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoProjectiveFormulas
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

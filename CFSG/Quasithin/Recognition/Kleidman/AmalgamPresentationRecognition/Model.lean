@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Certificate272032
-public import CFSG.Quasithin.Recognition.Kleidman.AmalgamPresentationRecognition.ModelTuple
 import all CFSG.Quasithin.Recognition.Kleidman.AmalgamPresentationRecognition.ModelTuple
 
 public section

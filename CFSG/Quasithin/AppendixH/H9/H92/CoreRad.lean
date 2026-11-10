@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.AppendixH.H9.H92.CoreRad.LgStabilizer
-public import CFSG.Quasithin.AppendixH.H9.H92.CoreRad.PCoreOfBasic
 public import CFSG.Quasithin.AppendixH.H9.H92.CoreRad.RadNormal
 
 public section

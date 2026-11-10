@@ -3,7 +3,6 @@ module
 public import Certificates.Data.Kernel.U35Pk
 import CFSG.Certificates.Kernel.Common.EachTrue
 import CFSG.Certificates.Kernel.Common.ForallTree
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

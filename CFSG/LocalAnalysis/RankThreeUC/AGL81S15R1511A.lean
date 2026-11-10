@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15Ctx2
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsPair
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsGroup
-import CFSG.LocalAnalysis.ComponentClassification.LocalComponents
-import Mathlib.Algebra.Group.Commutator
 
 public section
 

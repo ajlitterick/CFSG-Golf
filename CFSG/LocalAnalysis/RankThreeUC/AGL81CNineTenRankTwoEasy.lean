@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenRankTwoChar
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenRankTwoSL
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenRankTwoInv
 import CFSG.LocalAnalysis.SteinbergBVCcommSupercriticalShape
-import CFSG.Adapters.ProjectiveSpecialLinear
 public import Certificates.Kernel.ThCent.Leaves
 
 public section

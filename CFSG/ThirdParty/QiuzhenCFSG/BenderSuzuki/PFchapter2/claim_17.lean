@@ -3,7 +3,6 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Hall.theorem_14_4_2
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.lemma_3
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Quotient
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.TBS.TBS
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection2.Basic
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.V.Semidirect

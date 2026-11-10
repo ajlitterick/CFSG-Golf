@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitTvSixQ2Descent
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitTvSixQ2Odd
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitTvSix
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUCoverOdd
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63Q2ProofFinal
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLTv
 
 public section
 

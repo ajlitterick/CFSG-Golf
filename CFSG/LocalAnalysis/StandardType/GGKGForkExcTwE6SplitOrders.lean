@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcTwE6Frame
-public import CFSG.ClassicalInvolution.Orders.Twisted
 
 public section
 

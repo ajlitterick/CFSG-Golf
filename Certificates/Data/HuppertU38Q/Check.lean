@@ -3,7 +3,6 @@ module
 public import Certificates.Data.HuppertU38Q.Data
 public import Certificates.Data.HuppertU38.Data
 public import Certificates.Data.CFSGNative.Schreier.Check
-public import CFSG.RankThree.Native.PermEnumeration
 
 public section
 

@@ -1,9 +1,6 @@
 module
 
-public import Certificates.Data.G23RecogNativeInputs
-public import Certificates.Data.G23RecogWordsInputs
 public import CFSG.RankThree.PartTwo.Sec4.Census.CoverCenterThreeRestCover
-public import CFSG.GH74.QTGen4.Recog.G23.Native
 public import CFSG.GH74.QTGen4.Recog.G23.NativeFacts
 public import CFSG.GH74.QTGen4.Recog.G23.NativeFactsB
 public import CFSG.GH74.QTGen4.Recog.G23.NativeLetters
@@ -15,25 +12,11 @@ public import CFSG.GH74.GLS.C3.Layer1.Back91
 public import CFSG.GH74.GLS.C3.Layer1.Split
 public import CFSG.GH74.GLS.C3.Layer3.Main
 public import CFSG.GH74.GLS.Defs
-public import CFSG.GH74.GLS.IVK.A7.Glue
-public import CFSG.GH74.GLS.IVK.L2.BN
-public import CFSG.GH74.GLS.IVK.L2.BorelFive
-public import CFSG.GH74.GLS.IVK.L2.Lemma113
-public import CFSG.GH74.GLS.IVK.L2.Lemma114
-public import CFSG.GH74.GLS.IVK.L2.Lemma12ib
-public import CFSG.GH74.GLS.IVK.L2.Lemma12j
-public import CFSG.GH74.GLS.IVK.L2.Lemma12k
-public import CFSG.GH74.GLS.IVK.L2.Lemma13fc
-public import CFSG.GH74.GLS.IVK.L2.Lemma14f
-public import CFSG.GH74.GLS.IVK.L2.Lemma14j
-public import CFSG.GH74.GLS.IVK.L2.Lemma19b
-public import CFSG.GH74.GLS.IVK.Prod.Lemma31
 public import CFSG.GH74.GLS.IVK.Proofs
 public import CFSG.GH74.GLS.IVK.Proofs2.Lemma12hb
 public import CFSG.GH74.GLS.IVK.Proofs2.Lemma13d
 public import CFSG.GH74.GLS.IVK.Proofs2.Lemma13e
 public import CFSG.GH74.GLS.IVK.Proofs2.Lemma13g
-public import CFSG.GH74.GLS.IVK.Statements
 public import CFSG.GH74.GLS.Stage1.Thm3.Sec5.Closed
 public import CFSG.GH74.GLS.Stage1.Thm3.Sec5.Statements
 public import CFSG.GH74.GLS.Stage1.Thm6.Sec12.Defs
@@ -117,8 +100,6 @@ public import CFSG.Quasithin.Background.C2PushThree
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.D2Cyclic
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.FFC4Tr2
 public import CFSG.Quasithin.Background.GoldschmidtS146RBend1
@@ -173,7 +154,6 @@ public import CFSG.RankThree.PartTwo.Sec4.LThreePiSLOn
 public import CFSG.RankThree.PartTwo.Sec8.Statements
 public import CFSG.RankThree.Theta.ThreeComponentOrbitCover
 public import CFSG.Sporadic.Schreier.TitsOther
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ConjugatedInvertedSubgroup
 public import CFSG.Walter.W67.Section5.Lemma57
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 

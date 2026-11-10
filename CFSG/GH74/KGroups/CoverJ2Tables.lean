@@ -1,9 +1,6 @@
 module
 
-public import Mathlib
-public import CFSG.LocalAnalysis.ComponentClassification.J2CoverModelsNative
 public meta import CFSG.LocalAnalysis.ComponentClassification.J2CoverModelsNative
-public import CFSG.GH74.KGroups.CoverJ2TablesInputs
 public meta import CFSG.GH74.KGroups.CoverJ2TablesInputs
 public import Certificates.Certificate5110
 

@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.UC22FunSplitOrthogonalAction
 import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1Spin410RT
 import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1Spin410RS
 import CFSG.ClassicalInvolution.ModelFacts.Orth15TwinStd
-import CFSG.LieType.Universal.Spin.Action
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.FundamentalOverModel
 import CFSG.GH74.Generic.S1.LinFull
 import CFSG.LocalAnalysis.ComponentClassification.GSThmB83Outer

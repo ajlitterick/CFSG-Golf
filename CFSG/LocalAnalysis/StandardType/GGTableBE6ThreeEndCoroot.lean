@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeModel
-public import CFSG.LocalAnalysis.SeitzReduction.HypothesisOneEInnerRoots
 
 public section
 

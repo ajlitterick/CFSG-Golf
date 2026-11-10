@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.BrauerInduction.Background.ClassFun.Basic
 
-public import CFSG.ThirdParty.BrauerInduction.Background.ClassFun.Basic
 
 public section
 

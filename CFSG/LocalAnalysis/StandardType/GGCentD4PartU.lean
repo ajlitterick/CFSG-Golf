@@ -1,14 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNTPlaneInput
-public import CFSG.LocalAnalysis.StandardType.GGCentD4Alpha
-public import CFSG.LocalAnalysis.StandardType.GGCentD4Fix
 public import CFSG.LocalAnalysis.StandardType.GGCentD4RIdent
 public import CFSG.LocalAnalysis.StandardType.GGCentD4Descent
 public import CFSG.LocalAnalysis.StandardType.GGCentD4RatUntw
 public import CFSG.LocalAnalysis.StandardType.GGCentD4RatTw
-public import CFSG.LieType.Chevalley.OrthogonalSemilinearFixedRootData
-public import CFSG.LieType.Chevalley.SingleEdgePerfect
 
 public section
 

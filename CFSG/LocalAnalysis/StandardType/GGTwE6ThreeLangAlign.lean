@@ -2,11 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRootGenFrame
 public import CFSG.LocalAnalysis.StandardType.GGTBE6IndTwistWeyl
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangTwE6Lang
-import CFSG.LieType.Chevalley.DiagramCoordinateFixedStructure
-import CFSG.LieType.Chevalley.OddDiagramFrobeniusFixedDerived
-import CFSG.LieType.Chevalley.CLSOddE7RationalDerivedIndex
-import CFSG.LieType.Chevalley.CoordinateFieldBaseChange
 
 public noncomputable section
 

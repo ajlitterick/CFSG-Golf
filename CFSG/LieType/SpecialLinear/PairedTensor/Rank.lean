@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.LinearAlgebra.TensorProduct.Matrix
 public import CFSG.HardMathSupport.GuralnickMalle.InvolutionRank
 public import CFSG.LieType.SpecialLinear.PairedTensor.Basic
 

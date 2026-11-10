@@ -3,7 +3,6 @@ module
 public import CFSG.RankThree.PartTwo.Sec4.RonanK429RowFWreath
 import CFSG.RankThree.PartTwo.Sec4.RonanK429RowFL6Cent
 import CFSG.RankThree.PartTwo.Sec4.RonanK429RowFL7Cent
-import CFSG.RankThree.PartTwo.Sec4.RonanK429RowFBlock
 import CFSG.GH74.GLS.Balance.SolvAPIDefs
 import CFSG.Mathlib.LinearAlgebra.BilinForm.Determinant
 import CFSG.Open.SplitBNPair
@@ -20,7 +19,6 @@ import CFSG.RankThree.PartTwo.Sec14.Item142ResProofPGL
 import CFSG.RankThree.PartTwo.Sec20.OneSteps
 import CFSG.RankThree.PartTwo.Sec21.Item211ProofListOf
 import CFSG.RankThree.PartTwo.Sec4.Item41NarrowGriess
-import CFSG.Walter.J1Props
 
 attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent
 

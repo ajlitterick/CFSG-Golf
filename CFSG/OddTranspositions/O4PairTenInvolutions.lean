@@ -2,9 +2,7 @@ module
 
 public import CFSG.OddTranspositions.F25Group
 public import CFSG.CharacterTheory.PSL2Table.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ProjectiveSemilinear
 public import CFSG.OddTranspositions.O4PairF25Model
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
 
 public section
 

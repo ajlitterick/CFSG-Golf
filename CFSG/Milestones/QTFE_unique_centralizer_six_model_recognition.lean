@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Blueprint.Catalog
 public import CFSG.Quasithin.QTFE14Cat
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312HsKInputs
 import Certificates.Kernel.HSA312.Struct

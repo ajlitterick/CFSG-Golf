@@ -1,8 +1,6 @@
 module
 
 public import Certificates.Kernel.Sporadic.OddCore.ON2120F
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

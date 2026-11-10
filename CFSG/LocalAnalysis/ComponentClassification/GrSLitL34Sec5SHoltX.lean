@@ -1,20 +1,15 @@
 module
 
-public import CFSG.Foundations.Basic
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitTypeClosure
 import CFSG.Holt.Bender
 import CFSG.Goldschmidt.Steps.StrongEmb
 import CFSG.Goldschmidt.Steps.LemmaXBasic
 import CFSG.LocalAnalysis.OddStandard.AltNoHePerm
 import CFSG.LocalAnalysis.OddStandard.AltNoHeQuasisimple
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBAlternatingSymmetric
 import CFSG.LocalAnalysis.ComponentClassification.CatLeafAlt
 import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeInner
-import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuotIso
 public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourActionData
 public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourGroupSpec
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.CharacterTheory.BrauerThirdMainTheorem.CentralResidueMaps
 import CFSG.CharacterTheory.BrauerThirdMainTheorem.NormalizerClassLifting
 import CFSG.CharacterTheory.BrauerThirdMainTheorem.PrincipalClassDefects
@@ -56,21 +51,6 @@ import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasSix
 import CFSG.LocalAnalysis.ComponentInitial.OrthogonalReflectionSplitting
 import CFSG.LocalAnalysis.ComponentInitial.OrthogonalStandardFormsRegular
 import CFSG.StronglyEmbedded
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldPrimeOrderFixedSubfield
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OrderThreeNormalizer
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2PSLRangeCentralizer
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinInvolutionCount
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinRestrictionSixCount
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinUDecomposition
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationEleven
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTen
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTenStructuralIdentities
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2FieldProjectionArithmetic
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2OrderPSubgroupCount
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphReconstruction
 import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 

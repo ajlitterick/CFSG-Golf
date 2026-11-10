@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.J2Cover.M22Lk
-public import Certificates.Kernel.Misc.Perm.HexCmd
 meta import Certificates.Kernel.J2Cover.M22TrAux
 public import CFSG.Certificates.Kernel.J2ModelsGen
 public import Certificates.Kernel.J2Cover.M22Blocks

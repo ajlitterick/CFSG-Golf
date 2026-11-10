@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Sporadic.RawGenSl
 public import CFSG.Certificates.Kernel.Spor.BindList
 public import CFSG.Certificates.Kernel.SporSch.RecordSound
-public import CFSG.Sporadic.Co2Schreier.WitText
 public meta import CFSG.Sporadic.Co2Schreier.WitText
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.NativeSchreierCard

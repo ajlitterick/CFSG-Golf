@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdPosTorusFix
 public import CFSG.LocalAnalysis.StandardType.GGStdPosRootKerTorus
-import Mathlib.Tactic.Group
-import Mathlib.Tactic.LinearCombination
 
 public section
 

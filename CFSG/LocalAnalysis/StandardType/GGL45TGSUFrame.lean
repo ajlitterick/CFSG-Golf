@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGL45TALinRecipe
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldUnitary
 public import CFSG.RankThree.PartOne.Q1327C.BU5Diag
 
 public section

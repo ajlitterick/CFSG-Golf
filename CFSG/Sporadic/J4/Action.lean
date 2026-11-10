@@ -1,6 +1,5 @@
 module
 
-import Mathlib.Tactic.IrreducibleDef
 public import CFSG.Sporadic.J4.Group
 public import CFSG.Sporadic.Th.OrbitSpec
 public import CFSG.Sporadic.Th.TableSpec

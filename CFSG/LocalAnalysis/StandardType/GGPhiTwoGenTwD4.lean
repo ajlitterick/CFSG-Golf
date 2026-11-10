@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoGenTwD4Datum
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoGenTwStep
-public import CFSG.LocalAnalysis.StandardType.GGOmegaNsRootGenLabels
 
 public section
 

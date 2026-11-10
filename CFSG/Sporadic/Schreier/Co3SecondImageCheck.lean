@@ -1,8 +1,6 @@
 module
 
-public import CFSG.Sporadic.Schreier.Co3GenerationCheck
 public meta import CFSG.Sporadic.Schreier.Co3GenerationCheck
-public import CFSG.Sporadic.Schreier.Co3SecondImageCheckInputs
 public import Certificates.Certificate2160
 
 public section

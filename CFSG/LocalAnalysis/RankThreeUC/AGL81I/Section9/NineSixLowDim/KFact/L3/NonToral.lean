@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.NineSixLowDim.KFact.L3.NormalForm
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.NineSixLowDim.KFact.L3.Elements
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.NineSixLowDim.KFact.L3.Struct
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.NineSixLowDim.KFact.L3.Cyclic
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.NineSixLowDim.KFact.L3.Extraspecial
@@ -13,7 +12,6 @@ public import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.NineSixLowDim.KFact
 public import CFSG.RankThree.PartOne.S12.InputsLinear
 public import CFSG.RankThree.PartOne.KF.F1322OmegaSeven
 public import CFSG.Adapters.StatedSLPerfect
-public import Mathlib.GroupTheory.SpecificGroups.Alternating.Centralizer
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.NineSixLowDim.Defs
 public import CFSG.RankThree.PartOne.N1322.Mono
 

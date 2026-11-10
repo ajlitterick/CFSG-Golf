@@ -1,22 +1,11 @@
 module
 
-public import CFSG.Blueprint.Catalog
-public import CFSG.Assembly.Reduction
-public import CFSG.GroupTheory.PCore.Defs
-public import CFSG.LocalAnalysis.ComponentClassification.KProperRelativeBShell
-public import CFSG.Sporadic.Schreier.LyCheckSep
-public import CFSG.Sporadic.Ly.KeySpec
-public import CFSG.Sporadic.He.FpSpec
 import Certificates.Kernel.SporSch.Ly.SepGlue
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3J4D4Data
-public import CFSG.Sporadic.J4.QT2LocX0Native
 public import Certificates.Data.CFSGNative.J4.PentScan
-import Certificates.Kernel.J4Q.QTBase
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312HsKInputs
 import Certificates.Kernel.HSA312.Struct
 import Certificates.Kernel.HSQuot.Final
 public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87F3Abs
-public import CFSG.Sporadic.Ly.Setup
 import CFSG.Sporadic.Ly.GenSpecBase
 public import CFSG.GroupTheory.TwoWeightData
 import CFSG.Sporadic.Ly.TwoWeightsSpecBase
@@ -29,13 +18,9 @@ import Certificates.Kernel.Misc.E6StdSlp
 public import CFSG.YGroups.Y443.Native.CoverFactsWords
 import Certificates.Kernel.KDense.Y443
 public import CFSG.YGroups.Y443.Native.Swap13Word
-public import CFSG.Sporadic.Ly.FiveFacts
-import CFSG.Sporadic.Ly.Certificate
-import CFSG.LocalAnalysis.ComponentClassification.CTUSimpleRecognition
 import CFSG.LocalAnalysis.ComponentClassification.GSRedNoB2L
 import CFSG.LocalAnalysis.ComponentClassification.GS82Step2L34Free
 import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.LitCompBInner
-import CFSG.LocalAnalysis.ComponentClassification.FooteLitCatalogueU
 import CFSG.Yardstones.Mfa62e01cc6fa.Goals
 public import CFSG.CGT.A8S.N0EnumInputs
 public import CFSG.CGT.PushingUpLit.SolKNA.R4.TwinEdgeDefs
@@ -49,7 +34,6 @@ public import CFSG.ClassicalInvolution.Phan.Phan3KerA3
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6cTransport
 public import CFSG.ClassicalInvolution.Q3.Sec13End16N
 public import CFSG.ClassicalInvolution.Q3.TA3SOLCore
-public import CFSG.ClassicalInvolution.Q3.TA3SOLCoreRank
 public import CFSG.ClassicalInvolution.Q3.TA3SmallModelM12
 public import CFSG.ClassicalInvolution.SmallCases.Hat2A7S8Lift
 public import CFSG.GH74.E2.A6Sylow
@@ -75,7 +59,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4P1UTabs
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSp4OneComp
 public import CFSG.LocalAnalysis.ComponentClassification.FooteLitThm47Statement
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsRealModel
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsRealModelBase
 public import CFSG.LocalAnalysis.ComponentClassification.HSFLitA7Sec8MCFacts
 public import CFSG.LocalAnalysis.ComponentClassification.M12J2CoverExclusion
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicCo1Cen2BData
@@ -251,10 +234,6 @@ public import CFSG.Sporadic.Schreier.TitsQTModel
 public import CFSG.Sporadic.SuzOddCore.SmallActionData
 public import CFSG.Sporadic.Th
 public import CFSG.Sporadic.Th.CertificateBase
-public import CFSG.Sporadic.Th.KernelPlanesBase
-public import CFSG.Sporadic.Th.KernelSimpleBase
-public import CFSG.Sporadic.ThSchreier.FullAutCoreBase
-public import CFSG.Sporadic.ThSchreier.KernelAutBase
 public import CFSG.Timmesfeld.Moufang.A6
 public import CFSG.Timmesfeld.Moufang.Cases
 public import CFSG.Timmesfeld.Moufang.J2Check

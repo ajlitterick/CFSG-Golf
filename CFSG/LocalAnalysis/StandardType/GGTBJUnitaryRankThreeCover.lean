@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitarySixCover
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUModelCoprime
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUCoverOdd
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUCover
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitary
-public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitaryDatum
 
 public section
 

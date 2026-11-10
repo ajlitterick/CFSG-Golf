@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HypOne.BGeneric
-public import CFSG.Monster.B.CTIB.UniqueComponent
-public import CFSG.Monster.B.CTIB.FourClasses
-public import CFSG.Monster.Existence.BabyAmbient
-public import CFSG.Monster.Existence.BabyTableIVOf
 public import CFSG.Monster.Existence.MilestoneInputs
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HypOne.Generic
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion

@@ -3,7 +3,6 @@ module
 
 public import Certificates.Kernel.SuzThree13637.QFacts
 public import Certificates.Kernel.SuzThree13637.YChk
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

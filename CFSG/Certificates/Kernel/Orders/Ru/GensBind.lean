@@ -1,8 +1,5 @@
 module
 
-public import CFSG.Certificates.Kernel.Orders.Cert
-public import CFSG.Certificates.Kernel.Orders.Ru.Data.Sel
-public import CFSG.Certificates.Kernel.Orders.Ru.Rels
 public import CFSG.Certificates.Kernel.Orders.Ru.Checks.R
 public import CFSG.Certificates.Kernel.Orders.Ru.Checks.H
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Rudvalis

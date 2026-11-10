@@ -1,14 +1,7 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec8.Hering88LCStep0B
-public import CFSG.RankThree.PartTwo.Sec8.Hering88Swap
-import CFSG.RankThree.PartTwo.Sec8.Hering88CCent
-import CFSG.RankThree.PartTwo.Sec8.Hering88CInv
-import CFSG.RankThree.PartTwo.Sec8.Hering88CEng
-import CFSG.RankThree.PartTwo.Sec8.Hering88EM1
-import CFSG.RankThree.PartOne.RF4.FinalKFacts
 import CFSG.SignalizerFunctorTheorem.CatalogBridge.NonLocalLargeReeMain
-import CFSG.LieType.Ree.ReeGenericPerfect
 import CFSG.RankThree.PartTwo.Sec8.Item8KFacts2ProofAssembly
 import CFSG.HardMathSupport.Lang.E27Lie.TrialityTwo
 import CFSG.RankThree.PartTwo.Sec8.Hering88NThm2P1

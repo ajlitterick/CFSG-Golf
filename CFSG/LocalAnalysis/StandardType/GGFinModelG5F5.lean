@@ -1,15 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGFinModelG5Defs
-public import CFSG.LocalAnalysis.StandardType.GGFinModelG5RankOne
 public import CFSG.LocalAnalysis.StandardType.GGFinModelG5Transfer
-public import CFSG.LocalAnalysis.StandardType.GGFinModelG5Bridge
 public import CFSG.LocalAnalysis.StandardType.GGFinModelG5FrameRank
-public import CFSG.LocalAnalysis.StandardType.GGFinModelG5WeylDict
 public import CFSG.LocalAnalysis.StandardType.GGFinModelG5Theta
-public import CFSG.LocalAnalysis.StandardType.GGFinModelG5Plain
 public import CFSG.LocalAnalysis.StandardType.GGFinModelG5Conj
-public import CFSG.LocalAnalysis.StandardType.GGFinModelG5Orbit
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinEndCompat
 
 public section

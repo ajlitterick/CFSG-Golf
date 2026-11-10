@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelKGFrameE
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelModule
-public import Mathlib.GroupTheory.Coxeter.Basic
-public import Mathlib.GroupTheory.PGroup
-public import Mathlib.GroupTheory.Index
-public import Mathlib.GroupTheory.Subgroup.Centralizer
 
 public section
 

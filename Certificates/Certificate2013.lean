@@ -3,7 +3,6 @@ module
 
 public import Certificates.Certificate2013Base
 
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallQ3A8Inputs
 public meta import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallA8Model
 public meta import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallNoNilpCheck
 import Certificates.Kernel.Census.CatFacts.C2013

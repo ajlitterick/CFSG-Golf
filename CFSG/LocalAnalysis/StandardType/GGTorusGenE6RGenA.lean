@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelHoldsT
 public import CFSG.LocalAnalysis.StandardType.GGTwE6CorootTorus
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelModuleMT
 
 public section
 

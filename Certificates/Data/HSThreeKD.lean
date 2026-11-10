@@ -1,10 +1,6 @@
 module
 
 public import CFSG.RankThree.Native.HSMcLFiveCheckInputs
-public import CFSG.Sporadic.Schreier.Enumeration
-public import CFSG.Sporadic.Schreier.CountSpec
-public import CFSG.Sporadic.Schreier.ClassSum
-public import Certificates.Data.CFSGNative.SporadicSchreier.Classes
 public meta import CFSG.RankThree.Native.HSMcLFiveCheckInputs
 public meta import CFSG.Sporadic.Schreier.Enumeration
 public meta import CFSG.Sporadic.Schreier.CountSpec

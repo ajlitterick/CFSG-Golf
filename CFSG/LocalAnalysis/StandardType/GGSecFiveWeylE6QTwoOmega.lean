@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoOmegaLocal
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoOmegaWeyl
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoOmegaNbr
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoUnitaryLocal
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoLocal
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoNbrConj
 import CFSG.LocalAnalysis.StandardType.GGSpJoinNbrModel
 

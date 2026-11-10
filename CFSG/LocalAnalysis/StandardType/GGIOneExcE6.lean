@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGIOneExcLift
 public import CFSG.LocalAnalysis.StandardType.GGBstarLIDE6Field
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Three
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Aut
-public import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOtherE6
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaOutdiag
 
 public section

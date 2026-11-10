@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveCommutant
-public import CFSG.Adapters.SpecialLinearPerfect
 
 public section
 

@@ -4,10 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGKGForkRows
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcAssembly
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcTwE6Frame
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLineE6
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLineE7
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLine
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Aut
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylExcPlusLift
 public import CFSG.LocalAnalysis.StandardType.GGKGForkE6PlusLift
 
 public section

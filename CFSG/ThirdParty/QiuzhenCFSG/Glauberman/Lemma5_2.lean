@@ -1,15 +1,6 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PPrimeCore
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.PLengthLemmas
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.theorem_1_18
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Burnside.NormalComplement
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection10.theorem_10_1_b
-import Mathlib.GroupTheory.Sylow
-import Mathlib.GroupTheory.Index
 
 namespace CFSG
 end CFSG

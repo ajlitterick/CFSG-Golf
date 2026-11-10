@@ -2,8 +2,6 @@ module
 
 public import CFSG.RankThree.PartOne.S11c.HNFiveCoverage
 public import CFSG.RankThree.PartOne.S11c.HNInvQ6
-public import CFSG.Sporadic.HNOddCore.FusB
-public import CFSG.Sporadic.HNOddCore.Five
 
 public noncomputable section
 

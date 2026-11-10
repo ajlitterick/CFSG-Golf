@@ -1,10 +1,7 @@
 module
 
-public import CFSG.Monster.B.Mathieu.Order
-public import CFSG.Sporadic.Mathieu.M22
 public meta import CFSG.Monster.B.Mathieu.Order
 public meta import CFSG.Sporadic.Mathieu.M22
-public import CFSG.Monster.B.Mathieu.M22CheckInputs
 public import Certificates.Certificate3157
 
 public section

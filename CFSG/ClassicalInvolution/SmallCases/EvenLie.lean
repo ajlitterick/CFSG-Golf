@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ClassicalInvolution.SmallCases.EvenLie.Basic
 public import CFSG.ClassicalInvolution.SmallCases.EvenLie.Parabolic
 public import CFSG.ClassicalInvolution.SmallCases.EvenLie.RankOne
 public import CFSG.ClassicalInvolution.SmallCases.EvenLie.Chevalley

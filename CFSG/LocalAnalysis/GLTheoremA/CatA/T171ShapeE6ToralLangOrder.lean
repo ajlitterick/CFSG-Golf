@@ -2,11 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeE6ToralCoreKerDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeFamOutBase
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeBoundBase
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarE6ThreeFaithful
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S171Basic
-public import CFSG.LocalAnalysis.StandardType.GGTwE6RecipeTransport
-public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRankFiveAmbient
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeFamClRed
 public import CFSG.LocalAnalysis.GLTheoremA.S11.Defs
 

@@ -2,18 +2,13 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNTPlaneInput
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentGraphShape
-public import CFSG.LocalAnalysis.StandardType.GGD4OddCentGraphPGU
 public import CFSG.LocalAnalysis.StandardType.GGL45FixA2Comp
 public import CFSG.LocalAnalysis.StandardType.GGL45FixA2Arith
 public import CFSG.LocalAnalysis.StandardType.GGL45FixA2UniFix
-public import CFSG.LocalAnalysis.StandardType.GGTriD4ComponentsPGLDer
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownLinearProj
-public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutTrialityBridgeSecond
 public import CFSG.RankThree.PartTwo.Sec21.LangTwisted3ProofD4Even
-public import CFSG.LocalAnalysis.StandardType.Marking
 public import CFSG.Goldschmidt.Steps.G310Comp
 public import CFSG.Goldschmidt.Steps.G37QuotX
-public import CFSG.Goldschmidt.Steps.G3aGlue
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TriD4Outer
 public import CFSG.HardMathSupport.Seitz.G2Anisotropic.Coordinator.Cover
 public import CFSG.HardMathSupport.Seitz.G2Anisotropic.ExceptionsTransport.FamilyProved

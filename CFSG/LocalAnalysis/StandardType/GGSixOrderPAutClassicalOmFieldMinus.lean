@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutClassicalOmMinus
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutClassicalOmFieldPlus
-public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergOmegaMinus
 
 public section
 

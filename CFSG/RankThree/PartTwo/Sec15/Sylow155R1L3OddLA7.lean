@@ -2,30 +2,18 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec15.Sylow155R1L3OddSteps
 import CFSG.RankThree.PartTwo.Sec17.Item17Q0Proof
-import CFSG.RankThree.PartTwo.Sec16.Item163Proof
-import CFSG.RankThree.PartTwo.Sec16.Item164Proof
 import CFSG.RankThree.PartTwo.Sec16.Item163StepsQProof
 import CFSG.RankThree.PartTwo.Sec15.Item1514StepsQuot
-import CFSG.RankThree.PartTwo.Sec15.Item1514StepsTools
 import CFSG.RankThree.PartTwo.Sec15.Item1514StepsHJ
-import CFSG.RankThree.PartTwo.Sec15.Item1514Steps1515S17
-import CFSG.RankThree.PartTwo.Sec15.Item15Type
-import CFSG.RankThree.PartTwo.Sec15.Item156ProofType
 import CFSG.RankThree.PartTwo.Sec13.Item134SylowBarT
-import CFSG.RankThree.PartTwo.Sec13.Item13Basic
-import CFSG.RankThree.PartTwo.Sec13.Item13Prod
-import CFSG.RankThree.PartTwo.Sec13.Item13Theta
 import CFSG.RankThree.PartTwo.Sec13.Item133
 import CFSG.RankThree.PartTwo.Sec13.Item136Pair
 import CFSG.RankThree.PartTwo.Sec19.Step1913
-import CFSG.RankThree.PartTwo.Sec6.Item612Local
 import CFSG.RankThree.PartTwo.KFacts.KS14Orders
 import CFSG.RankThree.PartTwo.KFacts.KS14HJSignalizer
 import CFSG.RankThree.PartTwo.KFacts.KS18MultProof
-import CFSG.LocalAnalysis.SectionRank.PRank
 import CFSG.Models.PGLOrders
 import CFSG.CGT.PushingUp.TwoLocals
-import CFSG.GroupTheory.Fitting.CharacteristicP
 import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 import CFSG.LieType.Multipliers.ProductKernel
 import CFSG.LieType.Multipliers.U42Bridge

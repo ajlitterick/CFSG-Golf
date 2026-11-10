@@ -3,7 +3,6 @@ module
 
 public import CFSG.Sporadic.Schreier.J4SNoCompCheckBase
 
-public import CFSG.Sporadic.Schreier.J4SNoCompData
 public meta import CFSG.Sporadic.Schreier.J4SNoCompData
 public import Certificates.Certificate2175
 

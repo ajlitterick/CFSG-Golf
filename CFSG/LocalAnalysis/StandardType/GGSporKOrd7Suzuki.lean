@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSporKOrd7Defs
-public import CFSG.LocalAnalysis.ComponentInitial.DiagonalSemilinear
 public import CFSG.SignalizerFunctorTheorem.CatalogBridge.FieldSuzuki
 
 public section

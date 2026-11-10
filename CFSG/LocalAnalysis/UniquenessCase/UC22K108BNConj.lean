@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22K108BN
 import CFSG.Milestones.ASVolI.I2
-import CFSG.LocalAnalysis.QuasithinUnique.GammaFamiliesBasic
 
 public section
 

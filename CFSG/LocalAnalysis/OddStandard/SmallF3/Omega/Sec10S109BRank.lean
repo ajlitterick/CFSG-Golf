@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10S109A2Ker
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10S109BCard
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10S109BGen
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10S109BInputs
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10S109Da
 
 public section
 

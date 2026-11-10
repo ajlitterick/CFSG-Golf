@@ -1,13 +1,6 @@
 module
 
-public import Certificates.Data.Kernel.AS35QTS.Planes
 public import CFSG.Certificates.Kernel.AS35QTS.CircuitSound
-import Mathlib.Data.Nat.Bitwise
-import Mathlib.Tactic.Ring
-import Mathlib.Tactic.Positivity
-import Mathlib.Tactic.Linarith
-import Mathlib.Tactic.IntervalCases
-import Mathlib.Tactic.NormNum
 
 public section
 

@@ -3,7 +3,6 @@ module
 public import CFSG.RankThree.GF2n.Parrott.SpinAction
 public import CFSG.RankThree.GF2n.Parrott.PSp43Model
 public import Certificates.Certificate946007
-public import Mathlib.GroupTheory.SemidirectProduct
 
 public section
 

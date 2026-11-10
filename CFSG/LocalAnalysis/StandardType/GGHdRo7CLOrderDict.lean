@@ -1,11 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGHdRo7CDefs
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7CLOrderKnown
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7CLOrderLabel
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7CLOrderSp
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7CLOrderF4
-import CFSG.LocalAnalysis.StandardType.GGHdRo7CLCoordAux
 
 public section
 

@@ -3,16 +3,7 @@ module
 public import CFSG.HardMathSupport.Dickson.DefCharOuter.Export.ExceptionalBase
 public import CFSG.HardMathSupport.Dickson.DefCharOuter.TrialityChar3.FieldActorFixed
 import CFSG.HardMathSupport.Dickson.DefCharOuter.Export.ExcFacts
-import CFSG.Adapters.TauCetiExceptional.BridgeG2
-import CFSG.ClassicalInvolution.Orders.Twisted
 import CFSG.HardMathSupport.Seitz.TrialityOdd.Inner.G2Subgroup
-import CFSG.LieType.Chevalley.OddTrialityAutomorphismNormalForm
-import CFSG.LieType.Chevalley.EvenTrialityCanonicalFieldCentralizer
-import CFSG.LieType.Chevalley.GraphFixedCenterTrivial
-import CFSG.LieType.Chevalley.AdjointCenter
-import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4OutG2
-import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogRigidityCommon
-import CFSG.RankThree.PartOne.KGD.D4T36Core
 public import CFSG.GH74.GLS.IVK.Proofs2.OddTools
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.Der61a
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.Der69
@@ -75,8 +66,6 @@ public import CFSG.Quasithin.Background.C2PushThree
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.D2Cyclic
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.FFC4Tr2
 public import CFSG.Quasithin.Background.GoldschmidtS146RBend1

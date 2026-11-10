@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Q3AM289S4LShape
-public import CFSG.ClassicalInvolution.Q3.Q3EPQuot
 
 public section
 

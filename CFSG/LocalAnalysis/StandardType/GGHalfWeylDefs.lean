@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGHalfStageADefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRest
 
 public section
 

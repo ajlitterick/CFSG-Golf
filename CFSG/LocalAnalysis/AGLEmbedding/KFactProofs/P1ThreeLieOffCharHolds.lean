@@ -1,17 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanP1ThreeLieOffCharAlmostSimple
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanP1ThreeLieOffCharNonNormalLinear
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanP1ThreeLieOffCharOutTower
-public import CFSG.HardMathSupport.Curtis.Coordinator.SeitzTower.ExcE
 public import CFSG.HardMathSupport.Curtis.Coordinator.SeitzTower.Rest
 public import CFSG.LocalAnalysis.ComponentClassification.GoldschmidtTDGriess
 public import CFSG.HardMathSupport.Foote.Coordinator.CoverThree.Final
 public import CFSG.HardMathSupport.Malle.Coordinator.CoverThreeNoInner.Final
 public import CFSG.HardMathSupport.Lang.TwE6Step3.CubesV4
-public import CFSG.HardMathSupport.Seitz.TrialityOdd.Coordinator.Phi6RouteWStarProved
-public import CFSG.HardMathSupport.Seitz.TrialityOdd.Inner.PhiRows.RouteWCoreThree
-public import CFSG.HardMathSupport.Seitz.TrialityOdd.Inner.PhiRows.RouteWJPlacement
 public import CFSG.HardMathSupport.Solomon.Coordinator.SeitzOuterCube.Exc.Final
 public import CFSG.HardMathSupport.Solomon.Coordinator.SeitzOuterCube.Exc.TOdd.Final
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.F4Phi3
@@ -145,7 +138,6 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly
@@ -157,8 +149,6 @@ public import CFSG.Quasithin.Background.D14Normal
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.E3Gen
 public import CFSG.Quasithin.EmptyFaithful.S14117
-public import CFSG.Quasithin.EmptyFaithful.S14117Coprime
-public import CFSG.Quasithin.EmptyFaithful.S14117Rank
 public import CFSG.Quasithin.EmptyFaithful.S1417Glue
 public import CFSG.Quasithin.EmptyFaithful.S151cA2
 public import CFSG.Quasithin.EmptyFaithful.S151cCases
@@ -186,7 +176,6 @@ public import CFSG.Sporadic.Presentation.McLExactInputs
 public import CFSG.Sporadic.Schreier.J1QT
 public import CFSG.Sporadic.SuzOddCore.GraphData
 public import CFSG.Sporadic.SuzOddCore.SmallActionData
-public import CFSG.Walter.J1Props
 
 public section
 

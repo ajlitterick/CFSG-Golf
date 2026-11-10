@@ -3,7 +3,6 @@ module
 public import CFSG.Sporadic.Co1Patterson.AmalgamInnerData
 public import CFSG.Sporadic.Co1Patterson.AmalgamRigidCent
 public import CFSG.Sporadic.Co1Patterson.TwistNativeRM
-public import CFSG.Sporadic.Co1.Module.InvSpec
 
 public section
 

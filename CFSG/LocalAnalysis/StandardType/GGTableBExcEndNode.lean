@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcRank
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4EndNode
-public import CFSG.LocalAnalysis.SeitzReduction.EPilotToral
 public import CFSG.LocalAnalysis.SeitzReduction.EPilotCentralizerHigh
 
 public section

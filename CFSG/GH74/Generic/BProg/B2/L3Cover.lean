@@ -1,31 +1,17 @@
 module
 
-public import CFSG.LieType.Steinberg.CentralExt.PSLMultiplier
-public import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
 public import CFSG.LieType.Steinberg.CentralExt.GriessNativeModels
 public import CFSG.GH74.Generic.BProg.B2.L2Cover
 public import CFSG.GH74.Generic.BProg.B2.FamilyOddCentre
 public import CFSG.GH74.Generic.BProg.B2.FamilyGeneric
-public import CFSG.GH74.Generic.JMaxCongr
 public import CFSG.Certificates.Kernel.Spor.ONKSound
 public import CFSG.GH74.GLS.C3.Layer1.Back112Iv2
 public import CFSG.GH74.GLS.C3.Layer1.Th2Cent5
 public import CFSG.GH74.GLS.C3.Layer1.Thm1P31s
 public import CFSG.GH74.GLS.C3.Layer2.FusionTools
 public import CFSG.GH74.GLS.C3.Layer3.Main
-public import CFSG.GH74.GLS.IVK.L2.BN
-public import CFSG.GH74.GLS.IVK.L2.BorelFive
 public import CFSG.GH74.GLS.IVK.L2.Hilbert90Core
-public import CFSG.GH74.GLS.IVK.L2.Lemma113
-public import CFSG.GH74.GLS.IVK.L2.Lemma114
-public import CFSG.GH74.GLS.IVK.L2.Lemma12ib
-public import CFSG.GH74.GLS.IVK.L2.Lemma12j
-public import CFSG.GH74.GLS.IVK.L2.Lemma13fc
-public import CFSG.GH74.GLS.IVK.L2.Lemma14f
-public import CFSG.GH74.GLS.IVK.L2.Lemma19b
-public import CFSG.GH74.GLS.IVK.Prod.Lemma31
 public import CFSG.GH74.GLS.IVK.Proofs
-public import CFSG.GH74.GLS.IVK.Statements
 public import CFSG.GH74.GLS.LU.Ident
 public import CFSG.GH74.GLS.Stage1.Thm3.Sec4.Equiv
 public import CFSG.GH74.GLS.Stage1.Thm3.Sec5.Closed
@@ -64,7 +50,6 @@ public import CFSG.RankThree.PartOne.S9.StatementsTwoAction
 public import CFSG.Sporadic.Schreier.TitsOther
 public import CFSG.Sporadic.Th.Simple
 public import CFSG.Sporadic.ThSchreier.AutCore
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ConjugatedInvertedSubgroup
 public import CFSG.Walter.W67.Section5.Lemma57
 
 public section

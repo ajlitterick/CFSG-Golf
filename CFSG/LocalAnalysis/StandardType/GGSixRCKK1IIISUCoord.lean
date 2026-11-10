@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1Defs
-public import CFSG.LieType.Universal.Unitary
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIISUS5
 
 public section

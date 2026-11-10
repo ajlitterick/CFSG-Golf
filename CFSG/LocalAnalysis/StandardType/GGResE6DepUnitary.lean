@@ -1,24 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResE6DepLabels
 public import CFSG.LocalAnalysis.StandardType.GGAutomizerGammaCard
-public import CFSG.LocalAnalysis.StandardType.GGStdPosC13Unitary
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUElt
-public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitaryOutdiag
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestUnitaryCenter
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUModel
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeInner
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylUnitaryCover
 public import CFSG.LocalAnalysis.StandardType.GGResE6DepRank
 public import CFSG.LocalAnalysis.StandardType.GGResE6DepExceptional
-public import CFSG.LocalAnalysis.StandardType.GGTDModelU
-public import CFSG.LocalAnalysis.StandardType.GGTDLabels
-public import CFSG.LocalAnalysis.StandardType.GGRCWeylCard
-public import CFSG.LocalAnalysis.StandardType.GGTBTorRelA5Holds
-public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpLattice
-public import CFSG.LocalAnalysis.StandardType.GGPZWeylB
-public import CFSG.LocalAnalysis.StandardType.GGTBTorDatum
 
 public section
 

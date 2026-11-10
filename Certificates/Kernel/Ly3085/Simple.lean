@@ -4,8 +4,6 @@ module
 public import Certificates.Kernel.Ly3085.SimpleBase
 
 public import Certificates.Kernel.Ly3085.Card
-public import Certificates.Kernel.Ly3085.Alg
-public import CFSG.Sporadic.Ly.Setup
 public import Certificates.Certificate9213Base
 
 public section

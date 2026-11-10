@@ -6,7 +6,6 @@ public import Certificates.Kernel.Sporadic.OddCore.HN2089D
 public import Certificates.Kernel.LocalQT.Tc.Gen
 public import Certificates.Data.Kernel.Spor.HNT4
 public import Certificates.Data.Kernel.Spor.EnumBase
-public import Certificates.Data.Kernel.Spor.Prim
 public import Certificates.Data.Kernel.LocalQT.Nats
 import CFSG.Certificates.Kernel.Common.Harness
 

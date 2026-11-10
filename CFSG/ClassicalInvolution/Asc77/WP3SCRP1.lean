@@ -1,11 +1,8 @@
 module
 
 public import CFSG.ClassicalInvolution.Asc77.WP3SCRP1Base
-public import CFSG.ClassicalInvolution.Asc77.WP3SCRBoot
-public import CFSG.ClassicalInvolution.RouteD.SCRTwinGenSL4
 public import CFSG.ClassicalInvolution.RouteD.SCRTwinGenSp4
 public import CFSG.ClassicalInvolution.RouteD.SCRTwinGenSu4
-public import CFSG.ClassicalInvolution.RouteD.G2D4Ih8Free
 public import CFSG.ClassicalInvolution.ModelFacts.Orth15OuterU4Model
 public import CFSG.Timmesfeld.ARS.CaseEFrame
 public import CFSG.Timmesfeld.ARS.CaseMLevi

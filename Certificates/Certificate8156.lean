@@ -3,7 +3,6 @@ module
 public import CFSG.RankThree.PartTwo.Census.Sporadic.Fi22W4Data
 import CFSG.Certificates.Kernel.OpsW4NSound
 import Certificates.Kernel.Census.W4Fi22
-public import CFSG.Blueprint.NativeSporadic
 import all CFSG.Blueprint.NativeSporadic
 public import CFSG.Assembly.LowTwoRankDefs
 public import Certificates.Certificate9109

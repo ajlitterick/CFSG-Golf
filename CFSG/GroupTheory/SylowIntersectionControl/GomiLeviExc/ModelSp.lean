@@ -2,10 +2,7 @@ module
 
 public import CFSG.GroupTheory.SylowIntersectionControl.GomiChevLeviBorelFactor
 public import CFSG.Open.StatedDefs
-import CFSG.LieType.Universal.Symplectic
 import CFSG.HardMathSupport.Cooperstein.Coordinator.LieInput.SpModel
-import CFSG.LocalAnalysis.AGLEmbeddingD2.McLaughlin.WeakBlockModuleData.GlaubermanNiles
-import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanParabHub
 import CFSG.LocalAnalysis.SeitzReduction.F4PilotQ2Sp4TwoRootSix
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Foundations

@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSporKLieZSUEmb
 public import CFSG.LocalAnalysis.StandardType.GGSporKLieZSpCent
 public import CFSG.LocalAnalysis.StandardType.GGSporKLieZQuot
 import CFSG.HardMathSupport.Foote.ModuleExclusions.PSUAlg
-import CFSG.LocalAnalysis.ComponentInitial.LinearUnitaryField
 import CFSG.GroupTheory.CoprimeActionSupport.PrimePowerSquareRoot
 
 public section

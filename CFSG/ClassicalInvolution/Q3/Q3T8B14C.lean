@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.Q3T8B14A
 public import CFSG.ClassicalInvolution.Q3.Q3NMRows
-public import CFSG.ClassicalInvolution.Q3.Q3CHHyp51
 public import CFSG.ClassicalInvolution.Q3.Q3T6DH51Facts
 public import CFSG.ClassicalInvolution.Q3.Q3KBLie
 public import CFSG.ClassicalInvolution.Q3.Q3NMOrth

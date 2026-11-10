@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGPumpTwLabDefs
 public import CFSG.LocalAnalysis.StandardType.GGPumpTwLabRigid
 public import CFSG.LocalAnalysis.StandardType.GGPumpTwLabCompNe
 public import CFSG.LocalAnalysis.StandardType.GGKacK1
@@ -9,8 +8,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTCJHolds
 public import CFSG.LocalAnalysis.StandardType.GGInnerD4RALinearBranch
 public import CFSG.LocalAnalysis.StandardType.GGInnerD4RAUnitaryBranch
 import CFSG.LocalAnalysis.StandardType.GGK1ScMain
-import CFSG.LocalAnalysis.StandardType.GGMultTableCl
-import CFSG.LocalAnalysis.StandardType.GGTableB
 import CFSG.LocalAnalysis.StandardType.GGNbrLangRegNTUnivHolds
 
 public section

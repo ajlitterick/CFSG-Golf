@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Th.AutD.Data
 public import Certificates.Kernel.Sporadic.OddCore.PEnumGlue
 public import Certificates.Data.Kernel.L34K
-public import CFSG.Certificates.Kernel.Common.Loop
 public import CFSG.Certificates.Kernel.Th.S.Hsw
 
 public section

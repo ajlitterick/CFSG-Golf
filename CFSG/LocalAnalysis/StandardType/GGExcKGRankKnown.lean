@@ -2,27 +2,18 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGExcKnownGroups
 public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerAdj
-public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerE7
 public import CFSG.LieType.SeitzGeneration.ExcPlaneF4Rest
 public import CFSG.LieType.SeitzGeneration.ExcTorusRankE8
 public import CFSG.LieType.SeitzGeneration.ExcTorusE8Five
 public import CFSG.LieType.SeitzGeneration.ExcTorusE8Eight
 public import CFSG.LieType.SeitzGeneration.ExcTorusE8Ten
 public import CFSG.LieType.SeitzGeneration.ExcTorusE8Twelve
-public import CFSG.LieType.Chevalley.AdjointCenter
-public import CFSG.LieType.SeitzGeneration.ExcTorusFam
-public import CFSG.LieType.SeitzGeneration.ExcTorusE7Three
-public import CFSG.LieType.SeitzGeneration.ExcTorusE7Six
 public import CFSG.LieType.SeitzGeneration.ExcTorusE7Four
 public import CFSG.LieType.SeitzGeneration.ExcTorusRankE7
-public import CFSG.LieType.Steinberg.CentralExt.MinusculeCenter
 public import CFSG.LieType.Steinberg.CentralExt.FieldFourMultiplier
-public import CFSG.LieType.Steinberg.Isogeny.E7
 public import CFSG.LocalAnalysis.StandardType.GGInnerDiagBridgeSUExc
 public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagCartan
 public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerCube
-public import CFSG.LieType.Steinberg.Isogeny.E6
-public import CFSG.LieType.SeitzGeneration.ExcTorusE6Three
 public import CFSG.LieType.SeitzGeneration.ExcTorusE6Four
 public import CFSG.LieType.SeitzGeneration.ExcTorusE6Six
 public import CFSG.LieType.SeitzGeneration.ExcTorusRankE6
@@ -50,7 +41,6 @@ public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Monster.B.Geometry.CoxeterWords
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.A3Structure36BAction
 public import CFSG.Quasithin.Background.A3Structure36BBasic
 public import CFSG.Quasithin.Background.A3Structure36BPrime
@@ -65,7 +55,6 @@ public import CFSG.RankThree.PartOne.KLR.SectorAssembly
 public import CFSG.RankThree.PartOne.S8.Statements
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 
 public section

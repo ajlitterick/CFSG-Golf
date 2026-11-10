@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312M24Main
-public import CFSG.Quasithin.Background.A312SporGen
 
 public section
 

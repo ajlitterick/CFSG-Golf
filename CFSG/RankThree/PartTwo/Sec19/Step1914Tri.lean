@@ -6,18 +6,13 @@ import CFSG.RankThree.PartTwo.Sec19.Step1914E
 import CFSG.RankThree.PartTwo.KFacts.KS18L34GenProof
 import CFSG.RankThree.PartTwo.KFacts.K72SylowL3
 public import CFSG.RankThree.PartTwo.Sec12.Item125Act
-import CFSG.RankThree.PartTwo.Sec12.Item123Inputs
 import CFSG.RankThree.PartOne.S9.Vanishing.Basic
 import CFSG.RankThree.PartOne.KC.LinearSubfieldPointwise
-import CFSG.RankThree.PartTwo.Sec4.Item413Setup
 import CFSG.RankThree.PartTwo.Sec4.Item47Bridges
 import CFSG.RankThree.PartTwo.Sec13.Item13Models
 import CFSG.RankThree.PartTwo.Sec13.Item13Theta
-import CFSG.RankThree.PartTwo.Sec15.HypR
 import CFSG.RankThree.PartTwo.Sec18.Transport
-import CFSG.RankThree.GroupTheory.SteinbergBYSectionNineResidual
 import CFSG.RankThree.PartTwo.Census.Classical.Bridges
-import CFSG.ClassicalGroups.Unitary.Simple
 import CFSG.RankThree.PartTwo.Sec21.Item222ProofCases
 import CFSG.Models.PGLSimple
 public import CFSG.Sporadic.Schreier.J4SProfileNode

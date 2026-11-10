@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.K36K.J2.Data
 public import Certificates.Kernel.CoreD2K.J2.Data
 public import Certificates.Data.Kernel.K36K.Planes
-public import Certificates.Data.Kernel.Spor.PEnum
 public import Certificates.Data.K36SporJ2
 import CFSG.Certificates.Kernel.Common.Harness
 

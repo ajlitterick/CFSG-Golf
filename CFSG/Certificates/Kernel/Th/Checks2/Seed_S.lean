@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Certificates.Kernel.Th.S.SeedS
-public import CFSG.Certificates.Kernel.Th.S.Data.Sm_const
 public import CFSG.Certificates.Kernel.Th.S.Data.Seed_const
 public import CFSG.Certificates.Kernel.Th.S.Data.Sm_Sel
 import CFSG.Certificates.Kernel.Common.Harness

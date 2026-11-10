@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Sporadic.OddCore.SuzGlD
-public import Certificates.Kernel.Sporadic.OddCore.SuzC1EF
 public import Certificates.Kernel.Sporadic.OddCore.SuzC1EZ
 public import CFSG.Sporadic.SuzRecog.B0GluingTests
 

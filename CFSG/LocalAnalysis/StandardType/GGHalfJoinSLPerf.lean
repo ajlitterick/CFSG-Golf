@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGHalfJoinDefs
 public import CFSG.LocalAnalysis.StandardType.GGHalfWeylCentOmega
-public import CFSG.LocalAnalysis.StandardType.GGHalfSlOnLevi
 
 public section
 

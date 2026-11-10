@@ -6,12 +6,8 @@ public import CFSG.ClassicalInvolution.WeakCT.TwistedSpinNodes
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.SpinMinusRootTorus
 public import CFSG.LocalAnalysis.StandardType.GGRankOneSl2
 public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerOmegaSpin
-public import CFSG.LieType.Universal.SpinOmega.Range
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431D4Aux.OrthL2.Witt
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointIsometryBasic
-public import CFSG.LieType.Universal.Spin.Generation.Eichler
 public import CFSG.LieType.SeitzGeneration.OmegaF2.Basic
-public import CFSG.RankThree.PartOne.CTP.PhanBridge
 public import CFSG.Sporadic.ThSchreier.GlobalData
 public import CFSG.ClassicalInvolution.Models.LinearPairs
 public import CFSG.GroupTheory.HallHigmanPiCore

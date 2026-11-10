@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLevTwoS3bE8Disc
-public import CFSG.LocalAnalysis.StandardType.GGLevTwoS3bFilter
 
 public section
 

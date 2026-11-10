@@ -1,13 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6KGLBridgeDefs
-public import CFSG.LocalAnalysis.StandardType.GGLayerCycModelOmegaInnerDerived
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLOutsideTop
-import CFSG.LocalAnalysis.StandardType.GGLayerCycModelOmegaInnerSU33
 import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63H5LayerGroup
-import CFSG.LocalAnalysis.StandardType.GGTableB
-import CFSG.LocalAnalysis.StandardType.MarkingChevalley
-import CFSG.RankThree.PartTwo.KFacts.AutSzOrderThree
 
 public section
 

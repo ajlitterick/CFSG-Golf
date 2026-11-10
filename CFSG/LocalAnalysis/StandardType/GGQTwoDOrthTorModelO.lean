@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthTorModelV
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDModelDefs
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthTorOmega
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthTorModelOAux
 
 public section

@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGHalfJoinDefs
-public import CFSG.LocalAnalysis.StandardType.GGHalfKnownGroups
 public import CFSG.LocalAnalysis.StandardType.GGHalfTorusFrame
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrLabels
 
 public section

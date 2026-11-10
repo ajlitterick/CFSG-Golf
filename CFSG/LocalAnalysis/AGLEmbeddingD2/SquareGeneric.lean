@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.ParabLevi
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.ParabRankEngine
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanLieOutRadical
 public import CFSG.LocalAnalysis.AGLEmbedding.BlockParabThreeLeviTransfer
 public import CFSG.Assembly.QuasithinDefs
 

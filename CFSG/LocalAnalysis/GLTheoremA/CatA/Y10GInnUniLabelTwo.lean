@@ -1,11 +1,6 @@
 module
 
 public import CFSG.LieType.SemisimpleCentralizers.HeldUnitaryComponents
-public import CFSG.Open.StatedDefs
-import CFSG.LieType.SemisimpleCentralizers.HeldCompTrivSU
-import CFSG.RankThree.SubgroupLists.UnitaryThreeFamily
-import CFSG.LieType.Steinberg.CentralExt.UnitaryField
-import CFSG.Adapters.ProjectiveSpecialLinear
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniData
 import CFSG.Assembly.GL83StatedBridge
 import CFSG.Assembly.OpenBridges

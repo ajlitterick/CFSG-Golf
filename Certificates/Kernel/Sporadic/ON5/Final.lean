@@ -6,8 +6,6 @@ public import Certificates.Kernel.Sporadic.OddCore.ON2129F
 public import Certificates.Kernel.Sporadic.ON3.Small
 public import CFSG.Certificates.Kernel.Spor.ChainFKSound
 public import CFSG.Certificates.Kernel.Spor.PK.Basic
-public import CFSG.Sporadic.Schreier.ONCheckSmallAuxInputs
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Spor.ChainKSound
 
 public section

@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.Recognition.St84.Gen.G2qAmalLeviA
 public import CFSG.Quasithin.Recognition.St84.Gen.G2qAmalDefs
-import CFSG.Quasithin.Recognition.St84.Gen.G2qAmalBorel
 import CFSG.Quasithin.Recognition.St84.Gen.L2SectionHall
 import CFSG.Quasithin.Recognition.St84.Gen.G2qAmalVertexOneCompl
 import CFSG.Quasithin.Recognition.St84.Gen.G2qAmalVertexOneTransport

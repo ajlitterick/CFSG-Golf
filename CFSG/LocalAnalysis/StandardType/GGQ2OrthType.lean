@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2OrthPlaneForm
-public import CFSG.LieType.Universal.Spin.Forms
-public import CFSG.GroupTheory.WeirSylow.OrthogonalModels
 
 public section
 

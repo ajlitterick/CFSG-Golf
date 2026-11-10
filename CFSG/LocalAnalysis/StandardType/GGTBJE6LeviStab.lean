@@ -24,7 +24,6 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.A3Structure36BAction
 public import CFSG.Quasithin.Background.A3Structure36BBasic
 public import CFSG.Quasithin.Background.A3Structure36BPrime
@@ -33,7 +32,6 @@ public import CFSG.RankThree.PartOne.KE.A2Family
 public import CFSG.RankThree.PartOne.KLR.Master
 public import CFSG.RankThree.PartOne.KLR.SectorAssembly
 public import CFSG.RankThree.PartOne.S8.Statements
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M24
 

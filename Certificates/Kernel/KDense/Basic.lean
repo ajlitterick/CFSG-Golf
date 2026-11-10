@@ -1,9 +1,7 @@
 
 module
 
-public import CFSG.Certificates.Kernel.KDense.Glue
 public import CFSG.Certificates.Kernel.KDense.SepSound
-public import CFSG.Certificates.Kernel.KDense.Tactic
 public import CFSG.Certificates.Kernel.KDense.Data.Checks
 public import CFSG.Certificates.Kernel.KDense.Data.Sep
 public import CFSG.Certificates.Kernel.KDense.Y443.Pairs

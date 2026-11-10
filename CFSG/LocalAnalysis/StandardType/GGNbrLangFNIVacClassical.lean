@@ -1,17 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIVacDefs
-import CFSG.LocalAnalysis.StandardType.GGNbrLangRestField
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldUnitary
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaModelMinus
-import CFSG.LocalAnalysis.StandardType.MarkingClassical
 import CFSG.Assembly.GL83StatedBridge
 import CFSG.Adapters.LieModelSimple
-import CFSG.ClassicalGroups.Unitary.Simple
-import CFSG.ClassicalGroups.Symplectic.Simple
-import CFSG.ClassicalGroups.Symplectic.ProjectivePerfect
-import CFSG.ClassicalGroups.Orthogonal.Simple
-import CFSG.LieType.Universal.SpinOmega.Center
 import CFSG.Adapters.StatedSLPerfect
 
 public section

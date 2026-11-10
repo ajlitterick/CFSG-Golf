@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I167COrth
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I167COrthFamGen
 import CFSG.HardMathSupport.Dickson.I271.Support.OuterTransport
-import CFSG.SignalizerFunctorTheorem.Inheritance.TransportA.Fitting
 import CFSG.CharacterTheory.CyclicBlocks.Family
 import CFSG.CharacterTheory.Semidihedral.Principal.LargePrimeTorusSylowCentralizers
 import CFSG.CharacterTheory.Semidihedral.Principal.PrimeTorusBlockAlignment
@@ -45,8 +44,6 @@ import CFSG.Quasithin.Background.C2PushThree
 import CFSG.Quasithin.Background.D2
 import CFSG.Quasithin.Background.D2Cyclic
 import CFSG.Quasithin.Background.E3
-import CFSG.Quasithin.Background.E3Nprime
-import CFSG.Quasithin.Background.E3Uniq
 import CFSG.Quasithin.Background.F918H5
 import CFSG.Quasithin.Background.FFC4Tr2
 import CFSG.Quasithin.Background.GoldschmidtS146RBend1

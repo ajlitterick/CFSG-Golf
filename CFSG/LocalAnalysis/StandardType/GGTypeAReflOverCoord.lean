@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTypeAReflOverDefs
 public import CFSG.Permutation.SymmetricCoxeter
-public import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofGlueCtx
 public import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofGlueInj
 public import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofGlueSwap
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeNamed
-public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.YamadaHAutModel
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeRhoT
 public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.YamadaNativeData
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGL45TALinRecipe
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldUnitary
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylUnitaryCover
 
 public section

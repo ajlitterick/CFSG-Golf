@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FBase
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowX1OmCMax
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowX1OmCType
-public import CFSG.RankThree.PartOne.KC.OrthogonalFixedDerived
 public import CFSG.Monster.B.TwoA.Unitary.Orbit1408Points
-public import CFSG.Monster.B.TwoA.Unitary.Semilinear
 public import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma32
 public import CFSG.HardMathSupport.Solomon.LocalBalance.PartIInputs
 public import CFSG.HardMathSupport.Solomon.LocalBalance.Sec5Statements

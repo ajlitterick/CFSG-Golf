@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangAxisCases
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangTypeASixNonSplit
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangS1ExcX
 

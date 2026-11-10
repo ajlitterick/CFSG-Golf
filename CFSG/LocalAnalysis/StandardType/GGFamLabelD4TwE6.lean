@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TwoRatLabelDStrict
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6RatLabelOuterD
 
 public section
 

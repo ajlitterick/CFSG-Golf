@@ -7,11 +7,7 @@ import CFSG.GroupTheory.OrderBelowSixtySolvable
 import CFSG.RankThree.PartTwo.KFacts.KP7Suzuki
 import CFSG.RankThree.PartTwo.Sec4.Census.BridgeSuzuki
 import CFSG.RankThree.PartTwo.Sec4.T444.Item434Alt
-import CFSG.RankThree.PartTwo.KFacts.L34Sections
-import CFSG.Adapters.LinearSmallCatalog
-import CFSG.Adapters.LinearFieldTransport
 import CFSG.LocalAnalysis.ComponentInitial.LinearCoverModel
-import CFSG.LocalAnalysis.ComponentInitial.SmallLinearIsomorphisms
 import CFSG.LieType.SteinbergBRAutGL32
 import CFSG.RankThree.Asc83Table.E27
 import CFSG.LocalAnalysis.AGLEmbedding.D1GlobalU

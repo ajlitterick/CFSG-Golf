@@ -1,7 +1,5 @@
 module
 
-public import CFSG.Sporadic.Co2Cert.CheckInputs
-public import CFSG.Sporadic.Co2Schreier.WitText
 public meta import CFSG.Sporadic.Co2Schreier.WitCheck
 public import CFSG.Certificates.Kernel.SporSch.Co2SShapeSound
 import CFSG.Certificates.Kernel.Common.Harness

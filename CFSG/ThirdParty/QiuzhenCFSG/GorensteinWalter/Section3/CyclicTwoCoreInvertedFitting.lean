@@ -1,13 +1,8 @@
 module
 
-public import Mathlib.Algebra.Group.Defs
-public import Mathlib.Data.Finite.Defs
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.CyclicTwoCoreReflectionsInvert
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.CyclicTwoCoreFitting
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.CentralizerControl
 import all CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.CentralizerControl
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

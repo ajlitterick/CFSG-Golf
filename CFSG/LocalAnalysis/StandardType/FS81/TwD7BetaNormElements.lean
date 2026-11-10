@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.FS81.LocalOrthRows
 public import CFSG.LocalAnalysis.StandardType.FS81.RowOutTwD7
 public import CFSG.LocalAnalysis.StandardType.FS81.OddCoreOrthP
-public import CFSG.LocalAnalysis.StandardType.FS81.LocalGen
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD7BetaCoordinates
 
 public noncomputable section

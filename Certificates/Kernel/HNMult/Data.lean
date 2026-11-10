@@ -2,7 +2,6 @@ module
 
 public import CFSG.Certificates.Kernel.Orders.Cert
 public import CFSG.Certificates.Kernel.Fam.HNSeed.Data.Sel
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.JsonFamilyGz
 import CFSG.Certificates.Kernel.Common.NatItemsGz
 import CFSG.Certificates.Kernel.Common.Repo

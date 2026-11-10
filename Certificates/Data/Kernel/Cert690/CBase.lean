@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.Cert690.Base
 public import CFSG.GF2Type.Smith1979W3.Cert690.Census.Defs
-public import Mathlib.Data.List.Dedup
 public import CFSG.Fischer.Uniq.CompTau
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LieType.BorelTits.CompleteFlag
@@ -15,7 +14,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
 public import CFSG.RankThree.GroupTheory.ClassTwoThree
 public import CFSG.RankThree.OrthogonalInvolutions.SuzukiTypes
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Utils
 
 public section
 

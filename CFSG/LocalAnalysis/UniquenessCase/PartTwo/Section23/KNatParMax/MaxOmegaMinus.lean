@@ -1,22 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23d.Defs
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23d.OmegaMinusFlag
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenDefs
-public import CFSG.LocalAnalysis.UniquenessCase.UC22Defs
-public import CFSG.Quasithin.Background.A1bBasic
-public import CFSG.Quasithin.Background.D2Basic
-public import CFSG.Open.StatedDefs
 
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23bOmega4
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Facts13
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section18.EighteenThirteen
-import CFSG.LocalAnalysis.ComponentInitial.OrthogonalTailMaxBorel
-import CFSG.LocalAnalysis.ComponentInitial.OrthogonalTailWeylLift
-import CFSG.LocalAnalysis.ComponentInitial.OrthogonalTailRootData
-import CFSG.LocalAnalysis.ComponentInitial.OrthogonalTailUnipotent
-import CFSG.LocalAnalysis.ComponentInitial.OrthogonalTailStabilizerIndices
-import CFSG.LocalAnalysis.ComponentInitial.OrthogonalTailModelCoordinates
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KNatParMax.Transport
 public import CFSG.LocalAnalysis.SectionRank.EvenCover.Catalog
 public import CFSG.LocalAnalysis.SectionRank.LargeRee.SuzukiData
@@ -27,18 +14,13 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Monster.Code.Weights
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.A4Defs
 public import CFSG.Quasithin.Background.B1Restrict
 public import CFSG.Quasithin.Background.B4Statement
 public import CFSG.Quasithin.EmptyFaithful.Setting
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 import CFSG.Adapters.Certificate43Check
 import CFSG.ClassicalGroups.UnitaryFlag.PointSylow
 import CFSG.GroupTheory.CommutatorCentralizerIn
@@ -51,7 +33,6 @@ import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddCentralFixed
 import CFSG.LocalAnalysis.ComponentClassification.GSThmB83Outer
 import CFSG.LocalAnalysis.ComponentClassification.HarrisLit35AltConf
 import CFSG.LocalAnalysis.ComponentClassification.HarrisLit35AltSmall
-import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1C3Props
 import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1S73Props
 import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1S74Defs
 import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1Solomon

@@ -2,12 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2CentInternal
 public import CFSG.LocalAnalysis.StandardType.GGLinTwoCent
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwoThreeTorus
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwoThreeRank
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMoreCl
-public import CFSG.LocalAnalysis.StandardType.GGTableBRank
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoTableBReduce
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 
 public section
 

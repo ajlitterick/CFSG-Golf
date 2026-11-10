@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatPt
-public import Certificates.Data.CFSGNative.SporLat.Spec
-public import Std.Data.HashMap
-public import Std.Data.HashSet
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthIdentDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthIdentActs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthRealize
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthStd

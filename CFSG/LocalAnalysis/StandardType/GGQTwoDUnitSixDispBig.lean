@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitSixGamma
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBigO
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBigS7
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBigS6
-import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitDispUC
 import CFSG.LocalAnalysis.StandardType.GGQTwoDRMLin
 
 public section

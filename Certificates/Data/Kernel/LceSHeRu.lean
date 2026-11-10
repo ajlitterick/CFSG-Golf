@@ -4,7 +4,6 @@ public import CFSG.Certificates.Kernel.Common.LceSRange
 public import CFSG.Certificates.Kernel.He.Bound.LabRange
 public import CFSG.Certificates.Kernel.Ru.Bound.Lab
 public import CFSG.Certificates.Kernel.Common.LabF
-public import CFSG.Certificates.Kernel.Common.Bind
 public import Certificates.Data.Kernel.LceSTab
 
 public section

@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.Vol2.Ch11SecQ9aAmR
 public import CFSG.Quasithin.Vol2.Ch11SecQ9aG2C
-public import CFSG.Blueprint.ChevalleyRootGroupsTriangular
 public import CFSG.Foundations
 public import CFSG.GroupTheory.PerfectResidualNodes
 public import CFSG.LieType.Chevalley.LangStronglyOrthogonalCommute
@@ -27,10 +26,6 @@ public import CFSG.Quasithin.Background.A3Structure312
 public import CFSG.Quasithin.Background.OrderingMax
 public import CFSG.Quasithin.Vol2.Ch1Local
 public import CFSG.Sporadic.J4Base
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ProjectiveSemilinear
 public import CFSG.Walter.Defs
 
 public section

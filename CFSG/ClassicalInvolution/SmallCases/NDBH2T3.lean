@@ -3,7 +3,6 @@ module
 public import CFSG.ClassicalInvolution.SmallCases.NDBH2T1
 public import CFSG.ClassicalInvolution.SmallCases.NDBH2T2
 public import CFSG.ClassicalInvolution.Asc77.AscT8RX
-public import CFSG.ClassicalInvolution.Asc77.AscL62Final
 public import CFSG.ClassicalInvolution.AschTight.S1916Omega
 public import CFSG.ClassicalInvolution.Asc77.AscP1Nine3Main
 public import CFSG.ClassicalInvolution.Asc77.AscT8S26Final

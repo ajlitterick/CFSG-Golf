@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LieType.AlgebraicGroups.RootWordRegular
-public import CFSG.LieType.Chevalley.BruhatCellFactorization
-public import Mathlib.GroupTheory.NoncommPiCoprod
 public import CFSG.LieType.AlgebraicGroups.HopfTensorPoints
 
 public noncomputable section

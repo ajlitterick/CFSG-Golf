@@ -1,9 +1,6 @@
 module
 
 public import CFSG.CharacterTheory.Wreathed.OriginalAllPrimeSetting
-public import CFSG.CharacterTheory.Wreathed.FullCentralizerFromProjectiveModel
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.BrauerThirdMainTheorem.BlockAtoms
 public import CFSG.CharacterTheory.BrauerThirdMainTheorem.CentralResidueMaps
 public import CFSG.CharacterTheory.BrauerThirdMainTheorem.NormalizerClassLifting

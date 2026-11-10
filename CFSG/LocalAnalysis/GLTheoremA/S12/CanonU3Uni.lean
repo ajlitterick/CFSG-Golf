@@ -2,12 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonU3Order
 public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonU3UniBlock
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I141FDynTri
-public import CFSG.LocalAnalysis.ComponentClassification.InnAutDerivedUnitary
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T1428CensusLinearTransport
-public import CFSG.SignalizerFunctorTheorem.Inheritance.TransportA.Fitting
-public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeModel
 public import CFSG.Mathlib.Arithmetic.TwoPowModThree
 
 public section

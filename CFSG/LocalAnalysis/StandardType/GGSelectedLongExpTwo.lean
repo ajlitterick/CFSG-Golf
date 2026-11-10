@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGF4JoinMemberE6
 public import CFSG.LocalAnalysis.StandardType.GGSelectedSiegelPair
 public import CFSG.LocalAnalysis.StandardType.GGSelectedTwistedE6Scalar
-import CFSG.LieType.Steinberg.TwistedE6.Generation
-import CFSG.ClassicalInvolution.ModelFacts.Families
 
 public section
 

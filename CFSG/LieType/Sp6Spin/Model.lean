@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.D4Small.SpinSeven
 public import CFSG.LieType.D4Small.Om8Datum
-public import CFSG.LieType.Universal.Spin.Forms
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotMainGraphOmegaModel
 public import CFSG.RankThree.PartOne.AUTSL.KF1513
 

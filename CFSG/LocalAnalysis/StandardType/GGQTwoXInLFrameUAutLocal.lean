@@ -2,18 +2,13 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLFrameUDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDefs
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosPermAux2
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosAdapterAux
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosPermAux
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosPerm
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerTypeADvdModel
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeRowDimUnitary
-public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionSURepFrame
 public import CFSG.ClassicalInvolution.ModelFacts.UnitaryAutMain
 public import CFSG.LocalAnalysis.StandardType.UnitaryCenterScalar
-public import CFSG.LieType.Universal.Unitary.Comparison
 
 public section
 

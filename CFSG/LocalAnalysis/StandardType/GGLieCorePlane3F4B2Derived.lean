@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGLieCorePlane3F4Defs
 public import CFSG.LocalAnalysis.StandardType.GGFamLabelAssembly
 import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.OddKernelOrbit
-import CFSG.LieType.Universal.Symplectic
 import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.B2SmallJ
 public import CFSG.LocalAnalysis.StandardType.GGFamAssembly
 

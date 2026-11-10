@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.Steinberg.TwistedE6.Defs
-public import Mathlib.FieldTheory.Finite.GaloisField
 
 public noncomputable section
 

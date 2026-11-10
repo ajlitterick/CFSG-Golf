@@ -1,13 +1,10 @@
 module
 
 public import CFSG.ClassicalInvolution.ModelFacts.TG3D4
-public import CFSG.ClassicalInvolution.ModelFacts.TG3VacPSL
 public import CFSG.ClassicalInvolution.ModelFacts.TG3VacPSU
-public import CFSG.ClassicalInvolution.ModelFacts.TG3VacPSp
 public import CFSG.ClassicalInvolution.ModelFacts.TG3SmallSL
 public import CFSG.ClassicalInvolution.ModelFacts.TG3SmallSU
 public import CFSG.ClassicalInvolution.ModelFacts.TG3SmallSp
-public import CFSG.ClassicalInvolution.Uniform.U5Model
 
 public section
 

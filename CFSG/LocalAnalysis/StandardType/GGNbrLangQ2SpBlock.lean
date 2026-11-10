@@ -1,20 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagModel
-public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockSpDecomp
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.LocalAnalysis.StandardType.KGLangS1ALinTypeDet
 
-import CFSG.LocalAnalysis.StandardType.GGTableBLinear
-import CFSG.Assembly.GL83StatedBridge
-import CFSG.ClassicalInvolution.Phan.CenterScalars
-import CFSG.ClassicalGroups.Unitary.Finite
 import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2BlockProj
 import CFSG.ClassicalGroups.Symplectic.ComponentCartanRank
 import CFSG.GroupTheory.IsComponentOfMap
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GSympLabel
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GCenterQuot
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniLabelPSU
 import CFSG.ClassicalInvolution.Q3.TA3LeafQ5U3Frame
 import CFSG.ClassicalGroups.Symplectic.DiagonalTorusRank
 

@@ -2,11 +2,7 @@
 module
 
 public import Certificates.Kernel.SporSch.Ru.F1920
-public import Certificates.Kernel.SporSch.Ru.Text1920
-public import Certificates.Kernel.SporSch.Ru.RowsGen
-public import Certificates.Kernel.SporSch.GenPerms
 public import Certificates.Data.Kernel.SporSch.RuImg
-public import CFSG.Sporadic.Schreier.RuArrays
 meta import CFSG.Sporadic.Schreier.RuArrays
 import CFSG.Certificates.Kernel.Common.Harness
 

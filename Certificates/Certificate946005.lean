@@ -1,9 +1,7 @@
 module
 
-public import Certificates.Data.ParrottPSp43
 public import Certificates.Kernel.Parrott946.Glue
 public import Certificates.Kernel.Parrott946.Alg
-public import Certificates.Certificate2012
 
 public section
 

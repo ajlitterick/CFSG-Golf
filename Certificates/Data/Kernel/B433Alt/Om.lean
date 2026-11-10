@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.B433Alt.Cov
-public import CFSG.Certificates.Kernel.MonsterConv.Perm
 public import CFSG.Certificates.Kernel.MonsterConv.PermValid
 
 public section

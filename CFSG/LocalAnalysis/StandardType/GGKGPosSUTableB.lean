@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGPosSUStd
 public import CFSG.LocalAnalysis.StandardType.GGKGPosSURankOne
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePresTagUnitary
-public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourKGPos
-import Mathlib.Tactic.Group
 
 public section
 

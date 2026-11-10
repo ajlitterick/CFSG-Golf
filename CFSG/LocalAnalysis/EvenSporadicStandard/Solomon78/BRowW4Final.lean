@@ -2,11 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.BRowW4
 public import CFSG.Monster.Existence.MilestoneInputs
-public import CFSG.Monster.Existence.BabyTableIIIOf
-public import CFSG.Monster.Existence.BabyW2Classes
-public import CFSG.Monster.Existence.BabyTableIVOf
-public import CFSG.Monster.B.CTIB.Rank2158Final
-public import CFSG.Monster.B.CTIB.FourClasses
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Common
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.Out1SlimEquiv
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion

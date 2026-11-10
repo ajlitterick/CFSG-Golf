@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermQTwoKBlocks
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermQTwoCentralizer
-public import CFSG.GH74.GLS.Basic
 import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelSLCompBlock
-import TauCeti.LinearAlgebra.Matrix.SpecialLinearGroup.Transvection
 public import CFSG.CharacterTheory.BrauerThirdMainTheorem.CentralResidueMaps
 public import CFSG.CharacterTheory.BrauerThirdMainTheorem.NormalizerClassLifting
 public import CFSG.CharacterTheory.BrauerThirdMainTheorem.PrincipalClassDefects

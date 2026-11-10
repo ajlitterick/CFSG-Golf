@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Co2Smith.Chain
-public import Certificates.Kernel.Co2Smith.Root
 public import Certificates.Kernel.Co2Smith.ChainG0J
 public import Certificates.Kernel.Co2Smith.ChainG0K
 public import CFSG.Certificates.Kernel.Spor.RawSiftKConv

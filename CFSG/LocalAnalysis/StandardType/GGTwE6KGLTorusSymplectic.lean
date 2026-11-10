@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
 public import CFSG.LocalAnalysis.StandardType.GGTableBRank
-import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticOmega
-import CFSG.LocalAnalysis.StandardType.GGTableBTwoThreeSp
 import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeNbrKnownLemmas
 
 public section

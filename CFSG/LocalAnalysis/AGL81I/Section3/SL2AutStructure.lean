@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.AGL81I.Section3.SL2Cyclic
-public import CFSG.Dihedral.Glauberman.DicksonMaxStructure
 public import CFSG.LocalAnalysis.AGL81I.Section3.PSL2BorelMaximal
-public import CFSG.CharacterTheory.PSL2Table.Basic
-public import CFSG.CharacterTheory.PSL2Table.Tori
 
 public section
 

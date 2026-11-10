@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.Background.A312SporE8
 public import CFSG.Quasithin.Background.A312SporShapesCheck
-public import CFSG.Quasithin.Background.A3Structure312Iso
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312ExtShapesExtra
 public import CFSG.Timmesfeld.Orders.ClassicalLinear
 import CFSG.Adapters.StatedClassicalSmallOrders

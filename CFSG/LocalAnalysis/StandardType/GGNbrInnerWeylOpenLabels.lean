@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylNoLine
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMore
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylIrredLabels
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTypeA

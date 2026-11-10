@@ -1,11 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatRows
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatIncl
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatRuCertificate
-public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicRu
-public import CFSG.Blueprint.NativeSporadic
-public import Certificates.Data.CFSGNative.SporLat.Build
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatRuInputs
 public import Certificates.Kernel.LocalQT.Quot.C4080H
 public import Certificates.Kernel.LocalQT.Quot.C4080S0

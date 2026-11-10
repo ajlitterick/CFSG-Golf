@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I2015NLCore
 import CFSG.SignalizerFunctorTheorem.NonLocal.OrthContract
-import CFSG.RankThree.PartOne.KC.OrthogonalSubfieldForms
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaModel
 
 public section
 

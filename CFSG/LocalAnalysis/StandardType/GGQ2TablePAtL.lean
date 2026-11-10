@@ -1,21 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQ2TableBTwA3Row
-public import CFSG.LocalAnalysis.StandardType.GGB36Defs
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
-public import CFSG.LocalAnalysis.StandardType.GGTPNPCompDefs
-public import CFSG.LocalAnalysis.StandardType.GGK0ExcB3
 public import CFSG.LocalAnalysis.StandardType.GGQ2TwoNodeSixHeart
 public import CFSG.LocalAnalysis.StandardType.GGTPNNarrowC6
 import CFSG.LocalAnalysis.StandardType.GGTPNAtL
 import CFSG.LocalAnalysis.StandardType.GGTPNLineFinal
-import CFSG.LocalAnalysis.StandardType.GGB36StepOneK0
-import CFSG.LocalAnalysis.StandardType.GGK0CompREMult
-import CFSG.LocalAnalysis.StandardType.GGKacExcB2
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-import CFSG.LocalAnalysis.StandardType.GGFrameRouteQTwo
 import CFSG.LocalAnalysis.StandardType.GGResIPumpLineA3Rows
-import CFSG.LocalAnalysis.StandardType.GGQTwoCavHeartReduction
 
 public section
 

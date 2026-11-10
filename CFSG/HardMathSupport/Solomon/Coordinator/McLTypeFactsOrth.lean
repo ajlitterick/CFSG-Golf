@@ -1,16 +1,11 @@
 module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.McLTypeFactsSmall
-public import CFSG.ClassicalGroups.Orthogonal.Simple
 public import CFSG.RankThree.Literature.FSmithOrthogonal
 public import CFSG.RankThree.PartOne.KC.OrthogonalEvenMinusExtraction
-public import CFSG.GroupTheory.WeirSylow.OrthogonalOrders
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LinearAlgebra.LinearGroups.ProjectiveSimple
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

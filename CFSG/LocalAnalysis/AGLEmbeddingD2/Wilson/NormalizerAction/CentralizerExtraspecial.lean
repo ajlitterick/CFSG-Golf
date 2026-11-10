@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LinearAlgebra.ExtraspecialCyclotomicModule
 public import CFSG.LinearAlgebra.BinaryReflectionNormalizer
 public import CFSG.LocalAnalysis.ComponentInitial.SelfCentralizingCoreAutomorphisms
 public import Mathlib.Tactic.NormNum.Prime

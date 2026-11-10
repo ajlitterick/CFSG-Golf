@@ -1,18 +1,7 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec4.Item424ProofInnerBack
-public import CFSG.RankThree.PartTwo.Sec4.Item47WStatement
-import CFSG.RankThree.PartTwo.Sec4.ProjSLEquiv
-import CFSG.RankThree.PartTwo.KFacts.K72SylowL3
 import CFSG.RankThree.ThinCatalog.FiveModels
-import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonClassification
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Center
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2Center
-import CFSG.GroupTheory.ABGLocalTools.PStabilityQDickson
-import CFSG.GroupTheory.LocalCores.Components
-import CFSG.LinearAlgebra.LinearGroups.TameProjectiveSubgroups
-import CFSG.LocalAnalysis.SectionRank.OddCover.CyclicSylow
-import CFSG.ClassicalInvolution.ModelFacts.OddCover.ThreeQ
 public import CFSG.Milestones.CL_LIT_Gorenstein_Walter_L_balance
 public import CFSG.RankThree.PartTwo.Sec11.Item118
 public import CFSG.RankThree.PartTwo.Sec13.Item131Transport

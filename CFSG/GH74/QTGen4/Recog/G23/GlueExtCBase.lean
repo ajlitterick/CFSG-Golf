@@ -6,7 +6,6 @@ public import CFSG.GH74.QTGen4.Recog.G23.GlueExtB
 public meta import CFSG.Certificates.CosetTablePresented
 public meta import CFSG.GH74.QTGen4.Recog.G23.Words
 public meta import CFSG.GH74.QTGen4.Recog.G23.GlueExtB
-public import CFSG.GH74.QTGen4.Recog.G23.Words
 
 @[expose] public section
 

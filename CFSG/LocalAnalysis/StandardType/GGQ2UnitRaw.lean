@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Assembly.GL83LieDefs
-public import Mathlib.LinearAlgebra.Quotient.Basic
-public import Mathlib.LinearAlgebra.Dimension.Finite
 
 public section
 

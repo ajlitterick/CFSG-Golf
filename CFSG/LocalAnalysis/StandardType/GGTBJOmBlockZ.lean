@@ -1,12 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmOrbit
-public import CFSG.RankThree.PartOne.KC.OrthogonalFixedDerived
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172CCentTypeSum
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.H81Orth.TwistedConfig
-import CFSG.RankThree.PartOne.KC.OrthogonalFixedDickson
-import CFSG.RankThree.PartOne.KC.OrthogonalSupportedScalarElementary
-import CFSG.RankThree.PartOne.S11d.OrthCaseH
 import CFSG.RankThree.PartOne.S11d.OrthCaseN
 import CFSG.RankThree.PartOne.KC.OrthogonalD4WitnessEven
 import CFSG.RankThree.PartOne.KC.OrthogonalD4WitnessOdd

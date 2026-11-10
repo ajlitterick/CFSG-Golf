@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 public import CFSG.LocalAnalysis.StandardType.GGSignedCoordBlocks
-public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelSL
 import CFSG.LocalAnalysis.StandardType.GGStdPosC24SlNsNorm
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpKAlign
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpKCent

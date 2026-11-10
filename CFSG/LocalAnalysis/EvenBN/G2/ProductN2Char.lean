@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.EvenBN.G2.ProductN2
 public import CFSG.LocalAnalysis.EvenBN.TrialityD4.ProductN1Quot
 public import CFSG.LocalAnalysis.EvenBN.Common.SL2TorusTwo
-public import CFSG.LinearAlgebra.SL2MinimalFaithfulMatrix
 
 public section
 

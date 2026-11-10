@@ -2,9 +2,7 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec21.Item228Census2ProofOdd
 public import CFSG.RankThree.PartTwo.Sec21.Item228Census3ProofSp4
-public import CFSG.RankThree.PartTwo.Sec21.Item211Lie3ProofSpFrame
 public import CFSG.RankThree.PartTwo.Sec21.Item211Lie3ProofSpFreeL
-import CFSG.ClassicalInvolution.SL2Facts
 
 public section
 

@@ -5,7 +5,6 @@ import CFSG.Goldschmidt.Steps.Sec82PGroup
 import CFSG.GH74.GLS.Stage1.Thm3.Sec7.GrpA
 import CFSG.GroupTheory.ElemAbelianClosure
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22rc
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

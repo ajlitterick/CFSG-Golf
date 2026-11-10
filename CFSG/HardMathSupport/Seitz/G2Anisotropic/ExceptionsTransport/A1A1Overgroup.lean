@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartOne.SEITZ3.MaxDefs
-public import CFSG.Timmesfeld.Orders.ExceptionalUntwisted
 
 public section
 

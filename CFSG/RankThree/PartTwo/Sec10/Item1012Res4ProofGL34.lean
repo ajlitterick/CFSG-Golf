@@ -6,7 +6,6 @@ public import CFSG.RankThree.PartTwo.Sec10.KS1012GL34.TripleCover
 public import CFSG.Adapters.StatedSLPerfect
 public import Certificates.Certificate188003
 public import Certificates.Certificate188006
-public import CFSG.Fischer.F4
 import all CFSG.Fischer.F4
 
 public section

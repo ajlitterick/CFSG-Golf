@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentFieldReduce
 import CFSG.LocalAnalysis.StandardType.GGD4OddCentFieldFixed
-import CFSG.LocalAnalysis.StandardType.GGD4OddCentFieldBridge
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaConjLabels
-import CFSG.LocalAnalysis.ComponentClassification.ExcSelectorComponents
 
 public section
 

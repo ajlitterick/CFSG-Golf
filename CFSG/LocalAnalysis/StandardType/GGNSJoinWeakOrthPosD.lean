@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinWeakOrthDispatch
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinOutWeakPosDefs
 import CFSG.LocalAnalysis.StandardType.GGOrthWeakFrameOfMarking
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
-import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylNoLine
 
 public section
 

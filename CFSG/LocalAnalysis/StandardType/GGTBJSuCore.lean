@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJSuBlock
-public import CFSG.LocalAnalysis.StandardType.GGTBJSuDefs
 public import CFSG.LocalAnalysis.StandardType.GGTBJSuCoreAux
-public import CFSG.RankThree.Classical2.UnitarySplitPrimeRank
 public import CFSG.Sporadic.Schreier.J4SProfileNode
 
 public section

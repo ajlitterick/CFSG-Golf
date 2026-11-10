@@ -5,8 +5,6 @@ public import Certificates.Kernel.Sporadic.OddCore.Suz2302
 public import CFSG.Certificates.Kernel.SporSch.AnyN
 public import Certificates.Kernel.SporSch.Ru.RowsGen
 public import Certificates.Data.Kernel.SporSch.MathieuOC
-public import Certificates.Data.Kernel.Spor.Raw
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

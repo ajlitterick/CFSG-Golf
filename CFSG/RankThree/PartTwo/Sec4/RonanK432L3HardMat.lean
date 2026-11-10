@@ -1,10 +1,7 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec4.RonanK432L3HardAbs
-public import CFSG.RankThree.PartTwo.Sec4.LThreePiMain
-public import CFSG.RankThree.PartTwo.Sec4.LThreePiTypes
 public import CFSG.RankThree.PartTwo.Sec4.Item424Res6ProofFrame
-import CFSG.RankThree.PartTwo.Sec4.LThreePiCaseI
 import CFSG.RankThree.PartTwo.Sec12.ONanKS128Diag
 public import CFSG.Open.SplitBNPair
 public import CFSG.Quasithin.Vol2.Ch10StatementsE

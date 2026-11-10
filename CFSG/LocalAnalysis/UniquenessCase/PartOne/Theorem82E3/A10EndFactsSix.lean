@@ -9,7 +9,6 @@ import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.A10EndDichotomy
 import CFSG.LocalAnalysis.GLTheoremB.ComponentTools
 import CFSG.LocalAnalysis.SeitzReduction.F4PilotHR8Instances
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.AlmostSimpleBInnerPClosure
-import CFSG.GroupTheory.ABGLocalTools.Basic
 public import CFSG.Fischer.Classification.Unitary.Coords
 public import CFSG.LargeExtraspecial.AS35QThModel
 import CFSG.ClassicalInvolution.Models.SymplecticPairs.Pairs

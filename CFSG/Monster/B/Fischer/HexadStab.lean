@@ -1,12 +1,8 @@
 module
 
-public import CFSG.Monster.B.Fischer.HexadCode
-public import CFSG.Monster.B.TwoA.Census.NatCert
 public meta import CFSG.Monster.B.Fischer.HexadCode
 public meta import CFSG.Monster.B.TwoA.Census.NatCert
-public import CFSG.Monster.B.Fischer.HexadStabInputs
 public import Certificates.Certificate3030
-public import Certificates.Certificate3029
 
 public section
 

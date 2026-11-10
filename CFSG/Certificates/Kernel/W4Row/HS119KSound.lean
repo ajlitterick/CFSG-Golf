@@ -3,8 +3,6 @@ module
 public import Certificates.Data.Kernel.W4Row.HS119CK
 public import CFSG.Certificates.Kernel.LocalQTPermSound
 public import CFSG.Certificates.Kernel.SporSch.PairJ3CntSound
-public import Mathlib.Data.LawfulXor.Basic
-public import Mathlib.Data.Nat.Bitwise
 
 public section
 

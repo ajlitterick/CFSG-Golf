@@ -1,11 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.E7RootSetStab
-public import CFSG.ClassicalInvolution.Solomon73.YamakiPres
 public import CFSG.LocalAnalysis.StandardType.GGTorusMaxWeylE7Aux
 public import CFSG.LocalAnalysis.StandardType.GGTorusMaxWeylE7Aux2
 public import CFSG.GroupTheory.ExtraspecialCentralizerInnerAut
-public import CFSG.RankThree.PartOne.KE.E7FiveData
 
 public section
 

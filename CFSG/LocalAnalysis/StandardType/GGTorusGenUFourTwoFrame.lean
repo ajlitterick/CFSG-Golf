@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitDvdAct
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeLift
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUModel
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenSCDefs
-public import CFSG.RankThree.PartOne.KF.UnitaryDiag
 public import CFSG.GroupTheory.ElemAbelianClosure
 
 public section

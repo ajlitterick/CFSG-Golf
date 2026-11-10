@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LieType.Chevalley.BruhatCellFactorization
-public import CFSG.LieType.Chevalley.BruhatDecomposition
 public import CFSG.LieType.Chevalley.StandardParabolic
-public import CFSG.LieType.Chevalley.BorelWeylGeneration
 
 public noncomputable section
 

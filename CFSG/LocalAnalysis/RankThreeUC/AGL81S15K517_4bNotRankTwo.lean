@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RankTwoDefs
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsPair
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K517_4bLinHall
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K517_4bSpHall
 public import CFSG.ClassicalGroups.Symplectic.ComponentCoverGriess
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K517_4bDHall
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K517_4b2DHall
@@ -73,7 +71,6 @@ public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotRigidityStd
 public import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotLeviFactFour
 public import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotResidualRigid
 public import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotWeakCT
-public import CFSG.LocalAnalysis.SignalizerFunctor
 public import CFSG.LocalAnalysis.SteinbergSFSingleCommModel3UnitaryGen
 public import CFSG.Monster.AxisCount.HSIdentBaby
 public import CFSG.Monster.AxisCount.HSIdentRec0
@@ -92,7 +89,6 @@ public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.E2Statements
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918C6
 public import CFSG.Quasithin.Background.FFC7G
 public import CFSG.Quasithin.Background.FFC8A

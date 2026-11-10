@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoInputs
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLDType
 
 public section
 

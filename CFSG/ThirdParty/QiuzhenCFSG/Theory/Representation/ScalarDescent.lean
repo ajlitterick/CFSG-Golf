@@ -1,10 +1,7 @@
 module
 
 public import Mathlib.Algebra.MvPolynomial.Funext
-public import Mathlib.FieldTheory.IntermediateField.Adjoin.Basic
 public import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
-public import Mathlib.LinearAlgebra.Matrix.MvPolynomial
-public import Mathlib.LinearAlgebra.TensorProduct.Basis
 public import Mathlib.LinearAlgebra.TensorProduct.Pi
 
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.ExtendScalars

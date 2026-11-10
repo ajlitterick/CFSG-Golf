@@ -1,12 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockDegreeParity
 public import CFSG.LocalAnalysis.StandardType.TableC.GramBlockRank
-public import CFSG.Open.StatedDefs
 public import CFSG.Open.StatedAPI
-public import CFSG.Assembly.Defs
-public import Mathlib.LinearAlgebra.Matrix.Rank
 
 public section
 

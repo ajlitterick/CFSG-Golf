@@ -5,7 +5,6 @@ public import Certificates.Kernel.E68Spor4215.Ru
 public import Certificates.Kernel.He7149.Final
 public import Certificates.Kernel.LocalQT.Base.C4143
 public import CFSG.Certificates.Kernel.SporLatOmegaSound
-public import Certificates.Data.E68Spor.Chk
 
 set_option maxRecDepth 100000
 

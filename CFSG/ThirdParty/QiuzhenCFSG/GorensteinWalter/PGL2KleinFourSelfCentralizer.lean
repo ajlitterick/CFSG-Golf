@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2KleinFourCentralizer
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.ControlCore
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

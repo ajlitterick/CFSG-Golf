@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.HN1408.D442204Defs
 public import CFSG.Certificates.Kernel.Common.EachTrue
-import CFSG.Certificates.Kernel.Common.Harness
 public import Certificates.Kernel.HN1408.D442204Syl
 public import Certificates.Kernel.HN1408.Y442202Inst
 

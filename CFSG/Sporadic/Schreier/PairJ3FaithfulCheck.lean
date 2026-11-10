@@ -1,15 +1,11 @@
 module
 
-public import CFSG.Sporadic.Schreier.PairJ3Cert
-public import CFSG.Sporadic.Schreier.PairF2Sep
-public import Certificates.Data.CFSGNative.J3.Data
 public meta import CFSG.Sporadic.Schreier.PairJ3Cert
 public meta import CFSG.Sporadic.Schreier.PairF2Sep
 public meta import Certificates.Data.CFSGNative.J3.Data
 public meta import Certificates.Data.CFSGNative.HS.SmallF2
 public meta import Certificates.Data.CFSGNative.PairSchreier.Core
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
-public import CFSG.Sporadic.Schreier.PairJ3FaithfulCheckInputs
 public import Certificates.Certificate2239
 
 public section

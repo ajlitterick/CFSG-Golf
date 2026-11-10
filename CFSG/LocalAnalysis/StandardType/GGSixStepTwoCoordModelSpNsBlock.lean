@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelSpNsNorm
-public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelSLCompBasic
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelSpNs
 
 public section

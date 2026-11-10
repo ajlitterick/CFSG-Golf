@@ -6,7 +6,6 @@ public import Certificates.Kernel.Sporadic.ON3.Elements
 public import CFSG.Certificates.Kernel.ONOutK3.WalkSound
 public import CFSG.Certificates.Kernel.ONOutK3.TreeSound
 public import CFSG.Certificates.Kernel.ONOutK3.FSound
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

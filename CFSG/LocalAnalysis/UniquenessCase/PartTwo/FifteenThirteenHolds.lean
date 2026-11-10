@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC34Thirteen
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs16a
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenThreeWeak
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenInputs
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.TwelveSeventeen
-import CFSG.LocalAnalysis.UniquenessCase.UC22P22qm
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22th
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenThreeSmall
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenSmallT7
@@ -24,7 +21,6 @@ import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenThreeSimple
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenKSchur2
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenKAutRank
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenKCover3Rank
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenKRank3Omega
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenKSchur
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenKIso
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenKNotJ2
@@ -32,7 +28,6 @@ import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenKPerfType
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenH154R1110Sec
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenGapFourSigSubPi
 import CFSG.RankThree.PartTwo.Sec11.Item116R2K1
-import CFSG.Milestones.CL_LIT_Griess_Schur_multipliers_Lie_type
 public import CFSG.LargeExtraspecial.OrthoF2
 public import CFSG.LargeExtraspecial.S2Basic
 public import CFSG.LargeExtraspecial.S5Defs
@@ -110,8 +105,6 @@ import CFSG.Quasithin.Background.D2
 import CFSG.Quasithin.Background.F918V2Defs
 import CFSG.Quasithin.Background.F918V2GDA
 import CFSG.Quasithin.EmptyFaithful.S14117
-import CFSG.Quasithin.EmptyFaithful.S14117Coprime
-import CFSG.Quasithin.EmptyFaithful.S14117Rank
 import CFSG.Quasithin.EmptyFaithful.S1417Glue
 import CFSG.Quasithin.EmptyFaithful.S151ZC
 import CFSG.Quasithin.EmptyFaithful.S151cA2

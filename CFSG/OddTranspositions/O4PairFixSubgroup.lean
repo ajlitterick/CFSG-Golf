@@ -12,8 +12,6 @@ public import CFSG.OddTranspositions.O4CloseReduction
 public import CFSG.OddTranspositions.O4PairCentralizer
 public import CFSG.OddTranspositions.SixEight
 public import CFSG.StronglyEmbedded.MatrixGroups.PSL2
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.Timmesfeld.Moufang.Three
 public import CFSG.Timmesfeld.RankOne
 public import CFSG.Timmesfeld.Special.TwoCore

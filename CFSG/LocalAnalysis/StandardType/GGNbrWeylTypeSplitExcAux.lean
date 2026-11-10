@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableBExcWeyl
-public import CFSG.LocalAnalysis.StandardType.GGTBRowF4CoreAux
 public import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeExcPlusAux2
 
 public section

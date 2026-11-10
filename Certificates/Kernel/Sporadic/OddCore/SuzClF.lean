@@ -2,11 +2,8 @@ module
 
 public import Certificates.Kernel.Sporadic.OddCore.SuzClD
 public import Certificates.Kernel.Sporadic.OddCore.SuzC1EG
-public import Certificates.Kernel.Sporadic.OddCore.PEnumGlue
 public import CFSG.Sporadic.SuzRecog.SuzL34Cert.CheckClosure
 public import CFSG.Certificates.Kernel.B0SuzK.Glue
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

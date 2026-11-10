@@ -1,10 +1,8 @@
 module
 
 public import CFSG.Assembly.GL83LieDefs
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldLinear
 import CFSG.LocalAnalysis.StandardType.GGRecipeFieldUnitary
 import CFSG.LocalAnalysis.StandardType.GGRecipeFieldSpUSpLabels
-import CFSG.LocalAnalysis.StandardType.GGTableBTypeALift
 import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeInner
 
 public section

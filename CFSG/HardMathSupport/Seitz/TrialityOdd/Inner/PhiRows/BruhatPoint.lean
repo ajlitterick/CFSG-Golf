@@ -2,8 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Seitz.TrialityOdd.Inner.PhiRows.CentralizerK
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4A2Centralizer
-public import CFSG.LieType.Steinberg.Bruhat
-public import CFSG.LieType.Steinberg.TwistedD4.Datum
 public import CFSG.ClassicalInvolution.ModelFacts.G2D4G2Class
 public import CFSG.ClassicalInvolution.ModelFacts.G2D4G2Edge
 public import CFSG.ClassicalInvolution.ModelFacts.G2D4TD4Weyl

@@ -2,7 +2,6 @@ module
 
 public import Mathlib.GroupTheory.Sylow
 public import Mathlib.GroupTheory.IndexNormal
-public import Mathlib.Data.Nat.Prime.Pow
 
 public section
 

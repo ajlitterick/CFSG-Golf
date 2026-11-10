@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBRowDefs
-public import CFSG.LocalAnalysis.StandardType.GGExcReflTBWeylDatum
 public import CFSG.LocalAnalysis.StandardType.GGTBJNaWeyl
 
 public section

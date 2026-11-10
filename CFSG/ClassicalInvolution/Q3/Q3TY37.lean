@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Q3TY36
-public import CFSG.ClassicalInvolution.RouteD.GapsFrMinusSmallLeaf
 
 public section
 

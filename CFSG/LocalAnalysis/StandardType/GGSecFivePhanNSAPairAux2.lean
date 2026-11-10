@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSAPairAux
-import CFSG.LieType.Universal.Unitary.Comparison
-import CFSG.LieType.Steinberg.CentralExt.SUTwo
-import CFSG.ClassicalInvolution.Phan.Center
-import CFSG.ClassicalInvolution.Phan.StandardPair
 
 public section
 

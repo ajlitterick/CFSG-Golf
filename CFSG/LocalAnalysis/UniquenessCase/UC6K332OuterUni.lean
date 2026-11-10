@@ -6,7 +6,6 @@ import CFSG.LocalAnalysis.UniquenessCase.UC6K332OuterArith
 import CFSG.HardMathSupport.Lang.Coordinator.OuterFixedOrderPSU
 import CFSG.RankThree.PartOne.FOC.PSUModel
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherPrimeForm
-import CFSG.RankThree.PartOne.FOC.Transfer
 
 public section
 

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTriD4KnownInputs
 public import CFSG.LocalAnalysis.StandardType.GGTwE6LocalRankCover
 import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaCenter
-import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryLift
 import CFSG.HardMathSupport.Timmesfeld.Coordinator.ElemAbelianComplement
 
 public section

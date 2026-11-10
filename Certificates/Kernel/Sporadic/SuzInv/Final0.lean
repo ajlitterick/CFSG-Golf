@@ -5,7 +5,6 @@ public import Certificates.Kernel.Sporadic.SuzInv.Full0
 public import Certificates.Kernel.Sporadic.SuzInv.Inner0
 import all CFSG.Sporadic.SuzOddCore.InvArrays
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.NormNum
 
 public section
 

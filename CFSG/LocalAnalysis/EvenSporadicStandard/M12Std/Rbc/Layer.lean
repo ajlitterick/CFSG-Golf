@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.M12Std.Rbc.Concat
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Junction.PGroups
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.LitCompAt
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

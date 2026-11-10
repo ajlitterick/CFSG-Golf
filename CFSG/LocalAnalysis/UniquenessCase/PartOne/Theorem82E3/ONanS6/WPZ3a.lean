@@ -1,25 +1,10 @@
 module
 
-public import CFSG.Adapters.LieModelL3U3Torus
-public import CFSG.GroupTheory.ABGLocalTools.CoreLemmas
-public import CFSG.GroupTheory.ConjActionModPCore
-public import CFSG.GroupTheory.CoprimeActionSupport.CentralizerOnQuotientMembership
 public import CFSG.GroupTheory.IsCyclicOfPRankLeOne
-public import CFSG.GroupTheory.PRankQuotientLift
-public import CFSG.LocalAnalysis.AGLEmbedding.CatalogComponent
 public import CFSG.LocalAnalysis.RankFourTheoremC.Nongeneration.Planes
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight90P22
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.K5SmallONan
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.KInputs811K3Holds
-public import CFSG.RankThree.PartTwo.KFacts.OutFixCentralThreeTools
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanKFacts
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanK12
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPFF2
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPG2
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPZ
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPZ2e
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPZs
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WS6
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.CaseOneONan
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight90S123
 

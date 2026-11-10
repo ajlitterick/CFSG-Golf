@@ -2,14 +2,11 @@
 module
 
 public import Certificates.Kernel.Misc.Tits.K0Use7050
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Data.Kernel.SporSch.OrbRec
 public import CFSG.Quasithin.Recognition.RuRank3E0DataInputs
-public import CFSG.Quasithin.Recognition.RuRank3RuAutDataInputs
 public meta import CFSG.Quasithin.Recognition.RuRank3E0DataInputs
 public meta import CFSG.Quasithin.Recognition.RuRank3RuAutDataInputs
 public meta import CFSG.Quasithin.Recognition.RuRank3TitsSylInputs
-import Certificates.Kernel.Misc.Perm.HexCmd
 import CFSG.Certificates.Kernel.Common.Harness
 public import Certificates.Kernel.Misc.Tits.K0Chain7050
 

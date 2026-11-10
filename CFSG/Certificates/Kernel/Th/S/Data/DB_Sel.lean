@@ -17,9 +17,6 @@ public import CFSG.Certificates.Kernel.Th.S.Data.DB_facts_9
 public import CFSG.Certificates.Kernel.Th.S.Data.DB_hdr
 public import CFSG.Certificates.Kernel.Th.S.Data.DB_stab
 public import CFSG.Certificates.Kernel.Th.S.Data.DA_Sel
-public import CFSG.Certificates.Kernel.Th.S.DceS
-public import CFSG.Certificates.Kernel.Th.S.Data.K1_Sel
-public import CFSG.Certificates.Kernel.Th.S.Data.K3_Sel
 
 #kc_select CFSG.KD.ThB FB FB 11309
 #kc_select CFSG.KD.ThB HB HB 1690

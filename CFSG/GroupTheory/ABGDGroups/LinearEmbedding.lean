@@ -3,7 +3,6 @@ module
 public import CFSG.GroupTheory.ABGDGroups.LinearDecomposition
 public import CFSG.GroupTheory.ABGDGroups.LinearSemidihedral
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.NormalPSL2ToPGammaL2Apply
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2PSLRangeCentralizer
 public import CFSG.CharacterTheory.Semidihedral.AlternatingSevenExclusion
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.AutAlternatingFour
 

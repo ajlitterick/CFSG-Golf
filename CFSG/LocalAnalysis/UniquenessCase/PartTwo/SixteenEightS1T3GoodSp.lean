@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Open.StatedDefs
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenEightS1T3GoodConj
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC13BCAPairSp
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC1KitGGroup

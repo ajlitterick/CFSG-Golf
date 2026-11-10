@@ -1,12 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGStructSOnePrimeRootCount
 public import CFSG.LocalAnalysis.StandardType.GGStructSOnePrimeRootCountLevi
 public import CFSG.LocalAnalysis.StandardType.GGStructSOnePrimeRootOmega
-public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsOmFour
-public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsOmMinus
-public import CFSG.GroupTheory.WeirSylow.OrthogonalOrders
-public import CFSG.Timmesfeld.Orders.Classical
 
 public section
 

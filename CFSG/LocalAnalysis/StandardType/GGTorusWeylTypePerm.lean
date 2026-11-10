@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeDefs
 public import CFSG.LocalAnalysis.StandardType.GGStdPosC13PermConv
 
 import CFSG.LocalAnalysis.StandardType.GGTDAutomizer
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyU
 
 public section
 

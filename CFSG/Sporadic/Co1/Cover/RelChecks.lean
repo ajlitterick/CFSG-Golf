@@ -1,7 +1,5 @@
 module
 
-public import CFSG.Sporadic.Co1.Cover.Data
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 public import Certificates.Certificate10063
 public meta import CFSG.Sporadic.Co1.Cover.Data
 public meta import CFSG.Sporadic.Co1.Module.OddProg

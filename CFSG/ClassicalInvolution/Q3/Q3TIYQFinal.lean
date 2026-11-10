@@ -1,12 +1,10 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Q3TIYQRank
-public import CFSG.ClassicalInvolution.Q3.Q3TIYQGlue
 public import CFSG.ClassicalInvolution.Q3.Q3TIYQSq7
 public import CFSG.ClassicalInvolution.Q3.Q3TIYQSl4Count
 public import CFSG.ClassicalInvolution.Q3.Q3TIYPOutAll
 public import CFSG.ClassicalInvolution.Q3.Q3URDict
-public import CFSG.ClassicalInvolution.Q3.Q3URStd
 
 public section
 

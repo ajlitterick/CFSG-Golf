@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
 import all CFSG.LocalAnalysis.StandardType.ClassicalPosition.FEPSp
 import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockModelSelfDualPSp
 import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockModelSelfDualTwoPSp

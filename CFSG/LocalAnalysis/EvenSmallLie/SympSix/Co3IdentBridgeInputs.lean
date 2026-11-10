@@ -5,8 +5,6 @@ public import CFSG.Sporadic.Bridge.VecSurj
 public import CFSG.Sporadic.Co3
 public meta import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Co3IdentDefs
 public meta import Certificates.Data.CFSGNative.Bridge.SurjD
-import CFSG.Blueprint.NativeSporadic
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

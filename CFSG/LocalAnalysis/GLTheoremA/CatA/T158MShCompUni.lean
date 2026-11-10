@@ -6,17 +6,8 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.T158MShClaim
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeBoundGenBaseW
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeBoundGenKernel
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeUBlockInnAut
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeFamInOmGen
-public import CFSG.LocalAnalysis.GLTheoremA.CatB.Bridges
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.UnitaryFieldType
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.UnitaryProjConj
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Basic
-public import CFSG.HardMathSupport.Solomon.Coordinator.B3LieCore
-public import CFSG.Adapters.CatalogueFieldBridges.Linear
-public import CFSG.Adapters.CatalogueFieldBridges.UnitarySU
-public import CFSG.LieType.Universal.Unitary.Clause0
-public import CFSG.LocalAnalysis.ComponentInitial.LinearFlagElation
-public import Mathlib.LinearAlgebra.Projectivization.PSL.PSL2
 public import CFSG.GroupTheory.CentralizerSup
 public import CFSG.GroupTheory.ElemAbelianPlaneAction
 public import CFSG.GroupTheory.PLayer.PIndex

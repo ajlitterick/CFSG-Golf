@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Odd87F3Check
-public import CFSG.Sporadic.Schreier.ImagePairs
 public meta import Certificates.Data.Odd87F3Check
 public meta import CFSG.Sporadic.Schreier.ImagePairs
 

@@ -1,13 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTPDefs
-public import CFSG.LocalAnalysis.StandardType.GGTwKGLayerDefs
-public import CFSG.Open.StatedDefs
 public import CFSG.LocalAnalysis.StandardType.GGKGTwFrame
 public import CFSG.LocalAnalysis.StandardType.GGKGTwTheta
 public import CFSG.LocalAnalysis.StandardType.GGTwE6CorootCoreOfFuse
 public import CFSG.LocalAnalysis.StandardType.GGTwE6CorootCoreFuse
-public import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotNeighbourStandard
 
 public section
 

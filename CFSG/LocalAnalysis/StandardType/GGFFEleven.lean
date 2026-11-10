@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGFFLocal
 public import CFSG.LocalAnalysis.StandardType.GGFFModelNDefs
 public import CFSG.RankThree.PartTwo.Sec21.FF81P51
-public import CFSG.Open.LocalVocabulary
 import CFSG.LocalAnalysis.StandardType.GGFFNine
 import CFSG.LocalAnalysis.StandardType.GGFFElevenMat
 import CFSG.LocalAnalysis.StandardType.GGFFElevenA

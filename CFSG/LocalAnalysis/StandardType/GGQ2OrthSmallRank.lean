@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2OrthStatements
 public import CFSG.LocalAnalysis.StandardType.GGQ2UnitStatements
-import CFSG.LocalAnalysis.StandardType.Marking
-import CFSG.LocalAnalysis.StandardType.GGTableBLinear
 import CFSG.LocalAnalysis.StandardType.GGQ2UnitFrameExists
 
 public section

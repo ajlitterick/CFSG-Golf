@@ -3,11 +3,7 @@ module
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.GN516.GOrbCore
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.GN516.GOrbEdgeLevi
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.LieInput.SUBlocks
-public import CFSG.HardMathSupport.Cooperstein.Coordinator.LieInput.SLChev
-public import CFSG.HardMathSupport.Cooperstein.Coordinator.LieInput.SLLevi
-public import CFSG.HardMathSupport.Cooperstein.Coordinator.LieInput.SpBlocks
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.SquareUnitary
-public import CFSG.LieType.Universal.Unitary.Extras
 public import CFSG.CGT.PushingUpLit.BHS6.Basic
 public import CFSG.Certificates.WordSubgroupRel
 public import CFSG.GH74.GLS.Classes

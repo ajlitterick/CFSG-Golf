@@ -2,7 +2,6 @@ module
 
 public import CFSG.Certificates.Kernel.MonsterB.PermBfsSound
 public import CFSG.Quasithin.Recognition.CertChain
-public import Mathlib.Algebra.Order.Ring.Star
 
 public section
 

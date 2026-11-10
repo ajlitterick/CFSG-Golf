@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneExist
-public import CFSG.LocalAnalysis.StandardType.GGInnLocal
 
 public section
 

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePumpAbsorb
 import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylEltOfAutomizer
 import CFSG.LocalAnalysis.StandardType.GGSpJoinNbrModel
-import Mathlib.Tactic.Group
 import CFSG.LocalAnalysis.StandardType.GGSecFiveRankOneConj
 
 public section

@@ -5,35 +5,13 @@ public import CFSG.LocalAnalysis.ComponentClassification.FooteLitInputs
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitWeakCorr
 public import CFSG.LocalAnalysis.ComponentClassification.FooteLitPointed
 
-import CFSG.GH74.GLS.Stage1.Thm2.Recip.IG327Proof
-import CFSG.Assembly.Defs
-import CFSG.GroupTheory.PCore.Defs
-import CFSG.Foundations.QuasisimpleMulEquiv
-import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
-import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Defs
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PPrimeCore
-import CFSG.Assembly.Reduction
-import CFSG.Blueprint.Catalog
-import CFSG.LocalAnalysis.ComponentClassification.FooteLitMaximal
 import CFSG.LocalAnalysis.ComponentInitial.LocalBMaximalPropagation
-import CFSG.LocalAnalysis.ComponentInitial.CommutingBlock
-import CFSG.Open.LocalVocabulary
 import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.OutWClass
 import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec3W12Comm
 import CFSG.LocalAnalysis.ComponentClassification.CTUFooteConjugate
-import CFSG.LocalAnalysis.ComponentClassification.Foote5SolRepoint
-import CFSG.LocalAnalysis.ComponentClassification.Foote5SolStar
-import CFSG.LocalAnalysis.ComponentClassification.Foote5SolForward
 import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeDB
-import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsStepFour
 import CFSG.LocalAnalysis.ComponentClassification.CatLeafBasic
 import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofEndOddLieL1
-import CFSG.LocalAnalysis.ComponentClassification.FooteLitClassical
-import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCorrCriticalGrowth
-import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec4Chain
-import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Basic
-import CFSG.Foundations.SteinbergCAGeneratedCoreNodes
-import CFSG.LieType.BorelTits.Basic
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public import CFSG.LocalAnalysis.ComponentClassification.UGSChainKGroupTwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancingLocalKProper

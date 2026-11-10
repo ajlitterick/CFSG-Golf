@@ -1,9 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.FP
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.MIInnDiag
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.MIAut3
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.OutCycGroup
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.OutCycMark
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.D4XAsm2
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.D4YBMain

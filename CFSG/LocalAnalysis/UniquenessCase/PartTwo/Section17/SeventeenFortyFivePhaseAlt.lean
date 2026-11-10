@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenForty
 import CFSG.LocalAnalysis.UniquenessCase.UCFront10K101
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22rm
 import CFSG.GroupTheory.PermutesPullback
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

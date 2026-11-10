@@ -9,9 +9,6 @@ public import CFSG.Fischer.Pairs
 public import CFSG.Open.Defs
 import CFSG.Assembly.Subnormal
 import CFSG.Fischer.Uniq.CompTau
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

@@ -2,11 +2,9 @@ module
 
 public import Certificates.Data.Kernel.L34Pre
 public import CFSG.Certificates.Kernel.L34KSound
-public import CFSG.Certificates.Kernel.BfsPinAlg
 import CFSG.Certificates.Kernel.L34KSnd.Tab
 import CFSG.Certificates.Kernel.Spor.PackFld
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import CFSG.Certificates.Kernel.Spor.BfsReplay
 
 public section
 

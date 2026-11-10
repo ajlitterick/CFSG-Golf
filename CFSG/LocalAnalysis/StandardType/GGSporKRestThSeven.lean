@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSporKRestOrderE
-public import CFSG.LocalAnalysis.StandardType.GGSporKRestClosure
 public import CFSG.RankThree.PartOne.CTP.SporadicFusionTh
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThSeven
-public import CFSG.Sporadic.Bridge.ThSurj
 
 public section
 

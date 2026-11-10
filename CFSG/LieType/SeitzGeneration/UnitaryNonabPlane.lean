@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LieType.SeitzGeneration.UnitaryNonabArith
 public import CFSG.LieType.SeitzGeneration.UnitaryNonabToral
 public import CFSG.LieType.SeitzGeneration.UnitaryNonabNonPth
 public import CFSG.LieType.SeitzGeneration.UnitaryNonabHeis

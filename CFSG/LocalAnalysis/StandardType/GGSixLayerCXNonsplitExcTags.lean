@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitExcCore
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitKGOmRound8
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcDefs
 
 public section
 

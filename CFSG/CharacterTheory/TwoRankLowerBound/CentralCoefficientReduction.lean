@@ -1,10 +1,5 @@
 module
 
-public import Mathlib
-public import CFSG.CharacterTheory.TwoRankLowerBound.CharacterBasis
-public import CFSG.CharacterTheory.TwoRankLowerBound.AlgebraicIntegerResidue
-public import CFSG.CharacterTheory.TwoRankLowerBound.LocalizedAlgebraicIntegers
-public import CFSG.CharacterTheory.TwoRankLowerBound.GroupAlgebraUnitResidue
 public import CFSG.CharacterTheory.TwoRankLowerBound.TwoSidedPermutation
 public import CFSG.CharacterTheory.TwoRankLowerBound.CentralCharacterHom
 public import CFSG.Open.Defs

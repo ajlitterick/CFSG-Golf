@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoTorus
-public import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotBlocks
 public import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotGenTwoWindows
 public import TauCeti.GroupTheory.Sylow
 

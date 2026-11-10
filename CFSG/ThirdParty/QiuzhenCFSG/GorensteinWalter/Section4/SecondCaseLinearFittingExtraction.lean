@@ -1,12 +1,6 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2Subgroups
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2DihedralProjection
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
-import Mathlib.GroupTheory.Nilpotent
-import Mathlib.GroupTheory.Sylow
-import Mathlib.GroupTheory.OrderOfElement
-import Mathlib.Data.Nat.MaxPowDiv
 import Mathlib.Tactic
 
 namespace CFSG

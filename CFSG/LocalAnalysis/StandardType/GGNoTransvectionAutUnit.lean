@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNoTransvectionAutOrth
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyU
 
 public section
 

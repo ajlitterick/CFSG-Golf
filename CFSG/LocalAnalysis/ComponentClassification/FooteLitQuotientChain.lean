@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.FooteLitComponentReduction
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuotIso
 public import CFSG.LocalAnalysis.ComponentClassification.FooteLitRankOneLayer
 public import CFSG.LocalAnalysis.ComponentClassification.FooteLitRankOneTools
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aConjFix

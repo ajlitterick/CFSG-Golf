@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixJNotA6KnownDefs
 import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRuleSpRank
-import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticBstar
 import CFSG.Quasithin.Background.SimsD1TransGrp
 import CFSG.LocalAnalysis.ComponentInitial.DerivedFixedLayer
 

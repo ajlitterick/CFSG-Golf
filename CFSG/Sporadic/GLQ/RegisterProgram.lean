@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.SectionRank.Sporadic.Elem3
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.LocalWitness
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ElementaryAbelian
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedGSCRankOneCenter
 
 public noncomputable section

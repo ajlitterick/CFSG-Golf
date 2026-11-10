@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfToralDescent
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfThreeStep
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcThreeE8
 import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfLemmaT
 import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoFusionE8
 import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTBHalfKey

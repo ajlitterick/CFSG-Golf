@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGD5Defs
 public import CFSG.LocalAnalysis.StandardType.GGD5AbsCoord
 public import CFSG.LocalAnalysis.StandardType.GGR4PumpDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBRank
 import CFSG.LocalAnalysis.StandardType.GGR4PumpTransfer
 import CFSG.Mathlib.Decide.Nodup
 

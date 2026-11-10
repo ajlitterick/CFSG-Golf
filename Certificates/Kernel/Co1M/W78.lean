@@ -6,10 +6,7 @@ public import Certificates.Kernel.Co1M.K78C
 public import Certificates.Kernel.Co1M.K78D
 public import Certificates.Kernel.Co1M.K78E
 public import Certificates.Kernel.Co1M.K78L
-public import Certificates.Kernel.Co1M.Orb98280
-public import Certificates.Kernel.Co1Cover.Bridge
 public import CFSG.Sporadic.Co1.Module.U6OddLitInputs
-public import CFSG.Certificates.Kernel.SortTreeSound
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Monster.GMS.U6OddSylow
 public import CFSG.Sporadic.Co1.Module.U6OddForest

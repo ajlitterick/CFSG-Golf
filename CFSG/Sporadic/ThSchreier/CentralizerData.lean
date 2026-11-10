@@ -5,14 +5,7 @@ public import CFSG.Sporadic.ThSchreier.CentralizerDataBase
 
 public import CFSG.Sporadic.ThSchreier.GlobalData
 public meta import CFSG.Sporadic.ThSchreier.Text
-public import CFSG.Sporadic.ThSchreier.CentralizerDataInputs
 public import Certificates.Certificate2309
-public import Mathlib
-public import CFSG.Blueprint.NativeSporadic
-public import CFSG.Blueprint.MatrixSeedIdentification
-public import CFSG.Sporadic.Th.F2Spec
-public import CFSG.Certificates.SchreierStabilizerGenerators
-public import Certificates.Data.CFSGNative.Th.Certificate
 public import CFSG.Sporadic.ThSchreier.LocalOrbitBase1
 
 public section

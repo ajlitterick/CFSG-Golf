@@ -5,9 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGF4B3CoreDefs
 import CFSG.LocalAnalysis.StandardType.GGF4B3Pair
 import CFSG.LocalAnalysis.StandardType.GGSecFiveRootRefl
 import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoRowE
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelTypeAAssembly
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
-import TauCeti.GroupTheory.Coxeter.Geometric
 
 public section
 

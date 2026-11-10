@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGFieldTwoDefs
 public import CFSG.LocalAnalysis.StandardType.GGFieldTwoCornerDefs
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentKLocal
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoLayer
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 public import CFSG.LocalAnalysis.StandardType.GGTPNThmRACoreUni
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentJLevel
 

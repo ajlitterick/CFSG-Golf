@@ -3,7 +3,6 @@ module
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6gCand
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6gOddAbs
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6cOrbit
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6dOdd
 
 public section
 

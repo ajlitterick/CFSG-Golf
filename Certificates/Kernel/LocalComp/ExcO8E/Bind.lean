@@ -3,11 +3,8 @@ module
 public import Certificates.Kernel.LocalComp.ExcO8E.Data
 public import Certificates.Kernel.LocalComp.ExcGlue
 public import Certificates.Kernel.LocalComp.E8Tables
-public import CFSG.Certificates.Kernel.Spor.PackWord
 import CFSG.Certificates.Kernel.Spor.PcompFacts
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.BfsPinSound
-public import CFSG.Certificates.Kernel.BfsPinUnpack
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutCheckBase
 
 public section

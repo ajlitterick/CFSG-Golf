@@ -1,31 +1,14 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResidualGenFrame
-public import CFSG.LocalAnalysis.StandardType.GGTBFixDefs
-public import CFSG.LocalAnalysis.StandardType.GGNsq2Cited
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1WeylE
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseOrthFrame
 import CFSG.LocalAnalysis.StandardType.GGOrthWeakFrameOfMarking
 import CFSG.LocalAnalysis.StandardType.GGOrthWeakFrameCenter
-import CFSG.LocalAnalysis.StandardType.GGOrthFrameCore
 import CFSG.LocalAnalysis.StandardType.GGStdUnitaryFourExcl
-import CFSG.LocalAnalysis.StandardType.GGNsq2Main
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSQ2U62Setup
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSLieEsuAux
-import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
-import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoPairing
 import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoUnitary
 import CFSG.LocalAnalysis.StandardType.GGFrameRouteLower
-import CFSG.LocalAnalysis.StandardType.GGSecFiveRest
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelTypeAAssembly
-import CFSG.LocalAnalysis.StandardType.GGSecFiveL1OddLeaves
-import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrOfEnnola
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseLabel
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
 
 public section
 

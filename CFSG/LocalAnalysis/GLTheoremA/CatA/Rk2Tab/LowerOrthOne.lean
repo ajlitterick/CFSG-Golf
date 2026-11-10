@@ -1,15 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.LowerSymplecticOrth
-public import CFSG.ClassicalGroups.Orthogonal.Simple
-public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalElementary
 public import CFSG.RankThree.PartTwo.Census.Classical.EvenBlocks
 public import CFSG.HardMathSupport.Solomon.LocalBalance.I1433.D4Centre
-public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalTailRootData
-public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalTailRootGen
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointIsometryBasic
 public import CFSG.HardMathSupport.Lang.E27Lie.MinusToralCore
-public import CFSG.Walter.ReeOrder.JT.Section4H
 public import CFSG.ClassicalInvolution.Balance.LocalBalance.Faithful
 public import CFSG.HardMathSupport.Solomon.Coordinator.I14_20Alt
 public import CFSG.HardMathSupport.Solomon.Coordinator.L3C143AltMain

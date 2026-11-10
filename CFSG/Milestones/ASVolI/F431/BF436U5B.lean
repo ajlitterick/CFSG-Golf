@@ -3,7 +3,6 @@ module
 public import CFSG.Milestones.ASVolI.F431.BF436U5A
 public import CFSG.Quasithin.Vol2.GoldschmidtF431Un5OutLieFld
 public import CFSG.Quasithin.Vol2.GoldschmidtF431Un5LieC
-public import CFSG.Fischer.F4
 import all CFSG.Fischer.F4
 import all CFSG.Milestones.ASVolI.F4
 import all CFSG.Milestones.ASVolI.F431.BCoreU5Chart

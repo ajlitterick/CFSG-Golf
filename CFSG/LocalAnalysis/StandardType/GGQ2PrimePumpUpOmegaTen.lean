@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimePumpUpAut
-public import CFSG.LieType.Steinberg.CentralExt.OrthogonalTwoMultiplier
-public import CFSG.Timmesfeld.Orders.Classical
-public import CFSG.Adapters.StatedClassicalUnitaryOrders
 public import CFSG.HardMathSupport.Solomon.Coordinator.LBIHopf
 
 public section

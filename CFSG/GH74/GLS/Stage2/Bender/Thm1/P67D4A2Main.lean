@@ -3,9 +3,7 @@ module
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4A2Phi
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4A2FoldCard
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4A2Centralizer
-public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4OutStage
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4OutCrit
-public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67G2FieldAux
 
 public noncomputable section
 

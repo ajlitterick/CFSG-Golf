@@ -3,12 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGK1Defs
 public import CFSG.LocalAnalysis.StandardType.GGK1CoverBij
 public import CFSG.LocalAnalysis.StandardType.GGK1CoverSigma
-public import CFSG.LocalAnalysis.StandardType.GGK1LiftComp
-public import CFSG.LocalAnalysis.StandardType.GGTCJCoverGen
-public import CFSG.GroupTheory.ElemAbelianClosure
-public import Mathlib.GroupTheory.OrderOfElement
-public import Mathlib.GroupTheory.Commutator.Basic
-public import Mathlib.GroupTheory.Coset.Card
 
 public section
 

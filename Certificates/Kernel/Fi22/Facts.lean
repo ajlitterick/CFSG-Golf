@@ -1,12 +1,7 @@
 module
 
 public import Certificates.Kernel.Co2.Join
-public import CFSG.Certificates.Kernel.Fi22.Bound2.Lab
-public import CFSG.Certificates.Kernel.Fi22.Bound2.Data.X1_Sel
-public import CFSG.Certificates.Kernel.Fi22.Bound2.Data.X2_Sel
-public import CFSG.Certificates.Kernel.Fi22.Bound2.Data.X3_Sel
 public import CFSG.Certificates.Kernel.Fi22.Bound2.Data.C_Sel
-public import CFSG.Certificates.Kernel.Fi22.Bound.Data.P_Sel
 public import CFSG.Certificates.Kernel.Fi22.Bound2.Checks.X
 public import CFSG.Certificates.Kernel.Fi22.Bound2.Checks.C_W_0
 public import CFSG.Certificates.Kernel.Fi22.Bound2.Checks.C_L

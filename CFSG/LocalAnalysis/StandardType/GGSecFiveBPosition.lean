@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPositionDefs
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPositionFrame
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBFixLine
 import CFSG.LocalAnalysis.StandardType.GGSecFiveRestOriginalWeyl
-import CFSG.LocalAnalysis.StandardType.GGSignedCoordRefl
 import CFSG.LocalAnalysis.StandardType.GGSignedCoordReflGroup
 import CFSG.LocalAnalysis.StandardType.GGSignedCoordConj
 

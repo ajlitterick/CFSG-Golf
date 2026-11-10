@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.Kernel.TabMatGrp
 public import Certificates.Kernel.W4Model.Check
 public import Certificates.Kernel.J3Fusion.Rels
 import CFSG.Certificates.Kernel.Common.Harness

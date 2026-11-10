@@ -4,8 +4,6 @@ public import Certificates.Kernel.LocalQT.K32.D4121b
 public import Certificates.Kernel.LocalQT.K32.D4121c
 public import Certificates.Kernel.SporSch.Mathieu.M23Facts
 public import Certificates.Kernel.SporSch.Mathieu.M22Facts
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

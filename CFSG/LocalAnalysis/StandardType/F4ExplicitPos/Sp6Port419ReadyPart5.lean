@@ -4,7 +4,6 @@ public import CFSG.GroupTheory.MulAutCongr
 public import CFSG.LocalAnalysis.StandardType.GGSixTCPSUDvd
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UG7
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4ULang
-public import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.Sp6Port419ReadyPart4
 
 @[expose] public section

@@ -2,7 +2,6 @@
 module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.Basic
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.CheckSpec
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.Elems
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.InvCheck
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.SylowCover
@@ -12,9 +11,6 @@ public import CFSG.Certificates.CosetTableShort
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoHS.Le4.S9Iso
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 public import CFSG.Walter.JRFacts
 
 @[expose] public section

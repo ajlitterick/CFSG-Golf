@@ -5,7 +5,6 @@ public import CFSG.Certificates.Kernel.SporSch.PairJ3CntSound
 import CFSG.Certificates.Kernel.Misc.PermClosOrbit
 import CFSG.Certificates.Kernel.Misc.PermClosProof
 import CFSG.Certificates.Kernel.LocalQTPermSound
-public import Mathlib.Data.Nat.Bitwise
 
 namespace CFSG.KC.HatHe
 

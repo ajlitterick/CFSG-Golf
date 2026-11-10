@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKD2Connected1619Contracts
-public import CFSG.Open.StatedDefs
-public import CFSG.Assembly.Subnormal
-public import CFSG.LocalAnalysis.GLTheoremA.PComp
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ParabCommSpRes
 public import CFSG.LocalAnalysis.StandardType.GGK1ADvd
 public import CFSG.LocalAnalysis.AGLEmbedding.J3MSideDefs

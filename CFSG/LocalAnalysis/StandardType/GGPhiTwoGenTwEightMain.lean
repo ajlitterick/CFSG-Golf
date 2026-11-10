@@ -1,13 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoGenTwEightInput
-public import CFSG.LocalAnalysis.StandardType.GGPhiTwoGenTwEightDefs
-public import CFSG.LocalAnalysis.StandardType.GGPhiTwoGenTwEightLang
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoGenTwEightSU6
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoGenTwEightD4
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoGenTwEightConj
-public import CFSG.LieType.Chevalley.AmbientTwistedFrobeniusFixedNormalizer
-public import CFSG.ClassicalGroups.Unitary.Finite
 
 public section
 

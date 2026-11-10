@@ -3,11 +3,9 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGExcFrameLang
 public import CFSG.LocalAnalysis.StandardType.GGFamCentralizerBridge
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.E7RootSetStab
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.E7RootSetNondeg
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP13Roots
 import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.E7RootSetLiftAux
 import CFSG.LocalAnalysis.StandardType.GGSixBstarE8FiveFrameCentralizer
-import CFSG.LieType.Chevalley.ToralCentralizerBruhat
 
 public section
 

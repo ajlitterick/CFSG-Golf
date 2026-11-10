@@ -1,21 +1,14 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1Defs
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGTyLabelAux
-public import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotCatTypeDet
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2GeoSUShort
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortSUDefs
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2GeoSp
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortSpNorm
 public import CFSG.LocalAnalysis.StandardType.GGPRankBoundsSp
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIISpSiegel
 public import CFSG.LocalAnalysis.StandardType.GGSixRCK1416Spin
 public import CFSG.ClassicalGroups.Symplectic.ComponentCartanRank
-public import CFSG.LieType.Universal.Symplectic
 public import CFSG.RankThree.GF2n.Smith81.InspKSpCard
-public import CFSG.LargeExtraspecial.A2ModOrd
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagOrder
-public import CFSG.Adapters.StatedClassicalUnitaryOrders
 public import CFSG.ClassicalGroups.Symplectic.DiagonalTorusRank
 
 public section

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGIrred937F4Main
-public import CFSG.LocalAnalysis.StandardType.GGIrred937F4Transfer
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylCompDefs
 
 public section
 

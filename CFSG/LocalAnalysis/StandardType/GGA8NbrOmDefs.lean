@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelOmFrame
-public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitOmBlock
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointDataCoordinates
-public import CFSG.LieType.Universal.Catalog
 public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitOmGlue
 
 public section

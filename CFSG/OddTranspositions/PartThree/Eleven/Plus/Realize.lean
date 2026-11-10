@@ -1,7 +1,6 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Eleven.Plus.Perm
-public import CFSG.OddTranspositions.PartThree.FiveReflection
 public import Certificates.Certificate1383005
 
 public section

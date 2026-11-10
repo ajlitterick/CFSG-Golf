@@ -5,7 +5,6 @@ public import Certificates.Kernel.Co1B.Dag2045
 public import Certificates.Kernel.SporSch.Co1.Packed
 public import Certificates.Data.Kernel.Co1BTri
 public import Certificates.Data.Kernel.Co1F2
-public import Certificates.Data.Kernel.Spor.Prim
 public import Certificates.Data.Kernel.PackSet
 public import CFSG.Sporadic.Co1Block.TwoBData
 public meta import Certificates.Kernel.Co1B.GenTri2045

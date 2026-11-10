@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGE0ShapeModel
-public import CFSG.LocalAnalysis.StandardType.GGLemmaThreeThirteenFourteenP
 
 public section
 

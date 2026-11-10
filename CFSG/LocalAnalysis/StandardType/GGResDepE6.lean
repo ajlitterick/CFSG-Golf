@@ -1,14 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResDepAFive
-public import CFSG.LocalAnalysis.StandardType.GGDepEFrame
-public import CFSG.LocalAnalysis.StandardType.GGDepERelation
 public import CFSG.LocalAnalysis.StandardType.GGDepEKSide
 public import CFSG.LocalAnalysis.StandardType.GGDepEDim6
 public import CFSG.LocalAnalysis.StandardType.GGDepEPattern
 public import CFSG.LocalAnalysis.StandardType.GGDepEModel
 public import CFSG.LocalAnalysis.StandardType.GGDepECells
-public import CFSG.LocalAnalysis.StandardType.GGResLeaves
 
 public section
 

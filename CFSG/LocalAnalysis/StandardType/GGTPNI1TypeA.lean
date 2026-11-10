@@ -1,23 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTPNI1
-public import CFSG.LocalAnalysis.StandardType.GGTPNI1TypeAHelp
 public import CFSG.LocalAnalysis.StandardType.GGTPNI1TypeADvd
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeAEndNode
-public import CFSG.LieType.SemisimpleCentralizers.HeldSLFacts
-public import CFSG.Models
 public import CFSG.LargeExtraspecial.DWFldLinear
-public import CFSG.LocalAnalysis.StandardType.GGLinearSemisimple
-public import CFSG.LocalAnalysis.StandardType.GGLinearTorusCompModel
 public import CFSG.LocalAnalysis.StandardType.GGRoundFourSmallALinearBlock
 public import CFSG.LocalAnalysis.StandardType.GGTypeAFarRealize
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrLabels
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeACover
-public import CFSG.LocalAnalysis.StandardType.GGTypeACompatDiagLin
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaCard
 
 public section
 

@@ -1,12 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTWHLCover
 public import CFSG.LocalAnalysis.StandardType.GGHL58NbrRest
 public import CFSG.LocalAnalysis.StandardType.GGDepED4L58Rest
-public import CFSG.LocalAnalysis.StandardType.GGDepED4PackDefs
 public import CFSG.LocalAnalysis.StandardType.GGReflNormLine
 public import CFSG.LocalAnalysis.StandardType.GGReflClosedOfWeyl
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNormalClosureRefl
 public import CFSG.LocalAnalysis.StandardType.GGNbrCanCartan
 
 public section

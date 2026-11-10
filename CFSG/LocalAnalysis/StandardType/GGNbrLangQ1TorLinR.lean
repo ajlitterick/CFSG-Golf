@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1RLevel
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1TorLinDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1TorLinLift
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1TorLinMark

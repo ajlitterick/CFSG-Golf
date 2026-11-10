@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LieType.Steinberg.CentralExt.TwistedE6TwoToralCoords
-public import CFSG.LieType.Steinberg.CentralExt.TwistedE6TwoReflectionFrame
-public import CFSG.LieType.Steinberg.CentralExt.TwistedE6OriginalFamilyKernel
 public import CFSG.LieType.Steinberg.CentralExt.TwistedE6OriginalA2Pair
 public import CFSG.LocalAnalysis.StandardType.GGResCentBoundNbrHolds
 

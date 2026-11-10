@@ -1,9 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec21.FF81Am6Family
-public import CFSG.RankThree.PartTwo.Sec21.FF81Defs
-public import CFSG.LocalAnalysis.SeitzReduction.F4PilotQ2Position
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4TwoInputsSylow
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotUniqueRowsSwap
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotQ2SwapChainRoots
 public import CFSG.RankThree.PartTwo.Sec21.FF81F4L3

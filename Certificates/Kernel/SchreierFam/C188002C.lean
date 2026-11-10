@@ -1,9 +1,7 @@
 module
 
-public import Certificates.Data.HuppertU38.Data
 public import Certificates.Data.Kernel.U38Pts
 public meta import Certificates.Data.HuppertU38.Data
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.SchreierFam.C188002H
 public import Certificates.Data.Kernel.Spor.Prim
 import CFSG.Certificates.Kernel.Common.Harness

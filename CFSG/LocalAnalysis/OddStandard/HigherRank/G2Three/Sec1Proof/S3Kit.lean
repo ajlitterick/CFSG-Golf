@@ -1,19 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.FrameKit
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.TabPc
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.TabDecode
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.Words3
-public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.ModelDef
 import Certificates.Kernel.G2Three.Sec1T3Glue
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.S11
-public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.FactsS
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.TabPred4
-public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.FrameDefs
-public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.TabOps1
-public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.TabOps4
-public import Mathlib.GroupTheory.OrderOfElement
 public import Std.Data.HashSet
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.TabPred2
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.FrameLe

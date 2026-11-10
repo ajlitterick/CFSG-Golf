@@ -6,7 +6,6 @@ public import CFSG.Quasithin.EmptyFaithful.ModHHe2
 public import CFSG.Quasithin.EmptyFaithful.ModHInn4
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHe
 import all CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHe
-public import CFSG.Sporadic.He.Simple
 
 public section
 

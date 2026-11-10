@@ -1,17 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerOmegaFrame
-public import CFSG.LieType.Universal.SpinOmega.Kernel
-public import CFSG.LieType.Universal.SpinOmega.Range
-public import CFSG.LieType.Universal.SpinOmega.Center
-public import CFSG.LieType.Universal.Spin.Datum
-public import CFSG.LieType.Universal.Spin.Twisted.Datum
-public import CFSG.ClassicalGroups.Orthogonal.Simple
-public import CFSG.ClassicalGroups.Orthogonal.Models
 public import CFSG.RankThree.PartOne.S11d.OrthDicksonOmega
 public import CFSG.LieType.Steinberg.CentralExt.SpinPlusCenter
-public import CFSG.LieType.Steinberg.Classical.SpinOdd.Weyl
-public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.LieType.Steinberg.CentralExt.OrthogonalPerfect
 public import CFSG.LieType.Steinberg.CentralExt.SpinPlusCentrallyClosed

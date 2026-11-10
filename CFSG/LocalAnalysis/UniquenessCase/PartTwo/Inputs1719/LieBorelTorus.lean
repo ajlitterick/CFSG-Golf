@@ -3,17 +3,8 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.Defs
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.OuterCyclic
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront11
-public import CFSG.LocalAnalysis.QuasithinUnique.Defs
-public import CFSG.Blueprint.LieModelAPI
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
-public import CFSG.Quasithin.Background.QuasisimpleSp4G2Facts
-public import CFSG.Quasithin.Vol2.Ch5Sec3Statements
 public import CFSG.Quasithin.Vol2.GoldschmidtSec53FactsU4
 public import CFSG.Quasithin.Vol2.GoldschmidtSec53FactsG2
-public import CFSG.ClassicalInvolution.SmallCases.NobqU3
-public import CFSG.ClassicalGroups.UnitaryFlag.ModelTransport
-public import CFSG.LieType.Chevalley.AdjointCenter
-public import TauCeti.Algebra.Group.NormalizerQuotient.Basic
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.CGT.Timmesfeld75.Statements

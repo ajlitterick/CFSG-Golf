@@ -3,10 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGD5LabelGlue
 import CFSG.LocalAnalysis.StandardType.GGTwAutHolds
 import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBVac
-import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestThreeVac
-import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNineSmall
 import CFSG.LocalAnalysis.StandardType.GGCSRLabels
-import CFSG.LocalAnalysis.StandardType.GGAssemblyThreeHypSix
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.TitsOrder
 
 public section

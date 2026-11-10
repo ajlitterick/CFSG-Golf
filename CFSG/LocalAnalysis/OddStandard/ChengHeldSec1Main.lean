@@ -24,10 +24,6 @@ public import CFSG.LocalAnalysis.SectionRank.Ccomm.Critical
 public import CFSG.Milestones.SG_two_signalizer_completeness
 public import CFSG.Permutation.UnitaryThreeRecognition.Model
 public import CFSG.StronglyEmbedded.TheoremSE.BenderLowRank
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_1_12
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 
 public section

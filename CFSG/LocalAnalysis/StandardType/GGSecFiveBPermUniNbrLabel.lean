@@ -2,35 +2,18 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBNbrType
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBLabelDefs
-public import CFSG.LocalAnalysis.StandardType.GGTBXPlumb
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowDefs
 public import CFSG.LocalAnalysis.StandardType.GGMultTableCl
 public import CFSG.LocalAnalysis.StandardType.GGKacK1
-public import CFSG.LocalAnalysis.StandardType.GGFieldNbr
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylKnownDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeakNbr
-public import CFSG.LocalAnalysis.StandardType.GGSignedCoordBlocks
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBLabelCore
-import CFSG.LocalAnalysis.StandardType.GGTwE6BadWeyl
-import CFSG.LocalAnalysis.StandardType.GGNbrReflGenTwE6Three
-import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoAux
 import CFSG.LocalAnalysis.StandardType.GGPZNbrResRest
 import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseLabel
 import CFSG.LocalAnalysis.StandardType.GGK1ScMain
-import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBRes
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpKCent
-import CFSG.LocalAnalysis.StandardType.GGResNonsingularBase
 import CFSG.LocalAnalysis.StandardType.GGResNonsingF4Three
 import CFSG.LocalAnalysis.StandardType.GGSecFiveRowMemberAux
-import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowNCells
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordDExclReal
-import CFSG.LocalAnalysis.StandardType.GGNbrLabelJOfTcjK
-import CFSG.LocalAnalysis.StandardType.GGNbrHalfSplitArith
-import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
-import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHyperbolic
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBSparseLinLabel
 import CFSG.LocalAnalysis.StandardType.GGSignedCoordReflGroup
 

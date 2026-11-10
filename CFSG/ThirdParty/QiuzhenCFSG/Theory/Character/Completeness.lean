@@ -3,11 +3,7 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.SimpleCriteria
 public import Mathlib.Algebra.Central.Matrix
 public import Mathlib.Algebra.Algebra.Subalgebra.Pi
-public import Mathlib.Algebra.MonoidAlgebra.Module
-public import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
-public import Mathlib.LinearAlgebra.Matrix.ToLin
 public import Mathlib.LinearAlgebra.Matrix.Module
-public import Mathlib.LinearAlgebra.Matrix.Trace
 public import Mathlib.RingTheory.SimpleModule.IsAlgClosed
 
 namespace CFSG

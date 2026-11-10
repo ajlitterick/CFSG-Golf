@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGCoverRkTwE6Fuse
 public import CFSG.LocalAnalysis.StandardType.GGCoverRkTwE6Auto
-public import CFSG.LocalAnalysis.StandardType.GGWPlusTwE6
-public import CFSG.LocalAnalysis.StandardType.GGWPlusPositionRk
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBMeta
 
 public section
 

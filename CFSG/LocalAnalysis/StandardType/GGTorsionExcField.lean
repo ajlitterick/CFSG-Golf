@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorsionExcDefs
-public import CFSG.LocalAnalysis.StandardType.GGCompFieldLieModel
 public import CFSG.LocalAnalysis.StandardType.GGCompFieldCatalogue
 public import CFSG.LocalAnalysis.StandardType.GGTorsionQuotComp
 public import CFSG.LocalAnalysis.StandardType.GGInndiagCommRestE6

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.Chevalley.CoordinateFieldFixedSubgroup
-public import CFSG.LieType.Chevalley.PerfectSimpleRoot
 
 public noncomputable section
 

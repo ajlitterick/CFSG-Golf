@@ -1,13 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
-public import CFSG.LocalAnalysis.StandardType.GGInnLocalDichotomy
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallSpTwoDelta
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.UpperBD
 import CFSG.LocalAnalysis.StandardType.GGTableBUnitDvdLabel
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.LowerLiftLocal
-import CFSG.LocalAnalysis.StandardType.MarkingSmall
-import CFSG.RankThree.PartTwo.Census.Criteria
 public import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma32
 public import CFSG.HardMathSupport.Solomon.LocalBalance.PartIInputs
 public import CFSG.HardMathSupport.Solomon.LocalBalance.Sec5Statements

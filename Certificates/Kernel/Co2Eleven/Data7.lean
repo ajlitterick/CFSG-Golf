@@ -6,7 +6,6 @@ public meta import Certificates.Kernel.Co2Eleven.DataGen
 meta import Certificates.Kernel.Misc.Perm.HexCmd
 meta import Certificates.Kernel.SporSch.Mathieu.Gen
 public import Certificates.Kernel.Co2Eleven.DataGen
-public import Mathlib
 import Certificates.Kernel.Misc.Perm.HexCmd
 import Certificates.Kernel.SporSch.Mathieu.Gen
 

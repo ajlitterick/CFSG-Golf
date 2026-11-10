@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.CFSGNative.J2.Certificate
 public meta import Certificates.Data.CFSGNative.J2.Certificate
 public import Certificates.Certificate3139
 

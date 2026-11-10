@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGHalfEndNodes
-public import CFSG.LocalAnalysis.StandardType.GGTypeAFarPComp
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 
 public section
 

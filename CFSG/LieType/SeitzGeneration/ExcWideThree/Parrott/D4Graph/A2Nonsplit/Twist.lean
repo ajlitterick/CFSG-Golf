@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.A2Nonsplit.BaseChange
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.A2Nonsplit.TwistDiag
-public import CFSG.LieType.Chevalley.WeylNormalizerQuotient
 
 public section
 

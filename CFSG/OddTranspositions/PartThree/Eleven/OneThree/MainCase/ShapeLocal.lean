@@ -1,20 +1,12 @@
 module
 
 public import CFSG.Timmesfeld.Bridge.Asc72Local
-public import CFSG.Timmesfeld.Bridge.Asc72Triangle
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Comparator.Defs
 public import CFSG.OddTranspositions.PartThree.EightOne.Defs
 import CFSG.OddTranspositions.PartThree.LocalBenderCenter
 import CFSG.OddTranspositions.TheoremTwo.StepSeven
-import CFSG.Timmesfeld.Basic
-import CFSG.Timmesfeld.Bridge.Asc72Bender
 import CFSG.Timmesfeld.Bridge.Asc72BenderInvolution
 import CFSG.Timmesfeld.Bridge.OddLocalCommonBasic
 import CFSG.GH74.GLS.Bg.Iii2.L41Basic
-import CFSG.GroupTheory.ABGLocalTools.Constraint
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.Timmesfeld.Bridge.Asc72Lift
 public import CFSG.Timmesfeld.Bridge.Asc73Quotient
 import CFSG.CGT.Timmesfeld75.Statements

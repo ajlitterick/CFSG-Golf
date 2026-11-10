@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.CatFC.SporadicTableBasi
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoHS.HNFactsProof
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Hyp.Basic
 public import CFSG.Sporadic.HNOddCore.CTILocal
-public import CFSG.Sporadic.HS
 public import CFSG.Adapters.GeneralizedFitting
 public import CFSG.CharacterTheory.BrauerThirdMainTheorem.CentralResidueMaps
 public import CFSG.CharacterTheory.BrauerThirdMainTheorem.NormalizerClassLifting
@@ -69,7 +68,6 @@ public import CFSG.Sporadic.Schreier.LyFixedSet
 public import CFSG.Sporadic.Schreier.TitsOther
 public import CFSG.Sporadic.Th.CertificateBase
 public import CFSG.Sporadic.Th.CertificateBase1
-public import CFSG.Sporadic.ThSchreier.KernelAutBase
 public import CFSG.Sporadic.ThSchreier.KernelAutBase1
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis

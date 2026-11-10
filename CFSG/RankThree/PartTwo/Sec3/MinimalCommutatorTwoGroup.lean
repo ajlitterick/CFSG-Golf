@@ -2,7 +2,6 @@ module
 
 public import Mathlib
 public import CFSG.Foundations.Basic
-import CFSG.LocalAnalysis.RankThreeEvenClassification.CoprimeFactorization
 import CFSG.RankThree.Coprime.ThompsonElementaryComplement
 
 public section

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestEndRank
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBBridge
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeACover
 
 public section
 

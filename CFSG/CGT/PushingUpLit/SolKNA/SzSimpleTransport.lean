@@ -1,11 +1,8 @@
 module
 
-public import CFSG.LieType.BorelTits.Suzuki
 public import CFSG.Quasithin.Background.SmithB45SzNat
 public import CFSG.CGT.PushingUpLit.SolKNA.SzWeightDef
 import all CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHeldSmallCorePrimeCore
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalDescentEndpoint

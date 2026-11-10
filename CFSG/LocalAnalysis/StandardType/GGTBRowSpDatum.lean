@@ -1,16 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGExcReflTBWeylDatum
-public import CFSG.LocalAnalysis.StandardType.GGExcReflTBWeylDatumOfWeyl
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import CFSG.LocalAnalysis.StandardType.GGTBRowDefs
-public import CFSG.LocalAnalysis.StandardType.GGTBRowFrame
 public import CFSG.LocalAnalysis.StandardType.GGTBRowSpParity
 public import CFSG.LocalAnalysis.StandardType.GGTBRowSpFrame
 public import CFSG.LocalAnalysis.StandardType.GGTBRowSpCartan
 public import CFSG.LocalAnalysis.StandardType.GGTBRowSpan
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterForkProofBCDExt
 import CFSG.LocalAnalysis.StandardType.GGTBJWeyl
 
 public section

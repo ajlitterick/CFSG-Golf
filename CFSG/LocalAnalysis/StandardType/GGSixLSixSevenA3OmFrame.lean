@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixLSixSevenA3OmPair
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixSevenA3OmSingle
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixSevenA3OmClass
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixSevenA3ProofFrame
-public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelOmMoves
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelOmMvMoves
 
 public section

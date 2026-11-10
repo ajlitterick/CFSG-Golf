@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeFamilies
 public import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeKillAux
 public import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeKillAux2
-public import CFSG.Open.StatedDefs
 import CFSG.LocalAnalysis.AGLEmbedding.CoverAbelianSylowAux
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels

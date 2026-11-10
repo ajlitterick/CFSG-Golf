@@ -4,12 +4,8 @@ public import Certificates.Kernel.McLAS.F6108
 public import Certificates.Kernel.McLAS.F6109
 public import Certificates.Kernel.McLAS.ThreeChk
 public import Certificates.Kernel.Sporadic.OddCore.McLTG
-public import CFSG.Sporadic.Recognition.McLASThreeCount
 public import CFSG.Sporadic.Recognition.LyonsLocalMcLPair
-public import CFSG.Sporadic.SmallOddCore.McL
 public import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.LocalAnalysis.ComponentClassification.LBalanceComponentLifts
 public import CFSG.Sporadic.Recognition.McLASEnum
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerPDivBasic
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsCoresTransport
-public import CFSG.GroupTheory.LocalCores.Components
 
 public section
 

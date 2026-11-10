@@ -3,7 +3,6 @@ module
 public import CFSG.Sporadic.HNOddCore.CCheckInputs
 public import CFSG.Sporadic.HNSchreier.BFSList
 public import CFSG.Sporadic.Schreier.ONPermArr
-public import CFSG.Certificates.Kernel.Spor.CBfsKSound
 public import CFSG.Certificates.Kernel.Spor.ChainKGen
 public import Mathlib
 

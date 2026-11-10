@@ -7,14 +7,8 @@ import CFSG.Quasithin.Background.A4Reduced
 import CFSG.Quasithin.Background.A1a
 import CFSG.Adapters.GeneralizedFitting
 import CFSG.LocalAnalysis.ComponentClassification.LBalanceComponentLifts
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.ControlCore
 import CFSG.Quasithin.EmptyFaithful.QTKELocal
 import CFSG.Quasithin.Background.OrderingMax
-import CFSG.GroupTheory.ThompsonAxB
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Centralizer
-import CFSG.GroupTheory.Fitting.CharacteristicP
-import CFSG.GroupTheory.LocalCores.Fitting
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970_18
 public import CFSG.LocalAnalysis.QuasithinUnique.Setting
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups
@@ -29,15 +23,6 @@ import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
 import CFSG.LocalAnalysis.ComponentClassification.OrdinaryComponentJoins
 public import CFSG.Quasithin.EmptyFaithfulMultiple.Bridge
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
-import Mathlib.Algebra.BigOperators.Group.Finset.Basic
-import Mathlib.Algebra.Group.Action.Defs
-import Mathlib.Data.Int.GCD
-import Mathlib.GroupTheory.GroupAction.Quotient
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
-public import Mathlib.GroupTheory.SpecificGroups.Cyclic.Basic
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
-import Mathlib.LinearAlgebra.Matrix.ProjectiveSpecialLinearGroup
-public import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
 
 public section
 

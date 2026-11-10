@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.BrauerSuzukiWallCardH
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.BrauerSuzukiWallHall
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralGenerators
 import Mathlib.Tactic
 
 namespace CFSG

@@ -5,8 +5,6 @@ public import CFSG.Certificates.Kernel.U6Chain
 public import CFSG.GH74.KGroups.M11Inputs
 import CFSG.Certificates.Kernel.Spor.RawSound
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
-import Mathlib.Tactic.FinCases
 
 public section
 

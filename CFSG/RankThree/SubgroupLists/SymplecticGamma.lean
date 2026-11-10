@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.SubgroupLists.SymplecticFischerPair
-public import CFSG.RankThree.SubgroupLists.TransvectionRecognition
 public import CFSG.RankThree.SubgroupLists.SymplecticSkewElations
 public import CFSG.RankThree.SubgroupLists.SymplecticSqZero
 

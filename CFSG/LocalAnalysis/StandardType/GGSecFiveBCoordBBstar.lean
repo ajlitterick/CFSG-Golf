@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBLabelDefs
 public import CFSG.LocalAnalysis.StandardType.GGTBTorLiftRowsHolds
-import CFSG.LocalAnalysis.StandardType.GGTableBRank
-import CFSG.LocalAnalysis.StandardType.GGTableBTwoThreeTorus
-import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBIrred
 import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBFourPermExcCoord
 

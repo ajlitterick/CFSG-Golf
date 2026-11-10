@@ -36,7 +36,6 @@ public import CFSG.Quasithin.Background.B5CompA
 public import CFSG.Quasithin.Background.B5FinOut
 public import CFSG.Quasithin.Background.B5NonInputs
 public import CFSG.Quasithin.Background.B6
-public import CFSG.Quasithin.Background.B6Example
 public import CFSG.Quasithin.Background.C1GNA7
 public import CFSG.Quasithin.Background.C1GNC124
 public import CFSG.Quasithin.Background.C1GNInputs
@@ -44,9 +43,6 @@ public import CFSG.Quasithin.Background.C1GNNotation
 public import CFSG.Quasithin.Background.C1PackSolvBasic
 public import CFSG.Quasithin.Background.E2Statements
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3OffenderB
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.E4Solv
 public import CFSG.Quasithin.Background.F918M7
 public import CFSG.Quasithin.Background.F918P2
 public import CFSG.Quasithin.Background.FFC4Real
@@ -94,8 +90,6 @@ public import CFSG.Sporadic.Schreier.J4SProfileNode
 public import CFSG.Sporadic.Schreier.M11
 public import CFSG.Sporadic.Schreier.M22
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.Walter.J1
 
 public section

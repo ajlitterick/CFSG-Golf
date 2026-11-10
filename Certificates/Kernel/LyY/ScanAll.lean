@@ -6,8 +6,6 @@ public import Certificates.Kernel.LyY.ScanC
 public import Certificates.Kernel.LyY.ScanD
 public import Certificates.Kernel.LyY.ScanE
 public import Certificates.Kernel.LyY.ScanF
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

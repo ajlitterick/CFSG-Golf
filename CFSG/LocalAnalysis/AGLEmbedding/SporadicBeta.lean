@@ -5,7 +5,6 @@ import CFSG.LocalAnalysis.AGLEmbedding.CaseTwoRankAux
 import CFSG.LocalAnalysis.RankThreeCoreUniqueness.NormalizerClosure
 import CFSG.RankThree.PartTwo.Census.Criteria
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactsFamilies
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

@@ -1,8 +1,6 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Hall.Basic
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Hall.theorem_14_4_1
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Frattini.Core
 
 namespace CFSG
 end CFSG

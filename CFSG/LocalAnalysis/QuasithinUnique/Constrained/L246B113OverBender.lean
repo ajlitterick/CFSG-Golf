@@ -3,13 +3,9 @@ module
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L246B113OverBasic
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_6A312Over
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.C25RankOne
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
-public import CFSG.LieType.Simplicity.Suzuki
 public import CFSG.Assembly.OrderReductions.CharacterInflation
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.LayerFinal
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_6
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 
 public section
 

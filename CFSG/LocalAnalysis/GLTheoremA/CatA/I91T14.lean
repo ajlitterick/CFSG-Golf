@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I91T9
-public import CFSG.LocalAnalysis.GLTheoremA.S10.CatDistinct
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.I112DiagChev
-public import CFSG.LocalAnalysis.ComponentClassification.CatFC.AltSevenNotLie
 
 public section
 

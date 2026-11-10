@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentInitial.RootDiagonalConjugation
-public import CFSG.LieType.Chevalley.PinnedBridge
-public import CFSG.LieType.Chevalley.RootOps.All
 public import CFSG.LieType.Chevalley.D4TripleA2Lemmas
 public import CFSG.LieType.Chevalley.TwistMap
 public import CFSG.LieType.Chevalley.OppositeBorel

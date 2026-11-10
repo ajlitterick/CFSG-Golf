@@ -5,7 +5,6 @@ public import CFSG.RankThree.GF2n.Parrott.Section4EWeak
 public import CFSG.RankThree.GF2n.Parrott.QA45ElementaryAbelian
 
 import CFSG.RankThree.GF2n.Parrott.Section4Lemma41
-import CFSG.RankThree.GF2n.Parrott.SylowH
 import CFSG.RankThree.GF2n.Parrott.QA45SylowFacts
 import CFSG.GroupTheory.PCore.Transport
 import CFSG.LocalAnalysis.UniquenessCase.UC6Basic

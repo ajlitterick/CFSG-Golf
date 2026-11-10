@@ -2,14 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGB36Defs
 public import CFSG.LocalAnalysis.StandardType.GGK0CompREMult
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 public import CFSG.LocalAnalysis.StandardType.GGB36LemmaRT
 public import CFSG.LocalAnalysis.StandardType.GGTPNThmUClauses
-public import CFSG.LocalAnalysis.GLTheoremB.AutL34Bound
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.InputsSeitz3
 public import CFSG.Assembly.GL83StatedBridge
-public import CFSG.Adapters.ProjectiveSpecialLinear
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.Adapters.GeneralizedFitting
 public import CFSG.CGT.PushingUpLit.BHS.NaturalDefs
 public import CFSG.CGT.PushingUpLit.BHS.SymNatDefs
@@ -79,8 +75,6 @@ public import CFSG.Quasithin.Background.C2PushThree
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.D2Cyclic
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.FFC4Tr2
 public import CFSG.Quasithin.Background.GoldschmidtS146RBend1

@@ -3,18 +3,10 @@ module
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.NineSevenRed
 import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.NineTenThreeGen
 import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.NineTenLayerGen
-import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenLayer
-import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenStar
-import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineEightA
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineEightB
-import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineSevenA
-import CFSG.LocalAnalysis.AGL81TheoremCD.Section15.StarQuot
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section15.O98Quot
-import CFSG.LocalAnalysis.AGLEmbedding.CatalogComponent
 import CFSG.GroupTheory.ElementaryAbelianTransport
-import CFSG.LocalAnalysis.RankThreeCoreUniqueness.LocalCore
 import CFSG.LocalAnalysis.SectionRank.AmbientRank
-import CFSG.LocalAnalysis.SectionRank.PRank
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenCF
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenG1
 

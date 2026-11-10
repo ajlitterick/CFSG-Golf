@@ -2,8 +2,6 @@ module
 
 public import CFSG.RankThree.Co2.X9FuseCert
 public import CFSG.RankThree.Co2.JUniqueCert
-public import CFSG.RankThree.Co2.XSylowCert
-public import CFSG.RankThree.Co2.CensusCert
 public meta import CFSG.RankThree.Co2.X9FuseCert
 public meta import CFSG.RankThree.Co2.JUniqueCert
 public meta import CFSG.RankThree.Co2.XSylowCert

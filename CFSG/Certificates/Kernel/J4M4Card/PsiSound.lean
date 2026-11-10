@@ -2,8 +2,6 @@ module
 
 public import Certificates.Data.Kernel.J4M4Card.PsiDefs
 public import Mathlib.Algebra.Group.Subgroup.Finite
-public import Mathlib.Algebra.Group.Subgroup.Map
-public import Mathlib.SetTheory.Cardinal.Finite
 public import CFSG.Certificates.Kernel.Spor.RawOrbEval
 import Mathlib.Tactic.IntervalCases
 

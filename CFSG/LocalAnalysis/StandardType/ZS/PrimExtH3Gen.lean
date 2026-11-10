@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.ZS.PrimExtH3
 public import CFSG.LocalAnalysis.StandardType.ZS.PrimExtLemma32
-import CFSG.LocalAnalysis.StandardType.ZS.Basic
 import CFSG.LocalAnalysis.StandardType.ZS.BlockSuccRankOne
 import CFSG.LocalAnalysis.StandardType.ZS.ReflQuotient
 

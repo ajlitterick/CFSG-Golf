@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLevTwoRoots
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRootRefl
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1Weyl
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1WeylE
 
 public section
 

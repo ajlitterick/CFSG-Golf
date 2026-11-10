@@ -4,7 +4,6 @@ public import CFSG.RankThree.GF2n.Tim79a34GammaComm
 public import CFSG.RankThree.GF2n.Tim79a34Twisted
 public import CFSG.RankThree.GF2n.Tim79a34QIndex
 public import CFSG.RankThree.GF2n.Tim79a34MemberUnique
-public import CFSG.RankThree.GF2n.Tim79a34IW
 public import CFSG.RankThree.GF2n.Tim79a34Lemma11a
 public import CFSG.RankThree.GF2n.Tim79a34Lemma11c
 

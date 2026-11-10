@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTwE6ThreeFrame
 public import CFSG.HardMathSupport.Lang.Coordinator.OuterFixedOrderTwistedE6Diag
-public import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
-public import CFSG.LocalAnalysis.StandardType.GGTwE6ToralMax
-public import CFSG.Timmesfeld.Orders.ExceptionalTwistedBruhat
-public import CFSG.ClassicalInvolution.Orders.Twisted
 public import CFSG.LocalAnalysis.StandardType.UnitaryCenterOrders
 public import CFSG.Certificates.WordSubgroupRel
 public import CFSG.LieType.Multipliers.ProductKernel

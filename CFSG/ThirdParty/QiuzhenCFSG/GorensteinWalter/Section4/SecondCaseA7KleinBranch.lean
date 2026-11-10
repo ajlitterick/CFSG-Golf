@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseA7KleinFourLeTwoCore
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Theorem26
 
 namespace CFSG
 end CFSG

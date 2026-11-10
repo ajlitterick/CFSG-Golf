@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Reduction
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.FoursInputs
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.S5Props
 

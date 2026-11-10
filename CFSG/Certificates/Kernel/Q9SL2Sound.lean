@@ -2,7 +2,6 @@
 module
 
 public import Certificates.Data.Kernel.Q9SL2
-public import CFSG.GH74.GLS.Stage4.Q9.ModelBaseBase
 
 public section
 

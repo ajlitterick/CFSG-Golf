@@ -4,8 +4,6 @@ public import CFSG.RankThree.PartTwo.Sec21.FF79Sec3L2A
 public import CFSG.RankThree.PartTwo.Sec21.FF79Sec3L2Odd
 public import CFSG.RankThree.PartTwo.Sec21.FF79Lemma14
 public import CFSG.RankThree.PartTwo.Sec21.FF79ThmAFin3
-import CFSG.GroupTheory.LocalCores.Components
-import CFSG.LocalAnalysis.ComponentClassification.AS76bExistBasic
 import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs2311h2
 public import CFSG.GroupTheory.Fitting.MulEquiv
 public import CFSG.RankThree.PartTwo.Sec21.FF79ThmAOdd

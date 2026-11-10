@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusMaxSieveDefs
 import CFSG.LieType.Chevalley.E6OuterOrder
-import CFSG.LieType.SeitzGeneration.ExcPlaneModel
-import CFSG.Adapters.TauCetiExceptional.EvenAll
 import CFSG.LocalAnalysis.StandardType.GGSporKOrdBMOut
-import CFSG.Models.Blueprint
 public import CFSG.LieType.Chevalley.RootCommutatorData
 
 public section

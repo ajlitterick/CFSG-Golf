@@ -3,8 +3,6 @@ module
 public import Certificates.Kernel.Sporadic.Fi22.WordKit
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.Fi22FiveCoreData
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
-public import Certificates.Kernel.Sporadic.Fi22.C2068
 
 public section
 

@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDTablePDefs
 public import CFSG.LocalAnalysis.StandardType.GGTPNExcKacDatum
-public import CFSG.LocalAnalysis.StandardType.GGKacTable
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 
 public section
 

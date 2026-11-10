@@ -1,11 +1,8 @@
 module
 
 public import Certificates.Kernel.SporSch.HN.GenHNX
-public import CFSG.Certificates.Kernel.Orders.HN.Data.Sel
-public import CFSG.Certificates.Kernel.Local.HN.X.Data
 public import Certificates.Kernel.SporSch.HN.X.Base
 public import Certificates.Kernel.SporSch.HN.X.All
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.NatItemsGz
 import CFSG.Certificates.Kernel.Common.Repo
 public import CFSG.Sporadic.HNSchreier.Data

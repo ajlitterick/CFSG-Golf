@@ -7,7 +7,6 @@ public import Certificates.Kernel.SporSch.Ly.BS18009
 public import Certificates.Kernel.Ly6117.Checks
 public import Certificates.Kernel.Ly6117.Core
 public import Certificates.Kernel.Ly6117.Rest
-import Mathlib.Tactic.FinCases
 
 public section
 

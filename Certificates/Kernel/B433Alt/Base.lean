@@ -16,7 +16,6 @@ public import Certificates.Kernel.B433Alt.Ch.O5
 public import Certificates.Kernel.B433Alt.Ch.O6
 public import Certificates.Kernel.B433Alt.Ch.O7
 public import Certificates.Kernel.Y442.Model
-public import CFSG.YGroups.Y442Twist.Model
 public import CFSG.Certificates.Kernel.B433Alt.StLen
 
 set_option maxRecDepth 100000

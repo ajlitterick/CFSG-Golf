@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC13BCAPairOmGrp
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC13BCAPairOmCorr
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC13BCAPairOmMainA
-public import CFSG.Open.StatedDefs
 
 public section
 

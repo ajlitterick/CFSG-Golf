@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrG2ThreeDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBTransport
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismData
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJLabelSides
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNineClassical
 
 public section
 

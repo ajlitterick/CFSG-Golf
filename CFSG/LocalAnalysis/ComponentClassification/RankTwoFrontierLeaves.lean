@@ -2,27 +2,14 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoStandardAssembly
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicFinal
-public import CFSG.LocalAnalysis.ComponentClassification.GMS78Open
-public import CFSG.LocalAnalysis.ComponentClassification.AS81Open
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalOpen
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoExceptionalOpen
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoAltOpen
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoAltEvenCenter
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoAltGenFusion2
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoAltGenRoot
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoAltGenCent
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoAltFiveEps
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoAltFiveM12NotTop
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoAltFiveCaseI
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoAltGenSmall
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoAltThree
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoAltGenFive
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoAltFiveIIbFinal
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicBTwoC
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicBTwoD
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec3CensusCertBase
 public import CFSG.Sporadic.Co1Patterson.Main
-public import CFSG.StandardComponent.AschbacherSeitz.ExceptionalNF
 
 public section
 

@@ -4,18 +4,11 @@ public import Certificates.Kernel.J4Row.Checks
 public import Certificates.Kernel.SporSch.Mathieu.M24Facts
 public import CFSG.Certificates.Kernel.J4Row.Sound
 public import CFSG.Certificates.Kernel.B3S3KSound
-public import CFSG.Certificates.Kernel.Spor.SiftRSound
-public import CFSG.Certificates.Kernel.SporSch.MOCChain
-public import CFSG.RankThree.Native.FiveKit
 public import CFSG.Sporadic.Schreier.M24
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.SimsSporJ4Data
 import CFSG.Certificates.Kernel.Spor.RawSiftK
-import CFSG.Certificates.Kernel.Spor.RawOrbEval
 public import CFSG.Certificates.Kernel.BfsPinSound
-public import CFSG.LocalAnalysis.SectionRank.Sporadic.LocalWitness
 public import CFSG.Sporadic.Schreier.J4SNative
-public import CFSG.Sporadic.Th.F2Spec
-public import Certificates.Data.Kernel.J4Q.MatChk
 
 public section
 

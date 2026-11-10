@@ -2,17 +2,10 @@ module
 
 public import CFSG.Sporadic.J4.QT2LocMain
 public import CFSG.Sporadic.J4.QT2LocCntProof
-public import CFSG.Sporadic.J4.QTRankProof
-public import CFSG.Sporadic.J4.QTCheck
 public meta import CFSG.Sporadic.J4.QT2LocNative
-public import Certificates.Certificate4002
-public import Certificates.Certificate4008
-public import Certificates.Certificate4017
 public import Certificates.Certificate4117
-public import Certificates.Certificate3084
 public import CFSG.Sporadic.J4.QT2LocMainBase
 public import CFSG.Sporadic.J4.QTOutChar
-public import CFSG.Sporadic.J4Base
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.Certificates.Kernel.KDenseP.L33.Run
 public import CFSG.Certificates.Kernel.KDenseP.L33.Pairs
-public import CFSG.Certificates.Kernel.Common.Chain
 import CFSG.Certificates.Kernel.Common.Each
 
 public section

@@ -1,18 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGAm2Defs
 public import CFSG.LocalAnalysis.StandardType.GGAm2Slices
 public import CFSG.LocalAnalysis.StandardType.GGTPNNonExcR
-public import CFSG.LocalAnalysis.StandardType.GGTPNExcTwoSlices
 public import CFSG.LocalAnalysis.StandardType.GGExcTwoCompListsRE
 public import CFSG.LocalAnalysis.StandardType.GGF4TwoThree
-public import CFSG.LocalAnalysis.StandardType.GGK0CompREMult
-public import CFSG.LocalAnalysis.StandardType.GGB36JExc
 public import CFSG.LocalAnalysis.StandardType.GGTPNClassicalCover
 public import CFSG.LocalAnalysis.StandardType.GGTPNExcCover
-public import CFSG.LocalAnalysis.StandardType.GGTPNNarrowC6
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.LocalAnalysis.StandardType.GGK0ExcB3
 public import CFSG.LocalAnalysis.StandardType.GGTCJHolds
 
 public section

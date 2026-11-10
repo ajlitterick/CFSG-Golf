@@ -1,16 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.CTNative
-import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.OddKernelActual
 import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.FiveToralKernel
 import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.RankThreeSources
 public import CFSG.LocalAnalysis.StandardType.GGOuterInvLangDatumThrough
 import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.ComponentRootSpan
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.PlanesToral
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.FiniteCountsPart1
-public import CFSG.LocalAnalysis.StandardType.GGHalfCentGroup
-public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalTwoPartBound
-import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotHR14SpAMain
 import CFSG.Quasithin.Vol2.Ch5Sec2LocalProp526Rk2B
 import CFSG.HardMathSupport.Dickson.Sec6.UpD42Aux.InnOrthFix
 import CFSG.Quasithin.Background.HSU3Borel
@@ -21,45 +16,24 @@ public import CFSG.LocalAnalysis.EvenBN.Common.SL2CentralTwoSplit
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.Bal209TwoIn
 public import CFSG.Quasithin.SteinbergBTQuasisimpleSQTKCenter
 
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBGraphAction
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearAction
 public import CFSG.RankThree.PartTwo.KFacts.K71L28TwoFree
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotQ2OverlapGraphBlock
 public import CFSG.RankThree.PartOne.KF.F132Gen
-public import CFSG.LocalAnalysis.SeitzReduction.E6PilotCTFieldTwist
 
 public import CFSG.LocalAnalysis.StandardType.GGF4N2Rank
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyDichotomy
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmall
 public import CFSG.LocalAnalysis.ComponentClassification.Foote47L216KernelFour
 public import CFSG.Quasithin.Vol2.Ch8Sec2L828USL2Card
 public import CFSG.Milestones.ASVolI.A2OddAut
 public import CFSG.LocalAnalysis.EvenBN.Tits.I21Filter
-public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherLinearSchreier
-public import CFSG.LocalAnalysis.ComponentInitial.FixedComponentCorrespondence
-public import CFSG.LieType.Universal.SpecialLinear
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
-public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherLinearOuterOrder
-public import CFSG.LocalAnalysis.ComponentInitial.PerfectCentralQuotientOuter
-public import CFSG.Assembly.OrderReductions.LinearOrders
-public import CFSG.LieType.CentralExt.CoprimeLift
 
-public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotRoots
 
-public import CFSG.LocalAnalysis.SeitzReduction.F4PilotMainGraphPiecesBlocks
 
 public import CFSG.Quasithin.Vol2.Ch11SecO11A
 
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
 
-public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotLeviFact
-public import CFSG.RankThree.Classical.SLnScalarCommutant
-public import CFSG.HardMathSupport.Foote.Proving.CoverThree.CentreSL3
 public import CFSG.LocalAnalysis.RankThreeCoreUniqueness.CentralLiftCommutation
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRestGen
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsCover
 public import CFSG.LieType.SeitzGeneration.Hyper
 public import CFSG.LieType.SeitzGeneration.HyperBridge
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.I294KDOutTwE6

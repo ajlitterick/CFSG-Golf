@@ -4,7 +4,6 @@ public import CFSG.RankThree.PartOne.KC.OrthogonalBlockModels
 public import CFSG.RankThree.PartOne.KC.OrthogonalFixedDerived
 public import CFSG.RankThree.PartOne.S15K.BlockType
 import CFSG.RankThree.PartOne.KC.LinearPlaneBlocks
-import CFSG.RankThree.PartOne.KC.OrthogonalFixedRestrict
 import CFSG.RankThree.PartOne.S11d.OrthCaseH
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs.RootSp2
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasSix
@@ -58,7 +57,6 @@ import CFSG.RankThree.PartOne.S11d.OutUnitary
 import CFSG.RankThree.PartOne.S9.Sylow.ExclusionBasic
 import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
 import CFSG.RankThree.Theta.ThreeComponentOrbitCover
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 import CFSG.Walter.Defs
 import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension

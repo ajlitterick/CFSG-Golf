@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGKGCentSL2Diag
 public import CFSG.ClassicalInvolution.WeakCT.Defs
 import CFSG.ClassicalInvolution.WeakCT.Center
-import CFSG.ClassicalInvolution.Phan.Blocks
 import CFSG.LocalAnalysis.StandardType.GGSixOddIndexF4Facts
-import Mathlib.Tactic.Group
 public import CFSG.LieType.CurtisTits.SpecialLinear
 
 public section

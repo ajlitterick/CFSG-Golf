@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremB.UniqInputs
 public import CFSG.LocalAnalysis.GLTheoremB.Prop95
 public import CFSG.HardMathSupport.Solomon.LocalBalance.Balance
 public import CFSG.Assembly.RankThreeEvenDefs

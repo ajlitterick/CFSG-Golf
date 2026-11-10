@@ -2,20 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGNotCDefs
 
-import CFSG.LocalAnalysis.GLTheoremA.S12.CanonTriLHolds2
 import CFSG.HardMathSupport.Dickson.DefCharOuter.Export.ExcTrialityOrient
-import CFSG.RankThree.Chevalley.SteinbergCFExceptionalModelCover
-import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Inner
-import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.InnerTw
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcInnerLang.TwE6
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTamePrime
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcAssemblyTw
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcMonomial
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcToralityFive
-import CFSG.LieType.SeitzGeneration.ExcTorusCatTw
-import CFSG.LieType.Chevalley.TwistedE6NormalForm
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeDiagTwisted
-import CFSG.LocalAnalysis.ComponentInitial.DiagonalSemilinear
 
 public section
 

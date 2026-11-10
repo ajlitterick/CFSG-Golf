@@ -2,8 +2,6 @@ module
 
 public import CFSG.OddTranspositions.PartThree.Eleven.Wong.CentSL5
 import CFSG.ClassicalInvolution.Phan.AutSU2
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ProjectiveSemilinear
 
 public section
 

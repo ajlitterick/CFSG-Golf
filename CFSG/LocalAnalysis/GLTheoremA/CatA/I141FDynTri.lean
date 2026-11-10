@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonTriLHolds
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompIdxExcTw
-public import CFSG.HardMathSupport.Timmesfeld.Tables.T1b.Bridge
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.Center
 public import CFSG.LieType.ChevTwo.OppositeFixedExcReeModel
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431Fam.OutReeF4

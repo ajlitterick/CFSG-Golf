@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.OpsF2K
-public import Certificates.Data.CFSGNative.SectionRank.Local
 
 public section
 

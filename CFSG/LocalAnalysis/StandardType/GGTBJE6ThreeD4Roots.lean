@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4Inputs2
-public import CFSG.RankThree.E6.RootLatticeTools
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcPin
-public import CFSG.LieType.Chevalley.ParabolicRootFactorData
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExcE6
 public import CFSG.LieType.Chevalley.C2E6StandardFixedData
 public import CFSG.LieType.Chevalley.C2E6UnitaryFourImages

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixTCBlockField
 public import CFSG.LocalAnalysis.StandardType.GGSixTCPSUBlock
 
 public section

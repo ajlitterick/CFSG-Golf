@@ -3,7 +3,6 @@ module
 public import Certificates.Data.Kernel.Co2Fuse
 public import Certificates.Kernel.Co2Syl.D3
 import CFSG.Certificates.Kernel.Bounds.LoadRoot
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.Repo
 
 public section

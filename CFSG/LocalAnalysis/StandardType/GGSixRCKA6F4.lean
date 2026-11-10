@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKA6Sylow
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKA6F4Shape
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKA6Label
-public import CFSG.LieType.Chevalley.AdjointCenter
 
 public section
 

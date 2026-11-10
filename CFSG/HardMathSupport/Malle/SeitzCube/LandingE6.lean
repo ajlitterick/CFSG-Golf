@@ -2,9 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Malle.SeitzCube.E6PlaneTwisted
 public import CFSG.HardMathSupport.Malle.SeitzCube.PlanesE78
-public import CFSG.LieType.Chevalley.EvenCartanRootDiagonals
-public import CFSG.LieType.Chevalley.LangRootArithmeticDet
-public import Certificates.Kernel.ThCent.Leaves
 
 public noncomputable section
 

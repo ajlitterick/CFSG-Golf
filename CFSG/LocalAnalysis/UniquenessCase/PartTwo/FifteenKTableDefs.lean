@@ -1,11 +1,8 @@
 module
 
-public import CFSG.Open.LocalVocabulary
 public import CFSG.Open.StatedDefs
 public import CFSG.Quasithin.Background.G6Natural
 public import CFSG.LocalAnalysis.SectionRank.CentralLift
-public import CFSG.LocalAnalysis.SectionRank.PRank
-public import CFSG.Open.Defs
 
 public section
 

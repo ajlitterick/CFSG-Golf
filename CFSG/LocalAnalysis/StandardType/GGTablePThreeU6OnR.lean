@@ -1,16 +1,12 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniModel
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniLift
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeU6Cube
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniSplit
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeU6Par
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeOutCube
 import CFSG.Assembly.GL83StatedBridge
-import CFSG.LieType.BorelTits.UnitaryForm
 import CFSG.LocalAnalysis.StandardType.GGSUNonsplitTwoBlockRestrict
-import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeInner
-import CFSG.LocalAnalysis.SeitzReduction.F4PilotLeviSp6
 
 public section
 

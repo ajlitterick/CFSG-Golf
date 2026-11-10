@@ -4,11 +4,7 @@ module
 public import CFSG.Sporadic.Schreier.J4SOddCheckBase
 public import CFSG.Sporadic.Schreier.J4SOddLemmas
 public import CFSG.Sporadic.Schreier.J4SThreeBase
-public import CFSG.Sporadic.Schreier.J4SNative
-public import CFSG.Sporadic.Schreier.J4SCols
-public import CFSG.Sporadic.Schreier.J4SOrbitsBase
 public meta import CFSG.Sporadic.Schreier.J4SOrbitsBase
-public import CFSG.Sporadic.J4.Local
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 public import CFSG.LocalAnalysis.ComponentClassification.LayerMultiplication

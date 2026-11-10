@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172V2
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172BCentFrame
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172BCentLayer
-public import CFSG.RankThree.PartOne.KC.OrthogonalFixedDerived
 import CFSG.LocalAnalysis.StandardType.GGStructSOnePrimeRootCountOmega
 import CFSG.LocalAnalysis.GLTheoremA.CatA.H1429SubCore
 import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowX1OmCFinal
@@ -21,7 +20,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.S9.Lemma94
 public import CFSG.LocalAnalysis.GLTheoremA.S9.Lemma95A
 public import CFSG.LocalAnalysis.GLTheoremA.Sec5Setup
 public import CFSG.LocalAnalysis.GLTheoremB.Lemma911Proof
-public import CFSG.LocalAnalysis.SignalizerFunctor
 public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.RankThree.PartOne.FOC.CompCommutator
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent

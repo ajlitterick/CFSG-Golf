@@ -1,11 +1,6 @@
 module
 
 public import Mathlib.LinearAlgebra.Matrix.Cartan.Basic
-public import Mathlib.Data.Matrix.Basic
-public import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
-public import Mathlib.Data.ZMod.Basic
-public import Mathlib.Data.Fintype.Pi
-public import Mathlib.Tactic.FinCases
 
 public section
 

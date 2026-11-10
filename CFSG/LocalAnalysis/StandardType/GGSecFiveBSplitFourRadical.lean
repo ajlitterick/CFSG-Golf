@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixFiveBasic
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ElementaryAbelian
-public import CFSG.LocalAnalysis.ComponentInitial.CentralSL2Semilinear
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Basic
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
-import CFSG.FeitThompson.OddOrderTheorem
 import CFSG.LocalAnalysis.StandardType.GGStdTypeOddConj
 import CFSG.GroupTheory.GroupAction.PerfectCommutingSL2
 import CFSG.ClassicalInvolution.Models.SymplecticPairs.TypeCShortRoot
@@ -43,7 +39,6 @@ import CFSG.RankThree.Classical.SteinbergBJSymplecticSquareZeroCentralizer
 import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 import CFSG.SignalizerFunctorTheorem.NonLocal.Cross
 import CFSG.SignalizerFunctorTheorem.NonLocal.SpData
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension

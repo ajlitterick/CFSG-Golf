@@ -1,10 +1,7 @@
 module
 
-public import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.Defs
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermOmKFrameDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBLabelDefs
-public import CFSG.LocalAnalysis.StandardType.GGSignedCoordBlocks
 import CFSG.LocalAnalysis.StandardType.GGQTwoXInLFrameFOmNorm
 import CFSG.LocalAnalysis.StandardType.GGQTwoOrthAnchorCalib
 import CFSG.LocalAnalysis.StandardType.GGQTwoOrthAnchorCount
@@ -15,8 +12,6 @@ import CFSG.LocalAnalysis.StandardType.GGQTwoOrthAnchorIso
 import CFSG.LocalAnalysis.StandardType.GGQTwoOrthAnchorTorus
 import CFSG.LocalAnalysis.StandardType.GGQTwoOrthogonalMarking
 import CFSG.LocalAnalysis.StandardType.GGSpJoinBstarSplit
-import CFSG.ClassicalInvolution.Phan.PhanDn.NormForm
-import Mathlib.FieldTheory.Finite.GaloisField
 
 public section
 

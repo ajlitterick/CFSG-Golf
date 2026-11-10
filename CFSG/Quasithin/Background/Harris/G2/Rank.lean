@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.Background.Harris.G2.Setup
 public import CFSG.Quasithin.Background.SmithB45G2Out
-public import CFSG.LieType.Chevalley.AdjointCenter
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHeldSmallCorePrimeCore

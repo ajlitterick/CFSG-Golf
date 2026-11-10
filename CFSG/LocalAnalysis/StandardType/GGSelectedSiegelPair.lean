@@ -3,16 +3,10 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSelectedRootPair
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.GeoPOmegaPlusRoot
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.GeoPOmegaMinusRoot
-public import CFSG.ClassicalInvolution.ModelFacts.WeylTransitive
 public import CFSG.LocalAnalysis.StandardType.GGSelectedPOmegaMinusLongField
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePresTagSpin
 public import CFSG.LocalAnalysis.StandardType.GGRankOneTagsA
-import CFSG.LieType.Universal.Spin.Twisted.Extras
-import CFSG.LieType.Universal.Spin.PlusCT
-import CFSG.LieType.Universal.Spin.Generation.Datum
-import CFSG.ClassicalInvolution.ModelFacts.Families
 import CFSG.LieType.HighestRoot.RootInvolution
-import CFSG.LieType.Universal.SpinOmega.Kernel
 import CFSG.LargeExtraspecial.A2ModFrBLevi
 
 public section

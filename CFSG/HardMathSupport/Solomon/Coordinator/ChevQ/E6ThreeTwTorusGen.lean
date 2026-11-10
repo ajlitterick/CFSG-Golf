@@ -5,10 +5,7 @@ public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwLayerStep
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwLayerShift
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwTorusDefs
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwTorusDet
-public import CFSG.LieType.Chevalley.GraphFixedCenterTrivial
-public import CFSG.RankThree.PartTwo.KFacts.AutPSUFaithful
 
-import Mathlib.Tactic.Group
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
 public import CFSG.Certificates.FusionF2
@@ -60,7 +57,6 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly

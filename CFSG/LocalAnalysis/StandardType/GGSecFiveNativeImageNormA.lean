@@ -5,7 +5,6 @@ import CFSG.LocalAnalysis.StandardType.GGSignedCoordFix
 import CFSG.LocalAnalysis.StandardType.GGSignedCoordRefl
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermReflSigma
 import CFSG.LocalAnalysis.StandardType.GGTBJTypeBFrameChange
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRestPerm
 import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcWeylOuterTransport
 
 public section

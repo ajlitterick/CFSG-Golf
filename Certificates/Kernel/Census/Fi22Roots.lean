@@ -7,14 +7,6 @@ public import Certificates.Kernel.Census.Fi22T2C0
 public import Certificates.Kernel.Census.Fi22T1C0
 public import Certificates.Kernel.Census.Fi22T0C0
 public import Certificates.Kernel.Census.Fi22PkRoots
-import Certificates.Kernel.Census.Fi22PkT2R
-import Certificates.Kernel.Census.Fi22PkT2A
-import Certificates.Kernel.Census.Fi22PkT1R
-import Certificates.Kernel.Census.Fi22PkT1A
-import Certificates.Kernel.Census.Fi22PkT0R
-import Certificates.Kernel.Census.Fi22PkT0A
-import Certificates.Data.Kernel.Census.PackedRoot
-import Certificates.Data.Kernel.Census.PackedRootBit
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

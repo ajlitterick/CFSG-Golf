@@ -1,13 +1,7 @@
 module
 
-public import Mathlib.Analysis.Complex.Basic
-public import Mathlib.Algebra.Ring.GeomSum
-public import Mathlib.Data.Int.GCD
-public import Mathlib.Data.Nat.Prime.Basic
 public import Mathlib.NumberTheory.Niven
-public import Mathlib.RingTheory.Ideal.Basic
 public import Mathlib.RingTheory.Polynomial.Cyclotomic.Eval
-public import Mathlib.RingTheory.Polynomial.Cyclotomic.Roots
 public import Mathlib.RingTheory.RootsOfUnity.Lemmas
 
 namespace CFSG

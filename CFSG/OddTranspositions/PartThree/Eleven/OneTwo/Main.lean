@@ -1,13 +1,6 @@
 module
 
-public import CFSG.OddTranspositions.PartThree.Eleven.Statements
-public import CFSG.OddTranspositions.PartThree.Eleven.OneOne.Hyp
-public import CFSG.OddTranspositions.PartThree.Eleven.Minus.Pair
-public import CFSG.OddTranspositions.PartThree.Eleven.Minus.Quandle
-public import CFSG.OddTranspositions.PartThree.EightFive.KBarSetup
 public import CFSG.OddTranspositions.PartThree.Eleven.MinusModel
-public import CFSG.OddTranspositions.PartThree.Eleven.OneTwo.Kernel
-public import CFSG.OddTranspositions.PartThree.Eleven.OneTwo.Index
 public import CFSG.OddTranspositions.PartThree.Eleven.OneTwo.Wong
 public import CFSG.OddTranspositions.PartThree.Eleven.FiveMinusModel
 

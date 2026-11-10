@@ -1,7 +1,6 @@
 
 module
 
-public import CFSG.Sporadic.Schreier.RuOrbLDefs
 public meta import CFSG.Sporadic.Schreier.RuOrbLDefs
 public import CFSG.Sporadic.Schreier.RuCheckOrbLBInputs
 

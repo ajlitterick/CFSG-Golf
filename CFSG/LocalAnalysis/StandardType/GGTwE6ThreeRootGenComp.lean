@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRootGenRefl
-public import CFSG.LocalAnalysis.StandardType.GGKGForkExcTwRootC
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeAd
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarE8FiveFrameCentralizer
 public import CFSG.LocalAnalysis.StandardType.GGTwE6PlusRootGenFrame
 

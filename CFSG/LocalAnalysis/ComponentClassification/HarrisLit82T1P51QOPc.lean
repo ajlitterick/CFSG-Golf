@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1P51QOSgnF
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneCOPc
-public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneOKronFix
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneOPcCore
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.LargeEvenClassification.C8FourSubgroupExhaustion
 public import CFSG.LocalAnalysis.LargeEvenClassification.C8FourSubgroupRanks
 public import CFSG.LocalAnalysis.LargeEvenClassification.CyclicCongruenceCut

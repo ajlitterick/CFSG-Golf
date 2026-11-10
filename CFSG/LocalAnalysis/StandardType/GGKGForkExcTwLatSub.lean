@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcTwNorm
-public import CFSG.LocalAnalysis.StandardType.GGKGForkLatticeInvol
-public import CFSG.LocalAnalysis.StandardType.GGKGForkLatticeElt
-public import CFSG.LocalAnalysis.StandardType.GGKGForkExcLat1
-public import CFSG.LocalAnalysis.StandardType.GGKGForkExcLat2
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcLatPhi
 
 public section

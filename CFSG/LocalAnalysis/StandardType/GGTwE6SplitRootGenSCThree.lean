@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6RankOuter
 public import CFSG.LocalAnalysis.StandardType.GGIrred937TwE6Transport
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTwE6ThreeSC
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6Split
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 
 public section
 

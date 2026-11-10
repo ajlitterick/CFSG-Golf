@@ -1,11 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.DefsE
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FSqIndex
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.DefsHyp
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.Defs
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenDefs
-public import CFSG.LocalAnalysis.UniquenessCase.UCFront12
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.TwelveEighteen
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.TwelveEighteenGen
 

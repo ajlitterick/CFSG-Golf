@@ -5,18 +5,11 @@ public import CFSG.LocalAnalysis.SectionRank.QTK.Insp443.C35Concl
 public import CFSG.LocalAnalysis.SectionRank.QTK.Insp443.DescentLeft
 public import CFSG.LocalAnalysis.SectionRank.QTK.Insp443.OfForK
 public import CFSG.LocalAnalysis.SectionRank.QTK.Insp443.VacuousChar2
-public import CFSG.Quasithin.Background.C35InspL3
 public import CFSG.Quasithin.Background.C35InspSp4
 public import CFSG.Quasithin.Background.C35InspG2
-public import CFSG.Quasithin.Background.C35InspD4
 public import CFSG.Quasithin.Background.C35InspF4
 public import CFSG.Certificates.WordSubgroupRel
-public import CFSG.CharacterTheory.BrauerThirdMainTheorem.CentralResidueMaps
-public import CFSG.CharacterTheory.BrauerThirdMainTheorem.NormalizerClassLifting
-public import CFSG.CharacterTheory.BrauerThirdMainTheorem.PrincipalClassDefects
-public import CFSG.CharacterTheory.Semidihedral.Principal.DegreeZeroGram
 public import CFSG.CharacterTheory.Semidihedral.Principal.PrimeOrderSylowColumn
-public import CFSG.CharacterTheory.TwoRankLowerBound.BrauerCharacterCriterion
 public import CFSG.CharacterTheory.TwoRankLowerBound.NormalComplementCharacterSpace
 public import CFSG.CharacterTheory.Wreathed.BrauerWongSylowCentralizer
 public import CFSG.CharacterTheory.Wreathed.SmallerRecognitionOriginalFieldQuaternionConjugation
@@ -130,12 +123,7 @@ public import CFSG.Sporadic.Schreier.TitsAutD
 public import CFSG.Sporadic.Th.CertificateBase
 public import CFSG.Sporadic.Th.CertificateBase1
 public import CFSG.Sporadic.ThSchreier.KernelAut
-public import CFSG.Sporadic.ThSchreier.KernelAutBase
 public import CFSG.Sporadic.ThSchreier.KernelAutBase1
-public import CFSG.Walter.J1Props
-public import CFSG.Walter.J1Recog
-public import CFSG.Walter.PSL2Facts
-public import CFSG.Walter.W67.Statements
 
 public section
 

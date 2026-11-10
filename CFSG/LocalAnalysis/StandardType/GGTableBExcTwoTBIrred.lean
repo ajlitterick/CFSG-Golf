@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTBE7E8
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6TBIrred
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLineE7
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLine
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeTwo
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOpenTableBMoreElt
 
 public section
 

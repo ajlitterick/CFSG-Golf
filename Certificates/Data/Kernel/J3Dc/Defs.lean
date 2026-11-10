@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.J3Dc.Data
-public import Certificates.Data.Kernel.SporLatDc
 
 public section
 

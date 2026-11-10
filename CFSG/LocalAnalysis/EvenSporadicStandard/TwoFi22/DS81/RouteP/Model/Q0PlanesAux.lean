@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoFi22.DS81.RouteP.Model.Tables
 public import Certificates.Data.RouteP.Q0Planes
-public import Mathlib.RingTheory.WittVector.IsPoly
-public import Mathlib.Tactic.Polynomial.Basic
-public import Mathlib.Tactic.ReduceModChar
 
 public section
 

@@ -1,14 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Cent
-public import CFSG.LocalAnalysis.StandardType.FS81.LocalGen
 public import CFSG.LocalAnalysis.StandardType.FS81.BasisMonomial
-public import CFSG.LocalAnalysis.StandardType.FS81.LocalOrthModels
-public import CFSG.LieType.BorelTits.Basic
 public import CFSG.SignalizerFunctorTheorem.McBride.Prelim.Generation
-public import CFSG.GroupTheory.SupCommute
-public import CFSG.GroupTheory.ElemAbelianClosure
-public import CFSG.GroupTheory.ABGLocalTools.Basic
 public import CFSG.SignalizerFunctorTheorem.McBride.Prelim.Basic
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
 

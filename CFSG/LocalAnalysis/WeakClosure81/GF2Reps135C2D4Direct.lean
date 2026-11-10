@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2ExcTri
 import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2D4ClassA
 import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2D4ClassB
 import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2D4Outer
-import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2Ctx
-import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135Ctx
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.CurtisExc.BinRep
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.CurtisExc.OffenderData
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.LiftSaturate

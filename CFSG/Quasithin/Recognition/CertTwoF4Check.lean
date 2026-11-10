@@ -1,10 +1,6 @@
 module
 
-public import Std.Data.HashMap
-public import CFSG.Sporadic.Schreier.TitsCentralCheck
 public import CFSG.Quasithin.Recognition.CertTitsJCheck
-public import CFSG.Quasithin.Recognition.CertVertexTable2
-public import CFSG.Quasithin.Recognition.CertDataTitsOuter
 public meta import Std.Data.HashMap
 public meta import CFSG.Sporadic.Schreier.TitsData
 public meta import CFSG.Sporadic.Schreier.TitsArrays
@@ -24,7 +20,6 @@ public meta import CFSG.Quasithin.Recognition.CertVertexTable
 public meta import CFSG.Quasithin.Recognition.CertVertexTable2
 public meta import CFSG.Quasithin.Recognition.CertTitsJCheck
 public meta import CFSG.Quasithin.Recognition.CertDataTitsOuter
-public import CFSG.Quasithin.Recognition.CertTwoF4CheckInputs
 public import Certificates.Certificate8079
 
 public section

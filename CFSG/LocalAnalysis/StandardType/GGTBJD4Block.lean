@@ -6,7 +6,6 @@ import CFSG.LocalAnalysis.StandardType.GGSecFiveKGCentOmTorus
 import CFSG.LocalAnalysis.StandardType.GGSecFiveJRootCoreOmDiag
 import CFSG.LocalAnalysis.StandardType.GGSecFiveJRootCoreOmEigen
 import CFSG.LocalAnalysis.StandardType.GGRootCentralizerOmegaSpin
-import CFSG.RankThree.PartOne.KC.OrthogonalFactorization
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerOmegaBasic
-public import CFSG.LieType.Universal.Spin.Chevalley.Frame
 
 public section
 

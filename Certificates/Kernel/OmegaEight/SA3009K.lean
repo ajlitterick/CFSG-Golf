@@ -1,8 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.O8.SA
-public import Certificates.Data.Kernel.Spor.Prim
-public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.NativeData
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.NativeSylowData
 public import Certificates.Kernel.OmegaEight.SA3009Data
 public import Certificates.Kernel.OmegaEight.Chains3009

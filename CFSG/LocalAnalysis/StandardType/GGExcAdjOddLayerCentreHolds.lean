@@ -1,12 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.I142NBase
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.KU6L2
 public import CFSG.LocalAnalysis.StandardType.GGLayerAbelianOdd
 public import CFSG.LocalAnalysis.StandardType.GGOddLayerTheoremF
 public import CFSG.LocalAnalysis.StandardType.GGOppositeRadicalExcCore
 public import CFSG.LocalAnalysis.StandardType.GGStructSOnePrimeCent
-public import CFSG.LocalAnalysis.StandardType.GGTwoSignalizerRadical
 public import CFSG.LocalAnalysis.GLTheoremA.S10.Inputs
 public import CFSG.LocalAnalysis.GLTheoremA.S10.Inputs105
 public import CFSG.LocalAnalysis.GLTheoremA.S10.InputsBeta

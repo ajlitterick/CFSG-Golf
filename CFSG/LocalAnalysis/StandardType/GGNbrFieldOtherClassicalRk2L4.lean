@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalRk2LU4Weyl
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerLinearNonsplit
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATorus
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldLinear
-public import CFSG.LocalAnalysis.ComponentClassification.SymmetricLocalLinearFourTwo
 public import CFSG.Alternating.Multipliers.Main
 public import CFSG.Assembly.GL83StatedBridge
 

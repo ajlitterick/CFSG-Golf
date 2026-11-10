@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Sporadic.RawTreeGen
 public import CFSG.LocalAnalysis.WeakClosure81.GF2RepsAsch54SporCo3Inputs
-public import CFSG.Sporadic.Schreier.Co3Arrays
 meta import CFSG.LocalAnalysis.WeakClosure81.GF2RepsAsch54SporCo3Inputs
 meta import CFSG.Sporadic.Schreier.Co3Arrays
 

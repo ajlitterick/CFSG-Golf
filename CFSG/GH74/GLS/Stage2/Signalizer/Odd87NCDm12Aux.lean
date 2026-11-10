@@ -2,10 +2,7 @@ module
 
 public import CFSG.GH74.GLS.Stage2.Local.P27M12Basic
 public import CFSG.GH74.GLS.Stage2.Local.P27.FullG
-public import CFSG.GH74.GLS.Stage2.Local.P34S5Jbar
 public import CFSG.GH74.GLS.Stage2.Signalizer.L52TwoCov
-public import CFSG.LocalAnalysis.ComponentInitial.QuasisimpleRankOne
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

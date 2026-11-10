@@ -1,14 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.HypA2Leaves.A2lCl2FamCore
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.HypA2Leaves.A2lCl2FamSpIn
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddPSp
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddPSL
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBSymplecticBInvolution
-public import CFSG.LocalAnalysis.ComponentClassification.OutcomeLocalCTIUnitarySocleForms
-public import CFSG.LieType.Universal.Symplectic
-public import CFSG.LocalAnalysis.ComponentInitial.FixedComponentCorrespondence
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.ClassicalGroups

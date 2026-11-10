@@ -1,15 +1,9 @@
 module
 
-public import CFSG.Quasithin.H13.J4Words
-public import CFSG.Sporadic.HS.SmallF2Spec
-public import Certificates.Data.CFSGNative.H13.J4Data
 public meta import Certificates.Data.CFSGNative.H13.J4Data
 public meta import Certificates.Data.CFSGNative.H13.J4Elems
 public meta import CFSG.Quasithin.H13.J4Defs
-import Certificates.Data.CFSGNative.H13.J4Elems
-public import CFSG.Quasithin.H13.J4QuotInputs
 public import Certificates.Certificate7015
-public import Certificates.Certificate7018
 
 public noncomputable section
 

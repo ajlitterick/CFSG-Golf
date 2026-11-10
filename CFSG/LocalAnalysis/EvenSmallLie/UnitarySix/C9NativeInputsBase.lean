@@ -3,7 +3,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.NativeClassesBase
 public meta import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.NativeDataBase
-public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.NativeDataInputs
 
 @[expose] public section
 

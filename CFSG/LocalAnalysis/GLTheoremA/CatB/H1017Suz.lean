@@ -1,18 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1017Th
-public import CFSG.Sporadic.SuzRecog.NativeType
 public import CFSG.Sporadic.SuzRecog.Generation
-public import CFSG.LocalAnalysis.ComponentClassification.AS81Step18Classes
 public import CFSG.Sporadic.SuzOddCore.SmallModel
 public import Certificates.Certificate10147
-public import Certificates.Certificate6001
-public import Certificates.Certificate6002
-public import Certificates.Certificate6003
-public import Certificates.Certificate6004
-public import Certificates.Certificate6005
-public import Certificates.Certificate6007
-public import Certificates.Certificate16026
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
 public import CFSG.Certificates.FusionF2

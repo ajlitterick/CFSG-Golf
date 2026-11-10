@@ -3,9 +3,7 @@ module
 public import CFSG.RankThree.PartTwo.Sec8.Hering418RSix
 public import CFSG.RankThree.PartTwo.Sec8.Hering418ROuter
 public import CFSG.RankThree.PartTwo.Sec8.Hering418RNine
-public import CFSG.RankThree.PartTwo.KFacts.K71G2
 public import CFSG.RankThree.PartTwo.Sec8.Item86Res2ProofIndep
-public import CFSG.LieType.Simplicity.Exceptional
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
 public import CFSG.Certificates.FusionF2

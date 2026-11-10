@@ -12,10 +12,6 @@ import Certificates.Kernel.Ly3085.Bytes
 import Certificates.Kernel.Sporadic.OrdCommon
 import CFSG.Certificates.Kernel.Common.Harness
 import all CFSG.Blueprint.NativeSporadic
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
-public import CFSG.Sporadic.Th.F2Spec
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Frattini.Core
 
 public section
 

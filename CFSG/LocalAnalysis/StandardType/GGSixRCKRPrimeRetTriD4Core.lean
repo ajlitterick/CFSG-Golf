@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeTriD4PinnedFrame
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.TorusAtCore
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.CentralizerTrivialUnitaryOrbit
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24A2CubeClass
 

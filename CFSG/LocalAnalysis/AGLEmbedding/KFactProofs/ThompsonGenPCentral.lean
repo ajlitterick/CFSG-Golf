@@ -2,9 +2,7 @@ module
 
 public import Mathlib.GroupTheory.Frattini
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ThompsonGenPower
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Frattini.Core
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GeneratorRank
-import Mathlib.CategoryTheory.Category.Basic
 
 public section
 

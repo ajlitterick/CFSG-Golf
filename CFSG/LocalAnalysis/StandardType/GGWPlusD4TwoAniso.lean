@@ -1,9 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutTrialityRank
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderOmegaOrth
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderOmegaGenFrame
-public import CFSG.LocalAnalysis.StandardType.GGWPlusD4TwoPieces
 public import CFSG.LocalAnalysis.StandardType.GGWPlusD4TwoPlanes
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowY1KerD4MPlane
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.H81Orth.TwistedConfig

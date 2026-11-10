@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGKGroupFusionSeitzExcComp
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45FieldFixAut
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixDefs
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45KGForms

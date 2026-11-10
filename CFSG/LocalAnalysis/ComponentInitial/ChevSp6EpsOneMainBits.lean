@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentInitial.ChevSp6EpsOneKillFacts
 public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
-public import Mathlib.Data.Matrix.Mul
-public import Mathlib.Data.Fin.VecNotation
 public import Mathlib.Data.Nat.Bitwise
 
 public section

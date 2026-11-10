@@ -1,9 +1,6 @@
 module
 
 public import Certificates.Kernel.SporSch.Ru.Perms
-public import CFSG.Certificates.Kernel.SporSch.RuSound
-public import CFSG.Certificates.Kernel.SporSch.DerivsSound
-public import CFSG.Certificates.Kernel.Spor.Loops
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

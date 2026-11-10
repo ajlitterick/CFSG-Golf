@@ -4,7 +4,6 @@ public import Certificates.Kernel.MinusEnum.TableChecks
 public import Certificates.Kernel.MinusEnum.Pin
 public import CFSG.Certificates.Kernel.BfsPinSeedSound
 public import CFSG.OddTranspositions.PartThree.Eleven.Minus.PermCheck
-import CFSG.Certificates.Kernel.Spor.PackWord
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
 
 public section

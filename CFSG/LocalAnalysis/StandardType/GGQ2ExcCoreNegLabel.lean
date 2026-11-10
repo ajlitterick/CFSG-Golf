@@ -5,17 +5,9 @@ public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4Inputs2
 import CFSG.LocalAnalysis.StandardType.GGFamLabelKind
 import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreNormGe
 import CFSG.LocalAnalysis.StandardType.GGLangRatNegOne
-import CFSG.LocalAnalysis.StandardType.GGSixTCWP4TwistOuter
 import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RKind
 import CFSG.LocalAnalysis.StandardType.ExcPos.TwistedE6Factors
 import CFSG.LieType.Chevalley.RootComponentType
-import CFSG.LieType.Chevalley.CorootCoordinates
-import CFSG.LieType.Chevalley.SignKernelSimpleWeyl
-import CFSG.HardMathSupport.Timmesfeld.RootAut.Count
-import CFSG.HardMathSupport.Timmesfeld.RootAut.Orbit
-import CFSG.HardMathSupport.Timmesfeld.RootAut.Main
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.TwoDHighType
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExcD4
 
 public section
 

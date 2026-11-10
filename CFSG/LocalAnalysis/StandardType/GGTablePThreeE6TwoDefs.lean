@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TableTDefs
-public import CFSG.Assembly.GL83LieDefs
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2Q2Certificates
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2Coord
-public import CFSG.LieType.Chevalley.SylowOpposition
 
 public section
 

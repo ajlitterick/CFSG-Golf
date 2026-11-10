@@ -1,30 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResE78Module
-public import CFSG.LocalAnalysis.StandardType.GGRCCardJoin
-public import CFSG.LocalAnalysis.StandardType.GGPZWeylType
-public import CFSG.LocalAnalysis.StandardType.GGCompListMarked
-public import CFSG.LocalAnalysis.StandardType.GGE7TwoThreeComp
-public import CFSG.LocalAnalysis.StandardType.GGE8TwoThreeComp
 public import CFSG.LocalAnalysis.StandardType.GGResExcSplitExactTwoL
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1E7
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1E8
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2E7Rank
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2ExceptionalAction
 public import CFSG.LocalAnalysis.StandardType.GGResHigherFieldI1
 public import CFSG.LocalAnalysis.StandardType.GGResJOpenLabel
-import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1Regimes
-import CFSG.LocalAnalysis.StandardType.GGTCJHolds
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-import CFSG.LocalAnalysis.StandardType.GGTBTorLiftRowsHolds
-import CFSG.LocalAnalysis.StandardType.GGTBE6
-public import CFSG.LocalAnalysis.StandardType.GGRCTransfer
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeTenLinearAux1
-public import CFSG.LocalAnalysis.StandardType.GGResIINegOne
-public import CFSG.LocalAnalysis.StandardType.GGQ2P3Hyp
-public import CFSG.LocalAnalysis.StandardType.GGRCCaseIIBasic
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
-import Mathlib.LinearAlgebra.Projection
 
 import CFSG.LocalAnalysis.StandardType.GGResTwoCells
 
@@ -32,7 +12,6 @@ public import CFSG.LocalAnalysis.StandardType.GGResCentBoundNbrHolds
 
 public import CFSG.LocalAnalysis.StandardType.ZS.UseInputHolds
 
-public import CFSG.LocalAnalysis.StandardType.ZS.Adapter
 
 public section
 namespace CFSG.StandardType

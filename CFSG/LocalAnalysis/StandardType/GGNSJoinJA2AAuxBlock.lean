@@ -1,14 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosDefs
 import CFSG.LocalAnalysis.StandardType.GGNSJoinJA2AAuxCover
 import CFSG.LocalAnalysis.StandardType.GGNSJoinJA2AAuxRank
-import CFSG.LocalAnalysis.StandardType.GGLinearTorusCompSUComp
-import CFSG.LocalAnalysis.StandardType.GGLinearTorusCompSUModel
 import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitSU
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosRankAux2
-import CFSG.LocalAnalysis.ComponentInitial.BlockOvergroupDichotomy
 
 public section
 

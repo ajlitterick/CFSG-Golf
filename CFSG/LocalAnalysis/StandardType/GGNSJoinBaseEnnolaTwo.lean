@@ -1,23 +1,13 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRowMember
-public import CFSG.LocalAnalysis.StandardType.GGNSJoinQFourExact
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseE8TwoFrame
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseTwoAFiveE
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseTwE6TwoFull
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseLabel
-import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseTwoE
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyQFourTBSmall
-import CFSG.LocalAnalysis.StandardType.GGF4ThreeNbrRank
 import CFSG.LocalAnalysis.StandardType.GGF4ThreeSCCube
 import CFSG.LocalAnalysis.StandardType.GGF4ThreeSCCubeHolds
-import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
-import CFSG.LocalAnalysis.StandardType.GGSecFiveRankOneCard
 import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseOrthFrame
 import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseE7TwoFrame
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySp
 import CFSG.LocalAnalysis.StandardType.GGUnitaryTwoBstar
 
 public section

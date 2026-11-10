@@ -5,7 +5,6 @@ public import CFSG.Sporadic.Schreier.J4SThreeDataBase
 
 public import CFSG.Sporadic.Schreier.J4SKCent
 public meta import CFSG.Sporadic.Schreier.J4SKCent
-public import CFSG.Sporadic.Schreier.J4SThreeDataInputs
 public import Certificates.Certificate2183
 
 public section

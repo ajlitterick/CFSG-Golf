@@ -4,10 +4,8 @@ public import Certificates.Kernel.SporSch.HN.C17381Data
 public import Certificates.Kernel.SporSch.HN.Pt2109Data
 public import Certificates.Kernel.SporSch.HN.PtR
 public import Certificates.Data.Kernel.SporSch.ConjKey
-public import Certificates.Data.Kernel.SporSch.HNXOrb
 public import Certificates.Data.Kernel.SporSch.HNXPrim
 public import Certificates.Data.Kernel.SporSch.HNXPt
-public import CFSG.Certificates.Kernel.Local.HN.Lib
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

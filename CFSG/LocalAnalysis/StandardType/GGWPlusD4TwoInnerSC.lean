@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBBridge
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeACover
-public import CFSG.LocalAnalysis.StandardType.GGInnLocalDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUDefs
 
 public section
 

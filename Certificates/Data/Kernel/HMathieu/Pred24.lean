@@ -4,8 +4,6 @@ module
 public import Certificates.Data.Kernel.HMathieu.PredHF
 public import Certificates.Data.Kernel.HMathieu.Tab
 public import Certificates.Data.Kernel.HMathieu.Avoid
-public import CFSG.Quasithin.Background.HMathieuSyl24
-public import CFSG.Quasithin.Background.HMathieuPred
 public import CFSG.Quasithin.AppendixH.H14.H141C1Inputs
 public import CFSG.Quasithin.AppendixH.H16.H165Inputs
 

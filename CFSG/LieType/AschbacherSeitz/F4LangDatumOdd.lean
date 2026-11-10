@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGFieldOuterInvLangDatum
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutInnerExc
-public import CFSG.LieType.SeitzGeneration.ExcTorusF4Two
 
 public section
 

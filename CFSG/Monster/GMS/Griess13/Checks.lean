@@ -1,7 +1,5 @@
 module
 
-public import CFSG.Monster.GMS.Griess13.DataPacked
-public import CFSG.Monster.GMS.Griess13.ChecksInputs
 public import Certificates.Certificate10032
 public meta import CFSG.Monster.GMS.Griess13.DataPacked
 public meta import Mathlib

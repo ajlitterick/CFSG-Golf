@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrG2ThreeKG
-public import CFSG.RankThree.PartTwo.KFacts.K71G2
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T266G2Holds
 public import CFSG.CGT.PushingUpLit.CGT6M.FiveInspD4
 public import CFSG.RankThree.PartTwo.Sec4.E27.D4StepALeavesAuxL2G2

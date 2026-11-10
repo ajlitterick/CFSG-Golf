@@ -3,17 +3,10 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T2021Facts
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.MIBase
 public import CFSG.LocalAnalysis.StandardType.GGInnLocalDefs
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
 import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylFieldVacOtherTypeDet
-import CFSG.LocalAnalysis.StandardType.GGAssemblyThreeHypSix
 import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitF4Label
-import CFSG.LocalAnalysis.StandardType.GGRawAutRestCore
-import CFSG.LocalAnalysis.StandardType.MarkingSmall
 import CFSG.LocalAnalysis.StandardType.GGExclNoIso
 import CFSG.LargeExtraspecial.DW2AOut
-import CFSG.Sporadic.Schreier.TitsOuter
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.GroupTheory.LocalCores.Layer
 public import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma32
@@ -33,14 +26,7 @@ public import CFSG.LocalAnalysis.GLTheoremA.S4S.Inputs
 public import CFSG.LocalAnalysis.GLTheoremB.Lemma911Defs
 public import CFSG.LocalAnalysis.GLTheoremB.SchreierTools
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.TitsGen
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremB
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremC
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.ZJTheorem
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GW1965RemarkDGroup
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29Helpers
 import CFSG.LargeExtraspecial.DW2AOutInput
 
 public section

@@ -1,11 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBTorRelE6Cover
-public import CFSG.LocalAnalysis.StandardType.GGTorusE6RelativeLang
 public import CFSG.LocalAnalysis.StandardType.GGTorusE6RelativeLangWeyl
-public import CFSG.LocalAnalysis.StandardType.GGTorusCentralLift
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcE6PlusSylow
-public import CFSG.LocalAnalysis.StandardType.GGTBTorRel
 public import CFSG.LocalAnalysis.StandardType.GGTBTorRelE6Twisted
 
 public noncomputable section

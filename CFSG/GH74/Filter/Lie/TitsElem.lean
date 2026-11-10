@@ -2,45 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.GH74.Filter.ElemAbelian
-public import CFSG.GH74.Filter.Statements
-public import Certificates.Data.CFSGNative.Filter.TitsElem
 public meta import Certificates.Data.CFSGNative.Filter.TitsElem
 public import Certificates.Certificate5022
-public import Certificates.Certificate8032
-public import Certificates.Certificate8033
-public import Certificates.Certificate45
-public import Certificates.Certificate46
-public import Certificates.Certificate47
-public import Certificates.Certificate48
-public import Certificates.Certificate49
-public import Certificates.Certificate50
-public import Certificates.Certificate51
-public import Certificates.Certificate52
-public import Certificates.Certificate53
-public import Certificates.Certificate54
-public import Certificates.Certificate55
-public import Certificates.Certificate56
-public import Certificates.Certificate57
-public import Certificates.Certificate58
-public import Certificates.Certificate59
-public import Certificates.Certificate60
-public import Certificates.Certificate61
-public import Certificates.Certificate62
-public import Certificates.Certificate63
-public import Certificates.Certificate64
-public import Certificates.Certificate65
-public import Certificates.Certificate66
-public import Certificates.Certificate67
-public import Certificates.Certificate68
-public import Certificates.Certificate69
-public import Certificates.Certificate70
-public import Certificates.Certificate71
-public import Certificates.Certificate72
-public import Certificates.Certificate73
-public import Certificates.Certificate74
-public import Certificates.Certificate75
-public import Certificates.Certificate113
-public import Certificates.Certificate114
 public import CFSG.GH74.Statements
 public import CFSG.LocalAnalysis.SectionRank.Framework.SylowRank
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
@@ -48,8 +11,6 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.SporadicWitnesses
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.theorem_3_4
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.Defs
 
 public section
 

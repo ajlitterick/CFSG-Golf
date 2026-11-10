@@ -2,11 +2,7 @@ module
 
 public import CFSG.GH74.GLS.C3.Layer1.Th2Pump
 public import CFSG.GH74.GLS.C3.Layer1.St1RigMain
-public import CFSG.GH74.GLS.C3.Layer1.St1Conj
-public import CFSG.GH74.GLS.C3.Layer1.Th2A7
 public import CFSG.GH74.GLS.IVK.Proofs2.LocalUnbalancing
-import CFSG.Adapters.GeneralizedFitting
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

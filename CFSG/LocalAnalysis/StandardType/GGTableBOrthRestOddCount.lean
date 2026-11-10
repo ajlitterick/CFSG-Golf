@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestEndRank
-public import CFSG.RankThree.PartTwo.Census.LinearRank
-public import TauCeti.LinearAlgebra.BilinearForm.SymplecticBasis
 
 public section
 

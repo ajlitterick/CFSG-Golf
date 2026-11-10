@@ -3,8 +3,6 @@ module
 
 public import Certificates.Kernel.GammaU.SigmaFactsBase
 
-public import Certificates.Kernel.GammaU.Sigma0OK
-public import Certificates.Kernel.GammaU.Sigma1OK
 public import CFSG.Certificates.Kernel.GammaUSigmaSound
 
 set_option maxRecDepth 100000

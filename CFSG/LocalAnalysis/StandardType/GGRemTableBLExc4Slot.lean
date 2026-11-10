@@ -1,8 +1,6 @@
 module
 
-public import CFSG.Yardstones.M3f9567aba59d.TableBL
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLExc4
-public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBE6
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLExc3Slot
 
 public section

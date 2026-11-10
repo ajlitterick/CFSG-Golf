@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGStep
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeHermModel
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeGeoFlagSelfDual
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeSLBlock

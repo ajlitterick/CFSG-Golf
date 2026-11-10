@@ -2,11 +2,9 @@ module
 
 public import CFSG.OddTranspositions.O4Minus5Pair
 public import CFSG.Open.FischerThreeTranspositionMilestoneDefs
-import CFSG.OddTranspositions.O4PairTransport
 import CFSG.OddTranspositions.O4PairFixSubgroup
 import CFSG.OddTranspositions.O4PairClass65Lang
 public import CFSG.Open.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
 
 public section
 

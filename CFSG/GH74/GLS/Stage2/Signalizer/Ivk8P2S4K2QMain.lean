@@ -8,7 +8,6 @@ import CFSG.GH74.GLS.Stage2.Signalizer.Odd87SubSec31TwoAux
 import CFSG.GH74.GLS.C3.Layer1.BkIvk73Abs
 public import CFSG.GH74.GLS.Stage2.Signalizer.Ivk8P2S4K2Alt
 public import CFSG.GH74.GLS.Stage2.Signalizer.Ivk8P2S4K2L2
-public import CFSG.LocalAnalysis.ComponentClassification.Foote5L53M
 public import CFSG.LocalAnalysis.ComponentClassification.Foote5L55B
 
 public section

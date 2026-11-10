@@ -4,15 +4,10 @@ public import CFSG.LocalAnalysis.StandardType.GGTBJOmComp
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmModel
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmTorus
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmCore
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorus
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorusForms
 public import CFSG.LocalAnalysis.StandardType.GGTBJSuRow
 public import CFSG.LocalAnalysis.StandardType.GGTBRowOFrameAux
-public import CFSG.LocalAnalysis.StandardType.GGTBRowR5Defs
 public import CFSG.LocalAnalysis.StandardType.GGTBJRowR4Narrow
-import CFSG.LocalAnalysis.StandardType.GGTBJOmBlockZ
 import CFSG.LocalAnalysis.StandardType.GGTBJOmDTwoCount
-import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
 
 public section
 

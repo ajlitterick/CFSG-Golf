@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.CFSGNative.ExcCensus.Check
-public import Std.Data.HashMap
 
 public section
 

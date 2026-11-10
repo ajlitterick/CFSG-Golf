@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdPosC13UnitaryDvdNorm
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRestTypeA
 
 public section
 

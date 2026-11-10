@@ -2,12 +2,8 @@ module
 
 public import Certificates.Kernel.HSStd.M12PinChecks
 public import CFSG.Certificates.Kernel.L34CoverSound
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.HFIM12Data
 import CFSG.Certificates.Kernel.BfsPinSetSound
-import CFSG.Certificates.Kernel.BfsPinUnpack
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import CFSG.Certificates.Kernel.Spor.BfsReplay
-import CFSG.Certificates.Kernel.Spor.PackWord
 
 public section
 

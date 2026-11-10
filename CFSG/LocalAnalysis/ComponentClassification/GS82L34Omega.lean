@@ -1,16 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GS82L34G1Layer
-public import CFSG.LocalAnalysis.ComponentClassification.GS82HConfigCtx
-public import CFSG.GH74.GLS.C3.Layer1.Defs
-public import CFSG.GH74.Generic.BProg.LBalanceNested
 public import CFSG.GH74.Generic.BProg.B3.S3Ctx29Layer
-public import CFSG.GH74.GLS.Stage2.Signalizer.L52TwoI1Basic
-public import CFSG.GH74.GLS.TwoThin.Bridge
-public import CFSG.LocalAnalysis.ComponentClassification.TwoLayerTransport
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
-public import CFSG.LocalAnalysis.ComponentInitial.LinearCoverModel
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GH74.Generic.BProg.B3.S3Ctx29
 
 public section

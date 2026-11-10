@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Literature.Janko67
-public import CFSG.RankThree.GF2n.Parrott.A1TheoremA
 public import CFSG.RankThree.GF2n.Parrott.ParrottFi22CitedS
 public import CFSG.RankThree.GF2n.Parrott.Section2Theorem1EqualityBranchHolds
 public import CFSG.RankThree.GF2n.Parrott.Section5Theorem5Inputs

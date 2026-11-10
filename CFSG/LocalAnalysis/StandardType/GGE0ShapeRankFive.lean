@@ -2,17 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGE0ShapeDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarE6ThreeFrameOn
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcSixETwisted
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarNormalizerAut
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarNormalizerAutTwoLocal
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarNormalizerAutInduces
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderExcRestProof
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarModelFrameTransfer
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6RankFive
-public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordContrary
 public import CFSG.LocalAnalysis.StandardType.GGExcKGSFCoreAux
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6SplitEmbed
 import CFSG.HardMathSupport.Dickson.Sec6.I923Fam.TwE6Aux.Field
 
 public section

@@ -3,10 +3,7 @@ module
 public import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotHR6X
 public import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotLeviYMinus
 public import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotRoots
-public import CFSG.LocalAnalysis.SeitzReduction.HypothesisOneTwistedE6Center
-public import CFSG.LocalAnalysis.SeitzReduction.HypothesisOneTwistedE6ClassList
 public import CFSG.LocalAnalysis.SeitzReduction.HypothesisOneTwistedE6CascadeFinal
-public import CFSG.LieType.Chevalley.GraphFixedSylowOpposition
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Fischer.Uniq.CompTau
 public import CFSG.LieType.Chevalley.C2E6ExactRootRestrictions
@@ -30,7 +27,6 @@ public import CFSG.Quasithin.Background.Basic
 public import CFSG.RankThree.Classical.SteinbergBJSymplecticSquareZeroCentralizer
 public import CFSG.RankThree.PartOne.KC.SymplecticSubfieldRadical
 public import CFSG.Sporadic.M23.M23Group
-public import CFSG.Sporadic.Th.F2Spec
 public import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 
 public section

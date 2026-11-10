@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.SFM2Delta
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FPFieldN
-public import CFSG.LocalAnalysis.StandardType.ChevTwoMarking
 public import CFSG.Adapters.LieModelSimple
 public import CFSG.ClassicalInvolution.SmallCases.UpgradeCoverClassical
 

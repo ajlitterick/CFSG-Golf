@@ -5,10 +5,7 @@ public import CFSG.LocalAnalysis.StandardType.GGMaxRankJBridge
 public import CFSG.LocalAnalysis.StandardType.GGMaxRankJWitness
 public import CFSG.LocalAnalysis.StandardType.GGMaxRankNotLeviLE3
 public import CFSG.LocalAnalysis.StandardType.GGMaxRankRowNonLevi
-public import CFSG.LocalAnalysis.StandardType.GGMaxRankSide
-public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3Defs
 public import CFSG.LocalAnalysis.StandardType.GGResXDichotomyDefs
-public import CFSG.LocalAnalysis.StandardType.GGFieldNbr
 import CFSG.LocalAnalysis.StandardType.GGMaxRankE8LiftHolds
 
 public section

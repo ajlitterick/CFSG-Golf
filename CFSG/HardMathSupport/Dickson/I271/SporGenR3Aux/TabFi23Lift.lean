@@ -10,7 +10,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.OrdinaryComponentJoins
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
 public import CFSG.LocalAnalysis.GLTheoremB.QuotientTools
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNTPlaneInput
-public import CFSG.LieType.AlgebraicGroups.ToralRootCover
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4ULang
-public import CFSG.LieType.Chevalley.OrthogonalUnionBruhat
 
 public section
 

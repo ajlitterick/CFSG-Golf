@@ -4,11 +4,8 @@ public import CFSG.Quasithin.Vol2.Ch12Sec6KGCompLie2TwoL52
 public import CFSG.Quasithin.Vol2.Ch12Sec6KGCompLie2BigSp4
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.EvenClassicalSymplecticAut
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.In23FiveSp4Out
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagOrder
-public import CFSG.LocalAnalysis.ComponentInitial.LinearFieldFourRoots
 public import CFSG.LocalAnalysis.ComponentInitial.CLSFourGroupLinearThreeFour
 public import CFSG.LocalAnalysis.AGLEmbedding.SporadicBeta
-public import CFSG.ClassicalGroups.Symplectic.Simple
 public import CFSG.LocalAnalysis.ComponentInitial.LayerComponentOrbit
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.InA3Five
 public import CFSG.Open.GLBDefs

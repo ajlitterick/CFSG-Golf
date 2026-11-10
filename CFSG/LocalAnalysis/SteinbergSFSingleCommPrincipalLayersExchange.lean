@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.SteinbergSFSingleCommPrincipalLayersCover
-public import CFSG.Foundations.Basic
-public import CFSG.Assembly.Defs
 import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.LocalAnalysis.ComponentInitial.SteinbergBJEvenLinearTwoSquareField
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionSquareFieldNaturalAction

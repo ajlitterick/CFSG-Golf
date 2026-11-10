@@ -4,14 +4,9 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoAssemble
 public import CFSG.LocalAnalysis.StandardType.GGQTwoGammaNbrAt
 public import CFSG.LocalAnalysis.StandardType.GGQTwoGraphD5
 public import CFSG.LocalAnalysis.StandardType.GGQTwoGraphE7
-public import CFSG.LocalAnalysis.StandardType.GGQTwoK1OfI1
 public import CFSG.LocalAnalysis.StandardType.GGQTwoGraphFinish
 public import CFSG.LocalAnalysis.StandardType.GGQTwoGraphSwap
 public import CFSG.LocalAnalysis.StandardType.GGQTwoGraphClassify
-public import CFSG.LocalAnalysis.StandardType.GGQTwoGraphCommon
-public import CFSG.LocalAnalysis.StandardType.GGQTwoGraphScaled
-public import CFSG.LocalAnalysis.StandardType.GGQTwoSwapAB
-public import TauCeti.LinearAlgebra.IntegralLattice.RootLattice.TypeD.SimpleRoots
 
 public section
 

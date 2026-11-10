@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Sporadic.OddCore.SuzFusion
 public import Certificates.Kernel.Sporadic.OddCore.Suz2302
 public import CFSG.Certificates.Kernel.SuzCentreKSound
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.BfsPinSetSound
 public import CFSG.Certificates.Kernel.Spor.RawOrbGrp
 

@@ -1,18 +1,14 @@
 module
 
-public import CFSG.Quasithin.Background.FixVTransport
 public import CFSG.Quasithin.Background.FixVZPowersMem
 public import CFSG.CGT.PushingUpLit.BHS.Defs
 public import CFSG.CGT.PushingUpLit.BHS.Replacement
 public import CFSG.Quasithin.Background.B19Basic
-public import CFSG.Quasithin.Background.B6Defs
-public import CFSG.LieType.BorelTits.Basic
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups
 public import CFSG.LocalAnalysis.ComponentClassification.Helpers
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.Quasithin.Background.B1Solvable
 public import CFSG.Quasithin.Background.Basic
 public import CFSG.RankThree.GroupTheory.SteinbergBYSectionNineResidual

@@ -3,8 +3,6 @@ module
 public import CFSG.Quasithin.Vol2.KGFact1291S3SL
 public import CFSG.Quasithin.Vol2.KGFact1291S3A7
 public import CFSG.Quasithin.Vol2.KGFact1295Cls
-public import CFSG.Quasithin.Vol2.KGFact1295Ct
-public import CFSG.Quasithin.Vol2.KGFact1296
 
 public section
 

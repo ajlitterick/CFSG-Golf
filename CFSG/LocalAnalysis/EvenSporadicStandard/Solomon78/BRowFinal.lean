@@ -1,15 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.BRowAbstract
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.BRowW4Final
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.BRowPair
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.BRowW3
-public import CFSG.Monster.Existence.MilestoneInputs
-public import CFSG.Monster.Existence.BabyTableIVOf
-public import CFSG.Monster.Existence.BabyTableIIIOf
-public import CFSG.Monster.Existence.BabyW2Classes
-public import CFSG.Monster.B.CTIB.SylowCenter
-public import CFSG.Monster.B.Pinned.Primes.SeedGL
 public import CFSG.RankThree.PartOne.SPOR.OuterB
 
 public section

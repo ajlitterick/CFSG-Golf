@@ -47,8 +47,6 @@ public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Standard
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.T5CoverActConv
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.TypesCplxConj
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.TypesOmegaConj
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.Bender1970.S3.Setup
 public import CFSG.Walter.JRFacts
 import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec3L34Equiv

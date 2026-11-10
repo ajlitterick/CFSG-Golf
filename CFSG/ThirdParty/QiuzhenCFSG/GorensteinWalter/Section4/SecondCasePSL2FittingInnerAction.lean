@@ -7,12 +7,7 @@ import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseReflected
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2QuotientTorusReflection
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2ConcreteSplitTorusCentralizer
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2SplitReflectedTorusPComplementFixed
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2InnerInvolutionFusion
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2TorusInvolutionDerived
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2SemilinearConjugationTransport
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.FStarCommute
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldSquare
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

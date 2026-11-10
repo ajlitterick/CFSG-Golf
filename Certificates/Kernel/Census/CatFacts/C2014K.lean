@@ -2,9 +2,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallQ3A8DataInputs
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallQ3A8
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallQ3Gen
-public import CFSG.GH74.KGroups.Checks3
 public import Certificates.Data.Kernel.Census.CatFacts.PkDefs
 
 public section

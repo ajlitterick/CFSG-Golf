@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Quasithin.Background.C35InspLevi
 public import CFSG.Quasithin.Background.C35InspL3
 public import CFSG.Quasithin.H13.NQCatParabolicSL3
 

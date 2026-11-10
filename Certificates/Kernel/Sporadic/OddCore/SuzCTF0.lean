@@ -12,10 +12,6 @@ public import Certificates.Kernel.Sporadic.SuzInv.Inner0
 public import Certificates.Kernel.Sporadic.SuzInv.Inner1
 public import Certificates.Kernel.Sporadic.OddCore.PEnumGlue3
 public import Certificates.Kernel.Sporadic.OddCore.PEnumGlue2
-public import Certificates.Kernel.Sporadic.OddCore.Glue
-public import CFSG.Certificates.Kernel.Misc.PairCountSound
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Sporadic.SmallOddCore.ClassSimple
 public import Certificates.Kernel.Sporadic.OddCore.PEnumGlue
 

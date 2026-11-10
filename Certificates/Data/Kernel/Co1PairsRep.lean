@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.Co1BW
-public import Certificates.Data.Kernel.Co1B
 
 public section
 

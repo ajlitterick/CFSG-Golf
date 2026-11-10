@@ -4,16 +4,12 @@ public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.FinalBridges
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.FinalReduction
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition84Induction
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.SimpleRankTwo
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.StrongEmbeddingCounting
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.StrongEmbeddingOddCore
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.SuzukiBridge
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Theorem4a
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Theorem6Final
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.lemma_1
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.Suzuki
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Lemma312
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.FinalTheorem
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConj
 
 namespace CFSG
 end CFSG

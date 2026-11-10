@@ -4,10 +4,7 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC165Bar
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC165SevenA
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC165SevenB
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenTI
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs15
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22e
-public import CFSG.LocalAnalysis.UniquenessCase.UC22Bridge4
-public import CFSG.LocalAnalysis.UniquenessCase.UC6R2
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Quadruple
 public import CFSG.GH74.GLS.Stage2.Final.ModelOrd
 public import CFSG.LieType.CurtisTits.SpecialLinear

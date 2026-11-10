@@ -1,9 +1,6 @@
 module
 
 public import Certificates.Data.OmegaCYFacts
-import Certificates.Certificate2012
-import Certificates.Certificate23100
-import Certificates.Certificate442002
 import Certificates.Kernel.OmegaCY.Glue
 
 public section

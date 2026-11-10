@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.Kernel.SmithD6.Trees
 public import Certificates.Data.Kernel.SmithD6.StabData
 public import Certificates.Data.Kernel.SmithD6.StabN
 import CFSG.Certificates.Kernel.Common.EachTrue

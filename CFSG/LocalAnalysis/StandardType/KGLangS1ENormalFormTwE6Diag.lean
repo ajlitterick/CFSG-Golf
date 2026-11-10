@@ -4,11 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGNbrLangS1ExcInputs
 public import CFSG.LocalAnalysis.StandardType.GGL45NtExcBridgeDefs
 import CFSG.LocalAnalysis.StandardType.GGL45NtExcBridgeTwE6
 import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRankFiveAmbient
-import CFSG.LieType.Chevalley.AmbientTwistedFrobeniusFixedNormalizer
-import CFSG.LieType.Chevalley.OrdinaryEFieldGraphQuotient
-import CFSG.LieType.Chevalley.RootDiagonalWeylTransporter
-import CFSG.LieType.Chevalley.TwistedE6NormalForm
-import CFSG.RankThree.Classical2.TwistedE6RationalOrder
 
 public section
 

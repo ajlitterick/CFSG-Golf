@@ -3,16 +3,11 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KAdj.Concl
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KAdj.Om6mAct
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S20
-public import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockOrthMinusCuts
-public import CFSG.Open.StatedDefs
 
 import CFSG.RankThree.GF2n.Stroth80.GriessOrthSmall
-import CFSG.Adapters.ProjectiveSpecialLinear
 import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockUniBlocks
 import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockOrthMinusData
-import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockOrthMinusResGroup
 import CFSG.RankThree.PartTwo.Sec18.Components
-import CFSG.Assembly.Subnormal
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23d.OmegaMinusFlag
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23d.OmegaMinusLevi
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23d.Bar2Map
@@ -40,21 +35,14 @@ public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KAdj.Om6mBorel
 public import CFSG.Monster.Code.Weights
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.A4Defs
 public import CFSG.Quasithin.Background.B1Restrict
 public import CFSG.Quasithin.Background.B4Statement
 public import CFSG.Quasithin.EmptyFaithful.Setting
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.Certificates.WordSubgroupRel
 import CFSG.GroupTheory.ABGLocalTools.Constraint
 import CFSG.GroupTheory.HallHigmanPiCore
@@ -91,14 +79,12 @@ import CFSG.RankThree.PartTwo.Late.GammaZero
 import CFSG.RankThree.PartTwo.Sec12.Notation
 import CFSG.RankThree.PartTwo.Sec13.Statements
 import CFSG.RankThree.PartTwo.Sec18.Notation
-import CFSG.RankThree.PartTwo.Sec18.Tools
 import CFSG.RankThree.PartTwo.Sec4.StatementsCensus
 import CFSG.RankThree.PartTwo.Sec4.StatementsGraphField
 import CFSG.RankThree.PerfectCover.HopfCentralCoversFinite
 import CFSG.RankThree.Theta.ThreeComponentOrbitCover
 import CFSG.Sporadic.Presentation.Common
 import CFSG.Sporadic.SmallOddCore.CheckSpec
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import CFSG.YGroups.Y322Central
 
 public section

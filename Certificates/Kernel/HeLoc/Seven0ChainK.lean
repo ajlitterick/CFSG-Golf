@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.HeLoc.Seven0Chain
 public import Certificates.Kernel.HeLoc.MemDefs
-public import Certificates.Kernel.Sporadic.He.Chain2112
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

@@ -1,11 +1,9 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.TWEClose
-public import CFSG.ClassicalInvolution.RouteD.TWDConfig
 public import CFSG.ClassicalInvolution.RouteD.TWED6Fix
 public import CFSG.ClassicalInvolution.RouteD.TWED6Typed
 public import CFSG.ClassicalInvolution.RouteD.TwinSmallCasesD
-public import CFSG.ClassicalInvolution.RouteD.TwinYExistsD
 
 public section
 

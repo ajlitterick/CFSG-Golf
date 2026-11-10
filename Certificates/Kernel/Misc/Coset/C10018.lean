@@ -7,10 +7,6 @@ public import CFSG.Certificates.Kernel.Misc.Coset.PG
 public import CFSG.Certificates.Kernel.Misc.Coset.MemSound
 public import Certificates.Kernel.Misc.Coset.XU62S81
 public import Certificates.Kernel.Misc.Coset.XU62SR
-import CFSG.Certificates.Kernel.Common.Harness
-import CFSG.LieType.Multipliers.U62Data
-import CFSG.LieType.Multipliers.CoverWords
-import CFSG.Certificates.CosetTablePresented
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.Fischer.T46Simple
 public import CFSG.GroupTheory.LocalCores.Fitting

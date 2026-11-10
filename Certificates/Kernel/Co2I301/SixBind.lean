@@ -4,7 +4,6 @@ public import Certificates.Kernel.Co2I301.Bridge63
 public import Certificates.Kernel.Co2I301.SixChk
 public import CFSG.Certificates.Kernel.Co2I301.SixSound
 public import CFSG.Sporadic.Co2Schreier.SixGroup
-import CFSG.Certificates.Kernel.Common.Harness
 import all Init.Data.Nat.Fold
 import all Init.Data.Range.Basic
 import all Init.Data.Array.Basic

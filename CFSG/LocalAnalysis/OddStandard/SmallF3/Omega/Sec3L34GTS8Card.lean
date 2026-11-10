@@ -1,10 +1,6 @@
 module
 
 public import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
-public import Mathlib.Data.ZMod.Basic
-public import Mathlib.SetTheory.Cardinal.Finite
-public import Mathlib.Algebra.Group.Subgroup.Pointwise
-public import Mathlib.Algebra.Group.Basic
 
 public section
 

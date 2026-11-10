@@ -1,19 +1,10 @@
 module
 
-public import Mathlib.Algebra.Ring.Parity
-public import Mathlib.Algebra.Group.Defs
 public import Mathlib.Data.Finite.Defs
 public import Mathlib.GroupTheory.Solvable
 public import Mathlib.GroupTheory.PGroup
-public import Mathlib.GroupTheory.Subgroup.Simple
-public import Mathlib.SetTheory.Cardinal.Finite
 
-import Mathlib.Algebra.Order.Ring.Abs
-import Mathlib.Algebra.Group.Subgroup.Finite
-import Mathlib.GroupTheory.Index
 import Mathlib.GroupTheory.Nilpotent
-import Mathlib.GroupTheory.Solvable
-import Mathlib.Tactic.TypeStar
 
 namespace CFSG
 end CFSG

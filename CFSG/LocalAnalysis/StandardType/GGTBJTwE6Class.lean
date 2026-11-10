@@ -4,11 +4,7 @@ public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6LeviRoots
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6Lang
 public import CFSG.LocalAnalysis.StandardType.GGTBJLift
 public import CFSG.LocalAnalysis.StandardType.GGLangExhaust
-public import CFSG.LocalAnalysis.StandardType.GGLangRatComp
 public import CFSG.LocalAnalysis.StandardType.GGLangCorootPair
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarE8FiveFrameCentralizer
-public import CFSG.HardMathSupport.Dickson.Sec6.Up34OddAux.SsExcAux.Reduce
-public import CFSG.LocalAnalysis.SectionRank.LocalDet
 
 public section
 

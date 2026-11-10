@@ -4,15 +4,10 @@ public import Certificates.Kernel.Sporadic.M23Syl.Checks
 public import Certificates.Kernel.SporSch.Mathieu.M23Facts
 public import CFSG.Certificates.Kernel.Spor.MSylowSoundW
 public import CFSG.Certificates.Kernel.Spor.MSylowCentSound
-public import CFSG.Sporadic.Schreier.MathieuSylowAutM23Inputs
-public import CFSG.Sporadic.Schreier.MathieuSylowAutM23Derivs
-public import CFSG.Sporadic.Schreier.MathieuSylowAutCent
-public import CFSG.Sporadic.Schreier.MathieuOddCoreM23Data
 public meta import CFSG.Sporadic.Schreier.MathieuSylowAutMain
 public meta import CFSG.Sporadic.Schreier.M23
 public meta import CFSG.Sporadic.Schreier.M23Pinned
 public meta import Certificates.Data.CFSGNative.SporadicSchreier.MathieuOddCore
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Spor.PCountW
 public import CFSG.Certificates.Kernel.Spor.PK.Perm.Inv
 

@@ -3,13 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.ExcPos.LangFrameDefs
 public import CFSG.LocalAnalysis.StandardType.ExcPos.ContainingComponent
 public import CFSG.LocalAnalysis.StandardType.GGFamLabelAssembly
-public import CFSG.LocalAnalysis.StandardType.GGLieCoreSmallSetup
 public import CFSG.LocalAnalysis.StandardType.GGLieCorePlane3Pair
-public import CFSG.LocalAnalysis.StandardType.GGFamComponent
-public import CFSG.LieType.CurtisTits.Recognition
-public import CFSG.LocalAnalysis.ComponentInitial.FixedComponentCorrespondence
-public import CFSG.Blueprint.LieModelAPI
-public import CFSG.Foundations.SteinbergCADefinitionNodes
 public import CFSG.LocalAnalysis.StandardType.GGFamAssembly
 
 public section

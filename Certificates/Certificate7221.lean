@@ -2,8 +2,6 @@ module
 
 public import CFSG.Quasithin.Background.C48SporCoverM22Data
 import Certificates.Kernel.C48M22Stab.Glue
-import Certificates.Kernel.C48M22Stab.Data
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.Certificates.NativeSchreierCard
 public import CFSG.GroupTheory.LocalCores.Fitting

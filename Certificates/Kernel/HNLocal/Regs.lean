@@ -3,18 +3,11 @@ module
 public import CFSG.Sporadic.HN.LocalK
 public import CFSG.Sporadic.HN.Commutant
 public import Certificates.Kernel.HNLocal.Data
-public import Certificates.Data.Kernel.HNMultK
-public import CFSG.Certificates.Kernel.Spor.OrdSound
-public import CFSG.Certificates.Kernel.Orders.HN.Data.Const
 import Certificates.Kernel.HNLocal.Checks.R
 import Certificates.Kernel.HN3166.Ord
-import Certificates.Kernel.HN3166.Seed
 import Certificates.Kernel.VecCert.WordProg
-import CFSG.Certificates.Kernel.Orders.HN.Data.Sel
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.HNLocalSound
-public import CFSG.Sporadic.Th.F2Spec
 
 set_option maxRecDepth 400000
 

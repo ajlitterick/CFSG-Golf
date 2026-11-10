@@ -2,13 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitExcPlusLift
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6Delta
-import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTwE6ThreeTorus
-import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTwE6ThreeSC
-import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTwE6ThreeNormalizer
 import CFSG.LocalAnalysis.StandardType.GGIrred937TwE6
-import CFSG.LocalAnalysis.StandardType.GGIrred937TwE6Transport
-import CFSG.LocalAnalysis.StandardType.GGTableBTwE6RankOuter
-import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaOutdiag
 import CFSG.LocalAnalysis.StandardType.GGTableBNbrInner937TwE6Inn
 import CFSG.LocalAnalysis.StandardType.GGTableBNbrInner937TwE6Center
 import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6SplitLift

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLin
-import Mathlib.LinearAlgebra.Matrix.BilinearForm
 
 public section
 

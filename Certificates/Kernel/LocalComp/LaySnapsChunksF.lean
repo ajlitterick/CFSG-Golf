@@ -3,8 +3,6 @@ module
 public meta import Lean
 public meta import Certificates.Kernel.LocalQT.Cmd
 public meta import Certificates.Kernel.LocalComp.LaySnapsChunks
-public import Certificates.Data.Kernel.OpsRenL
-public import Certificates.Data.Kernel.LocalQT.Sec
 public import Certificates.Kernel.LocalComp.LaySnapsChunks
 
 open Lean Elab Command Meta CFSG.KC.LQT.Cmd CFSG.KC.LaySnapsChunks

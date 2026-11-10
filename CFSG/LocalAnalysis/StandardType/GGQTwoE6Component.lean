@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoCavQuotient
 public import CFSG.LocalAnalysis.StandardType.GGLangExhaust
 public import CFSG.LocalAnalysis.StandardType.GGQTwoRationalComponent
 public import CFSG.LocalAnalysis.StandardType.GGQTwoE6HeartWeyl
-public import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.InnExcEmb
 
 public noncomputable section
 

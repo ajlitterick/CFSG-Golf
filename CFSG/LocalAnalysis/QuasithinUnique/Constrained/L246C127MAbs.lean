@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Open.Defs
 public import CFSG.Assembly.Defs
 public import CFSG.Quasithin.Background.F1Models
 import CFSG.Assembly.RankThreeEvenDefs

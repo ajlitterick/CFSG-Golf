@@ -1,14 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.RationalA2Part2
-public import CFSG.RankThree.PartOne.KF4.A2Frame
-public import CFSG.RankThree.PartOne.KE8F.FamBruhat
 public import CFSG.RankThree.PartOne.KA5L.Frames
 public import CFSG.RankThree.PartOne.CTP.UnitaryBlk
-public import CFSG.LieType.Chevalley.LangRootRankOneTorus
 public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotRootSL2Aut
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Defs
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleLang
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.SplitLineFix
 public import CFSG.ClassicalInvolution.WeakCT.Standard
 public import CFSG.RankThree.PartOne.KE.E7FiveBlock

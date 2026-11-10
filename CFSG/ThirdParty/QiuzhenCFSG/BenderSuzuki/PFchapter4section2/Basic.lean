@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter3section3.Basic
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter4section1.Basic
-public import Mathlib.GroupTheory.SpecificGroups.ZGroup
 
 namespace CFSG
 end CFSG

@@ -3,12 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGResXDatumOfWeylGroup
 public import CFSG.LocalAnalysis.StandardType.GGResRowOnDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeGlue
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplit
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySplitRefl
 public import CFSG.LocalAnalysis.StandardType.GGTBJWeyl
-public import CFSG.LocalAnalysis.StandardType.GGNbrCenterPCyclic
-public import CFSG.LocalAnalysis.StandardType.GGSpJoinNbrModel
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 
 public section
 

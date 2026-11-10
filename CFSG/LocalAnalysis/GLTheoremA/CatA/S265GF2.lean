@@ -3,10 +3,8 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGF4TwoNTFrame
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallExcC5F4Torus
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallExcC5F4Orb
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallExcC5F4Node
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264X1ExcF4Good
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.LayerComponentDvd
-public import CFSG.GroupTheory.PLayer.CenterQuotientAction
 public import CFSG.LocalAnalysis.GLTheoremA.P51.Quaternion
 public import CFSG.LocalAnalysis.GLTheoremA.P55.Dihedral
 public import CFSG.LocalAnalysis.GLTheoremA.S10.Lemma106107

@@ -2,11 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrTableBPSL
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTypeA
-public import CFSG.LocalAnalysis.StandardType.GGLinearSemisimple
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBTorus
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBRkDefs
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBBridge
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
 
 public section
 

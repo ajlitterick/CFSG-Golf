@@ -2,7 +2,6 @@ module
 
 public import CFSG.Certificates.Kernel.Misc.F2MatGroup
 public import CFSG.Certificates.WordPresentation
-public import CFSG.Sporadic.Bridge.Common
 public import CFSG.Timmesfeld.Moufang.J2Mat
 
 public section

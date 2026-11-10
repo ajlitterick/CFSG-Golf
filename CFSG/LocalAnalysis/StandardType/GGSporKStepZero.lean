@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSporKBMTransportCore
 public import CFSG.GroupTheory.BaerSuzuki.Helpers
-public import CFSG.Assembly.Subnormal
 
 public section
 

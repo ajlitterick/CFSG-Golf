@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.RowCent
 public import CFSG.LocalAnalysis.StandardType.GGFrameRouteE7Models
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoBstar
 
 public section
 

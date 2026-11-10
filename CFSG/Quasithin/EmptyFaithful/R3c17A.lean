@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Quasithin.EmptyFaithful.R3c16TriC
-public import CFSG.Quasithin.EmptyFaithful.R3c9Alt4
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.B113LieEngine
 
 public section
 

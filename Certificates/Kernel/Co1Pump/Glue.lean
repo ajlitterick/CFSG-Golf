@@ -5,7 +5,6 @@ public import Certificates.Kernel.Co1Pump.Kill
 public import Certificates.Kernel.Co1Pairs.Glue
 public import Certificates.Kernel.Co1Pairs.OrbU
 public import Certificates.Kernel.Co1SevenK.RepsGlue
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co1SevenBase
 public import Certificates.Certificate13697
 public import Certificates.Certificate13698
 import all Init.Data.Nat.Fold

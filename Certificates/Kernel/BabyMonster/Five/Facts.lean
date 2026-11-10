@@ -3,11 +3,8 @@ module
 public import Certificates.Kernel.BabyMonster.FiveA.Facts13625
 public import Certificates.Kernel.BabyMonster.Five.Regs
 public import Certificates.Kernel.BabyMonster.Seeds
-public import CFSG.Certificates.Kernel.BabyMonster.PairSound
 public import CFSG.Monster.B.Pinned.Primes.FiveWords
-public import CFSG.Monster.B.Pinned.Primes.Data
 public import CFSG.RankThree.Native.BFiveHCheckInputs
-public import CFSG.Monster.B.Cbar.SimpleBase
 
 public section
 

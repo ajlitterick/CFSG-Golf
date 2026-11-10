@@ -3,12 +3,6 @@ module
 
 public import Certificates.Certificate3079Base
 
-public import CFSG.Monster.B.TwoA.Unitary.Orbit1408Inputs
-public import CFSG.Certificates.Kernel.MonsterB.U6OrbSound
-public import Certificates.Kernel.MonsterB.Co2Vecs
-public import Certificates.Kernel.MonsterB.Tau1408Data
-public import CFSG.Monster.B.TwoA.Unitary.NData
-public import CFSG.Monster.B.TwoA.Unitary.Orbit1408Data
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

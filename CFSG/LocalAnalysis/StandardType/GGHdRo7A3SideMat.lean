@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7A3SideDefs
 import CFSG.LocalAnalysis.StandardType.GGHdRo7A3Basic
 import CFSG.LocalAnalysis.StandardType.GGTableBUnitActCore
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUDefs
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
-import CFSG.RankThree.PartOne.KF.UnitaryDiag
 
 public section
 

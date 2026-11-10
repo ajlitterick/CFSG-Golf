@@ -2,22 +2,12 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.Defs
 public import CFSG.LocalAnalysis.StandardType.GGRootCentKGOTwoExcStep
-public import CFSG.LocalAnalysis.SeitzReduction.E8PilotLevi
 public import CFSG.LocalAnalysis.SeitzReduction.E8PilotPositionCenter
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTBFull
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcThreeAct
-public import CFSG.LocalAnalysis.StandardType.GGExcFrameLang
 public import CFSG.LocalAnalysis.StandardType.FS81.S7ModelHirr
 
 import CFSG.LocalAnalysis.StandardType.GGFrameRouteE7Models
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R16ExcLabel
 import CFSG.CGT.PushingUpLit.SolK.Basics
-import CFSG.LieType.Chevalley.E6GraphInvolutionForms
-import CFSG.LieType.Chevalley.E6GraphRootSL2Basic
-import CFSG.LieType.Chevalley.GraphFixedCoordinateDetection
-import CFSG.GH74.GLS.Stage2.Signalizer.Odd87Mult
-import CFSG.LieType.Steinberg.CentralExt.FieldTwoMultiplier
-import CFSG.LocalAnalysis.ComponentInitial.BasicFacts
 import CFSG.CGT.PushingUpLit.BHS.Offender
 import CFSG.CGT.PushingUpLit.SolK.ModData
 

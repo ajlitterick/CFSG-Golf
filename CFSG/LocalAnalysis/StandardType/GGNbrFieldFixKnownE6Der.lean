@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownE6Kernel
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownE6Restrict
-public import CFSG.LieType.Simplicity.Exceptional
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylFieldVacOther
 
 public section

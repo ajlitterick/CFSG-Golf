@@ -2,7 +2,6 @@ module
 
 public import CFSG.Timmesfeld.RankTwo.Positive
 public import CFSG.Timmesfeld.RankTwo.GradedPresentation
-public import CFSG.LieType.Steinberg.PartBHalfSpace
 
 public section
 

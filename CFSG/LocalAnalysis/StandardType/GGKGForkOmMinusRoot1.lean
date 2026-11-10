@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGForkLayerGen
 public import CFSG.LocalAnalysis.StandardType.GGOmegaMinusRootGenWeyl
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySpCoord
 
 public section
 

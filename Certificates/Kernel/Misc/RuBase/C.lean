@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Misc.RuBase.Bind
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import Std.Tactic.BVDecide.Normalize.Prop
 
 public section

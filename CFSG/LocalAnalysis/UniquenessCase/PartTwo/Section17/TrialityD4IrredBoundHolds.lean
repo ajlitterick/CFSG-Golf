@@ -2,12 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenThirtyOneMcClurg
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm14_5.SmallD4LongTwo
-public import CFSG.Quasithin.Background.SmithB42D4Main
-public import CFSG.Quasithin.Background.SmithB42D4Pure
 public import CFSG.Quasithin.Background.SmithB45TorD4
-public import CFSG.Quasithin.Background.HFF
-public import CFSG.LieType.Simplicity.TrialityD4
-public import CFSG.LieType.Chevalley.GraphFixedCenterTrivial
 import CFSG.Quasithin.Background.FLc2Simple
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Quadruple
 public import CFSG.ClassicalInvolution.QuaternionStructure
@@ -79,8 +74,6 @@ public import CFSG.Quasithin.Background.C1GNC124
 public import CFSG.Quasithin.Background.C1GNSolvConnect
 public import CFSG.Quasithin.Background.E2Statements
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.E4Solv
 public import CFSG.Quasithin.Background.FFC7G
 public import CFSG.Quasithin.Background.G64ProofBasic
 public import CFSG.Quasithin.Background.RonanE111Defs

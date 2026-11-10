@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.Fi23NonsolvCent
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.CoverFixInduced
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Fi.Variant3Facts
-public import CFSG.Sporadic.FischerOddCore.Fi23Aut
-public import CFSG.Sporadic.Fi23.Fischer
 public import CFSG.LocalAnalysis.ComponentClassification.BMCaseGeneric
 
 public section

@@ -8,15 +8,11 @@ import CFSG.RankThree.PartTwo.Sec14.Item148StepOne
 import CFSG.RankThree.PartTwo.Sec4.T444.Lift
 public import CFSG.RankThree.PartTwo.Sec14.Item148MainProofLift
 import CFSG.RankThree.PartTwo.Sec14.Ronan148KTyped
-public import CFSG.RankThree.PartTwo.Sec6.BThreeFromLBalance
 public import CFSG.RankThree.PartTwo.Sec6.HeringGWLBalance
 import CFSG.RankThree.PartTwo.Sec4.RonanK429RowsAssembly
 import CFSG.LocalAnalysis.ComponentClassification.GoldschmidtTDGriess
-import CFSG.RankThree.PartTwo.Sec6.Item65Tools
-import CFSG.RankThree.PartTwo.Sec6.Item612Local
 import CFSG.RankThree.PartTwo.Sec16.Item16Tail13
 import CFSG.Quasithin.Vol2.Ch8Sec2L828TNQuasi
-public import CFSG.Adapters.QiuzhenLegacy.FeitThompson.GroupAction.Quotient
 public import CFSG.RankThree.PartTwo.Sec15.Item15More
 public import CFSG.RankThree.PartTwo.Sec15.Item15Steps
 public import CFSG.RankThree.PartTwo.Sec6.Item612
@@ -33,7 +29,6 @@ import CFSG.Goldschmidt.Steps.G37Core
 import CFSG.GroupTheory.SteinbergCBFTCores
 import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabCo2Shape
 import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabThCentU
-import CFSG.HardMathSupport.Dickson.Sec6.I1431Lie
 import CFSG.HardMathSupport.Solomon.Coordinator.GFR2SporCo3
 import CFSG.HardMathSupport.Solomon.Coordinator.GFR2SporRed
 import CFSG.HardMathSupport.Solomon.Coordinator.InndiagLink

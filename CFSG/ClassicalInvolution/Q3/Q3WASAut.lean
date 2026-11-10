@@ -1,9 +1,5 @@
 module
 
-public import CFSG.ClassicalInvolution.ModelFacts.LinearAutMain
-public import CFSG.ClassicalInvolution.Q3.Q3PlanFundPSL
-public import CFSG.ClassicalInvolution.Q3.ModelOddCentralizerBlocks
-public import CFSG.ClassicalInvolution.Q3.M11Branch
 public import CFSG.ClassicalInvolution.Q3.Q3WALoc
 public import CFSG.ClassicalInvolution.Q3.Q3WADict
 

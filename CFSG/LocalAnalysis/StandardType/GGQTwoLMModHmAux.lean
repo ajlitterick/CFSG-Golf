@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMMod
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUCoord
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySpCoord
 
 public section
 

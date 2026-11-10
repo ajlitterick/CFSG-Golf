@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedCoreShapeAssembly3
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedCoreShapeHerm
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedCoreShapeAlt
-public import CFSG.LocalAnalysis.StandardType.GGSixA6RedShapeSUCore
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsOmegaFree
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedSpDefs
 

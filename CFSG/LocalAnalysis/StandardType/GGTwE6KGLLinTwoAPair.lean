@@ -3,15 +3,8 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTwE6KGLPairs
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLNoJ1Mark
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLNoJ1Ppd
-import CFSG.LocalAnalysis.StandardType.GGAssemblyThreeHypSix
-import CFSG.LocalAnalysis.StandardType.GGTableB
-import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
-import CFSG.LocalAnalysis.SeitzReduction.F4PilotCatTypeDetOrders
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.BlockSylowThreeAutWitCommon
 import CFSG.Assembly.GL83StatedBridge
-import CFSG.Timmesfeld.Orders.ClassicalLinear
-import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Centralizer
-import CFSG.GroupTheory.CenterlessInnerCentralizer
 
 public section
 

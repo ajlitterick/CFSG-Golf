@@ -1,13 +1,9 @@
 module
 
 public import CFSG.Timmesfeld.Transvection.OddPairs
-public import CFSG.Timmesfeld.Transvection.PresSU
 public import CFSG.Timmesfeld.Transvection.FrameResidue
 public import CFSG.Timmesfeld.Transvection.OddModelHeis
 public import CFSG.Timmesfeld.Transvection.GenerateRel
-import CFSG.Timmesfeld.Transvection.OddSU3Chord
-import CFSG.Timmesfeld.Transvection.OddCPart
-import CFSG.Timmesfeld.Transvection.LineGroup
 import CFSG.Timmesfeld.Transvection.RelBuildNorm
 import CFSG.Timmesfeld.Transvection.OddPairsFrame
 import CFSG.Timmesfeld.Transvection.OddModelShortTorus

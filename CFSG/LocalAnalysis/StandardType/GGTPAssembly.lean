@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTPDefs
 public import CFSG.LocalAnalysis.StandardType.GGTPRows
 public import CFSG.LocalAnalysis.StandardType.GGTPTwE6
 public import CFSG.LocalAnalysis.StandardType.GGTPStdFrame
@@ -11,7 +10,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTPStabJ
 public import CFSG.LocalAnalysis.StandardType.GGTPJLabel
 public import CFSG.LocalAnalysis.StandardType.GGE6DepTableRest
 public import CFSG.LocalAnalysis.StandardType.GGE6DepKnownInputs
-public import CFSG.LocalAnalysis.StandardType.GGE6DepConjAssembly
 
 public section
 

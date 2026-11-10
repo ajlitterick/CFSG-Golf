@@ -1,28 +1,13 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148TEvenL3
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Comparator.Defs
 public import CFSG.RankThree.FFModules.Transvections
-import CFSG.StronglyEmbedded
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Borel
-import CFSG.StronglyEmbedded.BenderBorelTransport
-import CFSG.StronglyEmbedded.MatrixGroups.SzModel
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma114Models
-import CFSG.Dihedral.DisconnectedInvolutionGraph.StrongEmbedding
-import CFSG.LocalAnalysis.ComponentClassification.AschbacherToolkitBenderAutOmega
 import CFSG.LocalAnalysis.ComponentClassification.AschbacherToolkitBenderInvBasic
-import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
-import CFSG.Walter.PSL2Facts.Even
 import CFSG.RankThree.PartTwo.Sec16.KL3SubProofMain
 import CFSG.RankThree.PartOne.SolD3.SzSpecial
-import CFSG.RankThree.PartTwo.KFacts.K72Centralizer
 import CFSG.RankThree.SubgroupLists.LinearTwoFamily
-import CFSG.Timmesfeld.Orders.Bang
 import CFSG.CGT.PushingUp.BenderBridge
-import CFSG.FeitThompson.OddOrderTheorem
 public import CFSG.Adapters.QiuzhenLegacy.BenderSuzuki.BenderLinearBorel
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 import CFSG.ClassicalInvolution.WeakCT.StandardPair
 import CFSG.LieType.CurtisTits.SpecialLinear
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearFieldDeterminant

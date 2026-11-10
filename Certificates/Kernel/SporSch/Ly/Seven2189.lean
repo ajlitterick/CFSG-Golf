@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.SporSch.Ly.SevD
 public import Certificates.Kernel.SporSch.Ly.SevCSort
 public import Certificates.Kernel.SporSch.Ly.BS18009
-public import CFSG.Sporadic.Th.TableSpec
 public import CFSG.Certificates.Kernel.Spor.RawSlSound
 import Init.Data.Nat.Fold
 import Init.Data.Array.Basic

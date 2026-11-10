@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.UC22Defs
 import CFSG.LocalAnalysis.StronglyEmbedded.GammaOne
 import CFSG.HardMathSupport.Solomon.Proving.GLBCoreNormalizer
 import CFSG.GroupTheory.ElementaryAbelianTransport
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

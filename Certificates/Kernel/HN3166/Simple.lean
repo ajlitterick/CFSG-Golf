@@ -4,8 +4,6 @@ module
 public import Certificates.Kernel.HN3166.SimpleBase
 
 public import Certificates.Kernel.HN3166.Card
-public import Certificates.Kernel.HN3166.Alg
-public import CFSG.Sporadic.HN.CoprimeSimple
 
 public section
 

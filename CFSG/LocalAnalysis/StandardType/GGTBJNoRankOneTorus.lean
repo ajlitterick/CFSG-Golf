@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-import CFSG.LocalAnalysis.StandardType.GGTableBTypeATorus
 import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
 import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
 

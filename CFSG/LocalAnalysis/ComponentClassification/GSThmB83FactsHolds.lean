@@ -4,10 +4,8 @@ public import CFSG.LocalAnalysis.ComponentClassification.GSThmB83Q3Step4c
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB83S2Final
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog8Small
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog8SecInner
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallQ3
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallQ3Conf
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallA6
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSp4Sec8
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSp4F2
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSp4Sec8L2Inv
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSp4Layer

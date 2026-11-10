@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.Sp62LocalData
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.Sp62LocalMax
 public import Certificates.Certificate465002
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels

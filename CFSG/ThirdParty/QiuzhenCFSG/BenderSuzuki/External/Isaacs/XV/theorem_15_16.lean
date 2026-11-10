@@ -1,13 +1,10 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.problem_7_1
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.XV.lemma_15_15
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.FreeOrbitQuotient
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.FreeBasis
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.ScalarDescent
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.PermutationBasisOrbits
-public import Mathlib.FieldTheory.AlgebraicClosure
 
 namespace CFSG
 end CFSG

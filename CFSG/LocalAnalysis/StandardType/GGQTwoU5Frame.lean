@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Open.LocalVocabulary
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeComponent
 public import CFSG.ClassicalGroups.Orthogonal.ProjectiveSimple
 public import CFSG.LargeExtraspecial.OrthoF2

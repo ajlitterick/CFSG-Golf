@@ -1,15 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinOutWeakPosDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
-public import CFSG.LocalAnalysis.StandardType.GGOrthFrameCore
 public import CFSG.LocalAnalysis.StandardType.GGOrthFramePairs
 import CFSG.LocalAnalysis.StandardType.GGResOrthogonalExactTwo
-import CFSG.LocalAnalysis.StandardType.GGTBJOmFrame
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-import CFSG.LocalAnalysis.StandardType.GGOrthWeakFrameCenter
 import CFSG.LocalAnalysis.StandardType.GGOrthWeakFrameRecog
 import CFSG.LocalAnalysis.StandardType.GGOrthWeakFrameCharSum
 import CFSG.LocalAnalysis.StandardType.GGOrthWeakFrameLift

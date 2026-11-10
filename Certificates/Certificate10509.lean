@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.UCFront10SporHNT0
 public import Certificates.Kernel.SporSch.HN.T0
 
 public section

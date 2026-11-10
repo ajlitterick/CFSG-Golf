@@ -1,13 +1,10 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Q3TIYNRows
-public import CFSG.ClassicalInvolution.Q3.Q3TD3Y
 public import CFSG.ClassicalInvolution.Q3.Q3TD3Ge7
 public import CFSG.ClassicalInvolution.Q3.Q3TD3Five
 public import CFSG.ClassicalInvolution.Q3.Q3TD3R4Asm
 public import CFSG.ClassicalInvolution.Q3.Q3TD3R6Main
-public import CFSG.ClassicalInvolution.Q3.Q3TWC2
-public import CFSG.ClassicalInvolution.Q3.Q3TY12
 public import CFSG.ClassicalInvolution.Q3.Q3TWWPairProved
 public import CFSG.ClassicalInvolution.Q3.Q3TWLOdd
 public import CFSG.ClassicalInvolution.Q3.Q3TWY33

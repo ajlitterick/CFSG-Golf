@@ -1,9 +1,6 @@
 module
 
-import Mathlib.Tactic.Group
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeE6ToralH360Comp
-public import CFSG.Adapters.TauCetiExceptional.TwistedTransfer
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.TwistedE6Base
 
 public section
 

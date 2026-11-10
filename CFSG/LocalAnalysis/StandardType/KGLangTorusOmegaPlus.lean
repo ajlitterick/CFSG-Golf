@@ -2,19 +2,14 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.KGLangTorusMPartDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixLabel
-public import CFSG.LocalAnalysis.StandardType.GGLFourFourThreeMarking
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45KGForms
-public import CFSG.Assembly.GL83LieDefs
 import CFSG.LocalAnalysis.StandardType.KGLangTorusSpanH90
 import CFSG.LocalAnalysis.StandardType.KGLangTorusInnerModel
 import CFSG.LocalAnalysis.StandardType.KGLangTorusClassicalInner
 import CFSG.LocalAnalysis.StandardType.KGLangTorusDatumOfModels
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaConjLabels
 import CFSG.LocalAnalysis.StandardType.KGLangTorusNorm
 import CFSG.LocalAnalysis.StandardType.KGLangTorusOrth
-import CFSG.LocalAnalysis.StandardType.GGLayerCycModelOmegaSec
 import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalAS76aProofSpSplitForm
-import Mathlib.LinearAlgebra.Matrix.CharP
 import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalAS76aProofOrthSplitC
 import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalSplitSp
 import CFSG.LocalAnalysis.StandardType.KGLangTorusSpan

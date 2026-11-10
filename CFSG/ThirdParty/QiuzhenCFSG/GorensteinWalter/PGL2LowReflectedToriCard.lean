@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2LowDihedralOvergroupCard
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OddSubgroupLeNormalIndexTwo
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2LowTorus
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2LowTorusFixedSylow
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2OuterInvolutionFusion
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ReflectedCyclicIndexTwoSubgroup

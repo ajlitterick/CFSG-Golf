@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.Ch3Sec3InspF618Cases
-public import CFSG.Quasithin.Vol2.Ch3Sec3InspF618
 
 public section
 

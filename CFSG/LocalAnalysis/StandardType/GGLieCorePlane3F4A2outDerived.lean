@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieCorePlane3F4Defs
 public import CFSG.LocalAnalysis.StandardType.GGFamLabelAssembly
-import CFSG.LocalAnalysis.StandardType.GGFamSLRecogDefs
 import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.RawStability
 public import CFSG.LocalAnalysis.StandardType.GGFamAssembly
 

@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec5SRank
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsCF23HeModelC
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitFixedHe
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeldFixCore
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuotIso
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsPFBase
 public import CFSG.LinearAlgebra.LinearGroups.LinearTwoOddFourGroups
 public import CFSG.LocalAnalysis.ComponentClassification.Foote47P3Gen

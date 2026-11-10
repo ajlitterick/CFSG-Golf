@@ -2,12 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcPlacementDefs
 public import CFSG.LocalAnalysis.StandardType.GGQ2NoTwoNodeExc
-public import CFSG.LocalAnalysis.StandardType.GGQ2ClassicalCatalogueU
 public import CFSG.LocalAnalysis.StandardType.GGQ2FrameAmbientDefs
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-import CFSG.LocalAnalysis.StandardType.GGSixStepOneDefs
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBIrred
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRestDefs
 import CFSG.LocalAnalysis.StandardType.GGQTwoXInLFrameFIn2
 import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoverSelfCent
 import CFSG.LocalAnalysis.StandardType.GGQ2ExcModelFrameCover

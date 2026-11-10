@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHypTorus
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHypEigen
-public import CFSG.ClassicalGroups.UnitaryFlag.ModelTransport
 
 public section
 

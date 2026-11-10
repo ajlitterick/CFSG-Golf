@@ -1,7 +1,6 @@
 
 module
 
-public import CFSG.Monster.B.TwoA.Census.CosetEnumBits
 public meta import CFSG.Monster.B.TwoA.Census.CosetEnumBits
 public meta import CFSG.Monster.B.TwoA.Census.NatCert
 public meta import CFSG.Monster.B.TwoA.Census.CosetCertData

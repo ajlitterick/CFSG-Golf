@@ -1,8 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.SeitzCubeUnitary
-public import CFSG.LieType.Steinberg.CentralExt.SUTwo
-public import CFSG.Adapters.SpecialLinearPerfect
 
 public section
 

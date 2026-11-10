@@ -3,10 +3,6 @@ module
 
 public import Certificates.Certificate3076Base
 
-public import CFSG.Monster.B.TwoA.Sp8.GenActionOrbitInputs
-public import CFSG.Certificates.Kernel.SortTreeSound
-public import Certificates.Kernel.MonsterB.Sp8OrbData
-public import Mathlib.Data.Nat.Bits
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

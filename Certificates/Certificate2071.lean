@@ -4,11 +4,6 @@ public import CFSG.Sporadic.FischerOddCore.Fi22SearchCheckInputs
 public meta import CFSG.Sporadic.FischerOddCore.Fi22RelBoundCheck
 public meta import CFSG.Sporadic.FischerOddCore.Fi22CentOrderCheck
 import Certificates.Kernel.Sporadic.Fi22.N2071Final
-import Certificates.Certificate2065
-import Certificates.Certificate2066
-import Certificates.Certificate2067
-import Certificates.Certificate3039
-import Certificates.Certificate3147
 
 public section
 

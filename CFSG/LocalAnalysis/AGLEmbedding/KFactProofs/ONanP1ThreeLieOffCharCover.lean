@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanP1ThreeLieOffCharEx
-public import CFSG.LieType.SeitzGeneration.SpAnisoFinal
-public import CFSG.LieType.SeitzGeneration.UnitaryHyperNonsplit
 public import CFSG.LieType.SeitzGeneration.OrthHyperExB3
-public import CFSG.LieType.SeitzGeneration.HyperExExcV2
-public import CFSG.LieType.SeitzGeneration.HyperExCubeTw
 public import CFSG.LieType.SeitzGeneration.HyperExCubeLevi
 public import CFSG.LieType.SeitzGeneration.HyperCoverE6
 public import CFSG.LocalAnalysis.AGLEmbedding.JStarReducedDefs

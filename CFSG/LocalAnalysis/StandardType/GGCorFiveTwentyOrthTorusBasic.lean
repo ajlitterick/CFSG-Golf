@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelOmMvMoves
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthExcEvenLabels
-public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameTorus
 
 public section
 

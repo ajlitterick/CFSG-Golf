@@ -2,9 +2,6 @@ module
 
 public import Certificates.Kernel.C12643.Cent
 public import Certificates.Kernel.Misc.Perm.J2CentGJ
-public import CFSG.RankThree.PartTwo.Sec4.Sporadic.J2Gen
-public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.Coordinator.KS155.J2E4Data
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

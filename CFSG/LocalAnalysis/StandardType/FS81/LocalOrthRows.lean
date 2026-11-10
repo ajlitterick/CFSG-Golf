@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.FS81.StdLoc
 public import CFSG.LocalAnalysis.StandardType.FS81.LocalOrthModels
 public import CFSG.LocalAnalysis.StandardType.FS81.RowSplit
-public import CFSG.LocalAnalysis.StandardType.GGTableBTransport
 
 public section
 

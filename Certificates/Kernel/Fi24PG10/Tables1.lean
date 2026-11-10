@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Fi24PG10.Tables
 import Certificates.Kernel.Co2.Intro
 import Certificates.Kernel.Fi24PG10.Facts1
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Fi24.PG10.Slices.Head1
 
 public section

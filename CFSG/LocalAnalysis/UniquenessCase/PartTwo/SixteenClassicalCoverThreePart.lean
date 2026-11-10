@@ -1,18 +1,10 @@
 module
 
-public import CFSG.Open.StatedDefs
-import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestCenter
 import CFSG.ClassicalGroups.Symplectic.ComponentCartanRank
-import CFSG.LocalAnalysis.SectionRank.EvenCover.SLTwo
 import CFSG.LocalAnalysis.EvenBN.TrialityD4.ProductLayer
-import CFSG.LieType.Steinberg.CentralExt.SpinMinusCentrallyClosed
-import CFSG.LieType.Steinberg.Classical.SpinPlus
-import CFSG.LieType.Steinberg.CentralExt.Families
-public import CFSG.LocalAnalysis.StandardType.GGInnLocalDefs
 public import CFSG.LocalAnalysis.StandardType.GGK1ScLin
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMonomialIrred
 public import CFSG.Quasithin.Background.B69Iso
-public import CFSG.Quasithin.Background.B69SL2
 public import CFSG.Quasithin.Vol2.Ch12Sec5Pb
 public import CFSG.Quasithin.Vol2.Ch3Sec2Lem328Iso
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenDefs
@@ -36,15 +28,10 @@ public import CFSG.Quasithin.Background.B4Dual
 public import CFSG.Quasithin.Background.B5CompB
 public import CFSG.Quasithin.Background.B6
 public import CFSG.Quasithin.Background.B69Core
-public import CFSG.Quasithin.Background.B6Example
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.Quasithin.Background.E2Hyp
 public import CFSG.Quasithin.Background.E2SolvTwo
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3OffenderB
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F1Weak
 public import CFSG.Quasithin.Background.F9G2
 public import CFSG.Quasithin.Background.F9Sixteen

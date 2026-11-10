@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGExcFieldRankTwE6
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRankFiveAmbient
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangTwE6Datum
-public import CFSG.LieType.Steinberg.Exceptional.Fields
 
 public section
 

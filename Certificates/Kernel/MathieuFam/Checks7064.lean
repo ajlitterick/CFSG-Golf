@@ -1,8 +1,6 @@
 module
 
-public import Certificates.Data.Kernel.Spor.Mathieu
 public import CFSG.Quasithin.Background.HMathieuM21Inputs
-import CFSG.Certificates.Kernel.Common.Harness
 import Init.Data.Array.Basic
 import Init.Data.List.Basic
 

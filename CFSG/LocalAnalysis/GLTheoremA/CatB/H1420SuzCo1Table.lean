@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1420SuzRowCent
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1420SuzCo1Centre
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabCo1ThreeAFinal
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabCo1ThreeMoore
-public import CFSG.HardMathSupport.Timmesfeld.Tables.Census.Sporadic
-import CFSG.LocalAnalysis.GLTheoremA.CatA.I1416SporCo1Five
 public import CFSG.GH74.KGroups.L34Aut
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabCo1Final
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabFi24LeafShape

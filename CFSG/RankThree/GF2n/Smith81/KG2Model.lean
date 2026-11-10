@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenLongCentralizer
 public import CFSG.RankThree.GF2n.Smith81.LinSmallG2
-public import CFSG.Timmesfeld.RootSubgroupBasic
-import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenInvolutions
 import CFSG.GroupTheory.ABGLocalTools.OddOrderLocal
-import CFSG.LocalAnalysis.ComponentInitial.LinearFlagOrder
 import CFSG.LocalAnalysis.EvenBN.G2.Data
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.CGT.Timmesfeld75.Forms
@@ -40,7 +37,6 @@ public import CFSG.LocalAnalysis.ShultStronglyClosedTI.UnitaryRootAutomorphism
 public import CFSG.Monster.Code.Weights
 public import CFSG.Permutation.BurnsideSchur
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.Module
 public import CFSG.RankThree.GF2n.Smith81.InspKFacts
 public import CFSG.RankThree.GF2n.Smith81.LinOddBasic
@@ -59,7 +55,6 @@ public import CFSG.RankThree.GF2n.Tim79Mod
 public import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec2.Defs
 public import CFSG.SignalizerFunctorTheorem.McBride.Prelim.Generation
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24

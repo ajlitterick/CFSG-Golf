@@ -1,12 +1,10 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.EightEight.WreathFourBlocks
-public import CFSG.Timmesfeld.Bridge.Asc72Defs
 import CFSG.OddTranspositions.PartThree.EightEight.WreathFourSwaps
 import CFSG.OddTranspositions.PartThree.EightEight.Kernel
 import CFSG.OddTranspositions.PartThree.HalphaConj
 import CFSG.OddTranspositions.PartThree.Eleven.OneOne.ConjShared
-import CFSG.OddTranspositions.PartFour.Line
 
 public section
 

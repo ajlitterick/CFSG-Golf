@@ -1,17 +1,6 @@
 module
 
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co1ThreeDefs
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co1SevenBase
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co1FiveBase
-public import CFSG.Sporadic.Co1Block.Perm
-public import Certificates.Data.CFSGNative.Timmesfeld.Co1Leaf
-public import Certificates.Certificate2043
-public import Certificates.Certificate2133
-public import Certificates.Certificate2135
-public import Certificates.Certificate2147
-public import Certificates.Certificate2148
-public import Certificates.Certificate2150
-public import Certificates.Certificate3024
 public import Certificates.Certificate13665
 public import Certificates.Certificate13697
 public import Certificates.Certificate13698

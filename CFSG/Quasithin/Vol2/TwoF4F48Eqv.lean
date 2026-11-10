@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.Vol2.TwoF4F48Rig
 public import CFSG.Quasithin.Vol2.GoldschmidtF45RuCert
-public import CFSG.Quasithin.Recognition.F4Thirteen
 
 public section
 

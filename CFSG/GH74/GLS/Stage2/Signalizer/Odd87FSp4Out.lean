@@ -2,7 +2,6 @@ module
 
 public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87GenCell
 public import CFSG.RankThree.PartTwo.KFacts.AutPSp4Odd
-public import CFSG.RankThree.Classical.SteinbergBYSymplecticFieldDescent
 public import CFSG.GH74.GLS.IVK.Proofs2.OddTools
 public import CFSG.GH74.GLS.Stage2.Local.P34Main
 public import CFSG.GH74.GLS.Stage2.Local.P34S5A

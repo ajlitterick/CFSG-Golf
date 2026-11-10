@@ -14,8 +14,6 @@ public import CFSG.Certificates.Kernel.L34KSnd.Tab
 public import CFSG.Certificates.Kernel.L34ScanSound
 import Certificates.Kernel.Sporadic.ON.Gen
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import CFSG.Sporadic.SuzOddCore.InvArrays
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.HeAutKSound
 public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
 

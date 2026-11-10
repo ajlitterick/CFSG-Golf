@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.Universal.Unitary.Extras
-public import CFSG.LieType.Universal.Unitary.Extras.Unipotent
 public import CFSG.LieType.Universal.Unitary.Extras.Torus
 public import CFSG.LieType.Steinberg.Bruhat
 

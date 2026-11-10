@@ -1,14 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Nine92Bar
-public import CFSG.LocalAnalysis.GLTheoremB.PCompLift
-public import CFSG.LocalAnalysis.GLTheoremB.ComponentTools
 public import CFSG.HardMathSupport.Dickson.I271.Support.OuterTransport
-public import CFSG.HardMathSupport.Solomon.Coordinator.LayerCentralFix
-public import CFSG.GroupTheory.LocalCores.Components
-public import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FBase
-public import CFSG.RankThree.PartTwo.Sec5.Bender.Norm
 public import CFSG.HardMathSupport.Dickson.I271.ChevPBal
 public import CFSG.HardMathSupport.Dickson.I271.I202Full
 public import CFSG.HardMathSupport.Dickson.I271.Support.OuterStep
@@ -19,8 +12,6 @@ public import CFSG.Quasithin.Background.A3Structure314Defs
 public import CFSG.Quasithin.Background.C1PackS15212C
 public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.FFC4Tr2
 public import CFSG.Quasithin.Background.GoldschmidtS146RBend1

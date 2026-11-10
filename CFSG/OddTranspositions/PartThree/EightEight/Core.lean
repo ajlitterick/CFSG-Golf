@@ -2,7 +2,6 @@ module
 
 public import CFSG.OddTranspositions.PartThree.EightEight.Statement
 public import CFSG.OddTranspositions.FaithfulBlocks
-public import CFSG.OddTranspositions.O4CloseReduction
 
 import CFSG.OddTranspositions.FiveThreeQZ
 import CFSG.OddTranspositions.PartThree.EightEight.OFourMinus

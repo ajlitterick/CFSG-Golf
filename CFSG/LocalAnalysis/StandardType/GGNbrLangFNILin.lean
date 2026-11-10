@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNILinMark
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIOne
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIRestr
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIRows
 
 public section
 

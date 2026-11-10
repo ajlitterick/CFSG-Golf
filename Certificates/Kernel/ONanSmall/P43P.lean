@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.ONanSmall.CVData
 public import Certificates.Data.GH74.PSp43NoQ8
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallPSp43ModelData
 public import Certificates.Kernel.ONanSmall.Data.P43P
 
 public section

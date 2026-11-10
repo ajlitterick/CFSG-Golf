@@ -1,7 +1,5 @@
 module
 
-public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Witt
-public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Intrinsic
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotQ2Torus
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Quadruple
 public import CFSG.LieType.CurtisTits.SpecialLinear

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGE6DepKGlueDefs
-public import CFSG.LocalAnalysis.StandardType.GGE6DepModelDefs
 public import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
 
 public section

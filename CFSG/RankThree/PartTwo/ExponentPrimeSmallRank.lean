@@ -4,7 +4,6 @@ public import CFSG.Foundations.Basic
 import CFSG.LocalAnalysis.RankThreeEvenClassification.ClassTwoPairing
 import CFSG.LocalAnalysis.RankThreeEvenClassification.FrattiniFoundations
 import CFSG.LocalAnalysis.SectionRank.SQT
-import CFSG.LocalAnalysis.SectionRank.PRank
 import CFSG.RankThree.Literature.SemiExtraspecialRank
 public import Mathlib.Algebra.Order.Floor.Extended
 public import Mathlib.Algebra.Order.Interval.Basic

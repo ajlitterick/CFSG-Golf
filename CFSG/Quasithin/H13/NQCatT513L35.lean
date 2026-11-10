@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Quasithin.H13.NQCatT513L35Defs
 public import CFSG.Quasithin.H13.NQCatT513PSL2
 public import CFSG.RankThree.PartOne.AUTSL.Interface
 public import Certificates.Certificate7155

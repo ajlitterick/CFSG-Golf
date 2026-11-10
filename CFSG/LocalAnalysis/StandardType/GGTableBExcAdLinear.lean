@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeAd
-public import CFSG.RankThree.E6.RootLatticeTools
 
 public section
 

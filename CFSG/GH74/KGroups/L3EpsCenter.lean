@@ -1,7 +1,5 @@
 module
 
-public import CFSG.GH74.KGroups.L3EpsTest
-public import CFSG.GH74.KGroups.L3EpsAbs
 public import CFSG.GH74.KGroups.L3EpsLin
 public import CFSG.GH74.KGroups.L3EpsUni
 

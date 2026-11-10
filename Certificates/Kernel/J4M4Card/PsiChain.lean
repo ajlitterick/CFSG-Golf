@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.J4M4Card.PsiDefs
-public import CFSG.Certificates.Kernel.Spor.RawDefs
 public meta import Certificates.Data.Kernel.J4M4Card.PsiDefs
 public meta import Certificates.Data.CFSGNative.YGroups.ExactCheck
 public meta import Certificates.Kernel.Sporadic.RawGen

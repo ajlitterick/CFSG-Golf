@@ -1,21 +1,16 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKG87BRadDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaOutdiag
-public import CFSG.LocalAnalysis.StandardType.GGLFourFourThreeMarking
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24D4T2Plumb
 import CFSG.LocalAnalysis.StandardType.GGKG87BFieldForm
 import CFSG.LocalAnalysis.StandardType.GGKG87BWeyl
 import CFSG.LocalAnalysis.StandardType.GGKG87BTransvection
 import CFSG.LocalAnalysis.StandardType.GGKG87BStepOne
 import CFSG.LocalAnalysis.StandardType.GGKG87BNonToral
-import CFSG.LocalAnalysis.StandardType.GGKG87BSCBridge
 import CFSG.LocalAnalysis.StandardType.GGKG87BTorsion
 import CFSG.LocalAnalysis.StandardType.GGTwE6EndNodeThreeMat
 import CFSG.LocalAnalysis.GLTheoremA.CatA.FPCyc
 import CFSG.GroupTheory.MulAutCongr
-import CFSG.GroupTheory.ElemAbelianClosure
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeDiagTwisted
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.Defs
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwCoreAssembly
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24Plane
@@ -54,8 +49,6 @@ public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.C2PushThree
 public import CFSG.Quasithin.Background.D2Cyclic
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.FFC4Tr2
 public import CFSG.Quasithin.Background.GoldschmidtRankOneFacts

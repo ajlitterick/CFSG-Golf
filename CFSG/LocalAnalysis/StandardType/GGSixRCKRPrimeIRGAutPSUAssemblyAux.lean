@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGDefs
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGAutPSUAux
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGAutPSLAux
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGAutPSUTransAux
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGAutPSURoot

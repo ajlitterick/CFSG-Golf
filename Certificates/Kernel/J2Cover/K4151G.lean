@@ -1,15 +1,10 @@
 module
 
 public import Certificates.Kernel.J2Cover.K4151N
-public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutModel
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverExternalFixed
-public import CFSG.Certificates.SchreierChainOrderStabilizers
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverModels
 public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
 public import CFSG.Sporadic.J2
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

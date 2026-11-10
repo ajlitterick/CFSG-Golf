@@ -3,7 +3,6 @@ module
 
 public import Certificates.Certificate2152Base
 
-public import CFSG.Sporadic.Schreier.Co3Arrays
 import Certificates.Kernel.SporSch.Co3.Cert2152
 
 public section

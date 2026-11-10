@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Co1B.Orb2045
 public import Certificates.Kernel.Co1B.TriD2045
-public import Certificates.Data.Kernel.Spor.Prim
 public meta import Certificates.Kernel.Co1B.GenTri2045
 import CFSG.Certificates.Kernel.Common.Harness
 

@@ -3,10 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIBTriCore
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IRootFieldTri
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TriD4Forms
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TriD4BridgeLongRoot
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortF4IsoLen
-public import CFSG.LieType.Chevalley.RootCommutator
-public import CFSG.LieType.Steinberg.CentralExt.TrialityClosed
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIBInner
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIBTriPairAux
 

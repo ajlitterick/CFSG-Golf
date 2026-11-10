@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTwKGLayerDefs
 public import CFSG.LocalAnalysis.StandardType.GGKGTwFrameCore
 
 public section

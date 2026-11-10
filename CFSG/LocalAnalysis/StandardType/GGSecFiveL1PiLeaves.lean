@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveL1OddLeaves
 public import CFSG.Quasithin.Vol2.Ch4Sec4L443E4Inner
-public import CFSG.Quasithin.Background.A3ComponentsBasic
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A3NativeBasic
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeBasic
 public import CFSG.LocalAnalysis.SectionRank.SectionAssembly

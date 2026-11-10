@@ -4,13 +4,8 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeFamOutBase
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.InnRank
 
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S172AGrp
-import CFSG.LocalAnalysis.StandardType.Marking
-import CFSG.Adapters.LinearCatalog
 import CFSG.Adapters.ClassicalCatalogLinearUnitary
-import CFSG.Adapters.TauCetiLieModels
-import CFSG.Adapters.TauCetiExceptional.EvenAll
 import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Claims1110d
-public import CFSG.Quasithin.Background.A3Structure36BPrime
 public import CFSG.HardMathSupport.Solomon.Coordinator.I14_20Alt
 public import CFSG.HardMathSupport.Solomon.Coordinator.L3C143AltMain
 public import CFSG.HardMathSupport.Solomon.Coordinator.ONCAutSix
@@ -114,8 +109,6 @@ import CFSG.Quasithin.Background.C2PushThree
 import CFSG.Quasithin.Background.D2
 import CFSG.Quasithin.Background.D2Cyclic
 import CFSG.Quasithin.Background.E3
-import CFSG.Quasithin.Background.E3Nprime
-import CFSG.Quasithin.Background.E3Uniq
 import CFSG.Quasithin.Background.F918H5
 import CFSG.Quasithin.Background.FFC4Tr2
 import CFSG.Quasithin.Background.GoldschmidtS146RBend1

@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.UpperE7Levi
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.LowerExcOne
-public import CFSG.LocalAnalysis.SeitzReduction.F4PilotCentralizerTUBasic
-public import CFSG.LocalAnalysis.SeitzReduction.EPilotCentralizerHigh
 public import CFSG.LieType.Chevalley.ParabolicRootsMono
-public import CFSG.LieType.Chevalley.GraphFixedOrbitParametrization
 
 public section
 

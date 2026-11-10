@@ -3,8 +3,6 @@ module
 public import CFSG.ClassicalInvolution.Q3.Q3TY21
 public import CFSG.ClassicalInvolution.Q3.Q3TY18
 public import CFSG.ClassicalInvolution.Q3.Q3TY12
-public import CFSG.ClassicalInvolution.RouteD.TWS7Grp
-public import CFSG.ClassicalInvolution.RouteD.ExoticSingleMinus
 public import CFSG.ClassicalInvolution.Q3.Q3TY17
 
 public section

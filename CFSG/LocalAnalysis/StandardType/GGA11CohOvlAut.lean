@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGA11CohDefs
 public import CFSG.ClassicalGroups.SpecialLinear.CyclicRootGroups
 public import CFSG.LocalAnalysis.StandardType.GGA11CohAutSL6
 

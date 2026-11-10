@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSelectedF2
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
 public import CFSG.LieType.SeitzGeneration.RootPairSpBlock
-public import CFSG.Sporadic.ThSchreier.GlobalData
 public import CFSG.LieType.SeitzGeneration.RootPairSL2
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearFieldDeterminant
 public import CFSG.RankThree.PartOne.CTP.SeitzLinear

@@ -2,12 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGCoverPToral
 public import CFSG.LocalAnalysis.StandardType.GGCoverPClassicalInner
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticOmega
 public import CFSG.LocalAnalysis.StandardType.GGOmegaMinusRootGenConj
 public import CFSG.LocalAnalysis.StandardType.GGOmegaMinusRootGenIso
-import CFSG.Mathlib.GroupTheory.Automorphism.ConjCommute
-import CFSG.LocalAnalysis.ComponentClassification.ClassicalModelStatedBridge
-import CFSG.Open.StatedAPI
 import CFSG.LocalAnalysis.SeitzReduction.HypothesisOneClassicalSymplecticField
 
 public section

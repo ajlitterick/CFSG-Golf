@@ -4,8 +4,6 @@ public import Certificates.Kernel.Fi22Twist.L5Chk
 public import Certificates.Kernel.Fi22Twist.SiftCUFacts
 public import Certificates.Kernel.Sporadic.Fi22.Base6
 public import CFSG.Certificates.Kernel.Fi22Twist.KeySound
-public import CFSG.Certificates.Kernel.Common.ForallTree
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.Census.SoundProof
 public import CFSG.Certificates.Kernel.Census.ToMainExc
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels

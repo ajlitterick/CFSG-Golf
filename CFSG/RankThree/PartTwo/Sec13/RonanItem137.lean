@@ -3,11 +3,7 @@ module
 public import CFSG.RankThree.PartTwo.Sec13.RonanItem137PGL
 public import CFSG.RankThree.PartTwo.Sec13.Item137ProofInvert
 public import CFSG.RankThree.PartTwo.Sec18.Tools
-public import CFSG.GroupTheory.ABGLocalTools.Basic
 import CFSG.RankThree.PartTwo.Sec13.Item131Facts
-import CFSG.RankThree.PartTwo.Sec13.Item136PGL
-import CFSG.RankThree.PartTwo.Sec13.Item13Models
-import CFSG.RankThree.PartTwo.Sec13.Item13Prod
 public import CFSG.GroupTheory.ABGLocalTools.Constraint
 public import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
 public import CFSG.RankThree.Asc83Table.Automizer

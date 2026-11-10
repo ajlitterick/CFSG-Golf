@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeDefs
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockDegreeParity
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.FEPSL
 
 public section

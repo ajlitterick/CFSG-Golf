@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970_18
-import Mathlib.GroupTheory.Sylow
-import Mathlib.Basic.Nontrivial.Defs
 
 namespace CFSG
 end CFSG

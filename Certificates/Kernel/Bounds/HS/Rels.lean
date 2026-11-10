@@ -5,9 +5,7 @@ public import CFSG.Certificates.Kernel.Bounds.HSAlt.RelsTC
 public import CFSG.Certificates.Kernel.Bounds.HSAlt.Pair
 public import CFSG.Certificates.Kernel.HOrbSound
 public import CFSG.Certificates.Kernel.Bounds.HSAlt.Checks.M
-import CFSG.Certificates.Kernel.Common.Harness
 public import Mathlib.Tactic.IntervalCases
-public import Mathlib.Tactic.Group
 
 public section
 

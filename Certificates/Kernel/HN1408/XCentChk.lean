@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.HN1408.XCentDefs
 public import CFSG.Certificates.Kernel.Common.EachTrue
-import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 400000
 

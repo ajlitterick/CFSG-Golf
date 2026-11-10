@@ -2,14 +2,11 @@ module
 
 public import CFSG.RankThree.GF2n.Parrott.Section4Theorem4NoV
 public import CFSG.RankThree.GF2n.Parrott.Section4QuotientB
-public import CFSG.RankThree.GF2n.Parrott.Section4G0TheoremA
-public import CFSG.RankThree.GF2n.Parrott.Section4Lemma42Centres
 public import CFSG.RankThree.GF2n.Parrott.Section4Lemma42ClassUtSpin
 public import CFSG.RankThree.GF2n.Parrott.Section4Lemma42ClassVFinal
 public import CFSG.RankThree.GF2n.Parrott.ZsTReduction
 public import CFSG.RankThree.GF2n.Parrott.RestTReduction
 
-import CFSG.RankThree.GF2n.Parrott.SpinFixedCardMore
 
 public section
 

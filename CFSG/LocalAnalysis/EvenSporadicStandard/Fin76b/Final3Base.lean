@@ -1,20 +1,11 @@
 
 module
 
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.Lemma65
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.WFacts
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.PinEJ2
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.WCheck
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.WJ2Check
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.BetaJ2
-public import CFSG.Sporadic.SmallOddCore.J2DataInputs
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.RootFacts
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverModelsBridge
-public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutModel
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.PinEJ3
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.WJ3Check
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.BetaJ3
-public import CFSG.Sporadic.SmallOddCore.J3DataInputs
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.BetaTransfer
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.BetaA5J2
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.BetaA5J3
@@ -31,7 +22,6 @@ public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.J3E
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.Main
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HypOne.J2
 public import CFSG.LocalAnalysis.QuasithinUnique.Setting
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OddKernelInvolutionFusion
 
 @[expose] public section
 

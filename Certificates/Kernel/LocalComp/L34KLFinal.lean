@@ -4,9 +4,6 @@ module
 public import Certificates.Kernel.LocalComp.L34KLChk
 public import Certificates.Kernel.LocalComp.L34N3Final
 public import CFSG.Certificates.Kernel.L34KLWSound
-public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourActionData
-public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourGroupSpec
-public import Certificates.Data.CFSGNative.PSL3Four.Certificate
 public import CFSG.RankThree.PartTwo.Sec21.FF79ThmAKL34SpecBase
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
 import CFSG.Certificates.Kernel.L34KSnd.Tab

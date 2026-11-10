@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.UnitarySix.Sec3.Arrs2
 meta import Certificates.Kernel.UnitarySix.Sec3.Arrs2
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.NativeSchreierCard
 public import CFSG.Fischer.T46Unitary
 public import CFSG.LieType.BorelTits.CompleteFlag

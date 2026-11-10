@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGroupFusionAltDefining
-public import CFSG.LocalAnalysis.ComponentClassification.FixedCommutingProduct
 
 public section
 

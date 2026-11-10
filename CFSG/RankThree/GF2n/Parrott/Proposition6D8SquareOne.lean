@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.GF2n.Parrott.Basic
-public import CFSG.RankThree.GF2n.Tim79aCitedInvol
 public import CFSG.LocalAnalysis.OddStandard.Solomon75LPlusDefs
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.U33.Lemma37Defs
 public import CFSG.GroupTheory.ABGLocalTools.PStabilityQDickson

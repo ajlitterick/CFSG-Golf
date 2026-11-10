@@ -3,11 +3,7 @@ module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListA7LatticeBase
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListL3
-public import CFSG.LinearAlgebra.LinearGroups.ProjectiveSimple
-public import CFSG.LinearAlgebra.LinearGroups.Perfect
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListA7LatticeBase
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListA7Enc
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListA7LatticeInputs
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListA7IsoInputs
 public import CFSG.Foundations
 public import CFSG.GroupTheory.PerfectResidualNodes
@@ -32,10 +28,6 @@ public import CFSG.Quasithin.Background.A3Structure312
 public import CFSG.Quasithin.Background.OrderingMax
 public import CFSG.Quasithin.Vol2.Ch1Local
 public import CFSG.Sporadic.J4Base
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ProjectiveSemilinear
 public import CFSG.Walter.Defs
 
 @[expose] public section

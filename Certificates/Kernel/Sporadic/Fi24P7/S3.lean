@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Sporadic.Fi24P7.Defs
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.SliceRange
 import CFSG.Certificates.Kernel.Common.ForallTree
 

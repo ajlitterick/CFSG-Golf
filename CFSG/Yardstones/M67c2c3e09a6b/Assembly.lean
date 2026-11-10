@@ -1,33 +1,10 @@
 module
 
-public import CFSG.Yardstones.M67c2c3e09a6b.Definitions
 public import CFSG.Milestones.LC_GL_theorem_A
 public import CFSG.Assembly.PretrichotomyRankFourReduction
-public import CFSG.LocalAnalysis.GLTheoremB.NormalPlane
 public import CFSG.LocalAnalysis.GLTheoremB.Prop98FinalReducedI19
 public import CFSG.HardMathSupport.Solomon.LocalBalance.TheoremOneWired
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.MonsterThreeBFinal
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.MonsterSevenCensus
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.MonsterFiveGmat
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.BFiveAClose
-public import CFSG.HardMathSupport.Timmesfeld.OrthogonalGeneration.TransvFinal
-public import CFSG.HardMathSupport.Timmesfeld.OrthogonalGeneration.PiGenOrthProved
-public import CFSG.HardMathSupport.Timmesfeld.ComponentBalance.I_11_2_Final
-public import CFSG.HardMathSupport.Timmesfeld.ComponentBalance.I_11_2_Input113
-public import CFSG.HardMathSupport.Timmesfeld.Coordinator.LocalThreeReduction
-public import CFSG.HardMathSupport.Timmesfeld.Balance.Alt.Main
-public import CFSG.HardMathSupport.Timmesfeld.DefChar.CoreAssembly
-public import CFSG.HardMathSupport.Timmesfeld.DefChar.CoreDFour
-public import CFSG.HardMathSupport.Timmesfeld.DFour.NonResidual44
-public import CFSG.HardMathSupport.Timmesfeld.Tables.Census.Final
 public import CFSG.HardMathSupport.Solomon.Coordinator.I27_1Fi22
-public import CFSG.HardMathSupport.Solomon.Proving.AutSixBalance
-public import CFSG.HardMathSupport.Solomon.Coordinator.T112TCAll
-public import CFSG.HardMathSupport.Timmesfeld.Coordinator.Input19DeltaReduction
-public import CFSG.HardMathSupport.Timmesfeld.Balance.DeltaLocal
-public import CFSG.HardMathSupport.Timmesfeld.ComponentBalance.Tables112Split
-public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.AltMain
-public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.LpEpsMain
 
 public section
 

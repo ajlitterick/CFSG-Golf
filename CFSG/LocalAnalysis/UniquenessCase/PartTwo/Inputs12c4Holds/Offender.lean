@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront12
-public import CFSG.GroupTheory.ABGLocalTools.Basic
-public import CFSG.Quasithin.Background.B2Factorization
-public import CFSG.Quasithin.Background.Module
 import CFSG.ClassicalGroups.PCoreSection
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.TwelveTwentyFiveA
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22xf

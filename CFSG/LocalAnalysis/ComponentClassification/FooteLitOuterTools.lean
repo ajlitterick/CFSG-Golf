@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.FooteLitRankOneBranch
 public import CFSG.LocalAnalysis.ComponentClassification.FooteLitOddCoreReduction
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Theorem5_1
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLinearFusionSLCent
 import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutPSLNonsplitRank
-import CFSG.LocalAnalysis.StandardType.GGLinearTorusCompBasic
 import CFSG.LocalAnalysis.StandardType.GGSixLinearModelOmega
 public import CFSG.Sporadic.Schreier.J4SProfileNode
 

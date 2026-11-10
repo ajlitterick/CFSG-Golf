@@ -1,36 +1,19 @@
 module
 
 public import TauCeti.Algebra.AlgebraicGroup.Solvable.Trigonalizable
-public import TauCeti.Algebra.AlgebraicGroup.Representation.JordanDecomposition.Basic
 public import TauCeti.Algebra.AlgebraicGroup.Representation.JordanDecomposition.Naturality
 public import TauCeti.Algebra.AlgebraicGroup.Representation.UnipotentPoint.Character
 public import TauCeti.Algebra.AlgebraicGroup.Representation.UnipotentPoint.Naturality
-public import TauCeti.LinearAlgebra.JordanChevalley.Functoriality
 public import TauCeti.Algebra.Coalgebra.Subcomodule.PointSeparation
-public import TauCeti.Algebra.Coalgebra.Subcomodule.Finite
 public import TauCeti.Algebra.Bialgebra.GroupLike.Evaluation
 public import TauCeti.Algebra.AlgebraicGroup.Reductive.Basic
-public import TauCeti.Algebra.AlgebraicGroup.HopfIdeal.Central
-public import TauCeti.Algebra.AlgebraicGroup.HopfIdeal.Quotient.Basic
-public import TauCeti.Algebra.HopfAlgebra.HopfIdeal.Map
-public import TauCeti.Algebra.HopfAlgebra.HopfIdeal.Comap
 public import TauCeti.Algebra.HopfAlgebra.HopfIdeal.Reduction
-public import TauCeti.Algebra.AlgebraicGroup.Connected.GroupScheme
 public import TauCeti.Algebra.AlgebraicGroup.Connected.ComponentGroup.TrivialIdentity
 public import TauCeti.Algebra.AlgebraicGroup.Smooth.IdentityComponent
 public import TauCeti.Algebra.AlgebraicGroup.Smooth.AlgebraicallyClosed
-public import TauCeti.RingTheory.FiniteType.PointSeparation
 public import TauCeti.RingTheory.FiniteType.Tensor.Product
-public import TauCeti.RingTheory.Idempotents.Connected.Spectrum
-public import Mathlib.LinearAlgebra.Eigenspace.Basic
 public import Mathlib.LinearAlgebra.Eigenspace.Pi
-public import Mathlib.LinearAlgebra.Eigenspace.Triangularizable
-public import Mathlib.LinearAlgebra.Semisimple
-public import Mathlib.RingTheory.HopfAlgebra.GroupLike
-public import Mathlib.Algebra.Algebra.Operations
-public import TauCeti.Algebra.AlgebraicGroup.MultiplicativeType.Basic
 public import TauCeti.Algebra.AlgebraicGroup.Torus.Characterization
-public import TauCeti.Algebra.AlgebraicGroup.Smooth.GeometricallyReduced
 
 public noncomputable section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedCoreShapeAssembly2
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsCoresComm
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedCoreShapeNilpCard
 
 public section

@@ -2,16 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs1415c
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs1419b
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.I1416QSporRows
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I1416SporFi23FiveRow
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.HNFive
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabCo1Final
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabBFive
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabBFiveCentA
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabBFiveCentSeven
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.MonsterFiveBGood
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I1416SporTh
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.MonsterElevenFinal
 public import CFSG.HardMathSupport.Dickson.BMRows.CensusB3
 public import CFSG.HardMathSupport.Dickson.BMRows.CensusB5
 public import CFSG.HardMathSupport.Dickson.BMRows.CensusB7

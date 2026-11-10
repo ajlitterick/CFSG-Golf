@@ -1,12 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups
-public import CFSG.LocalAnalysis.StandardType.FF81.CatalogueQ1Defs
 public import CFSG.LocalAnalysis.StandardType.FF81.CatQ1.Final
-public import CFSG.LocalAnalysis.StandardType.FF81.PropOne.B1Normal
-public import CFSG.LocalAnalysis.StandardType.FF81.PropOne.CenBOdd
 public import CFSG.LocalAnalysis.StandardType.FF81.PropOne.FiveOne
-public import CFSG.LocalAnalysis.StandardType.FF81.PropOne.KFixed
 public import CFSG.LocalAnalysis.StandardType.FF81.PropOne.KRank
 public import CFSG.LocalAnalysis.StandardType.FF81.PropOne.KSimple
 public import CFSG.GroupTheory.Fitting.MulEquiv

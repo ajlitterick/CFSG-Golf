@@ -55,9 +55,6 @@ import CFSG.Sporadic.Presentation.Co2Cover
 import CFSG.Sporadic.Presentation.Co2Fusion
 import CFSG.Sporadic.Presentation.Co2FusionInputs
 import CFSG.StronglyEmbedded
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 
 public section

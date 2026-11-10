@@ -1,12 +1,10 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec21.FF81GL6Red
-public import CFSG.RankThree.PartTwo.Sec21.FF81GL6B3
 public import CFSG.RankThree.PartTwo.Sec21.FF81GL6Syl
 public import CFSG.RankThree.PartTwo.Sec21.FF81GL6Norm
 public import CFSG.RankThree.PartTwo.Sec21.FF81GL6Sp
 public import CFSG.RankThree.PartTwo.Sec21.FF81GL6Gen
-public import CFSG.RankThree.PartTwo.Sec21.FF81GL6U0
 public import CFSG.RankThree.PartTwo.Sec21.FF81GL6Sig
 public import CFSG.RankThree.PartTwo.Sec21.FF81GL6Forms
 

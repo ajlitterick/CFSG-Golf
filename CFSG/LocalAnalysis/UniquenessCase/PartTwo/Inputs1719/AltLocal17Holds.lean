@@ -8,7 +8,6 @@ public import CFSG.Quasithin.Background.HL3WrNPrime
 public import CFSG.Quasithin.Vol2.Ch3Sec3InspA312KG
 public import CFSG.Blueprint.LieModelAPI
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtC3LocU33
-public import CFSG.Quasithin.EmptyFaithful.T1531In68b
 public import CFSG.HardMathSupport.Meierfrankenfeld.AGL81.I542.AutFactsU33
 public import CFSG.GroupTheory.PermSylowTwo.Alt
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Fourteen2

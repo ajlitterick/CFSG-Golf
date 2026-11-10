@@ -1,6 +1,5 @@
 module
 
-public import CFSG.CGT.Stroth77.DeviationGenericFamilyTwo
 public import CFSG.CGT.Stroth77.Section224FrameFin
 public import CFSG.CGT.Stroth77.Section225FrameSquare
 

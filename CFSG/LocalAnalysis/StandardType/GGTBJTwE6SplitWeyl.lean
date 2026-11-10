@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLangRootSL2Rational
-public import CFSG.LocalAnalysis.StandardType.GGLangCorootPair
-public import CFSG.LocalAnalysis.StandardType.GGTBJE8LeviEnnComp
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitTwE6SplitFrame
 
 public section

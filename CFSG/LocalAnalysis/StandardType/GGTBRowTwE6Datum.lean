@@ -1,10 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGExcReflTBWeylDatum
-public import CFSG.LocalAnalysis.StandardType.GGExcReflTBWeylDatumOfWeyl
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import CFSG.LocalAnalysis.StandardType.GGTBRowDefs
-public import CFSG.LocalAnalysis.StandardType.GGTBRowTwE6Parity
 public import CFSG.LocalAnalysis.StandardType.GGTBRowTwE6Rank
 public import CFSG.LocalAnalysis.StandardType.GGTBRowTwE6Weyl
 public import CFSG.LocalAnalysis.StandardType.GGTBRowSpan

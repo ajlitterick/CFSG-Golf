@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoHeartDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoE6HeartRoots
-public import CFSG.LocalAnalysis.StandardType.GGQTwoE6HeartCount
 public import Certificates.Certificate712501
 
 public section

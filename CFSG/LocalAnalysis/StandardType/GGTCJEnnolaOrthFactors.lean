@@ -1,25 +1,12 @@
 module
 
 public import CFSG.Foundations.Basic
-public import CFSG.Open.StatedDefs
 public import CFSG.RankThree.Classical2.OrthogonalIsotropicUnipotent
 public import CFSG.GroupTheory.WeirSylow.OrthogonalModels
 public import CFSG.RankThree.PartOne.KC.OrthogonalBlockDet
-public import CFSG.RankThree.PartOne.KC.OrthogonalPrimaryPairing
-import CFSG.GroupTheory.LocalCores.Components
-import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitKGOmFix
 import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitOmSmallBlock
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointIsometryRegular
-import CFSG.LocalAnalysis.ComponentInitial.FieldUnitaryHermitian
-import CFSG.LieType.Universal.Unitary.Comparison
-import CFSG.RankThree.CentralLiftU.UnitaryThreeLift
 import CFSG.RankThree.PartOne.K159.RowFourType
-import CFSG.RankThree.PartOne.KC.OrthogonalBlockQuasisimple
-import CFSG.RankThree.PartOne.KC.OrthogonalEvenMinusModel
-import CFSG.RankThree.PartOne.KC.OrthogonalEvenMinusSix
-import CFSG.RankThree.PartOne.KC.OrthogonalEvenMinusSixUnitary
 import CFSG.RankThree.PartOne.S11d.OrthModels
-import CFSG.Open.StatedAPI
 public import CFSG.ClassicalInvolution.Orders.OrthogonalCount
 public import CFSG.LieType.BorelTits.CompleteFlag
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound

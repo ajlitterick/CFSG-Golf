@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165ExcTwE6Model
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165ExcTwE6Transport
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165ExcEngine3
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotCTGraphTwisted
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.Shared
-public import CFSG.LocalAnalysis.GL83PartI.I_22_5.Basic
 public import CFSG.Adapters.GeneralizedFitting
 public import CFSG.CGT.Timmesfeld75.Sec5Nine
 public import CFSG.CGT.Timmesfeld75.Sec5Ten

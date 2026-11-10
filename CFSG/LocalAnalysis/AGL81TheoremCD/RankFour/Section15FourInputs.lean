@@ -26,13 +26,10 @@ import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RankAlt
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RankSmall
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K63ThreeHolds
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K7145Holds
-import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K517ChevGenQFam
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K517SixGlue
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K541EvenHolds
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KParU5Holds
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15A10GenHolds
-import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K421LinHolds
-import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K421SpData
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K421OmData
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K89SMain
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15F1L3Odd
@@ -42,21 +39,17 @@ import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KListI1
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section15.KSMRes
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K21bRed
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K21bGeom
-import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K21dRed
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K21dRest2
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K21dU42
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K21dL5Holds
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K534Holds
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KA6Z3
-import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K542Holds
-import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K1525dRed
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K1525dCoreMain
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K58Holds
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K55Holds
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15InnerK541Free
 import CFSG.GroupTheory.HuppertProduct.RankBound
 import CFSG.HardMathSupport.Foote.Coordinator.Downstream
-import CFSG.Milestones.CL_LIT_Griess_Schur_multipliers_Lie_type
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableCompactPresented
 public import CFSG.Certificates.CosetTableWalkC
@@ -142,13 +135,11 @@ public import CFSG.Sporadic.Ly.ActionBase
 public import CFSG.Sporadic.Ly.CertificateBase
 public import CFSG.Sporadic.Ly.FaithSpec
 public import CFSG.Sporadic.Ly.OrbitSpec
-public import CFSG.Sporadic.Ly.PrimitiveBase
 public import CFSG.Sporadic.LyBase
 public import CFSG.Sporadic.ON.ActionBase
 public import CFSG.Sporadic.ON.CertificateBase
 public import CFSG.Sporadic.ON.ChainBase
 public import CFSG.Sporadic.ON.LinesBase
-public import CFSG.Sporadic.ON.PrimitiveBase
 public import CFSG.Sporadic.ON.SimpleBase
 public import CFSG.Sporadic.Presentation.Co1
 public import CFSG.Sporadic.Presentation.Co2FusionInputs
@@ -170,10 +161,6 @@ public import CFSG.Sporadic.Schreier.LyChain11
 public import CFSG.Sporadic.Schreier.M23
 public import CFSG.Sporadic.Th
 public import CFSG.Sporadic.Th.CertificateBase
-public import CFSG.Sporadic.Th.KernelPlanesBase
-public import CFSG.Sporadic.Th.KernelSimpleBase
-public import CFSG.Sporadic.ThSchreier.FullAutCoreBase
-public import CFSG.Sporadic.ThSchreier.KernelAutBase
 public import CFSG.Timmesfeld.Moufang.A6
 public import CFSG.Timmesfeld.Moufang.Cases
 public import CFSG.Timmesfeld.Moufang.J2Check
@@ -194,7 +181,6 @@ import CFSG.GH74.GLS.C3.Layer1.BkIvk73Q
 import CFSG.GH74.GLS.C3.Layer2.L5C19
 import CFSG.GH74.GLS.C3.Layer2.L5C5c
 import CFSG.GH74.GLS.IVK.Proofs2.Ivk95J3
-import CFSG.GH74.GLS.IVK.Proofs2.Stmt111c
 import CFSG.GH74.GLS.LU.Local.A3Reduce2
 import CFSG.GH74.GLS.Stage2.Final.LayerFDerive
 import CFSG.GH74.GLS.Stage2.Final.Thm4.Core
@@ -238,11 +224,8 @@ import CFSG.LocalAnalysis.ComponentClassification.HarrisLitN36AltPerm
 import CFSG.LocalAnalysis.ComponentClassification.HarrisLitN36MType
 import CFSG.LocalAnalysis.ComponentClassification.HarrisLitN36SporMult
 import CFSG.LocalAnalysis.ComponentClassification.J2CoverModels
-import CFSG.LocalAnalysis.ComponentClassification.OddSelector
-import CFSG.LocalAnalysis.ComponentClassification.OutcomeLocalCTILinearSocle
 import CFSG.LocalAnalysis.ComponentClassification.RestrictedStdFamilies
 import CFSG.LocalAnalysis.ComponentInitial.GL3TwoFixedModelCases
-import CFSG.LocalAnalysis.ComponentInitial.ProjectiveEigenspaceComponent
 import CFSG.LocalAnalysis.ComponentInitial.SteinbergBUProjectivePlaneFieldRoot
 import CFSG.LocalAnalysis.ComponentInitial.SteinbergBUProjectivePlaneHilbertNinety
 import CFSG.LocalAnalysis.ComponentInitial.SteinbergBUProjectivePlanePureFieldMatrix
@@ -272,7 +255,6 @@ import CFSG.Monster.GMS.Fi23Gen
 import CFSG.Monster.GMS.Fi23GenIso
 import CFSG.Monster.GMS.Fi23GenSix
 import CFSG.Monster.GMS.LeechCoh
-import CFSG.Monster.GMS.LeechCohGroup
 import CFSG.Monster.GMS.S365Center
 import CFSG.Monster.GMS.S37
 import CFSG.Monster.GMS.S4Assembly

@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7SUDefs
 import CFSG.LocalAnalysis.StandardType.GGHdRo7LNC
 import CFSG.LocalAnalysis.StandardType.GGHdRo7CLStab
-import CFSG.LocalAnalysis.StandardType.GGOneFiveNbr
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 import CFSG.GroupTheory.GL52.SylowTools
 
 public section

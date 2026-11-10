@@ -1,11 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGE0ShapeContextToralAux
-public import CFSG.LocalAnalysis.StandardType.GGE0ShapeRealConj
 public import CFSG.LocalAnalysis.StandardType.GGE0ShapeToralityA5
 public import CFSG.LocalAnalysis.StandardType.GGE0ShapeToralPlane
 public import CFSG.LocalAnalysis.StandardType.GGE0ModelFrameOn
-public import CFSG.HardMathSupport.Timmesfeld.Torality.ToralPairOne
 public import CFSG.GroupTheory.ConjKerCenter
 
 public section

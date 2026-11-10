@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2Transport
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixFiveKnownForms
-import Mathlib.Tactic.Group
 
 public section
 

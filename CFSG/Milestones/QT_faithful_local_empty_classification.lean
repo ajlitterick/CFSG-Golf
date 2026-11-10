@@ -1,7 +1,5 @@
 module
 
-public import CFSG.Assembly.QuasithinDefs
-public import CFSG.LocalAnalysis.QuasithinUnique.QTKECore
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312HsKInputs
 import Certificates.Kernel.HSA312.Struct
 import Certificates.Kernel.HSQuot.Final

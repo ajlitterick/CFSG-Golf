@@ -1,10 +1,8 @@
 
 module
 
-public import CFSG.Sporadic.Schreier.Co1OrbEnumCheck
 public import CFSG.Sporadic.Schreier.Co1StabData
 public import CFSG.Sporadic.Schreier.Co1FullOrbCheckBase
-public import CFSG.Sporadic.Schreier.Co1ThreeLocal
 public meta import CFSG.Sporadic.Schreier.Co1OrbEnumCheck
 public meta import CFSG.Sporadic.Schreier.Co1StabData
 public meta import CFSG.Sporadic.Schreier.Co1FullOrbCheckBase

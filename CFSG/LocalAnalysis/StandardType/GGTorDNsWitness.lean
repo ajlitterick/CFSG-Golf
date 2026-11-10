@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTorDNsTorus
 public import CFSG.LocalAnalysis.StandardType.GGTorDNsFrame
 public import CFSG.LocalAnalysis.StandardType.GGTorusDWeyl
-public import CFSG.LocalAnalysis.StandardType.GGRealKGOmegaFrame
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestOddLayer
 public import CFSG.RankThree.PartOne.S11d.OrthCaseH
 

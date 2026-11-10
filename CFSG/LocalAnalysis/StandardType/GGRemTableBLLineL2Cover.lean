@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineL2Line
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLRound
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthLD4
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLRound11
 public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLMod
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthLSp
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthLTwD
 public import CFSG.LocalAnalysis.StandardType.GGB36StepThreeInputs
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyA11C3D4

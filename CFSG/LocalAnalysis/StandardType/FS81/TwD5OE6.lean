@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Mat
-public import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
 public import CFSG.LocalAnalysis.StandardType.FS81.SpMatWt
 public import CFSG.LocalAnalysis.StandardType.FS81.RootLineRigidAux
 

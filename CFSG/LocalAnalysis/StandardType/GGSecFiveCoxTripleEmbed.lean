@@ -2,11 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveCoxTriplePair
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveCoxTripleGramDefs
-public import Mathlib.LinearAlgebra.BilinearForm.Orthogonal
-public import Mathlib.LinearAlgebra.Matrix.ToLin
-public import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
-public import Mathlib.Data.Int.CharZero
-public import Mathlib.Algebra.Group.Submonoid.Pointwise
 
 public section
 

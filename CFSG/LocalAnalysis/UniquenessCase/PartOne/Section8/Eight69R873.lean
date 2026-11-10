@@ -3,69 +3,38 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight69Struct
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight69Common
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight73YConfig
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.List857
-public import CFSG.LocalAnalysis.UniquenessCase.UCKInputs2
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront07
 public import CFSG.LocalAnalysis.UniquenessCase.UCR638
 public import CFSG.LocalAnalysis.UniquenessCase.UC6K46Mult
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.Defs
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight69Setup
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight69Replace
-import CFSG.LocalAnalysis.UniquenessCase.UC22P20a
 import CFSG.GroupTheory.PRankLeOfSylowLe
-import CFSG.GroupTheory.PGroup.CardCoprime
-import CFSG.LocalAnalysis.SectionRank.GroupRankTransport
-import CFSG.LocalAnalysis.UniquenessCase.UC6S846g
-import CFSG.LocalAnalysis.UniquenessCase.UC22P22uc
 import CFSG.LocalAnalysis.UniquenessCase.UC22P20p
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22qe
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.CaseTwoSylow
 import CFSG.LocalAnalysis.UniquenessCase.UC22OddPRank
-import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19IdRank
 import CFSG.Adapters.StatedPSLTwoSeven
 import CFSG.GroupTheory.SylowNormalElements
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight63General
 import CFSG.LocalAnalysis.UniquenessCase.UC22S213CenterZ
 import CFSG.LocalAnalysis.UniquenessCase.UC22P21k
-import CFSG.LocalAnalysis.ComponentInitial.LinearTwoOuterOrder
 import CFSG.GroupTheory.IsSylowOfMapOfKerPrimeNotDvd
-import CFSG.GH74.GLS.IVK.Defs
 import CFSG.GroupTheory.IsCyclicOfLeOfPRankLeOne
 import CFSG.GroupTheory.ComponentCovering
-import CFSG.GroupTheory.ElemAbelianClosure
-import CFSG.GroupTheory.PCore.InfPCoreOf
 import CFSG.GroupTheory.PGroup.OmegaComm
-import CFSG.Quasithin.Background.F1Basic
 import CFSG.ClassicalGroups.PCoreSection
-import CFSG.LocalAnalysis.UniquenessCase.UC22P20d
 import CFSG.GroupTheory.PRankLeOneOfIsCyclic
-import CFSG.GroupTheory.IsCyclicOfPRankLeOne
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.OutPRankNice
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Fourteen3a
-import CFSG.LocalAnalysis.UniquenessCase.UC22P22l
-import CFSG.LocalAnalysis.UniquenessCase.UC22P20e
 import CFSG.GroupTheory.SubgroupOfLattice
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Centralizer
-import CFSG.GroupTheory.LocalCores.Components
 import CFSG.GroupTheory.PRankCommutingSup
 import CFSG.LocalAnalysis.SectionRank.CommutingRank
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Bar13
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.ConjClosureSimple
 import CFSG.GroupTheory.PRankCommutingPerfect
 import CFSG.GroupTheory.PRankZeroOfPrimeNotDvd
-import CFSG.LieType.BorelTits.Basic
-import CFSG.GroupTheory.ElemAbelianRank
 import CFSG.LocalAnalysis.UniquenessCase.UC22S213L3Cover
-import CFSG.Adapters.LieModelSimple
 import CFSG.HardMathSupport.GuralnickMalle.Prop310
-import CFSG.GroupTheory.PGroup.ElemAbelianSq
-import CFSG.LocalAnalysis.SectionRank.Ccomm.NonabelianCube
-import CFSG.LocalAnalysis.SectionRank.SubgroupRank
-import CFSG.HardMathSupport.Solomon.Proving.GLBCoreNormalizer
-import CFSG.CGT.PushingUp.CampbellPair
 import CFSG.LocalAnalysis.UniquenessCase.UC22S218GChain
 import CFSG.RankThree.PartTwo.Sec20.SimsAsc1412L3F3U3Model
-import CFSG.Permutation.UnitaryThreeRecognition.ModelTransport
 public import CFSG.CGT.PushingUpLit.CGT6.SixFour
 public import CFSG.CGT.PushingUpLit.CGT6.SixSixteen
 public import CFSG.CGT.PushingUpLit.Glue.ClassXBasic

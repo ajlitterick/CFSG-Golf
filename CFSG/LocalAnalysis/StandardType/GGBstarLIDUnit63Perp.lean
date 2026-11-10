@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentInitial.LinearUnitaryField
 public import Mathlib.LinearAlgebra.BilinearForm.Orthogonal
-public import Mathlib.LinearAlgebra.Dimension.Constructions
-public import Mathlib.FieldTheory.Finiteness
-public import Mathlib.Data.Matrix.Mul
 
 public section
 

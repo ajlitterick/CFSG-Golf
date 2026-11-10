@@ -1,9 +1,6 @@
 module
 
 public import CFSG.CGT.Stroth77.Stroth34Coord
-public import CFSG.CGT.Stroth77.Types321
-public import CFSG.CGT.Stroth77.Extension24Basic
-public import CFSG.CGT.Stroth77.Extension22Cocycle
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.CGT.Stroth77.Extension22FourC4
 public import CFSG.CGT.Stroth77.TorusCard

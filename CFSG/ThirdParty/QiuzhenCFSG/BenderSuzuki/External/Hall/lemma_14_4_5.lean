@@ -1,7 +1,6 @@
 module
 
 import Mathlib.Algebra.Group.ForwardDiff
-import Mathlib.Algebra.Module.ZMod
 import Mathlib.Data.Nat.Choose.Dvd
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Hall.lemma_14_4_4
 

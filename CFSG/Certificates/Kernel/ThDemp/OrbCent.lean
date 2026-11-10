@@ -3,12 +3,7 @@ module
 
 public import CFSG.Certificates.Kernel.ThDemp.OrbCentBase
 
-public import CFSG.Certificates.Kernel.ThDemp.OrbU
 public import CFSG.Certificates.Kernel.ThDemp.OrbUnfold
-public import CFSG.Certificates.Kernel.ThDemp.OrbitCount
-public import CFSG.Certificates.Kernel.Th.Spec.FwdRel
-import Mathlib.Tactic.IntervalCases
-public import CFSG.Certificates.Kernel.ThDemp.Sound
 
 public section
 

@@ -1,10 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148TIdLift
-public import CFSG.RankThree.PartTwo.Sec14.Ronan148TEvenL3
-import CFSG.RankThree.PartTwo.Sec14.Ronan148TOddModel
-import CFSG.RankThree.PartTwo.Sec14.Ronan148KN6
-import CFSG.Open.StatedAPI
 
 public section
 

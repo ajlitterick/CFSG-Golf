@@ -10,7 +10,6 @@ import CFSG.RankThree.PartTwo.Sec18.Item183NMProofCb
 import CFSG.RankThree.PartTwo.Sec18.Item183OneProofRem
 import CFSG.RankThree.PartTwo.Sec18.SylowTop
 import CFSG.RankThree.PartTwo.Sec18.SylowFiveOmega
-import CFSG.Sporadic.Schreier.J4SSylowBase
 
 public section
 

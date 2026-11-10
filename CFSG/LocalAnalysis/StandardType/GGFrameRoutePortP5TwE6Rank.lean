@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortOmegaSym
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortSUSym
-public import TauCeti.GroupTheory.DerivedCentralQuotient
 
 public section
 

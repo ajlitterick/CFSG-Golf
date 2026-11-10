@@ -4,16 +4,12 @@ module
 public import CFSG.Sporadic.HNOddCore.Stab
 public import CFSG.Sporadic.HNOddCore.CCheckBase
 public import CFSG.Sporadic.HNSchreier.ThreeSpec
-public import CFSG.Sporadic.HNOddCore.CCheckInputs
 public meta import CFSG.Sporadic.HNSchreier.ThreeCheck
-public import CFSG.Sporadic.HNSchreier.InvolCheckInputs
 public meta import CFSG.Sporadic.HNSchreier.SeedsCheck
 public meta import CFSG.Sporadic.HNSchreier.LocalCheck
-public import CFSG.Sporadic.HNSchreier.LocalCheckInputs
 public meta import CFSG.Sporadic.HNSchreier.PrimCheck
 public meta import CFSG.Sporadic.HNSchreier.LocalData
 public meta import CFSG.Sporadic.HNSchreier.MaskCheck
-public import CFSG.Sporadic.HNSchreier.OrbitCheckInputs
 
 @[expose] public noncomputable section
 

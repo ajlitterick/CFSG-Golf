@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.WeakClosure81.SixFiveQuot
 public import CFSG.RankThree.GF2n.DecompSetupSz
-import CFSG.CGT.T75N.BenderCenter
-import CFSG.CGT.T75N.UnitaryTwoGen
 import CFSG.Quasithin.Background.I62Main
 import CFSG.RepresentationTheory.SzMartineau.MartineauInput
 import CFSG.LinearAlgebra.LinearGroups.CoordinateData

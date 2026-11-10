@@ -1,14 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.KGroupFactsL2Seven
-public import CFSG.Quasithin.Background.A1bBasic
 public import CFSG.Quasithin.Background.F6SQTK
-public import CFSG.Blueprint.Catalog
 import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312U3Q8Psl2
 import CFSG.GroupTheory.ABGLocalTools.PStabilityQDickson
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2Cardinality
-import CFSG.Adapters.ProjectiveSpecialLinear
-import CFSG.LocalAnalysis.LargeEvenClassification.MaximalAbelian
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.KGroupFacts
 public import CFSG.Quasithin.Background.F6Amalgams
 public import CFSG.Quasithin.Background.F6SolvableQuotient

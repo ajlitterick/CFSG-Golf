@@ -6,7 +6,6 @@ public import Certificates.Kernel.Co2Chain.He12636Syl
 public import CFSG.Certificates.Kernel.SporSch.HeSylSound
 public import CFSG.Certificates.Kernel.PermCent.OrbGroup
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.ThetaSpor.HeThreeBase
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

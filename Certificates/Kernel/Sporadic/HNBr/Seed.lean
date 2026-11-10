@@ -3,7 +3,6 @@ module
 public import CFSG.Certificates.Kernel.Orders.Cert
 import CFSG.Certificates.Kernel.Common.Each
 import CFSG.Certificates.Kernel.Common.ForallChunks
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo
 public import Certificates.Kernel.Sporadic.HNBr.Data

@@ -2,7 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThLocalCheck
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThLocalData
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThSlpInputs
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34SporAux.ThThreeInputs
 public meta import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThLocalCheck
 public meta import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThLocalData

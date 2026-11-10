@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.CFSGNative.Fi22.Nfp
 public import Certificates.Data.CFSGNative.Fi22.LHData
-public import Std.Data.HashMap
 
 public section
 

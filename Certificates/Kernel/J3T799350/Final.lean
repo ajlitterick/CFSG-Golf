@@ -3,10 +3,7 @@ module
 public import Certificates.Kernel.J3T799350.Checks
 public import Certificates.Kernel.J3T799350.Base
 public import CFSG.RankThree.PartTwo.Sec8.Hering611S4Reg
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicJ3
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Certificates.Kernel.J3TkSound
 public import CFSG.Certificates.Kernel.Misc.RuInvHash
 public import CFSG.Certificates.Kernel.Spor.ClassOneH

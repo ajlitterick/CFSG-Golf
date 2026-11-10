@@ -3,7 +3,6 @@ module
 public import CFSG.Sporadic.HNOddCore.FiveCheck
 public import CFSG.Sporadic.HNOddCore.OrbitX
 public import CFSG.Sporadic.HNOddCore.InvFix
-public import CFSG.Sporadic.HNSchreier.FALocal
 
 public noncomputable section
 

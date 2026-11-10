@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitCoord
-import CFSG.LocalAnalysis.StandardType.GGQTwoDTransport
 
 public section
 

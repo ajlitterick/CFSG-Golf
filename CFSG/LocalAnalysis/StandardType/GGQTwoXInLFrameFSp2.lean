@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.SemisimpleCentralizers.HeldUCDTransfer
-public import CFSG.Open.StatedAPI
 public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLFrameFTorus2
 public import CFSG.LieType.SemisimpleCentralizers.HeldUCDField
 

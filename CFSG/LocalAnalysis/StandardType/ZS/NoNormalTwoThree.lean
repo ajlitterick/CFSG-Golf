@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.ZS.AbelianNormal
 public import CFSG.LocalAnalysis.StandardType.ZS.ScalarCommutator
 public import CFSG.LocalAnalysis.StandardType.ZS.FrameFour
-public import CFSG.LocalAnalysis.StandardType.ZS.ReflQuotient
 public import CFSG.GroupTheory.CoprimeActionSupport.FaithfulIrreduciblePCoreTrivial
 import CFSG.GroupTheory.CommuteOfSqEqOne
 

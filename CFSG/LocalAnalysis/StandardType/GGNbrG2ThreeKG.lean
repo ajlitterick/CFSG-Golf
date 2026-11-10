@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrG2ThreeOffDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylScIrred
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitKGSLMark
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNineSmall
-public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
 
 public section
 

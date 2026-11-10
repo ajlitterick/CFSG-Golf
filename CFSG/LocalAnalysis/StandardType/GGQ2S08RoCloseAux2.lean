@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08RoCloseAux
 public import CFSG.LocalAnalysis.StandardType.GGQTwoPairsPrime
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveNbr
 
 public section
 

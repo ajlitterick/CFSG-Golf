@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFamTypeACovers
-public import CFSG.LocalAnalysis.StandardType.GGFamTypeAFrames
 
 public section
 

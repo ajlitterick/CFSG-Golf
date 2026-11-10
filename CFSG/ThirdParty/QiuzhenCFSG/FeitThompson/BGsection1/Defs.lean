@@ -1,59 +1,23 @@
 module
 
-public import Mathlib.Algebra.Group.Defs
-public import Mathlib.Algebra.Group.Subgroup.Defs
-public import Mathlib.Data.Bracket
-public import Mathlib.Data.Finite.Defs
-import Mathlib.SetTheory.Cardinal.NatCard
-public import Mathlib.Data.Nat.Prime.Defs
-public import Mathlib.GroupTheory.Commutator.Basic
-public import Mathlib.SetTheory.Cardinal.Finite
 
-import Mathlib.Algebra.Group.Action.Faithful
-import Mathlib.Algebra.Group.Subgroup.Lattice
-import Mathlib.Algebra.Group.Subgroup.Pointwise
-import Mathlib.Algebra.Notation.Defs
-import Mathlib.GroupTheory.Frattini
-import Mathlib.GroupTheory.GroupAction.FixingSubgroup
-import Mathlib.GroupTheory.Nilpotent
-import Mathlib.GroupTheory.QuotientGroup.Basic
-import Mathlib.GroupTheory.SchurZassenhaus
-import Mathlib.GroupTheory.SemidirectProduct
-import Mathlib.GroupTheory.Index
-public import Mathlib.GroupTheory.Solvable
-public import Mathlib.GroupTheory.Sylow
 public import Mathlib.GroupTheory.SpecificGroups.ZGroup
-import Mathlib.Order.SetNotation
-public import Mathlib.RepresentationTheory.Basic
 -- public import Mathlib.RepresentationTheory.Maschke
-import Mathlib.Tactic.Basic
-import Mathlib.Tactic.TypeStar
 
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ChiefFactors.Core
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ChiefFactors.BaerCore
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ChiefFactors.Proposition12
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Burnside.NormalComplement
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Commutator.ActionTriviality
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Frattini.CoprimeAction
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Commutator.CyclicSylow
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Commutator.Core
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ElementaryAbelian
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Centralizer
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Core
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Faithful
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Frattini.Core
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Invariant
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Lemmas
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Quotient
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.HallSubgroups.Core
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.HallSubgroups.Complements
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.HallSubgroups.Existence
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.HallSubgroups.Conjugacy
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PGroup.Omega
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PGroup.NormalSubgroups
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.CompleteReducibility
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.Maschke
 
 namespace CFSG
 end CFSG

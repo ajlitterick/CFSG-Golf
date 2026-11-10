@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinQFourParts
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinLinTwo
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRowMember
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrEnnola
-import CFSG.LocalAnalysis.StandardType.GGNSJoinLinGlueAux
 import CFSG.LocalAnalysis.StandardType.GGNSJoinLinGlueAux2
 
 public section

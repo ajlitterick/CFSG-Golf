@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoChartTwoThreeCent
-public import CFSG.LieType.BorelTits.FormFlag
 
 public section
 

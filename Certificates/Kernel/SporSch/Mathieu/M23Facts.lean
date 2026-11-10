@@ -2,11 +2,7 @@
 module
 
 public import Certificates.Kernel.SporSch.Mathieu.M23Z
-public import CFSG.Certificates.Kernel.SporSch.MathieuBTSound
-public import CFSG.Certificates.Kernel.SporSch.MathieuOC2Sound
 public import CFSG.Certificates.Kernel.Spor.BindList
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

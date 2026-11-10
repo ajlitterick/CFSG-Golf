@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixAutKFinerChoiceTwoTorus
-public import CFSG.Open.LocalVocabulary
 import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP9Norm
 import CFSG.LocalAnalysis.StandardType.GGSixA6InsideSpTorus
 import CFSG.LocalAnalysis.StandardType.GGSixA6InsideSpFrame

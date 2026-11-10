@@ -1,16 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixAutKFinerChoiceTwoOmCoord
-public import CFSG.RankThree.OrthogonalInvolutions.Dickson
-public import CFSG.GroupTheory.WeirSylow.OrthogonalModels
-public import CFSG.Open.LocalVocabulary
 import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP9Coord
 import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP9OrthFrame
 import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP9SignOmega
 import CFSG.RankThree.PartOne.S11d.OrthCaseH
-import CFSG.RankThree.PartOne.S11d.OrthDicksonOmega
 import CFSG.LocalAnalysis.StandardType.GGOmegaNsRootGenFrame
-import CFSG.GroupTheory.ElementaryAbelianTransport
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X7bPairs
 import CFSG.RankThree.PartOne.KC.OrthogonalD4WitnessEven
 import CFSG.RankThree.PartOne.KC.OrthogonalD4WitnessOdd

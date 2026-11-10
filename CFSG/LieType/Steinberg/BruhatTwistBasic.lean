@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.Steinberg.Collection
-public import Mathlib.Data.Set.Finite.Basic
 import Mathlib.Tactic.Group
 
 public section

@@ -1,20 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBRowDefs
-public import CFSG.LocalAnalysis.StandardType.GGTBRowFrame
 public import CFSG.LocalAnalysis.StandardType.GGTBRowTwE6Frame
-public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpLattice
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLCx
-public import CFSG.LocalAnalysis.StandardType.GGTableBTransport
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitFamilies
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitTwE6
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylKnownDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitExcPlusHolds
 public import CFSG.LocalAnalysis.StandardType.GGUSixThreeWeylHolds
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableBE6Three
 public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6Holds
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableBExcWeyl
-public import CFSG.LocalAnalysis.StandardType.GGF4AutWeylTableB
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitTwE6SplitHolds
 public import CFSG.LocalAnalysis.StandardType.GGF4ThreeSCCube
 public import CFSG.LocalAnalysis.StandardType.GGNbrU63Setup

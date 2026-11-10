@@ -5,13 +5,10 @@ public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveSixKCtx
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenLayer
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenStar
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineEightB
-import CFSG.Assembly.Subnormal
-import CFSG.GroupTheory.LocalCores.Components
 import CFSG.RankThree.PartOne.S12.PerfectOddPrime
 import CFSG.RankThree.PartOne.S12.Sec1511SPEFStar
 import CFSG.Quasithin.H13.U3S1348J
 import CFSG.LocalAnalysis.ComponentClassification.CatFactsSp4CentralProd
-public import Certificates.Kernel.ThCent.Leaves
 import CFSG.CGT.Timmesfeld75.L2Pair
 import CFSG.CGT.Timmesfeld75.ListWCBasic
 import CFSG.Certificates.Kernel.LocalCompTits.Span
@@ -29,12 +26,10 @@ import CFSG.Combinatorics.OuterLayerPredecessors
 import CFSG.LinearAlgebra.LinearGroups.UnitaryThreeOverNine
 import CFSG.LinearAlgebra.LinearGroups.UnitaryThreeOverNineInvolutions
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporJ4Quot
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Block
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Delta5Fin
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Inputs
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.Basic
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenCF
 import CFSG.Open.SplitBNPair
 import CFSG.Permutation.UnitaryThreeRecognition.Model
@@ -42,15 +37,11 @@ import CFSG.Quasithin.Background.C124B51Hyp
 import CFSG.Quasithin.Background.C1GNC124
 import CFSG.Quasithin.Background.D2
 import CFSG.Quasithin.Background.E3
-import CFSG.Quasithin.Background.E3OffenderB
-import CFSG.Quasithin.Background.E3Uniq
-import CFSG.Quasithin.Background.E4Solv
 import CFSG.Quasithin.Background.F420Orders
 import CFSG.Quasithin.Background.FFC5Final
 import CFSG.Quasithin.Background.FFC6U
 import CFSG.Quasithin.Background.InternalSecData
 import CFSG.Quasithin.EmptyFaithful.GoldschmidtF112ListC
-import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 import CFSG.Quasithin.EmptyFaithful.S14110
 import CFSG.Quasithin.EmptyFaithful.S1421L246
 import CFSG.Quasithin.EmptyFaithful.S146C1
@@ -94,7 +85,6 @@ import CFSG.Timmesfeld.RankOne
 import CFSG.Timmesfeld.Transvection.Statement
 import Certificates.Kernel.J4Count.FixCE
 import Certificates.Kernel.J4Count.FixCPairBase1
-import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

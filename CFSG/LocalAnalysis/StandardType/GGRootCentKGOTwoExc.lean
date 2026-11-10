@@ -2,18 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootCentKGTagsDefs
 public import CFSG.LocalAnalysis.SeitzReduction.EPilotCentralizerHigh
-public import CFSG.LocalAnalysis.SeitzReduction.EPilotFusionEntrywise
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGOTwoExcAut
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGOTwoExcStep
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGRigid
 import CFSG.LocalAnalysis.StandardType.GGRootNormInner
 import CFSG.LocalAnalysis.StandardType.GGStructSOnePrimeRootExc
-import CFSG.LocalAnalysis.SeitzReduction.E7PilotNeighbourLevi
-import CFSG.LocalAnalysis.SeitzReduction.E8PilotLevi
-import CFSG.LieType.Chevalley.OddF4CosetDescent
-import CFSG.LieType.Steinberg.Isogeny.E7
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 public import CFSG.LieType.Chevalley.C2E6StandardFixedData
 public import CFSG.LieType.Chevalley.C2E6UnitaryFourImages
@@ -27,7 +20,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
 public import CFSG.LocalAnalysis.ComponentInitial.SylowPointRecovery
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.JRFacts
 
 public section

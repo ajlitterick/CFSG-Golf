@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBDenseDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniLFrame
-import CFSG.LieType.Universal.Catalog
-import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
 import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHypCentral
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBSpCoordFrameFacts
 import CFSG.LocalAnalysis.StandardType.GGNbrU63Setup

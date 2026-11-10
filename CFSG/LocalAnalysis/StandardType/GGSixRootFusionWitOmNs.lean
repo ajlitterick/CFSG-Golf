@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionWitOmNsCore
 public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionWitOmRest
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderOmegaPM
-public import CFSG.RankThree.PartOne.KC.OrthogonalCommutatorBridge
 
 public section
 

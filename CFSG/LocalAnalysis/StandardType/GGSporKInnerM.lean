@@ -2,8 +2,6 @@ module
 
 public import CFSG.Monster.SteinbergMCatalogInner
 public import CFSG.Sporadic.Bridge.MonsterModels
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Monster.B.TwoA.Base.FourNorm
 public import CFSG.Monster.SteinbergMY443SimpleIsomorphism
 public import CFSG.Sporadic.Schreier.RuLocal

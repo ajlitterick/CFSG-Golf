@@ -2,7 +2,6 @@ module
 
 public import CFSG.Fischer.UnitaryPerm
 public import Certificates.Kernel.Misc.Unitary
-public import Certificates.Certificate1003
 public import Certificates.Data.CFSGNative.F4.T46Simple
 public import CFSG.Certificates.Kernel.CoPairSound
 public import CFSG.Certificates.Kernel.Common.HexNat

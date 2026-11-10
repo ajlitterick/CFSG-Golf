@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGWitOrthCrAux
 public import CFSG.LocalAnalysis.StandardType.GGWitOrthCrAux2
 public import CFSG.LocalAnalysis.StandardType.GGWitOrthSpin
 

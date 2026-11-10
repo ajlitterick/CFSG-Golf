@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section10Proposition102Nilpotent
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition84Sylow
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.FinalTheorem
 
 namespace CFSG

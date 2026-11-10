@@ -6,7 +6,6 @@ public import CFSG.Quasithin.SteinbergBSNormalizerInjection
 public import CFSG.Quasithin.SteinbergCBTwoNaturalCentralizer
 public import CFSG.Quasithin.SteinbergCBFourFieldNormalizer
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesFour
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.CentralizerLemmas
 
 public section
 

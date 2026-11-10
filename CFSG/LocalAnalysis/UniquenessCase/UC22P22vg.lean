@@ -3,13 +3,8 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S22a
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P21p
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront05
-import CFSG.LocalAnalysis.UniquenessCase.UC22Bridge2
-import CFSG.LocalAnalysis.UniquenessCase.UC22Bridge4
 import CFSG.LocalAnalysis.UniquenessCase.UC22P21c
-import CFSG.LocalAnalysis.UniquenessCase.UC22P22c
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22o
-import CFSG.GroupTheory.Fitting.CharacteristicP
-import CFSG.LocalAnalysis.ComponentClassification.Quasisimple
 
 public section
 

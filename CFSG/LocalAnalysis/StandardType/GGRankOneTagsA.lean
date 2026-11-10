@@ -2,11 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRankOneModel
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePresTagDefs
-import CFSG.LocalAnalysis.StandardType.GGPsiDiagInner
 import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerSpin
 import CFSG.LocalAnalysis.StandardType.GGRootDetectSpinPlus
-import CFSG.LieType.Steinberg.Classical.SpecialLinear
-import CFSG.LieType.Steinberg.Classical.SpinPlus
 
 public section
 

@@ -1,15 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBJOmDefs
-public import CFSG.RankThree.PartOne.KC.OrthogonalFixedBlock
-public import CFSG.RankThree.PartOne.KC.OrthogonalPrimarySummands
-public import CFSG.RankThree.PartOne.KC.OrthogonalSupportedBlocks
-public import CFSG.LocalAnalysis.StandardType.GGTBJOmClass
-public import CFSG.RankThree.PartOne.KC.OrthogonalBlockDet
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmOrbit
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmBlockGClass
-public import CFSG.LocalAnalysis.StandardType.GGTBJOmBlockGTwo
-public import CFSG.LocalAnalysis.StandardType.GGTBJOmBlockGSupp
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmBlockGAct
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmBlockGMove
 

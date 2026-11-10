@@ -1,13 +1,7 @@
 module
 
 public import CFSG.RankThree.GF2n.Parrott.Lemma13
-public import CFSG.RankThree.GF2n.Parrott.CaseII
 public import CFSG.RankThree.GF2n.Parrott.HPrimeJ1
-public import CFSG.RankThree.GF2n.Parrott.QuadraticV
-public import CFSG.RankThree.GF2n.Parrott.SylowHFacts
-public import CFSG.GroupTheory.CentralizerSylowFusion
-public import CFSG.GroupTheory.Extraspecial2PG
-public import CFSG.GroupTheory.ElemAbelianClosure
 public import CFSG.Blueprint.SourceGeckCorrespondence
 public import CFSG.GF2Type.Aschbacher1976
 public import CFSG.GroupTheory.Fitting.MulEquiv

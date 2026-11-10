@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Sporadic.ON2.GenWords
-public import Certificates.Kernel.Sporadic.RawGen
 public import CFSG.Certificates.Kernel.Spor.WordsTxtSound
 public meta import Certificates.Data.CFSGNative.Bridge.ONGPL
 import CFSG.Certificates.Kernel.Common.Harness

@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.LocalQT.Tab2
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_2FinM2Tab
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_2FinM22Inputs
 public import Certificates.Kernel.Sporadic.RawGen
 import CFSG.Certificates.Kernel.Common.Harness

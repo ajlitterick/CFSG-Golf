@@ -4,10 +4,7 @@ public import CFSG.LocalAnalysis.StandardType.GGK0StageDefs
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.FrobeniusOnRoots
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcRoots
 import CFSG.HardMathSupport.Timmesfeld.Tables.T1b.WeylTorusAct
-import CFSG.LieType.Chevalley.E6ToralGraphInvolution
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwRigidTools
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerF4Toral
-import CFSG.LieType.Chevalley.ToralCentralizerBruhat
 import CFSG.RankThree.PartOne.KE.A1Action
 import CFSG.RankThree.PartOne.KE.A1Levi
 import CFSG.RankThree.PartOne.KE.A1TwistedE6

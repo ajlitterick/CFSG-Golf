@@ -1,10 +1,8 @@
 module
 
 public import Certificates.Kernel.SporSch.Co1.CRows
-public import CFSG.Sporadic.Schreier.Co1GenCheckInputs
 public meta import Certificates.Kernel.SporSch.Co1.GenDag
 public meta import Certificates.Kernel.SporSch.Co1.GenQTowerB
-public import Certificates.Data.Kernel.SporSch.Co1GenB
 public meta import Certificates.Kernel.SporSch.GenPerms
 public meta import CFSG.Sporadic.Schreier.Co1GenCheckInputs
 import CFSG.Certificates.Kernel.Common.Harness

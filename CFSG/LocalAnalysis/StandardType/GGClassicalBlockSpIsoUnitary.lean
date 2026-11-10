@@ -1,15 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockDefs
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockDecomp
 public import CFSG.RankThree.Classical.SteinbergBJSymplecticCrossPrimeBlocks
-public import CFSG.ClassicalGroups.UnitaryFlag.GramForm
-public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherPrimeForm
 public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeModel
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeOrbits
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

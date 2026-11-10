@@ -3,8 +3,6 @@ module
 
 public import Certificates.Certificate3028Base
 
-public import Certificates.Data.CFSGNative.MonsterB.Co2Matrix
-public import Certificates.Kernel.MonsterB.Co2Perms
 public import Certificates.Kernel.MonsterB.Mat3028Tabs
 public import CFSG.Certificates.Kernel.MonsterB.Co2MatSound
 import CFSG.Certificates.Kernel.Common.Harness

@@ -2,12 +2,10 @@ module
 
 public import CFSG.ClassicalGroups.Orthogonal.OmegaMinus8ThreeLocalTwo
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRest
-import CFSG.ClassicalGroups.Orthogonal.OmegaMinus8ThreeLocalFrame
 import CFSG.ClassicalGroups.Orthogonal.OmegaMinus8ThreeLocalRealizers
 import CFSG.GroupTheory.WeirSylow.UniqueE27Orthogonal
 import CFSG.LieType.ReflectionGroups.F4ModThreeSigned
 import CFSG.LieType.SeitzGeneration.ExcHighThree.Closing
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 import CFSG.LocalAnalysis.StandardType.GGF4QTwoOmegaEnd
 import CFSG.LocalAnalysis.StandardType.GGF4QTwoWeylForm
 import CFSG.LocalAnalysis.StandardType.GGSpJoinBstarSplit

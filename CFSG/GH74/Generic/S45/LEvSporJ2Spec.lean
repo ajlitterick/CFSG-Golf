@@ -2,14 +2,9 @@ module
 
 public import CFSG.GH74.Generic.S45.LEvSporSpec
 public import CFSG.GH74.Generic.S45.LEvSporLeaf1
-public import Certificates.Data.GH74EvSporCheck
 public meta import Certificates.Data.GH74EvSporCheck
-public import CFSG.Sporadic.Schreier.PairJ2CertInputs
-public import CFSG.Sporadic.Schreier.PairJ2CheckInputs
-public import CFSG.Sporadic.SmallOddCore.J2CheckInputs
 public meta import CFSG.Sporadic.SmallOddCore.J2Data
 public meta import CFSG.Sporadic.Schreier.PairJ2Check
-public import CFSG.Sporadic.Schreier.PairJ2Order
 public import CFSG.Sporadic.SmallOddCore.J2
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutTables
 public import CFSG.GroupTheory.Fitting.CharacteristicP
@@ -20,8 +15,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.MinimalBCenter
 public import CFSG.LocalAnalysis.ComponentClassification.OrdinaryComponentJoins
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
-public import CFSG.LocalAnalysis.SectionRank.PRank
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

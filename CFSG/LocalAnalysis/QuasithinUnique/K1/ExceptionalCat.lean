@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.K1.ExceptionalCatG2
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.ExceptionalCatTriality
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.ExceptionalCatRee
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.ExceptionalCatTits
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LocalAnalysis.ComponentInitial.SylowPointRecovery
 
 public section

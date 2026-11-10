@@ -7,8 +7,6 @@ import CFSG.ClassicalInvolution.Models.OrthogonalPairs.FrameFieldEquiv
 import CFSG.LieType.Universal.SpinOmega.RootPosition
 import CFSG.LocalAnalysis.StandardType.GGSelectedPOmegaMinusLongField
 import CFSG.LocalAnalysis.StandardType.GGRankOneTagsA
-import CFSG.Adapters.LinearFieldTransport
-import CFSG.LocalAnalysis.StandardType.GGRootDetectSpinPlus
 import CFSG.ClassicalInvolution.ModelFacts.MF15Basic
 import CFSG.ClassicalInvolution.ModelFacts.MF15Lin
 import CFSG.LieType.Universal.SpinOmega.CommutatorEquiv

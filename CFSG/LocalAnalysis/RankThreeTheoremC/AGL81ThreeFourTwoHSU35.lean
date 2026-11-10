@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.HSOverDefs
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Classification
 public import Certificates.Certificate31073
 import CFSG.Adapters.TauCetiLieModels
 import CFSG.Blueprint.SourceClassicalTransport

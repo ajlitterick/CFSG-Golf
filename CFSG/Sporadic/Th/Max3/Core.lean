@@ -2,7 +2,6 @@
 module
 
 import all CFSG.Sporadic.Th.Max3.CoreBase
-public import CFSG.Sporadic.Th.Max3.CoreBase1
 import all CFSG.Sporadic.Th.Max3.CoreBase1
 
 public import CFSG.Sporadic.Th.Max3.Relations

@@ -4,14 +4,9 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265BFour
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I1431ChevTwoOutAll
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I1431ChevTwoInn
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.SFM2Marking
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.YS09TD4G2A
-public import CFSG.LocalAnalysis.GLTheoremA.CatB.Bridges
 public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonSubcompIdx
-public import CFSG.LocalAnalysis.StandardType.GGReverseMarking
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.JStarElimOrders
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs141c
 public import CFSG.GroupTheory.PCore.SubgroupCore
-public import CFSG.HardMathSupport.Dickson.Sec6.I1431Lie
 public import CFSG.HardMathSupport.Dickson.Sec6.I923Fam.D4
 public import CFSG.HardMathSupport.Dickson.Sec6.I923Fam.E7
 public import CFSG.HardMathSupport.Dickson.Sec6.I923Fam.E8
@@ -21,7 +16,6 @@ public import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.OutLin
 public import CFSG.HardMathSupport.Solomon.Coordinator.I22_4Glue
 public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.CrossSp
 public import CFSG.LieType.Multipliers.U62Sylow
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanChevOuterD42Spec
 public import CFSG.LocalAnalysis.ComponentClassification.Foote5CoreEven
 public import CFSG.LocalAnalysis.ComponentClassification.Foote5CoreL34
 public import CFSG.LocalAnalysis.ComponentClassification.Foote5CoreRes

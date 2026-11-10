@@ -4,7 +4,6 @@ public import Certificates.Kernel.SporSch.Mathieu.Gen
 public import Certificates.Kernel.LocalComp.Sp6J.Words
 public meta import Certificates.Kernel.LocalComp.Sp6J.Words
 public meta import CFSG.Monster.B.Mathieu.Order
-import CFSG.Certificates.Kernel.Common.Harness
 public meta import CFSG.LocalAnalysis.EvenSmallLie.Sp6JConditionInputs
 public import CFSG.LocalAnalysis.EvenSmallLie.Sp6JConditionInputs
 

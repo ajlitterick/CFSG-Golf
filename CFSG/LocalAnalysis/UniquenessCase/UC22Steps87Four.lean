@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22Steps87
-public import CFSG.LocalAnalysis.UniquenessCase.UC22Setup4S21Facts
 public import CFSG.LocalAnalysis.UniquenessCase.UC22FieldAutOddHolds
-public import CFSG.LocalAnalysis.UniquenessCase.UC22FunCountHolds
 public import CFSG.LocalAnalysis.UniquenessCase.UC22FunSplitHolds
 public import CFSG.LocalAnalysis.UniquenessCase.UC22Q35NormSylowAlphaHolds
 public import CFSG.LocalAnalysis.UniquenessCase.UC22Q35PermFiveHolds
@@ -11,23 +9,17 @@ public import CFSG.LocalAnalysis.UniquenessCase.UC22S213Rest15Four
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S2114R4FFour
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S2114R3LFFour
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S2114R3LTFour
-public import CFSG.LocalAnalysis.UniquenessCase.UC22S2114R3LDefs
-public import CFSG.LocalAnalysis.UniquenessCase.UC6Inst
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S2114R3LK2Core
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S2112aR34L3PTwoFour
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S2112aR34L3E2Four
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S2112aR34F2SigFour
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S2112aR34F2Even2Four
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S2112aR34F3Q35Four
-import CFSG.LocalAnalysis.UniquenessCase.UC22S2114R3F
 import CFSG.LocalAnalysis.UniquenessCase.UC22S2114R3LHead
 import CFSG.LocalAnalysis.UniquenessCase.UC22S2112aR34L3PMain
 import CFSG.LocalAnalysis.UniquenessCase.UC22S2112aR34Alpha
-import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.SEFive.Holds
-import CFSG.LocalAnalysis.UniquenessCase.UC7P3BadNoStrongHolds
 import CFSG.LocalAnalysis.UniquenessCase.UC7P3ThreeKIBA6
 import CFSG.LocalAnalysis.UniquenessCase.UCK35wHolds
-import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.KIZHolds
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.CartanTorusU7
 import CFSG.LocalAnalysis.UniquenessCase.UC22S2112aR34Q35
 

@@ -1,10 +1,7 @@
 module
 
-public import CFSG.ClassicalInvolution.RouteD.TWEClose
 public import CFSG.ClassicalInvolution.RouteD.TWEB6Main
 public import CFSG.ClassicalInvolution.RouteD.TWS6D4Rank
-public import CFSG.ClassicalInvolution.RouteD.TWS6Cfg
-public import CFSG.ClassicalInvolution.RouteD.TWEAssemble
 public import CFSG.ClassicalInvolution.RouteD.TWS6SRow
 
 public section

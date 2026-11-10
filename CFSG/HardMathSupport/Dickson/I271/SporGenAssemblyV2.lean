@@ -1,40 +1,25 @@
 module
 
 public import CFSG.HardMathSupport.Dickson.I271.SporGenAssembly
-public import CFSG.HardMathSupport.Dickson.I271.SporGenBM
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabJ3Shape
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabSuzShape
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabCo2Shape
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabFi22Shape
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.HNThreeShape
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabThShape
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabLy
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.RkBMStrong
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.StrongHSHe
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.ChevStrongD4
 public import CFSG.HardMathSupport.Dickson.I271.SporGenAux.BSevenGen
 public import CFSG.HardMathSupport.Dickson.I271.SporGenAux.ON7Model
 public import CFSG.HardMathSupport.Dickson.I271.SporGenAux.Fi7Model
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabBThreeShape
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabBFive
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabMFiveShape
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabMFiveNoComp
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabMFiveEmb
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.MonsterTwoA
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.TwoBLocalBound
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabBFiveCentRes
-import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabMFiveCentA
 import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabBFiveCentM
-import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabMFiveCo1Bridge
 import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabCo1Final
 import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabMThreeCMain
 import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabMThreeAMain
 import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabBThreeAGlue
 import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabBFiveNoCompK
-import CFSG.Milestones.CL_LIT_Griess_Schur_multipliers_Lie_type
 import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabFi24LeafShape
 import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabMSevenShape
-import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabBFiveCentSeven
 import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabBFiveCentA
 import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabCo1ThreeAFinal
 import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.MonsterFiveBGood
@@ -42,28 +27,14 @@ import CFSG.HardMathSupport.Dickson.Sec6.I1431SporAux.NoOrderSixtyFiveM
 import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabBThreeBNoComp
 import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.MonsterThreeBPair
 import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.MonsterThreeBRank
-import CFSG.HardMathSupport.Timmesfeld.DefChar.LieOuterRank
 import CFSG.HardMathSupport.Solomon.Coordinator.LieOrderBridgeHolds
-import CFSG.HardMathSupport.Solomon.Coordinator.SporOrders
 import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofLieOrder
-import CFSG.Adapters.TauCetiExceptional.EvenAll
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabMFiveNoCompK
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabMSevenPair
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabMThree
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabMThreeNoComp
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabFi23Shape
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabFi23ThreeC
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabCo1ThreeFinal
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.BMPairs
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.BThreeFi23Fuse
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.BFiveAClose
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.MonsterFrontier
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.MonsterKleinFrontier
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.MonsterThreeBFinal
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co1Five
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.MonsterFiveGmat
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.MonsterSeven
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.MonsterSevenCensus
 public import Certificates.Certificate6097
 public import Certificates.Certificate6098
 public import Certificates.Certificate6099
@@ -78,13 +49,7 @@ public import Certificates.Certificate17580
 public import Certificates.Certificate17581
 public import Certificates.Certificate17590
 public import Certificates.Certificate17591
-public import Certificates.Certificate2114
-public import Certificates.Certificate2115
-public import Certificates.Certificate2118
 public import Certificates.Certificate13504
-public import Certificates.Certificate41507
-public import Certificates.Certificate17101
-public import Certificates.Certificate17150
 public import Certificates.Certificate17352
 public import Certificates.Certificate17353
 public import Certificates.Certificate17402
@@ -112,21 +77,9 @@ public import Certificates.Certificate17569
 public import Certificates.Certificate17570
 public import Certificates.Certificate17599
 public import Certificates.Certificate214034
-public import Certificates.Certificate17329
-public import Certificates.Certificate17330
-public import Certificates.Certificate17331
-public import Certificates.Certificate17332
-public import Certificates.Certificate17592
 public import Certificates.Certificate36920
 public import Certificates.Certificate36921
 public import Certificates.Certificate136207
-public import Certificates.Certificate2261
-public import Certificates.Certificate2262
-public import Certificates.Certificate2263
-public import Certificates.Certificate2268
-public import Certificates.Certificate2269
-public import Certificates.Certificate2270
-public import Certificates.Certificate17561
 public import Certificates.Certificate17562
 public import Certificates.Certificate17620
 public import Certificates.Certificate17621
@@ -148,9 +101,6 @@ public import Certificates.Certificate17618
 public import Certificates.Certificate17619
 public import Certificates.Certificate17625
 public import Certificates.Certificate17626
-public import Certificates.Certificate2074
-public import Certificates.Certificate2076
-public import Certificates.Certificate2077
 public import Certificates.Certificate10105
 public import Certificates.Certificate17593
 public import Certificates.Certificate17594

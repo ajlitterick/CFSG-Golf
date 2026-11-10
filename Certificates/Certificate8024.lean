@@ -3,8 +3,6 @@ module
 
 public import Certificates.Certificate8024Base
 
-public import Certificates.Data.CFSGNative.SectionRank.J4Local
-public import CFSG.Blueprint.NativeSporadic
 import CFSG.Certificates.Kernel.OpsF2KCubQSound
 import Certificates.Kernel.LocalComp.J4CubQ
 import all CFSG.Blueprint.NativeSporadic

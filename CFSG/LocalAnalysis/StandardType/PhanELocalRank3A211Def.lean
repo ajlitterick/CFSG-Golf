@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.PhanELocalCls
 public import CFSG.LocalAnalysis.StandardType.PhanELocalGate
-import CFSG.ClassicalInvolution.Phan.Geometry.Points
-public import CFSG.Certificates.Kernel.ThDemp.OrbCent
 public import CFSG.LocalAnalysis.StandardType.PhanELocalAdm
 public import CFSG.Sporadic.Schreier.J4SNoCompCover
 

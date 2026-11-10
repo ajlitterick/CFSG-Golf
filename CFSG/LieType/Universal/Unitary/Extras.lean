@@ -3,11 +3,6 @@ module
 public import CFSG.LieType.Universal.Unitary.Roots
 public import CFSG.LieType.Steinberg.Extras
 import all CFSG.LieType.Universal.Unitary.Roots
-import CFSG.LieType.Universal.Unitary.Extras.Basic
-import CFSG.LieType.Universal.Unitary.Extras.Unipotent
-import CFSG.LieType.Universal.Unitary.Extras.Torus
-import CFSG.LieType.Universal.Unitary.Extras.RankOne
-import CFSG.LieType.Universal.Unitary.Extras.RankOneLast
 import CFSG.LieType.Universal.Unitary.Extras.Commutator
 
 public section

@@ -10,7 +10,6 @@ public import TauCeti.Algebra.AlgebraicGroup.HopfIdeal.Quotient.Image.Smooth
 public import TauCeti.Algebra.AlgebraicGroup.Solvable.Reduced
 public import TauCeti.RingTheory.FiniteType.FiniteRange
 public import TauCeti.RingTheory.Spectrum.Prime.Topology
-public import TauCeti.Algebra.AlgebraicGroup.Connected.GroupScheme
 public import TauCeti.Algebra.AlgebraicGroup.HopfIdeal.Quotient.Kernel.BaseChange
 
 public noncomputable section

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutNonsplitOmFieldRank
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutNonsplitFieldFix
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaLang
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaOrder
 
 public section

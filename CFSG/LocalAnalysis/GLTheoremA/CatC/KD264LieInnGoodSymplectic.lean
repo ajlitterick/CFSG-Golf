@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieInnGood
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.SymplecticPlaneQ
-public import CFSG.LocalAnalysis.ComponentClassification.InnAutDerivedSymplectic
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompIdxSymplectic
-public import CFSG.Adapters.CatalogueFieldBridges.Symplectic
 public import CFSG.GroupTheory.SteinbergCBFTCores
 public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.CrossSp
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieOuterIdxSymplectic

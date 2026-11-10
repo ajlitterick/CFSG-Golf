@@ -3,7 +3,6 @@ module
 public import CFSG.Quasithin.EmptyFaithfulMultiple.F618CompThree
 public import CFSG.Quasithin.EmptyFaithfulMultiple.F618CompGraph
 public import CFSG.Quasithin.EmptyFaithfulMultiple.F618CompM12
-public import CFSG.Quasithin.EmptyFaithfulMultiple.Comparison15421Props
 public import CFSG.Quasithin.EmptyFaithfulMultiple.F618CompAlt
 
 public section

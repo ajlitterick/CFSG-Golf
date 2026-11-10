@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec21.LangTwistedProofD4SecIrred
-public import CFSG.LocalAnalysis.SectionRank.LargeRee.RankOneBlock
 public import CFSG.Blueprint.ChevalleySimpleRootOperators
 
 public noncomputable section

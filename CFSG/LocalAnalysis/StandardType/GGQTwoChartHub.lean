@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoChartDefs
-public import CFSG.LocalAnalysis.StandardType.GGQTwoChartHubBlk
 public import CFSG.LocalAnalysis.StandardType.GGQTwoChartHubIso
 public import CFSG.LocalAnalysis.StandardType.GGQTwoChartHubChart
 public import CFSG.LocalAnalysis.StandardType.GGQTwoChartHubSwap

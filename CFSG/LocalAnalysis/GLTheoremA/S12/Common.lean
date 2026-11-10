@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.S8.Lemma88
 public import CFSG.LocalAnalysis.GLTheoremA.S9.Basic
 public import CFSG.HardMathSupport.Solomon.Coordinator.I2_5
 public import CFSG.LocalAnalysis.GLTheoremA.S10.Inputs
-public import CFSG.LocalAnalysis.SignalizerFunctor.SolvablePrimeCore
 
 public section
 

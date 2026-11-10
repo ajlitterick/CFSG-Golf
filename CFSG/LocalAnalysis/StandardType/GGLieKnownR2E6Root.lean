@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2E6Inner
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2E6NC
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2CoverLift
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ItemThree
 
 public section

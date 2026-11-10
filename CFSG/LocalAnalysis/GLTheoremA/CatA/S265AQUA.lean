@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265Fam
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.D4YIFinal
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265BAct
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S265AHr

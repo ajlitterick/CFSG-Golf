@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section7.KFact76G2Roots
-import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenWeyl
 import CFSG.HardMathSupport.Dickson.Sec6.I923Fam.R2Aux.G2Part1
 
 public section

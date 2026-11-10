@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRootGenAvoidKG
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyWeylGenLift
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyReflInner
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeAEndModel
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentFieldMark
 
 public section

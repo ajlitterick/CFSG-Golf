@@ -1,8 +1,6 @@
 module
 
 public import Certificates.Data.TitsAschbacherE32
-public import CFSG.Sporadic.Schreier.TitsCentralCheckInputs
-public import CFSG.Sporadic.Schreier.TitsEnum
 
 public section
 

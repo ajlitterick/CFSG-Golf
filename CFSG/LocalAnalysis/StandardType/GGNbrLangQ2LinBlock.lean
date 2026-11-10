@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinear
 public import CFSG.LocalAnalysis.StandardType.GGE0PSLComp
 
-import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
-import CFSG.Assembly.GL83StatedBridge
 import CFSG.LocalAnalysis.GLTheoremA.CatA.K1419ClsLinBlock
 import CFSG.LocalAnalysis.StandardType.GGSummandMarkingCentralSurj
 import CFSG.HardMathSupport.Solomon.Coordinator.I18_3LInput

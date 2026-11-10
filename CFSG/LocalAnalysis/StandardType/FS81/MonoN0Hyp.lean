@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.MonoRefl
 public import CFSG.LocalAnalysis.StandardType.FS81.SpMatWt
-public import CFSG.LocalAnalysis.StandardType.FS81.N6MainMat
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.CFSGNative.F4.T46Simple
 public meta import Certificates.Data.CFSGNative.F4.T46Simple
 public import Certificates.Certificate1002
 

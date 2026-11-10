@@ -1,13 +1,9 @@
 module
 
-public import CFSG.RankThree.GF2n.Stroth80.Sec7TailAssembly78
 public import CFSG.RankThree.GF2n.Stroth80.Sec7StepsStmt
 public import CFSG.RankThree.GF2n.Stroth80.Sec7TailAssembly1617
-public import CFSG.RankThree.GF2n.Stroth80.Sec7OmegaSign
 public import CFSG.RankThree.GF2n.Stroth80.Sec7EndMain
 public import CFSG.RankThree.GF2n.Stroth80.Sec78NormZ0
-public import CFSG.Open.StatedDefs
-public import Mathlib.RepresentationTheory.Basic
 public import CFSG.RankThree.GF2n.Stroth80.Sec7TailAssembly1015
 public import CFSG.RankThree.GF2n.Stroth80.Sec7TailAssembly69
 

@@ -1,12 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.PartI.LevelSporR3E
-public import CFSG.GroupTheory.OrderBelowSixtySolvable
 public import CFSG.HardMathSupport.Solomon.Coordinator.GFR2SporTh
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431SporAux.ThNo65
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabCo1Gen
 public import CFSG.LocalAnalysis.GLTheoremA.PartI.LevelSporCo
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.HNFiveShape
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.HNFiveRed
 public import CFSG.Blueprint.OddStandardExact
 public import CFSG.ClassicalInvolution.Asc77.AscE184Basic

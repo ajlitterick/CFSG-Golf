@@ -1,30 +1,16 @@
 module
 
 import CFSG.LocalAnalysis.StandardType.GGResidualRk1FrameHolds
-import CFSG.LocalAnalysis.StandardType.GGResidualRk1ExcTops
-import CFSG.LocalAnalysis.StandardType.GGResidualExcRows
 import CFSG.LieType.Steinberg.CentralExt.TwistedE6ToralCoordsHolds
 
-public import CFSG.LocalAnalysis.StandardType.GGMemberRowsDefs
 public import CFSG.LocalAnalysis.StandardType.GGOrthWeakFrameOfMarking
 public import CFSG.LocalAnalysis.StandardType.GGOrthWeakFrameCenter
 public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
-import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseTwoE
-public import CFSG.Sporadic.Co2Smith.GlC0MarkInputs
-import Certificates.Kernel.Co2Smith.Cox
-import Certificates.Data.Kernel.Co2Smith.Mark
-import Certificates.Data.Kernel.Co2Smith.Cox
-import Certificates.Kernel.Co2Smith.LettersData
-import Certificates.Kernel.Co2Smith.CoxData
-import Certificates.Kernel.Co2Smith.MarkK
 import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseEnnolaTwo
 import CFSG.LocalAnalysis.StandardType.GGPairResidualUnitaryTwo
 import CFSG.LocalAnalysis.StandardType.GGPairResidualOrthTwo
-import CFSG.LocalAnalysis.StandardType.GGPairResidualE7Plus
 import CFSG.LocalAnalysis.StandardType.GGPairResidualE8Plus
 import CFSG.LocalAnalysis.StandardType.GGPairResidualTwE6Plus
-import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylInputHolds
 public import CFSG.CGT.A8S.N0EnumInputs
 public import CFSG.CGT.Timmesfeld75.Derivations
 public import CFSG.CGT.Timmesfeld75.Sec5One
@@ -62,27 +48,19 @@ public import Certificates.Certificate709545
 public import Certificates.Certificate709548
 public import Certificates.Certificate709549
 public import Certificates.Certificate709590
-public import Certificates.Certificate2012
 public import Certificates.Certificate3143
 public import Certificates.Certificate3184
 public import Certificates.Certificate3185
-public import Certificates.Certificate4161
 public import Certificates.Certificate4162
 public import Certificates.Certificate4165
 public import Certificates.Certificate5120
-public import Certificates.Certificate5122
 public import Certificates.Certificate5124
 public import Certificates.Certificate5148
 public import Certificates.Certificate5150
 public import Certificates.Certificate5153
 public import Certificates.Certificate8053
-public import Certificates.Certificate8054
-public import Certificates.Certificate8055
-public import Certificates.Certificate8056
-public import Certificates.Certificate8078
 public import Certificates.Certificate8100
 public import Certificates.Certificate8101
-public import Certificates.Certificate8102
 public import Certificates.Certificate8103
 public import Certificates.Certificate8104
 public import Certificates.Certificate8105
@@ -93,22 +71,13 @@ public import Certificates.Certificate8109
 public import Certificates.Certificate8110
 public import Certificates.Certificate8111
 public import Certificates.Certificate8112
-public import Certificates.Certificate8113
 public import Certificates.Certificate9300
 public import Certificates.Certificate9308
 public import Certificates.Certificate9309
 public import Certificates.Certificate9310
 public import Certificates.Certificate9311
-public import Certificates.Certificate10001
 public import Certificates.Certificate10003
 public import Certificates.Certificate10021
-public import Certificates.Certificate10080
-public import Certificates.Certificate10081
-public import Certificates.Certificate10082
-public import Certificates.Certificate10083
-public import Certificates.Certificate10084
-public import Certificates.Certificate10085
-public import Certificates.Certificate10086
 public import Certificates.Certificate13604
 public import Certificates.Certificate13605
 public import Certificates.Certificate13657
@@ -125,29 +94,17 @@ public import Certificates.Certificate14988
 public import Certificates.Certificate14989
 public import Certificates.Certificate15950
 public import Certificates.Certificate15951
-public import Certificates.Certificate15952
-public import Certificates.Certificate15953
-public import Certificates.Certificate16011
-public import Certificates.Certificate16032
-public import Certificates.Certificate16039
 public import Certificates.Certificate19780
-public import Certificates.Certificate19951
 public import Certificates.Certificate19952
 public import Certificates.Certificate19954
 public import Certificates.Certificate21100
 public import Certificates.Certificate21101
 public import Certificates.Certificate21102
 public import Certificates.Certificate21103
-public import Certificates.Certificate21104
-public import Certificates.Certificate21105
-public import Certificates.Certificate21106
-public import Certificates.Certificate21107
 public import Certificates.Certificate21110
 public import Certificates.Certificate21111
 public import Certificates.Certificate21112
 public import Certificates.Certificate21113
-public import Certificates.Certificate21114
-public import Certificates.Certificate21115
 public import Certificates.Certificate21120
 public import Certificates.Certificate21121
 public import Certificates.Certificate21122
@@ -206,14 +163,6 @@ public import Certificates.Certificate21245
 public import Certificates.Certificate21246
 public import Certificates.Certificate21247
 public import Certificates.Certificate21248
-public import Certificates.Certificate21260
-public import Certificates.Certificate21261
-public import Certificates.Certificate21262
-public import Certificates.Certificate21263
-public import Certificates.Certificate21264
-public import Certificates.Certificate21265
-public import Certificates.Certificate21266
-public import Certificates.Certificate21267
 public import Certificates.Certificate21275
 public import Certificates.Certificate21276
 public import Certificates.Certificate21280
@@ -227,51 +176,6 @@ public import Certificates.Certificate271031
 public import Certificates.Certificate271032
 public import Certificates.Certificate271033
 public import Certificates.Certificate830101
-public import Certificates.Certificate2326
-public import Certificates.Certificate3007
-public import Certificates.Certificate3041
-public import Certificates.Certificate3042
-public import Certificates.Certificate3057
-public import Certificates.Certificate3058
-public import Certificates.Certificate3060
-public import Certificates.Certificate3061
-public import Certificates.Certificate3062
-public import Certificates.Certificate3063
-public import Certificates.Certificate3072
-public import Certificates.Certificate3073
-public import Certificates.Certificate3074
-public import Certificates.Certificate3075
-public import Certificates.Certificate3076
-public import Certificates.Certificate3077
-public import Certificates.Certificate3078
-public import Certificates.Certificate3082
-public import Certificates.Certificate3083
-public import Certificates.Certificate3088
-public import Certificates.Certificate3175
-public import Certificates.Certificate9542
-public import Certificates.Certificate9543
-public import Certificates.Certificate9545
-public import Certificates.Certificate10005
-public import Certificates.Certificate10006
-public import Certificates.Certificate10009
-public import Certificates.Certificate10012
-public import Certificates.Certificate10013
-public import Certificates.Certificate10014
-public import Certificates.Certificate12041
-public import Certificates.Certificate12042
-public import Certificates.Certificate12043
-public import Certificates.Certificate12044
-public import Certificates.Certificate12045
-public import Certificates.Certificate12046
-public import Certificates.Certificate16001
-public import Certificates.Certificate16015
-public import Certificates.Certificate16016
-public import Certificates.Certificate16021
-public import Certificates.Certificate16028
-public import Certificates.Certificate16033
-public import Certificates.Certificate16035
-public import Certificates.Certificate16040
-public import Certificates.Certificate16951
 public import Certificates.Certificate707001
 public import Certificates.Certificate707002
 public import Certificates.Certificate707010

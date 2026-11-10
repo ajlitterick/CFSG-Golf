@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Sporadic.Schreier.J4SNative
 public import CFSG.Sporadic.Schreier.J4SFormData
 
 public section

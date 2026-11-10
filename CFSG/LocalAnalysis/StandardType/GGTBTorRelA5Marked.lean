@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBRowFrame
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySpElt
-public import CFSG.LocalAnalysis.StandardType.GGRCSignedCoxeterB
 public import CFSG.LocalAnalysis.StandardType.GGTBRowSignedFrameAux
 
 @[expose] public section

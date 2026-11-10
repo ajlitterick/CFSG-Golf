@@ -1,8 +1,6 @@
 
 module
 
-public import Certificates.Data.CFSGNative.Fi24.Certificate
-public import Certificates.Data.CFSGNative.Fi23.Data
 public meta import Certificates.Data.CFSGNative.Fi24.Certificate
 public meta import Certificates.Data.CFSGNative.Fi23.Data
 public import CFSG.Sporadic.Fi24.ExtCertInputs

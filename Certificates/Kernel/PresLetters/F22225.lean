@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.GrSLitL34FactsSpMultONCheck
-public import CFSG.Certificates.CosetTablePresented
 public import Certificates.Kernel.Bounds.Family
 
 open CFSG.CosetTable CFSG.ComponentClassification.GSThmB.SpMult

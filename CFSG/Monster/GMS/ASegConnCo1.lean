@@ -2,10 +2,8 @@ module
 
 public import CFSG.Monster.GMS.Leech.Linear
 public import CFSG.Sporadic.Co1.Module.Pairs
-public import CFSG.Monster.GMS.ASegConnCo1Inputs
 public import Certificates.Certificate10028
 public meta import CFSG.Sporadic.Co1.Module.PairsCheck
-public import CFSG.Sporadic.Co1.Module.OddNative
 public import CFSG.Sporadic.Co1.Module.OddFacts
 public import Certificates.Certificate10073Base
 

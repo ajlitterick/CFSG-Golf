@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenCalculus
-public import CFSG.LieType.Chevalley.BorelStructure
 
 public noncomputable section
 

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticCover
 public import CFSG.LocalAnalysis.StandardType.GGTableBTypeAEndModel
 import CFSG.RankThree.PartOne.S15K.CentralCover
-import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeGroup
 
 public section
 

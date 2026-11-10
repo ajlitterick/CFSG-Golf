@@ -2,10 +2,8 @@
 module
 
 public import Certificates.Data.TwoF4LieCheck
-public import CFSG.Sporadic.Schreier.TitsActionCheckInputs
 public import CFSG.Sporadic.Schreier.TitsCentralCheckInputs
 public import CFSG.Sporadic.Schreier.TitsAction
-public import Mathlib.Logic.Relation
 
 import CFSG.Quasithin.Vol2.GoldschmidtF431TwoF4SpecBase
 

@@ -78,7 +78,6 @@ public import CFSG.Sporadic.M23.M23Group
 public import CFSG.Sporadic.Presentation.Common
 public import CFSG.Sporadic.SmallOddCore.CheckSpec
 public import CFSG.Sporadic.ThSchreier.AutCore
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import CFSG.YGroups.Y322Central
 public import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials

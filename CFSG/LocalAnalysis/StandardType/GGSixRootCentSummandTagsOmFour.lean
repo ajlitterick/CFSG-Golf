@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsOmHyp
-public import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotPlusEightLeviBasic
-import CFSG.LocalAnalysis.ComponentInitial.OrthogonalLowDimCoverage
-import CFSG.LocalAnalysis.ComponentInitial.OrthogonalLowDimCoverageSplit
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4LabelH4Pieces
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 public import CFSG.LocalAnalysis.StandardType.GGF4H4Psl64Card
 public import CFSG.LocalAnalysis.StandardType.GGF4H4Psl64Proj
 public import Certificates.Kernel.ThCent.Leaves

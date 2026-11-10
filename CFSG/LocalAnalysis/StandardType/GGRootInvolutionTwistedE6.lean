@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionCore
 public import CFSG.LieType.Steinberg.CentralExt.TwistedE6PosLift
-public import CFSG.LieType.HighestRoot.GenModels
 
 public section
 

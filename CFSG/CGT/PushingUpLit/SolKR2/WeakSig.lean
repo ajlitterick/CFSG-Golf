@@ -4,7 +4,6 @@ public import CFSG.CGT.PushingUpLit.SolKR2.WeakSigAlg
 public import CFSG.CGT.PushingUpLit.SolKR2.WeakOmega
 public import CFSG.CGT.PushingUpLit.SolKR2.PartitionWitness
 public import CFSG.CGT.PushingUpLit.SolKR2.TorusData
-public import CFSG.CGT.PushingUpLit.SolKR2.WeakNames
 public import CFSG.CGT.PushingUpLit.SolKR2.WeakF0
 public import CFSG.CGT.PushingUpLit.SolKR2.WeakA
 public import CFSG.CGT.PushingUpLit.SolKR2.WeakEnd

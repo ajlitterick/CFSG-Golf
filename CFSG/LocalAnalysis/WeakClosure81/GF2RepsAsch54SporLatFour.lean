@@ -3,20 +3,8 @@ module
 public import CFSG.LocalAnalysis.WeakClosure81.GF2RepsAsch54SporLat
 public import CFSG.Quasithin.Background.E2TwoProofSporLat
 
-import CFSG.Blueprint.NativeSporadic
 import all CFSG.Quasithin.Background.E2TwoProofSporLat
-import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofLieOrder
 import CFSG.LocalAnalysis.WeakClosure81.GF2RepsAsch5CalL0
-import CFSG.LocalAnalysis.AGLEmbedding.SporadicBetaSmall
-import CFSG.Sporadic.Schreier.PairHSOut
-import CFSG.Sporadic.Schreier.PairHePairs
-import CFSG.Sporadic.Schreier.RuAutInner
-import CFSG.Sporadic.Schreier.RuIso
-import CFSG.Sporadic.Schreier.PairOuter
-import CFSG.Sporadic.Bridge.M24Surj
-import CFSG.Sporadic.Bridge.HSSurj
-import CFSG.Sporadic.Bridge.HeSurj
-import CFSG.Sporadic.Bridge.RuSurj
 
 public section
 

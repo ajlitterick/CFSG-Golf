@@ -2,16 +2,8 @@ module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.OuterFourSeitzBal
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.A2Nonsplit.TwistDiag
-public import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.G2Pair
 public import CFSG.HardMathSupport.Dickson.Bal207.SU38G2
-public import CFSG.Models.PGLOrders
-public import CFSG.RankThree.PartTwo.Sec13.Item136PGL
-public import CFSG.RankThree.PartTwo.Sec13.Item13Models
-public import CFSG.RankThree.PartTwo.Sec8.Item8KFacts2ProofD4
-public import CFSG.RankThree.PartTwo.Sec4.LThreePiProj
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.D4Graph.Duality
 public import CFSG.HardMathSupport.Lang.E6Descent.OuterFixedTriality2Classes
-public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 public import CFSG.Adapters.ClassicalCatalogLinearUnitary
 public import CFSG.HardMathSupport.Solomon.Coordinator.YS08.LieQ.Derivation
 public import CFSG.HardMathSupport.Timmesfeld.FieldBonus.TwistedRankE6

@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Sporadic.Fi24OrbL.Chain
-public import Certificates.Data.Kernel.Spor.Fi24NetPt
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

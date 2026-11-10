@@ -2,7 +2,6 @@ module
 
 public import CFSG.Certificates.Kernel.KDenseP.MonFive.Run
 public import Certificates.Data.Kernel.KDenseP.Look
-public import CFSG.Certificates.Kernel.Common.Chain
 public import CFSG.Certificates.Kernel.KDenseP.MonFive.Pairs
 public import CFSG.LocalAnalysis.AGLEmbedding.Norton.AgreeTasks
 public import CFSG.YGroups.DCE.MaximalB

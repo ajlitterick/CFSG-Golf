@@ -2,11 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusLangCoordinates
 public import CFSG.LocalAnalysis.StandardType.GGTorusE6Relative
-public import CFSG.LieType.Chevalley.GraphFixedOrbitParametrization
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcLatPhi1
-public import CFSG.LocalAnalysis.StandardType.GGKGForkExcCent
-public import CFSG.LieType.Chevalley.GraphFixedF4Intertwiner
-public import CFSG.RankThree.PartOne.KE.CTLang
 
 public noncomputable section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.H13.AS91Sec4SevenN
-public import CFSG.Quasithin.H13.AS91Sec4EightSplitInputs
 public import Certificates.Certificate89409
 public import CFSG.Certificates.Kernel.LocalCompTits.Span
 public import CFSG.GF2Type.Smith1979.IdxFourCoset
@@ -12,8 +11,6 @@ public import CFSG.LargeExtraspecial.S5Defs
 public import CFSG.LargeExtraspecial.S5Gen2
 public import CFSG.Open.SplitBNPair
 public import CFSG.Quasithin.Background.B6
-public import CFSG.Quasithin.Background.B6Example
-public import CFSG.Quasithin.Background.B6Offenders
 public import CFSG.Quasithin.Background.E2Hyp
 public import CFSG.Quasithin.Background.E2SolvTwo
 public import CFSG.Quasithin.Background.E3OffenderB
@@ -42,7 +39,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970_1
 public import Certificates.Data.CFSGNative.MonsterB.Rep4371Model
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 public import Certificates.Kernel.J4Count.Prim
 
 public section

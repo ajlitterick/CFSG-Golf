@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs16a
 public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps13Bridge
 
 public section

@@ -7,10 +7,7 @@ public import Certificates.Kernel.Sporadic.Fi22.D2079
 public meta import Certificates.Kernel.Sporadic.Fi22.H2066D
 public meta import CFSG.Sporadic.FischerOddCore.FischerOuterFi22CheckInputs
 import CFSG.Certificates.Kernel.Common.Harness
-import CFSG.Certificates.Kernel.Spor.Loops
 import CFSG.Certificates.Kernel.Spor.PackFld
-import Mathlib.Tactic.NormNum
-import Mathlib.Tactic.IntervalCases
 
 public section
 

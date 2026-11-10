@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenFifteenSix
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenCore
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenLin
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenUniqueMax
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenTools
 public import CFSG.Quasithin.Background.F918J3
 public import CFSG.Blueprint.OddStandardExact
 public import CFSG.CGT.T75H.Rank1

@@ -2,9 +2,7 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpSmU43Model
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpSmM2
-public import CFSG.ClassicalInvolution.Q3.TA3FrameU4
 public import CFSG.CGT.PushingUpLit.SolKNA.R4.TwinLeafLocU43
-public import CFSG.ClassicalInvolution.Asc77.AscCX4L3
 public import CFSG.CGT.PushingUpLit.SolKNA.R4.TwinLeafJ1
 public import CFSG.CGT.PushingUpLit.SolKNA.R4.TwinLeafLy
 public import CFSG.CGT.PushingUpLit.SolKNA.R4.TwinLeafMcL

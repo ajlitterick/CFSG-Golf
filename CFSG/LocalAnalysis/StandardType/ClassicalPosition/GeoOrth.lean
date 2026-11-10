@@ -1,10 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.GeoAdj
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.ReducedAlgebra
-public import Mathlib.LinearAlgebra.QuadraticForm.Basic
-public import Mathlib.LinearAlgebra.Matrix.SesquilinearForm
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.GeoDualPair
 public import CFSG.LieType.Universal.SpinOmega.Range
 public import CFSG.LieType.Universal.Spin.Generation.Eichler

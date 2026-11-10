@@ -36,11 +36,6 @@ public import CFSG.Quasithin.Recognition.ModelBridges
 public import CFSG.Certificates.Kernel.LocalCompTits.Span
 public import Certificates.Data.CFSGNative.MonsterB.Rep4371Model
 public import Lean.Data.Json
-public import Mathlib.Algebra.Group.Pointwise.Set.Basic
-public import Mathlib.Algebra.GroupWithZero.Action.Units
-public import Mathlib.Data.Fintype.CardEmbedding
-public import Mathlib.Data.Nat.Factorial.Basic
-public import Mathlib.Tactic.Abel
 
 public section
 

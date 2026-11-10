@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.FS81.Defs
-public import CFSG.LocalAnalysis.StandardType.GGFrameRouteFSInputs
-public import CFSG.LocalAnalysis.StandardType.GGTriD4NoneMarking
 public import CFSG.LocalAnalysis.StandardType.FS81.RowElemAbOrth
 public import CFSG.LocalAnalysis.StandardType.FS81.OrthInner
 public import CFSG.LocalAnalysis.StandardType.FS81.LocalOrthModels

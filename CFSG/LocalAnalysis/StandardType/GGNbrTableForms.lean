@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRest
-public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
-public import CFSG.LocalAnalysis.StandardType.GGTableBRank
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUDefs
 public import CFSG.LocalAnalysis.StandardType.GGFixSub
 

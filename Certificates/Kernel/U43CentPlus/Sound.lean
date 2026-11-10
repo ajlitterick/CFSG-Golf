@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.U43CentPlus.Checks
 public import Certificates.Kernel.U43Mod.Glue
 public import CFSG.Certificates.Kernel.Spor.PK.Basic
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Spor.RawOrbGrp
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.GroupTheory.Fitting.CharacteristicP
@@ -19,10 +18,8 @@ public import CFSG.LocalAnalysis.EvenSporadicStandard.Reduction
 public import CFSG.LocalAnalysis.EvenSporadicStandard.RuStd.Contra
 public import CFSG.LocalAnalysis.EvenSporadicStandard.RuStd.S2.OutU43Main
 public import CFSG.LocalAnalysis.EvenSporadicStandard.RuStd.Stages
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.Sporadic.Schreier.ONArrayDatum
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

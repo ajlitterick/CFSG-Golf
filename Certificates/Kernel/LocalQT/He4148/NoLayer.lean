@@ -6,9 +6,7 @@ public import CFSG.Certificates.Kernel.SporSch.NoLayerSound
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19IdentHeInnerCheckInputs
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19IdentHeInnerData
 public meta import CFSG.Sporadic.HeldB.InnerData
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.BfsPinSound
-public import CFSG.Certificates.Kernel.BfsPinUnpack
 public import CFSG.Certificates.Kernel.SporSch.MathieuOCSound
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19IdentMathData
 public import CFSG.Sporadic.HeldB.ClassCount

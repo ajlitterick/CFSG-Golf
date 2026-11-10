@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGOrthKStructInduces
-public import CFSG.LocalAnalysis.StandardType.GGHalfTorusFrame
 public import CFSG.GroupTheory.SupCommute
 
 public section

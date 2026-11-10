@@ -1,20 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIpIso
 public import CFSG.LocalAnalysis.StandardType.GGLabelIsoField
 public import CFSG.LocalAnalysis.StandardType.GGTCJHolds
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
-public import CFSG.LocalAnalysis.StandardType.GGSixStepOneCompNormal
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKU33Bridges
-public import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotCatAlt
-public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotCatAlt
-public import CFSG.LocalAnalysis.StandardType.Marking
-public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotCatAlt
-public import CFSG.LocalAnalysis.StandardType.GGReverseMarkingRaw
-public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotCatTypeDet
-public import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotCatTypeDet
 
 public section
 

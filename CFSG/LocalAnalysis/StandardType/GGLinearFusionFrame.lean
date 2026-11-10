@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLinearFusionCyclic
-public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotRoots
 
 public section
 

@@ -6,7 +6,6 @@ public import CFSG.Sporadic.FischerOddCore.Fi22ExtCover
 public import CFSG.Sporadic.FischerOddCore.Fi22Unitary
 public import CFSG.Sporadic.Bridge.Fi22Surj
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
-public import CFSG.Sporadic.Presentation.Fi22ExactCover
 import all CFSG.Sporadic.Presentation.Fi22ExactCover
 public import CFSG.Assembly.ComponentTypeDefs
 

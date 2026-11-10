@@ -4,7 +4,6 @@ public import Mathlib.GroupTheory.GroupAction.Primitive
 public import Mathlib.GroupTheory.Solvable
 
 import Mathlib.GroupTheory.IsPerfect
-import Mathlib.GroupTheory.QuotientGroup.Basic
 
 namespace CFSG
 end CFSG

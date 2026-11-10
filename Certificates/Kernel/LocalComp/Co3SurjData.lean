@@ -5,7 +5,6 @@ public import Certificates.Kernel.LocalComp.BlockGen
 public import Certificates.Data.Kernel.SurjK
 public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Co3IdentBridgeInputs
 meta import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Co3IdentBridgeInputs
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

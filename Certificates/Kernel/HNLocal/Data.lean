@@ -1,12 +1,10 @@
 module
 
-public import Certificates.Data.Kernel.HNLocalK
 public import Certificates.Data.Kernel.HNLocal.W
 public import Certificates.Data.Kernel.HNMultK
 public import Certificates.Data.CFSGNative.HN.Local.AltData
 public import Certificates.Data.CFSGNative.HN.Local.TypeData
 public import CFSG.Certificates.Kernel.Orders.HN.Data.Const
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.JsonFamilyGz
 import CFSG.Certificates.Kernel.Common.NatItemsGz
 import CFSG.Certificates.Kernel.Common.Repo

@@ -2,10 +2,6 @@ module
 
 public import CFSG.Blueprint.NativeSporadic
 import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co2Seven
-import Certificates.Certificate3115
-import Certificates.Certificate3116
-import Certificates.Certificate3117
-import Certificates.Certificate16960
 
 public section
 

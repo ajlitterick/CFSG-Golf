@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.HS3850.Small
 public import Certificates.Data.Kernel.Spor.MulH
-public import Certificates.Data.CFSGNative.SporadicSchreier.Count
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

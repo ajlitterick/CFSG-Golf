@@ -2,11 +2,9 @@ module
 
 public import Certificates.Kernel.Fi23Pin13.Checks
 public import Certificates.Kernel.Fi23Five.Glue
-public import Certificates.Kernel.Fi23M.Keys
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431SporAux.Fi23PinThirteenInputs
 public import Certificates.Kernel.Misc.Perm.CharsCat
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib
 
 public section
 

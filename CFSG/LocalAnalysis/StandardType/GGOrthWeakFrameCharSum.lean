@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutNonsplitOmChar
 public import CFSG.GroupTheory.WeirSylow.OrthogonalModels
 public import CFSG.RankThree.Classical2.OrthogonalIsotropicUnipotent
-public import Mathlib.Data.ZMod.Defs
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorusCore
 import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorusForms
 public import CFSG.ClassicalInvolution.Orders.OrthogonalCount
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound

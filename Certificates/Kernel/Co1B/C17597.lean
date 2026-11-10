@@ -5,7 +5,6 @@ public meta import Certificates.Data.TabMThreeALeech
 public import Certificates.Kernel.Co1B.Chk17597
 public import Certificates.Kernel.Co1B.C17590
 public import Certificates.Kernel.Co1ThreeK.LettersEq
-public import CFSG.Certificates.Kernel.Co1FixCount
 
 public section
 

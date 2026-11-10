@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLin
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLDType
-public import Mathlib.Algebra.Group.Subgroup.Map
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.Milestones.ASVolI.F48.Id
 import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4A2CardU
-public import CFSG.Milestones.ASVolI.F4
 import all CFSG.Milestones.ASVolI.F4
 
 public section

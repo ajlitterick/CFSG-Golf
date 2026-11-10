@@ -2,14 +2,7 @@ module
 
 public import CFSG.ClassicalInvolution.Asc77.AscC25X11
 public import CFSG.ClassicalInvolution.Asc77.AscC25X8
-public import CFSG.ClassicalInvolution.Asc77.AscR10E23
 public import CFSG.ClassicalInvolution.Asc77.AscR10E24
-public import CFSG.ClassicalInvolution.RouteD.GapsOrthSpinOdd
-public import CFSG.ClassicalInvolution.ModelFacts.Orth15TwinStd
-public import CFSG.ClassicalInvolution.ModelFacts.OrthAutOdd
-public import CFSG.ClassicalInvolution.ModelFacts.OrthAutPlus
-public import CFSG.ClassicalInvolution.ModelFacts.OrthAutMinus
-public import CFSG.ClassicalInvolution.RouteD.ExoticTwinProofOrthBridge
 public import CFSG.ClassicalInvolution.Asc77.AscT3VMain
 public import CFSG.ClassicalInvolution.Asc77.AscT3WCases
 public import CFSG.ClassicalInvolution.AschTight.Hall196Q

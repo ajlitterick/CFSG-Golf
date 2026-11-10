@@ -3,7 +3,6 @@ module
 public import CFSG.Quasithin.H13.L32AM51a
 public import CFSG.Quasithin.Background.SmithB45LnL4Main
 public import CFSG.Quasithin.Background.SmithB42LnL42
-public import CFSG.Quasithin.Background.B69Red
 
 public section
 

@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorsionDefs
 import CFSG.LocalAnalysis.StandardType.GGSixAutKFinerTailDFour
-import CFSG.LocalAnalysis.StandardType.GGLinearFusionSLCent
-import CFSG.LocalAnalysis.StandardType.GGSixStepOneCompCentre
 
 public section
 

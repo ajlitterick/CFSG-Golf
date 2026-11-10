@@ -2,12 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171SmallTypeOmMinusStdFive
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171SmallTypeOmMinusStdFour
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171SmallTypeOmWit
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171SmallTypeOmCent
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171SmallTypeIso
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172CBridge
 public import CFSG.ClassicalGroups.Orthogonal.RingEquivTransport
-public import CFSG.LargeExtraspecial.O62Basic
 
 public section
 

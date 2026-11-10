@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Pieces
 public import CFSG.LocalAnalysis.StandardType.FS81.LocalOrthRows
 public import CFSG.LocalAnalysis.StandardType.FS81.OrthRowCanon
 public import CFSG.LocalAnalysis.StandardType.FS81.SplitE
-public import CFSG.LocalAnalysis.StandardType.MarkingDict
 public import CFSG.Open.StatedZModTwo
 
 public section

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGBstarLIDUnitFieldR
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoTableBReduce
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitDvdLabel
 
 public section

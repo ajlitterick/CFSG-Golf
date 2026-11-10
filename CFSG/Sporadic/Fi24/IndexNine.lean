@@ -1,22 +1,11 @@
 module
 
-public import CFSG.Sporadic.Fi24.Setup
-public import CFSG.Sporadic.Mathieu.Chain
-public import CFSG.Certificates.Kernel.SporLatDcSound
-public import Certificates.Data.CFSGNative.SporLat.Build
-public import Certificates.Data.CFSGNative.Th.Tables
 public import CFSG.Sporadic.SmallOddCore.LocalCheck
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatCode
-public import CFSG.Perm.ChainSift
-public import Certificates.Data.CFSGNative.SporadicSchreier.Classes
 public import CFSG.Sporadic.SmallOddCore.CentSpec
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatM24
 public import Certificates.Certificate744112
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.SporadicPermutesPackage
 public import CFSG.Quasithin.Vol2.Ch4Sec2InspM22SporMid
 public import CFSG.Quasithin.Vol2.Ch12Sec5KGM24
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront10SporFi24TJ
-public import CFSG.LocalAnalysis.UniquenessCase.UCFront10SporFi24ECode
 public import CFSG.GH74.SmallRanks.AltM11
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoFi22.DS81.S44Glue1
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1M11
@@ -28,9 +17,6 @@ public import CFSG.Quasithin.Background.A1cA132Action
 public import CFSG.Quasithin.Background.A1cA133Three
 public import CFSG.Quasithin.Background.B216Quotient
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3OffenderB
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.E4Solv
 public import CFSG.Quasithin.Background.F6Amalgams
 public import CFSG.Quasithin.Background.F6SolvableQuotient
 public import CFSG.Quasithin.Background.F9G2

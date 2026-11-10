@@ -2,17 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.SporTables
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Claims1116d
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.MonsterThirteenFinal
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.I1416SporOrder181440
 public import CFSG.HardMathSupport.Dickson.BMRows.M13B
-import Mathlib.Tactic.Simproc.Factors
-public import Certificates.Certificate6001
-public import Certificates.Certificate6002
-public import Certificates.Certificate6003
-public import Certificates.Certificate6004
-public import Certificates.Certificate6005
-public import Certificates.Certificate6007
-public import Certificates.Certificate16026
 
 public section
 

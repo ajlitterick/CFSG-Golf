@@ -1,12 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResUnitaryQPlusKProducers
-import CFSG.ClassicalInvolution.ModelFacts.UnitaryAutMain
-import CFSG.GH74.GLS.Stage2.Signalizer.Odd87FU3Card
-import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
-import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutPSLRestOutdiag
-import CFSG.LocalAnalysis.StandardType.GGStdSubSmallUnitDvdPair
-import CFSG.Timmesfeld.Orders.Bang
 
 public section
 

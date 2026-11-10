@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveZSInputs
-public import CFSG.LocalAnalysis.StandardType.GGZSNFourInputs
 public import Certificates.Certificate709544
-public import CFSG.LocalAnalysis.StandardType.GGWitExcModelSound
 
 public section
 

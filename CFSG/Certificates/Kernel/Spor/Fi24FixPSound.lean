@@ -3,9 +3,6 @@ module
 public import Certificates.Data.Kernel.Spor.Fi24FixP
 public import CFSG.Certificates.Kernel.BenesSound
 public import CFSG.Certificates.Kernel.LceSP.Popcount
-public import CFSG.Certificates.Kernel.LceSP.Base
-public import Mathlib.Algebra.BigOperators.Group.Finset.Piecewise
-public import Mathlib.Algebra.Order.GroupWithZero.Basic
 import Mathlib.Algebra.Order.Field.Basic
 import Mathlib.Data.Rat.Cast.Order
 import Mathlib.Tactic.NormNum.Abs

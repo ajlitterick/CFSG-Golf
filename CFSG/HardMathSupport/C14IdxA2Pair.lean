@@ -5,10 +5,8 @@ public import CFSG.ClassicalGroups.SpecialLinear.CyclicRootGroups
 public import CFSG.ClassicalGroups.Unitary.SUnThreeLocalDefs
 public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerSUCore
 public import CFSG.StronglyEmbedded.Catalog.Unitary
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompChain
 public import CFSG.Timmesfeld.LieEmbed.SUTwistedE6
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24ConnGenD5TorusGen
-public import TauCeti.LinearAlgebra.Matrix.SpecialLinearGroup.Transvection
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeDiag
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerResiduals
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.Reduction
@@ -59,7 +57,6 @@ public import CFSG.RankThree.PartTwo.KFacts.KS14SzLie
 public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.JRFacts
 
 public section

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigDefs
-public import Mathlib.LinearAlgebra.Basis.VectorSpace
 
 public section
 

@@ -6,7 +6,6 @@ public meta import CFSG.Fischer.F4
 public meta import CFSG.RankThree.PartTwo.Sec10.KS1012GL34.Defs
 public meta import CFSG.RankThree.PartTwo.Sec10.KS1012GL34.Checks
 public meta import Mathlib
-public import Mathlib
 
 public section
 

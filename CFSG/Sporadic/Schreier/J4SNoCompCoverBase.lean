@@ -2,18 +2,10 @@
 module
 
 public import CFSG.Sporadic.Schreier.J4SNoCompCheckBase
-public import CFSG.Sporadic.Schreier.J4SKernelBase
 public import CFSG.Sporadic.Schreier.J4SOddLocalBase
 public import CFSG.Sporadic.Schreier.J4SFormBase
-public import CFSG.Sporadic.J4.PrimSpec
-public import CFSG.Sporadic.Schreier.J4SNative
-public import CFSG.Sporadic.Schreier.J4SCols
-public import CFSG.Sporadic.Schreier.J4SFormData
-public import CFSG.Sporadic.Schreier.J4SNoCompData
 public meta import CFSG.Sporadic.Schreier.J4SNoCompData
-public import CFSG.Sporadic.Schreier.J4SOrbitsBase
 public meta import CFSG.Sporadic.Schreier.J4SOrbitsBase
-public import CFSG.Sporadic.J4.Local
 
 @[expose] public noncomputable section
 

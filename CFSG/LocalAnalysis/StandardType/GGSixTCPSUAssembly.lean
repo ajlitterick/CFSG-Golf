@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTCPSUNotDvdLeaf
-public import CFSG.LocalAnalysis.StandardType.GGSixTCPSUDvd
 
 public section
 

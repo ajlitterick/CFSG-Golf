@@ -15,7 +15,6 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.B2Thompson
 public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 public import CFSG.Quasithin.Vol2.KGFactC31RuRefBase
@@ -27,7 +26,6 @@ public import CFSG.RankThree.PartTwo.Late.GammaZero
 public import CFSG.RankThree.PartTwo.NotationBlocks
 public import CFSG.RankThree.PartTwo.Sec13.Statements
 public import CFSG.RankThree.PartTwo.Sec18.Notation
-public import CFSG.RankThree.PartTwo.Sec18.Tools
 public import CFSG.RankThree.PartTwo.Sec21.Item229Diagram
 public import CFSG.RankThree.PartTwo.Sec21.Item23Tools
 public import CFSG.RankThree.PartTwo.Sec21.KS21U4Transport
@@ -36,7 +34,6 @@ public import CFSG.RankThree.PartTwo.Sec21.SylowThree
 public import CFSG.RankThree.PartTwo.Sec4.StatementsGraphField
 public import CFSG.RankThree.PartTwo.Sec4.StatementsSporadic
 public import CFSG.Sporadic.HeldB.Common
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Schreier.RuPair
 public import CFSG.Sporadic.Schreier.RuSylow

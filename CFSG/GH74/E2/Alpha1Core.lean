@@ -3,23 +3,9 @@ module
 
 public import CFSG.GH74.E2.Alpha1CoreBase
 
-public import CFSG.GH74.E2.Alpha1Rank
-public import CFSG.GH74.E2.Cl2Quot
-public import CFSG.GH74.E2.DirectProd
-public import CFSG.GH74.E2.Tools
-public import CFSG.GH74.E2.DirectSylow
-public import CFSG.GH74.E2.Alpha1AutCert
-public import CFSG.GH74.GLS.Types
-public import CFSG.Open.Catalog
-public import CFSG.GH74.E2.NonCentralProd
-public import CFSG.GH74.E2.QuasiRank
-public import CFSG.GH74.E2.FrattiniRank
-public import CFSG.GH74.E2.CaseIGlue
-public import CFSG.LocalAnalysis.ComponentInitial.FourGroupCommuting
 public meta import Mathlib
 public meta import CFSG.CharacterTheory.Semidihedral.Model
 public meta import CFSG.GH74.E2.SD16Cert
-public import CFSG.GH74.E2.Alpha1CoreInputs
 public meta import CFSG.GH74.E2.Alpha1CoreInputs
 public import Certificates.Certificate5005
 

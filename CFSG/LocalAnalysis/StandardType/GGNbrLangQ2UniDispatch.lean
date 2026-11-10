@@ -2,11 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2UniTwA
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2UniTagA
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplit
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-import CFSG.Quasithin.Background.GoldschmidtListedSolv
-import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeGroup
 
 public section
 

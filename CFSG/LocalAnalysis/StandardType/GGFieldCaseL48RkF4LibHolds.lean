@@ -2,12 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48RkF4Facts
 public import CFSG.LocalAnalysis.StandardType.GGTableBF4TwoInputs
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4TwoEndNode
-public import CFSG.LocalAnalysis.StandardType.GGTriD4NoneTwE6
-public import CFSG.LocalAnalysis.SeitzReduction.SeitzQ2OuterTwoExceptional
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.I1434Exc
-import CFSG.LocalAnalysis.StandardType.GGTableBF4TwoInputsEndNode
-import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
 public import CFSG.LieType.Chevalley.OrdinaryRootCentralizerGeneration
 
 public section

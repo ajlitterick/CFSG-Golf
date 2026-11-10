@@ -4,14 +4,9 @@ public import CFSG.LocalAnalysis.StandardType.GGResExactTwoOrthSmallDefs
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmComp
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmFrame
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmBlockZ
-public import CFSG.RankThree.PartOne.S11d.OrthCaseH
 public import CFSG.RankThree.PartOne.S11d.OrthCaseN
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogQuadraticNormalForms
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172CCentFrame
 import CFSG.LocalAnalysis.StandardType.GGResExactTwoOrthFixedSmall
-import CFSG.LocalAnalysis.GLTheoremA.CatA.S172CCentTypeSum
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T173UniGen
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorusCore
 public import CFSG.RankThree.PartOne.KC.OrthogonalD4WitnessEven
 public import CFSG.RankThree.PartOne.KC.OrthogonalD4WitnessOdd
 public import CFSG.RankThree.PartOne.KC.OrthogonalSubfieldCentralizer

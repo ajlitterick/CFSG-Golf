@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLevTwoExcDefs
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompAlcove
 
 public section
 

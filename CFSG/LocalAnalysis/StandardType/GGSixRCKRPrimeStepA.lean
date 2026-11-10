@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeDefs
-public import CFSG.LocalAnalysis.ComponentInitial.CommutingBlock
-public import CFSG.LocalAnalysis.StandardType.GGSixStepOneCompNormal
 
 public section
 

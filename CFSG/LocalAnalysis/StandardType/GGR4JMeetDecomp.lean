@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGR4JCardDefs
 public import CFSG.LocalAnalysis.StandardType.GGCentreTwoKnownHolds
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
 public import CFSG.LocalAnalysis.StandardType.GGR4Centre
 
 public section

@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.J4Q.VOrb
 public import CFSG.Certificates.Kernel.J4Q.Rep
-public import Certificates.Data.CFSGNative.J4.Tables
 import CFSG.Certificates.Kernel.J4Q.VOrbBFS
 import CFSG.Certificates.Kernel.J4Q.VOrbTree
 

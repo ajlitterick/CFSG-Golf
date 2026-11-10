@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6FixedA2SL3
-import CFSG.HardMathSupport.Solomon.LocalBalance.GlueTools
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.PlanesToralBlocks
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeBlock
-public import CFSG.Mathlib.RingTheory.UnitOrderOf
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeBadSingerFrame
 public import CFSG.HardMathSupport.Seitz.G2Noninner.Descent.OddNeThree
 public import CFSG.HardMathSupport.Seitz.G2Noninner.SubfieldPair.Final
@@ -32,7 +28,6 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly

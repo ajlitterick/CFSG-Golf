@@ -5,7 +5,6 @@ public import CFSG.Quasithin.Background.HSp4PairNPrime
 public import CFSG.Quasithin.Background.A3Structure312Defs
 public import CFSG.Quasithin.H13.J4Order
 public import CFSG.Quasithin.H13.J4OrderBase
-public import CFSG.Quasithin.H13.J4Words
 public import CFSG.Quasithin.Vol2.Ch10StatementsE
 public import CFSG.Quasithin.Vol2.Ch11SecAFacts
 public import CFSG.Quasithin.Vol2.Ch11SecBFacts22

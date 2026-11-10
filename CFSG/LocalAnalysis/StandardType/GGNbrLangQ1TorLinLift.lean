@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTriD4KnownInputs
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinear
 import CFSG.LocalAnalysis.StandardType.GGTCJDivLin
 
 public section

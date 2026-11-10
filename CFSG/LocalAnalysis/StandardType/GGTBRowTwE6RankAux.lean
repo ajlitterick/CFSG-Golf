@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBRowTwE6Parity
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6Delta
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6RankOuter
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticBstar
 
 public section
 

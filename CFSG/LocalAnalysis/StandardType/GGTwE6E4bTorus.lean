@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6HyperplaneFrame
-public import CFSG.LocalAnalysis.StandardType.GGTwE6FixedA2SL3
-public import CFSG.LocalAnalysis.StandardType.GGE6NonToralCentralizerTorus
-public import CFSG.LocalAnalysis.StandardType.GGTwE6FixedA2Type
 public import CFSG.LieType.AlgebraicGroups.MonomialCentralizerCoroot
-public import CFSG.LieType.AlgebraicGroups.ClosedIdentityComponentFunctorial
 
 public noncomputable section
 namespace CFSG.StandardType.TwE6E4bTorus

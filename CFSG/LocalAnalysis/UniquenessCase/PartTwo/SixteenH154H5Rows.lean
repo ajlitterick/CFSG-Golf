@@ -1,11 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs16a
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenH154H5ZCond
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenH154H5Shapes
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenH154H5ThinSum
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenH154H5ThinOne
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenH154H5Red
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenH154H5RowL3
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenH154H5RowA5
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenH154H5RowSL4
@@ -17,7 +12,6 @@ public import CFSG.Adapters.StatedClassicalSmallOrders
 public import CFSG.CGT.PushingUpLit.BHS5.FiveFive
 public import CFSG.Goldschmidt.StatementsG3
 public import CFSG.Goldschmidt.Steps.G37Core
-public import CFSG.HardMathSupport.Dickson.Sec6.I1431Lie
 public import CFSG.HardMathSupport.Solomon.Coordinator.InndiagLink
 public import CFSG.HardMathSupport.Solomon.Coordinator.L3FATArith
 public import CFSG.HardMathSupport.Solomon.Coordinator.L3G515Core

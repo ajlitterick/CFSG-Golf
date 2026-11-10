@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.Sp4TorusRed.LongRootClosure
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticHigherRootTransport
-public import CFSG.LocalAnalysis.ComponentInitial.CentralSL2Semilinear
-import CFSG.Quasithin.Vol2.KGNatComm
 
 public section
 

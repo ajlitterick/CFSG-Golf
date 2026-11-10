@@ -1,12 +1,6 @@
 module
 
-public import Mathlib.Algebra.Group.Defs
-public import Mathlib.Algebra.Group.Subgroup.Basic
 public import Mathlib.Data.Finite.Defs
-import Mathlib.GroupTheory.OrderOfElement
-public import Mathlib.GroupTheory.PGroup
-import Mathlib.GroupTheory.Sylow
-import Mathlib.Tactic.Basic
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ElementaryAbelian
 
 namespace CFSG

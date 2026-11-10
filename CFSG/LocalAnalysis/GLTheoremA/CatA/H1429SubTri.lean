@@ -1,11 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.H1429SubCore
-public import CFSG.HardMathSupport.Dickson.DefCharOuter.Export.ExcTriThree
-public import CFSG.HardMathSupport.Dickson.DefCharOuter.Export.ExcTriClassA
-public import CFSG.HardMathSupport.Dickson.DefCharOuter.Export.ExcTriClassB
-public import CFSG.HardMathSupport.Dickson.DefCharOuter.Export.ExcUntwisted
-import CFSG.RankThree.PartOne.KGD.D4T36Core
 public import CFSG.LieType.Chevalley.EvenOddCentralizerRadicalModel
 public import CFSG.LieType.Multipliers.U62Sylow
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8ExcF4O2

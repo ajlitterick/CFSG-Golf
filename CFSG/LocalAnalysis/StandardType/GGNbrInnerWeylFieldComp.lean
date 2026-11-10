@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylComp
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwo
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylField
 
 public section
 

@@ -2,23 +2,8 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerp23R7LemL
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerp23R7E64Pres
-import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerp23R7E8
-import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerp23R7Cover
 import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerp23R7LL1
-import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpPf5Std
 import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinThinPf2ConjE64
-import CFSG.ClassicalInvolution.Q3.Q3CPSix67
-import CFSG.ClassicalInvolution.Q3.Q3CLBasic
-import CFSG.ClassicalInvolution.Q3.TL3T35
-import CFSG.ClassicalInvolution.Q3.TL4VtxE4Red
-import CFSG.ClassicalInvolution.Generic.InductionLocal
-import CFSG.ClassicalInvolution.Asc77.HypOmegaBasic
-import CFSG.ClassicalInvolution.Asc77.AscSixBasic
-import CFSG.ClassicalInvolution.Asc77.AscE184OddQuot
-import CFSG.ClassicalInvolution.Asc77.AscE187B2a
-import CFSG.ClassicalInvolution.AschTight.Sec6GenAPI
-import CFSG.ClassicalInvolution.AschTight.Hall196Idx
-import CFSG.LocalAnalysis.ComponentClassification.OddCore
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerp23FusE6
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerp23R7Y
 public import CFSG.ClassicalInvolution.Q3.TL3T37

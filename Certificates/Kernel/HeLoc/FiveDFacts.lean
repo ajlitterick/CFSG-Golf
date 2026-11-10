@@ -4,14 +4,7 @@ public import Certificates.Kernel.HeLoc.FiveK
 public import Certificates.Kernel.HeLoc.FiveLFacts
 public import CFSG.Certificates.Kernel.HeLoc.PTailSound
 public import CFSG.Certificates.Kernel.HeLoc.GroupConjSound
-public import CFSG.RankThree.PartOne.KS.HeFiveData
-public import CFSG.RankThree.PartOne.KS.HeFiveAux
-public import CFSG.RankThree.PartOne.KS.PKit
-public import CFSG.Sporadic.HeldB.HeBlocks
-public import CFSG.Sporadic.HeldB.OuterArithCheck
-public import CFSG.RankThree.PartOne.KS.HeFiveCheckInputs
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Sporadic.Schreier.PairHeClasses
 
 public section

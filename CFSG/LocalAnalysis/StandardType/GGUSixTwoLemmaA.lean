@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoFixedPointFree
-public import CFSG.Open.LocalVocabulary
 public import CFSG.GroupTheory.ABGLocalTools.Basic
 public import CFSG.ClassicalGroups.PCoreSection
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.AlmostSimpleBInnerPClosure

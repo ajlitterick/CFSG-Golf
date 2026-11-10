@@ -1,12 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGR4PumpTwKnownDefs
 public import CFSG.LocalAnalysis.StandardType.GGR4PumpTwCard
 public import CFSG.LocalAnalysis.StandardType.GGTwAutHolds
 public import CFSG.LocalAnalysis.StandardType.GGTwOmPlusHolds
 public import CFSG.LocalAnalysis.StandardType.GGR4PumpTransfer
-import CFSG.LocalAnalysis.StandardType.Marking
-import CFSG.LocalAnalysis.StandardType.GGTableBTransport
 
 public section
 

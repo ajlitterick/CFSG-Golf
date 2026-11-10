@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRest
-import Mathlib.GroupTheory.Index
-import Mathlib.GroupTheory.OrderOfElement
 
 public section
 

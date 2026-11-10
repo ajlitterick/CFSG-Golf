@@ -1,9 +1,7 @@
 module
 
 public import Certificates.Kernel.Cover3.J3Data
-public import Certificates.Kernel.SporSch.PairJ3.Chain
 public import Certificates.Data.Kernel.B3S3K
-public import Certificates.Data.Kernel.Spor.Prim
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

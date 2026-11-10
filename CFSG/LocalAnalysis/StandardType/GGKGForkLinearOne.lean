@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGKGForkRows
 public import CFSG.LocalAnalysis.StandardType.GGKGForkLinearRow
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRootGenTypeA
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallTypeA
 public import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofRefl
 
 public section

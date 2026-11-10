@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGB36JExcE6Hard
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Three
-public import CFSG.LocalAnalysis.StandardType.GGTableBRank
 
 public section
 

@@ -6,7 +6,6 @@ import CFSG.LocalAnalysis.SectionRank.OddCover.DegreeThree
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSLInnerInvolution
 public import CFSG.LocalAnalysis.ComponentInitial.LinearCoverModel
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherLinearOuterOrder
-import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherPrimeFormRealization
 
 public section
 

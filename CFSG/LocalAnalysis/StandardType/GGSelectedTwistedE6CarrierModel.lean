@@ -1,14 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSelectedTwistedE6Cover
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveFieldTwoCommon
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveFieldTwoExcMember
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeNCStdEnvelope
 import CFSG.LocalAnalysis.StandardType.GGLangComponentLabel
 import CFSG.LocalAnalysis.StandardType.GGCSRBasic
-import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-import CFSG.LocalAnalysis.StandardType.GGTableBTwDThree
 
 public section
 

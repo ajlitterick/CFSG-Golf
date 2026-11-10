@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec5Z8Quot
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec5ZGold
-public import CFSG.Open.FusionDefs
 
 public section
 

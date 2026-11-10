@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootDetectExcCore
-public import CFSG.LieType.Chevalley.EvenE7E8AutomorphismNormalForm
 
 public section
 

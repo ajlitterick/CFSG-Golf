@@ -1,10 +1,7 @@
 module
 
-public import CFSG.Certificates.Kernel.KDenseP.Axis.MonoTab
 public import CFSG.Certificates.Kernel.KDenseP.Axis.Pairs
-public import Certificates.Data.Kernel.KDenseP.Words
 public import Certificates.Data.Kernel.KDenseP.Val
-public import CFSG.Certificates.Kernel.KDense.Data.Fix
 public import CFSG.Certificates.Kernel.KDenseP.Axis.Run
 public import Certificates.Data.Kernel.KDenseP.Replay
 public import CFSG.Certificates.Kernel.Common.Plan

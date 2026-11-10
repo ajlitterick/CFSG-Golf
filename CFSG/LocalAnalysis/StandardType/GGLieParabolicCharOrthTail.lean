@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGLieParabolicCharOn
 public import CFSG.LocalAnalysis.StandardType.GGLieParabolicCharOrth
 public import CFSG.LocalAnalysis.StandardType.GGLieParabolicCharSp
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalTailModelBorel
-public import CFSG.LocalAnalysis.QuasithinUnique.SQTK.TypeB2Carrier
 public import CFSG.RankThree.PartTwo.Census.Carrier.SpinBOdd
 public import CFSG.RankThree.PartTwo.Census.Carrier.SpinTDOdd
 public import CFSG.GroupTheory.HallHigmanPiCore

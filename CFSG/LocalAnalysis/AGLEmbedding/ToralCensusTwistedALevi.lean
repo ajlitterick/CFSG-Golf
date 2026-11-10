@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ClassicalGroups.UnitaryFlag.Triangular
 public import CFSG.ClassicalGroups.UnitaryFlag.OrderSylow
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherIndexComparison
 

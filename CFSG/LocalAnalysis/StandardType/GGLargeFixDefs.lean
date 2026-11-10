@@ -1,14 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResRows
-public import CFSG.LocalAnalysis.StandardType.GGResLeaf
-public import CFSG.LocalAnalysis.StandardType.GGResXDatumA
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRMModuleDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveZSInputs
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
 public import CFSG.LocalAnalysis.StandardType.GGIndepFixLineStep2Defs
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeRowDimDefs
-public import TauCeti.LinearAlgebra.Matrix.Cartan.Classical
 
 public section
 

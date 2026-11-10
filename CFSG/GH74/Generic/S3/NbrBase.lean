@@ -3,12 +3,7 @@ module
 public import CFSG.GH74.Generic.S3.PumpLift
 public import CFSG.GH74.Generic.S3.PumpDiag
 public import CFSG.GH74.Generic.S3.LeavesR
-public import CFSG.GH74.Generic.S3.Conf
-public import CFSG.GH74.Generic.S3.Nbhd
 public import CFSG.GH74.Generic.S3.L3Sylow
-public import CFSG.GH74.Generic.S3.Front
-public import CFSG.LocalAnalysis.ComponentInitial.DiagonalComponent
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GH74.Generic.S3.Terminal
 
 public section

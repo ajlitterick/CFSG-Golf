@@ -1,11 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.HypA2Leaves.A2lCl2FamTriOut
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.HypA2Leaves.A2lCl2FamCore
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.HypA2Leaves.A2lCl2Defs
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddTriality
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddOrthLow
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddD4Component
 
 public noncomputable section
 

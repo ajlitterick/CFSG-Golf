@@ -5,7 +5,6 @@ import CFSG.LocalAnalysis.StandardType.GGTablePThreeDatum
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeTwoGroup
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeUnitaryRank
 import CFSG.LocalAnalysis.StandardType.GGD4OddCentLSide
-import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitMarking
 
 public section
 

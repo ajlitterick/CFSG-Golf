@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDModelDefs
 public import CFSG.ClassicalInvolution.Phan.PhanDn.KLinearIsometry
-public import CFSG.ClassicalInvolution.Phan.PhanDn.DiagTorus
 public import CFSG.ClassicalInvolution.Balance.StrongPowSuBlocks
 public import CFSG.ClassicalInvolution.Balance.PassTwoFinal
 public import CFSG.ClassicalInvolution.Models.LinearFrames

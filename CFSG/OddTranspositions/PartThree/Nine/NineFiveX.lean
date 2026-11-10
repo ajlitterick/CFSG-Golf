@@ -1,9 +1,7 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Nine.Delta
-import CFSG.OddTranspositions.SixEight
 import CFSG.OddTranspositions.WidthOne
-import CFSG.Timmesfeld.Bridge.Asc72Lift
 import CFSG.Timmesfeld.Bridge.OddLocalCommonBasic
 import CFSG.LocalAnalysis.ComponentInitial.SteinbergCCOddNormalCore
 

@@ -1,9 +1,7 @@
 module
 
 public import CFSG.ClassicalGroups.UnitaryFlag.HyperbolicData
-public import CFSG.Open.StatedDefs
 public import CFSG.Quasithin.Background.B4Models
-public import Mathlib.GroupTheory.Sylow
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KSU44.NatEquiv
 import CFSG.ClassicalGroups.UnitaryFlag.OrderSylow
 public import CFSG.Assembly.QuasithinDefs
@@ -16,15 +14,10 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.Module
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

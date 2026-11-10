@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec4FSetup
-public import Mathlib.Algebra.BigOperators.Pi
-public import Mathlib.Algebra.BigOperators.Group.Finset.Defs
 
 public section
 

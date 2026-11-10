@@ -3,8 +3,6 @@ module
 public import CFSG.ClassicalInvolution.SmallCases.NDBG6Aut
 public import CFSG.ClassicalInvolution.Asc77.AscBSE3
 public import CFSG.ClassicalInvolution.SmallCases.NDBC4
-public import CFSG.LocalAnalysis.ComponentClassification.LocalComponents
-public import CFSG.ClassicalInvolution.RouteD.NoG2D4Model
 
 public section
 

@@ -5,9 +5,6 @@ public import Certificates.Kernel.Sporadic.ON.SevenCC
 public import Certificates.Kernel.Sporadic.ON.SevenFx
 public import CFSG.RankThree.Native.ONSevenArrays
 public import CFSG.Sporadic.Schreier.ONVectorData
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.NormNum
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.NativeSchreierCard
 public import CFSG.Sporadic.Schreier.ONCheckChain
 

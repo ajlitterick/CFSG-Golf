@@ -1,12 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2UnitRealizationStatements
-import CFSG.LocalAnalysis.StandardType.GGLinearTorusCompSUModel
 import CFSG.LocalAnalysis.StandardType.GGQTwoVACUnitDvd
-import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeElt
-import CFSG.ClassicalGroups.Unitary.Simple
-import CFSG.ClassicalGroups.Unitary.Finite
-import CFSG.Assembly.GL83StatedBridge
 
 public section
 

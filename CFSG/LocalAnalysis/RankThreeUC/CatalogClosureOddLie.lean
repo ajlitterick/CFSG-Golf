@@ -1,28 +1,17 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeUC.CatalogClosureOddLinTwo
-public import CFSG.RankThree.PartOne.Census3.Interface
 public import CFSG.Assembly.LowTwoRankDefs
 import CFSG.RankThree.PartTwo.Census.OddClassical.UnitaryFourThree
-import CFSG.RankThree.PartTwo.Census.OddClassical.UnitaryComponent
-import CFSG.RankThree.PartTwo.Census.OddClassical.SymplecticComponent
-import CFSG.RankThree.PartTwo.Census.OddClassical.LinearComponent
-import CFSG.RankThree.PartTwo.Census.OddClassical.LinearFourThree
-import CFSG.RankThree.PartTwo.Census.OddClassical.Main
 import CFSG.LocalAnalysis.QuasithinUnique.SQTK.UnitaryTauCeti
 import CFSG.LocalAnalysis.QuasithinUnique.SQTK.TypeB2Carrier
-import CFSG.LocalAnalysis.QuasithinUnique.SQTK.TypeCCarrier
-import CFSG.ClassicalGroups.UnitaryFlag.GroupData
 import CFSG.RankThree.PartTwo.Census.Carrier.G2Prime
 import CFSG.RankThree.PartTwo.Census.Carrier.G2Three
 import CFSG.RankThree.PartTwo.Census.Carrier.ReeG2One
-import CFSG.RankThree.PartTwo.Census.Criteria
 import CFSG.Timmesfeld.Orders.ClassicalLinear
 import CFSG.Adapters.LinearCatalog
 import CFSG.Adapters.TauCetiExceptional.BridgeG2
 import CFSG.Adapters.TauCetiExceptional.ReeBridge
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.GroupTheory.LocalCores.Fitting
 import CFSG.LieType.Ree.SmallReeModelSchreier
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHermitianIsometry

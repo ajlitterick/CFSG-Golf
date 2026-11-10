@@ -4,10 +4,7 @@ module
 public import Certificates.Kernel.HN3166.CardBase
 import all Certificates.Kernel.HN3166.CardBase
 
-public import Certificates.Kernel.HN3166.Ord
-public import CFSG.Sporadic.Presentation.HNInputs
 public import Certificates.Certificate9208
-public import CFSG.Sporadic.Presentation.HN
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 
 public section

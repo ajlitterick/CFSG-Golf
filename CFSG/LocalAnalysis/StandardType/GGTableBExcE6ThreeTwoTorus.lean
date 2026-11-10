@@ -2,13 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeTwo
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Three
-public import CFSG.LieType.Chevalley.ParabolicRadicalLevi
-public import CFSG.LieType.Chevalley.StandardParabolicCells
-public import CFSG.LieType.Chevalley.GraphFixedSylowOpposition
 public import CFSG.LieType.Chevalley.OrthogonalFixedOrbitMaps
-public import CFSG.LieType.Chevalley.GraphFixedCoordinateDetection
-public import CFSG.LieType.Chevalley.LangStronglyOrthogonalCommute
-public import CFSG.LieType.Chevalley.RootCommutatorReduction
 
 public section
 

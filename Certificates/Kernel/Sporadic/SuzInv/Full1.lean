@@ -4,10 +4,8 @@ public import Certificates.Kernel.Sporadic.RawGenSch3G
 public import Certificates.Kernel.Sporadic.SuzInv.Text1
 public meta import CFSG.Sporadic.SuzOddCore.InvArrays
 import all CFSG.Sporadic.SuzOddCore.InvArrays
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo
-import Mathlib.Tactic.NormNum
 public meta import CFSG.Sporadic.SuzOddCore.Arrays
 
 public section

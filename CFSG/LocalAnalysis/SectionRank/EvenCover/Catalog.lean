@@ -8,9 +8,6 @@ public import CFSG.ClassicalGroups.Symplectic.Model
 public import CFSG.LocalAnalysis.SectionRank.Framework.SylowRank
 public import CFSG.LocalAnalysis.SectionRank.SporadicCover
 public import CFSG.Sporadic.M23.M23Group
-public import CFSG.Sporadic.Th.F2Spec
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.theorem_3_4
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.Defs
 
 public section
 

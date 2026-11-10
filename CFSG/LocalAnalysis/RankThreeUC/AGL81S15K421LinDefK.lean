@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K421OrbV
-import Mathlib.LinearAlgebra.Matrix.Notation
 
 public section
 

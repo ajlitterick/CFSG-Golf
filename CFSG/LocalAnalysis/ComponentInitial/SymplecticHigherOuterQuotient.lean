@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentInitial.SymplecticHigherTransport
 public import CFSG.LocalAnalysis.ComponentInitial.FieldFiniteAutomorphism
-public import Mathlib.GroupTheory.Commutator.Basic
 
 public noncomputable section
 

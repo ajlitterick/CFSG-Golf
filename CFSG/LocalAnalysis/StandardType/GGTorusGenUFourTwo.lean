@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenUFourTwoCent
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenUFourTwoComp
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenSC
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestUnitaryCenter
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173AUniInner
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173ADefs
 

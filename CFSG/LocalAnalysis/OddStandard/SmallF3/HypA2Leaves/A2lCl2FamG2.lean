@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.HypA2Leaves.A2lCl2FamCore
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.HypA2Leaves.A2lCl2Defs
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.HypA2Leaves.A2lCl2FamExc
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddG2Inner
 public import CFSG.CGT.Timmesfeld75.L2Pair

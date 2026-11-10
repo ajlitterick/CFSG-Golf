@@ -1,17 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.D4YCDefs
-public import CFSG.HardMathSupport.Solomon.Coordinator.LayerCentralFix
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T1428U6D4Holds2
-import CFSG.LocalAnalysis.GLTheoremA.CatA.D4YFAut
-import CFSG.RankThree.PartOne.KC.OrthogonalSubfieldCentralizer
-import CFSG.RankThree.PartOne.KC.OrthogonalSubfieldForms
-import CFSG.RankThree.Classical.SteinbergBYOrthogonalGates
 import CFSG.RankThree.PartTwo.Sec8.Hering418ROuter
 import CFSG.RankThree.PartTwo.Sec8.Hering88LCModels
 import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Claims126
 import CFSG.GroupTheory.PLayer.CenterQuotientAction
-import CFSG.LocalAnalysis.ComponentInitial.BasicFacts
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.D4TNoTri
 import CFSG.CGT.Timmesfeld75.OddCenter
 import CFSG.CGT.Timmesfeld75.Sec5FiveEng

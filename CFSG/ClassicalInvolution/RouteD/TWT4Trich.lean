@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.RouteD.TWZSpinModel
 public import CFSG.ClassicalInvolution.ModelFacts.Orth15RFixLift
-public import CFSG.ClassicalInvolution.ModelFacts.Orth15D4Inner
 
 public section
 

@@ -3,7 +3,6 @@ module
 public import CFSG.RankThree.GF2n.Tim78P210Main
 public import CFSG.RankThree.GF2n.DecompSetupSz
 public import CFSG.RankThree.GF2n.DecompSetupSplit
-public import CFSG.CGT.Timmesfeld75.L2Basic
 
 public section
 

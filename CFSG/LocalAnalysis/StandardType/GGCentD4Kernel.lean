@@ -2,11 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNTPlaneInput
 public import CFSG.LocalAnalysis.StandardType.GGNTPlaneTable
-public import CFSG.RankThree.PartOne.KE.D4TranspositionInterface
-public import CFSG.LieType.Chevalley.ParabolicRootFactorData
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.KacShape
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcPin
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompAlcove
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Basic
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Certs
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.KacD

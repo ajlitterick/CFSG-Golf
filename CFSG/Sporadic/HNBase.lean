@@ -3,7 +3,6 @@ module
 
 public import CFSG.Sporadic.HN.Commutant
 public import CFSG.Sporadic.HN.CoprimeSimple
-public import CFSG.Blueprint.NativeSporadic
 import all CFSG.Blueprint.NativeSporadic
 
 @[expose] public section

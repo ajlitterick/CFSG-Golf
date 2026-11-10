@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.RootE8Defs
-import CFSG.GroupTheory.ElemAbelianClosure
-import CFSG.LocalAnalysis.StandardType.FS81.Realized
 import CFSG.LocalAnalysis.StandardType.FS81.OddCoreTransvOrth
 import CFSG.LocalAnalysis.StandardType.FS81.S7Fusion
 

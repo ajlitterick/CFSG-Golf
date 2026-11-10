@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockDegreeParity
 
 import Mathlib.FieldTheory.Finite.Basic

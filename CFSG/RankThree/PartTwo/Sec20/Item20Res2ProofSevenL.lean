@@ -4,7 +4,6 @@ public import CFSG.RankThree.PartTwo.Sec20.Item20Res2ProofSevenE
 public import CFSG.RankThree.PartTwo.Sec20.Item20Res2ProofCases
 public import CFSG.RankThree.PartTwo.Sec20.Item20ResProofLCentral
 import CFSG.RankThree.PartTwo.Sec18.Components
-import CFSG.RankThree.PartTwo.Sec18.Tools
 public import CFSG.RankThree.PartTwo.Sec20.Item20ResProofLNormal
 
 public section

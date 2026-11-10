@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGUSixTwoTransvection
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoModuleTorus
-public import Mathlib.Algebra.Group.Subgroup.Map
 
 public section
 

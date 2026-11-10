@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentInnerToralMat
-public import CFSG.LocalAnalysis.StandardType.GGD4OddCentInnerLeafDefs
 
 public section
 

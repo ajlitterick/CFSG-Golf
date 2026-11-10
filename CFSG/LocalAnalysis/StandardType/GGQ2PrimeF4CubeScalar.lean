@@ -1,11 +1,6 @@
 module
 
 public import CFSG.Fischer.F4
-public import Mathlib.RingTheory.Artinian.Instances
-public import Mathlib.RingTheory.Coalgebra.IsFrobenius
-public import Mathlib.RingTheory.HopfAlgebra.Basic
-public import Mathlib.Tactic.Basify
-public import Mathlib.Tactic.ENatToNat
 
 public section
 

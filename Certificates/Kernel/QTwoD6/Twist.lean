@@ -6,7 +6,6 @@ import Certificates.Kernel.QTwoD6.Forms1
 import Certificates.Kernel.QTwoD6.Forms2
 import Certificates.Kernel.QTwoD6.FormsT
 import CFSG.Certificates.Kernel.Common.EachTrue
-import CFSG.Certificates.Kernel.Common.Repo
 
 #kc_repo #kc_each_rows CFSG.KD.QTwoD6 t0w
   (fun j kd g₁ w₁ g₂ w₂ => CFSG.KC.QTwoD6K.twRowK true CFSG.KD.QTwoD6.forms0 CFSG.KD.QTwoD6.surv0

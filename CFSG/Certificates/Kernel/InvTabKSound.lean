@@ -4,7 +4,6 @@ public import Certificates.Data.Kernel.InvTabK
 public import CFSG.Quasithin.Background.SmithB45ExcHSRuPIT
 public import CFSG.Certificates.Kernel.BfsPinSetSound
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1HeArr
-import CFSG.Certificates.Kernel.Spor.PackWord
 public import CFSG.Foundations
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 public import CFSG.LocalAnalysis.ComponentClassification.LayerMultiplication

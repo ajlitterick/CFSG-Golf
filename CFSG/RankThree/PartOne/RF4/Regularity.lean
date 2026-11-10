@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.PartOne.RF4.Projection
 public import CFSG.LieType.AlgebraicGroups.RootCoordinateLang
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 
 public noncomputable section
 

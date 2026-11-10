@@ -2,11 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrGraphFieldLinear
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherFieldInvolution
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherGraphFieldInvolution
 import CFSG.LocalAnalysis.ComponentInitial.QTNQRLinearUnitaryOuterDerivedLinear
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoProjectiveFormulas
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 import CFSG.Walter.Defs
 
 public section

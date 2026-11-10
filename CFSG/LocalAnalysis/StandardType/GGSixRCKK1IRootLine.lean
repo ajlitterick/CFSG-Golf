@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1LemmaHDefs
-public import CFSG.LieType.Steinberg.PartB
-public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionCore
 
 public section
 

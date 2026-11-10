@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGOuterInvAtE6
-public import CFSG.LieType.Chevalley.E6GraphFullDiagonalCoset
 
 public section
 

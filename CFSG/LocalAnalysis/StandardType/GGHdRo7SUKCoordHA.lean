@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperMoreUnitary
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaCard
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneUModel
-public import CFSG.LocalAnalysis.GorensteinLyons.SteinbergBLFourUnitaryScalarCentralizer
 public import CFSG.LocalAnalysis.GorensteinLyons.SteinbergBLFourUnitaryScalarQuotient
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoynePSLInner
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneProjSlice

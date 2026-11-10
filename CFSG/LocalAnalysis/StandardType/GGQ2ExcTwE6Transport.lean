@@ -4,15 +4,11 @@ public import CFSG.LocalAnalysis.StandardType.GGQ2ExcTwE6Defs
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreDefs
 import CFSG.LocalAnalysis.StandardType.GGQ2ExcTwE6Datum
 import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreCompNormal
-import CFSG.LocalAnalysis.StandardType.GGQ2ModelFrameMap
 import CFSG.LocalAnalysis.StandardType.GGQ2HeartJLang
 import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRootGenFrame
-import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRankFiveAmbient
 import CFSG.LocalAnalysis.StandardType.GGTwE6WeylTorusAut
 import CFSG.LocalAnalysis.StandardType.GGTwE6D4RootFacts
 import CFSG.LieType.Chevalley.TwistedE6RootGroupPerfect
-import CFSG.LieType.SeitzGeneration.ExcTorusCount
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166TwE6A5
 
 public section
 

@@ -1,7 +1,6 @@
 
 module
 
-public import Std.Data.HashMap
 public import CFSG.Sporadic.Schreier.TitsCentralCheck
 public import CFSG.Quasithin.Recognition.CertTitsJCheckBase
 public import CFSG.Quasithin.Recognition.CertVertexTable2

@@ -4,7 +4,6 @@ public import Certificates.Kernel.R148Dc.J2AChecks
 public import Certificates.Kernel.R148Dc.J2BChecks
 public import CFSG.Certificates.Kernel.SporLatDcSoundInv
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.Coordinator.KF148Sig.J2Elts
-public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutModel
 import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 100000

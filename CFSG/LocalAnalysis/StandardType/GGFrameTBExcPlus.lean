@@ -4,9 +4,7 @@ public import CFSG.LocalAnalysis.StandardType.GGFrameTBExcNum
 public import CFSG.LocalAnalysis.StandardType.GGFrameWholeFacts
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaExcPlusAux2
 import CFSG.LocalAnalysis.StandardType.GGFrameTBExcMat
-import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeExcPlusAux
 import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeExcPlusAux2
-import CFSG.LocalAnalysis.StandardType.GGNoTransvectionAutForm
 import CFSG.LocalAnalysis.StandardType.GGTorusGenExcTwoBase
 import CFSG.LocalAnalysis.StandardType.GGExcRootAsGen
 import CFSG.LocalAnalysis.StandardType.GGRootGenAvoidReflModel

@@ -2,20 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Closing.Data
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.Facts
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Common.SylowTwo
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.Chain
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.Data
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.Co1Perfect
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.Co1Center
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.Co1TwoB
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.LocBCLocal
-public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoCo1.HypOne
-public import CFSG.Sporadic.Schreier.Co1OddCore
-public import CFSG.Sporadic.Co2Schreier.OddCore
 public import CFSG.Sporadic.ThSchreier.AutCore
 public import CFSG.Adapters.GeneralizedFitting
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.QuasiAssembly
 public import CFSG.LinearAlgebra.LinearGroups.CoordinateData

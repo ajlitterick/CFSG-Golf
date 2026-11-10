@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Sporadic.Co1Block.TwoBComp
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.LocBCCheck
 public import Certificates.Certificate26683
 

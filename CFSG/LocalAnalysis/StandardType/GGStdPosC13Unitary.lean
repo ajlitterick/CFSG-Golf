@@ -1,16 +1,8 @@
 module
 
-public import CFSG.Assembly.GL83LieDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBRank
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 import CFSG.LocalAnalysis.StandardType.GGStdPosC13PermConv
-import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitaryOutdiag
-import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestUnitaryCenter
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUModel
 import CFSG.LocalAnalysis.StandardType.GGNbrFrameOneUnitaryLabel
-import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
-import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeInner
-import CFSG.LocalAnalysis.StandardType.GGTableBTypeATorus
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitSingleSFL
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

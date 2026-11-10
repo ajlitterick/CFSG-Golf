@@ -2,14 +2,11 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.MatrixGroups.PSL2
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ElementaryAbelian
-public import Mathlib.FieldTheory.Finite.GaloisField
 public import Mathlib.FieldTheory.Finite.Extension
 public import Mathlib.FieldTheory.Finite.Trace
 public import Mathlib.Algebra.CharP.CharAndCard
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
 public import Mathlib.GroupTheory.SpecificGroups.Dihedral
 public import Mathlib.GroupTheory.SchurZassenhaus
-public import Mathlib.GroupTheory.GroupAction.Primitive
 public import Mathlib.GroupTheory.GroupAction.MultipleTransitivity
 public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Projective
 public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
@@ -19,8 +16,6 @@ import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_6_14
 import Mathlib.LinearAlgebra.Eigenspace.Basic
 import Mathlib.Algebra.Polynomial.SpecificDegree
 import Mathlib.Algebra.BigOperators.Ring.Nat
-import Mathlib.GroupTheory.GroupAction.ConjAct
-import Mathlib.GroupTheory.Transfer
 
 namespace CFSG
 end CFSG

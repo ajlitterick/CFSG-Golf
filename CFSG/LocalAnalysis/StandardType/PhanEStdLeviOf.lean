@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.PhanEStdSetting
 public import CFSG.LocalAnalysis.StandardType.PhanESLMatrix
 public import CFSG.LocalAnalysis.StandardType.PhanEChevConj
-public import CFSG.Timmesfeld.RankTwo.LevisExceptional
 import CFSG.ClassicalInvolution.WeakCT.SimplyLaced
 import CFSG.ClassicalInvolution.WeakCT.SpTorus
 import CFSG.ClassicalInvolution.WeakCT.SpPair

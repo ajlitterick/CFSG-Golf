@@ -1,11 +1,7 @@
 module
 
 public import CFSG.CGT.PushingUpLit.CGT6M.FiveRankFour
-public import CFSG.Open.StatedDefs
-public import CFSG.LocalAnalysis.SectionRank.OddCover.PSL2
-public import CFSG.LocalAnalysis.SectionRank.OddCover.LinearThree
 public import CFSG.RankThree.PartOne.S11c.UnitaryFiveLift
-public import CFSG.Open.StatedAPI
 public import CFSG.CGT.PushingUpLit.BHS.SymNatDefs
 public import CFSG.CGT.PushingUpLit.CGT6M.FiveYSide
 public import CFSG.CGT.PushingUpLit.Statements
@@ -39,11 +35,7 @@ public import CFSG.Quasithin.Background.B1MoreNineG
 public import CFSG.RankThree.CentralExtension.InvariantComplement
 public import CFSG.RankThree.CentralLiftSO.SplitTorusWeyl
 public import CFSG.RankThree.PartOne.S10.Defs
-public import CFSG.Sporadic.Th.F2Spec
 public import CFSG.StronglyEmbedded
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 
 public section

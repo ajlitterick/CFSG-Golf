@@ -1,5 +1,4 @@
 module
-public import CFSG.LocalAnalysis.StandardType.GGDepED4LowDefs
 public import CFSG.LocalAnalysis.StandardType.GGDepED4LowModel
 public import CFSG.LocalAnalysis.StandardType.GGDepED4LowKillFrame
 public import CFSG.LocalAnalysis.StandardType.GGDepED4Pat2

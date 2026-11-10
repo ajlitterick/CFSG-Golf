@@ -24,9 +24,6 @@ public import CFSG.Quasithin.Recognition.GoldschmidtTripleQuotient
 public import CFSG.Certificates.Kernel.LocalCompTits.Span
 public import CFSG.Quasithin.Background.A1cTransferVariants
 public import Certificates.Data.CFSGNative.MonsterB.Rep4371Model
-public import Mathlib.Data.Fintype.CardEmbedding
-public import Mathlib.Data.Nat.Factorial.Basic
-public import Mathlib.Tactic.Ring
 
 public section
 

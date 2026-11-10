@@ -19,10 +19,7 @@ public import CFSG.Quasithin.Background.B4Dual
 public import CFSG.Quasithin.Background.B5CompB
 public import CFSG.Quasithin.Background.B69Core
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.E4Solv
 public import CFSG.Quasithin.Background.F9Sixteen
 public import CFSG.Quasithin.Background.FFC7G
 public import CFSG.Quasithin.Background.FFC8A

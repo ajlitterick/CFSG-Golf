@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec4.Item47Native
 public import CFSG.RankThree.Asc83Table.J3
-import Mathlib
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LieType.Chevalley.LangRootArithmetic
 public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
@@ -17,7 +16,6 @@ public import CFSG.Sporadic.M23.M23Group
 public import CFSG.Sporadic.ON.SimpleBase
 public import CFSG.Sporadic.Schreier.TitsOther
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

@@ -5,7 +5,6 @@ public import Certificates.Data.Kernel.J4Aff2A
 public import CFSG.Sporadic.J4.QTRankInvData
 import CFSG.Certificates.Kernel.Bounds.LoadRoot
 import CFSG.Certificates.Kernel.Common.Repo
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

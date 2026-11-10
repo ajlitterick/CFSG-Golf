@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGResIPumpLineTransfer
 public import CFSG.LocalAnalysis.StandardType.GGE4bOriginalA2Fixed
 public import CFSG.LocalAnalysis.StandardType.GGTwE6E4bOriginalSC
 public import CFSG.LocalAnalysis.StandardType.GGTwE6E4bScalarLine
-public import CFSG.LocalAnalysis.StandardType.GGTwE6E4bTorus
-public import CFSG.LocalAnalysis.StandardType.GGTwE6ReflectionRadical
 
 public noncomputable section
 

@@ -1,13 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePrimDefs
 public import CFSG.LocalAnalysis.StandardType.GGRankOneRootMatch
 public import CFSG.LocalAnalysis.StandardType.GGRankOneTags
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRankOneConj
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
-public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionRank
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylEltOfAutomizer
 
 public section

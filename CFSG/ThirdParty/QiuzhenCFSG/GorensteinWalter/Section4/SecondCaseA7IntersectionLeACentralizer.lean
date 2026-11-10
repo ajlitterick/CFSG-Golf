@@ -3,8 +3,6 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseA7TwoCoreSylowIntersection
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OddIndexCentralizesOrderThree
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.InvolutionNormalizerInfConjugate
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.NormalizerLeNormalizerCentralizer
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

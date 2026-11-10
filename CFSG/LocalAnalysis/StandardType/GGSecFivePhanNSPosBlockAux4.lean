@@ -2,7 +2,6 @@ module
 
 import Lean
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosBlockAux3
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosTorus
 
 public section
 

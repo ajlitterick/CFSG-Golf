@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.RepresentationTheory.Irreducible
 public import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.ExtendScalars
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.RepEnd

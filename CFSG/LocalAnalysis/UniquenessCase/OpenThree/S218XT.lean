@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S2114E3Defs
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.DataThree
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.R76Sig
-public import CFSG.LocalAnalysis.UniquenessCase.UC6R
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S218G2
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S218D4
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S218F4
@@ -12,7 +9,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.UC22S218Center
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.R72.RankThree
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section19.NoL2SzSectionHolds
 public import CFSG.HardMathSupport.Foote.FamilyReduction.ClassicalFive
-import CFSG.LocalAnalysis.UniquenessCase.UC22S218XE3
 import CFSG.LocalAnalysis.UniquenessCase.OpenThree.Levi218G2
 import CFSG.LocalAnalysis.UniquenessCase.OpenThree.Levi218D4
 import CFSG.LocalAnalysis.UniquenessCase.OpenThree.Levi218F4

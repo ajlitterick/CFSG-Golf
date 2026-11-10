@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSpFrameWeyl
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinSignedPermBase
-public import CFSG.LocalAnalysis.StandardType.GGSpJoinWeylRank
-public import Mathlib.Algebra.Module.ZMod
-public import Mathlib.Algebra.Field.ZMod
 
 public section
 

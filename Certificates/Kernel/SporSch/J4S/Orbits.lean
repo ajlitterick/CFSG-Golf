@@ -6,7 +6,6 @@ public import CFSG.Certificates.Kernel.SporSch.J4SBfsSound
 public import CFSG.Certificates.Kernel.Spor.RawSlSound
 meta import CFSG.Sporadic.Schreier.J4SOrbitsBase
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 import CFSG.Certificates.Kernel.SporSch.J4SBfsProved
 
 public section

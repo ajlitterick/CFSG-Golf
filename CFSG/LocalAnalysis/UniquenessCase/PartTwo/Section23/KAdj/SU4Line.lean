@@ -2,16 +2,13 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KAdj.StatementB
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23d.Defs
-public import CFSG.Quasithin.Background.B4Models
 public import CFSG.Quasithin.H13.U4ParPoint
-public import CFSG.Open.StatedDefs
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KAdj.LineTransport
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KAdj.Adjust
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KAdj.SU4
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KAdj.SU4Parabolic
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23d.UnitaryTransport
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KGen.SUFixedLine
-import CFSG.ClassicalGroups.UnitaryFlag.OrderSylow
 import CFSG.ClassicalGroups.UnitaryFlag.StatedBridge
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic

@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Leaves
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Claims139
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.ClassicalEA
-public import TauCeti.LinearAlgebra.BilinearForm.SymplecticBasis
 public import CFSG.LocalAnalysis.AGLEmbedding.CaseTwoConfig
 public import CFSG.LocalAnalysis.AGLEmbedding.CaseTwoEscape
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanParabAutIrrHom

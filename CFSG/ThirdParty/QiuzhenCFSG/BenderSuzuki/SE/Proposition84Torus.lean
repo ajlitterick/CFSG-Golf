@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Models
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Compat
 
 namespace CFSG
 end CFSG

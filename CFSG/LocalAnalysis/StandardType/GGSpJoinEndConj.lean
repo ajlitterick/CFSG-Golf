@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinEndAut
-public import CFSG.LocalAnalysis.StandardType.GGSpJoinEndSp
 
 public section
 

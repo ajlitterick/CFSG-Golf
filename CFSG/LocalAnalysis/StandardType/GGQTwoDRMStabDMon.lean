@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDRMStabDefs
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDFrameTau
 import CFSG.LocalAnalysis.StandardType.FS81.OmMonomial
 import CFSG.LocalAnalysis.StandardType.ZS.MonomialBasic
 

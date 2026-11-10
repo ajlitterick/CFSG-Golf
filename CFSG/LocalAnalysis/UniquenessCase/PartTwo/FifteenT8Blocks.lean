@@ -2,10 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenT8Abs
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenT8Front
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenTwo
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenT7Proof
 public import CFSG.Quasithin.Background.G64NatSec
-public import CFSG.Quasithin.Background.D2Coprime
 public import CFSG.Quasithin.Background.B4ModelsWitness
 
 public section

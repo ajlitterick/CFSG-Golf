@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBF4Basic
-public import CFSG.Timmesfeld.Orders.ExceptionalUntwisted
 public import CFSG.RankThree.Chevalley.SteinbergCAF4SplitPrimeTorus
 public import CFSG.LinearAlgebra.LinearGroups.LinearTwo
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard

@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.HNChain.Data
-public import CFSG.Certificates.Kernel.Orders.HN.Data.Const
 public import Certificates.Kernel.SporSch.Ru.RowsGen
 import CFSG.Certificates.Kernel.Common.Harness
 

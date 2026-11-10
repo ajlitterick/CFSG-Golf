@@ -8,7 +8,6 @@ public import Certificates.Kernel.SporSch.Co1.Packed
 public import CFSG.Certificates.Kernel.SporSch.Co1CentSound
 public import CFSG.Sporadic.Co1Block.TwoBData
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Sporadic.Schreier.Co1AutCheckInputs
 
 public section

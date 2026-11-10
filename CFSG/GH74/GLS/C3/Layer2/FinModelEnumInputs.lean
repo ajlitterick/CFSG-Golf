@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GH74.GLS.C3.Layer2.FinModelDefs
-public import Mathlib.Data.List.Dedup
 public meta import Mathlib.GroupTheory.SpecificGroups.Alternating
 public meta import CFSG.GH74.GLS.C3.Layer2.FinModelDefs
 public meta import Mathlib.GroupTheory.Perm.Centralizer

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection2.Basic
-public import Mathlib.GroupTheory.Complement
 public import Mathlib.Data.Set.Card.Arithmetic
 
 namespace CFSG

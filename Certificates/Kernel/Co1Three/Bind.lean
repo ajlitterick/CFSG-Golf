@@ -1,9 +1,7 @@
 module
 
 public import Certificates.Kernel.Co1Three.Data
-public import Certificates.Kernel.SporSch.Co1.Rows
 public import Certificates.Kernel.SporSch.Co1.ElemDag
-public import CFSG.Certificates.Kernel.Spor.BindList
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

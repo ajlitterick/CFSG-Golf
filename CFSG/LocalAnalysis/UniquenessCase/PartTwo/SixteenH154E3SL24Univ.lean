@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenH154E3SL24UnivA
-public import CFSG.Milestones.ASVolI.I2
 
 public section
 

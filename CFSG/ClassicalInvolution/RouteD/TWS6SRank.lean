@@ -3,7 +3,6 @@ module
 public import CFSG.ClassicalInvolution.RouteD.TWS6SCount
 public import CFSG.ClassicalInvolution.RouteD.TWYRankOdd
 public import CFSG.ClassicalInvolution.RouteD.TWYRankEven
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 
 public section
 

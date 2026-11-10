@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixStepOneCompCentJ
 public import CFSG.LocalAnalysis.StandardType.GGSixStepOneSmallBasic
-public import CFSG.LieType.BorelTits.Basic
 
 public section
 

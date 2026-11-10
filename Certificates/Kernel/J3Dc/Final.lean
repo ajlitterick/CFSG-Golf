@@ -6,8 +6,6 @@ public import Certificates.Kernel.J3Dc.G1
 public import Certificates.Kernel.J3Dc.G2
 public import Certificates.Kernel.J3Dc.G3
 public import CFSG.Certificates.Kernel.Misc.HexFlatSound
-public import Certificates.Data.Kernel.J3Dc.Defs
-public import CFSG.Sporadic.Schreier.PairJ3CertInputs
 import all CFSG.Sporadic.Schreier.PairJ3CertInputs
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Spor.RawSound

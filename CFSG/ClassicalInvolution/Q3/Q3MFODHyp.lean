@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.ModelFacts.TG3OrthTags
-public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalOrthEigen
-public import CFSG.ClassicalInvolution.RouteD.ExoticTwinProofOrthWitt
 
 public section
 

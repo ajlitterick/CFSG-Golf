@@ -1,14 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeSplit
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoHypIICoverU62Model
-public import CFSG.LieType.Multipliers.U62Bridge
-public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.S3AmalgamBound.ThreeRankClsUnitary
 public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83SmallRank65Plane
-public import CFSG.LocalAnalysis.StandardType.GGTableBTransport
-public import CFSG.ClassicalGroups.Unitary.Simple
-public import CFSG.ClassicalGroups.Orthogonal.Simple
 public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83SmallRank614Defs
 public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83SmallRank614PrimeDefs
 

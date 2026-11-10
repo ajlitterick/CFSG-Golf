@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.Kernel.SporSch.RootPair
 public meta import Certificates.Kernel.AE6Q8.Chain
 public meta import Certificates.Kernel.AE6Q8.Words
 public meta import Certificates.Kernel.SporSch.GenRootPair

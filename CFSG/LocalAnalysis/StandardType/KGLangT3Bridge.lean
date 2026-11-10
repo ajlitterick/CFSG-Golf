@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.KGLangT3Defs
 public import CFSG.LocalAnalysis.StandardType.GGTriD4LineComponent
-import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
-import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismData
 
 public section
 

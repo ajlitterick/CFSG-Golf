@@ -1,15 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkSixModel
-public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkSixLift
-public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkSixWeyl
-public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkSixTorus
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkSixClosure
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkDiag
-public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkComp
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkCent
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkTransport
-public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkModel
 
 public section
 

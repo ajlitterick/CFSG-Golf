@@ -2,22 +2,9 @@ module
 
 public import CFSG.GroupTheory.CoprimeCentralizerCover
 public import CFSG.GroupTheory.PRankCommutingSup
-public import CFSG.GroupTheory.PRankLeOfSylowLe
 public import CFSG.GroupTheory.PRankMapOfKerPrimeNotDvd
-public import CFSG.GroupTheory.PRankQuotientLift
-public import CFSG.LocalAnalysis.GLTheoremB.AutL34Bound
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.FongSporLocalRank2
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanK9bCat
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanKFacts
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPFF2
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPL
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPS
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPS2a
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPS5c
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPZ
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WS6
-public import CFSG.Sporadic.NativeFinite
-public import CFSG.Sporadic.ON
 public import CFSG.LocalAnalysis.GL83PartI.I_7_13
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.Extremal
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.L6LeavesL613Defs

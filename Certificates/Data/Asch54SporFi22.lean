@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Sporadic.FischerOddCore.Fi22CTICheckInputs
-public import CFSG.Sporadic.FischerOddCore.Fi22ExtSylowCheckInputs
-public import CFSG.Monster.B.Fischer.Fi22GraphCheckInputs
 public meta import CFSG.Sporadic.FischerOddCore.Fi22CTICheckInputs
 public meta import CFSG.Sporadic.FischerOddCore.Fi22ExtSylowCheckInputs
 public meta import CFSG.Monster.B.Fischer.Fi22GraphCheckInputs

@@ -1,8 +1,5 @@
 module
 
-public import CFSG.Sporadic.Schreier.TitsActionCheck
-public import CFSG.Sporadic.Schreier.TitsLocalCheck
-public import CFSG.Sporadic.Schreier.TitsOrbit
 public meta import CFSG.Sporadic.Schreier.TitsData
 public meta import CFSG.Sporadic.Schreier.TitsArrays
 public meta import CFSG.Sporadic.Schreier.TitsBasic
@@ -13,7 +10,6 @@ public meta import CFSG.Sporadic.Schreier.TitsCertCheck
 public meta import CFSG.Sporadic.Schreier.TitsLocalCheck
 public meta import CFSG.Sporadic.Schreier.TitsActionCheck
 public meta import CFSG.Sporadic.Schreier.TitsOrbit
-public import CFSG.Sporadic.Schreier.TitsStabCheckInputs
 public import Certificates.Certificate2270
 
 public section

@@ -6,7 +6,6 @@ import CFSG.RankThree.PartTwo.Sec20.SimsAsc1411Order
 import CFSG.RankThree.PartTwo.Sec20.SimsAsc1411Outer
 import CFSG.RankThree.PartTwo.Sec20.SimsAsc1411J1
 import CFSG.RankThree.PartTwo.Sec19.Step1914Tri
-import CFSG.Sporadic.Schreier.J4SSylowBase
 
 public section
 

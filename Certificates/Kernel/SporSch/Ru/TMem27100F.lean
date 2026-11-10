@@ -1,12 +1,9 @@
 module
 
 public import Certificates.Kernel.SporSch.Ru.TMem27100
-public import CFSG.Certificates.Kernel.Spor.PrimSound
-public import CFSG.Certificates.Kernel.Spor.PEnumSound
 public import CFSG.Certificates.Kernel.L34KSnd.Tab
 public import CFSG.Certificates.Kernel.PermToolSound
 public import Certificates.Kernel.Sporadic.OddCore.PEnumGlue
-import CFSG.Certificates.Kernel.BfsPinUnpack
 import CFSG.Certificates.Kernel.BfsPinSetSound
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
 import CFSG.Certificates.Kernel.Common.Harness

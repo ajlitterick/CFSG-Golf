@@ -2,8 +2,6 @@ module
 
 public import CFSG.Open.StatedDefs
 public import CFSG.Quasithin.Background.Module
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
-public import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
 
 public section
 

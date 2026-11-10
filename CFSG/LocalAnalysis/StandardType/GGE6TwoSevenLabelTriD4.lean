@@ -1,11 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import CFSG.RankThree.Chevalley.SteinbergBID4ThetaFixed
 public import CFSG.HardMathSupport.Malle.SeitzCube.D4LayerBridge
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestTri
 public import CFSG.RankThree.PartOne.KE6.Phi3Field
-public import CFSG.LieType.Chevalley.GraphFixedCenterTrivial
 public import CFSG.LieType.Chevalley.OddTrialityCosetInvolutions
 public import CFSG.Monster.B.Geometry.CoxeterWords
 public import CFSG.RankThree.Chevalley.SteinbergBID4CentralKernel

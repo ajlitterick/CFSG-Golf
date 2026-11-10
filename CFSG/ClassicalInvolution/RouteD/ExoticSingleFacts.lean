@@ -1,11 +1,9 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.ExoticSingleSplit
-public import CFSG.ClassicalInvolution.RouteD.ExoticSingleGeom
 public import CFSG.ClassicalInvolution.RouteD.ExoticSingleGlue
 public import CFSG.ClassicalInvolution.RouteD.ExoticSingleWitt
 public import CFSG.ClassicalInvolution.RouteD.GapsOrthSpinOdd
-public import CFSG.ClassicalInvolution.RouteD.TypeDLocal
 public import CFSG.ClassicalInvolution.RouteD.TypeTwistedDLocal
 
 public section

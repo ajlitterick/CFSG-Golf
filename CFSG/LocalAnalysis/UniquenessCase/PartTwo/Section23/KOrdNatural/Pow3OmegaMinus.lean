@@ -32,10 +32,6 @@ import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotLeviFactPiece
 import CFSG.Open.QuasithinDefs
 import CFSG.RankThree.PartOne.KC.OrthogonalEvenMinusExtraction
 import CFSG.Sporadic.M23.M23Group
-import CFSG.Sporadic.Th.F2Spec
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 

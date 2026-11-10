@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeF1POmegaMinus
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockModelSelfDualPOmegaMinus
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockModelSelfDualTwoPOmegaMinus
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockModelDualPairPOmegaMinus
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.GeoPOmegaMinusRoot
 import all CFSG.LocalAnalysis.StandardType.ClassicalPosition.FEOmegaFourMinusPOmegaMinus
 import CFSG.LocalAnalysis.StandardType.ClassicalPosition.FEPOmegaMinus
 import all CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIpFPOmegaMinusFE

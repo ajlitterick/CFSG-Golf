@@ -3,7 +3,6 @@ module
 public import CFSG.ClassicalInvolution.Asc77.AscR10E6
 public import CFSG.ClassicalInvolution.Asc77.AscR10E7
 public import CFSG.ClassicalInvolution.Asc77.AscR10E15
-public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcOrthE6
 public import CFSG.ClassicalInvolution.Asc77.AscE187Cop
 public import CFSG.ClassicalInvolution.Asc77.AscIHSectG
 public import CFSG.ClassicalInvolution.Asc77.AscR10QVm

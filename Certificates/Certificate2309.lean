@@ -3,7 +3,6 @@ module
 
 public import Certificates.Certificate2309Base
 
-public import CFSG.Sporadic.ThSchreier.CentralizerDataInputs
 public meta import CFSG.Sporadic.ThSchreier.Text
 import Certificates.Kernel.SporSch.Th.Cent
 

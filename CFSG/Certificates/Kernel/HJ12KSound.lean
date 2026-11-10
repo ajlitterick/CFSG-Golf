@@ -5,8 +5,6 @@ public import CFSG.Certificates.Kernel.Mat12PSound
 public import CFSG.Certificates.Kernel.GammaUListSound
 public import CFSG.Certificates.Kernel.LceSP.Popcount
 import CFSG.Certificates.Kernel.Common.Harness
-public import CFSG.Certificates.Kernel.LceSP.Base
-public import Certificates.Data.Kernel.LceSTab
 
 public section
 

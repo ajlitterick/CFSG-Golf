@@ -1,8 +1,6 @@
 module
 
 public import CFSG.GroupTheory.PRankBound
-public import CFSG.Open.LocalVocabulary
-public import CFSG.Open.Defs
 
 public section
 

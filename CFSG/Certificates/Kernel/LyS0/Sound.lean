@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.Kernel.LyS0.Check
 public import Certificates.Data.E27.LyS0
 public import CFSG.HardMathSupport.Foote.E27.TableMat
 public import CFSG.Certificates.Kernel.SporSch.LyMatSound
@@ -8,7 +7,6 @@ public import CFSG.Certificates.Kernel.Spor.Loops
 public import CFSG.Certificates.Kernel.Orders.Ly.Checks.K
 public import CFSG.Certificates.Kernel.LyS0.Parse
 import CFSG.Certificates.Kernel.SporSch.LyLoop
-import Mathlib.Data.List.Nodup
 public import CFSG.Sporadic.Schreier.LyCheckSeven
 
 public section

@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.CoreD2K.Co2Cent.Data
 public import Certificates.Kernel.CoreD2K.Co2Cent.Datum
 public import Certificates.Kernel.CoreD2K.Co2.Data
-public import Certificates.Data.Kernel.CoreD2K.Steps
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

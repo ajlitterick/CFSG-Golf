@@ -7,7 +7,6 @@ import CFSG.OddTranspositions.PartThree.EightEight.StarOrbit
 import CFSG.OddTranspositions.PartThree.EightEight.ThirdCentralizer
 import CFSG.OddTranspositions.PartThree.EightFive.Transitive
 import CFSG.OddTranspositions.PartThree.HalphaCentralizer
-import CFSG.OddTranspositions.SixSeven
 import CFSG.OddTranspositions.SixSevenLocalStep
 import CFSG.OddTranspositions.TheoremTwo.DiffBlock
 import CFSG.CGT.T75E.Lemma26

@@ -49,7 +49,6 @@ public import CFSG.LocalAnalysis.AGLEmbedding.OneLieMSideDefsAux
 public import CFSG.LocalAnalysis.AGLEmbedding.ReeFacts
 public import CFSG.LocalAnalysis.AGLEmbedding.SporadicBetaSmall
 public import CFSG.LocalAnalysis.AGLEmbedding.UnitaryFacts
-public import CFSG.LocalAnalysis.ComponentClassification.AschbacherWalterSchurEight
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneProjSlice
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalAS76aProofLeviProj
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalAS76aProofSplit
@@ -89,10 +88,6 @@ public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.D2Cyclic
 public import CFSG.Quasithin.Background.E2Statements
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.F6CatRecogL2
-public import CFSG.Quasithin.Background.F6CatRecogTools2
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.FFC7G
 public import CFSG.Quasithin.Background.FFC8A
@@ -177,9 +172,6 @@ public import CFSG.Sporadic.Schreier.Fi22Schreier
 public import CFSG.Sporadic.Schreier.J1QT
 public import CFSG.Sporadic.SuzOddCore.GraphData
 public import CFSG.Sporadic.SuzOddCore.SmallActionData
-public import CFSG.Walter.J1Props
-public import CFSG.Walter.J1Recog
-public import CFSG.Walter.PSL2Facts
 public import CFSG.YGroups.DCE.B433Check
 public import Certificates.Kernel.J4Count.Prim
 

@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableBE6Three
-public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBE6
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderExcWeyl
 
 public section
 

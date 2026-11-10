@@ -3,12 +3,8 @@ module
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.I1434ClOrthCases
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestOddLayer
 public import CFSG.RankThree.PartOne.K159.RowFourFixed
-public import CFSG.RankThree.Classical.SteinbergBJUnitaryTwoBlock
-public import CFSG.RankThree.CentralLiftU.UnitaryThreeLift
-public import CFSG.LieType.Universal.Unitary.Comparison
 
 public import CFSG.RankThree.GF2n.Stroth80.GriessOrthSmall
-public import CFSG.ClassicalGroups.Orthogonal.Simple
 public import CFSG.Certificates.WordSubgroupRel
 public import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
 public import CFSG.CharacterTheory.Wreathed.WreathCentralSquare

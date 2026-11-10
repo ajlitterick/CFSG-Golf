@@ -5,9 +5,7 @@ public meta import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicBaseNative
 public import CFSG.Sporadic.J2.Simple
 public meta import Certificates.Data.CFSGNative.J2.Certificate
 public import CFSG.Sporadic.Bridge.J2
-public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicJ2Inputs
 public import Certificates.Certificate4142
-public import Certificates.Certificate3139
 public import CFSG.Foundations
 public import CFSG.GroupTheory.Fitting.CharacteristicP
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
@@ -17,7 +15,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.OrdinaryComponentJoins
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.Interface
-public import CFSG.Sporadic.Th.F2Spec
 public import Certificates.Certificate113
 
 public section

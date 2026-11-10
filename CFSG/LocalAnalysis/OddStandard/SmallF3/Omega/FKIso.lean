@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.Q3TJD4Fam
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.BridgeDefs
-public import CFSG.LieType.Universal.SpinOmega.Range
 public import CFSG.LieType.BorelTits.CompleteFlag
 public import CFSG.LieType.Steinberg.Classical.SpinFrame
 public import CFSG.LieType.Universal.SpinOmega.Kernel

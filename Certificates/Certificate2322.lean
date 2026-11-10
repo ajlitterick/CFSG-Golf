@@ -3,7 +3,6 @@ module
 
 public import Certificates.Certificate2322Base
 
-public import CFSG.Sporadic.ThSchreier.RowInputs
 public meta import Certificates.Data.CFSGNative.Th.Base
 import Certificates.Kernel.SporSch.Th.Row2322
 

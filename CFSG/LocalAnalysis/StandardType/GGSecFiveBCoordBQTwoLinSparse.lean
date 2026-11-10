@@ -5,10 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBSparseDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBNbrType
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBNbrAxis
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBSpSp
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyWeylNS
-import CFSG.LocalAnalysis.StandardType.GGTypeANbrLabels
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-import CFSG.Open.StatedAPI
 
 public section
 

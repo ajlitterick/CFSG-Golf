@@ -4,7 +4,6 @@ public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4MinusStmt
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4MnFrame
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4UnField
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4UnDefs
-public import CFSG.RankThree.Chevalley.SteinbergCBTrialityOpposition
 
 public noncomputable section
 

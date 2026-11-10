@@ -1,17 +1,12 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaFork
-public import CFSG.LocalAnalysis.StandardType.GGNbrFrameOneCoordModel
 public import CFSG.LocalAnalysis.StandardType.GGNbrFrameOneTransfer
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorus
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowDefs
-import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaOrthCoord
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaOrthRefl
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaOrthRelA
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaOrthRelB
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaOrthInd
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthExc
-import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOrthNsLabels
 import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixNsLiftOmega
 import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestTailFinal
 

@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.Kernel.SporCov.Defs
 public import Certificates.Data.Kernel.SporCov.Census
 
 public section

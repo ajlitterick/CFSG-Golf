@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJSuDefs
-public import CFSG.LocalAnalysis.StandardType.GGLinearTorusCompSUComp
-public import CFSG.LocalAnalysis.StandardType.GGLinearFusionSURepairBlock
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalanceBasic
 
 public section
 

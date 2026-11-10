@@ -1,16 +1,12 @@
 module
 
 public import CFSG.LocalAnalysis.SeitzReduction.E8PilotAlignLevi
-public import CFSG.LieType.Chevalley.SignKernelSimpleWeyl
-public import CFSG.LieType.AlgebraicGroups.ToralRootCover
 public import CFSG.LocalAnalysis.StandardType.GGTBJE8LeviWeyl
 public import CFSG.HardMathSupport.Timmesfeld.Steinberg.ThreeCharE8
 public import CFSG.HardMathSupport.Timmesfeld.Steinberg.FiveCharE8
 public import CFSG.HardMathSupport.Timmesfeld.Steinberg.SevenCharE8
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.WeylCharStab
-public import CFSG.RankThree.PartOne.KE.EDualStabilizer
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.F4ThreeLangInner
-public import TauCeti.LinearAlgebra.Matrix.Cartan.Classical
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcField
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerSplit
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Assembly

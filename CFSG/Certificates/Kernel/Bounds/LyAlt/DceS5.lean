@@ -2,7 +2,6 @@ module
 
 public import CFSG.Certificates.Kernel.Local.Ly.Lay7
 public import CFSG.Certificates.Kernel.Th.Words
-public import CFSG.Certificates.Kernel.Common.Loop
 
 public section
 

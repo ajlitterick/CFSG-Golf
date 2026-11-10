@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeAd
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcAdLinear
-public import CFSG.LieType.Chevalley.ParabolicWeylStabilizer
 public import CFSG.Monster.B.E6.StdF4Root
 public import CFSG.LieType.Chevalley.C2E6D4NaturalOrthogonal
 public import CFSG.LieType.Chevalley.C2E6ExactRootRestrictions
@@ -14,7 +12,6 @@ public import CFSG.LocalAnalysis.SectionRank.EvenCover.LinearStep
 public import CFSG.LocalAnalysis.SectionRank.SporadicCover
 public import CFSG.Monster.B.Geometry.CoxeterWords
 public import CFSG.Sporadic.M23.M23Group
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

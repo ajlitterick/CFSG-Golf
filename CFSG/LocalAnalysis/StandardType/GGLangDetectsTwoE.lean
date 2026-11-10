@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.CentralizerTrivialQ2
-public import CFSG.LieType.Chevalley.RootCharacterConjugation
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerE8Five
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerResiduals
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwE6
@@ -9,7 +8,6 @@ public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwF4
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwRigid
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.CentralizerTrivialPoly
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.CentralizerTrivialQ3T
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.OuterField
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.RigidField
 public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.CrossLin
 public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.LangFrame
@@ -51,7 +49,6 @@ public import CFSG.RankThree.PartTwo.KFacts.KS14SzLie
 public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 
 public section
 

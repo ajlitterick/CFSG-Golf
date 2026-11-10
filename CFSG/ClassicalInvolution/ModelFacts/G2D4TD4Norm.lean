@@ -3,8 +3,6 @@ module
 public import CFSG.LieType.Steinberg.TwistedD4.Fixed
 public import CFSG.RankThree.Chevalley.SteinbergCFTrialityToralFixedBruhat
 public import CFSG.LieType.Chevalley.ParabolicRadicalLevi
-public import CFSG.LieType.Chevalley.WeylRootTransport
-public import CFSG.LieType.Chevalley.HeightSeries
 
 public noncomputable section
 

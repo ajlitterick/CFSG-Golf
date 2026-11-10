@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLFrameFDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLFrameFOmTrace
-public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLFrameFGU2
-public import CFSG.RankThree.Classical2.OrthogonalIsotropicUnipotent
 public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLFrameFOmNorm2
 public import CFSG.Mathlib.LinearAlgebra.QuadraticForm.OrthogonalSum
 

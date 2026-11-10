@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutClassicalOmPlus
-public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerMinus
 
 public section
 

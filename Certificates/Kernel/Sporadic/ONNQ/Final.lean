@@ -5,14 +5,11 @@ public import Certificates.Kernel.Sporadic.ONNQ.Facts
 public import CFSG.Certificates.Kernel.Spor.ONNQPerm
 public import CFSG.Certificates.Kernel.Spor.SlpCard
 public import CFSG.Sporadic.ONOddCore.PrimBase
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.BfsPinSound
-public import CFSG.Certificates.Kernel.BfsPinUnpack
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoProjectiveFormulas
 public import CFSG.Sporadic.ONOddCore.FaithfulProj
 public import CFSG.Sporadic.ONOddCore.PrimPt
 public import CFSG.Sporadic.ONOddCore.TreeOrbit
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

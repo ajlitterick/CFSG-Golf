@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniqueFourCatalog.Standing4Basic
-public import CFSG.Blueprint.Catalog
 import CFSG.LocalAnalysis.RankThreeUC.CatalogClosureOddBasic
 import CFSG.RankThree.PartTwo.Census.Carrier.ReeG2One
 import CFSG.RankThree.PartTwo.Census.Carrier.G2Prime

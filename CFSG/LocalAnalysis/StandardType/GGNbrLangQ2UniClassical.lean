@@ -5,15 +5,8 @@ public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2UniOmegaBlock
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2UniDispatch
 import CFSG.RankThree.GF2n.Stroth80.Sec1110CMLmConsumer
 import CFSG.LocalAnalysis.StandardType.GGOmegaMinusRootGenIso
-import CFSG.LocalAnalysis.StandardType.GGLayerCycModelOmegaSec
-import CFSG.Timmesfeld.Orders.Classical
 import CFSG.GroupTheory.ConjKerCenter
-import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1CentUniLift
-import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1TorUniLift
-import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1TorUniDefs
 import CFSG.LocalAnalysis.GLTheoremA.CatA.K1419ClsUniBlock
-import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotCatTypeDet
-import CFSG.Timmesfeld.Orders.Distinct
 import CFSG.LieType.SemisimpleCentralizers.OrderThree.CenterQuot
 import CFSG.LocalAnalysis.GLTheoremA.CatA.K1419ClsDefs
 

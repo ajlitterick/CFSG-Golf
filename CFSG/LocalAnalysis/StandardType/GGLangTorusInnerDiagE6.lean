@@ -2,13 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGE0ShapeAction
 public import CFSG.LocalAnalysis.StandardType.GGFamAssembly
-public import CFSG.LocalAnalysis.StandardType.GGExcCompSLDefs
-public import CFSG.LocalAnalysis.StandardType.GGReverseMarking
-public import CFSG.LocalAnalysis.StandardType.GGLieCoreSmallSetup
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34OddAux.SsTwAux.RatLayer
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.TorusAtCore
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeTwE6Conn
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeExcW
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34OddAux.SsTwAux.ExcD4Layer
 
 public section

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GH74.KGroups.L33Inputs
-public import CFSG.GH74.KGroups.PermCheck
 public import CFSG.GH74.KGroups.Checks2
 public import Certificates.Data.S7SocQ8
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265CDynE
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265CDynO
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.YS1011LabUniq
 import all CFSG.LocalAnalysis.GLTheoremA.CatA.YS1011LabUniq
 
 public section

@@ -3,12 +3,9 @@ module
 public import CFSG.CGT.T75M.SzData
 public import CFSG.CGT.T75M.SzOut
 public import CFSG.CGT.Timmesfeld75.Lemma27
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LieType.Ree.SuzukiSimple
 public import CFSG.LocalAnalysis.ComponentInitial.SuzukiModelSchreier
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonSplitTorus
 
 public section
 

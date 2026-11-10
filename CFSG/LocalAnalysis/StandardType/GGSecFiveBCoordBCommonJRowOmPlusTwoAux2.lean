@@ -3,13 +3,8 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJRowOmPlusTwoAux1
 import CFSG.LocalAnalysis.StandardType.GGQ2OrthType
 import CFSG.LocalAnalysis.StandardType.GGQTwoVACOrthNonFull
-import CFSG.LocalAnalysis.StandardType.GGTableBRank
-import CFSG.ClassicalGroups.Orthogonal.Matrix
-import CFSG.GroupTheory.ElementaryAbelianTransport
 import CFSG.Quasithin.Background.C118BridgeAlg
-import CFSG.ClassicalInvolution.SmallCases.Exclusion
 import CFSG.LocalAnalysis.StandardType.GGTorCPlane
-import CFSG.Monster.Existence.BabyThreeSwapIndex
 
 public section
 

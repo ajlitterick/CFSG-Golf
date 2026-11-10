@@ -2,14 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBRowO2Frame
 public import CFSG.LocalAnalysis.StandardType.GGTBRowDCartan
-public import CFSG.LocalAnalysis.StandardType.GGExcReflTBWeylDatumOfWeyl
 public import CFSG.LocalAnalysis.StandardType.GGTBRowR5Defs
 public import CFSG.LocalAnalysis.StandardType.GGTBRowSpCartan
 public import CFSG.LocalAnalysis.StandardType.GGTBRowSpan
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorus
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthExc
-public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpLattice
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLCx
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitClassical
 public import CFSG.LocalAnalysis.StandardType.GGKGForkOrthRow
 import CFSG.LocalAnalysis.StandardType.GGTBJWeyl

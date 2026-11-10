@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameTorusField
-public import CFSG.LocalAnalysis.ComponentInitial.FieldUnitaryHermitian
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySpCoord
 
 public section

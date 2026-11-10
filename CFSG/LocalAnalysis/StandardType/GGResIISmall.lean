@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResIISmallDefs
-public import CFSG.LocalAnalysis.StandardType.GGResLeaves
-public import CFSG.LocalAnalysis.StandardType.GGTBFixDefs
 public import CFSG.LocalAnalysis.StandardType.GGTBFixNbrWA
 public import CFSG.LocalAnalysis.StandardType.GGRCLatticeTriple
 public import CFSG.LocalAnalysis.StandardType.GGRCTransfer

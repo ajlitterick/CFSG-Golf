@@ -1,12 +1,7 @@
 module
 
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk73G4FamModel
-public import CFSG.GH74.Generic.S45.LEvSporGen
-public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
-public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourAutomorphisms
-public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourExactModel
 public import Certificates.Certificate5158
-public import Certificates.Certificate2022
 public import CFSG.GH74.GLS.C3.Layer1.BkIvk73Q
 public import CFSG.GH74.GLS.C3.Layer2.L5C19
 public import CFSG.GH74.GLS.C3.Layer2.L5C5c

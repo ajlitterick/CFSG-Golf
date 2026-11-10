@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6WeylRealize
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerClassicalModel
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerRestExc
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcThreeAct
-public import CFSG.LieType.Chevalley.LangRootArithmeticDet
 
 public section
 

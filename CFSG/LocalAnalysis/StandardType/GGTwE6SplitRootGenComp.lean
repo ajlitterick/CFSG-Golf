@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTwE6SplitRootGenFix
 public import CFSG.LocalAnalysis.StandardType.GGTwE6SplitRootGenRoot
 public import CFSG.LocalAnalysis.StandardType.GGSuSplitRootGenDefs
 public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyNormalizer
-public import CFSG.LieType.Chevalley.ToralCentralizerBruhat
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarE8FiveFrameCentralizer
 public import CFSG.LieType.SeitzGeneration.ExcHigh.TwE6TwoAssembly
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Transport

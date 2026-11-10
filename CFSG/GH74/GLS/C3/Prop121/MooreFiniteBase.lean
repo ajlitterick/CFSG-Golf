@@ -1,9 +1,6 @@
 
 module
 
-public import Mathlib.GroupTheory.Perm.Sign
-public import Mathlib.GroupTheory.Perm.Basic
-public import Mathlib.Data.Fintype.Perm
 public meta import Mathlib.Algebra.Group.End
 public meta import Mathlib.GroupTheory.Perm.Sign
 public meta import Mathlib.GroupTheory.Perm.Basic

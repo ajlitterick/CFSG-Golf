@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight73YInput
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight73YCyclic
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight73YStrong
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight73YKey
@@ -11,15 +10,9 @@ import CFSG.LocalAnalysis.RankThreeUC.StronglyEmbedded
 public import CFSG.LocalAnalysis.RankThreeUC.SmallClassTwoGroups.IsExtraspecialExpP
 import all CFSG.LocalAnalysis.RankThreeUC.SmallClassTwoGroups.IsExtraspecialExpP
 import CFSG.LocalAnalysis.GLTheoremB.SchreierTools
-public import CFSG.GroupTheory.ABGLocalTools.Basic
 import CFSG.GroupTheory.CardMapInfKer
 import CFSG.LocalAnalysis.UniquenessCase.UC6S846b
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Lemmas
-import CFSG.GroupTheory.QuasisimpleCommutingProductBound
-import CFSG.GroupTheory.ElemAbelianClosure
 import CFSG.LocalAnalysis.UniquenessCase.UC6K35cRed
-import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.OrdinaryProofs.PSolvableClosure
-import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.OrdinaryProofs.QuasisimpleSolvableNormal
 public import CFSG.GroupTheory.CoprimeActionSupport.AbelianEquivalence
 public import CFSG.GroupTheory.CoprimeActionSupport.Geometry
 public import CFSG.LocalAnalysis.RankThreeUC.Notation

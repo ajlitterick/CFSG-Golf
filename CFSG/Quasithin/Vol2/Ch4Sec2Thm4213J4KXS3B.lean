@@ -2,10 +2,6 @@ module
 
 public import CFSG.Quasithin.Vol2.Ch4Sec2Thm4213J4KXS3A
 public import CFSG.Quasithin.Vol2.Ch4Sec2Thm4213J4KXSN
-public import CFSG.Quasithin.Vol2.Ch4Sec2Thm4213J4KXJ3
-public import CFSG.Quasithin.Vol2.Ch4Sec2Thm4213J4KXOT
-public import CFSG.Quasithin.Vol2.Ch4Sec2Thm4213J4Defs
-public import CFSG.LocalAnalysis.ComponentClassification.LocalComponents
 public import CFSG.Goldschmidt.Steps.G37Transport
 public import CFSG.Quasithin.Vol2.Ch4Sec2Thm4213J4KXS2
 

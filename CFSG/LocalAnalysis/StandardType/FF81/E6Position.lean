@@ -10,7 +10,6 @@ import CFSG.LocalAnalysis.StandardType.GGSixE6TwoNum
 import CFSG.LocalAnalysis.StandardType.GGSixE6TwoSTheta
 import CFSG.LocalAnalysis.StandardType.GGSixE6TwoT31Cent
 import CFSG.Adapters.StatedSLTwoField
-import CFSG.Adapters.SpecialLinearPerfect
 
 public section
 

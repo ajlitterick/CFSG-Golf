@@ -1,12 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4LabelH5Pieces
-public import CFSG.LocalAnalysis.StandardType.GGRealKG
-public import CFSG.LocalAnalysis.StandardType.GGRealKGFiveClassical
 public import CFSG.LocalAnalysis.StandardType.GGRealKGThreeClassical
 import CFSG.LocalAnalysis.StandardType.GGRealKGThreeAssembly
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-import CFSG.LocalAnalysis.StandardType.GGExclNoIso
 
 public section
 

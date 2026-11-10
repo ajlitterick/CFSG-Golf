@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGIOneExcRootAsElt
 public import CFSG.LocalAnalysis.StandardType.GGIOneExcLift
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryDvdLayer
-public import CFSG.LocalAnalysis.StandardType.GGLayerCenterCyclicTransfer
 public import CFSG.LocalAnalysis.StandardType.GGLayerCenterCyclicModelToral
-public import CFSG.GroupTheory.ElemAbelianClosure
 
 public section
 

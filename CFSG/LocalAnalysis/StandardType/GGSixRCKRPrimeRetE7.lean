@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeShapeLeaves
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24EightComps
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExcD4
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeE6ToralH360Comp
 import CFSG.LocalAnalysis.StandardType.GGFamTrivialRoots
 import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IRootLine

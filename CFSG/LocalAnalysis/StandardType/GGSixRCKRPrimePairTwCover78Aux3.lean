@@ -1,6 +1,5 @@
 module
 
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.OuterE6
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePairTwCover78Aux1
 
 public section

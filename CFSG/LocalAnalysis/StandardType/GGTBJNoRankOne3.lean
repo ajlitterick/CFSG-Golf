@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGFieldTwoCornerDefs
 public import CFSG.LocalAnalysis.StandardType.GGTBJNoRankOneDefs
-public import CFSG.LocalAnalysis.StandardType.GGTPNDefs
 
 public section
 

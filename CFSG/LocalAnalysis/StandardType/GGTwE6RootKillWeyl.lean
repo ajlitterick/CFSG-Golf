@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6RootKillDefs
 public import Certificates.Certificate830101
-public import CFSG.Blueprint.ChevalleyRoots
-public import CFSG.LieType.Chevalley.LongestElement
-public import CFSG.LieType.Chevalley.SignCharacterCertificates
-public import Mathlib.RingTheory.RootsOfUnity.AlgebraicallyClosed
 
 public section
 

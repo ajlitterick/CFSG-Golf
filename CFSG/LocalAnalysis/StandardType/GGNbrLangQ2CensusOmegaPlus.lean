@@ -1,15 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusLinear
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusFieldTwo
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusOmegaSel
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusOmegaNonsplit
 import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1DSmall
-import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticOmega
-import CFSG.LocalAnalysis.StandardType.GGTableBOrthogonalBasic
-import CFSG.LocalAnalysis.StandardType.KGLangS1ALinTypeDet
-import CFSG.RankThree.GF2n.Stroth80.Sec1110CMLmConsumer
 
 public section
 

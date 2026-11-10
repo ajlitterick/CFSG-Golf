@@ -3,10 +3,8 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitaryOutdiag
 public import CFSG.HardMathSupport.Solomon.Coordinator.LayerCentralFix
 import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitaryDvdFrame
-import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitaryInnFrame
 import CFSG.RankThree.PartOne.KF.U4Calc
 import CFSG.RankThree.PartOne.KF.U4Model
-import CFSG.RankThree.PartOne.KF.UnitaryDiag
 public import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
 public import CFSG.CharacterTheory.Wreathed.WreathCentralSquare
 public import CFSG.Dihedral.DihedralFusionPrefixes
@@ -31,7 +29,6 @@ import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeSetting
 import CFSG.RankThree.PartOne.KC.UnitaryLiftBlocks
 import CFSG.RankThree.PartOne.KF.UnitaryModel
 import CFSG.Sporadic.M23.M23Group
-import CFSG.Sporadic.Th.F2Spec
 
 public section
 

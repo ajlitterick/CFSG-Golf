@@ -1,26 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallHeGen
-public import CFSG.Sporadic.HeldB.AllFixed
-public import CFSG.Sporadic.HeldB.OuterCent
-public import CFSG.GH74.KGroups.PermCheck
 public meta import CFSG.Sporadic.HeldB.InnerRestrict
 public meta import CFSG.Sporadic.HeldB.OuterCentRestrict
 public meta import CFSG.GH74.KGroups.PermCheck
-public import Certificates.Certificate2110
-public import Certificates.Certificate2111
-public import Certificates.Certificate2112
-public import Certificates.Certificate2114
-public import Certificates.Certificate2116
-public import Certificates.Certificate2223
-public import Certificates.Certificate2224
-public import Certificates.Certificate2225
-public import Certificates.Certificate2115
-public import Certificates.Certificate2117
-public import Certificates.Certificate2118
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallHeModelInputs
 public import Certificates.Certificate2010
-public import Certificates.Certificate3168
 
 public section
 

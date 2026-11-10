@@ -1,8 +1,3 @@
 module
 
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.PairPureTwo
-import CFSG.LocalAnalysis.AGLEmbedding.CharCore
-import CFSG.LocalAnalysis.AGLEmbedding.PhaseThreeConfig
-import CFSG.LocalAnalysis.AGLEmbedding.RankTools
-import CFSG.LocalAnalysis.PreuniquenessRankFour.Confinement
-import CFSG.LocalAnalysis.ComponentClassification.LocalComponents

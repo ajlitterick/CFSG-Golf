@@ -1,11 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResE6DepLabels
-public import CFSG.LocalAnalysis.StandardType.GGCSRHolds
 public import CFSG.LocalAnalysis.StandardType.GGTorusTBGroupCard
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeADvd
 public import CFSG.LocalAnalysis.StandardType.GGResE6DepRank
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangRestRank
 public import CFSG.LocalAnalysis.StandardType.GGL45FixA2Rank
 
 public section

@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListFamilies
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_6A312Over
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
-public import CFSG.LieType.Simplicity.Suzuki
 public import CFSG.Assembly.OrderReductions.CharacterInflation
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups
@@ -19,10 +17,6 @@ public import CFSG.Quasithin.Background.OrderingMax
 public import CFSG.Quasithin.Vol2.Ch1Local
 public import CFSG.Sporadic.J4Base
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

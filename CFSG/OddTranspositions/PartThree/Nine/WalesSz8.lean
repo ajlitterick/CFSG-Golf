@@ -2,12 +2,8 @@ module
 
 public import CFSG.Quasithin.Recognition.CertF8
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherToolkitBenderAutSuzukiModel
-public import CFSG.StronglyEmbedded.MatrixGroups.SzModel
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherToolkitBenderAutOmega
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherToolkitBenderSuzuki
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import Mathlib.Algebra.BigOperators.Intervals
 public import Mathlib.Data.Nat.Factorization.Basic
-public import Mathlib.Tactic.NormNum.Pow
 public import Mathlib.Algebra.Order.Field.Basic
 public import Mathlib.Data.Rat.Cast.Order
 public import Mathlib.Tactic.Linarith.Frontend

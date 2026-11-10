@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGR4JMeetKGDefs
 public import CFSG.LocalAnalysis.StandardType.GGR4AmbExclE6
 public import CFSG.LocalAnalysis.StandardType.GGR4AmbExclTwE6
 public import CFSG.LocalAnalysis.StandardType.GGR4AmbExclE78

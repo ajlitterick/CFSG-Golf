@@ -3,12 +3,9 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22TransitiveBase
 
-public import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22Hexads
 public meta import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22Count
-public import CFSG.Sporadic.Schreier.M22Data
 public meta import CFSG.Sporadic.Schreier.M22Data
 public import Certificates.Certificate2035
-public import Certificates.Data.CFSGNative.Mathieu.M22
 
 public section
 

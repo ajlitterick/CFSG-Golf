@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesE6QPlusThreeDiag
-public import CFSG.LocalAnalysis.StandardType.GGLangRootSL2Rational
-public import CFSG.LocalAnalysis.StandardType.GGTBJE6TwoBase
 public import CFSG.LocalAnalysis.StandardType.GGTBJE6TwoClass
 public import CFSG.LocalAnalysis.StandardType.GGTBJE6TwoWeylPair
 public import CFSG.LocalAnalysis.StandardType.GGTBJE6TwoSolv

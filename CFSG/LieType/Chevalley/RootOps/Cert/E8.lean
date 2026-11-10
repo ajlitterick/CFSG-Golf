@@ -8,16 +8,6 @@ public import CFSG.LieType.Chevalley.RootOps.Cert.E8Conj80
 public import CFSG.LieType.Chevalley.RootOps.Cert.E8Conj120
 public import CFSG.LieType.Chevalley.RootOps.Cert.E8Conj160
 public import CFSG.LieType.Chevalley.RootOps.Cert.E8Conj200
-public import Certificates.Certificate60
-public import Certificates.Certificate61
-public import Certificates.Certificate62
-public import Certificates.Certificate63
-public import Certificates.Certificate64
-public import Certificates.Certificate65
-public import Certificates.Certificate66
-public import Certificates.Certificate67
-public import Certificates.Certificate113
-public import Certificates.Certificate114
 
 public section
 

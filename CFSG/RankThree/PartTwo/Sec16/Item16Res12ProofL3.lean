@@ -3,7 +3,6 @@ module
 public import CFSG.RankThree.PartTwo.Sec16.Item16Res10ProofOut
 public import CFSG.RankThree.PartTwo.Sec4.Item41Narrow
 import CFSG.RankThree.PartTwo.Sec16.Item16Res11ProofOut
-import CFSG.RankThree.PartTwo.Sec16.Item1613ResProofOut
 import CFSG.RankThree.PartTwo.Sec16.Item1613StepsProofStep
 import CFSG.RankThree.PartTwo.Sec16.Item1613StepsProofInv
 import CFSG.RankThree.PartTwo.Sec16.Item1613StepsProofFix
@@ -11,25 +10,17 @@ import CFSG.RankThree.PartTwo.Sec16.Item16Tail13Tools
 import CFSG.RankThree.PartTwo.Sec16.Item16Tail13PGL
 import CFSG.RankThree.PartTwo.Sec16.Item16Tail13Fus
 import CFSG.RankThree.PartTwo.Sec16.Item16Tail13
-import CFSG.RankThree.PartTwo.Sec16.Item16Tail
-import CFSG.RankThree.PartTwo.Sec16.Item16TailMore
 import CFSG.RankThree.PartTwo.Sec16.Item169General
 import CFSG.RankThree.PartTwo.Sec16.Item16Tail14Tools
-import CFSG.RankThree.PartTwo.Sec13.Item131Facts
-import CFSG.RankThree.PartTwo.Sec13.Item136PGL
-import CFSG.RankThree.PartTwo.Sec13.Item13Models
-import CFSG.RankThree.PartTwo.Sec13.Item13Plane
 import CFSG.RankThree.PartTwo.Sec13.Item13Sporadic
 import CFSG.RankThree.PartTwo.Sec13.Item132
 import CFSG.RankThree.PartTwo.Sec13.Item133
 import CFSG.RankThree.PartTwo.Sec14.Concl142NHJInner
 import CFSG.RankThree.PartTwo.Sec19.Step1914Tri
-import CFSG.RankThree.PartTwo.Sec21.Implications
 import CFSG.RankThree.PartTwo.Sec5.Tools
 import CFSG.RankThree.PartTwo.KFacts.KS14Orders
 import CFSG.GroupTheory.ABGLocalTools.CoreLemmas
 import CFSG.LocalAnalysis.SignalizerFunctor.InvariantSylowAmbient
-import CFSG.LocalAnalysis.RankThreeEvenClassification.Helpers
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
 import CFSG.RankThree.PartTwo.Sec6.Item612Core
 import CFSG.RankThree.PartTwo.Source.OrderThreeMinimalTwoGroup
@@ -94,7 +85,6 @@ public import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 import CFSG.RankThree.PartTwo.KFacts.KS12MovesSL
 import CFSG.RankThree.PartTwo.Sec16.Item16Tail15
 import CFSG.RankThree.PartTwo.Sec4.Census.Interface46
-import CFSG.Sporadic.Schreier.J4SProfileNode
 
 public section
 

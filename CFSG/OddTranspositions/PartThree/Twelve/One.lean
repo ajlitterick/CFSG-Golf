@@ -1,10 +1,7 @@
 module
 
 public import CFSG.OddTranspositions.PartFour.Statements
-public import CFSG.OddTranspositions.PartThree.Statements
 public import CFSG.OddTranspositions.PartThree.Eleven.Statements
-public import CFSG.OddTranspositions.PartThree.FiveReflection
-public import CFSG.OddTranspositions.HalphaQuotient
 import CFSG.OddTranspositions.WidthSylow
 import CFSG.OddTranspositions.PartThree.Ten.WreathRigidity
 import CFSG.OddTranspositions.PartThree.Ten.SetupQ

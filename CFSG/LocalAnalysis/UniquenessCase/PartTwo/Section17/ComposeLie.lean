@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.UC22R8100R
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenFortyThreeProof
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenFortyFourTorus
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenFortyFourThree
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenFortyFiveFixed
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenFortySixB
@@ -10,7 +8,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenForty
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenFortyNine
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenFortyEightProof
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenFifty
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenFiftyOne
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenFiftyTwoProof
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenFiftyThree
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenFortyTwoMain
@@ -18,7 +15,6 @@ public import CFSG.CGT.PushingUpLit.CGT6.SixFourCoreSL
 public import CFSG.CGT.PushingUpLit.LIT.Foote.GroupAux2
 public import CFSG.ClassicalGroups.UnitaryFlag.PointSylow
 public import CFSG.ClassicalInvolution.Q3.TA3SOLCore
-public import CFSG.ClassicalInvolution.Q3.TA3SOLCoreRank
 public import CFSG.GF2Type.Smith1979.GammaU.Sigma
 public import CFSG.GH74.GLS.Balance.Bender.ExtSylow
 public import CFSG.GH74.GLS.Balance.Bender.Sum

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.Defs
-public import Mathlib.GroupTheory.Transfer
 
 namespace CFSG
 end CFSG

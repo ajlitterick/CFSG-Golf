@@ -3,7 +3,6 @@ module
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinDiscPf58Shapes
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinDiscPf64WSlotS
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinSec711Cor
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.CGT.PushingUpLit.SolKNA.R4.TwinDiscBase
 public import CFSG.CGT.PushingUpLit.SolKNA.R4.TwinDiscThmE
 public import CFSG.CGT.PushingUpLit.SolKNA.R4.TwinThmEBase

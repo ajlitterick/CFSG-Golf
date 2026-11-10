@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTypeACrossLiftDefs
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrKnownDefs
 public import CFSG.LocalAnalysis.StandardType.GGTypeACrossLiftDiag
 public import CFSG.LocalAnalysis.StandardType.GGTypeACrossLiftFar
 public import CFSG.LocalAnalysis.StandardType.GGTypeACrossLiftGlue

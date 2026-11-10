@@ -2,12 +2,8 @@ module
 
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.LinearPlane
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.LinearOuter
-public import CFSG.Adapters.LinearCatalog
-public import CFSG.LinearAlgebra.LinearGroups.ProjectiveSimple
-public import CFSG.LinearAlgebra.LinearGroups.Perfect
 public import CFSG.LieType.SeitzGeneration.Inner
 public import CFSG.LocalAnalysis.ComponentInitial.LinearCoverModel
-import CFSG.GroupTheory.ElemAbelianClosure
 public import CFSG.LieType.SeitzGeneration.Defs
 
 public section

@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthTorSU
-public import CFSG.ClassicalInvolution.Phan.PhanDn.NormForm
 public import CFSG.ClassicalInvolution.Phan.PhanDn.SpinModel
 public import CFSG.RankThree.PartOne.S11d.OrthModels
-import CFSG.RankThree.PartOne.KC.OrthogonalFixedDerived
 import CFSG.RankThree.PartOne.S11d.OrthCaseN
 import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotMinusEightBasic
 import CFSG.CharacterTheory.Burnside

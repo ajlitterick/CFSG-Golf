@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.S6.YS05Cat16
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I264bMain
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Shared
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.D3IInnerHolds
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.D3ITitsD4
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.D3IField
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabBThreeALocalBase

@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQ2TwoNodeOpenDefs
 public import CFSG.LocalAnalysis.StandardType.GGQ2TwoNodeNineTP
 public import CFSG.LocalAnalysis.StandardType.GGQ2TablePAtL
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08CuKPlacement
-import CFSG.LocalAnalysis.StandardType.GGQ2FrameSmall
 import CFSG.LocalAnalysis.StandardType.GGQ2ClassicalPlacementHolds
 
 public section

@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutClassicalOmWeights
-public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutDefs
-public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerSpin
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutPSLNonsplitGroup
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthogonalEndNode
-public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerOmegaSpin
 public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergOmegaPlusFour
 import CFSG.GroupTheory.ElementaryAbelianTransport
 

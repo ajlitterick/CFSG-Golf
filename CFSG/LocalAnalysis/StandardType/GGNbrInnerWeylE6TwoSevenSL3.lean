@@ -1,10 +1,7 @@
 module
 
-public import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
 public import Mathlib.FieldTheory.Finite.Basic
-public import Mathlib.GroupTheory.OrderOfElement
 public import Mathlib.Algebra.CharP.CharAndCard
-public import Mathlib.Data.Nat.Prime.Defs
 
 public section
 

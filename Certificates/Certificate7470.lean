@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Sporadic.Schreier.TitsAction
 public import CFSG.Quasithin.Vol2.GoldschmidtF45RuModel
 import Certificates.Kernel.TitsN12.Glue
 

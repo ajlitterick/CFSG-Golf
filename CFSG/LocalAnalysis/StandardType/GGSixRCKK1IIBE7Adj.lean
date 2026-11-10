@@ -2,15 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIBE7Aux
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIBPair
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2LongExcDatum
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2LongExcC2
-public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionExceptional
-public import CFSG.LieType.Steinberg.Adjoint.Group
-public import CFSG.LieType.Steinberg.Adjoint.Comm
-public import CFSG.LieType.Steinberg.Adjoint.ChevExtras
-public import CFSG.LieType.Steinberg.Adjoint.CertE7
-public import CFSG.LieType.HighestRoot.RootsBasic
-public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyExcA2Form
 
 public section
 

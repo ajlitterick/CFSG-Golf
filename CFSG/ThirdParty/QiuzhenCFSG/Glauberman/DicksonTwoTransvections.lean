@@ -1,9 +1,6 @@
 module
 
-public import Mathlib.Algebra.Field.ZMod
 public import Mathlib.FieldTheory.Finite.GaloisField
-public import Mathlib.LinearAlgebra.Dimension.FreeAndStrongRankCondition
-public import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
 
 namespace CFSG
 end CFSG

@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGK0LQDict
-public import CFSG.LocalAnalysis.StandardType.GGK0LQPair
-public import CFSG.LocalAnalysis.StandardType.GGK0LQTwist
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUAll
-public import CFSG.Sporadic.ThSchreier.GlobalData
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerE8Five
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerResiduals
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwE6
@@ -57,7 +54,6 @@ public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
 public import CFSG.Sporadic.Schreier.J4SProfileNode
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import Certificates.Kernel.SporSch.Th.Plane2320
 
 public section

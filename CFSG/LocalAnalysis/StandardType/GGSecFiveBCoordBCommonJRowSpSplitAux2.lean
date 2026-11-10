@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticDiag
-public import CFSG.LocalAnalysis.StandardType.GGTableBRank
 
 public section
 

@@ -5,8 +5,6 @@ public import CFSG.Sporadic.SuzRecog.NativeType
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Step18Classes
 public import CFSG.Timmesfeld.Bridge.StrongEmbedding
 public import CFSG.RankThree.PartTwo.Sec21.HoltCatalog
-public import CFSG.Monster.GMS.TwoCentral
-public import Certificates.Kernel.J4Count.FixCE
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Step18He
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicJ2Exc
 public import CFSG.Monster.Schur.Restriction

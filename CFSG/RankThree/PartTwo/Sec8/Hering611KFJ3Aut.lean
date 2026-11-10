@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec8.Hering611KFRank
 import CFSG.Sporadic.SmallOddCore.J3Aut
-import CFSG.Sporadic.Schreier.PairJ3Faithful
 import CFSG.RankThree.Asc83Table.J3
 import CFSG.RankThree.PartTwo.Sec4.Item426A6Outer
 import CFSG.GroupTheory.ElementaryAbelianTransport

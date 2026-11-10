@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenE6Defs
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelFrame
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelDefs
 
 public section
 

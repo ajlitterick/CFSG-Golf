@@ -2,12 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalM12
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalJ2
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicActionHom
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicJ2
-public import CFSG.Sporadic.J2
 public import CFSG.Sporadic.Mathieu.M12
-public import CFSG.RankThree.PartTwo.KFacts.KS14MultCore
-import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicGenCensus
 public import CFSG.Monster.Code.Weights
 

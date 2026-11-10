@@ -2,9 +2,7 @@
 module
 
 public import Certificates.Kernel.GammaU.ResPairOK
-public import Certificates.Kernel.GammaU.Triple
 public import Certificates.Kernel.GammaU.PairBridge
-public import CFSG.Certificates.Kernel.GammaUPairSound
 
 set_option maxRecDepth 100000
 

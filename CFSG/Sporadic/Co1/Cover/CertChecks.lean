@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Sporadic.Co1.Cover.Fox
 public import Certificates.Certificate10060
 public meta import CFSG.Sporadic.Co1.Cover.Fox
 public meta import CFSG.Sporadic.Co1.Cover.Data

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Certificates.Kernel.J4Q.RepQT2B
-public import CFSG.Sporadic.J4.QTRankWitNative
 
 public section
 

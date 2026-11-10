@@ -2,8 +2,6 @@ module
 
 public import CFSG.Monster.B.TwoA.Amalgam.OrderThreeAmbCore
 public import CFSG.Monster.B.TwoA.Amalgam.Exact3510Std
-public import CFSG.Monster.B.TwoA.Amalgam.DistTwo
-public import CFSG.Monster.B.Generic.Exact3510Spectral
 public import CFSG.Monster.B.Generic.LocallyUnitary
 public import CFSG.Monster.B.TwoA.Amalgam.StdIso
 public import CFSG.Monster.B.TwoA.Unitary.Orbit1408Points

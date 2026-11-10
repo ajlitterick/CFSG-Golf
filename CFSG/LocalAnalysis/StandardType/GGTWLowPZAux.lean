@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTWLowStmt
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
 
 public section
 

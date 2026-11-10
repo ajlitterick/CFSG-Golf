@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.ZS.DThreeConfig
 public import CFSG.Fischer.Classification.Orthogonal3.Model
 public import CFSG.Fischer.Classification.PartIII.Beta.Forms
-import CFSG.LocalAnalysis.StandardType.ZS.DThreeChain
 import CFSG.LocalAnalysis.StandardType.ZS.DThreeTernaryChain
-import CFSG.Fischer.Classification.PartIII.Beta.Points
 import CFSG.Fischer.Classification.PartIII.U.Points117
 public import CFSG.Fischer.Pairs
 public import CFSG.Open.Defs

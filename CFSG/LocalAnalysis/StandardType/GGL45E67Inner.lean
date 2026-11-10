@@ -1,11 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGL45FamCover
 public import CFSG.LocalAnalysis.StandardType.GGL45NtDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Aut
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaOutdiag
-public import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOther
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagCartan
 
 public section
 

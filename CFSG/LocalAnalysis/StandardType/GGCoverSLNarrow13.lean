@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCoverSLNarrow13Defs
 public import CFSG.LocalAnalysis.StandardType.GGCoverSLPSL
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenSLNarrow12
 

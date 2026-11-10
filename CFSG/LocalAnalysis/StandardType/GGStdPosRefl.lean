@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdPosLocalDefs
 public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInner
-import TauCeti.GroupTheory.Coxeter.Geometric
-import Mathlib.RingTheory.RootsOfUnity.Basic
-import Mathlib.Tactic.Group
 
 public section
 

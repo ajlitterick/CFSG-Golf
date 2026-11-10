@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.Vol2.Asc94.TSFrame2
 public import CFSG.Quasithin.Vol2.Asc94.TS39g
-public import CFSG.Quasithin.Vol2.Asc94.TSModel7
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Dickson.I271.SporGenAux.ThSeven
-public import CFSG.HardMathSupport.Dickson.I271.SporGenAux.ThreeKill
 
 public section
 

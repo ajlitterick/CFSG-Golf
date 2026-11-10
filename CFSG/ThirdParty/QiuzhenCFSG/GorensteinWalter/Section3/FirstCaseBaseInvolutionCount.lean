@@ -3,9 +3,7 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinDataComplete
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseOrderInfra
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.InvolutionCountInSubgroup
-public import Mathlib.GroupTheory.SpecificGroups.Dihedral
 public meta import Mathlib.GroupTheory.SpecificGroups.Dihedral
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

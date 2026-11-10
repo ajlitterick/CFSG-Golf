@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Basic
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.DefsWeakClosure
 public import CFSG.GroupTheory.ElementaryAbelianTransport
 

@@ -1,11 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGE6DepCorootDefs
-import Mathlib.GroupTheory.OrderOfElement
-import Mathlib.GroupTheory.Index
-import Mathlib.Algebra.Group.Subgroup.Finite
-import Mathlib.Data.ZMod.QuotientGroup
-import Mathlib.Data.Nat.Prime.Basic
 
 public section
 

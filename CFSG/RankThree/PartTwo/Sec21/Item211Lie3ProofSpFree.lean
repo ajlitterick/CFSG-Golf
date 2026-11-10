@@ -4,7 +4,6 @@ public import CFSG.RankThree.PartTwo.Sec21.Item211Lie3ProofSpFreeL
 public import CFSG.RankThree.PartTwo.Sec21.Item211Lie3ProofSpPlus
 import CFSG.RankThree.PartOne.AUTSL.SpTwoAut
 import CFSG.RankThree.PartTwo.Sec21.Item211Lie2ProofExcInner
-import CFSG.RankThree.GroupTheory.SteinbergBYRelativeCores
 import CFSG.RankThree.PartTwo.Sec4.Item47Bridges
 import CFSG.RankThree.PartTwo.Sec21.Item211Lie2ProofU42Char
 import CFSG.ClassicalGroups.Symplectic.Simple

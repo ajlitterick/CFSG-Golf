@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQ2NoTwoNodeKBridge
 public import CFSG.LocalAnalysis.StandardType.GGQ2FrameSmall
 public import CFSG.LocalAnalysis.StandardType.GGQ2ClassicalCatalogueU
-public import CFSG.LocalAnalysis.StandardType.GGQ2FrameCore
 
 public section
 

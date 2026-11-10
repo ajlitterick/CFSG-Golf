@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTPNNonExc
-public import CFSG.LocalAnalysis.StandardType.GGTPNRegimeDefs
 
 public section
 

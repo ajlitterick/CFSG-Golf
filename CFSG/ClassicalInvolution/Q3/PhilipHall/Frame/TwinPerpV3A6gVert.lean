@@ -4,8 +4,6 @@ public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6gPos
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6gGen
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6dBase
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6cFrame
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6Hx
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6h1
 
 public section
 

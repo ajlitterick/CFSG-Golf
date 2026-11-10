@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJTypeBShape
-public import CFSG.LocalAnalysis.StandardType.GGTBJSpParabolicAut
 
 public section
 

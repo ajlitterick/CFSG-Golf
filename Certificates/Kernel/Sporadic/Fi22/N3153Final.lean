@@ -5,11 +5,8 @@ public import Certificates.Kernel.Sporadic.Fi22.N3153Chk
 public import Certificates.Kernel.Sporadic.Fi22.G3147
 public import Certificates.Kernel.Sporadic.Fi22.Ext2073
 public import CFSG.Certificates.Kernel.Fi22Nbr3153Sound
-public import CFSG.Certificates.Kernel.PackSetSound
 public import CFSG.Certificates.Kernel.BfsPinAlg
 public import CFSG.Monster.B.Fischer.Fi22GraphBoundBase
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.NativeSchreierEnum
 public import CFSG.Monster.B.Fischer.Fi22CentralizerCheckBase
 public import CFSG.Monster.B.Fischer.Fi22CoverBase

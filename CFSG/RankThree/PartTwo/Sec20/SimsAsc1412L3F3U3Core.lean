@@ -5,10 +5,7 @@ import CFSG.Quasithin.Vol2.Ch3Sec3NFa2L2Gen
 import CFSG.Quasithin.Vol2.Ch10SecQ34NA
 import CFSG.Quasithin.Vol2.Ch10SecD33E
 import CFSG.Quasithin.Vol2.Ch11SecU1L3IX
-import CFSG.CharacterTheory.PSL2Table.Partition
-import CFSG.Dihedral.Glauberman.DicksonMaxStructure
 import CFSG.LocalAnalysis.AGLEmbedding.LinTwoFacts
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_1_12
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115OddL3
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeLocalNormal
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3J4Dec2Core
@@ -18,7 +15,6 @@ import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_21FinDS
 import CFSG.Quasithin.Background.C1PackS15212C
 import CFSG.Quasithin.Background.C1PackS1531Top
 import CFSG.Quasithin.Background.E3
-import CFSG.Quasithin.Background.E3Uniq
 import CFSG.Quasithin.Background.F7TwoFix
 import CFSG.Quasithin.Background.F918H5
 import CFSG.Quasithin.Background.FFC4Tr2

@@ -2,17 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIBPair
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaCores
-public import CFSG.LieType.Universal.Spin.Chevalley.Commutator
-public import CFSG.LieType.Universal.Spin.PlusCT.Weyl
-public import CFSG.LieType.Universal.Spin.Datum
-public import CFSG.LieType.Universal.Spin.Roots.TypeD
 public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionExceptional
-public import CFSG.LieType.Universal.Spin.PlusCT.Basic
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaCoresPlus
-public import CFSG.LieType.Steinberg.Classical.SpinPlus.Basic
-public import CFSG.LieType.HighestRoot.Gen
 public import CFSG.LocalAnalysis.OddStandard.Solomon75Sec6SigOdd
-import Mathlib.Tactic.Group
 public import CFSG.LocalAnalysis.OddStandard.Solomon75GH71Defs
 public import CFSG.LocalAnalysis.OddStandard.Solomon75Goldschmidt
 public import CFSG.LocalAnalysis.OddStandard.Solomon75Sec3Reduce

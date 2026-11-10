@@ -5,14 +5,12 @@ public import CFSG.LocalAnalysis.StandardType.GGTwSLFacts
 public import CFSG.LocalAnalysis.StandardType.GGTwSUFacts
 public import CFSG.LocalAnalysis.StandardType.GGTwOmFacts
 public import CFSG.LocalAnalysis.StandardType.GGTwSLRank
-public import CFSG.LocalAnalysis.StandardType.GGTwSURank
 public import CFSG.LocalAnalysis.StandardType.GGTwOmRankLE
 public import CFSG.LocalAnalysis.StandardType.GGTwOmScRank
 public import CFSG.LocalAnalysis.StandardType.GGTwSUSigned
 public import CFSG.LocalAnalysis.StandardType.GGR4JNCDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixSevenA3ExcRank
 import CFSG.LocalAnalysis.StandardType.GGKGForkLinNsB
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorus
 
 public section
 

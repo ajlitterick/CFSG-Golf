@@ -1,12 +1,8 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section9Proposition93
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Corollary85
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.II1Section4
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection2.Basic
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.lemma_b
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition84Sylow
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section9Focal
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.Residual
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection3.PFsection3_5

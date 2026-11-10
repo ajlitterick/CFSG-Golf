@@ -4,11 +4,7 @@ public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.Census423Three.Sp4Glue
 public import CFSG.RankThree.PartTwo.Sec21.Item228Census5ProofL4
 public import CFSG.RankThree.PartTwo.Sec21.Item228Census3ProofMain
 public import CFSG.RankThree.PartTwo.Sec4.Item417Res4ProofLieP
-public import CFSG.LieType.SeitzGeneration.LinearPlaneFixed
 public import CFSG.LieType.SeitzGeneration.UnitarySplit
-public import CFSG.RankThree.PartOne.CTP.SeitzUIndex
-public import CFSG.RankThree.PartOne.CTP.SeitzUToral
-import CFSG.GroupTheory.ElemAbelianClosure
 
 public section
 

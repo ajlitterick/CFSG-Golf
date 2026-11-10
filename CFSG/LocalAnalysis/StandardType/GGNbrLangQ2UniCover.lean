@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2UniLift
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangS1JInputs
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CoverData
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1TransferData
 
 public section
 

@@ -1,9 +1,7 @@
 module
 
-public import CFSG.GroupTheory.LocalCores.Components
 public import CFSG.Milestones.ASVolI.I3
 public import CFSG.GroupTheory.ConjugatePairSubnormality
-public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitTwoComp
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.F3.HardCentral
 
 public section

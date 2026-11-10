@@ -2,12 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.CartanQuotientBridge
 public import CFSG.LocalAnalysis.UniquenessCase.Lie.ExcTwisted
-public import CFSG.LocalAnalysis.SectionRank.SQT
-public import CFSG.LocalAnalysis.UniquenessCase.UC22Defs
 public import CFSG.Quasithin.Vol2.GoldschmidtSec53FactsD4
-public import CFSG.LieType.Chevalley.SylowOpposition
-public import CFSG.Blueprint.Chevalley
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X6Triality
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenThirtyTwoFull
 public import CFSG.GH74.GLS.Stage2.Final.LayerFDerive
 public import CFSG.GroupTheory.NormalizerQuotientQuotient
@@ -67,8 +62,6 @@ public import CFSG.LocalAnalysis.WeakClosure81.GF2RepsAsch5Bridge
 public import CFSG.Quasithin.Background.A3Structure319
 public import CFSG.Quasithin.Background.E2Statements
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.E4Solv
 public import CFSG.Quasithin.Background.FFC7G
 public import CFSG.Quasithin.Background.G64ProofBasic
 public import CFSG.Quasithin.Background.RonanE111Defs

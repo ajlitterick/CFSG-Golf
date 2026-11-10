@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSADefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSAPairAux
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSAPairAux2
 
 public section

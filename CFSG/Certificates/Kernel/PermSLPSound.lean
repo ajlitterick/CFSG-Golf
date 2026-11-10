@@ -3,8 +3,6 @@ module
 public import Certificates.Data.Kernel.PermSLP
 public import CFSG.Certificates.Kernel.PermToolSound
 public import CFSG.Certificates.Kernel.Spor.MulHCaySound
-public import CFSG.Certificates.Kernel.Spor.PackWord
-public import CFSG.Certificates.Kernel.Spor.Loops
 
 public section
 

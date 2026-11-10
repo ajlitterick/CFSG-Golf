@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.FF81.RootFusionLinCent
 public import CFSG.LieType.Steinberg.Classical.Symplectic.RankOne
-public import TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.GraphAutomorphism
-public import TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.Diagonal.Normalizer
 
 public section
 

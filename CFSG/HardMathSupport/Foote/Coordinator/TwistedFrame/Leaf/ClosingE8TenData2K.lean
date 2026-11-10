@@ -2,7 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Foote.Coordinator.TwistedFrame.Leaf.ClosingE8TenDataK
 public import CFSG.HardMathSupport.Foote.Coordinator.TwistedFrame.Frame
-public import CFSG.RankThree.Lattice.SteinbergBIListMatrix
 
 public section
 

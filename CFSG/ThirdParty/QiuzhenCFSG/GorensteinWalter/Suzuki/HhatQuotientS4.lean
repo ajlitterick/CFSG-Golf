@@ -1,14 +1,7 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.MinimalCounterexample
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Theorem26
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseCountData
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseOrderInfra
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2Cardinality
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.LinearThreeEquiv
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Classification
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.SylowThreeCount
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

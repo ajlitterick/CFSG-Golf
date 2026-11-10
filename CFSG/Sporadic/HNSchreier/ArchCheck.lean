@@ -1,8 +1,6 @@
 module
 
-public import CFSG.Sporadic.HNSchreier.OrbitCheck
 public meta import CFSG.Sporadic.HNSchreier.OrbitCheck
-public import CFSG.Sporadic.HNSchreier.ArchCheckInputs
 public import Certificates.Certificate2095
 
 public section

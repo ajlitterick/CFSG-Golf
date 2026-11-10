@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePairTwCover78Aux1
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePairTwCover78Aux2
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleSplit
 public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcLang
-public import CFSG.RankThree.PartOne.KE.ConjRootSpan
 
 public section
 

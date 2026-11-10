@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLFrameFDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLFrameFSp2
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenSpTwoCentFrame
 public import CFSG.LocalAnalysis.StandardType.GGSixAutKFinerChoiceTwoCent
@@ -33,8 +32,6 @@ public import CFSG.Quasithin.Background.C2PushThree
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.D2Cyclic
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.FFC4Tr2
 public import CFSG.Quasithin.Background.GoldschmidtS146RBend1

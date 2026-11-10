@@ -3,7 +3,6 @@ module
 public import Certificates.Data.Kernel.GammaUFrameFixK
 public import CFSG.Certificates.Kernel.GammaUOrbSound
 public import CFSG.GF2Type.Smith1979.GammaU.FrameFixInputs
-public import CFSG.GF2Type.Smith1979.GammaU.NativeBridge
 public import CFSG.GF2Type.Smith1979.GammaU.PairBridge
 
 public section

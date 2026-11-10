@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ClassicalInvolution.Orders.OrthogonalCount
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafInputs
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalModelOuterTwoPart
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafBasic

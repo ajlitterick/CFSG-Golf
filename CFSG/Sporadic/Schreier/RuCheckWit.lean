@@ -1,12 +1,10 @@
 module
 
-public import CFSG.Sporadic.Schreier.RuWitArrays
 public meta import CFSG.Sporadic.Schreier.RuWitArrays
 public import Certificates.Certificate2260
 public meta import CFSG.Sporadic.Schreier.RuEnum
 public import CFSG.Sporadic.Schreier.RuEnum
 public meta import Mathlib.GroupTheory.Schreier
-public import Mathlib.GroupTheory.Schreier
 
 public section
 

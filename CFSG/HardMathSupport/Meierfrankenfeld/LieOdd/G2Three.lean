@@ -4,8 +4,6 @@ public import CFSG.HardMathSupport.Meierfrankenfeld.FFToolkit.LiftOrbitMap
 public import CFSG.HardMathSupport.Meierfrankenfeld.LieOdd.LnOrbit
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67A2Hom
 public import CFSG.LieType.Chevalley.AdjointCenter
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeFamilies
 public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallGEVL34FFDefs
 public import CFSG.LocalAnalysis.AGLEmbedding.ResidualTools
@@ -15,9 +13,6 @@ public import CFSG.LocalAnalysis.SectionRank.Framework.SylowRank
 public import CFSG.Quasithin.Background.B15P4LayerDict
 public import CFSG.Quasithin.Background.B1MoreNineG
 public import CFSG.Sporadic.M23.M23Group
-public import CFSG.Sporadic.Th.F2Spec
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

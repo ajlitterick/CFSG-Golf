@@ -4,12 +4,10 @@ public import CFSG.LocalAnalysis.StandardType.GGFrameRouteDefs
 public import CFSG.HardMathSupport.Foote.FamilyReduction.ClassicalFive
 import CFSG.LocalAnalysis.GLTheoremA.CatA.YS1011I161a2
 import CFSG.GH74.GLS.Stage2.Signalizer.Odd87Mult
-import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
 public import CFSG.CGT.PushingUpLit.CGT6.SixFour
 public import CFSG.CGT.PushingUpLit.CGT6.SixSixteen
 public import CFSG.CGT.PushingUpLit.Glue.ClassXBasic
 public import CFSG.CGT.PushingUpLit.Glue.RadicalSylow
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Reduce
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeBasic
 public import CFSG.Quasithin.Background.B4Statement
 public import CFSG.Quasithin.Background.B5Statement
@@ -18,10 +16,6 @@ public import CFSG.Quasithin.EmptyFaithful.S146zYFacts
 public import CFSG.Quasithin.EmptyFaithful.S146zYRes
 public import CFSG.Quasithin.H13.NQCoreP134Main
 public import CFSG.Quasithin.Vol2.Ch1Local
-public import CFSG.Walter.J1Props
-public import CFSG.Walter.J1Recog
-public import CFSG.Walter.PSL2Facts
-public import CFSG.Walter.W67.Statements
 import CFSG.GH74.GLS.IVK.Proofs2.OddTools
 import CFSG.GH74.GLS.Stage2.Local.P34Main
 import CFSG.GH74.GLS.Stage2.Local.P34S5A

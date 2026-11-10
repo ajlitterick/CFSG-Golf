@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGL45TorusPackageP4
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45RankXTriality
 
 public section
 

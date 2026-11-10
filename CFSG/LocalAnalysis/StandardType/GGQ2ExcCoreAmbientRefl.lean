@@ -1,11 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreDefs
-public import CFSG.LieType.Chevalley.CLSOddE7RationalEightGroup
-public import CFSG.LieType.Chevalley.KernelComponentRoots
-import CFSG.LocalAnalysis.StandardType.GGQTwoRationalWeyl
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
-import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
 
 public section
 

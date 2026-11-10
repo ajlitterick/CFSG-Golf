@@ -7,7 +7,6 @@ import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.ClassOdd.Glue
 import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.ClassOdd.Shintani
 import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.ClassOdd.ThreeD4
 import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.ClassOdd.G2Class
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.D4Graph.ClassOne
 import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcLeviToral
 import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4TorusFrame
 import CFSG.RankThree.Chevalley.SteinbergBID4CentralKernel

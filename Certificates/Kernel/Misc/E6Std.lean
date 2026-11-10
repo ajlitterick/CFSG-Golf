@@ -2,12 +2,8 @@ module
 
 public import Certificates.Data.Kernel.Misc.E6Std
 public import CFSG.LieType.Chevalley.C2E6StdMatrixModelInputs
-public import CFSG.LieType.Chevalley.C2E6StdMatrixData
-public import CFSG.Monster.B.Classical.E6AdjointTable
-public import Certificates.Data.CFSGNative.Chevalley.C2E6StdMatrix
 public import Certificates.Kernel.Misc.E6StdData
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.LieType.Chevalley.C2E6StandardFixedData
 public import CFSG.LieType.Chevalley.C2E6UnitaryFourImages
 

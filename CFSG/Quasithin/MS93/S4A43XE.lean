@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.MS93.S4A43XD
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherMaximalParabolics
 
 public section
 

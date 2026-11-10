@@ -6,7 +6,6 @@ import CFSG.GroupTheory.PCore.PrimeSetCore
 import CFSG.Adapters.LieModelOrders
 import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.SolQuot.Hom
 public import CFSG.LocalAnalysis.EvenSmallLie.CatalogOrdersLie
-public import CFSG.LocalAnalysis.PreuniquenessRankFour.Frattini
 
 public section
 

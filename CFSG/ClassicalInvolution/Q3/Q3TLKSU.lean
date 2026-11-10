@@ -3,8 +3,6 @@ module
 public import CFSG.ClassicalInvolution.Q3.Q3TLKSp
 public import CFSG.ClassicalInvolution.Q3.Q3TLKD4On
 public import CFSG.ClassicalInvolution.Q3.Q3Y2WireU
-public import CFSG.ClassicalInvolution.Q3.Q3TY32
-public import CFSG.ClassicalInvolution.RouteD.TypeULocal
 public import CFSG.ClassicalInvolution.Q3.Q3TIVSm
 
 public section

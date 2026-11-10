@@ -3,12 +3,7 @@ module
 public import CFSG.GH74.Generic.BProg.B2.T3Sect13
 public import CFSG.GH74.Generic.BProg.B2.T3Sect13Aux
 public import CFSG.GH74.Generic.BProg.B2.FixFourS45
-import CFSG.GH74.Generic.BProg.B1.Lift0
 import CFSG.GH74.Generic.BProg.B1.PilotS1
-import CFSG.GH74.Generic.JMaxCongr
-import CFSG.GH74.Generic.OuterInvolution
-import CFSG.Walter.AStar.Subnormal
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.ClassicalInvolution.Models.OrthogonalPairs
 public import CFSG.ClassicalInvolution.Models.Transfer
 public import CFSG.ClassicalInvolution.Models.UnitaryPairs

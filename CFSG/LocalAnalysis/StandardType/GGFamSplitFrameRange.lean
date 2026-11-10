@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGFamTypeAFrames
 public import CFSG.LocalAnalysis.StandardType.GGFamInnerCover
-public import CFSG.LocalAnalysis.StandardType.GGFamTameRange
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TypeASplit
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TypeASplitConj
 
 public section

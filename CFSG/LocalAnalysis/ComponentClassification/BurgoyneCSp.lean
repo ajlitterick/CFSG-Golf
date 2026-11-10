@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneCSpSkew
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBSymplecticTwoSchreier
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticHigherGeneration
-public import Certificates.Kernel.ThCent.Leaves
 
 public noncomputable section
 

@@ -3,13 +3,9 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.SevenFour.ModelSylow
 public import CFSG.Quasithin.Background.F6SQTK
 import CFSG.Dihedral.Glauberman.DicksonMaxUp
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2InvolutionFusion
 import CFSG.LocalAnalysis.ComponentClassification.AutL2FactsTransport
 import CFSG.Quasithin.Vol2.Ch12Sec6KGCompPSL2A
 import CFSG.LocalAnalysis.GH72.PGammaL2Permutable
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2OuterInvolutionFusion
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2Cardinality
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoAction
 public import CFSG.Quasithin.Background.F6Amalgams
 public import CFSG.Quasithin.Background.F6SolvableQuotient
 public import CFSG.Sporadic.Schreier.J4SProfileNode

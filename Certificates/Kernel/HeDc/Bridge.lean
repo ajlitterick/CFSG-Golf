@@ -6,7 +6,6 @@ public import Certificates.Kernel.HeDc.C1
 public import Certificates.Kernel.HeDc.C2
 public import Certificates.Kernel.HeDc.C3
 public import CFSG.Certificates.Kernel.SporLatDcSound
-public import CFSG.Certificates.Kernel.SporLatOmegaSound
 public import Certificates.Kernel.E68Spor4215.Final
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatLat
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicHe

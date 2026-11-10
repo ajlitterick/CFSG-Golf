@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQ2SpNormalizerStatements
 public import CFSG.LocalAnalysis.StandardType.GGQ2SpBlocksCentExt
 import CFSG.LocalAnalysis.StandardType.GGQ2SpBlocksIso
 import CFSG.LocalAnalysis.StandardType.GGQ2SpBlocksSU
-import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.WeakClosureLieGUDet
-import CFSG.GroupTheory.WeirSylow.UnitaryBridge
 import CFSG.LocalAnalysis.StandardType.GGQ2SpTorusAutBasic
 
 public section

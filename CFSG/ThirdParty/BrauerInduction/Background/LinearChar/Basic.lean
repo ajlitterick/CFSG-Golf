@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.BrauerInduction.Background.FDRep.Character.Basic
-public import CFSG.ThirdParty.BrauerInduction.Background.FDRep.Res
 
 public section
 

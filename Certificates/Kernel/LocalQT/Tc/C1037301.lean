@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Sporadic.Fi22.WordKit
-public import Certificates.Kernel.Sporadic.Fi22.E2067
 public import Certificates.Data.Kernel.LocalQT.Tc
 public import Certificates.Data.W4Fi22OuterGen
 meta import Certificates.Data.W4Fi22OuterGen

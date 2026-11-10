@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22qg
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22qf
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22qm
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
 
 public section
 

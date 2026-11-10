@@ -3,7 +3,6 @@ module
 import CFSG.Certificates.Kernel.BabyMonster.LoadFour
 public import CFSG.Certificates.Kernel.BabyMonster.F2Four
 import CFSG.Certificates.Kernel.BabyMonster.Load
-public import CFSG.Certificates.Kernel.BabyMonster.F2
 public import CFSG.Certificates.Kernel.BabyMonster.Fi23.Data6
 public import CFSG.Certificates.Kernel.BabyMonster.Fi23.Data7
 public import CFSG.Certificates.Kernel.BabyMonster.Fi23R.Data0

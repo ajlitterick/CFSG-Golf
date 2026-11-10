@@ -7,7 +7,6 @@ import Certificates.Kernel.BabyMonster.CTIB.Outer3122
 import Certificates.Kernel.BabyMonster.CTIB.CosetQBind
 import Certificates.Kernel.BabyMonster.CTIB.QK
 import CFSG.Certificates.Kernel.BabyMonster.OrbTreeSound
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

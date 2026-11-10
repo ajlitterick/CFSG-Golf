@@ -3,13 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinGenMember
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveL1PhanTransfer
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeakNbr
-public import CFSG.LocalAnalysis.StandardType.GGNSJoinByType
-import CFSG.LocalAnalysis.StandardType.GGNbrBalance
-import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
 import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrCoxOrder
-import CFSG.LocalAnalysis.StandardType.GGSimplyLacedWeyl
-import CFSG.LocalAnalysis.StandardType.GGNSJoinRankOneOfRk1
-import CFSG.LocalAnalysis.StandardType.GGReflectionBasic
 
 public section
 

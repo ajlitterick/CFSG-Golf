@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSpNsRootGenDefs
 public import CFSG.LocalAnalysis.StandardType.GGTorusRootGenAvoidModel
-import CFSG.LocalAnalysis.StandardType.GGOmegaNsRootGenDefs
-import CFSG.LocalAnalysis.StandardType.GGOmegaPlusRootGenDefs
 import CFSG.LocalAnalysis.StandardType.GGSpNsRootGenForm
 import CFSG.LocalAnalysis.StandardType.GGSpNsRootGenPlane
 import CFSG.LocalAnalysis.StandardType.GGSpNsRootGenGen
@@ -17,7 +15,6 @@ import CFSG.LocalAnalysis.StandardType.GGOmegaNsRootGenComp
 import CFSG.LocalAnalysis.StandardType.GGOmegaNsRootGenGenA
 import CFSG.LocalAnalysis.StandardType.GGOmegaNsRootGenGenB
 import CFSG.LocalAnalysis.StandardType.GGOmegaPlusRootGenWeyl
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySpCoord
 
 public section
 

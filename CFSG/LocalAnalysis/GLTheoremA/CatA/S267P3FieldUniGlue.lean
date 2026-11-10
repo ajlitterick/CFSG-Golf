@@ -1,22 +1,14 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267P3Field
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267P3FieldU
-public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherAntiunitaryTransport
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S267P3Iso
 import CFSG.LocalAnalysis.QuasithinUnique.SQTK.UnitaryTauCeti
-import CFSG.LieType.Steinberg.CentralExt.PSUMultiplier
 import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
-import CFSG.LieType.Steinberg.CentralExt.UnitaryPerfect
 import CFSG.LocalAnalysis.SteinbergBNUnitaryThreeOuterInvolutionRigidity
 import CFSG.GH74.GLS.Stage2.Signalizer.Ivk8KAUGen
 import CFSG.RankThree.SteinbergR3EUnitaryFieldDescent
 import CFSG.GroupTheory.WeirSylow.CrossRankUnitary
-import CFSG.GroupTheory.ElementaryAbelianTransport
-import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.Quasithin.Background.A3Structure36BPrime
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
 public import CFSG.CharacterTheory.Wreathed.WreathCentralSquare
@@ -58,16 +50,11 @@ public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.A3Structure36BAction
 public import CFSG.Quasithin.Background.A3Structure36BBasic
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import CFSG.GH74.GLS.IVK.Proofs2.OddTools
 import CFSG.GH74.GLS.Stage2.Local.P34Main
 import CFSG.GH74.GLS.Stage2.Local.P34S5A

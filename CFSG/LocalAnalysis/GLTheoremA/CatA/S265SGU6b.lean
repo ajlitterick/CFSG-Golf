@@ -3,16 +3,10 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265SGU6
 public import CFSG.HardMathSupport.Solomon.LocalBalance.I1433.LinUnitUnitaryBlocks
 import CFSG.Assembly.LargeEvenGLABridge
-import CFSG.CGT.Timmesfeld75.L2Basic
-import CFSG.CGT.Timmesfeld75.L2Sylow
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Basic
 import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOtherUnitary
-import CFSG.LocalAnalysis.StandardType.GGLinearTorusCompSUFrame
 import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63H5Det
-import CFSG.LocalAnalysis.StandardType.GGSixLinearModelSUTorus
-import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeThree
 import CFSG.LocalAnalysis.StandardType.GGTableBUnitarySixThreeCases
-import CFSG.RankThree.Classical.SteinbergBJUnitaryTwoBlock
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.SLFacts
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.SUFacts
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.UnitaryInner

@@ -5,8 +5,6 @@ public import Certificates.Kernel.Sporadic.Fi24G2e.RData
 import Certificates.Kernel.Sporadic.Fi24G2e.RA
 import Certificates.Kernel.Sporadic.Fi24G2e.RY
 import Certificates.Kernel.Sporadic.Fi24G2e.RZ
-import Mathlib.Tactic.Group
-import Mathlib.Tactic.IntervalCases
 
 public section
 

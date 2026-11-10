@@ -1,12 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLangDictOrbits
-public import CFSG.LocalAnalysis.StandardType.GGLangDictTransport
-public import CFSG.LocalAnalysis.StandardType.GGLangAlgebraic
-public import CFSG.LocalAnalysis.StandardType.GGLangDetects
 public import CFSG.LocalAnalysis.StandardType.GGLangPSLTwo
 public import CFSG.LocalAnalysis.StandardType.GGLangCorootPair
-public import CFSG.LocalAnalysis.StandardType.GGLangReidx
 public import CFSG.LocalAnalysis.StandardType.GGLangDictCentralizer
 public import CFSG.LocalAnalysis.StandardType.GGLangNormalizer
 public import CFSG.LocalAnalysis.StandardType.GGLangLatSolv

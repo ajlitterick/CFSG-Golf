@@ -1,11 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.GapsFrBSmallFinal
-public import CFSG.ClassicalInvolution.RouteD.GapsFrBFinal
-public import CFSG.ClassicalInvolution.RouteD.SmallBWired
-public import CFSG.ClassicalInvolution.RouteD.LocalTwinBWeakChain
-public import CFSG.ClassicalInvolution.RouteD.LocalTwinBLocal
-public import CFSG.ClassicalInvolution.RouteD.GapsEnd4Final
 
 public section
 

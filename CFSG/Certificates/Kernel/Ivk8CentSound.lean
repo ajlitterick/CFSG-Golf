@@ -3,8 +3,6 @@ module
 public import Certificates.Data.Kernel.Ivk8Cent
 public import CFSG.Certificates.Kernel.Spor.RecGroup
 import CFSG.Certificates.Kernel.BfsPinAlg
-import CFSG.Certificates.Kernel.Spor.PackWord
-import CFSG.Certificates.Kernel.Spor.PcompFacts
 
 public section
 

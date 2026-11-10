@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LieType.D4Small.WeightBasic
-import Mathlib.Tactic.Abel
-import Mathlib.Tactic.NormNum
 public import CFSG.LieType.D4Small.WeightClass
 
 public section

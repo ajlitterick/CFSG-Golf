@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TorsionLabel
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6Labels
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeSplit
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 
 public section
 

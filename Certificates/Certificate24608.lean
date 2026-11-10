@@ -4,9 +4,6 @@ module
 public import CFSG.Sporadic.SmallOddCore.J2DataInputs
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.RootFacts
 import Certificates.Kernel.Fin76bOm.Bridge
-import CFSG.Sporadic.Schreier.PairJ2CertInputs
-import CFSG.Sporadic.Schreier.PairJ2CheckInputs
-import CFSG.Sporadic.SmallOddCore.J2CheckInputs
 meta import CFSG.Sporadic.SmallOddCore.J2Data
 meta import CFSG.Sporadic.Schreier.PairJ2Check
 import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.Lemma69Def

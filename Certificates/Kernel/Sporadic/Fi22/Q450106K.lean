@@ -1,9 +1,7 @@
 module
 
 public import Certificates.Kernel.Sporadic.Fi22.E2065
-public import Certificates.Kernel.Sporadic.Fi22.E2067
 public import Certificates.Kernel.Sporadic.Fi22.X2069Final
-public import Certificates.Kernel.Misc.Perm.HexCmd
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoFi22.DS81.Fi24Branch.Fi22TwoBQCheck
 public meta import CFSG.LocalAnalysis.EvenSporadicStandard.TwoFi22.DS81.Fi24Branch.Fi22TwoBQCheck
 import CFSG.Certificates.Kernel.Common.Harness

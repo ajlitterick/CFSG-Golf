@@ -2,21 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.K148FTwoGlue
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.YS09U33
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcFieldG2Eight
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcVacuousTriality
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TriD4Outer
-public import CFSG.RankThree.PartTwo.Sec8.Item8KFacts2ProofD4
-public import CFSG.RankThree.PartTwo.Sec21.LangTwisted2ProofD4
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieOrderBridgeHolds
-import CFSG.LocalAnalysis.GLTheoremA.CatB.Bridges
 import CFSG.LocalAnalysis.GLTheoremA.S10.CatDistinct
-import CFSG.RankThree.PartTwo.Sec13.Item13Models
-import CFSG.RankThree.PartOne.KGD.D4T36Core
-import CFSG.Quasithin.EmptyFaithfulMultiple.G2TwoUnitary
-import CFSG.Quasithin.H13.GoldschmidtC137SQRkU33
-import CFSG.LocalAnalysis.QuasithinUnique.SQTK.UnitaryTauCeti
-import CFSG.Open.StatedSUFieldChange
-import CFSG.RankThree.PartTwo.Sec4.Item47Witness
 public import CFSG.Blueprint.OddStandardExact
 public import CFSG.Goldschmidt.Steps.G37Core
 public import CFSG.HardMathSupport.Dickson.KD.CharPAux.Exc

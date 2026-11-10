@@ -1,12 +1,8 @@
 module
 
-public import CFSG.RankThree.PerfectCover.HopfCover
-public import CFSG.RankThree.PerfectCover.HopfFormula
 public import CFSG.LieType.Multipliers.L34Upper
 public import CFSG.LieType.Steinberg.CentralExt.PSLMultiplier
 public import CFSG.LocalAnalysis.ComponentInitial.LinearFlagElation
-public import CFSG.LinearAlgebra.LinearGroups.Perfect
-public import CFSG.Open.StatedDefs
 public import CFSG.Assembly.Subnormal
 public import CFSG.LieType.Steinberg.Classical.SpinFrame
 public import CFSG.LieType.Steinberg.Exceptional.E6E7

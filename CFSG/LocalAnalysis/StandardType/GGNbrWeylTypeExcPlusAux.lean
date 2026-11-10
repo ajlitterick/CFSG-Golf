@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitExcPlus
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitExcPlusBump
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylExcPlusLift
 public import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeF4ThreeAux
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderExcWeyl
 
 public section
 

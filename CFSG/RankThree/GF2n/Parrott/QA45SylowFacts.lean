@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.GF2n.Parrott.QA45ListGroups
-public import CFSG.GroupTheory.ConjTransport
 
 public section
 

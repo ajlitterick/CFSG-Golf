@@ -3,10 +3,8 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoRootGenF4Gen
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoRootGenF4ThreeFrame
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoRootGenKG
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4Basic
 public import CFSG.LocalAnalysis.StandardType.GGRootGenResQFourDefs
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoRootGenExcRefl
-public import CFSG.GroupTheory.SelfCentralizingMap
 
 public section
 

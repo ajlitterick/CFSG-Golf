@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239CoversBasic
 public import CFSG.Sporadic.Bridge.M11
 public import CFSG.Sporadic.Mathieu.M11
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 
 public section

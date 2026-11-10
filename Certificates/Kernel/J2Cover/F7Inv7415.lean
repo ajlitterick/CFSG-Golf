@@ -4,7 +4,6 @@ public import Certificates.Kernel.J2Cover.K19A
 public import CFSG.Quasithin.Background.F7TwoInvSporJ2Inputs
 import CFSG.Certificates.Kernel.LocalQTCovTPrim
 import CFSG.Certificates.Kernel.BfsPinAlg
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Spor.RawOrbGrp
 
 public section

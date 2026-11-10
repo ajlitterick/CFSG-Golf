@@ -4,11 +4,8 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.SylowThreeGeom
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.A10EndFactsCore
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenThreeCoverFrame
 import CFSG.Quasithin.Vol2.KGFactC31NoM22FusBurnside
-import Mathlib.GroupTheory.SpecificGroups.Cyclic
 import CFSG.GroupTheory.PGroup.LtInfNormalizer
 import CFSG.LinearAlgebra.F3ConnectedPairingScalar
-import Mathlib.Algebra.Module.Pi
-import Mathlib.Algebra.Module.ZMod
 
 public section
 

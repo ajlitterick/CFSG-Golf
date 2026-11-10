@@ -18,7 +18,6 @@ public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 public meta import Certificates.Data.CFSGNative.Schreier.Check
 public meta import Certificates.Data.CFSGNative.Schreier.Merge
 public meta import Certificates.Data.CFSGNative.ONSchreier.Compact
-import Certificates.Data.CFSGNative.Co1.Data
 
 @[expose] public section
 

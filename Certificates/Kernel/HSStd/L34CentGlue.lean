@@ -7,8 +7,6 @@ public import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.HL34Data
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.HFIL34Data
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
 import CFSG.Certificates.Kernel.BfsPinSetSound
-import CFSG.Certificates.Kernel.Spor.PackWord
-import CFSG.Certificates.Kernel.Spor.BfsReplay
 
 public section
 

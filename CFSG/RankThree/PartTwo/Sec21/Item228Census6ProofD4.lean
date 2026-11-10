@@ -1,18 +1,10 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec21.Item223Rank2ProofD4
-public import CFSG.RankThree.PartTwo.Sec4.Notation
-public import CFSG.Blueprint.Catalog
-public import CFSG.Assembly.Defs
-public import Mathlib.GroupTheory.SpecificGroups.Dihedral
 import CFSG.RankThree.PartTwo.Sec4.Item417Res6ProofTools
 import CFSG.RankThree.PartTwo.Sec4.Item417Res7ProofD4Odd
 import CFSG.RankThree.PartTwo.Sec4.Item417Res7ProofD4Toral
-import CFSG.RankThree.PartTwo.Sec4.Item417Res7ProofD4Levi
 import CFSG.RankThree.PartTwo.Sec4.Item417Res8ProofD4Plane
-import CFSG.RankThree.PartOne.K133H.D4Plane
-import CFSG.LieType.Chevalley.TrialityAllCharTorusCoordinates
-import CFSG.LieType.Chevalley.TrialityExactFiniteOrder
 import CFSG.RankThree.PartTwo.Sec21.Item228Census6ProofTools
 public import CFSG.Adapters.TauCetiExceptional.BridgeTransport
 public import CFSG.LieType.Chevalley.EvenRootCommutatorF4

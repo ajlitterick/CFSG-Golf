@@ -2,24 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.HypA2Leaves.A2lCl2FamCore
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofE6C4Fixed
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofE6C4Edge
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofE6C4Comm
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofE6C4Gen
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddExc
-public import CFSG.ClassicalInvolution.WeakCT.Symplectic
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofE6F4Fixed
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofE6F4Frame
-public import CFSG.LieType.Chevalley.GraphFixedSimplePairs
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofEvenExc
-public import CFSG.LocalAnalysis.ComponentClassification.ExcSelectorOddGFE
-public import CFSG.LocalAnalysis.ComponentClassification.ExcSelectorOddE6
-public import CFSG.LocalAnalysis.ComponentClassification.LiteratureLocalSmallReeFixedPoints
-public import CFSG.LieType.Ree.SmallReeModelSchreier
-public import CFSG.LieType.Chevalley.OddExceptionalOuterTwoRank
-public import CFSG.LocalAnalysis.ComponentInitial.CommutingBlock
-public import CFSG.LocalAnalysis.ComponentInitial.FieldFiniteAutomorphism
-public import CFSG.GroupTheory.LocalCores.Components
-public import CFSG.LieType.CurtisTits.Conclusion
 public import CFSG.ClassicalInvolution.ModelFacts.StandardPairChevalley
 public import CFSG.ClassicalInvolution.Models.LinearFrames
 public import CFSG.ClassicalInvolution.Models.LinearPairs

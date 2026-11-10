@@ -5,15 +5,7 @@ public import Certificates.Certificate4182Base
 
 public import Certificates.Data.TwoF4LocCheck
 public import Certificates.Data.TitsLocData
-public import Certificates.Data.CFSGNative.Schreier.Check
-public import CFSG.Sporadic.Schreier.TitsActionCheckInputs
-public import CFSG.Sporadic.Schreier.TitsCentralCheckInputs
-public import Certificates.Data.TwoF4LieCheck
-public import CFSG.Sporadic.Schreier.TitsAction
-public import Mathlib.Logic.Relation
-public import CFSG.Sporadic.Schreier.TitsCert
 import Certificates.Kernel.TitsLoc.Glue
-import Certificates.Kernel.TwoF4Lie.Glue
 import CFSG.Quasithin.Vol2.GoldschmidtF431TwoF4Spec
 public import Certificates.Certificate4180Base
 

@@ -1,17 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBWNormIsometry
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormFrame
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormFixedFree
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcWeylAutInner
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNormalClosureRefl
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelTypeAAssembly
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcThreeE7
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcThreeE8
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesCore
-public import CFSG.LieType.Chevalley.LangRootArithmeticDet
-public import CFSG.LieType.Chevalley.WeylRoots
 
 public section
 

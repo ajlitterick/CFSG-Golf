@@ -1,10 +1,8 @@
 module
 
 public import CFSG.Sporadic.HNSchreier.SylowCheck
-public import CFSG.Sporadic.HNSchreier.IntrinsicData
 public meta import CFSG.Sporadic.HNSchreier.SylowCheck
 public meta import CFSG.Sporadic.HNSchreier.IntrinsicData
-public import CFSG.Sporadic.HNSchreier.IntrinsicCheckInputs
 public import Certificates.Certificate2098
 
 public section

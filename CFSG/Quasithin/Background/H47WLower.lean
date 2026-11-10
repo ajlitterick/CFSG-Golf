@@ -1,14 +1,8 @@
 module
 
-public import Mathlib
 public import CFSG.Milestones.ASVolI.H1
 public import CFSG.Quasithin.Vol2.Ch9Sec3L34QuadPf
 public import CFSG.Quasithin.Vol2.Ch9Sec3L34KGMPf
-public import CFSG.GroupTheory.Fitting.CharacteristicP
-public import CFSG.GroupTheory.LocalCores.Components
-public import CFSG.LinearAlgebra.LinearGroups.ProjectiveSimple
-public import CFSG.Adapters.ProjectiveSpecialLinear
-public import CFSG.Open.StatedDefs
 public import CFSG.CharacterTheory.Semidihedral.FixedFieldData
 public import CFSG.Foundations
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
@@ -50,7 +44,6 @@ public import CFSG.Quasithin.Background.HFixSylBase
 public import CFSG.Quasithin.Background.HTriSolv
 public import CFSG.Quasithin.Background.HTriU3
 public import CFSG.Quasithin.Background.HZ82Base
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis

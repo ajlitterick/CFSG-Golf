@@ -2,8 +2,6 @@ module
 
 public import CFSG.RankThree.GF2n.Parrott.Section4InvolutionCoset
 public import CFSG.RankThree.GF2n.Parrott.Section4SylowFiveStructure
-public import CFSG.RankThree.GF2n.Parrott.QuadraticV
-public import CFSG.GroupTheory.CentralizerSylowFusion
 
 public section
 

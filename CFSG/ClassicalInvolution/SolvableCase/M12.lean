@@ -4,12 +4,7 @@ public import CFSG.ClassicalInvolution.SolvableCase.Tight
 public import CFSG.ClassicalInvolution.PerfectCase
 import CFSG.ClassicalInvolution.SubnormalClosure
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.M12
-public import Certificates.Certificate2193
-public import Certificates.Certificate2200
-public import CFSG.ClassicalInvolution.SolvableCase.M12Inputs
 public import Certificates.Certificate9315
-public import Certificates.Certificate2194
-public import Certificates.Certificate9311
 public meta import CFSG.ClassicalInvolution.SmallCases.Sporadic.M12
 public import CFSG.ClassicalInvolution.SolvableCase.Structure
 public import CFSG.GroupTheory.LocalCores.Fitting

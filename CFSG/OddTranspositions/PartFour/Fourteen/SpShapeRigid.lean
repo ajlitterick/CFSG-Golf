@@ -2,13 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.WeakClosure81.SevenKSymplectic
 public import CFSG.OddTranspositions.PartThree.FiveReflection
-public import CFSG.Open.FischerThreeTranspositionMilestoneDefs
 public import CFSG.Timmesfeld.Bridge.Asc72Defs
-import CFSG.Open.Defs
 import CFSG.RankThree.GF2n.Smith81.InspKSpCard
-import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotCatTypeDetOrders
-import CFSG.RankThree.PartOne.S12K.OrdRigidL
-import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotLeviFact
 import CFSG.OddTranspositions.PartFour.Fourteen.TableE1Five
 import CFSG.OddTranspositions.PartFour.Fourteen.TableSp
 import CFSG.OddTranspositions.PartThree.FiveReflectionFischer

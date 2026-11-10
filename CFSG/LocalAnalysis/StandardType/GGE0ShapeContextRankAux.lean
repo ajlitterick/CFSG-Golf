@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGE0ShapeDefs
 public import CFSG.LocalAnalysis.StandardType.GGE0ShapeOddIndex
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.RigidTwE6
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.Stroth.HeisD4.StraightenTw
 public import CFSG.LocalAnalysis.StandardType.GGE0ShapeContextRankAux2
 

@@ -4,9 +4,7 @@ public import CFSG.Quasithin.Vol2.Ch12Sec2Lem22K
 public import CFSG.Quasithin.Vol2.KGFactMinParL42
 public import CFSG.Quasithin.Vol2.KGFactMinParL52
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L246B113OverCertL32
-public import CFSG.LocalAnalysis.SectionRank.Ccomm.ElementaryAut
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.FamilyLinearBinary
-public import CFSG.GH74.Exceptional.LinearFourTwo
 public import CFSG.Dihedral.FourgroupCycleControl
 public import CFSG.Dihedral.OriginalCentralizerOddCore
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.AschbacherCanonicalRemaining
@@ -31,12 +29,7 @@ public import CFSG.Quasithin.Background.B5CompA
 public import CFSG.Quasithin.Background.B5CompB
 public import CFSG.Quasithin.Background.B5FinOut
 public import CFSG.Quasithin.Background.B6
-public import CFSG.Quasithin.Background.B6Example
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3OffenderB
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.E4Solv
 public import CFSG.Quasithin.Background.FFC4Real
 public import CFSG.Quasithin.Background.InternalSecData
 public import CFSG.Quasithin.Vol2.Ch10StatementsE

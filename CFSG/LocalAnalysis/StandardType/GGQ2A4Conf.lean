@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2A4Checks
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLin
-import Mathlib.Algebra.Group.Subgroup.Finite
-import Mathlib.Algebra.Module.Submodule.LinearMap
-import Mathlib.LinearAlgebra.Dimension.Constructions
-import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
 
 public section
 

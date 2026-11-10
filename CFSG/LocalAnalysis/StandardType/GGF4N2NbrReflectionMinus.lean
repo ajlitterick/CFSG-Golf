@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4N2NbrReflection
 public import CFSG.LocalAnalysis.StandardType.GGF4N2OmegaKPositions
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRestGen
-import CFSG.RankThree.PartOne.AUTSL.Interface
 
 public section
 

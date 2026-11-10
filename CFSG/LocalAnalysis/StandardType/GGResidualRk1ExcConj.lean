@@ -1,24 +1,12 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResidualRk1Frame
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitExcPlus
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenOver
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRowMemberAux
-import CFSG.LocalAnalysis.StandardType.GGNbrReflGenCore
-import CFSG.LocalAnalysis.StandardType.GGForkJrPumpLattice
 import CFSG.LocalAnalysis.StandardType.GGReflClosedOfWeyl
 import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylEltOfAutomizer
-import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeExcPlusAux
 import CFSG.LocalAnalysis.StandardType.GGResidualExcRows
 import CFSG.LocalAnalysis.StandardType.GGSpJoinReflTypeE
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaExcPlusAux2
-import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylExcPlusLift
 import CFSG.LocalAnalysis.StandardType.GGTBRowTwE6FrameAux
-import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitTwE6Plus
-import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaOutdiag
-import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaCenter
-import CFSG.LocalAnalysis.StandardType.GGTableBTwE6RankOuter
 
 public section
 

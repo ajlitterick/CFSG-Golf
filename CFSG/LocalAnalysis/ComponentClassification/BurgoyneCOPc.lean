@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneCData
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneCProj
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneOUnitComp
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneOAntiComp
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBPrimeJoinInteraction
 
 public noncomputable section

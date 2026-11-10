@@ -4,9 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45FinalTorus
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangTypeAFrame
 public import CFSG.LieType.SeitzGeneration.OuterLinearLift
 public import CFSG.Quasithin.SteinbergBIOddLinearThreeDiagonal
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismGeneration
-public import CFSG.RankThree.SteinbergR3ELinearPointwiseAutomorphisms
-public import Mathlib.NumberTheory.Cyclotomic.CyclotomicCharacter
 public import CFSG.LieType.SeitzGeneration.Inner
 public import CFSG.LieType.SeitzGeneration.Lift
 public import CFSG.LieType.SeitzGeneration.OuterLinearPlane
@@ -20,7 +17,6 @@ public import CFSG.RankThree.PartOne.KC.PlaneReductionGeneral
 public import CFSG.RankThree.PartOne.S11d.OutLinear
 public import CFSG.RankThree.SteinbergR3ELinearTwoOddFieldFixed
 public import CFSG.RankThree.Theta.ThreeComponentOrbitCover
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.Defs
 
 public section

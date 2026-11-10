@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.GF2n.Stroth80.SmithEightHolds
 public import CFSG.LieType.D4Small.Om8Datum
-public import CFSG.ClassicalGroups.Orthogonal.Lines
 public import CFSG.RankThree.GF2n.Smith81.Orth212C5Alg
 public import CFSG.ClassicalGroups.SpecialLinear.InvariantForms
 public import CFSG.ClassicalGroups.SpecialLinear.NaturalDualSum

@@ -1,11 +1,6 @@
 module
 
-public import CFSG.Open.LocalVocabulary
-public import CFSG.Open.StatedDefs
-public import CFSG.Blueprint.LieModelAPI
-public import CFSG.LocalAnalysis.UniquenessCase.UC22Defs
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.KGroupL34
-public import CFSG.HardMathSupport.Timmesfeld.Tables.Multiplier.Aut
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ElevenTwelveRanksNotLe
 public import CFSG.CGT.PushingUpLit.BHS.NaturalDefs
 public import CFSG.CGT.PushingUpLit.BHS.SymNatDefs

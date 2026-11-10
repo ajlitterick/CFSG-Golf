@@ -3,7 +3,6 @@ module
 public import CFSG.Certificates.Kernel.Spor.RawDefs
 public import Certificates.Data.Kernel.Spor.Prim
 import CFSG.Certificates.Kernel.Spor.RawSiftK
-public import Certificates.Data.CFSGNative.Co3Schreier.Basic
 
 public section
 

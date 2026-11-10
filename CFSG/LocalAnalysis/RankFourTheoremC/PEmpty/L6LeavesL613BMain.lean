@@ -7,14 +7,10 @@ public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.L6LeavesKxPConstr
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.L6LeavesKGDefs
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.L618Strong
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.L617PThree
-public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.P65Basic
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.L63
-public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.AlmostSimpleBInnerPClosure
 import CFSG.LocalAnalysis.RankThreeTheoremC.ReducedLayer
 import CFSG.HardMathSupport.Solomon.Coordinator.I10_20
 import CFSG.HardMathSupport.Timmesfeld.ComponentBalance.PGroupNormalE4
-import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.K62BMain
-import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.K713SMain
 public import CFSG.Blueprint.LieModelAPI
 public import CFSG.CGT.PushingUp.BenderBridge
 public import CFSG.CGT.PushingUp.BlockOrder
@@ -102,7 +98,6 @@ public import CFSG.Sporadic.Recognition.HNMultiplier
 public import CFSG.Sporadic.Recognition.LyonsAmalgamModelYAut
 public import CFSG.Sporadic.Recognition.LyonsFinalDist2
 public import CFSG.Sporadic.Suz
-public import CFSG.Walter.J1Props
 
 public section
 

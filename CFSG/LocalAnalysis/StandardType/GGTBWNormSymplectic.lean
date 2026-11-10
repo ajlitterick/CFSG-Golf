@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormSigned
 public import CFSG.LocalAnalysis.StandardType.GGKGARank
-public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameTorus
 
 public section
 

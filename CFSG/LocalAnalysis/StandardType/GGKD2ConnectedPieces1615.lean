@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGKD2Leaves1615
 public import CFSG.LocalAnalysis.ComponentClassification.InnAutDerived
-public import CFSG.Sporadic.ThSchreier.GlobalData
 
 public section
 

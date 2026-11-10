@@ -1,11 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGK1ScExcPair
-public import CFSG.LocalAnalysis.StandardType.GGInnLocalDefs
-import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Aut
-import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaOutdiag
-import CFSG.LocalAnalysis.StandardType.GGTableBExcBasic
-import CFSG.LocalAnalysis.StandardType.GGTableBF4Basic
 
 public section
 

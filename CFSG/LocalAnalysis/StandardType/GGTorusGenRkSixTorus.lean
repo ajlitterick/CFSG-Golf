@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkSixLift
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeBlock
 
 public section
 

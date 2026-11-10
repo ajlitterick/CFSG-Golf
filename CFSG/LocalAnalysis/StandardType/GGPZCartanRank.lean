@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBTorCartan
 public import CFSG.LocalAnalysis.StandardType.GGTBTorRel
-public import CFSG.LocalAnalysis.StandardType.GGTBTorRest
 public import CFSG.LocalAnalysis.StandardType.GGForkClassify
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabel
 public import CFSG.LocalAnalysis.StandardType.GGForkCells
 
 public section

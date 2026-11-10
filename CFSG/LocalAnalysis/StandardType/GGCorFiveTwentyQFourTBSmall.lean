@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootGenSmallRankQFour
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyReflDom
 
 public section
 

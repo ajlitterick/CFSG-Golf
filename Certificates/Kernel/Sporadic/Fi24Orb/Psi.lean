@@ -7,7 +7,6 @@ import Certificates.Kernel.Sporadic.Fi24Fix.Neg
 import Certificates.Kernel.Sporadic.Fi24Fix.Chain
 import Certificates.Kernel.Sporadic.Fi24Orb.Small
 import all CFSG.Sporadic.Bridge.Common
-import Mathlib.Tactic.Group
 public import Certificates.Kernel.Fi23M.Psi
 public import CFSG.Sporadic.Fi24.CertificateBase
 

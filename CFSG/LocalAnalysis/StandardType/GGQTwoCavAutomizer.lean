@@ -1,12 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoCavImageOrder
 public import CFSG.LocalAnalysis.StandardType.GGQTwoB2Cav
 public import CFSG.LocalAnalysis.StandardType.GGQTwoE6Component
 public import CFSG.LocalAnalysis.StandardType.GGQTwoE6HeartAutomizer
 public import CFSG.LocalAnalysis.StandardType.GGQTwoExceptionalComponent
 public import CFSG.LocalAnalysis.StandardType.GGQTwoFullExclusions
-public import CFSG.LocalAnalysis.StandardType.GGQTwoUnitaryFullComponent
 public import CFSG.LocalAnalysis.StandardType.GGQTwoCavVacuous
 public import CFSG.LocalAnalysis.StandardType.GGQTwoSymplecticFullAutomizer
 public import CFSG.LocalAnalysis.StandardType.GGQTwoOrthogonalCav

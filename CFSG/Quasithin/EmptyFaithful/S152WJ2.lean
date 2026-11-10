@@ -3,10 +3,7 @@ module
 public import CFSG.Quasithin.EmptyFaithful.S152WBase
 public import CFSG.Sporadic.Schreier.PairJ2Pairs
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutOddCore
-public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutModel
-public import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
 public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitE6ThreeDvd
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitE6FourDvd
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitE6SixDvd
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitE6Cyclic
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitE6Arith
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitE6Cover
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitCyclicCore
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Detect.Heis.NormalForm
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Frames

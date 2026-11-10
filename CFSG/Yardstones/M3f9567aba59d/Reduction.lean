@@ -24,10 +24,8 @@ import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermLinSU6Holds
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniQTwoExcSixHolds
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermProperQTwoNbrHolds
 
-import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBLabelCore
 import CFSG.LocalAnalysis.StandardType.GGQTwoDSevenLeaves
 import CFSG.LocalAnalysis.StandardType.GGQTwoPhanDM4
-import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBRes
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBSp
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCornerReduce
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBSpSp
@@ -35,12 +33,7 @@ import CFSG.LocalAnalysis.StandardType.GGSecFiveBSpCoordFrame
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBSpCharts
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBSpSpCharts
 import CFSG.LocalAnalysis.StandardType.PhanEStdClassified
-import CFSG.LocalAnalysis.StandardType.GGResJTwE6Lagrange
-import CFSG.LocalAnalysis.StandardType.GGResThreeSettled
 import CFSG.LocalAnalysis.StandardType.GGResUnitaryKByDegree
-import CFSG.LocalAnalysis.StandardType.GGResTwoSettled
-import CFSG.LocalAnalysis.StandardType.GGResTwoCells
-import CFSG.LocalAnalysis.StandardType.GGResSpSplitThree
 import CFSG.LocalAnalysis.StandardType.GGResE6SplitExactTwoL
 import CFSG.LocalAnalysis.StandardType.GGResExact2OrthSplit
 import CFSG.LocalAnalysis.StandardType.GGResTwDExactTwoL
@@ -54,28 +47,19 @@ public import CFSG.LocalAnalysis.StandardType.GGTBJExoticRows
 public import CFSG.LocalAnalysis.StandardType.GGTBJLowRankRows
 public import CFSG.LocalAnalysis.StandardType.GGTBJClassicalOrderRows
 
-public import CFSG.Yardstones.M3f9567aba59d.Definitions
 import CFSG.LocalAnalysis.StandardType.GGAllFixedSolv
 public import CFSG.LocalAnalysis.StandardType.TableC.PSpTC
 import CFSG.LocalAnalysis.StandardType.GGQTwoXInLClassicalHolds
 import CFSG.LocalAnalysis.StandardType.GGF4OriginalTypes
 import CFSG.LocalAnalysis.StandardType.GGSecFiveF4BCPair
 import CFSG.LocalAnalysis.StandardType.GGF4B3Core
-import CFSG.LocalAnalysis.StandardType.GGSecFiveF4Contracts
 import CFSG.LocalAnalysis.StandardType.GGF4LabelLeaves
 import CFSG.LocalAnalysis.StandardType.GGF4SmallExcl
-import CFSG.LocalAnalysis.StandardType.GGExcTwoCompListsRE
-import CFSG.LocalAnalysis.StandardType.GGK0CompREMult
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSQ2Cells
-import CFSG.LocalAnalysis.StandardType.GGNsq2Main
-import CFSG.LocalAnalysis.StandardType.GGNsq2U62
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSQ2DU6
-import CFSG.LocalAnalysis.StandardType.GGNsq2NbrMain
 import CFSG.LocalAnalysis.StandardType.GGQTwoSlotOut
 import CFSG.LocalAnalysis.StandardType.GGQTwoBSCompletion
-import CFSG.LocalAnalysis.StandardType.ZS.UseInputHolds
 import CFSG.LocalAnalysis.StandardType.GGPhanSmallFalse
-import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinHCRows
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBWeylInf
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBFourPermExc
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBReflMax
@@ -84,14 +68,12 @@ import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSp
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpFrame
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpLFrameMp
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpKFrameMp
-import CFSG.LocalAnalysis.StandardType.GGF4Absorption
 import CFSG.LocalAnalysis.StandardType.GGSecFiveF4ReflMax
 import CFSG.LocalAnalysis.StandardType.GGSecFiveF4WeylInf
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBMaxJoin
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBProperRootModel
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUnitaryLabel
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBSatOfNativeImage
-import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordDExclReal
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordDExclOrth
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordDExclResid
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordDExclResidE6
@@ -99,76 +81,48 @@ import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordDExclResidTwE6
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordDExclResidTwA5
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordDExclQTwoCl
 import CFSG.LocalAnalysis.StandardType.GGResidualGenFrameHolds
-import CFSG.LocalAnalysis.StandardType.GGRealKGFiveOffE6
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPosition
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-import CFSG.LocalAnalysis.StandardType.GGQ2NbrD5Frame
-import CFSG.LocalAnalysis.StandardType.GGQ2ExcCensusCert
 import CFSG.LocalAnalysis.StandardType.GGQ2InLLeafPlane
 import CFSG.LocalAnalysis.StandardType.GGQ2InLCoverPieces
-import CFSG.LocalAnalysis.StandardType.GGFrameEndJoin
 import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortGlueFSPoint
 import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortGlueOneOuter
 import CFSG.LocalAnalysis.StandardType.GGFrameTBHolds
-import CFSG.LocalAnalysis.StandardType.GGFrameTBVacuous
 import CFSG.LocalAnalysis.StandardType.FS81.ReductionRest
 import CFSG.LocalAnalysis.StandardType.FS81.TwD7YFromProjection
 import CFSG.LocalAnalysis.StandardType.FS81.L3RootFusionHolds
 import CFSG.LocalAnalysis.StandardType.FS81.TwD5Reduction
 import CFSG.LocalAnalysis.StandardType.FS81.TwD5NineAssembly
 import CFSG.LocalAnalysis.StandardType.FS81.TwD5Nine92
-import CFSG.LocalAnalysis.StandardType.FS81.TwD5ReflCheck
-import CFSG.LocalAnalysis.StandardType.FS81.TwD5NineModel
-import CFSG.LocalAnalysis.StandardType.FS81.TwD5TwoLocalK
 import CFSG.LocalAnalysis.StandardType.GGPhanSmallU6
 import CFSG.LocalAnalysis.StandardType.GGPhanSmallEnnola
-import CFSG.LocalAnalysis.StandardType.GGResXDichotomy
 import CFSG.LocalAnalysis.StandardType.GGPZNbrResRest
-import CFSG.LocalAnalysis.StandardType.GGResRowAssembly
-import CFSG.LocalAnalysis.StandardType.ZS.Adapter
 import CFSG.LocalAnalysis.StandardType.GGTWZKAssembly
-import CFSG.LocalAnalysis.StandardType.GGTBJLinearSplitA
-import CFSG.LocalAnalysis.StandardType.GGTBJUnitaryDvd
 import CFSG.LocalAnalysis.StandardType.GGResE6TwoThreeExactTwoL
 import CFSG.LocalAnalysis.StandardType.GGResUnitaryKRankFiveL
 import CFSG.LocalAnalysis.StandardType.GGTBJTwE6LeviThreeStage
-import CFSG.LocalAnalysis.StandardType.GGTBJTwE6ThreeGlue
 import CFSG.LocalAnalysis.StandardType.GGTBJTwE6ThreeTwo
 import CFSG.LocalAnalysis.StandardType.GGTBJF4LeviTwo
-import CFSG.LocalAnalysis.StandardType.GGTBJETypeCells
 import CFSG.LocalAnalysis.StandardType.GGTBJFamilyCover
 import CFSG.LocalAnalysis.StandardType.GGTBJE6LeviStageT
 import CFSG.LocalAnalysis.StandardType.GGTBJE6LeviThreeT
 import CFSG.LocalAnalysis.StandardType.GGTBJTwE6LeviSplitCover
 import CFSG.LocalAnalysis.StandardType.GGTBJTwE6LeviGeFiveStage
 import CFSG.LocalAnalysis.StandardType.GGTBJNoB2derA1Holds
-import CFSG.LocalAnalysis.StandardType.GGTBJF4LeviPlus
 import CFSG.LocalAnalysis.StandardType.GGTBJUnitaryCoprime
-import CFSG.ClassicalInvolution.Phan.PhanDn.MainA
 import CFSG.ClassicalInvolution.Phan.PhanDn.QTwo.OmegaModels
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitSixCell
 import CFSG.LocalAnalysis.StandardType.GGTBJSympMinusOne
 import CFSG.LocalAnalysis.StandardType.GGTBJOrthOn
-import CFSG.LocalAnalysis.StandardType.GGTBJSympMinus
 import CFSG.LocalAnalysis.StandardType.GGTBJUnitaryMinus
 import CFSG.LocalAnalysis.StandardType.GGTBJLinearMinus
-import CFSG.LocalAnalysis.StandardType.GGTBJEThree
-import CFSG.LocalAnalysis.StandardType.GGTBJSpPlus
 import CFSG.LocalAnalysis.StandardType.GGTBJNonLeviRows
 import CFSG.LocalAnalysis.StandardType.GGTBJUnitaryRankThree
-import CFSG.LocalAnalysis.StandardType.GGTBJSpRankThree
-import CFSG.LocalAnalysis.StandardType.GGTBJUnitarySix
 import CFSG.LocalAnalysis.StandardType.GGTBWNormE7E8Two
 import CFSG.LocalAnalysis.StandardType.GGTBWNormLabelExhaustion
 import CFSG.LocalAnalysis.StandardType.GGTwoNodeRowDim
 import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepLE3TenHolds
 public import CFSG.LocalAnalysis.StandardType.GGNTPlaneRC0
-import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1Holds
-import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeAssembly
-import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2ExceptionalAction
 import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2E6Label
-import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2OrthogonalPlus
-import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2OffRows
 import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2LargeImage
 import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2OrthogonalMinus
 import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2Sp
@@ -176,7 +130,6 @@ import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2Census
 import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2ExceptionalRest
 import CFSG.LocalAnalysis.StandardType.GGTBRowF4Datum
 import CFSG.LocalAnalysis.StandardType.GGTBRowDatumNarrow
-import CFSG.LocalAnalysis.StandardType.GGTBRowDatumNarrow2
 import CFSG.LocalAnalysis.StandardType.GGTBRowDatumNarrow11
 import CFSG.LocalAnalysis.StandardType.GGTBRowDatumVacuous
 import CFSG.LocalAnalysis.StandardType.GGTBRowDatumNarrow10
@@ -185,172 +138,74 @@ import CFSG.LocalAnalysis.StandardType.GGTBRowDatumNarrow8
 import CFSG.LocalAnalysis.StandardType.GGTBRowDatumNarrow7
 import CFSG.LocalAnalysis.StandardType.GGTBRowDatumNarrow6
 import CFSG.LocalAnalysis.StandardType.GGTBRowDatumNarrow5
-import CFSG.LocalAnalysis.StandardType.GGTBRowDatumNarrow4
-import CFSG.LocalAnalysis.StandardType.GGTBRowDatumNarrow3
-import CFSG.LocalAnalysis.StandardType.GGTBJRowR4Narrow
-import CFSG.LocalAnalysis.StandardType.GGTwA5ThreeNarrow
 import CFSG.LocalAnalysis.StandardType.GGTBJRowVNarrow
 import CFSG.LocalAnalysis.StandardType.GGTBJRowR5O1Narrow
 import CFSG.LocalAnalysis.StandardType.GGTBJRowR5UNarrow
 import CFSG.LocalAnalysis.StandardType.GGTBJRowR3Narrow
-import CFSG.LocalAnalysis.StandardType.GGTBJRowR5Narrow
 import CFSG.LocalAnalysis.StandardType.GGTBJRowR5UdNarrow
 import CFSG.LocalAnalysis.StandardType.GGTBJRowR6Narrow
 import CFSG.LocalAnalysis.StandardType.GGTBJXRow
 import CFSG.LocalAnalysis.StandardType.GGTBJR1ADRow
 import CFSG.LocalAnalysis.StandardType.GGTBJRowRest
-import CFSG.LocalAnalysis.StandardType.GGTBJE6ThreeRow
-import CFSG.LocalAnalysis.StandardType.GGTBJRowR5O2
 import CFSG.LocalAnalysis.StandardType.GGInnerD4SmallHolds
 import CFSG.LocalAnalysis.StandardType.GGInnerD4DGenHolds
 import CFSG.LocalAnalysis.StandardType.GGInnerD4RAHolds
 import CFSG.LocalAnalysis.StandardType.GGInnerD4Assembly
 import CFSG.LocalAnalysis.StandardType.GGFieldTwoCornerSplit
 import CFSG.LocalAnalysis.StandardType.GGFieldTwoFinal
-import CFSG.LocalAnalysis.StandardType.GGAm2Final
 import CFSG.LocalAnalysis.StandardType.GGExcReflTBWeylDatumHolds
-import CFSG.LocalAnalysis.StandardType.GGTwE6BadDatum
 import CFSG.LocalAnalysis.StandardType.GGQ2TableBI1NotTB
 import CFSG.LocalAnalysis.StandardType.GGQ2TableBI1UHeart
 import CFSG.LocalAnalysis.StandardType.GGQ2TableBI1TwE6
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyQFourTBSmall
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenTwoThreeNarrow22
 import CFSG.LocalAnalysis.StandardType.GGTorusGenTwoThreeForm4Vac
 import CFSG.LocalAnalysis.StandardType.GGL48TBForm1Rest22Holds
 import CFSG.LocalAnalysis.StandardType.GGE0InnerDiagInputHolds
 import CFSG.LocalAnalysis.StandardType.GGOuterInvRestHolds
 import CFSG.LocalAnalysis.StandardType.GGResHdRoOpenR
-import CFSG.LocalAnalysis.StandardType.GGReflExtE6
-import CFSG.LocalAnalysis.StandardType.GGReflExtA5
 import CFSG.LocalAnalysis.StandardType.GGTwoNodeNineDepTwoRest
-import CFSG.LocalAnalysis.StandardType.GGNineDepKFixLine
 import CFSG.LocalAnalysis.StandardType.GGNineDepRowImprimHolds
 import CFSG.LocalAnalysis.StandardType.GGNineDepRowLinHolds
-import CFSG.LocalAnalysis.StandardType.GGNineDepRowSymSuccHolds
 import CFSG.LocalAnalysis.StandardType.GGNineDepRowSymSuccTwoHolds
 import CFSG.LocalAnalysis.StandardType.GGNineDepRowExcHolds
 import CFSG.LocalAnalysis.StandardType.GGNineDepRowOrthHolds
-import CFSG.LocalAnalysis.StandardType.GGTwoNodeKFixLineProducer
 import CFSG.LocalAnalysis.StandardType.GGReflNineFinal
-import CFSG.LocalAnalysis.StandardType.GGTwoNodeA5DepFinal
 import CFSG.LocalAnalysis.StandardType.GGTwoNodeE6DepFinal
-import CFSG.LocalAnalysis.StandardType.GGTwoNodeIndepDatumOfTor
 import CFSG.LocalAnalysis.StandardType.GGResTriD4TwE6
 import CFSG.LocalAnalysis.StandardType.GGTwE6TriD4KHolds
-import CFSG.LocalAnalysis.StandardType.GGE6D4LocalJ
 import CFSG.LocalAnalysis.StandardType.GGE6D4LocalSide
 import CFSG.LocalAnalysis.StandardType.GGE6D4TwX
-import CFSG.LocalAnalysis.StandardType.GGTBTorTwE6ThreeHolds
-import CFSG.LocalAnalysis.StandardType.GGResE6DepLabel
 import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepWire
 import CFSG.LocalAnalysis.StandardType.GGTwoNodeSmallPosB
 import CFSG.LocalAnalysis.StandardType.GGTwoNodeSmallNineDep
 import CFSG.LocalAnalysis.StandardType.GGTwoNodeSmallPosExcl
 import CFSG.LocalAnalysis.StandardType.GGTwoNodeKFixLineFrameShared
-import CFSG.LocalAnalysis.StandardType.GGHdRo7CFinal
-import CFSG.LocalAnalysis.StandardType.GGResIISmall
 import CFSG.LocalAnalysis.StandardType.GGResIILin
 import CFSG.LocalAnalysis.StandardType.GGTBFixNbrLargeAssembly
-import CFSG.LocalAnalysis.StandardType.GGTBTorLiftADepHolds
-import CFSG.LocalAnalysis.StandardType.GGTBE6
-import CFSG.LocalAnalysis.StandardType.GGTBTorLiftRowsHolds
-import CFSG.LocalAnalysis.StandardType.GGTDLabels
 import CFSG.LocalAnalysis.StandardType.GGResTwoNodeDepSmallOf
 import CFSG.LocalAnalysis.StandardType.GGQ2TwoNodeOpenGlue
-import CFSG.LocalAnalysis.StandardType.GGDepED4LowCells
-import CFSG.LocalAnalysis.StandardType.GGHdRo7SUFinal
 import CFSG.LocalAnalysis.StandardType.GGResMultiNodeRestFinal
 import CFSG.LocalAnalysis.StandardType.GGLieCoreA3Final
 import CFSG.LocalAnalysis.StandardType.GGLieCorePlane3E6Cent
 import CFSG.LocalAnalysis.StandardType.GGLieCorePlane3E6Small
 import CFSG.LocalAnalysis.StandardType.GGLieCorePlane3F4
 import CFSG.LocalAnalysis.StandardType.GGLieCorePlane3F4Tame
-import CFSG.LocalAnalysis.StandardType.GGFamF4Assembly
-import CFSG.LocalAnalysis.StandardType.GGFamLabelAssembly
 import CFSG.LocalAnalysis.StandardType.GGA6GlueAssembly
 import CFSG.LocalAnalysis.StandardType.GGA6GlueConsumers
-import CFSG.LocalAnalysis.StandardType.GGLieBridgeHolds
-import CFSG.LocalAnalysis.StandardType.GGLieCoreE6NonToralHolds
-import CFSG.LocalAnalysis.StandardType.GGLieCoreSmallSetup
-import CFSG.LocalAnalysis.StandardType.GGLieCoreSmallInner
-import CFSG.LocalAnalysis.StandardType.GGLieCoreStruct
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.PlanesToralWeyl
-import Certificates.Certificate45
-import Certificates.Certificate46
-import Certificates.Certificate47
-import Certificates.Certificate48
-import Certificates.Certificate49
-import Certificates.Certificate50
-import Certificates.Certificate51
-import Certificates.Certificate52
-import Certificates.Certificate53
-import Certificates.Certificate54
-import Certificates.Certificate55
-import Certificates.Certificate56
-import Certificates.Certificate57
-import Certificates.Certificate58
-import Certificates.Certificate59
-import Certificates.Certificate60
-import Certificates.Certificate61
-import Certificates.Certificate62
-import Certificates.Certificate63
-import Certificates.Certificate64
-import Certificates.Certificate65
-import Certificates.Certificate66
-import Certificates.Certificate67
-import Certificates.Certificate68
-import Certificates.Certificate69
-import Certificates.Certificate70
-import Certificates.Certificate71
-import Certificates.Certificate72
-import Certificates.Certificate73
-import Certificates.Certificate74
-import Certificates.Certificate75
-import Certificates.Certificate117
-import CFSG.LocalAnalysis.StandardType.GGJ4dRankTwo
-import CFSG.LocalAnalysis.StandardType.GGJ4dSimpleRank
-import CFSG.LieType.Chevalley.G2FieldFourCoverRoots
-import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.InnExcInner
-import CFSG.LieType.Steinberg.Adjoint.Pairs
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExc
-import CFSG.LocalAnalysis.StandardType.GGLieCoreSmallUnitary
-import CFSG.Blueprint.Catalog
-import CFSG.LocalAnalysis.StandardType.GGForkA8NotReflHolds
 import CFSG.LocalAnalysis.StandardType.GGL45NtExcInputsFour
-import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrOfEnnola
-import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaMain
-import CFSG.LocalAnalysis.StandardType.GGSecFiveNSCornerMain
 import CFSG.LocalAnalysis.StandardType.GGOrthKStructHolds
 import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthKSLExceptional
 import CFSG.LocalAnalysis.StandardType.GGWitAssembly
 import CFSG.LocalAnalysis.StandardType.GGSecFiveTBJTypeD4Holds
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNarrowNS
-import CFSG.LocalAnalysis.StandardType.GGTCJEnnolaOfUniOrth
-import CFSG.LocalAnalysis.StandardType.GGTCJEnnolaUniFinal
-import CFSG.LocalAnalysis.StandardType.GGTCJEnnolaOrthFinal
-public import CFSG.Assembly.StandardTypeRecognitionDefs
 public import CFSG.Assembly.E6FourNeighbourStep1
-public import CFSG.Assembly.E6FourNeighbourCfg
 public import CFSG.Assembly.E6FourNeighbourBar
-public import CFSG.Assembly.E6FourNeighbourFacts
-import CFSG.Assembly.Subnormal
-import CFSG.Foundations.MaxCardThompson
-import CFSG.LocalAnalysis.StandardType.GGRootNormInner
-import CFSG.LargeExtraspecial.S5Comp
-import CFSG.LocalAnalysis.ComponentInitial.BlockCentralQuotient
-import CFSG.LocalAnalysis.GLTheoremA.S12.CanonSetup
-import CFSG.GroupTheory.PCore.SubgroupCore
-import CFSG.Assembly.OrderReductions.Helpers
 public import CFSG.Assembly.E6FourNeighbourAut
 public import CFSG.Assembly.E6FourNeighbourSylow
-import CFSG.GroupTheory.OrderBelowSixtySolvable
 public import CFSG.LocalAnalysis.StandardType.GGCharTwoClosing
 import CFSG.LocalAnalysis.StandardType.GGCompFieldHolds
 public import CFSG.LocalAnalysis.StandardType.GGExcKGInvolutionsHolds
-public import CFSG.LocalAnalysis.StandardType.GGExcKGRankTwE6Holds
-import CFSG.LocalAnalysis.StandardType.GGOrdPFieldConjAtExc
 import CFSG.LocalAnalysis.StandardType.GGExcFieldAutCentRankTwE6ThreeHolds
-public import CFSG.LocalAnalysis.StandardType.GGOddLayerCentreHolds
 public import CFSG.LocalAnalysis.StandardType.GGReeB2SimpleModuleFixedHolds
 import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeOddIndexHolds
 public import CFSG.Yardstones.Statements.Yf77bba1f8a8a0aff
@@ -365,28 +220,11 @@ import CFSG.LocalAnalysis.StandardType.GGSecFiveJA2PhanDOfEsu
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaD
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSQ2DCells
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNTwins
-import CFSG.LocalAnalysis.StandardType.GGMemberRowsN
-import CFSG.LocalAnalysis.StandardType.GGRk1SplitMember
-import CFSG.LocalAnalysis.StandardType.GGMemberUnitaryRk1
 import CFSG.LocalAnalysis.StandardType.GGMemberUnitaryPair
-import CFSG.LocalAnalysis.StandardType.GGMemberUnitaryGen
-import CFSG.LocalAnalysis.StandardType.GGSecFiveL1PhanLocal
-import CFSG.LocalAnalysis.StandardType.GGNSJoinQFourExact
 import CFSG.LocalAnalysis.StandardType.GGNSJoinResiduals
 import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinPhanE
-import CFSG.LocalAnalysis.StandardType.GGResidualWeakNbr
-import CFSG.LocalAnalysis.StandardType.GGResidualGenFrame
 import CFSG.LocalAnalysis.StandardType.GGResidualGenFrameRest
-import CFSG.LocalAnalysis.StandardType.GGResidualRk1Frame
-import CFSG.LocalAnalysis.StandardType.GGResidualRk1FrameRest
-import CFSG.LocalAnalysis.StandardType.GGResidualRk1FrameHolds
-import CFSG.LocalAnalysis.StandardType.GGNSJoinOutLocalGen
-import CFSG.LocalAnalysis.StandardType.GGNSJoinNbrInputs
-import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylReflTriple
 import CFSG.LocalAnalysis.StandardType.GGSecFiveCompatPhanARow
-import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosAssemble
-import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNbrRefl
-import CFSG.LocalAnalysis.StandardType.GGSecFivePhanOrb
 import CFSG.LocalAnalysis.StandardType.GGSecFiveFixOfTBFix
 import CFSG.LocalAnalysis.StandardType.GGSecFiveJA2OfKGCent
 public import CFSG.Yardstones.Statements.Y3203a81333d96501
@@ -399,85 +237,32 @@ public import CFSG.Yardstones.Statements.Y8c3c5cd708141f52
 public import CFSG.Yardstones.Statements.Y9550a5c8037d2ddf
 public import CFSG.Yardstones.Statements.Y600f261da4e2dd4f
 public import CFSG.Yardstones.Statements.Y0b74b90d14fad2b1
-public import CFSG.LocalAnalysis.StandardType.GGAssemblyTwelve
-public import CFSG.LocalAnalysis.StandardType.GGKG3Assembly
-public import CFSG.LocalAnalysis.StandardType.GGTPAssembly
 public import CFSG.LocalAnalysis.StandardType.GGTPClassical
 public import CFSG.LocalAnalysis.StandardType.GGTPJLayerHolds
 public import CFSG.LocalAnalysis.StandardType.GGTPJStabHolds
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeSCShapeHolds
 public import CFSG.LocalAnalysis.StandardType.GGTwE6KGA1Holds
-public import CFSG.LocalAnalysis.StandardType.GGTwE6LemmaKFinal
-public import CFSG.LocalAnalysis.StandardType.GGTwE6TInHolds
-public import CFSG.LocalAnalysis.StandardType.GGTwF4SUThreeRank
 public import CFSG.LocalAnalysis.StandardType.GGSmallKGInputsD4
-public import CFSG.LocalAnalysis.StandardType.GGTwE6LangRound
-public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeNbrCaseII
-public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeNbrCaseIIDefs
-public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeNbrSCFourData
-public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeNbrKnownDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrTwE6Prop87
-public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeNbrA5Excl
-public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6RankFive
-public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeSCFourOdd
-public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeSCFourOddHolds
-public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperMoreNarrow
-public import CFSG.LocalAnalysis.StandardType.GGLayerCenterCyclicRootCenter
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMore
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInner937
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerRound15
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerRound15ExcHolds
-public import CFSG.LocalAnalysis.StandardType.GGIrred937TwE6
-public import CFSG.LocalAnalysis.StandardType.GGIrred937ExcMain
 public import CFSG.LocalAnalysis.StandardType.GGIrred937F4Main
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangWeylRestLabels
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLRound
-public import CFSG.LocalAnalysis.StandardType.GGNoTransvectionAutExc
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitF4
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfTwoLocal
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfE7E8Five
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfE7Three
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfE8Three
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesE6NonsplitThreeHolds
-public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoToralExcSixE
-public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsExc
-public import CFSG.LocalAnalysis.StandardType.GGAssemblyTwelveDefs
-public import CFSG.LocalAnalysis.StandardType.GGTriD4KnownInputsModel
 public import CFSG.LocalAnalysis.StandardType.GGTriD4LineWeyl
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentProof
 public import CFSG.LocalAnalysis.StandardType.GGExcElemToralRestProved
-public import CFSG.LocalAnalysis.StandardType.GGExcToralSylowElem
-public import CFSG.LocalAnalysis.StandardType.GGExcToralSylowPDiv
-public import CFSG.LocalAnalysis.StandardType.GGExcToralSylowCentReduced
 public import CFSG.LocalAnalysis.StandardType.GGFieldFiveE8
 public import CFSG.LocalAnalysis.StandardType.GGE8TwoFiveAssembly
 public import CFSG.LocalAnalysis.StandardType.E8SevenCentralizerComponent
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcWeylGenAdjoint
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyWeylGenModel
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyWeylGenLift
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOpenTableBMoreExc
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRestGen
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRestScalar
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthExcEvenLabels
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcWeylNormAdjoint
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcWeylAutInner
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyWeylNormModel
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorus
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarE6ThreeFrameOn
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarE8FiveFrameOn
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitE6
 public import CFSG.LocalAnalysis.StandardType.GGKGroupFusionFlatAssembly
 public import CFSG.LocalAnalysis.StandardType.GGD4FieldAutMaximalHolds
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBMeta
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseXL48NbrFieldHolds
-public import CFSG.LocalAnalysis.StandardType.GGTwistedF4DiagRaw
-public import CFSG.LocalAnalysis.StandardType.GGTriD4SchurHolds
 public import CFSG.LocalAnalysis.StandardType.GGUSixThreeKGMain
 public import CFSG.LocalAnalysis.StandardType.GGTriD4ComponentsHolds
 public import CFSG.LocalAnalysis.StandardType.GGBstarInnerDiagLRound12Full
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylRest13
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixElevenKGRound12Models
-import CFSG.LocalAnalysis.StandardType.GGLieKnownR2PosGlue
 import CFSG.LocalAnalysis.StandardType.GGLieKnownR2PSLGlue
 import CFSG.LocalAnalysis.StandardType.GGLieKnownR2PosExcGlue
 import CFSG.LocalAnalysis.StandardType.GGLieKnownR2PosExcNoF4Glue
@@ -485,10 +270,8 @@ import CFSG.LocalAnalysis.StandardType.GGLieKnownR2PosExcNoF4NoPSUPSpGlue
 import CFSG.LocalAnalysis.StandardType.GGLieKnownR2PosExcNoF4NoPSUPSpNoPOmegaMinusGlue
 import CFSG.LocalAnalysis.StandardType.GGLieKnownR2PosExcNoF4NoPSUPSpNoPOmegaGlue
 import CFSG.LocalAnalysis.StandardType.ExcPos.KnownPosOfExcU5
-import CFSG.LocalAnalysis.StandardType.GGOrdPToralF4Holds
 import CFSG.LocalAnalysis.StandardType.GGOrdPToralE6Holds
 import CFSG.LocalAnalysis.StandardType.GGOrdPToralE7Holds
-import CFSG.LocalAnalysis.StandardType.GGOrdPToralE8Holds
 import CFSG.LocalAnalysis.StandardType.GGOrdPToralE8FiveFourHolds
 import CFSG.LocalAnalysis.StandardType.GGOrdPToralTwE6RestHardHolds
 import CFSG.LocalAnalysis.StandardType.GGE6NontoralFixPpdHolds
@@ -497,34 +280,15 @@ import CFSG.LocalAnalysis.StandardType.GGTwE6FrameNoPpdHolds
 import CFSG.LocalAnalysis.StandardType.GGTwE6FrameFixPpdHolds
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixSevenE6Proof
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerRound12Classical
-public import CFSG.LocalAnalysis.StandardType.GGSixAutKFlatIVInputs
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45KGInputs
-public import CFSG.LocalAnalysis.StandardType.GGL45TorusHForms
 public import CFSG.LocalAnalysis.StandardType.GGL45TGFamTypeA
 import CFSG.LocalAnalysis.StandardType.GGL45E67Uncond
 import CFSG.LocalAnalysis.StandardType.GGStdSubNotTorsionInputHolds
 import CFSG.HardMathSupport.C14IdxReeInput
-import CFSG.HardMathSupport.C14IdxFrobInput
-import CFSG.HardMathSupport.C14IdxBorelHolds
 import CFSG.HardMathSupport.C14IdxReeStab
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixSevenA3Known
-public import CFSG.LocalAnalysis.StandardType.GGSixA3PositionDefs
-import CFSG.LieType.Steinberg.BruhatWeyl
-import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerAdj
-import CFSG.LocalAnalysis.StandardType.AlternatingEightNormalizerAction
-import CFSG.LocalAnalysis.StandardType.GGSixLSixSevenA3OmNumerics
-import CFSG.LocalAnalysis.StandardType.GGSixLSixSevenA3BstarCentralizer
-import CFSG.LocalAnalysis.ComponentClassification.SymmetricLocalLinearFourTwo
-import CFSG.LocalAnalysis.SectionRank.AlternatingCover
-import CFSG.GroupTheory.ElemAbelianClosure
-import CFSG.GroupTheory.QuasisimpleCommutingProductBound
-import CFSG.LieType.Chevalley.AdjointCenter
-import CFSG.LieType.Steinberg.Adjoint.Perfect
-import CFSG.Blueprint.ChevalleyRootsInputs
-public import CFSG.LocalAnalysis.StandardType.GGOutTwoCommInnerHolds
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnown
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixNs
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixD4
 public import CFSG.LocalAnalysis.StandardType.GGNbrG2Three
 public import CFSG.LocalAnalysis.StandardType.GGNbrG2ThreeOffHolds
 public import CFSG.LocalAnalysis.StandardType.GGNbrG2ASides
@@ -533,21 +297,13 @@ public import CFSG.LocalAnalysis.StandardType.GGNbrLSideHolds
 public import CFSG.LocalAnalysis.StandardType.GGNbrLSideClassicalHolds
 public import CFSG.LocalAnalysis.StandardType.GGNbrLSideRSExcData
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrKnown
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.LocalAnalysis.StandardType.GGStructSOneHolds
-public import CFSG.LocalAnalysis.StandardType.GGStructSOneCompHolds
-public import CFSG.LocalAnalysis.StandardType.GGAutKRankHalves
 public import CFSG.LocalAnalysis.StandardType.GGAutKRankHalvesStar
 public import CFSG.LocalAnalysis.StandardType.GGLayerNotExcThreeAtTwoRat
 public import CFSG.LocalAnalysis.StandardType.GGRootCentStructKG
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerTwF4Row
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBVac
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBRkHolds
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBRkHigh
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBRkFive
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBRkTwA
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48RkF4Holds
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48RkTwAHolds
 import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBRkNarrow
 import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBRkNarrow2
 import CFSG.LocalAnalysis.StandardType.GGWPlusNarrow3
@@ -558,23 +314,16 @@ import CFSG.LocalAnalysis.StandardType.GGWPlusNarrow7
 import CFSG.LocalAnalysis.StandardType.GGWPlusNarrow8
 import CFSG.LocalAnalysis.StandardType.GGCoverRkNarrow9
 import CFSG.LocalAnalysis.StandardType.GGCoverRkNarrow10
-import CFSG.LocalAnalysis.StandardType.GGTorusGenRkNarrow11
-import CFSG.LocalAnalysis.StandardType.GGTorusGenSLNarrow12
 import CFSG.LocalAnalysis.StandardType.GGCoverSLNarrow13
-public import CFSG.LocalAnalysis.StandardType.GGSpNbrKGRound12
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinReflOfLabel
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentKGOpen
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeOfKnown
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeKnownOn
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeLinLeaf
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeSmallLeaf
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeKnownSix
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeKG7
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6Narrow
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeSympLeaf
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeF4Leaf
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeE78Leaf
-import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniLeaf
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeOrthLeaf
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeOrthMinusLeaf
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TwoLeaf
@@ -584,35 +333,24 @@ public import CFSG.LocalAnalysis.StandardType.GGD4OddCentKGOffTablePRestOffSUFou
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentKGOffTablePRestNoLTStrong
 import CFSG.LocalAnalysis.StandardType.GGD4OddCentKGOffTablePRestInner
 import CFSG.LocalAnalysis.StandardType.GGD4OddCentInnerAssembly
-public import CFSG.LocalAnalysis.StandardType.GGTwE6LocalRankHolds
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylRest13KnownRound12
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6ThreeRank
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6ThreeLine
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylRest13Known
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6Lift
 public import CFSG.LocalAnalysis.StandardType.GGNbrWeylKGInputNoU63OfRest
 public import CFSG.LocalAnalysis.StandardType.GGNbrWeylKGInputRestOfNoFieldE78
 import CFSG.LocalAnalysis.StandardType.GGNbrWeylKGInputRestNoFieldE78OfFive
 import CFSG.LocalAnalysis.StandardType.GGNbrWeylKGInputRestFiveOfThree
-import CFSG.LocalAnalysis.StandardType.GGNbrKGFieldShInputs
 import CFSG.LocalAnalysis.StandardType.GGF4ShFieldData
 import CFSG.LocalAnalysis.StandardType.GGUSixShFieldData
 import CFSG.LocalAnalysis.StandardType.KGLangTorusClassicalFamilies
 import CFSG.LocalAnalysis.StandardType.KGLangLT5ExcAssembly
 import CFSG.LocalAnalysis.StandardType.KGLangLT5Ree
-import CFSG.LocalAnalysis.StandardType.GGReeLangPositionF4
-import CFSG.LocalAnalysis.StandardType.GGLieCoreToralHolds
 import CFSG.LocalAnalysis.StandardType.KGLangTorAInput
 import CFSG.LocalAnalysis.StandardType.GGNbrLangTriD4Assembly
 import CFSG.LocalAnalysis.StandardType.GGNbrLangTriD4InnerTwo
 import CFSG.LocalAnalysis.StandardType.GGNbrLangTriD4InnerEven
-import CFSG.LocalAnalysis.StandardType.GGTriD4InnerCompHolds
 import CFSG.LocalAnalysis.StandardType.GGNbrLangAxisInnerFNI
-import CFSG.LocalAnalysis.StandardType.GGNbrLangS1Labels
 import CFSG.LocalAnalysis.StandardType.KGLangT3Holds
-import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIVac
 import CFSG.LocalAnalysis.StandardType.GGNbrLangFNILin
-import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIUnitary
 import CFSG.LocalAnalysis.StandardType.GGNbrLangFNISuzuki
 import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIG2
 import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIF4
@@ -628,18 +366,10 @@ import CFSG.LocalAnalysis.StandardType.GGNbrLangS1Lin
 import CFSG.LocalAnalysis.StandardType.GGNbrLangS1Uni
 import CFSG.LocalAnalysis.StandardType.GGNbrLangS1ExcE
 import CFSG.LocalAnalysis.StandardType.GGTriD4TwoRow.Row
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTriD4Three
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTriD4ThreeBound
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenTwE6Three
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6ThreeDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylFieldVacOther
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45FieldFixOpen
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyDichotomy
 public import CFSG.LocalAnalysis.StandardType.GGSixJNotA6OfKnown
-public import CFSG.LocalAnalysis.StandardType.GGSixKnownRemainingBridge
-public import CFSG.LocalAnalysis.StandardType.GGSixOddIndexF4RestLevi
 public import CFSG.LocalAnalysis.StandardType.GGForkAffineExclFix
-public import CFSG.LocalAnalysis.StandardType.GGTBFixTableB
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeLarge
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeSmall
 public import CFSG.LocalAnalysis.StandardType.GGDepED4ZK
@@ -650,159 +380,75 @@ public import CFSG.LocalAnalysis.StandardType.GGE6DepBlocksOfKnown
 public import CFSG.LocalAnalysis.StandardType.GGE6DepBlockOfKG
 public import CFSG.LocalAnalysis.StandardType.GGE6KGLayerInputOfTw
 public import CFSG.LocalAnalysis.StandardType.GGE6KGLayerInputTwHolds
-public import CFSG.LocalAnalysis.StandardType.GGE6DepKnownInputs
-public import CFSG.LocalAnalysis.StandardType.GGE6DepModelKnownHolds
 public import CFSG.LocalAnalysis.StandardType.GGE6DepZLKnown
 public import CFSG.LocalAnalysis.StandardType.GGE6DepZLNotInL
 public import CFSG.LocalAnalysis.StandardType.GGE6DepNonIsoPtHolds
 public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpCross
-public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpJr
-public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpPump
-public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpResidual
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRootGenTypeA
 public import CFSG.LocalAnalysis.StandardType.GGL45FixA2
 public import CFSG.LocalAnalysis.StandardType.GGStructSOnePrimeRootHolds
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixFiveCommKnownRound12
-public import CFSG.LocalAnalysis.StandardType.GGSixLSixSevenCentJLieStar
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveCompatRestN
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
-public import CFSG.LocalAnalysis.StandardType.GGNbrCenterPCyclicHolds
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangRegNTUnivHolds
 import CFSG.LocalAnalysis.StandardType.GGNbrLangAxisOnRest12OfUniv12
 public import CFSG.LocalAnalysis.StandardType.GGNbrKGTwE6ThreeAtHolds
 import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6ThreeOfRank
 import CFSG.LocalAnalysis.StandardType.GGKG87BRadHolds
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitTwE6
-public import CFSG.LocalAnalysis.StandardType.GGSixRootCentNotExcRows
-public import CFSG.LocalAnalysis.StandardType.GGStructSOnePrimeRootCountAll
-public import CFSG.LocalAnalysis.StandardType.GGSixStepOneSchreier
-public import CFSG.RankThree.PartOne.TCB.SchreierFinal
-public import CFSG.LocalAnalysis.StandardType.GGSixRootCentNotExcOrthAll
 public import CFSG.LocalAnalysis.StandardType.GGSixRootCentNotExcFlatAll
-public import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpStdAssembly
-public import CFSG.LocalAnalysis.StandardType.GGRoundFourSmallASpLift
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinEndAssembly
-public import CFSG.LocalAnalysis.StandardType.GGHalfJoinDefs
 public import CFSG.LocalAnalysis.StandardType.GGHalfJoinDStab
 public import CFSG.LocalAnalysis.StandardType.GGHalfJoinNorm
 public import CFSG.LocalAnalysis.StandardType.GGHalfJoinRows
 public import CFSG.LocalAnalysis.StandardType.GGHalfJoinSL
 public import CFSG.LocalAnalysis.StandardType.GGHalfJoinTorus
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
-public import CFSG.LocalAnalysis.StandardType.GGSpJoinNbrModel
-public import TauCeti.GroupTheory.ExponentPrime
-public import CFSG.LocalAnalysis.StandardType.GGHalfRowData
 public import CFSG.LocalAnalysis.StandardType.GGHalfFusionOm8
-public import CFSG.LocalAnalysis.StandardType.GGHalfFiveInputs
-import CFSG.LocalAnalysis.SeitzReduction.F4PilotFieldNormalizeSp
 public import CFSG.LocalAnalysis.StandardType.GGHalfFusionE6
-public import CFSG.LocalAnalysis.StandardType.GGTypeACompatDiagProof
 public import CFSG.LocalAnalysis.StandardType.GGSixA6InsideSpHolds
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedAssembly
 public import CFSG.LocalAnalysis.StandardType.GGSixA6F4Cls
-public import CFSG.LocalAnalysis.StandardType.GGHalfWeylHolds
-public import CFSG.LocalAnalysis.StandardType.GGB48Assembly
-public import CFSG.LocalAnalysis.StandardType.GGHalfFiveConjFive
-public import CFSG.LocalAnalysis.StandardType.GGHalfFiveAlphaZeta
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveInnerDiag
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveAutNb
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveSl4Model
-public import CFSG.LocalAnalysis.StandardType.GGHalfFiveNbrBasic
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaCard
-public import CFSG.LocalAnalysis.StandardType.GGHalfFivePerm
-public import CFSG.LocalAnalysis.StandardType.GGHalfFiveLevi
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveGraph
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveNoGraph
-public import CFSG.LocalAnalysis.StandardType.GGHalfFiveNbr
-public import CFSG.LocalAnalysis.StandardType.GGHalfEndNodes
 import CFSG.LocalAnalysis.StandardType.GGHalfFiveEndNarrow
 import CFSG.LocalAnalysis.StandardType.GGHalfJoinAutNarrow
 import CFSG.LocalAnalysis.StandardType.GGSpNbrTypeTablePNarrow
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyNbrFieldRowsNarrow
 import CFSG.LocalAnalysis.StandardType.GGTypeANbrTablePNarrow
-import CFSG.LocalAnalysis.StandardType.GGForkA8TablePOn
 import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyA11NbrLabelsNarrow
 import CFSG.LocalAnalysis.StandardType.GGTPAssemblyOnL
-import CFSG.LocalAnalysis.StandardType.GGTPNNarrowC6
-import CFSG.LocalAnalysis.StandardType.GGB36Final
 import CFSG.LocalAnalysis.StandardType.GGB36JCl
-import CFSG.LocalAnalysis.StandardType.GGK1ScMain
-import CFSG.LocalAnalysis.StandardType.GGE6CoverThreeHolds
 import CFSG.LocalAnalysis.StandardType.GGBcFinal
 import CFSG.LocalAnalysis.StandardType.GGA24Final
 import CFSG.LocalAnalysis.StandardType.GGTypeAFinal
 import CFSG.LocalAnalysis.StandardType.GGA2EightFinal
-import CFSG.LocalAnalysis.StandardType.GGF4NbrAutReflKGHolds
 import CFSG.LocalAnalysis.StandardType.GGHalfCore
 import CFSG.LocalAnalysis.StandardType.GGHalfX0Check
 import CFSG.LocalAnalysis.StandardType.GGHalfKGCAssembly
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveL44
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrTableBCard
 public import CFSG.LocalAnalysis.StandardType.GGLieParabolicCharExc
 public import CFSG.LocalAnalysis.StandardType.GGLieParabolicCharOpen
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrTableBWeyl
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableBSymp
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableBOrthPlus
-public import CFSG.LocalAnalysis.StandardType.GGExcKGRankKnown
-public import CFSG.LocalAnalysis.StandardType.GGExcLeviRankMax
 public import CFSG.LocalAnalysis.StandardType.GGExcRootPlane
 public import CFSG.LocalAnalysis.StandardType.GGExcRootFusionWitness
 public import CFSG.LocalAnalysis.StandardType.GGExcSixSeventeenRoot
-public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenLeft
-public import CFSG.LocalAnalysis.StandardType.GGExcRootGroupsCommute
-public import CFSG.LocalAnalysis.StandardType.GGLatCoroot
-public import CFSG.LocalAnalysis.StandardType.GGLatFixedRootExc
-public import CFSG.LocalAnalysis.StandardType.GGLatOrth
 public import CFSG.LocalAnalysis.StandardType.GGLatPlanesExc
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableBExcWeyl
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableBExcOrder
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLExc11R
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelHoldsBoth
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableBE6Three
-public import CFSG.LocalAnalysis.StandardType.GGTwE6FieldInnerDiag
-public import CFSG.LocalAnalysis.StandardType.GGTwE6RootAsToral
-public import CFSG.LocalAnalysis.StandardType.GGTwE6FieldLangThree
-public import CFSG.LocalAnalysis.StandardType.GGTwE6FieldThreeFourHolds
-public import CFSG.LocalAnalysis.StandardType.GGTwE6R5Holds
-public import CFSG.LocalAnalysis.StandardType.GGTwE6A5KLine
-public import CFSG.LocalAnalysis.StandardType.GGTwE6A5LKnownHolds
-public import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourOutLine
-public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeNbrCaseIISplit
 public import CFSG.LocalAnalysis.StandardType.GGNbrFrameNine
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyA11RootGen
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyA11TB
 public import CFSG.LocalAnalysis.StandardType.GGA8SevenRow
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyA11C3D4
 import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRowR3Holds
-public import CFSG.LocalAnalysis.StandardType.GGOmegaMinusRootGenAvoid
-import CFSG.LocalAnalysis.StandardType.GGSpNsRootGenLabels
 public import CFSG.LocalAnalysis.StandardType.GGSixTCResidualHolds
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP5Slot
-public import CFSG.LocalAnalysis.StandardType.GGFamAssembly
 public import CFSG.LocalAnalysis.StandardType.GGLangTorusInnerDiagHolds
 public import CFSG.LocalAnalysis.StandardType.GGTwE6OddSpectrum
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePrimDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRegionData
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
 public import CFSG.LocalAnalysis.StandardType.GGKGPosGenCox
 public import CFSG.LocalAnalysis.StandardType.GGKGPosOrb
 public import CFSG.LocalAnalysis.StandardType.GGKGPosRk2
 public import CFSG.LocalAnalysis.StandardType.GGStepTwoToralExcRestOfFrame
-import CFSG.LocalAnalysis.StandardType.GGSixE6TwoT31Cent
 import CFSG.LocalAnalysis.StandardType.GGSixE6TwoJUnique
 import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestAssembly
-import CFSG.LocalAnalysis.StandardType.GGOmegaNsRootGenLabels
 import CFSG.LocalAnalysis.StandardType.GGB48OmGlue
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyQFourDom
-import CFSG.LocalAnalysis.StandardType.GGSlDvdRootGenQFour
-import CFSG.LocalAnalysis.StandardType.GGSlNsRootGenQFour
-import CFSG.LocalAnalysis.StandardType.GGSuSplitRootGenQFour
-import CFSG.LocalAnalysis.StandardType.GGSuNsRootGenQFour
-import CFSG.LocalAnalysis.StandardType.GGSuDvdRootGenQFour
-import CFSG.LocalAnalysis.StandardType.GGSuDvdRootGenSixThreeQFour
-import CFSG.LocalAnalysis.StandardType.GGSpNsRootGenQFour
-import CFSG.LocalAnalysis.StandardType.GGRootGenQFourRest
 import CFSG.LocalAnalysis.StandardType.GGRootGenQFourExcRows
 import CFSG.LocalAnalysis.StandardType.GGPhiTwoGenTwFinal
 import CFSG.LocalAnalysis.StandardType.GGPhiTwoGenTwEightMain
@@ -810,10 +456,8 @@ import CFSG.LocalAnalysis.StandardType.GGQ2S08BigEK
 import CFSG.LocalAnalysis.StandardType.GGQ2S08BigShapeA
 import CFSG.LocalAnalysis.StandardType.GGQ2S08RoComponentsThree
 import CFSG.LocalAnalysis.StandardType.GGQ2S08SmallHolds
-import CFSG.LocalAnalysis.StandardType.GGQ2S08BigCenter
 import CFSG.LocalAnalysis.StandardType.GGQ2S08BigInnerPart
 import CFSG.LocalAnalysis.StandardType.GGQ2GammaNbrPosRestDetPlace
-import CFSG.LocalAnalysis.StandardType.GGQ2ClassicalPlacementHolds
 import CFSG.LocalAnalysis.StandardType.GGQTwoXInLRest
 import CFSG.LocalAnalysis.StandardType.GGQ2AmbModelAssembly
 import CFSG.LocalAnalysis.StandardType.GGQ2TableBNbrPieces
@@ -822,110 +466,43 @@ import CFSG.LocalAnalysis.StandardType.GGQ2ExcTwE6PlacementHolds
 import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreInside
 import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreInsideTwE6
 import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreFrames
-import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreOccurs
-import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreMarked
 import CFSG.LocalAnalysis.StandardType.GGQ2ExcE6SplitSetup
 import CFSG.LocalAnalysis.StandardType.GGQ2ExcE6SplitHolds
 import CFSG.LocalAnalysis.StandardType.GGQ2TwoNodeOpenCells
-import CFSG.LocalAnalysis.StandardType.GGTPNPCompQuasi
-import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6
-import CFSG.LocalAnalysis.StandardType.ZS.Adapter
 import CFSG.LocalAnalysis.StandardType.GGQ2HeartJHolds
-import CFSG.LocalAnalysis.StandardType.GGF4ThreeSCCube
-import CFSG.LocalAnalysis.StandardType.GGF4ThreeSCCubeHolds
-import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalCover
-import CFSG.LocalAnalysis.StandardType.GGFrameRouteDefs
-import CFSG.LocalAnalysis.StandardType.GGFrameRouteMain
-import CFSG.LocalAnalysis.StandardType.GGFrameRouteCard
-import CFSG.LocalAnalysis.StandardType.GGFrameRouteA4Thm
-import CFSG.LocalAnalysis.StandardType.GGFrameRouteFSCenter
 import CFSG.LocalAnalysis.StandardType.GGSecFiveDataResEOffE6QTwo
-import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoBridge
 import CFSG.LocalAnalysis.StandardType.TwE6MaxEleven.Holds
-import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoEnd
 import CFSG.LocalAnalysis.StandardType.GGN2Final
 import CFSG.LocalAnalysis.StandardType.GGSecFiveRest5OfRows
 import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitAssembly
-import CFSG.LocalAnalysis.StandardType.GGF4ThreeSCCube
-import CFSG.LocalAnalysis.StandardType.GGF4ThreeSCCubeHolds
-import CFSG.LocalAnalysis.StandardType.GGSecFivePhanAData
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanDData
-import CFSG.LocalAnalysis.StandardType.GGSecFiveResDispatch
 import CFSG.LocalAnalysis.StandardType.GGSecFiveQ2PrimeLProved
 import CFSG.LocalAnalysis.StandardType.GGQ2PrimeL81
 import CFSG.LocalAnalysis.StandardType.GGSecFiveLeviDataOfInputs
-import CFSG.LocalAnalysis.StandardType.GGAssemblyFiveDefs
-import CFSG.LocalAnalysis.StandardType.GGTypeACompatFarB
-import CFSG.LocalAnalysis.StandardType.GGAssemblyFourTypeA
-import CFSG.LocalAnalysis.StandardType.GGTypeACrossLift
-import CFSG.LocalAnalysis.StandardType.GGNbrU63
 import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherC9Holds
-public import CFSG.LocalAnalysis.StandardType.GGTwE6K1Holds
-public import CFSG.LocalAnalysis.StandardType.GGTwE6KGLSplitDispatch
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveCompatLeviOfKGPos
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRk1OfKGPos
 public import CFSG.LocalAnalysis.StandardType.StarFour.Holds
-public import CFSG.LocalAnalysis.StandardType.GGTCJHolds
 import CFSG.LocalAnalysis.StandardType.GGA11Assembly
 import CFSG.LocalAnalysis.StandardType.GGExcKGToralFrameHolds
-import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosHolds
 public import CFSG.LocalAnalysis.StandardType.GGKGForkOneDone
 import CFSG.LocalAnalysis.StandardType.GGSecFiveL2SplitTop
 public import CFSG.LocalAnalysis.StandardType.GGKGForkTwoFinal
 import CFSG.LocalAnalysis.StandardType.GGSecFiveL1Top
 import CFSG.LocalAnalysis.StandardType.GGSecFiveJReflOfPrimed
-import CFSG.LocalAnalysis.StandardType.GGSecFiveJReflOfCore
-import CFSG.LocalAnalysis.StandardType.GGSecFiveJRootCoreHolds
 import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitLieOut
 import CFSG.LocalAnalysis.StandardType.GGSecFiveRk1CentHolds
 public import Certificates.Certificate3143
 public import Certificates.Certificate3600
 public import Certificates.Certificate3920
-public import Certificates.Certificate6097
-public import Certificates.Certificate6098
-public import Certificates.Certificate6099
-public import Certificates.Certificate9726
-public import Certificates.Certificate10105
 public import Certificates.Certificate12632
 public import Certificates.Certificate12680
-public import Certificates.Certificate13506
-public import Certificates.Certificate13507
-public import Certificates.Certificate13603
 public import Certificates.Certificate26122
-public import Certificates.Certificate13621
-public import Certificates.Certificate13637
-public import Certificates.Certificate17320
-public import Certificates.Certificate17321
-public import Certificates.Certificate17322
-public import Certificates.Certificate17335
-public import Certificates.Certificate17336
-public import Certificates.Certificate17337
-public import Certificates.Certificate36908
 public import Certificates.Certificate16962
-public import Certificates.Certificate17002
 public import Certificates.Certificate17105
-public import Certificates.Certificate17372
-public import Certificates.Certificate17373
-public import Certificates.Certificate17391
 public import Certificates.Certificate17402
 public import Certificates.Certificate17403
-public import Certificates.Certificate17450
-public import Certificates.Certificate17451
-public import Certificates.Certificate17473
-public import Certificates.Certificate17480
-public import Certificates.Certificate17481
-public import Certificates.Certificate17482
-public import Certificates.Certificate17483
-public import Certificates.Certificate17484
-public import Certificates.Certificate17485
-public import Certificates.Certificate17486
-public import Certificates.Certificate17487
-public import Certificates.Certificate17488
 public import Certificates.Certificate17489
-public import Certificates.Certificate17490
-public import Certificates.Certificate17491
-public import Certificates.Certificate17492
-public import Certificates.Certificate17493
 public import Certificates.Certificate17494
 public import Certificates.Certificate17495
 public import Certificates.Certificate17535
@@ -934,18 +511,10 @@ public import Certificates.Certificate17541
 public import Certificates.Certificate17542
 public import Certificates.Certificate17543
 public import Certificates.Certificate17544
-public import Certificates.Certificate17561
 public import Certificates.Certificate17562
-public import Certificates.Certificate17575
 public import Certificates.Certificate17579
 public import Certificates.Certificate17580
 public import Certificates.Certificate17581
-public import Certificates.Certificate17590
-public import Certificates.Certificate17591
-public import Certificates.Certificate17593
-public import Certificates.Certificate17594
-public import Certificates.Certificate17595
-public import Certificates.Certificate17597
 public import Certificates.Certificate17598
 public import Certificates.Certificate17599
 public import Certificates.Certificate17613
@@ -964,7 +533,6 @@ public import Certificates.Certificate17701
 public import Certificates.Certificate17702
 public import Certificates.Certificate17706
 public import Certificates.Certificate17707
-public import Certificates.Certificate17951
 public import Certificates.Certificate19830
 public import Certificates.Certificate19831
 public import Certificates.Certificate19840
@@ -973,10 +541,6 @@ public import Certificates.Certificate19843
 public import Certificates.Certificate19850
 public import Certificates.Certificate19851
 public import Certificates.Certificate19852
-public import Certificates.Certificate36920
-public import Certificates.Certificate36921
-public import Certificates.Certificate136207
-public import Certificates.Certificate214034
 public import Certificates.Certificate271060
 public import Certificates.Certificate271061
 public import Certificates.Certificate550701
@@ -997,8 +561,6 @@ public import Certificates.Certificate709520
 public import Certificates.Certificate709521
 public import Certificates.Certificate709539
 public import Certificates.Certificate709540
-public import Certificates.Certificate14971
-public import Certificates.Certificate14979
 public import Certificates.Certificate709541
 public import Certificates.Certificate709542
 public import Certificates.Certificate709543
@@ -1009,15 +571,10 @@ public import Certificates.Certificate709590
 public import Certificates.Certificate715501
 public import Certificates.Certificate715502
 public import Certificates.Certificate715503
-public import Certificates.Certificate715750
-public import Certificates.Certificate715751
-public import Certificates.Certificate715752
 public import Certificates.Certificate716001
 public import Certificates.Certificate716100
 public import Certificates.Certificate716201
 public import Certificates.Certificate716800
-public import Certificates.Certificate899051
-public import Certificates.Certificate13666
 public import Certificates.Certificate1023001
 public import Certificates.Certificate1023002
 public import Certificates.Certificate1023003
@@ -1076,12 +633,10 @@ public import Certificates.Certificate3184
 public import Certificates.Certificate3185
 public import Certificates.Certificate4162
 public import Certificates.Certificate4165
-public import Certificates.Certificate5124
 public import Certificates.Certificate5150
 public import Certificates.Certificate5153
 public import Certificates.Certificate8100
 public import Certificates.Certificate8101
-public import Certificates.Certificate8102
 public import Certificates.Certificate8103
 public import Certificates.Certificate8104
 public import Certificates.Certificate8105
@@ -1092,29 +647,20 @@ public import Certificates.Certificate8109
 public import Certificates.Certificate8110
 public import Certificates.Certificate8111
 public import Certificates.Certificate8112
-public import Certificates.Certificate8113
 public import Certificates.Certificate10003
-public import Certificates.Certificate10081
 public import Certificates.Certificate14982
 public import Certificates.Certificate14983
 public import Certificates.Certificate14984
 public import Certificates.Certificate14988
 public import Certificates.Certificate14989
 public import Certificates.Certificate19780
-public import Certificates.Certificate19951
 public import Certificates.Certificate19952
 public import Certificates.Certificate21100
 public import Certificates.Certificate21101
 public import Certificates.Certificate21102
 public import Certificates.Certificate21103
-public import Certificates.Certificate21104
-public import Certificates.Certificate21105
-public import Certificates.Certificate21106
-public import Certificates.Certificate21107
 public import Certificates.Certificate21110
 public import Certificates.Certificate21113
-public import Certificates.Certificate21114
-public import Certificates.Certificate21115
 public import Certificates.Certificate21126
 public import Certificates.Certificate21127
 public import Certificates.Certificate21128
@@ -1165,14 +711,6 @@ public import Certificates.Certificate21245
 public import Certificates.Certificate21246
 public import Certificates.Certificate21247
 public import Certificates.Certificate21248
-public import Certificates.Certificate21260
-public import Certificates.Certificate21261
-public import Certificates.Certificate21262
-public import Certificates.Certificate21263
-public import Certificates.Certificate21264
-public import Certificates.Certificate21265
-public import Certificates.Certificate21266
-public import Certificates.Certificate21267
 public import Certificates.Certificate21275
 public import Certificates.Certificate21276
 public import Certificates.Certificate21280
@@ -1215,49 +753,27 @@ public import Certificates.Certificate709610
 public import Certificates.Certificate709441
 public import CFSG.LocalAnalysis.StandardType.GGForkIndefExclAssembly
 public import CFSG.LocalAnalysis.StandardType.GGKGHolds
-public import CFSG.LocalAnalysis.StandardType.GGKGASp
-public import CFSG.LocalAnalysis.StandardType.GGKGAF4
 public import CFSG.LocalAnalysis.StandardType.GGR4JCard
 public import CFSG.LocalAnalysis.StandardType.GGR4JMeet
-public import CFSG.LocalAnalysis.StandardType.GGR4JMeetInputs
 public import CFSG.LocalAnalysis.StandardType.GGR4Ambient
 public import CFSG.LocalAnalysis.StandardType.GGPDHolds
 public import CFSG.LocalAnalysis.StandardType.GGR4JNCInputs
-public import CFSG.LocalAnalysis.StandardType.GGF4OrderThreeRank
-public import CFSG.LocalAnalysis.StandardType.GGE6OppOrderThreeLayer
 public import CFSG.LocalAnalysis.StandardType.GGE78TwoLocalRankSixHolds
 public import CFSG.LocalAnalysis.StandardType.GGCRNHolds
-public import CFSG.LocalAnalysis.StandardType.GGCSRHolds
-public import CFSG.LocalAnalysis.StandardType.GGTwAutHolds
-public import CFSG.LocalAnalysis.StandardType.GGKGAF4Holds
 public import CFSG.LocalAnalysis.StandardType.GGCentreTrivialTwKnownHolds
-import CFSG.LocalAnalysis.StandardType.GGPZNbrRes
-import CFSG.LocalAnalysis.StandardType.GGPZNbrDatum
-import CFSG.LocalAnalysis.StandardType.GGPZMultHolds
 import CFSG.LocalAnalysis.StandardType.GGR4PumpTwTransfer
-import CFSG.LocalAnalysis.StandardType.GGResCentBound
-import CFSG.LocalAnalysis.StandardType.GGResCentBoundNbrConj
 import CFSG.LocalAnalysis.StandardType.GGResNbrFixTor
 import CFSG.LocalAnalysis.StandardType.GGResDepAFiveCells
 import CFSG.LocalAnalysis.StandardType.GGResQTwoEndpoints
 import CFSG.LocalAnalysis.StandardType.GGResFFGOFour
 import CFSG.LocalAnalysis.StandardType.GGResIO2aCentre
-import CFSG.LocalAnalysis.StandardType.GGResKnownGroup
-import CFSG.LocalAnalysis.StandardType.GGFFProp2
 import CFSG.LocalAnalysis.StandardType.GGTPNLineFinal
-import CFSG.LocalAnalysis.StandardType.GGRealKGThreeAssembly
-import CFSG.LocalAnalysis.StandardType.GGResIPumpLineTransfer
 import CFSG.LocalAnalysis.StandardType.GGResIO2aKnown
 import CFSG.LocalAnalysis.StandardType.GGResIQFourLin
-import CFSG.LocalAnalysis.StandardType.GGResLineJAssembly
 import CFSG.LocalAnalysis.StandardType.GGPumpTwLabelKnownHolds
-import CFSG.LocalAnalysis.StandardType.GGPumpTwExcKnownHolds
-import CFSG.LocalAnalysis.StandardType.GGLevTwoMain
-public import CFSG.LocalAnalysis.StandardType.GGCentreTwoKnownHolds
 public import CFSG.LocalAnalysis.StandardType.GGR4PumpTransfer
 import CFSG.LocalAnalysis.StandardType.GGSixRCKC1
 import CFSG.LocalAnalysis.StandardType.GGSixRCKSmall
-import CFSG.LocalAnalysis.StandardType.GGSixRCKA6
 import CFSG.LocalAnalysis.StandardType.GGSixRCKC1LeavesIRGOf
 import CFSG.LocalAnalysis.StandardType.GGSixRCKC1LeavesShortOf
 import CFSG.LocalAnalysis.StandardType.GGSixRCKC1LeavesD4Of
@@ -1268,26 +784,20 @@ import CFSG.LocalAnalysis.StandardType.GGSixRCKC1LeavesN7Of
 import CFSG.LocalAnalysis.StandardType.GGSixRCKC1LeavesF8Of
 import CFSG.LocalAnalysis.StandardType.GGSixRCKC1LeavesZ7Of
 import CFSG.LocalAnalysis.StandardType.GGSixRCKC1LeavesI1Of
-import CFSG.LocalAnalysis.StandardType.GGCentStructProof
 import CFSG.LocalAnalysis.StandardType.GGCentA2Final
 import CFSG.LocalAnalysis.StandardType.GGCentD4Final
 import CFSG.LocalAnalysis.StandardType.GGSixRCKC1LeavesI2Of
 import CFSG.LocalAnalysis.StandardType.GGSixRCKC1LeavesJ1Of
 public import CFSG.LocalAnalysis.StandardType.GGQTwoOfCitedCellC
 import CFSG.LocalAnalysis.StandardType.GGD5Assembly
-import CFSG.LocalAnalysis.StandardType.GGD5Forced
 import CFSG.LocalAnalysis.StandardType.GGD5LabelBridge
 public import CFSG.LocalAnalysis.StandardType.GGQTwoModelOfLabel
 public import CFSG.LocalAnalysis.StandardType.GGQTwoNoModelRest2Amb
 import CFSG.LocalAnalysis.StandardType.GGQ2P3Rest2
-import CFSG.LocalAnalysis.StandardType.GGQ2TwoNodeNineCell
 public import CFSG.LocalAnalysis.StandardType.GGQTwoPosInLD6
-public import CFSG.LocalAnalysis.StandardType.GGQTwoLemma895
 public import CFSG.LocalAnalysis.StandardType.GGQTwoVACAssembly
 public import CFSG.LocalAnalysis.StandardType.GGQTwoVACE6Guard
 public import CFSG.LocalAnalysis.StandardType.GGQTwoVACOrthNonFullAssembly
-import CFSG.LocalAnalysis.StandardType.GGRealNbrNSTwE6
-import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2UniDispatch
 import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2UniRest
 import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2UniExcThree
 import CFSG.LocalAnalysis.StandardType.GGNSJoinQFourFrame
@@ -1295,10 +805,6 @@ import CFSG.LocalAnalysis.StandardType.GGF4QNamedInputs
 import CFSG.LocalAnalysis.StandardType.GGSmallDepFixLine
 import CFSG.LocalAnalysis.StandardType.GGSmallD2
 import CFSG.LocalAnalysis.StandardType.GGF4QTwoG0
-import CFSG.LocalAnalysis.StandardType.FF81.LocalSetup
-import CFSG.LocalAnalysis.StandardType.FF81.PropTwo
-import CFSG.LocalAnalysis.StandardType.FF81.FrameStep
-import CFSG.LocalAnalysis.StandardType.FF81.ConstructYAssembly
 import CFSG.LocalAnalysis.StandardType.FF81.Holds
 import CFSG.LocalAnalysis.StandardType.FF81.CentE6.Final
 import CFSG.LocalAnalysis.StandardType.FF81.PropOneOfQ1

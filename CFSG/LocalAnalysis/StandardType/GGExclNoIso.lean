@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGInndiagCommRest
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitMarking
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitKGClAltSix
-public import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotCatTypeDet
 
 public section
 

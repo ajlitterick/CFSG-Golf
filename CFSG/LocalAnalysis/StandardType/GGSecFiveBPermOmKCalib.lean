@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermOmKFrameDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniLFrame
 
-import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitarySemi
 import CFSG.ClassicalInvolution.Q3.Q3MFOU4Lift
 import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutNonsplitFieldSUDelta
 import CFSG.LocalAnalysis.StandardType.GGResJUnitaryActorNormalization

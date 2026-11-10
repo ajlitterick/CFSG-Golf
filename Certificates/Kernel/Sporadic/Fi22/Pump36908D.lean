@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Misc.Perm.HexCmd
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Data.Fi22Pump
 public meta import Certificates.Data.Fi22Pump
 import CFSG.Certificates.Kernel.Common.Harness

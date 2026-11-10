@@ -1,30 +1,15 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeakNbr
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveDataResDefs
-public import CFSG.LocalAnalysis.StandardType.GGNSJoinByType
-public import CFSG.LocalAnalysis.StandardType.GGTBFixDefs
 public import CFSG.LocalAnalysis.StandardType.GGResidualRk1UnitaryTwo
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNSQ2U62Setup
-import CFSG.ClassicalGroups.Unitary.Finite
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseLabel
-import CFSG.LocalAnalysis.StandardType.GGNsq2Main
 import CFSG.LocalAnalysis.StandardType.GGNsq2Rank
 import CFSG.LocalAnalysis.StandardType.GGNsq2Strict
-import CFSG.LocalAnalysis.StandardType.GGRCWeylCard
 import CFSG.LocalAnalysis.StandardType.GGResidualRk1Frame
 import CFSG.LocalAnalysis.StandardType.GGRk1ConclExSix
-import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
-import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthWeylOrdD
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSLieEsuAux
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosAdapterAux
-import CFSG.LocalAnalysis.StandardType.GGSecFivePrimDefs
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpCount
-import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoAux
-import CFSG.LocalAnalysis.StandardType.GGTDAutomizer
 import CFSG.LocalAnalysis.StandardType.GGTwA5ThreeFrame
 
 public section

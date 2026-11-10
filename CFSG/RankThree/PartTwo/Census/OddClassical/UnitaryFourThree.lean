@@ -3,8 +3,6 @@ module
 public import CFSG.RankThree.PartTwo.Census.OddClassical.Main
 public import CFSG.RankThree.PartTwo.Census.OddClassical.UnitaryFourThreePlanes
 import CFSG.RankThree.PartTwo.Sec5.Tools
-import CFSG.LocalAnalysis.RankThreeEvenClassification.LocalRank
-import CFSG.LocalAnalysis.RankThreeEvenClassification.Helpers
 import CFSG.RankThree.PartTwo.Sec5.Hyp
 
 public section

@@ -1,8 +1,6 @@
 module
 
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Defs
 public import CFSG.LocalAnalysis.StandardType.GGFinModelRat
-public import CFSG.LieType.Steinberg.TwistedD4.Defs
 
 public section
 

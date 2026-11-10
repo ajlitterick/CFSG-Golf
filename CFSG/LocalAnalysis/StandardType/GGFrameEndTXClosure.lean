@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFrameEndModel
-public import CFSG.LocalAnalysis.StandardType.GGFrameRouteEndNormal
 public import CFSG.LocalAnalysis.StandardType.GGFrameTBInputs
 
 public section

@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestOddEndMat
-public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergOmegaMinus
 public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergTrialityHolds
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaModelMinus
 
 public section
 

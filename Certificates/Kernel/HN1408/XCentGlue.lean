@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.HN1408.XCentFacts
-public import Certificates.Kernel.HN1408.CzInvFacts
 public import Certificates.Kernel.HN1408.TabXCntFacts
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.AutExt.XCentSpec
 import CFSG.Certificates.Kernel.Common.ForallChunks

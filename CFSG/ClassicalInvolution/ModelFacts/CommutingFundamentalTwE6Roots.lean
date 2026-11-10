@@ -1,10 +1,7 @@
 module
 
-public import Mathlib
 public import CFSG.ClassicalInvolution.Balance.LayerGenerationPairF4Data
 public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalTwistedE6Roots
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalIsogeny
 public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalTwistedE6Chain
 public import CFSG.ClassicalInvolution.ModelFacts.FundPerfectMain

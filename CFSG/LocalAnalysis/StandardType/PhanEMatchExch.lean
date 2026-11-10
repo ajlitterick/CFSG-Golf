@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.PhanEMatchSeam
 public import CFSG.LocalAnalysis.StandardType.PhanEResSeamProd
-public import CFSG.ClassicalInvolution.WeakCT.Sides
 import CFSG.ClassicalInvolution.WeakCT.SimplyLaced
 
 public section

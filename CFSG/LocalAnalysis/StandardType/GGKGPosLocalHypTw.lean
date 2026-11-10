@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGPosSpStd
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBIrred
 
 public section
 

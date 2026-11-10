@@ -8,7 +8,6 @@ public import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.A2Nonspl
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.A2NonsplitGen.Top
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.D4Maximal
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CatTw
-public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 public import CFSG.CGT.Timmesfeld75.Derivations
 public import CFSG.CGT.Timmesfeld75.Main
 public import CFSG.HardMathSupport.Solomon.Coordinator.I14_20Alt

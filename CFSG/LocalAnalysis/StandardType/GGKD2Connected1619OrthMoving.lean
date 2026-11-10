@@ -1,18 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKD2Connected1619Contracts
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172CCentComp
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompAlgOrthogonal
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeOrthModelSelfDual
 public import CFSG.RankThree.PartOne.KC.OrthogonalBlockModels
-public import CFSG.LieType.SemisimpleCentralizers.HeldSLFacts
-public import CFSG.Adapters.ProjectiveSpecialLinear
 public import CFSG.LocalAnalysis.StandardType.GGKD2LinearLemmas1615
-public import CFSG.RankThree.PartOne.KC.OrthogonalPrimaryPairing
-public import CFSG.HardMathSupport.Dickson.Bal207.OrthSU38Comp
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431D4Aux.OrthL2.Struct
 public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitOmSmallBlock
-public import CFSG.RankThree.Classical.SteinbergBJSymplecticCrossPrimeBlocks
 public import CFSG.HardMathSupport.Dickson.Bal207.OrthD4Loc
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.OrthBlocksComp
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154Orth2

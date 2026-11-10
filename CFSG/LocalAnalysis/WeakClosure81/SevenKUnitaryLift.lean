@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.WeakClosure81.SevenKUnitaryBlock
-public import CFSG.LocalAnalysis.SectionRank.EvenCover.Unitary
-import CFSG.ClassicalGroups.Unitary.Finite
 public import CFSG.GroupTheory.WeirSylow.GL
 public import CFSG.GroupTheory.WeirSylow.UnitaryBridge
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoynePSLInner
@@ -16,8 +14,6 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 
 public section

@@ -1,13 +1,10 @@
 module
 
 public import CFSG.GH74.Generic.S3.Conf
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.ClassicalInvolution.Models.LinearPairs
 public import CFSG.ClassicalInvolution.WeakCT.Main
 public import CFSG.GH74.GLS.Defs
 public import CFSG.GH74.GLS.LU.Ident
-public import CFSG.GH74.GLS.Pattern
 public import CFSG.GH74.Generic.Lifting
 public import CFSG.GH74.Statements
 public import CFSG.GroupTheory.LocalCores.Fitting
@@ -18,8 +15,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismData
 public import CFSG.LocalAnalysis.SectionRank.CentralLift
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 
 public section
 

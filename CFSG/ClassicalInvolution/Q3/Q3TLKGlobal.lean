@@ -1,12 +1,9 @@
 module
 
-public import CFSG.ClassicalInvolution.Q3.Q3TIYAtT
 public import CFSG.ClassicalInvolution.Q3.Q3TZClos
 public import CFSG.ClassicalInvolution.Q3.Q3TZTrans
 public import CFSG.ClassicalInvolution.Q3.Q3TLKAct
-public import CFSG.ClassicalInvolution.RouteD.TwinYR2AtT
 public import CFSG.ClassicalInvolution.RouteD.TWZConj
-public import CFSG.ClassicalInvolution.RouteD.TWZLayer
 public import CFSG.ClassicalInvolution.Q3.Q3TIYComp
 public import CFSG.ClassicalInvolution.Q3.Q3TIYDefs
 public import CFSG.ClassicalInvolution.Q3.Q3TY6

@@ -1,9 +1,7 @@
 module
 
-public import CFSG.ClassicalInvolution.RouteD.TwinYR2SpinGen
 public import CFSG.ClassicalInvolution.RouteD.SCRTwinGenSmall
 public import CFSG.ClassicalInvolution.ModelFacts.Orth15D4Inner
-public import CFSG.ClassicalInvolution.ModelFacts.Orth15D4Triality
 
 public section
 

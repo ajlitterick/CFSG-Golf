@@ -1,10 +1,8 @@
 module
 
-public import CFSG.Open.StatedDefs
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenEightS1T3GoodConj
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenEightS1T3GoodOrthPair
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenEightS1T3GoodOrthTrans
-public import CFSG.ClassicalGroups.Orthogonal.Simple
 public import CFSG.CGT.Foote82.T66.Basic
 public import CFSG.CGT.PushingUp.BenderBridge
 public import CFSG.CGT.PushingUpLit.BHS7.BlockComm

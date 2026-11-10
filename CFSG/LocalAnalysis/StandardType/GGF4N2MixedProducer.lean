@@ -3,11 +3,8 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGF4N2MixedMarkedL
 public import CFSG.LocalAnalysis.StandardType.GGF4N2ActualH0
 public import CFSG.LocalAnalysis.StandardType.GGCentralImageE6Quotient
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRestGen
 import CFSG.LocalAnalysis.StandardType.GGF4N2NoPSL216
 import CFSG.LocalAnalysis.StandardType.GGF4N2MarkedSylow
-import CFSG.LocalAnalysis.StandardType.GGNbrBalanceSchreier
-import CFSG.RankThree.PartOne.TCB.SchreierFinal
 
 public section
 

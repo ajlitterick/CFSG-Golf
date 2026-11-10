@@ -1,7 +1,6 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Eleven.Wong.FusionE
-public import CFSG.OddTranspositions.PartThree.Eleven.Wong.Basic
 public import CFSG.OddTranspositions.PartThree.Eleven.Wong.SylowLift
 
 public section

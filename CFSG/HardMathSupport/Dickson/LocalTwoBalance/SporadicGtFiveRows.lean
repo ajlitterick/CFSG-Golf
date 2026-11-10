@@ -3,24 +3,13 @@ module
 public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.SporadicFive.Fi24PrimeAux.AutModel
 public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.SporadicGtFiveRowsAux.Fi24Seven
 public import CFSG.HardMathSupport.Timmesfeld.Coordinator.LocalTwoFrontier
-public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.SporadicGammaPairs
-public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.SporadicRest
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.BThirteen
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Fi24Seven
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.MonsterElevenFinal
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.MonsterThirteenFinal
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThSeven
-public import CFSG.LocalAnalysis.AGLEmbedding.Norton.OrdinaryProofs.MonsterCarrierSimple
-public import CFSG.RankThree.PartOne.SPOR.OuterM
-public import CFSG.Sporadic.ThSchreier.NodeFullAutomorphism
-public import CFSG.Monster.Existence.StdOdd.Defs
-public import Certificates.Data.CFSGNative.Chevalley.C2E6CertLie
-public import CFSG.LieType.Chevalley.C2E6StdMatrixData
-public import CFSG.Monster.B.Classical.E6AdjointGroup
 import Certificates.Kernel.Misc.E6StdSlp
-public import CFSG.YGroups.Y443.Native.CoverFactsWords
 import Certificates.Kernel.KDense.Y443
-public import CFSG.YGroups.Y443.Native.Swap13Word
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.MonsterElevenEbarData
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.MonsterThirteenEbarData
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.WeakClosureSporB

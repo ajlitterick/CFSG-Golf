@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResILineInputs
 public import CFSG.LocalAnalysis.StandardType.GGKGASp
 public import CFSG.LocalAnalysis.StandardType.GGTwAutHolds
 public import CFSG.LocalAnalysis.StandardType.GGTwOmPlusHolds

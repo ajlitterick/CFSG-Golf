@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoGammaXHolds
 public import CFSG.LocalAnalysis.StandardType.GGQTwoGraphClassify
 public import CFSG.LocalAnalysis.StandardType.GGQTwoGraphSwap
 public import CFSG.LocalAnalysis.StandardType.GGQTwoGraphFinish
-public import CFSG.LocalAnalysis.StandardType.GGQTwoK1OfI1
 
 public section
 

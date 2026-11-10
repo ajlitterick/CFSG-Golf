@@ -1,12 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfMaxDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfMaxMinkowski
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfMaxMod
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfMaxRank
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfMaxLattice
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfMaxNormTwo
-public import CFSG.LieType.Chevalley.KernelComponentRoots
 
 public section
 

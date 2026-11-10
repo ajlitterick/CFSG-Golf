@@ -3,11 +3,6 @@ module
 public import Certificates.Kernel.M11Dc.Bridge
 public import Certificates.Kernel.M11Dc.Lit
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatOfFacts
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatCode
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatRows
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatExport
-public import CFSG.Certificates.Kernel.SporLatDcSound
-import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 100000
 

@@ -2,8 +2,6 @@ module
 
 public import Certificates.Kernel.J4Q.Mask
 public import Certificates.Kernel.J4Q.MaskData
-public import CFSG.Sporadic.J4.QTRankNative
-public import CFSG.Certificates.Kernel.Spor.Loops
 import Certificates.Kernel.J4Q.Strs
 import Certificates.Kernel.J4Q.AllN
 import CFSG.Certificates.Kernel.Common.Harness

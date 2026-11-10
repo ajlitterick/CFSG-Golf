@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixTCBlockField
-public import CFSG.LocalAnalysis.StandardType.GGSixTCPSUBlock
 public import CFSG.LocalAnalysis.StandardType.GGSixTCPSUDvd
-import Mathlib.Tactic.Group
 
 public section
 

@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.LocalComp.J4Rows
 public import CFSG.Certificates.Kernel.OpsKSound
 public import CFSG.Sporadic.GLQ.J4TwoRankInputs
-import CFSG.Blueprint.NativeSporadic
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

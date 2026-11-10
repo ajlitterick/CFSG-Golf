@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Co3Cent.Trees
 public import Certificates.Kernel.Co3Cent.CentBData
-public import Certificates.Data.Kernel.OrbRow.Cent
 public import Certificates.Data.Kernel.OrbRow.CentB
 import CFSG.Certificates.Kernel.Common.Harness
 

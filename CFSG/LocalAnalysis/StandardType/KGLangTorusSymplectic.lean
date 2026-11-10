@@ -2,16 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.KGLangTorusMPartDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixLabel
-public import CFSG.LocalAnalysis.StandardType.GGLFourFourThreeMarking
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45KGForms
-public import CFSG.Assembly.GL83LieDefs
 import CFSG.LocalAnalysis.StandardType.KGLangTorusSpanH90
 import CFSG.LocalAnalysis.StandardType.KGLangTorusInnerModel
 import CFSG.LocalAnalysis.StandardType.KGLangTorusClassicalInner
 import CFSG.LocalAnalysis.StandardType.KGLangTorusDatumOfModels
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldSpUSpLabels
-import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticBstar
-import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
 import CFSG.LocalAnalysis.StandardType.KGLangTorusSpan
 
 public section

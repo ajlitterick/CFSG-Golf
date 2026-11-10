@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGInnerD4Regimes
 public import CFSG.LocalAnalysis.StandardType.GGK1ScMain
-public import CFSG.LocalAnalysis.StandardType.GGMultTableCl
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 
 public section
 

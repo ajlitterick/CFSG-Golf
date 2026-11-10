@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedLayerSemidihedralTwoComponents
 public import CFSG.Walter.PSL2Facts.Even
 import CFSG.ClassicalInvolution.Balance.FuzzyAdjAxis
-import CFSG.LocalAnalysis.ComponentInitial.LinearTwoOuterOrder
 import CFSG.LocalAnalysis.ComponentClassification.GSThmB516Tools
 import CFSG.Quasithin.SteinbergOuterPrimeControl
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBAlternatingTransport
@@ -20,10 +19,7 @@ public import CFSG.LocalAnalysis.ComponentInitial.PerfectOuterInjection
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Borel
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Lemma83
 public import CFSG.Walter.Defs
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.ClassicalInvolution.Balance.PassTwoFinal
 import CFSG.ClassicalInvolution.Generic.InductionMain
 import CFSG.ClassicalInvolution.Models.LinearFrames
@@ -69,10 +65,6 @@ import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerPreimages
 import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerRestrictionCompletion
 import CFSG.LocalAnalysis.SignalizerFunctor
 import CFSG.Open.QuasithinDefs
-import CFSG.Sporadic.Th.F2Spec
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 

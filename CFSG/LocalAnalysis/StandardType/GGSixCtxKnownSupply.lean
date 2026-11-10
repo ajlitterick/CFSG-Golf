@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixStepOneDefs
-public import CFSG.LocalAnalysis.StandardType.Marking
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRestDefs
 public import CFSG.HardMathSupport.Solomon.LocalBalance.TwoLocalTools
 public import CFSG.HardMathSupport.Solomon.LocalBalance.GlueTools

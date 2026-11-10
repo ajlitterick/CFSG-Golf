@@ -5,14 +5,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1017BabyTwistPureDLin
 public import CFSG.LocalAnalysis.GLTheoremA.PartI.Transfer
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.BSevenLocal
 public import CFSG.Monster.B.GSide.TwoDNativeOrderFinal
-public import CFSG.Monster.B.CTIB.FourClasses
-public import CFSG.Monster.B.CTIB.UniqueComponent
-public import CFSG.Monster.B.TwoA.Sp8.Normalizer
-public import CFSG.Monster.B.TwoA.Sp8.Orth8Plus
-public import CFSG.Monster.B.TwoA.Sp8.QuadForm
-public import CFSG.Monster.B.TwoA.Sp8.GenActionImage
-public import CFSG.Monster.Existence.MilestoneInputs
-public import CFSG.Monster.B.Pinned.Primes.SeedGL
 public import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeFamilies
 public import CFSG.LocalAnalysis.AGLEmbedding.ResidualTools
 public import CFSG.LocalAnalysis.GLTheoremB.Lemma911Defs

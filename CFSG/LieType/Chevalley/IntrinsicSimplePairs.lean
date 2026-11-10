@@ -2,11 +2,8 @@ module
 
 public import CFSG.LieType.Chevalley.RootPairCommonField
 public import CFSG.LieType.Chevalley.GraphFixedIntrinsicPairs
-public import CFSG.LieType.Chevalley.BorelSelfNormalizer
-public import CFSG.LieType.Chevalley.OppositeNoncommutativity
 public import CFSG.LieType.Chevalley.RootCommutator
 public import CFSG.LieType.Chevalley.ChevalleySplitBN
-public import CFSG.LieType.Chevalley.PerfectSimpleRoot
 
 public noncomputable section
 

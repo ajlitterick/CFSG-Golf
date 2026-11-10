@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.BurgoynePSLBlocks
 public import CFSG.LieType.Universal.Unitary.Clause0
 public import CFSG.LieType.Steinberg.CentralExt.SUTwo
 public import CFSG.ClassicalGroups.UnitaryFlag.GroupData

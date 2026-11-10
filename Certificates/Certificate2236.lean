@@ -3,7 +3,6 @@ module
 
 public import Certificates.Certificate2236Base
 
-public import CFSG.Sporadic.Schreier.PairJ3CertInputs
 import Certificates.Kernel.SporSch.PairJ3.Cert2236
 
 public section

@@ -2,11 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHS
 import all CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHS
-public import CFSG.Blueprint.NativeSporadic
 import all CFSG.Blueprint.NativeSporadic
 public import CFSG.Quasithin.EmptyFaithful.Stellmacher.L3YC.Row18Lin
 public import CFSG.Quasithin.Background.B6Defs
-public import CFSG.Quasithin.Background.A4Defs
 
 public section
 

@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81CZeroThreePerfectProof
-import CFSG.RankThree.PartTwo.Census.Carrier.SpinBBridge
-import CFSG.LocalAnalysis.QuasithinUnique.SQTK.TypeB2Carrier
 import CFSG.LieType.SeitzGeneration.OuterSpData
-import CFSG.HardMathSupport.Curtis.Coordinator.PLTypeAltOrder
 import CFSG.LocalAnalysis.EvenSmallLie.CatalogOrdersLie
 public import CFSG.HardMathSupport.Curtis.UnitaryLevi.PLTypeHolds
 import CFSG.LocalAnalysis.AGLEmbedding.BlockAltSevenPL
@@ -51,9 +48,6 @@ public import CFSG.RankThree.PartOne.S10.ThetaContract
 public import CFSG.RankThree.PartOne.S12.InputsBase
 public import CFSG.RankThree.PartTwo.Sec19.Item194Used
 public import CFSG.StronglyEmbedded
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 import CFSG.LieType.Steinberg.CentralExt.F4E8Multiplier
 import CFSG.LieType.Steinberg.CentralExt.PSpEvenMultiplier
@@ -78,7 +72,6 @@ import CFSG.RankThree.PartOne.S11d.PSLDescent
 import CFSG.RankThree.PartOne.S9.Sylow.ExclusionBasic
 import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 import CFSG.RankThree.Theta.ThreeComponentOrbitCover
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 import CFSG.Walter.Defs
 
 public section

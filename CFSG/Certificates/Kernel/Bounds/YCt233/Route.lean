@@ -2,7 +2,6 @@ module
 
 public import CFSG.Certificates.Kernel.Bounds.Hdr
 public import CFSG.Certificates.Kernel.Bounds.YCt233.T1vData
-import CFSG.Certificates.Kernel.Bounds.Load
 
 open CFSG.Certificates
 

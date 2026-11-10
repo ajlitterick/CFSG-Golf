@@ -22,7 +22,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalTailPolar
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Monster.B.Geometry.CoxeterWords
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.Timmesfeld.ARS.Sec5Ten
 public import CFSG.Timmesfeld.RankOne
 public import CFSG.Timmesfeld.Special.TwoCore

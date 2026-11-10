@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.SporSch.Mathieu.M12DWData
 public import Certificates.Data.Kernel.SporSch.OddWit
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

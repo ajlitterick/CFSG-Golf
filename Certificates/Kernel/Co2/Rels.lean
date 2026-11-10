@@ -1,9 +1,7 @@
 module
 
 public import Certificates.Kernel.Co2.Words
-public import CFSG.Certificates.Kernel.Orders.Co2.RelsBind
 public import CFSG.Certificates.Kernel.Co2.Bound3.Rels
-import CFSG.Certificates.Kernel.Common.Harness
 public import Mathlib.Tactic.IntervalCases
 
 public section

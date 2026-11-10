@@ -1,13 +1,9 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec4.Item419Res2Proof
-public import CFSG.RankThree.PartTwo.Sec4.StatementsComponents
 import CFSG.RankThree.PartTwo.Sec4.Census.Item44TwoCover
 import CFSG.RankThree.PartOne.S11d.ThetaCalc
 import CFSG.RankThree.PartTwo.Sec21.Item223PrintProofOne
-import CFSG.RankThree.GroupTheory.SubnormalCores
-import CFSG.GroupTheory.LocalCores.Components
-public import Certificates.Kernel.ThCent.Leaves
 import CFSG.Certificates.WordSubgroupRel
 import CFSG.GroupTheory.ABGLocalTools.Constraint
 import CFSG.GroupTheory.BaerSuzuki
@@ -20,7 +16,6 @@ import CFSG.LieType.Multipliers.U62Bridge
 import CFSG.LieType.Multipliers.U62Kernel
 import CFSG.LocalAnalysis.ComponentClassification.BlockTwoProductAction
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBAlternatingTransport
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHermitianIsometry
 import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 import CFSG.LocalAnalysis.ComponentClassification.MinimalBCenter
 import CFSG.LocalAnalysis.ComponentClassification.NormalizedProductSylow
@@ -52,7 +47,6 @@ import CFSG.Monster.B.TwoA.Amalgam.Data
 import CFSG.Monster.B.TwoA.Sp8.Par1
 import CFSG.Monster.B.TwoA.Unitary.LinThree
 import CFSG.Quasithin.Background.A3Components
-import CFSG.Quasithin.Background.A3ComponentsAmbient
 import CFSG.Quasithin.Background.Basic
 import CFSG.RankThree.LocalRank.SelectorCases
 import CFSG.RankThree.PartOne.Assembly
@@ -69,7 +63,6 @@ import CFSG.RankThree.PartTwo.Sec13.Item135
 import CFSG.RankThree.PartTwo.Sec13.Item135Simple
 import CFSG.RankThree.PartTwo.Sec13.Item135SimpleReduce
 import CFSG.RankThree.PartTwo.Sec18.Notation
-import CFSG.RankThree.PartTwo.Sec18.Tools
 import CFSG.RankThree.PartTwo.Sec21.Commute33
 import CFSG.RankThree.PartTwo.Sec21.Item223Gaps
 import CFSG.RankThree.PartTwo.Sec21.Item223PrintProofFour
@@ -80,16 +73,13 @@ import CFSG.RankThree.PartTwo.Sec21.Item233OneProofHull
 import CFSG.RankThree.PartTwo.Sec21.Item233OneProofStatements
 import CFSG.RankThree.PartTwo.Sec21.Membership
 import CFSG.RankThree.PartTwo.Sec21.SylowThree
-import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 import CFSG.RankThree.PartTwo.Sec4.Item47
 import CFSG.RankThree.PartTwo.Sec4.LThreePiItem411
 import CFSG.RankThree.PartTwo.Sec4.StatementsGraphField
 import CFSG.RankThree.PartTwo.Sec6.Item612
-import CFSG.Sporadic.J4.Simple
 import CFSG.Sporadic.J4Base
 import CFSG.Sporadic.Presentation.Common
 import CFSG.Sporadic.SmallOddCore.CheckSpec
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 import CFSG.YGroups.Y322Central
 
 public section

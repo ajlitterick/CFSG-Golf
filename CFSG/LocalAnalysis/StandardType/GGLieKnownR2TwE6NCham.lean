@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TwE6NDefs
-public import CFSG.LieType.RootSystem.Positivity
-public import CFSG.LieType.Steinberg.Minuscule.Datum
 
 public section
 

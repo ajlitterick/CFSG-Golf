@@ -1,17 +1,8 @@
 module
 
 public import CFSG.GH74.Generic.S3.NbrR
-public import CFSG.GH74.Generic.S3.LeavesR
-public import CFSG.GH74.Generic.S3.PumpLift
-public import CFSG.GH74.Generic.S3.PumpDiag
-public import CFSG.GH74.Generic.Lifting
-public import CFSG.GH74.GLS.TwoThin.Pumpup
-public import CFSG.GH74.GLS.TwoThin.PumpData
-public import CFSG.GH74.Generic.JMaxDefs
 public import CFSG.GH74.Generic.S3.TerminalR
-public import CFSG.GH74.Generic.JMax
 public import CFSG.GH74.Generic.JMaxShapes
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GH74.Generic.S3.Reflection
 public import CFSG.GH74.Generic.S45.LUniLift
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoOddLieDefs

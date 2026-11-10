@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePairCover
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeExcActOuterPerfTwoDFourE8Main
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.RootSpanMap
-public import CFSG.LocalAnalysis.StandardType.GGRootDetectCore
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34OddAux.Layer
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTame.SuN
 

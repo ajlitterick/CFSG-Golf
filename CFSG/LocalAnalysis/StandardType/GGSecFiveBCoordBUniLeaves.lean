@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBDenseDefs
-public import CFSG.LocalAnalysis.StandardType.GGAssemblyTwoHypSix
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 
 public section
 

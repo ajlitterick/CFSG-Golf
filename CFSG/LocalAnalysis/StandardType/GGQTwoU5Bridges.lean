@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Models
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeU52Bridge
 
 public section

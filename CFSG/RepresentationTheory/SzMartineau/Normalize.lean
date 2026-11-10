@@ -3,7 +3,6 @@ module
 public import CFSG.RepresentationTheory.SzMartineau.Relations
 public import CFSG.RepresentationTheory.SzMartineau.Cocycle
 public import CFSG.RepresentationTheory.SzMartineau.SzTwo
-public import Mathlib.LinearAlgebra.Matrix.CharP
 
 public section
 

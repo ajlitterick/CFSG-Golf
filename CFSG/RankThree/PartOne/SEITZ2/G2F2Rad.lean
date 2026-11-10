@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartOne.SEITZ2.G2F2Act
-public import CFSG.LieType.Steinberg.BruhatWeyl
 
 public section
 

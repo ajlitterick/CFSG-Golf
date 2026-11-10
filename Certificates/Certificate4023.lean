@@ -2,7 +2,6 @@ module
 
 public import CFSG.Sporadic.J4.QTOutObsNative
 import Certificates.Kernel.J4Q.C4023
-public import CFSG.Sporadic.J4.QTRankWitNative
 
 public section
 

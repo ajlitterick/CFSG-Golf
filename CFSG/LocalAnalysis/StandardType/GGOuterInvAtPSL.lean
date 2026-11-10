@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGOuterInvModelData
-public import CFSG.LocalAnalysis.StandardType.GGSixAutStructurePSL
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.IDPSL
 
 public section

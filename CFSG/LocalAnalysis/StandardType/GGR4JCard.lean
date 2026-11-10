@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGR4JCardDefs
 public import CFSG.LocalAnalysis.StandardType.GGR4JFin
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentLSide
 
 public section

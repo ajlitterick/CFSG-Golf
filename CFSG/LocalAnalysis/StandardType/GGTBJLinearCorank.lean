@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJLinearSidesLE3
 public import CFSG.LocalAnalysis.StandardType.GGResE6DepLabels
-public import CFSG.LocalAnalysis.StandardType.GGSpJoinBstarSplit
-public import CFSG.LocalAnalysis.StandardType.GGTableBTransport
 
 public section
 

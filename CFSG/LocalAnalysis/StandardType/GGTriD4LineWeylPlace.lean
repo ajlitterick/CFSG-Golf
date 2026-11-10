@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTriD4LineWeylData
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestTri
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRanksTri
 import CFSG.LocalAnalysis.StandardType.GGTriD4NoneTwE6
-import CFSG.GroupTheory.ElementaryAbelianTransport
 
 public section
 

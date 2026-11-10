@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitExcSixE
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcSixETwisted
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ToralInner
-public import CFSG.LieType.Chevalley.GraphFixedFinitePerfect
-public import CFSG.LieType.Chevalley.GraphFixedCenterTrivial
-public import CFSG.LieType.Chevalley.TwistedE6NormalForm
 
 public section
 

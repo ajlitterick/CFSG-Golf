@@ -1,10 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Meierfrankenfeld.LieOdd.Small
-public import CFSG.HardMathSupport.Meierfrankenfeld.LieOdd.Sp
-public import CFSG.HardMathSupport.Meierfrankenfeld.LieOdd.UnitOrbit
-public import CFSG.HardMathSupport.Meierfrankenfeld.LieOdd.LnLift
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.ClassicalInvolution.ModelFacts.UnitaryAutModel
 public import CFSG.GH74.GLS.IVK.Proofs2.OddTools
 public import CFSG.GH74.GLS.Stage2.Local.P34Main

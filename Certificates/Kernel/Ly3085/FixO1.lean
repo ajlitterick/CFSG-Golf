@@ -6,7 +6,6 @@ public import Certificates.Kernel.Ly3085.Omega.O1FixK
 public import CFSG.Certificates.Kernel.Common.GridChunks
 public import Certificates.Kernel.Ly3085.FactsBase
 public import Certificates.Kernel.Ly3085.O1Count
-public import Certificates.Kernel.Ly3085.SimpleBase
 
 public section
 

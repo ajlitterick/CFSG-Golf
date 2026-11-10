@@ -1,11 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLayerCenterCyclicLinearCore
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
-public import CFSG.LieType.Steinberg.CentralExt.Split
-public import CFSG.LieType.Steinberg.Classical.SpecialLinear
-public import CFSG.LieType.Steinberg.PartBAssembly
-public import CFSG.LocalAnalysis.SectionRank.EvenCover.SLTwo
 
 public section
 

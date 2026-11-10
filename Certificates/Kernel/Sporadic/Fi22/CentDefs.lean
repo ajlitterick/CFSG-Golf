@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Sporadic.Fi22.HypCB
 public meta import Certificates.Kernel.Sporadic.Fi22.HypCB
 public import Certificates.Data.Kernel.Spor.CommCent
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

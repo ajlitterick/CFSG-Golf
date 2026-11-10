@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.ZS.DimThree.Transport
 import CFSG.LocalAnalysis.StandardType.ZS.DimThree.InnerDirect
 import CFSG.RankThree.SubgroupLists.CentralThreeLift
-import TauCeti.Algebra.Group.Subgroup.Map
 
 public section
 

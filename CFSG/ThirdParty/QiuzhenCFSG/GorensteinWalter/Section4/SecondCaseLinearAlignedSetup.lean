@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseCentralizerSylow
-import Mathlib.GroupTheory.Sylow
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootCentKGTagsDefs
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGPiece
-import CFSG.LieType.BorelTits.Basic
 
 public section
 

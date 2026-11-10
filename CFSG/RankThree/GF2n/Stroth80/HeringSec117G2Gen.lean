@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenInvolutions
 public import CFSG.Quasithin.Background.F7TwoInvG2Root
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8G2LeviA2
-public import CFSG.LocalAnalysis.EvenBN.G2.Torus
 
 public section
 

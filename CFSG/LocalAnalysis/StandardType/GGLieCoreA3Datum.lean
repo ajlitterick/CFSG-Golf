@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGLieCorePlane3Defs
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreA3DatumDefs
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreA3DictPhi
 public import CFSG.LocalAnalysis.StandardType.GGLieCorePlane
-public import CFSG.LocalAnalysis.StandardType.GGLieCoreRatFinite
 public import CFSG.Foundations.SteinbergCADefinitionNodes
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.FrobeniusOnRoots
 

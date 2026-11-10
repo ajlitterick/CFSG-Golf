@@ -1,13 +1,6 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.Remaining
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection12.lemma_12_1_a
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ElementaryAbelian
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.LinearAlgebra.MatrixBlocks
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PGroup.HomocyclicFrattini
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Wielandt.FixedPointProduct
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Wielandt.MatrixTrace
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Wielandt.StandardCover
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Wielandt.SubgroupRectangular
 

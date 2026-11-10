@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBXPlumb
 public import CFSG.LocalAnalysis.StandardType.GGRCWeylCard
 public import CFSG.LocalAnalysis.StandardType.GGPZWeylB
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthWeylOrdD

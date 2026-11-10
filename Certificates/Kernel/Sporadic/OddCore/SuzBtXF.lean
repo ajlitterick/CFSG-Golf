@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Sporadic.OddCore.SuzBtXD
 public import Certificates.Data.Kernel.Spor.BTupI
-public import Certificates.Data.Kernel.Spor.Chain
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

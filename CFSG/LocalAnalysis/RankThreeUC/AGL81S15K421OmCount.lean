@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Open.StatedDefs
-public import Mathlib.FieldTheory.Finite.Basic
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15K421SpCount
 
 public section

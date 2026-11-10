@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Sporadic.Q3A.Defs
 public import Certificates.Kernel.Sporadic.ON.Gen
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

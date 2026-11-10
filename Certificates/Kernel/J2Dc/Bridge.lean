@@ -6,7 +6,6 @@ public import Certificates.Kernel.J2Dc.Nodes
 public import CFSG.Certificates.Kernel.SporLatDcPair
 public import CFSG.Certificates.Kernel.SporLatDcLinSound
 public import CFSG.Quasithin.Background.E2TwoProofSporJ2Base
-import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 100000
 

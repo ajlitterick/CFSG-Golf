@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelOm
-public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitOmMain
-public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitSpNs
-public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionWitOmExcl
 public import CFSG.RankThree.PartOne.S11d.OrthCyclic
-public import CFSG.RankThree.PartOne.S11d.OrthDicksonOmega
 public import CFSG.RankThree.PartOne.S11d.LieCentralizerBlock
 public import CFSG.RankThree.PartOne.S11d.LieCentralizerOrth
 public import CFSG.RankThree.PartOne.S9.Sylow.ExclusionBasic

@@ -3,13 +3,9 @@ module
 public import CFSG.Monster.B.TwoA.Unitary.PlanesPrelude
 public import Certificates.Certificate3175
 
-public import CFSG.Monster.B.TwoA.Unitary.PlanesBase
 import all CFSG.Monster.B.TwoA.Unitary.PlanesBase
 
-public import CFSG.Monster.B.TwoA.Unitary.Form
 public meta import CFSG.Monster.B.TwoA.Unitary.Form
-public import CFSG.Monster.B.TwoA.Unitary.PlanesInputs
-public import Certificates.Certificate3175Base
 import all CFSG.Fischer.F4
 public import Certificates.Certificate3080Base
 

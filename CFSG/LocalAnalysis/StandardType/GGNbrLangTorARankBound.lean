@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangTorARankKG
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangRegKG
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATorus
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeACover
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
 
 public section
 

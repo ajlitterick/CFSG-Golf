@@ -2,10 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Lang.D4Three.NormalForm
 public import CFSG.HardMathSupport.Lang.E6Descent.OuterFixed27D4AmbientDescent
-public import CFSG.LieType.Chevalley.ChevalleyLargeRootCentralizerFaithful
-public import CFSG.LieType.Chevalley.OddTrialityAutomorphismNormalForm
-public import CFSG.LieType.Chevalley.OrdinaryEFieldGraphQuotient
-public import CFSG.LocalAnalysis.ComponentInitial.FieldFiniteAutomorphism
 public import CFSG.RankThree.PartOne.KGD.D4T36Core
 
 public section

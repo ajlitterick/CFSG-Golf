@@ -2,12 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.SmallCases.NDBH6
 public import CFSG.ClassicalInvolution.SmallCases.NDBD4AEmpty
-public import CFSG.ClassicalInvolution.SmallCases.NDBG0
-public import CFSG.ClassicalInvolution.SmallCases.NDBC1
-public import CFSG.ClassicalInvolution.SmallCases.NDBCRes
-public import CFSG.ClassicalInvolution.Asc77.AscT8Setup
-public import CFSG.ClassicalInvolution.Asc77.WP3LayerLie
-public import CFSG.ClassicalInvolution.Asc77.WP3LayerConj
 public import CFSG.ClassicalInvolution.AschTight.C195Wreath
 public import CFSG.ClassicalInvolution.SmallCases.NDBH5
 

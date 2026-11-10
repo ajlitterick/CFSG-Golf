@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerp23R7LemLModel
-public import CFSG.ClassicalInvolution.Q3.TL3T21
-public import CFSG.ClassicalInvolution.Q3.TL3T19
 import CFSG.ClassicalInvolution.Q3.TL3T25
 public import CFSG.ClassicalInvolution.Asc77.AscS22B
 public import CFSG.ClassicalInvolution.Asc77.AscT8X4

@@ -1,17 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeTableZDefs
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6RatLabel
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeScLift
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUStd
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcInnerLang.TwE6
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompChain
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUAut
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.PlanesSetup
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.RigidCriterion
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.RigidNorm
-public import CFSG.RankThree.PartOne.KE.E7FiveBlock
 
 public section
 

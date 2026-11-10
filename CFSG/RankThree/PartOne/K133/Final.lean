@@ -1,13 +1,7 @@
 module
 
-public import CFSG.RankThree.PartOne.K133.Max
-public import CFSG.RankThree.PartOne.K133.Two
-public import CFSG.RankThree.PartOne.S13K.KF133One
-public import CFSG.RankThree.PartOne.S13K.KFLift
 public import CFSG.RankThree.PartOne.K133.MaxItems
 import CFSG.RankThree.PartOne.SPOR.OuterSimple
-import CFSG.RankThree.PartOne.CTP.StrongPOuter
-import CFSG.RankThree.PartOne.K133.KillSporadic
 import CFSG.RankThree.PartOne.K133Spor.Ly
 import CFSG.RankThree.PartOne.K133Spor.HNLeaf6
 import CFSG.RankThree.PartOne.K133.KillRank
@@ -15,15 +9,12 @@ import CFSG.RankThree.PartOne.K133.KillRee
 import CFSG.RankThree.PartOne.K133.KillAlt
 import CFSG.RankThree.PartOne.K133.KillNine
 import CFSG.RankThree.PartOne.K133.Item1
-import CFSG.RankThree.PartOne.K133.Leaf2
 import CFSG.RankThree.PartOne.K133.Leaf4
-import CFSG.RankThree.PartOne.K133.Leaf4Sp
 import CFSG.RankThree.PartOne.K133.Leaf4U
 import CFSG.RankThree.PartOne.K133.Leaf4G
 import CFSG.RankThree.PartOne.K133X.G2
 import CFSG.RankThree.PartOne.K133X.D4
 import CFSG.RankThree.PartOne.K133X.F4
-import CFSG.RankThree.PartOne.K133C.LinearLeaves
 import CFSG.RankThree.PartOne.K133C.SpGood
 import CFSG.RankThree.PartOne.K133C.OrthGood
 import CFSG.RankThree.PartOne.K133C.UnitaryLeaves
@@ -67,7 +58,6 @@ public import CFSG.Sporadic.Ly.ActionBase
 public import CFSG.Sporadic.Ly.CertificateBase
 public import CFSG.Sporadic.Ly.FaithSpec
 public import CFSG.Sporadic.Ly.OrbitSpec
-public import CFSG.Sporadic.Ly.PrimitiveBase
 public import CFSG.Sporadic.LyBase
 public import CFSG.Sporadic.M23.M23Group
 public import CFSG.Sporadic.McL
@@ -75,7 +65,6 @@ public import CFSG.Sporadic.ON.ActionBase
 public import CFSG.Sporadic.ON.CertificateBase
 public import CFSG.Sporadic.ON.ChainBase
 public import CFSG.Sporadic.ON.LinesBase
-public import CFSG.Sporadic.ON.PrimitiveBase
 public import CFSG.Sporadic.ON.SimpleBase
 public import CFSG.Sporadic.Presentation.Co3
 public import CFSG.Sporadic.Presentation.HeExact
@@ -91,12 +80,6 @@ public import CFSG.Sporadic.Schreier.RuLOdd
 public import CFSG.Sporadic.Schreier.RuZClass
 public import CFSG.Sporadic.Th
 public import CFSG.Sporadic.Th.CertificateBase
-public import CFSG.Sporadic.Th.KernelPlanesBase
-public import CFSG.Sporadic.Th.KernelSimpleBase
-public import CFSG.Sporadic.ThSchreier.FullAutCoreBase
-public import CFSG.Sporadic.ThSchreier.KernelAutBase
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.theorem_3_6
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.CommutatorNormalizer
 import CFSG.CharacterTheory.BrauerThirdMainTheorem.CentralResidueMaps
 import CFSG.CharacterTheory.BrauerThirdMainTheorem.NormalizerClassLifting

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcPilotToral
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExc
-public import CFSG.CharacterTheory.Burnside
 
 public section
 

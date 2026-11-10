@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGInnerD4RABranchDefs
 public import CFSG.LocalAnalysis.StandardType.GGInnerD4RALabels
 public import CFSG.LocalAnalysis.StandardType.GGTCJDivUni
 public import CFSG.LocalAnalysis.StandardType.GGTCJEnnolaUniComp
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniScal
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GCenterQuot
 
 public section

@@ -2,12 +2,10 @@ module
 
 public import CFSG.Quasithin.H13.NQCatA314Lat
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtE68SporHS
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHS
 import all CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHS
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.G3TabM12
 public import CFSG.Quasithin.Background.A3Structure314Excl
 public import CFSG.RankThree.PartOne.K1214.Basic
-public import CFSG.Sporadic.HS
 public import CFSG.CharacterTheory.Semidihedral.ElementStructure
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBSymplecticTwoKernel
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.G3TabBlock

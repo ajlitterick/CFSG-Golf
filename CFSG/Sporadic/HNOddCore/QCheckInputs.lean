@@ -7,7 +7,6 @@ public meta import CFSG.Sporadic.HNOddCore.QData
 public meta import CFSG.Sporadic.HNOddCore.InvArrays
 public meta import CFSG.Sporadic.HNOddCore.ChainUtil
 public meta import Mathlib.GroupTheory.Schreier
-public import Mathlib.GroupTheory.Schreier
 
 public section
 

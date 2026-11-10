@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Item434SporMcL9
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public import Certificates.Kernel.SporSch.Th.GenV4
 public meta import Certificates.Data.Item434SporMcL9

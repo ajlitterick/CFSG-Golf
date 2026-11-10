@@ -1,7 +1,6 @@
 module
 
 public import Mathlib.LinearAlgebra.Matrix.Cartan.Basic
-public import Mathlib.LinearAlgebra.Quotient.Basic
 public import Mathlib.Combinatorics.SimpleGraph.Connectivity.Connected
 public import Certificates.Data.E6Heart
 

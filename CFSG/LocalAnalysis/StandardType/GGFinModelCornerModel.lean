@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGFinModelExists
 public import CFSG.LocalAnalysis.StandardType.GGFinModelIndex
-import CFSG.LocalAnalysis.StandardType.GGFinModelRootCompatDefs
-public import CFSG.LocalAnalysis.StandardType.GGLangRatComp
 public import CFSG.LocalAnalysis.StandardType.GGLangRatStep
 
 public section

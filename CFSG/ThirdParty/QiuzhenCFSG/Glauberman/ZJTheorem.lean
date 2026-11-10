@@ -1,7 +1,5 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Definitions
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremA
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremB
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremC
 import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Lemma6_3

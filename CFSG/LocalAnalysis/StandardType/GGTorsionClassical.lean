@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorsionTwF4Card
-import CFSG.LocalAnalysis.StandardType.GGReverseMarkingRaw
 import CFSG.LocalAnalysis.StandardType.GGExclNoIso
-import CFSG.LocalAnalysis.StandardType.Marking
 
 public section
 

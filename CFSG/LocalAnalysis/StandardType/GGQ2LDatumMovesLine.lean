@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoTableBI1
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLemmaH4
 import CFSG.LocalAnalysis.StandardType.GGQ2MixedCentreRefl
 import CFSG.LocalAnalysis.StandardType.GGSecFiveL2SplitLabelTwo

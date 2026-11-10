@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeReturnAssembly
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleCycle
 
 public section
 

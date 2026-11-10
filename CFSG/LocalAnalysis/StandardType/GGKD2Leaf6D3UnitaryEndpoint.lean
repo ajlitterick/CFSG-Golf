@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGKD2Leaf6D3Contracts
 public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotTPGraphFieldCore
-public import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotBlocks
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinFldGrp
 public import CFSG.Assembly.LowTwoRank
 public import CFSG.CharacterTheory.Wreathed.ProjectiveTwoParameterUniqueness

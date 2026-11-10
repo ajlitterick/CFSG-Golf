@@ -1,18 +1,13 @@
 module
 
-public import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.Cases
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.L34TypeCover
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.NineSixStar
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.NineSixStarE
-public import CFSG.LocalAnalysis.GLTheoremB.UniqDefs
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.CaseOneInnerAction
-import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.KSylowTwo
-import CFSG.LocalAnalysis.GLTheoremB.ComponentTools
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CStarImgEquiv
 import CFSG.HardMathSupport.Solomon.Coordinator.I18_3Bridge
 import CFSG.HardMathSupport.Solomon.Coordinator.I271HoldsL34
 import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6GInputs
-import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6KI2320Main
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.ThreeStar
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearFieldDeterminant
 import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSUFieldOddCore

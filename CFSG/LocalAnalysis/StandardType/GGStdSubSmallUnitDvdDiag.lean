@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitDvdAct
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUCoverTwo
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestThreeLabels
 
 public section
 

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.RankThree.PartOne.LIT.KF127Trans
-public import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
-import Mathlib.Tactic.LinearCombination
 
 public section
 

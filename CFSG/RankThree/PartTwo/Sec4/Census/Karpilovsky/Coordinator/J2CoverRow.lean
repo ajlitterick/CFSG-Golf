@@ -8,7 +8,6 @@ public import CFSG.RankThree.PartTwo.Sec4.Census.Item44TwoCoverList
 public import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Coordinator.PrimaryCells
 public import CFSG.Alternating.Multipliers.Small
 public import Certificates.Certificate291351
-public import CFSG.Sporadic.Bridge.J2
 import all CFSG.Sporadic.Bridge.J2
 
 public section

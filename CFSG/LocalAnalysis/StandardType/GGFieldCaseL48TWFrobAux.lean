@@ -1,9 +1,6 @@
 module
 
 public import Mathlib.RingTheory.ZMod.UnitsCyclic
-public import Mathlib.RingTheory.IntegralDomain
-public import Mathlib.FieldTheory.Finite.Basic
-public import Mathlib.GroupTheory.Commutator.Basic
 
 public section
 

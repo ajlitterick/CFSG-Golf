@@ -4,14 +4,10 @@ public import CFSG.SignalizerFunctorTheorem.McBride.Models.Frame
 public import CFSG.SignalizerFunctorTheorem.McBride.Models.AutItems
 import CFSG.SignalizerFunctorTheorem.NearModels.Main
 import CFSG.SignalizerFunctorTheorem.McBride.Models.Conj
-import CFSG.SignalizerFunctorTheorem.McBride.Models.PSL2Three.A4
 import CFSG.SignalizerFunctorTheorem.McBride.Models.PSL2Three.Arithmetic
-import CFSG.SignalizerFunctorTheorem.McBride.Models.PSL2Three.Aut
 import CFSG.SignalizerFunctorTheorem.McBride.Models.PSL2Three.Dickson
 import CFSG.SignalizerFunctorTheorem.McBride.Models.PSL2Three.Items
 import CFSG.SignalizerFunctorTheorem.McBride.Models.PSL2Three.Setup
-import CFSG.SignalizerFunctorTheorem.McBride.Models.PSL2Three.Structure
-import CFSG.SignalizerFunctorTheorem.McBride.Models.PSL2Three.Transvection
 
 public section
 

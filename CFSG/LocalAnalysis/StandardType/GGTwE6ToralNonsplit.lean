@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcSixETwistedNonsplit
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerPDivExcRound
 public import CFSG.LocalAnalysis.StandardType.GGSixAutKFinerTagsExcAssembly
 public import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotLeviAut
-public import CFSG.Timmesfeld.Orders.Distinct
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotClassesRoots
 
 public section

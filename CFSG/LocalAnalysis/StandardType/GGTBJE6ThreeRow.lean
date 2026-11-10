@@ -1,18 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJE6Three
-public import CFSG.LocalAnalysis.StandardType.GGTBJRowGeneric
-public import CFSG.LocalAnalysis.StandardType.GGTBRowR1Defs
 public import CFSG.LocalAnalysis.StandardType.GGTBRowR1E6Split
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwenty
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiag
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitClassical
-public import CFSG.LocalAnalysis.StandardType.GGTableBTransport
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLCx
-public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpLattice
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrTableBPSL
 public import CFSG.LocalAnalysis.StandardType.GGTBJRowR4Narrow
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Three
 
 public section
 

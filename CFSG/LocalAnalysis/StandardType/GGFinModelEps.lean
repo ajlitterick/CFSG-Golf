@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.FieldTheory.IsAlgClosed.Basic
 public import Mathlib.RingTheory.RootsOfUnity.AlgebraicallyClosed
 
 public section

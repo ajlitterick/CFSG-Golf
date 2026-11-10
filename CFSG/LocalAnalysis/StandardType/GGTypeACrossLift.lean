@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGAssemblyFourTypeA
-public import CFSG.LocalAnalysis.StandardType.GGTypeAEndNodeRel
 public import CFSG.LocalAnalysis.StandardType.GGCompatNbrSomeTypeAFrame
 public import CFSG.LocalAnalysis.StandardType.GGTypeACrossLiftDefs
 

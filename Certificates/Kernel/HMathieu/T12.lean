@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.HMathieu.Tab
 public import CFSG.Quasithin.H13.A5M12Inputs
-public import CFSG.Certificates.Kernel.Common.Harness
 public meta import CFSG.Certificates.Kernel.Common.JsonGz
 public meta import CFSG.Certificates.Kernel.Common.Repo
 public import CFSG.Certificates.Kernel.Common.JsonGz

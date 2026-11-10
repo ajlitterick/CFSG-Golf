@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimePumpUpRank
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwoThreeSp
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestTailFinal
 public import CFSG.LocalAnalysis.StandardType.GGLayerCycModelOmegaSec
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
 public import CFSG.LocalAnalysis.StandardType.GGTableBF4Basic
 public import CFSG.Open.StatedZModTwo
 

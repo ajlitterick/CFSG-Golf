@@ -3,7 +3,6 @@ module
 
 public import Certificates.Certificate2183Base
 
-public import CFSG.Sporadic.Schreier.J4SThreeDataInputs
 public meta import CFSG.Sporadic.Schreier.J4SKCentBase
 import Certificates.Kernel.SporSch.J4S.Three
 

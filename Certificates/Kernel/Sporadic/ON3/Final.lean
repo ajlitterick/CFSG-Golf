@@ -3,8 +3,6 @@ module
 public import Certificates.Kernel.Sporadic.ON3.Sift
 public import Certificates.Kernel.Sporadic.ON3.U
 public import Certificates.Kernel.Sporadic.ON3.CC
-import Mathlib.Tactic.IntervalCases
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

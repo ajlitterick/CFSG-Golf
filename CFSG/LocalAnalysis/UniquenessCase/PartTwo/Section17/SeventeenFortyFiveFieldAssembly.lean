@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenForty
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenFortyFiveFieldUnitary
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenFortyFiveSzFiveComponent
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenFortyFiveSzFiveInner
-public import CFSG.Open.StatedDefs
-import CFSG.LocalAnalysis.SectionRank.SubgroupRank
 public import CFSG.Adapters.Certificate43Check
 public import CFSG.ClassicalInvolution.Asc77.AscS22B
 public import CFSG.ClassicalInvolution.Asc77.AscS24Alpha
@@ -61,7 +59,6 @@ public import CFSG.ClassicalInvolution.Q3.Q3T8B10
 public import CFSG.ClassicalInvolution.Q3.Q3TIYOAMain
 public import CFSG.ClassicalInvolution.Q3.Q3TLKLink
 public import CFSG.ClassicalInvolution.Q3.TA3SOLCore
-public import CFSG.ClassicalInvolution.Q3.TA3SOLCoreRank
 public import CFSG.ClassicalInvolution.Q3.TL3S8Gold
 public import CFSG.ClassicalInvolution.Q3.TL3S8Sd
 public import CFSG.ClassicalInvolution.Q3.TL4Conn26Nbr
@@ -90,7 +87,6 @@ public import CFSG.RankThree.PartOne.S9.Sylow.GlobalRelative
 public import CFSG.RankThree.PartOne.S9.Sylow.ResidualLocal
 public import CFSG.RankThree.PartTwo.Sec4.LThreePiProjKer
 public import CFSG.Timmesfeld.Moufang.Three
-public import CFSG.Walter.J1Props
 
 public section
 

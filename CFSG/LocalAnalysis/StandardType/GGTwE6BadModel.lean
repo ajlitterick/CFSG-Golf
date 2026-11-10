@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwenty
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelData
 public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6Holds
 
 public section

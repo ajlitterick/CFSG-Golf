@@ -2,11 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264X1ExcF4Red
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowX1SpMain
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4TwoInputsEndNode
 public import CFSG.LocalAnalysis.StandardType.GGTableBF4TwoInputsSylow
-public import CFSG.LocalAnalysis.SeitzReduction.F4PilotLeviSp6
-public import CFSG.LocalAnalysis.SeitzReduction.F4PilotNonsplit
-public import CFSG.Assembly.Subnormal
 public import CFSG.GroupTheory.PLayer.Transport
 public import CFSG.HardMathSupport.Solomon.Coordinator.L3C143AltMain
 public import CFSG.HardMathSupport.Solomon.Coordinator.YS08.Down
@@ -30,8 +26,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.S10.Bridge
 public import CFSG.LocalAnalysis.GLTheoremA.S10.Inputs105
 public import CFSG.LocalAnalysis.GLTheoremA.S10.InputsBeta
 public import CFSG.LocalAnalysis.GLTheoremA.S11.Defs
-public import CFSG.LocalAnalysis.GLTheoremA.S3.Inputs
-public import CFSG.LocalAnalysis.GLTheoremA.S4.Inputs
 public import CFSG.LocalAnalysis.GLTheoremA.S4S.I145GW
 public import CFSG.LocalAnalysis.GLTheoremA.S4S.KData
 public import CFSG.LocalAnalysis.GLTheoremA.S9.Inputs

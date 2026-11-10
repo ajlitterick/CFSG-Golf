@@ -1,9 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ElementaryAbelian
-public import Mathlib.GroupTheory.Index
-public import Mathlib.GroupTheory.QuotientGroup.Basic
-public import Mathlib.Order.Minimal
 
 public section
 

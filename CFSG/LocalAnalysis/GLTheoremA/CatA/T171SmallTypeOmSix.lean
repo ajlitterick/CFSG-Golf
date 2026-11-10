@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171SmallTypeOmWit
-public import CFSG.ClassicalGroups.Orthogonal.Eichler
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172BRankSiegel
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172CRankTorus
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172BCentKey
 

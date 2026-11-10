@@ -2,8 +2,6 @@ module
 
 public import CFSG.Quasithin.EmptyFaithful.S146zYFSBase
 public import CFSG.Quasithin.Background.E2TwoProofSporJ2
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatExport
-public import CFSG.Sporadic.J2
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeBasic
 public import CFSG.Milestones.CL_LIT_SQTK_simple_list
 public import CFSG.Quasithin.Background.A1cA133Three

@@ -9,8 +9,6 @@ import CFSG.RankThree.PartTwo.Sec19.Item19Res4ProofTripleA6
 import CFSG.RankThree.PartTwo.Sec19.Item19Res4ProofWide3
 import CFSG.RankThree.PartTwo.Sec19.Step1914Tri
 public import CFSG.RankThree.PartTwo.Sec19.Step1915W
-public import CFSG.RankThree.PartTwo.Sec19.Step1917ProofDefs
-public import CFSG.RankThree.PartTwo.Sec19.Step1918ProofEnd
 
 public section
 

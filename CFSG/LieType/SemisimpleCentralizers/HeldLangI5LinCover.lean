@@ -3,7 +3,6 @@ module
 public import CFSG.LieType.SemisimpleCentralizers.HeldLangCover
 public import CFSG.LieType.SemisimpleCentralizers.HeldLangI5Lin
 public import CFSG.LieType.Steinberg.CentralExt.SLCentrallyClosed
-public import CFSG.Adapters.LinearCatalog
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieI5FieldPieces
 public import CFSG.LocalAnalysis.ComponentInitial.LinearCoverModel
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.LinearPlane

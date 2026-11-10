@@ -6,23 +6,14 @@ public import Certificates.Kernel.Sporadic.Suz.Hyp24432T2
 public import Certificates.Kernel.Sporadic.Suz.Hyp24432T3
 public import Certificates.Kernel.Sporadic.Suz.Hyp24432E8
 public import CFSG.Certificates.Kernel.Spor.CommEnumSound
-public import CFSG.Certificates.Kernel.Spor.PackWord
 public import CFSG.Certificates.Kernel.Enum.ZCSound
 public import CFSG.Sporadic.SuzOddCore.InvCentralizers
-public import CFSG.Sporadic.SuzOddCore.SmallChain
-public import CFSG.Sporadic.SuzOddCore.InvPerms
-public import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
-public import CFSG.LocalAnalysis.ComponentClassification.M12CoverAutCentralizers
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HypOne.Rank
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.Spor.RawOrbGrp
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HypOne.Generic
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Sporadic.SuzOddCore.InvCentralizerBounds
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 public import CFSG.Walter.JRFacts
 
 public section

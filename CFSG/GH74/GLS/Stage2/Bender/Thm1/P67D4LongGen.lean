@@ -3,8 +3,6 @@ module
 public import CFSG.GH74.GLS.Stage4.HexModelD4
 public import CFSG.ClassicalInvolution.Balance.BootstrapExoticD4Sl3
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4HexLong
-public import CFSG.LieType.CurtisTits.Recognition
-public import CFSG.LieType.Universal.SpecialLinear
 public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeGroup
 
 public section

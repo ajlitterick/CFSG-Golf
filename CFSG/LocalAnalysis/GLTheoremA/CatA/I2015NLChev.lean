@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I2015NLAct
 import CFSG.SignalizerFunctorTheorem.NonLocalExc.Chevalley
-import CFSG.LieType.Simplicity.Exceptional
-import CFSG.LieType.Chevalley.OppositeNoncommutativity
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I2015NLCore
 
 public section

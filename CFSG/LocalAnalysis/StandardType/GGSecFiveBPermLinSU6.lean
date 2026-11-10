@@ -1,16 +1,12 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermLinNbrDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 import CFSG.GroupTheory.CentralKernelImage
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermLinSU6Block
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSUKFrame
 import CFSG.LocalAnalysis.StandardType.GGClassicalCentralImageLabel
-import CFSG.LocalAnalysis.StandardType.GGSignedCoordFix
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermLinNbrTableP
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBDenseRows
-import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpStdAssembly
-import CFSG.LinearAlgebra.LinearGroups.Perfect
 
 public section
 

@@ -7,11 +7,8 @@ import CFSG.LocalAnalysis.UniquenessCase.UC22P2214b
 import CFSG.LocalAnalysis.UniquenessCase.UC22P20o
 import CFSG.Milestones.ASVolI.A3OddFacts
 import CFSG.Quasithin.Vol2.GoldschmidtF134OddDickson
-import CFSG.Quasithin.Background.A3Structure312Quotient
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Center
 import CFSG.Adapters.Certificate43Check
 import CFSG.GroupTheory.PermutingProducts
-import CFSG.GroupTheory.ABGLocalTools.Basic
 import CFSG.Quasithin.EmptyFaithful.GoldschmidtH23P4Mul
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafBasic
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeMax
@@ -28,10 +25,6 @@ import CFSG.LocalAnalysis.UniquenessCase.UC22P21a
 import CFSG.LocalAnalysis.UniquenessCase.UC22P2214a
 import CFSG.Quasithin.Vol2.Ch5Sec1L34FiveA7
 import CFSG.Quasithin.Vol2.Ch6Sec1Lem4SpA
-import CFSG.Walter.J1Props
-import CFSG.Walter.J1Recog
-import CFSG.Walter.PSL2Facts
-import CFSG.Walter.W67.Statements
 
 public section
 

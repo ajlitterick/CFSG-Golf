@@ -2,15 +2,10 @@ module
 
 public import CFSG.RankThree.GF2n.Stroth80.HeringSec117G2Producer
 public import CFSG.RankThree.GF2n.Stroth80.HeringSec117G2Center
-public import CFSG.RankThree.GF2n.Stroth80.HeringSec117Module
-public import CFSG.RankThree.GF2n.Stroth80.HeringSec118RT1Action
-public import CFSG.RankThree.GF2n.Stroth80.Sec11Module
 public import CFSG.RankThree.GF2n.Stroth80.HeringSec117G2Short
 public import CFSG.RankThree.GF2n.Stroth80.HeringSec117G2Gen
 public import CFSG.RankThree.GF2n.Stroth80.HeringSec118NotTTransportHom
 public import CFSG.RankThree.GF2n.Stroth80.HeringSec11Action
-import CFSG.RankThree.GF2n.Stroth80.Sec3Action
-import CFSG.LocalAnalysis.ComponentInitial.BasicFacts
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.ClassicalGroups.Symplectic.TransvectionCentralizer
 public import CFSG.GroupTheory.HuppertProduct.Quotient

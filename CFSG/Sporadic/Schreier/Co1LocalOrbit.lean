@@ -1,17 +1,10 @@
 module
 
-public import CFSG.Sporadic.Schreier.Co1WeightStabPerfect
-public import CFSG.Sporadic.Schreier.Co1OrbData
 public meta import CFSG.Sporadic.Schreier.Co1OrbData
 public meta import CFSG.Sporadic.Schreier.Co1ElemData
 public meta import CFSG.Sporadic.Schreier.Co1ElemThreeData
 public meta import CFSG.Sporadic.Schreier.Co1SplitCheck
-public import CFSG.Sporadic.Schreier.Co1LocalOrbitInputs
 public import Certificates.Certificate2140
-public import Certificates.Certificate2133
-public import Certificates.Certificate2147
-public import Certificates.Certificate2150
-public import Certificates.Certificate3024
 
 public section
 

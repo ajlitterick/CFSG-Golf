@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGPZMultCore
-public import CFSG.LocalAnalysis.StandardType.MarkingClassical
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-import CFSG.LieType.Steinberg.CentralExt.GriessClassical
 
 public section
 

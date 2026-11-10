@@ -3,10 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeReturnedFrame
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeRetE7Frame
 import CFSG.LocalAnalysis.GLTheoremA.CatA.L154NonCfgE7
-import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.KacEAll
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimpleOrbit
-import CFSG.LieType.Chevalley.OrthogonalUnionBruhat
-import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.ThirdLineE8
 
 public section
 

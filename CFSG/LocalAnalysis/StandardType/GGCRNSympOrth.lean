@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBRank
-public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticOmega
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalSpLift
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestTailFinal
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeNbrKnownLemmas

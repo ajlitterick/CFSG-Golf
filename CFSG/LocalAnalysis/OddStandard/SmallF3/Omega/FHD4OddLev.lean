@@ -1,10 +1,7 @@
 module
 
-public import CFSG.ClassicalInvolution.Q3.TL4OmegaAOFLevi
-public import CFSG.Adapters.SpecialLinearPerfect
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.FHD4OddCube
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.FHD4OddMat
-import CFSG.ClassicalInvolution.SmallOrth.Orth3GaussMain
 
 public section
 

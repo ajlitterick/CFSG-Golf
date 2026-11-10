@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInner937Defs
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerSCrComp
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUDvd
 
 public section
 

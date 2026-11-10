@@ -3,14 +3,11 @@ module
 public import CFSG.Assembly.Subnormal
 public import CFSG.Assembly.GL83StatedBridge
 public import CFSG.Blueprint.Catalog
-public import CFSG.Foundations.Basic
 import CFSG.GroupTheory.ComponentFStarProd
-import CFSG.GroupTheory.LocalCores.Components
 import CFSG.CharacterTheory.Burnside
 import CFSG.LocalAnalysis.SectionRank.OddCover.DegreeThree
 import CFSG.GroupTheory.OrderBelowSixtySolvable
 import CFSG.Assembly.OrderReductions.OutsideAuxiliary
-import CFSG.LocalAnalysis.ComponentInitial.LocalComponents
 import CFSG.LocalAnalysis.ComponentInitial.FixedComponentCorrespondence
 public import CFSG.RankThree.PartOne.S10.ComponentOrbitSemisimpleLocalRankWitness
 public import CFSG.GroupTheory.LocalCores.Fitting

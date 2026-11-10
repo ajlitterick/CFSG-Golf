@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenResults2
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven2EighteenCoreA
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven2EighteenCore
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven2TwentyNineFrame
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven2TwentyNineNorm

@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsPair
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsLie
 public import CFSG.HardMathSupport.Meierfrankenfeld.AGL81.I56.BridgeGN
-public import CFSG.LocalAnalysis.ComponentInitial.SmallLinearIsomorphisms
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.MsideParabolicEscape.I811.L3.Main
-public import CFSG.Adapters.LinearCatalog
 public import CFSG.LargeExtraspecial.A2ModSLd
 public import CFSG.Adapters.QiuzhenLegacy.FeitThompson.Gorenstein.RelativeZJ
 public import CFSG.GroupTheory.SteinbergCBFTCores

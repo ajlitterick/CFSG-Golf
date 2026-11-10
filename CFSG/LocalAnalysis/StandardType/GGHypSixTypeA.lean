@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGHypSix
 public import CFSG.LocalAnalysis.ComponentInitial.SteinbergBUProjectivePlaneLinearField
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherOuterQuotients
 public import CFSG.LinearAlgebra.LinearGroups.Perfect
 
 public section

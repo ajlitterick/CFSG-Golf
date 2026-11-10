@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGFamF4B2
 public import CFSG.LocalAnalysis.StandardType.GGFamF4RankThree
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-import CFSG.LocalAnalysis.StandardType.GGFamF4Orbit
 import CFSG.LocalAnalysis.StandardType.GGFamTypeACovers
-import CFSG.LocalAnalysis.StandardType.GGFamTypeAFrames
 import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.SelectedLiteralPart1
 import CFSG.LocalAnalysis.StandardType.GGF4OrderThreeLabel
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GSympLabel

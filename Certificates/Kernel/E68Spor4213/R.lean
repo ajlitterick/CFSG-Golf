@@ -5,7 +5,6 @@ public import Certificates.Data.Kernel.SporLatOrb
 public import Certificates.Data.E68Spor.Words
 public import CFSG.Quasithin.Background.HSporLatInputs
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatM24Inputs
-import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 100000
 

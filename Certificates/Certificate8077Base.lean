@@ -1,31 +1,10 @@
 
 module
 
-public import CFSG.Quasithin.Recognition.CertTitsBase
-public import CFSG.Quasithin.Recognition.CertPermSimple
-public import CFSG.Quasithin.Recognition.CertDataTitsSimple
-public import Certificates.Data.CFSGNative.YGroups.ExactCheck
-public import Certificates.Data.CFSGNative.Schreier.Check
 public import CFSG.Quasithin.Recognition.CertTitsSimpleInputs
-import CFSG.Sporadic.Schreier.TitsOuter
-import CFSG.Quasithin.Recognition.CertTitsSimpleMainBase
-import CFSG.Blueprint.Catalog
-import Certificates.Kernel.Misc.Tits.Prim8077
 import Certificates.Kernel.Misc.Tits.Strong8077Base
-import Certificates.Kernel.TitsW.Alg
-import Certificates.Kernel.Sporadic.Tits.GroupT2264
 import Certificates.Kernel.Sporadic.OddCore.ChainCheckGlue
 import CFSG.Certificates.Kernel.Misc.TitsPrimSound
-import CFSG.Certificates.Kernel.Spor.RawOrbSound
-import CFSG.Certificates.Kernel.Spor.StrongOfSound
-import CFSG.Certificates.Kernel.Spor.Co2ChainSound
-import CFSG.Certificates.Kernel.Spor.DecLinesRead
-import CFSG.Certificates.Kernel.Spor.PresCardPG
-import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import CFSG.Certificates.Kernel.YModel.Sound
-import Certificates.Kernel.YModel.Basic
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 @[expose] public section
 

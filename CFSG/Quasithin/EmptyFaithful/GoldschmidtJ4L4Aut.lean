@@ -1,9 +1,6 @@
 module
 
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4L4Alt8
-public import Mathlib.GroupTheory.Subgroup.Centralizer
-public import Mathlib.GroupTheory.SpecificGroups.Alternating.Simple
-public import Mathlib.GroupTheory.Index
 
 public section
 

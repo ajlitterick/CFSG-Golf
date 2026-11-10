@@ -3,10 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.FS81.BasisMonomial
 public import CFSG.LocalAnalysis.StandardType.FS81.RowOutTwD7
 public import CFSG.LieType.SeitzGeneration.OrthBlocks
-public import CFSG.ClassicalGroups.Orthogonal.Eichler
 import CFSG.LieType.SeitzGeneration.OrthRelRoot
-import CFSG.LieType.SeitzGeneration.OrthNonsplitDims
-import CFSG.LieType.SeitzGeneration.OrthEx
 import CFSG.HardMathSupport.Timmesfeld.OrthogonalGeneration.Commutator
 import CFSG.LieType.SeitzGeneration.HyperLinear
 import CFSG.LieType.SeitzGeneration.OrthCubeBlocks

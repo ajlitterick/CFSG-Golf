@@ -2,12 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSporKBMPreds
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.BSevenLocal
-import Mathlib.Algebra.Group.Commute.Basic
-import Mathlib.Algebra.Group.Subgroup.Map
-import Mathlib.Data.Nat.Factorization.Defs
-import Mathlib.GroupTheory.Subgroup.Center
-import Mathlib.GroupTheory.Subgroup.Centralizer
-import Mathlib.SetTheory.Cardinal.Finite
 
 public section
 

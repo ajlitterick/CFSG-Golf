@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperMoreOrth
 public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperMoreE6
 public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperMoreTypeA
-public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperRestExc
 
 public section
 

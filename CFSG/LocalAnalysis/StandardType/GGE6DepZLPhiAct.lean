@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGE6DepZLPhi
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBTransport
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 
 public section
 

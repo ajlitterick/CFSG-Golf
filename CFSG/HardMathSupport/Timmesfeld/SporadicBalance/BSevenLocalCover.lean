@@ -3,12 +3,9 @@ module
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.BSevenSylowPred
 public import CFSG.Monster.Existence.StdOdd.Cert.Cent7A
 public import CFSG.Monster.Existence.StdOdd.Cert.Cent7B
-public import CFSG.Monster.Existence.StdOdd.Cert.Sylow57
 public import CFSG.Monster.GMS.BabyTwoAAutBridge
-public import CFSG.Monster.B.TwoA.Amalgam.DerivedCoverMain
 public import CFSG.Monster.Existence.BabyW2Classes
 public import CFSG.Monster.B.Pinned.Primes.SeedGL
-public import CFSG.LieType.Chevalley.C2E6NativeF4Building
 public import CFSG.LocalAnalysis.GLTheoremB.QuotientTools
 public import CFSG.Monster.GMS.BabyReduce
 public import CFSG.Monster.GMS.Facts.Section4

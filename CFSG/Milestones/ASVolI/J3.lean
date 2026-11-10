@@ -1,17 +1,7 @@
 module
 
-public import Mathlib
-public import CFSG.Foundations.Basic
-public import CFSG.Open.Defs
-public import CFSG.Open.LocalVocabulary
-public import CFSG.Blueprint.NativeSporadic
-public import CFSG.Milestones.ASVolI.J1
 public import CFSG.Milestones.ASVolI.J2
-public import CFSG.Quasithin.Background.ASVolIRu.Bridge
-public import CFSG.Quasithin.Background.ASVolIRu.StUnique
-public import CFSG.Quasithin.Recognition.RuTypeJ31c
 public import CFSG.Quasithin.Recognition.RuTypeJ36f
-public import CFSG.Quasithin.Recognition.RuTypeJ31b
 
 public section
 

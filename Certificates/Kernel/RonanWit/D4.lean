@@ -4,10 +4,7 @@ public import Certificates.Kernel.RonanWit.D4Check
 public import CFSG.Certificates.Kernel.Wit3KSound
 public import CFSG.RankThree.PartTwo.Sec4.RonanK432D4TwoData
 public import Certificates.Kernel.D4.Facts
-public import Certificates.Kernel.D4.ChainAD
 import CFSG.Certificates.Kernel.Misc.PermClosSound
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.Misc.ArrBind
 public import CFSG.Open.SplitBNPair
 public import CFSG.Quasithin.Vol2.Ch10StatementsE

@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.RouteD.MultiModelOrthStar
 public import CFSG.ClassicalInvolution.RouteD.MultiModelLayer
-public import CFSG.ClassicalInvolution.RouteD.ExoticTwinProofOrthBridge
 public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalE6
 public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalE7
 public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalTwistedE6

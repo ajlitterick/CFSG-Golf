@@ -4,7 +4,6 @@ public import Certificates.Kernel.LocalComp.FendelBridge
 public import Certificates.Kernel.Sporadic.Co3.M
 public import Certificates.Kernel.Sporadic.Co3.T
 public import Certificates.Kernel.Sporadic.Co3.Single
-public import Certificates.Kernel.Sporadic.RawGen
 meta import CFSG.LocalAnalysis.EvenSmallLie.SympSix.FendelDataInputs
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.FendelSound

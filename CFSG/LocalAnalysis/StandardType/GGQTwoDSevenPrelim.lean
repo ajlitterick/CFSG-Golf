@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDInputs
-import CFSG.LocalAnalysis.StandardType.GGSimplyLacedTits
-import CFSG.LocalAnalysis.StandardType.GGSimplyLacedWeyl
 import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
 
 public section

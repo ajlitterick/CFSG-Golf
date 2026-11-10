@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP9CDefs
-public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelSLFrame
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineL2Frame
 public import CFSG.GroupTheory.ElemAbelianClosure
 

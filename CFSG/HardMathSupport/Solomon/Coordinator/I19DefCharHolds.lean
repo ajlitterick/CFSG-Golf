@@ -2,9 +2,7 @@ module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.I19_10OutFive
 public import CFSG.HardMathSupport.Solomon.Coordinator.I19_6D4Outer
-public import CFSG.HardMathSupport.Solomon.Coordinator.I19_6OutThree
 public import CFSG.HardMathSupport.Timmesfeld.DFour.NonResidual44
-public import CFSG.HardMathSupport.Timmesfeld.DefChar.CoreDFour
 public import CFSG.HardMathSupport.Timmesfeld.DefChar.CoreAssembly
 public import CFSG.LocalAnalysis.ComponentInitial.LinearCoverFour
 

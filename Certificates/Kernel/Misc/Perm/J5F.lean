@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Misc.Perm.J5K
 public import Certificates.Kernel.Misc.Perm.J5P
 public import CFSG.Certificates.Kernel.Misc.ArrEnumSound
-public import CFSG.Certificates.Kernel.Spor.PrimSound
 public import CFSG.Certificates.Kernel.Misc.PermClosSound
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Misc.ArrBind

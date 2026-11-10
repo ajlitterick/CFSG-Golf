@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNTPlaneTableVec
-public import CFSG.LocalAnalysis.StandardType.GGNTPlaneTableOrbits
 public import CFSG.LocalAnalysis.StandardType.GGNTPlaneTableClosureA
 public import CFSG.LocalAnalysis.StandardType.GGNTPlaneTableClosureB
 public import CFSG.RankThree.E6.LargePrimeStabilizers

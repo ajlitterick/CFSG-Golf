@@ -2,11 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6S
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6bGen
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinSecXg
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPair
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinMuPf3A
-public import CFSG.ClassicalInvolution.Asc77.AscS24Cent
-public import CFSG.LocalAnalysis.RankThreeEvenClassification.SubnormalCore
 public import CFSG.CGT.PushingUpLit.SolK.Basics
 public import CFSG.CGT.PushingUpLit.BHS.Offender
 public import CFSG.CGT.PushingUpLit.SolK.ModData

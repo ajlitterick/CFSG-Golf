@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGUSixThreeKGDefs
 public import CFSG.LocalAnalysis.StandardType.GGUSixThreeKGField1
 
 public section

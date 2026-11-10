@@ -1,23 +1,15 @@
 module
 
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.ThreeNineStatements
-public import CFSG.Sporadic.Schreier.LyCheckSep
-public import CFSG.Sporadic.Ly.KeySpec
-public import CFSG.Sporadic.He.FpSpec
 import Certificates.Kernel.SporSch.Ly.SepGlue
 public import CFSG.Monster.Existence.StdOdd.Defs
 public import Certificates.Data.CFSGNative.Chevalley.C2E6CertLie
 public import CFSG.LieType.Chevalley.C2E6StdMatrixData
 public import CFSG.Monster.B.Classical.E6AdjointGroup
 import Certificates.Kernel.Misc.E6StdSlp
-public import CFSG.Blueprint.NativeSporadic
-public import CFSG.RankThree.PartOne.CTP.FusionSound
-import CFSG.Sporadic.Bridge.BFusSevenGen
 public import CFSG.YGroups.Y443.Native.CoverFactsWords
 import Certificates.Kernel.KDense.Y443
 public import CFSG.YGroups.Y443.Native.Swap13Word
-public import CFSG.Sporadic.Ly.FiveFacts
-import CFSG.Sporadic.Ly.Certificate
 
 import CFSG.LocalAnalysis.AGL81I.Section3.ThreeNineSporB
 import CFSG.LocalAnalysis.AGL81I.Section3.ThreeNineSporBM

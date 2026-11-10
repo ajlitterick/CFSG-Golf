@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6ThreeGlue
-public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6
 
 public section
 

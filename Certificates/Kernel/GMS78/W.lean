@@ -5,14 +5,10 @@ public import Certificates.Kernel.Sporadic.OrdCommon
 public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Sporadic.SmallF2Rels
 public import CFSG.Sporadic.Bridge.VecSurj
-public import Certificates.Data.CFSGNative.Ru.Data
 public import CFSG.Certificates.Kernel.Orders.Ru.Checks.D
 public import CFSG.Certificates.Kernel.Orders.Ru.Checks.K
-public import CFSG.Certificates.Kernel.Orders.Ru.Data.Pay
 import all CFSG.Blueprint.NativeSporadic
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

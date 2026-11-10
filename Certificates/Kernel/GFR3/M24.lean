@@ -1,11 +1,8 @@
 module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.GFR3M24Inputs
-public import Certificates.Data.Kernel.B3S3K
 public import Certificates.Data.Kernel.GFR3K
-public import Certificates.Data.Kernel.Misc.ChainTail
 public import Certificates.Kernel.B3S3.Gen
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public meta import CFSG.HardMathSupport.Solomon.Coordinator.GFR3M24Inputs
 public meta import Certificates.Kernel.B3S3.Gen

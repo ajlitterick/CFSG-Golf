@@ -1,9 +1,7 @@
 module
 
 public import CFSG.HardMathSupport.Dickson.Sec6.I923Aux.Transport
-public import CFSG.LieType.Chevalley.CoordinateFieldFixedSubgroup
 public import CFSG.HardMathSupport.Dickson.Sec6.I923Aux.LieArith
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafInputs
 
 public section
 

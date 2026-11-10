@@ -1,6 +1,5 @@
 module
 
-public import CFSG.HardMathSupport.Dickson.Bal207.FamF42Class
 public import CFSG.LocalAnalysis.StandardType.GGSixA6F4ClsSpComp
 
 public section

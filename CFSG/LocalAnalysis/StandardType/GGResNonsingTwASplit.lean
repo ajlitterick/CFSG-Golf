@@ -2,17 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGResJTwE6Lagrange
 public import CFSG.LocalAnalysis.StandardType.GGResThreeSettledDefs
-public import CFSG.LocalAnalysis.StandardType.GGTBRowSignedFrameW
-public import CFSG.LocalAnalysis.StandardType.GGNbrCenterPCyclic
-import CFSG.LocalAnalysis.StandardType.GGKGForkUSplitOddE
-import CFSG.LocalAnalysis.StandardType.GGPZWeylB
-import CFSG.LocalAnalysis.StandardType.GGTBRowFrame
-import CFSG.LocalAnalysis.StandardType.GGTBJWeyl
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySplitRefl
-import CFSG.LocalAnalysis.StandardType.GGNbrReflGenCore
-import CFSG.LocalAnalysis.StandardType.GGNbrTableBExcInduced
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-import CFSG.LocalAnalysis.StandardType.GGResNonsingularBase
 
 public section
 

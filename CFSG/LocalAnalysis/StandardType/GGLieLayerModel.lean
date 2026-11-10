@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.ChevTwoMarking
 public import CFSG.LocalAnalysis.StandardType.GGLayerCycMLie
 public import CFSG.Adapters.TauCetiLieModels
-public import CFSG.LocalAnalysis.ComponentInitial.OddLinearTwoAliases
 
 public section
 

@@ -4,10 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGNbrLangS1KGField
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangS1Labels
 import CFSG.LocalAnalysis.StandardType.KGLangS1ALinCont
 import CFSG.LocalAnalysis.StandardType.KGLangS1ALinComp
-import CFSG.LocalAnalysis.StandardType.GGNbrGraphFieldLinear
-import CFSG.LocalAnalysis.StandardType.KGLangTorAFields
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldLinear
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldLinearLang
 import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownLinearProj
 
 public section

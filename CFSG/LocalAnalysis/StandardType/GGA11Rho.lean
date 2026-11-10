@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGA11Defs
 public import CFSG.LocalAnalysis.StandardType.GGA11RhoMk
 public import CFSG.LocalAnalysis.StandardType.GGA11RhoS9
 public import CFSG.LocalAnalysis.StandardType.GGA11RhoInj

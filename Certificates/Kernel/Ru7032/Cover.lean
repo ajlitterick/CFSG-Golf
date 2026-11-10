@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatRu
 public import Certificates.Kernel.RuDc.Final
 public import Certificates.Kernel.RuDc.Facts
 public import CFSG.Certificates.Kernel.SporLatDcCoset
-public import CFSG.Certificates.Kernel.SporLatDcMem
 
 public section
 

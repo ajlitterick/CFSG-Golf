@@ -3,12 +3,10 @@ module
 
 public import Certificates.Kernel.SporSch.Ru.S2258
 public import Certificates.Kernel.SporSch.Ru.R2257P
-public import CFSG.Certificates.Kernel.Spor.RawSlSound
 public import CFSG.Certificates.Kernel.Spor.SiftRSound
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Spor.PackFld
 import CFSG.Certificates.Kernel.Spor.PcompFacts
-import CFSG.Certificates.Kernel.Spor.RawSound
 
 public section
 

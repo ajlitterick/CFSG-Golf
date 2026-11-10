@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.PhanELocalAdm
 public import CFSG.LocalAnalysis.StandardType.PhanELocalGate
-public import CFSG.Certificates.Kernel.ThDemp.OrbCent
 
 public section
 

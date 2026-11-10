@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGOppositeRadicalOmegaMinusModel
-public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalTailWittFlags
 
 public section
 

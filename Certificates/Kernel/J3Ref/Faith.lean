@@ -3,8 +3,6 @@ module
 public import Certificates.Kernel.J3Ref.Bind
 public import Certificates.Kernel.K426.J3TFacts
 public import CFSG.Certificates.Kernel.Spor.PEnumBSound
-import CFSG.Certificates.Kernel.Spor.PcompFacts
-import CFSG.Certificates.Kernel.Spor.PackWord
 public import CFSG.Certificates.Kernel.Misc.RuInvHash
 public import CFSG.Certificates.Kernel.Spor.ClassOneH
 

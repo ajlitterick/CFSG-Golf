@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOtherCore
-public import CFSG.LieType.Chevalley.DiagonalFieldActorData
-public import CFSG.LieType.Chevalley.E6ToralGraphInvolution
-public import CFSG.LieType.Chevalley.AdjointCenter
 
 public section
 

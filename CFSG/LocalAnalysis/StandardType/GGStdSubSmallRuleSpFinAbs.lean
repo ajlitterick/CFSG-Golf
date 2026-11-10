@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRuleSpTwo
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticCover
 
 public section
 

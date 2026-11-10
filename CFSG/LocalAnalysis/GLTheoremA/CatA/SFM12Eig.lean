@@ -1,8 +1,6 @@
 module
 
-public import CFSG.Open.StatedDefs
 public import CFSG.LinearAlgebra.LinearGroups.UnitaryScalarKernel
-public import Mathlib.RingTheory.Frobenius
 public import CFSG.LieType.BorelTits.CompleteFlag
 
 public section

@@ -2,10 +2,8 @@ module
 
 public import Certificates.Kernel.S7TwinSp6.Data
 public import Certificates.Data.Kernel.S7TwinK
-public import Certificates.Data.Kernel.Child3
 public import Certificates.Data.Kernel.J2Cover
 public import Certificates.Data.Kernel.SporSch.MathieuBT
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

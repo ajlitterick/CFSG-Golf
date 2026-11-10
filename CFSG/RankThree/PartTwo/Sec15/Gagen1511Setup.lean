@@ -1,28 +1,15 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec15.HypR
-public import CFSG.RankThree.PartTwo.Sec4.LThreePiDefs
-public import CFSG.RankThree.PartTwo.Sec13.Steps
-public import CFSG.RankThree.PartTwo.Sec12.Notation
 public import CFSG.RankThree.PartTwo.Sec13.Item131a
-public import CFSG.RankThree.LocalRank.SolvablePrimeComplementCore
-public import CFSG.Assembly.Defs
 import CFSG.RankThree.PartOne.Q1327T.ThetaLift
-import CFSG.LocalAnalysis.RankThreeEvenClassification.RankTransport
 import CFSG.LocalAnalysis.RankThreeEvenClassification.ThetaRankThree
-import CFSG.RankThree.PartTwo.Sec4.Notation
-import CFSG.RankThree.PartTwo.Sec6.Item612Local
 import CFSG.RankThree.PartTwo.Sec13.Item133
 import CFSG.RankThree.PartTwo.Sec13.Item136Pair
 import CFSG.RankThree.PartTwo.Sec13.Item138NMod9
-import CFSG.RankThree.PartTwo.Sec13.Item13Models
-import CFSG.RankThree.PartTwo.Sec13.Item13Prod
-import CFSG.RankThree.PartTwo.Sec13.Item13Theta
 import CFSG.RankThree.PartTwo.Sec19.Step1914Tri
 import CFSG.RankThree.PartTwo.Sec16.Item1611Facts131
 import CFSG.RankThree.PartTwo.Sec14.Item143StepsProofLThree
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Foundations
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.GroupTheory.LocalCores.Fitting
@@ -31,13 +18,11 @@ public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups
 public import CFSG.LocalAnalysis.ComponentInitial.SuzukiModelSchreier
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure
 public import CFSG.RankThree.PartTwo.NotationBlocks
 public import CFSG.RankThree.PartTwo.Sec8.Pairs
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHermitianIsometry
 import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 import CFSG.LocalAnalysis.ComponentClassification.LBalanceComponentLifts
@@ -58,7 +43,6 @@ import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 import CFSG.RankThree.PartTwo.Sec4.Census.Interface46
 import CFSG.RankThree.PartTwo.Sec4.LThreePiSLOn
 import CFSG.RankThree.PartTwo.Sec4.StatementsSporadic
-import CFSG.Sporadic.Schreier.J4SProfileNode
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 
 public section

@@ -7,9 +7,6 @@ public import CFSG.LocalAnalysis.StandardType.GGJ4dKernel24
 public import CFSG.LocalAnalysis.StandardType.GGLieCorePlane3Pair
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreSmallSetup
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs256j2
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwoDFourLayer
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExcD4
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExcTw
 public import CFSG.CGT.Timmesfeld75.Form2
 public import CFSG.CGT.Timmesfeld75.Main
 public import CFSG.HardMathSupport.Solomon.Coordinator.I23_26AutMain

@@ -1,12 +1,10 @@
 module
 
-public import CFSG.ClassicalInvolution.Q3.Q3E8Facts
 public import CFSG.ClassicalInvolution.Q3.Q3E8BModel
 public import CFSG.ClassicalInvolution.Q3.Q3E8BSix
 public import CFSG.ClassicalInvolution.Q3.Q3E8BShape
 public import CFSG.ClassicalInvolution.Q3.Q3E8BLayer
 public import CFSG.ClassicalInvolution.Q3.Q3NGStar
-public import CFSG.ClassicalInvolution.Q3.Q3WAM11Comp
 public import CFSG.ClassicalInvolution.Q3.Q3PStage
 public import CFSG.ClassicalInvolution.RouteD.TypeE8ExclR2Layer
 

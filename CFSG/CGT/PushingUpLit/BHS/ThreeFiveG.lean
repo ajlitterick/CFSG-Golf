@@ -2,11 +2,9 @@ module
 
 public import CFSG.CGT.PushingUpLit.BHS.ThreeFiveF
 public import CFSG.CGT.PushingUpLit.BHS.GlaubMain
-public import CFSG.CGT.PushingUpLit.BHS.NaturalDefs
 public import CFSG.CGT.PushingUpLit.BHS.SymNatDefs
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 
 public section
 

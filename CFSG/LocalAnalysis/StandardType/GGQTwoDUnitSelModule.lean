@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBase
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDCoxEven
-import CFSG.LocalAnalysis.StandardType.GGQTwoDFrameModule
-import CFSG.LocalAnalysis.StandardType.GGQTwoDFrameCfg
 import CFSG.LocalAnalysis.StandardType.GGQTwoDFrameMain
 
 public section

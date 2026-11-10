@@ -3,7 +3,6 @@ module
 
 public import Certificates.Certificate2043Base
 
-public import CFSG.Sporadic.Co1Block.PermCheckInputs
 public meta import CFSG.Sporadic.Co1Block.PermData
 public meta import CFSG.Sporadic.Schreier.Co1StabFix
 public meta import CFSG.Sporadic.Schreier.Co1StabCheck

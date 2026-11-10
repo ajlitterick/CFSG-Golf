@@ -3,10 +3,6 @@ module
 public import CFSG.Fischer.F4Code
 public import Certificates.Data.CFSGNative.F4.Unitary
 import all CFSG.Fischer.F4
-public import Mathlib.RingTheory.WittVector.IsPoly
-public import Mathlib.Tactic.Basify
-public import Mathlib.Tactic.ENatToNat
-public import Mathlib.Tactic.ReduceModChar
 
 public section
 

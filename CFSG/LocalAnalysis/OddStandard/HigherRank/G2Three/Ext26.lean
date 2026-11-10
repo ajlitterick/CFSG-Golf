@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Frame
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.Leaves
-public import CFSG.Models
 public import CFSG.ClassicalInvolution.Asc77.WP1Section18
 public import CFSG.ClassicalInvolution.Asc77.WP1Section6
 public import CFSG.ClassicalInvolution.Balance.QNineFuzzyFree

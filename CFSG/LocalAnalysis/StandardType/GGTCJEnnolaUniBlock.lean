@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.SemisimpleCentralizers.HeldUnitaryComponents
 import CFSG.LocalAnalysis.GLTheoremA.CatA.K1419ClsUniBlock
-import CFSG.LieType.SemisimpleCentralizers.HeldUCDForm
 import CFSG.Assembly.GL83StatedBridge
 import CFSG.Assembly.OpenBridges
 import CFSG.HardMathSupport.Solomon.Coordinator.I18_3LInput

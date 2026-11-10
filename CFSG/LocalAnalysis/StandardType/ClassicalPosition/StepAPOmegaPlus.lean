@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Position
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.StepACore
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.IDPOmegaPlus
-public import CFSG.LieType.Universal.Spin.Datum
 
 public section
 

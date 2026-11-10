@@ -5,11 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.ExcPay.CardE7
 public import CFSG.LocalAnalysis.StandardType.ExcPay.DatumE7
 public import CFSG.LocalAnalysis.StandardType.GGLieBridgeTheta
 public import CFSG.LieType.AschbacherSeitz.RootGroupTransport
-public import CFSG.LieType.Chevalley.AdjointCenter
-public import CFSG.LieType.CurtisTits.ExceptionalQuasisimple
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.TorusAtCore
-public import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
-public import CFSG.LieType.Chevalley.RootCharacterConjugation
 
 public section
 

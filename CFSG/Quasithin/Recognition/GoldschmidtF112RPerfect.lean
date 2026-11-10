@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Recognition.GoldschmidtF112RY9
-public import CFSG.Quasithin.Vol2.Ch9Sec3FactsF112PfA
 public import CFSG.Quasithin.Vol2.Ch9Sec3FactsF112PfD
 public import CFSG.Quasithin.EmptyFaithful.S1421Defs
 

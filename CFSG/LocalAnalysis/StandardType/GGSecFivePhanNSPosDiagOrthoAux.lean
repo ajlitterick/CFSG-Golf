@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosDefs
-public import CFSG.RankThree.PartOne.KF.UnitaryDiag
 
 public section
 

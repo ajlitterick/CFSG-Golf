@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGPumpTwExcTwE6
 public import CFSG.LocalAnalysis.StandardType.GGR4PumpTwKnownDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableB
 import CFSG.LocalAnalysis.StandardType.GGL45E67Center
-import CFSG.LocalAnalysis.StandardType.GGTableBTwE6Delta
-import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaOutdiag
 import CFSG.LocalAnalysis.StandardType.GGTableBTwE6RankOuter
 import CFSG.LocalAnalysis.StandardType.GGIrred937TwE6Transport
 import CFSG.LocalAnalysis.StandardType.GGF4AutWeyl

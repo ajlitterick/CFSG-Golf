@@ -2,9 +2,6 @@ module
 
 public import CFSG.OddTranspositions.PartThree.EightEight.CommProd
 public import CFSG.OddTranspositions.PartThree.Statements
-public import CFSG.Timmesfeld.Bridge.Asc72Basic
-public import CFSG.Timmesfeld.Bridge.Asc72Triangle
-public import CFSG.Timmesfeld.Closure.MinCex
 
 import CFSG.OddTranspositions.PartThree.EightEight.Conjugator
 import CFSG.OddTranspositions.PartThree.EightEight.Fibres

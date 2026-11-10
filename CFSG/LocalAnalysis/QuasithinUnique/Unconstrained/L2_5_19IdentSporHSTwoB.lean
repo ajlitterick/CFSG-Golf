@@ -1,11 +1,9 @@
 module
 
-public import CFSG.Sporadic.SmallOddCore.HSData
 public import CFSG.Sporadic.SmallOddCore.LocalSpec
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19IdentSporGlue
 public meta import CFSG.Sporadic.SmallOddCore.HSData
 public meta import CFSG.Sporadic.SmallOddCore.LocalCheck
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19IdentSporHSTwoBInputs
 public import Certificates.Certificate4150
 public import CFSG.Assembly.OrderReductions.CharacterInflation
 public import CFSG.CGT.Timmesfeld75.L2Pair
@@ -51,9 +49,6 @@ public import CFSG.Quasithin.Vol2.Ch1Local
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Schreier.M23
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import CFSG.Walter.Defs
 public import Certificates.Certificate1
 public import Certificates.Certificate2

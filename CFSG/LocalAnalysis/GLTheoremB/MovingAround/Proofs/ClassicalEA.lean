@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Leaves
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.OmegaFacts2
-public import CFSG.RankThree.OrthogonalInvolutions.Witt
-public import CFSG.RankThree.PartOne.KC.OrthogonalSelfDualModel
 public import CFSG.RankThree.Classical.SteinbergR3EHigherSymplecticOuterOrder
 
 public section

@@ -2,12 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBXPlumb
 public import CFSG.LocalAnalysis.StandardType.GGResConjWire
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyReflDom
-public import CFSG.LocalAnalysis.StandardType.GGNbrHalfSplitArith
 public import CFSG.LocalAnalysis.StandardType.GGNbrLabelJOfTcjK
 public import CFSG.LocalAnalysis.StandardType.GGRootGenSmallRankQFour
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrSmallRankExc
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
 
 public section
 

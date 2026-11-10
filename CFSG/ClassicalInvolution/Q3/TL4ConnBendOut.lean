@@ -1,24 +1,17 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.TL4ConnBendTot
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Comparator.Defs
 public import CFSG.GH74.Bender.Suzuki
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.UnitaryCentralCover
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
 public import CFSG.RankThree.PartOne.S11d.OutUnitary
 public import CFSG.RankThree.SteinbergR3ESuzukiFieldSplitting
 public import CFSG.LocalAnalysis.ComponentInitial.QTNQRLinearUnitaryOuterDerivedLinear
 import CFSG.CGT.Timmesfeld75.BenderInputs3
-public import CFSG.Adapters.QiuzhenLegacy.BenderSuzuki.Models
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.LieType.BorelTits.CompleteFlag
 public import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
 public import CFSG.LocalAnalysis.ComponentInitial.SuzukiModelSchreier
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.Defs
 import CFSG.CGT.Timmesfeld75.Derivations
 import CFSG.CGT.Timmesfeld75.SimpleCase

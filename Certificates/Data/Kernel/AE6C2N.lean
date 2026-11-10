@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.AE6FN
 public import Certificates.Data.Kernel.KGC31PB
-public import Certificates.Data.AE6CertC2
 
 public section
 

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC163Two
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.TwelveShort
 public import CFSG.LocalAnalysis.UniquenessCase.UC6S846e
-public import CFSG.LocalAnalysis.UniquenessCase.UC6R
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC163Alt
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC163Nat
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC163Seven
@@ -11,7 +10,6 @@ import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC163Fix
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC163Lift
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC165ExclCard
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC23Unique
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenFiveTen
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenInputs
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22ui
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs16c

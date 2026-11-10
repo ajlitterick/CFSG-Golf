@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveCompatJoinCells
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoPairing
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRootRefl
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBMaxToPair
-public import CFSG.LocalAnalysis.StandardType.GGSpJoinReflAlgebra
 public import CFSG.LocalAnalysis.StandardType.GGFrameRouteQTwo
 
 public section

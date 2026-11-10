@@ -6,7 +6,6 @@ public import CFSG.Quasithin.EmptyFaithful.GoldschmidtF146Case2bH
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L246C127Main
 public import CFSG.Quasithin.EmptyFaithful.S1421QA25Orb
 public import CFSG.Quasithin.EmptyFaithful.S1421QA25Rows
-public import CFSG.Assembly.Subnormal
 public import CFSG.LieType.SteinbergBROddSylowCore
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasFive
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasSix

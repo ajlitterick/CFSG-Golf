@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.LocalComp.Weyl3220
 public import Certificates.Kernel.LocalComp.Weyl3189
 public import CFSG.Certificates.Kernel.LocalCompCoordSound
-public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.WeylCoordData
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

@@ -6,9 +6,6 @@ public import Mathlib.LinearAlgebra.Eigenspace.Basic
 import CFSG.RankThree.PartOne.N1322.ExtraspecialAbs
 import CFSG.RankThree.PartOne.N1322.CaseBasic
 import TauCeti.LinearAlgebra.Dimension.DirectSum
-import Mathlib.Tactic.Ring
-import Mathlib.Tactic.NoncommRing
-import Mathlib.Tactic.LinearCombination
 public import Mathlib.Algebra.Algebra.Subalgebra.Rank
 import CFSG.RankThree.PartOne.N1322.CoreHyp
 import CFSG.RankThree.PartOne.N1322.Mono

@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1LemmaHTwE6
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IRootLine
-public import CFSG.LieType.Steinberg.Exceptional.Fields
-public import CFSG.LieType.Steinberg.TwistedE6.Datum
-public import CFSG.LieType.Steinberg.TwistedE6.Generation
-public import CFSG.Timmesfeld.LieEmbed.FieldEmbed
 
 public section
 

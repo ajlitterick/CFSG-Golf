@@ -1,18 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpFrameDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHypTorus
-public import CFSG.LocalAnalysis.StandardType.GGSuSplitRootGenDefs
-public import CFSG.Assembly.LargeEvenDefs
 public import CFSG.LocalAnalysis.StandardType.GGSuSplitRootGenGen
 public import CFSG.RankThree.PartTwo.CTU6.Long
 import all CFSG.LocalAnalysis.StandardType.GGSuSplitRootGenLine
 import all CFSG.LieType.SeitzGeneration.UnitarySplit
-import CFSG.LocalAnalysis.StandardType.GGSuSplitRootGenWeyl
 import CFSG.LocalAnalysis.StandardType.GGSixLSixFiveKnownComp
-import CFSG.LocalAnalysis.SeitzReduction.F4PilotBLift
-import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
-import CFSG.Foundations.QuasisimpleMulEquiv
 public import CFSG.RankThree.PartOne.CTP.SpNode
 public import CFSG.RankThree.PartOne.CTP.SpPos
 

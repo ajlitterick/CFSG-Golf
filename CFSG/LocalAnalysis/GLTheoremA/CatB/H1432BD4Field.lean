@@ -4,15 +4,9 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1432BD4Rank
 public import CFSG.HardMathSupport.Timmesfeld.DFour.Tower
 public import CFSG.HardMathSupport.Dickson.DefCharOuter.Export.SporthD4Stab
 public import CFSG.HardMathSupport.Lang.Coordinator.D4Bridge.Bridge
-public import CFSG.LieType.Chevalley.CoordinateFieldFixedStructure
-public import CFSG.LieType.Chevalley.LangFiniteRootCentralizer
-public import CFSG.RankThree.Chevalley.SteinbergBTCanonicalFieldCommon
-public import CFSG.LocalAnalysis.ComponentInitial.BasicFacts
-public import CFSG.LocalAnalysis.ComponentInitial.FieldFiniteAutomorphism
 public import CFSG.GroupTheory.ElemAbelianRank
 public import CFSG.Yardstones.Md0ec50421ce4.Definitions
 public import CFSG.HardMathSupport.Solomon.Coordinator.LayerCentralFix
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
 public import CFSG.RankThree.Chevalley.SteinbergBID4CentralKernel
 
 public noncomputable section

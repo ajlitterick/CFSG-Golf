@@ -1,10 +1,8 @@
 module
 
-public import CFSG.ClassicalInvolution.RouteD.ExoticTwinProofOrthGeom
 public import CFSG.ClassicalInvolution.RouteD.ExoticTwinProofOrthWitt
 public import CFSG.ClassicalInvolution.RouteD.GapsOrthSpin
 public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalSpin
-public import CFSG.ClassicalInvolution.ModelFacts.FundPerfectBridge
 
 public section
 

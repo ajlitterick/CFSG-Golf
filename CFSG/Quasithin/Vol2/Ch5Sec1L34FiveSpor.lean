@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.Ch5Sec1L34FiveDefs
-public import CFSG.Quasithin.Vol2.KGFactAutSylowSpor
 public import CFSG.Quasithin.Vol2.KGFactAutSylowM22
 public import CFSG.Quasithin.Vol2.KGFactAutSylowM23
 import all CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHS

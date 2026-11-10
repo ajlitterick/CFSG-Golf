@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.FS81.E7FrameNative
 public import CFSG.ClassicalInvolution.ModelFacts.FundamentalSL2
 public import CFSG.ClassicalInvolution.RouteD.LocalTwinPartner
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.ClassicalInvolution.Models.LinearFrames
 public import CFSG.ClassicalInvolution.Models.LinearPairs
 public import CFSG.ClassicalInvolution.Models.OrthogonalPairs

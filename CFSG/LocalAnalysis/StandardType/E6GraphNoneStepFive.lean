@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.E6GraphNoneStepFourField
 public import CFSG.LocalAnalysis.StandardType.E6GraphNoneStepFiveWeights
 public import CFSG.LocalAnalysis.StandardType.GGExcFiveFour
 public import CFSG.LocalAnalysis.StandardType.GGExcPRankBound
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.SmallQThreeE6FourFusion
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerF4Toral
 
 public section
 

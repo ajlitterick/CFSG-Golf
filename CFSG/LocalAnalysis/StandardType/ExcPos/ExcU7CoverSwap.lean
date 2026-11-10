@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6U7Pieces
 public import CFSG.LocalAnalysis.StandardType.ExcPos.ExcU7CoverSwapMat
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUStd
-public import CFSG.LieType.Universal.Unitary.Basic
 
 public section
 

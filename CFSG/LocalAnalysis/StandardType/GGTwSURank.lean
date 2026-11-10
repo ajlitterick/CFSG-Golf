@@ -2,11 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwAutDefs
 public import CFSG.LocalAnalysis.StandardType.GGK1ADvd
-public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutNonsplitSU
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHypCentral
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHyperbolic
-public import CFSG.RankThree.PartOne.CTP.SeitzUSplit
-public import CFSG.RankThree.PartTwo.KFacts.KS14SzClassical
 
 public section
 

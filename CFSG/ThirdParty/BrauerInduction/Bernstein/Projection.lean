@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.BrauerInduction.Cyclotomic.Projection
 public import CFSG.ThirdParty.BrauerInduction.Bernstein.GlobalIdeal
-public import CFSG.ThirdParty.BrauerInduction.Span
 
 public section
 

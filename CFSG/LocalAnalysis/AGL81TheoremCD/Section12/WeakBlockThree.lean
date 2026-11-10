@@ -1,27 +1,13 @@
 module
 
-public import CFSG.Monster.Existence.StdOdd.Defs
-public import Certificates.Data.CFSGNative.Chevalley.C2E6CertLie
-public import CFSG.LieType.Chevalley.C2E6StdMatrixData
-public import CFSG.Monster.B.Classical.E6AdjointGroup
 import Certificates.Kernel.Misc.E6StdSlp
-public import CFSG.YGroups.Y443.Native.CoverFactsWords
 import Certificates.Kernel.KDense.Y443
-public import CFSG.YGroups.Y443.Native.Swap13Word
 
-public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.Defs
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.WeakBlockExists
-public import CFSG.LocalAnalysis.AGLEmbedding.TwoLocalPair
 
-import CFSG.LocalAnalysis.AGLEmbedding.BlockThree
-import CFSG.LocalAnalysis.AGLEmbedding.AscEightFive
-import CFSG.LocalAnalysis.AGLEmbedding.AscEightSix
-import CFSG.LocalAnalysis.AGLEmbedding.BlockFactReductions
 import CFSG.LocalAnalysis.AGLEmbedding.BlockInvThree
 import CFSG.HardMathSupport.Curtis.UnitaryLevi.PLTypeHolds
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFacts.BlockB.NineThree
-import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanParabThree
-import CFSG.LocalAnalysis.RankThreeTheoremC.D2LocalCGT3
 import CFSG.CGT.PushingUpLit.Glue.LocalFactorization
 public import CFSG.CGT.PushingUpLit.BHS6.NestedBasic
 public import CFSG.CGT.PushingUpLit.CGT6.SixFour
@@ -37,7 +23,6 @@ public import CFSG.CGT.Timmesfeld75.Step57Reduction
 public import CFSG.Certificates.FusionF2
 public import CFSG.Certificates.WordSubgroupHom
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk95J3
-public import CFSG.GH74.GLS.IVK.Proofs2.Stmt111c
 public import CFSG.GH74.Generic.S45.LEvSporFacts
 public import CFSG.HardMathSupport.Foote.Coordinator.Downstream
 public import CFSG.LieType.Ree.LargeReeInvolutionTwoCentralizers
@@ -56,7 +41,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitLemma46d
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitN36AltPerm
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitN36MType
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitN36SporMult
-public import CFSG.LocalAnalysis.ComponentClassification.OddSelector
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicCo1Cen2BData
 public import CFSG.LocalAnalysis.ComponentClassification.RestrictedStdFamilies
 public import CFSG.LocalAnalysis.ComponentInitial.GL3TwoFixedModelCases

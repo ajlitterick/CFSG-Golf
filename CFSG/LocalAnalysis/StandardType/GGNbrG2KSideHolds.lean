@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrG2KSideCore
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExc
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcBasic
 
 public section
 

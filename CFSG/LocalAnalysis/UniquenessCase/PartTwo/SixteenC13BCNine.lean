@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC13BCLift
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC13BCPerf
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven10Gen
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven10PerfL3
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenLin
 public import CFSG.Adapters.StatedClassicalSmallOrders
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Quadruple
 public import CFSG.ClassicalInvolution.WeakCT.Main

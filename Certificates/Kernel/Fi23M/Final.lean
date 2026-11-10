@@ -5,7 +5,6 @@ public import Certificates.Kernel.Fi23M.FinalBase
 import all Certificates.Kernel.Fi23M.FinalBase
 
 public import Certificates.Kernel.Fi23M.Conj
-public import Certificates.Kernel.Fi23M.Action
 
 public section
 

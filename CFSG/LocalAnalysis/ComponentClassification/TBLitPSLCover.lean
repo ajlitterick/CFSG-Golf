@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.TBLitIntrinsic
-public import CFSG.LocalAnalysis.SectionRank.OddCover.PSL2
 public import CFSG.GroupTheory.ABGLocalTools.PStabilityQDickson
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearInnerParameters
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisEndGADefs
@@ -41,7 +40,6 @@ public import CFSG.Monster.B.TwoA.Sp8.Par1
 public import CFSG.Monster.B.TwoA.Unitary.LinThree
 public import CFSG.Sporadic.Presentation.Common
 public import CFSG.Sporadic.SmallOddCore.CheckSpec
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import CFSG.YGroups.Y322Central
 
 public noncomputable section

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGL45FixA2Comp
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldUnitary
-public import CFSG.RankThree.PartTwo.KFacts.AutPSUFaithful
 
 public section
 

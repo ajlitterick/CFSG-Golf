@@ -1,10 +1,6 @@
 module
 
 public import CFSG.GH74.Generic.S1.TQ3BadSys
-public import CFSG.GH74.Generic.S1.TQ3BarMain
-public import CFSG.GH74.Generic.S1.SymNbhd
-public import CFSG.GH74.Generic.S45.LLift
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GH74.Generic.S3.PumpLift
 public import CFSG.GH74.Generic.S1.TLeafA
 public import CFSG.GH74.Generic.S1.DecompCore

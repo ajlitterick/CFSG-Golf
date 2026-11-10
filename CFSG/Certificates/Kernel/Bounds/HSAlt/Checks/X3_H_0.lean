@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Certificates.Kernel.Common.LceS
 public import CFSG.Certificates.Kernel.Common.BindMap
 public import CFSG.Certificates.Kernel.Bounds.HSAlt.Data.X3_Sel
 import CFSG.Certificates.Kernel.Common.EachUnfold

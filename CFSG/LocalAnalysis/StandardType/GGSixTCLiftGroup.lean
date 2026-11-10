@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.StepACore
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
 
 public section
 

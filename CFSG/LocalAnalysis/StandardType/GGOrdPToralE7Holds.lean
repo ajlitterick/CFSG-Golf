@@ -4,15 +4,11 @@ public import CFSG.LocalAnalysis.StandardType.GGOrdPToralLang
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutInnerExcHardE7
 public import CFSG.LocalAnalysis.StandardType.GGExcFieldRankE7
 public import CFSG.HardMathSupport.Timmesfeld.Steinberg.ThreeCharE7
-public import CFSG.HardMathSupport.Timmesfeld.Steinberg.SevenCharE7
 public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.W2.E7FiveAux.Steinberg
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.PlanesToralE7
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.PlanesToralSevenProved
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.PlanesToralSevenE
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcToralityFive
 public import CFSG.RankThree.Chevalley.SteinbergBUF4CyclotomicFourDescent
 public import CFSG.RankThree.PartOne.KE.EvenE7E8QPlusDescent
-public import CFSG.LieType.Chevalley.GraphFixedF4GroupDescent
 public import CFSG.LieType.SeitzGeneration.ExcHighThree.RegularSolvable
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Frames
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Assembly

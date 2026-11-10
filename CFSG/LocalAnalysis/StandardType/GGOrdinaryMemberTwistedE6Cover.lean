@@ -2,7 +2,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGOrdinaryMemberTwistedE6RootComponent
 public import CFSG.LocalAnalysis.StandardType.GGSelectedMemberCover
 public import CFSG.LocalAnalysis.StandardType.GGOrdinaryMemberE7ToralLang
-public import CFSG.LocalAnalysis.StandardType.GGSelectedTwistedE6Scalar
 public import CFSG.LocalAnalysis.StandardType.GGOrdinaryMemberTwistedE6Card
 public noncomputable section
 namespace CFSG.StandardType

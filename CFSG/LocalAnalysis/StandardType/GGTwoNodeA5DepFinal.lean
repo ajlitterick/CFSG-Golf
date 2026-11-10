@@ -3,10 +3,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeA5DepFinalBase
 
-public import CFSG.LocalAnalysis.StandardType.GGReflDepSound
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeA5DepChart
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeA5DepAllDefs
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeA5DepExclusion
 public import Certificates.Certificate708607
 
 public section

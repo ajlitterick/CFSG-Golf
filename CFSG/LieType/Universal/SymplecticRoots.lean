@@ -4,11 +4,9 @@ public import CFSG.LieType.Universal.Symplectic
 public import CFSG.LieType.RootSystem.Cartan
 public import CFSG.LieType.CurtisTits.Reduction
 public import TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.Symplectic.Weyl
-public import TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.Symplectic.Diagonal.Basic
 public import TauCeti.LinearAlgebra.RootSystem.FiniteType.Classical
 import CFSG.ClassicalGroups.Symplectic.Model
 import CFSG.LieType.Universal.SymplecticRoots.Weyl
-import TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.Symplectic.TorusGeneration
 
 public section
 

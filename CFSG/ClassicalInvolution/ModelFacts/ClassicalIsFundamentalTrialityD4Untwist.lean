@@ -1,12 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalTwistedE6Reduce
-public import CFSG.LieType.AlgebraicGroups.RationalInnerInvolutionReduction
-public import CFSG.LieType.AlgebraicGroups.ToralCentralizerIdentity
-public import CFSG.LieType.Chevalley.RationalToralSignDiagramD4
-public import CFSG.LieType.Chevalley.E6ToralGraphInvolution
-public import CFSG.LieType.Chevalley.ToralCentralizerQuotient
-public import CFSG.LieType.Steinberg.BruhatTwist
 public import CFSG.LieType.AlgebraicGroups.RationalInnerInvolutionFixedComponents
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBGeneralLinear
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBPrimeJoinInteraction

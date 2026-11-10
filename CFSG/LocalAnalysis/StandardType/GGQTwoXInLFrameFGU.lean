@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LieType.SemisimpleCentralizers.HeldUnitaryComponents
 public import CFSG.LieType.SemisimpleCentralizers.HeldUCDTransfer
-public import CFSG.LocalAnalysis.ComponentInitial.FieldUnitaryHermitian
-public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLFrameFGU2
 public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLFrameFGU3
 public import CFSG.LieType.SemisimpleCentralizers.HeldUCDField
 

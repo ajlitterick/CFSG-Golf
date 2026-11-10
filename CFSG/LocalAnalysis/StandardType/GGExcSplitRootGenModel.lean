@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGExcSplitRootGenDefs
-public import CFSG.LieType.Chevalley.KernelComponentRoots
 public import CFSG.HardMathSupport.Timmesfeld.RootAut.Count
 
 public section

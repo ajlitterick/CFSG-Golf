@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7CLCoordModelE
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinMaxElemRank
-public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutNonsplitSpOrder
 
 public section
 

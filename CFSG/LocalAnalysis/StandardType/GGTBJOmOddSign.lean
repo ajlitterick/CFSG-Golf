@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGRealKGOmegaFrame
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmAutomizerAux
 public import CFSG.LocalAnalysis.StandardType.GGOmegaNsRootGenTorus
-public import CFSG.RankThree.OrthogonalInvolutions.Dickson
 
 public section
 

@@ -1,14 +1,9 @@
 module
 
-public import CFSG.Blueprint.Catalog
-public import CFSG.Foundations.Basic
-public import CFSG.Open.StatedDefs
 public import CFSG.LieType.SemisimpleCentralizers.HeldUnitaryComponents
 import CFSG.LocalAnalysis.StandardType.GGNbrLSideSpTypeGU
 import CFSG.LocalAnalysis.StandardType.GGNbrLSideSpTypeGL
 import CFSG.LocalAnalysis.StandardType.GGNbrLSideKitComm
-import CFSG.Open.StatedAPI
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBGeneralLinearSmall
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GCenterQuot
 
 public section

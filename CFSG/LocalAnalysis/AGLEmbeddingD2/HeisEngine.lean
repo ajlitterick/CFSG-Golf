@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.AGLEmbeddingD2.ParabRankEngine
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.SquareGeneric
 import CFSG.GroupTheory.ElementaryAbelianTransport
 

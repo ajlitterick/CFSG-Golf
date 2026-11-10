@@ -2,10 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinEMarked
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinDCell
-public import CFSG.LocalAnalysis.StandardType.GGPhanOneNodePosition
 public import CFSG.LocalAnalysis.StandardType.PhanEStdTwE6Nodes
 public import CFSG.LocalAnalysis.StandardType.PhanEStdE8RootNodes
-public import CFSG.LocalAnalysis.StandardType.GGSimplyLacedWeyl
 
 public section
 

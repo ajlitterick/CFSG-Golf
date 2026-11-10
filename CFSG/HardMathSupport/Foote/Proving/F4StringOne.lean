@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Balance.LayerGenerationPairF4Data
-public import CFSG.LieType.Chevalley.RootCommutatorPairs
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.UnitarySix.Sec3.Elt3607
 public import Certificates.Kernel.UnitarySix.Sec3.Sound.Glue3601
-import CFSG.Certificates.Kernel.Common.Harness
 public import Certificates.Kernel.UnitarySix.Sec3.K3607
 
 public section

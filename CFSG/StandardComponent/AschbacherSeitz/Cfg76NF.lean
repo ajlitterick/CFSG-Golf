@@ -1,11 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalM12
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalQuot
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalSp44Endgame
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoHypNF
 public import CFSG.StandardComponent.AschbacherSeitz.A5NoKProper
-import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.Certificates.Kernel.LocalCompTits.Span
 public import CFSG.ClassicalInvolution.Asc77.HypOmegaBasic
 public import CFSG.ClassicalInvolution.Asc77.Lemma310
@@ -50,51 +46,14 @@ public import CFSG.LocalAnalysis.ComponentClassification.RankTwoAltFiveIIbFinal
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCorrCentralSylowMaximality
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedGSAContainedSource
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedLayerOddCoreUnbalancingTriple
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeThree
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.Basic
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Equivariance
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2pFactsPSL2More
 public import CFSG.LocalAnalysis.SignalizerFunctor
 public import CFSG.Milestones.CL_LIT_Goldschmidt_strongly_closed_abelian_models
-public import CFSG.Quasithin.Background.A3Structure318Red
-public import CFSG.Quasithin.Background.A3Structure36A
-public import CFSG.Quasithin.Background.A3Structure36BAction
-public import CFSG.Quasithin.Background.A3Structure36BBase
-public import CFSG.Quasithin.Background.A3Structure36BCase3Base
-public import CFSG.Quasithin.Background.A3Structure36BCasesBase
-public import CFSG.Quasithin.Background.A3Structure36BCommonBase
-public import CFSG.Quasithin.Background.A3Structure36BFrattini
-public import CFSG.Quasithin.Background.A3Structure36BHeisBase
-public import CFSG.Quasithin.Background.A3Structure36BHomocyclic
-public import CFSG.Quasithin.Background.A3Structure36BPrimeDataBase
-public import CFSG.Quasithin.Background.A3Structure36BStarBase
-public import CFSG.Quasithin.Background.A3Structure36Base
-public import CFSG.Quasithin.Background.A3Structure37Base
-public import CFSG.Quasithin.Background.A3Structure37Comm
-public import CFSG.Quasithin.Background.A3Structure37Frattini
-public import CFSG.Quasithin.Background.A3Structure37KeyBase
-public import CFSG.Quasithin.Background.A3Structure37Schur
-public import CFSG.Quasithin.Background.A3Structure38Part3
-public import CFSG.Quasithin.Background.B1MoreElevenE
-public import CFSG.Quasithin.Background.B1MoreNineG
-public import CFSG.Quasithin.Background.B4ModelsAction
-public import CFSG.Quasithin.Background.B4ModelsIso
-public import CFSG.Quasithin.Background.C2Basic
-public import CFSG.Quasithin.Background.C2Inputs
-public import CFSG.Quasithin.Background.E1
-public import CFSG.Quasithin.Background.E1Sec4
-public import CFSG.Quasithin.Background.E1Sec5
-public import CFSG.Quasithin.Background.E1Sec8
-public import CFSG.Quasithin.Background.E3Cent
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import CFSG.Quasithin.EmptyFaithful.S1414Defs
 public import CFSG.Quasithin.EmptyFaithful.S1417Sylow
 public import CFSG.Quasithin.H13.J4Order
 public import CFSG.Quasithin.Recognition.ModelBridges
-public import CFSG.Quasithin.Vol2.Ch1Local
 public import CFSG.Sporadic.Schreier.J4SProfileNode
 public import CFSG.Timmesfeld.Moufang.Cases
 public import CFSG.Timmesfeld.Moufang.Three
@@ -108,7 +67,6 @@ public import CFSG.Walter.W67.W2Lemma26A
 public import Certificates.Data.CFSGNative.MonsterB.Rep4371Model
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

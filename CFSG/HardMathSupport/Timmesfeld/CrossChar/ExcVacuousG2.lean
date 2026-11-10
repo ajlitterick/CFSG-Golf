@@ -4,8 +4,6 @@ public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcVacuous
 public import CFSG.LieType.SeitzGeneration.ExtSeitzG2Odd
 public import CFSG.LieType.SeitzGeneration.ExcPlaneG2
 public import Certificates.Kernel.ThCent.Leaves
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Certificates.WordSubgroupRel
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.HardMathSupport.Timmesfeld.DefChar.LieOuterE
@@ -54,7 +52,6 @@ public import CFSG.Monster.B.TwoA.Amalgam.Data
 public import CFSG.Monster.B.TwoA.Sp8.Par1
 public import CFSG.Monster.B.TwoA.Unitary.LinThree
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.A3Structure36BAction
 public import CFSG.Quasithin.Background.A3Structure36BBasic
 public import CFSG.Quasithin.Background.A3Structure36BPrime
@@ -84,12 +81,10 @@ public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.RankThree.PerfectCover.HopfCentralCoversFinite
 public import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Presentation.Common
 public import CFSG.Sporadic.Schreier.TitsOther
 public import CFSG.Sporadic.SmallOddCore.CheckSpec
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.YGroups.Y322Central
 
 public section

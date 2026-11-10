@@ -1,10 +1,7 @@
 module
 
-public import CFSG.Sporadic.SmallOddCore.CentSpec
-public import CFSG.Sporadic.Schreier.PairJ3Cert
 public meta import Certificates.Data.CFSGNative.SmallOddCore.Check
 public meta import CFSG.Sporadic.SmallOddCore.CentData
-public import CFSG.Sporadic.SmallOddCore.J3DataInputs
 public import Certificates.Certificate2282
 
 public section

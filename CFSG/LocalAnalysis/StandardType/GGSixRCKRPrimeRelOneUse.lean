@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeNonclassicalSpecs
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcShapeFour
 import CFSG.GroupTheory.PLayer.Bootstrap
-import CFSG.RankThree.PartOne.KE.CTTorusFixed
 import CFSG.GroupTheory.PLayer.PIndex
 import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.CatalogInputs
 import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Lemma1313Z

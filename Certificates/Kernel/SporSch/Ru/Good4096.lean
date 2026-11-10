@@ -5,7 +5,6 @@ public import CFSG.Certificates.Kernel.BfsPinSound
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporRuGoodInputs
 meta import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporRuGoodInputs
 import CFSG.Certificates.Kernel.Common.Harness
-public import CFSG.Certificates.Kernel.BfsPinUnpack
 
 public section
 

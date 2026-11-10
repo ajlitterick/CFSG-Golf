@@ -8,7 +8,6 @@ public import Certificates.Kernel.J4Q.MatData
 public import Certificates.Kernel.J4Q.QTData
 public import Certificates.Kernel.SporSch.Mathieu.M24Data
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporJ4Data
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

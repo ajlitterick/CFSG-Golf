@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Fi22Twist.SiftCU
 public import Certificates.Kernel.Fi22Twist.Q01Facts
-public import CFSG.Certificates.Kernel.Common.ForallTree
 
 public section
 

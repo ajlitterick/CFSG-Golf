@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Sporadic.OddCore.SuzC1EVS
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

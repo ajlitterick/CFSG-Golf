@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResE6DepLabelDefs
-public import CFSG.LocalAnalysis.StandardType.Marking
 public import CFSG.LocalAnalysis.StandardType.GGReverseMarking
-public import CFSG.Milestones.CL_LIT_Griess_Schur_multipliers_Lie_type
-public import CFSG.RankThree.PerfectCover.HopfFormula
-public import CFSG.RankThree.PerfectCover.HopfCentralCoversSetup
 
 public section
 

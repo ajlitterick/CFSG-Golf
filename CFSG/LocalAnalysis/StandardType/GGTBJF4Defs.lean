@@ -1,10 +1,6 @@
 module
 
-public import CFSG.LieType.Chevalley.KernelComponentRoots
-public import CFSG.LieType.Chevalley.RootCharacterKernelProduct
-public import CFSG.LieType.Chevalley.ToralCentralizerBruhat
 public import CFSG.LocalAnalysis.StandardType.GGTBJReflLemma
-public import Mathlib.LinearAlgebra.Reflection
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Open.StatedDefs
 public import CFSG.Adapters.RankTwoModelTransports
 
 public section

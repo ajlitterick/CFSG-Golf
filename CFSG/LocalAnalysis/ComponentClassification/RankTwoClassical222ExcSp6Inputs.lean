@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Sporadic.Schreier.Co3Outer
-public import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
 public import CFSG.Sporadic.HeldB.Common
 public import CFSG.LocalAnalysis.ComponentClassification.M12CoverAutCentralizerData
 public import CFSG.LocalAnalysis.ComponentClassification.M12CoverAutFusion

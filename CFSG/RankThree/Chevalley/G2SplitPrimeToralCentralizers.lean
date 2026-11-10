@@ -3,7 +3,6 @@ module
 public import CFSG.LieType.Chevalley.ToralCentralizerQuotient
 public import CFSG.LieType.Chevalley.OddRootPairSL2
 public import CFSG.LieType.Chevalley.RootDiagonalTorusWords
-public import CFSG.LieType.Chevalley.TorusCoordinates
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenWeyl
 public import CFSG.Timmesfeld.Orders.ExceptionalWeylData
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBGeneralLinear
@@ -14,7 +13,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.MinimalBCenter
 public import CFSG.LocalAnalysis.ComponentClassification.OrdinaryComponentJoins
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public noncomputable section
 

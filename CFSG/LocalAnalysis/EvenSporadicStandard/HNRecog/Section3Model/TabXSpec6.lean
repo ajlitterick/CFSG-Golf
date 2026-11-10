@@ -3,9 +3,6 @@ module
 public import Certificates.Certificate441697
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.HaradaModel27.CentHomSpec
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.Section3Model.SubModelClass
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.Section3Model.TabXFacts
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.Section3Model.TabXGroup
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.InvClasses
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.TableIP
 
 public section

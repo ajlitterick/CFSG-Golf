@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGE0ShapeDefs
-public import Mathlib.Algebra.Field.ZMod
-public import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
 public import CFSG.LocalAnalysis.StandardType.GGE0ShapeCardAux
 
 public section

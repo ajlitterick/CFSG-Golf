@@ -1,6 +1,5 @@
 module
 
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.LocalAnalysis.AGLEmbedding.RankLemmas
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Lin2
 public import CFSG.RankThree.Classical2.SLnRootPermutingFixedGroups

@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public import CFSG.RankThree.Native.HSMcLSmallCheckInputs
 meta import CFSG.RankThree.Native.HSMcLSmallCheckInputs

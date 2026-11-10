@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.EvenSmallLie.CatalogOrdersThData
 public meta import CFSG.LocalAnalysis.EvenSmallLie.CatalogOrdersThData
 public import Certificates.Certificate3005
 public meta import Certificates.Data.CFSGNative.SectionRank.Th

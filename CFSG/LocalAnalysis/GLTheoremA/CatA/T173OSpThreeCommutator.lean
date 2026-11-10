@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OSpThreeFixed2
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OSpThreeUnitary2
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OSpThreeLayer
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OSpThreeDelta
 public import CFSG.ClassicalInvolution.Balance.LayerGenerationShortSp
 public import CFSG.RankThree.PartOne.KC.SymplecticFullRankTwo

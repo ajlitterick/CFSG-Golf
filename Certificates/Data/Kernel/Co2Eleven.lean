@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Certificates.Kernel.Enum.Defs
 public import Certificates.Data.Kernel.Spor.Chain
 public import Certificates.Data.Kernel.Co2SmithS.Orb
 

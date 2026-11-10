@@ -3,12 +3,8 @@ module
 public import CFSG.OddTranspositions.PartThree.EightEight.ASFibres
 public import CFSG.Mathlib.GroupTheory.Monolith
 
-import CFSG.OddTranspositions.BlockGraph
 import CFSG.OddTranspositions.PartThree.EightEight.KOneRadical
-import CFSG.OddTranspositions.PartThree.EightEight.StarBlocks
-import CFSG.OddTranspositions.PartThree.EightEight.StarConj
 import CFSG.OddTranspositions.PartThree.EightEight.StarOrbit
-import CFSG.Timmesfeld.RootSubgroupBasic
 
 public section
 

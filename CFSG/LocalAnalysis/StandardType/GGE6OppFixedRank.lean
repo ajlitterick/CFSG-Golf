@@ -6,12 +6,8 @@ public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalResL3Three
 public import CFSG.HardMathSupport.Lang.UnitaryAutomorphisms.OuterFixedSubfieldPSL
 public import CFSG.HardMathSupport.Lang.UnitaryAutomorphisms.OuterFixedSubfieldPSU
 public import CFSG.HardMathSupport.Lang.UnitaryAutomorphisms.OuterFixedSubfieldPOmegaMinus
-public import CFSG.LocalAnalysis.SectionRank.ClassicalEven.Linear
-public import CFSG.LocalAnalysis.SectionRank.ClassicalEven.Orthogonal
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.McLaughlin.TightPairAndPureRank.Agl418Block
 public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83SmallRank65Plane
-public import CFSG.GroupTheory.ElementaryAbelianTransport
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
 public import CFSG.HardMathSupport.Lang.UnitaryAutomorphisms.OuterFixedPOmegaEven
 public import CFSG.LocalAnalysis.ComponentInitial.SteinbergBUProjectivePlaneFieldRoot
 public import CFSG.LocalAnalysis.ComponentInitial.SteinbergBUProjectivePlaneHilbertNinety

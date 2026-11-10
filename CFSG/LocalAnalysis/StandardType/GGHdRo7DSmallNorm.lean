@@ -6,8 +6,6 @@ import CFSG.LocalAnalysis.StandardType.GGHdRo7DSmallClassAux
 import CFSG.LocalAnalysis.StandardType.GGQTwoTransvectionFreeRules
 import CFSG.LocalAnalysis.StandardType.GGHdRo7SUSmallBridge
 import CFSG.LocalAnalysis.StandardType.GGWAutCommon
-import Mathlib.Tactic.Module
-import Mathlib.Tactic.LinearCombination
 
 public section
 

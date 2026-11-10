@@ -3,10 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTWExt2AB
 public import CFSG.LocalAnalysis.StandardType.GGTWExt2D
 public import CFSG.LocalAnalysis.StandardType.GGTWExt2E
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabel
 public import CFSG.LocalAnalysis.StandardType.GGDepAPattern
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
 
 public section
 

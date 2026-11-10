@@ -9,7 +9,6 @@ public import Certificates.Kernel.LyGlue.KStep3
 public import Certificates.Kernel.LyGlue.KConj
 public import CFSG.Certificates.Kernel.LyGlue.SlpSound
 public import CFSG.Certificates.Kernel.Common.ForallTree
-public import CFSG.Sporadic.Recognition.LyonsAmalgam
 public import CFSG.Certificates.Kernel.LyGlue.WordSound
 public import CFSG.CharacterTheory.CyclicBlocks.Family
 public import CFSG.CharacterTheory.Semidihedral.Principal.LargePrimeTorusSylowCentralizers
@@ -36,10 +35,6 @@ public import CFSG.Sporadic.Recognition.LyonsModelBorel
 public import CFSG.Sporadic.Recognition.McLASThreeCount
 public import CFSG.Sporadic.Schreier.J4SSylow
 public import CFSG.StronglyEmbedded.TheoremSE.BenderLowRank
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_1_12
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 
 public section

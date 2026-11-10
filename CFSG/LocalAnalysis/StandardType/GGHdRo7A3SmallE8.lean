@@ -3,10 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7A3SmallDefs
 import CFSG.LocalAnalysis.StandardType.GGHdRo7A3SmallBasic
 import CFSG.LocalAnalysis.StandardType.GGHdRo7A3Basic
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabel
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLFaithful
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1WeylE
 import CFSG.LocalAnalysis.StandardType.ZS.Basic
 
 public section

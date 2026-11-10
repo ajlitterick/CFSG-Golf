@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBSparseTwDFiveSplitDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBDenseDefs
-public import CFSG.LocalAnalysis.StandardType.GGTPNNarrow
-public import CFSG.LocalAnalysis.StandardType.GGForkA8NotRefl
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveBJoinDefs
 
 import CFSG.LocalAnalysis.StandardType.GGTBJOrthLeft
 import CFSG.LocalAnalysis.StandardType.GGTBJOrthNbr
@@ -15,8 +11,6 @@ import CFSG.LocalAnalysis.StandardType.GGSecFiveBNbrAxis
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBDenseRows
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBSpSp
 import CFSG.LocalAnalysis.StandardType.GGQuadMinusSpinCover
-import CFSG.ClassicalGroups.Orthogonal.IsometryConj
-import CFSG.RankThree.PartOne.KC.OrthogonalSplitCompletion
 
 public section
 

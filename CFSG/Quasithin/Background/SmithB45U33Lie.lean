@@ -53,7 +53,6 @@ public import CFSG.Quasithin.Background.B5Basic
 public import CFSG.Quasithin.Background.B5CompA
 public import CFSG.Quasithin.Background.B5CompB
 public import CFSG.Quasithin.Background.B6
-public import CFSG.Quasithin.Background.B6Example
 public import CFSG.Quasithin.Background.C2Basic
 public import CFSG.Quasithin.Background.E2Hyp
 public import CFSG.Quasithin.Background.E2SolvTwo
@@ -88,8 +87,6 @@ public import CFSG.Quasithin.Vol2.Ch11SecSObl
 public import CFSG.Quasithin.Vol2.Ch1Faithful
 public import CFSG.Quasithin.Vol2.KGNatSL2
 public import CFSG.Sporadic.Schreier.J4SSylow
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import CFSG.Walter.Defs
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension

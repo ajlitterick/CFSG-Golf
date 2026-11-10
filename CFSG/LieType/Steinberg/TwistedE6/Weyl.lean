@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LieType.Steinberg.TwistedE6.Local
-public import CFSG.LieType.Steinberg.Minuscule.Datum
-public import Mathlib.GroupTheory.NoncommPiCoprod
 
 public noncomputable section
 

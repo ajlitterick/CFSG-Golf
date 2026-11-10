@@ -4,9 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveJRootCoreTorus
 import CFSG.LocalAnalysis.StandardType.GGSecFiveJRootCoreExcAdj
 import CFSG.LocalAnalysis.StandardType.GGSteinbergAutLemmas
 import CFSG.LocalAnalysis.StandardType.GGSixLayerPDivExcToral
-import CFSG.LieType.Steinberg.Minuscule.BruhatExtras
-import CFSG.LieType.Steinberg.Isogeny.E7
-import CFSG.LocalAnalysis.SeitzReduction.E8PilotLevi
 import CFSG.HardMathSupport.Cooperstein.Coordinator.Survivors.E7Rep
 import CFSG.HardMathSupport.Cooperstein.Coordinator.CurtisTw.CoverCentral
 

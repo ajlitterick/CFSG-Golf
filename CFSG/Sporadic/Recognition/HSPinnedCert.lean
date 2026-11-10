@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.CFSGNative.Recognition.HSPinnedData
 public import Mathlib.Data.Fintype.Card
 public meta import Certificates.Data.CFSGNative.Recognition.HSPinnedData
 public meta import Mathlib.Data.Fintype.Card

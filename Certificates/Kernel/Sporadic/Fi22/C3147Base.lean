@@ -1,16 +1,11 @@
 
 module
 
-public import Certificates.Kernel.Sporadic.Fi22.R3147B7
 public import Certificates.Kernel.Sporadic.Fi22.R3147B6
 public import Certificates.Kernel.Sporadic.Fi22.G3147
 public import Certificates.Kernel.Sporadic.Fi22.S3147Base
 public import Certificates.Kernel.Sporadic.Fi22.X2069PT
-public import CFSG.Certificates.NativeValidSchreier
-public import CFSG.Certificates.SchreierChainOrderStabilizers
-public import CFSG.Monster.B.Fischer.Fi22OrderCheckInputs
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.NormNum
 public import CFSG.Certificates.InvariantQuadratic
 public import CFSG.Monster.B.Fischer.Fi22FaithfulBase
 public import CFSG.Monster.B.Fischer.Fi22FaithfulCheckBase

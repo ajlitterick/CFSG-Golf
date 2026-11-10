@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T263GOut
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.D4YIFinal
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.D4XFMain
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.D4YBMain
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.D4TNoTri
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.FPDich
 public import CFSG.LocalAnalysis.EvenBN.Common.CommutatorFixed
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267Amb
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.YS03KD264

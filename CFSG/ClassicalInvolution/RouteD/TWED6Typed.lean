@@ -2,9 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.RouteD.TWED6Bridge
 public import CFSG.ClassicalInvolution.RouteD.TWEB6Fixed
-public import CFSG.ClassicalInvolution.RouteD.GapsFrMinusOrth
-public import CFSG.ClassicalInvolution.RouteD.TypeTwistedDLocal
-public import CFSG.ClassicalInvolution.RouteD.TypeDLocal
 public import CFSG.ClassicalInvolution.RouteD.TwinYStatements
 public import CFSG.ClassicalInvolution.Asc77.Lemma310
 public import CFSG.ClassicalInvolution.Asc77.ThmEStatement

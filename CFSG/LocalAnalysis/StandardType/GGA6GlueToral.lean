@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGLieCoreToral
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreToralHolds
 public import CFSG.LocalAnalysis.StandardType.GGLieBridgeHolds
 import CFSG.LocalAnalysis.StandardType.GGLieCoreA3DictPhi

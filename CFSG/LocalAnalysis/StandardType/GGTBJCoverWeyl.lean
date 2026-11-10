@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJCoverBstar
 public import CFSG.LocalAnalysis.StandardType.GGTBTorTransport
-import CFSG.LocalAnalysis.StandardType.GGAutomizerMap
 import CFSG.Mathlib.GroupTheory.Automorphism.ConjCommute
 
 public section

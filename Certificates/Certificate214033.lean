@@ -1,24 +1,14 @@
 module
 
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co1ThreeDefs
-public import CFSG.Sporadic.Schreier.Co1ElemThreeCheckInputs
 public meta import CFSG.Sporadic.Schreier.Co1ElemData
 public meta import CFSG.Sporadic.Schreier.Co1ElemThreeData
 public meta import CFSG.Sporadic.Schreier.Co1ThreeLocal
 public meta import Certificates.Data.CFSGNative.Co1Schreier.Base
-public import CFSG.Sporadic.Schreier.Co1SplitCheckInputs
 public meta import CFSG.Sporadic.Schreier.Co1ElemThreeCheck
 public meta import Certificates.Data.CFSGNative.Co1.Data
-public import CFSG.Sporadic.Schreier.Co1ThreeLocalInputs
-public import Certificates.Data.CFSGNative.Co1.Data
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Reduction
 public import Certificates.Certificate2043
-public import Certificates.Certificate2133
-public import Certificates.Certificate2135
-public import Certificates.Certificate2147
-public import Certificates.Certificate2148
-public import Certificates.Certificate2150
-public import Certificates.Certificate3024
 import Certificates.Kernel.Co1Pairs.Glue
 public import CFSG.HardMathSupport.Timmesfeld.Coordinator.LocalThreeSporadicRank
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co1ThreeInputs

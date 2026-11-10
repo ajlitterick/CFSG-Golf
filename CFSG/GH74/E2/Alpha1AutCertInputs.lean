@@ -3,14 +3,10 @@ module
 public import CFSG.GH74.E2.Cl2Quot
 public import CFSG.GH74.E2.FrattiniRank
 public import CFSG.GH74.E2.DirectProd
-public import CFSG.CharacterTheory.Semidihedral.Presentation
-public import CFSG.CharacterTheory.Semidihedral.NormalForm
 public meta import Mathlib
 public meta import CFSG.CharacterTheory.Semidihedral.Model
 public meta import CFSG.GH74.E2.SD16Cert
 public import CFSG.GH74.E2.SD16Cert
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.GH74.SectionalRank
 public import CFSG.GroupTheory.FrattiniQuotient
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper

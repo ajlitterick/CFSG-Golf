@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitKGOmFree
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerPDivOmegaRegular
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsOmegaSplit
 
 public section
 

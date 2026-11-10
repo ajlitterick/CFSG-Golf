@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionLinear
-public import CFSG.Adapters.ProjectiveSpecialLinear
 
 public section
 

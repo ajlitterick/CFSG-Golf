@@ -1,21 +1,9 @@
 module
 
-public import CFSG.OddTranspositions.PartThree.Eleven.Statements
-public import CFSG.OddTranspositions.PartThree.Eleven.OneOne.Hyp
-public import CFSG.OddTranspositions.PartThree.Eleven.Minus.Pair
-public import CFSG.OddTranspositions.PartThree.Eleven.Minus.Quandle
-public import CFSG.OddTranspositions.PartThree.EightFive.KBarSetup
-public import CFSG.OddTranspositions.PartThree.Eleven.OneTwo.KBar
 public import CFSG.OddTranspositions.PartThree.Eleven.OneTwo.KBarLocal
 public import CFSG.OddTranspositions.PartThree.Eleven.OneTwo.Conn
-public import CFSG.OddTranspositions.PartThree.Eleven.OneTwo.Wreath
 public import CFSG.OddTranspositions.PartThree.Eleven.OneTwo.WreathFactors
-public import CFSG.Timmesfeld.Bridge.OddTranspGenL2
-public import CFSG.Timmesfeld.Bridge.Asc72ZMain
 public import CFSG.OddTranspositions.PartThree.Nine.Setup
-public import CFSG.GH74.Generic.BProg.B2.L2Cover
-public import CFSG.LieType.Steinberg.CentralExt.PSL2Multiplier
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.LinearCentralCover
 
 public section
 

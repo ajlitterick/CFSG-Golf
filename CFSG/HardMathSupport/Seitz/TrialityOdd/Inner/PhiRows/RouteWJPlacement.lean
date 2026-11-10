@@ -2,7 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Seitz.TrialityOdd.Inner.PhiRows.RouteWJAssembleFrame
 public import CFSG.HardMathSupport.Seitz.TrialityOdd.Inner.PhiRows.RouteWCoreThree
-public import CFSG.LieType.Steinberg.CentralExt.TrialityCoprime
 public import CFSG.HardMathSupport.Seitz.TrialityOdd.Coordinator.Phi6RouteWStarProved
 public import CFSG.HardMathSupport.Seitz.TrialityOdd.Inner.PhiRows.RouteWJGlue
 

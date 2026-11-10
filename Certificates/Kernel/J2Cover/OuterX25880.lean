@@ -5,11 +5,9 @@ public import Certificates.Kernel.Fin76bAut.Data
 public import Certificates.Data.Kernel.Fin76bAut
 public import Certificates.Data.Kernel.TC2Outer0
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.TC2J2Check
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Common
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Basic
 
 public section

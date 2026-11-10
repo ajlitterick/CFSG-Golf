@@ -4,13 +4,8 @@ module
 public import Certificates.Kernel.Sporadic.Fi22.E2067T
 public import CFSG.Certificates.Kernel.Spor.TextSound
 public import CFSG.Certificates.Kernel.SporSch.DerivsSound
-public import CFSG.Certificates.Kernel.Spor.PrimSound
-public import CFSG.Certificates.Kernel.Spor.RawSlSound
-public import CFSG.Sporadic.FischerOddCore.Fi22ExtCheckInputs
-public import Certificates.Kernel.Misc.Perm.HexCmd
 meta import CFSG.Sporadic.FischerOddCore.Fi22ExtCheckInputs
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.FS81.D6Model
 public import CFSG.LocalAnalysis.StandardType.FS81.RootS3Supp
 public import CFSG.LargeExtraspecial.DW4Burn
-public import CFSG.LargeExtraspecial.OrthoF2Basic
 
 public section
 

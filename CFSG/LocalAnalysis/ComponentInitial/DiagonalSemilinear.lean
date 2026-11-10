@@ -2,9 +2,7 @@ module
 
 public import Mathlib.FieldTheory.Finite.GaloisField
 public import Mathlib.GroupTheory.SemidirectProduct
-public import Mathlib.GroupTheory.Solvable
 public import Mathlib.Algebra.Module.ZMod
-public import Mathlib.LinearAlgebra.GeneralLinearGroup.Basic
 public import Mathlib.Algebra.CharP.CharAndCard
 
 public section

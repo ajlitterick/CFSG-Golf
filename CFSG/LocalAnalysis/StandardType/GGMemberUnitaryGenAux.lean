@@ -2,16 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSADefs
 import CFSG.ClassicalInvolution.Phan.Standard
-import CFSG.ClassicalInvolution.Phan.Center
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
-import CFSG.LocalAnalysis.StandardType.GGSecFiveRankOneConj
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
-import CFSG.LocalAnalysis.StandardType.GGSimplyLacedWeyl
-import CFSG.LocalAnalysis.StandardType.GGSecFiveRankOneWeyl
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1Weyl
-import CFSG.LieType.Universal.Unitary.Comparison
-import CFSG.LieType.Steinberg.CentralExt.SUTwo
 
 public section
 

@@ -1,8 +1,5 @@
 module
 
-public import CFSG.GH74.GLS.Stage4.Q9.ModelBase
-public import CFSG.CharacterTheory.PSL2Table
-public import CFSG.GH74.GLS.Stage4.Q9.TablesInputs
 public import CFSG.Certificates.Kernel.Q9SLSound
 public import Certificates.Kernel.Q9SL.Data
 import Certificates.Kernel.Q9SL.Checks

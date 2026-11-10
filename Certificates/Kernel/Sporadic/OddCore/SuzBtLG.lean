@@ -6,10 +6,7 @@ public import Certificates.Kernel.Sporadic.OddCore.SuzBtLF
 public import CFSG.Certificates.Kernel.Spor.BTupSSound
 public import CFSG.Certificates.Kernel.Spor.ConjCount
 public import CFSG.Certificates.Kernel.Spor.PK.PermOf
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import Mathlib.Tactic.Group
-import Mathlib.Algebra.BigOperators.Fin
 public import CFSG.Certificates.Kernel.Spor.PK.Perm.Inv
 
 public section

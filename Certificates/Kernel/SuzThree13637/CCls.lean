@@ -3,9 +3,7 @@ module
 public import Certificates.Kernel.SuzThree13637.ClsData
 public import Certificates.Kernel.SuzThree13637.CEnum
 public import Certificates.Data.Kernel.Spor.ClsK
-public import Certificates.Data.Kernel.Spor.PSearch
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 set_option maxRecDepth 400000
 

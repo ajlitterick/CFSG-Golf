@@ -2,8 +2,6 @@ module
 
 public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveCentral
 public import CFSG.OddTranspositions.PartThree.Eleven.FiveMinus.Spinor
-public import CFSG.OddTranspositions.PartThree.FiveReflectionFischer
-public import CFSG.OddTranspositions.PartThree.Eleven.Five.FiveFormAux
 
 public section
 

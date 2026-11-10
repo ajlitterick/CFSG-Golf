@@ -2,7 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Timmesfeld.DFour.Triality
 public import CFSG.LocalAnalysis.StandardType.GGHypSixD4RankClass
-public import CFSG.RankThree.PartOne.AUTSL.OmegaModel
 public import CFSG.LocalAnalysis.SectionRank.ClassicalEven.Orthogonal
 
 public section

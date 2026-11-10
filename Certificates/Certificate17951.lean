@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Quasithin.Background.JonesParshallG2Two
 public import CFSG.Quasithin.Background.B5FinG2U33Inputs
 
 public section

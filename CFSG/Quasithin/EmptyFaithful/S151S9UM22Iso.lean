@@ -1,10 +1,7 @@
 module
 
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312M23M22
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312M23Lat
 public import CFSG.Quasithin.EmptyFaithful.S151S9TM23
-import CFSG.Quasithin.Background.E2TwoProofSporM23
-import CFSG.Quasithin.Background.HSporLatMathieu
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312M23Cert
 
 public section

@@ -1,16 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagUnitary
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldUnitary
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldSpUUnitary
-public import CFSG.LocalAnalysis.StandardType.GGRawAutRestUnitary
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIOne
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNISpPrimary
-public import CFSG.LocalAnalysis.SectionRank.Ccomm.Centralization
 public import CFSG.GroupTheory.PerfectCentralizer
-public import CFSG.GroupTheory.WeirSylow.UnitaryBridge
 public import CFSG.RankThree.PartTwo.Census.OddClassical.UnitaryComponent
-public import CFSG.LieType.Steinberg.CentralExt.UnitaryField
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.YS09Field
 
 public section

@@ -1,8 +1,6 @@
 module
 
-public import Mathlib.GroupTheory.QuotientGroup.Basic
 public import Mathlib.GroupTheory.Index
-public import Mathlib.SetTheory.Cardinal.Finite
 import Mathlib.Tactic
 
 namespace CFSG

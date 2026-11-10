@@ -2,15 +2,12 @@
 module
 
 public import Certificates.Certificate2045Base
-import Certificates.Kernel.Co1B.C2045Base
 meta import CFSG.Sporadic.Co1.Module.InvDataBase
 meta import CFSG.Sporadic.Co1.Module.FormsBase
 meta import CFSG.Sporadic.Co1.Module.OrbitsBase
 public import CFSG.Sporadic.Co1.Module.InvGroupBase
-public import CFSG.Sporadic.Co1.Module.InvDataInputs
 public import CFSG.Sporadic.Co1.Module.InvFamInputs
 
-public import CFSG.Sporadic.Co1Block.TwoBCheckInputs
 public meta import CFSG.Sporadic.Co1Block.TwoBData
 public meta import CFSG.Sporadic.Co1Block.TwoBCheckDefs
 public meta import CFSG.Sporadic.Co1Block.CentCheck
@@ -28,14 +25,10 @@ public meta import Certificates.Data.CFSGNative.Schreier.Check
 public meta import Certificates.Data.CFSGNative.Schreier.Merge
 public meta import Certificates.Data.CFSGNative.ONSchreier.Compact
 import Certificates.Kernel.Co1B.C2045
-import CFSG.Sporadic.Co1Block.TwoBExtraCheckInputs
 meta import CFSG.Sporadic.Co1Block.ConjBData
 meta import CFSG.Sporadic.Co1.Module.InvData
 meta import CFSG.Sporadic.Co1.Module.Forms
 meta import CFSG.Sporadic.Co1.Module.Orbits
-import Certificates.Data.CFSGNative.Co1.Data
-import Certificates.Certificate10070
-import CFSG.Sporadic.Co1.Module.TwoBFrameInputs
 
 public section
 

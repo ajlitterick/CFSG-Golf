@@ -2,8 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.Q3EXD4Model
 public import CFSG.ClassicalInvolution.Q3.Q3EXTwin
-public import CFSG.ClassicalInvolution.Q3.Q3WShape
-public import CFSG.ClassicalInvolution.Q3.Q3WARow
 public import CFSG.ClassicalInvolution.RouteD.ExoticD4Local
 public import CFSG.ClassicalInvolution.Q3.Q3WAEDict
 public import CFSG.ClassicalInvolution.Q3.Q3WMain

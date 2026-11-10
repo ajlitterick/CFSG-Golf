@@ -5,8 +5,6 @@ public import CFSG.Sporadic.HNOddCore.InvDefs
 public import CFSG.Sporadic.HNOddCore.XCheckBase
 public import CFSG.Sporadic.HNOddCore.DCheckBase
 public import CFSG.Sporadic.HNOddCore.Restrict
-public import CFSG.Sporadic.HNOddCore.DCheckInputs
-public import CFSG.Sporadic.HNOddCore.XCheckInputs
 public meta import CFSG.Sporadic.HNOddCore.CCheck
 public meta import CFSG.Sporadic.HNOddCore.InvArrays
 public meta import Certificates.Data.CFSGNative.ONSchreier.Tools

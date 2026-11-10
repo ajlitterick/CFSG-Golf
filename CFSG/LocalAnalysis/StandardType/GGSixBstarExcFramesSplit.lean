@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesFix
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4Three
 public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperRestExc
-public import CFSG.LocalAnalysis.StandardType.GGTableBRank
 import CFSG.GroupTheory.ElementaryAbelianTransport
 
 public section

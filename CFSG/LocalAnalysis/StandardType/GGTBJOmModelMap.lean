@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUDefs
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorusForms
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 
 public section
 

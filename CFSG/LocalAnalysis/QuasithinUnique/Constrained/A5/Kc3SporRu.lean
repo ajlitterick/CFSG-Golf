@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicRu
 import all CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicRu
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3SporPermK1
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3SporLineMain
-public import CFSG.Blueprint.NativeSporadic
 import all CFSG.Blueprint.NativeSporadic
 public import Certificates.Certificate4120
 

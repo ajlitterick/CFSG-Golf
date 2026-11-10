@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTorusGenExcTwoSetup
 import CFSG.LocalAnalysis.StandardType.GGLangExhaust
 import CFSG.LocalAnalysis.StandardType.GGLangOrbitTorus
 import CFSG.LocalAnalysis.StandardType.GGTwE6RootKernelCount
-import CFSG.LocalAnalysis.ComponentInitial.BlockCentralQuotient
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.RigidDescent
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcRoots
 
 public section

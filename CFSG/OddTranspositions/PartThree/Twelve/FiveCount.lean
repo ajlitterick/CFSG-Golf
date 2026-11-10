@@ -1,7 +1,6 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Twelve.FiveDefs
-public import CFSG.OddTranspositions.O4CloseReduction
 import CFSG.OddTranspositions.O4PairCommSet
 import CFSG.OddTranspositions.PartThree.Twelve.FiveChartBasic
 import CFSG.OddTranspositions.PartFour.Fourteen.FivePlanePerp

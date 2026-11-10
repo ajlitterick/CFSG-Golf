@@ -3,9 +3,6 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Lemma6_2
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Lemma7_2
 import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonExceptionalF9SL3
-import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.QdSLPCore
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Cardinality
-import Mathlib.LinearAlgebra.Pi
 
 namespace CFSG
 end CFSG

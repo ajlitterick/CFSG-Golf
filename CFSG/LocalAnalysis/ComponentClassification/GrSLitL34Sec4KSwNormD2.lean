@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4KSwNormD1
 import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4End43H
-import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec5Lemma53
-import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeSNConn
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

@@ -1,12 +1,8 @@
 module
 
-public import CFSG.Sporadic.ONOddCore.LiftPayload
-public import CFSG.Sporadic.ONOddCore.QuotOuterCheck
-public import CFSG.Sporadic.Schreier.ONCheckAux
 public meta import CFSG.Sporadic.ONOddCore.LiftPayload
 public meta import CFSG.Sporadic.ONOddCore.QuotOuterCheck
 public meta import CFSG.Sporadic.Schreier.ONCheckAux
-public import CFSG.Sporadic.ONOddCore.LiftCheckInputs
 public import Certificates.Certificate2120
 
 public section

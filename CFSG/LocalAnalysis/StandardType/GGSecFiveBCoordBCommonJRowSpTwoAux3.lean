@@ -1,35 +1,21 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJNativeDefs
-public import CFSG.LocalAnalysis.StandardType.GGTBJTypeBDatum
 public import CFSG.LocalAnalysis.StandardType.GGTBJFrameBs
-public import CFSG.LocalAnalysis.StandardType.GGSpJoinPlaneTorusDefs
-public import CFSG.RankThree.Classical.SteinbergBJSymplecticCrossPrimeBlocks
-public import CFSG.RankThree.PartOne.KC.SymplecticInnerPlaneDefs
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagData
-import CFSG.RankThree.PartOne.KC.SymplecticInnerPlaneAlt6
 import CFSG.LocalAnalysis.EvenSporadicStandard.M22Std.A6Facts
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GSympLabel
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
-import CFSG.LocalAnalysis.StandardType.GGTBJSympMinusBlockZ
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.SymplecticFixed
 import CFSG.CGT.PushingUpLit.CGT6.SixFourE9
 import CFSG.LocalAnalysis.StandardType.GGTBJSympMinusBlock
-import CFSG.LocalAnalysis.StandardType.GGTBJSympMinusLocalize
-import CFSG.LocalAnalysis.StandardType.GGTBJSympMinusUnitary
 import CFSG.LocalAnalysis.StandardType.GGTBJFrameCorank
-import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ParabCommSpRes
 import CFSG.LocalAnalysis.StandardType.GGClassicalBlockSpSelected
 import CFSG.LocalAnalysis.StandardType.GGClassicalBlockSpIsoUnitary
 import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagUnitary
-import CFSG.LocalAnalysis.StandardType.GGTorCPlane
 import CFSG.ClassicalInvolution.Phan.PhanDn.QTwo.SUFour
 import CFSG.HardMathSupport.Curtis.Coordinator.PerfThreeGLCore
-import CFSG.LocalAnalysis.AGLEmbedding.ToralCensusCentSpBlocks
 import CFSG.LocalAnalysis.EvenSporadicStandard.M22Std.XbarGen
 import CFSG.LocalAnalysis.EvenSporadicStandard.M23Std.KDichotomy
 import CFSG.LocalAnalysis.EvenSporadicStandard.M23Std.KEngine2
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OddKernelInvolutionFusion
 
 public section
 

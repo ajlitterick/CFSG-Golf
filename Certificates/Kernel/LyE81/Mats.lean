@@ -5,7 +5,6 @@ public import Certificates.Kernel.SporSch.Ly.BSData
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434SporLyE81Data
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.StrLitToList
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Open.Defs
 
 public section

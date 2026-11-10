@@ -3,13 +3,9 @@ module
 public import CFSG.CGT.Stroth77.Sections34AssemblyGH227P
 public import CFSG.CGT.Stroth77.Section47HinvProved
 public import CFSG.CGT.Stroth77.Section47CaseK
-public import CFSG.CGT.Stroth77.Section47Fus
-public import CFSG.CGT.Stroth77.Stroth34T200
-public import CFSG.CGT.Stroth77.Sections34Assembly
 public import CFSG.CGT.Stroth77.Section224FrameExports
 public import CFSG.CGT.Stroth77.Section227NI
 public import CFSG.CGT.Stroth77.Section226AllConj
-public import CFSG.CGT.Stroth77.Section225FrameExports
 
 public import CFSG.LocalAnalysis.GH72.AssemblyFinal
 public import CFSG.LocalAnalysis.ComponentClassification.AutL2FactsFieldAut

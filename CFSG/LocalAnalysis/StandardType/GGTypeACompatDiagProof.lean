@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTypeACompatDiagLin
 public import CFSG.LocalAnalysis.StandardType.GGTypeACompatDiagRoot
 public import CFSG.LocalAnalysis.StandardType.GGTypeACompatDiagCompat
 public import CFSG.LocalAnalysis.StandardType.GGTypeACompatDiagCoord
@@ -9,10 +8,7 @@ public import CFSG.LocalAnalysis.StandardType.GGTypeACompatDiagCard
 public import CFSG.LocalAnalysis.StandardType.GGTypeACompatDiagTorus
 public import CFSG.LocalAnalysis.StandardType.GGTypeACompatDiagLift
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrKnownDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
-public import CFSG.LocalAnalysis.StandardType.GGFieldNbrTableB
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaBase
-public import CFSG.LocalAnalysis.StandardType.GGTypeAEndNode
 
 public section
 

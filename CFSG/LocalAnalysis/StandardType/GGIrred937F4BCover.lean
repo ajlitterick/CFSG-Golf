@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGIrred937F4BSplit
 public import CFSG.LocalAnalysis.StandardType.GGIrred937F4BFrames
 public import CFSG.HardMathSupport.Solomon.LocalBalance.I1433.F4TwoTorus
 public import CFSG.RankThree.PartOne.KF4.A2FrameToral

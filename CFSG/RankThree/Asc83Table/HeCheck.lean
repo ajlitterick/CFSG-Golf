@@ -1,8 +1,5 @@
 module
 
-public import CFSG.RankThree.Asc83Table.HeData
-public import Certificates.Data.CFSGNative.SectionRank.Fp
-public import CFSG.Blueprint.NativeSporadic
 public meta import CFSG.RankThree.Asc83Table.HeData
 public meta import Certificates.Data.CFSGNative.SectionRank.Fp
 public meta import CFSG.Blueprint.NativeSporadic

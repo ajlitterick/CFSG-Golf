@@ -2,10 +2,7 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec11.KS11Lie4ProofSplit
 public import CFSG.RankThree.PartTwo.Sec11.KS11Lie7ProofUnitary
-public import CFSG.LieType.Chevalley.E6GraphInvertedRootRotation
 public import CFSG.RankThree.Classical2.SLnRootAutomorphism
-public import CFSG.LieType.Chevalley.LangRootRankOneTorus
-public import CFSG.LinearAlgebra.LinearGroups.Generation
 
 public section
 

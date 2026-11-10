@@ -5,11 +5,9 @@ public import Certificates.Kernel.Sporadic.RawGen
 public import CFSG.Certificates.Kernel.Spor.TextAtSound
 public import CFSG.Certificates.Kernel.BfsPinSound
 public import CFSG.Sporadic.FischerOddCore.Fi22ExtCheckBase
-public import CFSG.Monster.B.Fischer.Fi22OuterCheckBase
 meta import CFSG.Sporadic.FischerOddCore.Fi22ExtCheckBase
 meta import CFSG.Monster.B.Fischer.Fi22OuterCheckBase
 import CFSG.Certificates.Kernel.Common.Harness
-public import CFSG.Certificates.Kernel.BfsPinUnpack
 public meta import CFSG.Sporadic.FischerOddCore.Fi22ExtCheckInputs
 
 public section

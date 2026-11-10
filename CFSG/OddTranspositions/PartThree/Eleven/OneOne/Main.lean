@@ -4,7 +4,6 @@ public import CFSG.OddTranspositions.PartThree.Eleven.Statements
 public import CFSG.OddTranspositions.PartThree.Eleven.PlusModel
 public import CFSG.OddTranspositions.PartThree.Eleven.FivePlusModel
 public import CFSG.OddTranspositions.PartThree.Eleven.OneOne.Centralizer
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PPrimeCore
 
 public section
 

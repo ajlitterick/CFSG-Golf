@@ -1,16 +1,13 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoAssemble
 public import CFSG.LocalAnalysis.StandardType.GGQTwoGammaXHolds
 public import CFSG.LocalAnalysis.StandardType.GGQTwoGammaNbrHolds
 public import CFSG.LocalAnalysis.StandardType.GGQTwoGammaXInL
 public import CFSG.LocalAnalysis.StandardType.GGQTwoGammaNbrInL
 public import CFSG.LocalAnalysis.StandardType.GGQTwoGammaNbrDet
-public import CFSG.LocalAnalysis.StandardType.GGQTwoGraphK
 public import CFSG.LocalAnalysis.StandardType.GGQTwoGammaXPosLeaf
 public import CFSG.LocalAnalysis.StandardType.GGQTwoGammaNbrPosE6
 public import CFSG.LocalAnalysis.StandardType.GGQTwoPosInLE6
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDepLin
 public import CFSG.LocalAnalysis.StandardType.GGQTwoI1FailGlue
 
 public section

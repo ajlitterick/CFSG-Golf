@@ -1,25 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2UniCover
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1Regimes
 import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1Holds
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1TorUniTor
-import CFSG.LocalAnalysis.StandardType.GGTableBExcTorus
-import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Three
-import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylExcPlusLift
-import CFSG.LocalAnalysis.StandardType.GGTableBF4Torus
-import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6Lift
-import CFSG.LocalAnalysis.StandardType.GGResLeaf
-import CFSG.LocalAnalysis.StandardType.GGTableBRank
-import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1SmallRows
-import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1Absence
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSmall
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestTri
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestTwF4
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRanksTri
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRanksTwF4
 import CFSG.LocalAnalysis.StandardType.GGTwF4SUThreeRank
 
 public section

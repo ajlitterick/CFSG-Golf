@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTBJF4LeviSplit
 public import CFSG.LocalAnalysis.StandardType.GGLangRootSL2Rational
 public import CFSG.LocalAnalysis.StandardType.GGExcMinusCompField
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylExcPlusLift
 public import CFSG.LocalAnalysis.StandardType.GGTBJETypeCells
 import CFSG.LocalAnalysis.StandardType.GGPhiTwoRootGenF4ThreeFrame
 import CFSG.LocalAnalysis.StandardType.GGF4ThreeSCCube

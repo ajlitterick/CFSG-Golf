@@ -1,12 +1,10 @@
 module
 
-public import CFSG.Sporadic.HeldB.HeBlocks
 public meta import CFSG.Sporadic.HeldB.HeBlocks
 public meta import CFSG.Sporadic.HeldB.CertPChainData
 public meta import Certificates.Data.CFSGNative.PairSchreier.Core
 public meta import Certificates.Data.CFSGNative.Schreier.Check
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
-public import CFSG.Sporadic.Schreier.PairHeCheckInputs
 public import Certificates.Certificate2223
 
 public section

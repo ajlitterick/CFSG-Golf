@@ -3,9 +3,6 @@ module
 
 public import CFSG.Quasithin.Vol2.KGFactC31M23Data
 import Certificates.Kernel.KGC31M23.Facts
-import Certificates.Kernel.KGC31M23.Defs
-import CFSG.Certificates.Kernel.Common.Harness
-import Certificates.Kernel.KGC31M23.CosDefs
 public import CFSG.Quasithin.Vol2.KGFactC31CosetCheck
 public import CFSG.Sporadic.Schreier.ClassSum
 

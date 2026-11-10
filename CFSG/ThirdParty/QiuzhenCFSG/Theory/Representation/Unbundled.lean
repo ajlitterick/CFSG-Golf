@@ -1,9 +1,5 @@
 module
 
-public import Mathlib.Algebra.MonoidAlgebra.Module
-public import Mathlib.LinearAlgebra.Basis.Defs
-public import Mathlib.LinearAlgebra.Basis.VectorSpace
-public import Mathlib.LinearAlgebra.Trace
 public import Mathlib.RepresentationTheory.Character
 
 namespace CFSG

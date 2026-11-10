@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGInnerDiagBridgeInner
 public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagProj
-public import CFSG.LieType.Universal.Unitary.Clause0
 
 public section
 

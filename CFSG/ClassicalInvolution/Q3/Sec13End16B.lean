@@ -1,8 +1,5 @@
 module
 
-public import CFSG.ClassicalInvolution.Q3.Sec13End16A
-public import CFSG.ClassicalInvolution.Q3.Sec13EndMin
-public import CFSG.ClassicalInvolution.Q3.TL4AECover
 public import CFSG.ClassicalInvolution.Q3.Sec13End16F
 import CFSG.ClassicalInvolution.Q3.Sec13AECoverEven
 import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinThinPfMembers

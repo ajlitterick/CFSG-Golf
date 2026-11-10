@@ -1,14 +1,5 @@
 module
 
-public import Mathlib
-public import Mathlib.GroupTheory.SpecificGroups.Cyclic
-public import CFSG.Open.Defs
-public import CFSG.Open.OrderForm
-public import CFSG.LocalAnalysis.ComponentClassification.Helpers
-public import CFSG.LocalAnalysis.ComponentClassification.OddCore
-public import CFSG.LocalAnalysis.ComponentClassification.Components
-public import CFSG.LocalAnalysis.ComponentClassification.Quasisimple
-public import CFSG.LocalAnalysis.ComponentClassification.LocalComponents
 public import CFSG.LocalAnalysis.ComponentClassification.Layer
 
 public section

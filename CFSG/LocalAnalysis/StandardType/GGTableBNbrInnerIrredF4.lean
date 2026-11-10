@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylExcPlusLargeF4
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylFrameIrredF
-import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylPlusLiftSL2
 import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6Split
 
 public section

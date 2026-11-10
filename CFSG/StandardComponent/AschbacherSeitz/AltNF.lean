@@ -1,17 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoAltOpen
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoAltEvenCenter
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoAltGenFusion2
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoAltGenRoot
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoAltGenCent
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoAltFiveEps
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoAltFiveM12NotTop
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoAltFiveCaseI
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoAltGenSmall
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoAltThree
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoAltGenFive
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoAltFiveIIbFinal
 public import CFSG.StandardComponent.AschbacherSeitz.Cfg76NF
 public import CFSG.StandardComponent.AschbacherSeitz.A5Child
 

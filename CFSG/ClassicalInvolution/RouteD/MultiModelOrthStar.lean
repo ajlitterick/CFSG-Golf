@@ -2,9 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.RouteD.MultiModelOrthGeom
 public import CFSG.ClassicalInvolution.RouteD.MultiModelGlue
-public import CFSG.ClassicalInvolution.RouteD.GapsOrthSpin
-public import CFSG.ClassicalInvolution.RouteD.GapsOrthSpinOdd
-public import CFSG.ClassicalInvolution.RouteD.ExoticTwinProofOrthBridge
 public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomyOrth
 public import CFSG.ClassicalInvolution.Generic.InductionMain
 public import CFSG.ClassicalInvolution.RouteD.MultiStarStd

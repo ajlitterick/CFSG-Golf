@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LieType.Steinberg.TwistedE6.Fixed
 public import CFSG.LieType.Steinberg.TwistedE6.Datum
-public import CFSG.LieType.HighestRoot.Defs
 public import CFSG.LieType.HighestRoot.RootsBasic
 public import CFSG.LocalAnalysis.SeitzReduction.LongRootPairsRoots
 

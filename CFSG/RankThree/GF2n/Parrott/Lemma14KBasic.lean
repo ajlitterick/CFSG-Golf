@@ -2,13 +2,9 @@ module
 
 public import CFSG.RankThree.GF2n.Parrott.Lemma13
 public import CFSG.RankThree.GF2n.Parrott.Section2Q8Final2
-public import CFSG.RankThree.GF2n.Parrott.HPrimeJ1
-public import CFSG.RankThree.GF2n.Parrott.CommutatorDetermined
 public import CFSG.RankThree.GF2n.Parrott.WMultiplicity
-public import CFSG.RankThree.GF2n.Parrott.ActionZSimplicity
 public import CFSG.RankThree.GF2n.Parrott.DerivedInterJEqBranch
 public import CFSG.RankThree.GF2n.Parrott.Section4EWeak
-public import CFSG.GroupTheory.CoprimeActionSupport.NormalSubgroupSylowJoin
 import all CFSG.RankThree.GF2n.Parrott.Section2Products
 public import CFSG.GF2Type.Aschbacher1976
 public import CFSG.GroupTheory.Fitting.MulEquiv

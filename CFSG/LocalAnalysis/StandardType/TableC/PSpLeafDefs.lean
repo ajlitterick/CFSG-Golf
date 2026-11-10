@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.TableC.Extract
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockDegreeParity
-public import CFSG.Open.StatedDefs
 
 public section
 

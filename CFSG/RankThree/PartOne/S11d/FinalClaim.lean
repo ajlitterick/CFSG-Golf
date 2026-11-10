@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.PartOne.S11d.FinalKey
 public import CFSG.RankThree.PartOne.S11d.FinalPigeonhole
-import CFSG.RankThree.PartOne.S10.AmbientTheta
 import CFSG.RankThree.PartOne.S10.SelectedPrimeNormalizeThetaComponents
 import CFSG.RankThree.Coprime.ThompsonElementaryComplement
 

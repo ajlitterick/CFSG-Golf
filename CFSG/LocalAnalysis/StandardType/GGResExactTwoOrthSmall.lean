@@ -2,23 +2,14 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGResExactTwoOrthSmallDefs
 import CFSG.LocalAnalysis.StandardType.GGResFixedWeylCentralizer
-import CFSG.LocalAnalysis.StandardType.GGPZWeylType
 import CFSG.LocalAnalysis.StandardType.GGHdRo7DSideCoord
 import CFSG.LocalAnalysis.StandardType.GGHdRo7DFrameOmega
 import CFSG.LocalAnalysis.StandardType.GGHdRo7DLModel
 import CFSG.LocalAnalysis.StandardType.GGHdRo7CLin
 import CFSG.LocalAnalysis.StandardType.GGHdRo7DAJ
 import CFSG.LocalAnalysis.StandardType.GGHdRo7SULCoordSplit
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBIrred
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelTypeABridge
-import CFSG.LocalAnalysis.StandardType.GGTWLowStmt
 import CFSG.LocalAnalysis.StandardType.GGHdRo7DSideData
 import CFSG.LocalAnalysis.StandardType.GGHdRo7CoprimeSplit
-import CFSG.LocalAnalysis.StandardType.GGTableBBstar
-import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
-import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperRestDefs
-import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperMoreOrth
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ASevenInvariantOddPSubgroupCertificateDefs
 
 public section

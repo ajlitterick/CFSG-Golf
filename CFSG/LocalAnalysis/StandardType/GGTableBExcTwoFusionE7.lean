@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoFusionLang
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoFusionKey
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoEndNode
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcThreeE8
 
 public section
 

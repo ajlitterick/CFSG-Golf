@@ -4,7 +4,6 @@ public import Certificates.Data.Kernel.EvenSporSuz.OuterBlk
 public import Certificates.Kernel.EvenSporSuz.Fours25010
 import all Certificates.Kernel.EvenSporSuz.Data
 import all Init.Data.List.SplitOn.Basic
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.Q3T8B14A
 public import CFSG.ClassicalInvolution.Q3.Q3T8E4B
-public import CFSG.ClassicalInvolution.Q3.Q3NMDiag
 
 public section
 

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanSL3LiftFourCentre
 public import CFSG.Foundations.SteinbergCAGeneratedCoreNodes
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D1AlphaSL3LiftGrp
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

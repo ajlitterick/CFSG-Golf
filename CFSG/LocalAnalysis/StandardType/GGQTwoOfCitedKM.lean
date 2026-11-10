@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoOfCited
-public import CFSG.LocalAnalysis.StandardType.GGWAutDefs
-public import CFSG.LocalAnalysis.StandardType.GGWAutEngine
 public import CFSG.LocalAnalysis.StandardType.GGWAutHeart
 public import CFSG.LocalAnalysis.StandardType.GGWAutProp898
 

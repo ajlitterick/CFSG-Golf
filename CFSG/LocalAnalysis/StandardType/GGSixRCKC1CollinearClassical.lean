@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1CollinearLong
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1LemmaHNbr
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1ShortCore
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2PSLCores
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2SpCores

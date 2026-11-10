@@ -4,9 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.ZS.OrthExtTable
 public import CFSG.LocalAnalysis.StandardType.ZS.DimThree.Main
 import CFSG.LocalAnalysis.StandardType.ZS.AmbivalentForm
 import CFSG.LocalAnalysis.StandardType.ZS.OrthExtWitt
-import CFSG.LocalAnalysis.StandardType.ZS.MovedGroup
-import CFSG.LocalAnalysis.StandardType.ZS.ThroughRefl
-import CFSG.LocalAnalysis.StandardType.ZS.AbsIrred
 import CFSG.LocalAnalysis.StandardType.ZS.MonomialRows
 import CFSG.LocalAnalysis.StandardType.GGRCMonomial
 import CFSG.LocalAnalysis.StandardType.GGRCMonomialFrame

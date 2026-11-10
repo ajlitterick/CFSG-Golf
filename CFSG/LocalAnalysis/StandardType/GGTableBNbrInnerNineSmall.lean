@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerRestVac
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallTits
-public import CFSG.LocalAnalysis.SectionRank.Sporadic.TitsOrder
-public import CFSG.RankThree.PartOne.LIT.RankMatrix
 public import CFSG.RankThree.PartOne.KE.SuzukiPlane
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSpSuzukiCentralizer
 public import CFSG.RankThree.PartOne.KE.Basic
 public import CFSG.RankThree.PartOne.S8.Statements
 

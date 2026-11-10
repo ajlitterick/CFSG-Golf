@@ -1,15 +1,6 @@
 module
 
 public import CFSG.GH74.Uniqueness.Section7Stage2Defs
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.CoprimeHall
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Quotient
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Lemmas
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Invariant
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConj
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Core
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.CentralizerLemmas
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection8.theorem_8_1
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Hall.Basic
 public import CFSG.Adapters.QiuzhenLegacy.FeitThompson.GroupAction.Quotient
 public import CFSG.CharacterTheory.CyclicBlocks.Family
 public import CFSG.CharacterTheory.PSL2Table.BlocksProduct

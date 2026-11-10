@@ -3,12 +3,10 @@ module
 public import Certificates.Kernel.Sporadic.OddCore.S8147D
 public import Certificates.Kernel.Sporadic.OddCore.S8147QD
 public import Certificates.Kernel.Sporadic.OddCore.Suz2302
-public import Certificates.Data.Kernel.Misc.ArrEnum
 public import Certificates.Data.Kernel.B3S3K
 public import Certificates.Data.Kernel.Spor.HNAOrb
 public import Certificates.Data.Kernel.Spor.BaseEq
 public import CFSG.Certificates.Kernel.PermToolSound
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

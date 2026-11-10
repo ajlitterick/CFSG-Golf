@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerTypeADvd
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeADvd
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 
 public section
 

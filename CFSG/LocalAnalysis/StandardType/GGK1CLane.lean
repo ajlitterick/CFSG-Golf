@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGK1CComp
 public import CFSG.LocalAnalysis.StandardType.GGK1CDvd
 public import CFSG.LocalAnalysis.StandardType.GGK1CCenter
 public import CFSG.LocalAnalysis.StandardType.GGK1CValid
-public import CFSG.LocalAnalysis.StandardType.GGK1CLift
 public import CFSG.LocalAnalysis.StandardType.GGK1CBij
 public import CFSG.LocalAnalysis.StandardType.GGK1CSigma
 

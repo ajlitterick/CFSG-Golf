@@ -3,7 +3,6 @@ module
 public import CFSG.RankThree.PartOne.KF.UnitaryDiag
 public import CFSG.RankThree.SubgroupLists.CentralThreeLift
 public import CFSG.LieType.Universal.Unitary.Model
-public import CFSG.ClassicalGroups.UnitaryFlag.GroupData
 
 public section
 

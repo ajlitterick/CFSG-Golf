@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.GroupTheory.PGroup
 public import Mathlib.GroupTheory.SpecificGroups.Alternating.Simple
 import Mathlib.Tactic
 

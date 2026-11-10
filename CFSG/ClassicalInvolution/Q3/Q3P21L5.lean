@@ -3,12 +3,7 @@ module
 public import CFSG.ClassicalInvolution.Q3.Q3P21L2
 public import CFSG.ClassicalInvolution.Q3.Q3P21L3
 public import CFSG.ClassicalInvolution.Q3.Q3P21L4
-public import CFSG.ClassicalInvolution.Q3.Q3TCBridge
-public import CFSG.ClassicalInvolution.Q3.Q3TCD4Clique
 public import CFSG.ClassicalInvolution.Q3.Q3TSRowSL4
-public import CFSG.ClassicalInvolution.Q3.Q3EXModel
-public import CFSG.ClassicalInvolution.RouteD.TwinTenChain
-public import CFSG.ClassicalInvolution.Q3.Q3TIVFinal
 public import CFSG.ClassicalInvolution.Q3.Q3EXD4FLift
 
 public section

@@ -2,7 +2,6 @@ module
 
 public import CFSG.Monster.B.TwoA.Census.MonoXi
 public import CFSG.Monster.B.TwoA.Census.MonoClasses
-public import CFSG.Monster.Visible.XiPair
 public import CFSG.Monster.VisQuot.Image
 public import CFSG.Monster.B.TwoA.Census.DenseMat
 public meta import CFSG.Monster.B.TwoA.Census.DenseMat

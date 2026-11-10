@@ -1,17 +1,12 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.KGLangTorusDatum
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangKGInputs
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangWeylRestLabels
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreDefs
 public import CFSG.LocalAnalysis.StandardType.GGReeLangPositionF4
 import CFSG.LocalAnalysis.StandardType.KGLangLT5ExcModel
 import CFSG.LocalAnalysis.StandardType.KGLangLT5ExcGlue
 import CFSG.LocalAnalysis.StandardType.KGLangReeTorusInput
 import CFSG.LocalAnalysis.StandardType.KGLangReeBridge
-import CFSG.LocalAnalysis.StandardType.GGL45NtRecExTw
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangReeF4
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldCyclicLabels
 import CFSG.LocalAnalysis.StandardType.KGLangTorusDatumOfModels
 import CFSG.SignalizerFunctorTheorem.CatalogBridge.NonLocalLargeReeMain
 

@@ -2,21 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLayerNotExcThreeAtTwoRat
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24D4T2Outer
-public import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.InnExcInner
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieOrderBridgeHolds
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24CentreKac
-import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.KS.TwE6UniqKac
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExc
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExcD4
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcKacCount
-import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.InnerCover
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerSmall
-import CFSG.HardMathSupport.Timmesfeld.RootAut.Main
-import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofLieOrder
-import CFSG.LocalAnalysis.ComponentInitial.LinearCoverModel
-import CFSG.Adapters.ProjectiveSpecialLinear
-import CFSG.HardMathSupport.Solomon.Coordinator.L3C143AltFin
-import CFSG.LocalAnalysis.StandardType.GGSixAutKFinerLastChoice
 
 public section
 

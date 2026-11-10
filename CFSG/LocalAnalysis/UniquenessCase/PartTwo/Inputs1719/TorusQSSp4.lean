@@ -2,13 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.TorusQSSp4Red
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.TorusQSCases
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section19.TorusSp4
-public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotSetup
-public import CFSG.LocalAnalysis.SectionRank.Induction
-public import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P2214Rk
-public import CFSG.LocalAnalysis.UniquenessCase.UC22P22a
-public import CFSG.Quasithin.Background.A1bPGroups
 public import CFSG.GroupTheory.PCore.InfPCoreOf
 public import CFSG.GroupTheory.PCore.PCoreOfIndex
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs12b

@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.Spor.Rel
 public import CFSG.Sporadic.Recognition.M23MultiplierInputs
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.Certificates.NativeSchreierCard
 public import CFSG.GroupTheory.LocalCores.Fitting

@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19HSAutClass
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19HSAutData
 public import CFSG.Sporadic.SmallOddCore.HSAut
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19HSAutClass
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19HSAutData
@@ -9,8 +7,6 @@ public meta import CFSG.Sporadic.SmallOddCore.HSData
 public meta import CFSG.Sporadic.SmallOddCore.CentData
 public meta import Certificates.Data.CFSGNative.PSL3Four.Basic
 public meta import Certificates.Data.CFSGNative.SmallOddCore.Check
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19HSAutOuterCheckInputs
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19HSAutOuterE
 public import Certificates.Certificate4064
 
 public section

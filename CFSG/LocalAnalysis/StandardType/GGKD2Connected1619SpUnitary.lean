@@ -1,16 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKD2Connected1619Contracts
-public import CFSG.Open.StatedDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.K1419ClsSympCent
-public import CFSG.LieType.SemisimpleCentralizers.HeldCompTrivSU
 public import CFSG.LieType.SemisimpleCentralizers.HeldTwoDimUnitaryBlock
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniLabelPSU
-public import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotBlocks
 public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotTPGraphFieldCore
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinFldGrp
-public import CFSG.Adapters.ProjectiveSpecialLinear
-public import CFSG.CharacterTheory.Wreathed.ProjectiveTwoParameterUniqueness
 public import CFSG.Assembly.GL83StatedBridge
 public import CFSG.Assembly.OpenBridges
 public import CFSG.HardMathSupport.Solomon.Coordinator.I18_3LInput

@@ -1,15 +1,10 @@
 module
 
-public import Certificates.Data.Co1FiveRank
 public meta import Certificates.Data.Co1FiveRank
 public import Certificates.Kernel.Co1B.Chk431007
 public import Certificates.Kernel.Co1B.Lvl431007A
 public import Certificates.Kernel.Co1B.Lvl431007B
 public import Certificates.Kernel.Co1B.C17330
-public import Certificates.Kernel.Co1B.C2041
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
-public import CFSG.Monster.B.TwoA.Par3.Main
 
 public section
 

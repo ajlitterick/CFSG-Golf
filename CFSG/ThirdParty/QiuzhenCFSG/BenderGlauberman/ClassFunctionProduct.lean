@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section2.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.ClassFunction
 
 namespace CFSG
 end CFSG

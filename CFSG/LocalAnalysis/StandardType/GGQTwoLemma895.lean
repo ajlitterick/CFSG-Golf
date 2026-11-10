@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoVACDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoTrivial
 public import CFSG.LocalAnalysis.StandardType.GGFFProp2
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaCard
 public import CFSG.LocalAnalysis.StandardType.GGSixFieldFiveProofSL
 public import CFSG.LocalAnalysis.StandardType.GGQTwoInputs
 

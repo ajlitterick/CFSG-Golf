@@ -2,18 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeModels
 public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
-public import CFSG.LocalAnalysis.ComponentClassification.LBalanceQuotient
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.CentralizerLemmas
 public import CFSG.GH74.GLS.C3.Layer1.PU3Thm5
-public import CFSG.GroupTheory.ElemAbelianClosure
-public import CFSG.LocalAnalysis.GLTheoremB.SchreierTools
 public import CFSG.Models.Transport
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T263Rank
 public import CFSG.RankThree.PartTwo.Sec4.Census.Witness46
-public import CFSG.RankThree.PartOne.KF.ClsBasic
-public import CFSG.LocalAnalysis.SectionRank.SQT
-public import CFSG.RankThree.PartTwo.Census.Criteria
 public import CFSG.ClassicalInvolution.Asc77.AscT8X4
 public import CFSG.ClassicalInvolution.Asc77.AscT8YA3
 public import CFSG.ClassicalInvolution.AschTight.S1916F2a

@@ -3,7 +3,6 @@ module
 
 public import CFSG.Fischer.PolarCertBase
 
-public import Certificates.Data.CFSGNative.Fischer.Polar
 public meta import Certificates.Data.CFSGNative.Fischer.Polar
 public import Certificates.Certificate1001
 public import Certificates.Certificate1001Base

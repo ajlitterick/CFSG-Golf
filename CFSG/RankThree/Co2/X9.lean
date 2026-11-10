@@ -1,8 +1,6 @@
 module
 
 public import CFSG.RankThree.Co2.Exclude
-public import CFSG.RankThree.Co2.Sqrt
-public import CFSG.RankThree.Co2.CrMat
 public import CFSG.RankThree.Co2.X9Cert
 
 public noncomputable section

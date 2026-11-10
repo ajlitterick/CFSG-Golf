@@ -1,12 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinSelected
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6RatLabelA
 public import CFSG.LocalAnalysis.StandardType.GGK0LQRecC2
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreSmallSetup
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.RationalComponentEq
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTamePrime
 
 public noncomputable section
 

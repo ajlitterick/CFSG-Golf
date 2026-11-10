@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenEightS1T3KbarPt
 
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenH154H5JPAlt
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC11E3A5Fix3
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenLin
 import CFSG.LocalAnalysis.GLTheoremA.Sec5BTools
 public import CFSG.CGT.PushingUpLit.BHS5.FiveFive
 public import CFSG.HardMathSupport.Timmesfeld.OrthogonalGeneration.Bridge

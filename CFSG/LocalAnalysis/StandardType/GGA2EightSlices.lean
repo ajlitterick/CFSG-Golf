@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGA2EightDefs
 public import CFSG.LocalAnalysis.StandardType.GGA2EightCentJ
 public import CFSG.LocalAnalysis.StandardType.GGTPNThmUKacCentJ
 public import CFSG.LocalAnalysis.StandardType.GGMultValidClQs

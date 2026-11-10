@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.D3FRes
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.D3PField
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.D3PBorMain
 
 public section

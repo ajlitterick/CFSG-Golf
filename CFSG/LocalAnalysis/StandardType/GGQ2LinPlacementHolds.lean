@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2LinPlacement
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 public import CFSG.LocalAnalysis.StandardType.GGQ2FrameAmbient
 import CFSG.LocalAnalysis.StandardType.GGQ2LinInnerDiagData
 import CFSG.LocalAnalysis.StandardType.GGQ2LinA1FourVacuous
@@ -14,7 +13,6 @@ import CFSG.LocalAnalysis.StandardType.GGQ2LinBlocksComp
 import CFSG.LocalAnalysis.StandardType.GGQ2LinBlocksMark
 import CFSG.LocalAnalysis.StandardType.GGQ2LinBlocksCent
 import CFSG.LocalAnalysis.StandardType.GGQ2LinBlocksCentExt
-import CFSG.LocalAnalysis.StandardType.GGQ2LinRealization
 import CFSG.LocalAnalysis.StandardType.GGQ2LinTorusAutAmb
 import CFSG.LocalAnalysis.StandardType.GGQ2LinTorusAutZero
 import CFSG.LocalAnalysis.StandardType.GGQ2LinTorusAutYcode

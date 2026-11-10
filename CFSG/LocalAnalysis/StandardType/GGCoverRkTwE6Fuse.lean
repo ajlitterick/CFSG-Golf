@@ -1,13 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGWPlusTwE6
-public import CFSG.LocalAnalysis.StandardType.GGWPlusTwE6Quot
-public import CFSG.LocalAnalysis.StandardType.GGWPlusE6Auto
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelHoldsT
-public import CFSG.LocalAnalysis.StandardType.GGRawAutRestTwE6
-public import CFSG.LocalAnalysis.StandardType.GGCoverRkTwE6Frame
 public import CFSG.LocalAnalysis.StandardType.GGCoverRkTwE6Count
-public import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOtherTwE6
 
 public section
 

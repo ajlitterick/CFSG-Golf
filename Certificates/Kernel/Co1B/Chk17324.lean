@@ -3,11 +3,8 @@ module
 public import Certificates.Kernel.Co1B.Data17324
 public import Certificates.Kernel.Co1B.XB17591
 public import Certificates.Kernel.Co1ThreeK.Letters
-public import Certificates.Data.Kernel.Co1BW
-public import Certificates.Data.Kernel.Co1BBoundN
 public import Certificates.Data.Kernel.Co1BBoundP
 public import Certificates.Data.TabCo1FiveA
-public import CFSG.Certificates.Kernel.Lie.CT.Core
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

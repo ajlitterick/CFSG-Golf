@@ -1,12 +1,9 @@
 module
 
-public import CFSG.RankThree.PartOne.CTP.StrongPLinear
 public import CFSG.LocalAnalysis.StandardType.GGCSRHolds
 public import CFSG.LocalAnalysis.StandardType.GGResILineInputs
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFacts.WeakClosureThree.LieCrossRankTwo
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanG2QHeis
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45FieldFixReeMark
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFixGapTwF4
 
 public section

@@ -13,7 +13,6 @@ public import Certificates.Kernel.LyS0.Slices6
 public import Certificates.Kernel.LyS0.Slices7
 public import Certificates.Kernel.LyS0.Slices8
 public import Certificates.Kernel.SporSch.Ly.BS18009
-import Mathlib.Tactic.IntervalCases
 
 public section
 

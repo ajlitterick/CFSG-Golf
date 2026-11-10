@@ -6,7 +6,6 @@ import CFSG.Certificates.Kernel.BabyMonster.LoadRange
 public import CFSG.Certificates.Kernel.BabyMonster.F2Four
 public import CFSG.Certificates.Kernel.BabyMonster.SoundDefs
 public import Certificates.Data.Kernel.TwoAC.Check
-public import Certificates.Kernel.TwoAC.Data0
 public import Certificates.Kernel.TwoAC.Data1
 public import CFSG.Certificates.Kernel.BSeed.Sound
 

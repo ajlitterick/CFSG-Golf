@@ -2,11 +2,9 @@ module
 
 public import CFSG.Quasithin.Background.HMathieuCent
 public import CFSG.Monster.B.TwoA.Base.M22
-public import CFSG.Monster.CodeAut.Bridge
 public import CFSG.Sporadic.Schreier.MathieuOddCoreM22
 public import CFSG.Sporadic.Schreier.MathieuOddCoreM23
 public import CFSG.Sporadic.Schreier.MathieuOddCoreM24
-public import CFSG.Sporadic.Schreier.M22
 public import CFSG.Sporadic.Schreier.M23
 public import CFSG.Sporadic.Schreier.M24
 public meta import CFSG.Quasithin.Background.HMathieuCent

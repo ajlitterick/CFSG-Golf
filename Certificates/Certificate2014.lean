@@ -3,7 +3,6 @@ module
 
 public import Certificates.Certificate2014Base
 
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallQ3A8DataInputs
 public meta import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallQ3A8
 public meta import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallQ3Gen
 public meta import CFSG.GH74.KGroups.Checks3

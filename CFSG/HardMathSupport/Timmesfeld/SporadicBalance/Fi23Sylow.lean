@@ -3,7 +3,6 @@ module
 
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Fi23SylowBase
 
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Fi23Three
 public import Certificates.Certificate13622
 
 public section

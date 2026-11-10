@@ -6,7 +6,6 @@ public import Certificates.Kernel.TcGen.Fi22
 public import Certificates.Kernel.TcGen.ON
 public import CFSG.Certificates.Kernel.OpsLayMcertSound
 public import Certificates.Data.CFSGNative.CTP.StrongP
-public import CFSG.Blueprint.NativeSporadic
 import all CFSG.Blueprint.NativeSporadic
 
 public section

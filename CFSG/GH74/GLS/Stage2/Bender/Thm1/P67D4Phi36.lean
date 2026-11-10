@@ -4,7 +4,6 @@ public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4Phi36Plane
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4Phi36Z0
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4ThreeX
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67InnerTools
-public import CFSG.LieType.Chevalley.GraphFixedCenterTrivial
 public import CFSG.RankThree.PartTwo.KFacts.AutKinds
 
 public section

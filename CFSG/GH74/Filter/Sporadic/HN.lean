@@ -2,11 +2,9 @@ module
 
 public import CFSG.GH74.Filter.Sporadic.Spec
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.OpsFp
-public import Certificates.Data.CFSGNative.Filter.HNData
 public meta import Certificates.Data.CFSGNative.Filter.HNData
 import all CFSG.Blueprint.NativeSporadic
 public import Certificates.Certificate5030
-public import CFSG.Open.Defs
 
 public section
 

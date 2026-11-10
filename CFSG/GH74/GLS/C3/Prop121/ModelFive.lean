@@ -3,11 +3,6 @@ module
 
 public import CFSG.GH74.GLS.C3.Prop121.ModelFiveBase
 
-public import CFSG.GH74.GLS.C3.Layer2.FinModelEmb
-public import CFSG.GH74.GLS.C3.Layer2.NumMoved
-public import CFSG.GH74.GLS.C3.Layer2.FinModelCard
-public import Mathlib.Data.List.FinRange
-public import Mathlib.GroupTheory.Perm.Fin
 public meta import Mathlib.GroupTheory.SpecificGroups.Alternating
 public meta import Mathlib.GroupTheory.Perm.Fin
 public meta import Mathlib.Logic.Equiv.Fin.Basic
@@ -16,7 +11,6 @@ public meta import Mathlib.Data.List.FinRange
 public meta import CFSG.GH74.GLS.C3.Layer2.FinModelDefs
 public meta import CFSG.GH74.GLS.C3.Layer2.FinModelEmb
 public meta import CFSG.GH74.GLS.C3.Layer2.NumMoved
-public import CFSG.GH74.GLS.C3.Prop121.ModelFiveInputs
 public meta import CFSG.GH74.GLS.C3.Prop121.ModelFiveInputs
 public import Certificates.Certificate5091
 

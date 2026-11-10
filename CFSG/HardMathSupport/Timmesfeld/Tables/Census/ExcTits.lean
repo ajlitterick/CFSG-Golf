@@ -4,7 +4,6 @@ public import CFSG.HardMathSupport.Timmesfeld.Tables.Census.Sporadic
 public import CFSG.RankThree.PartTwo.Census.Carrier.ReeF4Catalog
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Sporadic.Schreier.TitsStab
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.LieType
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.LieType
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.AmbientGroup
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Classification

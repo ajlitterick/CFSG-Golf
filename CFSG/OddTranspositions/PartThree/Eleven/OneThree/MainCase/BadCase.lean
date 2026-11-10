@@ -1,16 +1,11 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Statements
-public import CFSG.OddTranspositions.HypothesisC
 public import CFSG.Timmesfeld.Bridge.Asc72Local
 import CFSG.OddTranspositions.PartThree.Eleven.OneThree.MainCase.SixOne
 import CFSG.OddTranspositions.PartThree.Eleven.OneThree.MainCase.WreathKey
 import CFSG.OddTranspositions.PartThree.Eleven.OneThree.MainCase.OFourLine
 import CFSG.OddTranspositions.PartThree.EightEight.ClosedBlocks
-import CFSG.OddTranspositions.FaithfulBlocks
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.Timmesfeld.Bridge.Asc72Lift
 public import CFSG.Timmesfeld.Bridge.Asc73Quotient
 

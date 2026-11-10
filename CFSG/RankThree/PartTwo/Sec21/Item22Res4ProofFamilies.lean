@@ -4,7 +4,6 @@ public import CFSG.RankThree.PartTwo.Sec21.Item22Res4ProofConfig
 public import CFSG.RankThree.PartTwo.KFacts.KS222Sp4
 public import CFSG.RankThree.PartTwo.KFacts.KS222U4Even
 public import CFSG.RankThree.PartTwo.KFacts.KS222U5
-public import CFSG.RankThree.PartTwo.Sec21.Item229Orders
 public import CFSG.RankThree.PartTwo.KFacts.KP7Suzuki
 public import CFSG.RankThree.PartTwo.Sec9.Item97
 public import CFSG.RankThree.PartTwo.Census.OddClassical.LinearTwo
@@ -12,15 +11,9 @@ public import CFSG.RankThree.PartTwo.Sec4.Item413Orders
 public import CFSG.RankThree.PartTwo.Sec4.Item426A6Proof
 public import CFSG.RankThree.PartTwo.KFacts.KS14Orders
 public import CFSG.RankThree.PartTwo.Sec21.CurtisTitsBridge
-import CFSG.ClassicalGroups.Symplectic.Simple
-import CFSG.ClassicalGroups.Unitary.Simple
-import CFSG.Timmesfeld.Orders.ClassicalLinear
 import CFSG.RankThree.PartOne.S10.EmbeddingTransport
 import CFSG.GH74.Exceptional.LinearFourTwo
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Center
 import CFSG.Adapters.StatedClassicalUnitaryOrders
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CGT.Timmesfeld75.Statements
 public import CFSG.Certificates.WordSubgroupRel
 public import CFSG.CharacterTheory.Semidihedral.ElementStructure
@@ -46,7 +39,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.BlockOvergroupDichotomy
 public import CFSG.LocalAnalysis.ComponentInitial.GeneralizedFittingProduct
 public import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
 public import CFSG.LocalAnalysis.ComponentInitial.PerfectOuterInjection
-public import CFSG.LocalAnalysis.ComponentInitial.SuzukiModelSchreier
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.NativeCheckBase
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.NativeModel
 public import CFSG.LocalAnalysis.EvenSmallLie.Sp6JCondition
@@ -66,7 +58,6 @@ public import CFSG.Monster.B.TwoA.Amalgam.Data
 public import CFSG.Monster.B.TwoA.Sp8.Par1
 public import CFSG.Monster.B.TwoA.Unitary.LinThree
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.Basic
 public import CFSG.RankThree.LocalRank.SelectorCases
 public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeSetting
@@ -85,7 +76,6 @@ public import CFSG.RankThree.PartTwo.Sec13.Item135
 public import CFSG.RankThree.PartTwo.Sec13.Item135Simple
 public import CFSG.RankThree.PartTwo.Sec13.Item135SimpleReduce
 public import CFSG.RankThree.PartTwo.Sec18.Notation
-public import CFSG.RankThree.PartTwo.Sec18.Tools
 public import CFSG.RankThree.PartTwo.Sec21.Commute33
 public import CFSG.RankThree.PartTwo.Sec21.Item221Proof228
 public import CFSG.RankThree.PartTwo.Sec21.Item221ProofZGen
@@ -99,13 +89,11 @@ public import CFSG.RankThree.PartTwo.Sec21.Item233
 public import CFSG.RankThree.PartTwo.Sec21.Item233OneProof
 public import CFSG.RankThree.PartTwo.Sec21.Membership
 public import CFSG.RankThree.PartTwo.Sec21.SylowThree
-public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.RankThree.PartTwo.Sec4.Census.Item44PartOne
 public import CFSG.RankThree.PartTwo.Sec4.Item47
 public import CFSG.RankThree.PartTwo.Sec4.LThreePiItem411
 public import CFSG.RankThree.PartTwo.Sec4.StatementsGraphField
 public import CFSG.RankThree.PartTwo.Sec6.Item612
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Presentation.Common
 public import CFSG.Sporadic.SmallOddCore.CheckSpec

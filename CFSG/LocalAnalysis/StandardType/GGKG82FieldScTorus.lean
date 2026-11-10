@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6LocalRankTorus
 public import CFSG.LieType.Steinberg.CentralExt.MinusculeCenter
-public import Mathlib.RingTheory.RootsOfUnity.PrimitiveRoots
 
 public section
 

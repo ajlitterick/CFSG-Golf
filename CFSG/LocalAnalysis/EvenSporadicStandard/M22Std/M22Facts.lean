@@ -2,11 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.M22Std.TabGroup
 public import CFSG.Sporadic.Schreier.MathieuOddCoreM22
-public import CFSG.Sporadic.Schreier.MathieuOddCoreM22Check
-public import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
-public import CFSG.Sporadic.Mathieu.M22
-public import Certificates.Certificate2195
-public import Certificates.Certificate2202
 public import CFSG.Sporadic.Schreier.MathieuOddCoreModel
 
 public section

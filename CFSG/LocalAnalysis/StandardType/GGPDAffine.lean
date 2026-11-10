@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGR4JMeetKGDefs
-public import CFSG.LocalAnalysis.StandardType.GGPDDefs
 public import CFSG.LocalAnalysis.StandardType.GGPDWeightSupport
 public import CFSG.Sporadic.ThSchreier.GlobalData
 public import CFSG.Sporadic.ThSchreier.LocalOrbitBase1

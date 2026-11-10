@@ -2,12 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.DefsHyp
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs12c
-public import CFSG.LocalAnalysis.UniquenessCase.UCFront12
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22o
-import CFSG.Adapters.GeneralizedFitting
-import CFSG.GroupTheory.Fitting.CharacteristicP
-import CFSG.LocalAnalysis.SectionRank.GroupRankTransport
-import CFSG.LocalAnalysis.SectionRank.SQT
 import CFSG.CGT.PushingUpLit.T2KSW.FieldAutWeakClosure
 import CFSG.CGT.PushingUp.BenderBridge
 import CFSG.CGT.PushingUp.BlockOrder

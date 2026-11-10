@@ -6,8 +6,6 @@ public import Certificates.Kernel.Sporadic.Fi22.N2070Final
 public import Certificates.Kernel.Sporadic.Fi22.C2079B
 public import CFSG.Certificates.Kernel.Fi22Search2071Sound
 public import CFSG.Sporadic.FischerOddCore.Fi22SearchCheckInputs
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

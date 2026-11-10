@@ -1,12 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResLeaves
-public import CFSG.LocalAnalysis.StandardType.GGResSideDatumDefs
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeDefs
-public import CFSG.LocalAnalysis.StandardType.GGTBXPlumb
 public import CFSG.LocalAnalysis.StandardType.GGResXDatumA
 public import CFSG.LocalAnalysis.StandardType.GGTBFixNbrDefs
-public import TauCeti.LinearAlgebra.Matrix.Cartan.Classical
 
 public section
 

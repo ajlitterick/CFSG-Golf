@@ -1,17 +1,12 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpFrameDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpPlaneFrameDefs
-public import CFSG.LocalAnalysis.StandardType.GGAssemblyTwoHypSix
-public import CFSG.LocalAnalysis.StandardType.GGSignedCoordBlocks
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpKFrameCore
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpKAlignOn
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpKToral
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpKSigned
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpKCent
 import CFSG.LocalAnalysis.StandardType.GGSpJoinPlaneConj
-import CFSG.LocalAnalysis.StandardType.GGTorCPlane
-import CFSG.LocalAnalysis.StandardType.GGTorCNormalizer
 import CFSG.LocalAnalysis.StandardType.GGTBJSympMinusBlockAux
 
 public section

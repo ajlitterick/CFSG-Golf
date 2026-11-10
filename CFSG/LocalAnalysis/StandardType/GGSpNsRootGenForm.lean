@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSpNsRootGenDefs
-import CFSG.LieType.Universal.Spin.Forms
-import TauCeti.LinearAlgebra.BilinearForm.SymplecticBasis
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T173MixedPair
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.CharacterTheory.BrauerThirdMainTheorem.CentralResidueMaps
 import CFSG.CharacterTheory.BrauerThirdMainTheorem.NormalizerClassLifting
 import CFSG.CharacterTheory.BrauerThirdMainTheorem.PrincipalClassDefects
@@ -13,14 +9,7 @@ import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
 import CFSG.CharacterTheory.Wreathed.WreathCentralSquare
 import CFSG.Dihedral.DihedralFusionPrefixes
 import CFSG.HardMathSupport.Dickson.Bal207.OrthD4Loc
-import CFSG.HardMathSupport.Solomon.LocalBalance.PartIInputs
 import CFSG.HardMathSupport.Solomon.LocalBalance.ScpQuot
-import CFSG.HardMathSupport.Solomon.LocalBalance.Sec5Statements
-import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6DInputs
-import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6FInputs
-import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec7Interface
-import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeFamilies
-import CFSG.LocalAnalysis.AGLEmbedding.ResidualTools
 import CFSG.LocalAnalysis.ComponentClassification.BlockCentralSylowEquality
 import CFSG.LocalAnalysis.ComponentClassification.BlockFourFactorSupport
 import CFSG.LocalAnalysis.ComponentClassification.BlockLargeProductInvolutions
@@ -43,7 +32,6 @@ import CFSG.LocalAnalysis.GLTheoremA.S6.Lemma62AuxComp
 import CFSG.LocalAnalysis.GLTheoremA.Sec5Setup
 import CFSG.LocalAnalysis.GLTheoremB.Lemma911Proof
 import CFSG.LocalAnalysis.LargeEvenClassification.TopScalarLiftSquare
-import CFSG.LocalAnalysis.SignalizerFunctor
 import CFSG.Quasithin.Background.A3ComponentsAmbient
 import CFSG.RankThree.PartOne.KC.OrthogonalSubfieldCentralizer
 import CFSG.RankThree.PartOne.S11d.OutClassicalTwo
@@ -55,18 +43,6 @@ import CFSG.RankThree.PartOne.S12.Sec15Items
 import CFSG.RankThree.PartOne.S15K.FixedWitt
 import CFSG.RankThree.PartOne.S15K.LayerModel
 import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldPrimeOrderFixedSubfield
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OrderThreeNormalizer
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2PSLRangeCentralizer
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinInvolutionCount
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinRestrictionSixCount
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinUDecomposition
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationEleven
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTen
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTenStructuralIdentities
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2FieldProjectionArithmetic
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2OrderPSubgroupCount
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphReconstruction
 
 public section
 

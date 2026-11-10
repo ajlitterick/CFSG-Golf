@@ -1,10 +1,8 @@
 module
 
 public import CFSG.Sporadic.Co2Schreier.ThirdCheck
-public import CFSG.Sporadic.Co2InvData
 public meta import CFSG.Sporadic.Co2Schreier.ThirdCheck
 public meta import CFSG.Sporadic.Co2InvData
-public import CFSG.Sporadic.Co2Schreier.ClassCheckInputs
 public import Certificates.Certificate2050
 
 public section

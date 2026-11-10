@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6A5LThreeCent
 import CFSG.LocalAnalysis.StandardType.GGTwE6A5LThreeAdic
-import CFSG.LocalAnalysis.StandardType.GGSixStepOneOutdiagLabels
-import CFSG.LocalAnalysis.StandardType.MarkingClassical
-import CFSG.Timmesfeld.Orders.Classical
 
 public section
 

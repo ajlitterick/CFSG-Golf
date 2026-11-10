@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelEFrame
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelNormE
 
 public section

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLevTwoS3bFilter
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompAlcove
 
 public section
 

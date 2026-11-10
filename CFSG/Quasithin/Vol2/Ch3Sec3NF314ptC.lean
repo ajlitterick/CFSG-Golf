@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.Ch3Sec3NF314ptAssembly
-public import CFSG.Quasithin.Vol2.Ch3Sec3L2qCore
 public import CFSG.LocalAnalysis.ComponentClassification.GSLitInputs
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitKG
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitPSL

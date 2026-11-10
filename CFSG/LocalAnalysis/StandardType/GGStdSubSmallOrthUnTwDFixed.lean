@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallOrthUnTwDPlane
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallOrthUnBlock
 
 public section
 

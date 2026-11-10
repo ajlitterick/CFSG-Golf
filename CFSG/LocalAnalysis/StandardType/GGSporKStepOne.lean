@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSporKBMPreds
 public import CFSG.LocalAnalysis.StandardType.GGSporKCoprime
-public import CFSG.Assembly.Subnormal
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PPrimeCore
 
 public section
 

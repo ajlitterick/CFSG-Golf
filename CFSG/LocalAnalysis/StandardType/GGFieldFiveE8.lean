@@ -1,14 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFieldFiveE8Action
-public import CFSG.LocalAnalysis.StandardType.GGFieldFiveE8Centralizer
 public import CFSG.LocalAnalysis.StandardType.GGFieldFiveE8Marking
-public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerAdj
-public import CFSG.LocalAnalysis.StandardType.GGSixFieldFiveProof
 public import CFSG.LocalAnalysis.StandardType.GGSixFieldFiveTagsOm
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerPDivOmega
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitExcCore
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitKGOmSpin
 
 public section
 

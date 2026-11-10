@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.HarrisEnd413
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisEndBL2C1c
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisEndBL2C2b
-public import CFSG.LocalAnalysis.ComponentClassification.HarrisEndBL2D1
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisEndBL2D2
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisEndBL2G5b
 

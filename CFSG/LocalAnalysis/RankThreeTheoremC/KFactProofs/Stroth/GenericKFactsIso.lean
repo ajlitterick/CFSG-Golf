@@ -27,7 +27,6 @@ public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.I294CrossT
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.I294CrossThreeUniPSU67
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.I294KDOutMain
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.I294LayerKD
-public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.I294Main
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.I294SporJ3
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.I294SporRank
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.I294SporRankFive

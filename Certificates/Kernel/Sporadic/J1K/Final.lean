@@ -3,12 +3,9 @@ module
 public import Certificates.Kernel.Sporadic.J1K.Checks
 public import CFSG.Certificates.Kernel.Spor.VOrbSound
 public import CFSG.Certificates.Kernel.Spor.PrimKSound
-public import CFSG.Certificates.Kernel.Spor.Loops
 import CFSG.Certificates.Kernel.LocalCompSPCode
 import Certificates.Kernel.Sporadic.ON.Gen
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.NormNum.Prime
-import Mathlib.Tactic.IntervalCases
 public import Mathlib.GroupTheory.Perm.Basic
 import CFSG.LocalAnalysis.ComponentInitial.Finkelstein1977Commuting
 import CFSG.RankThree.Native.PermEnumeration

@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.VecCert.Co3Bound
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

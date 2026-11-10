@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreCent
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcToral
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcLang.Family
-public import CFSG.GroupTheory.LocalCores.Components
-public import CFSG.LocalAnalysis.ComponentInitial.LocalComponents
 public import Certificates.Kernel.ThCent.Leaves
 
 public section

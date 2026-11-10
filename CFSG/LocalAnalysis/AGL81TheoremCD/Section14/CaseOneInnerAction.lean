@@ -7,11 +7,9 @@ import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.L34TypeCover
 import CFSG.ClassicalInvolution.Sp62Rec.EOdd
 import CFSG.GroupTheory.Commutator.JoinNormalizer
 import CFSG.HardMathSupport.Solomon.Coordinator.I18_3Bridge
-import CFSG.HardMathSupport.Solomon.Coordinator.I27_1Gen
 import CFSG.HardMathSupport.Solomon.Coordinator.I271HoldsBase
 import CFSG.HardMathSupport.Solomon.Proving.GLBCoreNormalizer
 import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6KI2320Main
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.LayerCP1
 public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6DHeis
 public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec7Interface
 public import CFSG.LocalAnalysis.GLTheoremB.BarXTools
@@ -40,8 +38,6 @@ import CFSG.Quasithin.Background.C2PushThree
 import CFSG.Quasithin.Background.D2
 import CFSG.Quasithin.Background.D2Cyclic
 import CFSG.Quasithin.Background.E3
-import CFSG.Quasithin.Background.E3Nprime
-import CFSG.Quasithin.Background.E3Uniq
 import CFSG.Quasithin.Background.F918H5
 import CFSG.Quasithin.Background.FFC4Tr2
 import CFSG.Quasithin.Background.GoldschmidtS146RBend1

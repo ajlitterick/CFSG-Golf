@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.Kernel.L34W.Model
 public import Certificates.Data.Kernel.L34W.OutCov
 
 public section

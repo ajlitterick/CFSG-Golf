@@ -2,10 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBRkDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixTCResidualSkeleton
-import CFSG.LocalAnalysis.StandardType.Marking
 import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcInn
 import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBLemmas
 import CFSG.GroupTheory.ElementaryAbelianTransport
 
 public section

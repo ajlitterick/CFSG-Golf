@@ -1,9 +1,6 @@
 module
 
-public import Certificates.Data.Kernel.LceSTab
-public import CFSG.Certificates.Kernel.J4.M24Data.M24B_Sel
 public import Certificates.Kernel.LceSTab.Chain
-import Certificates.Kernel.LceSTab.Assemble
 import CFSG.Certificates.Kernel.J4.M24Checks.M24RG
 public import CFSG.Certificates.Kernel.J4.M24Checks.TH
 public import CFSG.Certificates.Kernel.J4.M24Checks.TW0

@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.CFSGNative.CTIB.Coset
 public meta import Certificates.Data.CFSGNative.CTIB.Coset
 public import Certificates.Certificate3100
 

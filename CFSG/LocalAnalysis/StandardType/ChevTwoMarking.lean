@@ -3,13 +3,9 @@ module
 public import CFSG.Yardstones.Md0ec50421ce4.Definitions
 public import CFSG.LocalAnalysis.StandardType.ChevTwoLieModel
 public import CFSG.LocalAnalysis.StandardType.GGReverseMarking
-public import CFSG.LocalAnalysis.StandardType.MarkingSmall
 import CFSG.Adapters.TauCetiLieModels
-import CFSG.Adapters.LinearSmallCatalog
 import CFSG.Adapters.StatedPSLTwoSeven
-import CFSG.GH74.Exceptional.LinearFourTwo
 import CFSG.ClassicalInvolution.SmallCases.UpgradeCoverClassical
-import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 
 public section
 

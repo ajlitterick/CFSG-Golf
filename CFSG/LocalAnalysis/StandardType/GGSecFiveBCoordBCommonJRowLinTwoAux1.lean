@@ -5,10 +5,7 @@ public import CFSG.LocalAnalysis.StandardType.GGSlNsRootGenDefs
 public import CFSG.LocalAnalysis.StandardType.GGLinTwoCent
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJNativeDefs
 import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP9C1Lin
-import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowX1LinCoreStd
-import CFSG.ClassicalGroups.Orthogonal.Matrix
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanAlphaFiveLift
-import CFSG.Adapters.LinearFieldTransport
 import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowX1LinCoreTransfer
 import CFSG.HardMathSupport.Dickson.DefCharOuter.Export.ExcTrialityGe5
 import CFSG.HardMathSupport.Dickson.DefCharOuter.Export.SporthSymp

@@ -3,12 +3,8 @@ module
 
 public import CFSG.Quasithin.Vol2.KGFactE64M24Base
 
-public import CFSG.Quasithin.Vol2.KGFactE64Lat
-public import CFSG.Quasithin.Vol2.KGFactE64M24Data
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatM24
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatRows
 public import Certificates.Certificate7148
-import CFSG.Blueprint.NativeSporadic
 
 public section
 

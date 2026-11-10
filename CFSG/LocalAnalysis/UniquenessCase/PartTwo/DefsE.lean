@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.DefsWeakClosure
-public import CFSG.Quasithin.Background.E1Defs
 
 public section
 

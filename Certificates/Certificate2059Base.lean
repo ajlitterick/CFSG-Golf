@@ -1,7 +1,6 @@
 
 module
 
-public import CFSG.Sporadic.Co2Schreier.SylowCheckInputs
 public meta import CFSG.Sporadic.Co2Schreier.ChainCheckBase
 public meta import CFSG.Sporadic.Schreier.RuEnum
 public import Certificates.Kernel.SporSch.Co2M.FratPG

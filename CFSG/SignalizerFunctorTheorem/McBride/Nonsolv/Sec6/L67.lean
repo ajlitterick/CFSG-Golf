@@ -1,15 +1,6 @@
 module
 
-public import Mathlib
-public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Basic
-public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec5
-public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec6.Geom
-public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec6.L63
 public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec6.T66
-public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.KHat
-public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.KOfKHat
-public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec6.T66
-public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec6.L63
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerBorel
-public import CFSG.LieType.Steinberg.PartBRankOne
 
 public section
 

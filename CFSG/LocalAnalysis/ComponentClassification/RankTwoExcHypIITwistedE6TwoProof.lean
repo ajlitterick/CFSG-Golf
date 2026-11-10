@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.RankTwoExcHypIITwistedE
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoExcHypIITwistedE6TwoWit
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoExcHypIIE6
 import CFSG.LieType.Chevalley.TwistedE6FieldTwoCyclicKernel
-import CFSG.LieType.Chevalley.C2E6StandardLevi
 import CFSG.LieType.Chevalley.C2E6A5ExteriorCubeModel
 import CFSG.LieType.Chevalley.C2E6D4NaturalOrthogonal
 import CFSG.LieType.Chevalley.C2E6ExactRootRestrictions
@@ -23,7 +22,6 @@ import CFSG.LocalAnalysis.SectionRank.EvenCover.LinearStep
 import CFSG.LocalAnalysis.SectionRank.SporadicCover
 import CFSG.Monster.B.Geometry.CoxeterWords
 import CFSG.Sporadic.M23.M23Group
-import CFSG.Sporadic.Th.F2Spec
 import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 
 public section

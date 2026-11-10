@@ -1,8 +1,6 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveMultBridge
-public import CFSG.OddTranspositions.PartThree.FiveReflectionFischer
-public import CFSG.OddTranspositions.PartThree.Eleven.Five.Refl
 
 public section
 

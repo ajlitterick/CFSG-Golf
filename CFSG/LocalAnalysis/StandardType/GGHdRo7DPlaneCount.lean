@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7DKSqueezeDefs
 import CFSG.LocalAnalysis.StandardType.GGOmegaNsRootGenFrame
 import CFSG.RankThree.GF2n.Stroth80.Sec3Action
-import CFSG.ClassicalGroups.Orthogonal.Basic
 import CFSG.CGT.Timmesfeld75.Forms
 import CFSG.RankThree.GF2n.Stroth80.Anisotropic
 import CFSG.RankThree.GF2n.Stroth80.FrobClause

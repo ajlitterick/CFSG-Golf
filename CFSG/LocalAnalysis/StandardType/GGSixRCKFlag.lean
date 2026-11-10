@@ -11,9 +11,6 @@ public import CFSG.LocalAnalysis.StandardType.SUCenterOdd
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKFlagSpinCenter
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKFlagSpinCenterTwo
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1LemmaHNbr
-public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotTorus
-public import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotGlobalGen
-public import CFSG.RankThree.PartOne.CTP.SpinCenterEven
 
 public section
 

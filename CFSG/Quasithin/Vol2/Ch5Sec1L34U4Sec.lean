@@ -4,7 +4,6 @@ public import CFSG.Dihedral.Glauberman.DicksonMaxList
 public import CFSG.LinearAlgebra.LinearGroups.TameProjectiveSubgroups
 public import CFSG.Quasithin.Background.InternalSecTwo
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2Cardinality
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Cardinality
 public import CFSG.Walter.PSL2Facts.Even
 
 public section

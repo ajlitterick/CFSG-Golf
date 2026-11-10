@@ -1,9 +1,6 @@
 
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RDefs
-public import CFSG.LieType.Chevalley.SignKernelSimpleWeyl
-public import CFSG.LieType.Steinberg.Adjoint.Pairs
 
 public import Certificates.Certificate715752
 

@@ -1,8 +1,5 @@
 module
 
-public import Mathlib
-public import CFSG.GH74.KGroups.Generic
-public import CFSG.GH74.KGroups.Generic2
 public import CFSG.GH74.KGroups.Generic7
 
 public section

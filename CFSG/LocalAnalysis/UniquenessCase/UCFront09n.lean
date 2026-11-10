@@ -9,7 +9,6 @@ import CFSG.GroupTheory.PCore.NormalPCoreOf
 import CFSG.GroupTheory.PElementSubgroup
 import CFSG.Goldschmidt.Steps.G53Tools
 import CFSG.RankThree.PartTwo.KFacts.KS166J2A5Alt5
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront09
 import CFSG.LocalAnalysis.UniquenessCase.UCFront09h
 

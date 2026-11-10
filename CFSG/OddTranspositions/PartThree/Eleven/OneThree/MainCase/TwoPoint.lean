@@ -2,7 +2,6 @@ module
 
 public import CFSG.OddTranspositions.PartThree.Eleven.OneThree.MainCase.Line
 public import CFSG.OddTranspositions.PartThree.Eleven.OneThree.MainCase.TheoremTwo
-public import CFSG.OddTranspositions.PartFour.LineSpan
 public import CFSG.OddTranspositions.PartFour.LineVmem
 import CFSG.OddTranspositions.SevenLocalSecondConverse
 public import CFSG.OddTranspositions.PartFour.LineStabilizer

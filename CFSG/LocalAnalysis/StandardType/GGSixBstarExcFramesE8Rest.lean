@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesAutTrivial
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesE8RestTorus
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTags
-public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerAdj
-public import CFSG.LieType.Chevalley.EvenE7E8AutomorphismNormalForm
 
 public section
 

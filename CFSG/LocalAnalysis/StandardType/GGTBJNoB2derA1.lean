@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTBJNoB2derDefs
 public import CFSG.LocalAnalysis.StandardType.GGInnerD4RAContracts
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRuleSpFinRed
 public import CFSG.LocalAnalysis.StandardType.GGIOneExcLift
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PerfectCentralAutomorphism
 
 public section
 

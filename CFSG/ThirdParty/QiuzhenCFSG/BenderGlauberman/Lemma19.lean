@@ -1,16 +1,8 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section1
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.ClassFunctionHelpers
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.Divisibility
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.Induction
-public import Mathlib.GroupTheory.PGroup
 public import Mathlib.GroupTheory.SemidirectProduct
-public import Mathlib.Algebra.Group.Action.End
-public import Mathlib.GroupTheory.Perm.Cycle.Type
-public import Mathlib.GroupTheory.GroupAction.ConjAct
 public import Mathlib.GroupTheory.GroupAction.OfQuotient
-public import Mathlib.RingTheory.Polynomial.RationalRoot
 public import Mathlib.RingTheory.Localization.Rat
 
 namespace CFSG

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Adapters.ProjectiveSpecialLinear
-public import CFSG.Open.StatedDefs
-public import CFSG.Open.StatedAPI
 public import CFSG.Open.PGLModelDefs
 public import CFSG.Open.Catalog
 public import CFSG.CharacterTheory.Semidihedral.GL2Recognition.M11Order

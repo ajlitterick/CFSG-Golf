@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7SUDefs
 
-import CFSG.LocalAnalysis.StandardType.GGTableBSymplectic
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.FamilyEvenSymplectic
 import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowY1OutUniRank
 import CFSG.LocalAnalysis.GLTheoremA.CatB.U42CatAct

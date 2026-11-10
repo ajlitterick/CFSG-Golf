@@ -2,15 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Seitz.TrialityOdd.Inner.PhiRows.NormaliseShort
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.TriOddDict
-public import CFSG.RankThree.Chevalley.SteinbergCFOddG2SplitInnerActor
-public import CFSG.HardMathSupport.Seitz.TrialityOdd.Coordinator.ThreeQ1Long
-public import CFSG.HardMathSupport.Seitz.TrialityOdd.Inner.PhiRows.ClosingTwisted
-public import CFSG.LocalAnalysis.ComponentInitial.CentralSL2Semilinear
-public import CFSG.LieType.HighestRoot.CentG2
-public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergRoot
-public import CFSG.Timmesfeld.RankTwo.ModelD43
-public import CFSG.Timmesfeld.RankTwo.ModelD43Weyl
-public import CFSG.ClassicalInvolution.AschTight.S19FChartD4
 public import CFSG.LieType.SeitzGeneration.ExcHighThree.TwE6Two
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
@@ -49,7 +40,6 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly

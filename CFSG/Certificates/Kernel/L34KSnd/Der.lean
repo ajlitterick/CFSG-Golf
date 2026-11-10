@@ -3,7 +3,6 @@ module
 
 public import CFSG.Certificates.Kernel.L34KSnd.Tab
 import CFSG.Certificates.Kernel.Spor.PEnumSound
-import CFSG.Certificates.Kernel.Spor.PackWord
 import CFSG.Certificates.Kernel.BfsPinSetSound
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
 

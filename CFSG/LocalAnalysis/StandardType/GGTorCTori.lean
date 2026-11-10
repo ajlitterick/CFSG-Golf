@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinPlaneConj
-public import CFSG.LocalAnalysis.SeitzReduction.F4PilotNonsplitSL2
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165ExcE6Two
 public import CFSG.Quasithin.EmptyFaithful.A38c15Gl2
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinLeviPlane

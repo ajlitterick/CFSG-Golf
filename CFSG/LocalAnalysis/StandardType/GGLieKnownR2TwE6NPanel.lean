@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TwE6NSyl
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TwE6NCham
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TwE6NOpp
-public import CFSG.LocalAnalysis.StandardType.GGRootNormInner
 
 public section
 

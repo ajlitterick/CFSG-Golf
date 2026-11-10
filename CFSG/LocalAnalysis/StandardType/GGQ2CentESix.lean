@@ -2,15 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2CentralizerPort
 public import CFSG.LocalAnalysis.StandardType.GGQTwoAssemble
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoTableBReduce
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeTwo
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeTwoTorus
-public import CFSG.LocalAnalysis.StandardType.GGTableBE6TwoPilotToral
 public import CFSG.LocalAnalysis.StandardType.GGQTwoCavQuotient
-public import CFSG.LocalAnalysis.StandardType.GGTableBRank
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OExcThreeE6Cent
-public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
-public import CFSG.GroupTheory.ElemAbelianClosure
 
 public section
 

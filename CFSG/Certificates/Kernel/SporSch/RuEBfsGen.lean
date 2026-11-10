@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.SporSch.RuEBfsK
 public import CFSG.Certificates.Kernel.Spor.RawSound
-public import Certificates.Data.Kernel.Spor.Prim
 public import CFSG.Sporadic.Schreier.RuCheckCentersInputs
 import CFSG.Certificates.Kernel.Common.Generalize
 

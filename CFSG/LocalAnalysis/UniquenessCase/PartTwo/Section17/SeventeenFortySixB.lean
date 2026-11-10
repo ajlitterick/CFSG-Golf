@@ -1,36 +1,18 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenFortySixA
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenFortySixA2
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenFortySix
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.CartanRankBridge
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.OutPRankNice
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.OutPRankBound
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.PRankModPCore
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.OutPRank
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SylowCentralOuter
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.Section17KFacts
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.CharTwoTorus
 public import CFSG.RankThree.PartOne.MB3.OddOutLinear
-public import CFSG.RankThree.PartOne.S11d.OutUnitary
 public import CFSG.HardMathSupport.Timmesfeld.Tables.T1b.OrthOdd
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.InputsMisc7d
-public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotSetup
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P20w
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RankEq2
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15R1512A
-public import CFSG.LocalAnalysis.GL83PartI.I713.Basic
 public import CFSG.Holt.H78.Prelim
-public import CFSG.GroupTheory.PRankCoprimeQuotient
-public import CFSG.LieType.SeitzGeneration.OrthExLift
-public import CFSG.LocalAnalysis.PreuniquenessRankFour.PrimeCore
-public import CFSG.RankThree.PartOne.CTP.SeitzToral
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.ProofsEightPrelim
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.CartanRankLargeHolds
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.CartanSylowAbelianHolds
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.CharTwoTorusOnFamilies
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.BorelTorusAbelianOmegaMinus
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.BorelTorusAbelianHolds
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.RankThreeCentTorusHolds
 public import CFSG.HardMathSupport.Lang.Coordinator.OuterFixedOrderE6Order
 public import CFSG.LocalAnalysis.ComponentInitial.SteinbergBUProjectivePlaneFieldRoot
@@ -42,7 +24,6 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly

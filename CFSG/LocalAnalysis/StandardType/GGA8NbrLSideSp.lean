@@ -3,15 +3,10 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGA8NbrCoordDefsB
 public import CFSG.LocalAnalysis.StandardType.GGA8NbrSpLift
 public import CFSG.LocalAnalysis.StandardType.GGA8NbrSpFrame
-public import CFSG.LocalAnalysis.StandardType.GGA8NbrSpJClass
 public import CFSG.LocalAnalysis.StandardType.GGA8NbrSpJShape
 public import CFSG.LocalAnalysis.StandardType.GGA8NbrSpJSp4
 public import CFSG.LocalAnalysis.StandardType.GGA8NbrSpJSiegel
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
-public import CFSG.LocalAnalysis.StandardType.GGFieldNbrTableB
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinNbrCentralizer
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaBase
 
 public section
 

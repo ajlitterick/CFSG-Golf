@@ -1,7 +1,5 @@
 module
 
-public import CFSG.Open.LocalVocabulary
-public import CFSG.Open.StatedDefs
 public import CFSG.Adapters.StatedSLTwoField
 public import CFSG.GroupTheory.ElemAbelianClosure
 public import CFSG.Open.Defs

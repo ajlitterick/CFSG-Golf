@@ -1,8 +1,6 @@
 
 module
 
-public import CFSG.Sporadic.Co1.Module.OrbitsBase
-public import CFSG.Sporadic.Co1.Module.FormsInputs
 public import Certificates.Kernel.Co1Cover.Bridge
 import CFSG.Certificates.Kernel.Common.Harness
 

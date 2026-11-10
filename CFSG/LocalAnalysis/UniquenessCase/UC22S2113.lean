@@ -1,20 +1,13 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.UC22S21b
-public import CFSG.LocalAnalysis.UniquenessCase.UC22S21d
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.InducedQuotInfAut
 import CFSG.LocalAnalysis.UniquenessCase.UCFront10Alt
 import CFSG.LocalAnalysis.UniquenessCase.UCFront10K101
-import CFSG.LocalAnalysis.UniquenessCase.UC22P21d
-import CFSG.LocalAnalysis.UniquenessCase.UC22P21k
 import CFSG.LocalAnalysis.UniquenessCase.UC22P2214b
 import CFSG.LocalAnalysis.UniquenessCase.UC22P20o
-import CFSG.LocalAnalysis.ComponentClassification.PerfectAutomorphisms
 import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.OrdinaryProofs.AltThreeRank
-import CFSG.LocalAnalysis.SectionRank.SubgroupRank
 import CFSG.GroupTheory.PRankQuotientLift
 import CFSG.GroupTheory.PermutingProducts
-import CFSG.GroupTheory.ABGLocalTools.Basic
 import CFSG.Quasithin.EmptyFaithful.GoldschmidtH23P4Mul
 import CFSG.LocalAnalysis.UniquenessCase.UC22Bridge
 import CFSG.LocalAnalysis.UniquenessCase.UC22P21a
@@ -26,7 +19,6 @@ import CFSG.Quasithin.Background.B5Basic
 import CFSG.Quasithin.Background.B5CompA
 import CFSG.Quasithin.Background.B5CompB
 import CFSG.Quasithin.Background.B6
-import CFSG.Quasithin.Background.B6Example
 import CFSG.Quasithin.Background.InternalSecAutOn
 import CFSG.Quasithin.Background.InternalSecB4
 import CFSG.Quasithin.Background.SmithC27Star

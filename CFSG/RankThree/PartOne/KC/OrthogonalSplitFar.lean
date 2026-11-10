@@ -1,8 +1,6 @@
 module
 
 public import CFSG.RankThree.PartOne.KC.OrthogonalSplitCompletion
-import CFSG.ClassicalInvolution.WeakCT.TwistedSpinModel
-import CFSG.Timmesfeld.RankTwo.SimplyLaced
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.RuDc.Data
-public import Certificates.Data.Kernel.SporLatDc
 
 public noncomputable section
 

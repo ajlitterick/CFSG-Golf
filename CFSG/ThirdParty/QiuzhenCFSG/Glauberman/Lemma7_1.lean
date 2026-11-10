@@ -1,12 +1,6 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PPrimeCore
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Definitions
-public import Mathlib.GroupTheory.PGroup
-public import Mathlib.GroupTheory.Sylow
-public import Mathlib.GroupTheory.Complement
-public import Mathlib.GroupTheory.Index
 public import Mathlib.Tactic
 
 namespace CFSG

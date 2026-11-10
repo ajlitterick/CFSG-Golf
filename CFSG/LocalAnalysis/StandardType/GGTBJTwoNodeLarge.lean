@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeLinearSides
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitarySides
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.RankThree.PartOne.TCB.SchreierFinal
 
 public section
 

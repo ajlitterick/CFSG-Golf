@@ -2,11 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcE6SplitRoots
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesE6QPlusThreeDiag
-public import CFSG.LieType.Chevalley.CLSOddE7RationalEightGroup
-public import CFSG.LieType.Chevalley.KernelComponentRoots
 import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UG3
-import CFSG.RankThree.Lattice.SteinbergBIE6QplusStab
-import CFSG.LieType.Chevalley.E6RootInvolutionNoInverted
 
 public section
 

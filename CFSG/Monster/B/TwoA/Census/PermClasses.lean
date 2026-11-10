@@ -1,16 +1,9 @@
 module
 
-public import CFSG.Monster.B.TwoA.Census.MonoData
-public import CFSG.Monster.B.TwoA.Census.PermBFS
-public import CFSG.Monster.CodeAut.Bridge
-public import Mathlib.GroupTheory.Sylow
-public import Mathlib.GroupTheory.GroupAction.ConjAct
 public meta import CFSG.Monster.B.TwoA.Census.PermCert
 public meta import CFSG.Monster.B.TwoA.Census.PermBFS
 public meta import CFSG.Monster.B.TwoA.Census.MonoData
-public import CFSG.Monster.B.TwoA.Census.PermClassesInputs
 public import Certificates.Certificate3018
-public import Certificates.Certificate3017
 
 public section
 

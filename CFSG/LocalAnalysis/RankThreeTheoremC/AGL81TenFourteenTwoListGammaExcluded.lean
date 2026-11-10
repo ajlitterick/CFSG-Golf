@@ -4,16 +4,10 @@ public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenFourteenTwoListGammaJ
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.TitsFiveLocal
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.M11Three
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanSmallTits
-import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.SmallThreeOrders
-import CFSG.LocalAnalysis.AGLEmbedding.LinTwoFacts
-import CFSG.LocalAnalysis.AGLEmbedding.LinTwoCatalog
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81L34ThreeRankTwoProof
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentNarrowCriteria
 import CFSG.LocalAnalysis.EvenBN.Tits.I21LA6Aut
 import CFSG.LocalAnalysis.GL83PartI.I_24_3.InnerPGroup
-import CFSG.LocalAnalysis.SectionRank.DerivedQuotient
-import CFSG.Sporadic.Bridge.M11
-import CFSG.Sporadic.Mathieu.M11
 import CFSG.CharacterTheory.CyclicBlocks.Family
 import CFSG.CharacterTheory.Semidihedral.Principal.LargePrimeTorusSylowCentralizers
 import CFSG.CharacterTheory.Semidihedral.Principal.PrimeTorusBlockAlignment
@@ -55,8 +49,6 @@ import CFSG.Quasithin.Background.C2PushThree
 import CFSG.Quasithin.Background.D2
 import CFSG.Quasithin.Background.D2Cyclic
 import CFSG.Quasithin.Background.E3
-import CFSG.Quasithin.Background.E3Nprime
-import CFSG.Quasithin.Background.E3Uniq
 import CFSG.Quasithin.Background.F918H5
 import CFSG.Quasithin.Background.FFC4Tr2
 import CFSG.Quasithin.Background.GoldschmidtS146RBend1

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeInner
 public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitarySemi
 
 public section

@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.M24R.N8K
 public import Certificates.Data.Kernel.CosetW.EnumW
-public import CFSG.Certificates.PresentationLetters
 
 public section
 

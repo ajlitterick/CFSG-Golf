@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGCompatNbrSomeDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRest
-public import CFSG.LocalAnalysis.StandardType.GGHypSixTypeA
 public import CFSG.LocalAnalysis.StandardType.GGInnerDiagBridgeTypeA
 
 public section

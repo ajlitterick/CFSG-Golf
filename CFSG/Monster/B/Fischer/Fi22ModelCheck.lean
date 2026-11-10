@@ -5,7 +5,6 @@ public import CFSG.Monster.B.Fischer.Fi22ModelCheckBase
 
 public import CFSG.Monster.B.Fischer.Fi22GraphCheck
 public import CFSG.Monster.B.Fischer.Fi22OuterCheck
-public import CFSG.Monster.B.Fischer.Fi22OrderCheck
 public meta import CFSG.Monster.B.Fischer.Fi22GraphCheck
 public meta import CFSG.Monster.B.Fischer.Fi22OuterCheck
 public meta import CFSG.Monster.B.Fischer.Fi22OrderCheck

@@ -1,22 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatB.Bridges
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.Lift
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.U52Layer
-public import CFSG.LocalAnalysis.GLTheoremA.PComp
-public import CFSG.LocalAnalysis.GLTheoremB.ComponentTools
-public import CFSG.LocalAnalysis.GLTheoremB.BarXTools
-public import CFSG.LocalAnalysis.GLTheoremB.PCompBasics
-public import CFSG.LocalAnalysis.GLTheoremA.S4.FullCover.MultLie
 public import CFSG.LocalAnalysis.GLTheoremA.S9.InputsClosing
-public import CFSG.LocalAnalysis.GLTheoremA.S9.Inputs96
-public import CFSG.LocalAnalysis.EvenBN.UnitaryFiveTwo.Model
 public import CFSG.LargeExtraspecial.S9FiveB
-public import CFSG.LargeExtraspecial.Transport
-public import CFSG.Milestones.CL_LIT_Griess_Schur_multipliers_Lie_type
 import all CFSG.Fischer.F4
 public import CFSG.Sporadic.Suz.Setup
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.Blueprint.LieModelAPI
 public import CFSG.GH74.GLS.IVK.Proofs2.OddTools
 public import CFSG.GH74.GLS.Stage2.Local.P34Main

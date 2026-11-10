@@ -1,11 +1,7 @@
 module
 
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk73ClL4
-public import CFSG.GH74.GLS.C3.Layer1.St1EndNFamCl5
 public import CFSG.GH74.GLS.C3.Layer1.St1EndNFamL3
-public import CFSG.LocalAnalysis.ComponentClassification.OddSelectorRowS
-public import CFSG.LocalAnalysis.ComponentInitial.SteinbergBUProjectivePlaneLinearField
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GH74.GLS.C3.Layer1.BkIvk73Q
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk73ClL5
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk73G4Fixed

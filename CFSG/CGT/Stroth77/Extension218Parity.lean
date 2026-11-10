@@ -2,7 +2,6 @@ module
 
 public import CFSG.CGT.Stroth77.Extension218Bits
 public import CFSG.CGT.Stroth77.Extension218Images
-import Mathlib.Tactic.ReduceModChar
 
 public section
 

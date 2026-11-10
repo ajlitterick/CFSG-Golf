@@ -2,10 +2,8 @@ module
 
 public import Certificates.Kernel.Fi23R.ChkDefs
 public import Certificates.Kernel.Fi23M.Keys
-public import CFSG.Sporadic.Th.TableSpec
 public import Certificates.Data.CFSGNative.Fi23.Centralizer
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import Mathlib
 
 public section
 

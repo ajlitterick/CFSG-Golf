@@ -1,11 +1,8 @@
 module
 
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Fi23FiveSylow
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Fi23Three
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.BThreeFi23Census
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabFi23Lift
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.BThreeFi23Inputs
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Fi23FiveInputs
 public import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
 public import CFSG.CharacterTheory.Wreathed.WreathCentralSquare
 public import CFSG.ClassicalInvolution.Balance.LocalBalance.Faithful

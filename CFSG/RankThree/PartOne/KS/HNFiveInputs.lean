@@ -5,11 +5,8 @@ public meta import CFSG.Sporadic.GLQ.RegisterProgram
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.OpsFp
 public meta import Certificates.Data.CFSGNative.SectionRank.Fp
 public import CFSG.Blueprint.MatrixSeedIdentification
-import CFSG.Blueprint.NativeSporadic
 public meta import CFSG.LocalAnalysis.SectionRank.Sporadic.LocalWitness
-public import CFSG.LocalAnalysis.SectionRank.Sporadic.LocalWitness
 public meta import CFSG.Open.Defs
-public import CFSG.Open.Defs
 
 public section
 

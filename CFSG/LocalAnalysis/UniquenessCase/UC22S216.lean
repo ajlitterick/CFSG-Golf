@@ -1,20 +1,14 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section21.StatementsSixInf
-public import CFSG.LocalAnalysis.UniquenessCase.UC22S21b
-public import CFSG.LocalAnalysis.UniquenessCase.UC22S21d
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront10Spor
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
 import CFSG.LocalAnalysis.UniquenessCase.UC22S216Spor
 import CFSG.LocalAnalysis.UniquenessCase.UC22S216Inn
 import CFSG.LocalAnalysis.UniquenessCase.UC22S216J1
 import CFSG.LocalAnalysis.UniquenessCase.UC22S216J1Hall
 import CFSG.LocalAnalysis.UniquenessCase.UC22S2113
-import CFSG.LocalAnalysis.UniquenessCase.UC22P21d
 import CFSG.LocalAnalysis.UniquenessCase.UC22P2214b
 import CFSG.LocalAnalysis.UniquenessCase.UC22P20o
-import CFSG.LocalAnalysis.UniquenessCase.UC22P20c
-import CFSG.LocalAnalysis.UniquenessCase.UC22P20e
 public import CFSG.LocalAnalysis.UniquenessCase.UC22Bridge
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P21k
 import CFSG.LocalAnalysis.UniquenessCase.UC22P21a

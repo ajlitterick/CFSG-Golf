@@ -4,8 +4,6 @@ public import Certificates.Kernel.He7222.ChainK
 public import Certificates.Kernel.He7222.FixK
 public import Certificates.Kernel.He7223.GlueCent
 public import CFSG.Certificates.Kernel.He7222.ChainPRep
-public import CFSG.Sporadic.HeldB.InnerClass
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.OrbRow.LevelSound
 
 public section

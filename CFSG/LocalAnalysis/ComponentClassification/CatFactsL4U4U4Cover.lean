@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LieType.Steinberg.CentralExt.UnitaryHigher
-public import CFSG.LieType.Steinberg.CentralExt.PerfectCover
-public import CFSG.LieType.Steinberg.CentralExt.UnitaryPerfect
-public import CFSG.LocalAnalysis.ComponentInitial.LinearUnitaryField
 
 public section
 

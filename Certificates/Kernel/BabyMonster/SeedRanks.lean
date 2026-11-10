@@ -5,8 +5,6 @@ public import Certificates.Kernel.BabyMonster.ChainN
 public import CFSG.Certificates.Kernel.BabyMonster.Seeds.All
 public import CFSG.Certificates.Kernel.Common.RankCert
 public meta import Lean
-public import CFSG.Certificates.Kernel.BabyMonster.Seeds.Check3
-public import CFSG.Certificates.Kernel.BabyMonster.Seeds.Check4
 
 public section
 

@@ -1,12 +1,6 @@
 module
 
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk111cDefs
-public import Mathlib.RingTheory.Henselian
-public import Mathlib.RingTheory.RegularLocalRing.Defs
-public import Mathlib.RingTheory.SimpleRing.Principal
-public import Mathlib.RingTheory.WittVector.IsPoly
-public import Mathlib.Tactic.Polynomial.Basic
-public import Mathlib.Tactic.ReduceModChar
 
 public section
 

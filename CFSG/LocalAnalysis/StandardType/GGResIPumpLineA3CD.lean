@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGASp
 public import CFSG.LocalAnalysis.StandardType.GGTwOmPlusHolds
-public import CFSG.LocalAnalysis.StandardType.GGResILineInputs
 
 public section
 

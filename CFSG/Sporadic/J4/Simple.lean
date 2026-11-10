@@ -2,8 +2,6 @@ module
 
 public import CFSG.Sporadic.J4.PrimSpec
 public import CFSG.Sporadic.J4.Criterion
-import Certificates.Data.CFSGNative.J4.F2
-import Certificates.Data.CFSGNative.J4.Cert
 
 public section
 

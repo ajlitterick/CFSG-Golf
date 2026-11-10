@@ -3,12 +3,6 @@ module
 public import CFSG.GH74.QTGen4.Recog.G23.MLetters
 public import CFSG.GH74.QTGen4.Recog.G23.MSylow
 public import CFSG.GH74.QTGen4.Recog.G23.MLettersC
-public import Mathlib.LinearAlgebra.Matrix.ToLin
-public import Mathlib.LinearAlgebra.Dimension.Free
-public import Mathlib.Algebra.Module.ZMod
-public import Mathlib.FieldTheory.Finite.Basic
-public import Mathlib.GroupTheory.Index
-public import Mathlib.Data.Set.Card
 public meta import Mathlib.Algebra.Field.ZMod
 public meta import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
 

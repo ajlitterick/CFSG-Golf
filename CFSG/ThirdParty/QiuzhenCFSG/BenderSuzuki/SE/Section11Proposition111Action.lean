@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Proposition111Core
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition84Action
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.StrongEmbeddingFusion
 
 namespace CFSG
 end CFSG

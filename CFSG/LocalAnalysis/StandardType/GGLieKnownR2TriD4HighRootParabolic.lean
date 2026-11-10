@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LieType.Chevalley.GraphFixedParabolicPCore
-public import CFSG.LieType.Chevalley.GraphFixedParabolicIntersection
 public import CFSG.LieType.Chevalley.CLSEvenTrialityFourGroup
-public import CFSG.LieType.Chevalley.ParabolicWeylStabilizer
-public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerExcBruhat
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Detect.Heis.Normalizer
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Defs
 public import CFSG.LieType.Chevalley.OrdinaryRootHyperplaneGeneration

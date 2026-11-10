@@ -3,7 +3,6 @@ module
 public import CFSG.Quasithin.Vol2.Ch9Sec3FactsF112PfB
 public import CFSG.Quasithin.Vol2.Ch9Sec3FactsF112PfD
 public import CFSG.Certificates.Kernel.LocalCompTits.Span
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtRk2ParG2
 public import CFSG.Quasithin.EmptyFaithful.S1414Defs
 public import CFSG.Quasithin.EmptyFaithful.S1417Sylow
@@ -12,7 +11,6 @@ public import CFSG.Sporadic.Schreier.J4SFrattini
 public import Certificates.Data.CFSGNative.MonsterB.Rep4371Model
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

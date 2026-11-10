@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveDefs
 public import CFSG.LocalAnalysis.StandardType.GGHalfFivePerm
-public import CFSG.LocalAnalysis.StandardType.GGHalfGlue
 public import CFSG.LocalAnalysis.StandardType.GGHalfZpowers
 
 public section

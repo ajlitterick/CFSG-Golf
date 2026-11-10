@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Quasithin.EmptyFaithful.F112SInputs
 public meta import CFSG.Sporadic.Schreier.TitsData
 public meta import CFSG.Sporadic.Schreier.TitsArrays
 public meta import CFSG.Sporadic.Schreier.TitsBasic

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoSymplecticSupport
 public import CFSG.LocalAnalysis.StandardType.GGQTwoSymplecticPlaneActions
-public import Mathlib.LinearAlgebra.Pi
 public import CFSG.LinearAlgebra.SL2CharTwoFixedVector
 
 public section

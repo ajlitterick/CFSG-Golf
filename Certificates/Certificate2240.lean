@@ -3,7 +3,6 @@ module
 
 public import Certificates.Certificate2240Base
 
-public import CFSG.Sporadic.Schreier.PairMcLCertInputs
 import Certificates.Kernel.SporSch.Pair.McLCert
 
 public section

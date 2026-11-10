@@ -5,7 +5,6 @@ public import CFSG.Certificates.Kernel.SporSch.ThirdDfsBase
 import all CFSG.Certificates.Kernel.SporSch.ThirdDfsBase
 
 public import CFSG.Assembly.Defs
-public import CFSG.Certificates.Kernel.SporSch.ThirdChainHBase
 public import Certificates.Data.CFSGNative.Schreier.SetOrbit
 
 @[expose] public noncomputable section

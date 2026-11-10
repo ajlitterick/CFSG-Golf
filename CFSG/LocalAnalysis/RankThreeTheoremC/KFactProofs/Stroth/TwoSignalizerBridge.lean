@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.SignalizerTwoGroupCases
 public import CFSG.LocalAnalysis.RankFourTheoremC.PPointExoticDefs
-public import CFSG.LocalAnalysis.AGLEmbedding.LinTwoCatalog
 import CFSG.GroupTheory.ElementaryAbelianTransport
 import CFSG.LocalAnalysis.RankFourTheoremC.PPointExoticSigJ4
 import CFSG.LocalAnalysis.RankFourTheoremC.PPointExoticSigMcL
@@ -30,8 +29,6 @@ public import CFSG.Sporadic.Presentation.M24Exact
 public import CFSG.Sporadic.Presentation.McLExactData
 public import CFSG.Sporadic.Presentation.McLExactInputs
 public import CFSG.Sporadic.Schreier.J4SEleven
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 import CFSG.Foundations
 import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeFamilies
 import CFSG.LocalAnalysis.AGLEmbedding.JStarReducedDefs
@@ -44,8 +41,6 @@ import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 import CFSG.RankThree.PartOne.CTP.StrongPSylow
 import CFSG.Sporadic.J4.QT2LocCntProof
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import Certificates.Data.HSFiveCheck
 
 public section

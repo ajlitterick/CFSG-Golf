@@ -1,12 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcPilotRest
-public import CFSG.LocalAnalysis.SeitzReduction.F4PilotNonsplit
-public import CFSG.LocalAnalysis.SeitzReduction.F4PilotLeviSp6
 public import CFSG.LocalAnalysis.SeitzReduction.E7PilotQ2Neighbour
-public import CFSG.LocalAnalysis.SeitzReduction.E7PilotNeighbourLevi
 public import CFSG.LocalAnalysis.SeitzReduction.E8PilotLeviNonsplit
-public import CFSG.LocalAnalysis.SeitzReduction.E8PilotLevi
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotLeviPerp
 
 public section

@@ -2,16 +2,10 @@ module
 
 public import CFSG.Quasithin.Recognition.GoldschmidtF112RJ2Lat
 public import CFSG.Quasithin.Recognition.GoldschmidtF112RG24
-public import CFSG.Quasithin.Recognition.GoldschmidtF112RTransport
-public import CFSG.Quasithin.Recognition.GoldschmidtF112RY9
-public import CFSG.Quasithin.Recognition.ModelBridges
-public import CFSG.Quasithin.Recognition.CertTwoLocal
 public import CFSG.Quasithin.Recognition.F112J2Act
 public import CFSG.Quasithin.Background.Q8D8Recognition
 public import CFSG.Quasithin.EmptyFaithful.SzF53A2
 public import CFSG.GH74.QTGen4.DSGen4.Leaf.SylowS
-public import CFSG.Quasithin.H13.NQCatG2RadModel
-public import CFSG.Sporadic.J2.Setup
 public import CFSG.Quasithin.Vol2.Ch5Sec2LocalLem522BotJ2
 public import CFSG.GH74.QTGen4.DSGen4.LeafWrappers
 public import CFSG.GH74.QTGen4.DSGen4.Statements

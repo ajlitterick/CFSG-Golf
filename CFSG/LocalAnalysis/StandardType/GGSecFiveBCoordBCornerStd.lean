@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCornerRaw
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordDExclQTwoClFrame
 public import CFSG.LocalAnalysis.StandardType.GGIOneOrthEndSmall
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265Std
-public import CFSG.CGT.PushingUpLit.Transport
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I2015Defs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267Cover
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T156Facts

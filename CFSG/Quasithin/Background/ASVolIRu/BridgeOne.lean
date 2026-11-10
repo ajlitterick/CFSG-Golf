@@ -5,7 +5,6 @@ public import CFSG.Quasithin.Recognition.RuTypeSetting
 public import CFSG.Quasithin.Background.ASVolIRu.StUniqueDefs
 public import CFSG.Quasithin.Vol2.Ch10SecAElemAb
 public import CFSG.Open.StatedZModTwo
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Frattini.Core
 
 public section
 

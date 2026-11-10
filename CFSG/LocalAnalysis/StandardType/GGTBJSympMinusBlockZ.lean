@@ -1,14 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJSympMinusBlockAux
-public import CFSG.RankThree.PartOne.KC.SymplecticInnerPlaneFixed
-public import CFSG.RankThree.PartOne.KC.SymplecticFullCentralizerTransvection
-public import CFSG.LocalAnalysis.StandardType.GGHalfCentGroup
-public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitComp
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ParabCommSpRes
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeSpBlockAnFixed
-public import CFSG.RankThree.Classical.SteinbergBJSymplecticCrossPrimeBlocks
-public import CFSG.RankThree.PartOne.KC.SymplecticInnerPlaneAlt6
 
 public section
 

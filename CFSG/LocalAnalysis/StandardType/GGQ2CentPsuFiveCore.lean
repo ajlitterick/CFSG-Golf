@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQ2CentInner
 public import CFSG.LocalAnalysis.StandardType.GGQTwoUnitaryCav
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkDiag
-public import CFSG.LieType.CentralExt.CoprimeLift
 
 public section
 

@@ -4,10 +4,7 @@ public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.NormalizerAction.J4JSData
 public meta import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.NormalizerAction.J4JSData
 import Certificates.Kernel.J4M2.C12604
 public meta import CFSG.LocalAnalysis.SectionRank.Sporadic.LocalWitness
-public import CFSG.LocalAnalysis.SectionRank.Sporadic.LocalWitness
 public meta import CFSG.Open.Defs
-public import CFSG.Open.Defs
-public import CFSG.Sporadic.Th.F2Spec
 public meta import CFSG.Sporadic.Th.F2Spec
 
 public section

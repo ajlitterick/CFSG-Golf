@@ -1,15 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeIndepDefs
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeSmallRankDefs
-public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepTransfer
-public import CFSG.LocalAnalysis.StandardType.GGRCWeylCard
-public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepSide
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepSmallAL
-public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepNine
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepDepTwin
-public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeSides
-public import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofCoxeter
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepMove
 
 public section

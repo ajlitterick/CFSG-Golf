@@ -1,15 +1,11 @@
 module
 
-public import CFSG.OddTranspositions.PartThree.EightOne.Defs
-public import CFSG.OddTranspositions.PartThree.EightOne.Quotient
 public import CFSG.OddTranspositions.PartThree.EightOne.Central
 public import CFSG.OddTranspositions.PartThree.EightOne.Lift
 public import CFSG.OddTranspositions.PartThree.EightOne.ThreeTransp
 public import CFSG.OddTranspositions.PartThree.SixThreeGlobal
 public import CFSG.OddTranspositions.InvertMember
 public import CFSG.Timmesfeld.Bridge.Asc72ElemCompQuot
-public import CFSG.LocalAnalysis.LyonsUnitaryFour.OrderThreeComplement
-public import CFSG.GroupTheory.ABGLocalTools.OddOrderLocal
 public import CFSG.CGT.Timmesfeld75.Statements
 public import CFSG.CGT.Timmesfeld75.Targets
 public import CFSG.LocalAnalysis.ComponentClassification.Asc76BenderFacts

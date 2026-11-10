@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4P1UAction
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4P1Check
 public import CFSG.LieType.Multipliers.U43Bridge
-public import Certificates.Data.CFSGNative.Schreier.Check
 
 public section
 

@@ -4,29 +4,16 @@ public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Closing.PrimeFix
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.OddCoreFree
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.CoverBasic
 public import CFSG.Sporadic.Bridge.ONSurj
-public import Certificates.Data.Kernel.Spor.ONTauK
-public import CFSG.Certificates.Kernel.Enum.Defs
-public import Certificates.Kernel.Sporadic.ON2.Data
 public import CFSG.Certificates.Kernel.Bounds.Core3
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Bounds.LoadGz
 import CFSG.Certificates.Kernel.Common.Repo
-import CFSG.Certificates.Kernel.Common.Harness
 public import Certificates.Kernel.Sporadic.ONC.TauGlue
 public import Certificates.Kernel.Sporadic.ON2.Assemble
-public import CFSG.Certificates.Kernel.Spor.ONTauSound
-public import CFSG.Certificates.Kernel.Spor.PcompFacts
 import CFSG.Certificates.Kernel.CosetLat.MatEnc
 import Certificates.Kernel.Sporadic.ONC.Chain
-import Mathlib.Tactic.IntervalCases
-import Mathlib.Tactic.NormNum
 import CFSG.Certificates.Kernel.Common.Each
 public import CFSG.Certificates.Kernel.Common.ForallTree
-public import CFSG.Sporadic.Presentation.ONan
-import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
-import CFSG.Sporadic.Bridge.Common
-public import Mathlib
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.ONAut
 public import CFSG.Sporadic.ONOddCore.ONan
 public import CFSG.Sporadic.Schreier.SteinbergBIONOuterTwo

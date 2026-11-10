@@ -2,7 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Timmesfeld.Tables.Census.Witness
 public import CFSG.LocalAnalysis.SectionRank.ClassicalEven.Linear
-public import CFSG.Open.StatedDefs
 
 public section
 

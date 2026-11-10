@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGIOneRestFiveRoot
 public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperMoreNarrow
-public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperRestUnitary
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRest
-public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitaryOutdiag
 
 public section
 

@@ -2,8 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.ModelFacts.Orth15D4Outer
 import CFSG.ClassicalInvolution.ModelFacts.Orth15D4FixTop
-import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalOrthConj
-import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalSpinBridge
 
 public section
 

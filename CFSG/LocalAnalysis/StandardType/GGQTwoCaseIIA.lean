@@ -2,14 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoCaseIIDual
 public import CFSG.LocalAnalysis.StandardType.GGQTwoCaseIINonsplit
-public import CFSG.LocalAnalysis.StandardType.GGQTwoAHL
 public import CFSG.LocalAnalysis.StandardType.GGQTwoAHCoord
 public import CFSG.LocalAnalysis.StandardType.GGQTwoACore
-public import CFSG.LocalAnalysis.StandardType.GGQTwoAInnerPhi
-public import CFSG.LocalAnalysis.StandardType.GGQTwoQuandleSym
 public import CFSG.LocalAnalysis.StandardType.GGQTwoS1Transport
-public import CFSG.LocalAnalysis.StandardType.GGQTwoInnerDefs
-public import CFSG.LocalAnalysis.StandardType.GGQTwoTransport
 
 public section
 

@@ -1,9 +1,7 @@
 module
 
 public import Mathlib.GroupTheory.PGroup
-public import Mathlib.GroupTheory.Commutator.Basic
 import CFSG.GroupTheory.ThompsonAxB
-import CFSG.LocalAnalysis.RankThreeEvenClassification.CoprimeFactorization
 import CFSG.RankThree.Coprime.ThompsonElementaryComplement
 import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 

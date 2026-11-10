@@ -1,27 +1,14 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.CentralizerLemmas
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section19.NineteenTwentyFive
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section19.NineteenTwentyFive72
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section19.NineteenTenTwoComponents
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.CentOverO2Inner
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.StatementsA
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.StatementsC
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.NOfUniqueShapes
-public import CFSG.LocalAnalysis.UniquenessCase.UCR638
-public import CFSG.LocalAnalysis.UniquenessCase.UC6S846e
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P218d
-public import CFSG.LocalAnalysis.UniquenessCase.UC22P21d
-public import Mathlib.GroupTheory.OrderOfElement
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.OuterCyclic
-public import CFSG.LocalAnalysis.SectionRank.Induction
 public import CFSG.LieType.Chevalley.EvenOddCentralizerRadicalGroup
-public import CFSG.GroupTheory.PCore.OpenTransport
 public import CFSG.GroupTheory.PCore.PCoreOfMul
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S13a
-public import CFSG.GroupTheory.PGroup.RankTwoCommute
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenSixtySixShape
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.NotThinShapes
 public import CFSG.Quasithin.Vol2.Ch4Sec3L436
 public import CFSG.Quasithin.Vol2.Ch6Defs
 public import CFSG.Quasithin.Vol2.Ch6Vocab

@@ -1,10 +1,7 @@
 module
 
 public import CFSG.ClassicalInvolution.WeakCT.E6MinusculeFixedField
-public import CFSG.LieType.Steinberg.TwistedE6.Local
-public import CFSG.LieType.Steinberg.Exceptional.Fields
 public import CFSG.LocalAnalysis.StandardType.GGLangRootSym3
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.FrobeniusOnRoots
 
 public noncomputable section
 

@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUCoverOdd
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63H5Final
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLCoverSlot
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1III
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1LeavesF8
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1LeavesI1
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1LeavesI2

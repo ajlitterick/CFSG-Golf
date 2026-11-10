@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSelectedPSUModel
 public import CFSG.LocalAnalysis.StandardType.GGPSUFirstPlane
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSAPairAux
-import CFSG.LieType.Steinberg.CentralExt.SUThreeThree
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Eleven.Wong.CentT
-public import Mathlib.GroupTheory.Commutator.Basic
 
 public section
 

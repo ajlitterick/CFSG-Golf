@@ -1,10 +1,7 @@
 module
 
-public import Certificates.Data.Kernel.G2Three.Sec1F
 public import Certificates.Kernel.G2Three.Sec1T3Data
 public import Certificates.Kernel.G2Three.Sec1T3Rec
-public import Certificates.Kernel.G2Three.Sec1T5Rec
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

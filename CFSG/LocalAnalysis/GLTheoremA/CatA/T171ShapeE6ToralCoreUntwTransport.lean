@@ -1,11 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeE6ToralCoreUntwDefs
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeE6ToralLangOrder
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeE6ToralCoreTransport
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeCompDescProof
-import CFSG.LocalAnalysis.GLTheoremA.CatA.S171Basic
-import CFSG.HardMathSupport.Solomon.Coordinator.LayerCentral
 import CFSG.Assembly.LargeEvenGLABridge
 import CFSG.LieType.Automorphisms.SteinbergBLCompleteIndexTwo
 import CFSG.Assembly.OpenBridges

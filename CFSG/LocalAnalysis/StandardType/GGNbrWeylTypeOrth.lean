@@ -6,8 +6,6 @@ import CFSG.LocalAnalysis.StandardType.GGTorusWeylTypeEven
 import CFSG.LocalAnalysis.StandardType.GGTorusWeylTypeSigned
 import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitClassical
 import CFSG.LocalAnalysis.StandardType.GGKGForkOrthRow
-import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOrthNsLabels
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthExc
 
 public section
 

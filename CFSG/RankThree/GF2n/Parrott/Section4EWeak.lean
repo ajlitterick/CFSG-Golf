@@ -1,11 +1,7 @@
 module
 
 public import CFSG.RankThree.GF2n.Parrott.Section4Defs
-public import CFSG.RankThree.GF2n.Parrott.FixDim
-public import CFSG.RankThree.GF2n.Parrott.LocalData
 public import CFSG.RankThree.GF2n.Parrott.CommutatorDetermined
-public import CFSG.GroupTheory.ABGLocalTools.Basic
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.Blueprint.SourceGeckCorrespondence
 public import CFSG.HardMathSupport.Meierfrankenfeld.FFToolkit.FixedFreeThree
 public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallGEVL34FFDefs

@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LieType.Multipliers.Sz8Matrix
-public import CFSG.LieType.Multipliers.CoverWords
 public import CFSG.LieType.Multipliers.Sz8BridgeInputs
 import Certificates.Kernel.Misc.Coset.C10008
 

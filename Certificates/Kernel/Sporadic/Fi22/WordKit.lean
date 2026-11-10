@@ -3,9 +3,7 @@ module
 public import Certificates.Kernel.Sporadic.Fi22.G3147
 public import Certificates.Kernel.Sporadic.Fi22.X2069Final
 public import Certificates.Kernel.Sporadic.Fi22.E2067
-public import CFSG.Certificates.Kernel.Spor.PrimSound
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

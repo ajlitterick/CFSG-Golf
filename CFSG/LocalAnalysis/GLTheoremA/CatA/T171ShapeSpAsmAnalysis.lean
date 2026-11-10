@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeSpBlockResidual
-import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeBoundBase
-import CFSG.LocalAnalysis.ComponentClassification.InnAutDerived
 import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphismsCongr
 import CFSG.HardMathSupport.Dickson.BMRows.CensusShape
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeIndAutInv

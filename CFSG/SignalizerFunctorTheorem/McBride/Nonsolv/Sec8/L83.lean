@@ -1,10 +1,7 @@
 module
 
 public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec8.L82
-public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec8.L83.Comm
-public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec8.L83.Gen
 public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec8.L83.Hat
-public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec8.L83.Simple
 public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec8.L83.ZW
 
 public section

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Defs
-public import CFSG.Assembly.InCatalog
 
 public section
 

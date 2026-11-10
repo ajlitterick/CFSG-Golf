@@ -5,14 +5,12 @@ public import Certificates.Kernel.G2Three.Sec1T3CChecks
 public import Certificates.Kernel.G2Three.Sec1T3DChecks
 public import Certificates.Kernel.G2Three.Sec1T3EChecks
 public import CFSG.Certificates.Kernel.G2Three.Sec1T3ESound
-public import CFSG.Certificates.Kernel.G2Three.Sec1T3CSound
 public import CFSG.Certificates.Kernel.G2Three.Sec1T3F14ab
 public import CFSG.Certificates.Kernel.G2Three.Sec1T3F14c
 public import CFSG.Certificates.Kernel.G2Three.Sec1T3F14de
 public import CFSG.Certificates.Kernel.G2Three.Sec1T3F14fg
 public import CFSG.Certificates.Kernel.G2Three.Sec1T3F15a
 public import CFSG.Certificates.Kernel.G2Three.Sec1T3F15bc
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

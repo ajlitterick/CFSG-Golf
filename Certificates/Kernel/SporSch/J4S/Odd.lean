@@ -12,8 +12,6 @@ import CFSG.Certificates.Kernel.Common.Harness
 import Init.Data.Nat.Fold
 import Init.Data.Range.Basic
 import Init.Data.Array.Basic
-public import CFSG.Sporadic.Schreier.J4SCommGenBase
-public import CFSG.Sporadic.Schreier.J4SPrimes
 meta import CFSG.Sporadic.Schreier.J4SCommGenBase
 meta import CFSG.Sporadic.Schreier.J4SPrimes
 meta import CFSG.Sporadic.Schreier.J4SSylowBase

@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LieType.AlgebraicGroups.SeminaireExp3Image
-public import Mathlib.RingTheory.TensorProduct.MvPolynomial
-public import Mathlib.LinearAlgebra.TensorProduct.RightExactness
-public import Mathlib.RingTheory.Nullstellensatz
 
 public noncomputable section
 

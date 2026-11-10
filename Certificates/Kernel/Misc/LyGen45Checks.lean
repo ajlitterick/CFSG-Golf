@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.SporSch.Ly.BSData
-public import Certificates.Data.Kernel.SporSch.LyMat
 public import Certificates.Data.GH74.LyGen45
 import CFSG.Certificates.Kernel.Common.Harness
 

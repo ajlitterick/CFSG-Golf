@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.MinimalCounterexample
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Defs
 

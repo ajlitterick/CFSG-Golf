@@ -2,13 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGPsiInnerDiagOfMarking
 import CFSG.LocalAnalysis.StandardType.GGLieOddCover
-import CFSG.LocalAnalysis.StandardType.GGReverseMarking
-import CFSG.LocalAnalysis.StandardType.Marking
 import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitKGClHerm
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GClsUni
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Shared
 import CFSG.LocalAnalysis.ComponentClassification.BurgoyneUElem
-import CFSG.LocalAnalysis.StandardType.GGSixOrderPAut
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneUModel
 import CFSG.GH74.GLS.IVK.Proofs2.OddTools
 import CFSG.GH74.GLS.Stage2.Bender.Thm1.Der61a

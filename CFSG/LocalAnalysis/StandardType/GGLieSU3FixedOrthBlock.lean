@@ -1,15 +1,9 @@
 module
 
-public import CFSG.Assembly.Defs
 public import CFSG.RankThree.Classical2.OrthogonalIsotropicUnipotent
 public import CFSG.RankThree.PartOne.KC.OrthogonalSupportedBlocks
 
-import CFSG.Assembly.Subnormal
-import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelOmShape
 import CFSG.LocalAnalysis.StandardType.GGStdSubSmallOrthUnBlock
-import CFSG.RankThree.PartOne.KC.OrthogonalFixedBlock
-import CFSG.RankThree.PartOne.KC.OrthogonalCentralizerBlocks
-import CFSG.RankThree.PartOne.KC.OrthogonalPrimarySummands
 public import CFSG.ClassicalGroups.Orthogonal.ProjectiveSimple
 public import CFSG.LieType.BorelTits.CompleteFlag
 public import CFSG.LocalAnalysis.SectionRank.SignLines

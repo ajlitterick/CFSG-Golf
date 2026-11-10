@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.CFSGNative.ExcCensus.Tables
 public import CFSG.LocalAnalysis.StandardType.GGQ2ActualFrame
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 
 public section
 

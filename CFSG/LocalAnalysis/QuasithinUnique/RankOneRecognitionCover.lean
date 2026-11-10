@@ -2,12 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Defs
 public import CFSG.LocalAnalysis.QuasithinUnique.CompNormSylow
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.LinearCentralCover
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.LinearFourCentralCover
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.UnitaryCentralCover
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiCentralCover
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Models
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.XI.theorem_3_6
 import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.Assembly.QuasithinDefs

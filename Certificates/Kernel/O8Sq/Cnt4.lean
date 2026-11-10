@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.AE6Q8.Chain
 public meta import Certificates.Kernel.AE6Q8.Chain
-public import Certificates.Data.Kernel.SporSch.ClsAll
 public meta import Certificates.Kernel.SporSch.GenClsAll
 import CFSG.Certificates.Kernel.Common.Harness
 public import Certificates.Kernel.SporSch.GenClsAll

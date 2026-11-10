@@ -2,17 +2,14 @@ module
 
 public import CFSG.Monster.B.TwoA.Amalgam.DistThreeDefs
 public import CFSG.Monster.B.TwoA.Amalgam.LocalLabelUnitary
-public import CFSG.Monster.B.TwoA.Amalgam.DistTwo
 public import CFSG.Monster.B.TwoA.Amalgam.Exact3510Core
 public import CFSG.Monster.B.TwoA.Amalgam.OrderThreeTT
 public import CFSG.Monster.B.E6.FieldInvF4
-public import CFSG.Monster.B.E6.StdF4Degree
 public import CFSG.LieType.Chevalley.RootCommutatorCertificate
 public import CFSG.LieType.Chevalley.SimplyLacedFieldTwoCover
 public import CFSG.LocalAnalysis.ComponentInitial.CentralCoverAbelian
 public import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
 public import CFSG.Monster.B.E6.StdF4Radical
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public noncomputable section
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.RankThree.Native.ONSevenArrays
 public meta import CFSG.RankThree.Native.ONSevenArrays
 public import Certificates.Certificate8134
 public meta import CFSG.Certificates.NativeSchreierCard
@@ -8,7 +7,6 @@ public import CFSG.Certificates.NativeSchreierCard
 public import CFSG.Sporadic.Schreier.ONCheckChain
 public meta import CFSG.Sporadic.Schreier.ONCheckChain
 public meta import Mathlib.GroupTheory.Schreier
-public import Mathlib.GroupTheory.Schreier
 
 public section
 

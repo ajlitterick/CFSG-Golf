@@ -1,13 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGMemberUnitaryPos
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosDefs
-import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosDiag
-import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosPerm
-import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosBlock
-import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosAdapter
-import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosTransport
-import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSLieEsu
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSAPairAux2
 
 public section

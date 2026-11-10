@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGFieldOuterModel
 public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockSpFieldInv
-public import CFSG.LocalAnalysis.StandardType.GGSixAutStructurePSpHolds
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinPlaneRank
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotUniqueBasic
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotHR4

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Assembly.LargeEvenDefs
 public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 
 public section

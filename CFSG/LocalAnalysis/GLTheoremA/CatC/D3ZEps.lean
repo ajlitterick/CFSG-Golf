@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.D3ZFam
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.D3ZLang
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.D3FTriality
 public import CFSG.HardMathSupport.Dickson.Bal207.D4GraphBridgeField
 
 set_option linter.unusedSectionVars false

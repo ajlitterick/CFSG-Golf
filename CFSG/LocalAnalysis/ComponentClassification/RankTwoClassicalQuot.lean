@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicOddCore
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicYCore
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bLemma22Basic
 import CFSG.LocalAnalysis.ComponentClassification.StandardSubgroupAPI
 public import CFSG.GroupTheory.LocalCores.Fitting

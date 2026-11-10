@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoDInputs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDL1Odd
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDL1Seed
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDL1Transfer
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyDichotomy
 
 public section
 

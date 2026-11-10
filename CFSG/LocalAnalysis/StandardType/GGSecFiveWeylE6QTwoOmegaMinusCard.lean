@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoOmegaMinus
 import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoUnitaryAux
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
 import CFSG.Dihedral.DisconnectedInvolutionGraph.CoprimeFixedIndex
 import CFSG.Dihedral.DisconnectedInvolutionGraph.CoprimeFixedSylow
 

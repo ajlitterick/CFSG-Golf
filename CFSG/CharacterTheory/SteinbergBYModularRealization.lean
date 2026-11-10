@@ -4,9 +4,6 @@ public import CFSG.CharacterTheory.SteinbergBYNortonCriterion
 public import CFSG.CharacterTheory.SteinbergBYBrauerSimpleBound
 public import Mathlib.RepresentationTheory.Character
 public import Mathlib.LinearAlgebra.TensorProduct.Pi
-public import Mathlib.RingTheory.TensorProduct.Free
-public import Mathlib.Algebra.CharP.Two
-public import Mathlib.LinearAlgebra.Basis.VectorSpace
 
 public section
 

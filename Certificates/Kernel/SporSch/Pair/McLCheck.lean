@@ -1,9 +1,7 @@
 
 module
 
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.SporSch.Pair.GenNF
-public import CFSG.Certificates.Kernel.SporSch.PairClSound
 public import CFSG.Certificates.Kernel.Spor.PrimSound
 public import CFSG.Certificates.Kernel.Spor.Loops
 public import CFSG.Sporadic.Schreier.PairMcLCheckInputs

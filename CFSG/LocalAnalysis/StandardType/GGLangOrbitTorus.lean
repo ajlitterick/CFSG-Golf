@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLatEigenOrbit
-public import CFSG.LocalAnalysis.StandardType.GGLangRatStep
 public import CFSG.LocalAnalysis.StandardType.GGStepTwoToralLatIndex
 public import CFSG.LocalAnalysis.StandardType.GGLangWSLGamma
 public import CFSG.HardMathSupport.Timmesfeld.RootAut.Count

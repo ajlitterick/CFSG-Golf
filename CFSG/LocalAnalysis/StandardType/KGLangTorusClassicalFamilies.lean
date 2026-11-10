@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.KGLangTorusDatum
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangKGInputs
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangWeylRestLabels
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldCyclic
 import CFSG.LocalAnalysis.StandardType.KGLangTorusLinear
 import CFSG.LocalAnalysis.StandardType.KGLangTorusUnitary
 import CFSG.LocalAnalysis.StandardType.KGLangTorusSymplectic

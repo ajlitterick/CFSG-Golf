@@ -2,14 +2,8 @@ module
 
 public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveModel
 public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveChart
-public import CFSG.OddTranspositions.PartThree.Twelve.FiveDefs
-public import CFSG.OddTranspositions.PartThree.Twelve.SixPivot
 public import CFSG.OddTranspositions.PartThree.Twelve.Four
-public import CFSG.OddTranspositions.PartThree.Nine.Setup
-public import CFSG.OddTranspositions.PartFour.LinePolar
-public import CFSG.OddTranspositions.PartFour.Fourteen.RootBlockFive
 public import CFSG.Mathlib.GroupTheory.ClosureSubgroupOf
-import CFSG.OddTranspositions.PartThree.CommSetConj
 
 public section
 

@@ -2,15 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneBTypeInputs
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneBSU4Lift
-public import CFSG.LieType.Universal.Unitary.Clause0
 public import CFSG.LieType.Steinberg.CentralExt.E6E7Multiplier
 public import CFSG.LieType.Chevalley.ExceptionalG2F4ModelSchreier
 public import CFSG.GH74.Orders.LieType
 public import CFSG.Adapters.TauCetiExceptional.ReeCatalog
-public import CFSG.RankThree.PerfectCover.HopfCentralCoversSetup
-public import Certificates.Kernel.ThCent.Leaves
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LocalAnalysis.ComponentInitial.SylowPointRecovery
 
 public noncomputable section

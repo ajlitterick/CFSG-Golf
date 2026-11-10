@@ -3,7 +3,6 @@ module
 public import CFSG.GroupTheory.ABGLocalTools.CoreLemmas
 public import CFSG.GroupTheory.QuasisimpleCommutingProductBound
 public import CFSG.LocalAnalysis.SectionRank.SQT
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

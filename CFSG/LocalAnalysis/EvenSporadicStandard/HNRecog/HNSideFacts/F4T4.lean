@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.HNSideFacts.F4Main
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.HNSideFacts.F4Transport
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.HNSideFacts.F5T2
-public import CFSG.Sporadic.HN.Local.Main
 
 public section
 

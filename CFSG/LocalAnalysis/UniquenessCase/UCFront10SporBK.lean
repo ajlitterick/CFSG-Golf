@@ -1,13 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront10SporK105In
-public import CFSG.Monster.B.Cbar.GenData
-import CFSG.Monster.B.Cbar.SylowTwo
 import CFSG.Monster.B.Co2Catalog
 import CFSG.LocalAnalysis.UniquenessCase.UCFront10SporCo2
 import CFSG.LocalAnalysis.UniquenessCase.UCFront10SporOdd
 import CFSG.LocalAnalysis.UniquenessCase.UCFront10SporK105InThompson
-import CFSG.Monster.AxisCount.BabySetup
 import CFSG.Monster.B.Final.PinnedBOrder
 import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.CGT.Timmesfeld75.Statements
@@ -34,7 +31,6 @@ public import CFSG.Quasithin.Background.A1bGroups
 public import CFSG.RankThree.PartOne.S10.ThetaContract
 public import CFSG.RankThree.PartOne.S12.InputsBase
 public import CFSG.Sporadic.Co1Base
-public import CFSG.Sporadic.Th.F2Spec
 import CFSG.Certificates.InvariantMerge
 
 public section

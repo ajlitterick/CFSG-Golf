@@ -3,12 +3,7 @@ module
 public import CFSG.ClassicalInvolution.ModelFacts.E7ModelAdjoint
 public import CFSG.ClassicalInvolution.ModelFacts.E7ModelRoots
 public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcE7Main
-public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcSigns
-public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalOrthLift
-public import CFSG.ClassicalInvolution.ModelFacts.FundPerfectMain
-public import CFSG.ClassicalInvolution.RouteD.GapsOrthFacts
 public import CFSG.ClassicalInvolution.RouteD.TypeE8Model
-public import CFSG.LinearAlgebra.SL2MinimalFaithfulMatrix
 public import CFSG.ClassicalInvolution.RouteD.GapsChainConfig
 public import CFSG.ClassicalInvolution.RouteD.LocalTwinBAdapt
 public import CFSG.ClassicalInvolution.RouteD.LocalTwinBWeakNodes

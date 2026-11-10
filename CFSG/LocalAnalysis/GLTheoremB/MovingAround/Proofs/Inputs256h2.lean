@@ -3,49 +3,12 @@ module
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs256h
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.InputsL33d2
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.SeitzRest
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUStd
-import CFSG.LocalAnalysis.SeitzReduction.LinearPilotTorus
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTame
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUAll
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.G2LongFrame
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.GoodUntwist
-import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CompsPReduction
-import CFSG.HardMathSupport.Solomon.Coordinator.LieOrderBridgeHolds
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTamePrime
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcInnerLang.Untw
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcInnerLang.TwE6
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcInnerLang.TriD4
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.AssemblyExc
 import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.AssemblySO
 import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.Assembly
-import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.FieldTw
-import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CompsPTriD4
-import CFSG.HardMathSupport.Lang.Coordinator.OuterFixedOrderTwistedE6Descent
-import CFSG.RankThree.Chevalley.SteinbergBTTwistedE6OddField
-import CFSG.LieType.Chevalley.TwistedE6NormalForm
-import CFSG.Timmesfeld.Orders.ExceptionalUntwisted
-import CFSG.LieType.Steinberg.G2.Perfect
-import CFSG.HardMathSupport.Lang.Coordinator.D4Bridge.Bridge
-import CFSG.HardMathSupport.Lang.D4Three.NormalForm
-import CFSG.HardMathSupport.Lang.E6Descent.OuterFixed27D4AmbientForm
-import CFSG.HardMathSupport.Lang.E6Descent.OuterFixed27D4AmbientFixed
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.D4Graph.Duality
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.D4Graph.Layer
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.D4FieldInner
-import CFSG.LieType.Chevalley.TrialityFullAmbientFixedGroup
-import CFSG.RankThree.PartTwo.Sec8.Item8KFacts2ProofD4
-import CFSG.RankThree.PartTwo.Sec8.Item8KFacts2ProofEvenDesc
-import CFSG.RankThree.PartTwo.Sec21.LangTwisted2ProofD4
-import CFSG.RankThree.PartTwo.KFacts.K71TrialityFix
-import CFSG.RankThree.PartTwo.Sec13.Item136PGL
-import CFSG.RankThree.PartTwo.Sec13.Item13Models
 import CFSG.RankThree.PartTwo.Sec16.KS16ProofMeet
 import CFSG.HardMathSupport.Dickson.Bal207.D4GraphBridgeIso
-import CFSG.Timmesfeld.Orders.Classical
 import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.L6LeavesKFact2401OmegaBasic
-import CFSG.RankThree.PartTwo.Census.Carrier.SpinDOdd
-import CFSG.RankThree.PartTwo.Census.Carrier.SpinTDOdd
-public import CFSG.Quasithin.Background.A3Structure36BPrime
 public import CFSG.CGT.Timmesfeld75.Form2
 public import CFSG.CGT.Timmesfeld75.Main
 public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.W2.E6Heisenberg

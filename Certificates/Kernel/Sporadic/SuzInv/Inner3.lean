@@ -3,9 +3,7 @@ module
 public import Certificates.Kernel.Sporadic.RawGenSch4
 public import Certificates.Kernel.Sporadic.SuzInv.Text3
 public meta import CFSG.Sporadic.SuzOddCore.InvArrays
-import CFSG.Sporadic.SuzOddCore.InvArrays
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.NormNum
 public meta import CFSG.Sporadic.SuzOddCore.Arrays
 
 public section

@@ -1,11 +1,9 @@
 module
 
-public import CFSG.OddTranspositions.PartThree.Ten.Steps
 public import CFSG.OddTranspositions.PartThree.Ten.SwapImage
 import CFSG.GroupTheory.ConjOrbitCommutator
 import CFSG.OddTranspositions.PartThree.HalphaCentralizer
 import CFSG.OddTranspositions.PartThree.Ten.SetupPerfect
-import CFSG.OddTranspositions.O4Minus5Pair
 import CFSG.OddTranspositions.BlockGraph
 import CFSG.Timmesfeld.Bridge.OddTranspGenL2
 

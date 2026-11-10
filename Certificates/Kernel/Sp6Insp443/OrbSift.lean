@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Sp6Insp443.Orb
 public import Certificates.Kernel.Sporadic.Co3.Sp36
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

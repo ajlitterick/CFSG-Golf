@@ -1,14 +1,11 @@
 module
 
-public import CFSG.OddTranspositions.PartThree.EightEight.ASBase
 public import CFSG.OddTranspositions.PartThree.EightEight.ASFibres
 public import CFSG.OddTranspositions.PartThree.EightEight.CommProd
 public import CFSG.OddTranspositions.PartThree.EightEight.WreathNatural
 
 import CFSG.OddTranspositions.PartThree.EightEight.Eighteen
 import CFSG.OddTranspositions.PartThree.EightEight.StarBlockMeet
-import CFSG.OddTranspositions.PartThree.EightEight.StarBlocks
-import CFSG.OddTranspositions.PartThree.EightEight.StarConj
 import CFSG.OddTranspositions.PartThree.EightEight.StarOrbit
 import CFSG.OddTranspositions.PartThree.EightEight.StarSigma
 import CFSG.OddTranspositions.PartThree.EightEight.ThirdKind

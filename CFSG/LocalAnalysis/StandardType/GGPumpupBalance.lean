@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGPumpupQuot
 public import CFSG.LocalAnalysis.StandardType.GGNbrBalancePumpup
 public import CFSG.LocalAnalysis.StandardType.GGNbrBalanceSchreier
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBAlternatingPrime
 
 public section
 

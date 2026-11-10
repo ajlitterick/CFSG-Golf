@@ -2,12 +2,8 @@ module
 
 public import CFSG.GH74.Generic.BProg.B3.KG531BPairAux
 public import CFSG.GH74.Generic.BProg.B3.S1Lemma283bKGB
-public import CFSG.GH74.Generic.BProg.B3.KG531RedAux
 public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87TwoA7OddLie
 public import CFSG.Holt.General.ComponentsImage
-public import CFSG.LocalAnalysis.ComponentClassification.PComponentNormalizerEnlargement
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBCentralQuotientDerived
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.Assembly.CompletedOddCoreElimination
 public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalIsogeny
 public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalTwistedE6Chain

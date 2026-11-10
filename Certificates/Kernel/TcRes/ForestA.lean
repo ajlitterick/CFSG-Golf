@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.TcRes.ForestData
 import CFSG.Certificates.Kernel.Common.EachTrue
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

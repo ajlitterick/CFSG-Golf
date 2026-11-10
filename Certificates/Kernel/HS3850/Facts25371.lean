@@ -4,7 +4,6 @@ public import Certificates.Kernel.HS3850.F25371T
 public import Certificates.Kernel.HS3850.F25371Q
 public import Certificates.Kernel.HS3850.FoursFacts
 public import CFSG.Certificates.Kernel.L34KSnd.Tab
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.Misc.RuInvHash
 public import CFSG.Certificates.Kernel.Spor.ClassOneH
 

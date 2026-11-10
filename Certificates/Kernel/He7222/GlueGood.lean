@@ -4,9 +4,6 @@ public import Certificates.Kernel.He7222.GlueScan
 public import Certificates.Kernel.He7222.GlueWp
 public import Certificates.Kernel.He7222.GlueWords
 public import CFSG.Certificates.Kernel.He7222.GoodSound
-public import CFSG.Certificates.Kernel.Misc.WordPtsGroup
-import CFSG.Certificates.Kernel.Common.Harness
-import CFSG.Certificates.Kernel.Spor.PrimSound
 public import Certificates.Kernel.Sporadic.Fi22.C3151
 
 public section

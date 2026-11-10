@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.SpCentralizerEightCover
-public import CFSG.LocalAnalysis.StandardType.AlternatingEightCoverElements
-public import CFSG.Assembly.Subnormal
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OmegaRadicalFrame
-public import CFSG.ClassicalGroups.Orthogonal.OddOrder
 
 public section
 

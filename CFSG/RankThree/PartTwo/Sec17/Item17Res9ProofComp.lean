@@ -1,8 +1,6 @@
 module
 
-public import CFSG.RankThree.GroupTheory.ThetaComponents
 public import CFSG.RankThree.PartTwo.Sec17.Item176StepsProof172
-import CFSG.GroupTheory.LocalCores.Components
 import CFSG.RankThree.PartTwo.Sec14.Item147
 public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.Certificates.CosetTableShort

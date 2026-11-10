@@ -7,7 +7,6 @@ public import CFSG.LocalAnalysis.StandardType.GGA6GlueCoreSL
 public import CFSG.LocalAnalysis.StandardType.GGA6GlueCoreF4
 public import CFSG.LocalAnalysis.StandardType.GGA6GlueCoreNT
 public import CFSG.LocalAnalysis.StandardType.GGA6GlueNoA6
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP5RC0Input
 
 public section
 

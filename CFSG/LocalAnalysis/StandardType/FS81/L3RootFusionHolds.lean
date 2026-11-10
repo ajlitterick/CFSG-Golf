@@ -1,11 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.E7CentHolds
-public import CFSG.LocalAnalysis.StandardType.FS81.RootE8
 public import CFSG.LocalAnalysis.StandardType.FS81.RootTwD7
 public import CFSG.LocalAnalysis.StandardType.FS81.RowOutE7
 public import CFSG.LocalAnalysis.StandardType.FS81.RowOutTwD7
-public import CFSG.LocalAnalysis.StandardType.FS81.RowSplit
 public import CFSG.LocalAnalysis.StandardType.FS81.S7AutAt
 public import CFSG.LocalAnalysis.StandardType.FS81.S7BetaCent
 public import CFSG.LocalAnalysis.StandardType.FS81.S7BetaTor

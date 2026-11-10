@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.LocalComp.L34KLGen
 public import Certificates.Kernel.LocalComp.L34SData
-public import Certificates.Kernel.Misc.Perm.HexCmd
 meta import Certificates.Kernel.LocalComp.L34KLGen
 public import CFSG.Certificates.Kernel.Bounds.Core3
 import CFSG.Certificates.Kernel.Bounds.Load

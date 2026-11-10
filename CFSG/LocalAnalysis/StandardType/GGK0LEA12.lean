@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGK0LEModel
 public import CFSG.LocalAnalysis.StandardType.GGK0LEA12E7
-public import CFSG.Sporadic.ThSchreier.GlobalData
 
 public section
 

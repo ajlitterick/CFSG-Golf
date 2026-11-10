@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4KSwMemTool
 import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4End43H
 import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec5Inner56
 import CFSG.LocalAnalysis.ComponentClassification.UnbalancedGSBFixedLayerNormalizer
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec5TWGen
 import CFSG.GroupTheory.ThompsonIndexTwo
 import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4InputsEnd43H

@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.J4TreeTop.Tgts
 public import Certificates.Kernel.J4TreeTop.Cover1
 public import Certificates.Kernel.J4TreeNode.Facts
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.J4TreeNode.Glue
 
 public section

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.ZS.AdaptMonomial
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabel
-public import Mathlib.LinearAlgebra.Basis.Fin
 
 public section
 

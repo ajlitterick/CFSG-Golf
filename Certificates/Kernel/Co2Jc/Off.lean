@@ -8,7 +8,6 @@ public import Certificates.Kernel.Co2Jc.OffStep3
 public import Certificates.Kernel.Co2Jc.OffBound0
 public import Certificates.Kernel.Co2Jc.OffBound1
 public import CFSG.Certificates.Kernel.Co1BMulSound
-public import Mathlib.Data.Fintype.Fin
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

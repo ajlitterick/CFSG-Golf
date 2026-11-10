@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATorus
 public import CFSG.LocalAnalysis.StandardType.GGTableBBstar
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSLInnerInvolution
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismGeneration
 import CFSG.LocalAnalysis.ComponentInitial.LinearHigherLinearAutNormal
 
 public section

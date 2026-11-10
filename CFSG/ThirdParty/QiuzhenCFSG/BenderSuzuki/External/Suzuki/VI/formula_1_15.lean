@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Suzuki.VI.formula_1_7
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.Divisibility
 
 namespace CFSG
 end CFSG

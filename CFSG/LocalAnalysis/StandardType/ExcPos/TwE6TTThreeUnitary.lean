@@ -6,7 +6,6 @@ import CFSG.LocalAnalysis.StandardType.ExcPos.TwE6TTBridge
 import CFSG.LocalAnalysis.StandardType.GGTwE6LemmaKFinal
 import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfE6Toral
 import CFSG.LocalAnalysis.StandardType.GGLieM6cDescent
-import CFSG.LieType.Chevalley.RootDiagonalWeylTransporter
 
 public section
 

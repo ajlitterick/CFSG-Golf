@@ -4,11 +4,7 @@ public import CFSG.LocalAnalysis.StandardType.GGOuterInvGraphInv
 public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockDefs
 public import CFSG.Blueprint.SourceClassicalTransportOrthogonal
 public import CFSG.HardMathSupport.Curtis.Coordinator.PLTypeOrthCentCoord
-public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalModelOuterTwoPart
-public import CFSG.RankThree.OrthogonalInvolutions.Dickson
-public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotRecognizeSwap
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotQ2PositionBHigh
-public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotTorus
 public import CFSG.LargeExtraspecial.BridgeNat
 
 public section

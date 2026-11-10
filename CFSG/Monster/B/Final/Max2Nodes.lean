@@ -1,16 +1,6 @@
 module
 
 public import CFSG.Monster.B.Final.PairNodes
-public import Certificates.Certificate3014
-public import Certificates.Certificate3017
-public import Certificates.Certificate3019
-public import Certificates.Certificate3049
-public import Certificates.Certificate3109
-public import Certificates.Certificate3025
-public import Certificates.Certificate3026
-public import Certificates.Certificate3027
-public import Certificates.Certificate3028
-public import CFSG.Monster.B.TwoA.Co2Inv.KerElts
 public import CFSG.Monster.B.TwoA.Unitary.Semilinear
 
 public section

@@ -5,7 +5,6 @@ public import CFSG.Certificates.Kernel.G2Three.Sec1Mat9
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.T5Facts
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.FrameLe
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.LGroupA
-public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.SylowConj
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.FactsL
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.G2Three.Sec1Proof.CountE

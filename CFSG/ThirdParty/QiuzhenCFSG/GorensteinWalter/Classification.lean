@@ -1,14 +1,10 @@
 module
 
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
 public import Mathlib.GroupTheory.SpecificGroups.Alternating.Simple
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralGenerators
 public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Projective
-public import Mathlib.LinearAlgebra.Matrix.ProjectiveSpecialLinearGroup
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PPrimeCore
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Burnside.NormalComplement
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.PLengthLemmas
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.theorem_1_18
 
 namespace CFSG

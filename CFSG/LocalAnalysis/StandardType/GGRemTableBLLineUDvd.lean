@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUModel
 public import CFSG.LocalAnalysis.StandardType.GGUnitDvdLabelDefs
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLCover
-public import CFSG.LocalAnalysis.StandardType.GGSixRootCentNotExcFlatDefs
 public import CFSG.LocalAnalysis.StandardType.GGYardstoneLegacyImports
 
 public section

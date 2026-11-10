@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Census.L34Chain
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoL3FourHypIIPk
 public import CFSG.Certificates.Kernel.Census.FProof
-public import CFSG.Certificates.Kernel.Census.SiftSound
 import all CFSG.LocalAnalysis.ComponentClassification.RankTwoL3FourHypIIW
 import all CFSG.LocalAnalysis.ComponentClassification.RankTwoL3FourHypIITests
 import all Certificates.Data.CFSGNative.MonsterB.Co2Chain

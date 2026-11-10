@@ -5,9 +5,7 @@ public import CFSG.LocalAnalysis.StandardType.GGKD2LinearBlock1615
 public import CFSG.LocalAnalysis.StandardType.GGNbrLSideSpTypeGL
 public import CFSG.RankThree.GF2n.Stroth80.ClassicalQuasisimple
 public import CFSG.LocalAnalysis.ComponentInitial.OddOrthogonalFourGroupCommutant
-public import CFSG.LieType.SemisimpleCentralizers.HeldSLFacts
 public import CFSG.LieType.SemisimpleCentralizers.OrderThree.CenterQuot
-public import CFSG.Assembly.GL83StatedBridge
 public import CFSG.RankThree.GF2n.Stroth80.FrobClause
 public import CFSG.RankThree.GF2n.Stroth80.GlobalModel
 public import CFSG.RankThree.GF2n.Stroth80.Sec310Stmt

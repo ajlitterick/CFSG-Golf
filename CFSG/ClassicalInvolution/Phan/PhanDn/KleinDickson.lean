@@ -2,9 +2,7 @@ module
 
 public import CFSG.ClassicalInvolution.Phan.PhanDn.KleinWedge
 public import CFSG.RankThree.PartOne.K159.Klein
-public import CFSG.LieType.BorelTits.Families
 public import CFSG.ClassicalInvolution.Phan.PhanDn.Perp
-public import CFSG.ClassicalInvolution.Phan.PhanDn.FlipFrame
 
 public section
 

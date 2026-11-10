@@ -2,10 +2,6 @@ module
 
 public import CFSG.Quasithin.Vol2.Ch3E213MP5B
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2ProjectiveLine
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ProjectiveSemilinear
-public import Mathlib.LinearAlgebra.Projectivization.Cardinality
 
 public section
 

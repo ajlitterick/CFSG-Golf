@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeSplit
-import CFSG.LocalAnalysis.ComponentInitial.SymplecticHigherAutomorphismData
-import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagOrder
-import CFSG.Open.StatedAPI
-import CFSG.LocalAnalysis.StandardType.Marking
 
 public section
 

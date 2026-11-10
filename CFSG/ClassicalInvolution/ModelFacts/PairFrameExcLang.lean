@@ -3,8 +3,6 @@ module
 public import CFSG.LieType.AlgebraicGroups.ToralCentralizerIdentity
 public import CFSG.LieType.AlgebraicGroups.RationalCentralizerCocycleLang
 public import CFSG.LieType.AlgebraicGroups.ToralTwistPinningFrobenius
-public import CFSG.LieType.AlgebraicGroups.ExactAffineRealizationGroups
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 
 public section
 

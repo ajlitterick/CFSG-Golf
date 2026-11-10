@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec3B0SuzTests
 public import Certificates.Data.TabSuzFuse
-public import CFSG.Monster.B.Mathieu.SylowCore
 public meta import CFSG.LocalAnalysis.ComponentClassification.AS81Sec3B0SuzTests
 public meta import Certificates.Data.TabSuzFuse
 public meta import CFSG.Monster.B.Mathieu.SylowCore

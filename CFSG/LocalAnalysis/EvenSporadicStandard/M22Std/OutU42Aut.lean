@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallPSp43Model
-public import CFSG.GH74.Exceptional.UnitaryFourTwo
 
 public section
 

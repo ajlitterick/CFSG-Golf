@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.GMS78RuAsmAlign
 public import Certificates.Data.GMS78RuNModel
-public import CFSG.Certificates.CosetTablePresented
 
 public section
 

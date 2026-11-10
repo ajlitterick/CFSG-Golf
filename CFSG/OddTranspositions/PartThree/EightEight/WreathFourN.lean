@@ -2,7 +2,6 @@ module
 
 public import CFSG.OddTranspositions.FaithfulBlocks
 public import CFSG.OddTranspositions.PartThree.Statements
-public import CFSG.Timmesfeld.Bridge.Asc72Defs
 public import CFSG.OddTranspositions.PartThree.EightEight.WreathFourBlocks
 import CFSG.OddTranspositions.PartThree.EightEight.WreathFourFibres
 import CFSG.OddTranspositions.PartThree.EightEight.WreathFourPropagation
@@ -10,8 +9,6 @@ import CFSG.OddTranspositions.PartThree.EightEight.WreathFourComponent
 import CFSG.OddTranspositions.PartThree.EightEight.Kernel
 import CFSG.OddTranspositions.PartThree.HalphaConj
 import CFSG.OddTranspositions.PartThree.Eleven.OneOne.ConjShared
-import CFSG.OddTranspositions.PartFour.Line
-import CFSG.Timmesfeld.Bridge.Asc72Minimal
 
 public section
 

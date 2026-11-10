@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBRkNarrow2Defs
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBBridge
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6TBModel
 public import CFSG.LocalAnalysis.StandardType.GGTwE6WeylTorusHolds
 
 public section

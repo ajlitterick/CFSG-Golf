@@ -4,12 +4,8 @@ public import CFSG.RankThree.PartTwo.Sec21.Item211ResProofLStarAlg
 public import CFSG.RankThree.PartTwo.Sec21.Item211ProofList
 import CFSG.RankThree.PartTwo.Sec13.Item133Mono
 import CFSG.RankThree.PartTwo.Sec13.Item13Plane
-import CFSG.LieType.CurtisTits.Recognition
 import CFSG.Sporadic.J3
-import CFSG.CharacterTheory.Semidihedral.NormalForm
 import CFSG.GroupTheory.ElementaryAbelianTransport
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Foundations
 public import CFSG.GroupTheory.BaerSuzuki
 public import CFSG.GroupTheory.HallHigmanPiCore
@@ -19,7 +15,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups
 public import CFSG.LocalAnalysis.ComponentInitial.SuzukiModelSchreier
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure
 public import CFSG.RankThree.Asc83Table.Automizer
@@ -29,7 +24,6 @@ public import CFSG.RankThree.PartTwo.Sec4.LThreePiSLOn
 public import CFSG.RankThree.PartTwo.Sec7.ThreeTranspositions
 public import CFSG.RankThree.PartTwo.Sec8.Pairs
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

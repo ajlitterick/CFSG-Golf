@@ -25,8 +25,6 @@ import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeSplitD
 import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeSplitE6Three
 import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeSplitExc
 import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeExcSeven
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-import CFSG.LocalAnalysis.StandardType.GGNbrCenterPCyclicHolds
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2Items
 public import CFSG.LocalAnalysis.StandardType.GGSixStepOneCompDefs
 

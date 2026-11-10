@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFinModelTorus
-public import CFSG.LocalAnalysis.StandardType.GGFinModelRoots
 public import CFSG.LocalAnalysis.StandardType.GGFinModelPi
 public import CFSG.LocalAnalysis.StandardType.GGFinModelEps
-public import CFSG.LocalAnalysis.StandardType.GGLangData
 public import CFSG.LocalAnalysis.StandardType.GGLangUniform
 
 public section

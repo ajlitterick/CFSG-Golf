@@ -2,8 +2,6 @@ module
 
 public import CFSG.CGT.Timmesfeld75.Sec6One
 public import CFSG.CGT.Timmesfeld75.Sec6TwoY
-public import CFSG.CGT.Timmesfeld75.Sec3Thirteen
-public import CFSG.CGT.Timmesfeld75.Sec3TwelveCore
 public import CFSG.CGT.Timmesfeld75.OddCenter
 public import CFSG.CGT.Timmesfeld75.Sec5ElevenIso
 public import CFSG.CGT.Timmesfeld75.Sec5FiveEng
@@ -12,7 +10,6 @@ public import CFSG.CGT.Timmesfeld75.Sec6Five
 public import CFSG.CGT.Timmesfeld75.Step57Reduction
 public import CFSG.LieType.BorelTits.CompleteFlag
 public import CFSG.Sporadic.M23.M23Group
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonSplitTorus
 
 public section
 

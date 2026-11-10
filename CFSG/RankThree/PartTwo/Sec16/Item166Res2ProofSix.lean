@@ -4,17 +4,11 @@ public import CFSG.RankThree.PartTwo.Sec3.TwoGroupPrimeFiveAction
 import CFSG.RankThree.Coprime.InvolutionFixedRankBound
 import CFSG.RankThree.Coprime.ThompsonElementaryComplement
 import CFSG.RankThree.GroupTheory.SteinbergBMClassTwoExtraspecialAction
-import CFSG.Assembly.OrderReductions.FrattiniAutomorphisms
 import CFSG.Assembly.OrderReductions.FrattiniElementary
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Frattini.Core
 import CFSG.LinearAlgebra.OddSolvableUnitary.CommutatorForm
-import CFSG.LocalAnalysis.RankThreeEvenClassification.CoprimeFactorization
 import CFSG.LocalAnalysis.SectionRank.Ccomm.OddCritical
-import CFSG.LocalAnalysis.SectionRank.PRank
 import CFSG.LocalAnalysis.SectionRank.SQT
 import CFSG.LocalAnalysis.SignalizerFunctor.Maximality
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 
 public section

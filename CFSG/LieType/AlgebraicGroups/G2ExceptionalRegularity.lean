@@ -3,7 +3,6 @@ module
 public import CFSG.LieType.AlgebraicGroups.G2ExceptionalProjection
 public import CFSG.LieType.AlgebraicGroups.FrobeniusDiagram
 public import CFSG.LieType.AlgebraicGroups.BijectiveTangentIsomorphism
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 
 public noncomputable section
 

@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.HeLoc.SevenDefs
-public import Certificates.Kernel.SporSch.Ru.RowsGen
 public import Certificates.Data.Kernel.MonsterB.BfsReplay
 public import Certificates.Data.Kernel.SporSch.PairHeCnt
 

@@ -1,7 +1,6 @@
 module
 
 public import Mathlib.Topology.Compactification.OnePoint.ProjectiveLine
-public import Mathlib.LinearAlgebra.Projectivization.Action
 public import Mathlib.Algebra.Field.ZMod
 
 public section

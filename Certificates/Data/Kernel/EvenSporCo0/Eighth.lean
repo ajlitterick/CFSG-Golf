@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoCo1.Co0TypEighthInputs
-public import CFSG.Certificates.Kernel.Enum.Defs
 public import Certificates.Data.Kernel.Spor.Chain
 public import CFSG.Certificates.Kernel.Lie.CT.Core
 public import Certificates.Data.Kernel.MonsterB.BfsReplay

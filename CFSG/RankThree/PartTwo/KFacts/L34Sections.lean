@@ -6,8 +6,6 @@ import CFSG.RankThree.PartTwo.Census.Criteria
 import CFSG.RankThree.Coprime.InvolutionFixedRankBound
 import CFSG.RankThree.Asc83Table.E27
 import CFSG.Models.PGLOrders
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LieType.Chevalley.LangRootArithmetic

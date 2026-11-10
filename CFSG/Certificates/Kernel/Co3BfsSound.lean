@@ -3,12 +3,9 @@ module
 public import Certificates.Data.Kernel.Co3Bfs
 public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Co3IdentModelInputs
 public import CFSG.Certificates.Kernel.Spor.RawSound
-public import Std.Data.HashSet
 import CFSG.Certificates.Kernel.Spor.KeyBfsGen
 import CFSG.Certificates.Kernel.Spor.PackWord
 import CFSG.Certificates.Kernel.Spor.PrimSound
-import CFSG.Certificates.Kernel.Spor.Loops
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Sporadic.Schreier.MathieuOddCoreCentral
 import CFSG.Sporadic.Schreier.MathieuOddCoreWords
 

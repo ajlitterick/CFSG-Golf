@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GeneratorRank
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Frattini.Core
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
 
 public noncomputable section

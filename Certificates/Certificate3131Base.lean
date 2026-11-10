@@ -5,18 +5,7 @@ public import CFSG.Monster.B.GSide.MuFourOmegaInputs
 public import Certificates.Kernel.MonsterB.Co2Mem
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Monster.B.GSide.MuFourGeneric
-public import Certificates.Data.CFSGNative.MonsterB.Short
-public import Certificates.Data.CFSGNative.Mathieu.M24
-public import CFSG.Certificates.Kernel.AxisPlane.Orbit
-public import Certificates.Data.Kernel.VisFrame.Gens
-public import Certificates.Data.CFSGNative.MonsterB.Co2Chain
-public import Certificates.Data.CFSGNative.MonsterB.Co2Matrix
-public import CFSG.Monster.B.TwoA.Unitary.OrbitInputs
-public import CFSG.Monster.B.TwoA.Unitary.WStabInputs
-public import CFSG.Monster.B.TwoA.Unitary.Stab891Inputs
 public import CFSG.Monster.B.TwoA.Unitary.Orbit1408Inputs
-public import CFSG.Monster.B.TwoA.Unitary.Bridge
-public import CFSG.Monster.B.TwoA.Unitary.ActionInputs
 
 @[expose] public section
 

@@ -1,8 +1,6 @@
 module
 
 public import Certificates.Kernel.J2Cover.M22Dec
-import CFSG.Certificates.Kernel.Common.Harness
-import CFSG.Certificates.Kernel.Spor.RawSlSound
 
 public section
 

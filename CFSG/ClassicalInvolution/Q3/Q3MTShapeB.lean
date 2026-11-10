@@ -4,7 +4,6 @@ public import CFSG.ClassicalInvolution.Q3.Q3MTKind
 public import CFSG.ClassicalInvolution.Q3.Q3MTModel5
 public import CFSG.ClassicalInvolution.Q3.Q3MTOrth
 public import CFSG.ClassicalInvolution.Q3.Q3EXOrthLarge
-public import CFSG.ClassicalInvolution.Uniform.U3Edge
 public import CFSG.ClassicalInvolution.Q3.Q3CPOmega
 public import CFSG.ClassicalInvolution.Q3.Q3CPSix67
 public import CFSG.ClassicalInvolution.Q3.Q3MTDatum

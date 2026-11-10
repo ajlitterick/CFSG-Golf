@@ -6,12 +6,6 @@ public import CFSG.HardMathSupport.Timmesfeld.Balance.Reduction
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67ReeMain
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4Par
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4Inner
-public import CFSG.GH74.GLS.Stage2.OddAut.RPData
-public import CFSG.Adapters.TauCetiExceptional.ReeBridge
-public import CFSG.Adapters.TauCetiExceptional.EvenAll
-public import CFSG.LieType.Ree.SmallReeModelSchreier
-public import CFSG.LocalAnalysis.ComponentClassification.LiteratureLocalSmallReeOuter
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeFamilies
 public import CFSG.LocalAnalysis.AGLEmbedding.ResidualTools

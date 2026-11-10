@@ -4,14 +4,6 @@ module
 public import Certificates.Certificate4033Base
 import all Certificates.Certificate4033Base
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHeKInputs
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatCore
-public import CFSG.Quasithin.EmptyFaithful.S151S9TThreeDFact
-public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicBase
-public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicRep
-public import CFSG.Sporadic.He
-public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicHeInputs
-import Certificates.Kernel.HeDc.Final
 import Certificates.Kernel.HeIdx.Final
 import Certificates.Kernel.HeIdx.ThreeD
 

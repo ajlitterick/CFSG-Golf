@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofX10CMain
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofX10CCase
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofX10CLay
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GH74.GLS.Stage12.McLCover
 public import CFSG.LocalAnalysis.ComponentClassification.SymmetricLocalInvolutionOddCore
 public import CFSG.LocalAnalysis.OddStandard.Solomon75Inputs

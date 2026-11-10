@@ -2,8 +2,6 @@ module
 
 public import CFSG.LieType.AlgebraicGroups.ConstructibleSubgroupIdeal
 public import CFSG.LieType.AlgebraicGroups.GLCoordPoints
-public import Mathlib.Algebra.CharP.Frobenius
-public import Mathlib.Algebra.CharP.Algebra
 import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 
 public noncomputable section

@@ -1,11 +1,9 @@
 module
 
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public import Certificates.Data.Kernel.Spor.Prim
 public import CFSG.Certificates.Kernel.Spor.Loops
 public import CFSG.Sporadic.SmallOddCore.HSData
-public import CFSG.Sporadic.Schreier.PairHSCertInputs
 meta import CFSG.Sporadic.SmallOddCore.HSData
 meta import CFSG.Sporadic.Schreier.PairHSCertInputs
 import CFSG.Certificates.Kernel.Common.Harness

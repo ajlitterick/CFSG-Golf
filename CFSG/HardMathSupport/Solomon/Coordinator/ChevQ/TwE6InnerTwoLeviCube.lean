@@ -1,20 +1,9 @@
 module
 
-public import CFSG.LieType.SeitzGeneration.ExcWideThree.TwE6RegularLieConj
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.TwE6RegularLieAux
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.TwE6RegularLieSL2
-public import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
 import CFSG.LieType.SeitzGeneration.ExcHighThree.TwConjExp
-import CFSG.LieType.SeitzGeneration.ExcHighThree.TwConjLift
 import CFSG.LieType.SeitzGeneration.ExcHighThree.TwE6InF4ZRootTorus
-import CFSG.LieType.SeitzGeneration.ExcWideThree.DiagLift
-import CFSG.LieType.SeitzGeneration.ExcWideThree.TwE6RegularInputs
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.SmallQThreeTwE6TwoModel
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeToralityProof
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwFrob
-import CFSG.RankThree.Classical2.TwistedE6RationalOrder
-import CFSG.LocalAnalysis.SeitzReduction.E6PilotAlignTori
-import CFSG.LocalAnalysis.SeitzReduction.EPilotRoots
 import CFSG.ClassicalInvolution.ModelFacts.TwistedE6PairData
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.TwE6InnerTwoInverter
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.TwE6LongRootTransport

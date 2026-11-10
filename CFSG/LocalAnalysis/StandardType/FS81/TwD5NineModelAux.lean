@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5NinePieces
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Local
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Cent
-public import CFSG.LocalAnalysis.StandardType.FS81.LocalOrthCore
-public import CFSG.LocalAnalysis.StandardType.FS81.LocalOrthModels
-public import CFSG.LocalAnalysis.StandardType.FS81.BasisMonomial
 public import CFSG.LocalAnalysis.StandardType.FS81.OmMonomial
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD7CentDecomp
 public import CFSG.LieType.SeitzGeneration.OrthNonsplitTools

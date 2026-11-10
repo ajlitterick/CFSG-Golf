@@ -2,10 +2,6 @@ module
 
 public import Certificates.Kernel.I242.Checks
 public import Certificates.Kernel.Sporadic.Fi22.F1Outer
-public import CFSG.Certificates.Kernel.Misc.HexFlatSound
-public import CFSG.Certificates.Kernel.BfsPinUnpack
-public import CFSG.Certificates.Kernel.Spor.PackWord
-public import CFSG.Certificates.Kernel.Spor.PrimSound
 public import CFSG.Certificates.Kernel.O8ConstrSound
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.Stage1ModelData
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.Stage2Cand

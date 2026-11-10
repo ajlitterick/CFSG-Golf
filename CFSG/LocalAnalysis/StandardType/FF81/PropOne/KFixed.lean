@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FF81.PropOne.KFixData
-public import CFSG.GroupTheory.LocalCores.Components
 public import CFSG.GroupTheory.PCore.PrimeSetCore
-public import CFSG.Mathlib.GroupTheory.LayerFixedJ
-public import CFSG.Open.StatedAPI
 public import CFSG.LocalAnalysis.SignalizerFunctor
 
 @[expose] public section

@@ -4,21 +4,14 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveBJoinDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinHCRowDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRestOriginalWeyl
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylInfDefs
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelTypeAAssembly
 import CFSG.LocalAnalysis.StandardType.GGAutomizerJoinInduced
 import CFSG.LocalAnalysis.StandardType.GGF4AbsorbConj
 import CFSG.LocalAnalysis.StandardType.GGF4EndpointType
 import CFSG.LocalAnalysis.StandardType.GGF4OrigRep
-import CFSG.LocalAnalysis.StandardType.GGF4ReflGroup
 import CFSG.LocalAnalysis.StandardType.GGF4ReflLin
 import CFSG.LocalAnalysis.StandardType.GGF4ReflOrbit
-import CFSG.LocalAnalysis.StandardType.GGF4TypeCards
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBEqualJoin
-import CFSG.LocalAnalysis.StandardType.GGSecFiveBFixLine
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBNbrCompare
-import CFSG.LocalAnalysis.StandardType.GGSecFiveRootRefl
-import CFSG.LocalAnalysis.StandardType.GGSpJoinNbrModel
-import CFSG.LocalAnalysis.StandardType.GGSpJoinReflAlgebra
 import CFSG.GroupTheory.PLayer.Transfer
 import CFSG.GroupTheory.CentralizerSup
 import CFSG.GroupTheory.PLayer.PIndex

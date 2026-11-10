@@ -2,10 +2,8 @@ module
 
 public import CFSG.OddTranspositions.PartThree.Nine.Statements
 public import CFSG.Fischer.Uniq.Graph
-public import Mathlib.Combinatorics.SimpleGraph.StronglyRegular
 import CFSG.Fischer.Classification.SRG.Conference
 import CFSG.OddTranspositions.O4PairCommSet
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 import CFSG.Walter.Defs
 
 public section

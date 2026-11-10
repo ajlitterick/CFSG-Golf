@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoLMMod
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordFullAux
-public import CFSG.LocalAnalysis.SectionRank.OddCover.DegreeThree
-public import CFSG.RankThree.Classical2.UnitarySplitPrimeRank
 
 public section
 

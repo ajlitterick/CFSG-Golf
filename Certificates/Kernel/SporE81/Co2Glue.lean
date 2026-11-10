@@ -4,7 +4,6 @@ public import Certificates.Kernel.SporE81.Co2Checks
 public import Certificates.Kernel.Sporadic.Co2.Order
 public import CFSG.Certificates.Kernel.E81KSound
 import CFSG.Certificates.Kernel.Common.Harness
-import CFSG.Certificates.Kernel.Spor.Loops
 
 public section
 

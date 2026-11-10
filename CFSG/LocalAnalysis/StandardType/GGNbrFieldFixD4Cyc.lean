@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixLabel
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangRestField
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaPlus
 
 public section
 

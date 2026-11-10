@@ -2,13 +2,10 @@ module
 
 public import Certificates.Data.CFSGNative.Co2Smith.Sp6Pres
 public import Certificates.Data.Kernel.Bounds.TableFact
-public import CFSG.Certificates.Kernel.Bounds.Checks
 public import Certificates.Kernel.Bounds.Assemble
 public import CFSG.Certificates.CosetTablePresented
-import CFSG.Certificates.Kernel.Bounds.Load
 import CFSG.Certificates.Kernel.Bounds.LoadRoot
 import CFSG.Certificates.Kernel.Common.Repo
-import CFSG.Certificates.Kernel.Common.Harness
 public import Mathlib
 
 open CFSG.Sporadic.Co2Smith.Native CFSG.CosetTable

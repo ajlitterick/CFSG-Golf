@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreDefs
-public import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
-public import CFSG.LocalAnalysis.StandardType.GGSixPositionDefs
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.Sp6Port419ReadyPart4
 
 @[expose] public section

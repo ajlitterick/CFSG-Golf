@@ -5,9 +5,7 @@ public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2SpNC
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2SpCores
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ItemThree
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2CoverNC
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortSp
 public import CFSG.LocalAnalysis.StandardType.GGSixLieKnownPosDefs
-public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotTorus
 
 public section
 

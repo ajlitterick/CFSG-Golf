@@ -3,27 +3,7 @@ module
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs256k
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs256h2
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs295f2
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.SmallQThreeTwE6TwoModel
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeCharData
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.SmallQThreeTwE6TwoFusion
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.SmallQThreeTwE6TwoCriterion
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.Bal209TwoOuterIn
-import CFSG.LieType.SeitzGeneration.ExcPlaneModel
-import CFSG.LieType.SeitzGeneration.ExcTorusCatTw
-import CFSG.Adapters.TauCetiExceptional.EvenAll
-import CFSG.LieType.Chevalley.EvenF4AutomorphismNormalForm
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.AssemblyExc
-import CFSG.HardMathSupport.Solomon.Coordinator.LieOrderBridgeHolds
-import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs295e2
-import CFSG.LieType.Chevalley.GraphFixedCenterTrivial
-import CFSG.LieType.Chevalley.GraphFixedF4Canonical
-import CFSG.LocalAnalysis.StandardType.GGTableBE6TwoPilotLayer
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.SmallQThreeE6TwoFusion
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.SmallQThreeE6TwoBalance
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.LayerBridge
-import CFSG.LocalAnalysis.GLTheoremB.LayerTools
-import CFSG.Assembly.OrderReductions.LinearOrders
-public import CFSG.Quasithin.Background.A3Structure36BPrime
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.Basic
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.InnExcCtx
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.InnExcPlumb

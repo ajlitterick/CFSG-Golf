@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.RankThreeUC.Section5.JointQuotientAction
 public import CFSG.LocalAnalysis.RankThreeUC.ProofSupport.CoprimeQuotientFaithfulness.CoprimeQuotientFaithfulness
 public import CFSG.LocalAnalysis.RankThreeUC.Section5.SstarCoprimeStructure
-public import CFSG.LocalAnalysis.RankThreeUC.Section5.Context
 import all CFSG.LocalAnalysis.RankThreeUC.Section5.Context
 public import CFSG.GroupTheory.CoprimeActionSupport.NormalizingJoinCardDividesProduct
 

@@ -4,9 +4,6 @@ public import CFSG.LieType.AlgebraicGroups.GLCoordPoints
 public import CFSG.LieType.AlgebraicGroups.ZariskiPoints
 public import CFSG.LieType.AlgebraicGroups.TorusAffineDomain
 public import CFSG.LieType.Chevalley.RootPairCommonField
-public import CFSG.LieType.Chevalley.Canonical
-public import CFSG.LieType.Steinberg.Adjoint.BaseChange
-public import Mathlib.Algebra.Polynomial.AlgebraMap
 
 public noncomputable section
 

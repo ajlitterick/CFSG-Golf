@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelSpNsSylv
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordShapeAlign
-public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelSLCompParts
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Q3WAE78
-public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcE7Main
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.F3.PairE8Layer
 public import CFSG.ClassicalInvolution.Q3.Q3WMain
 

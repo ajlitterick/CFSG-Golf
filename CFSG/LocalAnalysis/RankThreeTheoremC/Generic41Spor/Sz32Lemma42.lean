@@ -2,17 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.Sz32Defs
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.Sz32L42Second
-public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.GroupTits
-public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.GroupA10
-public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.GroupSz32
-public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic49U3.Lemma42Generic
 import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.Sz32L42W1
 import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.A10Lemma44
 import CFSG.LocalAnalysis.RankThreeTheoremC.GL83Generic4_1P3ConjGeneric
 import CFSG.LocalAnalysis.RankFourTheoremC.PPointPlane
 import CFSG.LocalAnalysis.RankThreeTheoremC.Generic49U3.Case1Misc
-import CFSG.LocalAnalysis.PreuniquenessRankFour.Helpers
-import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic49U3.PSU3.Aut
 
 public section

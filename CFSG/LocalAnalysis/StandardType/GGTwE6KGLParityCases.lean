@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTwE6KGLParityAt
 public import CFSG.LocalAnalysis.StandardType.GGTwE6KGLBridgeDefs
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLPlusOfKnown
-import CFSG.LocalAnalysis.StandardType.GGTableB
-import CFSG.LocalAnalysis.StandardType.Marking
 
 public section
 

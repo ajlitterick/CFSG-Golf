@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 public import CFSG.LocalAnalysis.ComponentInitial.CommutingBlock
-public import CFSG.Assembly.Subnormal
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 public import CFSG.LocalAnalysis.ComponentClassification.LBalanceComponentLifts
 public import CFSG.LocalAnalysis.ComponentClassification.LayerMultiplication

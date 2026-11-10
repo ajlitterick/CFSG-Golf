@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.GMS78.CzJS
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

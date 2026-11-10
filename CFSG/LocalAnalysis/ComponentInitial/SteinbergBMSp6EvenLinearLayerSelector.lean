@@ -11,8 +11,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearF
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSUFieldOddCore
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancingLocalSmallSourceLinear
 public import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public noncomputable section
 

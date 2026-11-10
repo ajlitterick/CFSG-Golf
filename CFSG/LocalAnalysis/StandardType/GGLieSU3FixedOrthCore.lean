@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Assembly.Defs
 public import CFSG.RankThree.Classical2.OrthogonalIsotropicUnipotent
 
 import CFSG.LocalAnalysis.StandardType.GGLieSU3FixedOrthBlock
@@ -8,8 +7,6 @@ import CFSG.LocalAnalysis.StandardType.GGLieSU3FixedOrthSpecial
 import CFSG.LocalAnalysis.StandardType.GGLieSU3FixedOrthPaired
 import CFSG.LocalAnalysis.StandardType.GGLieSU3FixedOrthSelfDual
 import CFSG.LocalAnalysis.ComponentClassification.HarrisLitN36L4Twin
-import CFSG.RankThree.PartOne.KC.OrthogonalSupportedBlocks
-import CFSG.RankThree.PartOne.KC.OrthogonalPrimaryPairing
 import CFSG.RankThree.PartOne.KC.OrthogonalComponentFacts
 public import CFSG.ClassicalGroups.Orthogonal.ProjectiveSimple
 public import CFSG.LocalAnalysis.SectionRank.SignLines

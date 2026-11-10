@@ -1,7 +1,5 @@
 module
 
-public import CFSG.OddTranspositions.PartThree.Twelve.ElevenFiveForm
-public import CFSG.OddTranspositions.PartThree.Eleven.Five.FiveFormAux
 public import CFSG.OddTranspositions.PartThree.Twelve.ElevenFiveTreeExtension
 public import CFSG.OddTranspositions.PartThree.Twelve.ElevenFiveTreeBase
 

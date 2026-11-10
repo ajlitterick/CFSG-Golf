@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseA7OmegaInvertedElements
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Theorem26
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970_18
 
 namespace CFSG
 end CFSG

@@ -3,10 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergTrialitySpin
 public import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotEightOrthPlusLevi
 public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerOmegaFrame
-public import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotAutUBasic
 import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergTrialityModel
-import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsOmModel
-import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsOmHyp
 import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsOmFour
 public import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotEightOrthModel
 public import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotF6Card

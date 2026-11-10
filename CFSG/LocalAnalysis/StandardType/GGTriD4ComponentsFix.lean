@@ -2,13 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTriD4KnownInputs
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TriD4Outer
-public import CFSG.RankThree.PartTwo.Sec4.LThreePiDefs
 import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestTri
-import CFSG.RankThree.PartTwo.Sec8.Item8KFacts2ProofEvenDesc
-import CFSG.RankThree.PartTwo.Sec21.LangTwistedProofD4Second
-import CFSG.RankThree.PartTwo.Sec21.LangTwisted2ProofD4
-import CFSG.RankThree.PartOne.KF.F122D4
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.D4Graph.DualOuterFull
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
 public import CFSG.Certificates.FusionF2

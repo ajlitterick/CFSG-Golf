@@ -5,10 +5,8 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.WeakClosure
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.VZeroSmall17
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.MSubBasic
 public import CFSG.GroupTheory.CommutingProductFixedSubgroup
-public import CFSG.LocalAnalysis.ComponentInitial.SmallLinearIsomorphisms
 public import CFSG.Quasithin.Vol2.Ch12Sec1Lem1A5
 public import CFSG.LocalAnalysis.ComponentClassification.FiveCatSporW
-public import CFSG.GroupTheory.ABGLocalTools.PStabilityQDickson
 public import CFSG.GroupTheory.SteinbergCBFTFactorization
 public import CFSG.Holt.General.Basic
 public import CFSG.LieType.Chevalley.C2E6StandardFixedData
@@ -57,8 +55,6 @@ public import CFSG.Quasithin.Background.F9G2
 public import CFSG.Quasithin.Background.F9Geometry
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtF112ListC
 public import CFSG.Quasithin.EmptyFaithful.S14117
-public import CFSG.Quasithin.EmptyFaithful.S14117Coprime
-public import CFSG.Quasithin.EmptyFaithful.S14117Rank
 public import CFSG.Quasithin.EmptyFaithful.S142Statements
 public import CFSG.Quasithin.EmptyFaithful.S152N11
 public import CFSG.Quasithin.H13.A5S1326

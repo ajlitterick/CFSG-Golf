@@ -5,7 +5,6 @@ public import Certificates.Kernel.BabyMonster.CTIB.LiftH10B
 public import Certificates.Kernel.BabyMonster.CTIB.Signs
 public import CFSG.Certificates.Kernel.BabyMonster.Q23Sound
 public import CFSG.Certificates.Kernel.BabyMonster.CTIBSmall.All
-public import CFSG.Certificates.Kernel.BabyMonster.CTIBSmall.Check0
 
 public section
 

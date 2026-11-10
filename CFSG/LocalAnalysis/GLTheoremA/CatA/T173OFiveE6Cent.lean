@@ -1,14 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OFiveDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OFiveLayer
-public import CFSG.LocalAnalysis.ComponentInitial.LocalComponents
 public import CFSG.LocalAnalysis.ComponentInitial.SylowLocalTransfer
-public import CFSG.LieType.Chevalley.OddToralInvolutionComponents
-public import CFSG.LieType.Chevalley.ToralCentralizerQuotient
-public import CFSG.LieType.Chevalley.RankOneCentralImage
 public import CFSG.LocalAnalysis.SeitzReduction.E8PilotPositionPerfect
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeHat
 public import CFSG.Blueprint.SourceExceptionalRootData
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotPositionB
 

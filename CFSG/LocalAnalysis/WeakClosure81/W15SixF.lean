@@ -15,8 +15,6 @@ public import CFSG.Quasithin.Background.B2FactorizationResidual
 public import CFSG.Quasithin.Background.B2FactorizationSum
 public import CFSG.Quasithin.Background.B4Statement
 public import CFSG.Quasithin.Background.B6
-public import CFSG.Quasithin.Background.B6Example
-public import CFSG.Quasithin.Background.B6Offenders
 public import CFSG.Quasithin.Background.E3OffenderB
 public import CFSG.Quasithin.Background.F918P1
 public import CFSG.SignalizerFunctorTheorem.McBride.Prelim.Basic

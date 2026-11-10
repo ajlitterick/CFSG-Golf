@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQ2S08TestLin
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08PermLin
 public import Mathlib.LinearAlgebra.StdBasis
 public import Mathlib.GroupTheory.Perm.Fin
-public import Mathlib.Data.Fin.Tuple.Sort
 
 public section
 

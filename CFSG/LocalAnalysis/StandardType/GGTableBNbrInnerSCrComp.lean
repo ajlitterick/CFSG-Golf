@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylComp
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNineSCr
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnit63Nbr
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerSCrCompDefs
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.TabCo1ThreeB
 public meta import Certificates.Data.TabCo1ThreeB
 public import Certificates.Kernel.Co1B.Chk17330
 public import Certificates.Kernel.Co1B.Small17330
@@ -9,14 +8,8 @@ public import Certificates.Kernel.Co1B.Lvl17330P1
 public import Certificates.Kernel.Co1B.Lvl17330P2
 public import Certificates.Kernel.Co1B.C17591
 public import Certificates.Kernel.Co1ThreeK.GluePlane
-public import Certificates.Kernel.Co1ThreeK.LettersEq
 public import CFSG.Certificates.Kernel.Co1BBoundNSound
 public import CFSG.Certificates.Kernel.Co1BBoundPSound
-public import CFSG.Certificates.Kernel.SporSch.Co1BfsSound
-import Mathlib.Tactic.IntervalCases
-public import CFSG.Monster.B.TwoA.Par3.Main
-public import CFSG.Monster.B.TwoA.Unitary.Orbit1408Points
-public import CFSG.Monster.B.TwoA.Unitary.Semilinear
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC

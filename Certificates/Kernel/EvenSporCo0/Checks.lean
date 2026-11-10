@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.EvenSporCo0.Data
 public import Certificates.Data.Kernel.EvenSporCo0.Eighth
-public import CFSG.Certificates.Kernel.Spor.RawDefs
 public meta import CFSG.Certificates.Kernel.Common.Each
 public import CFSG.Certificates.Kernel.Common.Each
 

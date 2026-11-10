@@ -1,15 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJE6LeviCell
-public import CFSG.LocalAnalysis.StandardType.GGTBJETypeCells
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyReflDom
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-import CFSG.LocalAnalysis.StandardType.GGRootGenExcLabels
-import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMoreSix
-import CFSG.LocalAnalysis.StandardType.GGTwistedF4DiagRaw
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45ConfigIso
-import CFSG.LocalAnalysis.StandardType.GGAssemblyFiveDefs
-import CFSG.LocalAnalysis.StandardType.GGExclNoIso
 
 public section
 

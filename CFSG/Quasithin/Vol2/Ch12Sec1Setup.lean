@@ -8,9 +8,7 @@ public import CFSG.Quasithin.Vol2.Ch12Sec2Ident
 public import CFSG.Quasithin.Vol2.Ch3Sec2Lem322Eight
 public import CFSG.Quasithin.Vol2.Ch7Rows325
 public import CFSG.Quasithin.Background.HL42Aut
-public import CFSG.Quasithin.Background.OrderingMax
 public import CFSG.Quasithin.H13.VolIAutSLFive
-public import CFSG.LieType.BorelTits.Basic
 public import CFSG.Dihedral.FourgroupCycleControl
 public import CFSG.Dihedral.OriginalCentralizerOddCore
 public import CFSG.Fischer.Pairs
@@ -31,7 +29,6 @@ public import CFSG.Quasithin.Vol2.Ch11StatementsC
 public import CFSG.Quasithin.Vol2.Ch12Sec2Action
 public import CFSG.Quasithin.Vol2.Ch12Sec2Statements
 public import CFSG.Quasithin.Vol2.Ch3Sec3StatementsB
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Timmesfeld.RankOne
 public import CFSG.Timmesfeld.Transvection.Statement
 

@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.AGLEmbedding.Norton.MON5_7.WordCheck
-public import CFSG.LocalAnalysis.AGLEmbedding.Norton.Gen11.Data
-public import CFSG.Monster.Visible.Action
 public import Certificates.Kernel.KDenseP.E11
 public import CFSG.Certificates.Kernel.KDenseP.E11.C16953
 public import CFSG.Certificates.Kernel.KDenseP.E11.Rank16953

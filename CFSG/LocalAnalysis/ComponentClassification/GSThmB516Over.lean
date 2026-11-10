@@ -6,7 +6,6 @@ public import CFSG.LieType.BorelTits.CompleteFlag
 public import CFSG.LieType.Universal.SpinOmega.Range
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB516
 public import CFSG.Open.QuasithinDefs
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 
 public section
 

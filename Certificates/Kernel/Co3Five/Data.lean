@@ -3,7 +3,6 @@ module
 public import CFSG.RankThree.Native.Co3FiveCheckInputs
 public import Certificates.Kernel.LocalComp.BfsGen
 public import Certificates.Kernel.SporSch.Th.GenV4
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public meta import CFSG.RankThree.Native.Co3FiveCheckInputs
 meta import Certificates.Kernel.Sporadic.RawGen

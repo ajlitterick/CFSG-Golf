@@ -2,29 +2,14 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S2114R4FInner
 import CFSG.HardMathSupport.Foote.FamilyReduction.ClassicalFive
-import CFSG.LocalAnalysis.UniquenessCase.UC22P20r
-import CFSG.LocalAnalysis.UniquenessCase.UC22P20x
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.CartanRankFamilies
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.CartanRankTwistedE6
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S2114R4FFieldFour
-public import CFSG.Monster.Existence.StdOdd.Defs
-public import Certificates.Data.CFSGNative.Chevalley.C2E6CertLie
-public import CFSG.LieType.Chevalley.C2E6StdMatrixData
-public import CFSG.Monster.B.Classical.E6AdjointGroup
 import Certificates.Kernel.Misc.E6StdSlp
-public import CFSG.Blueprint.NativeSporadic
-public import CFSG.RankThree.PartOne.CTP.FusionSound
-import CFSG.Sporadic.Bridge.BFusSevenGen
-public import CFSG.YGroups.Y443.Native.CoverFactsWords
 import Certificates.Kernel.KDense.Y443
-public import CFSG.YGroups.Y443.Native.Swap13Word
 
 
-import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.SEFive.Holds
 import CFSG.LocalAnalysis.UniquenessCase.UC7P3BadNoStrongHolds
 import CFSG.LocalAnalysis.UniquenessCase.UC7P3ThreeKIBA6
-import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.StrongThree
-import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.CatalogSchreier
 import CFSG.LocalAnalysis.AGLEmbedding.CatalogSchreier
 public import CFSG.Adapters.Certificate43Check
 public import CFSG.Blueprint.OddStandardExact

@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.ThRank10508.Defs
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.NatItemsGz
 import CFSG.Certificates.Kernel.Common.Repo
 

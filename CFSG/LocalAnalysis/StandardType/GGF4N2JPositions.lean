@@ -1,25 +1,16 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGF4N2RootAut
-import CFSG.LocalAnalysis.StandardType.GGTPNDefs
 import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylNoLine
 import CFSG.LocalAnalysis.ComponentClassification.Walter86.TableII.Component
-public import CFSG.LieType.Chevalley.EvenF4AutomorphismNormalForm
 import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.CenterProofFastPart2
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixFivePumpup
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.Bal209TwoIn
 public import CFSG.RankThree.Classical2.SLnFrobeniusFormFixed
-public import CFSG.Quasithin.SteinbergBTQuasisimpleSQTKCenter
-public import CFSG.LocalAnalysis.SeitzReduction.F4PilotMainGraphUnitaryLift
 public import CFSG.GroupTheory.CardMapInfKer
-public import CFSG.Quasithin.Background.F918P4
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ParabCommLinTransferLevi
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ParabCommLinTransferCover
 
 import CFSG.RankThree.PartTwo.Sec4.T444.Item434CoverKit
-import CFSG.RankThree.Coprime.ThompsonElementaryComplement
 
-import CFSG.GroupTheory.SupCommute
 
 import TauCeti.Algebra.Group.Subgroup.ModularLaw
 import TauCeti.Algebra.Group.Subgroup.Ker
@@ -29,31 +20,19 @@ import CFSG.LocalAnalysis.StandardType.GGSecFiveBProperRootPerm
 import all CFSG.RankThree.PartOne.KC.PrimaryDecomposition
 
 public import CFSG.LocalAnalysis.StandardType.GGTypeAFarPComp
-public import CFSG.LinearAlgebra.LinearGroups.Perfect
 
-public import CFSG.LocalAnalysis.StandardType.GGF4N2RootCharts
 import all CFSG.LocalAnalysis.StandardType.GGF4N2RootCharts
 
-public import CFSG.LocalAnalysis.SeitzReduction.E6PilotCTFieldTwist
 public import CFSG.CGT.PushingUpLit.CGT6.SixFourU3Alg
-public import CFSG.RankThree.PartOne.KC.SymplecticFullCentralizerTransvection
 
-public import CFSG.Assembly.OrderReductions.LinearOrders
 
-public import CFSG.LocalAnalysis.StandardType.GGTriD4NoneTransport
 
 import all CFSG.Fischer.F4
 import all CFSG.LocalAnalysis.StandardType.GGF4N2KComponents
 
-public import CFSG.RankThree.Classical.SteinbergBJSymplecticCrossPrimeBlocks
-public import CFSG.Fischer.F4
-public import CFSG.SignalizerFunctorTheorem.McBride.Prelim.DirectProduct
 
-public import CFSG.LieType.Universal.Unitary.Comparison
 
-public import CFSG.Open.StatedSUFieldChange
 
-public import CFSG.LieType.Multipliers.L34Model
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265Std
 
@@ -62,27 +41,17 @@ public import CFSG.LocalAnalysis.StandardType.GGF4N2KComponents
 public import CFSG.LocalAnalysis.StandardType.GGF4N2JNative
 public import CFSG.LocalAnalysis.StandardType.GGF4N2JModelExclusions
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.ComponentRootSpan
-public import CFSG.LocalAnalysis.ComponentInitial.BlockCentralQuotient
-public import CFSG.RankThree.CentralLift.ClassicalCenterTrivial
-public import CFSG.RankThree.PartOne.CTP.PhanBridge
-public import CFSG.GroupTheory.CenterlessInnerCentralizer
-public import Mathlib.Algebra.CharP.CharAndCard
 
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.OmegaFacts2
 
 public import CFSG.Quasithin.EmptyFaithful.SBc17Out5
 
-public import CFSG.LocalAnalysis.OddStandard.AltStdSecLookupEightLinear
 
 public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.YamadaInputsL44Std
 
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Classification
 
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.SecondPointWAux
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRestGen
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsCover
 public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.YamadaEndDefs
 public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.YamadaInputsKinds
 public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.YamadaInputsStd

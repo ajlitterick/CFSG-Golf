@@ -2,12 +2,8 @@ module
 
 public import Certificates.Kernel.P1L43.FbarK
 public import Certificates.Kernel.HSStd.U43CaseKit
-public import Certificates.Kernel.Sporadic.OddCore.MulHGlue
-public import Certificates.Kernel.Sporadic.OddCore.PEnumGlue
 public import CFSG.Certificates.Kernel.Spor.SiftRSound
 public import CFSG.Certificates.Kernel.Misc.ArrBind
-import Mathlib.Tactic.IntervalCases
-import Mathlib.Tactic.FinCases
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Spor.RawSlSound
 

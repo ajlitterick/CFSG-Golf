@@ -7,27 +7,6 @@ public import CFSG.Certificates.Kernel.Bounds.XG23R.T1vC1
 public import CFSG.Certificates.Kernel.Bounds.XG23R.T1vW0
 import Certificates.Kernel.Bounds.Assemble
 import CFSG.Certificates.Kernel.Bounds.XG23R.All
-import CFSG.Certificates.Kernel.Bounds.XG23R.T1vK000
-import CFSG.Certificates.Kernel.Bounds.XG23R.T1vK001
-import CFSG.Certificates.Kernel.Bounds.XG23R.T1vK002
-import CFSG.Certificates.Kernel.Bounds.XG23R.T1vK003
-import CFSG.Certificates.Kernel.Bounds.XG23R.T1vK004
-import CFSG.Certificates.Kernel.Bounds.XG23R.T1vK005
-import CFSG.Certificates.Kernel.Bounds.XG23R.T1vK006
-import CFSG.Certificates.Kernel.Bounds.XG23R.T1vK007
-import CFSG.Certificates.Kernel.Bounds.XG23R.T1vK008
-import CFSG.Certificates.Kernel.Bounds.XG23R.T1vK009
-import CFSG.Certificates.Kernel.Bounds.XG23R.T1vK010
-import CFSG.Certificates.Kernel.Bounds.XG23R.T1vK011
-import CFSG.Certificates.Kernel.Bounds.XG23R.T1vK012
-import CFSG.Certificates.Kernel.Bounds.XG23R.T1vK013
-import CFSG.Certificates.Kernel.Bounds.XG23R.T1vK014
-import CFSG.Certificates.Kernel.Bounds.XG23R.T1vK015
-import CFSG.Certificates.Kernel.Bounds.XG23R.T1vK016
-import CFSG.Certificates.Kernel.Bounds.XG23R.T1vK017
-import CFSG.Certificates.Kernel.Bounds.XG23R.T1vK018
-import CFSG.Certificates.Kernel.Bounds.XG23R.T1vK019
-import CFSG.Certificates.Kernel.Bounds.XG23R.T1vK020
 
 public section
 

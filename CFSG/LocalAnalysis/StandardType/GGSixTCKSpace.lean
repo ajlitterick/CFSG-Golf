@@ -1,16 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.HeisenbergRank
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.HeisenbergDefs
-public import Mathlib.RingTheory.RootsOfUnity.Basic
-public import Mathlib.RingTheory.RootsOfUnity.PrimitiveRoots
-public import Mathlib.GroupTheory.OrderOfElement
-public import Mathlib.GroupTheory.SpecificGroups.Cyclic
-public import Mathlib.Algebra.Field.Subfield.Basic
-public import Mathlib.FieldTheory.Finite.Basic
-public import Mathlib.FieldTheory.KummerPolynomial
-public import Mathlib.RingTheory.AdjoinRoot
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
 public import Mathlib
 
 public section

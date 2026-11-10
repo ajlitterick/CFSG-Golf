@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoSixGensData
-public import CFSG.ClassicalInvolution.Phan.Blocks
 public import CFSG.LocalAnalysis.StandardType.GGQTwoSU34Aux6
 
 public section

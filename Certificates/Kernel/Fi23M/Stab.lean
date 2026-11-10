@@ -1,11 +1,9 @@
 module
 
 public import Certificates.Kernel.Fi23K.Iso
-public import CFSG.Certificates.Kernel.Spor.PChainLower
 import Certificates.Kernel.Fi23K.Misc
 import Certificates.Kernel.Fi23K.Tree0
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import Mathlib
 public import CFSG.Certificates.Kernel.Spor.ONKSound
 
 public section

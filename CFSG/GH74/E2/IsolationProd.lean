@@ -1,14 +1,12 @@
 module
 
 public import CFSG.GH74.E2.Isolation
-public import CFSG.GH74.E2.DirectProd
 public import CFSG.GH74.E2.DirectSylow
 public import CFSG.GH74.E2.SD16Cert
 public meta import Mathlib
 public meta import CFSG.GH74.E2.SD16Cert
 public meta import CFSG.CharacterTheory.Semidihedral.Model
 public import Certificates.Certificate5010
-public import Certificates.Certificate5018
 public import CFSG.GH74.SectionalRank
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups
@@ -20,8 +18,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 
 public section
 

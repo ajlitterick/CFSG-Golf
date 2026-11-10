@@ -1,23 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineOne
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.LowDimSection.Defs
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.NineSixLowDim.Defs
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTwelveOneComp
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTwelveOneLayer
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTwelveOneSolv
-import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenKStar
-public import CFSG.LocalAnalysis.ComponentInitial.KProperPumpUpStatement
-public import CFSG.Assembly.InCatalog
-import CFSG.GroupTheory.ElementaryAbelianTransport
-import CFSG.GroupTheory.LocalCores.Components
 import CFSG.HardMathSupport.Solomon.Proving.GLBCoreNormalizer
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBPrimeJoinTransport
-import CFSG.LocalAnalysis.SectionRank.PRank
-import CFSG.LocalAnalysis.RankThreeUC.AGL81CDefs
-import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTen
-import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenDefs
-import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenLayer
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CStarImgEquiv
 import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.LowDimSection.Main
 import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.NineSixLowDim.Faithful
@@ -26,7 +10,6 @@ import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTwelveOneSection
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineElevenGen
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineSixStarEGen
 import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.NineTenOneIGen
-import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.NineTenLayerGen
 
 public section
 

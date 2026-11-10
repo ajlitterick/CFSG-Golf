@@ -2,7 +2,6 @@ module
 
 public import CFSG.Sporadic.HNOddCore.AllExt
 public import CFSG.Sporadic.HNOddCore.SixPair
-public import CFSG.Sporadic.HNOddCore.FourPairComp
 
 public noncomputable section
 

@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.LocalComp.J2Std.OrbBase
 public import Certificates.Kernel.LocalComp.J2Std.Enum
 public import CFSG.Certificates.Kernel.BfsPinBaseSound
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalSp44J2Tests
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.BfsPinSound
 

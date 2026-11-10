@@ -1,14 +1,8 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.lemma_3_1
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.lemma_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Lemmas
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Quotient
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Invariant
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Cardinalities
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PLengthOne
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConj
 
 namespace CFSG
 end CFSG

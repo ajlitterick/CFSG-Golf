@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoGlobDefs
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.BridgeDerived
 public import CFSG.LocalAnalysis.StandardType.ZS.Basic
-public import Mathlib.GroupTheory.Commutator.Basic
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.TypesInvol
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLocalDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBarConnGen

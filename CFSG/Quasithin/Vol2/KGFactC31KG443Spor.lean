@@ -1,11 +1,7 @@
 module
 
 public import CFSG.Quasithin.Vol2.KGFactC31KG443Sec
-public import CFSG.Quasithin.Vol2.KGFactC31Act
 public import CFSG.Sporadic.J4.QT2LocX0CentMain
-public import CFSG.Sporadic.J4
-public import CFSG.Sporadic.Mathieu.M24
-public import Mathlib.GroupTheory.Perm.Centralizer
 public import CFSG.Certificates.Kernel.ThDemp.OrbCent
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHeldSmallCorePrimeCore
@@ -61,10 +57,6 @@ public import CFSG.Sporadic.J4.QT2LocCntProof
 public import CFSG.Sporadic.J4.QT2LocFiveProof
 public import CFSG.Sporadic.J4.QT2LocFixMain
 public import CFSG.Sporadic.J4.QT2LocScanCheckBase
-public import CFSG.Sporadic.J4.QT2LocX0CentMainBase1
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.CommutatorNormalizer
 public import CFSG.Walter.Defs

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangRegKG
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaPlus
 
 public section
 

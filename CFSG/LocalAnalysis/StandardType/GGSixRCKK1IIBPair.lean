@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIModel
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIBInner
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IPerfect
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2Items
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OddCenter
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortTransport
 

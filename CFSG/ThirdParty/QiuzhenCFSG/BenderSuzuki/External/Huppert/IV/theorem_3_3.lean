@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.GroupTheory.Transfer
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.Residual
 
 namespace CFSG

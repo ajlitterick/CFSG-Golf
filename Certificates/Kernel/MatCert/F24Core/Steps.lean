@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.MatCert.F24Core.Vals
 public import Certificates.Kernel.MatCert.F24Core.StepsK0
 public import Certificates.Kernel.MatCert.F24Core.StepsK1
 public import Certificates.Kernel.MatCert.F24Core.StepsK2
@@ -11,7 +10,6 @@ public import Certificates.Kernel.MatCert.F24Core.StepsK6
 public import Certificates.Kernel.MatCert.F24Core.StepsK7
 import Certificates.Kernel.LocalQT.CmdF3
 import CFSG.Certificates.Kernel.LocalQT.StepsF3Sound
-import CFSG.Open.Defs
 
 set_option maxRecDepth 100000
 

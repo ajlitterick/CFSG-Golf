@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGIOneOrthEndElt
 public import CFSG.LocalAnalysis.StandardType.GGBstarLIDTwDFieldRad
 public import CFSG.LocalAnalysis.StandardType.GGIOneRestFiveOrthMinusCount
-public import CFSG.RankThree.PartOne.S11d.OrthDicksonOmega
 
 public section
 

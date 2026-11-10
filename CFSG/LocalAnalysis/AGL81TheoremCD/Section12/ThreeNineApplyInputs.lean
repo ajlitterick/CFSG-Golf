@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.Defs
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section15.StarQuot
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenInputs
-public import CFSG.LocalAnalysis.SectionRank.NativeKGroup
 
-import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.StrongEmbedInput
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveFourOneProof
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.NineTen
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CThreeComponents
@@ -14,12 +12,8 @@ import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.NineTenThreeGen
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineSixStarEGen
 import CFSG.LocalAnalysis.RankThreeTheoremC.RelPair2T_Two
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81NineEightFourProof
-import CFSG.Walter.Bender1970.S3.TransitivitySetup
-import CFSG.GroupTheory.CoprimeQuotientNormalizer
 import CFSG.GroupTheory.PGroup.LtInfNormalizer
-import CFSG.LocalAnalysis.GLTheoremB.ComponentTools
 import CFSG.LocalAnalysis.GLTheoremB.Prop95Iii
-import CFSG.RankThree.PartOne.S8.ResidualBound
 import CFSG.GroupTheory.RegularModuleThree
 import CFSG.GroupTheory.SylowNormalIndex
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveFive

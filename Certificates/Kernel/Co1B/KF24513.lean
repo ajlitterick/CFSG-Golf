@@ -3,8 +3,6 @@ module
 public import Certificates.Kernel.Co1B.Dag2045
 public import Certificates.Kernel.Co1B.Bfs24513
 public import Certificates.Data.Kernel.Co1BW
-public import CFSG.Certificates.Kernel.Enum.Defs
-public import CFSG.Certificates.Kernel.Spor.RawDefs
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

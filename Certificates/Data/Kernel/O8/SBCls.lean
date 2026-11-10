@@ -6,9 +6,6 @@ public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.Stage1Coord
 public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.YamadaParLin
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 public import CFSG.Walter.JRFacts
 
 public section

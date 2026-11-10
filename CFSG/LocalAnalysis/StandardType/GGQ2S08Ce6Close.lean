@@ -1,15 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQ2S08Ce6Adapt
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08Ce6Shape
-public import CFSG.LocalAnalysis.StandardType.GGQ2S08Ce6LE3
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08Ce6Six
 public import CFSG.LocalAnalysis.StandardType.GGDepED4LE3Close
-public import CFSG.LocalAnalysis.StandardType.GGDepED4LowTwoClose
 public import CFSG.LocalAnalysis.StandardType.GGDepED4LowClose
 public import CFSG.LocalAnalysis.StandardType.GGDepED4LowCells
-public import CFSG.LocalAnalysis.StandardType.GGDepED4L58RowDefs
-public import CFSG.LocalAnalysis.StandardType.GGDepED4ReadDefs
 public import CFSG.LocalAnalysis.StandardType.GGDepELLowCheck2
 
 public section

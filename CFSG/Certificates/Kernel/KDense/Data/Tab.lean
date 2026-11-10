@@ -9,7 +9,6 @@ public import CFSG.Certificates.Kernel.KDense.Data.Tab5
 public import CFSG.Certificates.Kernel.KDense.Data.Tab6
 public import CFSG.Certificates.Kernel.KDense.Data.Tab7
 public import CFSG.Certificates.Kernel.KDense.Data.Tab8
-public import CFSG.Certificates.Kernel.KDense.Data.Fix
 
 public section
 

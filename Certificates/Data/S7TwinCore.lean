@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.CFSGNative.SporadicSchreier.MathieuOddCore
-public import Mathlib.Logic.Equiv.Defs
 public import Mathlib.Data.Fin.Basic
 
 public section

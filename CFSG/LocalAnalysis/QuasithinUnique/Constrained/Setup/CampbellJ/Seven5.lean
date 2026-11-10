@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.CampbellJ.Defs
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.CampbellExclusion
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.CampbellUtil
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.CampbellJ.JBasic
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.CampbellJ.JLocalAimg
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.CampbellJ.Six4a

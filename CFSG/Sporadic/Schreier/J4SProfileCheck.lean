@@ -3,10 +3,8 @@ module
 
 public import CFSG.Sporadic.Schreier.J4SProfileCheckBase
 
-public import CFSG.Sporadic.Schreier.J4SProfile
 public meta import CFSG.Sporadic.Schreier.J4SProfile
 public import Certificates.Certificate2179
-public import CFSG.Sporadic.Schreier.J4SFrattiniBase
 
 public section
 

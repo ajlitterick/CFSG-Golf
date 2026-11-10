@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FF81.RootFusionLinCent
-public import Mathlib.LinearAlgebra.Matrix.Trace
 import Mathlib.LinearAlgebra.Matrix.Swap
-import Mathlib.LinearAlgebra.Matrix.Transvection
-import Mathlib.GroupTheory.Index
 
 public section
 

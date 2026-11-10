@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.Q3TIYQSL
 public import CFSG.ClassicalInvolution.Q3.Q3TIYPRank
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 
 public section
 

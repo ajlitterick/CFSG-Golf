@@ -3,9 +3,6 @@ module
 
 public import CFSG.Sporadic.Co1Block.TwoBCheckBase
 
-public import CFSG.Sporadic.Co1Block.TwoBData
-public import CFSG.Sporadic.Co1Block.TwoBCheckDefs
-public import CFSG.Sporadic.Schreier.TitsBasic
 public meta import CFSG.Sporadic.Co1Block.TwoBData
 public meta import CFSG.Sporadic.Co1Block.TwoBCheckDefs
 public meta import CFSG.Sporadic.Co1Block.CentCheck
@@ -22,7 +19,6 @@ public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 public meta import Certificates.Data.CFSGNative.Schreier.Check
 public meta import Certificates.Data.CFSGNative.Schreier.Merge
 public meta import Certificates.Data.CFSGNative.ONSchreier.Compact
-public import CFSG.Sporadic.Co1Block.TwoBCheckInputs
 public import Certificates.Certificate2045
 
 public section

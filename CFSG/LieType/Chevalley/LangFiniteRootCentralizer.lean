@@ -1,12 +1,8 @@
 module
 
 public import CFSG.LieType.Chevalley.LangRootArithmetic
-public import CFSG.LieType.Chevalley.BorelSelfNormalizer
 public import CFSG.LieType.Chevalley.IntrinsicSimplePairs
-public import CFSG.LieType.Chevalley.CoordinateFieldBaseChange
 public import CFSG.LieType.Chevalley.GraphFixedF4GroupRestriction
-public import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
-public import CFSG.LieType.Chevalley.RootCharacterConjugation
 
 public noncomputable section
 

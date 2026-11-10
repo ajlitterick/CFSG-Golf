@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLinearFusionSURepairBlock
-public import CFSG.LocalAnalysis.StandardType.GGStdSubExistAdmissible
 
 public section
 

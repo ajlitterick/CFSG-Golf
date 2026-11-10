@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.WeakClosure81.EightDefs
 public import CFSG.Quasithin.Background.E3Defs
-public import CFSG.Blueprint.Catalog
-public import CFSG.Open.StatedDefs
-public import CFSG.Open.PGLModelDefs
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.GroupTheory.PCore.Transport
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
@@ -16,11 +13,6 @@ public import CFSG.Quasithin.Background.B2FactorizationR2
 public import CFSG.Quasithin.Background.B2FactorizationResidual
 public import CFSG.Quasithin.Background.B2FactorizationSum
 public import CFSG.Quasithin.Background.E1
-public import CFSG.Quasithin.Background.E1Sec4
-public import CFSG.Quasithin.Background.E1Sec5
-public import CFSG.Quasithin.Background.E1Sec8
-public import CFSG.Quasithin.Background.E1Solv
-public import CFSG.Quasithin.Background.E1Twelve
 
 public section
 

@@ -1,24 +1,17 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRest
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveDataResDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
 public import CFSG.LocalAnalysis.StandardType.GGF4TypeCards
 import CFSG.LocalAnalysis.StandardType.GGF4LinFour
 import CFSG.LocalAnalysis.StandardType.GGF4OrigRep
 import CFSG.LocalAnalysis.StandardType.GGF4RankFour
 import CFSG.LocalAnalysis.StandardType.GGF4RankLow
-import CFSG.LocalAnalysis.StandardType.GGF4ReflGroup
 import CFSG.LocalAnalysis.StandardType.GGF4ReflLin
 import CFSG.LocalAnalysis.StandardType.GGF4CoxeterSystem
 import CFSG.LocalAnalysis.StandardType.GGF4ReflOrbit
 import CFSG.LocalAnalysis.StandardType.GGSecFiveRootRefl
-import CFSG.LocalAnalysis.StandardType.GGSpJoinReflAlgebra
-import CFSG.LocalAnalysis.StandardType.GGSpJoinCoxeterCard
 import CFSG.LocalAnalysis.StandardType.GGSpFrameCoxeterCard
-import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofRefl
 import CFSG.LocalAnalysis.StandardType.GGTypeANbrWeylA
-import TauCeti.GroupTheory.Coxeter.Geometric
 
 public section
 

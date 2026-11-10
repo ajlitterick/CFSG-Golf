@@ -4,7 +4,6 @@ public import CFSG.GH74.GLS.IVK.Proofs2.Ivk93WLeaves
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk95XSolv
 public import CFSG.RankThree.PartOne.AUTSL.Interface
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk95Bender
-public import CFSG.GH74.GLS.IVK.Proofs2.Ivk95Ord
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk73G4L34
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk93Cfg2
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk93Leaves

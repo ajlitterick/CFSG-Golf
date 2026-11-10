@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.Kernel.LocalQT.LatM
 public import Certificates.Data.Kernel.LocalQT.ChainInj
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListA7LatticeInputs
 public import CFSG.Certificates.Kernel.LocalQTListLemmas

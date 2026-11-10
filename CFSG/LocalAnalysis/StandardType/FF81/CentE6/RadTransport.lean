@@ -1,9 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoModel
-public import CFSG.LocalAnalysis.SeitzReduction.EPilotCentralizerHigh
-public import CFSG.LocalAnalysis.SeitzReduction.E6PilotLeviHom
-public import CFSG.LocalAnalysis.StandardType.FF81.CentE6.RadSetting
 public import CFSG.LocalAnalysis.StandardType.FF81.CentE6.E6Model
 import TauCeti.Algebra.Group.Subgroup.ModularLaw
 import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRootO2

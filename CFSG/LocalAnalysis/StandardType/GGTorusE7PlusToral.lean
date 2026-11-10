@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTorusE7Lang
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreToralInd
 public import CFSG.LocalAnalysis.StandardType.GGExcElemToralLangStep
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwE7Model
 
 public noncomputable section
 

@@ -2,10 +2,8 @@ module
 
 public import Certificates.Kernel.Sporadic.Fi22.CentDefs
 public meta import Certificates.Kernel.Sporadic.Fi22.CentDefs
-public import Certificates.Kernel.Misc.Perm.HexCmd
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

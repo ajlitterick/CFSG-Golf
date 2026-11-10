@@ -1,12 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniModel
-import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniCubeDefs
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniCubeEigen
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniCubeNe
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniCubeComp
 import CFSG.Assembly.GL83StatedBridge
-import CFSG.LieType.Universal.Unitary.Comparison
 import CFSG.HardMathSupport.Dickson.Sec6.I1431Fam.ExcResOthSUFin
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.UnitaryTwoLocalProj
 import CFSG.LieType.Multipliers.U62Sylow

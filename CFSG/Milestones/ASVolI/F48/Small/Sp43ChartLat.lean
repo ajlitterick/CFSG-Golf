@@ -1,10 +1,7 @@
 module
 
-public import CFSG.Milestones.ASVolI.F48.Small.Sp43ChartInputs
 public import CFSG.Milestones.ASVolI.F48.Small.Sp43Base
 public import Certificates.Certificate7538
-public import CFSG.Quasithin.Vol2.GoldschmidtF431U42Card
-public import CFSG.Quasithin.Recognition.CertOvergroup
 public import CFSG.Milestones.ASVolI.F4Native
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic

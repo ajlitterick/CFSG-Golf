@@ -7,8 +7,6 @@ public import CFSG.Certificates.Kernel.Fi23P.BfsSound
 import Certificates.Kernel.Fi23R.Sound
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib
-public import CFSG.Sporadic.Fi23.Class
 public import CFSG.Sporadic.Fi23.Simple
 
 public section

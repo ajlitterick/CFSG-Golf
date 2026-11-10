@@ -5,7 +5,6 @@ public import CFSG.RankThree.Asc83Table.J3Defs
 public import CFSG.RankThree.Asc83Table.OrbitBound
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.OpsF2Fast
 public import CFSG.Sporadic.J3
-public import CFSG.Blueprint.NativeSporadic
 import all CFSG.Blueprint.NativeSporadic
 
 public section

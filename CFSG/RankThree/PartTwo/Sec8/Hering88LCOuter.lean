@@ -1,20 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec8.Hering88LCStep0C
-public import CFSG.RankThree.PartTwo.Sec8.Item8KFacts2ProofLinkFacts
-import CFSG.RankThree.PartTwo.Sec8.Item8KFacts2ProofD4
-import CFSG.RankThree.PartTwo.KFacts.K71TrialityFix
-import CFSG.RankThree.PartTwo.KFacts.K71G2
-import CFSG.RankThree.PartTwo.KFacts.K71Sp4
-import CFSG.RankThree.PartTwo.Sec21.LangTwisted2ProofD4
-import CFSG.RankThree.PartTwo.Sec13.Item13Models
-import CFSG.RankThree.PartTwo.Sec8.HeringD4Tools
-import CFSG.RankThree.PartTwo.Sec8.Item812Res2ProofRee
-import CFSG.RankThree.PartTwo.Sec8.Item812Res2ProofGenTools
-import CFSG.RankThree.PartTwo.Sec8.Item86ResProofOrders
-import CFSG.RankThree.PartTwo.Sec8.Item86ResProofUnitary
-import CFSG.RankThree.PartTwo.Sec8.Item812Res7ProofD4N
-import CFSG.RankThree.PartTwo.Sec8.Item8KFacts3ProofPairModels
 
 public section
 

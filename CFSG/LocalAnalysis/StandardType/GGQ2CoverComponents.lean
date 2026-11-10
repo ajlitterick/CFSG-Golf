@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2SpStatements
 import CFSG.ClassicalInvolution.Balance.LayerGenerationTransport
-import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
-import CFSG.Assembly.Subnormal
 import CFSG.GroupTheory.IsComponentOfMap
 import CFSG.ClassicalInvolution.Balance.PassTwoFinal
 import CFSG.LieType.Ree.SmallReeModelSchreier

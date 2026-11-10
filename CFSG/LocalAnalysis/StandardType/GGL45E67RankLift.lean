@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGL45NtGroupLemmas
 public import CFSG.GroupTheory.SteinbergCBFTFactorization
 public import CFSG.GH74.GLS.Stage2.Final.Thm6.L2011AdLayerP
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.CentralLift
-public import CFSG.GroupTheory.ElemAbelianClosure
 public import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeFamilies
 public import CFSG.LocalAnalysis.AGLEmbedding.CaseTwoConfig
 public import CFSG.LocalAnalysis.AGLEmbedding.CaseTwoEscape
@@ -27,7 +26,6 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.B1MoreElevenD
 public import CFSG.Quasithin.Background.B1MoreElevenF
 public import CFSG.Quasithin.Background.B1MoreNineG
@@ -35,11 +33,6 @@ public import CFSG.Quasithin.Background.B4ModelsAction
 public import CFSG.Quasithin.Background.B4ModelsIso
 public import CFSG.Quasithin.Background.C2Basic
 public import CFSG.Quasithin.Background.E1
-public import CFSG.Quasithin.Background.E1Sec4
-public import CFSG.Quasithin.Background.E1Sec5
-public import CFSG.Quasithin.Background.E1Sec8
-public import CFSG.Quasithin.Background.E1Solv
-public import CFSG.Quasithin.Background.E1Twelve
 public import CFSG.Quasithin.Background.E3Cent
 public import CFSG.Quasithin.EmptyFaithfulMultiple.InputB19Proof
 public import CFSG.RankThree.PartOne.S8.Statements

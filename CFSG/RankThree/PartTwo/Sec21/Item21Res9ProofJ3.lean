@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec21.Item21Res9ProofLift
 public import CFSG.RankThree.Asc83Table.J3
-public import CFSG.RankThree.Asc83Table.E27
 
 public section
 

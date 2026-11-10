@@ -5,10 +5,8 @@ public import Mathlib.LinearAlgebra.Matrix.Rank
 public import Mathlib.LinearAlgebra.Eigenspace.Zero
 public import Mathlib.RingTheory.Adjoin.PowerBasis
 public import TauCeti.LinearAlgebra.Eigenspace.Semisimple
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockDecomp
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockDegreeParity
-public import TauCeti.LinearAlgebra.End.FiniteOrder
 public import TauCeti.LinearAlgebra.Dimension.DirectSum
 public import TauCeti.FieldTheory.GaloisGroups.Stabilizer
 public import TauCeti.InformationTheory.Coding.Semilinear.Basic

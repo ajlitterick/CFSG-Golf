@@ -2,26 +2,10 @@ module
 
 public import CFSG.Yardstones.Md8ed6d263d89.Goals
 public import CFSG.Yardstones.Md8ed6d263d89.Reduction
-public import CFSG.Milestones.LC_GL_embedding_theorem_D1_rank_four
 public import CFSG.Milestones.LC_GL_embedding_theorem_D2_rank_four
-public import CFSG.Sporadic.Schreier.LyCheckSep
-public import CFSG.Sporadic.Ly.KeySpec
-public import CFSG.Sporadic.He.FpSpec
 import Certificates.Kernel.SporSch.Ly.SepGlue
-public import CFSG.Monster.Existence.StdOdd.Defs
-public import Certificates.Data.CFSGNative.Chevalley.C2E6CertLie
-public import CFSG.LieType.Chevalley.C2E6StdMatrixData
-public import CFSG.Monster.B.Classical.E6AdjointGroup
 import Certificates.Kernel.Misc.E6StdSlp
-public import CFSG.Blueprint.NativeSporadic
-public import CFSG.RankThree.PartOne.CTP.FusionSound
-import CFSG.Sporadic.Bridge.BFusSevenGen
-public import CFSG.YGroups.Y443.Native.CoverFactsWords
 import Certificates.Kernel.KDense.Y443
-public import CFSG.YGroups.Y443.Native.Swap13Word
-public import CFSG.Sporadic.Ly.FiveFacts
-import CFSG.Sporadic.Ly.Certificate
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeSc
 import Certificates.Kernel.E6RegPair.Assembly
 public import CFSG.HardMathSupport.Dickson.BMRows.M13Rows
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431SporAux.BMNo65
@@ -70,7 +54,6 @@ public import CFSG.LocalAnalysis.RankThreeTheoremC.D1CaseTwo3ThreeA6Sylow
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D1KlingenIdent
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2KFactLeavesCoreF
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3AutImage
-public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3Cover
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3Impure
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3InvTwo
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3Kmax
@@ -80,7 +63,6 @@ public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3NoncycFactor
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3TwoEscA
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3TwoEscB
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3TwoLocalI811
-public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Port3CoreFree
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2SporDatum3
 public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83Generic4_1P3A6Residues
 public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83Generic4_1P3L28PartsS

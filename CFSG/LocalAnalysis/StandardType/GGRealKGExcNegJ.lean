@@ -3,10 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGRealKGExcNegDefs
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcRootJ
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcTwRootJ
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsCore
-public import CFSG.RankThree.PartOne.KE.CTLang
-public import CFSG.LieType.Chevalley.GraphFixedF4GroupDescent
-public import CFSG.RankThree.Classical2.MatrixFrobeniusLang
 
 public section
 

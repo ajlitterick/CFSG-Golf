@@ -3,9 +3,6 @@ module
 public import Certificates.Kernel.HMathieu.Odd
 public import Certificates.Data.Kernel.HMathieu.FixList
 public import Certificates.Data.Kernel.HMathieu.Avoid
-public import CFSG.Quasithin.Background.HMathieuMask
-public import CFSG.Quasithin.Background.HMathieuPred
-public import CFSG.Certificates.Kernel.Common.Each
 public meta import CFSG.Certificates.Kernel.Common.JsonGz
 public meta import CFSG.Certificates.Kernel.Common.Repo
 

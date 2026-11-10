@@ -4,7 +4,6 @@ public import CFSG.Milestones.ASVolI.F48.Rest.U52eInputs
 import Certificates.Kernel.U52.GlueX
 import Certificates.Kernel.U52.BindF
 import CFSG.Certificates.Kernel.Misc.ArrBind
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.LieType.BorelTits.CompleteFlag
 
 set_option maxRecDepth 400000

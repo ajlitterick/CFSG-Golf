@@ -2,7 +2,6 @@ module
 
 public import CFSG.HardMathSupport.GuralnickMalle.CyclicTwoDecomp
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesInvolution
-public import Mathlib.LinearAlgebra.ExteriorPower.Basic
 
 public section
 

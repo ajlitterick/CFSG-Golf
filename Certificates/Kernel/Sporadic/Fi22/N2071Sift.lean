@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Sporadic.Fi22.X2069Final
 public import Certificates.Kernel.Sporadic.Fi22.E2065
-public import Certificates.Kernel.Sporadic.Fi22.E2067
 public import Certificates.Kernel.Sporadic.Fi22.H2066c0
 public import CFSG.Certificates.Kernel.Spor.SiftBKSound
 import CFSG.Certificates.Kernel.Common.Harness

@@ -13,8 +13,6 @@ import Certificates.Kernel.HN3166.Bytes
 import Certificates.Kernel.Sporadic.OrdCommon
 import CFSG.Certificates.Kernel.Common.Harness
 import all CFSG.Blueprint.NativeSporadic
-public import CFSG.Open.Defs
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

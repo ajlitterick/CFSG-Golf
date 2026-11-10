@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoU5Cor94
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeU52Models
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinNbrModel
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
 public import CFSG.Models.Blueprint
-public import CFSG.RankThree.PartOne.S12.ModelTransport
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434SmallTwoIVU52
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.HypA2Leaves.A2lCenter
 public import CFSG.Blueprint.LieModelAPI

@@ -14,7 +14,6 @@ public import CFSG.Monster.Existence.TwoPoint.Fi23RelsLongAD
 public import CFSG.Monster.Existence.TwoPoint.Fi23Misc
 public import CFSG.Monster.Existence.TwoPoint.Fi23Conj
 public import CFSG.Sporadic.Bridge.Fi23Surj
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 public import Certificates.Certificate16009
 

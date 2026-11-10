@@ -6,10 +6,6 @@ public import CFSG.ClassicalInvolution.RouteD.TwinYR2Model
 public import CFSG.ClassicalInvolution.RouteD.TwinYR2SpinModels
 import CFSG.ClassicalInvolution.Asc77.AscE187Img
 import CFSG.ClassicalInvolution.Asc77.WP3FrameModelPSU
-import CFSG.ClassicalInvolution.ModelFacts.ClauseZero
-import CFSG.ClassicalInvolution.Balance.PassTwoModelFacts
-import CFSG.ClassicalInvolution.Balance.BootNoTriple
-import CFSG.ClassicalInvolution.SmallCases.DSplitDefs
 public import CFSG.ClassicalInvolution.Balance.BootNoTripleStrong
 public import CFSG.ClassicalInvolution.RouteD.G2D4Ih8
 import CFSG.ClassicalInvolution.Asc77.AscE187Cop

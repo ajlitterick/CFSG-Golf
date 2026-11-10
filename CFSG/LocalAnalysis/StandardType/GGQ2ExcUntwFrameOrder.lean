@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQ2ExcPlacementDefs
 import CFSG.LocalAnalysis.StandardType.GGF4TwoNTFrame
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165ExcE6Two9
 import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTBHalf
-import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTorus
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTBTorus
 
 public section

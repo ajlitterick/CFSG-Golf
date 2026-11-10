@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Om7
-public import CFSG.HardMathSupport.Dickson.I271.Support.EngineKL
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs2711
 public import CFSG.HardMathSupport.Solomon.Coordinator.L5Conj
 public import CFSG.LocalAnalysis.GL83PartI.I_22_6

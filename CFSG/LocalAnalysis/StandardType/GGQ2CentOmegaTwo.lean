@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQ2CentInner
 import CFSG.LocalAnalysis.StandardType.GGTorusGenOrthTwoCent
 import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorus
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorusForms
-import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOrthNsLabels
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthExc
 
 public section
 

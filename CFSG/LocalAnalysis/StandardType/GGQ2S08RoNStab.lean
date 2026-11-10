@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08SuGen
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUAct
-public import CFSG.LocalAnalysis.SectionRank.OddCover.DegreeThree
-public import CFSG.ClassicalGroups.Unitary.Simple
-public import CFSG.LieType.Universal.Unitary.Clause0
-public import CFSG.ClassicalGroups.Unitary.Transport
 public import CFSG.ClassicalGroups.UnitaryFlag.StatedBridge
 public import CFSG.ClassicalGroups.UnitaryFlag.PointSylow
 public import CFSG.LocalAnalysis.SteinbergSFSingleCommModel3UnitaryGen

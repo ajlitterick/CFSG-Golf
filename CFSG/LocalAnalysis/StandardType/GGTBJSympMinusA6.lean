@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJSympMinusA6Model
 public import CFSG.LocalAnalysis.StandardType.GGSixAutStructurePSp
-public import CFSG.RankThree.PartOne.KC.SymplecticInnerPlaneAlt6
 public import CFSG.HardMathSupport.Solomon.Coordinator.ONCAutSix
 public import CFSG.HardMathSupport.Solomon.Coordinator.ONNotIso
 public import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma28

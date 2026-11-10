@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrKGTwE6ThreeAtDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaOutdiag
 
 public section
 

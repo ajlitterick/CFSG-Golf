@@ -2,11 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22L3UniBlock
 public import CFSG.LocalAnalysis.UniquenessCase.UC22L3FrameMap
-public import CFSG.Blueprint.Catalog
 import CFSG.RankThree.PartTwo.Sec15.Sylow155R1OddL3Inputs
 import CFSG.RankThree.PartTwo.Sec15.Sylow155R3L125Cop
 import CFSG.RankThree.PartTwo.Sec15.Sylow155R3L125W
-import CFSG.GH74.KGroups.L3EpsUni
 import CFSG.GroupTheory.PCore.SubgroupCore
 import CFSG.HardMathSupport.Solomon.LocalBalance.Defs
 import CFSG.LocalAnalysis.GLTheoremB.UniqInputs

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83SmallRank614ExtDefs
-import CFSG.LocalAnalysis.RankThreeTheoremC.GL83SmallRank614Reduce
 import CFSG.LocalAnalysis.RankThreeTheoremC.GL83SmallRank614Max
 import CFSG.LocalAnalysis.RankThreeTheoremC.GL83SmallRank614L615
 public import CFSG.Assembly.QuasithinDefs

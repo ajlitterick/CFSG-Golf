@@ -2,8 +2,6 @@ module
 
 public import CFSG.YGroups.Model233F.RawChain
 public import CFSG.YGroups.Exact.Y432
-public import Certificates.Data.CFSGNative.YGroups.Model432FData
-public import CFSG.YGroups.Model432FInputs
 public import Certificates.Certificate10102
 public meta import CFSG.YGroups.Defs
 public meta import CFSG.YGroups.Exact.Y432

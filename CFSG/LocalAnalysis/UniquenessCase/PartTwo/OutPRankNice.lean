@@ -1,12 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.OutPRank
-public import CFSG.LocalAnalysis.AGLEmbedding.RankLemmas
-public import CFSG.LocalAnalysis.SectionRank.SubgroupRank
-public import CFSG.GroupTheory.BurnsideNormalComplement
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.InputsMisc5
-public import Certificates.Kernel.Sporadic.Fi22.C3151
 public import CFSG.Adapters.StatedClassicalSmallOrders
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Quadruple
 public import CFSG.ClassicalInvolution.QuaternionStructure

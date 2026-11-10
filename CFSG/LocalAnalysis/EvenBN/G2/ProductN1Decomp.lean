@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.EvenBN.G2.ProductN1Center
-public import CFSG.LocalAnalysis.EvenBN.Common.SL2Module
-public import CFSG.LocalAnalysis.EvenBN.Common.SL2TorusFive
-public import CFSG.LocalAnalysis.EvenBN.Common.CoprimeQuotient
-public import CFSG.LocalAnalysis.EvenBN.Common.CosetFactorization
 
 public section
 

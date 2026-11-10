@@ -1,10 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.SmallCases.NDBG2
-public import CFSG.ClassicalInvolution.SmallCases.DSplitChain
-import CFSG.ClassicalInvolution.Balance.Theorem5Fuzzy
-import CFSG.ClassicalInvolution.Balance.BootstrapLayersFuzzyConnMember
-import CFSG.ClassicalInvolution.Generic.StepQuasisimple
 
 public section
 

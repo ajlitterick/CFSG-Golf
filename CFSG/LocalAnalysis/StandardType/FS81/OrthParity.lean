@@ -1,11 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorusCore
-public import CFSG.ClassicalGroups.Orthogonal.Derived
-public import CFSG.RankThree.OrthogonalInvolutions.Dickson
-public import CFSG.RankThree.PartOne.KC.OrthogonalSupportedScalarElementary
-public import CFSG.RankThree.PartOne.KC.OrthogonalHighWittFixedSpace
-public import CFSG.RankThree.Literature.FSmithOrthogonal
 
 public section
 

@@ -2,10 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec21.Item211Res4ProofMinusL4Tools
 import CFSG.RankThree.PartTwo.Sec21.Item211Lie2ProofU42Char
-import CFSG.RankThree.PartTwo.Sec21.Item211Lie3ProofSL2
-import CFSG.RankThree.GroupTheory.SteinbergBYRelativeCores
-import CFSG.Adapters.RankTwoModelTransports
-import CFSG.ClassicalInvolution.SL2Facts
 
 public section
 

@@ -1,21 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6TwoRankOne
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylKnownDefs
 import CFSG.LocalAnalysis.EvenBN.Common.SL2CentralTwoSplit
-import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelQ8Kernel
-import CFSG.LocalAnalysis.StandardType.GGTypeANbrTableBPSL
-import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
 import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylEltOfAutomizer
 import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6Holds
-import CFSG.LocalAnalysis.StandardType.GGForkJrPumpLattice
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRootGenLift
-import CFSG.LocalAnalysis.StandardType.GGTableBOutdiag
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseLabel
-import CFSG.LocalAnalysis.StandardType.GGSecFivePumpBstar
 import CFSG.LocalAnalysis.StandardType.GGResRowOnDefs
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUDefs
 
 public section
 

@@ -11,7 +11,6 @@ public import CFSG.CharacterTheory.TwoRankLowerBound.BrauerCharacterCriterion
 public import CFSG.CharacterTheory.TwoRankLowerBound.NormalComplementBlock
 public import CFSG.RankThree.PartTwo.Sec20.Alt20
 public import CFSG.RankThree.PartTwo.Sec20.OneSteps
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.Orthogonality
 
 public section
 

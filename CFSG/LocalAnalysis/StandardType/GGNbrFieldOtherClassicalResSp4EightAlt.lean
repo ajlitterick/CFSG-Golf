@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalCoreLine
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUElt
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeAEndModel
-public import CFSG.LocalAnalysis.ComponentClassification.PresentationLocalSymplecticSix
-public import Mathlib.GroupTheory.Sylow
 
 public section
 

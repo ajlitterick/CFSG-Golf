@@ -1,16 +1,12 @@
 module
 
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 public import Certificates.Kernel.Ly.Words
 public import Certificates.Kernel.Ly.Dce
 public import Certificates.Kernel.Ly.Tables
 import CFSG.Certificates.Kernel.Bounds.LyAlt.RelsTC
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 public import CFSG.Certificates.Kernel.DceS5Sound
 public import CFSG.Certificates.Kernel.DceSPSound
-public import CFSG.Open.Defs
 public import Certificates.Kernel.HN.Words
 
 public section

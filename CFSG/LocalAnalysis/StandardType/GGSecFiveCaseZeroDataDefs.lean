@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveCaseZeroCoordDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinPrimed
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1Defs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1WeylE
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRest
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
 
 public section
 

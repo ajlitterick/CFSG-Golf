@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGLayerCenterCyclicUnitary
 public import CFSG.LocalAnalysis.StandardType.GGLayerCenterCyclicSymplectic
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeInner
-public import CFSG.ClassicalGroups.Unitary.Finite
 
 public section
 

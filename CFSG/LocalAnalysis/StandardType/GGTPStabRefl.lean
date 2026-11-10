@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTPDefs
 public import CFSG.LocalAnalysis.StandardType.GGKGAutDict
-public import CFSG.LocalAnalysis.StandardType.GGKGWeylRootFacts
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24CentreStab
 
 public section

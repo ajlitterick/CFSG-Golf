@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGE6DepZLDefs
-public import CFSG.LocalAnalysis.StandardType.GGE6DepZLFinite
 public import CFSG.LocalAnalysis.StandardType.GGE6DepZLWeyl
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRestDefs
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaBase
 
 public section

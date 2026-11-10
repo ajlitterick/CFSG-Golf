@@ -68,7 +68,6 @@ public import CFSG.Quasithin.Background.B5CompA
 public import CFSG.Quasithin.Background.B5CompB
 public import CFSG.Quasithin.Background.D14Normal
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.Quasithin.Background.F1Amalgam
 public import CFSG.Quasithin.Background.F2Equiv
 public import CFSG.Quasithin.Background.InternalSecData

@@ -2,8 +2,6 @@
 module
 
 public import CFSG.Monster.B.TwoA.Sp8.GenActionHomBase
-public import CFSG.Monster.B.TwoA.Census.NatCert
-public import CFSG.Monster.B.TwoA.Co2Inv.ConjCertBase
 public meta import CFSG.Monster.B.TwoA.Sp8.GenActionHomBase
 public meta import CFSG.Monster.B.TwoA.Census.NatCert
 public meta import CFSG.Monster.B.TwoA.Co2Inv.ConjCertBase

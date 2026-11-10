@@ -2,9 +2,7 @@
 module
 
 public import CFSG.Quasithin.Background.HMathieuCodeMask
-public import CFSG.Quasithin.Background.HMathieuSyl22
 public import CFSG.Quasithin.Background.HMathieuSyl23
-public import CFSG.Quasithin.Background.HMathieuSyl24
 public import CFSG.Quasithin.Background.HMathieuFacts24Base
 public meta import CFSG.Quasithin.Background.HMathieuCodeMask
 public meta import CFSG.Quasithin.Background.HMathieuSyl22

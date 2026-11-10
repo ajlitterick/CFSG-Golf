@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.D6Gen
 public import CFSG.LocalAnalysis.StandardType.FS81.D6Model
-public import CFSG.LieType.ChevTwo.OrthogonalBasic
-public import CFSG.LieType.Universal.SpinOmega.Center
 public import CFSG.RankThree.PartOne.S11d.LieCentralizerPOmega
 
 public section

@@ -1,10 +1,5 @@
 module
 
-public import CFSG.Open.StatedDefs
-public import CFSG.Assembly.Defs
-public import CFSG.Assembly.Subnormal
-public import CFSG.ClassicalGroups.Orthogonal.Matrix
-public import CFSG.Adapters.ProjectiveSpecialLinear
 public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitOmBlock
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KNatParMax.ProdComponents
 

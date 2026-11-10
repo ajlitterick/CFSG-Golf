@@ -1,14 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267ClsCaseLLift
-public import CFSG.Open.StatedDefs
-import CFSG.Open.StatedAPI
 public import CFSG.RankThree.PartOne.CTP.SeitzDiag
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.CriticalSubgroupLemmas
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection2.EndFieldRep
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Burnside.NormalComplement
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Extraspecial
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.ConjugateRep
 
 public section
 

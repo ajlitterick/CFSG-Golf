@@ -4,7 +4,6 @@ module
 public import Certificates.Kernel.SporSch.Co2M.ThirdFinalBase
 
 public import Certificates.Kernel.SporSch.Co2M.ThirdBound
-public import CFSG.Certificates.Kernel.SporSch.ThirdLowerPrelude
 public import CFSG.Certificates.Kernel.SporSch.ThirdLower
 public import CFSG.Certificates.Kernel.SporSch.ThirdDfs
 

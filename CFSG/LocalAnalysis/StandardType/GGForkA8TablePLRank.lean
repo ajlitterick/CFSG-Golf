@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGForkA8TablePClauses
-public import CFSG.LocalAnalysis.StandardType.GGTableBTransport
 public import CFSG.LocalAnalysis.StandardType.GGSL9TwoProj
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangRestRank
 
 public section
 

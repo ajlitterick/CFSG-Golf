@@ -1,14 +1,9 @@
 module
 
-public import CFSG.Sporadic.Co2InvData
-public import CFSG.Sporadic.Co2Cert.FaithfulCheck
-public import CFSG.Sporadic.Co2Cert.OrderCheck
-public import Std.Data.HashMap
 public meta import CFSG.Sporadic.Co2InvData
 public meta import CFSG.Sporadic.Co2Cert.FaithfulCheck
 public meta import CFSG.Sporadic.Co2Cert.OrderCheck
 public meta import Std.Data.HashMap
-public import CFSG.Sporadic.Co2InvCheckInputs
 public import Certificates.Certificate3118
 
 public section

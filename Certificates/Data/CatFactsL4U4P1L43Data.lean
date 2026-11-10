@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4P1LPoints
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4P1Check
-public import Certificates.Data.CFSGNative.Schreier.Check
 public import Mathlib.Data.Fintype.Fin
 public import Mathlib.Data.Matrix.Mul
 

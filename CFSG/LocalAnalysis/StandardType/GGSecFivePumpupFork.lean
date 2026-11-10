@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePumpupDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosDefs
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLDType
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpupOrb
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpLeaf
 import CFSG.LocalAnalysis.StandardType.GGSecFiveL2SplitWeylEquiv

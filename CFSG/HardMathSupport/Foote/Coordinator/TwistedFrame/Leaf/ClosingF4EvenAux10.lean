@@ -2,8 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Foote.Coordinator.TwistedFrame.Leaf.ClosingF4EvenAux9
 public import CFSG.RankThree.PartOne.RF4.Descent
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LieType.Ree.SmallReeModelSchreier
 public import CFSG.LocalAnalysis.ComponentInitial.SylowPointRecovery
 

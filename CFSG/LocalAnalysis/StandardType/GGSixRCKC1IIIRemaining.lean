@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeGlue
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeFAt
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1III
 
 public section

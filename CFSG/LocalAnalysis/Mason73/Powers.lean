@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.Mason73.TableIII
-public import Mathlib.GroupTheory.Commutator.Basic
 import Mathlib.Tactic.LinearCombination
 
 public section

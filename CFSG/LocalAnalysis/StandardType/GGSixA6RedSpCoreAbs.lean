@@ -1,11 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixA6RedSpDefs
-public import CFSG.LocalAnalysis.StandardType.GGSixA6RedSpSplit
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedSpFree
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedSpLie
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedSpA6
-public import CFSG.LocalAnalysis.StandardType.GGSixA6RedNotShape
 
 public section
 

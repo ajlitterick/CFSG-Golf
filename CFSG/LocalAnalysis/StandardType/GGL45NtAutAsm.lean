@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGL45NtDefs
 public import CFSG.LocalAnalysis.StandardType.GGTwistedF4DiagRaw
 public import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOtherAssembly
 public import CFSG.LocalAnalysis.StandardType.GGAssemblyFiveDefs
-public import CFSG.LocalAnalysis.StandardType.GGRawAutRest
-public import CFSG.LocalAnalysis.StandardType.GGSixStepOneOutdiag
 
 public section
 

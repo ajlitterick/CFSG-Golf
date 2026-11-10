@@ -1,8 +1,6 @@
 module
 
 public import Certificates.Data.Holder272.E29Data
-public import Certificates.Data.CFSGNative.CosetTable.Enum
-public import CFSG.Certificates.CosetTablePresented
 public import CFSG.Certificates.CosetTableShort
 public import Mathlib
 

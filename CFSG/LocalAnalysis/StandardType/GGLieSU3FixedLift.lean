@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Assembly.GL83LieDefs
-import CFSG.ClassicalGroups.UnitaryFlag.GroupData
 import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotKindUnitaryGlobal
 import CFSG.RankThree.PartOne.CTP.SeitzReduction
 import CFSG.ClassicalInvolution.Models.SymplecticPairs.Quadruple

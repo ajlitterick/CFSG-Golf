@@ -2,7 +2,6 @@ module
 
 public import Mathlib.GroupTheory.FiniteAbelian.Basic
 public import Mathlib.RingTheory.Finiteness.Cofinite
-public import Mathlib.LinearAlgebra.Quotient.Basic
 
 public section
 

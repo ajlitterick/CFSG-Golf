@@ -10,8 +10,6 @@ public import Certificates.Kernel.SporSch.Co2M.FratTB0
 public import Certificates.Kernel.SporSch.Co2M.FratTB1
 public import Certificates.Kernel.SporSch.Co2M.FratTB2
 public import Certificates.Kernel.SporSch.Co2M.Span
-public import CFSG.Certificates.Kernel.Spor.RawAgree
-public import CFSG.Certificates.Kernel.SporSch.MatInj
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

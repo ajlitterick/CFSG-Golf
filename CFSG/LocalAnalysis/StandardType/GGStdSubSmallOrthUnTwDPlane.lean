@@ -5,7 +5,6 @@ public import CFSG.LinearAlgebra.CoprimeActions.AbelianFixedFreeLinearCyclic
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.H81Orth.TwistedConfig
 public import CFSG.RankThree.PartOne.K159.RowFourFixed
 public import CFSG.RankThree.PartOne.KFR4.Frame
-public import CFSG.GroupTheory.WeirSylow.OrthogonalOrders
 public import CFSG.RankThree.PartOne.S15K.FixedWitt
 public import CFSG.RankThree.PartOne.S15K.LayerModel
 

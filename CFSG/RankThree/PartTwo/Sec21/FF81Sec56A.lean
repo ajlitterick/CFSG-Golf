@@ -10,8 +10,6 @@ import CFSG.RankThree.PartTwo.Sec21.FF81Sec54
 import CFSG.RankThree.PartTwo.Sec21.FF84S36Ab
 import CFSG.SignalizerFunctorTheorem.McBride.Prelim.Generation
 import CFSG.Quasithin.Background.A1cRank
-import CFSG.GroupTheory.ElemAbelianClosure
-import CFSG.GroupTheory.ElementaryAbelianTransport
 import CFSG.LinearAlgebra.LinearGroups.LinearTwo
 import CFSG.LocalAnalysis.ComponentClassification.CatFC.L44CoverTrivial
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueUStatement
@@ -20,7 +18,6 @@ import CFSG.LocalAnalysis.ComponentClassification.GSThmB7Basic
 import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog8L4
 import CFSG.SignalizerFunctorTheorem.McBride.Prelim.Basic
 import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
-import CFSG.Sporadic.Th.F2Spec
 
 attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent
 

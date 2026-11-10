@@ -1,15 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusSympSplit
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusSympNonsplit
-import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticTorus
-import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticBstar
-import CFSG.LocalAnalysis.StandardType.KGLangS1ALinTypeDet
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagConcl
-import CFSG.LocalAnalysis.ComponentInitial.DerivedFixedLayer
-import CFSG.LocalAnalysis.ComponentInitial.BlockCentralQuotient
 
 public section
 

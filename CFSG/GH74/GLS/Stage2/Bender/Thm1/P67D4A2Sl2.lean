@@ -1,10 +1,6 @@
 module
 
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4A2Core
-public import CFSG.GH74.GLS.Stage4.HexModelD4
-public import CFSG.LieType.Steinberg.TwistedD4.Perfect
-public import CFSG.LieType.Steinberg.TwistedD4.RankOne
-public import CFSG.LinearAlgebra.LinearGroups.Perfect
 
 public noncomputable section
 

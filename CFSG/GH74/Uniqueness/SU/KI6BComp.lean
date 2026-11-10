@@ -2,9 +2,6 @@ module
 
 public import CFSG.GH74.Uniqueness.SU.KI6BGroup
 public import CFSG.GH74.Uniqueness.SU.KI6A
-public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.CentralInvolutionStructure
-public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.CharacteristicCore
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Hall.Basic
 import CFSG.LocalAnalysis.SectionRank.AmbientRank
 public import CFSG.Adapters.GeneralizedFitting
 public import CFSG.GH74.Uniqueness.SU.KI1r3Simple

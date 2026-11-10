@@ -1,14 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNSJoinOutWeakDefs
-public import CFSG.LocalAnalysis.StandardType.GGNSJoinOutWeakPosDefs
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinOutOfWeak
 public import CFSG.LocalAnalysis.StandardType.GGOrthFrameConcl
-import CFSG.LocalAnalysis.StandardType.GGNbrBalance
-import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
 import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrCoxOrder
-import CFSG.LocalAnalysis.StandardType.GGSimplyLacedWeyl
-import CFSG.LocalAnalysis.StandardType.GGReflectionBasic
 
 public section
 

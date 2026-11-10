@@ -4,7 +4,6 @@ public import Certificates.Data.D42Triality
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public import Certificates.Kernel.Sporadic.OddCore.MulHCmd
 public import Certificates.Kernel.Sporadic.OddCore.RowsCmd
-public import Certificates.Data.Kernel.Spor.MulH
 public meta import Certificates.Data.D42Triality
 public meta import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.NativeData
 public import Mathlib.Algebra.Order.Floor.Extended

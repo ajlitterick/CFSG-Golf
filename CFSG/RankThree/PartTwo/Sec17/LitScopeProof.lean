@@ -2,10 +2,8 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec17.Item17ResProof177
 public import CFSG.RankThree.PartTwo.Sec17.Item1712StepsProofMain
-public import CFSG.RankThree.PartTwo.Sec17.Item177Proof
 public import CFSG.RankThree.PartTwo.Sec6.LitScopeProof
 import CFSG.RankThree.PartTwo.Sec17.Item176StepsProofTools
-import CFSG.RankThree.PartTwo.Sec17.Item17HeadProof
 import CFSG.RankThree.PartTwo.Sec17.Item17TailEnd
 import CFSG.RankThree.PartTwo.Sec17.Item171ProofKFact
 import CFSG.RankThree.PartTwo.Sec15.HypS
@@ -14,9 +12,6 @@ import CFSG.RankThree.PartTwo.Sec14.Item147
 import CFSG.RankThree.PartTwo.Sec14.Item14Tools
 import CFSG.RankThree.PartTwo.Sec13.Item137Tools
 import CFSG.RankThree.PartTwo.Sec16.Item163StepsAltProofTools
-import CFSG.RankThree.PartTwo.Sec6.Item612Plus
-import CFSG.RankThree.PartTwo.Sec6.Item612Core
-import CFSG.RankThree.PartTwo.Sec6.Item612Local
 import CFSG.RankThree.PartTwo.Sec5.Tools
 import CFSG.RankThree.Coprime.ThompsonElementaryComplement
 public import CFSG.CGT.Timmesfeld75.Statements

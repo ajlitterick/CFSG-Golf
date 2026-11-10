@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Certificates.Kernel.Th.S.BigS
 public import CFSG.Certificates.Kernel.Th.S.Data.Sm_Sel
 import CFSG.Certificates.Kernel.Common.Harness
 

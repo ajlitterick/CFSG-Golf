@@ -2,7 +2,6 @@
 module
 
 public import CFSG.Sporadic.Schreier.J4SOddData
-public import CFSG.Sporadic.Schreier.J4SKCentBase
 
 public section
 

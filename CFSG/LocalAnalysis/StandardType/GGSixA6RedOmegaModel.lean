@@ -1,13 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedDefs
-public import CFSG.LieType.BorelTits.OrthogonalForm
-public import CFSG.LieType.Universal.Spin.Forms
-public import CFSG.LocalAnalysis.StandardType.GGOppositeRadicalOmegaPlusModel
 public import CFSG.LocalAnalysis.StandardType.GGOppositeRadicalOmegaMinusModel
 public import CFSG.LocalAnalysis.SectionRank.QTK.EvenExt
-public import CFSG.LocalAnalysis.SectionRank.Exceptional
-public import CFSG.RankThree.PartOne.KF.ClsOmega
 public import CFSG.RankThree.CentralLift.ClassicalExactScalarCover
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.L6LeavesKFact2401OmegaBasic
 public import CFSG.CGT.PushingUpLit.SolK.Inputs
@@ -101,7 +96,6 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly

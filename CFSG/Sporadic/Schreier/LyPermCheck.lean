@@ -1,8 +1,6 @@
 module
 
-public import Certificates.Data.CFSGNative.LySchreier.Data
 public meta import Certificates.Data.CFSGNative.LySchreier.Data
-public import CFSG.Sporadic.Schreier.LyPermCheckInputs
 public import Certificates.Certificate2186
 
 public section

@@ -2,10 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec4.Sporadic.J2Local45
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.CoprimeAmbientCentralizerGeneration
-public import Certificates.Certificate10019
-public import Certificates.Certificate8168
-public import Certificates.Certificate8169
-public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
 
 public section
 

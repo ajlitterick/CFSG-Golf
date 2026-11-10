@@ -2,7 +2,6 @@ module
 
 public import CFSG.Goldschmidt.Steps.StrongEmb
 public import CFSG.ThirdParty.QiuzhenCFSG.BaerSuzuki.FinalTheorem
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
 
 public section
 

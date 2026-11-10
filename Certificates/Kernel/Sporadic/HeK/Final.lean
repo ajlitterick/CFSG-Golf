@@ -12,16 +12,12 @@ public import CFSG.Certificates.Kernel.Orders.He.RelsBind
 public import Certificates.Certificate9118
 import CFSG.Certificates.Kernel.Spor.F3R
 import CFSG.Certificates.Kernel.Spor.VOrbSound
-import CFSG.Certificates.Kernel.Spor.OrdSound
 import CFSG.Certificates.Kernel.Spor.TabWords
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 import Certificates.Kernel.Sporadic.ON.Gen
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.NormNum
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.CosetTableCompactPresented
 public import CFSG.Certificates.Kernel.BfsPinSound
-public import CFSG.Certificates.Kernel.BfsPinUnpack
 public import CFSG.Sporadic.Presentation.Common
 public import CFSG.Sporadic.Schreier.LyCheckSeven
 

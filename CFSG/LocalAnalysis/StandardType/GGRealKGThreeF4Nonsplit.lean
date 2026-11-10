@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGRealKGThree
 public import CFSG.LocalAnalysis.StandardType.GGRealKGExcNegC
 public import CFSG.LocalAnalysis.StandardType.GGF4ThreeNoReflection
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLine
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylExcPlusLift
 
 public section
 

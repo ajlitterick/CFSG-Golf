@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRMModuleBarAbs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRMModuleAdj
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBarBridge
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcReflCartan
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 

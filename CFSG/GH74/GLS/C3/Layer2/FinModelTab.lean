@@ -1,14 +1,10 @@
 module
 
-public import CFSG.GH74.GLS.C3.Layer2.FinModelEmb
-public import CFSG.GH74.GLS.C3.Layer2.FinModelEnum
-public import CFSG.GH74.GLS.C3.Layer2.NumMoved
 public meta import Mathlib.GroupTheory.SpecificGroups.Alternating
 public meta import CFSG.GH74.GLS.C3.Layer2.FinModelDefs
 public meta import CFSG.GH74.GLS.C3.Layer2.FinModelEmb
 public meta import CFSG.GH74.GLS.C3.Layer2.FinModelEnum
 public meta import CFSG.GH74.GLS.C3.Layer2.NumMoved
-public import CFSG.GH74.GLS.C3.Layer2.FinModelTabInputs
 public meta import CFSG.GH74.GLS.C3.Layer2.FinModelTabInputs
 public import Certificates.Certificate5041
 

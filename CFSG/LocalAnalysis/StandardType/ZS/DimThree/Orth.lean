@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.ZS.DimThree.OrthRefl
 public import CFSG.LocalAnalysis.StandardType.ZS.MovedAction
 import CFSG.LocalAnalysis.ComponentInitial.CLSFourGroupOrthogonalAbelianization
 import CFSG.LocalAnalysis.StandardType.ZS.ReflQuotient
-import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalGroup.Basic
 import CFSG.ClassicalGroups.Orthogonal.ProjectiveSimple
 import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasThree
 import CFSG.LocalAnalysis.ComponentInitial.OrthogonalReflectionSplitting

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTwE6FieldSubgroup
 public import CFSG.LocalAnalysis.StandardType.GGTwE6FieldLift
 public import CFSG.LieType.SeitzGeneration.ExcHighThree.TwKillsRoot
-public import CFSG.GroupTheory.ElemAbelianClosure
 public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcE8Rank1
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Detect.E8.MPart
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Transport

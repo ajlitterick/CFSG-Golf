@@ -1,6 +1,5 @@
 module
 public import CFSG.LieType.Steinberg.CentralExt.TwistedE6OriginalFamilyKernel
-public import CFSG.LocalAnalysis.StandardType.GGKGWeylRootFacts
 public noncomputable section
 namespace CFSG.LieType.Steinberg.CentralExt.TwistedE6TwoCover
 open CFSG CFSG.StandardType CFSG.Blueprint.Chevalley CFSG.LieType.Chevalley

@@ -1,7 +1,5 @@
 module
 
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Defs
-public import CFSG.LieType.Chevalley.ToralCentralizerQuotient
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutOutdiagExcPpd
 import CFSG.LocalAnalysis.StandardType.GGE6OutdiagPpdKernel
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T158MShE6D4T2
@@ -10,53 +8,6 @@ import CFSG.LocalAnalysis.GLTheoremA.CatA.K1419ExcInnTypeA
 import CFSG.LocalAnalysis.GLTheoremA.CatC.RationalTypeAModel
 import CFSG.LocalAnalysis.StandardType.GGLangCoroot
 import CFSG.RankThree.PartTwo.KFacts.KSListsProofCard
-import CFSG.Timmesfeld.Orders.Distinct
-import CFSG.LieType.Chevalley.SignKernelSimpleWeyl
-import CFSG.LieType.Chevalley.KernelComponentRoots
-import CFSG.RankThree.Chevalley.SteinbergBID4A2CharStab
-import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.KS.TwE6UniqFacts
-import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24A2CubeClass
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcRoots
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwReduction
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwTorus
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcVacuous
-public import CFSG.HardMathSupport.Timmesfeld.DefChar.LieOuterE
-public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.CrossLin
-public import CFSG.LieType.Ree.LargeReeEightTorus
-public import CFSG.LieType.Ree.SmallReeModelSchreier
-public import CFSG.LieType.Simplicity.Finiteness
-public import CFSG.LocalAnalysis.ComponentInitial.SylowPointRecovery
-public import CFSG.LocalAnalysis.SectionRank.EvenCover.Catalog
-public import CFSG.LocalAnalysis.SectionRank.LargeRee.SuzukiData
-public import CFSG.LocalAnalysis.SectionRank.OddCover.CatalogOdd
-public import CFSG.LocalAnalysis.SectionRank.SectionAssemblyBase
-public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
-public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
-public import CFSG.LocalAnalysis.SectionRank.TitsCover
-public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
-public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.Monster.B.Geometry.CoxeterWords
-public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
-public import CFSG.Quasithin.Background.A3Structure36BAction
-public import CFSG.Quasithin.Background.A3Structure36BBasic
-public import CFSG.Quasithin.Background.A3Structure36BPrime
-public import CFSG.RankThree.Lattice.SteinbergBIOrbitQuotFull
-public import CFSG.RankThree.PartOne.KE.A1SL2
-public import CFSG.RankThree.PartOne.KE.A1Torus
-public import CFSG.RankThree.PartOne.KE.A2Family
-public import CFSG.RankThree.PartOne.KE.A2Shape
-public import CFSG.RankThree.PartOne.KE.SigmaUntwisted
-public import CFSG.RankThree.PartOne.KLR.Master
-public import CFSG.RankThree.PartOne.KLR.SectorAssembly
-public import CFSG.RankThree.PartOne.S8.Statements
-public import CFSG.Sporadic.J4.Simple
-public import CFSG.Sporadic.J4Base
-public import CFSG.Sporadic.Mathieu.M12
-public import CFSG.Sporadic.Mathieu.M24
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 import CFSG.HardMathSupport.Dickson.Sec6.I923Fam.PsuGoodAux.Descent
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24D4T2Comp
 import CFSG.HardMathSupport.Solomon.Coordinator.LBIInput6_1Main

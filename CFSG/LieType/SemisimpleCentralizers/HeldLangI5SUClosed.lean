@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LieType.SemisimpleCentralizers.HeldLangI5UniCover
 public import CFSG.LieType.SemisimpleCentralizers.HeldLangI5
-public import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
-public import CFSG.LieType.Steinberg.CentralExt.PSUMultiplier
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneProjSlice
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264Parts
 public import CFSG.LocalAnalysis.GLTheoremA.S4.Assembly

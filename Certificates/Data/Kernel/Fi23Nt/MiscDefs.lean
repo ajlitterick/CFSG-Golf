@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.Kernel.Fi23K.Defs
 public import Certificates.Data.Kernel.Fi23R.Defs
 
 public section

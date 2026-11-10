@@ -4,11 +4,8 @@ module
 public import Certificates.Kernel.Sporadic.Fi24E.CheckSg
 public import Certificates.Kernel.Sporadic.Fi24E.CheckCv
 public import Certificates.Kernel.Sporadic.Fi24E.CheckFx
-public import Certificates.Kernel.Sporadic.Fi24Oct.Group
 public import CFSG.Certificates.Kernel.Spor.Fi24ESound
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront10SporFi24ECardBase
-public import CFSG.Sporadic.Fi24.Fi24EFacts
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Sporadic.Th.Chain
 public import CFSG.Sporadic.ThSchreier.AutCore
 

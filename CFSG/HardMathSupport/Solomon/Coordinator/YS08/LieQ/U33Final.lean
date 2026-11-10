@@ -2,8 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.YS08.LieQ.U33
 public import CFSG.LieType.ChevTwo.OppCl.SmallGlue
-public import CFSG.Open.StatedDefs
-public import CFSG.Blueprint.Catalog
 
 public section
 

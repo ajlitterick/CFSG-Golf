@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangPow
-import CFSG.LieType.Chevalley.AdjointCenter
 
 public section
 

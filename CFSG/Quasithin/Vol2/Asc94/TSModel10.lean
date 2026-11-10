@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.Asc94.TSModel8
-public import CFSG.Quasithin.Vol2.Asc94.TSModel7
 
 public section
 

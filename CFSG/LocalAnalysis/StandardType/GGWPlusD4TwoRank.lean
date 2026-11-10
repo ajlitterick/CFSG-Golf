@@ -4,9 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGWPlusD4TwoInnerSC
 public import CFSG.LocalAnalysis.StandardType.GGWPlusD4TwoEquivSC
 public import CFSG.LocalAnalysis.StandardType.GGWPlusD4TwoSC
 public import CFSG.LocalAnalysis.StandardType.GGWPlusD4CardOrth
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOrthNsLabels
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaModel
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBBridge
 
 public section
 

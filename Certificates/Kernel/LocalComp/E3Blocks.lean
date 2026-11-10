@@ -2,7 +2,6 @@
 module
 
 public import Certificates.Kernel.LocalComp.E3Checks
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

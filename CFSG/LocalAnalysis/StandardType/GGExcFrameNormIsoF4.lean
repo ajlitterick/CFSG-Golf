@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGExcFrameLang
 public import CFSG.LocalAnalysis.StandardType.GGTableBF4TwoTBInputs
 public import CFSG.LocalAnalysis.StandardType.GGNoTransvectionAutForm
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesCore
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcRank
-public import CFSG.RankThree.Chevalley.SteinbergCAF4SplitPrimeTorus
 
 public section
 

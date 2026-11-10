@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Sporadic.Schreier.Co3CentralizerCheck
-public import CFSG.Sporadic.Schreier.Co3Outer
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Monster.B.Mathieu.Order
 public meta import CFSG.Sporadic.Schreier.Co3CentralizerCheck

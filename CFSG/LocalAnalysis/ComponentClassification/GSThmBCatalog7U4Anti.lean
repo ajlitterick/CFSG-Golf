@@ -8,7 +8,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4SteinU
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog7U4Lift
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitKG
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitPSL
-public import CFSG.LocalAnalysis.ComponentClassification.OddSelector
 public import CFSG.LocalAnalysis.ComponentClassification.Sp4RecLinearHigh
 public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeGroup
 

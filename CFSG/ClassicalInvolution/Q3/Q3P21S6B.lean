@@ -4,16 +4,11 @@ public import CFSG.ClassicalInvolution.Q3.Q3P21S6
 public import CFSG.ClassicalInvolution.Q3.Q3TPSChart
 public import CFSG.ClassicalInvolution.Q3.Q3TY6
 public import CFSG.ClassicalInvolution.Q3.Q3TY20
-public import CFSG.ClassicalInvolution.Q3.Q3WStd
-public import CFSG.ClassicalInvolution.RouteD.TypeF4Nodes
-public import CFSG.ClassicalInvolution.RouteD.TypeF4Lift
-public import CFSG.ClassicalInvolution.RouteD.TypeCBlock
 public import CFSG.ClassicalInvolution.Asc77.SU4Model
 public import CFSG.ClassicalInvolution.Q3.Q3P21S4
 public import CFSG.ClassicalInvolution.Q3.Q3TY11
 public import CFSG.ClassicalInvolution.Q3.Q3TY32
 public import CFSG.ClassicalInvolution.Q3.Q3URDict
-public import CFSG.ClassicalInvolution.Q3.Q3URStd
 
 public section
 

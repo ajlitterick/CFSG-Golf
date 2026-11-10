@@ -9,7 +9,6 @@ public import CFSG.GroupTheory.SubgroupOfLattice
 public import CFSG.ClassicalInvolution.SmallOrth.Orth3Block
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2PerfectOfCard
 public import CFSG.ClassicalGroups.Orthogonal.FiveDimensionalSylow
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2InnerAction
 import all CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2InnerAction
 
 public noncomputable section

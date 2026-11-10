@@ -2,7 +2,6 @@ module
 
 public import CFSG.Certificates.Kernel.LocalQTOuterSound
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1M22OuterInputs
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Foundations
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 public import CFSG.LocalAnalysis.ComponentClassification.LayerMultiplication

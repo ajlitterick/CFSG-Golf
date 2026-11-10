@@ -4,13 +4,7 @@ module
 public import CFSG.Sporadic.Schreier.J4SOrderBase
 
 public import CFSG.Sporadic.Schreier.J4SOrbitCheck
-public import CFSG.Sporadic.Schreier.J4SChain
-public import CFSG.Sporadic.J4Base
-public import CFSG.Sporadic.Schreier.J4SNative
-public import CFSG.Sporadic.Schreier.J4SCols
-public import CFSG.Sporadic.Schreier.J4SOrbits
 public meta import CFSG.Sporadic.Schreier.J4SOrbits
-public import CFSG.Sporadic.J4.Local
 
 @[expose] public noncomputable section
 

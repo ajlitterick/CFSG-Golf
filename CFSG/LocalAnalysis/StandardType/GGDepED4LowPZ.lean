@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGDepED4LowDefs
 public import CFSG.LocalAnalysis.StandardType.GGPZE6Input
 public import CFSG.LocalAnalysis.StandardType.GGDepED4LowPZCard
 

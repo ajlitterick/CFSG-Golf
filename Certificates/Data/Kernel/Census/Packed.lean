@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Certificates.Kernel.Enum.Defs
 public import Certificates.Data.Kernel.Spor.Chain
 public import Mathlib.Data.List.Sort
 public import Mathlib.Data.Nat.Digits.Defs

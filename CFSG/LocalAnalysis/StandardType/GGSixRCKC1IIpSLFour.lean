@@ -6,7 +6,6 @@ import CFSG.LocalAnalysis.StandardType.GGSixRCK1416Spin
 import CFSG.LocalAnalysis.StandardType.GGSummandStructBasic
 import CFSG.LinearAlgebra.SLBlockFourRankOne
 import CFSG.LinearAlgebra.SLBlockFourRankTwo
-public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 
 public section
 

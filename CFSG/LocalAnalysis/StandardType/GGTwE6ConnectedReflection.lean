@@ -1,30 +1,17 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourModel
-public import CFSG.LocalAnalysis.StandardType.GGLieM6cDescent
 public import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourCover
 public import CFSG.LieType.AlgebraicGroups.ConnectedCentralizerReflection
 public import CFSG.LieType.AlgebraicGroups.AdjointCentralizerComponentsThree
-public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpDefs
-public import CFSG.LocalAnalysis.StandardType.GGReflectionBasic
 public import CFSG.LocalAnalysis.StandardType.GGE6NonToralCentralizerTorus
 public import CFSG.LocalAnalysis.StandardType.GGE6NegativeCyclic
 public import CFSG.LieType.AlgebraicGroups.TorusCentralizerMaximal
-public import CFSG.LieType.AlgebraicGroups.ReductiveFixedComponentsThree
-public import CFSG.LieType.AlgebraicGroups.FixedComponentCentralIsogeny
-public import CFSG.LieType.AlgebraicGroups.FixedComponentProduct
-public import CFSG.LieType.AlgebraicGroups.FixedComponentSmooth
-public import CFSG.LieType.AlgebraicGroups.CoordinateConjugation
-public import CFSG.LieType.AlgebraicGroups.MatrixFixedComponentsThree
 public import CFSG.LieType.AlgebraicGroups.InnerCoordinateConjugation
 public import CFSG.LieType.AlgebraicGroups.MatrixFixedIdentityComponent
 public import CFSG.LieType.AlgebraicGroups.ReductiveFixedCoverData
 public import CFSG.LieType.AlgebraicGroups.FixedTorusReductive
-public import CFSG.LieType.AlgebraicGroups.ReductiveDescent
 public import TauCeti.Algebra.AlgebraicGroup.Reductive.Product
-public import TauCeti.Algebra.AlgebraicGroup.Reductive.Basic
-public import CFSG.GroupTheory.ElementaryAbelianTransport
-public import CFSG.LieType.AlgebraicGroups.ClosedIdentityComponentFunctorial
 public import CFSG.LieType.AlgebraicGroups.FiniteNormalizerComponentAction
 public import CFSG.LieType.AlgebraicGroups.ConnectedMatrixCentralizer
 import CFSG.GroupTheory.OddKernelImage

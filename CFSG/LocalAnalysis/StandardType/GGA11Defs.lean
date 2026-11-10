@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveA11Strong
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveInputs
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import Certificates.Data.A8Nbr476
 
 public section
 

@@ -1,19 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseLabel
-public import CFSG.LocalAnalysis.StandardType.GGNSJoinContracts
-public import CFSG.LocalAnalysis.StandardType.GGNSJoinGen
-public import CFSG.LocalAnalysis.StandardType.GGNSJoinGenMember
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinOrthExcl
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinQFourParts
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinRMAssembly
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanEDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1WeylE
-import CFSG.LocalAnalysis.StandardType.GGNSJoinRankOneOfRk1
-public import CFSG.LocalAnalysis.StandardType.GGNSJoinNbrInputs
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinOutWeakUnitary
-import CFSG.LocalAnalysis.StandardType.GGNSJoinRealized
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 import CFSG.LocalAnalysis.StandardType.GGTBE6
 import CFSG.LocalAnalysis.StandardType.GGTBTorLiftRowsHolds
 

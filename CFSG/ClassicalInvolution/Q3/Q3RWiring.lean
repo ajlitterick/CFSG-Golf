@@ -22,9 +22,6 @@ public import CFSG.Combinatorics.OuterLayerPredecessors
 public import CFSG.LinearAlgebra.LinearGroups.UnitaryThreeOverNine
 public import CFSG.LinearAlgebra.LinearGroups.UnitaryThreeOverNineInvolutions
 public import CFSG.Permutation.UnitaryThreeRecognition.Model
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_1_12
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 
 public section

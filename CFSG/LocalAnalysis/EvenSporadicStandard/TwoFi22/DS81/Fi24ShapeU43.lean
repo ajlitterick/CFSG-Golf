@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LieType.Multipliers.U43Bridge
-public import CFSG.LieType.Multipliers.CoverWords
-public import CFSG.Open.StatedDefs
 import CFSG.ClassicalGroups.Unitary.Simple
 
 public section

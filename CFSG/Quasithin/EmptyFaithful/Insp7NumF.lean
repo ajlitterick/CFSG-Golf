@@ -14,7 +14,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinear
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Alt
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115OddL2
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Reduce
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 
 public section
 

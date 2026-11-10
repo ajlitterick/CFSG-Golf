@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.NormalizerAction.J4ThreeClassData
 public meta import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.NormalizerAction.J4ThreeClassData
 public import Certificates.Kernel.J4M2.SlpB
 public import Certificates.Kernel.J4M2.C12610Checks

@@ -2,12 +2,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIE8Transport
 public import CFSG.LocalAnalysis.StandardType.GGE8TwoThreeComp
 public import CFSG.LocalAnalysis.StandardType.GGCompListMarked
-import CFSG.LocalAnalysis.StandardType.GGK0MarkedArithmetic
 import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIE6Components
-import CFSG.LocalAnalysis.StandardType.GGReverseMarking
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcInn
-import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerAdj
-import CFSG.LocalAnalysis.StandardType.GGD4OddCentVocab
 
 public section
 namespace CFSG.StandardType.RCKC1

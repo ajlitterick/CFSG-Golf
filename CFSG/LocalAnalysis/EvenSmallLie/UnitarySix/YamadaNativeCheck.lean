@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.YamadaNativeData
 public meta import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.YamadaNativeData
-public import Certificates.Certificate3180
 public import Certificates.Certificate3000
 
 public section

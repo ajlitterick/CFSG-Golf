@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGInvolutionClassSURoot
-import CFSG.LieType.Steinberg.CoreBasic
 
 public section
 

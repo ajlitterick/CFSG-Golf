@@ -1,17 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermOmKFrameDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniBlocks
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniOmFrames
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
-public import CFSG.LocalAnalysis.StandardType.GGSignedCoordBlocks
 import CFSG.LocalAnalysis.StandardType.GGQTwoOrthogonalPairs
-import CFSG.LocalAnalysis.StandardType.GGSecFiveBNbrCompare
-import CFSG.LocalAnalysis.StandardType.GGSignedCoordFix
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
-import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.Chamber
 import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.BlockCommuteAnchor
-import CFSG.Permutation.SymmetricCoxeter
 
 public section
 

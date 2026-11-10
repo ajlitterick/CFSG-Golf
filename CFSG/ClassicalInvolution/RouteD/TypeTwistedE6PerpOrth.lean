@@ -1,9 +1,7 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.TypeTwistedE6PerpOrthTransport
-public import CFSG.ClassicalInvolution.RouteD.TypeTwistedE6PerpOrthArith
 public import CFSG.ClassicalInvolution.RouteD.TypeTwistedE6PerpLayerCount
-public import CFSG.ClassicalInvolution.ModelFacts.Models
 public import CFSG.ClassicalInvolution.RouteD.NonClassicalTwin
 public import CFSG.ClassicalInvolution.RouteD.TypeUFive
 

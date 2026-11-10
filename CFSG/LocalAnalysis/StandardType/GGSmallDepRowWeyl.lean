@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSmallDepRowMisc
 public import CFSG.LocalAnalysis.StandardType.GGNineDepRowSymSuccHolds
 import CFSG.LocalAnalysis.StandardType.ZS.Adapter
 import CFSG.LocalAnalysis.StandardType.GGSmallDepE7Seven
-import CFSG.LocalAnalysis.StandardType.ZS.TableCommon
 import CFSG.LocalAnalysis.StandardType.GGNineDepRowOrthHolds
 import CFSG.LocalAnalysis.StandardType.ZS.TableWeyl
 import CFSG.LocalAnalysis.StandardType.ZS.ReflQuotient

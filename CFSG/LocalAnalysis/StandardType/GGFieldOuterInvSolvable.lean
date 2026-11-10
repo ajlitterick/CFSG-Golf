@@ -1,6 +1,5 @@
 module
 
-public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyBruhat
 public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyOrder
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.WeylCharStab
 public import CFSG.LieType.SeitzGeneration.ExcHigh.E8FiveSolvable

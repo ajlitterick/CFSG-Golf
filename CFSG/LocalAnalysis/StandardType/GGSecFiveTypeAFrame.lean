@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGPropFiveTwentyOneCent
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveTypeALevi
-public import Mathlib.GroupTheory.SpecificGroups.Alternating.Simple
 
 public section
 

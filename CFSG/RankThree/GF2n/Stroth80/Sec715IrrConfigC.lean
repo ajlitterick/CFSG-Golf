@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.GF2n.Stroth80.Step715Hyp79Proof
-public import CFSG.RankThree.GF2n.Stroth80.Sec715LayerSplitStmt
 public import CFSG.RankThree.GF2n.Stroth80.Sp6NoEmb.Rec
 public import CFSG.RankThree.GF2n.Stroth80.Sec715LayerPair
 public import CFSG.RankThree.GF2n.Stroth80.Sec715LayerDim

@@ -1,14 +1,11 @@
 module
 
 public import CFSG.RankThree.GF2n.Smith81.InspKFacts
-public import CFSG.RankThree.GF2n.Smith81.InspKStatements
 public import CFSG.RankThree.GF2n.Smith81.InspKPSL
 public import CFSG.RankThree.GF2n.Smith81.InspKSigma
-public import CFSG.RankThree.GF2n.Smith81.InspKSpBase
 public import CFSG.RankThree.GF2n.Smith81.InspKFrame
 public import CFSG.RankThree.GF2n.Smith81.InspKSpCard
 public import CFSG.RankThree.GF2n.Smith81.InspKSpCount
-public import CFSG.RankThree.GF2n.Smith81.InspKPSLCore
 public import CFSG.Combinatorics.AperiodicCentralInvolution
 public import CFSG.Combinatorics.AperiodicFiveOfSix
 public import CFSG.Combinatorics.AperiodicOppositeComponents
@@ -34,7 +31,6 @@ public import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotCatTypeDet
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.UnitaryRootAutomorphism
 public import CFSG.Permutation.BurnsideSchur
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec2.Defs
 public import CFSG.SignalizerFunctorTheorem.McBride.Prelim.Generation
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent

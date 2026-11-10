@@ -6,7 +6,6 @@ import CFSG.LocalAnalysis.StandardType.GGQ2SpBlocksIso
 import CFSG.LocalAnalysis.StandardType.GGQ2SpBlocksSp
 import CFSG.LocalAnalysis.StandardType.GGQ2SpBlocksSU
 import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalResU3ThreeSolv
-import CFSG.LocalAnalysis.StandardType.MarkingSmall
 
 public section
 

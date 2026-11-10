@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoFrontQField
 public import CFSG.LocalAnalysis.StandardType.GGQTwoFrontQKlein
 public import CFSG.LocalAnalysis.StandardType.GGQTwoFrontQInvol
 public import CFSG.LocalAnalysis.StandardType.GGQTwoFrontQComm
-public import CFSG.LocalAnalysis.StandardType.GGSixRootCentralizerBasic
 
 public section
 

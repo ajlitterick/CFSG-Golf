@@ -1,10 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Timmesfeld.Tables.Census.Klein
-public import CFSG.Open.StatedDefs
-public import Mathlib.GroupTheory.Perm.ViaEmbedding
-public import Mathlib.LinearAlgebra.Matrix.Permutation
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
 
 public section
 

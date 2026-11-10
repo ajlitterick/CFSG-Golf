@@ -2,12 +2,8 @@ module
 
 public import Certificates.Data.Kernel.U43Wit
 public import CFSG.Certificates.Kernel.Spor.RawOrbHead
-public import Mathlib.Algebra.Group.Subgroup.Finite
-import CFSG.Certificates.Kernel.Spor.RawOrbEval
 import CFSG.Certificates.Kernel.Spor.PackWord
-import Mathlib.SetTheory.Cardinal.Finite
 public import CFSG.Certificates.Kernel.Spor.RawOrbGrp
-public import Mathlib.GroupTheory.Schreier
 
 public section
 

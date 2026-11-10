@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGR4PumpDefs
 public import CFSG.LocalAnalysis.StandardType.GGR4Order
 public import CFSG.LocalAnalysis.StandardType.GGR4Forced
 public import CFSG.LocalAnalysis.StandardType.GGR4PComp

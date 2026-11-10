@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FF81.PropOne.Setup
-import Mathlib.GroupTheory.Transfer
 public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 public import CFSG.LocalAnalysis.SectionRank.EvenCover.Catalog
 public import CFSG.LocalAnalysis.SectionRank.LargeRee.SuzukiData
@@ -11,10 +10,8 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Vol2.KGFactC31RuRefBase
 public import CFSG.Sporadic.HeldB.Common
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24

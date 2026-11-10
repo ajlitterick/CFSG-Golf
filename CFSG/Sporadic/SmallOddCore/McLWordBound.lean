@@ -1,20 +1,8 @@
 module
 
-public import CFSG.Sporadic.SmallOddCore.McL
-public import CFSG.Sporadic.SmallOddCore.AutCount
-public import CFSG.Sporadic.SmallOddCore.CountSplit
-public import CFSG.Sporadic.SmallOddCore.McLCountA
-public import CFSG.Sporadic.Schreier.PairMcLPairs
 public meta import CFSG.Sporadic.SmallOddCore.McLWords
 public meta import CFSG.Sporadic.Schreier.PairMcLCheck
-public import Certificates.Certificate2240
-public import Certificates.Certificate2241
-public import Certificates.Certificate2242
-public import Certificates.Certificate2243
-public import Certificates.Certificate2245
 public import Certificates.Certificate2288
-public import Certificates.Certificate2284
-public import Certificates.Certificate2285
 
 public section
 

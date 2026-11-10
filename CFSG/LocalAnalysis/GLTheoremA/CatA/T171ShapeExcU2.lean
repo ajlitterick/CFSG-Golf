@@ -8,13 +8,10 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeInnAutUnitary
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeInnAutRest
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeCompDescProof
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeFamInBCD
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172AGrp
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.Bridges
-public import CFSG.ClassicalInvolution.Balance.BootstrapLayersFuzzyBalance
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeExcU2Ind
 public import CFSG.LieType.SeitzGeneration.ExcPlaneModel
 public import CFSG.GroupTheory.CenterlessInnerCentralizer
-import CFSG.LocalAnalysis.GLTheoremA.PComp
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S171Basic
 import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompIdx
 import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Claims1110d
@@ -59,8 +56,6 @@ import CFSG.Quasithin.Background.A3Structure314Defs
 import CFSG.Quasithin.Background.C1PackS15212C
 import CFSG.Quasithin.Background.C1PackS1531Top
 import CFSG.Quasithin.Background.E3
-import CFSG.Quasithin.Background.E3Nprime
-import CFSG.Quasithin.Background.E3Uniq
 import CFSG.Quasithin.Background.F918H5
 import CFSG.Quasithin.Background.FFC4Tr2
 import CFSG.Quasithin.Background.GoldschmidtS146RBend1

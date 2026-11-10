@@ -4,7 +4,6 @@ public import CFSG.RankThree.PartTwo.Sec4.Statements
 public import CFSG.LocalAnalysis.SectionRank.PRank
 import CFSG.Quasithin.H13.A7SectionRank
 import CFSG.Sporadic.Bridge.M22
-import CFSG.RankThree.PartTwo.Census.Criteria
 import CFSG.RankThree.PartTwo.Census.OddClassical.UnitaryFourThree
 import CFSG.Open.PGLModelStated
 public import CFSG.GroupTheory.HallHigmanPiCore

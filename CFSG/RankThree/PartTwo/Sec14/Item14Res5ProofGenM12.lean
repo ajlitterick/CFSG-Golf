@@ -4,25 +4,17 @@ public import CFSG.RankThree.PartTwo.Sec14.Item14Res5ProofGen
 public import CFSG.RankThree.PartTwo.Toolkit.M12Facts
 import CFSG.RankThree.PartTwo.Sec14.Item1413Res2ProofM12Q
 import CFSG.RankThree.PartTwo.Sec14.Concl142NHJM12
-import CFSG.RankThree.PartTwo.Sec14.Concl142NHJInner
-import CFSG.RankThree.PartTwo.Sec13.Item131Facts
 import CFSG.RankThree.PartTwo.Sec13.Item136Pair
 import CFSG.RankThree.PartTwo.Sec13.Item13Sporadic
 import CFSG.RankThree.PartTwo.Sec13.Item133
 import CFSG.RankThree.PartTwo.Sec13.Item136PGL
 import CFSG.RankThree.PartTwo.Sec13.Item13Plane
 import CFSG.RankThree.PartTwo.Sec13.Item13SLTwo
-import CFSG.RankThree.Asc83Table.Automizer
 import CFSG.RankThree.PartTwo.Sec4.Item424ProofInnerBar
-import CFSG.RankThree.PartTwo.KFacts.KS14Orders
-import CFSG.LocalAnalysis.ComponentInitial.FourGroupCommuting
-import CFSG.Sporadic.Mathieu.Simple
-import CFSG.RankThree.Asc83Table.PermWords
 public import CFSG.Quasithin.H13.J4Order
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.Quasithin.H13.J4OrderBase
-public import CFSG.Quasithin.H13.J4Words
 public import CFSG.RankThree.Asc83Table.PermTables
 public import CFSG.RankThree.PartTwo.Sec11.Data
 public import CFSG.RankThree.PartTwo.Sec14.Item148StepCases

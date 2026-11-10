@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10ModelF1051
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10PocketsSup
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10FrameSylow
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10Inputs
 
 public section

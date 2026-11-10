@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.RowSplit
 public import CFSG.LocalAnalysis.StandardType.FS81.FrameEm
-public import CFSG.LocalAnalysis.SeitzReduction.EPilotRoots
 
 public section
 

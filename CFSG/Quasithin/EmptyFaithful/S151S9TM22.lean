@@ -3,8 +3,6 @@ module
 public import CFSG.Quasithin.EmptyFaithful.S151S9TKInputs
 public import CFSG.Quasithin.EmptyFaithful.S151S9TLat
 public import CFSG.Quasithin.EmptyFaithful.S151S9TCen
-public import CFSG.Quasithin.Background.HSporLatMathieu
-public import CFSG.Quasithin.Background.A3StructureDefs
 import all CFSG.Quasithin.Background.HSporLatMathieu
 
 public section

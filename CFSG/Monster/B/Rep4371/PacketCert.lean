@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.CFSGNative.MonsterB.PacketCheck
 public meta import Certificates.Data.CFSGNative.MonsterB.PacketCheck
 public import Certificates.Certificate3050
 

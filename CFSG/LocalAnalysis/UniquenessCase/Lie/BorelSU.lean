@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.Lie.BorelSL
-public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherSylow
-public import CFSG.ClassicalGroups.UnitaryFlag.OrderSylow
-public import CFSG.ClassicalGroups.UnitaryFlag.ModelTransport
-public import CFSG.LieType.Steinberg.CentralExt.PSUMultiplier
 public import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
 
 public section

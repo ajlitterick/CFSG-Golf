@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.K144TriFixCard
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GField
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GTriOuter
 import CFSG.ClassicalInvolution.Q3.TL4VtxE4Model
 public import CFSG.HardMathSupport.Dickson.Bal207.D4GraphBridgeIso

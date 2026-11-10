@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoOmegaRootRefl
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoOmegaRootsD4
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoOmegaRootsOrbit
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoOmegaFrameAux4
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoOmegaFrameAux5
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoOmegaFrameAux6
 

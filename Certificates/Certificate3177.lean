@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.EvenSmallLie.TwoE6.Stroth23UnitaryInputs
-public import CFSG.Monster.B.TwoA.Unitary.Form
 import Certificates.Kernel.TwoE6.Unitary
-import Certificates.Data.Kernel.S23Unitary
-import Certificates.Kernel.TwoE6.UnitaryData
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

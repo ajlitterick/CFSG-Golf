@@ -3,7 +3,6 @@ module
 public import CFSG.LieType.Chevalley.C2E6UnitaryFourCompound
 import all CFSG.Fischer.F4
 public import CFSG.LieType.Chevalley.C2E6UnitaryFourImages
-public import Mathlib.LinearAlgebra.QuadraticForm.IsometryEquiv
 
 public noncomputable section
 

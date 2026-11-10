@@ -1,16 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdPosLocalDefs
-public import CFSG.LieType.Steinberg.Minuscule.Datum
 import CFSG.LocalAnalysis.StandardType.GGStdPosInnDiagCore
 import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelShapeE
 import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutOutdiagE6Toral
-import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcSixEMain
 import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitExcSixE
-import CFSG.LocalAnalysis.StandardType.GGRootDetectExcE6
-import CFSG.LieType.CurtisTits.ExceptionalQuasisimple
-import CFSG.ClassicalInvolution.ModelFacts.ChevAutLift
-import CFSG.LieType.Steinberg.Isogeny.E6
 
 public section
 

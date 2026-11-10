@@ -11,7 +11,6 @@ public import CFSG.HardMathSupport.Dickson.Sec6.I1431Aux.Alt
 public import CFSG.LocalAnalysis.AGLEmbedding.BlockParabThreeLeviSmall
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrLabels
 public import CFSG.CGT.PushingUpLit.CGT6.SixFourA8
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenCore
 public import CFSG.LocalAnalysis.StandardType.GGF4AutWeyl
 public import CFSG.CGT.PushingUp.BenderBridge
 public import CFSG.CGT.PushingUp.BlockOrder
@@ -34,7 +33,6 @@ public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Inputs
 public import CFSG.LocalAnalysis.AGLEmbedding.J3MSideDefs
 public import CFSG.LocalAnalysis.AGLEmbedding.JStarReducedDefs
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanParabPrimeTwo
-public import CFSG.LocalAnalysis.ComponentClassification.AschbacherWalterSchurEight
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Block
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Basic245C61
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19Defs
@@ -52,10 +50,6 @@ public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.E2Statements
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.F6CatRecogL2
-public import CFSG.Quasithin.Background.F6CatRecogTools2
 public import CFSG.Quasithin.Background.F918C6
 public import CFSG.Quasithin.Background.FFC7G
 public import CFSG.Quasithin.Background.FFC8A
@@ -110,9 +104,6 @@ public import CFSG.RankThree.PartTwo.Sec4.Item47Statement
 public import CFSG.RankThree.PartTwo.Sec4.Item47Witness
 public import CFSG.RankThree.PartTwo.Sec6.Statements
 public import CFSG.RankThree.PartTwo.Sec8.Statements
-public import CFSG.Walter.J1Props
-public import CFSG.Walter.J1Recog
-public import CFSG.Walter.PSL2Facts
 public import Certificates.Kernel.J4Count.Prim
 
 public section

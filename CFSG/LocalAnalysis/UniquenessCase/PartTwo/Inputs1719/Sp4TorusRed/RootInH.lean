@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.Sp4TorusRed.D
 public import CFSG.LocalAnalysis.ComponentInitial.SymplecticHigherRootTransport
 public import CFSG.ClassicalGroups.Symplectic.Sp4TorusTwoSubgroup
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
 
 public section
 

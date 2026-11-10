@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Sporadic.HNSchreier.OrbitCheck
-public import CFSG.Sporadic.HNSchreier.HexDecode
 public import CFSG.Sporadic.HNSchreier.HexKernel
 public import CFSG.Sporadic.HNSchreier.ArchiveKernelData
 public meta import CFSG.Sporadic.HNSchreier.OrbitCheck

@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGFamTameInner
 public import CFSG.LocalAnalysis.StandardType.GGFamTameSuN
 public import CFSG.LocalAnalysis.StandardType.GGFamF4Orbit
 public import CFSG.LocalAnalysis.StandardType.GGFamF4Shapes
-public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.SelectedLiteralPart1
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.SelectedLiteralPart2
 
 public section

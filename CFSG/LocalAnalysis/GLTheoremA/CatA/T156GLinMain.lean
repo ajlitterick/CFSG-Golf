@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T156GLinSmall
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T156GUniMain
-public import CFSG.LocalAnalysis.StandardType.GGNbrGraphFieldLinear
 
 public section
 

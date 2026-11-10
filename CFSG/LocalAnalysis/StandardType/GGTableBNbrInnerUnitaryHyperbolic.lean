@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHypFrame
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHypCentral
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMoreU
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerRestCore
 
 public section
 

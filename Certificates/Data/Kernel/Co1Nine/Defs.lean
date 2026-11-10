@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.Kernel.Misc.PermClos
 public import Certificates.Data.Kernel.Misc.PermM22
 
 public section

@@ -1,14 +1,11 @@
 module
 
-public import CFSG.Open.StatedDefs
-public import CFSG.RankThree.PartOne.KC.OrthogonalSubfieldFixed
 public import CFSG.RankThree.PartOne.KC.OrthogonalSubfieldForms
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section15.K35Inner
 public import CFSG.HardMathSupport.Lang.Coordinator.D4Bridge.Bridge
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section15.K35BlockD4
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section15.K35BlockSL
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section15.K35PlaneD4
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointDataModelWitness
 public import CFSG.Foundations
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LieType.BorelTits.CompleteFlag
@@ -41,7 +38,6 @@ public import CFSG.LocalAnalysis.SectionRank.SignLines
 public import CFSG.Open.GLBDefs
 public import CFSG.RankThree.PartTwo.Census.Carrier.SpinDBridge
 public import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 public import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
@@ -53,8 +49,6 @@ import CFSG.ClassicalInvolution.WeakCT.TorusAgree
 import CFSG.LieType.Chevalley.E6CanonicalFieldGraphFixed
 import CFSG.LieType.CurtisTits.SpecialLinear
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Borel
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Lemma83
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Cardinalities
 import CFSG.Walter.Defs
 
 public section

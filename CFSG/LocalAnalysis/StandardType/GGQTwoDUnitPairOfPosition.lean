@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBlock
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitPos
 import CFSG.LocalAnalysis.StandardType.GGMemberUnitaryRk1Aux
 import CFSG.LocalAnalysis.StandardType.GGMemberUnitaryPairAux
-import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSAPairAux2
 
 public section
 

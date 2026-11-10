@@ -4,8 +4,6 @@ public import Certificates.Kernel.SporSch.Mathieu.M22WChecks
 public import Certificates.Kernel.SporSch.Mathieu.M22OFacts
 public import CFSG.Certificates.Kernel.SporSch.MathieuOddGlue
 public import CFSG.Certificates.Kernel.SporSch.ChainKClassEq
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Sporadic.Schreier.J4SOrder
 public import CFSG.Sporadic.Th.KernelPlanes
 public import CFSG.Sporadic.Th.Local

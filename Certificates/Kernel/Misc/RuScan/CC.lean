@@ -6,7 +6,6 @@ public import Certificates.Kernel.Misc.RuScan.DataL
 public import Certificates.Kernel.Misc.RuScan.DataC
 public import Certificates.Kernel.SporSch.Ru.CData
 public import Certificates.Kernel.SporSch.Ru.LChain
-public import Certificates.Kernel.SporSch.Ru.Text4060
 public import CFSG.Quasithin.Vol2.KGFactC31RuRefData
 import CFSG.Certificates.Kernel.Common.Each
 import CFSG.Certificates.Kernel.Common.Harness
@@ -21,15 +20,10 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.B2Thompson
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import Certificates.Certificate43
 
 public section

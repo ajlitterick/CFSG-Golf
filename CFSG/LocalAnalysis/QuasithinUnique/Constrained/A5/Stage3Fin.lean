@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Stage2
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Stage3FinInputs
 public import Certificates.Certificate17027
 public import Certificates.Certificate5952
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
@@ -23,18 +21,11 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.A3StructureBasic
 public import CFSG.Quasithin.H13.J4Core
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2RootGroups
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ProjectiveSemilinear
 public import Certificates.Certificate43
 
 

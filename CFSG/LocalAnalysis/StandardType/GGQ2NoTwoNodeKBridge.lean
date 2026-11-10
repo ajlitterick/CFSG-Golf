@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2ActualFrame
 public import CFSG.LocalAnalysis.StandardType.GGQTwoNoTwoNodeKSide
-public import CFSG.LocalAnalysis.StandardType.GGQTwoAssemble
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 
 public section
 

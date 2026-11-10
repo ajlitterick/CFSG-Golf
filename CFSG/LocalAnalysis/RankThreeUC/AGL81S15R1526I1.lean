@@ -1,9 +1,6 @@
 module
 
-public import CFSG.GroupTheory.ABGLocalTools.Basic
-public import CFSG.Open.LocalVocabulary
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsPair
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
 
 public section
 

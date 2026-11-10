@@ -3,7 +3,6 @@ module
 public import CFSG.Quasithin.Background.SmithB42G2IdRoots
 public import CFSG.Quasithin.Background.SmithB42G2IdRank
 public import CFSG.Timmesfeld.RankTwo.ModelG2Rank
-public import CFSG.Timmesfeld.RankTwo.Presentation
 public import CFSG.Quasithin.EmptyFaithful.A38c4G2Center
 public import CFSG.Quasithin.Background.P3G2Zorn
 

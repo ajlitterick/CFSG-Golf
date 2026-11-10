@@ -12,7 +12,6 @@ public import CFSG.LieType.Multipliers.U62Kernel
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsCoverInvModel
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsOuter
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsParabolicGen
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsRealModelBase
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsStandard
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4InputsReal
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec5Lemma53

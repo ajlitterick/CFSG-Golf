@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphLayers
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.FirstCaseT2SwapOrderFour
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

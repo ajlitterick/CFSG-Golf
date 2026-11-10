@@ -5,7 +5,6 @@ public import CFSG.Quasithin.H13.L32ACSkPfD4
 public import CFSG.LocalAnalysis.EvenBN.TrialityD4.Native
 public import CFSG.LocalAnalysis.EvenBN.TrialityD4.SylowCenters
 public import CFSG.LocalAnalysis.EvenBN.TrialityD4.Bruhat
-public import CFSG.LieType.Chevalley.GraphFixedRankOneImage
 import CFSG.Timmesfeld.Orders.Exceptional
 
 public section

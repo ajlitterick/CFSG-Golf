@@ -2,9 +2,6 @@ module
 public import CFSG.LieType.Steinberg.CentralExt.TwistedE6TwoCorrectedSourceAction
 public import CFSG.LieType.Steinberg.CentralExt.TwistedE6OriginalA2Pair
 public import CFSG.LocalAnalysis.StandardType.GGTwE6WeylTorusAut
-public import CFSG.LieType.Steinberg.CentralExt.TwistedE6OriginalRecipeSourceSquare
-public import CFSG.LieType.Steinberg.CentralExt.TwistedE6OriginalFieldLangSquare
-public import CFSG.LocalAnalysis.StandardType.GGTwE6KG7BaseChange
 public noncomputable section
 
 namespace CFSG.StandardType.GGFinModel

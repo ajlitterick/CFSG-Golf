@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45FinalTorus
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
 public import CFSG.LinearAlgebra.SteinbergBQEvenSL2OddCyclic
 
 public section

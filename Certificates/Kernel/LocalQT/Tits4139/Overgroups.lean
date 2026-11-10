@@ -4,10 +4,6 @@ module
 public import Certificates.Kernel.LocalQT.Tits4139.Facts
 public import Certificates.Kernel.LocalQT.Tits4139.OverAbs
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X6TitsLatticeCoreBase
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X6TitsLatticeCheckInputs
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X6TitsOverInputs
-public import CFSG.Sporadic.Schreier.TitsPrim
-import CFSG.Sporadic.Schreier.TitsPrimCheckInputs
 meta import CFSG.Sporadic.Schreier.TitsLocal
 meta import CFSG.Sporadic.Schreier.TitsData
 meta import CFSG.Sporadic.Schreier.TitsArrays

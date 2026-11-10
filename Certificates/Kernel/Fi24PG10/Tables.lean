@@ -7,7 +7,6 @@ import Certificates.Kernel.Fi24PG10.Facts3
 import Certificates.Kernel.Fi24PG10.Facts4
 import Certificates.Kernel.Fi24PG10.Facts5
 import Certificates.Kernel.Fi24PG10.Facts6
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Fi24.PG10.Slices.Head
 public import CFSG.Sporadic.Presentation.Common
 public import Mathlib

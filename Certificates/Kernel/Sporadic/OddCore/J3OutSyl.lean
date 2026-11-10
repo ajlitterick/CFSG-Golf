@@ -4,7 +4,6 @@ public import Certificates.Kernel.Sporadic.OddCore.J3Cent
 public import Certificates.Kernel.Sporadic.OddCore.MulHCmd
 public import Certificates.Kernel.SporSch.PairJ3.Chain
 public import Certificates.Data.Kernel.Spor.MulHQ
-public import Certificates.Data.Kernel.Spor.Prim
 public import Certificates.Data.Kernel.Spor.MulHF
 meta import CFSG.Sporadic.SmallOddCore.J3DataInputs
 meta import Certificates.Data.CFSGNative.PSL3Four.Basic

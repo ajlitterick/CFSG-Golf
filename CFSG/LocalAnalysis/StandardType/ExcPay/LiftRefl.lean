@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
-import CFSG.LocalAnalysis.StandardType.GGOTwoPrimeMap
 import CFSG.LocalAnalysis.StandardType.GGHyperplaneMem
 import CFSG.LocalAnalysis.StandardType.GGKGPosSUTableB
-public import CFSG.Open.LocalVocabulary
 
 public section
 

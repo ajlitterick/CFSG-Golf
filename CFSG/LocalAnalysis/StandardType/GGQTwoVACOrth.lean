@@ -1,14 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBTorDNsHolds
-public import CFSG.LocalAnalysis.StandardType.GGTBXDatumOfTor
-public import CFSG.LocalAnalysis.StandardType.GGTwE6WeylTorusTransferCore
 public import CFSG.LocalAnalysis.StandardType.GGQTwoVACSymp
 public import CFSG.LocalAnalysis.StandardType.GGRootGenSmallRankQFour
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOpenOrth
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrSmallRank
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBVac
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestThreeVac
 
 public section
 

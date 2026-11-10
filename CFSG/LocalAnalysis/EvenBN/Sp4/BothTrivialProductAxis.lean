@@ -1,6 +1,5 @@
 module
 
-public import CFSG.RankThree.PartOne.KC.EvenSymplecticFourRootAxisStructure
 public import CFSG.LocalAnalysis.SteinbergSFFullCenterWeylOvergroupsBase
 import CFSG.LocalAnalysis.ComponentInitial.CentralSL2Semilinear
 

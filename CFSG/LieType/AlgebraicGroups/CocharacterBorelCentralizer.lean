@@ -4,23 +4,18 @@ public import CFSG.LieType.AlgebraicGroups.DynamicUnipotentSmooth
 public import CFSG.LieType.AlgebraicGroups.DynamicOpenCellDensity
 public import CFSG.LieType.AlgebraicGroups.DynamicAdjointWeights
 public import CFSG.LieType.AlgebraicGroups.OrbitConeLowestWeight
-public import CFSG.LieType.AlgebraicGroups.RegularCocharacter
 public import CFSG.LieType.AlgebraicGroups.TwistedBorelDensity
 public import CFSG.Mathlib.RingTheory.MonoidAlgebraPointSeparation
-public import CFSG.LieType.AlgebraicGroups.FixedComponentProduct
 public import CFSG.LinearAlgebra.FiniteSpanningAction
 public import CFSG.LocalAnalysis.ComponentInitial.LinearMonomial
 public import CFSG.Mathlib.FieldTheory.InfiniteUnitPowers
-public import TauCeti.Algebra.AlgebraicGroup.ConstantGroup.Points
 public import TauCeti.Algebra.AlgebraicGroup.DiagonalizableGroup.ClosedSubgroup
 public import TauCeti.Algebra.AlgebraicGroup.GeneralLinear.Conjugation
-public import TauCeti.Algebra.AlgebraicGroup.HopfIdeal.Points.Equalizer
 public import TauCeti.Algebra.AlgebraicGroup.HopfIdeal.Quotient.Kernel.Finiteness
 public import TauCeti.Algebra.Coalgebra.Comodule.MatrixCoefficient.ChangeBasis
 public import TauCeti.LinearAlgebra.Matrix.Rank
 public import TauCeti.RingTheory.FiniteType.Tensor.PointSeparation
 public import TauCeti.RingTheory.Polynomial.BinomialBasis
-public import TauCeti.RingTheory.TensorProduct.PointSeparation
 
 public noncomputable section
 

@@ -3,7 +3,6 @@ module
 public import CFSG.Quasithin.Background.F7TwoInvL2OddUnipGen
 public import CFSG.Quasithin.Background.F7TwoInvAutWrap
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2InnerAction
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ProjectiveSemilinear
 
 public section
 

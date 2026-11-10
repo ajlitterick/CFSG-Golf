@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.HFIPerm
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.HOvCent
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.AutAlternating
-public import Mathlib.GroupTheory.SpecificGroups.Alternating.Simple
 
 public section
 

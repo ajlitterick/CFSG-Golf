@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Sporadic.RawGenOrb
-public import Certificates.Kernel.Sporadic.RawGen
 public import CFSG.Certificates.Kernel.Spor.BindList
 public import CFSG.Sporadic.Schreier.PairHSCheckInputs
 public meta import CFSG.Sporadic.Schreier.PairHSCheckInputs

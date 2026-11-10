@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveL2SplitDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLDType
 import CFSG.LocalAnalysis.StandardType.GGSecFiveL2SplitDkRootsConj
 
 public section

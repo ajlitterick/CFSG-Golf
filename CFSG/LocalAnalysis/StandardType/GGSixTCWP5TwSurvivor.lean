@@ -10,17 +10,11 @@ public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RC1Neg
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP5TwData
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP5TwLabel
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4C1
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RParam
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RFam
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RLangComp
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RLangFrame
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4Orbit
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UExc
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4Inputs2
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4Label
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 public import CFSG.LocalAnalysis.StandardType.GGTPNDefs
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UOuter
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP5FrameO
 
 public section

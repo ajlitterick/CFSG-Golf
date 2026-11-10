@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSuDvdRootGenAsm
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyWeylNSRootGen
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnit63Main
 public import CFSG.LocalAnalysis.StandardType.GGNbrU63
 
 public section

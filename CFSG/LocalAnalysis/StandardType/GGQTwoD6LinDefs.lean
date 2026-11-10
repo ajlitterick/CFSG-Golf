@@ -1,9 +1,5 @@
 module
 
-public import Mathlib.Data.ZMod.Basic
-public import Mathlib.LinearAlgebra.Matrix.Notation
-public import Mathlib.LinearAlgebra.Dual.Lemmas
-public import Mathlib.LinearAlgebra.Reflection
 public import CFSG.LocalAnalysis.StandardType.GGQTwoReflLin
 public import Mathlib.LinearAlgebra.Matrix.Cartan.Basic
 

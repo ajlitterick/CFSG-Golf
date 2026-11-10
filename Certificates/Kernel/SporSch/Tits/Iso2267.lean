@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.SporSch.Tits.Common
 public import Certificates.Kernel.LocalComp.Tits.Bind
-public import CFSG.Sporadic.Schreier.TitsCertCheck
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

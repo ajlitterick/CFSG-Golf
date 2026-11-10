@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.ModelFacts.E7ModelSign
-public import CFSG.ClassicalInvolution.ModelFacts.E7ModelWeyl
 
 public section
 

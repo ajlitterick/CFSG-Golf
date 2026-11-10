@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.F134LieF4Group
-public import CFSG.CharacterTheory.Burnside
 
 public section
 

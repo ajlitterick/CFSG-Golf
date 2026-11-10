@@ -3,9 +3,6 @@ module
 public import CFSG.Quasithin.Background.C4Statement
 public import CFSG.Quasithin.H13.L32NA3SQTK
 public import CFSG.Quasithin.Background.C41PfA
-public import CFSG.Quasithin.Background.GoldschmidtTDC19
-public import CFSG.Quasithin.Background.GoldschmidtTDC111Main
-public import CFSG.Quasithin.H13.VolIC129Holds
 public import CFSG.Milestones.ASVolI.C1
 
 public section

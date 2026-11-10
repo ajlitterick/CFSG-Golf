@@ -4,7 +4,6 @@ public import Certificates.Data.Kernel.CentGenK
 public import Certificates.Kernel.HS100.ChainData
 import CFSG.Certificates.Kernel.Common.Repo
 import CFSG.Certificates.Kernel.Common.JsonGz
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

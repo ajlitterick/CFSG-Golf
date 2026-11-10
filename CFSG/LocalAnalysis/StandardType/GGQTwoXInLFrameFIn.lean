@@ -1,20 +1,13 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLFrameFDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLFrameFIn2
 public import CFSG.RankThree.PartOne.Q1327Z.Block
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoPairsDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyDichotomy
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRestDefs
-public import CFSG.LocalAnalysis.StandardType.GGSixStepOneDefs
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaBase
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixSevenE6Components
 public import CFSG.LocalAnalysis.StandardType.GGRealKGCoverComp
 public import CFSG.GroupTheory.CardMapInfKer
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.GroupTheory.ElemAbelianClosure
-public import CFSG.GroupTheory.InnerCentralizerProjection
 public import CFSG.Mathlib.GroupTheory.CoprimeKernelLift
 
 public section

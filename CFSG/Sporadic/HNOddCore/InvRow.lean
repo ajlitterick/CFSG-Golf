@@ -3,23 +3,14 @@ module
 
 public import CFSG.Sporadic.HNOddCore.InvFixBase
 public import CFSG.Sporadic.HNOddCore.SCheck
-public import CFSG.Sporadic.HNOddCore.ChainUtil
-public import CFSG.Sporadic.HNOddCore.OrbitCert
-public import CFSG.Sporadic.HNSchreier.ChainCheckInputs
-public import CFSG.Sporadic.HNSchreier.LevelInputs
 public meta import CFSG.Sporadic.HNSchreier.OrbitCheck
 public meta import Certificates.Data.CFSGNative.ONSchreier.Vectors
-public import CFSG.Sporadic.HNSchreier.InvolCheckInputs
 public meta import CFSG.Sporadic.HNSchreier.SeedsCheck
 public meta import CFSG.Sporadic.HNSchreier.LocalCheck
-public import CFSG.Sporadic.HNSchreier.LocalCheckInputs
 public meta import CFSG.Sporadic.HNSchreier.PrimCheck
 public meta import CFSG.Sporadic.HNSchreier.LocalData
 public meta import CFSG.Sporadic.HNSchreier.MaskCheck
-public import CFSG.Sporadic.HNSchreier.OrbitCheckInputs
-public import CFSG.Sporadic.HNSchreier.PrimCheckInputs
 public meta import Certificates.Data.CFSGNative.Perm.Chain
-public import CFSG.Sporadic.HNSchreier.VectorData
 
 public noncomputable section
 

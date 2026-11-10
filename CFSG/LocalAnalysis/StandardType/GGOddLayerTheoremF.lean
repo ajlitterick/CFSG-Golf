@@ -1,11 +1,6 @@
 module
 
-public import Mathlib.GroupTheory.Nilpotent
-public import Mathlib.GroupTheory.PGroup
-public import Mathlib.GroupTheory.Solvable
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotPositionBasic
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LieType.Chevalley.C2E6StandardFixedData
@@ -26,9 +21,6 @@ public import CFSG.LocalAnalysis.SeitzReduction.F4PilotHR7Split
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotLeviSp6B3
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 public import CFSG.Walter.JRFacts
 
 public section

@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Q8Wit.J2Data
 public import Certificates.Data.Kernel.Q8Wit
 public import Certificates.Data.Kernel.PGrp
-public import Certificates.Data.Kernel.BfsPinBase
 public import CFSG.Certificates.Kernel.LocalCompUnpack
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Spor.RawSound

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154NonCfgTyped
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 public import CFSG.ClassicalInvolution.Q3.Q3TWWMinus
-public import CFSG.HardMathSupport.Dickson.Sec6.I1431Lie
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CompsPD4Rank4
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CompsPD4Rank4All
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TriD4

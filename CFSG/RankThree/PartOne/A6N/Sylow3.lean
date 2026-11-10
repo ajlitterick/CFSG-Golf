@@ -1,12 +1,9 @@
 module
 
-public import CFSG.RankThree.PartOne.A6N.Sylow3Defs
 public import CFSG.RankThree.PartOne.A6N.Setup
 public import CFSG.RankThree.PartOne.A6N.Heis
 public import CFSG.RankThree.PartOne.A6N.Finite
-public import Mathlib.GroupTheory.Sylow
 public import Certificates.Certificate14979
-public import CFSG.RankThree.PartOne.N1322.CaseBasic
 public import CFSG.RankThree.PartOne.N1322.CoreHyp
 public import CFSG.RankThree.PartOne.N1322.Mono
 public import Mathlib.Algebra.Algebra.Subalgebra.Rank

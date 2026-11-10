@@ -1,14 +1,9 @@
 module
 
 public import CFSG.Quasithin.Vol2.Ch10SecKHA5k
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListD4
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListF4
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListG2
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsLieD4Facts
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsLieDelta5
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsLieF4
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsLieG2Facts
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.G3Rank2Glue
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X6TitsLattice
 public import CFSG.LieType.Ree.LargeReeEightTorus
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogLargeReeNormalForm
@@ -26,8 +21,6 @@ public import CFSG.Quasithin.Background.A3Structure36BCases
 public import CFSG.Quasithin.Background.A3Structure36BCommon
 public import CFSG.Quasithin.Background.A3Structure36BStar
 public import CFSG.Sporadic.Schreier.TitsOther
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CPrime
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralAut
 
 public section
 

@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpResidual
-public import CFSG.LocalAnalysis.StandardType.GGAssemblyTwoHypSix
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrLabels
 public import CFSG.LocalAnalysis.StandardType.GGA8NbrCoordLift
 public import CFSG.LocalAnalysis.StandardType.GGA8NbrLModel
 public import CFSG.LocalAnalysis.StandardType.GGA8NbrKFrame

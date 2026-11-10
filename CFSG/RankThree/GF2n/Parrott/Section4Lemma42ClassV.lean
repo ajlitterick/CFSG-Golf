@@ -1,9 +1,6 @@
 module
 
 public import CFSG.RankThree.GF2n.Parrott.Section4Lemma42Sylow
-public import CFSG.RankThree.GF2n.Parrott.Section4Lemma42Steps
-public import CFSG.RankThree.GF2n.Parrott.Section1Fusion
-public import CFSG.GroupTheory.CentralizerSylowFusion
 
 public section
 

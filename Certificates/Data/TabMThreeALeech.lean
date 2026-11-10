@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.CFSGNative.Co1.Odd
 public import CFSG.Sporadic.Co1.Module.OddProg
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co1ThreeInputs
 public meta import Certificates.Data.CFSGNative.Co1.Odd

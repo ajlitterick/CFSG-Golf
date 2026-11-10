@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExtCoverFrame
 public import CFSG.LocalAnalysis.StandardType.GGQTwoD6Frame
-public import CFSG.LocalAnalysis.StandardType.GGQTwoK1OfI1
 
 public section
 

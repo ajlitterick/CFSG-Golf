@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22FunSplitSimplyLacedGeometry
 public import CFSG.ClassicalInvolution.Asc77.AscR10E18
-import CFSG.ClassicalInvolution.Asc77.AscIH8Bridge
 import CFSG.HardMathSupport.Meierfrankenfeld.LieOdd.ExcModel
 
 public section

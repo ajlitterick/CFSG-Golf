@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
 public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionCore
 public import CFSG.LocalAnalysis.SeitzReduction.E8PilotLevi
 public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalIsogeny
-public import CFSG.LieType.Chevalley.AdjointCenter
 public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalAdjoint
 public import CFSG.LocalAnalysis.ComponentClassification.BadTwoComponentSubgroup
 

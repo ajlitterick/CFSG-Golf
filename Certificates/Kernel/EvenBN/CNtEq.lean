@@ -3,7 +3,6 @@ module
 
 public import Certificates.Kernel.EvenBN.CNtAux
 public import Certificates.Kernel.SporSch.Tits.Inv2266
-public import CFSG.Certificates.Kernel.Misc.HexFlatSound
 import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 400000

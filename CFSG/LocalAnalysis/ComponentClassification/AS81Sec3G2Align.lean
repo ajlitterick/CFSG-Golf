@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.AS81Sec3G2Para
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8G2LeviCent
-import CFSG.GroupTheory.ElementaryAbelianTransport
 
 public section
 

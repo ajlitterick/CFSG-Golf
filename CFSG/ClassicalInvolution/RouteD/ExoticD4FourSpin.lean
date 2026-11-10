@@ -2,10 +2,7 @@ module
 
 public import CFSG.ClassicalInvolution.RouteD.ExoticD4FourRot
 public import CFSG.ClassicalInvolution.RouteD.ExoticD4TwinModel
-public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalOrthConj
 public import CFSG.ClassicalInvolution.ModelFacts.OrthAutPlus
-public import CFSG.ClassicalInvolution.Models.Transfer.Orthogonal.Standard
-public import CFSG.LieType.Universal.SpinOmega.Range
 import CFSG.ClassicalInvolution.SmallCases.ConnectedA2FactsFibre
 import CFSG.ClassicalInvolution.Balance.PassTwoConj
 import CFSG.ClassicalInvolution.Generic.InductionMain

@@ -2,10 +2,6 @@
 module
 
 public import Certificates.Kernel.UnitarySix.Tables
-public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.FischerNativeInputs
-public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.HuntClassBraidInputs
-public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.NativeDataInputs
-import CFSG.Certificates.Kernel.Common.Harness
 
 @[expose] public section
 

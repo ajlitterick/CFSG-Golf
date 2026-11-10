@@ -1,16 +1,11 @@
 module
 
-public import CFSG.GH74.GLS.IVK.Proofs2.Ivk714Stmt
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk714Exc
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk714Abel
-public import CFSG.GH74.GLS.IVK.Proofs2.Ivk714Lin
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk714Uni
-public import CFSG.GH74.GLS.IVK.Proofs2.Ivk714L4
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk714L2
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk714L34
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk714Small
-public import CFSG.GH74.GLS.IVK.Proofs2.Ivk714Spor
-public import CFSG.GH74.GLS.IVK.Proofs2.Ivk714SporM12J2
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk714SporMcL
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk714SporLy
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk714Alt

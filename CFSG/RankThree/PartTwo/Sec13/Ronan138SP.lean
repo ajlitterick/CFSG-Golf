@@ -8,18 +8,12 @@ import CFSG.RankThree.PartTwo.Sec13.Item138ProofOmega
 import CFSG.RankThree.PartTwo.Sec13.Item138NMod9
 import CFSG.RankThree.PartTwo.Sec13.Item138ProofExists
 import CFSG.RankThree.PartTwo.Sec13.Item137Delta
-import CFSG.RankThree.PartTwo.Sec13.Item137Tools
 import CFSG.RankThree.PartTwo.Sec13.Item136Pair
-import CFSG.RankThree.PartTwo.Sec13.Item13Models
 import CFSG.RankThree.PartTwo.Sec6.Item612Plus
 import CFSG.RankThree.PartTwo.Sec13.Item137ProofOrbit
 import CFSG.RankThree.PartTwo.Sec13.Ronan138SRefl
-import CFSG.RankThree.PartTwo.Sec15.HypR
 import CFSG.RankThree.PartTwo.Sec5.Tools
-import CFSG.RankThree.PartTwo.Sec6.Item612Basic
 import CFSG.GroupTheory.QuasisimpleCommutingProductBound
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Foundations
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.GroupTheory.LocalCores.Fitting
@@ -28,14 +22,12 @@ public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups
 public import CFSG.LocalAnalysis.ComponentInitial.SuzukiModelSchreier
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure
 public import CFSG.RankThree.PartTwo.NotationBlocks
 public import CFSG.RankThree.PartTwo.Sec8.Pairs
 public import CFSG.RankThree.PartTwo.Sec8.Statements
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerImageCompletion
 import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerPreimages
 import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerRestrictionCompletion

@@ -2,10 +2,8 @@ module
 
 public import Certificates.Data.Kernel.U43Case
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.U43ConfigCheck
-public import CFSG.Certificates.Kernel.Spor.MulHSound
 public import Certificates.Kernel.Sporadic.OddCore.MulHGlue
 import CFSG.Certificates.Kernel.BfsPinAlg
-import CFSG.Certificates.Kernel.Spor.PackWord
 public import CFSG.Sporadic.SmallOddCore.ClassSimple
 
 public section

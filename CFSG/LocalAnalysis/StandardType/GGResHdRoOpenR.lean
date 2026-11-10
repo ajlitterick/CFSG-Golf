@@ -4,16 +4,11 @@ public import CFSG.LocalAnalysis.StandardType.GGResAssemblyR
 public import CFSG.LocalAnalysis.StandardType.GGResModelR
 public import CFSG.LocalAnalysis.StandardType.GGResDepAThree
 public import CFSG.LocalAnalysis.StandardType.GGResDepE6
-public import CFSG.LocalAnalysis.StandardType.GGResDepType
 import CFSG.LocalAnalysis.StandardType.GGMaxRankOtherRowDerive
-public import CFSG.LocalAnalysis.StandardType.GGMaxRankJReflection
-public import CFSG.LocalAnalysis.StandardType.GGResHdRoNarrowDefs
 import CFSG.LocalAnalysis.StandardType.GGResMaxRank
 public import CFSG.LocalAnalysis.StandardType.GGResSeven
 public import CFSG.LocalAnalysis.StandardType.GGResTriality
 public import CFSG.LocalAnalysis.StandardType.GGResTwA2
-public import CFSG.LocalAnalysis.StandardType.GGResXDichotomyDefs
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeDepAssemblyR
 public import CFSG.LocalAnalysis.StandardType.GGTwE6TwA2KHolds
 
 public section

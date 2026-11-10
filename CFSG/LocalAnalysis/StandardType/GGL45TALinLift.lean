@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGL45TALinH123
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldLinear
-public import CFSG.LocalAnalysis.StandardType.GGNbrGraphFieldLinear
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeACover
 
 public section
 

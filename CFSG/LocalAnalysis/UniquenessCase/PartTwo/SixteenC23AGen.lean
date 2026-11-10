@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC23APair
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC23Hyp154
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenUniqueMax
 
 public section
 

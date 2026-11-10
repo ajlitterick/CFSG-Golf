@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentInitial.BinarySymplecticSixDegree64PointTwoGroup
 public import CFSG.LocalAnalysis.ComponentInitial.BinarySymplecticSixDegree64OtherParabolic
-public import CFSG.LocalAnalysis.ComponentInitial.BinarySymplecticSixDegree64Lagrangian
 
 public noncomputable section
 

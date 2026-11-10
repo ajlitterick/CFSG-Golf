@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGKacTable
 public import CFSG.LocalAnalysis.StandardType.GGKacK0V2
 public import CFSG.LocalAnalysis.StandardType.GGKacTableShapes
-public import CFSG.LocalAnalysis.StandardType.GGKacTablePatternList
 
 public section
 

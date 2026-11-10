@@ -2,19 +2,12 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBNbrType
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPositionDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveBJoinDefs
-public import CFSG.LocalAnalysis.StandardType.GGTBFixDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniLFrame
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniLFrameClass
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniModelTwoCenter
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBProperNbr
-import CFSG.LocalAnalysis.StandardType.GGSecFiveBProperRootModel
 import CFSG.LocalAnalysis.StandardType.GGSecFiveL1OddLeaves
 import CFSG.LocalAnalysis.StandardType.GGSignedCoordReflGroup
-import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaBase
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
 
 public section
 

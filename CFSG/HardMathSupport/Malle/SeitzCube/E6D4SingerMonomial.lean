@@ -1,10 +1,7 @@
 module
 
 public import CFSG.HardMathSupport.Malle.SeitzCube.E6D4LineTransport
-public import CFSG.HardMathSupport.Malle.SeitzCube.E6ThreeSL3Torus
 public import CFSG.HardMathSupport.Malle.SeitzCube.E6ThreeSL3Sign
-public import CFSG.RankThree.PartOne.KE.A1E8Frame
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompChain
 public import CFSG.LieType.Chevalley.OddTrialityCosetInvolutions
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBPrimeJoinInteraction
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenCanonicalField
@@ -33,7 +30,6 @@ public import CFSG.RankThree.PartOne.KE6.Phi6Frame
 public import CFSG.RankThree.PartOne.KE6.Phi6Torsion
 public import CFSG.RankThree.PartOne.KF4.KernelTools
 public import CFSG.RankThree.PartOne.S8.Statements
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 
 public noncomputable section
 

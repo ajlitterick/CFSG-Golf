@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LargeExtraspecial.S63CD4Inputs
 public import Certificates.Kernel.S63K.CChecks
 import CFSG.Monster.B.Co2.PermArr
 import CFSG.Certificates.Kernel.Common.Harness

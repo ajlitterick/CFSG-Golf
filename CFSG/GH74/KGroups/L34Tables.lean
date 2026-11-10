@@ -3,14 +3,6 @@ module
 
 public import CFSG.GH74.KGroups.L34TablesBase
 
-public import Mathlib
-public import CFSG.GH74.KGroups.Generic
-public import CFSG.GH74.KGroups.Generic6
-public import CFSG.GH74.KGroups.PermCheck
-public import CFSG.GH74.KGroups.Checks
-public import CFSG.GH74.KGroups.Checks2
-public import CFSG.GH74.KGroups.Checks3
-public import CFSG.GH74.KGroups.L34
 public import CFSG.GH74.KGroups.L34Aut
 public import CFSG.GH74.KGroups.CoverL34
 public meta import CFSG.GH74.KGroups.Checks
@@ -18,12 +10,7 @@ public meta import CFSG.GH74.KGroups.Checks2
 public meta import CFSG.GH74.KGroups.Checks3
 public meta import CFSG.GH74.KGroups.L34
 public meta import CFSG.GH74.KGroups.L34Aut
-public import CFSG.GH74.KGroups.L34TablesInputs
 public meta import CFSG.GH74.KGroups.L34TablesInputs
-public import CFSG.GH74.KGroups.PSLN
-public import CFSG.GH74.KGroups.FieldGF
-public import CFSG.GH74.KGroups.L34Inputs
-public import CFSG.GH74.KGroups.L34AutInputs
 public import Certificates.Certificate5124
 
 public section

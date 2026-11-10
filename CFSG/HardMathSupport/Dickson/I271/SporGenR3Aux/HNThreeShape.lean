@@ -1,12 +1,9 @@
 module
 
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.SimpleLeaf
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.Leaf
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.HNThreeBR
 public import Certificates.Certificate17380
 public import Certificates.Certificate13609
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.HN
-public import CFSG.Sporadic.HNSchreier.Intrinsic
 
 public section
 

@@ -1,30 +1,16 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight56Spine
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight69Main
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight7xK335HNorm
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight7xK335Inputs
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight7xKGammaLemmas
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight8xKList880NotSL3
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.PartOneSixThirtyEightFour
 public import CFSG.LocalAnalysis.UniquenessCase.UC22R847Four
-public import CFSG.LocalAnalysis.UniquenessCase.UC6Inst
-public import CFSG.LocalAnalysis.UniquenessCase.UCFront08
-public import CFSG.Open.UniquenessExclusionRankFourMilestoneDefs
-public import CFSG.Yardstones.Mf4cdcdf2e013.Definitions
-import CFSG.LocalAnalysis.AGLEmbedding.CatalogSchreier
-import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.StrongThree
 import CFSG.LocalAnalysis.RankThreeTheoremC.SmallRankE3.P622KDEvenHolds
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.KInputsSolvableAltTenOf
-import CFSG.LocalAnalysis.UniquenessCase.UC6K35Holds
-import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.Coordinator.J4Eleven
-import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.SEFive.Holds
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight56R856Four
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight69R870
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight69R872
-import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight69R873
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight70CoreInst
-import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight7xK329Cross
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight7xK329InLie
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight7xK329InHeavy
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight7xK329InExcY
@@ -36,26 +22,14 @@ import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight7xK335HNormM24
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight7xK335HNormRu
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight7xK335HZStar
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight8xK85
-import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight8xKLeaves2Holds
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight8xKLeaves2Proofs
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight8xKList880SylowGen
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight8xKPorts
-import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.K328.Main
-import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.KIZHolds
-import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.R69Setup4
-import CFSG.LocalAnalysis.UniquenessCase.UC22DataExt
 import CFSG.LocalAnalysis.UniquenessCase.UC22R82Four
-import CFSG.LocalAnalysis.UniquenessCase.UC22R847G4
-import CFSG.LocalAnalysis.UniquenessCase.UC22S213Rest15IntersectionCore
 import CFSG.LocalAnalysis.UniquenessCase.UC22S213Rest15NormFour
-import CFSG.LocalAnalysis.UniquenessCase.UC6S846h
-import CFSG.LocalAnalysis.UniquenessCase.UC7P3BadNoStrongHolds
-import CFSG.LocalAnalysis.UniquenessCase.UC7P3ThreeKIB
 import CFSG.LocalAnalysis.UniquenessCase.UC7P3ThreeKIBA6
-import CFSG.LocalAnalysis.UniquenessCase.UC7P3ThreeKIBSmall
 import CFSG.LocalAnalysis.UniquenessCase.UC7R76Four
 import CFSG.LocalAnalysis.UniquenessCase.UCK35wHolds
-import CFSG.Milestones.CL_LIT_Griess_Schur_multipliers_Lie_type
 public import CFSG.GroupTheory.PRankQuotientLift
 public import CFSG.HardMathSupport.Solomon.Coordinator.L5Conj
 public import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma28b

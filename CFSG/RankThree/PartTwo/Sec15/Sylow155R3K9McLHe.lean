@@ -5,14 +5,7 @@ import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.ThetaSpor.HeThree
 import CFSG.Quasithin.Background.A318POutHe
 import CFSG.RankThree.PartTwo.KFacts.K426RestMcL
 import CFSG.RankThree.PartTwo.Sec15.Sylow155R3K9CritJ2
-import CFSG.RankThree.PartTwo.Sec4.Item47Native
 import CFSG.RankThree.PartTwo.Sec4.RonanK429RowHComp
-import CFSG.Sporadic.Bridge.HeSurj
-import CFSG.Sporadic.HeldB.CertPBridge
-import CFSG.Sporadic.Presentation.McLExact
-import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Certificates.CosetTableCompactPresented
 public import CFSG.Certificates.WordSubgroupRel
 public import CFSG.ClassicalGroups.Symplectic.Simple
@@ -40,7 +33,6 @@ public import CFSG.Sporadic.Presentation.HeExact
 public import CFSG.Sporadic.Presentation.McLExactData
 public import CFSG.Sporadic.Presentation.McLExactInputs
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import CFSG.GH74.GLS.Balance.SolvAPIDefs
 import CFSG.Mathlib.LinearAlgebra.BilinForm.Determinant
 import CFSG.Open.SplitBNPair
@@ -57,7 +49,6 @@ import CFSG.RankThree.PartTwo.Sec14.Item142ResProofPGL
 import CFSG.RankThree.PartTwo.Sec20.OneSteps
 import CFSG.RankThree.PartTwo.Sec21.Item211ProofListOf
 import CFSG.RankThree.PartTwo.Sec4.Item41NarrowGriess
-import CFSG.Walter.J1Props
 
 public section
 

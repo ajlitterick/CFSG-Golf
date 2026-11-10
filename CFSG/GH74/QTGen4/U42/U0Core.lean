@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Quasithin.H13.A5Setting
 public import CFSG.GH74.QTGen4.U42.Coords
 public meta import CFSG.Quasithin.H13.A5Setting
 public meta import Mathlib.GroupTheory.SemidirectProduct

@@ -5,13 +5,9 @@ import CFSG.LocalAnalysis.StandardType.GGHdRo7DKSqueezeAux
 import CFSG.LocalAnalysis.StandardType.GGHdRo7DFrameOmega
 import CFSG.LocalAnalysis.StandardType.GGHdRo7DSideData
 import CFSG.LocalAnalysis.StandardType.GGHdRo7CoprimeSplit
-import CFSG.LocalAnalysis.StandardType.GGTableBBstar
 import CFSG.LocalAnalysis.StandardType.GGTBTorRelDCoverTwo
 import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorus
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
-import CFSG.RankThree.PartOne.S11d.LieFieldTransfer
 import CFSG.GroupTheory.PCore.PCoreOfMulEquiv
-import CFSG.GroupTheory.LocalCores.Components
 
 public section
 

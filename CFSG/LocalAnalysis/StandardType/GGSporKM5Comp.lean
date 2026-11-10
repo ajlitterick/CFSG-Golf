@@ -3,11 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSporKProdComp
 public import CFSG.HardMathSupport.Dickson.BMRows.CensusM5
 import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabMThree
-import CFSG.Sporadic.HN
 import CFSG.Assembly.LargeEvenGLABridge
-import CFSG.Fischer.Classification.Recognition.Basic
-import CFSG.Monster.Tri.TriangleStabMaximal
-import CFSG.YGroups.Y443.Tri.AssemblyLit
 import CFSG.Assembly.OpenBridges
 import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabMThreeB
 import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabMThreeC

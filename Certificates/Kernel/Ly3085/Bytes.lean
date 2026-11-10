@@ -2,7 +2,6 @@ module
 
 import CFSG.Certificates.Kernel.Common.Harness
 public import Certificates.Kernel.Sporadic.LyBr.Seed
-public import Certificates.Data.Kernel.Spor.Bytes
 public import CFSG.Certificates.Kernel.Orders.Ly.Data.Pts
 public import CFSG.Certificates.Kernel.Fam.LySeed.Data.Pay
 public import CFSG.Certificates.Kernel.Fam.LyAlg.Data.Pay

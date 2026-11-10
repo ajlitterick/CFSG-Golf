@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtS143W2Gen
-public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionSquareFieldFixedBasis
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19IdGen
 public import CFSG.Quasithin.EmptyFaithful.Insp7NumP
 

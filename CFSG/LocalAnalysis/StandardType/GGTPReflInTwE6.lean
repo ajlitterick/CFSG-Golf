@@ -1,13 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTPDefs
-public import CFSG.LocalAnalysis.StandardType.GGTwKGLayerDefs
-public import CFSG.LocalAnalysis.StandardType.GGKGAutDict
-public import CFSG.LocalAnalysis.StandardType.GGKGWeylRootFacts
 public import CFSG.LocalAnalysis.StandardType.GGTPLayerTwE6
 public import CFSG.LocalAnalysis.StandardType.GGE6DepBlockLift
-public import CFSG.LocalAnalysis.StandardType.GGKGTwFrame
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6Delta
 public import CFSG.LocalAnalysis.StandardType.GGTwE6D4E0Data
 public import CFSG.LocalAnalysis.StandardType.GGTwE6D4RootFacts
 

@@ -3,9 +3,6 @@ module
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.Stroth.HeisD4.Transport
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.Stroth.HeisD4.D4Fixed
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.Stroth.HeisD4.Straighten
-public import CFSG.RankThree.Chevalley.SteinbergBID4Kernel
-public import CFSG.RankThree.PartOne.KE.E7FourHI
-public import CFSG.LieType.SeitzGeneration.ExcWideThree.Parrott.D4Graph.ClassOdd.Conj
 public import CFSG.RankThree.PartOne.KE6.Phi3Arith
 
 public noncomputable section

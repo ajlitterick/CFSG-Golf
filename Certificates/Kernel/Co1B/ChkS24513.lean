@@ -5,7 +5,6 @@ public import Certificates.Kernel.Co1B.Dag24513
 public import Certificates.Kernel.Co1B.Bfs24513
 public import Certificates.Data.Kernel.SporSch.Co1Cent
 public import Certificates.Data.Kernel.SporSch.Co1Stab
-public import Certificates.Data.Kernel.SporSch.Co1Mat
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoCo1.HypOneData
 public import CFSG.Sporadic.Co1Block.TwoBData
 import CFSG.Certificates.Kernel.Common.Harness

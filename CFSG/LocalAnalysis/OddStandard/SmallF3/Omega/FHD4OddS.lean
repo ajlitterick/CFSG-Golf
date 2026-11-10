@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ClassicalInvolution.Q3.TL4OmegaAOFStd
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.FHD4OddDef
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.FHD4OddLev
 

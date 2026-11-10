@@ -1,12 +1,8 @@
 module
 
 public import CFSG.HardMathSupport.Timmesfeld.LinearRank.ProjRank
-public import CFSG.Open.StatedDefs
-public import CFSG.Open.LocalVocabulary
-public import CFSG.Blueprint.MultiplierDefs
 public import CFSG.LocalAnalysis.GLTheoremA.S4.FullCover.MultLie
 public import CFSG.Models.Blueprint
-public import CFSG.Open.GriessAllModelsStatement
 public import CFSG.Blueprint.LieModelAPI
 public import CFSG.GH74.GLS.IVK.Proofs2.OddTools
 public import CFSG.GH74.GLS.Stage2.Local.P34Main

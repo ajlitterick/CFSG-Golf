@@ -1,10 +1,8 @@
 module
 
 public import CFSG.CGT.Stroth77.Extension22FourZero
-public import CFSG.CGT.Stroth77.Extension22Final
 import all CFSG.CGT.Stroth77.Extension22Final
 import all CFSG.CGT.Stroth77.Extension22FourZero
-public import CFSG.CGT.Stroth77.Extension22FourAssembly
 public import CFSG.CGT.Stroth77.Extension22FourBasis2
 public import CFSG.CGT.Stroth77.Extension22FourQuot
 

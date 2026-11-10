@@ -1,23 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGInterfaceFive
-public import CFSG.LocalAnalysis.StandardType.GGAssemblyTwoHypSix
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrderSixPZ
-public import CFSG.LocalAnalysis.StandardType.MarkingDict
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GField
-import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpStdAssembly
-import CFSG.LocalAnalysis.StandardType.GGReverseMarking
-import CFSG.Assembly.Subnormal
-import CFSG.LocalAnalysis.StandardType.Marking
-import CFSG.LocalAnalysis.StandardType.GGTwoSignalizerNormal
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-import CFSG.HardMathSupport.Solomon.Coordinator.LayerCentralFix
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T263DXQuasi
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FSimple
-import CFSG.LocalAnalysis.GLTheoremA.S12.CanonInnBridge
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.K3.Components
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GClsExc
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldExcChev
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldExcRedG
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldExcRedT
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldExcFixE6All

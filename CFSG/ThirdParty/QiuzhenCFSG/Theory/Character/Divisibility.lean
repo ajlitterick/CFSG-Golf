@@ -1,13 +1,8 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.Induction
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.Orthogonality
 public import Mathlib.Algebra.Central.End
-public import Mathlib.Algebra.MonoidAlgebra.MapDomain
-public import Mathlib.Algebra.MonoidAlgebra.Module
-public import Mathlib.LinearAlgebra.FreeModule.Finite.Basic
 public import Mathlib.NumberTheory.Niven
-public import Mathlib.RingTheory.IntegralClosure.Algebra.Basic
 
 namespace CFSG
 end CFSG

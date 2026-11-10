@@ -1,8 +1,6 @@
 module
 
-public import CFSG.Monster.B.GSide.HInnerFusionI3Cert
 public meta import CFSG.Monster.B.GSide.HInnerFusionI3Cert
-public import CFSG.Monster.B.GSide.HInnerFusionY3CertInputs
 public import Certificates.Certificate3136
 
 public section

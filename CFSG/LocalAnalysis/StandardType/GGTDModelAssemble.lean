@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTDModelBasic
 public import CFSG.LocalAnalysis.StandardType.GGTDModelWeyl
 public import CFSG.LocalAnalysis.StandardType.GGTDModelInner
 public import CFSG.LocalAnalysis.StandardType.GGTDAutomizer

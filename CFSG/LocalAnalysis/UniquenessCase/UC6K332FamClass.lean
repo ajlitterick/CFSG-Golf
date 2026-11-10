@@ -1,22 +1,13 @@
 module
 
-public import CFSG.RankThree.PartTwo.Sec4.RonanK432Defs
-public import CFSG.Blueprint.Catalog
 public import CFSG.LocalAnalysis.UniquenessCase.UC6K332Bridge
 public import CFSG.LocalAnalysis.UniquenessCase.UC6K332RowsDef
 import CFSG.LocalAnalysis.UniquenessCase.UC6K332P2
 import CFSG.LocalAnalysis.UniquenessCase.UC6K332P5
 import CFSG.RankThree.PartTwo.Sec4.RonanK432RowL2
-import CFSG.RankThree.PartTwo.Sec4.RonanK432RowSp4
 import CFSG.RankThree.PartTwo.Sec4.RonanK432RowSp4Even
-import CFSG.RankThree.PartTwo.Sec4.RonanK432RowSU4Two
-import CFSG.RankThree.PartTwo.Sec4.RonanK432RowSL4W
 import CFSG.RankThree.PartTwo.Sec4.RonanK432RowL4DiagCore
 import CFSG.RankThree.PartTwo.Sec4.RonanK432RowU4Field
-import CFSG.RankThree.PartTwo.Sec4.RonanK432RowU4FieldOuter
-import CFSG.RankThree.PartTwo.Sec4.RonanK432RowU4DiagWitness
-import CFSG.Adapters.ClassicalCatalogReverse
-import CFSG.LocalAnalysis.SectionRank.ClassicalOdd
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore

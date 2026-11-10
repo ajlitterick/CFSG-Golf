@@ -1,16 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6KGLPairs
-import CFSG.HardMathSupport.Dickson.Bal207.CompShape
 import CFSG.HardMathSupport.Dickson.Bal207.FamF42
-import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagOrder
-import CFSG.LocalAnalysis.SeitzReduction.F4PilotCatEvenExcOrders
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcOut
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLNoJ1MarkTriality
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLNoJ1Ppd
-import CFSG.LocalAnalysis.StandardType.Marking
-import CFSG.Timmesfeld.Orders.ExceptionalTwisted
-import CFSG.Timmesfeld.Orders.ExceptionalUntwisted
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.SRTReeF4
 
 public section

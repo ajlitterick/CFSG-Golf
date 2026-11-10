@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderOmegaGenFrame
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderUO
-public import CFSG.RankThree.PartOne.AUTSL.OmegaOut
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1P58b3D4Blk
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog7StdOm8Cases
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog7StdOm8Indep
@@ -22,7 +21,6 @@ public import CFSG.LocalAnalysis.SectionRank.LargeRee.SuzukiData
 public import CFSG.LocalAnalysis.SectionRank.OddCover.CatalogOdd
 public import CFSG.LocalAnalysis.SectionRank.SectionAssemblyBase
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 public import CFSG.Quasithin.Vol2.KGFactC31RuRefBase
 

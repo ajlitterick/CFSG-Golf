@@ -3,7 +3,6 @@ module
 public import CFSG.Quasithin.Recognition.GoldschmidtFan86Sec8P1Geo
 public import CFSG.Quasithin.Recognition.GoldschmidtFan86Sec8P1Lab
 public import CFSG.Quasithin.Recognition.GoldschmidtFan86Sec8P1Z2Loc
-public import CFSG.Quasithin.Recognition.GoldschmidtFan86Sec4Loc
 public import CFSG.Quasithin.Recognition.GoldschmidtFan86Sec8Base
 
 public section

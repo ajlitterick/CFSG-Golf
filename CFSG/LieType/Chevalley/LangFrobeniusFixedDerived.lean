@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LieType.Chevalley.CoordinateFieldFixedStructure
-public import CFSG.LieType.Chevalley.GraphFixedF4GroupDescent
 public import CFSG.LieType.Chevalley.E6GraphInvolutionFiniteReduction
-public import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
-public import Mathlib.FieldTheory.IntermediateField.Adjoin.Basic
 
 public noncomputable section
 

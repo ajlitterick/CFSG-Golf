@@ -6,8 +6,6 @@ import CFSG.HardMathSupport.Timmesfeld.Tables.T1b.LinModelAut
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section15.K35PlaneSL
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section15.K35PlaneSU
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section15.K35BlockSU
-import CFSG.LocalAnalysis.ComponentInitial.LinearHigherFieldInvolution
-import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherPrimeFormRealization
 import CFSG.RankThree.PartTwo.Sec21.Hering214KEig
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
@@ -21,7 +19,6 @@ import CFSG.ClassicalInvolution.WeakCT.StandardPair
 import CFSG.ClassicalInvolution.WeakCT.TorusAgree
 import CFSG.LieType.CurtisTits.SpecialLinear
 import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

@@ -1,14 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.KFactOddAutParabolicReduce
-public import CFSG.Open.StatedDefs
 import CFSG.LocalAnalysis.StandardType.GGRecipeFieldSpUOrder
 import CFSG.LocalAnalysis.ComponentInitial.UnitaryDiagonalOuterOrder
-import CFSG.ClassicalGroups.UnitaryFlag.ModelTransport
-import CFSG.ClassicalGroups.UnitaryFlag.OrderSylow
-import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherSemilinearAut
-import CFSG.LocalAnalysis.ShultStronglyClosedTI.UnitaryAutomorphismRealization
-import CFSG.LocalAnalysis.SteinbergBNUnitaryThreeOuterInvolutionRigidity
 import CFSG.HardMathSupport.Lang.UnitaryAutomorphisms.IrredThree
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Foundations

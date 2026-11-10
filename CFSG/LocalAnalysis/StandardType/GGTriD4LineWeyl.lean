@@ -10,7 +10,6 @@ import CFSG.LocalAnalysis.StandardType.GGTriD4LineWeylConjStep
 import CFSG.LocalAnalysis.StandardType.GGTriD4LineWeylFixTorus
 import CFSG.LocalAnalysis.StandardType.GGTriD4LineRecog
 import CFSG.LocalAnalysis.StandardType.GGTriD4KnownInputsModel
-import CFSG.GroupTheory.ElementaryAbelianTransport
 
 public section
 

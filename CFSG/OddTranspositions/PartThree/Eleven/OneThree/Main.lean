@@ -1,8 +1,6 @@
 module
 
-public import CFSG.OddTranspositions.PartThree.EightEight.Statement
 public import CFSG.OddTranspositions.PartThree.EightOne
-public import CFSG.OddTranspositions.PartThree.EightFive.Holds
 public import CFSG.OddTranspositions.PartThree.Eleven.OneThree.Radical
 public import CFSG.OddTranspositions.PartThree.Eleven.OneThree.OFour
 public import CFSG.OddTranspositions.PartThree.Eleven.OneThree.Wreath

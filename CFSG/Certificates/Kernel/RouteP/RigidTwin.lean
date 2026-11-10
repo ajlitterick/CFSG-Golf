@@ -5,8 +5,6 @@ public import Certificates.Data.RouteP.Rigid
 public import CFSG.Certificates.Kernel.Spor.PK.NatBFS
 public import CFSG.Certificates.Kernel.RouteP.TextLines
 public import CFSG.Sporadic.Th.TableSpec
-public import Mathlib.RingTheory.WittVector.IsPoly
-public import Mathlib.Tactic.ReduceModChar
 public import Std.Tactic.BVDecide.Normalize.BitVec
 
 public section

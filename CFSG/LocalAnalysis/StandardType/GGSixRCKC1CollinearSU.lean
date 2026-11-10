@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1CollinearVac
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1CollinearShort
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2GeoSU
-public import CFSG.Timmesfeld.LieEmbed.UnitaryForms
-public import CFSG.LieType.Steinberg.CentralExt.UnitaryField
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1LemmaHNbr
 
 public section
 

@@ -2,19 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.WeakClosure81.GF2RepsAsch54SporCo3Pair
 import Certificates.Kernel.Asch54.Co3Checks
-import Certificates.Certificate2152
-import Certificates.Certificate2158
-import Certificates.Certificate2162
 import CFSG.Certificates.Kernel.Asch54.Co3Sound
-import CFSG.Certificates.Kernel.Spor.RawTreeSound
-import CFSG.Certificates.Kernel.Spor.RawOrbHead
-import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import CFSG.Certificates.Kernel.Spor.RawSiftK
-import CFSG.Certificates.Kernel.Spor.PrimSound
 import CFSG.Certificates.Kernel.B3S3KSound
-import CFSG.Certificates.NativeSchreierCard
 import CFSG.Sporadic.Schreier.Co3Sylow
-import CFSG.Sporadic.Schreier.Co3Faithful
 import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutTables
 import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.LocBSSuzFacts
 import CFSG.Certificates.Kernel.Common.Harness

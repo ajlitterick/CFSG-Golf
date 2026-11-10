@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGKGroupFusionRestOuter
 public import CFSG.LocalAnalysis.StandardType.GGD4FieldAutMaximalTransport
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.D4FieldCoatom
-public import CFSG.LieType.SeitzGeneration.ExcWideThree.Families
 
 public section
 

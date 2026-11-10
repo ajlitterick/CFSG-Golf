@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.KGFact1297SL
-public import CFSG.Quasithin.Background.A4Defs
 
 public section
 

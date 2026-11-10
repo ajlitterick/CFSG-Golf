@@ -1,14 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenT7K
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenT7A5
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenFiveTen
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs15
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs16a
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenT7Aut
 public import CFSG.Quasithin.Background.B6
-public import CFSG.Quasithin.Background.B6Example
-public import CFSG.Quasithin.Background.B6Offenders
 public import CFSG.Quasithin.Background.E2SolvTwo
 
 public section

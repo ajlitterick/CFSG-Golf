@@ -1,11 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndep
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepSmall
-public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepLarge
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeNineDep
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepLE3E6
-public import CFSG.LocalAnalysis.StandardType.GGTWSmallCarried
 public import CFSG.LocalAnalysis.StandardType.GGE6D4TwoNodeLocalInput
 
 public section

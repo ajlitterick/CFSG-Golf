@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResIBasic
-public import CFSG.LocalAnalysis.StandardType.GGFixedRealizedConfig
 public import CFSG.LocalAnalysis.StandardType.GGRealQFourThree
-public import CFSG.LocalAnalysis.StandardType.GGReflClosedIndep
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
 
 public section
 

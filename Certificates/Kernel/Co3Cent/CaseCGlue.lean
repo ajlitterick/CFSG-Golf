@@ -5,12 +5,10 @@ public import Certificates.Kernel.Co3T.Facts
 public import CFSG.Certificates.Kernel.K426KSound
 public import CFSG.Certificates.Kernel.HeDihKSound
 public import CFSG.Certificates.Kernel.D4Sound
-public import CFSG.Certificates.Kernel.BfsPinSliceSound
 public import CFSG.Certificates.Kernel.Misc.HexFlatSound
 public import CFSG.Certificates.Kernel.OrbRow.WordRep
 public import CFSG.Certificates.Kernel.OrbRow.PRepFacts
 public import CFSG.RankThree.PartTwo.KFacts.K426Kit
-public import CFSG.RankThree.PartTwo.Sec4.Census.CoverCenterThreeRestCover
 
 public section
 

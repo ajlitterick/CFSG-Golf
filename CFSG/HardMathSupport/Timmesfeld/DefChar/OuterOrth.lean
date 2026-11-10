@@ -2,20 +2,9 @@ module
 
 public import CFSG.HardMathSupport.Timmesfeld.DefChar.Families
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalModelOuterTwoPart
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalSemilinearFiltrationField
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalSemilinearFiltrationQuotient
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalSemilinearFiltrationMultiplier
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointDataModelImage
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointDataModelIntrinsic
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointDataModelWitness
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointPlusFamilyOrbitModel
-public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalTailModelFamily
 public import CFSG.RankThree.PartTwo.Census.Carrier.SpinBOdd
-public import CFSG.RankThree.PartTwo.Census.Carrier.SpinDOdd
 public import CFSG.RankThree.PartTwo.Census.Carrier.SpinTDOdd
-public import CFSG.LocalAnalysis.QuasithinUnique.SQTK.TypeB2Carrier
 public import CFSG.RankThree.PartOne.AUTSL.SpTwoAut
-public import CFSG.RankThree.PartOne.S11d.OutAbstract
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.Foundations
 public import CFSG.GroupTheory.HallHigmanPiCore
@@ -40,7 +29,6 @@ public import CFSG.LocalAnalysis.GLTheoremB.QuotientTools
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 public import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 public import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 public import TauCeti.LinearAlgebra.QuadraticForm.Prod

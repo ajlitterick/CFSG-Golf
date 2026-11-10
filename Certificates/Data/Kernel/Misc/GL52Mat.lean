@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Certificates.Kernel.Orders.Mat
 public import Certificates.Data.Kernel.LocalQT.Perm
 
 public section

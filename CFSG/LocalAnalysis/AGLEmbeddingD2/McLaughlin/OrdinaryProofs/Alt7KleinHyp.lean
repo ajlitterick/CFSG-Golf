@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.McLaughlin.OrdinaryProofs.Alt7Klein
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.McLaughlin.OrdinaryProofs.Alt7KleinHypK
 

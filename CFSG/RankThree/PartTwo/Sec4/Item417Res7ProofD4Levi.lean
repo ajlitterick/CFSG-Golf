@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LieType.Chevalley.FixedRootCentralizerGeneration
-public import CFSG.LieType.Chevalley.GraphFixedCompatibleDiagonal
-public import CFSG.LieType.Chevalley.GraphFixedRankOneImage
 public import CFSG.LieType.Chevalley.TrialityAllCharTorusCoordinates
-public import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
 public import CFSG.Blueprint.ChevalleyRootArtifact
 import CFSG.LinearAlgebra.SteinbergBQEvenSL2OddCyclic
 

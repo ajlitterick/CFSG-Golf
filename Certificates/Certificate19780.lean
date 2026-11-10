@@ -2,7 +2,6 @@ module
 
 public import CFSG.LargeExtraspecial.AS62C36RigidInputs
 import Certificates.Kernel.AS62Rigid.Facts
-import Certificates.Kernel.AS62Rigid.Checks
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

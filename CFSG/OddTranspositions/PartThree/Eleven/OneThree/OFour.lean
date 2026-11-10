@@ -2,7 +2,6 @@ module
 
 public import CFSG.OddTranspositions.PartThree.EightNine.O4
 public import CFSG.OddTranspositions.PartThree.EightEight.OFourMinus
-public import CFSG.OddTranspositions.O4Minus5Pair
 
 public section
 

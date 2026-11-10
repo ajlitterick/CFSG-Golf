@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.GmsPathK
-public import Certificates.Data.Kernel.Co1F2
 
 public section
 

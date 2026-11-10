@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.K332MetaDefs
 public import CFSG.LocalAnalysis.UniquenessCase.UC6K332Exc
-public import CFSG.LocalAnalysis.SectionRank.Sporadic.J2Local
-public import CFSG.Sporadic.J2
-public import CFSG.RankThree.Coprime.SmallPrimeTorsionQuotient
 public import CFSG.LocalAnalysis.RankThreeUC.ProofSupport.ClauseBFaithfulData
 public import CFSG.GroupTheory.SteinbergBKOddMetacyclicTorsion
 public import CFSG.LocalAnalysis.RankThreeUC.ModuleRanks

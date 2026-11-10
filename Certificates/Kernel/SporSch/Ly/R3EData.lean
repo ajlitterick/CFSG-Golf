@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.SporSch.Ly.BSData
-public import CFSG.Sporadic.Schreier.LyCheckR3E
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

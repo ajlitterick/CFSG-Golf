@@ -3,11 +3,6 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.UC6K36Shape
 public import CFSG.LocalAnalysis.UniquenessCase.UC6K36Lam
 import CFSG.LocalAnalysis.UniquenessCase.UC6K36Rank
-import CFSG.LieType.Universal.SpecialLinear
-import CFSG.LocalAnalysis.ComponentInitial.LinearThreeFourFixedNine
-import CFSG.RankThree.PartTwo.KFacts.L34Sylow
-import CFSG.GroupTheory.ElementaryAbelianTransport
-import CFSG.ThirdParty.QiuzhenCFSG.Theory.AutAlternating
 public import CFSG.LocalAnalysis.UniquenessCase.UC6K36Stab
 
 public section

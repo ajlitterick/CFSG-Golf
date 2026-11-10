@@ -3,7 +3,6 @@ module
 
 public import CFSG.Certificates.Kernel.KDense.Data.Tab
 public import CFSG.Certificates.Kernel.KDense.Y443.Pairs
-public import CFSG.Certificates.Kernel.Common.Chain
 public import CFSG.Certificates.Kernel.Common.Repo
 public import CFSG.YGroups.Y443.Native.EdgeNoncommBase
 public import Certificates.Data.Kernel.KDense.Chunk

@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionCore
 public import CFSG.ClassicalGroups.Symplectic.ProjectivePerfect
 public import CFSG.LocalAnalysis.SeitzReduction.SeitzQ2OddSplitClassical
 public import CFSG.Timmesfeld.Transvection.QTwoSp
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 public import CFSG.LieType.Chevalley.C2E6StandardFixedData
 public import CFSG.LieType.Chevalley.C2E6UnitaryFourImages
@@ -21,7 +19,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
 public import CFSG.LocalAnalysis.ComponentInitial.SylowPointRecovery
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Timmesfeld.RankOne
 public import CFSG.Timmesfeld.Transvection.Statement
 public import CFSG.Walter.JRFacts

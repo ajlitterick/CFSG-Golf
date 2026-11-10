@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23c.OmegaP
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KOm.RootGroupGL
 import CFSG.ClassicalGroups.Orthogonal.RootGroupGLEichler
 import CFSG.GroupTheory.WeirSylow.UniqueE27Orthogonal
-import CFSG.LieType.Universal.Spin.Forms
 import CFSG.RankThree.GF2n.Smith81.OrthE1KFSmall
 import CFSG.RankThree.GF2n.Stroth80.Sec310ClOmegaPlusFour
 import CFSG.CGT.PushingUpLit.CGT6.SixFour
@@ -87,8 +86,6 @@ import CFSG.Quasithin.Background.C1PackS1531Top
 import CFSG.Quasithin.Background.C2PushThree
 import CFSG.Quasithin.Background.D2
 import CFSG.Quasithin.Background.E3
-import CFSG.Quasithin.Background.E3Nprime
-import CFSG.Quasithin.Background.E3Uniq
 import CFSG.Quasithin.Background.F918H5
 import CFSG.Quasithin.Background.FFC4Tr2
 import CFSG.Quasithin.Background.GoldschmidtS146RBend1
@@ -165,9 +162,6 @@ import CFSG.Sporadic.Presentation.Co2Fusion
 import CFSG.Sporadic.Presentation.Co2FusionInputs
 import CFSG.Sporadic.Presentation.McLExactData
 import CFSG.Sporadic.Presentation.McLExactInputs
-import CFSG.Walter.J1Props
-import CFSG.Walter.J1Recog
-import CFSG.Walter.PSL2Facts
 
 public section
 

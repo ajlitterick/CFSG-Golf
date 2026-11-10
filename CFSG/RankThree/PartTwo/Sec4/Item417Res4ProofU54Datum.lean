@@ -3,10 +3,7 @@ module
 public import CFSG.RankThree.PartTwo.Sec4.Item417Res4ProofL52
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434SmallTwoOtherUTools
 import CFSG.RankThree.PartTwo.Sec4.T444.Item434SmallTwoOtherU54
-import CFSG.RankThree.PartTwo.Sec4.T444.Item434AltPerm
 import CFSG.RankThree.PartTwo.Sec4.Item423Res2ProofTools
-import CFSG.RankThree.PartTwo.Sec4.Sporadic.Transport
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralGenerators
 public import CFSG.Permutation.AlternatingAutomorphism
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434SmallTwoOtherDefs
 

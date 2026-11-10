@@ -1,12 +1,9 @@
 module
 
 public import CFSG.Sporadic.J4
-public import Mathlib.LinearAlgebra.Matrix.BilinearForm
 public import Certificates.Certificate10059
 public meta import Certificates.Data.CFSGNative.J4.F2
 public meta import Certificates.Data.CFSGNative.J4.Data
-import Certificates.Data.CFSGNative.J4.F2
-import Certificates.Data.CFSGNative.J4.Data
 public import CFSG.Sporadic.J4Base
 
 public section

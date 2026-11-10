@@ -1,11 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront12
-import CFSG.Quasithin.Background.E1Sec6
-import CFSG.GroupTheory.ABGLocalTools.Basic
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConjAction
-import CFSG.LocalAnalysis.PreuniquenessRankFour.CoprimeAction
 
 public section
 

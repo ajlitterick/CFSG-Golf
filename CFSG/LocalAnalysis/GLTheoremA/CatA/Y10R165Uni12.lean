@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Uni9
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Concl
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Num
 
 public section
 

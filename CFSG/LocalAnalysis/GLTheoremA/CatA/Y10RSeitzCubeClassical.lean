@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10RSeitzCubeCore
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.Seitz2313Cover
-public import CFSG.LocalAnalysis.StandardType.GGOppositeRadicalExcTag
 public import CFSG.LocalAnalysis.StandardType.GGOppositeRadicalExcTwTag
 public import CFSG.Blueprint.SourceClassicalTransportOrthogonal
 public import CFSG.ClassicalInvolution.ModelFacts.ClauseZero

@@ -1,6 +1,5 @@
 module
 
-public import Mathlib
 public import CFSG.Milestones.ASVolI.H1
 
 public section

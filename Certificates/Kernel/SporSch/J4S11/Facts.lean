@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.SporSch.J4S11.Checks
 public import Certificates.Kernel.SporSch.J4S.Regs
 public import CFSG.Certificates.Kernel.SporSch.J4S11Sound
-public import CFSG.Sporadic.Schreier.J4SElevenData
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

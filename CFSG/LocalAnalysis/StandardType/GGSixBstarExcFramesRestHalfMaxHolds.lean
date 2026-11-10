@@ -1,12 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGPRankBoundsExc
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesE6Nonsplit
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesE8Rest
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfMaxElem
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfMaxToral
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfTwoLocal
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesResidualLabels
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTagsE6
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTwE6Nonsplit
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTwE6Split

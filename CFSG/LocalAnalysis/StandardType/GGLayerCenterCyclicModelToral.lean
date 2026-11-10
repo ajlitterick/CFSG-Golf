@@ -2,11 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLayerCenterCyclicExc
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerPDivExcToral
-public import CFSG.LocalAnalysis.StandardType.GGLayerCycModelOmegaInnerCore
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcRank
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Basic
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcSixEBundle
-public import CFSG.RankThree.Chevalley.G2SplitPrimeToralCentralizers
 public import CFSG.RankThree.PartOne.K133H.G2Plane
 public import CFSG.LocalAnalysis.StandardType.GGLayerCenterCyclicModelCoroot
 public import CFSG.RankThree.PartOne.KF.F128Cyclic

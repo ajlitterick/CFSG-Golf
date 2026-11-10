@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.EvenBN.Lists
 public import Certificates.Data.Kernel.EvenBN.BaseTw
-public import Certificates.Kernel.SporSch.Tits.GenAll5
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

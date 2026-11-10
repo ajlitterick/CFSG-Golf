@@ -1,20 +1,13 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
-public import CFSG.LieType.Universal.Unitary.Extras
-public import CFSG.LieType.BorelTits.UnitaryForm
-public import CFSG.Open.StatedDefs
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
-public import CFSG.Timmesfeld.LieEmbed.UnitaryForms
 public import CFSG.Timmesfeld.Transvection.ModelRankSU
 public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionCore
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.GeoWittSU
-public import CFSG.Timmesfeld.Transvection.PresSUModel
 public import CFSG.Timmesfeld.Transvection.OddModelHeis
 public import CFSG.Timmesfeld.LieEmbed.UnitaryIsometry
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.Timmesfeld.RankOne
 
 public section

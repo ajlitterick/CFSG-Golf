@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenUFourTwoFrame
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUAct
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkClass
 public import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourCover
 public import CFSG.LocalAnalysis.StandardType.GGIOneRestFiveU52Root

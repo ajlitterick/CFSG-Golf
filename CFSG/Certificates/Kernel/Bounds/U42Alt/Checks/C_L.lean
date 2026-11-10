@@ -1,7 +1,5 @@
 module
 
-import CFSG.Certificates.Kernel.Common.Harness
-import CFSG.Certificates.Kernel.Common.LceSRange
 import CFSG.Certificates.Kernel.Bounds.U42Alt.Data.C_Sel
 import CFSG.Certificates.Kernel.Bounds.U42Alt.Checks.C_W
 import CFSG.Certificates.Kernel.Bounds.Core3

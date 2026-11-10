@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Asc77.AscC25G1
 public import CFSG.ClassicalInvolution.Asc77.AscC25G4
-public import CFSG.ClassicalInvolution.Asc77.AscC25V25
 public import CFSG.ClassicalInvolution.Asc77.AscC25V38
 public import CFSG.ClassicalInvolution.Asc77.AscCX4
 public import CFSG.ClassicalInvolution.Asc77.AscS22F

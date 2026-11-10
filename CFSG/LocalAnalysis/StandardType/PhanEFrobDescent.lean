@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.PhanEStdLevi
-public import CFSG.LieType.Steinberg.Collection
 
-import CFSG.LieType.Steinberg.Bridge
-import CFSG.LieType.Steinberg.BruhatTwist
 
 public section
 

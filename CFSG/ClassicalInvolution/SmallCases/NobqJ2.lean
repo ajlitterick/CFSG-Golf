@@ -1,13 +1,8 @@
 module
 
-public import CFSG.ClassicalInvolution.SmallCases.NobqArr
 public import CFSG.ClassicalInvolution.SmallCases.NobqLists
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.J2
-public import Certificates.Certificate10019
-public import CFSG.ClassicalInvolution.SmallCases.NobqJ2Inputs
 public import Certificates.Certificate9302
-public import Certificates.Certificate9308
-public import Certificates.Certificate3139
 public meta import CFSG.ClassicalInvolution.SmallCases.Sporadic.J2
 public meta import CFSG.ClassicalInvolution.SmallCases.NobqArr
 

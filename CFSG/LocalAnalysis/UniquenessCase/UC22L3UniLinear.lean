@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.UC22L3UniAut
 public import CFSG.LocalAnalysis.UniquenessCase.UC22L3LinFieldsB
 import CFSG.LocalAnalysis.UniquenessCase.UC22L3LinL5
 public import CFSG.RankThree.PartTwo.Sec21.Item211Res6ProofUniExt
-public import CFSG.RankThree.PartTwo.KFacts.AutPSU
 public import CFSG.GroupTheory.BaerSuzuki
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LocalAnalysis.ComponentInitial.BlockOvergroupDichotomy
@@ -22,7 +21,6 @@ public import CFSG.RankThree.PartTwo.Late.GammaZero
 public import CFSG.RankThree.PartTwo.NotationBlocks
 public import CFSG.RankThree.PartTwo.Sec11.Theorem1134
 public import CFSG.RankThree.PartTwo.Sec18.Notation
-public import CFSG.RankThree.PartTwo.Sec18.Tools
 public import CFSG.RankThree.PartTwo.Sec21.Item211Res6ProofLinear
 public import CFSG.RankThree.PartTwo.Sec21.Item229Diagram
 public import CFSG.RankThree.PartTwo.Sec21.Item23Tools

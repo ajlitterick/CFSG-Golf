@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7SUCoordDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitaryOutdiag
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinBstarSplit
 
 public section

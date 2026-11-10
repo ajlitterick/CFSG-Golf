@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGInnerDiagMarkingE6Tw
-public import CFSG.LieType.Chevalley.TwistedE6NormalForm
-public import CFSG.LieType.Chevalley.GraphFixedFinitePerfect
 
 public section
 

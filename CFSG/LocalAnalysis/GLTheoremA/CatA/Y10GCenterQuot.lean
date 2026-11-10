@@ -1,13 +1,8 @@
 module
 
-public import CFSG.Open.StatedDefs
 public import CFSG.LieType.SemisimpleCentralizers.HeldUnitaryComponents
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinFldGrp
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniData
-import CFSG.LieType.SemisimpleCentralizers.HeldCompTrivSU
-import CFSG.Adapters.ProjectiveSpecialLinear
-import CFSG.RankThree.PartOne.KC.SymplecticSubfieldRadical
-import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherEvenSymplecticNormalForm
 import CFSG.Assembly.GL83StatedBridge
 import CFSG.Assembly.OpenBridges
 import CFSG.GroupTheory.HallHigmanPiCore

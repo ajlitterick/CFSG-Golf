@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTwE6CorootCoreConj
 public import CFSG.LocalAnalysis.StandardType.GGTwE6CorootCoreClause
 public import CFSG.LocalAnalysis.StandardType.GGTwE6RootAsCoreDefs
-import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotNeighbourStandard
 import CFSG.LocalAnalysis.SeitzReduction.F4PilotCatTypeDet
-import CFSG.RankThree.Chevalley.SteinbergBTCanonicalFieldCommon
 
 public section
 

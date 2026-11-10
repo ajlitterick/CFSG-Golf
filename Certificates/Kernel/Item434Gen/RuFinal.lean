@@ -7,7 +7,6 @@ public import Certificates.Kernel.Item434Gen.RuChecks2
 public import Certificates.Kernel.Item434Gen.RuChecks3
 public import CFSG.Certificates.Kernel.Item434GenSound
 public import Certificates.Kernel.Misc.RuInv.Proof
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

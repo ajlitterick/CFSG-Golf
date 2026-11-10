@@ -1,23 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs2311g2
-public import CFSG.GH74.GLS.IVK.Proofs2.Lemma31g
-public import CFSG.RankThree.Chevalley.SteinbergBITrialitySingular
-public import CFSG.RankThree.Chevalley.SteinbergCDTrialityThreeSixLocalCore
 public import CFSG.HardMathSupport.Seitz.TrialityEven.RouteCModel
-public import CFSG.HardMathSupport.Seitz.TrialityOdd.Coordinator.HandbackPhi6
-public import CFSG.HardMathSupport.Seitz.TrialityOdd.Coordinator.Phi6RouteWStarProved
-public import CFSG.HardMathSupport.Seitz.TrialityOdd.Inner.PhiRows.RouteWJPlacement
-public import CFSG.HardMathSupport.Seitz.TrialityOdd.Inner.PhiRows.RouteWCoreThree
-public import CFSG.HardMathSupport.Seitz.Proving.OrderThreeSLConj
 public import CFSG.HardMathSupport.Seitz.G2Anisotropic.Coordinator.StandardPairFacts
-public import CFSG.GH74.GLS.IVK.Proofs2.GHInvShape
 public import CFSG.HardMathSupport.Seitz.TrialityEven.FrameLiftEven
-public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4Q1Main
-public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4MpMain
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.OuterFourSeitzBal2
-public import CFSG.RankThree.PartTwo.Sec11.KS11Lie4ProofSL2
-public import CFSG.Quasithin.Background.A3Structure36BPrime
 
 public section
 

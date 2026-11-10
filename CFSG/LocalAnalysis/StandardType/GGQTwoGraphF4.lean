@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.LinearAlgebra.Matrix.Cartan.Basic
 public import CFSG.LocalAnalysis.StandardType.GGQTwoGraphWord
 import CFSG.Mathlib.Decide.Bounded
 

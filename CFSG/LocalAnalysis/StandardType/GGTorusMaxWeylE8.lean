@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusMaxWeylE8Aux
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.WeylCover
-public import CFSG.LieType.Chevalley.WeylRoots
 public import CFSG.Adapters.LieModelSimple
 public import CFSG.HardMathSupport.Curtis.NaturalModuleCensus.ExcCross.E78Sylow
 public import CFSG.CGT.Timmesfeld75.L2Pair
@@ -30,8 +29,6 @@ public import CFSG.LocalAnalysis.SectionRank.EvenCover.LinearStep
 public import CFSG.LocalAnalysis.SectionRank.SporadicCover
 public import CFSG.Monster.B.Geometry.CoxeterWords
 public import CFSG.Sporadic.M23.M23Group
-public import CFSG.Sporadic.Th.F2Spec
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 public import TauCeti.LinearAlgebra.QuadraticForm.Prod
 

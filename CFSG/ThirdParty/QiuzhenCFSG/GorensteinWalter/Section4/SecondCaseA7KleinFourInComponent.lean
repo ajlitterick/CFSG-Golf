@@ -4,7 +4,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseA7
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ASevenInvolutionCentralizerKleinFour
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CentralOddKernelKleinFourLift
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CentralizerSup
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

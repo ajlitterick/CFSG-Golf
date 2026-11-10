@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.UC22Defs
-public import CFSG.Quasithin.Background.E1Defs
 public import CFSG.LocalAnalysis.UniquenessCase.UC6R2
 
 public section

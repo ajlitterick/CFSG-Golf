@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoprime
-public import CFSG.LocalAnalysis.ComponentInitial.CommutingBlock
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.ControlCore
-public import CFSG.Assembly.Subnormal
 
 public section
 

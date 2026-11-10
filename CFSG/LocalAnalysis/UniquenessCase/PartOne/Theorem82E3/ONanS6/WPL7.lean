@@ -3,21 +3,8 @@ module
 public import CFSG.GroupTheory.CyclicOfSupCyclicRight
 public import CFSG.GroupTheory.ExtraspecialThreeFive
 public import CFSG.GroupTheory.IsCyclicOfLeOfPRankLeOne
-public import CFSG.GroupTheory.IsSylowOfMapOfKerPrimeNotDvd
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15R1517B
-public import CFSG.LocalAnalysis.UniquenessCase.UC6S19
-public import CFSG.RankThree.GroupTheory.ThetaQuotientTransport
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanKFacts
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPFF2
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPH2
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPL
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPL3
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPR
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPS
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WPS2a
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WS6
-public import CFSG.Sporadic.ON
-import CFSG.GroupTheory.CoprimeActionSupport.NormalSubgroupSylowJoin
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.CaseOneONan
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.KInputs811K3Holds
 import CFSG.HardMathSupport.Solomon.Coordinator.ONCSylow

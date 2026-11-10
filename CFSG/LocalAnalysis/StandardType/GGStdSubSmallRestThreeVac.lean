@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRest
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRanks
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallTits
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwoThreeAut
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeThree
 
 public section
 

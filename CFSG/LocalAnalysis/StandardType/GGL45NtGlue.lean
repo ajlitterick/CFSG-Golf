@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGL45NtLift
 public import CFSG.LocalAnalysis.StandardType.GGL45NtNonab
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 
 public section
 

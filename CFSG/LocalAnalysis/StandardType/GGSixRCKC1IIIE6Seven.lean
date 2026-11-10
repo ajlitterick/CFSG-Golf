@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIFive
 import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthKSLOrder
-import Mathlib.Tactic.NormNum
 
 public section
 

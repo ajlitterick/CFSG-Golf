@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.Algebra.Polynomial.AlgebraMap
 public import CFSG.ClassicalGroups.Orthogonal.Basic
 
 public section

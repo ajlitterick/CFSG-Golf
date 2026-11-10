@@ -1,9 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.AutAlternating
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
-public import Mathlib.GroupTheory.PGroup
-public import Mathlib.GroupTheory.SpecificGroups.Alternating.Simple
 
 public section
 

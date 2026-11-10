@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRootGenKG
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUDefs
 
 public section
 

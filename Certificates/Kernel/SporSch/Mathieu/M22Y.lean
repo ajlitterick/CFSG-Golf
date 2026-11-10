@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.SporSch.Mathieu.M22Data
 public import Certificates.Kernel.SporSch.Mathieu.Gen2F
 public meta import Certificates.Kernel.SporSch.Mathieu.M22Data
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

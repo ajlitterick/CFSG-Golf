@@ -1,15 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGOuterInvAtE6
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcInnerLang.Core
-public import CFSG.LieType.Chevalley.CLSOddE7RationalDerivedIndex
-public import CFSG.LieType.AlgebraicGroups.ToralTwistPinningFrobenius
-public import CFSG.LieType.Chevalley.RootDiagonalWeylTransporter
-public import CFSG.LieType.AlgebraicGroups.ToralTwistSemilinearDatum
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.TorusAtUntw
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.LangTorusSylowFree
 public import CFSG.LocalAnalysis.StandardType.GGOuterInvAtE6Holds
-public import CFSG.LocalAnalysis.StandardType.GGOuterInvAtE6OddLemmas
 
 public section
 

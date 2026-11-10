@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneOEvenOrth2
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneOPcSlice
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneOUnitComp
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneOAntiComp
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneOSliceNF
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneOSplitCases
 

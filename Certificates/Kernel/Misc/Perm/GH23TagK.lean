@@ -3,8 +3,6 @@ module
 public import Certificates.Data.Kernel.Misc.PermGH23Tag
 public import Certificates.Data.GH23Tags
 public import Certificates.Kernel.Misc.Perm.GH23K
-public import Certificates.Kernel.SporSch.Th.GenV4
-public import Certificates.Kernel.Co1B.GenTri2045
 public meta import Certificates.Kernel.Misc.Perm.GH23TagGen
 
 public section

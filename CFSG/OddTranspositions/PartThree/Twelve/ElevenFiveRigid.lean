@@ -1,7 +1,5 @@
 module
 
-public import CFSG.OddTranspositions.PartThree.Twelve.ElevenFiveChart
-public import CFSG.OddTranspositions.PartThree.Twelve.ElevenFiveOverlap
 import CFSG.OddTranspositions.PartThree.Twelve.ElevenFiveTree
 public import CFSG.OddTranspositions.PartThree.Twelve.ElevenFiveRigidOverlap
 public import CFSG.OddTranspositions.PartThree.Twelve.ElevenFiveRigidGram

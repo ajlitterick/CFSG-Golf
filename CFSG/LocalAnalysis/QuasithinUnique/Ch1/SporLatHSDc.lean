@@ -2,12 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHSDcInputs
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatOfFacts
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatExport
 public import CFSG.Certificates.Kernel.SporLatDcSound
 public import CFSG.Certificates.Kernel.SporLatOmegaSound
-public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicHS
 import all CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicHS
-public import CFSG.Blueprint.NativeSporadic
 import all CFSG.Blueprint.NativeSporadic
 
 set_option maxRecDepth 100000

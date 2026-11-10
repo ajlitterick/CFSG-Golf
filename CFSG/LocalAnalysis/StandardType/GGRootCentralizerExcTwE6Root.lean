@@ -4,10 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerExcTwE6
 public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerExcTwE6Cent
 public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerExcConj
 public import CFSG.LocalAnalysis.StandardType.GGRootDetectTwE6
-public import CFSG.LieType.Steinberg.TwistedE6.Generation
-public import CFSG.LieType.Steinberg.TwistedE6.Datum
-public import CFSG.LieType.Steinberg.BruhatWeyl
-public import CFSG.LieType.Chevalley.E6GraphFullDiagonalCoset
 
 public section
 

@@ -1,11 +1,7 @@
 module
 
-public import Mathlib.Algebra.Group.Defs
-public import Mathlib.Data.Finite.Defs
 
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Basic
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.CyclicTwoCoreSetup
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Defs
 -- `B`, `B1`, `B2` are not `@[expose]`d; `swap_B_eq` needs their bodies.
 import all CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Defs
 import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.FinalTheorem

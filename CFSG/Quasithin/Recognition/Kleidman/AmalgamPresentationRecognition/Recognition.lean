@@ -1,11 +1,8 @@
 module
 
 public import CFSG.Quasithin.Recognition.Kleidman.AmalgamPresentationRecognition.Goursat
-public import CFSG.Quasithin.Recognition.Kleidman.AmalgamPresentationRecognition.Presentation
 import Certificates.Kernel.Bounds.Family
 import CFSG.Certificates.Kernel.Misc.Coset.MemWalk
-import CFSG.Quasithin.Recognition.Kleidman.AmalgamPresentationRecognition.W4Presentation
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Quasithin.Recognition.Kleidman.AmalgamPresentationRecognition.Model
 public import CFSG.Certificates.CosetTablePresented
 public import CFSG.Sporadic.J3

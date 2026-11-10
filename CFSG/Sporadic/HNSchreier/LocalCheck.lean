@@ -4,12 +4,9 @@ module
 public import CFSG.Sporadic.HNSchreier.LocalCheckBase
 
 public import CFSG.Sporadic.HNSchreier.PrimCheck
-public import CFSG.Sporadic.HNSchreier.LocalData
-public import CFSG.Sporadic.HNSchreier.MaskCheck
 public meta import CFSG.Sporadic.HNSchreier.PrimCheck
 public meta import CFSG.Sporadic.HNSchreier.LocalData
 public meta import CFSG.Sporadic.HNSchreier.MaskCheck
-public import CFSG.Sporadic.HNSchreier.LocalCheckInputs
 public import Certificates.Certificate2100
 
 public section

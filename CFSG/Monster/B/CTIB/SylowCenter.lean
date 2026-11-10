@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Monster.B.CTIB.FourClasses
 public import CFSG.Monster.B.CTIB.HInner
 
 public section

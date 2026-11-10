@@ -2,12 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLangTorusInnerDiagE6
 public import CFSG.LocalAnalysis.StandardType.GGStdPosE6ThreeDiag
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UStd
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarE6ThreeIndex
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentFieldFixed
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyDichotomy
 public import CFSG.GroupTheory.IsComponentOfMap
-public import CFSG.LieType.SemisimpleCentralizers.HeldSLFacts
 
 public section
 

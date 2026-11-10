@@ -1,15 +1,11 @@
 module
 
-public import CFSG.RankThree.PartOne.S11b.Sec11Five
 public import CFSG.RankThree.PartOne.S11d.SitSwap
 public import CFSG.RankThree.PartOne.S11d.FiveClaimAux
-public import CFSG.RankThree.PartOne.S11d.Facts5
 public import CFSG.RankThree.PartOne.S11d.LayerLink
 import CFSG.RankThree.PartOne.S12.Sec125Moved
 import CFSG.RankThree.PartOne.S10.EmbeddingTransport
-import CFSG.RankThree.PartOne.S10.EmbeddingFixedResidual
 import CFSG.RankThree.PartOne.S10.SelectedPrimeNormalizeThetaComponents
-import CFSG.RankThree.PartOne.S10.AmbientTheta
 import CFSG.FeitThompson.OddOrderTheorem
 import CFSG.RankThree.Coprime.ThompsonElementaryComplement
 public import CFSG.Assembly.QuasithinDefs
@@ -24,7 +20,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
 public import CFSG.LocalAnalysis.ComponentInitial.LayerComponentOrbit
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.Quasithin.Background.Basic
 public import CFSG.RankThree.GroupTheory.SteinbergBYSectionNineResidual
 public import CFSG.RankThree.LocalRank.SelectorCases

@@ -6,9 +6,7 @@ public import Certificates.Kernel.Sporadic.ON.Final
 public import CFSG.Certificates.Kernel.Spor.ONVecSound
 public import CFSG.Certificates.Kernel.Spor.ONDiscSound
 public import CFSG.Certificates.Kernel.Spor.ONNegSound
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Spor.PackFld
-import Mathlib.Tactic.NormNum
 public import CFSG.Certificates.Kernel.Spor.ONMvSound
 public import CFSG.Certificates.Kernel.Spor.ONSplitSound
 

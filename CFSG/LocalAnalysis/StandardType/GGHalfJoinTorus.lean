@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGHalfWeylHolds
-public import CFSG.LocalAnalysis.StandardType.GGHalfTorusNormalizer
-public import CFSG.LocalAnalysis.StandardType.GGHalfLeviGlueTorus
-public import CFSG.LocalAnalysis.StandardType.GGHalfWeylRank
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrLabels
 
 public section

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I1416SporRows
-public import CFSG.LocalAnalysis.GLTheoremA.PartI.LevelSporHN
 public import CFSG.LieType.Chevalley.EvenOddCentralizerRadicalModel
 public import CFSG.LieType.Multipliers.U62Sylow
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8ExcF4O2

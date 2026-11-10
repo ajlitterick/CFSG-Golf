@@ -2,10 +2,7 @@ module
 
 public import Certificates.Kernel.Tc.M24
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148WM24Inputs
-import Certificates.Kernel.Misc.Perm.HexCmd
 meta import CFSG.RankThree.PartTwo.Sec14.Ronan148WM24Inputs
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 namespace CertificateChecks.KernelRonan148.WM24Inv
 

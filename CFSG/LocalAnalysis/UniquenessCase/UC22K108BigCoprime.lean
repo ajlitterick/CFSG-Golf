@@ -4,11 +4,9 @@ public import CFSG.Open.SplitBNPair
 public import CFSG.GroupTheory.ABGLocalTools.Basic
 import CFSG.LocalAnalysis.UniquenessCase.UC22K108BigRow
 import CFSG.LocalAnalysis.UniquenessCase.UC22K108BigFix
-import CFSG.LocalAnalysis.UniquenessCase.UC22K108BigCell
 import CFSG.LocalAnalysis.UniquenessCase.UC22K108BN
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.Chev2StarHolds
 import CFSG.LocalAnalysis.ABGTheoremB.IV1
-import CFSG.Milestones.ASVolI.I2
 import CFSG.Milestones.ASVolI.I2BNWeakClosure
 
 public section

@@ -1,15 +1,11 @@
 module
 
 public import CFSG.CGT.Foote82.T66.CitedBAS
-public import Certificates.Certificate3002
 public import Certificates.Certificate919009
 public import CFSG.CGT.Harada80.OmegaReflect
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEightMinus.NativeMain
 import CFSG.CGT.Foote82.T66.OmegaMinusMatrix
 import CFSG.ClassicalGroups.Orthogonal.NormalizerOmega
-import CFSG.RankThree.Literature.FSmithOrthogonal
-import Mathlib.Tactic.Group
-import Mathlib.Tactic.IntervalCases
 public import CFSG.CGT.Foote82.T66.MC1Steps
 public import CFSG.CGT.Foote82.T66.Steps
 public import CFSG.CGT.PushingUp.BenderBridge

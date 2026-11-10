@@ -9,15 +9,6 @@ import CFSG.LocalAnalysis.GLTheoremA.CatB.H1420SuzRowFi22
 import CFSG.LocalAnalysis.GLTheoremA.CatB.H1420SuzCo1Table
 import CFSG.LocalAnalysis.GLTheoremA.CatB.H1420KDCentre
 import CFSG.LocalAnalysis.GLTheoremA.CatA.H1429Inner
-import CFSG.LocalAnalysis.GLTheoremA.S3.KD65Holds
-import CFSG.HardMathSupport.Solomon.Coordinator.SporOrders
-import CFSG.HardMathSupport.Solomon.Coordinator.LieOrderBridgeHolds
-import CFSG.HardMathSupport.Timmesfeld.Proving.SporadicOuterLeTwo
-import CFSG.LocalAnalysis.GLTheoremA.CatC.LieComp3
-import CFSG.LocalAnalysis.GLTheoremA.CatC.LieCompHolds
-import CFSG.LocalAnalysis.GLTheoremA.PartI.AltDown
-import CFSG.Sporadic.Bridge.Catalogue
-import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Coordinator.TableComplete
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabBThreeALocalBase
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabBThreeL1Orb
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34SporAux.BMDownMGmat

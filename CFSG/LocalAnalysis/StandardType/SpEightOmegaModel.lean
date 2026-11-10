@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.SpEightCoordinates
 public import CFSG.GF2Type.SmithTypeE.E7.Omega
-public import CFSG.ClassicalGroups.Orthogonal.Simple
-public import CFSG.Blueprint.Catalog
 public import CFSG.Fischer.Classification.Defs
 public import CFSG.GF2Type.Smith1980Orthogonal
 public import CFSG.GroupTheory.GLnTwoSplitting.Transvection
@@ -35,8 +33,6 @@ public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Open.QuasithinDefs
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970_18
 
 public section

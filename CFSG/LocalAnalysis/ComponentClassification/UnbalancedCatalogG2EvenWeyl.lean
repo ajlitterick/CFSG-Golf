@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenCalculus
-public import CFSG.LieType.Chevalley.BruhatDecomposition
-public import CFSG.LieType.Chevalley.BruhatCellFactorization
 public import CFSG.LieType.Chevalley.TorusCoordinates
 
 public noncomputable section

@@ -1,14 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJE8LeviSplitModel
-public import CFSG.LocalAnalysis.StandardType.GGTBJE8LeviEnnModel
 public import CFSG.LocalAnalysis.StandardType.GGTBTorE7
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcThreeE7
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplit
-public import CFSG.LocalAnalysis.StandardType.GGMaxRankJModel
-public import CFSG.HardMathSupport.Meierfrankenfeld.Proving.E7Curtis.E7Arith
 public import CFSG.LocalAnalysis.StandardType.GGTBJE7LeviEnnModel
-public import CFSG.LocalAnalysis.StandardType.GGTBJE7LeviDatum
 
 public section
 

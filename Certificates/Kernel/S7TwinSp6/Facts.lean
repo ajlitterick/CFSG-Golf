@@ -3,9 +3,7 @@ module
 public import Certificates.Kernel.S7TwinSp6.Checks
 public import Certificates.Kernel.LocalComp.Sp6J.Facts
 public import CFSG.Certificates.Kernel.S7TwinKSound
-public import CFSG.Certificates.Kernel.SporSch.ChainKEnum
 public import CFSG.Certificates.Kernel.SporSch.ChainKReps
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.HeModelKSound
 public import CFSG.Certificates.Kernel.HexaKSound
 public import CFSG.Certificates.Kernel.SporSch.ChainKOdd

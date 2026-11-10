@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LieType.AlgebraicGroups.SL2LangConjugator
-public import CFSG.LieType.AlgebraicGroups.ToralTwistPinningFrobenius
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.AmbientPairDescentPart2
-public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.AmbientActionPart1
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.RankThreeFrobeniusError
 
 public noncomputable section

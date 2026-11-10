@@ -2,13 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.FooteLitLBalanceTools
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitGW36
-public import CFSG.LocalAnalysis.ComponentClassification.FooteLitLemma22
-public import CFSG.LocalAnalysis.ComponentClassification.FooteLitCoreInner
-public import CFSG.LocalAnalysis.ComponentClassification.FooteLitQuotientChain
 public import CFSG.LocalAnalysis.ComponentClassification.FooteLitThm46Four
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBPrimeJoinConvention
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBPrimeJoinInteraction
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedLayerOddCoreQuotient
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5bOrbit
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerImageCompletion

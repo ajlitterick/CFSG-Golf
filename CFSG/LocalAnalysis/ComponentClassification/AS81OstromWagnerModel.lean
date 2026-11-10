@@ -2,11 +2,6 @@ module
 
 public import CFSG.Fischer.F4
 import all CFSG.Fischer.F4
-public import Mathlib.Algebra.Order.Ring.Star
-public import Mathlib.Order.CompletePartialOrder
-public import Mathlib.RingTheory.WittVector.IsPoly
-public import Mathlib.Tactic.Polynomial.Basic
-public import Mathlib.Tactic.ReduceModChar
 
 public section
 

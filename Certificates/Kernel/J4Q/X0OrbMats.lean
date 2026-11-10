@@ -4,7 +4,6 @@ public import Certificates.Data.Kernel.J4Q.Mat
 public import Certificates.Kernel.J4Q.MatData
 public import Certificates.Kernel.J4Q.X0OrbData
 import CFSG.Certificates.Kernel.Common.Chain
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

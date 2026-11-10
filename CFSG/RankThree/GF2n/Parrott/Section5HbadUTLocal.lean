@@ -3,7 +3,6 @@ module
 public import CFSG.RankThree.GF2n.Parrott.SpinHbadUTFacts
 public import CFSG.RankThree.GF2n.Parrott.Section5HbadUTCoord
 public import CFSG.RankThree.GF2n.Parrott.LiftSquare
-public import CFSG.RankThree.GF2n.Parrott.ActionZSimplicity
 
 public section
 

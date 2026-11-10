@@ -2,11 +2,8 @@ module
 
 public import Certificates.Kernel.Fi22Twist.CtChk
 public import Certificates.Kernel.Fi22Twist.Q01Facts
-public import Certificates.Kernel.Sporadic.Fi22.E2067
 public import CFSG.Certificates.Kernel.Fi22Twist.CtSound
 public import CFSG.Certificates.Kernel.SchreierFam.CqKSound
-public import CFSG.Certificates.Kernel.Common.ForallTree
-import Mathlib.Tactic.IntervalCases
 
 public section
 

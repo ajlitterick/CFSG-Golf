@@ -2,15 +2,11 @@ module
 
 public import CFSG.GH74.Generic.BProg.B3.S3Boot152
 public import CFSG.GH74.Generic.BProg.B2.T1Comp
-public import CFSG.GH74.Generic.BProg.B1.PilotS3
 public import CFSG.GH74.GLS.C3.Layer1.Th2P86
-public import CFSG.GH74.GLS.C3.Layer1.Th2Main
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GH74.GLS.Bg.TwoGroups.Lemma21i
 public import CFSG.GH74.GLS.C3.Layer1.EvenAltConfig
 public import CFSG.GH74.GLS.C3.Layer1.EvenStd
 public import CFSG.GH74.GLS.C3.Layer1.Th2L83Gen
-public import CFSG.GH74.GLS.C3.Layer1.Th2L83GenCore
 public import CFSG.GH74.GLS.C3.Layer1.Th2L84
 public import CFSG.GH74.GLS.C3.Layer1.Th2P73
 public import CFSG.GH74.GLS.C3.Layer1.Th2P812

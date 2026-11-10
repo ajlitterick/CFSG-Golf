@@ -3,11 +3,7 @@ module
 public import CFSG.Sporadic.HNSchreier.SchreierData
 public import CFSG.Sporadic.HNSchreier.PrimCheck
 public import CFSG.Sporadic.HNSchreier.MergeExists
-public import CFSG.Perm.ChainSpec
-public import CFSG.Sporadic.Th.GroupTheory
 public import CFSG.Sporadic.HN.F5Simple
-public import Certificates.Certificate2102
-public import Certificates.Certificate2104
 
 public noncomputable section
 

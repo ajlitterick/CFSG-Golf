@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestOddEndMat
 public import CFSG.LocalAnalysis.StandardType.GGIOneOrthEndSmall
-public import CFSG.GroupTheory.WeirSylow.OrthogonalOrders
 
 public section
 

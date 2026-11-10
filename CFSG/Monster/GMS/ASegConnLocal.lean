@@ -2,7 +2,6 @@ module
 
 public import CFSG.Monster.GMS.S4FamilyGroup
 public import CFSG.Monster.GMS.S365
-import CFSG.Monster.GMS.S31Three
 public import CFSG.Monster.GMS.S365Coset
 
 public section

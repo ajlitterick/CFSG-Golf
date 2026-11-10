@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitE6Cover
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitCyclicCore
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMoreSix
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofEvenE6
-public import CFSG.LieType.CurtisTits.ExceptionalQuasisimple
-public import CFSG.LieType.Simplicity.Exceptional
 
 public section
 

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsCoresDefs
-public import Mathlib.LinearAlgebra.GeneralLinearGroup.AlgEquiv
-public import Mathlib.LinearAlgebra.Matrix.ToLin
 
 public section
 

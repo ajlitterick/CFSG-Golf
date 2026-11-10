@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.Om2K.CertGen
 public import Certificates.Kernel.Om1K.Defs
 meta import Certificates.Data.Holder1711.Om1Check
 meta import Certificates.Kernel.Om1K.Defs

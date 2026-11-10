@@ -2,11 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE78Lang
 public import CFSG.LocalAnalysis.StandardType.GGTorsionDatum
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeE78Cat
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6Bridge
 import CFSG.LocalAnalysis.StandardType.GGTorsionQuotComp
-import CFSG.LocalAnalysis.StandardType.GGInndiagCommRestE6
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeInnAutCore
 import CFSG.LocalAnalysis.ComponentClassification.ONanTauCetiPartitionEven
 

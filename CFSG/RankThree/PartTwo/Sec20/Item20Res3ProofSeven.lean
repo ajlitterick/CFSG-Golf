@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec20.Item20Res2ProofSeven
-public import CFSG.RankThree.PartTwo.Sec18.Statements
 public import CFSG.RankThree.PartTwo.Sec18.SimsItem186HStatement
 import CFSG.RankThree.PartTwo.Sec18.Item182
 import CFSG.RankThree.PartTwo.Sec20.OneBasics

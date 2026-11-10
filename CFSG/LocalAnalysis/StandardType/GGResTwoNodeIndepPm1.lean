@@ -1,12 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeIndepDefs
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepWeyl
 public import CFSG.LocalAnalysis.StandardType.GGRCScalarsPm1Two
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepChain
 public import CFSG.LocalAnalysis.StandardType.GGTWAlign
 public import CFSG.LocalAnalysis.StandardType.GGQTwoTransport
-public import TauCeti.GroupTheory.Coxeter.Matrix
 
 public section
 

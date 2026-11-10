@@ -2,10 +2,8 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec17.Item17Res5ProofGTwo
 public import CFSG.RankThree.PartTwo.Sec17.Item17Res10ProofGTwoSL
-public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67A2Hom
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67A2Sylow
 public import CFSG.RankThree.PartTwo.Sec11.KS11Lie4ProofTwist
-public import CFSG.LieType.Chevalley.AdjointCenter
 public import CFSG.RankThree.PartTwo.Sec14.Item143N
 public import CFSG.RankThree.PartTwo.Sec16.Item164Proof
 public import CFSG.RankThree.PartTwo.Sec16.Item169HJ

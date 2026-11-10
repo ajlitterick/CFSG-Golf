@@ -12,7 +12,6 @@ import Certificates.Kernel.Fi23S.L14d
 import Certificates.Kernel.Fi23R.Uniq
 import Certificates.Kernel.Sporadic.ON.Gen
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import Mathlib
 public import CFSG.Sporadic.Fi23.InvCertBase
 public import CFSG.Sporadic.Fi23.InvCoverBase
 

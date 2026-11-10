@@ -1,6 +1,5 @@
 module
 
-public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Diag.Block
 public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Diag.Fixed
 
 public section

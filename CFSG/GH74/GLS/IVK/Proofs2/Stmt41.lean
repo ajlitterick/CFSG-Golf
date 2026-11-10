@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GH74.GLS.IVK.Defs2
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ElementaryAbelian
 public import CFSG.GH74.GLS.IVK.Defs
 
 public section

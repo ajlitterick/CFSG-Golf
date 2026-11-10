@@ -1,7 +1,5 @@
 module
 
-public import CFSG.Certificates.Kernel.Enum.Defs
-public import CFSG.Certificates.Kernel.Common.Loop
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.TS8EA16Check
 public import Certificates.Data.Kernel.Spor.Chain
 

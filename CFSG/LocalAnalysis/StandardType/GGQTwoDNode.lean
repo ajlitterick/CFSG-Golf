@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
 import CFSG.LocalAnalysis.StandardType.GGQTwoDReflLin
 import CFSG.Quasithin.Background.B1MoreTwelveB
 import CFSG.LocalAnalysis.GLTheoremA.CatB.U4InnOrd6
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition84Residual
 import CFSG.GH74.GLS.IVK.Proofs2.OddTools
 import CFSG.GH74.GLS.Stage2.Local.P34Main
 import CFSG.GH74.GLS.Stage2.Local.P34S5A

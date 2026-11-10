@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.CatFC.CentA6ClPSpSmallBasic
-public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneSpNormal
 
 public section
 

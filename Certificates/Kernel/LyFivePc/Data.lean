@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.SlpClsPc
 public import Certificates.Data.Kernel.LyS0.Check
-public import Certificates.Kernel.SporSch.Ly.BSData
 public import Certificates.Kernel.SporSch.Ly.FiveLanesData
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo

@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7DLModelDefs
 import CFSG.LocalAnalysis.StandardType.GGHdRo7DSideDirs
-import CFSG.LocalAnalysis.StandardType.GGHdRo7CLCoordModelH
-import CFSG.LocalAnalysis.StandardType.GGHdRo7CLCoordModelI
 
 public section
 

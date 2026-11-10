@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGE0ModelFrame
 public import CFSG.LocalAnalysis.StandardType.GGE0ExcNoSuzukiRee
 public import CFSG.LocalAnalysis.StandardType.GGE0MarkBridge
-public import CFSG.LocalAnalysis.StandardType.GGE0ExcAdjNormal
 public import CFSG.LocalAnalysis.StandardType.GGE0ExcAdjAct
-public import CFSG.LieType.Chevalley.AdjointCenter
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeFamInBCDCharTwo
 
 public section

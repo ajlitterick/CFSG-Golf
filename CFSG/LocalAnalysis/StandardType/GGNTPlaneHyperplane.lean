@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNTPlaneTableData
 public import CFSG.LocalAnalysis.StandardType.GGNTPlaneTable
 
 attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent

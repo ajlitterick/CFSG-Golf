@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixAutKFinerChoiceTwoFrame
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBigS1
 import CFSG.ClassicalInvolution.RouteD.TWYType
-import CFSG.GroupTheory.WeirSylow.OrthogonalTori
 
 attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent
 

@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeInnerDiagTransport
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeFAt
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGCoOmTwo
-import CFSG.LieType.Universal.Spin.Roots.TypeB
-import CFSG.LieType.Universal.Spin.Twisted.Datum
-import CFSG.LieType.Universal.SpecialLinearRoots
 
 public section
 

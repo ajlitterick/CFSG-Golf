@@ -1,11 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitCompA1
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitCompA2
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitCompB1
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitCompB2
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitCompB3
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitCompB4
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitCompC1
 
 public section

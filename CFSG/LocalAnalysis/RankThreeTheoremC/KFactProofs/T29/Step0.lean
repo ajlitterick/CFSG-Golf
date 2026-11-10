@@ -4,13 +4,7 @@ public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.T29.Inputs
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.T29.PGroups
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.K3.Components
 public import CFSG.HardMathSupport.Timmesfeld.ComponentBalance.PGroupNormalE4
-public import CFSG.LocalAnalysis.RankFourTheoremC.PPointRankFour
 public import CFSG.LocalAnalysis.RankThreeTheoremC.SignalizerBalance
-public import CFSG.LocalAnalysis.RankThreeCoreUniqueness.PrimeComplementCore
-public import CFSG.GroupTheory.ABGLocalTools.Basic
-import CFSG.RankThree.PartOne.S9.Planes.Basic
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ElementaryAbelian
-public import CFSG.HardMathSupport.Timmesfeld.ComponentBalance.I_6_8
 public import CFSG.GroupTheory.Fitting.CharacteristicP
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma32
@@ -36,7 +30,6 @@ public import CFSG.RankThree.GroupTheory.SteinbergBYSectionNineResidual
 public import CFSG.RankThree.GroupTheory.SteinbergCEQuaternionDihedral
 public import CFSG.RankThree.LocalRank.SelectorCases
 public import CFSG.RankThree.PartOne.Assembly
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

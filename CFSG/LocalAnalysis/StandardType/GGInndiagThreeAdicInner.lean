@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6KGLIDARefute
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
-public import Mathlib.NumberTheory.Padics.PadicVal.Defs
 import CFSG.GroupTheory.CenterlessInnerCentralizer
-import Mathlib.NumberTheory.Padics.PadicVal.Basic
 import CFSG.GroupTheory.PCore.SubgroupCore
 
 public section

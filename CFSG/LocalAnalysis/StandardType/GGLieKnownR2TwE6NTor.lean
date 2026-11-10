@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TwE6NDefs
-public import CFSG.LieType.Steinberg.TwistedE6.RankOne
 
 public section
 

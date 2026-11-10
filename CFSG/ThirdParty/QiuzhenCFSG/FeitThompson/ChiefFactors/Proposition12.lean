@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ChiefFactors.Core
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ChiefFactors.BaerCore
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Quotient
 

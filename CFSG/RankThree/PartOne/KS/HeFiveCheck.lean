@@ -1,11 +1,5 @@
 module
 
-public import CFSG.RankThree.PartOne.KS.HeFiveData
-public import CFSG.RankThree.PartOne.KS.HeFiveAux
-public import CFSG.RankThree.PartOne.KS.PKit
-public import CFSG.Sporadic.HeldB.HeBlocks
-public import CFSG.Sporadic.HeldB.OuterArithCheck
-public import CFSG.RankThree.PartOne.KS.HeFiveCheckInputs
 public import Certificates.Certificate10051
 public meta import CFSG.RankThree.PartOne.KS.HeFiveData
 public meta import CFSG.RankThree.PartOne.KS.HeFiveAux

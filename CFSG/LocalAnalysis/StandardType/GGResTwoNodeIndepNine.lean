@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeIndepDefs
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeDepFrame
-public import CFSG.LocalAnalysis.StandardType.GGDepAFrame
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepFrame
-public import CFSG.LocalAnalysis.StandardType.GGTBTorCartan
 
 public section
 

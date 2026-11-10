@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorsionQuot
 public import CFSG.LocalAnalysis.StandardType.GGTorsionOrders
-import CFSG.LocalAnalysis.StandardType.GGExclNoIso
 import CFSG.LocalAnalysis.GLTheoremA.CatA.MILabel
-import CFSG.LocalAnalysis.SeitzReduction.F4PilotCatTypeDet
 
 public section
 

@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGL45NtExcBridgeTriD4
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangReeF4
 public import CFSG.LocalAnalysis.StandardType.GGTwistedF4Diag
 public import CFSG.LocalAnalysis.StandardType.GGL45NtExcRee
-public import CFSG.RankThree.PartOne.RF4.Closure
 
 public section
 

@@ -1,17 +1,12 @@
 module
 
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.NineTenBranches
-public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.ThreeNineStatements
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenInputs
 public import CFSG.LocalAnalysis.AGL81I.Section3.ThreeTenCase5
 public import Certificates.Certificate1322001
 import CFSG.LocalAnalysis.AGL81I.Section3.Sp43.Main
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.ThreeTenAtStarQuot
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.SmallSympDLeK
-import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenKStar
 import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.NineTenThreeGen
-import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenListCongr
-import CFSG.GroupTheory.BaerSuzuki.Helpers
 import CFSG.LocalAnalysis.SectionRank.QTK.OddLinear
 public import CFSG.LocalAnalysis.AGL81I.Section3.GammaBasics
 public import CFSG.LocalAnalysis.AGL81I.Section3.PSL2BorelMaximal

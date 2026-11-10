@@ -2,10 +2,7 @@ module
 
 public import CFSG.Monster.GMS.CoTwoRep
 public import CFSG.Sporadic.Co1.Module.CoTwoNorton
-public import CFSG.Sporadic.Co1.Module.OddNative
 public import CFSG.Sporadic.Co1.Module.Pairs
-public import Certificates.Data.CFSGNative.Co1.CoTwoNorton
-public import CFSG.Sporadic.Co1.Module.CoTwoNortonDataInputs
 public import Certificates.Certificate10068
 public meta import CFSG.Sporadic.Co1.Module.Forms
 public meta import CFSG.Sporadic.Co1.Module.Orbits

@@ -1,13 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGR4JMeetKGDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
-public import CFSG.LocalAnalysis.StandardType.GGSixAutStructurePSLRank
 public import CFSG.LieType.TwoRank.PGLMap
 public import CFSG.LocalAnalysis.StandardType.GGL45NtClUni
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryDvdCodimOne
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitarySixThreeCases
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T156GUniSmall
 
 public section

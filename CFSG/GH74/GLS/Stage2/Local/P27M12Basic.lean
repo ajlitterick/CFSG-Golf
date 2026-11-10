@@ -1,10 +1,6 @@
 module
 
 public import CFSG.GH74.GLS.Stage2.Local.P34NS12Main
-public import CFSG.GH74.GLS.Stage2.Local.Defs
-public import CFSG.GH74.GLS.IVK.L2.Transport
-public import CFSG.GH74.GLS.TwoThin.Basic
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

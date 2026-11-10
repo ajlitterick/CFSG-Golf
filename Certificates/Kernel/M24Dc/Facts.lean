@@ -2,18 +2,11 @@
 module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatM24Facts
-import Certificates.Kernel.M24Dc.Final
-import Certificates.Kernel.M24Dc.Idx3
 import Certificates.Kernel.M24Dc.E64Final
 import Certificates.Kernel.M24Dc.T3J4
 import Certificates.Kernel.M24Dc.KG7249
 import CFSG.Certificates.Kernel.M24QSpan
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatM24Dc
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatM24Base
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatIncl
 import CFSG.Quasithin.EmptyFaithful.S151S9TM24Base
-import CFSG.Quasithin.EmptyFaithful.S151S9TLat
-import CFSG.Blueprint.NativeSporadic
 import CFSG.Quasithin.Vol2.KGFactE64M24Base
 import CFSG.Quasithin.Vol2.Ch12Sec5KGM24Base
 import all CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatM24Base

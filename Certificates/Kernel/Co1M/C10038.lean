@@ -3,11 +3,9 @@ module
 public import CFSG.Monster.GMS.S365Root
 public import CFSG.Monster.GMS.S365CosetSpec
 public import CFSG.Monster.GMS.S365USpec
-public import Certificates.Data.CFSGNative.Co1.S365CentRoot
 public import CFSG.Monster.GMS.S365CentRootSpecInputs
 public import Certificates.Kernel.Co1M.C10041
 public import Certificates.Kernel.Co1M.Data10038
-public import CFSG.Sporadic.Co1.Module.InvSpec
 import CFSG.Certificates.Kernel.Common.Harness
 public import Certificates.Certificate10042Base
 

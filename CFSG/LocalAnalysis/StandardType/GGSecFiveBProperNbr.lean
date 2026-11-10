@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBProperFrame
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRestOriginalWeyl
-import CFSG.LocalAnalysis.StandardType.GGFieldNbr
-import CFSG.LocalAnalysis.StandardType.GGOneFiveNbr
-import CFSG.LocalAnalysis.StandardType.GGRowKFrame
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBNbrCompare
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPosition
 

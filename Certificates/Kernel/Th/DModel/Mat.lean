@@ -1,10 +1,8 @@
 module
 
 public import CFSG.Certificates.Kernel.Th.S.SurjS
-public import CFSG.Certificates.Kernel.Th.S.Data.Sm_const
 public import CFSG.Certificates.Kernel.Th.S.Data.Surj_const
 public import CFSG.Sporadic.Th.Recog.JLettersInputs
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Sporadic.Bridge.ThSurj
 public import CFSG.Sporadic.Recognition.PresentedWordsClosure
 public import CFSG.Sporadic.Th.Max3.CentA

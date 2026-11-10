@@ -6,7 +6,6 @@ public import CFSG.Sporadic.Ly.IndexNineInputs
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Sporadic.SmallOddCore.LocalSpec
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.AutAlternating
-public import Mathlib
 
 public section
 

@@ -4,7 +4,6 @@ public import Certificates.Data.KD4BU38.Data
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public import Certificates.Kernel.Misc.Perm.CharsLits
 public import Certificates.Kernel.B3S3.Gen
-public import Certificates.Kernel.Sporadic.RawGen
 public import CFSG.Certificates.Kernel.Spor.PackWord
 public meta import Certificates.Data.KD4BU38.Data
 public meta import Certificates.Kernel.Sporadic.RawGen

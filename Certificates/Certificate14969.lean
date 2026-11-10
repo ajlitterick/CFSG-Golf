@@ -1,7 +1,6 @@
 
 module
 
-public import Certificates.Data.HNUnitaryBridge
 public import CFSG.RankThree.PartOne.HNB.F25
 public import CFSG.Open.StatedDefs
 public import CFSG.Monster.B.Co2.PermArr

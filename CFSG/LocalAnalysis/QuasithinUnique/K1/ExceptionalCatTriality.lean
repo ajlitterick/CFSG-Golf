@@ -5,10 +5,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.K1.ExceptionalCatTrialityAlgebr
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.ExceptionalCatWeyl
 public import CFSG.LieType.Chevalley.EvenTrialityAutomorphismNormalForm
 public import CFSG.LieType.Chevalley.EvenTrialityTraceCommutators
-public import CFSG.LieType.Chevalley.GraphFixedSimpleComplement
-public import CFSG.LieType.Chevalley.GraphFixedRootNormal
-public import CFSG.LieType.Chevalley.GraphFixedSylowOpposition
-public import CFSG.Blueprint.Catalog
 public import CFSG.Foundations
 public import CFSG.GroupTheory.Fitting.CharacteristicP
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels

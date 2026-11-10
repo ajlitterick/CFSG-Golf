@@ -4,10 +4,8 @@ public import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableBOrthPlus
 import CFSG.LocalAnalysis.StandardType.GGTorusWeylTypeEvenAux
 import CFSG.LocalAnalysis.StandardType.GGRCSignedCoxeterB
-import CFSG.LocalAnalysis.StandardType.GGSpJoinSignedPermGen
 import CFSG.LocalAnalysis.StandardType.GGRCTransfer
 import CFSG.LocalAnalysis.StandardType.GGRCSignedCoxeterD
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
 
 public section
 

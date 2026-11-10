@@ -1,44 +1,10 @@
 module
 
-public import Mathlib.Algebra.Group.Subgroup.Actions
-public import Mathlib.LinearAlgebra.Dimension.Free
-public import Mathlib.LinearAlgebra.Semisimple
-public import Mathlib.RepresentationTheory.Invariants
-public import Mathlib.RepresentationTheory.Irreducible
 
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.lemma_1_22
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.CyclicQuotientExtension
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.SolvableDimension
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.LinearAlgebra.PrimitiveRootEigenspaces
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.ExtraspecialFixedPoints
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.TwoDimensionalOddOrder
-public import Mathlib.Algebra.CharP.LinearMaps
-public import Mathlib.LinearAlgebra.Eigenspace.Triangularizable
-public import Mathlib.LinearAlgebra.Eigenspace.Zero
-public import Mathlib.LinearAlgebra.Lagrange
-public import Mathlib.LinearAlgebra.TensorProduct.Pi
-public import Mathlib.RepresentationTheory.Character
-public import Mathlib.RepresentationTheory.Coinduced
-public import Mathlib.RepresentationTheory.Semisimple
-public import Mathlib.RepresentationTheory.Submodule
-public import Mathlib.RingTheory.RootsOfUnity.AlgebraicallyClosed
-public import Mathlib.RingTheory.SimpleModule.Isotypic
-public import Mathlib.RingTheory.ZMod.Torsion
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.CriticalSubgroupLemmas
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Burnside.NormalComplement
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Extraspecial
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.LinearAlgebra.BlockElementaryMap
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.ConjugateRep
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection2.EndFieldRep
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Centralizer
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.CoprimeHall
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.CentralizerControl
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Faithful
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.Maschke
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.CompleteReducibility
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.RepEquiv
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.kerRepresentation
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.SubrepresentationLattice
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConjAction
 
 namespace CFSG

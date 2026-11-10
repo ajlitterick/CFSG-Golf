@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCoverRkPSU
-public import CFSG.LocalAnalysis.StandardType.GGWPlusNarrow5Defs
 
 public section
 

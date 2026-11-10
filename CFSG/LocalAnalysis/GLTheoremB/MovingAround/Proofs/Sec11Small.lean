@@ -1,10 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Leaves
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Lemma103
-public import CFSG.LocalAnalysis.GLTheoremB.PGroupBasics
-public import CFSG.GroupTheory.ElementaryAbelianTransport
-public import CFSG.LocalAnalysis.RankThreeEvenClassification.CoprimeAmbientCentralizerGeneration
 public import CFSG.HardMathSupport.Timmesfeld.ComponentBalance.PGroupNormalE4
 import CFSG.RankThree.PartOne.S9.Planes.Basic
 public import CFSG.Certificates.CentralKernel

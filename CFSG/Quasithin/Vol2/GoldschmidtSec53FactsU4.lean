@@ -3,10 +3,7 @@ module
 public import CFSG.Quasithin.Vol2.GoldschmidtSec53FactsUnitAut
 public import CFSG.Quasithin.Vol2.GoldschmidtSec53FactsBorLie
 public import CFSG.Quasithin.Vol2.GoldschmidtSec53FactsBorAutMap
-public import CFSG.Quasithin.H13.U4ParRecog
 public import CFSG.Quasithin.H13.U4ParOuter
-public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherPrimeFormTransport
-public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherSemilinearInvolution
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Reduce
 public import CFSG.LocalAnalysis.QuasithinUnique.GammaFamiliesBasic
@@ -28,7 +25,6 @@ public import CFSG.Quasithin.H13.U4ParTorus
 public import CFSG.Quasithin.Vol2.Ch5Sec2LocalLem528SKG
 public import CFSG.Quasithin.Vol2.GoldschmidtSec53FactsThree
 public import CFSG.Quasithin.Vol2.GoldschmidtSec53FactsUnitBorel
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

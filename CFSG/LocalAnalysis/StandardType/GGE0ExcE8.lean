@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGE0ExcAdjCore
-public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerAdj
 
 public section
 

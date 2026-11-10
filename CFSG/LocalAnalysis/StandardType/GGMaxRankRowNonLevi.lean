@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResRows
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 
 public section
 

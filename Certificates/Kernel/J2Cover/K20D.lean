@@ -3,8 +3,6 @@ module
 public import Certificates.Kernel.J2Cover.ModelsBind
 public import Certificates.Kernel.J2Cover.K20C
 public import Certificates.Kernel.J2Cover.K20X
-public import Certificates.Kernel.LocalComp.J2Disp
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

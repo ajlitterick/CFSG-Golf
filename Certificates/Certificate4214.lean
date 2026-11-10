@@ -1,9 +1,7 @@
 module
 
-public import Certificates.Data.E68Spor.Chk
 public import Certificates.Data.E68Spor.Words
 public import CFSG.Quasithin.Background.E2TwoProofSporJ2Inputs
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHSInputs
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHS
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtE68SporSound
 import Certificates.Kernel.E68Spor4214.Wit

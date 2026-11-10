@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIpRecDefs
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeF1POmegaMinus
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeOmegaFourMinusPOmegaMinus
-import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerMinus
-import CFSG.LocalAnalysis.StandardType.ClassicalPosition.StepA2
 import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockDegreeOneGFTwo
 import CFSG.LocalAnalysis.StandardType.TableC.OrthGram
 import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIpBlockFixed

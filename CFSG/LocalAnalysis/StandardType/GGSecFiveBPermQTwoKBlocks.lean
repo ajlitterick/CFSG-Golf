@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermQTwoFrameDefs
-public import CFSG.RankThree.SteinbergR3ECALinearSplitBlocks
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpPlaneFrameDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelSLCompBasic
 import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelSLCompBlock

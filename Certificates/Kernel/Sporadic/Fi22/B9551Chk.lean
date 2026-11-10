@@ -5,7 +5,6 @@ public import Certificates.Data.Kernel.Fi22Nbr3153
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public meta import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.Fi22FiveData
 import Certificates.Kernel.Co1B.GenTri2045
-import CFSG.Certificates.Kernel.Common.Harness
 public import Mathlib.Data.Finset.Attr
 public import Mathlib.Tactic.Finiteness.Attr
 public import Mathlib.Tactic.SetLike

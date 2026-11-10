@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2LongExcDatum
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2LongF4C2
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2HighestRootNormalizer
-public import CFSG.LieType.HighestRoot.Defs
-public import CFSG.LieType.BorelTits.Basic
 
 public section
 

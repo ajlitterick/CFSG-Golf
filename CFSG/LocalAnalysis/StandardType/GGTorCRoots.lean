@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusScalar
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinPlaneTorusDefs
-public import Mathlib.LinearAlgebra.Matrix.Cartan.Basic
 
 public section
 

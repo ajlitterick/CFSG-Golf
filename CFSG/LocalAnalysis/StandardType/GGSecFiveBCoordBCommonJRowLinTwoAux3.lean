@@ -4,10 +4,7 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJRowLinTwoAu
 public import CFSG.LocalAnalysis.StandardType.GGHalfCentSupp
 import CFSG.LocalAnalysis.StandardType.GGHalfCentralizer
 import CFSG.LocalAnalysis.StandardType.GGHalfNumberTheory
-import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelSL
 import CFSG.Mathlib.GroupTheory.ConjCentralizer
-import Mathlib.NumberTheory.Padics.PadicVal.Basic
-import Mathlib.Algebra.Group.TypeTags.Basic
 
 public section
 

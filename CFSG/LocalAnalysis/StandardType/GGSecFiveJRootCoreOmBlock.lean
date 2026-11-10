@@ -1,12 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJRootCoreOmDiag
-public import CFSG.RankThree.PartOne.KC.OrthogonalBlockDet
-public import CFSG.RankThree.Classical2.OrthogonalIsotropicUnipotent
 import CFSG.LocalAnalysis.StandardType.GGSecFiveJRootCoreOmEigen
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T173SplitVanish
-import CFSG.RankThree.PartOne.KC.OrthogonalFactorization
-import CFSG.RankThree.PartOne.KC.OrthogonalInnerPlaneDefs
 import CFSG.GroupTheory.HallHigmanPiCore
 import CFSG.LocalAnalysis.AGLEmbedding.D1GlobalU
 import CFSG.LocalAnalysis.AGLEmbedding.Reduction

@@ -4,7 +4,6 @@ public import CFSG.Quasithin.H13.L32ARuU1Inputs
 public meta import CFSG.Quasithin.H13.L32ARuU1Inputs
 import Certificates.Kernel.SporSch.Ru.C7152
 import Certificates.Kernel.SporSch.Ru.C2248P
-import Certificates.Kernel.SporSch.Ru.C2253P
 
 open CFSG.KC.Enum CFSG.KS CFSG.KS.Raw CFSG.KS.Prim CFSG.KS.SporSch CFSG.KC.Misc.RuInv
   CFSG.KC.BfsPin CFSG.Sporadic.RuSchreier CFSG.Monster.B.Co2 CFSG.Monster.B.Co2.Native

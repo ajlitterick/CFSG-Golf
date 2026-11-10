@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGHdRo7CDefs
-public import CFSG.LocalAnalysis.StandardType.GGR4PumpDefs
-public import CFSG.LocalAnalysis.StandardType.GGHdRo7CLOrderKnownAux
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7CLOrderKnownAux2
 
 public section

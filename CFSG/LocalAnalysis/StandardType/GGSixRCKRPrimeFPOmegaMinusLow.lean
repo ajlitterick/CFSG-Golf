@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeFPOmegaMinus
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeFIIPOmegaMinus
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeM3POmegaMinusDPHigh
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeM3POmegaMinusSDHigh

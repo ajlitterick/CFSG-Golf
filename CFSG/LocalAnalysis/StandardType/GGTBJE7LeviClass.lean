@@ -2,11 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJE8LeviClass
 public import CFSG.LocalAnalysis.StandardType.GGTBJE8LeviStab
-public import CFSG.LocalAnalysis.SeitzReduction.E7PilotAlignLevi
-public import CFSG.HardMathSupport.Timmesfeld.Steinberg.ThreeCharE7
-public import CFSG.HardMathSupport.Timmesfeld.Steinberg.SevenCharE7
 public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.W2.E7FiveAux.Steinberg
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUE7
 public import CFSG.LocalAnalysis.StandardType.GGTBJE7LeviCore
 public import CFSG.LocalAnalysis.StandardType.GGTBJE7LeviWeyl
 

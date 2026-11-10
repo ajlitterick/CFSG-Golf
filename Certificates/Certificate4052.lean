@@ -3,12 +3,7 @@ module
 
 public import Certificates.Certificate4052Base
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporAutLocal
-public import CFSG.Sporadic.Schreier.PairHSPairs
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporAutHSInputs
 import Certificates.Kernel.SporSch.PairHS.Aut4052Facts
-import CFSG.Sporadic.Schreier.PairHSCertInputs
-import CFSG.Sporadic.Schreier.PairHSCheckInputs
 meta import CFSG.Sporadic.Schreier.PairHSCert
 meta import Certificates.Data.CFSGNative.PairSchreier.Core
 meta import Certificates.Data.CFSGNative.Schreier.Check
@@ -21,7 +16,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.MinimalBCenter
 public import CFSG.LocalAnalysis.ComponentClassification.OrdinaryComponentJoins
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 import CFSG.Certificates.Kernel.SporSch.PairClTSound
 

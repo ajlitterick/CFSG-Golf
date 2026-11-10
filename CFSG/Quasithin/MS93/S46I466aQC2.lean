@@ -3,11 +3,8 @@ module
 public import CFSG.Quasithin.MS93.S46I466aQTyp
 public import CFSG.Quasithin.MS93.S46I466aQCnt
 public import CFSG.Quasithin.MS93.S46I466aQOrb
-public import CFSG.Quasithin.MS93.S46I469Loc
 public import CFSG.Quasithin.MS93.S46I469B0
-public import CFSG.Quasithin.MS93.S46I469Crit
 public import CFSG.Quasithin.MS93.S4A44Lin
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 public import CFSG.Quasithin.MS93.S4A44Stmt
 
 public section

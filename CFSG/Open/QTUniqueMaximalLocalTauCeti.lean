@@ -1,12 +1,7 @@
 module
 
-public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Milestones.QT_unique_maximal_local_classification
 public import CFSG.Open.QTFaithfulEmptyTauCeti
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3J4D4Data
-public import CFSG.Sporadic.J4.QT2LocX0Native
-public import Certificates.Data.CFSGNative.J4.PentScan
-import Certificates.Kernel.J4Q.QTBase
 
 public section
 

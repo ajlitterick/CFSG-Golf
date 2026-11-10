@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGResE6DepCardSixChart
 public import CFSG.LocalAnalysis.StandardType.GGResE6DepCardSixAxes
 public import CFSG.LocalAnalysis.StandardType.GGResE6DepCardSixKData
 public import CFSG.LocalAnalysis.StandardType.GGResE6DepCardSixModel
-public import CFSG.LocalAnalysis.StandardType.GGResE6DepOrder
 public import CFSG.LocalAnalysis.StandardType.GGResFixedWeylCentralizer
 
 public section

@@ -5,9 +5,6 @@ public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTwelveOneLayer
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTwelveOneSolv
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTwelveOneSection
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenKStar
-public import CFSG.Open.StatedDefs
-public import Mathlib.FieldTheory.Finite.GaloisField
-public import Mathlib.LinearAlgebra.Matrix.ProjectiveSpecialLinearGroup
 public import CFSG.CGT.PushingUpLit.BHS.NaturalDefs
 public import CFSG.CGT.PushingUpLit.BHS.SymNatDefs
 public import CFSG.CGT.Timmesfeld75.Statements

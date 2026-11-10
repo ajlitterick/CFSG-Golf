@@ -2,11 +2,7 @@ module
 
 public import CFSG.LieType.Steinberg.CentralExt.SUThree
 public import CFSG.RankThree.CentralLift.LargeLift
-public import CFSG.CharacterTheory.Semidihedral.CentralTransferSplitting
 public import CFSG.GroupTheory.LocalCores.Fitting
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

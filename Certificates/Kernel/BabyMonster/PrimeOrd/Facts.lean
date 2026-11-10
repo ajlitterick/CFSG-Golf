@@ -1,30 +1,16 @@
 module
 
 public import CFSG.Certificates.Kernel.BabyMonster.PrimeOrd.All
-public import CFSG.Certificates.Kernel.BabyMonster.Sound
 public import CFSG.Certificates.Kernel.BabyMonster.PairSound
 public import CFSG.Certificates.Kernel.BabyMonster.Seeds.All
 public import CFSG.Certificates.Kernel.BabyMonster.Chain4
 public import CFSG.Monster.B.Pinned.Primes.Program
-public import CFSG.Certificates.Kernel.BabyMonster.PrimeOrd.Pow13
-public import CFSG.Certificates.Kernel.BabyMonster.PrimeOrd.Pow17
-public import CFSG.Certificates.Kernel.BabyMonster.PrimeOrd.Pow19
-public import CFSG.Certificates.Kernel.BabyMonster.PrimeOrd.Pow31
-public import CFSG.Certificates.Kernel.BabyMonster.PrimeOrd.Pow47
-public import CFSG.Certificates.Kernel.BabyMonster.PrimeOrd.Pow7
-public import CFSG.Certificates.Kernel.BabyMonster.Seeds.Check0
-public import CFSG.Certificates.Kernel.BabyMonster.Seeds.Check1
-public import CFSG.Certificates.Kernel.BabyMonster.Seeds.Check2
-public import CFSG.Certificates.Kernel.BabyMonster.Seeds.Check3
-public import CFSG.Certificates.Kernel.BabyMonster.Seeds.Check4
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.OpsF2Fast
 public import CFSG.Monster.B.Max2.Pinned
 public import CFSG.Monster.B.Pinned.GeneratorDeterminants
-public import CFSG.Open.Defs
 public import Certificates.Certificate3101
 public import Certificates.Certificate3103
 public import Certificates.Certificate3106
-public import Certificates.Certificate3109Base
 public import Certificates.Data.CFSGNative.MonsterB.DyadicFile
 
 public section

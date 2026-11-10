@@ -1,12 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeRetIota
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeRetPinAux
 public import CFSG.GroupTheory.SylowIntersectionControl.GomiLeviExc.CharTwoSteinberg
-public import CFSG.LieType.Steinberg.Minuscule.ChevExtras
-public import CFSG.LieType.CurtisTits.ExceptionalQuasisimple
-public import CFSG.LieType.CurtisTits.Recognition
-public import CFSG.LieType.Chevalley.EvenOddCentralizerRadicalRoots
 
 public section
 

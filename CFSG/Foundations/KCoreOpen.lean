@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Foundations.KCore
 public import CFSG.Open.OrderForm
 
 public section

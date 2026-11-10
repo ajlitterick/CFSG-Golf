@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootDetectExcE6
 public import CFSG.LocalAnalysis.StandardType.GGInnerDiagMarkingE6
-public import CFSG.LieType.Chevalley.GraphFixedF4Canonical
 public import CFSG.LieType.Chevalley.CLSOddE7RationalDerivedIndex
 
 public section

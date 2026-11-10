@@ -6,7 +6,6 @@ public meta import Certificates.Kernel.SporSch.Mathieu.M22Data
 public meta import CFSG.Quasithin.Vol2.KGFactC31M22Data
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo
-import CFSG.Certificates.Kernel.Common.Harness
 public meta import CFSG.Quasithin.Vol2.KGFactC31OrbCheck
 public import CFSG.Quasithin.Vol2.KGFactC31OrbCheck
 

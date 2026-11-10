@@ -2,11 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGRootDatumFrame
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcRootRefl1
-public import CFSG.LocalAnalysis.StandardType.GGTwE6SplitRootGenComp
-public import CFSG.LocalAnalysis.StandardType.GGTwE6SplitRootGenReal
 public import CFSG.LocalAnalysis.StandardType.GGTwE6SplitRootGenSCThree
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6Dvd
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CatTw
 public import CFSG.GroupTheory.ConjTransport
 public import CFSG.LocalAnalysis.StandardType.GGRealKGThree
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6SplitLift

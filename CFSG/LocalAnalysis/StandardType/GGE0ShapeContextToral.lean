@@ -1,15 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGE0ShapeDefs
-public import CFSG.LocalAnalysis.StandardType.GGE0ModelFrame
-public import CFSG.LocalAnalysis.StandardType.GGOTwoStarFrame
-public import CFSG.LocalAnalysis.StandardType.GGSixLSixSevenA3BstarCentralizer
-public import CFSG.LocalAnalysis.StandardType.GGE0ShapeContextToralAux
 public import CFSG.LocalAnalysis.StandardType.GGE0ShapeContextToralAux2
-public import CFSG.LocalAnalysis.StandardType.GGE0ShapeWeylGoodDefs
 public import CFSG.LocalAnalysis.StandardType.GGE0ShapeWeylGood
 public import CFSG.LocalAnalysis.StandardType.GGE0ShapeRankFive
-public import CFSG.LocalAnalysis.StandardType.GGOuterInvAtE6DiagLang
 public import CFSG.LocalAnalysis.StandardType.GGE0ExcTwE6NonShape
 public import CFSG.LocalAnalysis.StandardType.GGE0ShapeSetupSplitPlus
 public import CFSG.LocalAnalysis.StandardType.GGE0ShapeSetupTwPlus

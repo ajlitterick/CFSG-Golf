@@ -1,12 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.K144TriFixCard
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GField
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GTriField
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GTriRed
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GU64Glue
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangTriD4Conj
-import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOtherCore
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartOne.HESS.Node
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

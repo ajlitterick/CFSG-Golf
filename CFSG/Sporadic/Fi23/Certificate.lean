@@ -4,10 +4,8 @@ module
 public import CFSG.Sporadic.Fi23.CertificateBase
 import all CFSG.Sporadic.Fi23.CertificateBase
 
-public import Certificates.Data.CFSGNative.Fi23.Certificate
 public meta import Certificates.Data.CFSGNative.Fi23.Certificate
 public import Certificates.Certificate1012
-public import Certificates.Certificate1012Base
 
 public section
 

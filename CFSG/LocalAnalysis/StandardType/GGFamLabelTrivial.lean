@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLangFamily
-public import CFSG.LocalAnalysis.StandardType.GGLangAlgebraicRestriction
-public import CFSG.LocalAnalysis.StandardType.GGFamTrivialRoots
 public import CFSG.LocalAnalysis.StandardType.GGFamTrivialGamma
-public import CFSG.LocalAnalysis.StandardType.GGFamNoDiagram
 public import CFSG.LocalAnalysis.StandardType.GGFamOuterEField
 public import CFSG.LocalAnalysis.StandardType.GGFamLabelDefs
 public import CFSG.LocalAnalysis.StandardType.GGFamLabelKind

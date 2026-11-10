@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallOrthInAbs
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthogonalEndNodeMinus
 
 public section
 

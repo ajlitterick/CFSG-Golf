@@ -3,7 +3,6 @@ module
 
 public import Certificates.Kernel.UnitarySix.YamadaBase
 public import CFSG.Certificates.Kernel.U6SoundTables
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.EachUnfold
 import CFSG.Certificates.Kernel.Common.ForallChunks
 

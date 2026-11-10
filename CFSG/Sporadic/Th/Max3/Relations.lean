@@ -1,17 +1,14 @@
 
 module
 
-public import CFSG.Sporadic.Th.Max3.RelationsBase1
 import all CFSG.Sporadic.Th.Max3.RelationsBase
 import all CFSG.Sporadic.Th.Max3.RelationsBase1
 
-public import CFSG.Sporadic.Th.Max3.Data
 public import Certificates.Certificate10092
 public meta import CFSG.Sporadic.Th.Max3.Data
 public import CFSG.Certificates.Kernel.Th.SoundnessMax3Base
 public import CFSG.Sporadic.Th.Max3.CoreBase1
 public import CFSG.Sporadic.Th.Max3.InvolutionsBase1
-public import CFSG.Sporadic.Th.Max3.OddCaseInputsBase
 public import CFSG.Sporadic.Th.Max3.QuotientBase1
 public import Certificates.Certificate10092Base
 

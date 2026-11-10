@@ -4,7 +4,6 @@ public import Certificates.Kernel.Ru7130.E8
 public import Certificates.Kernel.LocalQT.Quot.F4080
 public import CFSG.Certificates.Kernel.LocalQTPcWOfBW
 public import CFSG.Certificates.Kernel.HSA312Sound
-import Mathlib.Tactic.IntervalCases
 
 set_option maxRecDepth 200000
 

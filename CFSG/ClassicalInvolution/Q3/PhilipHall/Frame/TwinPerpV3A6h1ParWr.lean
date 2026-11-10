@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6h1
-public import CFSG.ClassicalInvolution.Q3.AE.Conj
-public import CFSG.ClassicalInvolution.Q3.AE.PermElt
 public import Certificates.Data.AE6ParData
 
 public section

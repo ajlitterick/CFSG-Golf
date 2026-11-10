@@ -1,6 +1,5 @@
 module
 
-public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Detect.Heis.CoordSpec
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TriD4InnerAction
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2HighestRootCores
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIModel

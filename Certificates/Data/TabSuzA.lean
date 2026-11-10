@@ -1,8 +1,5 @@
 module
 
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.SuzThreeInputs
-public import CFSG.RankThree.PartOne.KS.PKit
-public import CFSG.RankThree.Native.ChainCentralizer
 public import Certificates.Data.TabSuzFuse
 public import Certificates.Data.K426Checks
 public import CFSG.LieType.Multipliers.U43Data

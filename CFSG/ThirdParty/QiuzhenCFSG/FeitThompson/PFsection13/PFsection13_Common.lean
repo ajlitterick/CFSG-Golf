@@ -1,23 +1,9 @@
 module
 
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.lemma_3_2_a
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection12.theorem_12_12_a
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection8.PFsection8_5_a
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection9.PFsection9_1
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection9.PFsection9_3
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection9.PFsection9_7
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection9.PFsection9_11
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection12.Basic
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection12.Basic
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection8.PFsection8_15
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection8.SourceTypePBridge
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection13.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection13.Basic
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection3.PFsection3_5
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection3.PFsection3_9
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection5.PFsection5_9
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection6.PFsection6_8
-import Mathlib.RingTheory.Polynomial.Cyclotomic.Basic
 
 namespace CFSG
 end CFSG

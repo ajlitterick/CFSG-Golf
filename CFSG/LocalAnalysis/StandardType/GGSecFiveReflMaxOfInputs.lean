@@ -1,21 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthExclOfCited
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRMPrimeInputs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveCR3OfPump
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveCROfInputs
 import CFSG.LocalAnalysis.StandardType.GGSecFiveCoxProdHolds
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveReflMaxDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveReflMaxStep6
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveReflMaxFamily
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveReflMaxBasic
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveReflMaxSat
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJrOfRootGenL
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveReflMaxFrame
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveReflMaxNotG2
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveReflMaxMain
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveReflMaxZeroReal
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNarrowInputs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveCaseZeroOfInputs
 
 public section

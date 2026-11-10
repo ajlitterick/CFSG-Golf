@@ -2,8 +2,6 @@ module
 
 public import CFSG.GH74.Generic.BProg.NS.Lxy
 public import CFSG.GH74.Generic.S3.BFreeNbr
-public import CFSG.GH74.Generic.S3.BFreeNbhd
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

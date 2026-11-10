@@ -1,14 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265SF5
-import CFSG.GroupTheory.ElementaryAbelianTransport
-import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogRigidityCommon
-import CFSG.LocalAnalysis.ComponentInitial.LinearHigherFieldInvolution
-import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherPrimeFormRealization
-import CFSG.LocalAnalysis.StandardType.GGPGLTorality
 import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryDvdCodimOne
-import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryDvdTorality
-import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeModel
 import CFSG.RankThree.PartOne.KC.UnitaryGoodModel
 import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeSetting
 import CFSG.RankThree.PartOne.KC.UnitaryGoodSpecial

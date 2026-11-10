@@ -1,15 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45KGForms
-public import CFSG.LocalAnalysis.StandardType.MarkingChevalley
 public import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOtherCore
-import CFSG.LieType.Simplicity.ReeLargeModel
-import CFSG.LieType.Simplicity.TitsModel
 import CFSG.RankThree.PartTwo.KFacts.KS14SzRee
-import CFSG.LieType.Ree.LargeReeCenterTrivial
-import CFSG.LieType.Ree.ReeGenericPerfect
 import CFSG.LieType.Ree.LargeReeFixedGroupOddCore
-import CFSG.LieType.BorelTits.DerivedQuotient
 
 public section
 

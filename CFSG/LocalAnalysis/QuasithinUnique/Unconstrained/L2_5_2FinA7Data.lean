@@ -2,7 +2,6 @@ module
 
 public import Mathlib.GroupTheory.SpecificGroups.Alternating
 public meta import Mathlib.GroupTheory.SpecificGroups.Alternating
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_2FinA7DataInputs
 public import Certificates.Certificate4152
 
 public section

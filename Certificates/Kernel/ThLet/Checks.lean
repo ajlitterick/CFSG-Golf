@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.ThLet.Defs
 public import CFSG.Certificates.Kernel.Th.S.Data.Sm_Sel
-public import CFSG.Certificates.Kernel.Th.S.Data.Sm_const
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabThCentSInputs
 import CFSG.Certificates.Kernel.Common.Harness
 

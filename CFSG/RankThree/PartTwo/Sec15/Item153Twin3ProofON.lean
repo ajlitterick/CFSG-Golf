@@ -1,14 +1,9 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec15.Item153Twin2ProofON
-import CFSG.RankThree.PartTwo.Sec15.Item152Proof
-import CFSG.RankThree.PartTwo.Sec15.Item153Claims
 import CFSG.RankThree.PartTwo.Sec14.Item147
 import CFSG.RankThree.PartTwo.Sec15.Item1515StepsProofRead
-import CFSG.RankThree.PartTwo.Late.Transitivity
-import CFSG.RankThree.PartTwo.Sec13.Item13Basic
 import CFSG.GroupTheory.Fitting.CharacteristicP
-import CFSG.LieType.BorelTits.Basic
 public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer

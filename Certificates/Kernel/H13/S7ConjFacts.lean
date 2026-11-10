@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Quasithin.H13.L32NS7ConjInputs
 public import Certificates.Kernel.H13.S7ConjK
 public import Certificates.Kernel.H13.ElemsS8
 public import Certificates.Kernel.H13.ElemsS7

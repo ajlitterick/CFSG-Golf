@@ -4,7 +4,6 @@ public import CFSG.ClassicalInvolution.Q3.Q3T8C262Type
 public import CFSG.ClassicalInvolution.Q3.Q3T7SectC
 public import CFSG.ClassicalInvolution.Q3.Q3MTModel1
 public import CFSG.ClassicalInvolution.Q3.Q3TIYRk1
-public import CFSG.ClassicalInvolution.Q3.Q3EXD4Model
 public import CFSG.ClassicalInvolution.Asc77.AscC25J12
 public import CFSG.ClassicalInvolution.Asc77.AscC25J13
 public import CFSG.ClassicalInvolution.Asc77.WP2Branch

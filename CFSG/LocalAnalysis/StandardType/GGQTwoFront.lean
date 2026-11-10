@@ -1,18 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoJoinDefs
-public import CFSG.LocalAnalysis.StandardType.GGQTwoPThree
 public import CFSG.LocalAnalysis.StandardType.GGQTwoFrontQ
 public import CFSG.LocalAnalysis.StandardType.GGQTwoFrontM
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEsu
 import Lean
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSLieEsuAux
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
-public import CFSG.Assembly.GL83StatedBridge
-public import CFSG.Blueprint.Catalog
-public import CFSG.Open.StatedDefs
 
 public section
 

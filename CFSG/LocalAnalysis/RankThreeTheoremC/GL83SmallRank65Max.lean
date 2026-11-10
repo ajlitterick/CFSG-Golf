@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83SmallRank65Defs
 import CFSG.LocalAnalysis.RankThreeTheoremC.GL83SmallRank627Lines
 import CFSG.LocalAnalysis.AGLEmbedding.Signalizer
 import CFSG.Goldschmidt.Steps.G310Basic
-import CFSG.LocalAnalysis.RankThreeCoreUniqueness.SolvableConstraint
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups

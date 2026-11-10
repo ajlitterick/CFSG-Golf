@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatRows
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicHS
-public import CFSG.Blueprint.NativeSporadic
 public import Certificates.Data.CFSGNative.SporLat.Build
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatQuot
 

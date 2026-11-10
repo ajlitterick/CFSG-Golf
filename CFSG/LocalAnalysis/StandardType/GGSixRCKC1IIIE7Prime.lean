@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeConfigID
 import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIE6Prime
 import CFSG.LocalAnalysis.StandardType.GGSixFieldFiveTagsRank
-import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerE7
-import Mathlib.Tactic.NormNum
 
 public section
 

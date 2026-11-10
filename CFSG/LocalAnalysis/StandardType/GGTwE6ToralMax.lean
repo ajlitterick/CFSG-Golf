@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ToralInner
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutInnerExcAssembly
-public import CFSG.Timmesfeld.Orders.ExceptionalTwisted
 
 public section
 

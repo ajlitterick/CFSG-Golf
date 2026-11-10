@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431D4Aux.OrthL2.Levi
-public import CFSG.RankThree.PartOne.KC.OrthogonalFixedDerived
 import CFSG.HardMathSupport.Dickson.Sec6.I1431D4Aux.OrthL2.BlockLevi
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
@@ -42,7 +41,6 @@ public import CFSG.RankThree.PartOne.S11d.LieCentralizerOrth
 public import CFSG.RankThree.PartOne.S9.Sylow.ExclusionBasic
 public import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
 public import CFSG.RankThree.Theta.ThreeComponentOrbitCover
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis

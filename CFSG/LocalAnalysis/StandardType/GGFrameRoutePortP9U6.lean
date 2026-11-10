@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP9UTorus
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUAct
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUDefs
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryDvdAct
 
 public section

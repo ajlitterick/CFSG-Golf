@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGAF4CoreDefs
 public import CFSG.LocalAnalysis.StandardType.GGKGAF4
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixPerfect
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeAEndModel
 
 public section
 

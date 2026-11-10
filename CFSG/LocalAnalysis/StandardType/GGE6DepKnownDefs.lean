@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGE6DepCorootDefs
 public import CFSG.LocalAnalysis.StandardType.GGE6DepPerpDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
 
 public section
 

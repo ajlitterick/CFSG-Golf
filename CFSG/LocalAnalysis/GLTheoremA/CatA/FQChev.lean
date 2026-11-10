@@ -1,12 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FQOrd
-public import CFSG.LieType.Chevalley.CoordinateFieldFixedSubgroup
-public import CFSG.LieType.Chevalley.EvenCanonicalFieldCentralizer
 public import CFSG.HardMathSupport.Lang.E6Descent.OuterFixedE6Index
-public import CFSG.Timmesfeld.Orders.ExceptionalUntwisted
-public import CFSG.LocalAnalysis.StandardType.MarkingChevalley
-public import CFSG.LocalAnalysis.SeitzReduction.F4PilotCatEvenExcOrders
 
 public section
 

@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSporKStepBFour
 public import CFSG.LocalAnalysis.StandardType.GGSporKBSevenOrd
-public import CFSG.LocalAnalysis.StandardType.GGSporKStepZero
-public import CFSG.LocalAnalysis.StandardType.GGSporKStepOne
 public import CFSG.LocalAnalysis.StandardType.GGSporKB7a3
 public import CFSG.LocalAnalysis.StandardType.GGSporKLieZDefs
 import CFSG.Fischer.Classification.Recognition.Basic

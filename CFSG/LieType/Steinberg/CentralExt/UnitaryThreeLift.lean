@@ -4,7 +4,6 @@ public import CFSG.LieType.Steinberg.CentralExt.UnitaryLift
 public import CFSG.LieType.Steinberg.CentralExt.UnitaryGram
 public import CFSG.LieType.Steinberg.CentralExt.PerfectLift
 public import CFSG.LieType.Steinberg.CentralExt.UnitaryPerfect
-public import CFSG.ClassicalGroups.Unitary.Perfect
 public import CFSG.LocalAnalysis.ComponentInitial.LinearUnitaryField
 public import CFSG.LieType.Steinberg.CentralExt.HermitianBasis
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LieType.Chevalley.RootCharacterConjugation
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Defs
 
 public section

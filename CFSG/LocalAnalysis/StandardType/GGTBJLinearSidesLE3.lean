@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeLinearNbr
-public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeLinearDatum
 public import CFSG.LocalAnalysis.StandardType.GGTBJTypeAPermutationDatumLE3
 public import CFSG.LocalAnalysis.StandardType.GGTBJTypeAParabolicLE3
 

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08TestLin
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08T4
 public import CFSG.LocalAnalysis.StandardType.GGQTwoNbrLineStab
-public import CFSG.LocalAnalysis.StandardType.GGQTwoTransport
 public import CFSG.LocalAnalysis.StandardType.GGQTwoI1FailGlue
 
 public section

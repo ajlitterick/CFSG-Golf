@@ -2,9 +2,7 @@ module
 
 public import CFSG.Assembly.E6FourNeighbourFacts
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompIdx
-import CFSG.HardMathSupport.Timmesfeld.Tables.T1b.Bridge
 import CFSG.LocalAnalysis.GL83PartI.I_24_3.ListLieModels
-import CFSG.LocalAnalysis.StandardType.Marking
 import all CFSG.LocalAnalysis.GLTheoremA.CatA.YS1011LabUniq
 public import CFSG.Assembly.LargeEvenGLABridge
 public import CFSG.Assembly.OpenBridges

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.UC22L3UniBlock
 public import CFSG.LieType.SeitzGeneration.UnitaryHeisGU2
 import CFSG.LinearAlgebra.ProjectivePrimePlane
-public import Certificates.Kernel.ThCent.Leaves
 
 public noncomputable section
 

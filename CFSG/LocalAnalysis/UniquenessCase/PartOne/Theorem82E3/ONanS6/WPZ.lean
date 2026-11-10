@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LieType.BorelTits.Basic
-public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.Context
-public import CFSG.RankThree.PartTwo.Sec6.Item612Basic
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.ONanS6.WS6
 
 public section

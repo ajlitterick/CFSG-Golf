@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LieType.ChevTwo.Defs
-public import CFSG.Open.FusionDefs
 import CFSG.Goldschmidt.Steps.G3aBorel
-import CFSG.LocalAnalysis.ComponentClassification.AschbacherToolkitBenderAutOmega
 import CFSG.StronglyEmbedded.Catalog.Suzuki
 import CFSG.Models.BenderSuzuki
 import CFSG.StronglyEmbedded.MatrixGroups.SzModel
@@ -18,7 +16,6 @@ import CFSG.LocalAnalysis.LargeEvenClassification.MacWilliamsReduction
 import CFSG.LocalAnalysis.LargeEvenClassification.SmallCfourFullObstruction
 import CFSG.LocalAnalysis.LargeEvenClassification.SmallCfourProperSubgroups
 import CFSG.LocalAnalysis.RankTwoShapes.AlperinFusion
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 import CFSG.Walter.Bender1970.S3.Setup
 import CFSG.Walter.JRFacts
 

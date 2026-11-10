@@ -2,9 +2,7 @@ module
 
 public import Certificates.Kernel.Misc.RuInv.Gens
 public import Certificates.Kernel.Misc.RuSq.Bind
-public import Certificates.Data.Kernel.Spor.TextAt
 public import CFSG.LocalAnalysis.EvenSporadicStandard.RuStd.FactsB2Inputs
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LieType.Steinberg.CurtisDatum.RankOne
 public import CFSG.LieType.Steinberg.CurtisDatum.Hecke
 public import CFSG.LieType.SpecialLinear.CurtisDatum.Cover
-public import CFSG.LieType.SpecialLinear.CurtisDatum.NegExcept
 public import CFSG.LieType.Steinberg.CentralExt.Unipotent
 public import CFSG.Quasithin.Background.SmithCurtisDatum
 

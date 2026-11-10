@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeSpBlockAnDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeSpBlockAnFixed
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRootGenLift
-public import CFSG.Foundations.SteinbergCADefinitionNodes
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172AGrp
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172XType
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.Bal209TwoIn
 public import CFSG.Quasithin.Vol2.Ch12Sec6P31LieH

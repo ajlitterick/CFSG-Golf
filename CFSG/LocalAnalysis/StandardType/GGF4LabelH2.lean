@@ -7,7 +7,6 @@ import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenThreeThreeTransvU42
 import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63H5LayerGroup
 import CFSG.LocalAnalysis.StandardType.GGResE6DepOrders
 import CFSG.LocalAnalysis.StandardType.GGTBJConfigFacts
-import CFSG.LocalAnalysis.StandardType.GGTableBTransport
 import TauCeti.RepresentationTheory.CharacterTable.Solvable
 
 public section

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Curtis.UnitaryLevi.BlockIbSpSurvivor
-public import CFSG.HardMathSupport.Curtis.UnitaryLevi.BlockIbDefs
 public import CFSG.HardMathSupport.Curtis.NaturalModuleCensus.SpResidual.Glue
 public import CFSG.Fischer.Uniq.CompTau
 public import CFSG.GH74.Generic.Certificates
@@ -32,7 +31,6 @@ public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.B1MoreElevenD
 public import CFSG.Quasithin.Background.B1MoreElevenF
 public import CFSG.Quasithin.Background.B1MoreNineG
@@ -40,11 +38,6 @@ public import CFSG.Quasithin.Background.B4ModelsAction
 public import CFSG.Quasithin.Background.B4ModelsIso
 public import CFSG.Quasithin.Background.C2Basic
 public import CFSG.Quasithin.Background.E1
-public import CFSG.Quasithin.Background.E1Sec4
-public import CFSG.Quasithin.Background.E1Sec5
-public import CFSG.Quasithin.Background.E1Sec8
-public import CFSG.Quasithin.Background.E1Solv
-public import CFSG.Quasithin.Background.E1Twelve
 public import CFSG.Quasithin.Background.E3Cent
 public import CFSG.Quasithin.EmptyFaithfulMultiple.InputB19Proof
 public import CFSG.RankThree.PartOne.KC.OrthogonalBlockDet
@@ -52,7 +45,6 @@ public import CFSG.RankThree.PartOne.KC.OrthogonalBlockProduct
 public import CFSG.RankThree.PartOne.S8.Statements
 public import CFSG.RankThree.PartTwo.Sec4.Item47Statement
 public import CFSG.RankThree.PartTwo.Sec4.Item47Witness
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M24
 public import TauCeti.LinearAlgebra.QuadraticForm.Prod

@@ -1,8 +1,6 @@
 module
 
-import Mathlib.Tactic.IrreducibleDef
 public import CFSG.Sporadic.J4.FaithSpec
-import Certificates.Data.CFSGNative.J4.Cert
 
 public section
 

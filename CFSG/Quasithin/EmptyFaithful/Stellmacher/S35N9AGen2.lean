@@ -1,7 +1,5 @@
 module
 
-public import CFSG.Quasithin.EmptyFaithful.Stellmacher.S35N9AGen1
-public import CFSG.Quasithin.EmptyFaithful.SzF53MTab
 public import CFSG.Quasithin.EmptyFaithful.Stellmacher.S35N9AGen2K
 
 public section

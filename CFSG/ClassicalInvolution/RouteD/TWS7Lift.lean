@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.ModelFacts.Orth15RFixLift
-public import CFSG.ClassicalInvolution.ModelFacts.Orth15D4Lift
 public import CFSG.ClassicalInvolution.RouteD.TWS6D4MF
 public import CFSG.ClassicalInvolution.RouteD.TWT4Hol
 public import CFSG.ClassicalInvolution.ModelFacts.Orth15OuterL4Model

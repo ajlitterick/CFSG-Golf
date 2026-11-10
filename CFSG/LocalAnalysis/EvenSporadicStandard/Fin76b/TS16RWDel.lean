@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Certificate27822
-public import Mathlib.Algebra.Group.Action.Pointwise.Finset
 
 public section
 

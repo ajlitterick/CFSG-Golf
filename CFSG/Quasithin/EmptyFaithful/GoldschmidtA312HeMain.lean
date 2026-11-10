@@ -1,10 +1,6 @@
 module
 
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312HeCases
-public import CFSG.Quasithin.Background.A312SporGen
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListFamilies
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHe
-public import CFSG.Blueprint.NativeSporadic
 
 public section
 

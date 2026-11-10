@@ -1,8 +1,5 @@
 module
 
-public import Mathlib
-public import Mathlib.GroupTheory.SpecificGroups.Cyclic
-public import CFSG.LocalAnalysis.ComponentClassification.Quasisimple
 public import CFSG.LocalAnalysis.ComponentClassification.PerfectAutomorphisms
 public import CFSG.LocalAnalysis.ComponentClassification.InvolutionDiagonal
 

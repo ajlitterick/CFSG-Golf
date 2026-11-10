@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.HeLoc.TreeCmd
-public import Certificates.Kernel.Sporadic.RawGen
 public import CFSG.Certificates.Kernel.Spor.PackWord
 public import CFSG.RankThree.PartOne.KS.HeSevenCheckDefs
 public meta import CFSG.RankThree.PartOne.KS.HeSevenCheckDefs

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1Defs
-public import CFSG.LocalAnalysis.StandardType.GGSixLSixFiveKnownForms
-public import CFSG.LieType.BorelTits.Basic
 
 public section
 

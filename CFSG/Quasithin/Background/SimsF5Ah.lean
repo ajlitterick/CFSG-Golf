@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.Background.SimsF5Par
 public import CFSG.Quasithin.Vol2.GoldschmidtF431U42AutP2That
-public import CFSG.Fischer.Classification.PartIII.Beta.Data
 
 public section
 

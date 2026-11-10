@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TrialityA2CoreTwoDefs
-public import CFSG.Certificates.Kernel.ThDemp.OrbCent
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.Reduction
 public import CFSG.LieType.SeitzGeneration.ExtSeitzReeF4Cyclic
 public import CFSG.LocalAnalysis.ComponentClassification.AutL2FactsCentModel

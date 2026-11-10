@@ -3,10 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265BTwE6Card
 public import CFSG.LocalAnalysis.StandardType.GGTwE6K1LineAux
-public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotCatAlt
-public import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotCatAlt
 public import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotCatTypeDet
-public import CFSG.LieType.Chevalley.E6SecondGraphFixedSubgroup
 
 public section
 

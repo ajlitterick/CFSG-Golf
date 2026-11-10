@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Defs
-public import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
 import CFSG.GroupTheory.CoprimeCosetFixed
-import CFSG.LieType.BorelTits.Basic
 import CFSG.LocalAnalysis.StandardType.FS81.L3TwoFixedPointFree
-import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionMaximalPrimeNormalizer
 public import CFSG.Assembly.QuasithinDefs
 
 public section

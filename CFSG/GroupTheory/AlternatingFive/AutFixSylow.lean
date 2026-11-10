@@ -5,7 +5,6 @@ public import CFSG.GroupTheory.AlternatingFive.SylowTwo
 public import CFSG.GroupTheory.ConjActionModPCore
 public import CFSG.Quasithin.Background.F1Models
 public import CFSG.Quasithin.Background.F7Basic
-public import Mathlib.GroupTheory.GroupAction.ConjAct
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Foundations
 public import CFSG.Quasithin.Background.Basic

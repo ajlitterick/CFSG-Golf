@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFinModelG5Defs
-public import CFSG.LieType.Chevalley.E6GraphInvolutionForms
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.SmallQThreeFactsFour
 
 public section

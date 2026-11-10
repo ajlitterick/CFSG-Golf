@@ -2,7 +2,6 @@ module
 
 public import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.LocalAnalysis.StandardType.GGOmegaPlusRootGenDefs
-import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutClassicalOmWeights
 import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutClassicalOmPlus
 
 public section

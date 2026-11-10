@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Sporadic.RawGenSl
 public import Certificates.Kernel.Sporadic.Suz.Text2306
 public meta import CFSG.Sporadic.SuzOddCore.Arrays
-import CFSG.Sporadic.SuzOddCore.Arrays
 import CFSG.Certificates.Kernel.Common.Harness
 import Mathlib.Tactic.IntervalCases
 

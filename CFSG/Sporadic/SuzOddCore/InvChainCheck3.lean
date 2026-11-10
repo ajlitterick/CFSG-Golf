@@ -1,7 +1,5 @@
 module
 
-public import CFSG.Sporadic.SuzOddCore.InvArraysCheck
-public import Certificates.Data.CFSGNative.Schreier.Check
 public meta import CFSG.Sporadic.SuzOddCore.InvArraysCheck
 public meta import Certificates.Data.CFSGNative.Schreier.Check
 public import Certificates.Certificate2300

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.Ree.Mirror
-public import CFSG.Blueprint.ChevalleyStringsInputs
 public import CFSG.Monster.B.TwoA.Census.NatCert
 
 public section

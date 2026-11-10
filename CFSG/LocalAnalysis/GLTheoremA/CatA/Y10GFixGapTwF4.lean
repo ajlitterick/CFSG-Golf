@@ -2,13 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFixGapGlue
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FRRee
-public import CFSG.LocalAnalysis.StandardType.GGRawAutRestReeF4
-public import CFSG.LocalAnalysis.StandardType.GGTwistedF4Diag
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45FieldFixReeMark
-public import CFSG.LieType.Simplicity.TitsModel
-public import CFSG.RankThree.PartTwo.KFacts.KS14SzRee
-public import CFSG.LieType.BorelTits.DerivedQuotient
-public import CFSG.LieType.Ree.LargeReeFixedGroupOddCore
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FQRee
 public import CFSG.RankThree.PartOne.RF4.FinalSec66
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Certificates.CosetTablePresented
 public import Certificates.Data.TwinPerpV3A6iCurtis
 public import Certificates.Kernel.Bounds.Family
 

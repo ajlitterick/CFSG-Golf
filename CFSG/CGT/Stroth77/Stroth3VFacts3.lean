@@ -1,6 +1,5 @@
 module
 
-public import CFSG.CGT.Stroth77.Stroth39Kill
 public import CFSG.CGT.Stroth77.Stroth3VCase
 public import CFSG.CGT.Stroth77.Stroth39
 

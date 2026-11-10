@@ -4,10 +4,7 @@ module
 public import CFSG.Sporadic.Schreier.M24CheckBase
 public import CFSG.Monster.B.Mathieu.M24Order
 public import CFSG.Sporadic.Schreier.Outer
-public import CFSG.Sporadic.Schreier.M24Data
 public meta import CFSG.Sporadic.Schreier.M24Data
-public import Certificates.Data.CFSGNative.Mathieu.M24
-public import CFSG.Monster.B.Mathieu.M24CheckInputs
 
 @[expose] public section
 

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Quasithin.EmptyFaithful.SBd8Flag
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.CharacterTheory.Blocks.BrauerInduction
@@ -31,14 +29,8 @@ public import CFSG.Quasithin.Background.B4Dual
 public import CFSG.Quasithin.Background.B5CompB
 public import CFSG.Quasithin.Background.B6
 public import CFSG.Quasithin.Background.B69Core
-public import CFSG.Quasithin.Background.B6Example
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3OffenderB
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.E4Solv
 public import CFSG.Quasithin.Background.F1Weak
 public import CFSG.Quasithin.Background.F9G2
 public import CFSG.Quasithin.Background.F9Sixteen
@@ -63,7 +55,6 @@ public import CFSG.Sporadic.Schreier.J4SSylow
 public import CFSG.Sporadic.Schreier.M11
 public import CFSG.Sporadic.Schreier.M22
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.Timmesfeld.RankOne
 public import CFSG.Timmesfeld.Transvection.Statement
 public import CFSG.Walter.J1

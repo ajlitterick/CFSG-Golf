@@ -4,10 +4,8 @@ public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Residual
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Local
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Corollary713
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition84Residual
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section7Final
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Theorem2
 
 namespace CFSG
 end CFSG

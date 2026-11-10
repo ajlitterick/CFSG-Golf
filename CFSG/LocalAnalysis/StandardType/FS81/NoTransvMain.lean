@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.NoTransvUnique
-public import CFSG.LocalAnalysis.StandardType.FS81.OddCoreDefs
 
 public section
 

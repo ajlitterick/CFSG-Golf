@@ -1,10 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Q3OFSplitTwLift
-public import CFSG.ClassicalInvolution.ModelFacts.Models
-public import CFSG.LieType.Universal.Spin.PlusCT.Basic
-public import CFSG.LieType.Universal.Spin.OddCT.Weyl
-public import CFSG.LieType.Universal.Spin.Twisted.Datum
 public import CFSG.ClassicalInvolution.ModelFacts.Orth15ChainLModel
 public import CFSG.ClassicalInvolution.Q3.Q3NHMain
 public import CFSG.ClassicalInvolution.Q3.Q3NTUnitary
@@ -13,7 +9,6 @@ public import CFSG.ClassicalInvolution.Q3.Q3OFUnique
 public import CFSG.ClassicalInvolution.Q3.Q3PPEdgeShape
 public import CFSG.ClassicalInvolution.Q3.Q3TCPartner
 public import CFSG.ClassicalInvolution.Q3.Q3URDict
-public import CFSG.ClassicalInvolution.Q3.Q3URStd
 public import CFSG.ClassicalInvolution.Q3.Q3URTransfer
 
 public section

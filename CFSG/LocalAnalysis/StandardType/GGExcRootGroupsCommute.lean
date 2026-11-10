@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGLatRootBridge
 import CFSG.LieType.Chevalley.LangStronglyOrthogonalCommute
 import CFSG.LocalAnalysis.SeitzReduction.HypothesisOneClassD4Torus
-import CFSG.LieType.Steinberg.Minuscule.ChevExtras
-import CFSG.LieType.Steinberg.TwistedE6.Roots
-import CFSG.LieType.Steinberg.Adjoint.Presentation
 
 public section
 

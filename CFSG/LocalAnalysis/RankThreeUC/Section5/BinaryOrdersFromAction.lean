@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.RankThreeUC.Section5.FixedKernel
 public import CFSG.LocalAnalysis.RankThreeUC.Section5.PrimeCommutatorNontrivial
 public import CFSG.LinearAlgebra.CoprimeActions.BinaryMersenneOrderPowerTwo
 public import CFSG.LocalAnalysis.RankThreeUC.NotIsMulCommutativeAndBinaryOrderPowerTwoOfFixedPointFreeAction
-public import CFSG.LocalAnalysis.RankThreeUC.Section5.Context
 import all CFSG.LocalAnalysis.RankThreeUC.Section5.Context
 
 public section

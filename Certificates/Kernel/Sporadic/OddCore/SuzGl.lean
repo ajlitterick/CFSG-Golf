@@ -8,8 +8,6 @@ public import Certificates.Kernel.Sporadic.OddCore.SuzGlI0
 public import Certificates.Kernel.Sporadic.OddCore.SuzGlI1
 public import Certificates.Kernel.Sporadic.OddCore.SuzGlI2
 public import Certificates.Kernel.Sporadic.OddCore.SuzGlI3
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

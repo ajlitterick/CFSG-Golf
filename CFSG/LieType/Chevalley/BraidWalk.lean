@@ -2,8 +2,6 @@ module
 
 public import CFSG.Blueprint.ChevalleyWeyl
 public import TauCeti.LinearAlgebra.RootSystem.Coxeter.Matrix
-public import Certificates.Certificate113
-public import Certificates.Certificate114
 
 public section
 

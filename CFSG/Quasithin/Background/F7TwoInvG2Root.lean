@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Quasithin.Background.F7TwoInvExcBasic
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenWeyl
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenRankOne
 public import CFSG.LocalAnalysis.EvenBN.G2.Torus
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSpExclusion

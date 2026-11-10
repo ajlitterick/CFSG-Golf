@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicHS
-public import Certificates.Data.CFSGNative.H13.LocDblDc
 public meta import Certificates.Data.CFSGNative.H13.LocDblDc
 public meta import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicHS
 public meta import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicBaseNative

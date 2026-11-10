@@ -8,10 +8,6 @@ import CFSG.LocalAnalysis.StandardType.GGSecFivePresTags
 import CFSG.LocalAnalysis.StandardType.GGLieKnownR2PSLCores
 import CFSG.LocalAnalysis.StandardType.GGSecFiveFieldTwoExcOrbit
 import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusExcOrbit
-import CFSG.ClassicalInvolution.ModelFacts.Families
-import CFSG.LieType.Universal.Spin.Roots.TypeD
-import CFSG.LieType.Steinberg.CentralExt.MinusculeCenter
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExc
 
 public section
 

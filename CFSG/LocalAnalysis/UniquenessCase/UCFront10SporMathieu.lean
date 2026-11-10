@@ -2,11 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront10SporAt
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListM11
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListM22
 public import CFSG.Quasithin.H13.NQCatA314M23
-public import CFSG.Quasithin.Background.HSporLatMathieu
 import CFSG.Quasithin.H13.NQCatT513Hall
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatExport
 public import CFSG.CGT.Timmesfeld75.Statements
 public import CFSG.LocalAnalysis.ComponentClassification.LBalanceComponentLifts
 public import CFSG.LocalAnalysis.ComponentInitial.LayerComponentOrbit

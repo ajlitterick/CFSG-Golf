@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveReflMaxDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveReflMaxFrame
-public import CFSG.LocalAnalysis.StandardType.GGFixedRealizedConfig
 
 public section
 

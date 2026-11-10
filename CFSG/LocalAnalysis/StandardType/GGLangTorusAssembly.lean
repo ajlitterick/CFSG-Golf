@@ -1,13 +1,8 @@
 module
 
 public import CFSG.HardMathSupport.Timmesfeld.RootAut.Count
-public import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
 public import CFSG.RankThree.PartOne.S11c.G2Torus
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Borel
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Lemma83
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Cardinalities
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ProjectiveSemilinear
 public import CFSG.Walter.Defs
 
 public section

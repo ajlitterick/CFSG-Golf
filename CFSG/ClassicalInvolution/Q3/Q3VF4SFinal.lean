@@ -1,10 +1,8 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Q3VF4SMain
-public import CFSG.ClassicalInvolution.Q3.Q3VF4SAdaptModel
 public import CFSG.ClassicalInvolution.Q3.Q3VF4SRow
 public import CFSG.ClassicalInvolution.Q3.Q3VF4SPart
-public import CFSG.ClassicalInvolution.Q3.Q3VF4CClose
 
 public section
 

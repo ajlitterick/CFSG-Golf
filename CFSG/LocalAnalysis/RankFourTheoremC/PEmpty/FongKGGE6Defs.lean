@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LieType.Chevalley.SylowOpposition
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.FongKGGGrp
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotMainSetup
 

@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.SporSch.GenPerms
-public import Certificates.Kernel.Sporadic.RawGen
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporAutHSInputs
 meta import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporAutHSInputs
 import CFSG.Certificates.Kernel.Common.JsonGz
@@ -15,7 +14,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.OrdinaryComponentJoins
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporAutLocal
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.Sporadic.Schreier.PairHSPairs
 meta import CFSG.Foundations

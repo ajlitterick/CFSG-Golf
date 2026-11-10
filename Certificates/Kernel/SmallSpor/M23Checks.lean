@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.SmallSpor.M23Data
 public import Certificates.Kernel.SporSch.Mathieu.M23Data
 public import Certificates.Data.Kernel.ListBridge
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

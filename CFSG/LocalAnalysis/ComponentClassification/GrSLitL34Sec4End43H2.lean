@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4End43H
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GroupTheory.ThompsonIndexTwo
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4InputsEnd43H
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitSol25

@@ -7,7 +7,6 @@ import CFSG.LocalAnalysis.SeitzReduction.RankOneU3StarLocal
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22uh
 import CFSG.LocalAnalysis.UniquenessCase.UC6S846a
 import CFSG.Quasithin.EmptyFaithful.GoldschmidtKFRank1Uni
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

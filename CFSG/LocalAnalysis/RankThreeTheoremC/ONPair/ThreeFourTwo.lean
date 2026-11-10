@@ -2,12 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.ONPair.Planes
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ThreeFourTwoPlaneCore
-public import CFSG.RankThree.PartOne.KC.LinearSubfieldPointwise
 public import CFSG.Adapters.CatalogueFieldBridges.Linear
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanD2CoreON
-public import CFSG.Sporadic.Schreier.ONSchreier
 public import CFSG.Sporadic.Schreier.SteinbergBIONOuterTwo
-public import CFSG.Assembly.Subnormal
 public import CFSG.CGT.PushingUp.BenderBridge
 public import CFSG.CGT.PushingUp.BlockOrder
 public import CFSG.CGT.PushingUpLit.BHS.SymNatOrbitsSL

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co1ThreeInputs
-public import Certificates.Data.CFSGNative.Timmesfeld.Co1Five
 public import Certificates.Data.CFSGNative.Timmesfeld.Co1Seven
 public meta import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co1ThreeInputs
 public meta import Certificates.Data.CFSGNative.Timmesfeld.Co1Five

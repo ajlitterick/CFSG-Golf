@@ -1,11 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBJE6ThreeData
 public import CFSG.LocalAnalysis.StandardType.GGTBJE6ThreeWeylIso
 public import CFSG.LocalAnalysis.StandardType.GGTBJE6ThreeDatum
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRestDefs
 public import CFSG.LocalAnalysis.StandardType.GGTBJSpPlus
-public import CFSG.LieType.Chevalley.RootCharacterKernelProduct
 
 public section
 

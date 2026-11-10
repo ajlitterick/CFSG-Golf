@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.LinearAlgebra.Matrix.ToLin
 public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelProofFork
 
 public section

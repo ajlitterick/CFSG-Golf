@@ -4,13 +4,11 @@ public import Certificates.Kernel.Sporadic.Co2.ChainA
 public import Certificates.Kernel.Sporadic.Co2.ChainC
 public import Certificates.Kernel.Sporadic.Co2.Card
 public import CFSG.Certificates.Kernel.Spor.RawCard
-public import CFSG.Certificates.Kernel.Spor.PrimSound
 public import CFSG.Certificates.Kernel.BfsPinSound
 public import CFSG.Sporadic.Co2Cert.OrderCheckInputs
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.CentralizerPresented
 public import CFSG.Certificates.InvariantMerge
-public import CFSG.Certificates.Kernel.BfsPinUnpack
 public import CFSG.Sporadic.Presentation.Common
 
 public section

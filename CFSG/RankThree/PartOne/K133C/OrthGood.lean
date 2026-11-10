@@ -3,11 +3,8 @@ module
 public import CFSG.RankThree.PartOne.K133C.OrthMoving
 public import CFSG.RankThree.PartOne.K133C.LinearLeaves
 public import CFSG.RankThree.PartOne.CTP.SeitzOrthCount
-public import CFSG.RankThree.PartOne.KF.RankGL
-public import CFSG.RankThree.PartOne.KF.ClsAltOdd
 public import CFSG.RankThree.PartOne.KF.ClsOmegaMinusUpper
 public import CFSG.RankThree.PartOne.S15K.PSylowOrth
-public import CFSG.RankThree.PartOne.S15K.CommonEigen
 public import CFSG.RankThree.PartOne.S11d.LieCentralizerPOmega
 public import CFSG.RankThree.PartOne.S11d.OutOrthogonal
 import CFSG.RankThree.PartTwo.Census.Carrier.SpinTDBridge
@@ -40,8 +37,6 @@ public import CFSG.RankThree.PartOne.KC.PlaneReductionGeneral
 public import CFSG.RankThree.PartOne.S9.Sylow.ExclusionBasic
 public import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
 public import CFSG.RankThree.Theta.ThreeComponentOrbitCover
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import CFSG.Walter.Defs
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension

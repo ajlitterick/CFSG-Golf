@@ -4,7 +4,6 @@ public import CFSG.Adapters.ProjectiveSpecialLinear
 public import CFSG.Assembly.ComponentTypeDefs
 public import CFSG.Assembly.RankThreeEvenDefs
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Ambient
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.lemma_4_5_a
 

@@ -1,10 +1,7 @@
 module
 
-import CFSG.LocalAnalysis.StandardType.GGQTwoLMMod
-public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordInnerLift
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordInnerTker
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordInnerTor
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMFrameCCard
 
 public section

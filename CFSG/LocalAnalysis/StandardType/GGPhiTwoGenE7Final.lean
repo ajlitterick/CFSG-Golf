@@ -5,9 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGPhiTwoGenInput
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoGenE7Step
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoGenE7Torus
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoGenE7Glue
-public import CFSG.LieType.Chevalley.GraphFixedF4GroupDescent
-public import CFSG.RankThree.PartOne.KE.CTLangData
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwE7
 
 public section
 

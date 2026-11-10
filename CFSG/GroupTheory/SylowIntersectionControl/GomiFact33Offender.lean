@@ -3,9 +3,7 @@ module
 public import CFSG.CGT.PushingUpLit.BHS.FourSymA
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.GF2RepsDefs
 import CFSG.Goldschmidt.Steps.G53Tools
-import CFSG.GroupTheory.ThompsonAxB
 import CFSG.HardMathSupport.Meierfrankenfeld.FFToolkit.TransvectionPair
-import CFSG.Quasithin.Background.FixVZPowersMem
 public import CFSG.LocalAnalysis.SectionRank.EvenCover.Catalog
 public import CFSG.LocalAnalysis.SectionRank.LargeRee.SuzukiData
 public import CFSG.LocalAnalysis.SectionRank.OddCover.CatalogOdd
@@ -18,12 +16,10 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs12d
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenDefs
 public import CFSG.Monster.Code.Weights
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.B4Statement
 public import CFSG.Quasithin.Background.F6GoldschmidtList
 public import CFSG.Quasithin.EmptyFaithful.Setting
 public import CFSG.Quasithin.Recognition.GoldschmidtTripleQuotient
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24

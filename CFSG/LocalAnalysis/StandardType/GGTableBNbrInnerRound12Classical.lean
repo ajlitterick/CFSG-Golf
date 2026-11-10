@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMore
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerRound12ExcRow
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerLinearNonsplit
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryHyperbolic
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryDvd
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylUnitaryCover

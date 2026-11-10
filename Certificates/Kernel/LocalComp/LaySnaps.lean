@@ -2,7 +2,6 @@ module
 
 public meta import Lean
 public meta import Certificates.Kernel.LocalQT.Cmd
-public import Certificates.Data.Kernel.LocalQT.Sec
 public import Certificates.Kernel.LocalQT.Cmd
 
 open Lean Elab Command Meta CFSG.KC.LQT.Cmd CFSG.SectionRank.Native

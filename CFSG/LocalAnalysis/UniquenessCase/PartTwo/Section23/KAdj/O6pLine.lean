@@ -3,11 +3,6 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KAdj.StatementB
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KAdj.OmegaPlusModel
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23bOmega6Plus
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointPlusBorelSplit
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenDefs
-public import CFSG.LocalAnalysis.UniquenessCase.UC22Defs2
-public import CFSG.Quasithin.Background.B4Models
-public import CFSG.Open.StatedDefs
 
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KAdj.O6pParabolic
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KAdj.OmegaPlus
@@ -15,7 +10,6 @@ import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KAdj.LineTransport
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KAdj.Adjust
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23a.LinePlus
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23c.SylowLine
-import CFSG.LocalAnalysis.ComponentInitial.OrthogonalSplitSylow
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22d
 public import CFSG.Blueprint.LieModelAPI
 public import CFSG.CGT.Timmesfeld75.L2Pair
@@ -74,7 +68,6 @@ public import CFSG.Quasithin.Background.B1MoreEleven
 public import CFSG.Quasithin.Background.B5CompA
 public import CFSG.Quasithin.Background.B5CompB
 public import CFSG.Quasithin.Background.B6
-public import CFSG.Quasithin.Background.B6Example
 public import CFSG.Quasithin.Background.E2Hyp
 public import CFSG.Quasithin.Background.E2SolvTwo
 public import CFSG.Quasithin.Background.F2Equiv

@@ -4,8 +4,6 @@ public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.KS.E8FiveTwoLift
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.KS.E8FiveTwoHeisNF
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.KS.E8FiveTwoDiag
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.KS.E8FiveTwoCube
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.KS.E8FiveToralBasis
-public import CFSG.RankThree.Classical2.CentralLiftCommutator
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.KS.E8FiveToral
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.KS.E8FiveTwoFactor
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.KS.E8FiveTwoWeyl

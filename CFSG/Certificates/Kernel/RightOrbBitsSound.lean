@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.RightOrbBits
 public import CFSG.Certificates.Kernel.ConjOrbSound
-import CFSG.Certificates.Kernel.Spor.PackWord
 public import Std.Tactic.BVDecide.Normalize.BitVec
 
 public section

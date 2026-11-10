@@ -1,8 +1,5 @@
 module
 
-public import CFSG.Blueprint.Catalog
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearAction
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBGraphAction
 public import CFSG.LocalAnalysis.StandardType.GGCentA2StdAux2
 
 public section

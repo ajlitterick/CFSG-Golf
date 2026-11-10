@@ -1,19 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordFullAux
-public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordFullAux3
-public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordFullWnorm
-public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordFullPhi
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordFullWeyl
-public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordInnerTor
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordInnerTlift
-public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordInnerTker
-public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordInnerTidRange
-public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordInnerTclNorm
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordInnerQuot
-public import CFSG.LocalAnalysis.StandardType.GGQTwoFrameLDefs
 import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivKind
-import CFSG.LocalAnalysis.StandardType.GGQTwoLMFrameCBase
 import CFSG.LocalAnalysis.StandardType.GGQTwoLMModQm
 
 public section

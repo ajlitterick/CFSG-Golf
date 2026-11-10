@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDModelCommute
-public import CFSG.LocalAnalysis.StandardType.GGQTwoSU34
 public import CFSG.LocalAnalysis.StandardType.GGQTwoSixGensWindows
 
 public section

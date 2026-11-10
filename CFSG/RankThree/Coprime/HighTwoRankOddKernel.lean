@@ -4,7 +4,6 @@ public import CFSG.RankThree.Coprime.InvolutionFixedRankBound
 public import CFSG.LocalAnalysis.SectionRank.Ccomm.OddCritical
 public import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.Helpers
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

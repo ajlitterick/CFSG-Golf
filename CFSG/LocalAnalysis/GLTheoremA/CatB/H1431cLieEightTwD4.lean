@@ -1,12 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1431cLieEightOrth
-public import CFSG.HardMathSupport.Dickson.Bal207.OrthD4Loc
 public import CFSG.HardMathSupport.Dickson.Bal207.OrthSU38Image
 import all CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.OrthInner
 import CFSG.HardMathSupport.Dickson.Sec6.I1431Fam.OrtHOut
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointDataModelWitness
-import CFSG.HardMathSupport.Dickson.Bal207.OrthSU38Comp
 
 public section
 

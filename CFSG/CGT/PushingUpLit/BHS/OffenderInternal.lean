@@ -2,7 +2,6 @@ module
 
 public import CFSG.CGT.PushingUpLit.BHS.Replacement
 public import CFSG.Quasithin.Background.Basic
-import CFSG.GroupTheory.ElementaryAbelianTransport
 import CFSG.GroupTheory.ElemAbelianClosure
 
 public section

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FieldAutomorphismCentralizerArithmetic
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

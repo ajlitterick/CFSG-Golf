@@ -2,10 +2,7 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.Q3WALoc
 public import CFSG.ClassicalInvolution.Q3.Q3Y2Wire
-public import CFSG.ClassicalInvolution.Q3.Q3Y2Twin
-public import CFSG.ClassicalInvolution.RouteD.TwinYR2SpinStmt
 public import CFSG.ClassicalInvolution.RouteD.SCRTwinGenSp4
-public import CFSG.ClassicalInvolution.Models.SymplecticPairs.TypeCModel
 public import CFSG.ClassicalInvolution.Q3.Q3WADict
 public import CFSG.Timmesfeld.ARS.CaseEFrame
 public import CFSG.Timmesfeld.ARS.CaseMLevi

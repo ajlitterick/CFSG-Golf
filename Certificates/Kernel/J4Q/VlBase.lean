@@ -1,14 +1,9 @@
 module
 
 public import Certificates.Kernel.J4Q.C4007
-public import Certificates.Kernel.J4Q.MaskU
-public import Certificates.Kernel.J4Q.EtaMats
-public import Certificates.Kernel.J4Q.VlData
 public import Certificates.Kernel.J4Q.VlGD
 public import Certificates.Kernel.J4Q.D4K
-public import Certificates.Kernel.J4Q.VlK
 public import CFSG.Certificates.Kernel.J4Q.RepVlTree
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

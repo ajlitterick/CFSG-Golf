@@ -2,13 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseEnnolaTwo
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRankOne
-import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseTwoAEightE
 import CFSG.LocalAnalysis.StandardType.GGFrameTBHolds
-import CFSG.LocalAnalysis.StandardType.GGFrameTBVacuous
 import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortGlueOneOuter
-import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseTwoE
 import CFSG.LocalAnalysis.StandardType.GGMemberUnitaryRk1
-import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSLieEsu
 
 public section
 

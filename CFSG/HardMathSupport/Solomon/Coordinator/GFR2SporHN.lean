@@ -4,9 +4,6 @@ public import CFSG.HardMathSupport.Solomon.Coordinator.GFR2SporComp
 public import CFSG.HardMathSupport.Solomon.Coordinator.GFR2SporCrit
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.HNWitness
 public import Certificates.Certificate36905
-import CFSG.Sporadic.HNSchreier.InvolSpec
-import CFSG.Sporadic.HNSchreier.Seeds
-import CFSG.Sporadic.HNSchreier.Simple
 public import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
 public import CFSG.CharacterTheory.Wreathed.WreathCentralSquare
 public import CFSG.ClassicalInvolution.Balance.LocalBalance.Faithful
@@ -81,14 +78,8 @@ public import CFSG.Sporadic.FischerOddCore.Basic
 public import CFSG.Sporadic.Schreier.TitsOther
 public import CFSG.Sporadic.SuzOddCore.GraphData
 public import CFSG.Sporadic.SuzOddCore.SmallActionData
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremB
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremC
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.ZJTheorem
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GW1965RemarkDGroup
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29Helpers
 public import Certificates.Certificate10027
 public import Certificates.Certificate10107
 public import Certificates.Certificate10108

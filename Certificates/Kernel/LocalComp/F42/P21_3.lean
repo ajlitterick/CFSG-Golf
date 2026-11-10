@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.LocalComp.F42.Chk21
 public import Certificates.Kernel.LocalComp.BlockTac
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

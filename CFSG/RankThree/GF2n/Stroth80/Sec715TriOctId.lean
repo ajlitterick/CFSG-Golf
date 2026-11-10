@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.GF2n.Stroth80.Sec715TriOct
-public import Mathlib.Algebra.CharP.Two
 
 public section
 

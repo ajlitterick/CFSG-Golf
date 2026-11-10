@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGK1DDefs
-public import CFSG.RankThree.PartOne.S11d.OrthDicksonOmega
-public import CFSG.GroupTheory.WeirSylow.OrthogonalModels
-public import CFSG.GroupTheory.WeirSylow.OrthogonalOrders
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.RankThree.PartTwo.KFacts.KP4Data
 public meta import CFSG.RankThree.PartTwo.KFacts.KP4Data
 public import Certificates.Certificate8165
 public meta import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22Hexads

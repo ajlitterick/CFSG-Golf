@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTWAlign
 public import CFSG.LocalAnalysis.StandardType.GGTWPositions
-public import CFSG.LocalAnalysis.StandardType.GGResXDatumA
-public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3Defs
-public import CFSG.LocalAnalysis.StandardType.GGRCWeylConnected
 
 public section
 

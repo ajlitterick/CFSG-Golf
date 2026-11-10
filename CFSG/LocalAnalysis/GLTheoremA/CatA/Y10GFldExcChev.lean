@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldExcOrd
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownChevRecipe
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangChev
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangInner
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldExcCore
 public import CFSG.LocalAnalysis.GLTheoremA.S10.Inputs
 public import CFSG.LocalAnalysis.GLTheoremA.S10.Inputs105

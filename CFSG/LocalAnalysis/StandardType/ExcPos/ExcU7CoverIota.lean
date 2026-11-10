@@ -1,13 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.ExcPos.UnitDefs
-public import CFSG.LieType.Universal.Unitary.Comparison
 public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionSURepWitt
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUStd
-public import CFSG.Open.StatedSUFieldChange
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24CentreSU
 public import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotSwapLiftBasic
-import CFSG.ClassicalGroups.Unitary.Simple
 import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotSwapLiftSplit
 public import CFSG.Certificates.Kernel.LocalCompTits.Span
 public import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
@@ -71,26 +67,15 @@ public import CFSG.LocalAnalysis.ComponentClassification.UnbalancingLocalSmallSo
 public import CFSG.LocalAnalysis.GL83PartI.I_22_5.Setup
 public import CFSG.LocalAnalysis.GLTheoremB.Lemma911Defs
 public import CFSG.LocalAnalysis.GLTheoremB.Lemma99Inputs
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Reduce
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Equivariance
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 public import CFSG.LocalAnalysis.QuasithinUnique.SQTK.TypeB2
 public import CFSG.LocalAnalysis.QuasithinUnique.SQTK.Unitary
 public import CFSG.Quasithin.Background.A3Structure319
-public import CFSG.Quasithin.Background.A3Structure36Base
-public import CFSG.Quasithin.Background.A3Structure38Part3
-public import CFSG.Quasithin.Background.B1MoreElevenE
-public import CFSG.Quasithin.Background.B1MoreNineG
-public import CFSG.Quasithin.Background.B4ModelsIso
-public import CFSG.Quasithin.Background.E3Cent
 public import CFSG.Quasithin.Background.F9FiveStruct
 public import CFSG.Quasithin.Background.F9G2
 public import CFSG.Quasithin.Background.F9Geometry
 public import CFSG.Quasithin.Background.GoldschmidtRankOneFacts
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtF112ListC
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import CFSG.Quasithin.EmptyFaithful.S1421Defs
 public import CFSG.Quasithin.EmptyFaithful.S142Statements
 public import CFSG.Quasithin.H13.A5S1326
@@ -121,15 +106,9 @@ public import CFSG.RankThree.PartOne.S11d.OutLinear
 public import CFSG.RankThree.PartTwo.KFacts.KS14SzLie
 public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremB
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremC
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.ZJTheorem
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GW1965RemarkDGroup
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29Helpers
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

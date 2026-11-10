@@ -9,7 +9,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.ClassSumFormula
 -- the definitional body (`Nat.card {p : ci.carrier × cj.carrier // ...}`), so
 -- this module is additionally imported with its private information (bodies).
 import all CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.ClassSumFormula
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.ClassFunction
 import all CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Defs
 
 namespace CFSG

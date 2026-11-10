@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinSingleSupport
-public import CFSG.LocalAnalysis.StandardType.GGSpJoinBstarSplit
-public import CFSG.LocalAnalysis.StandardType.GGSpJoinPlaneTorusLift
 
 public section
 

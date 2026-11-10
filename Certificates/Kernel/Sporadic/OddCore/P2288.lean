@@ -7,20 +7,13 @@ public import CFSG.Sporadic.SmallOddCore.McLCountA
 public import CFSG.Sporadic.Schreier.PairMcLPairs
 public meta import CFSG.Sporadic.SmallOddCore.McLWords
 public meta import CFSG.Sporadic.Schreier.PairMcLCheck
-public import Certificates.Certificate2240
-public import Certificates.Certificate2241
-public import Certificates.Certificate2242
-public import Certificates.Certificate2243
-public import Certificates.Certificate2245
 public import Certificates.Kernel.Census.McLN
 public import CFSG.Certificates.Kernel.Spor.PrimSound
-public import CFSG.Certificates.Kernel.Spor.Loops
 public import CFSG.Certificates.Kernel.Misc.PairCountSound
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.GroupTheory.Fitting.CharacteristicP
 public import CFSG.GroupTheory.LocalCores.Components
 public import CFSG.GroupTheory.LocalCores.Fitting
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

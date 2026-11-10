@@ -1,12 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGWPlusDefs
 public import CFSG.LocalAnalysis.StandardType.GGWPlusPerm
 public import CFSG.LocalAnalysis.StandardType.GGWPlusE6Weyl
 public import CFSG.LocalAnalysis.StandardType.GGWPlusE6Auto
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelHoldsT
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelAbelianLift
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6Delta
 
 public section
 

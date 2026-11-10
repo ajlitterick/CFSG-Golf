@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6RankOuter
 public import CFSG.LocalAnalysis.StandardType.GGTwE6EndNodeInnerMat
 import CFSG.LocalAnalysis.StandardType.GGTwE6RecipeTransport
-import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticEndNode
-import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
 
 public section
 

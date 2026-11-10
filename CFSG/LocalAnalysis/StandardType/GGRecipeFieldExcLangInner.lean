@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangPow
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcInn
-public import CFSG.LieType.Chevalley.EvenE7E8AutomorphismNormalForm
-public import CFSG.LieType.Chevalley.OrdinaryEFieldGraphQuotient
-public import CFSG.LieType.Chevalley.LangRootArithmeticDet
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenAutomorphisms
 
 public section
 

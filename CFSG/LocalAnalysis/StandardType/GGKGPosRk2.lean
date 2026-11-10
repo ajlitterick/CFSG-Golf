@@ -2,12 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePresTags
-public import CFSG.LocalAnalysis.StandardType.GGKGPosTagWeyl
 public import CFSG.LocalAnalysis.StandardType.GGKGPosTagPair
 public import CFSG.LocalAnalysis.StandardType.GGKGPosRootPairs
 public import CFSG.LocalAnalysis.StandardType.GGA2Conj
-public import CFSG.ClassicalInvolution.ModelFacts.StandardPair
-public import CFSG.LieType.Steinberg.OfCartan
 
 public section
 

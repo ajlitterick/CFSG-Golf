@@ -4,9 +4,7 @@ public import CFSG.GH74.Uniqueness.Bender.O3
 public import CFSG.GH74.Uniqueness.Bender.AutFixed
 public import CFSG.GH74.Uniqueness.Bender.Models
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherEvenAllInvolutionFourGroup
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.OddPrimeInvertersLinear
-import CFSG.Models.BenderSuzuki
 public import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 public import CFSG.LieType.BorelTits.CompleteFlag
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
@@ -34,8 +32,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalReflectionSplitting
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalStandardFormsRegular
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionDenominatorCyclic
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis

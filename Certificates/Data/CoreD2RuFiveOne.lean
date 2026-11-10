@@ -3,7 +3,6 @@ module
 public import Certificates.Data.CoreD2LinesOne
 public import CFSG.Sporadic.Schreier.RuDefs
 public import CFSG.Sporadic.Schreier.RuEnum
-public import Mathlib.GroupTheory.Schreier
 
 public section
 

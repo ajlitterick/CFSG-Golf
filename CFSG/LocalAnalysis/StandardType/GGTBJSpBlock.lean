@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTorusGenSpComp
-public import CFSG.LocalAnalysis.StandardType.GGTorusGenSpCompPair
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticTorus
 public import CFSG.LocalAnalysis.StandardType.GGTBJSpBlockAux
 
 public section

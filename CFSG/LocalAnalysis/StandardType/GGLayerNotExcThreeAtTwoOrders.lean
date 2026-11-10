@@ -4,11 +4,9 @@ public import CFSG.LocalAnalysis.StandardType.GGSixAutKFinerTagsBasic
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.RationalTypeAModel
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.InnExcInner
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompIdxExc2
-public import CFSG.LocalAnalysis.EvenSmallLie.CatalogOrdersLie
 public import CFSG.Adapters.StatedClassicalOrders
 public import CFSG.Adapters.StatedClassicalUnitaryOrders
 public import CFSG.ClassicalInvolution.Q3.Q3TWWMinus
-public import CFSG.HardMathSupport.Dickson.Sec6.I1431Lie
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CompsPD4Rank4
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CompsPD4Rank4All
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TriD4

@@ -2,7 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.LpEpsHeis
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.OuterPlane
-public import CFSG.HardMathSupport.Solomon.LocalBalance.Balance
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.Families
 public import CFSG.HardMathSupport.Timmesfeld.Proving.ExistsOrderPCentralizer

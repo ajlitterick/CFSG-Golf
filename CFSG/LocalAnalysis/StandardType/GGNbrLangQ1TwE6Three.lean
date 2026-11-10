@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1E6Three
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1TwE6ThreeModel
 public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6Holds
-public import CFSG.LocalAnalysis.StandardType.GGTwE6DD2Recipe
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6Dvd
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangTypeALift
 
 public section
 

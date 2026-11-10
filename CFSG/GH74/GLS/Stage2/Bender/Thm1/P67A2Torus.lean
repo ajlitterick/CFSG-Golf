@@ -3,8 +3,6 @@ module
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67A2Hom
 public import CFSG.LieType.Chevalley.AllRootWeylSignsDefs
 public import CFSG.LieType.Chevalley.ChevalleySplitBN
-public import CFSG.LieType.Chevalley.RootOps.Groups
-public import CFSG.LieType.Chevalley.BraidWalk
 
 public section
 

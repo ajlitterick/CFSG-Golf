@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.LocalQT.Base.C7145D
 public import Certificates.Data.Kernel.LocalQT.TreeT
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicMathieuInputs
 
 set_option maxRecDepth 100000

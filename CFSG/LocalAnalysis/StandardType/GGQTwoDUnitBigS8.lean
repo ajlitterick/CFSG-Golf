@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBigS1
 import CFSG.RankThree.PartOne.S11d.OrthCaseH
-import CFSG.RankThree.Classical.SteinbergBJOrthogonalHighWitt
 import CFSG.Assembly.QuasithinDefs
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHeldSmallCorePrimeCore
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalDescentEndpoint
@@ -47,7 +46,6 @@ import CFSG.RankThree.PartOne.S11d.OutUnitary
 import CFSG.RankThree.PartOne.S9.Sylow.ExclusionBasic
 import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
 import CFSG.RankThree.Theta.ThreeComponentOrbitCover
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 import CFSG.Walter.Defs
 import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension

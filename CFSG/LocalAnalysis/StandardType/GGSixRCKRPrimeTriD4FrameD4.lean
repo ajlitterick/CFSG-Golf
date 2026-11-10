@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeTriD4FrameDefs
-public import CFSG.Blueprint.ChevalleyRootGroups
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcLang
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExcD4
 public import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
@@ -33,14 +32,7 @@ public import CFSG.RankThree.PartOne.KE.A1Action
 public import CFSG.RankThree.PartOne.KE.A1Levi
 public import CFSG.RankThree.PartOne.KE.E8D4Family
 public import CFSG.RankThree.PartOne.KE.ThreeA1Group
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremB
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremC
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.ZJTheorem
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GW1965RemarkDGroup
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29Helpers
 
 public section
 

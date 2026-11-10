@@ -3,11 +3,7 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23d.Defs
 public import CFSG.ClassicalGroups.UnitaryFlag.ModelTransport
 public import CFSG.Quasithin.H13.U4ParPoint
-public import CFSG.Open.StatedDefs
 
-import CFSG.ClassicalGroups.UnitaryFlag.WittBasis
-import CFSG.LinearAlgebra.LinearGroups.UnitaryBasics
-import CFSG.LinearAlgebra.LinearGroups.UnitaryFourOrder
 public import CFSG.LieType.BorelTits.CompleteFlag
 
 public section

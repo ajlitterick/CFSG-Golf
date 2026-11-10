@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkCoprimeNarrow16Defs
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkCoprime
 
 public section

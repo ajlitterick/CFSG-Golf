@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJUnitaryMinusDefs
 public import CFSG.LocalAnalysis.StandardType.GGResE6DepSmall
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwDThreeRank
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwDThree
 
 public section
 

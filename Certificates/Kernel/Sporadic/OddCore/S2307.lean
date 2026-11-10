@@ -3,17 +3,11 @@ module
 public import Certificates.Kernel.Sporadic.OddCore.S2307K
 public import Certificates.Kernel.Sporadic.OddCore.S2307C
 public import Certificates.Kernel.Sporadic.OddCore.ChainCheckGlue
-public import CFSG.Certificates.Kernel.Spor.EnumBaseSound
 public import CFSG.Certificates.Kernel.Spor.EnumBaseLexSound
 public import CFSG.Certificates.Kernel.Spor.CardBaseSep
-public import CFSG.Certificates.Kernel.Spor.PEnumSound
 public import CFSG.Certificates.Kernel.BfsPinBaseSound
-public import CFSG.Certificates.Kernel.BfsPinAlg
 public import CFSG.Certificates.Kernel.HeFixKSnd.Basic
 public import CFSG.Certificates.Kernel.SuzCentreKSound
-public import CFSG.Sporadic.HNOddCore.ChainUtil
-public import CFSG.RankThree.Native.PermEnumeration
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.BfsPinSetSound
 public import CFSG.Certificates.Kernel.PermToolSound
 public import CFSG.Certificates.Kernel.Spor.RawOrbGrp

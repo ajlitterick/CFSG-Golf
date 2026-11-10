@@ -4,7 +4,6 @@ public import CFSG.Quasithin.Background.A3StructureDefs
 public import CFSG.Quasithin.Background.F918Z4eDickson
 public import CFSG.Quasithin.Background.F918Z4eOrders
 public import CFSG.Adapters.LinearSmallCatalog
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Cardinality
 public import CFSG.LocalAnalysis.SectionRank.SuzukiCover
 public import CFSG.Sporadic.J1
 

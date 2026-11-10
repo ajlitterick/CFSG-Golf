@@ -3,8 +3,6 @@ module
 public import Certificates.Kernel.LocalComp.K3M23Data
 public import CFSG.Certificates.Kernel.K3Sound
 public import Certificates.Kernel.LocalComp.BlockGen
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.Spor.RawOrbGrp
 
 public section

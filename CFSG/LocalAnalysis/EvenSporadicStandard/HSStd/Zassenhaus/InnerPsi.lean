@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.Zassenhaus.InnerThreePart
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X3AutIso
 public import CFSG.Sporadic.ThSchreier.GlobalData
 public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.Blueprint.OddStandardExact
@@ -39,7 +38,6 @@ public import CFSG.Monster.B.TwoA.Amalgam.Data
 public import CFSG.Monster.B.TwoA.Sp8.Par1
 public import CFSG.Monster.B.TwoA.Unitary.LinThree
 public import CFSG.Sporadic.ThSchreier.LocalOrbitBase1
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.JRFacts
 public import CFSG.YGroups.Y322Central
 

@@ -3,31 +3,16 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.K144Label
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnExcLabel
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FSimple
 import CFSG.LocalAnalysis.GLTheoremA.S12.CanonInnBridge
 import CFSG.LocalAnalysis.GLTheoremA.CatA.YS10I1416RBridge
 public import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
 public import CFSG.CharacterTheory.Wreathed.WreathCentralSquare
-public import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma32
-public import CFSG.HardMathSupport.Solomon.LocalBalance.PartIInputs
-public import CFSG.HardMathSupport.Solomon.LocalBalance.Sec5Statements
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6DInputs
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6FInputs
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec7Interface
-public import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeFamilies
-public import CFSG.LocalAnalysis.AGLEmbedding.ResidualTools
 public import CFSG.LocalAnalysis.GLTheoremA.S10.Inputs
 public import CFSG.LocalAnalysis.GLTheoremA.S10.Inputs105
 public import CFSG.LocalAnalysis.GLTheoremA.S10.InputsBeta
 public import CFSG.LocalAnalysis.GLTheoremA.S11.Inputs119
 public import CFSG.LocalAnalysis.GLTheoremA.S11.Inputs16
 public import CFSG.LocalAnalysis.GLTheoremA.S11.InputsCE
-public import CFSG.LocalAnalysis.GLTheoremA.S3.Inputs
-public import CFSG.LocalAnalysis.GLTheoremA.S4.Assembly
-public import CFSG.LocalAnalysis.GLTheoremA.S4.Inputs
-public import CFSG.LocalAnalysis.GLTheoremB.Lemma911Defs
-public import CFSG.LocalAnalysis.GLTheoremB.SchreierTools
-public import CFSG.LocalAnalysis.SignalizerFunctor
 import CFSG.Blueprint.OddStandardExact
 import CFSG.ClassicalInvolution.Asc77.AscE184Basic
 import CFSG.ClassicalInvolution.Asc77.AscE184Graph

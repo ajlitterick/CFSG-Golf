@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrTableBAutCard
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenSLComp
-public import Mathlib.GroupTheory.GroupAction.FixingSubgroup
 public import CFSG.LocalAnalysis.StandardType.GGTypeAFarActsVec
 public import CFSG.LocalAnalysis.StandardType.GGTBTorDatum
 

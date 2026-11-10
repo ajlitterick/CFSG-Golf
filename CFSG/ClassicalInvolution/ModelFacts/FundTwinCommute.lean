@@ -2,8 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.ModelFacts.FundCentralizerNormalizer
 import CFSG.ClassicalInvolution.Q3.Q3OFShG2
-import CFSG.ClassicalInvolution.Asc77.AscIHD4
-import CFSG.ClassicalInvolution.ModelFacts.G2D4TD4Model
 import CFSG.Quasithin.Vol2.Ch10SecQ3CZO
 import CFSG.ClassicalInvolution.AschTight.Sec6Gen64O
 import CFSG.RankThree.PartOne.TCX.Ree.SL2Facts
@@ -26,7 +24,6 @@ import CFSG.ClassicalInvolution.Q3.Q3OFProd
 import CFSG.ClassicalInvolution.Q3.Q3OFShCrit
 import CFSG.ClassicalInvolution.Q3.Q3OFUnique
 import CFSG.ClassicalInvolution.Q3.Q3URDict
-import CFSG.ClassicalInvolution.Q3.Q3URStd
 import CFSG.ClassicalInvolution.Q3.Q3URTransfer
 import CFSG.ClassicalInvolution.Q3.Q3WAComp
 import CFSG.ClassicalInvolution.Q3.Q3WAEDict
@@ -45,7 +42,6 @@ import CFSG.Quasithin.Background.B4ModelsAction
 import CFSG.Quasithin.Background.B5CompA
 import CFSG.Quasithin.Background.B5CompB
 import CFSG.Quasithin.Background.B6
-import CFSG.Quasithin.Background.B6Example
 import CFSG.Quasithin.Background.E2Statements
 import CFSG.Quasithin.Background.InternalSecB51
 import CFSG.Quasithin.EmptyFaithful.S14117Coprime

@@ -1,14 +1,9 @@
 module
 
-public import CFSG.Quasithin.Background.SimsE214Easy
 public import CFSG.Quasithin.Background.SimsE214Two
-public import CFSG.Quasithin.Background.SimsE214NatThree
-public import CFSG.Quasithin.Background.SimsE214NatFive
 public import CFSG.Quasithin.Background.SimsE214Four
 public import CFSG.Quasithin.Background.SimsE214VStar
 public import CFSG.Quasithin.Background.SimsE214Seven
-public import CFSG.Quasithin.Background.SimsE214Ten
-public import CFSG.Quasithin.Background.SimsE214Eleven
 public import CFSG.Assembly.OrderReductions.CharacterInflation
 public import CFSG.LocalAnalysis.ComponentInitial.TwoPrimeSolvable
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionSquareFieldNaturalAction

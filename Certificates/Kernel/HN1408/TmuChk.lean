@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.HN1408.TmuData
 public import Certificates.Kernel.HN1408.SpecDefs
 public import Certificates.Data.Kernel.Spor.MulHQ
-public import CFSG.Certificates.Kernel.Lie.CT.Core
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreDefs
-public import CFSG.LocalAnalysis.StandardType.GGLangModelIndex
-public import CFSG.LocalAnalysis.StandardType.GGLangRatComp
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompChain
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwRigid
 
 public section
 

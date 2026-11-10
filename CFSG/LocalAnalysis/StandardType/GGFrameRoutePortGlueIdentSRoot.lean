@@ -5,11 +5,6 @@ public import CFSG.LocalAnalysis.SeitzReduction.LongRootPairsRoots
 import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP13Weyl
 import CFSG.LocalAnalysis.StandardType.GGFinModelG5Orbit
 import CFSG.LieType.Chevalley.EvenOddCentralizerRadicalRoots
-import CFSG.LieType.Chevalley.KernelComponentRoots
-import Mathlib.FieldTheory.Finite.GaloisField
-import Mathlib.LinearAlgebra.Basis.Defs
-import Mathlib.LinearAlgebra.StdBasis
-public import Certificates.Certificate709545
 
 public section
 

@@ -6,18 +6,15 @@ public import CFSG.Certificates.Kernel.BabyMonster.Seeds.Data0
 public import CFSG.Certificates.Kernel.BabyMonster.Max15.Data0
 public import CFSG.Certificates.Kernel.BabyMonster.Max15.Data4
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.BFiveAInputs
-public import CFSG.Blueprint.NativeSporadic
 import Certificates.Kernel.BabyMonster.FiveA.Facts13613
 import Certificates.Kernel.BabyMonster.Max15Run
 import Certificates.Kernel.BabyMonster.Seeds
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.OpsF2Fast
 public import CFSG.Monster.B.Max2.Pinned
 public import CFSG.Monster.B.Pinned.GeneratorDeterminants
-public import CFSG.Open.Defs
 public import Certificates.Certificate3101
 public import Certificates.Certificate3103
 public import Certificates.Certificate3106
-public import Certificates.Certificate3109Base
 public import Certificates.Data.CFSGNative.MonsterB.DyadicFile
 public import Certificates.Data.CFSGNative.MonsterB.IntertwinerCheck
 

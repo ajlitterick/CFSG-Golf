@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGE8A8Field
 public import CFSG.LocalAnalysis.StandardType.GGLangData
 public import CFSG.LocalAnalysis.StandardType.GGResSevenNbr
 public import CFSG.LocalAnalysis.StandardType.GGResTrialityNbr
-public import CFSG.LocalAnalysis.StandardType.GGTCJD4Tag
 
 public section
 

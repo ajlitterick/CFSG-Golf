@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGGammaHypsK
-public import CFSG.LocalAnalysis.StandardType.GGTBWNorm
 public import Certificates.Kernel.ThCent.Leaves
 
 public section

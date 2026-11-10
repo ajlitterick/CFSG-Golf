@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResIO2aGroup
-public import CFSG.LocalAnalysis.StandardType.GGResILineInputs
 public import CFSG.LocalAnalysis.StandardType.GGResIFixJ
 public import CFSG.LocalAnalysis.StandardType.GGResTwA2Nbr
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 public import CFSG.LocalAnalysis.StandardType.GGResFFDefs
 public import CFSG.LocalAnalysis.StandardType.GGResIO2aTableP
 public import CFSG.LocalAnalysis.StandardType.GGTPNLineDefs

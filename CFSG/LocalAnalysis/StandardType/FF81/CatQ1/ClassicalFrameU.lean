@@ -2,7 +2,6 @@ module
 
 public import CFSG.Mathlib.LinearAlgebra.Matrix.BlockFrame
 public import CFSG.HardMathSupport.Lang.UnitaryAutomorphisms.LinFrame
-public import CFSG.LocalAnalysis.ComponentInitial.LinearUnitaryField
 public import CFSG.HardMathSupport.Lang.Proving.CubeClassField
 
 public section

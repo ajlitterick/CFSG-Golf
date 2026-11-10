@@ -5,7 +5,6 @@ public import Certificates.Kernel.HS100.Chain
 public import CFSG.Certificates.Kernel.BfsPinAlg
 public import CFSG.Certificates.Kernel.BfsPinSetSound
 public import CFSG.Certificates.Kernel.Misc.ArrBind
-public import CFSG.Certificates.Kernel.Spor.PcompFacts
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

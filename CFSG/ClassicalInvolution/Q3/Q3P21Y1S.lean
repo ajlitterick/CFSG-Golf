@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Q3P21S4
-public import CFSG.ClassicalInvolution.Asc77.SU4Struct
 
 public section
 

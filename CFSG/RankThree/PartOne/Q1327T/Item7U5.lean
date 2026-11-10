@@ -3,13 +3,10 @@ module
 public import CFSG.RankThree.PartOne.Q1327T.Item7UBasic
 public import CFSG.RankThree.PartOne.K133.MaxItems
 public import CFSG.LocalAnalysis.QuasithinUnique.SQTK.UnitaryTauCeti
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.RankThree.PartOne.S12.InputsSec15
 public import CFSG.RankThree.PartOne.S12.Sec137
 public import CFSG.RankThree.PartOne.S12.Sec15FA
 public import CFSG.RankThree.PartOne.S12.Sec15Items
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.CommutatorNormalizer
 
 public section

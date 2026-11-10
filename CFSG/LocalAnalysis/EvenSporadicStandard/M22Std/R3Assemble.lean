@@ -8,10 +8,6 @@ public import CFSG.LocalAnalysis.EvenSporadicStandard.M22Std.R3Transfer
 public import CFSG.LocalAnalysis.EvenSporadicStandard.M22Std.R3Base
 public import CFSG.LocalAnalysis.EvenSporadicStandard.M22Std.R3Sylow
 public import CFSG.LocalAnalysis.EvenSporadicStandard.M22Std.R3Wr
-public import CFSG.LocalAnalysis.EvenSporadicStandard.M22Std.OutEngine6
-public import CFSG.LocalAnalysis.EvenSporadicStandard.M22Std.OutCensusPinned
-public import CFSG.LocalAnalysis.EvenSporadicStandard.M22Std.OutCentOrder
-public import CFSG.LocalAnalysis.EvenSporadicStandard.M22Std.M22Engine
 
 public section
 

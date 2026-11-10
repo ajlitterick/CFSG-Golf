@@ -2,7 +2,6 @@
 module
 
 public import CFSG.Sporadic.FischerOddCore.Fi22ExtSylowCheckBase
-public import Certificates.Data.CFSGNative.FischerOddCore.Checks
 public meta import CFSG.Sporadic.FischerOddCore.Fi22ExtSylowCheckBase
 public meta import Certificates.Data.CFSGNative.FischerOddCore.Checks
 public import CFSG.Sporadic.FischerOddCore.Fi22ExtCoverRecords

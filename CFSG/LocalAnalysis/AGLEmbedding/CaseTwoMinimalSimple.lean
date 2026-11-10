@@ -1,16 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.AGLEmbedding.CaseTwoDefs
-public import Certificates.Certificate113
-import CFSG.LocalAnalysis.AGLEmbedding.LinTwoCatalog
 import CFSG.SignalizerFunctorTheorem.CatalogBridge.MinimalSz
 import CFSG.SignalizerFunctorTheorem.CatalogBridge.NearPSL2
 import CFSG.RankThree.PartOne.CTP.SeitzExcModels
 import CFSG.LieType.BorelTits.Suzuki
-import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
 import CFSG.Adapters.Certificate43Check
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Foundations
 public import CFSG.GroupTheory.LocalCores.Fitting
@@ -22,8 +17,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.MinimalBCenter
 public import CFSG.LocalAnalysis.ComponentClassification.OrdinaryComponentJoins
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 import CFSG.GroupTheory.HallHigmanPiCore
 import CFSG.LieType.Chevalley.EvenRootCommutatorF4
 import CFSG.LieType.Ree.SmallReeModelSchreier

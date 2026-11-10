@@ -2,11 +2,8 @@
 module
 
 public import Certificates.Certificate2311Base
-public import CFSG.Sporadic.ThSchreier.GlobalDataBase
-public import CFSG.Sporadic.Th.SimpleBase
 public meta import CFSG.Sporadic.ThSchreier.RowBase
 public meta import CFSG.Sporadic.ThSchreier.LocalOrbitBase
-import Certificates.Kernel.SporSch.Th.Key2311Base
 
 public import CFSG.Sporadic.ThSchreier.GlobalData
 public import CFSG.Sporadic.Th.SimpleBase1

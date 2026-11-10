@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitOmMain
-public import CFSG.LieType.BorelTits.Flag
 
 public section
 

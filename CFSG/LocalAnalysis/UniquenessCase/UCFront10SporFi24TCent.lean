@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront10SporFi24TGen
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront10SporFi24TCentSets
-public import CFSG.Open.QuasithinDefs
 public import CFSG.Monster.B.TwoA.Par3.Main
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront10SporFi24T
 public import CFSG.Monster.B.Co2.IrredAllBase

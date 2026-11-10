@@ -1,15 +1,6 @@
 module
 
 public import CFSG.Milestones.ASVolI.F45.Lie
-public import CFSG.Quasithin.Vol2.GoldschmidtF431UnPre
-public import CFSG.Quasithin.Vol2.GoldschmidtF431Un5Pre
-public import CFSG.LieType.Universal.Unitary.Comparison
-public import CFSG.ClassicalGroups.Unitary.Simple
-public import CFSG.LieType.TitsSimplicity.Core
-public import CFSG.LieType.Steinberg.CentralExt.BorelIndex
-public import CFSG.LieType.Steinberg.CentralExt.UnitaryRootGroups
-public import CFSG.GH74.GLS.SP.Transfer
-public import CFSG.LieType.Universal.Unitary.Extras.Torus
 import all CFSG.Milestones.ASVolI.F4
 
 public section

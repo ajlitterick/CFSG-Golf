@@ -1,9 +1,7 @@
 module
 
 public import CFSG.Open.StatedDefs
-import CFSG.Open.StatedAPI
 import CFSG.ClassicalInvolution.Asc77.AscSCH19
-import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagOrder
 import CFSG.ClassicalInvolution.Asc77.AscSCH03
 import CFSG.LieType.Steinberg.Classical.SpinFrame
 import CFSG.LieType.Steinberg.Exceptional.E6E7

@@ -2,8 +2,6 @@ module
 
 public import CFSG.Quasithin.Vol2.GoldschmidtF431TitsDZid
 public import CFSG.Quasithin.Vol2.GoldschmidtF431TitsDDatum
-public import CFSG.Quasithin.Vol2.GoldschmidtF431Loc442Map
-public import CFSG.Quasithin.Vol2.GoldschmidtF431TitsMap
 public import CFSG.Quasithin.Vol2.GoldschmidtF431TitsGeoDAct
 public import CFSG.Quasithin.Vol2.GoldschmidtF431TitsDIso
 

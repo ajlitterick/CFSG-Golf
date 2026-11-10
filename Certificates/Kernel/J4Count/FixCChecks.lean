@@ -4,7 +4,6 @@ module
 public import Certificates.Data.Kernel.J4FixC
 public import Certificates.Kernel.J4Count.FixCData
 public import Certificates.Kernel.SporSch.J4S.NoCK
-public import Certificates.Kernel.SporSch.J4S.XY
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

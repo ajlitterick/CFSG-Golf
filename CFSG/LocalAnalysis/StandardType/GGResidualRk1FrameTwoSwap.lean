@@ -7,7 +7,6 @@ import CFSG.LocalAnalysis.StandardType.GGOrthRk1Centralizer
 import CFSG.LocalAnalysis.StandardType.GGOrthRk1Iso
 import CFSG.LocalAnalysis.StandardType.GGOrthRk1Theta
 import CFSG.LocalAnalysis.StandardType.GGOrthFrameConcl
-import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
 
 public section
 

@@ -11,8 +11,6 @@ public import Certificates.Kernel.UnitarySix.Sec3.CX6Z
 public import Certificates.Kernel.UnitarySix.Sec3.CZ
 public import Certificates.Kernel.UnitarySix.Sec3.CX1Z
 public import Certificates.Kernel.UnitarySix.Sec3.CP2
-public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.YamadaSec3Chain
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

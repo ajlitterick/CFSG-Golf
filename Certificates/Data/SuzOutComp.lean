@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.CFSGNative.Schreier.Check
 public import Certificates.Data.CFSGNative.YGroups.ExactCheck
 public import CFSG.Quasithin.Recognition.CertPermSimple
 public import CFSG.Sporadic.SuzOddCore.CTICheckInputs

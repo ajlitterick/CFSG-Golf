@@ -1,19 +1,12 @@
 module
 
-public import CFSG.LocalAnalysis.RankThreeTheoremC.TransitivityKFacts
 public import CFSG.LocalAnalysis.RankThreeTheoremC.ZLayer3Statement
 import CFSG.LocalAnalysis.RankThreeTheoremC.D1AlphaListE2
-import CFSG.RankThree.PartTwo.Setup
 import CFSG.RankThree.OddKernel.ThreeComplementQuotient
-import CFSG.RankThree.PartTwo.Sec4.T444.Item434SporKit
 import CFSG.LocalAnalysis.RankThreeTheoremC.ReducedLayer
 import CFSG.LocalAnalysis.RankThreeTheoremC.IsolatedCentral
 import CFSG.LocalAnalysis.RankThreeTheoremC.ObstructionElements
 import CFSG.LocalAnalysis.RankThreeTheoremC.Signalizers
-import CFSG.LocalAnalysis.AGLEmbedding.ReducedQuotient
-import CFSG.LocalAnalysis.AGLEmbedding.ConstrainedSL
-import CFSG.LocalAnalysis.AGLEmbedding.CentralComponent
-import CFSG.LocalAnalysis.ABGTheoremB.Basic
 public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
@@ -33,9 +26,6 @@ import CFSG.LocalAnalysis.RankThreeTheoremC.D1AlphaFive3
 import CFSG.Permutation.AlternatingAutomorphism
 import CFSG.RankThree.PartOne.S10.Defs
 import CFSG.StronglyEmbedded
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 
 public section
 

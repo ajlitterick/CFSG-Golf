@@ -16,13 +16,11 @@ public import CFSG.LocalAnalysis.ComponentClassification.SylowTwoImageLifting
 public import CFSG.LocalAnalysis.ComponentClassification.TwoActionFixedInvolution
 public import CFSG.LocalAnalysis.ComponentClassification.TwoActionProperEmbedding
 public import CFSG.LocalAnalysis.ComponentInitial.SmallLinearIsomorphisms
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.G3A314Red
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.In23ExamKCover
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.In23FiveDefs
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.InA3Five
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.InS2Listed
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19IdBasic
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19IdComp
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_20
@@ -31,25 +29,12 @@ public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerImageCompletion
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerPreimages
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerRestrictionCompletion
-public import CFSG.Quasithin.Background.B1MoreElevenE
-public import CFSG.Quasithin.Background.B1MoreNineG
-public import CFSG.Quasithin.Background.B4ModelsAction
-public import CFSG.Quasithin.Background.B4ModelsIso
-public import CFSG.Quasithin.Background.E1
-public import CFSG.Quasithin.Background.E1Sec4
-public import CFSG.Quasithin.Background.E1Sec5
-public import CFSG.Quasithin.Background.E1Sec8
-public import CFSG.Quasithin.Background.E1Solv
-public import CFSG.Quasithin.Background.E1Twelve
-public import CFSG.Quasithin.Background.E3Cent
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import CFSG.RankThree.Asc83Table.M23
 public import CFSG.Sporadic.Schreier.J4SSylow
 public import CFSG.Sporadic.Schreier.M23
 public import Certificates.Data.CFSGNative.MonsterB.Rep4371Model
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

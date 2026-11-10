@@ -1,12 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.FS81.OrthMaxTorus
 public import CFSG.LocalAnalysis.StandardType.FS81.RowElemAbOrth
 public import CFSG.LocalAnalysis.StandardType.FS81.LocalOrthModels
 public import CFSG.LinearAlgebra.CoprimeActions.BinaryFixedVectors
 public import CFSG.ClassicalGroups.Orthogonal.InvariantPairing
-public import CFSG.LieType.Universal.Spin.Forms
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.RankThree.PartOne.S12.LA126Aux
 public import CFSG.ClassicalGroups.Orthogonal.RootGroupSwap
 

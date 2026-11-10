@@ -2,24 +2,9 @@ module
 
 public import CFSG.LieType.SemisimpleCentralizers.HeldLang
 public import CFSG.Assembly.GL83StatedBridge
-public import CFSG.Models.PGLSimple
-public import CFSG.Adapters.ProjectiveSpecialLinear
-public import CFSG.ClassicalGroups.Symplectic.Simple
-public import CFSG.ClassicalGroups.Unitary.Simple
-public import CFSG.ClassicalGroups.UnitaryFlag.GroupData
-public import CFSG.ClassicalInvolution.Models.SymplecticPairs.RootSp2
-public import CFSG.LieType.Universal.Symplectic
-public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherNormShell
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154LinCore
-public import CFSG.RankThree.CentralLift.DefiningUnitary
-public import CFSG.RankThree.Classical.SteinbergBJUnitaryTwoBlock
 public import CFSG.RankThree.PartOne.KC.SymplecticFullCentralizerTransvection
-public import CFSG.RankThree.PartOne.KC.SymplecticIsotypicBlocks
-public import CFSG.RankThree.PartOne.KC.SymplecticIsotypicFixed
-public import CFSG.RankThree.PartOne.KC.SymplecticIsotypicSpecial
-public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeLinear
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.SympInnerExport
-public import CFSG.HardMathSupport.Solomon.Coordinator.B3LieCore
 public import CFSG.Assembly.OpenBridges
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FBase2
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GField

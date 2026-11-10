@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Monster.B.Fischer.HexadDiag
-public import CFSG.Monster.B.TwoA.Census.NatCert
-public import Mathlib.RepresentationTheory.Homological.GroupCohomology.LowDegree
 public meta import CFSG.Monster.B.Fischer.HexadDiag
 public meta import CFSG.Monster.B.TwoA.Census.NatCert
 

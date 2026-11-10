@@ -1,11 +1,9 @@
 module
 
-public import CFSG.GH74.Uniqueness.SU.SU10Setup
 public import CFSG.GH74.Uniqueness.SU.SU10Lift
 public import CFSG.GH74.Uniqueness.SU.SU10X
 public import CFSG.GH74.Uniqueness.SU.SU10Trans
 public import CFSG.GH74.Uniqueness.SU.SU10Syl
-public import CFSG.GH74.Uniqueness.SU.SU8Stmts
 
 public section
 

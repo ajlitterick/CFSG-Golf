@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.GF2n.Smith81.S81A5Fixed
 public import CFSG.RankThree.GF2n.Smith81.S81BGeom
-public import CFSG.Open.StatedDefs
 public import CFSG.CGT.Timmesfeld75.Forms
 public import CFSG.ClassicalGroups.Orthogonal.ProjectiveSimple
 public import CFSG.GroupTheory.HuppertProduct.Quotient
@@ -28,9 +27,6 @@ public import CFSG.RankThree.GF2n.Tim79CentC
 public import CFSG.RankThree.GF2n.Tim79CentL
 public import CFSG.RankThree.GF2n.Tim79Mod
 public import CFSG.RankThree.GF2n.Tim81.Components
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import CFSG.Timmesfeld.RankOne
 
 public noncomputable section

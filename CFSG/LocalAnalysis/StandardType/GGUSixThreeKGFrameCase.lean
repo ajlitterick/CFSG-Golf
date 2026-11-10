@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGUSixThreeKGDefs
 public import CFSG.LocalAnalysis.StandardType.GGUSixThreeKGModel
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63Two
 
 public section
 

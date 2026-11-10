@@ -4,7 +4,6 @@ public import Certificates.Data.Kernel.SporSch.Kappa
 import all CFSG.Certificates.Kernel.Spor.PrimSound
 import CFSG.Certificates.Kernel.SporSch.AnyN
 public import CFSG.Certificates.Kernel.Spor.RawDefs
-public import Certificates.Data.CFSGNative.Co3Schreier.Basic
 
 public section
 

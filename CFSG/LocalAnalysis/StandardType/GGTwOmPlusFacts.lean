@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwAutDefs
-public import CFSG.LocalAnalysis.StandardType.GGInnLocalDefs
-import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOrthNsLabels
 
 public section
 

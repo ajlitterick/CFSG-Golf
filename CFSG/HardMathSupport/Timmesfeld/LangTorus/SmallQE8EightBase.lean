@@ -1,7 +1,5 @@
 module
 
-public import Mathlib.Data.Matrix.Mul
-public import Mathlib.Algebra.BigOperators.Fin
 public import Mathlib.Tactic.LinearCombination
 public import Mathlib.Algebra.CharP.Two
 public import Mathlib.LinearAlgebra.Matrix.Notation

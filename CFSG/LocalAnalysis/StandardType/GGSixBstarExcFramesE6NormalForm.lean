@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesFixE6
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Basic
 
 public section
 

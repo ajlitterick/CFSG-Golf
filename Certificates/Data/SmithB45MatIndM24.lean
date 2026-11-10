@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.Background.SmithB45MatIndDefs
 public import CFSG.Quasithin.Background.HMathieuCodeMask
-public import CFSG.Monster.CodeAut.BridgeData
 
 public section
 

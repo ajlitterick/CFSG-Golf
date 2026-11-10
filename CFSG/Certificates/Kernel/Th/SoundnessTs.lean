@@ -3,11 +3,8 @@ module
 
 public import CFSG.Certificates.Kernel.Th.SoundnessTsBase
 
-public import CFSG.Certificates.Kernel.Th.Gen.Ts
-public import CFSG.Sporadic.ThSchreier.LocalOrbitInputs
 public meta import CFSG.Sporadic.ThSchreier.WordsBase1
 public meta import CFSG.Sporadic.ThSchreier.LocalData
-public import CFSG.Sporadic.ThSchreier.TwoCentralizerInputs
 public meta import CFSG.Sporadic.ThSchreier.OrbitCheck819Base
 public meta import CFSG.Sporadic.Th.Max3.PacketBase1
 import CFSG.Certificates.Kernel.Th.SoundnessTsGen

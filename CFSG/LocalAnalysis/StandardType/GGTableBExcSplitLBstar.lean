@@ -2,11 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLVac
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesFix
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOpenOrth
-public import CFSG.LieType.Chevalley.ToralCentralizerBruhat
-public import CFSG.LieType.Chevalley.CoordinateFieldFixedSubgroup
-public import CFSG.LieType.Chevalley.GraphFixedSylowOpposition
-public import CFSG.Timmesfeld.Orders.ExceptionalUntwisted
 
 public section
 

@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallS10
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallSAct
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog5A10
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5bBasic
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5aOddQuot
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedGSBSharedCore
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.AutAlternating
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5bOrbit
 

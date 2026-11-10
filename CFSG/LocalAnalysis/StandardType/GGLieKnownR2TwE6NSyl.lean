@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TwE6NThmA
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TwE6Data
 public import CFSG.LocalAnalysis.StandardType.GGRootNormInner
 public import CFSG.LieType.Steinberg.CentralExt.TwistedE6PosLift
 

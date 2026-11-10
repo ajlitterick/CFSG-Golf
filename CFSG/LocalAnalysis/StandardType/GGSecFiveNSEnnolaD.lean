@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveNSExclDDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaMain
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaCore
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaDFork
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1Weyl
 import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6Holds
 
 public section

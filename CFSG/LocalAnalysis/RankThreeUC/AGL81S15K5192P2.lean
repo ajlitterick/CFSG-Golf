@@ -15,22 +15,16 @@ public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallGEVL34FFDefs
 public import CFSG.LocalAnalysis.GLTheoremB.Lemma911Defs
 public import CFSG.LocalAnalysis.GLTheoremB.SchreierTools
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporJ4Quot
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeThree
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L246C123Alt7
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 public import CFSG.Quasithin.Background.B15P4LayerDict
 public import CFSG.Quasithin.Background.C124B51Hyp
 public import CFSG.Quasithin.Background.C124BlkTransfer
 public import CFSG.Quasithin.Background.C124InterfaceDefs
 public import CFSG.Quasithin.Background.C1GNC124
-public import CFSG.Quasithin.Background.C2Inputs
 public import CFSG.Quasithin.Background.HPairBridge
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import CFSG.Sporadic.Schreier.J4SProfileNode
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

@@ -1,8 +1,6 @@
 module
 
 public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
-public import Mathlib.Data.ZMod.Basic
-public import Mathlib.LinearAlgebra.Matrix.Notation
 
 public section
 

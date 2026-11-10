@@ -2,11 +2,6 @@ module
 
 public import Certificates.Kernel.Co2Smith.Chain
 public import Certificates.Kernel.SporSch.Co2M.Chains2049
-public import CFSG.Certificates.Kernel.Spor.RawOrbSound
-public import CFSG.Certificates.Kernel.Spor.RawOrbHead
-public import CFSG.Certificates.NativeSchreierCard
-public import CFSG.Sporadic.Co2Cert.OrderCheck
-public import CFSG.Sporadic.Co2Schreier.OrbitZCheck
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

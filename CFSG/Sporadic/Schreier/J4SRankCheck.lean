@@ -3,7 +3,6 @@ module
 
 public import CFSG.Sporadic.Schreier.J4SRankCheckBase
 
-public import CFSG.Sporadic.Schreier.J4SRankData
 public meta import CFSG.Sporadic.Schreier.J4SRankData
 public import Certificates.Certificate2180
 

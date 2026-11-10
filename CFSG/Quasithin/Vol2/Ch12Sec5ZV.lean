@@ -5,7 +5,6 @@ public import CFSG.Quasithin.Vol2.Ch12Sec2Action
 public import CFSG.Quasithin.EmptyFaithful.T1515C6Gl
 public import CFSG.Quasithin.EmptyFaithful.SzN19Par
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.Quasithin.Background.F1Weak
 public import CFSG.Quasithin.Background.F2Equiv
 public import CFSG.Quasithin.EmptyFaithful.S14117Coprime

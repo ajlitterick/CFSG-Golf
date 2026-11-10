@@ -4,8 +4,6 @@ public import CFSG.Quasithin.Recognition.St84.Basic
 public import CFSG.Quasithin.Recognition.St84.Singularity
 public import CFSG.Quasithin.Recognition.GoldschmidtFan86Sec8P1Arc
 public import CFSG.Quasithin.Recognition.GoldschmidtFan86Sec3SixLoc
-public import Mathlib.GroupTheory.PGroup
-public import Mathlib.Algebra.Group.Subgroup.Lattice
 
 public section
 

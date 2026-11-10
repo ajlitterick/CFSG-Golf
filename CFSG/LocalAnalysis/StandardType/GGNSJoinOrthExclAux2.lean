@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinOrthExclAux
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinOrthPerp
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveReflMaxBasic
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoAux
 
 
 public section

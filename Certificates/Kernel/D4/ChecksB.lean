@@ -1,12 +1,9 @@
 module
 
 public import Certificates.Kernel.D4.Tabs
-public import Certificates.Kernel.D4.ChainBD
-public import Certificates.Kernel.D4.EnumB
 public import Certificates.Kernel.D4.OrbB
 public import Certificates.Kernel.SporSch.Ru.RowsGen
 public import Certificates.Data.Kernel.D4K
-public import Certificates.Data.Kernel.Misc.ChainTail
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

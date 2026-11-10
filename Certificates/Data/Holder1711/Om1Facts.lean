@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Holder1711.Om1Check
-public import CFSG.Monster.B.Co2.PermArr
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.Twin1711OmGen
 public import CFSG.ClassicalInvolution.Asc77.AscE187Cop
 public import CFSG.ClassicalInvolution.Asc77.AscR10QVm

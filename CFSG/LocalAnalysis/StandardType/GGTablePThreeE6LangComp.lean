@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6RatLabelA
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6RatLabelD
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6RatLabelOuterD
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6FrobAdd
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6FrobData
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6CompLabel
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TableT

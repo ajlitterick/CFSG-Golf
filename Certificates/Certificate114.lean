@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Blueprint.ChevalleyStringsInputs
-import Certificates.Certificate113
 import Certificates.Kernel.ChevStrChecks
 import CFSG.Certificates.Kernel.ChevStrSound
 

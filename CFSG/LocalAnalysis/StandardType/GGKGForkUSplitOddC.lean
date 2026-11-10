@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGForkUSplitC
-public import CFSG.ClassicalGroups.UnitaryFlag.WittBasis
 public import CFSG.GroupTheory.ElemAbelianClosure
-public import CFSG.LinearAlgebra.LinearGroups.UnitaryOrderSupport
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 
 public section
 

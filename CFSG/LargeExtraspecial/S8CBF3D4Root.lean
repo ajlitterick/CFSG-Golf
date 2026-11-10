@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LargeExtraspecial.S8CBF3D4Levi
-public import CFSG.LieType.Chevalley.PositiveRootCollection
-public import CFSG.LieType.Chevalley.D4TripleA2Lemmas
 public import CFSG.RankThree.Chevalley.EvenTrialityElementaryNine
 public import CFSG.RankThree.Chevalley.EvenFourCommutingSL2
 

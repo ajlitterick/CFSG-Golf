@@ -1,11 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinSylowNormalizer
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.NormalizerFixesCentralInvolutionOfLargeDihedralSubgroup
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CentralInvolutionMemLargeDihedralSubgroup
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralCore
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Classification
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

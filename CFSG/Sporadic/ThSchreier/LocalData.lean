@@ -1,20 +1,12 @@
 
 module
 
-public import CFSG.Sporadic.ThSchreier.LocalDataBase
 
 public import CFSG.Sporadic.ThSchreier.Row
 public import CFSG.Sporadic.Th.ChainBase1
 public import CFSG.Sporadic.Th.Max3.PacketBase1
 public import CFSG.Sporadic.Th.Max3.AllConjBase1
 public meta import CFSG.Sporadic.ThSchreier.Text
-public import CFSG.Sporadic.ThSchreier.LocalDataInputs
-public import Mathlib
-public import CFSG.Blueprint.NativeSporadic
-public import CFSG.Blueprint.MatrixSeedIdentification
-public import CFSG.Sporadic.Th.F2Spec
-public import CFSG.Certificates.SchreierStabilizerGenerators
-public import Certificates.Data.CFSGNative.Th.Certificate
 public import CFSG.Sporadic.Th.Max3.AllConjInputs
 public import CFSG.Sporadic.Th.Max3.InvolutionsBase1
 public import CFSG.Sporadic.Th.Max3.InvolutionsInputs

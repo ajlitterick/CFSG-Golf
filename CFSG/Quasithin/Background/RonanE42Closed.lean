@@ -1,20 +1,11 @@
 module
 
-public import CFSG.Quasithin.Background.RonanE42Main
 public import CFSG.Milestones.ASVolI.E4
-public import CFSG.Open.Defs
-import CFSG.GroupTheory.Fitting.CharacteristicP
-import CFSG.GroupTheory.LocalCores.Components
 import CFSG.GroupTheory.Fitting.MulEquiv
-import CFSG.Permutation.AlternatingAutomorphism.Conjugation
-import CFSG.LieType.SteinbergBRSmallAltSylow
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
 public import CFSG.Quasithin.Vol2.KGFact838
 public import CFSG.Certificates.WordSubgroupRel
 public import CFSG.GH74.GLS.Classes
 public import CFSG.GH74.Statements
-public import CFSG.GroupTheory.HallHigmanPiCore
-public import CFSG.LieType.Chevalley.LangRootArithmetic
 public import CFSG.LieType.Multipliers.ProductKernel
 public import CFSG.LieType.Multipliers.U42Bridge
 public import CFSG.LieType.Multipliers.U43Action
@@ -24,7 +15,6 @@ public import CFSG.LieType.Multipliers.U62Bridge
 public import CFSG.LieType.Multipliers.U62Kernel
 public import CFSG.LocalAnalysis.AGLEmbedding.SporadicData
 public import CFSG.LocalAnalysis.ComponentClassification.BlockTwoProductAction
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHermitianIsometry
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoProjectiveFormulas
 public import CFSG.LocalAnalysis.ComponentClassification.NormalizedProductSylow
 public import CFSG.LocalAnalysis.ComponentClassification.StandardRecognitionQuaternion
@@ -54,7 +44,6 @@ public import CFSG.RankThree.PartOne.Assembly
 public import CFSG.RankThree.PartOne.CTP.StrongPSylow
 public import CFSG.RankThree.PartOne.S10.ThetaContract
 public import CFSG.RankThree.PartOne.S12.InputsBase
-public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.Sporadic.Presentation.Common
 public import CFSG.Sporadic.Schreier.J4SProfileNode
 public import CFSG.Sporadic.SmallOddCore.CheckSpec

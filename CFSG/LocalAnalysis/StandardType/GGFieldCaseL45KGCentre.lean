@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45RankXProper
 public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOpenOrth
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaPlus
 
 public section
 

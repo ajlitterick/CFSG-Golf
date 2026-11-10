@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBF4Rank
-public import CFSG.LieType.Chevalley.EvenF4AutomorphismNormalForm
 
 public section
 

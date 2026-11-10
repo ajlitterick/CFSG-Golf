@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.TitsCoverCheck
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Ch1.TitsCoverCheck
 public import Certificates.Certificate4104
 public meta import CFSG.Assembly.OrderReductions.InvertedSubgroup

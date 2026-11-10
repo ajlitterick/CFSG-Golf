@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRuleSpFourLin
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRuleSpFinII
 public import CFSG.HardMathSupport.Curtis.UnitaryLevi.TailTrivialThree
-public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeLinear
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentLinUnitParabGroup
 
 public section

@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.PartI.LevelLieU6Aut
-public import CFSG.LocalAnalysis.GLTheoremA.S10.Defs
 public import CFSG.LocalAnalysis.GLTheoremA.S10.InputsBeta
 import CFSG.LocalAnalysis.GLTheoremA.CatA.HSubTCompU6
-import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitarySemi
-import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherPrimeFormRealization
 public import CFSG.LocalAnalysis.GLTheoremA.S10.Inputs
 public import CFSG.LocalAnalysis.GLTheoremA.S10.Inputs105
 public import CFSG.LocalAnalysis.GLTheoremA.S9.InputsClosing

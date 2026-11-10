@@ -5,7 +5,6 @@ public import CFSG.GH74.Uniqueness.SU.SU10BenderAbs
 public import CFSG.GH74.Uniqueness.SU.SU10Fusion
 public import CFSG.GH74.Uniqueness.SU.SU10Bar
 public import CFSG.GH74.Uniqueness.SU.SU8Stmts
-public import CFSG.CharacterTheory.TwoRankLowerBound.Helpers
 public import CFSG.CharacterTheory.BrauerThirdMainTheorem.CentralResidueMaps
 public import CFSG.CharacterTheory.BrauerThirdMainTheorem.NormalizerClassLifting
 public import CFSG.CharacterTheory.BrauerThirdMainTheorem.PrincipalClassDefects
@@ -13,7 +12,6 @@ public import CFSG.CharacterTheory.Semidihedral.ElementStructure
 public import CFSG.CharacterTheory.Semidihedral.Principal.DegreeZeroGram
 public import CFSG.CharacterTheory.TwoRankLowerBound.BrauerCharacterCriterion
 public import CFSG.GH74.GLS.Defs
-public import CFSG.GH74.GLS.Pattern
 public import CFSG.GH74.L5U5.ModelsBridge
 public import CFSG.GH74.Statements
 public import CFSG.GH74.Uniqueness.SU.KInputs
@@ -31,18 +29,6 @@ public import CFSG.LocalAnalysis.LargeEvenClassification.MacWilliamsReduction
 public import CFSG.LocalAnalysis.LargeEvenClassification.SmallCfourFullObstruction
 public import CFSG.LocalAnalysis.LargeEvenClassification.SmallCfourProperSubgroups
 public import CFSG.LocalAnalysis.SectionRank.CentralLift
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldPrimeOrderFixedSubfield
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OrderThreeNormalizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2PSLRangeCentralizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinInvolutionCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinRestrictionSixCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinUDecomposition
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationEleven
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTen
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTenStructuralIdentities
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2FieldProjectionArithmetic
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2OrderPSubgroupCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphReconstruction
 public import CFSG.Walter.JRAssembly
 public import CFSG.Walter.JRFacts
 

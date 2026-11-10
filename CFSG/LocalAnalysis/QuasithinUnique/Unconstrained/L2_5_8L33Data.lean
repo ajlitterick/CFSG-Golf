@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_15FactsTau
 public meta import Mathlib
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_15FactsTau
-public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_8L33DataInputs
 public import Certificates.Certificate4048
 
 public section

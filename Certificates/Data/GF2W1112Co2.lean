@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.CFSGNative.GF2W1112.Spin
 public import Certificates.Data.CFSGNative.GF2W1112.Irr
 public import Certificates.Data.CFSGNative.Co2.Data
 

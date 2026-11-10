@@ -1,13 +1,7 @@
 module
 
 public import Certificates.Data.ParrottPSp43
-public import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
-public import Mathlib.Data.ZMod.Basic
 public import CFSG.ClassicalInvolution.Q3.Q3T6AutConj
-public import Mathlib.GroupTheory.OrderOfElement
-public import Mathlib.GroupTheory.Subgroup.Centralizer
-public import Mathlib.Algebra.Group.Subgroup.Map
-public import Mathlib.Algebra.Group.Subgroup.Ker
 
 public section
 

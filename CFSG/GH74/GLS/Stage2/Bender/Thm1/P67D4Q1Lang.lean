@@ -3,7 +3,6 @@ module
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4InNF
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4TorusLang
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4Q1Class
-public import CFSG.RankThree.Classical2.TwistedE6RationalOrder
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4TorusFrame
 
 public section

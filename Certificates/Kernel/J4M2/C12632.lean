@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.MaximalityAmbient.KCheckData
 public meta import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.MaximalityAmbient.KCheckData
 public import Certificates.Kernel.J4M2.C12633
 public import Certificates.Kernel.J4M2.C4200

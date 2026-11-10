@@ -1,9 +1,7 @@
 module
 
-public import CFSG.Blueprint.NativeSporadic
 public import Certificates.Certificate3109
 import Certificates.Kernel.BabyMonster.B31Facts
-public import Certificates.Certificate3109Base
 
 public section
 

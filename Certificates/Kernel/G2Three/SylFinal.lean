@@ -5,7 +5,6 @@ public import Certificates.Kernel.G2Three.Final
 public import CFSG.Certificates.Kernel.G2Three.SylSound
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434G23Local
 public import Certificates.Data.G23RecogNativeFactsInputs
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

@@ -2,11 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJNoB2derModelDefs
 import CFSG.LocalAnalysis.StandardType.GGTBJNoB2derSpIso
-import CFSG.LocalAnalysis.StandardType.GGSixA6RedSpDefs
 import CFSG.LocalAnalysis.StandardType.GGSixA6RedSpRestr
 import CFSG.LocalAnalysis.StandardType.GGSixA6RedSpRestrStd
 import CFSG.RankThree.SteinbergR3ECASymplecticPrimeSubfield
-import CFSG.ClassicalGroups.Symplectic.StandardForm
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalDescentEndpoint
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalFiveStructure

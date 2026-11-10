@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortF4Iso
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ExcNC
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2CoverNC
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortTransport
-public import CFSG.LocalAnalysis.StandardType.GGSixLSixFiveKnownForms
 
 public section
 

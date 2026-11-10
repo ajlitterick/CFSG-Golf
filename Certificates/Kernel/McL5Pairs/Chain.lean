@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Certificates.Kernel.Spor.RawDefs
 public import Certificates.Data.Kernel.McL5Pairs
 public meta import Certificates.Kernel.Sporadic.RawGen
 meta import Certificates.Data.McLFivePairs

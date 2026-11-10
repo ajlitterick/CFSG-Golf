@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP9Wa
 public import CFSG.LocalAnalysis.StandardType.GGTBTorRelDCoverTwo
 import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestBstar
-import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeInner
 import CFSG.HardMathSupport.Foote.E27.Q2OrthPlus
 import CFSG.HardMathSupport.Foote.E27.Q2OrthMinus
 import CFSG.HardMathSupport.Foote.E27.Q2OrthModel

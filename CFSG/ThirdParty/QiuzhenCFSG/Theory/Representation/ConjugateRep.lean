@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.RepresentationTheory.Basic
 public import Mathlib.RepresentationTheory.Induced
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.RepEquiv
 

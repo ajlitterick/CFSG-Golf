@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.SporSch.Mathieu.Gen
-public import Certificates.Data.Kernel.SporSch.MathieuOC2
 public import CFSG.Certificates.Kernel.SporSch.MathieuOC2Sound
 public meta import Certificates.Kernel.SporSch.Mathieu.Gen
 public meta import CFSG.Certificates.Kernel.Common.AddThm

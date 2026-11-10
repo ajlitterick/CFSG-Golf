@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQ2ExcE6SplitDefs
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcE6SplitRoots
 import CFSG.LocalAnalysis.StandardType.GGQ2ExcE6SplitOccursDict
 import CFSG.LocalAnalysis.StandardType.GGQ2ExcE6SplitLabel

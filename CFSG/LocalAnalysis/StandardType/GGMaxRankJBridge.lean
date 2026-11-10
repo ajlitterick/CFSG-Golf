@@ -7,7 +7,6 @@ import CFSG.LocalAnalysis.StandardType.GGMaxRankJCard
 import CFSG.LocalAnalysis.StandardType.GGMaxRankJAutSplit
 import CFSG.LocalAnalysis.StandardType.GGMaxRankJTransport
 import CFSG.LocalAnalysis.StandardType.GGSpJoinBstarSplit
-import CFSG.LocalAnalysis.StandardType.GGTPNDefs
 import CFSG.GroupTheory.IsComponentOfMap
 import CFSG.LocalAnalysis.GLTheoremA.CatB.CfgILift
 import CFSG.LocalAnalysis.StandardType.GGF4NbrAutReflKGReduce

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Eleven.Plus.PermData
-import Mathlib.Data.Finset.Union
-import Mathlib.Logic.Function.Iterate
 
 public section
 

@@ -3,7 +3,6 @@ module
 public import CFSG.LieType.Steinberg.Bruhat
 public import CFSG.LieType.Steinberg.CentralExt.Unipotent
 public import CFSG.ClassicalInvolution.ModelFacts.OddCover.Sieg
-public import Mathlib.GroupTheory.Sylow
 
 public section
 

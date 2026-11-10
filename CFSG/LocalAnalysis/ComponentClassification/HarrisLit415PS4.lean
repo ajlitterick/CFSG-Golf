@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit415PS3
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit415SimpleInputs
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit415PN
 
 public noncomputable section

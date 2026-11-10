@@ -1,15 +1,8 @@
 module
 
-public import Mathlib
-public import CFSG.GH74.KGroups.Generic
-public import CFSG.GH74.KGroups.PermCheck
-public import CFSG.GH74.KGroups.Checks
-public import CFSG.GH74.KGroups.PSL2
-public import CFSG.GH74.KGroups.PrimeField
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Cardinality
 import CFSG.LocalAnalysis.ComponentInitial.SmallLinearIsomorphisms
 public meta import CFSG.GH74.KGroups.Checks
-public import CFSG.GH74.KGroups.L27Inputs
 public meta import CFSG.GH74.KGroups.L27Inputs
 public import Certificates.Certificate5117
 

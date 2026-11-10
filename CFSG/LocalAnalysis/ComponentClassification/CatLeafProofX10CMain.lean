@@ -3,10 +3,7 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofX10CComp
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofX10CNilpE
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog81X10C
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB7Sec
 public import CFSG.RankThree.SubgroupLists.CentralizerPerfect
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedGSAFixedLayerPComponent
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.CharacterTheory.CyclicBlocks.Family
 public import CFSG.CharacterTheory.Semidihedral.Principal.LargePrimeTorusSylowCentralizers
 public import CFSG.CharacterTheory.Semidihedral.Principal.PrimeTorusBlockAlignment
@@ -21,8 +18,6 @@ public import CFSG.LinearAlgebra.LinearGroups.UnitaryThreeOverNine
 public import CFSG.LinearAlgebra.LinearGroups.UnitaryThreeOverNineInvolutions
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB81S9c
 public import CFSG.Permutation.UnitaryThreeRecognition.Model
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 
 public noncomputable section

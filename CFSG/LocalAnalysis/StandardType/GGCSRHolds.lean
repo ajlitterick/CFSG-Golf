@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Assembly.GL83StatedBridge
-public import CFSG.ClassicalGroups.UnitaryFlag.GroupData
 public import CFSG.GroupTheory.ConjKerCenter
 public import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.HardMathSupport.Malle.E27Lie.Cross.RankPSL
@@ -9,7 +8,6 @@ public import CFSG.LocalAnalysis.StandardType.GGR4JMeetKGDefs
 public import CFSG.LocalAnalysis.StandardType.GGCSRBasic
 public import CFSG.LocalAnalysis.StandardType.GGCSRLabels
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveInnAll
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
 public import CFSG.RankThree.PartTwo.KFacts.K71IdentSU3
 public import CFSG.RankThree.PartTwo.Sec21.Item223CensusProofClassical
 public import CFSG.GH74.Generic.Certificates
@@ -26,7 +24,6 @@ public import CFSG.RankThree.PartTwo.Late.GammaZero
 public import CFSG.RankThree.PartTwo.NotationBlocks
 public import CFSG.RankThree.PartTwo.Sec13.Statements
 public import CFSG.RankThree.PartTwo.Sec18.Notation
-public import CFSG.RankThree.PartTwo.Sec18.Tools
 public import CFSG.RankThree.PartTwo.Sec21.Item229Diagram
 public import CFSG.RankThree.PartTwo.Sec21.Item23Tools
 public import CFSG.RankThree.PartTwo.Sec21.Membership

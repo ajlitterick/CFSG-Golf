@@ -4,8 +4,6 @@ public import CFSG.Sporadic.HNOddCore.FiveCheckInputs
 public import CFSG.Sporadic.HNOddCore.FiveGens
 import Certificates.Kernel.SporSch.HN.Pt2085
 import Certificates.Kernel.SporSch.HN.Small2085
-import Certificates.Certificate2102
-import Certificates.Certificate2107
 
 public section
 

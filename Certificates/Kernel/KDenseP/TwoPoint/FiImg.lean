@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Sporadic.ON2.GenWords
 public import CFSG.Certificates.Kernel.Spor.WordsTxtSound
 public import CFSG.Monster.Existence.TwoPoint.Fi22Check
@@ -8,7 +7,6 @@ public meta import Certificates.Data.CFSGNative.Bridge.Fi23GPL
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Open.MonsterY443Defs
 public import CFSG.Sporadic.Co1Base
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

@@ -7,12 +7,6 @@ public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.Census219.HeKFact
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.Census219.RuKFact
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.Census219.M24KFact
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.NormalizerAction.J4KS219
-public import CFSG.RankThree.Asc83Table.M24
-public import CFSG.RankThree.Asc83Table.He
-public import CFSG.RankThree.Asc83Table.Ru
-public import CFSG.RankThree.Asc83Table.J4
-public import CFSG.RankThree.PartTwo.Sec4.T444.Item434SporRankTwo
-public import CFSG.RankThree.PartTwo.Sec4.Sporadic.Item415
 
 public section
 

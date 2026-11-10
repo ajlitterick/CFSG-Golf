@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoRootGenFrame
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneE2TwE7SL2
-public import CFSG.LieType.HighestRoot.CentTrialityThree
-public import CFSG.CGT.PushingUpLit.BHS6.FaithfulSL
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267BadExcFldTwo
-public import CFSG.RankThree.PartOne.Q1327T.Item7D4W
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.H81Facts
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267BadExcFldModel
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267BadExcHR2

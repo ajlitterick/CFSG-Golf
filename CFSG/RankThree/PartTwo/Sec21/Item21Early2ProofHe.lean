@@ -2,7 +2,6 @@ module
 
 public import CFSG.GH74.Filter.Sporadic.He
 import all CFSG.Blueprint.NativeSporadic
-public import CFSG.LocalAnalysis.SectionRank.Sporadic.Elem3
 import all CFSG.LocalAnalysis.SectionRank.Sporadic.Elem3
 
 public section

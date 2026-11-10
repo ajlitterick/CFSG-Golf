@@ -2,17 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGResILinDefs
 public import CFSG.LocalAnalysis.StandardType.GGTPNNarrow
-public import CFSG.LocalAnalysis.StandardType.GGR4PumpDefs
 public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpDichotomy
-public import CFSG.LocalAnalysis.StandardType.GGRealQFour
-public import CFSG.LocalAnalysis.StandardType.GGPZWeylB
-public import CFSG.LocalAnalysis.StandardType.GGRCWeylCard
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterForkProofBCDExt
 public import CFSG.LocalAnalysis.StandardType.GGB48OmReduce
 public import CFSG.LocalAnalysis.StandardType.GGResIPumpLineAux
 public import CFSG.LocalAnalysis.StandardType.GGPZWeylType
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven3SevenBlock
-public import TauCeti.GroupTheory.SpecificGroups.Dihedral.Basic
 
 public section
 

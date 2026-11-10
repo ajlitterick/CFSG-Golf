@@ -2,9 +2,7 @@ module
 
 public import CFSG.LieType.Chevalley.C2E6UnitaryFourDefs
 public import Certificates.Data.CFSGNative.Chevalley.C2E6StdMatrix
-public import CFSG.Fischer.F4
 import all CFSG.Fischer.F4
-public import Mathlib.Data.LawfulXor.Basic
 public import Std.Tactic.BVDecide.Normalize.BitVec
 
 public section

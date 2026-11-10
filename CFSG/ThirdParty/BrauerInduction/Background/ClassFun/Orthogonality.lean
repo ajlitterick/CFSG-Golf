@@ -3,7 +3,6 @@ module
 public import CFSG.ThirdParty.BrauerInduction.Background.ClassFun.Action
 public import CFSG.ThirdParty.BrauerInduction.Background.ClassFun.Character.Basic
 public import CFSG.ThirdParty.BrauerInduction.Background.FDRep.Character.Orthogonality
-public import CFSG.ThirdParty.BrauerInduction.Background.Fintype.Basic
 
 public section
 

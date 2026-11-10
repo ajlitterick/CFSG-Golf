@@ -1,8 +1,5 @@
 module
 
-public import Mathlib.Algebra.Group.Pointwise.Set.Basic
-public import Mathlib.Tactic.NormNum
-public import Mathlib.Tactic.Push
 public import Mathlib.Tactic.Ring
 public import CFSG.LocalAnalysis.StandardType.GGReeB2StepThreeDefs
 public import CFSG.LocalAnalysis.StandardType.GGReeB2SigmaOrder

@@ -2,13 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGOppositeRadicalExcOpp
 public import CFSG.LocalAnalysis.StandardType.GGOppositeRadicalPSL
-public import CFSG.LieType.Steinberg.Adjoint.Perfect
-public import CFSG.LieType.CurtisTits.ExceptionalQuasisimple
-public import CFSG.LieType.CurtisTits.Recognition
-public import CFSG.LieType.Steinberg.Isogeny.E6
-public import CFSG.LieType.Steinberg.Isogeny.E7
 public import CFSG.LieType.HighestRoot.ModelCenter
-public import CFSG.LieType.Chevalley.AdjointCenter
 public import CFSG.ClassicalInvolution.Q3.ModelCenter
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoOddLieDefs
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoStandardDefs

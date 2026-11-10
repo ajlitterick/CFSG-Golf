@@ -2,8 +2,6 @@ module
 
 public import Certificates.Data.GSThmBCatalog7SuzCS
 public import CFSG.Sporadic.Recognition.SuzMultiplierInputs
-public import Certificates.Data.CFSGNative.F3.Basic
-public import Certificates.Data.CFSGNative.F3.Conj
 public meta import Certificates.Data.GSThmBCatalog7SuzCS
 public meta import CFSG.Sporadic.Recognition.SuzMultiplierInputs
 public meta import Certificates.Data.CFSGNative.F3.Basic

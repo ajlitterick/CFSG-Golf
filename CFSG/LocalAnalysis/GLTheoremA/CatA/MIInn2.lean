@@ -1,12 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.MIInn
-public import CFSG.LocalAnalysis.StandardType.GGRecipeField
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmega
-public import CFSG.LocalAnalysis.StandardType.GGRawAutRestSz
-public import CFSG.LocalAnalysis.StandardType.GGRawAutRestTri
-public import CFSG.LocalAnalysis.StandardType.GGRawAutRestTwE6
-public import CFSG.LocalAnalysis.StandardType.GGRawAutRestReeF4
 
 public section
 

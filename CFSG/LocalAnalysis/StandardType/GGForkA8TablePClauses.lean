@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpResidual
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveInputs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
 
 public section
 

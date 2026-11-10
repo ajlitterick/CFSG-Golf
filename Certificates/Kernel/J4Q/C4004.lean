@@ -5,7 +5,6 @@ public import Certificates.Kernel.J4Q.QTBase
 public import CFSG.Certificates.Kernel.J4Q.RepQT2B
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Sporadic.J4.QT2LocNative
-public import CFSG.Sporadic.J4.QTRankWitNative
 
 public section
 

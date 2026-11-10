@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec13.RonanItem137
-public import CFSG.RankThree.PartTwo.KFacts.KS18M12
 public import CFSG.RankThree.PartTwo.Sec13.Ronan138SQuot
 import CFSG.RankThree.PartTwo.Sec13.Ronan138SNorm
 import CFSG.RankThree.PartTwo.Sec13.Ronan138SCent
@@ -10,19 +9,14 @@ import CFSG.RankThree.PartTwo.Sec13.Ronan138S131
 import CFSG.RankThree.PartTwo.Sec13.Ronan138SInner
 import CFSG.RankThree.PartTwo.Sec13.Ronan138SHeis
 import CFSG.RankThree.PartTwo.Sec13.Ronan138SPGL
-import CFSG.RankThree.PartTwo.Sec13.Item137ProofOrbit
 import CFSG.RankThree.PartTwo.Sec13.Item137Delta
 import CFSG.RankThree.PartTwo.Sec13.Item137NormLe
 import CFSG.RankThree.PartTwo.Sec13.Item137ProofM12
 import CFSG.RankThree.PartTwo.Sec13.Item136Moreover
-import CFSG.RankThree.PartTwo.Sec13.Item13SetupAt
 import CFSG.RankThree.PartTwo.Sec13.Item138ProofExists
 import CFSG.RankThree.PartTwo.Sec11.Item116H3Rank
-import CFSG.RankThree.PartTwo.Sec15.HypR
 import CFSG.RankThree.PartTwo.Sec13.Item136Pair
 import CFSG.RankThree.PartTwo.Sec17.Item1730Conj
-import CFSG.RankThree.PartTwo.Sec6.Item612Basic
-import CFSG.GroupTheory.QuasisimpleCommutingProductBound
 public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.SectionRank.EvenCover.Catalog
@@ -33,13 +27,11 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.B2Thompson
 public import CFSG.Quasithin.Vol2.KGFactC31RuRefBase
 public import CFSG.RankThree.PartTwo.Sec21.Item21Statements
 public import CFSG.RankThree.PartTwo.Sec7.ThreeTranspositions
 public import CFSG.Sporadic.HeldB.Common
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24

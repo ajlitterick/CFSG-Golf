@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.CFSGNative.CosetTable.Enum
 public import Certificates.Data.CFSGNative.CosetTable.EnumCLen
 
 public section

@@ -2,8 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.C25L34
 public import CFSG.HardMathSupport.Solomon.Coordinator.L3BL34
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6KI2320L
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6KI2320Red
 public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6KI2320SL
 public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Inputs
 public import CFSG.Quasithin.Background.A3Structure319

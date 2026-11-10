@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2InvolutionInnerOfOddRange
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2Action
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

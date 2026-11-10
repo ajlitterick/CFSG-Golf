@@ -1,15 +1,6 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.RepEquiv
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection5.PFsection5_2
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection1.PFsection1_4
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection1.PFsection1_5
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection1.PFsection1_7_Core
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection3.PFsection3_5
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection3.PFsection3_8
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection4.PFsection4_1
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection4.PFsection4_3
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection4.PFsection4_4
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection4.PFsection4_5_to_10
 
 namespace CFSG

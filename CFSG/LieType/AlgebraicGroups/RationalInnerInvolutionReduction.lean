@@ -3,7 +3,6 @@ module
 public import CFSG.LieType.AlgebraicGroups.RationalInnerInvolution
 public import CFSG.LieType.AlgebraicGroups.ToralTwistPinningSemilinear
 public import CFSG.LieType.Chevalley.CLSOddE7RationalEightGroup
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 
 public noncomputable section
 

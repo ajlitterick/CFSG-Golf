@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenSCDefs
-public import CFSG.RankThree.Classical2.OrthogonalIsotropicUnipotent
-public import CFSG.LocalAnalysis.ComponentInitial.BlockCentralQuotient
-public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitOmBlock
 public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitOmSmallBlock
-public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitSpNsFrame
 public import CFSG.HardMathSupport.Dickson.Bal207.LocalBalClassicalOrthTwoLocal
 public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.Basic
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerResiduals

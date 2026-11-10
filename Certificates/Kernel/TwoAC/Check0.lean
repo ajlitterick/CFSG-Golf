@@ -2,7 +2,6 @@ module
 
 import CFSG.Certificates.Kernel.BabyMonster.LoadFour
 public import CFSG.Certificates.Kernel.BabyMonster.F2Four
-public import CFSG.Certificates.Kernel.BabyMonster.Seeds.Data0
 public import Certificates.Kernel.TwoAC.Data0
 
 #bm_mul4 CFSG.KC.BM.TwoAC cB2 CFSG.KC.BM.Seeds.A2 [CFSG.KC.BM.Seeds.A2] B2 []

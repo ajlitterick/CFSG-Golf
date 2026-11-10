@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Sporadic.Co3.C
 public import Certificates.Kernel.Sporadic.Co3.CP
 public import CFSG.Certificates.Kernel.Spor.PrimSound
-public import CFSG.Sporadic.Schreier.Co3OrderCheckInputs
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

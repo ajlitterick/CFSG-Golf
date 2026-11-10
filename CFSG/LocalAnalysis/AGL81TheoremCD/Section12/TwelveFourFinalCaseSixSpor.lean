@@ -3,10 +3,8 @@ module
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveFourSteps
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTwelveKer
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenInputs
-import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveFourKer
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveFourKerDecomp
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveFourOneProof
-import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.HGenFinal
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveSixWX
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveSixKCompCentral
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveSixCoprimeK

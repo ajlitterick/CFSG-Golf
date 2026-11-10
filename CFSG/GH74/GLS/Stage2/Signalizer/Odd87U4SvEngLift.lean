@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87NatMod
-public import CFSG.LinearAlgebra.LinearGroups.UnitaryOrder
 public import CFSG.Assembly.RankThreeEvenDefs
 public import CFSG.ClassicalGroups.UnitaryFlag.OrderSylow
 public import CFSG.Fischer.Classification.Recognition.PSU6

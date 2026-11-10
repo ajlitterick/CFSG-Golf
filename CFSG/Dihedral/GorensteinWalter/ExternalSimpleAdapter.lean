@@ -1,10 +1,8 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2CharacteristicSubgroup
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2PerfectSubnormal
 public import CFSG.Dihedral.GorensteinWalter.Helpers
 public import CFSG.Dihedral.GorensteinWalter.FieldTransport
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFAppendixIII.Basic
 
 public section
 

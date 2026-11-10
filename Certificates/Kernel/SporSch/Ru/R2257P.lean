@@ -4,7 +4,6 @@ module
 public import Certificates.Kernel.SporSch.Ru.R2257
 public import CFSG.Certificates.Kernel.BfsPinSound
 import CFSG.Certificates.Kernel.Common.Harness
-public import CFSG.Certificates.Kernel.BfsPinUnpack
 
 public section
 

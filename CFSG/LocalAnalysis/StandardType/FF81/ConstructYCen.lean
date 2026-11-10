@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FF81.ConstructYRoot
-import CFSG.ClassicalInvolution.WeakCT.Blocks
 import CFSG.ClassicalInvolution.WeakCT.Standard
 
 public section

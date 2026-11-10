@@ -1,12 +1,9 @@
 module
 
 public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcE6Rational
-public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcSigns
 public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcReduceToral
 public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalE6
 public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcE8Main
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.ClassicalInvolution.Balance.BootstrapDischarge
 public import CFSG.ClassicalInvolution.Balance.LayerGenerationInner
 public import CFSG.ClassicalInvolution.Balance.LayerGenerationTriple

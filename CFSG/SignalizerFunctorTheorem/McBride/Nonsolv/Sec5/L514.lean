@@ -1,7 +1,5 @@
 module
 
-public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec5.L514.Setup
-public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec5.L514.Case1a
 public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec5.L514.Case1b
 public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec5.L514.Case2
 

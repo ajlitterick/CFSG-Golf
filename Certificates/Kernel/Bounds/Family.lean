@@ -2,12 +2,9 @@ module
 
 public meta import Lean
 public import Certificates.Data.Kernel.Bounds.TableFact
-public import CFSG.Certificates.Kernel.Bounds.Checks
 public import Certificates.Kernel.Bounds.Assemble
-public import CFSG.Certificates.Kernel.Bounds.Load
 public import CFSG.Certificates.Kernel.Bounds.LoadGz
 public import CFSG.Certificates.Kernel.Common.Repo
-public import CFSG.Certificates.Kernel.Common.Harness
 meta import CFSG.Certificates.Kernel.Bounds.Load
 meta import all CFSG.Certificates.Kernel.Common.Repo
 meta import all CFSG.Certificates.Kernel.Common.Harness

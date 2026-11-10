@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.FF81.CentAModelEmbed
 import CFSG.LocalAnalysis.StandardType.FF81.CentAModelLevi
 import CFSG.LocalAnalysis.StandardType.FF81.CentAModelUnip
 import CFSG.Walter.PSL2Facts.Odd
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.Basic
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 import CFSG.Walter.Defs
 
 public section

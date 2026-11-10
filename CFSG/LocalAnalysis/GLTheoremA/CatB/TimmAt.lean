@@ -3,7 +3,6 @@ module
 public import CFSG.Milestones.CL_LIT_Timmesfeld_1978_large_extraspecial
 public import CFSG.LocalAnalysis.GLTheoremA.S8.Inputs
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.TimmGroup
-public import CFSG.LocalAnalysis.GLTheoremA.CatB.TimmQuot
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.TimmL2
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.TimmOmega
 public import CFSG.Foundations

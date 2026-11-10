@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6LeviGeFive
-public import CFSG.LocalAnalysis.StandardType.GGTBJETypeCells
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 
 public section
 

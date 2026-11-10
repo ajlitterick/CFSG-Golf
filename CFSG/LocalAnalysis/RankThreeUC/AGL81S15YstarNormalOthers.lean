@@ -5,7 +5,6 @@ import CFSG.LocalAnalysis.RankThreeUC.AGL81S15R1511D
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15R1512E
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15R1526LN
 public import CFSG.GroupTheory.ABGLocalTools.Basic
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

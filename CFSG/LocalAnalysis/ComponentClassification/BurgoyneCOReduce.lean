@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneCOSign
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneCOPc
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneOEvenOrth2
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneOSliceNF
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneOSplitCases
 

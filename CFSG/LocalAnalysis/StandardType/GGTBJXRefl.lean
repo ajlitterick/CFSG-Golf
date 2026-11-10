@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBJXDefs
-public import CFSG.LocalAnalysis.StandardType.GGTBJXRoots
 public import CFSG.LocalAnalysis.StandardType.GGTBJXReflAux
 
 public section

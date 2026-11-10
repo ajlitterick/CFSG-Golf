@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSporKBMPreds
-public import CFSG.Assembly.Subnormal
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.SpFixedNorm
 public import TauCeti.LinearAlgebra.BilinearForm.SymplecticBasis
-public import Mathlib.LinearAlgebra.Matrix.BilinearForm
 
 public section
 

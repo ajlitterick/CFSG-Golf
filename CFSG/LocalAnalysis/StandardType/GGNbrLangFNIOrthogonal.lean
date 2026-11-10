@@ -1,22 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIOne
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNILinMark
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIVacClassical
-public import CFSG.LocalAnalysis.StandardType.GGAssemblyThreeHypSix
-public import CFSG.LocalAnalysis.StandardType.GGNbrGraphFieldLinear
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldLinear
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownLinearProj
-public import CFSG.LocalAnalysis.StandardType.GGE0LiftGeneric
-public import CFSG.LocalAnalysis.StandardType.GGE0PSLComp
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNILinBlock
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T158MShCompTransport
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherGraphFieldInvolution
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherFieldInvolution
 public import CFSG.HardMathSupport.Solomon.Proving.PSL2CentSolvableProof
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63H5LayerGroup
-public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonInnBridge
 public import CFSG.HardMathSupport.Dickson.I271.ChevPBal
 public import CFSG.HardMathSupport.Dickson.I271.I202Full
 public import CFSG.HardMathSupport.Dickson.I271.Support.OuterStep

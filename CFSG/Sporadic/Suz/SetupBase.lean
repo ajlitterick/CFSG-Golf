@@ -2,7 +2,6 @@
 module
 
 public import CFSG.Sporadic.McL.VecSpec
-public import CFSG.Blueprint.NativeSporadic
 import all CFSG.Blueprint.NativeSporadic
 public import Certificates.Data.CFSGNative.Suz.Certificate
 

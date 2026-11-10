@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitKGClLift
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerPDivSpTag
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplit
 
 public section
 

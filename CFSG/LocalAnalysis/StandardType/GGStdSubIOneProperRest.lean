@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperRestOrth
 public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperRestUnitary
 public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperRestExc
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRanks
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeThree
 
 public section
 

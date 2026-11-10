@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LieType.SeitzGeneration.ExcHigh.E7Two
-public import CFSG.LocalAnalysis.StandardType.GGOmegaPlusCentrallyClosed
 public import CFSG.LocalAnalysis.StandardType.GGOmegaNsRootGenLabels
-public import CFSG.LieType.Universal.SpinOmega.Center
 public import CFSG.ClassicalInvolution.Generic.InductionMain
 public import CFSG.ClassicalInvolution.Models.LinearFrames
 public import CFSG.ClassicalInvolution.Models.OrthogonalPairs

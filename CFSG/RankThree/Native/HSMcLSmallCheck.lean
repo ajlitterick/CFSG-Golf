@@ -1,8 +1,5 @@
 module
 
-public import CFSG.RankThree.Native.HSMcLAuxData
-public import CFSG.Sporadic.Schreier.PairHSCert
-public import Certificates.Data.CFSGNative.Schreier.Check
 public meta import CFSG.RankThree.Native.HSMcLAuxData
 public meta import CFSG.RankThree.Native.HSMcLSmallData
 public meta import CFSG.Sporadic.Schreier.PairHSCert
@@ -11,7 +8,6 @@ public meta import CFSG.Sporadic.SmallOddCore.McLData
 public meta import CFSG.Monster.B.Fischer.InducedData
 public meta import Certificates.Data.CFSGNative.Schreier.Check
 public meta import Certificates.Data.CFSGNative.SmallOddCore.Check
-public import CFSG.RankThree.Native.HSMcLSmallCheckInputs
 public import Certificates.Certificate8129
 
 public noncomputable section

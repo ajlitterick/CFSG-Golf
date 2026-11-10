@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoGlobDefs
-public import CFSG.LocalAnalysis.StandardType.GGQTwoGlobFour
 public import CFSG.LocalAnalysis.StandardType.GGQTwoGlobSelected
 public import CFSG.LocalAnalysis.StandardType.GGQTwoGlobGrowth
 public import CFSG.LocalAnalysis.StandardType.GGQTwoGlobBound

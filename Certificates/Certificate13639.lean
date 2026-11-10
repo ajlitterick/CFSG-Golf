@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.MonsterSevenInputs
-import Certificates.Certificate6007
 import Certificates.Kernel.KDenseP.MonThreeB
 public import CFSG.YGroups.Y443.Native.EdgeNoncomm
 

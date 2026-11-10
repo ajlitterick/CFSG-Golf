@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoExcHypIITwistedE6TwoTests
 public import CFSG.LieType.Chevalley.C2E6StdMatrixModel
 public import CFSG.LocalAnalysis.SeitzReduction.HypothesisOneTwistedE6Two
 public import Certificates.Certificate15066
@@ -10,10 +9,7 @@ public import CFSG.LocalAnalysis.ComponentClassification.RankTwoExcHypIIXiO2
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoExcHypIITwistedE6Wit
 import CFSG.Monster.B.Classical.E6AdjointGroup
 import CFSG.LocalAnalysis.SeitzReduction.HypothesisOneTwistedE6ClassesReps
-import CFSG.LargeExtraspecial.S14C12E6Coord
 import CFSG.LieType.Chevalley.C2E6StandardLevi
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LieType.Chevalley.C2E6SubsystemBruhat
@@ -30,9 +26,7 @@ public import CFSG.LocalAnalysis.ComponentInitial.SylowPointRecovery
 public import CFSG.LocalAnalysis.SeitzReduction.HypothesisOneEInner
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Borel
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Lemma83
 public import CFSG.Walter.JRFacts
 import CFSG.LieType.Chevalley.C2E6ExactRootRestrictions
 import CFSG.LieType.Chevalley.C2E6StandardFixedBorelOrder

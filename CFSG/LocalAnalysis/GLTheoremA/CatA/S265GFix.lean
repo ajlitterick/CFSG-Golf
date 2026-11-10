@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265GF2
-public import CFSG.RankThree.Chevalley.SteinbergBTCanonicalFieldCommon
-public import CFSG.HardMathSupport.Solomon.Coordinator.LayerCentralFix
-public import CFSG.GroupTheory.ElemAbelianClosure
 
 public section
 

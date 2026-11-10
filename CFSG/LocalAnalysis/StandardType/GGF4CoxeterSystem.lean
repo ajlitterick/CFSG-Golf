@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveDataResDefs
-public import Mathlib.GroupTheory.Coxeter.Inversion
 import CFSG.LocalAnalysis.StandardType.GGSecFiveRootRefl
-import CFSG.LocalAnalysis.StandardType.GGTypeABstarFarProofRefl
 
 public section
 

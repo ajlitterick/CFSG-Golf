@@ -1,12 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResThreeSettled
-public import CFSG.LocalAnalysis.StandardType.GGResUnitaryQPlusKProducers
-public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkTransport
-public import CFSG.LocalAnalysis.StandardType.GGResE6DepLabels
 public import CFSG.LocalAnalysis.StandardType.GGResLineJAssembly
 public import CFSG.LocalAnalysis.StandardType.GGQTwoVACE6
-public import CFSG.LocalAnalysis.StandardType.GGTDModelU
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Open.Defs
-public import CFSG.Open.LocalVocabulary
 public import CFSG.Open.StatedDefs
 
 public section

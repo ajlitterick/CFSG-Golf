@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Background.Harris.CaseClassificationAndDescent.Hss35C2.Model.Defs
-public import CFSG.Quasithin.EmptyFaithful.SzF53MDefs
 
 public section
 

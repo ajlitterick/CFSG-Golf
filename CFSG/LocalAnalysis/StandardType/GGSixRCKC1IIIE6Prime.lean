@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeConfigID
 import CFSG.LocalAnalysis.StandardType.GGSixFieldFiveTagsRank
 import CFSG.LocalAnalysis.AGLEmbedding.SurvivorBlockInner
-import Mathlib.Tactic.NormNum
 
 public section
 

@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGLatticeRoots
 public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpFork
 public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpAgree
 public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpCartan
-public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpDefs
 
 public section
 

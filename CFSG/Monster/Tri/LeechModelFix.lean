@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Monster.Tri.LeechModelTrace
-public import CFSG.Monster.Existence.ELevelCheck
-public import CFSG.Monster.Tri.LeechModelFixInputs
 public import Certificates.Certificate10049
 public meta import CFSG.Monster.Existence.ELevelCheck
 public meta import CFSG.Monster.Existence.ELevelConv
@@ -38,7 +36,6 @@ public meta import CFSG.Open.MonsterY443Defs
 public import CFSG.Sporadic.Co1Base
 public meta import CFSG.Sporadic.Co1Base
 public meta import CFSG.Sporadic.Th.F2Spec
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

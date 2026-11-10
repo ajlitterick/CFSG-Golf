@@ -1,9 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBJE8LeviEnnola
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUE7
-public import CFSG.HardMathSupport.Meierfrankenfeld.Proving.E7Curtis.E7Arith
-public import CFSG.LocalAnalysis.StandardType.GGTBJE7LeviCore
 public import CFSG.LocalAnalysis.StandardType.GGTBJE7Levi
 public import CFSG.LocalAnalysis.StandardType.GGTBJE7LeviEnnFrame
 public import CFSG.LocalAnalysis.StandardType.GGTBJE7LeviEnnComp

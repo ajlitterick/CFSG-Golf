@@ -2,10 +2,8 @@ module
 
 public import CFSG.Certificates.Kernel.BabyMonster.Chain4
 public import CFSG.Certificates.Kernel.BabyMonster.PairSound
-public import CFSG.Certificates.Kernel.BabyMonster.WfProd
 public import CFSG.Monster.B.Final.SeedUnit
 public import Certificates.Kernel.BabyMonster.B31Regs
-public import Certificates.Kernel.BabyMonster.Chain
 public import Certificates.Kernel.BabyMonster.Seeds
 
 public section

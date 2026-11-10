@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTwE6TwA2KDefs
 public import CFSG.LocalAnalysis.StandardType.GGTwE6TwA2KToralSetup
 public import CFSG.LocalAnalysis.StandardType.GGTwE6TwA2KCompLabel
-public import CFSG.LocalAnalysis.StandardType.GGTwE6TwA2KKernel
 public import CFSG.LocalAnalysis.StandardType.GGTwE6TwA2KTorusCount
 
 public section

@@ -10,8 +10,6 @@ public import CFSG.ClassicalInvolution.RouteD.TypeEAdapt
 public import CFSG.ClassicalInvolution.SmallCases.ConnectedA2
 public import CFSG.ClassicalInvolution.SmallCases.Hat2A7LocalB
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.Ly
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.ClassicalInvolution.ModelFacts.OddCover
 public import CFSG.ClassicalInvolution.Models.OrthogonalPairs

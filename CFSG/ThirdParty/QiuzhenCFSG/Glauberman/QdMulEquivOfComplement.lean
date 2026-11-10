@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Definitions
-public import Mathlib.GroupTheory.Complement
-public import Mathlib.GroupTheory.SemidirectProduct
 
 namespace CFSG
 end CFSG

@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.G2Three.Recog
 public import Certificates.Kernel.G2Three.SylFinal
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

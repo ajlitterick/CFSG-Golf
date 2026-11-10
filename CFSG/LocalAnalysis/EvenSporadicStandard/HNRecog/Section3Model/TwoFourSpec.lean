@@ -3,9 +3,7 @@ module
 public import Certificates.Certificate441692
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.Section3Model.OrbitRowSpec
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.Section3Model.TwoFourAbstract
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.Section3Model.TwoFourCheck
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.TableIZ1
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.InvClasses
 
 public section
 

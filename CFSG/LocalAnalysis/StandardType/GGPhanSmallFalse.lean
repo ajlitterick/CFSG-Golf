@@ -4,9 +4,7 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanSmallDefs
 public import CFSG.LocalAnalysis.StandardType.GGStdUnitaryFourExcl
 public import CFSG.LocalAnalysis.StandardType.GGPhanSmallStrict
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosAssemble
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSCornerDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanAD5
-public import CFSG.LocalAnalysis.StandardType.GGRCWeylCard
 
 public section
 

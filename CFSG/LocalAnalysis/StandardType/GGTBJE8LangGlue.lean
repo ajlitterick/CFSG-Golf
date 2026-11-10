@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJE8LangWitness
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylNoLine
-public import CFSG.LocalAnalysis.StandardType.GGTriD4NoneTransport
-public import CFSG.LocalAnalysis.StandardType.GGTableBTransport
 
 public section
 

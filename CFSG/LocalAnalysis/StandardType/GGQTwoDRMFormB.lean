@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDRMFormA
-import CFSG.LocalAnalysis.StandardType.GGQTwoReflOrth
 import CFSG.LocalAnalysis.StandardType.GGDepARefl
 
 public section

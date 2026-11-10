@@ -4,8 +4,6 @@ public import CFSG.RankThree.PartOne.KE.EvenE7E8QPlusWeyl
 public import CFSG.RankThree.PartOne.KD4T.Certs
 public import CFSG.RankThree.PartOne.KLCE.A2Sector
 public import CFSG.RankThree.Chevalley.SteinbergBTTrialitySplitPrimePlane
-public import CFSG.LieType.Chevalley.GraphFixedHighestRoot
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenCalculus
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public import CFSG.LocalAnalysis.ComponentInitial.LayerComponentOrbit

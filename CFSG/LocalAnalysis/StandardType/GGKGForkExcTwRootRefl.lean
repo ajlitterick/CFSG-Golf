@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcTwNorm
-public import CFSG.LocalAnalysis.StandardType.GGKGForkTransfer
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcWeylReflectionOfFixedPoints
 public import TauCeti.LinearAlgebra.Matrix.Echelon.KernelBasis
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 
 public section
 

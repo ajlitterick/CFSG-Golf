@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6ThreeGlue
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6ThreeTwoTb
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6ThreeTwoDesc
-import CFSG.LocalAnalysis.StandardType.GGRootGenExcLabels
 
 public section
 

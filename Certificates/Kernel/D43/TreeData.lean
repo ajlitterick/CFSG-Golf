@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Perm.HexCmd
 meta import CFSG.Milestones.ASVolI.F48.D43.Inputs
 import Mathlib.Algebra.Order.Floor.Extended

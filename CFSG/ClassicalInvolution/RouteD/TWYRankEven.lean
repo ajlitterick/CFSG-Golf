@@ -2,13 +2,8 @@ module
 
 public import CFSG.ClassicalInvolution.RouteD.TWYVisible
 public import CFSG.ClassicalInvolution.RouteD.TWYEven
-public import CFSG.ClassicalInvolution.RouteD.TWYBridge
 public import CFSG.ClassicalInvolution.RouteD.TWYArith2
-public import CFSG.ClassicalInvolution.RouteD.TWYLayer
 public import CFSG.ClassicalInvolution.RouteD.TWYSp2
-public import CFSG.ClassicalInvolution.Asc77.AscIHSectE
-import Mathlib.NumberTheory.LegendreSymbol.QuadraticChar.Basic
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 
 public section
 

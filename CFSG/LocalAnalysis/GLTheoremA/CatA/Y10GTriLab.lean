@@ -5,11 +5,9 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniLabelPSU
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinFldGrp
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldOrthTail
 public import CFSG.LocalAnalysis.StandardType.GGKGroupFusionSeitzExcComp
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcBasic
 public import CFSG.RankThree.PartTwo.Sec11.KS11Lie2ProofOuter
 public import CFSG.RankThree.PartTwo.Sec13.Item136PGL
 public import CFSG.RankThree.PartTwo.Sec8.Item8KFacts2ProofD4
-public import CFSG.Adapters.RankTwoModelTransports
 public import CFSG.LieType.SemisimpleCentralizers.HeldLangPSL
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoynePSLInner
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneProjSlice

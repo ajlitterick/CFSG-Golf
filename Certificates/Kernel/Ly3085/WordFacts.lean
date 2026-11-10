@@ -1,14 +1,10 @@
 
 module
 
-public import CFSG.Sporadic.Ly.WordFacts
 public import CFSG.Certificates.Kernel.LyOmega.WordsSound
-public import Certificates.Kernel.Ly3085.Omega.Data
-public import Certificates.Kernel.SporSch.Ly.BSData
 public import CFSG.Sporadic.Ly.PrimitiveBase
 public import Certificates.Kernel.Ly3085.Words.Gen
 import Certificates.Kernel.Ly3085.SeedFacts
-import Certificates.Kernel.Ly3085.Bridge
 import Certificates.Kernel.Ly3085.Words.Tw
 import Certificates.Kernel.Ly3085.Words.HH
 public import CFSG.Sporadic.HN.ConjSimple
@@ -16,12 +12,9 @@ public import CFSG.Sporadic.HN.LevelChainSpec
 public import CFSG.Sporadic.Ly.ActionBase
 public import CFSG.Sporadic.Ly.CertificateBase
 public import CFSG.Sporadic.Ly.FaithSpec
-public import CFSG.Sporadic.Ly.FiveFacts
 public import CFSG.Sporadic.Ly.OrbitSpec
 public import CFSG.Sporadic.Schreier.LyChain11
-public import CFSG.Sporadic.Th.F2Spec
 public import CFSG.Sporadic.Th.OrbitSpec
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 
 public section
 

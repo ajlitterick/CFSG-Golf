@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog7L4EUType
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitN36L4Twin
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog7L4EUAnti
 
 public noncomputable section
 

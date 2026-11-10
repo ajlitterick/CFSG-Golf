@@ -1,10 +1,7 @@
 module
 
 public import CFSG.Quasithin.Recognition.GoldschmidtF112RL34
-public import CFSG.Quasithin.Recognition.GoldschmidtF112RSp44
-public import CFSG.Quasithin.Recognition.GoldschmidtF112RG24
 public import CFSG.Quasithin.Recognition.GoldschmidtF112RU42Ext
-public import CFSG.Quasithin.Recognition.GoldschmidtF112RJ2
 public import CFSG.Quasithin.Recognition.GoldschmidtF112RAutJ2
 public import CFSG.GH74.QTGen4.DSGen4.Leaf.A5ClassifyNorm
 public import CFSG.GH74.QTGen4.U42.CentralExtB

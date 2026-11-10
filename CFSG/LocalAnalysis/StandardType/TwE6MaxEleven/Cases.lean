@@ -2,14 +2,12 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.TwE6MaxEleven.Local
 public import CFSG.GH74.GLS.Balance.Bender.T59
-public import Mathlib.GroupTheory.IsPerfect
 public import CFSG.GroupTheory.CoprimeActionSupport.NormalSubgroupSylowJoin
 public import CFSG.GH74.GLS.Balance.Bender.AuxSylow
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups
 public import CFSG.LocalAnalysis.ComponentClassification.Helpers
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 
 public section

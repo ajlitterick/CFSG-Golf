@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.MaxD2PermSound
 public import CFSG.GroupActions.Iwasawa
-public import CFSG.Open.Defs
 
 public section
 

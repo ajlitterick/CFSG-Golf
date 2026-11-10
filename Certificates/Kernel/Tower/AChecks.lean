@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.Kernel.Tower.Tree
 public import Certificates.Kernel.Tower.WData
 public import Certificates.Kernel.Tower.AData
 public import Certificates.Data.Kernel.Tower.Chunk

@@ -8,8 +8,6 @@ public import CFSG.LieType.Chevalley.RootOps.Data.E6
 public import CFSG.LieType.Chevalley.RootOps.Data.E7
 public import CFSG.LieType.Chevalley.RootOps.Data.E8
 public import CFSG.LieType.Ree.Mirror
-public import Certificates.Certificate113
-public import Certificates.Certificate114
 
 public section
 

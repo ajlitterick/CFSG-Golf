@@ -3,7 +3,6 @@ module
 public import Certificates.Data.Kernel.Co1BW
 public import CFSG.Monster.GMS.Griess13.Data
 public import CFSG.Sporadic.Co1Base
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

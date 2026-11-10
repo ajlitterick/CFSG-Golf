@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.ExcPos.E7RootSL2Normalizer
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExcE6
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.SplitRootAction
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcRoots
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.TwoDHighAssembly
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeTw6LongLevi
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.OrbitSelectionPart1
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Conjugation

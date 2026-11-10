@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.Q3TY13
 public import CFSG.ClassicalInvolution.RouteD.TWT8Class
-public import CFSG.ClassicalInvolution.RouteD.TWT8V
 public import CFSG.ClassicalInvolution.ModelFacts.OrthAutMinusNormalized
 public import CFSG.ClassicalInvolution.RouteD.TWEB6Fixed
 public import CFSG.ClassicalInvolution.RouteD.TWEB6YBridge

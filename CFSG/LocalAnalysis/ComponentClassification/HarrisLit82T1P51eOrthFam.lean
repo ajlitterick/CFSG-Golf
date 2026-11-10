@@ -2,11 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1P51eOrthPc
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneOForm
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointDataModelWitness
-public import CFSG.ClassicalGroups.Orthogonal.Simple
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1P51eDefs
 import CFSG.LocalAnalysis.ComponentClassification.GSThmB7QPUClOSign
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.GSFMMaximal
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeSteps
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitFrontier46

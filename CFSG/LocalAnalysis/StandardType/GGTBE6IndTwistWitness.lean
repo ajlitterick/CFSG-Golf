@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBE6IndTwistNormalizer
-public import CFSG.LocalAnalysis.StandardType.GGTDModelDefs
 public import CFSG.LocalAnalysis.StandardType.GGTBE6Witness
-public import CFSG.LocalAnalysis.ComponentClassification.Quasisimple
 public import CFSG.GroupTheory.ConjKerCenter
 
 public noncomputable section

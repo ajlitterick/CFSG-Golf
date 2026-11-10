@@ -10,7 +10,6 @@ public import CFSG.RankThree.PartTwo.Sec14.Ronan148BPSL3IdentBranch
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148TIdTop
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148TIdTheta
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148TEvenFinalAll
-import CFSG.LocalAnalysis.ComponentInitial.FieldNineAlternatingSix
 import CFSG.RankThree.SubgroupLists.LinearTwoFamily
 
 public section

@@ -1,13 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight102KFacts
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.PartOne
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight105Fixed
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight102Sylow
-import CFSG.Quasithin.Background.OrderingMax
 import CFSG.GroupTheory.HuppertProduct.Quotient
 import CFSG.GroupTheory.PCoreJoin
-import CFSG.LocalAnalysis.RankThreeCoreUniqueness.PerfectResiduals
 import CFSG.LocalAnalysis.UniquenessCase.UC6S846d
 
 public section

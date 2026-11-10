@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.B433Alt.StOK
 public import CFSG.Certificates.Kernel.Common.ForallTree
 public import Certificates.Kernel.B433Alt.St.S0
 public import Certificates.Kernel.B433Alt.St.S1

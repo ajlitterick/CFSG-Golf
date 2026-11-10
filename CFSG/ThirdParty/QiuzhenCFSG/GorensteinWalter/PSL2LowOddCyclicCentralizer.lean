@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonClassification
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Classification
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2RootCentralizer
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section1
 import Mathlib.Tactic

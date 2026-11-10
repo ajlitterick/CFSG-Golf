@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Fi22Core.Data
 public import CFSG.Certificates.Kernel.Spor.F3LaneSound
 public import CFSG.Certificates.Kernel.Spor.F3R
-public import CFSG.F3.ConjSpec
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Spor.Loops
 

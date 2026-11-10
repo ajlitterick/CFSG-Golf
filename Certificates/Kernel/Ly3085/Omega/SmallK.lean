@@ -3,7 +3,6 @@ module
 import Certificates.Kernel.Ly3085.Omega.SwData
 public import Certificates.Kernel.Ly3085.Omega.HData
 import CFSG.Certificates.Kernel.Common.EachTrue
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.Repo
 
 public section

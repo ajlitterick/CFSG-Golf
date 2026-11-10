@@ -1,10 +1,8 @@
 module
 
-public import CFSG.Assembly.GL83LieDefs
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentVocab
 
 import TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.Centralizer
-import CFSG.LocalAnalysis.StandardType.GGTriD4KnownInputs
 
 public section
 

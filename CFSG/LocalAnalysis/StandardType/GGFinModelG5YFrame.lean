@@ -1,11 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGFinModelG5Defs
 public import CFSG.LocalAnalysis.StandardType.GGFinModelG5YBasic
 public import CFSG.LocalAnalysis.StandardType.GGFinModelG5LangDatum
 public import CFSG.LocalAnalysis.StandardType.GGFinModelG5RankOne
 public import CFSG.LocalAnalysis.StandardType.GGFinModelG5Bridge
-public import CFSG.RankThree.Chevalley.SteinbergCEF4EvenQPlusWeyl
 
 public section
 

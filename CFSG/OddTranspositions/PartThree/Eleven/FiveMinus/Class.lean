@@ -3,7 +3,6 @@ module
 public import CFSG.OddTranspositions.PartThree.Eleven.Five.Refl
 import CFSG.OddTranspositions.PartThree.Eleven.FiveMinus.Spinor
 import CFSG.OddTranspositions.PartThree.Eleven.FiveMinus.Thirteen
-import Mathlib.Data.Fin.SuccPred
 
 public section
 

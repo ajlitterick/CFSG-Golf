@@ -4,8 +4,6 @@ public import CFSG.Certificates.Kernel.SporSch.HNXCnt.Base
 public import CFSG.Certificates.Kernel.Spor.Loops
 public import CFSG.Sporadic.Th.TableSpec
 public import Certificates.Data.Kernel.SporSch.HNXBind
-public import Mathlib.RingTheory.WittVector.IsPoly
-public import Mathlib.Tactic.ReduceModChar
 
 public section
 

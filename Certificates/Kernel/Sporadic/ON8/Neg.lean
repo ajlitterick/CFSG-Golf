@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Sporadic.ON8.Defs
-import CFSG.Certificates.Kernel.Common.Harness
 public import Certificates.Kernel.Sporadic.ON5.Defs
 
 public section

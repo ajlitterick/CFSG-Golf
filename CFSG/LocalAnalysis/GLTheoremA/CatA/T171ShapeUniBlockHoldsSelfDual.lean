@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeUniBlockJ2
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeInnAutCore
 import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieOuterUnitary
-import CFSG.Foundations.SteinbergCADefinitionNodes
 import CFSG.Models.Blueprint
-import CFSG.Adapters.TauCetiLieModels
 import CFSG.Blueprint.LieModelAPI
 import CFSG.Goldschmidt.Steps.G37Core
 import CFSG.HardMathSupport.Dickson.Sec6.I923Fam.PsuGoodAux.Descent

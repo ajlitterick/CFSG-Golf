@@ -2,13 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82E3.KInputsLie
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.K6L4Defs
-public import CFSG.LocalAnalysis.ComponentInitial.LinearUnitaryField
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.K6L4Realize
-import CFSG.LieType.Universal.Unitary.Comparison
-import CFSG.LieType.BorelTits.UnitaryForm
 import CFSG.GroupTheory.WeirSylow.UniqueE27GLFour
 public import CFSG.RankThree.PartTwo.Sec4.Item419Res3ProofU4Blocks
-public import CFSG.RankThree.PartTwo.KFacts.KS222U4OddBlock
 import CFSG.RankThree.PartTwo.Sec8.Hering418FU4Blk
 import CFSG.RankThree.SubgroupLists.UnitaryThreeFamily
 import CFSG.RankThree.PartOne.KF.SUSylow
@@ -21,7 +17,6 @@ public import CFSG.RankThree.PartOne.KF.UnitaryModel
 public import CFSG.RankThree.PartTwo.Late.GammaZero
 public import CFSG.RankThree.PartTwo.Sec13.Statements
 public import CFSG.RankThree.PartTwo.Sec18.Notation
-public import CFSG.RankThree.PartTwo.Sec18.Tools
 public import CFSG.RankThree.PartTwo.Sec21.Item2130Res4ProofU4Cent
 public import CFSG.RankThree.PartTwo.Sec21.Item2130Res4ProofU4Wt
 public import CFSG.RankThree.PartTwo.Sec21.Item229Diagram

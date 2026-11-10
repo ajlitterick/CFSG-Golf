@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTypeAFarPerm
-public import CFSG.LocalAnalysis.StandardType.GGTypeAEndNodeBlock
 
 public section
 

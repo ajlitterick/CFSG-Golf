@@ -1,27 +1,14 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.S10.Inputs105
-public import CFSG.LocalAnalysis.GLTheoremA.ExcClubList
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I112DiagChev
 public import CFSG.LocalAnalysis.GLTheoremA.S4.FullCover.MultLie
-public import CFSG.LocalAnalysis.ComponentClassification.CatFC.AltSevenNotLie
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofLieOrder
 public import CFSG.LocalAnalysis.SeitzReduction.CrossCharCert
 public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotCatTypeDet
 public import CFSG.LocalAnalysis.EvenBN.GMSK.TypeDetBender
-public import CFSG.LocalAnalysis.StandardType.Marking
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangRestField
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldSymplectic
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExc
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldUnitary
-public import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOtherUnitary
-public import CFSG.LocalAnalysis.ComponentInitial.FieldFiniteAutomorphism
-public import CFSG.LocalAnalysis.ComponentInitial.FieldNineAlternatingSix
-public import CFSG.LocalAnalysis.ComponentInitial.LinearUnitaryField
-public import CFSG.Adapters.TauCetiLieModels
-public import CFSG.Adapters.ProjectiveSpecialLinear
 public import CFSG.Models.Blueprint
-public import CFSG.Sporadic.Mathieu.M22
 public import CFSG.Sporadic.Bridge.Catalogue
 public import CFSG.Blueprint.LieModelAPI
 public import CFSG.Certificates.CentralKernel

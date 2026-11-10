@@ -1,8 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Timmesfeld.Steinberg.ThreeChar
-public import CFSG.LieType.Chevalley.KernelComponentRoots
-public import Std.Data.HashMap
 public import Std.Data.HashSet
 
 public section

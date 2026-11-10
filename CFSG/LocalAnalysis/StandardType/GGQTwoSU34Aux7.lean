@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoSU34Aux6
-public import CFSG.LocalAnalysis.ComponentClassification.Quasisimple
-import CFSG.Foundations.QuasisimpleMulEquiv
 import CFSG.Foundations.SteinbergCADefinitionNodes
 
 public section

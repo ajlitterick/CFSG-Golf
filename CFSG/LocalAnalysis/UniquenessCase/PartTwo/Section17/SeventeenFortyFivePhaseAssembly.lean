@@ -5,18 +5,8 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenForty
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenFortyFivePhaseOdd
 import CFSG.LocalAnalysis.UniquenessCase.UC6K35Holds
 import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.P64AsmTwoBasic
-import CFSG.Foundations.KCoreOpen
-public import CFSG.Monster.Existence.StdOdd.Defs
-public import Certificates.Data.CFSGNative.Chevalley.C2E6CertLie
-public import CFSG.LieType.Chevalley.C2E6StdMatrixData
-public import CFSG.Monster.B.Classical.E6AdjointGroup
 import Certificates.Kernel.Misc.E6StdSlp
-public import CFSG.Blueprint.NativeSporadic
-public import CFSG.RankThree.PartOne.CTP.FusionSound
-import CFSG.Sporadic.Bridge.BFusSevenGen
-public import CFSG.YGroups.Y443.Native.CoverFactsWords
 import Certificates.Kernel.KDense.Y443
-public import CFSG.YGroups.Y443.Native.Swap13Word
 public import CFSG.HardMathSupport.Solomon.Coordinator.GFR1Basic
 public import CFSG.HardMathSupport.Solomon.Coordinator.GFR2Layer
 public import CFSG.HardMathSupport.Solomon.Coordinator.I14_20Alt
@@ -33,7 +23,6 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly

@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Sporadic.Fi22.F1OuterS
 public import Certificates.Data.Kernel.Fi22U.Codes
-public import Certificates.Data.Kernel.Spor.Chain
 public import CFSG.Certificates.Kernel.Common.Each
 import CFSG.Certificates.Kernel.Common.Harness
 

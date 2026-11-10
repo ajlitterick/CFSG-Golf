@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHSInputs
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatQuot
 public import Certificates.Data.CFSGNative.SporLat.BuildPt
 
 public section

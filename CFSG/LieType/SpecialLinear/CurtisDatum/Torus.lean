@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionSL
 public import CFSG.LieType.SpecialLinear.CurtisDatum.NegExcept
 public import CFSG.LieType.SpecialLinear.CurtisDatum.RankOne
-public import CFSG.LieType.Steinberg.Bridge
 
 public section
 

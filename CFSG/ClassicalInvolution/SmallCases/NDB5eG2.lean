@@ -1,10 +1,7 @@
 module
 
 public import CFSG.ClassicalInvolution.SmallCases.NDB5dTag
-import CFSG.ClassicalInvolution.Asc77.AscT3UG2D4
 import CFSG.ClassicalInvolution.Asc77.AscT3ULayer
-import CFSG.ClassicalInvolution.Asc77.AscT7AHyp51
-import CFSG.ClassicalInvolution.ModelFacts.Orth15TwinT
 import CFSG.ClassicalInvolution.Asc77.AscT7CExit25
 import CFSG.ClassicalInvolution.Asc77.AscT7CWz
 import CFSG.ClassicalInvolution.Asc77.AscT7D242

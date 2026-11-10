@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTwE6RootAsToral
 public import CFSG.LocalAnalysis.StandardType.GGTwE6RootKernel
 public import CFSG.LocalAnalysis.StandardType.GGTwE6LeviSplit
 public import CFSG.LocalAnalysis.StandardType.GGTwE6EnnolaSplit
-public import CFSG.LocalAnalysis.StandardType.GGTwE6RootKillWeyl
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Inner
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTamePrime
 public import CFSG.HardMathSupport.Solomon.Coordinator.I14_20Alt

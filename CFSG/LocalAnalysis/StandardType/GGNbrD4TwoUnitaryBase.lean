@@ -6,9 +6,7 @@ public import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseTwoAFiveE
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoBridge
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLExc11R
 public import CFSG.LocalAnalysis.StandardType.GGNsq2U62
-public import CFSG.LocalAnalysis.StandardType.GGResidualRk1FrameRest
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSQ2U62Setup
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 import CFSG.LocalAnalysis.StandardType.GGNSJoinBaseOrthFrame
 
 public section

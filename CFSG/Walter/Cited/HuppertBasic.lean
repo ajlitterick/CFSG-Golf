@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.CoprimeHall
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GeneratorRank
 
 public section

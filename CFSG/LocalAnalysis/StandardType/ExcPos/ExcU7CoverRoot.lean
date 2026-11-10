@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LieType.Universal.Unitary.Extras
 public import CFSG.LieType.Universal.Unitary.RootGroupCard
 public import CFSG.LieType.Universal.Unitary.RootGroupCardRankTwo
 import CFSG.LieType.Universal.Unitary.Extras.Basic

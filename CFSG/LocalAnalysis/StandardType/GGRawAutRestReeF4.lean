@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRawAutRestCore
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangReeF4
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiag
 
 public section
 

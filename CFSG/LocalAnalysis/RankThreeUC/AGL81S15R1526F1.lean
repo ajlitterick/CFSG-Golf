@@ -7,15 +7,9 @@ import CFSG.LocalAnalysis.RankThreeUC.AGL81S15R1512B
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15LiftBasic
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15R1515A
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RankBase
-import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsGroup
 import CFSG.LocalAnalysis.RankThreeUC.AGL81S15R1526LN
-import CFSG.LocalAnalysis.ComponentClassification.UnbalancedLayerOddCoreQuotient
 import CFSG.Goldschmidt.Steps.G63Basic
-import CFSG.LocalAnalysis.SectionRank.Ccomm.Supercritical
-import CFSG.LocalAnalysis.SectionRank.Ccomm.FrattiniAut
-import CFSG.LocalAnalysis.SectionRank.Ccomm.RankTwo
 import CFSG.HardMathSupport.Malle.OvergroupTransport.Transport
-import CFSG.CharacterTheory.Semidihedral.Local.CoprimeCentralizerQuotient
 public import Certificates.Kernel.ThCent.Leaves
 import CFSG.Goldschmidt.Statements
 import CFSG.Goldschmidt.StatementsH

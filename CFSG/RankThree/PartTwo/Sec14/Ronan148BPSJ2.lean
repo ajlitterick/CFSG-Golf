@@ -2,16 +2,10 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148BPSConj
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatLat
-public import CFSG.RankThree.PartTwo.Sec14.Ronan148BJ2V
-public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.Coordinator.KF148Sig.J2Inspect
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.Coordinator.KF148Sig.SigHJ
-public import CFSG.LocalAnalysis.ComponentInitial.FourGroupCommuting
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatPt
 public import CFSG.RankThree.PartTwo.KFacts.KS116LinBasic
 public import CFSG.RankThree.PartTwo.Sec5.Tools
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434AltPerm
-public import CFSG.LocalAnalysis.RankThreeCoreUniqueness.PerfectResiduals
-public import CFSG.CharacterTheory.Burnside
 public import Certificates.Certificate148014
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField

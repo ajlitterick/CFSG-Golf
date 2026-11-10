@@ -10,7 +10,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.ClassicalModelStatedBri
 public import CFSG.LocalAnalysis.LargeEvenClassification.WeakCore
 public import CFSG.LocalAnalysis.QuasithinUnique.CompNormSylow
 public import CFSG.LocalAnalysis.RankTwoShapes.UnitaryFour.Bridge
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

@@ -1,29 +1,17 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6RatLabel
-public import CFSG.RankThree.PartOne.KD4T.Normal
-public import CFSG.RankThree.PartOne.KD4T.Inj
 public import CFSG.RankThree.PartOne.KD4L.TriStd
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcD4Action
-public import CFSG.RankThree.PartOne.KD4T.Emb
 public import CFSG.RankThree.PartOne.KE.D4TranspositionInterface
 import CFSG.LocalAnalysis.StandardType.GGExcCompSLOuter
 import CFSG.LocalAnalysis.StandardType.GGExcCompSLRankFour
-import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompIdxExc2
 import CFSG.LocalAnalysis.GLTheoremA.CatA.L154NonCfgRank4
-import CFSG.LocalAnalysis.GLTheoremA.CatA.L154NonCfgRank4B
-import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CompsPTwoDChainO
-import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompIdxExc
-import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompIdxExcTw2
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CompsPD4Rank4All
-import CFSG.RankThree.PartTwo.Census.Carrier.SpinTDOdd
-import CFSG.Blueprint.SourceClassicalTransportOrthogonal
 import CFSG.HardMathSupport.Dickson.DefCharOuter.Export.ExcTrialityOrient
-import CFSG.HardMathSupport.Timmesfeld.RootAut.Main
 public import CFSG.RankThree.Chevalley.SteinbergBID4CentralKernel
 public import CFSG.RankThree.PartOne.KE6.E6LRes
 import CFSG.ClassicalInvolution.Q3.Q3TWWMinus
-import CFSG.HardMathSupport.Dickson.Sec6.I1431Lie
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.Defs
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwCoreAssembly
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24Plane
@@ -31,7 +19,6 @@ import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24Red
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CompsPD4Rank4
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TriD4
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TwE6
-import CFSG.LieType.SeitzGeneration.SeitzStatus
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.FamilyU3Top
 import CFSG.LocalAnalysis.SeitzReduction.E6PilotCTFieldCenter
 import CFSG.LocalAnalysis.SeitzReduction.E6PilotClassesRoots

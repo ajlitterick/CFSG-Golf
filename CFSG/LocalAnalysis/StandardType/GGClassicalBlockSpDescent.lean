@@ -1,17 +1,14 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockDefs
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockDecomp
 public import CFSG.HardMathSupport.Foote.ModuleExclusions.Hilbert90
-public import CFSG.Open.StatedAPI
 public import CFSG.ClassicalGroups.Unitary.Form
 public import TauCeti.LinearAlgebra.BilinearForm.SymplecticBasis
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBLinearTwoFixedField
 public import CFSG.LieType.BorelTits.CompleteFlag
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoAllFields
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoGeneralLinear
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

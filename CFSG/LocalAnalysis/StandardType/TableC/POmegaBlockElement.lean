@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.TableC.GramBlockRank
 public import CFSG.LocalAnalysis.StandardType.TableC.OrthGram
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173MixedPair
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.StepA2
 public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockOmegaDecomp
 public import CFSG.HardMathSupport.Dickson.Bal207.OrthD4Loc
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173Facts

@@ -2,13 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.PRankSmall
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.CentralLift
-public import CFSG.LieType.Steinberg.Adjoint.Torus
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.LowerLinear
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.LowerSymplecticOrth
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.LowerExcOne
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.LowerLiftLocal
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.LowerOrthOne
-public import CFSG.Open.StatedDefs
 public import CFSG.LieType.Steinberg.CentralExt.GriessOmegaEightTwo
 public import CFSG.LocalAnalysis.AGLEmbedding.CaseTwoConfig
 public import CFSG.LocalAnalysis.AGLEmbedding.CaseTwoEscape

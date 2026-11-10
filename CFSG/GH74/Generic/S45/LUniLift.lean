@@ -2,8 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.ModelFacts.UnitaryAutMain
 public import CFSG.LieType.Steinberg.CentralExt.UnitaryHigher
-public import CFSG.LocalAnalysis.ComponentInitial.FieldUnitaryNorm
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

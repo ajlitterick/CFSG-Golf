@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosDefs
 import CFSG.LocalAnalysis.StandardType.GGSecFivePumpupRoots
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
 import CFSG.LocalAnalysis.StandardType.GGKGPosTagWeyl
-import CFSG.LocalAnalysis.StandardType.GGSimplyLacedWeyl
-import TauCeti.GroupTheory.Coxeter.Geometric
 
 public section
 

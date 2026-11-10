@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.LinearAlgebra.Quotient.Basic
 public import Mathlib.LinearAlgebra.FiniteDimensional.Defs
 
 public section

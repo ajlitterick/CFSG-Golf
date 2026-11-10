@@ -2,14 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieInnerDiagDefs
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentVocab
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwo
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseNoBL5Aut
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL4546Defs
 import CFSG.LocalAnalysis.StandardType.GGLieInnerDiagLinear
 import CFSG.LocalAnalysis.StandardType.GGMarkingAllInduces
 import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourCoverMark
 import CFSG.LocalAnalysis.StandardType.GGLieSU3FixedLift
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45
 import CFSG.LocalAnalysis.ComponentClassification.HarrisLitN36L4Twin
 import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog7L4EForms
 

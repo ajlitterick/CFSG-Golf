@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.Fi23PerfInputs
 import Certificates.Kernel.Fi23Pf.Checks
 import Certificates.Kernel.Fi23M.Facts
 import Certificates.Kernel.Fi23M.WGlue
-import Certificates.Kernel.VecCert.WordProg
-import CFSG.Certificates.Kernel.Spor.Mat3Sound
 import CFSG.Certificates.Kernel.DecTextSound
 import CFSG.Certificates.Kernel.Common.StrSplit
 import CFSG.Certificates.Kernel.Common.StrChars

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSylowCyclic
-public import CFSG.LieType.Chevalley.LangAdjointDiagonalLift
 
 public section
 

@@ -2,8 +2,6 @@ module
 
 public import Certificates.Kernel.Sporadic.OddCore.PEnumCmd
 public import Certificates.Kernel.Sporadic.OddCore.PEnumGlue
-public import Certificates.Kernel.Misc.Perm.HexCmd
-public import Certificates.Kernel.LocalComp.L34RData
 public import Certificates.Kernel.LocalComp.L34SChk
 public import Certificates.Data.Kernel.L34DWord
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsParabolicCertInputs

@@ -1,8 +1,6 @@
 module
 
 public import Certificates.Kernel.L34Cov.LiftNormChecks
-public import Certificates.Kernel.Misc.Perm.HexCmd
-public import CFSG.Certificates.PresentationLetters
 meta import Certificates.Data.Kernel.L34Cov.ABTabs
 
 public section

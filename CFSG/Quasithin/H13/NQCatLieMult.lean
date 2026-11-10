@@ -1,21 +1,14 @@
 module
 
 public import CFSG.Quasithin.Vol2.Ch7Sec77Inputs
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.LinearCentralCover
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.UnitaryCentralCover
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.MatrixFieldTransport
 public import CFSG.LocalAnalysis.ComponentInitial.LinearCoverLarge
 public import CFSG.LocalAnalysis.ComponentInitial.SymplecticCoverFour
-public import CFSG.LieType.Chevalley.ExceptionalLargeEvenCoverSeries
 public import CFSG.LieType.Chevalley.TrialityCover
-public import CFSG.LieType.Ree.LargeReeCentralTwoCover
 public import CFSG.LieType.Ree.LargeReeEightCentralTwoCover
-public import CFSG.LieType.Simplicity.Suzuki
 public import CFSG.LieType.Steinberg.CentralExt.SuzukiMultiplier
 public import CFSG.Assembly.OrderReductions.LinearOrders
 public import CFSG.LocalAnalysis.QuasithinUnique.GammaFamiliesBasic
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentInitial.SylowPointRecovery
 public import CFSG.LocalAnalysis.SectionRank.EvenCover.Catalog
@@ -26,15 +19,10 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.A3StructureFacts
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

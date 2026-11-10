@@ -2,7 +2,6 @@ module
 
 public import CFSG.Sporadic.Schreier.ONActionData
 public import Certificates.Data.CFSGNative.ONSchreier.Vectors
-public import Certificates.Data.CFSGNative.ONSchreier.Compact
 public import Certificates.Data.CFSGNative.Schreier.Merge
 public meta import CFSG.Sporadic.Schreier.ONActionData
 public meta import Certificates.Data.CFSGNative.ONSchreier.Vectors

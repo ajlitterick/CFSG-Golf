@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGLieParabolicCharOn
 public import CFSG.LocalAnalysis.StandardType.GGLieParabolicCharLin
-public import CFSG.LocalAnalysis.StandardType.GGLieParabolicCharSp
 public import CFSG.LocalAnalysis.StandardType.GGLieParabolicCharUni
 public import CFSG.LocalAnalysis.StandardType.GGLieParabolicCharOrthD
 public import CFSG.LocalAnalysis.StandardType.GGLieParabolicCharOrthTail

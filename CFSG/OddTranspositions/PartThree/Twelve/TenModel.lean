@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434SmallTwoOtherSpTools
-public import CFSG.RankThree.PartOne.KC.SymplecticFullCentralizerTransvection
 public import CFSG.Permutation.AlternatingAutomorphism
 public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeLinear
 public import CFSG.RankThree.PartOne.KC.UnitaryPrimaryAlgebra

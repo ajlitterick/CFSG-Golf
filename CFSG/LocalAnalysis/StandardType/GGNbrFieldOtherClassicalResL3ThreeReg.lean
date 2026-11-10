@@ -3,8 +3,6 @@ module
 public import Mathlib.LinearAlgebra.Vandermonde
 public import Mathlib.LinearAlgebra.Matrix.ToLinearEquiv
 public import Mathlib.Algebra.Polynomial.SpecificDegree
-public import Mathlib.RingTheory.PrincipalIdealDomain
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
 
 public section
 

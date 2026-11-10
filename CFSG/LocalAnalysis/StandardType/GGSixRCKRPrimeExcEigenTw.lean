@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcDefs
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Defs
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.FrobeniusOnRoots
-public import CFSG.RankThree.E6.RootLatticeTools
-public import CFSG.LieType.SeitzGeneration.ExcTorusCount
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreAutomizer
 
 public section

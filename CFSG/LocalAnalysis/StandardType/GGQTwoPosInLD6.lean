@@ -4,10 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoD6NormForm
 public import CFSG.LocalAnalysis.StandardType.GGQTwoD6FrameLoc
 public import CFSG.LocalAnalysis.StandardType.GGQTwoD6Group2
 public import Certificates.Certificate712502
-public import CFSG.LocalAnalysis.StandardType.GGQTwoK1OfI1
-public import CFSG.LocalAnalysis.StandardType.GGQTwoAjSetting
-public import CFSG.LocalAnalysis.StandardType.GGQTwoPosInLCells
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 
 public section
 

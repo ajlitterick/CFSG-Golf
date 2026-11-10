@@ -2,7 +2,6 @@ module
 
 public import CFSG.LargeExtraspecial.AS35WCheck
 public import CFSG.LargeExtraspecial.AS35WList
-public import CFSG.LargeExtraspecial.AS35WQP45Data
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallPSp43Model
 public import Certificates.Certificate21296
 public import CFSG.ClassicalInvolution.ModelFacts.G2D4G2Edge

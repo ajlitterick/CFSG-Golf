@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Sporadic.Suz.Imgs2306
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.EachUnfold
 
 public section

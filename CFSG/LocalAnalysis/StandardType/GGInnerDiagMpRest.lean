@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGAssemblyThreeHypSix
 public import CFSG.LocalAnalysis.StandardType.GGInnerDiagBridgeTypeA
-public import CFSG.LocalAnalysis.StandardType.Marking
-public import CFSG.Milestones.CL_LIT_Curtis_Tits_presentation_theorem
-public import CFSG.LieType.CurtisTits.Unitary
 
 public section
 

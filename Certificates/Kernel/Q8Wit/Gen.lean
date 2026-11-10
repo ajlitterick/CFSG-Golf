@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.LocalComp.BfsGen
-public import Certificates.Data.Kernel.BfsPin
 public meta import CFSG.Certificates.Kernel.Common.Tab
 public meta import Certificates.Kernel.Sporadic.RawGen
 public meta import Certificates.Kernel.LocalComp.BfsGen

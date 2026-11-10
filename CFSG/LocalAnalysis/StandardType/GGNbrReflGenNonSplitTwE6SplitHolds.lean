@@ -4,10 +4,7 @@ public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitTwE6SplitFrame
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitTwE6
 import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesE6SplitNormalizer
 import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6Split
-import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylExcPlusFrameFusion
 import CFSG.LocalAnalysis.StandardType.GGTableBTwE6RankOuter
-import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaOutdiag
-import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaCenter
 import CFSG.LocalAnalysis.StandardType.GGTwE6ToralCent
 
 public section

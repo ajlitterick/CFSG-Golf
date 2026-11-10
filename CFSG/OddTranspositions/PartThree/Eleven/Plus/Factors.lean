@@ -4,7 +4,6 @@ public import CFSG.OddTranspositions.PartThree.Eleven.Plus.Perm
 public import CFSG.OddTranspositions.PartThree.Eleven.PlusFacts
 public import Certificates.Certificate1383003
 import CFSG.GroupTheory.QuasisimpleCommutingProductBound
-import TauCeti.GroupTheory.DerivedCentralQuotient
 
 public section
 

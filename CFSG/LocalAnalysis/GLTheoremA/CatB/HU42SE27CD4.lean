@@ -1,22 +1,12 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.HU42SE27CDefs
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanChevInnerOmega
 
 import CFSG.LocalAnalysis.GLTheoremA.CatA.HSubTOmGaps
 import CFSG.LocalAnalysis.GLTheoremA.CatA.HSubTOmMinus6
-import CFSG.LocalAnalysis.GLTheoremA.CatA.HSubTFinOmega
 import CFSG.LocalAnalysis.GLTheoremA.CatA.HSubTResGUComp
 import CFSG.LocalAnalysis.GLTheoremA.CatA.HSubTResGUIso
-import CFSG.LocalAnalysis.GLTheoremA.CatA.HSubTSp8A
-import CFSG.LocalAnalysis.GLTheoremA.CatA.HSubTOmBasic
-import CFSG.LocalAnalysis.GLTheoremA.CatB.U4InnSp8b
-import CFSG.LocalAnalysis.GLTheoremA.CatB.U4InnD4b
-import CFSG.LocalAnalysis.GLTheoremA.CatB.U4Tab5
-import CFSG.LieType.Universal.Unitary.Clause0
-import CFSG.LinearAlgebra.LinearGroups.UnitaryOrder
 import CFSG.Quasithin.Background.ONanE68LieSwap
-import CFSG.GroupTheory.ABGLocalTools.PStabilityQDickson
 public import CFSG.LargeExtraspecial.S14Defs
 public import CFSG.LargeExtraspecial.S14Inputs
 public import CFSG.LieType.Multipliers.U62Sylow
@@ -57,9 +47,6 @@ import CFSG.Open.SplitBNPair
 import CFSG.Quasithin.Background.B1More13
 import CFSG.Quasithin.Background.C129NativeMain
 import CFSG.Quasithin.Background.E3
-import CFSG.Quasithin.Background.E3Nprime
-import CFSG.Quasithin.Background.E3Uniq
-import CFSG.Quasithin.Background.E4Solv
 import CFSG.Quasithin.Background.F9Sixteen
 import CFSG.Quasithin.Background.ONanE68Alt
 import CFSG.Quasithin.Background.ONanE68Cases

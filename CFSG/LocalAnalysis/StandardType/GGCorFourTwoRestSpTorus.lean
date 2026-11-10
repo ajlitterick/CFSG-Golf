@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySpModel
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoTableBLift
 
 public section
 

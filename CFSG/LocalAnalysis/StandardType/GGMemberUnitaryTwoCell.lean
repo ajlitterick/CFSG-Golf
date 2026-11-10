@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGMemberRowsDefs
 public import CFSG.LocalAnalysis.StandardType.GGResidualRk1UnitaryTwo
 public import CFSG.LocalAnalysis.StandardType.GGNsq2NbrX
 

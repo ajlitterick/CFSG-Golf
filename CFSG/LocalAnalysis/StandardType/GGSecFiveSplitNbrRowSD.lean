@@ -2,12 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
-public import CFSG.Assembly.LargeEvenDefs
 import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowSCore
-import CFSG.LocalAnalysis.StandardType.Marking
 import CFSG.LieType.Steinberg.CentralExt.SpinPlusCentrallyClosed
 import CFSG.LieType.Steinberg.CentralExt.OrthogonalPerfect
-import CFSG.LieType.Universal.SpinOmega.Kernel
 
 public section
 

@@ -3,14 +3,9 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQ2OrthFrame
 import CFSG.LocalAnalysis.StandardType.GGQ2OrthPlaneForm
 import CFSG.LocalAnalysis.StandardType.GGQ2OrthTauMemOmega
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorusCore
 import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOrthNsConj
-import CFSG.LocalAnalysis.StandardType.GGQTwoVACOrth
 import CFSG.LocalAnalysis.StandardType.GGQTwoVACOrthNonFull
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointDataReindexGroups
 import CFSG.LocalAnalysis.StandardType.GGQ2SpBlocksCentExt
-import CFSG.LocalAnalysis.StandardType.GGQ2SpBlocksGroup
-import CFSG.RankThree.CentralCover.SteinbergBNLinearTorus
 import CFSG.LocalAnalysis.StandardType.GGTBJOmModelMap
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutNonsplitOmChar
 

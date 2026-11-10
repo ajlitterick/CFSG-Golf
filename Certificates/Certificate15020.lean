@@ -1,11 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicHNTests
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicHNData
 public import Certificates.Kernel.SporSch.HN.Pt15020
-import Certificates.Certificate2099
-import Certificates.Certificate2100
-import Certificates.Certificate2102
 
 public section
 

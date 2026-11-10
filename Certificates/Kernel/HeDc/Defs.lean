@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.HeDc.Data
 public import Certificates.Kernel.LocalQT.Base.C4141D
-public import Certificates.Data.Kernel.SporLatDc
 
 public noncomputable section
 

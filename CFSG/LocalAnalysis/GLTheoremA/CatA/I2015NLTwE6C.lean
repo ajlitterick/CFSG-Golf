@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I2015NLTwE6B
-import CFSG.RankThree.Chevalley.SteinbergBTTwistedE6OddField
 import CFSG.SignalizerFunctorTheorem.CatalogBridge.NonLocalTwistedE6Main
 import CFSG.SignalizerFunctorTheorem.NonLocal.TwistedE6Small
 

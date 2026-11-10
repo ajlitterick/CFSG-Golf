@@ -1,13 +1,6 @@
 module
 
-public import CFSG.GH74.GLS.IVK.Proofs2.Ivk47abShape
 public import CFSG.GH74.GLS.Stage2.Signalizer.Ivk8C12Gen
-public import CFSG.ClassicalInvolution.SL2Facts
-public import CFSG.GroupTheory.LocalCores.Components
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PPrimeCore
-public import Mathlib.GroupTheory.NoncommCoprod
-import CFSG.GH74.GLS.IVK.Proofs2.GHInvShape
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GH74.GLS.IVK.Proofs2.OddTools
 public import CFSG.GH74.GLS.Stage2.Bender.Thm2.Closed
 public import CFSG.GH74.GLS.Stage2.Bender.Thm2.IVK812Stmt

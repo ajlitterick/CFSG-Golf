@@ -6,7 +6,6 @@ public import CFSG.Quasithin.Vol2.Ch12Sec6KGCompOdd
 public import CFSG.LocalAnalysis.EvenBN.G2.LocalU
 public import CFSG.LocalAnalysis.EvenSmallLie.GTwoFour.Centralizers
 public import CFSG.LocalAnalysis.ComponentInitial.CLSFourGroupLinearThreeFour
-public import CFSG.LinearAlgebra.SL2MinimalFaithfulMatrix
 public import CFSG.RankThree.PartOne.K1214.Basic
 import CFSG.Timmesfeld.Orders.Exceptional
 public import CFSG.LocalAnalysis.EvenBN.Common.CommutatorFixed

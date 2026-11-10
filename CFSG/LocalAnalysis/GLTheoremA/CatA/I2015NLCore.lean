@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I2015NLRed
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FRResAll
-public import CFSG.SignalizerFunctorTheorem.CatalogBridge.NonLocal
-import CFSG.SignalizerFunctorTheorem.CatalogBridge.DicksonNonLocal
 public import CFSG.LieType.Multipliers.U62Sylow
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanChevOuterD42Spec
 public import CFSG.LocalAnalysis.ComponentClassification.Foote5CoreEven

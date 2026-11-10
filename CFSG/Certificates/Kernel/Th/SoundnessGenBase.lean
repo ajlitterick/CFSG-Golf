@@ -12,11 +12,8 @@ public import CFSG.Certificates.Kernel.Th.Gen.Fwd
 public import CFSG.Certificates.Kernel.Th.Gen.Gen
 public import CFSG.Certificates.Kernel.Th.Gen.DceStruct
 public import CFSG.Sporadic.Th.KernelInputsBase
-public import CFSG.Blueprint.NativeSporadic
 import CFSG.Certificates.Kernel.Common.Generalize
-import CFSG.Certificates.Kernel.Th.Spec.Big
 import CFSG.Certificates.Kernel.Th.Spec.Dce
-import CFSG.Certificates.Kernel.Th.Spec.DceHsw
 import CFSG.Certificates.Kernel.Th.Spec.Seed
 import CFSG.Certificates.Kernel.Th.Spec.Orders
 import CFSG.Certificates.Kernel.Th.Spec.GenSBase

@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGK1ScMain
 public import CFSG.LocalAnalysis.StandardType.GGTPNThmUKacV2
 public import CFSG.LocalAnalysis.StandardType.GGTPNThmUTableCl
 public import CFSG.LocalAnalysis.StandardType.GGTPNThmULabel
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.LocalAnalysis.StandardType.GGMultTableCl
 
 public section
 

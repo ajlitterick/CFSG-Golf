@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTBJNoRankOne3Defs
 public import CFSG.LocalAnalysis.StandardType.GGKD2Spec1615
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeU6NoAct
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoLayer
-public import CFSG.Sporadic.Th.Max3.Core
 
 public section
 

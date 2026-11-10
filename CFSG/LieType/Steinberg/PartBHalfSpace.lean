@@ -1,13 +1,7 @@
 module
 
 public import CFSG.LieType.Steinberg.CoreBasic
-public import CFSG.LieType.Steinberg.PartB
 public import CFSG.LieType.Steinberg.PartBRankOne
-import Mathlib.Tactic.FieldSimp
-import Mathlib.Tactic.FinCases
-import Mathlib.Tactic.Group
-import Mathlib.Tactic.Linarith
-import Mathlib.Tactic.Positivity
 
 public section
 

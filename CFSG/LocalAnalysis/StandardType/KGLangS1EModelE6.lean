@@ -3,21 +3,9 @@ module
 public import CFSG.LocalAnalysis.StandardType.KGLangS1EBridgeFix
 public import CFSG.LocalAnalysis.StandardType.KGLangS1ECover
 public import CFSG.LocalAnalysis.StandardType.KGLangS1ENormalFormE6
-public import CFSG.LocalAnalysis.StandardType.GGL45NtDefs
 
-import CFSG.LieType.AlgebraicGroups.FrobeniusDiagramRealized
-import CFSG.LieType.Chevalley.AdjointCenter
-import CFSG.LieType.Simplicity.Exceptional
-import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOther
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangChev
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangInner
-import CFSG.LocalAnalysis.StandardType.GGTableBExcBasic
-import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagCartan
-import CFSG.LocalAnalysis.StandardType.GGTableBTransport
 import CFSG.LocalAnalysis.StandardType.GGL45E67Center
 import CFSG.LocalAnalysis.StandardType.KGLangTorusDatumOfModels
-import CFSG.LocalAnalysis.StandardType.Marking
-import CFSG.LocalAnalysis.StandardType.MarkingChevalley
 
 public section
 

@@ -2,8 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.Q3TY42
 public import CFSG.ClassicalInvolution.Q3.Q3TY41
-public import CFSG.ClassicalInvolution.RouteD.TwinSmallSixMod
-public import CFSG.ClassicalInvolution.RouteD.TwinSmallSixNorm
 
 public section
 

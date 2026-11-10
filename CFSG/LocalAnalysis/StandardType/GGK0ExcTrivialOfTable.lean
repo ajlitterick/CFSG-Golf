@@ -2,14 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGK0ExcTrivialTable
 public import CFSG.LocalAnalysis.StandardType.GGK0ExcB3OfProducers
-public import CFSG.LocalAnalysis.StandardType.GGK0MarkedArithmetic
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangRegNTUnivHolds
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitCyclicCore
 public import CFSG.RankThree.PartTwo.Sec12.Hering129LOTwo
-public import CFSG.LieType.Simplicity.Exceptional
 public import CFSG.HardMathSupport.Meierfrankenfeld.LieOdd.ExcOrder
-public import CFSG.GroupTheory.ABGLocalTools.PStabilityQDickson
-public import CFSG.LieType.CurtisTits.Recognition
 
 public section
 

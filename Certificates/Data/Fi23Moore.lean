@@ -1,6 +1,5 @@
 module
 
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Fi23FiveInputs
 public import Certificates.Data.Fi24Moore
 public meta import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Fi23FiveInputs
 public meta import Certificates.Data.Fi24Moore

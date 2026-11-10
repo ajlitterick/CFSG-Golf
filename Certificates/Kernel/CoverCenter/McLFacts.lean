@@ -5,7 +5,6 @@ public import CFSG.RankThree.PartTwo.Sec4.Census.CoverCenterThreeRestNative
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.OpsF3
 import CFSG.Certificates.Kernel.CoverCKSound
 import Certificates.Kernel.CoverCenter.McL
-public import CFSG.Blueprint.NativeSporadic
 import all CFSG.Blueprint.NativeSporadic
 
 public section

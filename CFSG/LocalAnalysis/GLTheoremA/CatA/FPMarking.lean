@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FPCore
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FPMI
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.MIAut
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.MIPComp
-public import CFSG.LocalAnalysis.GLTheoremA.S10.Inputs
 
 public section
 

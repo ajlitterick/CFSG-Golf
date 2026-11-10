@@ -2,11 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTriD4ComponentsG2
 public import CFSG.LocalAnalysis.StandardType.GGTriD4ComponentsPGL
-import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 import CFSG.LocalAnalysis.StandardType.GGL45FixA2Comp
 import CFSG.LocalAnalysis.StandardType.GGL45FixA2Arith
 import CFSG.LocalAnalysis.StandardType.GGL45FixA2UniFix
-import CFSG.LocalAnalysis.ComponentClassification.ExcSelectorComponents
 
 public section
 

@@ -2,11 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.ThreeCoverBase
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A3NativeBasic
-public import CFSG.LocalAnalysis.SectionRank.OddCover.ScalarCover
-public import CFSG.LocalAnalysis.SectionRank.OddCover.PrimeThree
-public import CFSG.LocalAnalysis.SectionRank.EvenCover.LinearSplit
-public import CFSG.LocalAnalysis.SectionRank.EvenCover.UnitaryThree
-public import CFSG.LocalAnalysis.SectionRank.ExceptionalEvenCover
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
@@ -26,9 +21,6 @@ public import CFSG.Quasithin.Background.A3Structure312Facts
 public import CFSG.Quasithin.Background.OrderingMax
 public import CFSG.Quasithin.Vol2.Ch1Local
 public import CFSG.Sporadic.J4Base
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

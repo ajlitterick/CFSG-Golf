@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.LyS0.Check
-public import Certificates.Data.Kernel.SporSch.LyMat
 
 public section
 

@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2PrimeTransport
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowY1OutUniRank
-public import CFSG.LocalAnalysis.StandardType.GGTableBTransport
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinNbrModel
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneProjSlice
 public import CFSG.LocalAnalysis.ComponentClassification.InnAutDerivedUnitary

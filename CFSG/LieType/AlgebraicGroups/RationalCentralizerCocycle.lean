@@ -3,7 +3,6 @@ module
 public import CFSG.LieType.AlgebraicGroups.RationalCentralizerCocycleComponents
 public import CFSG.LieType.AlgebraicGroups.RationalCentralizerCocycleLang
 public import CFSG.LieType.AlgebraicGroups.ToralCentralizerIdentity
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 
 public noncomputable section
 

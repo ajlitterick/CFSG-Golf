@@ -2,10 +2,7 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.ModelCenterClassical
 public import CFSG.LieType.Chevalley.AdjointCenter
-public import CFSG.LieType.Steinberg.Minuscule.BruhatExtras
 public import CFSG.LieType.Steinberg.TwistedE6.Clause0
-public import CFSG.LieType.Steinberg.Exceptional.Universal
-public import CFSG.LieType.TitsSimplicity.Core
 public import CFSG.ClassicalInvolution.Q3.ClassicalFundamentalModels
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LieType.Universal.Spin.Roots
@@ -18,7 +15,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.MinimalBCenter
 public import CFSG.LocalAnalysis.ComponentClassification.OrdinaryComponentJoins
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 

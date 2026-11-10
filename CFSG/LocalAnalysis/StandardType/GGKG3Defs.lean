@@ -1,6 +1,5 @@
 module
 
-public import CFSG.RankThree.E6.RootLatticeTools
 public import CFSG.LieType.SeitzGeneration.ExcTorusE6Three
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LieType.SeitzGeneration.Lift

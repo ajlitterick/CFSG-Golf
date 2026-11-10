@@ -10,9 +10,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.FieldNineAlternatingSix
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionSquareFieldNaturalAction
 public import CFSG.Monster.Code.Weights
 public import CFSG.Quasithin.Background.Module
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CPrime
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralAut
 
 public section
 

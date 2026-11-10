@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGResLeaf
 public import CFSG.LocalAnalysis.StandardType.GGCoxReflConv
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
-public import Mathlib.Algebra.Group.Subgroup.Finite
-public import Mathlib.GroupTheory.SpecificGroups.Cyclic
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBarBridge
 public import CFSG.LocalAnalysis.StandardType.GGPZCartanRank
 public import CFSG.Mathlib.LinearAlgebra.DeterminantFixedSubspace

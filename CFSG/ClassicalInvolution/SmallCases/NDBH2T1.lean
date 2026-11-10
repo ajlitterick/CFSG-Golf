@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.SmallCases.NDB1Main
-public import CFSG.CharacterTheory.TwoRankLowerBound.Helpers
 
 public section
 

@@ -1,34 +1,18 @@
 module
 
-public import CFSG.RankThree.PartTwo.Sec8.Hering611Defs
 public import CFSG.RankThree.PartTwo.Sec8.Hering611Frame
 public import CFSG.RankThree.PartTwo.Sec6.Item611Res7ProofKField
 public import CFSG.RankThree.PartTwo.Sec6.Item611Res6ProofFieldD
-public import CFSG.RankThree.PartTwo.Sec6.Item611Res6ProofField
-import CFSG.RankThree.PartTwo.Sec6.Item611Res4ProofUPlusTools
 import CFSG.RankThree.PartTwo.Sec12.Item125Act
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Center
 import CFSG.RankThree.PartTwo.Sec6.Item611Res3ProofTools
-import CFSG.RankThree.PartTwo.Sec6.Item612Local
-import CFSG.RankThree.PartTwo.Sec6.Item612Basic
-import CFSG.RankThree.PartTwo.Sec6.Item612Core
 import CFSG.RankThree.PartTwo.Sec6.Item612
-import CFSG.RankThree.PartTwo.Sec6.Item64
 import CFSG.RankThree.PartTwo.Sec6.Item65Tools
-import CFSG.RankThree.PartTwo.Sec11.Item112
 import CFSG.RankThree.PartTwo.Sec11.Item119K
 import CFSG.RankThree.PartTwo.Sec11.FieldCentRigidProof
-import CFSG.RankThree.PartTwo.KFacts.K72FixL2
-import CFSG.RankThree.PartTwo.KFacts.AutKindsUnique
 import CFSG.RankThree.PartTwo.Sec4.Census.Item44TwoCoverRanks
-import CFSG.RankThree.PartTwo.Sec4.ProjSLEquiv
-import CFSG.RankThree.GroupTheory.ThetaQuotientTransport
-import CFSG.RankThree.GroupTheory.SteinbergBYHyperplaneResidual
-import CFSG.LocalAnalysis.RankThreeEvenClassification.InvariantSylow
 import CFSG.RankThree.PartTwo.Sec5.Tools
 import CFSG.RankThree.Coprime.ThompsonElementaryComplement
 import CFSG.RankThree.PartOne.S11c.CentralWitness
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ElementaryAbelian
 public import CFSG.RankThree.PartTwo.Sec11.Theorem1134
 public import CFSG.RankThree.PartTwo.Sec21.Item21Late2ProofList
 public import CFSG.RankThree.PartTwo.Sec4.Item47CasesExc

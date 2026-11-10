@@ -3,11 +3,7 @@ module
 public import CFSG.RankThree.PartTwo.Sec17.Item1727Tools
 public import CFSG.RankThree.PartTwo.Late.Cores17
 import CFSG.RankThree.Coprime.ThompsonElementaryComplement
-import CFSG.LocalAnalysis.RankThreeEvenClassification.CoprimeFactorization
 import CFSG.LocalAnalysis.SignalizerFunctor.Maximality
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Foundations
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.GroupTheory.LocalCores.Fitting
@@ -23,9 +19,7 @@ public import CFSG.RankThree.PartTwo.Sec8.Statements
 public import CFSG.Sporadic.J2
 public import CFSG.Sporadic.Schreier.MathieuOddCoreModel
 public import CFSG.Sporadic.Schreier.MathieuOddCoreWords
-public import CFSG.Sporadic.Th.F2Spec
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import Certificates.Certificate8169
 
 public section

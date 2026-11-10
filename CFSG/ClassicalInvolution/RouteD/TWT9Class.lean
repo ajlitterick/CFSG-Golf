@@ -2,8 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.RouteD.TWT9Frame
 public import CFSG.ClassicalInvolution.RouteD.TWT9Cls
-public import CFSG.ClassicalInvolution.RouteD.TWT8V
-public import CFSG.ClassicalInvolution.RouteD.TWEB6Sign
 
 public section
 

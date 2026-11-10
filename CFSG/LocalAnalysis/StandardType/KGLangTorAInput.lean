@@ -1,19 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangTorARankKG
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseNoBL5Aut
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldCyclic
-public import CFSG.LocalAnalysis.StandardType.GGLFourFourThreeMarking
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
-public import CFSG.LocalAnalysis.StandardType.GGPGLToralityBasic
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagProj
-public import CFSG.LocalAnalysis.StandardType.GGNbrGraphFieldLinear
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldUnitary
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismData
-public import CFSG.GroupTheory.SteinbergBKSemilinearFixedBasis
 import CFSG.LocalAnalysis.StandardType.KGLangTorALinCont
 import CFSG.LocalAnalysis.StandardType.KGLangTorAUniCont
-import CFSG.LocalAnalysis.StandardType.GGNbrGraphFieldLinear
 
 public section
 

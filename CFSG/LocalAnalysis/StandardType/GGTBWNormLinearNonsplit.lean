@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormSigned
 public import CFSG.LocalAnalysis.StandardType.GGKGForkLinNs
 public import CFSG.LocalAnalysis.StandardType.GGK1ScLin
-public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameTorus
 
 public section
 

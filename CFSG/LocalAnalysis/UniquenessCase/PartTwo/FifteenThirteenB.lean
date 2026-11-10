@@ -1,12 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenFiveTen
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenSixOrder
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenThirteenK
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.TwelveShort
-public import CFSG.LocalAnalysis.UniquenessCase.UC6S846e
-public import CFSG.LocalAnalysis.UniquenessCase.UCFront11
-public import CFSG.LocalAnalysis.WeakClosure81.FourteenFour
 
 public section
 

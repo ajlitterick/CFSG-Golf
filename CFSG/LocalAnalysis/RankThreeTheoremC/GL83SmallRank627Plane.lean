@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83SmallRank627Key
 public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83SmallRank627Good
 public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83SmallRank627Wreath
-public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83SmallRank627Faithful
 public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83SmallRank627Cover
 import CFSG.LocalAnalysis.RankThreeCoreUniqueness.RelativePairGeometry
 

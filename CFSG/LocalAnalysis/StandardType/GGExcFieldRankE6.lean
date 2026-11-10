@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGExcFieldRankTransfer
-public import CFSG.LieType.SeitzGeneration.ExcTorusE6One
-public import CFSG.LieType.SeitzGeneration.ExcTorusE6Two
-public import CFSG.LieType.SeitzGeneration.ExcTorusE6Three
 public import CFSG.LieType.SeitzGeneration.ExcTorusE6Four
 public import CFSG.LieType.SeitzGeneration.ExcTorusE6Five
 public import CFSG.LieType.SeitzGeneration.ExcTorusE6Six
@@ -11,16 +8,10 @@ public import CFSG.LieType.SeitzGeneration.ExcTorusE6Eight
 public import CFSG.LieType.SeitzGeneration.ExcTorusE6Nine
 public import CFSG.LieType.SeitzGeneration.ExcTorusE6Twelve
 public import CFSG.LieType.SeitzGeneration.ExcTorusThreeRank
-public import CFSG.RankThree.PartOne.KE.CTStatement
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Basic
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeToral
 public import CFSG.LocalAnalysis.StandardType.GGExcFieldAutCentRankF4Rank
-public import CFSG.LieType.Chevalley.GraphFixedF4GroupRestriction
-public import CFSG.LieType.Chevalley.TwistMapFixed
 public import CFSG.LieType.SeitzGeneration.ExcHighThree.E6InF4Sylow
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerSylow
-public import CFSG.LieType.Chevalley.AdjointCenter
-public import CFSG.Timmesfeld.Orders.ExceptionalUntwisted
 public import CFSG.LieType.SeitzGeneration.ExcPlaneFamilies
 public import CFSG.LieType.SeitzGeneration.ExcTorusTwE6Four
 public import CFSG.LieType.SeitzGeneration.ExcTorusTwE6Three
@@ -35,7 +26,6 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Monster.B.Geometry.CoxeterWords
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.A3Structure36BAction
 public import CFSG.Quasithin.Background.A3Structure36BBasic
 public import CFSG.Quasithin.Background.A3Structure36BPrime

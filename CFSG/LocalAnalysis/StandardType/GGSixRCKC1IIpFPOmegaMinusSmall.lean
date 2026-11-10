@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
 import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIpAltEightTwo
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGCoOmTwoAux
-import CFSG.LieType.Universal.SpinOmega.Kernel
 
 public section
 

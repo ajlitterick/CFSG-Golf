@@ -1,13 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4KSwNormB5
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitSingleTools
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitSingle
 import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4CorCDiagCover
-import CFSG.LocalAnalysis.ComponentClassification.UnbalancedLayerOrbitContainmentTransfer
-import CFSG.LocalAnalysis.ComponentClassification.FooteLitClassical
-import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec5Fixed
-public import Certificates.Kernel.ThCent.Leaves
 import CFSG.LocalAnalysis.ComponentClassification.GSThmBCorollaryC
 import CFSG.LocalAnalysis.ComponentClassification.GrSLitFixedHe
 import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeldFixA

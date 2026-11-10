@@ -1,6 +1,5 @@
 module
 
-public import CFSG.RankThree.GF2n.Parrott.CaseIISpinCoord
 public import CFSG.RankThree.GF2n.Parrott.CaseIIF1Sylow
 public import CFSG.RankThree.GF2n.Parrott.CaseIIF1Config
 public import CFSG.RankThree.GF2n.Parrott.SpinStabW0

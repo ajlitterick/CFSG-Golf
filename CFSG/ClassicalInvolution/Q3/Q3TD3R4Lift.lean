@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.Q3TD3R4Ord
 public import CFSG.ClassicalInvolution.Q3.Q3TY35
-public import CFSG.ClassicalInvolution.ModelFacts.Orth15RFixLift
 public import CFSG.ClassicalInvolution.RouteD.TWS7Lift
 public import CFSG.ClassicalInvolution.Q3.Q3TY34
 

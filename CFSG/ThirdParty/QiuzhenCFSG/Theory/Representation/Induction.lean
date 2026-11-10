@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.RepresentationTheory.Character
 public import Mathlib.RepresentationTheory.FiniteIndex
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.Unbundled
 public import Mathlib.Algebra.DirectSum.LinearMap

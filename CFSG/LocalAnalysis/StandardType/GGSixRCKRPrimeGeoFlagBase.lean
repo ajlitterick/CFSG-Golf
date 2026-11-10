@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeGeoFlag
-public import Mathlib.Algebra.Module.LinearMap.DivisionRing
 
 public section
 

@@ -2,9 +2,7 @@ module
 
 public import Certificates.Kernel.LocalComp.Weyl3221K
 public import Certificates.Kernel.LocalComp.Weyl3222
-public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.WeylAbelData
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

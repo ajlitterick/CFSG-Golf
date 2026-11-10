@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitNbr
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDRMStabDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUDefs
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitWeylGen
 
 public section

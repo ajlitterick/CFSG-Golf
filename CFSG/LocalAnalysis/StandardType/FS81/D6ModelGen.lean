@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.D6Model
-public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotRoots
 
 public section
 

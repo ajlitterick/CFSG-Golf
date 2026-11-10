@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSpTwoPlaneTorusConj
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBLabelDefs
 public import CFSG.LocalAnalysis.StandardType.GGSignedCoordFix
 import CFSG.LocalAnalysis.StandardType.GGRoundFourSmallASpLift
-import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotTorus
 import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotResidualHigherTrace
 import CFSG.CharacterTheory.BrauerThirdMainTheorem.CentralResidueMaps
 import CFSG.CharacterTheory.BrauerThirdMainTheorem.NormalizerClassLifting
@@ -61,7 +60,6 @@ import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotAlignImagesSwap
 import CFSG.Monster.B.TwoA.Unitary.Orbit1408Points
 import CFSG.Quasithin.Background.A1cTransfer
 import CFSG.Quasithin.Background.A3Components
-import CFSG.Quasithin.Background.A3ComponentsAmbient
 import CFSG.Quasithin.Background.G11Stmts
 import CFSG.RankThree.Classical.SteinbergBJSymplecticSquareZeroCentralizer
 import CFSG.RankThree.PartOne.AUTSL.OmegaFamily

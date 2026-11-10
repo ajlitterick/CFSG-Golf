@@ -2,8 +2,6 @@ module
 
 public import CFSG.ThirdParty.BrauerInduction.Background.ClassFun.Integral
 public import CFSG.ThirdParty.BrauerInduction.Background.ClassFun.ConjClasses
-public import Mathlib.LinearAlgebra.FreeModule.Finite.Basic
-public import Mathlib.LinearAlgebra.StdBasis
 
 public section
 

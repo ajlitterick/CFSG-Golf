@@ -1,12 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRest
-public import CFSG.ClassicalGroups.Orthogonal.OmegaMinus8ThreeLocalTwo
 public import CFSG.LocalAnalysis.StandardType.GGF4QTwoOmegaNbr
 public import CFSG.LocalAnalysis.StandardType.GGF4QTwoOmegaEnd
 import CFSG.LocalAnalysis.StandardType.GGHalfRowData
 import CFSG.LocalAnalysis.StandardType.GGSpJoinNbrModel
-import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaBase
 import CFSG.LocalAnalysis.StandardType.GGF4QTwoOmegaNbrCore
 
 public section

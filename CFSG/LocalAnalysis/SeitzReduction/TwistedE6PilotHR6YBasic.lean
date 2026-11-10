@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotLeviYMinus
 public import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotRoots
-public import CFSG.LieType.Chevalley.ToralCentralizerQuotient
 public import CFSG.LieType.Chevalley.E7SupportedBruhat
-public import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
 public import CFSG.LieType.Chevalley.TrialityAllCharTorusCoordinates
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotToral
 public import CFSG.Assembly.QuasithinDefs
@@ -29,7 +27,6 @@ public import CFSG.Quasithin.Background.Basic
 public import CFSG.RankThree.Classical.SteinbergBJSymplecticSquareZeroCentralizer
 public import CFSG.RankThree.PartOne.KC.SymplecticSubfieldRadical
 public import CFSG.Sporadic.M23.M23Group
-public import CFSG.Sporadic.Th.F2Spec
 public import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 
 public section

@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGKGForkExcTwE6Frame
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcTwNorm
 public import CFSG.LocalAnalysis.StandardType.GGKGForkWeylFive
-public import CFSG.RankThree.Chevalley.SteinbergCEF4EvenQPlusWeyl
 
 public section
 

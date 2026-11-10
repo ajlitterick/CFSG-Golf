@@ -8,7 +8,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theor
 public import CFSG.Blueprint.Catalog
 import CFSG.LocalAnalysis.RankTwoShapes.UnitaryFour.Bridge
 public import CFSG.StronglyEmbedded.BenderUnitaryCenter
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_1_12
 
 public noncomputable section
 

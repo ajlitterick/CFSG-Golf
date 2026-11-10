@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivKindDiag
-public import CFSG.ClassicalGroups.Unitary.Perfect
-import CFSG.ClassicalGroups.Unitary.Finite
 import CFSG.Quasithin.Vol2.Ch11SecO6E
 import CFSG.Quasithin.Background.A3Structure312Defs
 import CFSG.Quasithin.Vol2.Ch11SecAFacts

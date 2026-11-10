@@ -1,18 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTCJDescent
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GField
 public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonInnBridge
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I91T2
-public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
-public import CFSG.LocalAnalysis.StandardType.MarkingSmall
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
-public import CFSG.LocalAnalysis.StandardType.MarkingChevalley
-public import CFSG.LieType.Chevalley.PerfectSimpleRoot
-public import CFSG.LieType.Chevalley.NativeMonomial
-public import CFSG.Assembly.GL83LieDefs
-public import CFSG.Blueprint.Catalog
 public import CFSG.LocalAnalysis.EvenBN.Common.CommutatorFixed
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FBase2
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.YS1011U64Types

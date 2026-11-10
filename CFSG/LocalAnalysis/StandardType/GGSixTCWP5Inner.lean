@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.TableC.HypDefs
-public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutInnerExcTwE6
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ToralInner
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4Upper
 

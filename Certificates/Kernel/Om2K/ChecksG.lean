@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Om2K.Defs
 public import Certificates.Kernel.OmegaEight.AutChainAP
-public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.WeylBridgeData
 import CFSG.Certificates.Kernel.Common.Harness
 public import Certificates.Data.Holder1711.Om2Check
 public import Certificates.Data.Kernel.BfsPin

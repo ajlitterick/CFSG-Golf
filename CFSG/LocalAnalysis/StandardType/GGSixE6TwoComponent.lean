@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoModel
 import CFSG.LocalAnalysis.StandardType.GGSixE6TwoCent
 import CFSG.LocalAnalysis.StandardType.GGSixE6TwoLevi
-import CFSG.Assembly.Subnormal
 
 public section
 

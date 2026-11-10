@@ -1,16 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKD2Leaves1615
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagProj
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import CFSG.ClassicalGroups.UnitaryFlag.GroupData
-public import CFSG.Assembly.GL83LieDefs
-public import CFSG.Assembly.Defs
-public import CFSG.LocalAnalysis.ComponentInitial.LinearUnitaryField
-public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherPrimeForm
-public import CFSG.RankThree.PartOne.KC.PrimaryDecomposition
-public import CFSG.RankThree.PartOne.KC.UnitaryPrimaryAlgebra
-public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeModel
 
 public section
 

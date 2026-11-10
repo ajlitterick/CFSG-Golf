@@ -2,14 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourInputs
 public import CFSG.LocalAnalysis.StandardType.GGF4OriginalTypes
-public import CFSG.LocalAnalysis.StandardType.GGFrameRouteCard
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveMaxJoin
-public import CFSG.LocalAnalysis.StandardType.GGF4H1Coverage
-import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6Lift
 public import CFSG.LocalAnalysis.StandardType.GGF4LabelH1
-public import CFSG.LocalAnalysis.StandardType.GGF4H1Rows
-import CFSG.LocalAnalysis.StandardType.GGTBXDatumOfTor
-import CFSG.LocalAnalysis.StandardType.GGTBTorD
 
 public section
 

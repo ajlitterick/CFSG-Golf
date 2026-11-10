@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenInputs
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenRankR
-import CFSG.LocalAnalysis.RankThreeCoreUniqueness.CharacteristicPrimeInheritance
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.lemma_4_5_a
-import CFSG.LocalAnalysis.PreuniquenessRankFour.CharacteristicAbelian
-import CFSG.LocalAnalysis.SectionRank.PRank
 import CFSG.GroupTheory.ElementaryAbelianTransport
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenComp
 

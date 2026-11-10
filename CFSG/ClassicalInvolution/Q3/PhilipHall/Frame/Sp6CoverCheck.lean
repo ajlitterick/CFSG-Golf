@@ -1,18 +1,8 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TightRefute
-public import Mathlib.GroupTheory.FixedPointFree
-public import CFSG.Open.ClassicalInvolutionTheoremMilestoneDefs
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.Sp6CoverSpec
 public import CFSG.Certificates.Kernel.Spor.RawTreeDefs
-public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutTables
-public import CFSG.Sporadic.SmallOddCore.LocalSpec
-public import CFSG.Sporadic.SmallOddCore.CheckSpec
-public import CFSG.Sporadic.Schreier.ClassSpec
-public import CFSG.Sporadic.Schreier.ClassSum
-public import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
 public import CFSG.LocalAnalysis.EvenSporadicStandard.RuStd.S2.RuFiveQuat
-public import CFSG.Sporadic.Mathieu.M12
 public import Certificates.Certificate118002
 public import CFSG.ClassicalInvolution.Asc77.AscE187Cop
 public import CFSG.ClassicalInvolution.Asc77.AscR10QVm
@@ -47,7 +37,6 @@ public import CFSG.ClassicalInvolution.Uniform.U3Datum
 public import CFSG.ClassicalInvolution.Uniform.UExact
 public import CFSG.ClassicalInvolution.Uniform.UThm2
 public import CFSG.RankThree.PartTwo.KFacts.K72OmegaL2
-public import Certificates.Data.CFSGNative.Co3Schreier.Basic
 
 public section
 

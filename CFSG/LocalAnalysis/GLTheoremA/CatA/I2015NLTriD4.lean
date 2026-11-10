@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I2015NLCore
-import CFSG.LocalAnalysis.StandardType.GGRawAutRestTri
 import CFSG.SignalizerFunctorTheorem.CatalogBridge.NonLocalTrialityMain
 import CFSG.SignalizerFunctorTheorem.NonLocal.TrialityTwo
 

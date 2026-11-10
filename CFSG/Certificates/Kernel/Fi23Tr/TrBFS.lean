@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.CFSGNative.Fi23.Tr
 public import CFSG.Certificates.Kernel.Fi23Tr.Bits
 import CFSG.Certificates.Kernel.Fi22LH.Loops
 import CFSG.Certificates.Kernel.Fi22LH.TreeSpec

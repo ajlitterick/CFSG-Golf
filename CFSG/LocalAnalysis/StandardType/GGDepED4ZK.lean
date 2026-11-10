@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGDepED4ReadDefs
 public import CFSG.LocalAnalysis.StandardType.GGDepED4ZKClassical
 public import CFSG.LocalAnalysis.StandardType.GGDepED4ZKE6
-public import CFSG.LocalAnalysis.StandardType.GGTWZK
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.RankThree.PartOne.TCB.SchreierFinal
 
 public section
 

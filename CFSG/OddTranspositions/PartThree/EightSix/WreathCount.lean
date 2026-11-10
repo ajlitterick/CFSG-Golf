@@ -1,8 +1,5 @@
 module
 
-public import Mathlib.Basic.Finite.Defs
-public import CFSG.Timmesfeld.Bridge.Asc72Basic
-public import CFSG.Timmesfeld.Bridge.Asc72WreathDefs
 public import CFSG.OddTranspositions.WreathBase
 import CFSG.OddTranspositions.PartThree.Ten.WreathRigidity
 import CFSG.Timmesfeld.Bridge.OddTranspGenL2

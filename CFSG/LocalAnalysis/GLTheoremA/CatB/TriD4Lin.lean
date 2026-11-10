@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatB.TriD4Defs
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.TriD4Comp
 import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompIdxLinear
 import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompIdxUnitary

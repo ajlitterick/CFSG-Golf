@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.TwoHSLe4.S9Defs
 meta import Certificates.Kernel.TwoHSLe4.S9Defs
-import CFSG.LocalAnalysis.EvenSporadicStandard.TwoHS.Le4.S8Raw
 public import Certificates.Kernel.Misc.Perm.HexCmd
 
 public section

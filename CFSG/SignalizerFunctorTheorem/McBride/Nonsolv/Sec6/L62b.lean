@@ -1,15 +1,11 @@
 module
 
-public import Mathlib
-public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Basic
 public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec5
 public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.Sec6.Basic
 public import CFSG.SignalizerFunctorTheorem.McBride.Near.Main
 public import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec3.Thm37
 public import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec4.BSets
 public import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.SolQuot
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

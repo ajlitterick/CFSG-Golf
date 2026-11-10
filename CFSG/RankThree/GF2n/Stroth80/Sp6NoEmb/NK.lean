@@ -3,14 +3,7 @@ module
 public import CFSG.RankThree.GF2n.Stroth80.Sp6NoEmb.Twist
 public import CFSG.RankThree.GF2n.Stroth80.Sp6NoEmb.RecApply
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk111cDGalois
-public import CFSG.GH74.GLS.IVK.Defs2
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk111cIface
-public import CFSG.GH74.GLS.IVK.Proofs2.Stmt111c
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups
-public import CFSG.LocalAnalysis.SectionRank.PRank
-public import CFSG.LocalAnalysis.SectionRank.SQT
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

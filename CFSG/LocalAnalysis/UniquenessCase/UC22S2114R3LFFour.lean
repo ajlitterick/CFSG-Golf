@@ -1,17 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S2114R3LDefs
-public import CFSG.LocalAnalysis.UniquenessCase.UC6Inst
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S2114R4FReduction
-public import CFSG.RankThree.PartOne.KC.OrthogonalSubfieldFixed
 public import CFSG.RankThree.PartOne.KC.OrthogonalSubfieldForms
 public import CFSG.LocalAnalysis.RankThreeTheoremC.GenericLayerReductionDefs
-import CFSG.LocalAnalysis.UniquenessCase.UC22S2114R3LRank
-import CFSG.LocalAnalysis.UniquenessCase.UC22S2114R4FLinearField
 import CFSG.LocalAnalysis.UniquenessCase.UC22S2114R4FSymplecticField
-import CFSG.LocalAnalysis.UniquenessCase.UC22S2114R3FLift
-import CFSG.LocalAnalysis.ComponentInitial.LinearCoverModel
-import CFSG.LocalAnalysis.UniquenessCase.UC22P21k
 import CFSG.LocalAnalysis.UniquenessCase.UC22S218GChain
 import CFSG.LocalAnalysis.UniquenessCase.UC22S2114R4FOrthogonalMinusField
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldOrthMinus
@@ -23,23 +16,15 @@ import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC7Eseven
 import CFSG.LocalAnalysis.UniquenessCase.UC22S2114R3LBorel
 import CFSG.LocalAnalysis.UniquenessCase.UC22P2251h
 import CFSG.LocalAnalysis.UniquenessCase.UC22S213PrimeRank
-import CFSG.LocalAnalysis.UniquenessCase.UC22S2114a
-import CFSG.LocalAnalysis.UniquenessCase.UC22P2214b
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.QuotInfBar2
-import CFSG.LocalAnalysis.UniquenessCase.UC6S846h
-import CFSG.LocalAnalysis.UniquenessCase.UC6S846g
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SylowCentralOuter
 import CFSG.LocalAnalysis.UniquenessCase.UC22S2114R3LTFullSigmaCore
 import CFSG.LocalAnalysis.UniquenessCase.UC22S2114R3LSylowPSL4
 import CFSG.LocalAnalysis.UniquenessCase.UC22S2114R3LSylowSp6
 import CFSG.LocalAnalysis.UniquenessCase.UC22S2114R3LSylowOmegaMinus
-import CFSG.LocalAnalysis.UniquenessCase.UC22S2114R3LCentralizer
 import CFSG.LocalAnalysis.UniquenessCase.UC22S2114R3Tor
 import CFSG.LocalAnalysis.UniquenessCase.UC22S217U3A
 import CFSG.LocalAnalysis.UniquenessCase.UC22S2114Thin
-import CFSG.LocalAnalysis.UniquenessCase.UCFront07Use
 
-import CFSG.HardMathSupport.Foote.FamilyReduction.ClassicalFive
 
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.SEFive.Holds
 
@@ -47,11 +32,9 @@ import CFSG.LocalAnalysis.UniquenessCase.UC7P3BadNoStrongHolds
 
 import CFSG.LocalAnalysis.UniquenessCase.UC7P3ThreeKIBA6
 
-import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.StrongThree
 
 import CFSG.LocalAnalysis.AGLEmbedding.CatalogSchreier
 
-import CFSG.LocalAnalysis.RankThreeTheoremC.OutCyclicThree
 
 import CFSG.LocalAnalysis.UniquenessCase.UC22Sec7Three
 
@@ -62,9 +45,6 @@ public import Certificates.Data.CFSGNative.Chevalley.C2E6CertLie
 public import CFSG.LieType.Chevalley.C2E6StdMatrixData
 public import CFSG.Monster.B.Classical.E6AdjointGroup
 import Certificates.Kernel.Misc.E6StdSlp
-public import CFSG.Blueprint.NativeSporadic
-public import CFSG.RankThree.PartOne.CTP.FusionSound
-import CFSG.Sporadic.Bridge.BFusSevenGen
 public import CFSG.YGroups.Y443.Native.CoverFactsWords
 import Certificates.Kernel.KDense.Y443
 public import CFSG.YGroups.Y443.Native.Swap13Word
@@ -143,7 +123,6 @@ import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.D4Dichotomy
 import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.E6Isotropic
 import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.T1
 import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.W2.SpTwo
-import CFSG.HardMathSupport.Dickson.Sec6.I1431Lie
 import CFSG.HardMathSupport.Solomon.Coordinator.BGLCoreBasic
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.Center
 import CFSG.HardMathSupport.Solomon.Coordinator.I22_4Glue

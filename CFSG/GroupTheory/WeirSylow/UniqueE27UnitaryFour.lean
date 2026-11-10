@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GroupTheory.UniqueElemSylowProj
-public import CFSG.Open.StatedDefs
 import CFSG.GroupTheory.WeirSylow.UniqueE27Wreath
 import CFSG.GroupTheory.WeirSylow.UniqueE27GLFour
 import CFSG.ClassicalInvolution.Asc77.AscSCH19

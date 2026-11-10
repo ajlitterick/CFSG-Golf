@@ -1,17 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2TableBTwA3Row
-import CFSG.LocalAnalysis.StandardType.GGTBTorAIndUFourTwo
-import CFSG.LocalAnalysis.StandardType.GGTDLabels
 import CFSG.LocalAnalysis.StandardType.GGTBTorCHolds
 import CFSG.LocalAnalysis.StandardType.GGTBTorD
 import CFSG.LocalAnalysis.StandardType.GGTBTorRelDHolds
 import CFSG.LocalAnalysis.StandardType.GGTBTorE7
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 import CFSG.LocalAnalysis.StandardType.GGTwoNodeSmallPosWeylSys
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
-import CFSG.LocalAnalysis.StandardType.GGCoxeterForkProofBCDExt
 import CFSG.LocalAnalysis.StandardType.GGTwoNodeSmallE8
 import CFSG.LocalAnalysis.StandardType.GGTwoNodeSmallRankDefs
 

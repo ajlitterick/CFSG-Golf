@@ -2,19 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGXInLUDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoAssemble
-import CFSG.LocalAnalysis.SectionRank.PRank
 import CFSG.LocalAnalysis.StandardType.GGK1ScFinal
 import CFSG.LocalAnalysis.StandardType.GGCSRLabels
-import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNineSmall
 import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylE6TwoThree
 import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLineE7
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLine
-import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
-import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 import CFSG.LocalAnalysis.StandardType.GGTBJConfigFacts
-import CFSG.LocalAnalysis.StandardType.GGTableBBstar
-import CFSG.LocalAnalysis.StandardType.GGTableBTransport
-import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestTwF4
 import CFSG.RankThree.PartTwo.Census.Carrier.TitsCert
 
 public section

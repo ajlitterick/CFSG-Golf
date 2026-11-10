@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaFork
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitExcPlusHolds
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowDefs
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaExcPlusAux
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaExcPlusAux2
 

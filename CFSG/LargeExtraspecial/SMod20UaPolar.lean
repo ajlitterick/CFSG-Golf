@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Fischer.Polar.PerpPerp
-public import CFSG.Fischer.T46Simple
 
 public section
 

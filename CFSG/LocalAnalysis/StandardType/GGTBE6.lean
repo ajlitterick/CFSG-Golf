@@ -4,15 +4,7 @@ public import CFSG.LocalAnalysis.StandardType.GGTBE6IndSplit
 public import CFSG.LocalAnalysis.StandardType.GGTBE6IndTwistAlign
 public import CFSG.LocalAnalysis.StandardType.GGTBTorRelE6Split
 public import CFSG.LocalAnalysis.StandardType.GGTBTorE7
-public import CFSG.LocalAnalysis.StandardType.GGTBE6Witness
-public import CFSG.LocalAnalysis.StandardType.GGTBE6Cover
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelKGFrameE
-public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBE6
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestTorus
-public import CFSG.LocalAnalysis.StandardType.GGTDLabels
-public import CFSG.LocalAnalysis.StandardType.GGTBXPlumb
-public import CFSG.LocalAnalysis.StandardType.GGTBTorE8Split
-public import CFSG.LocalAnalysis.StandardType.GGTBTorAIndUFourTwo
 public import CFSG.LocalAnalysis.StandardType.GGTBTorG2Holds
 public import CFSG.LocalAnalysis.StandardType.GGTBTorF4
 public import CFSG.LocalAnalysis.StandardType.GGTBTorD

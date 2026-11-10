@@ -1,11 +1,9 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.TWEClose
-public import CFSG.ClassicalInvolution.RouteD.TWDConfig
 public import CFSG.ClassicalInvolution.RouteD.TWEB6Fix
 public import CFSG.ClassicalInvolution.RouteD.TWEB6YBridge
 public import CFSG.ClassicalInvolution.RouteD.TWEB6Fixed
-public import CFSG.ClassicalInvolution.RouteD.TwinSmallCases
 
 public section
 

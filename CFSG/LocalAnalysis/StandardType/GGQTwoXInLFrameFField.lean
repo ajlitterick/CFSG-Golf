@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLAmbDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 public import CFSG.LocalAnalysis.StandardType.GGK0MarkedArithmetic
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP5L2Rank
 

@@ -5,8 +5,6 @@ public import Certificates.Kernel.KDenseP.AgreeOf
 public import Certificates.Kernel.KDenseP.MonoTabL
 public import Certificates.Kernel.NortonSLPKSound
 public import CFSG.Certificates.Kernel.KDenseP.NortonSLP.Pairs
-public import CFSG.Certificates.Kernel.KDense.Data.Checks
-public import CFSG.Certificates.Kernel.KDenseP.ReplaySound
 
 @[expose] public section
 

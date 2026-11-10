@@ -1,7 +1,5 @@
 module
 
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6KI2320Good
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6KI2320Gen
 public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6KI2320Blk
 public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6KI2320Fix
 public import CFSG.RankThree.PartTwo.KFacts.L34TwoElements

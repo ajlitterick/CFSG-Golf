@@ -1,15 +1,11 @@
 module
 
 public import CFSG.HardMathSupport.Timmesfeld.DefChar.LieOuterFamilies
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismGeneration
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherOuterQuotients
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherLinearOuterOrder
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherFieldInvolution
 public import CFSG.Adapters.LinearCatalog
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSLInnerInvolution
 public import CFSG.LocalAnalysis.ComponentInitial.LinearCoverModel
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoAllFields
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoSemilinear
 import CFSG.Dihedral.GorensteinWalter.PGL2SquareRange
 public import CFSG.LieType.BorelTits.CompleteFlag
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
@@ -19,7 +15,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.OrdinaryComponentJoins
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
 public import CFSG.LocalAnalysis.GLTheoremB.QuotientTools
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

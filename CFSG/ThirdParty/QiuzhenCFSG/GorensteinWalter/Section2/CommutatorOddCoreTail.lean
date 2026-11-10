@@ -3,7 +3,6 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970_24SolvableOddP
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.SubnormalPSubgroupLeQCore
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.CentralizerZpowers
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConj
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.FinalTheorem
 
 namespace CFSG

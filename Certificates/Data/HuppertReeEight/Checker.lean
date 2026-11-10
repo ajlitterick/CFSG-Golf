@@ -4,7 +4,6 @@ public import Certificates.Data.HuppertReeEight.Data
 public import CFSG.Sporadic.Schreier.TitsBasic
 public import CFSG.Sporadic.Schreier.TitsArrays
 public import CFSG.Certificates.NativeSchreierCard
-public import Mathlib.GroupTheory.Schreier
 
 public section
 

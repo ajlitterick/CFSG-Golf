@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.Q3E8Facts
 public import CFSG.ClassicalInvolution.Q3.Q3EXOrthLarge
-public import CFSG.ClassicalInvolution.Q3.Q3EPQuot
 
 public section
 

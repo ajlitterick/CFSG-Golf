@@ -1,24 +1,9 @@
 module
 
-public import CFSG.Monster.B.TwoA.Unitary.SemilinearBase
 
 public import CFSG.Monster.B.TwoA.Unitary.Stab891
-public import CFSG.Monster.B.TwoA.Unitary.Order
 public import CFSG.Monster.B.TwoA.Unitary.Witt
 public meta import CFSG.Monster.B.TwoA.Unitary.BData
-public import CFSG.Monster.B.TwoA.Unitary.OrbitInputs
-public import CFSG.Monster.B.TwoA.Unitary.WStabInputs
-public import CFSG.Monster.B.TwoA.Unitary.Stab891Inputs
-public import CFSG.Monster.B.TwoA.Unitary.PlanesInputs
-public import Certificates.Data.CFSGNative.MonsterB.Short
-public import Certificates.Data.CFSGNative.Mathieu.M24
-public import CFSG.Certificates.Kernel.AxisPlane.Orbit
-public import Certificates.Data.Kernel.VisFrame.Gens
-public import Certificates.Data.CFSGNative.MonsterB.Co2Chain
-public import Certificates.Data.CFSGNative.MonsterB.Co2Matrix
-public import CFSG.Monster.B.TwoA.Unitary.Bridge
-public import CFSG.Monster.B.TwoA.Unitary.ActionInputs
-public import CFSG.Monster.B.TwoA.Unitary.Planes
 
 public noncomputable section
 

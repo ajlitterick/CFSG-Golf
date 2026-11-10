@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsOmegaReduce
-public import CFSG.ClassicalGroups.Orthogonal.Restrict
 
 public section
 

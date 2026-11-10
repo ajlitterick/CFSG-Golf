@@ -5,7 +5,6 @@ public import CFSG.CharacterTheory.Burnside
 public import CFSG.Quasithin.Recognition.CertU33Simple
 public import CFSG.Quasithin.Recognition.CertU33Psu
 public import CFSG.Quasithin.Recognition.CertU33Wreath
-public import CFSG.Timmesfeld.Final.PSU33
 public import CFSG.Quasithin.Background.F2Equiv
 
 public section

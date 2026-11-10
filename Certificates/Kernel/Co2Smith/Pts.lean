@@ -2,8 +2,6 @@ module
 
 public import Certificates.Kernel.Co2Smith.Root
 public import Certificates.Data.Kernel.Co2Smith.Pts
-public import CFSG.Certificates.Kernel.Co1F2Sound
-public import CFSG.Certificates.Kernel.Misc.PairCountSound
 public import CFSG.Certificates.Kernel.SporSch.PosTable
 public import CFSG.Sporadic.Co2Smith.GlC0FixInputs
 import CFSG.Certificates.Kernel.Common.Harness

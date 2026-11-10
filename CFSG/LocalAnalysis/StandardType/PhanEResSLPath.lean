@@ -4,9 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.PhanEResChart
 public import CFSG.LocalAnalysis.StandardType.PhanEResPanel
 public import CFSG.LocalAnalysis.StandardType.PhanEResSLFlag
 public import CFSG.LocalAnalysis.StandardType.PhanEChevConj
-public import CFSG.LocalAnalysis.StandardType.PhanEFlagCox
-public import CFSG.LieType.Steinberg.CentralExt.SLCentrallyClosed
-public import CFSG.LocalAnalysis.ComponentInitial.LinearFlagData
 public import CFSG.Monster.B.Geometry.InitialIsometryParabolic
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanEDefs
 public import CFSG.LocalAnalysis.StandardType.PhanEChamberIsoOps

@@ -1,11 +1,6 @@
 module
 
-public import Mathlib
-public import CFSG.Open.Catalog
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionDenominatorSuzukiOvoid
-import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionDenominatorSuzukiInvolutions
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma114Models
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Borel
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.XI.theorem_3_6
 import CFSG.SignalizerFunctorTheorem.McBride.Models.Suzuki.Arith
 

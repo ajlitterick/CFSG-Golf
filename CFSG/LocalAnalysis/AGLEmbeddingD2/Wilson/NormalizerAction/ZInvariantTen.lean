@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LinearAlgebra.ExtraspecialCyclotomicModule
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.NormalizerAction.CentralizerExtraspecial
 
 public section

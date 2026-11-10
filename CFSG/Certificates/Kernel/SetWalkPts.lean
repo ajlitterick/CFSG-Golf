@@ -4,7 +4,6 @@ public import CFSG.Certificates.Kernel.SetWalkSound
 public import CFSG.Certificates.Kernel.Spor.PK.Perm.Comp
 public import CFSG.Certificates.Kernel.Spor.RawDefs
 public import CFSG.Monster.B.Co2.PermArr
-public import Mathlib.Algebra.Group.Pointwise.Set.Scalar
 public import Mathlib.Algebra.Group.Action.Pointwise.Set.Basic
 public import Mathlib.Algebra.Group.Action.End
 public import Mathlib.Data.Set.Card

@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.FS81.N6MainMat
-public import CFSG.LocalAnalysis.StandardType.FS81.N6Split
 public import CFSG.LocalAnalysis.StandardType.FS81.N7MainRecOut
 public import CFSG.LocalAnalysis.StandardType.FS81.N6All
 

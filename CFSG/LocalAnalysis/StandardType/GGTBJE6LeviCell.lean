@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTBJE6LeviModel
 public import CFSG.LocalAnalysis.StandardType.GGTBJE6LeviDatum
 public import CFSG.LocalAnalysis.StandardType.GGTBJE6LeviAssemble
 public import CFSG.LocalAnalysis.StandardType.GGTBJE6LeviStab
-public import CFSG.LocalAnalysis.StandardType.GGTBJCoverBstar
-public import CFSG.LocalAnalysis.StandardType.GGTBJCoverComp
 public import CFSG.LocalAnalysis.StandardType.GGTBJF4LeviSplit
 
 public section

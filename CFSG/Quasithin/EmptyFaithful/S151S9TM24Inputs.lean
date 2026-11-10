@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.EmptyFaithful.S151S9TData
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatM24Inputs
-public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicMathieuInputs
 
 public section
 

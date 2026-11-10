@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Cardinality
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
 public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
 public import Mathlib.LinearAlgebra.Projectivization.Action
 public import Mathlib.LinearAlgebra.Projectivization.Cardinality

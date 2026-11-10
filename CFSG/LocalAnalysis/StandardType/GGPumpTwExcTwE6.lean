@@ -3,15 +3,9 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGKGAF4Defs
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTwE6NonsplitThree
 import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTwE6ThreeSC
-import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTwE6ThreeNormalizer
-import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTwE6ThreeTorus
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcWeylTorusAut
 import CFSG.LocalAnalysis.StandardType.GGF4AutWeyl
 import CFSG.LocalAnalysis.StandardType.GGSixA6InsideSpFrame
-import CFSG.RankThree.PartOne.K133H.F4Weyl
-import CFSG.LieType.Chevalley.GraphFixedRootMonomialQuotient
-import CFSG.LieType.Chevalley.FoldedWeylIdentification
 
 public section
 

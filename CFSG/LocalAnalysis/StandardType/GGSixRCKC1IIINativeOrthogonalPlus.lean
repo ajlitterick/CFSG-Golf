@@ -3,11 +3,9 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIUnitaryOrthBlock
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIUnitaryRecognition
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIUnitaryFour
-import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotGlobalGen
 import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIpAltEightOmega
 import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIpAltEightSU
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeFPOmegaPlus
-import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockModelDualPairPOmegaPlus
 import CFSG.LocalAnalysis.StandardType.ClassicalPosition.FEPOmegaPlus
 import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockDegreeOneGFTwo
 import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIpBlockFixed

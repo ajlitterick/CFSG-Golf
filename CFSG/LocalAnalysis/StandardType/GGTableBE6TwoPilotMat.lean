@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Monster.B.Classical.E6AdjointGroup
-public import CFSG.Monster.B.Classical.E6AdjointTable
 public import Certificates.Certificate1953
 public import Certificates.Certificate1954
 

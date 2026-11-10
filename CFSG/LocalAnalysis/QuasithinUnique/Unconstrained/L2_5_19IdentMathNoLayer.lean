@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19IdentMathNoLayerCheck
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19IdentLieFix
 public import CFSG.Sporadic.Schreier.MathieuOddCoreAssembly
-public import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
 public import CFSG.Sporadic.Schreier.MathieuOddCoreOuter
-public import CFSG.GroupTheory.LocalCores.Components
 public import CFSG.Assembly.OrderReductions.CharacterInflation
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
@@ -51,9 +49,6 @@ public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Schreier.M23
 public import CFSG.Sporadic.Schreier.MathieuOddCoreModel
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import CFSG.Walter.Defs
 public import Certificates.Certificate1
 public import Certificates.Certificate2

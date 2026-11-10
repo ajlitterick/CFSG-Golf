@@ -3,15 +3,11 @@ module
 
 public import CFSG.YGroups.Model233F.RawChain
 public import CFSG.YGroups.CosetAction233Base
-public import Certificates.Data.CFSGNative.YGroups.Model233FData
-public import CFSG.YGroups.Model233FInputs
 public import Certificates.Certificate10101
 public meta import CFSG.YGroups.Defs
 public meta import Certificates.Data.CFSGNative.YGroups.ExactCheck
 public meta import Certificates.Data.CFSGNative.YGroups.Model233FData
 public meta import Certificates.Data.CFSGNative.Schreier.Check
-public import CFSG.Certificates.CosetTablePresented
-public import CFSG.YGroups.Ctil233
 public meta import Mathlib
 public import Mathlib
 

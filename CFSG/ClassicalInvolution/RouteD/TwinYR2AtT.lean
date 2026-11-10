@@ -1,9 +1,6 @@
 module
 
-public import CFSG.ClassicalInvolution.RouteD.TwinYR2Trans
 public import CFSG.ClassicalInvolution.RouteD.TwinYR2XO
-public import CFSG.ClassicalInvolution.RouteD.TwinYR2Rows
-public import CFSG.ClassicalInvolution.RouteD.TwinSL4BridgeBase
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Sporadic.Schreier.J1CentData
-public import Certificates.Data.CFSGNative.SporadicSchreier.MathieuOddCore
 public meta import CFSG.Sporadic.Schreier.J1CentData
 public meta import Certificates.Data.CFSGNative.SporadicSchreier.MathieuOddCore
 import Certificates.Kernel.SporSch.J1.Cent2163B

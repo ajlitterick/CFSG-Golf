@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08TestLin
 public import Mathlib.GroupTheory.Perm.Sign
 public import Mathlib.Data.Fin.Tuple.Sort
-public import Mathlib.Tactic.Group
 
 public section
 

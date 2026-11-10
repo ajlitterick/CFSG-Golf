@@ -1,13 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeakNbr
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowNFrame
-import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowNInvol
 import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowNF4Frame
 import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-import CFSG.LocalAnalysis.StandardType.GGTableBF4Basic
-import CFSG.LocalAnalysis.StandardType.GGTableBF4Torus
 import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLine
 import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylExcPlusLift
 

@@ -1,15 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4E6FrameLang
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4E6Sigma
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4E6Vec
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4E6Rank
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4E6A2Set
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4E6Form
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4E6Chain
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4E6Dich
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4E6Fam
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4Inputs
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4Inputs2
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UData
 public import CFSG.RankThree.PartOne.KE.E8TwoA2Family

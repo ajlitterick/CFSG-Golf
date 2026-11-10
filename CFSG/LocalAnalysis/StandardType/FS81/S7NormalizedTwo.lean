@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.FS81.S7ModelCent
 import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortGlueTwo
 import CFSG.LocalAnalysis.StandardType.GGFrameRouteOrder
-import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoFusionE8
 import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec2.Thm210gAux
 import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec2.Thm210a
 

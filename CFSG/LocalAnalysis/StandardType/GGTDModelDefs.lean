@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBTorDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUDefs
 
 public section
 

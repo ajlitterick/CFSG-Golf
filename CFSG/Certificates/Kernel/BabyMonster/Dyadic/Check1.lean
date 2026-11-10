@@ -2,7 +2,6 @@ module
 
 import CFSG.Certificates.Kernel.BabyMonster.Load
 public import CFSG.Certificates.Kernel.BabyMonster.Native.Dyadic
-public import CFSG.Certificates.Kernel.BabyMonster.Native.Small
 public import CFSG.Certificates.Kernel.BabyMonster.Native.F2n
 public import CFSG.Certificates.Kernel.BabyMonster.Dyadic.Basis
 public import CFSG.Certificates.Kernel.BabyMonster.Dyadic.Gens

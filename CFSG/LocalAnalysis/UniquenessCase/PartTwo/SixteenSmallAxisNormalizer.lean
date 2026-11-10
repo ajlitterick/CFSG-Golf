@@ -7,9 +7,6 @@ public import Certificates.Data.CFSGNative.Chevalley.C2E6CertLie
 public import CFSG.LieType.Chevalley.C2E6StdMatrixData
 public import CFSG.Monster.B.Classical.E6AdjointGroup
 import Certificates.Kernel.Misc.E6StdSlp
-public import CFSG.Blueprint.NativeSporadic
-public import CFSG.RankThree.PartOne.CTP.FusionSound
-import CFSG.Sporadic.Bridge.BFusSevenGen
 public import CFSG.YGroups.Y443.Native.CoverFactsWords
 import Certificates.Kernel.KDense.Y443
 public import CFSG.YGroups.Y443.Native.Swap13Word
@@ -18,28 +15,11 @@ import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenNaturalSmallRows
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSmallNaturalSigma
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSmallComponentBounds
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSmallCoverCentralizer
-import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Basic
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Conclusion76Three
-import CFSG.LocalAnalysis.UniquenessCase.UC22P22n
-import CFSG.LocalAnalysis.UniquenessCase.UC6S9
-import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.Theorem76
-import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.Good
-import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.LayerBasic
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.SEFive.Holds
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.KInputsSolvableAltTenOf
-import CFSG.LocalAnalysis.UniquenessCase.UC6K35Holds
-import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.Coordinator.J4Eleven
 import CFSG.LocalAnalysis.AGLEmbedding.CatalogSchreier
-import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight70Basic
-import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight70Layer
-import CFSG.LocalAnalysis.AGL81TheoremCD.Section8.AltTen
-import CFSG.RankThree.PartTwo.Sec12.Hering129HBasic
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.CentralizerZpowers
-import CFSG.LocalAnalysis.SectionRank.PRank
-import CFSG.LocalAnalysis.RankThreeUC.Basic
-import CFSG.LocalAnalysis.RankThreeCoreUniqueness.Helpers
 import CFSG.RankThree.PartTwo.KFacts.KS166J2A5Alt5
-import CFSG.LocalAnalysis.SeitzReduction.LinearPilotQ2LFiveKBasic
 public import CFSG.Certificates.LiftedSchreierData
 public import CFSG.GroupTheory.CoprimeActionSupport.AbelianEquivalence
 public import CFSG.GroupTheory.CoprimeActionSupport.Geometry

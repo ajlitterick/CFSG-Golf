@@ -6,9 +6,6 @@ import all Certificates.Kernel.Fi23M.ConjBase
 
 public import Certificates.Kernel.Fi23M.Keys
 import Certificates.Kernel.Fi23M.TreeK
-import Certificates.Kernel.Fi23K.OrbEq
-import CFSG.Certificates.Kernel.Spor.PChainSound
-import CFSG.Certificates.Kernel.Spor.TabWords
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
 
 public section

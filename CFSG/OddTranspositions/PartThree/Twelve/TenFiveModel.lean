@@ -1,13 +1,8 @@
 module
 
-public import CFSG.OddTranspositions.PartThree.FiveReflection
 public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveModelStab
-public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveModelCenter
-public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveModelChar
-public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveModelWalk
 public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveModelConj
 public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveModelCoset
-public import CFSG.Sporadic.Th.Max3.Data
 
 public section
 

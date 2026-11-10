@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.SteinbergSFOneAxisSecondAxis
-import CFSG.GroupTheory.ElementaryAbelianTransport
 import CFSG.GroupTheory.ElemAbelianClosure
 
 public section

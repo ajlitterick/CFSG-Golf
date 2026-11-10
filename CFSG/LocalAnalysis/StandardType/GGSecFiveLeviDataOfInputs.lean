@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSpProofHalfEx
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylB
 
 public section
 

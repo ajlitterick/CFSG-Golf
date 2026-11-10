@@ -1,55 +1,18 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResThreeSettledDefs
 import CFSG.LocalAnalysis.StandardType.GGResThreeCensusLabel
 public import CFSG.LocalAnalysis.StandardType.GGResNonsingF4Three
 public import CFSG.LocalAnalysis.StandardType.GGResNonsingTwASplit
-public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitarySixOriginal
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
-import CFSG.LocalAnalysis.StandardType.GGHdRo7CFinal
-import CFSG.LocalAnalysis.StandardType.GGResFixedWeylCentralizer
-import CFSG.LocalAnalysis.StandardType.GGResSeven
-import CFSG.LocalAnalysis.StandardType.GGTBXDatumResRest2
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeKacSingle
-public import CFSG.LocalAnalysis.StandardType.GGKacTable
-public import CFSG.LocalAnalysis.StandardType.GGKacK0
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeRowCover1585Holds
-public import CFSG.LocalAnalysis.StandardType.GGK0ExcB3Holds
-public import CFSG.LocalAnalysis.StandardType.GGResJPairedBlock
-public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3Bridge
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalanceSchreier
-public import CFSG.LocalAnalysis.StandardType.GGTBE6
-public import CFSG.LocalAnalysis.StandardType.GGTBTorLiftRowsHolds
-public import CFSG.LocalAnalysis.StandardType.GGResNonsingularBase
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
-public import CFSG.LocalAnalysis.StandardType.GGTriD4NoneTransport
 public import CFSG.LocalAnalysis.StandardType.GGDepED4ZKE6
-public import CFSG.LocalAnalysis.StandardType.GGResCentBoundNbrHolds
-public import CFSG.RankThree.PartOne.TCB.SchreierFinal
-public import CFSG.LocalAnalysis.StandardType.GGResIPumpLineTransfer
-public import CFSG.LocalAnalysis.StandardType.GGNbrCenterPCyclicHolds
 public import CFSG.LocalAnalysis.StandardType.GGFrameTBSUDvd
-public import CFSG.LocalAnalysis.StandardType.GGResJOneReflSylow
-public import CFSG.LocalAnalysis.StandardType.GGResKLinTwoExact3
 public import CFSG.LocalAnalysis.StandardType.GGResNonsingLinearNs
 import CFSG.LocalAnalysis.StandardType.GGResKLinSplitExact3
-public import CFSG.LocalAnalysis.StandardType.GGResJTwA5Sylow
-public import CFSG.LocalAnalysis.StandardType.GGSixStepOneOutdiagInputs
-public import CFSG.LocalAnalysis.StandardType.GGAutomizerGammaCard
 
-public import CFSG.LocalAnalysis.StandardType.GGResF4ExactTwo
-public import CFSG.LocalAnalysis.StandardType.GGResExact2KReverse
-public import CFSG.LocalAnalysis.StandardType.GGTCJHolds
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1Holds
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLExc11R
-public import CFSG.RankThree.PartTwo.Census.Classical.EvenPrimes
 public import CFSG.LocalAnalysis.StandardType.GGResUnitaryQPlusKProducers
 public import CFSG.LocalAnalysis.StandardType.GGResLinTwoRankFiveSix
 public import CFSG.LocalAnalysis.StandardType.GGResLinTwoRank78K3
-public import CFSG.LocalAnalysis.StandardType.GGResLinTwoL3GammaGap
-public import CFSG.LocalAnalysis.StandardType.GGResJTwE6Lagrange
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineL2Cover
 
 public section
 

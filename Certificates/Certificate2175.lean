@@ -2,9 +2,7 @@
 module
 
 public import Certificates.Certificate2175Base
-import Certificates.Kernel.SporSch.J4S.NoCPBase
 
-public import CFSG.Sporadic.Schreier.J4SNoCompData
 public meta import CFSG.Sporadic.Schreier.J4SNoCompData
 import Certificates.Kernel.SporSch.J4S.NoCP
 

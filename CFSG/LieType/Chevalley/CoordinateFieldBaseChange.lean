@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.Chevalley.D4TripleA2Lemmas
-public import CFSG.Blueprint.ChevalleyRootGroups
 
 public noncomputable section
 

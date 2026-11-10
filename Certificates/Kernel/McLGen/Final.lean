@@ -1,15 +1,11 @@
 module
 
-public import Certificates.Data.GH74.McLGen45
 public import Certificates.Kernel.McLGen.Checks
 public import Certificates.Kernel.ThFamC.K19766
-public import CFSG.Certificates.Kernel.Spor.Loops
 public import CFSG.Certificates.Kernel.Spor.VOrbSound
-public import CFSG.Certificates.Kernel.Spor.TBfsSound
 public import CFSG.Certificates.Kernel.Child3Reps
 public import CFSG.Certificates.Kernel.Misc.XiBits
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.Misc.LinesPerp
 public import CFSG.Certificates.Kernel.Misc.O73Defs
 public import CFSG.Sporadic.Schreier.MathieuOddCoreCentral

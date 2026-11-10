@@ -2,11 +2,9 @@ module
 
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Detect.F4.Split
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Detect.F4.Case3Data
-public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Detect.F4.Transport
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Detect.F4.Leaf.Case3Dichotomy
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Detect.F4.Leaf.Lemma5
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Detect.F4.Leaf.FZero
-public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.RootClosureF4Pair
 
 public noncomputable section
 

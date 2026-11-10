@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootDetectExcE8
-public import CFSG.LieType.Steinberg.Isogeny.E7
-public import CFSG.LieType.CurtisTits.ExceptionalQuasisimple
 
 public section
 

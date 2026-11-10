@@ -5,10 +5,6 @@ public import CFSG.ClassicalInvolution.Q3.TL4OmegaAOFSim
 public import CFSG.ClassicalInvolution.Q3.TL4OmegaAOFStd
 public import CFSG.ClassicalInvolution.Q3.TL4OmegaAOFGCase
 public import CFSG.ClassicalInvolution.Q3.Q3MFOSOdd
-public import CFSG.ClassicalInvolution.Q3.ModelCenter
-public import CFSG.ClassicalInvolution.ModelFacts.Orth15TwinStd
-public import CFSG.ClassicalInvolution.ModelFacts.TG3Common
-public import CFSG.ClassicalInvolution.SmallOrth.Orth3Tags
 public import CFSG.ClassicalInvolution.Q3.Q3MFODHyp
 public import CFSG.ClassicalInvolution.Q3.Q3NMM11
 public import CFSG.ClassicalInvolution.Q3.Q3NMSl23

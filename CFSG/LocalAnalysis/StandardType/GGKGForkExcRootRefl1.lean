@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcNorm
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcWeylReflectionOfFixedPoints
-public import CFSG.LieType.Chevalley.LangWeylInvolutionReflections
 
 public section
 

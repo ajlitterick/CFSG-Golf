@@ -3,9 +3,6 @@ module
 
 public import Certificates.Certificate4190Base
 
-public import CFSG.Quasithin.Vol2.GoldschmidtF431TitsGeoDAct
-public import CFSG.Quasithin.Vol2.GoldschmidtF431TitsGeoPtLoc
-public import CFSG.Quasithin.Vol2.GoldschmidtF431TitsGeoLnLoc
 import Certificates.Kernel.TitsD.Glue
 
 public section

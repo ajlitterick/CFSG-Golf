@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.TwinSmallLocal
-public import CFSG.ClassicalInvolution.RouteD.GapsFrBEigen
 public import CFSG.ClassicalInvolution.RouteD.GapsFrMinusSmallZ
 
 public section

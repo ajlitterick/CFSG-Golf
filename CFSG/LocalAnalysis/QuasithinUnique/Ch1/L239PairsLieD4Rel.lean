@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LieType.Chevalley.EvenTrialityTraceCommutators
-public import CFSG.LieType.Chevalley.EvenTrialityOrbitParametrization
-public import CFSG.LieType.Chevalley.EvenTrialityTorusCoordinates
 public import CFSG.LieType.Chevalley.TrialityAllCharTorusCoordinates
 
 public section

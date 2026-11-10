@@ -2,20 +2,12 @@ module
 
 public import CFSG.Sporadic.Recognition.HSGraphIso
 public import CFSG.LocalAnalysis.ComponentClassification.WittDesignWittAut
-public import CFSG.Sporadic.Recognition.HSGraphModelInputs
 public import Certificates.Certificate6100
 meta import CFSG.Sporadic.Recognition.HSGraphDefs
 meta import CFSG.Sporadic.Recognition.HSGraphStab
 meta import CFSG.LocalAnalysis.ComponentClassification.WittDesignWittAut
 meta import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22Hexads
-public import Certificates.Certificate2028
-public import Certificates.Certificate2031
-public import Certificates.Certificate2195
 public import Certificates.Certificate1020
-public import Certificates.Certificate1022
-public import Certificates.Certificate3029
-public import Certificates.Certificate2035
-public import Certificates.Certificate2039
 public import Certificates.Kernel.ThCent.Leaves
 public import Certificates.Certificate1020Base
 

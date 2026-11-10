@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperMoreOrthEnd
 public import CFSG.LocalAnalysis.StandardType.GGIOneOrthEndLift
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestOddEnd
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestCenter
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestBstar
 
 public section
 

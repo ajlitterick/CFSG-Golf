@@ -1,15 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosDefs
-public import CFSG.LieType.Steinberg.Adjoint.Datum
-public import CFSG.LieType.Chevalley.BorelStructure
 import CFSG.LocalAnalysis.StandardType.GGSixStepTwoToralExcAdj
-import CFSG.LocalAnalysis.StandardType.GGWeylFamQuotSolvAll
-import CFSG.LieType.Chevalley.PinnedBridge
-import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
-import CFSG.LieType.Chevalley.GraphFixedE6DiagonalCubes
-import CFSG.LieType.Chevalley.PerfectSimpleRoot
-import Mathlib.GroupTheory.Perm.Cycle.Type
 
 public section
 

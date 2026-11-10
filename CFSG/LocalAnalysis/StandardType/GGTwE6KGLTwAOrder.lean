@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
-import CFSG.Open.Defs
-import CFSG.Timmesfeld.Orders.ClassicalLinear
 
 public section
 

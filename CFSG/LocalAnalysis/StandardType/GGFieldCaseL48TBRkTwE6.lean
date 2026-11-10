@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBIrred
-public import CFSG.LocalAnalysis.StandardType.GGStdSubExist
 
 public section
 

@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T158InnHolds
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GField
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldLin
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnLinDict
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldUni
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldUniSig
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldSymp
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldOrth
@@ -16,18 +13,7 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFixGapTriD4
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFixGapTwB2
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFixGapTwF4
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I141FDynBridge
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.FPMI
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.FPCanon
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.MIInn2
-public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonInnBridge
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixLabel
-public import CFSG.LocalAnalysis.StandardType.GGReverseMarking
-public import CFSG.LocalAnalysis.StandardType.ChevTwoLieModel
-public import CFSG.LocalAnalysis.StandardType.MarkingDict
-public import CFSG.LocalAnalysis.GLTheoremA.CatB.Bridges
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.AssemblyAll
-public import CFSG.HardMathSupport.Solomon.Coordinator.B3LieCore
-public import CFSG.Adapters.TauCetiLieModels
 public import CFSG.LocalAnalysis.EvenBN.Common.CommutatorFixed
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T158Facts
 public import CFSG.LocalAnalysis.GLTheoremA.S12.Bridge

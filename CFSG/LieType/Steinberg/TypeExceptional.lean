@@ -2,8 +2,6 @@ module
 
 public import CFSG.LieType.Steinberg.Basic
 public import CFSG.Blueprint.ChevalleyStrings
-public import Certificates.Certificate113
-public import Certificates.Certificate114
 
 public section
 

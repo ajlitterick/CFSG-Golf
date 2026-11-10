@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.GF2n.Parrott.SpinE27Fixed
-public import CFSG.RankThree.GF2n.Parrott.SylowHFacts
 public import CFSG.RankThree.GF2n.Parrott.QA45InvolutionClasses
 public import CFSG.RankThree.GF2n.Parrott.SpinForms
 public import CFSG.RankThree.GF2n.Parrott.SpinTChecks

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Om2
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165OmDefs
 public import CFSG.RankThree.PartOne.KF.ClsAltOdd
-public import CFSG.RankThree.PartOne.S11d.OrthCaseH
 
 public noncomputable section
 

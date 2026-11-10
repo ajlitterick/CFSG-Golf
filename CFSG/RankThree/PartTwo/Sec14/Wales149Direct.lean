@@ -1,15 +1,10 @@
 module
 
-public import CFSG.RankThree.PartTwo.Sec14.Item14Statements
-public import CFSG.RankThree.PartTwo.Sec14.Item145
 public import CFSG.RankThree.PartTwo.Sec17.RouteWire14
 public import CFSG.RankThree.PartTwo.Sec16.Item167Proof
-public import CFSG.RankThree.PartTwo.Sec14.Item148Steps
 import CFSG.RankThree.PartTwo.Sec14.Item147
 import CFSG.RankThree.PartTwo.Sec14.Concl143Std
 import CFSG.RankThree.PartTwo.Sec14.Item14Tools
-import CFSG.RankThree.PartTwo.Sec14.Item149
-import CFSG.RankThree.PartTwo.Sec14.LBNatural
 import CFSG.RankThree.PartTwo.Sec5.Tools
 import CFSG.RankThree.PartTwo.Sec15.Item155wProofTools
 import CFSG.RankThree.Transfer.Yoshida

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLevTwoS3f4Tc2
-public import CFSG.LocalAnalysis.StandardType.GGLevTwoS3f4Link
 
 public section
 

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQ2SpStatements
 public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpLattice
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalSpSC
-public import CFSG.LocalAnalysis.StandardType.GGSpJoinPlaneConj
 public import CFSG.GroupTheory.CenterlessInnerCentralizer
 public import CFSG.GroupTheory.PCore.SubgroupCore
 

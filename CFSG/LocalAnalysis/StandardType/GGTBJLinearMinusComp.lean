@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJLinearMinusFrame
-public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelSLComp
 public import CFSG.GroupTheory.SubgroupCardMul
-public import CFSG.GroupTheory.CommutingProductFixedSubgroup
-public import CFSG.GroupTheory.ElemAbelianClosure
 import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrEnnola
 
 public section

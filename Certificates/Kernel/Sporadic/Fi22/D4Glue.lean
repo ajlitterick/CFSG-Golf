@@ -2,17 +2,10 @@ module
 
 public import Certificates.Kernel.Sporadic.Fi22.D4Chk
 public import Certificates.Kernel.Sporadic.Fi22.FivePinSound
-public import Certificates.Kernel.Sporadic.Fi22.FiveK
 public import Certificates.Kernel.OmegaEight.Bridge3009
 public import CFSG.Certificates.Kernel.Fi22D4Sound
 public import CFSG.Certificates.Kernel.Misc.PermWitSound
-public import CFSG.Certificates.Kernel.Misc.PairCountSound
-public import CFSG.Certificates.NativeSchreierCard
-public import CFSG.Certificates.NativeSchreierArrays
-public import CFSG.Certificates.NativeValidSchreier
-public import Certificates.Data.Fi22FiveD4
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.NativeModel
-public import CFSG.Monster.B.Co2.PermArr
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Census.SoundProof
 public import CFSG.Certificates.Kernel.Census.ToMainExc

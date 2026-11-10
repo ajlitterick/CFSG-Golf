@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.TWED6Scalar
-public import CFSG.ClassicalInvolution.RouteD.TypeDChain
-public import CFSG.ClassicalInvolution.RouteD.TypeDAdapt
 
 public section
 

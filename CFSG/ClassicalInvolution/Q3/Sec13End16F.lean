@@ -6,7 +6,6 @@ public import CFSG.ClassicalInvolution.Q3.Sec13L94
 public import CFSG.ClassicalInvolution.Q3.Sec13StarAE5
 public import CFSG.ClassicalInvolution.Q3.TL3T61
 public import CFSG.ClassicalInvolution.Q3.Sec13PerpPair
-public import CFSG.ClassicalInvolution.Q3.TL4D1Thin
 public import CFSG.ClassicalInvolution.Q3.Sec13End16F0
 public import CFSG.ClassicalInvolution.Q3.TL3T42
 public import CFSG.ClassicalInvolution.Q3.TL3T47

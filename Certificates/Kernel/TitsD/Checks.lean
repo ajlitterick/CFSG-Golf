@@ -4,7 +4,6 @@ public import Certificates.Kernel.TitsD.Data
 public import Certificates.Kernel.TitsOct.Data
 public import Certificates.Kernel.Misc.Tits.Text
 public import Certificates.Data.Kernel.TitsDK
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

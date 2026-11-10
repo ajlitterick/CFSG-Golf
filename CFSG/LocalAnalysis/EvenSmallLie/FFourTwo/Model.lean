@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenSmallLie.FFourTwo.PcGroup
 public import CFSG.LocalAnalysis.EvenSmallLie.FFourTwo.Griess
-public import CFSG.Blueprint.ChevalleyPinned
-public import CFSG.Blueprint.ChevalleyRootsInputs
-public import CFSG.LocalAnalysis.ComponentInitial.F4FieldTwoCoverRoots
 import CFSG.LocalAnalysis.EvenSmallLie.GTwoFour.TwoToOne
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 

@@ -1,19 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormE6PhiThree
-public import CFSG.LieType.Chevalley.GraphFixedHighestRoot
-public import CFSG.LieType.Chevalley.E6GraphRadicalCocycle
-public import CFSG.LieType.Chevalley.E6GraphLeviRealization
-public import CFSG.LieType.SeitzGeneration.ExcTorusTw
-public import CFSG.RankThree.Lattice.SteinbergBIChecks
-public import CFSG.RankThree.Classical2.TwistedE6RationalOrder
-public import CFSG.RankThree.PartOne.KE.CTLangData
-public import CFSG.LieType.Universal.Unitary.Comparison
 public import CFSG.ClassicalGroups.Unitary.SingerSU3
-public import CFSG.ClassicalGroups.Unitary.Perfect
 public import CFSG.HardMathSupport.Lang.TwE6Step3.SylowTorusSix
 public import CFSG.LocalAnalysis.StandardType.GGTwE6DD2Recipe
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaCenter
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormE8PowerMap
 
 public section

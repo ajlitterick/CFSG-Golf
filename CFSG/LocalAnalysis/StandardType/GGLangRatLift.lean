@@ -1,12 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLangRatCompTorusLift
-public import CFSG.LocalAnalysis.StandardType.GGExcCompFieldInput
 import CFSG.LocalAnalysis.StandardType.GGLangCoroot
-import CFSG.LieType.Chevalley.RootCharacterConjugation
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.BigAnyStep
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcRoots
-import CFSG.LieType.Chevalley.CLSOddE7RationalEightGroup
 import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcLang
 import CFSG.HardMathSupport.Solomon.Coordinator.B3FamPC
 import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma28

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.MonsterFiveRepData
-import Certificates.Certificate6007
 import Certificates.Kernel.KDenseP.MonFive
 public import CFSG.LocalAnalysis.AGLEmbedding.Norton.AgreeTasks
 public import CFSG.YGroups.DCE.MaximalB

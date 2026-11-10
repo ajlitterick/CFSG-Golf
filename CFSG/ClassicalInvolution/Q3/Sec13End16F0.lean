@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Sec13End16A
-public import CFSG.ClassicalInvolution.Q3.TL3T17
 import CFSG.ClassicalInvolution.Q3.Sec13EndMin
 import CFSG.ClassicalInvolution.Q3.Sec13StarAE5
 import CFSG.ClassicalInvolution.Q3.Sec13PerpPair

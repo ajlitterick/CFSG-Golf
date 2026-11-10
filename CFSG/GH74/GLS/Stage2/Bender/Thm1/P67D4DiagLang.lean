@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.AlgebraicGroups.E6GraphCentralizerLang
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 
 public noncomputable section
 

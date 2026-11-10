@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1LemmaHTriD4
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TriD4BridgeLongRoot
-public import CFSG.LieType.HighestRoot.GenModels
-public import CFSG.LieType.Steinberg.CentralExt.TrialityCoprime
 
 public section
 

@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.E8SevenLayerFamily
 public import CFSG.LocalAnalysis.StandardType.QuasisimpleLayerPullback
 public import CFSG.LocalAnalysis.StandardType.SigmaLayerComponents
 public import CFSG.RankThree.PartOne.KE6.E8T3Perx
-public import CFSG.RankThree.PartOne.KE6.E6LLayer
-public import CFSG.RankThree.PartOne.KD4L.TrialityLayer
 public import CFSG.RankThree.Classical2.TwistedE6Phi3A2A2Case
 
 public noncomputable section

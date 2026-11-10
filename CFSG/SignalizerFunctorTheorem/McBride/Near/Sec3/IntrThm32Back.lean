@@ -1,10 +1,7 @@
 module
 
-public import Mathlib
 public import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec3.IntrThm32Quot
 import CFSG.GroupTheory.ElementaryAbelianTransport
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.GroupTheory.Fitting.CharacteristicP
 public import CFSG.LieType.BorelTits.CompleteFlag
@@ -19,12 +16,8 @@ public import CFSG.LocalAnalysis.ComponentInitial.SuzukiModelSchreier
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure
 public import CFSG.SignalizerFunctorTheorem.McBride.Near.AssocSup
 public import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec2.Thm210
-public import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec2.Thm210j
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.theorem_4_18_b
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

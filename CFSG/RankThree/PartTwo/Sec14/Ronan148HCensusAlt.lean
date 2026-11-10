@@ -6,7 +6,6 @@ import CFSG.Mathlib.Decide.Bounded
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148HCensusTools
 import CFSG.Quasithin.Vol2.Ch5Sec1L34FiveA7
 import CFSG.Quasithin.Vol2.Ch6Sec1Lem4SpA
-import CFSG.Walter.J1Props
 
 public section
 

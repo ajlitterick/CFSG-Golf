@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyQFourDom
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6Delta
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4Basic
 
 public section
 

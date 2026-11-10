@@ -1,15 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeIndepDefs
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeSmallRankDefs
-public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeDefs
-public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepChain
-public import CFSG.LocalAnalysis.StandardType.GGRCWeylConnected
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
 public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3Bridge
-public import CFSG.Monster.B.Geometry.InitialIsometryParabolic
-public import TauCeti.GroupTheory.Coxeter.Matrix
-public import TauCeti.Combinatorics.SimpleGraph.BranchComponents
 
 public section
 

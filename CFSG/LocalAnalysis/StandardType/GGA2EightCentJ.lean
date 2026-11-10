@@ -3,10 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGA2EightDefs
 public import CFSG.LocalAnalysis.StandardType.GGL45FixA2RankSeven
 public import CFSG.LocalAnalysis.StandardType.GGB36LemmaRT
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATorus
-public import CFSG.LocalAnalysis.StandardType.GGTableBRank
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeACover
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
 
 public section
 

@@ -1,9 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.Definitions
-import Mathlib.GroupTheory.PGroup
-import Mathlib.GroupTheory.Sylow
-import Mathlib.GroupTheory.Commutator.Basic
 
 namespace CFSG
 end CFSG

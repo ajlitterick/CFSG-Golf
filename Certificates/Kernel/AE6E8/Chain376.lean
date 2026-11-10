@@ -1,7 +1,5 @@
 module
 
-public import CFSG.Certificates.Kernel.Spor.RawSound
-public import Certificates.Data.Kernel.AE6E8.Defs
 public import Certificates.Kernel.AE6Tri.Data
 public import Certificates.Kernel.AE6E8.Chain16
 public meta import Certificates.Kernel.Sporadic.RawGen

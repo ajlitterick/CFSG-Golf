@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinDNodePlus
 public import CFSG.LocalAnalysis.StandardType.PhanDNativeNodeMinus
 public import CFSG.LocalAnalysis.StandardType.GGPhanOneNodePosition
-public import CFSG.LocalAnalysis.StandardType.GGSimplyLacedWeyl
 
 public section
 

@@ -4,7 +4,6 @@ public import Certificates.Kernel.BabyMonster.Fi23InB
 public import Certificates.Kernel.BabyMonster.ChainN
 public import Certificates.Kernel.BabyMonster.FiveA.RankLin
 public import CFSG.Certificates.Kernel.BabyMonster.R0Rank.All
-public import CFSG.Certificates.Kernel.BabyMonster.R0Rank.Check0
 
 set_option maxRecDepth 400000
 

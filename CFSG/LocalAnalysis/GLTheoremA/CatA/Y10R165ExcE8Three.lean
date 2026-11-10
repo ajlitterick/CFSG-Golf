@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.PartOne.KE6.E8T3Perx
 public import CFSG.RankThree.PartOne.KE6.E6LLayer
-public import CFSG.LocalAnalysis.StandardType.SupportedTorusFixedKernel
 public import CFSG.LocalAnalysis.StandardType.E8SevenLayerOrderCenter
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitE6Gen
 public import CFSG.LieType.Chevalley.C2E6UnitaryFourImages

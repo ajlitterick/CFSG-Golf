@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Quasithin.Background.FixVZPowersMem
 public import CFSG.Quasithin.Vol2.Ch12Sec5Ir
 public import CFSG.Quasithin.Vol2.Ch12Sec5Inv
 

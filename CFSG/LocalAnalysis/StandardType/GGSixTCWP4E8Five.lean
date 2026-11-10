@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RE8Frame
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RE8Surv
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RC1
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RWeyl
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RDual
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RConj
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RDualFrob
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RFive
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4C2

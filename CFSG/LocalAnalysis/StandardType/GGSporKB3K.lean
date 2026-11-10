@@ -1,15 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSporKF1F4At
 public import CFSG.LocalAnalysis.StandardType.GGSporKB3Heis
 public import CFSG.LocalAnalysis.StandardType.GGSporKB3Comp
-public import CFSG.Sporadic.Bridge.BBound
 import CFSG.LocalAnalysis.StandardType.GGSporKBMBridgeZ
 import CFSG.LocalAnalysis.StandardType.GGSporKBMTransportA
 import CFSG.LocalAnalysis.StandardType.GGSporKCompConj
 import CFSG.LocalAnalysis.StandardType.GGSporKF1F4Conj
-import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.BThreeFi23Fuse
-import CFSG.HardMathSupport.Solomon.Coordinator.B3B.BRank0
 
 public section
 

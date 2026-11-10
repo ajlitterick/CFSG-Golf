@@ -2,16 +2,13 @@
 module
 
 public import Certificates.Kernel.Misc.GL52.IsoHom
-public import CFSG.Literature.GL52IsosInputs
 public meta import CFSG.Literature.GL52BFS
 public meta import CFSG.Literature.GL52Pass
 public meta import CFSG.Literature.GL52Elements
 public meta import CFSG.LocalAnalysis.ComponentInitial.SmallLinearIsomorphisms
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 import Init.Data.Nat.Fold
 import Init.Data.Range.Basic
-import CFSG.Literature.GL52Basic
 
 public section
 

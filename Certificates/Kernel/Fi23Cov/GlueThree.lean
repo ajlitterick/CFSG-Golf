@@ -3,9 +3,6 @@ module
 public import Certificates.Kernel.Fi23Cov.Words
 public import Certificates.Kernel.Fi23Cov.ThreeH
 public import Certificates.Kernel.Fi23Cov.ThreeS
-public import CFSG.LocalAnalysis.StandardType.GGSporKRestPath
-public import CFSG.LocalAnalysis.StandardType.GGSporKRestTwoCent
-public import CFSG.LocalAnalysis.StandardType.GGSporKRestClasses
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.BThreeFi23Census
 import CFSG.Certificates.Kernel.Common.ForallTree
 public import Certificates.Kernel.SporCovBase.Fi22Glue

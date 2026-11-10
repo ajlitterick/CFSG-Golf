@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC6K332Cyc
-import Mathlib.GroupTheory.FiniteAbelian.Basic
 
 public section
 

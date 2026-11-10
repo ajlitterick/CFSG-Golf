@@ -4,7 +4,6 @@ public import CFSG.Certificates.Kernel.TwoNodeSmall.WitKSound
 import Certificates.Kernel.TwoNodeSmall.Checks8
 import Certificates.Kernel.TwoNodeSmall.Checks9
 import Certificates.Kernel.TwoNodeSmall.Checks9m
-import CFSG.Certificates.Kernel.Common.ForallChunks
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeSmallRankDefs
 public import Certificates.Kernel.TwoNodeSmall.Data
 

@@ -6,19 +6,13 @@ public import Certificates.Kernel.Sporadic.Co3.Hyp24438E8
 public import CFSG.Certificates.Kernel.Spor.CommBaseSound
 public import CFSG.Certificates.Kernel.Spor.SiftRSound
 public import CFSG.Certificates.Kernel.Enum.ZCSound
-public import CFSG.Sporadic.Schreier.Co3Sylow
 public import CFSG.Sporadic.Schreier.Co3Centralizers
-public import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
-public import CFSG.LocalAnalysis.ComponentClassification.M12CoverAutCentralizers
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HypOne.Rank
 public import CFSG.Certificates.Kernel.Spor.ONKSound
 public import CFSG.Certificates.Kernel.Spor.RawOrbGrp
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HypOne.Generic
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 public import CFSG.Walter.JRFacts
 
 public section

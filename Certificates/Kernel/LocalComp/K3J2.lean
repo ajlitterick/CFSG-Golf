@@ -6,8 +6,6 @@ public import Certificates.Kernel.LocalComp.BlockGen
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public import CFSG.Certificates.Kernel.Misc.HexFlatSound
 meta import Certificates.Data.CFSGNative.PairSchreier.J2Data
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.Spor.RawOrbGrp
 
 public section

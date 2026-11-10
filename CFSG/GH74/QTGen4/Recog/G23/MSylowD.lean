@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GH74.QTGen4.Recog.G23.MSylow
-public import Mathlib.GroupTheory.Sylow
 public meta import Mathlib.Algebra.Field.ZMod
 
 public section

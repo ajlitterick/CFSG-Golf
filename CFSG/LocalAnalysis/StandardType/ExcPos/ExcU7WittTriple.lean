@@ -3,8 +3,6 @@ module
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUStd
 public import CFSG.ClassicalGroups.Unitary.PerpQuotient
 public import CFSG.LieType.SeitzGeneration.UnitaryCenters
-public import CFSG.RankThree.Classical2.MatrixFrobeniusLang
-import Mathlib.LinearAlgebra.LinearIndependent.BaseChange
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.Families
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUAut
 public import CFSG.HardMathSupport.Timmesfeld.Proving.ExistsOrderPCentralizer

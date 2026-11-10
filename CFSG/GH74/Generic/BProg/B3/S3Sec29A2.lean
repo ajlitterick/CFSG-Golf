@@ -1,8 +1,6 @@
 module
 
 public import CFSG.GH74.Generic.BProg.B3.S3Sec29A1
-public import CFSG.GH74.Generic.JMaxCongr
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LieType.ChevTwo.Main
 public import CFSG.Quasithin.AppendixH.H9.H92.CoreRad.PCoreOfBasic
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.LocalAnalysis.StandardType.GGSixAutKFlatIVInputs
 public import CFSG.LocalAnalysis.StandardType.GGOutTwoCommInnerHolds
 public import CFSG.LocalAnalysis.StandardType.GGOuterInvFieldTags

@@ -3,7 +3,6 @@ module
 public import Certificates.Data.Kernel.ThThreeCov.Defs
 public import Certificates.Kernel.ThThreeCov.Data
 public import Certificates.Kernel.Th.Fam.K
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.Each
 
 public section

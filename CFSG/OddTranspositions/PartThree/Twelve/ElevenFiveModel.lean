@@ -1,10 +1,6 @@
 module
 
-public import CFSG.OddTranspositions.PartThree.Twelve.ElevenFiveChart
-public import CFSG.OddTranspositions.PartThree.Twelve.ElevenFiveAdjoin
-import CFSG.OddTranspositions.PartThree.Twelve.ElevenFiveForm
 public import CFSG.OddTranspositions.PartThree.Twelve.ElevenFiveDiameter
-public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveLiftModel
 public import CFSG.OddTranspositions.PartThree.Twelve.ElevenFiveLocal
 import CFSG.OddTranspositions.PartThree.Twelve.ElevenFiveModelStd
 import CFSG.OddTranspositions.PartThree.Twelve.ElevenFiveModelIso

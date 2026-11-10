@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGIOneRestFiveSp
 public import CFSG.LocalAnalysis.StandardType.GGIOneRestFiveSpRootLin
 public import CFSG.LocalAnalysis.StandardType.GGIOneRestFiveSpRootTv
 public import CFSG.LocalAnalysis.StandardType.GGIOneRestFiveSpRootBig
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwoThreeOrthSp
 
 public section
 

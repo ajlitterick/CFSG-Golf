@@ -2,16 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreDefs
 public import CFSG.LocalAnalysis.StandardType.GGFamF4Shapes
-import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreOccursDict
-import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreNormLe
 import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreNormGe
 import CFSG.LocalAnalysis.StandardType.GGQ2ExcRawF4Norm
 import CFSG.LocalAnalysis.StandardType.GGFamF4Tame
-import CFSG.LocalAnalysis.StandardType.GGSixTCWP4ULang
 import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.FixedRange
-import CFSG.LieType.Universal.Symplectic
-import CFSG.RankThree.SteinbergR3ECASymplecticPrimeSubfield
-import Mathlib.FieldTheory.Finite.Basic
 
 public section
 

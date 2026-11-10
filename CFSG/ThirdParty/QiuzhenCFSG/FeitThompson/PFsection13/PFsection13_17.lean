@@ -3,7 +3,6 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection13.PFsection13_16
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection12.PFsection12_7
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection12.PFsection12_16
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection13.lemma_13_13
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection9.PFsection9_1
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection8.SourceTypePBridge
 

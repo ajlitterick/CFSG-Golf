@@ -6,13 +6,9 @@ public import Certificates.Kernel.LocalComp.ExcU6.DataS
 public import Certificates.Kernel.LocalComp.ExcU6.Derivs
 public import Certificates.Kernel.LocalComp.ExcGlue
 public import Certificates.Kernel.UnitarySix.ChainFacts
-public import Certificates.Kernel.UnitarySix.Letters
 public import CFSG.Certificates.Kernel.LocalCompExcU6Sound
-public import CFSG.Certificates.Kernel.U6Sound3010S
 public import CFSG.Certificates.Kernel.Child3Reps
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.BfsPinSound
-public import CFSG.Certificates.Kernel.BfsPinUnpack
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutCheckBase
 
 public section

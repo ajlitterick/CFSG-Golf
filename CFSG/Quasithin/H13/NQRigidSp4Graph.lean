@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.SymplecticHigherAutomorphismDa
 public import CFSG.LocalAnalysis.ComponentClassification.ClassicalModelStatedBridge
 public import CFSG.LocalAnalysis.ComponentInitial.SymplecticHigherFormZero
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesAlt
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
 
 public section
 

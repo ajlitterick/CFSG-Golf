@@ -1,39 +1,25 @@
 module
 
-public import CFSG.Blueprint.Catalog
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeDefs
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixRCK1416Defs
 import CFSG.LocalAnalysis.StandardType.GGK0MarkedArithmetic
-import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpRestTypeDet
-import CFSG.Timmesfeld.Orders.Exceptional
 import CFSG.RankThree.PartTwo.Sec21.Item228Census2ProofExc
 import CFSG.RankThree.PartTwo.Sec21.Item228Census2ProofUni
-import CFSG.ClassicalGroups.UnitaryFlag.StatedBridge
 import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIITwE6Components
 import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIFive
-import CFSG.LocalAnalysis.StandardType.GGSixAutKFlatIVQuot
 import CFSG.LocalAnalysis.StandardType.GGSixUnitaryTwoInnerDiag
-import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIUnitaryRecognition
 import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIpAction
 import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIINativeMinus
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeStepA
-import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIITwE6Prime
 import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIINativeOrthogonalPlus
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeF1POmegaPlus
-import CFSG.LocalAnalysis.StandardType.ClassicalPosition.StepA2
 import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockDegreeOneGFTwo
 import CFSG.LocalAnalysis.StandardType.ClassicalPosition.FEOmegaFourMinusPOmegaPlus
 import CFSG.LocalAnalysis.StandardType.ClassicalPosition.FEPOmegaPlus
 import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIpFPOmegaPlusFixed
 import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIpBlockFixed
-import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIUnitaryFour
-import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIUnitaryOrthBlock
 import CFSG.LocalAnalysis.StandardType.TableC.OrthGram
 import CFSG.LocalAnalysis.StandardType.GGSixD4TwoFixedFive
-import CFSG.LieType.Universal.Spin.Action
-import CFSG.LieType.Universal.Spin.Forms
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeFamInBCDCharTwo
 
 public section

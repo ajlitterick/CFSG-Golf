@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGReflCentralLift
 public import CFSG.RankThree.PartOne.KF4.A2FrameToral
-public import CFSG.Adapters.SpecialLinearPerfect
 public import CFSG.RankThree.PartOne.SRC.ProductCover
 public import CFSG.Mathlib.LinearAlgebra.BilinForm.Determinant
 public import CFSG.RankThree.PartOne.KE.A1SL2

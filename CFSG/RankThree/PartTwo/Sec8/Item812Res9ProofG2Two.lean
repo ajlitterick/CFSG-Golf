@@ -1,11 +1,8 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec8.Item812Res8ProofG2Ord3
-public import CFSG.Quasithin.Background.JonesParshallG2Two
 import CFSG.RankThree.PartTwo.Sec11.KS11Lie3ProofEight
-import CFSG.Quasithin.Background.JonesParshallG2Field
 import CFSG.Quasithin.Background.P3G2Zorn
-import CFSG.Timmesfeld.Orders.ExceptionalUntwisted
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
 public import CFSG.Certificates.FusionF2
@@ -66,7 +63,6 @@ public import CFSG.RankThree.PartTwo.Sec21.Item229Diagram
 public import CFSG.RankThree.PartTwo.Sec21.Item23Tools
 public import CFSG.RankThree.PartTwo.Sec21.Membership
 public import CFSG.RankThree.PartTwo.Sec21.SylowThree
-public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.RankThree.PartTwo.Sec8.Item83ProofDefs
 public import CFSG.RankThree.PartTwo.Toolkit.M12Local
 public import CFSG.RankThree.S4Free.SuzukiEight

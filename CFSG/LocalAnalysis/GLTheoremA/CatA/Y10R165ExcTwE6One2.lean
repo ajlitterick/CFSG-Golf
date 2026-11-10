@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165ExcTwE6One
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTwistedTorus
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTwE6ThreeSC
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTwE6ThreeHolds
 public import CFSG.HardMathSupport.Lang.AnisoE6.PlaneConjGen
-public import CFSG.GroupTheory.PGroup.ElemAbelianSq
 
 public section
 

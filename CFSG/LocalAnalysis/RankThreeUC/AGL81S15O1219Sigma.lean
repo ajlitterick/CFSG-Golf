@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15O1217Sigma
-import CFSG.LocalAnalysis.RankThreeUC.CoreWitness
 import CFSG.SignalizerFunctorTheorem.McBride.Prelim.Generation
 import CFSG.GH74.Uniqueness.SU.SU1Basic
 import CFSG.GroupTheory.ElemAbelianClosure

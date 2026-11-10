@@ -1,16 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154Orth
-public import CFSG.RankThree.PartOne.KC.OrthogonalBlockQuasisimple
-public import CFSG.LocalAnalysis.ComponentInitial.UnitaryTransvectionGeneration
-public import CFSG.Models.PGLSimple
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GCenterQuot
-public import CFSG.CharacterTheory.Burnside
-public import CFSG.LocalAnalysis.ComponentInitial.FieldUnitaryNorm
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogQuadraticNormalForms
 public import CFSG.RankThree.PartOne.K159.RowFourFixed
-public import CFSG.RankThree.PartOne.S11d.OrthCaseH
-public import CFSG.RankThree.PartOne.K159.Klein
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Glue
 public import CFSG.RankThree.PartOne.S15K.FixedWitt
 public import CFSG.RankThree.PartOne.S15K.LayerModel

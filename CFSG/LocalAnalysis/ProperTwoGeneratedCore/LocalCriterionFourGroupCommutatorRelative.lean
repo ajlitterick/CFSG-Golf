@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionFourGroupCommutatorLift
 import all CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionFourGroupCommutatorAction
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Lemmas
-public import Mathlib.GroupTheory.Index
 
 public noncomputable section
 

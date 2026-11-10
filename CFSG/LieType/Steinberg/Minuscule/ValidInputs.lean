@@ -2,9 +2,6 @@ module
 
 public import CFSG.LieType.Steinberg.Minuscule.Ops
 public import CFSG.LieType.Steinberg.Basic
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate115
 
 public noncomputable section
 

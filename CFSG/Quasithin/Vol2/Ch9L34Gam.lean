@@ -1,14 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.Ch9L34Herm9
-public import Mathlib.GroupTheory.Nilpotent
-public import Mathlib.GroupTheory.SemidirectProduct
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
-public import Mathlib.RingTheory.WittVector.IsPoly
-public import Mathlib.Tactic.Basify
-public import Mathlib.Tactic.ENatToNat
-public import Mathlib.Tactic.Polynomial.Basic
-public import Mathlib.Tactic.ReduceModChar
 
 public section
 

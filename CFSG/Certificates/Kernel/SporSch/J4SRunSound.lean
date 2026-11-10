@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.SporSch.J4SRun
 public import CFSG.Certificates.Kernel.SporSch.J4SBigSound
-public import CFSG.Certificates.Kernel.J4Q.RepQT
 
 public section
 

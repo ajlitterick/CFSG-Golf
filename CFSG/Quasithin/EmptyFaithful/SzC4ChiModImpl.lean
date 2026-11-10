@@ -1,9 +1,7 @@
 module
 
 public import CFSG.Quasithin.EmptyFaithful.SzC4ChiApi
-public import CFSG.Quasithin.EmptyFaithful.SzC4ChiModDef
 public import CFSG.Quasithin.EmptyFaithful.SzC4ChiModExact
-public import CFSG.Quasithin.EmptyFaithful.SzC4ChiModVec
 public import CFSG.Quasithin.EmptyFaithful.SzC4ChiModFin
 public import Mathlib.GroupTheory.PGroup
 

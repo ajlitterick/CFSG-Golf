@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordInnerCenter
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosDefs
 
 public section
 

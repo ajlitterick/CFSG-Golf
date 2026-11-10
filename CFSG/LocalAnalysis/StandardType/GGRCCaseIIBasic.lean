@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRCCardJoin
 public import CFSG.LocalAnalysis.StandardType.GGRCSmallOfCard
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBarBridge
 
 public section

@@ -4,7 +4,6 @@ public import Certificates.Kernel.MaxD2.McLP.Enum
 public import Certificates.Kernel.MaxD2.McLP.Data
 public import Certificates.Kernel.McL5Pairs.Data
 public import Certificates.Kernel.McL5Pairs.Chain
-public import Certificates.Data.Kernel.McL5Pairs
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

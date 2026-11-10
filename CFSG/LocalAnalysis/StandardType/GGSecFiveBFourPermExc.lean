@@ -5,11 +5,8 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveRestOriginalWeyl
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBFourPermExcCoord
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBFourPermExcWit
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBFourPermExcLabel
-import CFSG.LocalAnalysis.StandardType.GGSecFiveCR3OfPump
 import CFSG.LocalAnalysis.StandardType.GGSecFiveReflMaxBasic
-import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoAux
 import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylReflTriple
-import CFSG.LocalAnalysis.StandardType.GGTCJHolds
 import CFSG.LocalAnalysis.StandardType.GGTwoNodeSmallPosWeylSys
 import CFSG.LocalAnalysis.StandardType.GGTwoNodeSmallE8
 import CFSG.LocalAnalysis.StandardType.GGTwoNodeSmallRankDefs

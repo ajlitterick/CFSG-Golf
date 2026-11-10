@@ -2,9 +2,7 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection1.PFsection1_6
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.DegreeBounds
-public import Mathlib.Analysis.Complex.Basic
 public import Mathlib.Analysis.SpecialFunctions.Sqrt
-public import Mathlib.GroupTheory.Subgroup.Center
 
 namespace CFSG
 end CFSG

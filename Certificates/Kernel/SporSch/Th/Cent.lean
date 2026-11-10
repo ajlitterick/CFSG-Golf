@@ -5,7 +5,6 @@ public import Certificates.Kernel.SporSch.Th.GenStr
 public import Certificates.Kernel.Sporadic.RawGen
 public import CFSG.Certificates.Kernel.SporSch.ThTextSound
 public import CFSG.Sporadic.ThSchreier.CentralizerDataInputs
-public import CFSG.Sporadic.ThSchreier.LocalDataInputs
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

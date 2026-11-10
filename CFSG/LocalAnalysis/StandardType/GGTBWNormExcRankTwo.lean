@@ -1,12 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormLowRank
-public import CFSG.LocalAnalysis.StandardType.GGExcFieldRankE6
 public import CFSG.LocalAnalysis.StandardType.GGExcFieldRankE7
 public import CFSG.LocalAnalysis.StandardType.GGExcFieldRankE8
 public import CFSG.LocalAnalysis.StandardType.GGExcFieldRankTwE6
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Aut
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaOutdiag
 public import CFSG.LocalAnalysis.StandardType.GGTwE6DD2Recipe
 
 public section

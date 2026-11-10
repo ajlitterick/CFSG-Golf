@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSelPSUChart
-public import CFSG.LieType.Universal.Unitary.Comparison
 
 public section
 

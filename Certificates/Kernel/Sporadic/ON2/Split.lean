@@ -2,10 +2,8 @@ module
 
 public import Certificates.Kernel.Sporadic.ON2.Final
 public import Certificates.Kernel.Sporadic.ON2.Basis
-public import Certificates.Kernel.Sporadic.ON2.Assemble
 public import Certificates.Kernel.Sporadic.ON2.Neg
 public import CFSG.Certificates.Kernel.Spor.ONSplitSound
-public import Certificates.Data.Kernel.ON.BasisLit
 public import CFSG.Certificates.Kernel.Spor.ONNegSound
 public import CFSG.Certificates.Kernel.Spor.RawSlSound
 import CFSG.Certificates.Kernel.Common.Harness

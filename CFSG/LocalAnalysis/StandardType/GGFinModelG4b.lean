@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGFinModelCore
-public import CFSG.LocalAnalysis.StandardType.GGFinModelIndex
 public import CFSG.LocalAnalysis.StandardType.GGFinModelInnDiag
 public import CFSG.LocalAnalysis.StandardType.GGFinModelCorner
 

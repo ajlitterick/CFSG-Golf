@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJUnitaryMinusBlockAuxStepA
-public import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockUniBlocks
 
 public section
 

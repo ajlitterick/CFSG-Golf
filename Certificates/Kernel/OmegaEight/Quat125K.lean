@@ -5,7 +5,6 @@ public import Certificates.Kernel.OmegaEight.E4O8NbrK
 public import Certificates.Kernel.OmegaEight.E4O8MembersData
 public import Certificates.Kernel.OmegaEight.Quat125Data
 public import Certificates.Data.Kernel.O8.QuatO8
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.EachTrue
 
 public section

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinOutWeakDefs
 public import CFSG.LocalAnalysis.StandardType.GGOrthWeakFrame
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 
 public section
 

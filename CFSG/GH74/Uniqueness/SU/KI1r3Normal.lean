@@ -6,7 +6,6 @@ public import CFSG.GroupTheory.ABGLocalTools.PStabilityQDickson
 import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.GH74.GLS.Defs
-public import CFSG.GH74.GLS.Pattern
 public import CFSG.GH74.L5U5.ModelsBridge
 public import CFSG.GH74.Statements
 public import CFSG.GH74.Uniqueness.Bender.Models
@@ -25,11 +24,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.TwoActionInvariantSylow
 public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismData
 public import CFSG.LocalAnalysis.SectionRank.CentralLift
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.theorem_4_18_b
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2RootGroups
 
 public section
 

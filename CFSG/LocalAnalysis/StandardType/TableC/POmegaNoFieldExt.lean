@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixFiveKnownForms
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitKGOmModel
-import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotCatTypeDet
-import CFSG.RankThree.PartOne.S11d.OrthModels
-import CFSG.RankThree.PartOne.S11d.OrthCaseH
 
 public section
 

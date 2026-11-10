@@ -1,10 +1,8 @@
 module
 
-public import CFSG.Monster.B.TwoA.Census.MonoCertInputs
 public import Certificates.Kernel.MonsterB.Mono3016K
 public import CFSG.Certificates.Kernel.SortTreeP
 public import CFSG.Certificates.Kernel.MonsterB.PermISound
-public import CFSG.Certificates.Kernel.MonsterB.U6OrbSound
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.SortTreeMul
 

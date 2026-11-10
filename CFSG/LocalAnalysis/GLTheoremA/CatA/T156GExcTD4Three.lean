@@ -2,14 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T156GExcG2
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.YS09TD4G2A
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestTri
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestTriDiag
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiag
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofLieOrder
-public import CFSG.RankThree.PartTwo.KFacts.K71TrialityFix
-public import CFSG.RankThree.PartTwo.Sec8.Item8KFacts2ProofD4
-public import CFSG.RankThree.PartOne.KF.F122D4
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Basic
 public import CFSG.Goldschmidt.Steps.G37Core
 public import CFSG.HardMathSupport.Solomon.Coordinator.L3FATArith
 public import CFSG.HardMathSupport.Solomon.Coordinator.L3G515Core
@@ -34,10 +26,6 @@ public import CFSG.Quasithin.Background.C1GNSolvConnect
 public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.E2Statements
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.F6CatRecogL2
-public import CFSG.Quasithin.Background.F6CatRecogTools2
 public import CFSG.Quasithin.Background.F918C6
 public import CFSG.Quasithin.Background.FFC7G
 public import CFSG.Quasithin.Background.FFC8A
@@ -99,7 +87,6 @@ public import CFSG.RankThree.PartTwo.Sec17.RouteProvers
 public import CFSG.RankThree.PartTwo.Sec17.RouteProvers142
 public import CFSG.RankThree.PartTwo.Sec8.Item87Proof84
 public import CFSG.RankThree.S4Free.SuzukiEight
-public import CFSG.Walter.J1Props
 public import Certificates.Kernel.J4Count.Prim
 
 public section

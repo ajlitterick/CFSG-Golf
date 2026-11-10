@@ -2,12 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGLHyp111BaseIndexKappa
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CDefs
-public import CFSG.LocalAnalysis.RankThreeUC.Basic
-import CFSG.LocalAnalysis.AGLEmbedding.OneSmallPoszAux
 import CFSG.GroupTheory.ElementaryAbelianTransport
 import CFSG.Adapters.GeneralizedFittingTop
-import CFSG.LocalAnalysis.ComponentInitial.EmptyLayerCharTwo
-import CFSG.LocalAnalysis.ComponentClassification.Helpers
 public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.CGT.PushingUpLit.BHS.NaturalDefs
 public import CFSG.CGT.PushingUpLit.BHS.SymNatDefs

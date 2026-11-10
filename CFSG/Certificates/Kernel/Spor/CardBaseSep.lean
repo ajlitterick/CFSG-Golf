@@ -1,7 +1,6 @@
 module
 
 public import Mathlib.Algebra.Group.Subgroup.Finite
-public import Mathlib.SetTheory.Cardinal.Finite
 
 public section
 

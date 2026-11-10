@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.GammaUFrameCK
-public import CFSG.Certificates.Kernel.GammaUNormSound
 public import CFSG.Certificates.Kernel.GammaUSigmaSound
 public import CFSG.GF2Type.Smith1979.GammaU.StepA2
 public import CFSG.Certificates.Kernel.GammaUOrbSound

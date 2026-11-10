@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallOrthUnFixed
-public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameTorusField
-public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelUCompRoots
 
 public section
 

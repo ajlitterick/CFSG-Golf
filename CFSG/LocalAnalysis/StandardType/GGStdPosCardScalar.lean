@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdPosLocalDefs
 public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerMinusRank
-import Mathlib.RingTheory.RootsOfUnity.Basic
-import Mathlib.Tactic.Group
 
 public section
 

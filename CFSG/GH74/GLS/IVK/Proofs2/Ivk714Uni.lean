@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk714Lin
-public import CFSG.GH74.Generic.S45.LOddPSU
 public import CFSG.GH74.Generic.S45.LLinSel
 
 public section

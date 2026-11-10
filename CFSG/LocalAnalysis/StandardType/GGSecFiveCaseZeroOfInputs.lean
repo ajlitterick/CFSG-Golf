@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveCaseZeroCartan
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveCaseZeroFourJoin
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveReflMaxNotG2
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveReflMaxBasic
 
 public section
 

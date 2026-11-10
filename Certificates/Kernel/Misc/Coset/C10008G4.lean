@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LieType.Multipliers.Sz8BridgeInputs
-import CFSG.LieType.Multipliers.Sz8Matrix
-import CFSG.LieType.Multipliers.Sz8Field
 
 public section
 

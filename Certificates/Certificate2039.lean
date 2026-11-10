@@ -10,7 +10,6 @@ import all CFSG.LocalAnalysis.ComponentClassification.WittDesignM22Hexads
 import all CFSG.LocalAnalysis.ComponentClassification.WittDesignWittAutInputs
 import all CFSG.Fischer.F4
 import Certificates.Kernel.LocalComp.M22ParitySigma
-import Certificates.Certificate2195
 
 public section
 

@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4N2Torus
-public import CFSG.RankThree.CentralLift.ClassicalCenterTrivial
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestOddLayer
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRestGen
 
 public section
 

@@ -1,12 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwoThree
 public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticBstar
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticLift
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotSetup
 public import CFSG.LieType.SteinbergBREvenSymplecticThreeRank
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwoThreeB2der
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwoThreeEndNode
 public import CFSG.LocalAnalysis.ComponentClassification.BlockTwoProductAction
 public import CFSG.LocalAnalysis.ComponentClassification.NormalizedProductSylow
 public import CFSG.LocalAnalysis.ComponentClassification.TwoActionFixedInvolution
@@ -14,7 +11,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.TwoActionInvariantSylow
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.CentralInvolutionStructure
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 public import CFSG.Walter.JRFacts
 
 public section

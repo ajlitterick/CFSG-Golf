@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6SplitFold
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitTwE6SplitFrame
 public import CFSG.LocalAnalysis.StandardType.GGTwE6SplitRootGenRoot
 
 public section

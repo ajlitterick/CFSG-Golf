@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGLinearFusionCyclic
 public import CFSG.LocalAnalysis.StandardType.GGInnerDiagBridgeSUExc
 public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagCartan
 public import CFSG.LieType.Steinberg.CentralExt.FieldFourMultiplier
-public import CFSG.LieType.Steinberg.Isogeny.E6
-public import CFSG.LieType.Chevalley.RootPairCommonField
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.LieType.Steinberg.CentralExt.F4E8Multiplier
 public import CFSG.LocalAnalysis.ComponentInitial.CentralCoverAbelian

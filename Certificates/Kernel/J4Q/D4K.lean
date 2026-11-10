@@ -1,13 +1,11 @@
 
 module
 
-public import Certificates.Kernel.J4Q.Dec2K
 public import Certificates.Kernel.J4Q.C4027P
 public import Certificates.Kernel.J4Q.D4Data
 public import Certificates.Kernel.J4Q.D2B1
 public import Certificates.Kernel.J4Q.D2A8
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3J4D4Native
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3J4D4Wit
 
 public section

@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.OmegaCY.Checks
 public import Certificates.Kernel.A45Cls.Glue107
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10ModelB0
 
 set_option maxRecDepth 400000
 

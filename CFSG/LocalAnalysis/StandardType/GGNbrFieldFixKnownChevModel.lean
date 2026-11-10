@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixDefs
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45FieldFixAut
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45FieldFixData
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45FieldFixMark
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangModel
-public import CFSG.LieType.Simplicity.Exceptional
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylFieldVacOther
 
 public section

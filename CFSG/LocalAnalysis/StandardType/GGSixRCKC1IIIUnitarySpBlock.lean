@@ -2,10 +2,8 @@ module
 
 public import CFSG.ClassicalGroups.AlternatingInvolutionCentralizer
 public import CFSG.LocalAnalysis.RankFourTheoremC.InvariantTwo.KFacts.I294CrossFamBCDEvenSp
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIUnitaryBlock
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIUnitaryShortModel
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockModelSelfDualTwoPSp
-public import CFSG.GroupTheory.PCore.PCoreOfMulEquiv
 public import CFSG.LocalAnalysis.RankFourTheoremC.InvariantTwo.KFacts.Lemma213Weak
 
 public section

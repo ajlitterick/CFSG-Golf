@@ -3,13 +3,9 @@ module
 
 public import CFSG.Sporadic.Schreier.ONCheckSmallAuxBase
 
-public import CFSG.Sporadic.Schreier.ONOuterData
-public import CFSG.Sporadic.Schreier.ONGlue
-public import Certificates.Data.CFSGNative.PSL3Four.Basic
 public meta import CFSG.Sporadic.Schreier.ONOuterData
 public meta import CFSG.Sporadic.Schreier.ONGlue
 public meta import Certificates.Data.CFSGNative.PSL3Four.Basic
-public import CFSG.Sporadic.Schreier.ONCheckSmallAuxInputs
 public import Certificates.Certificate2216
 public import Certificates.Certificate2216Base
 

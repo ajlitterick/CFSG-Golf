@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSporKOrd7Defs
 public import CFSG.LocalAnalysis.StandardType.GGSporKOrd7Search
 public import CFSG.LocalAnalysis.StandardType.GGSporKOrd7PSL
 public import CFSG.LocalAnalysis.StandardType.GGSporKOrd7PSp

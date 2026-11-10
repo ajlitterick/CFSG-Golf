@@ -1,11 +1,7 @@
 module
 
-public import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.PlaneTorus
 public import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.Blocks
-public import CFSG.LocalAnalysis.StandardType.GGSixAutKFinerChoiceTwoOmCoord
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP9SignOmega
-public import CFSG.RankThree.PartOne.S11d.OrthDicksonOmega
-public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.End.OrderTwoThree
 public import CFSG.ClassicalGroups.Orthogonal.RootGroupNormalizer
 public import CFSG.HardMathSupport.Dickson.Bal207.OrthD4Loc

@@ -1,14 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivDefs
-public import CFSG.LocalAnalysis.StandardType.GGQTwoLMFrameCBase
-public import CFSG.LocalAnalysis.StandardType.GGQTwoLMFrameCCard
-public import CFSG.LocalAnalysis.StandardType.GGQTwoLMFrameCSplit
-public import CFSG.LocalAnalysis.StandardType.GGQTwoLMFrameCNorm
-public import CFSG.LocalAnalysis.StandardType.GGQTwoLMFrameCAut
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMFrameCStab
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMFrameCDirect
-public import CFSG.LocalAnalysis.StandardType.GGQTwoLMFrameCNeg
 public import CFSG.LocalAnalysis.StandardType.GGQTwoFrameLDefs
 
 public section

@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitC3O
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GH74.GLS.Defs
-public import CFSG.GH74.GLS.Pattern
 public import CFSG.GH74.GLS.TwoThin.Basic
 public import CFSG.GH74.GLS.TwoThin.Pumpup
 public import CFSG.LieType.Steinberg.CentralExt.PSL2Multiplier
@@ -40,9 +38,6 @@ public import CFSG.Open.GorensteinHaradaSectionalRankFourMilestoneDefs
 public import CFSG.Open.QuasithinDefs
 public import CFSG.Permutation.AlternatingAutomorphism
 public import CFSG.RankThree.PartOne.KC.LinearCommutantSemi
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 
 public noncomputable section
 

@@ -3,11 +3,8 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpRest
 public import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOtherAssembly
 public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotCatTypeDet
-public import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotCatTypeDet
 public import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotCatTypeDet
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotCatTypeDet
-public import CFSG.LocalAnalysis.SeitzReduction.E8PilotCatTypeDet
-public import CFSG.LocalAnalysis.SeitzReduction.F4PilotCatEvenExcOrders
 public import CFSG.LocalAnalysis.EvenBN.GMSK.TypeDetBender
 public import CFSG.CharacterTheory.BrauerThirdMainTheorem.CentralResidueMaps
 public import CFSG.CharacterTheory.BrauerThirdMainTheorem.NormalizerClassLifting
@@ -71,18 +68,6 @@ public import CFSG.RankThree.PartOne.S10.ThetaContract
 public import CFSG.RankThree.PartOne.S12.InputsBase
 public import CFSG.RankThree.PartTwo.Census.Classical.EvenUnitary
 public import CFSG.Sporadic.Schreier.TitsOther
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldPrimeOrderFixedSubfield
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OrderThreeNormalizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2PSLRangeCentralizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinInvolutionCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinRestrictionSixCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinUDecomposition
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationEleven
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTen
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTenStructuralIdentities
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2FieldProjectionArithmetic
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2OrderPSubgroupCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphReconstruction
 
 public section
 

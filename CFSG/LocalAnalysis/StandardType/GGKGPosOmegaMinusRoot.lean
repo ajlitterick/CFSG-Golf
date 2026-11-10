@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdPosTorusFix
-import Mathlib.Tactic.Group
 public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerMinusTorus
-public import CFSG.LieType.Steinberg.CentralExt.SpinMinusPosLift
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.SplitTorusSpinMinus
 import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyReflSp
 

@@ -2,10 +2,6 @@ module
 
 public import CFSG.RankThree.PartOne.K133C.InnerPlane
 public import CFSG.RankThree.PartOne.KC.UnitaryPlaneLines
-public import CFSG.RankThree.PartOne.KC.UnitaryPlaneProjection
-public import CFSG.Open.StatedDefs
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
@@ -19,7 +15,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
 public import CFSG.LocalAnalysis.ComponentInitial.LayerComponentOrbit
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 public import CFSG.LocalAnalysis.SectionRank.Ccomm.Supercritical
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.Quasithin.Background.Basic
 public import CFSG.RankThree.PartOne.KC.UnitaryPlaneOrthogonal
 public import CFSG.RankThree.PartOne.S11.TwoActionWiring
@@ -27,8 +22,6 @@ public import CFSG.RankThree.PartOne.S12.InputsSec15
 public import CFSG.RankThree.PartOne.S12.Sec137
 public import CFSG.RankThree.PartOne.S12.Sec15FA
 public import CFSG.RankThree.PartOne.S12.Sec15Items
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.theorem_3_6
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.CommutatorNormalizer
 
 public section

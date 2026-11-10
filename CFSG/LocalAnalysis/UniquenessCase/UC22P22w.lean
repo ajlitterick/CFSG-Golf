@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22e
-public import CFSG.LocalAnalysis.UniquenessCase.UCFrontExt
 import CFSG.Quasithin.Background.BlueprintB2Bridge
 import CFSG.LocalAnalysis.UniquenessCase.UC6Syl
 import CFSG.LocalAnalysis.EvenBN.Tits.N.P3Frob

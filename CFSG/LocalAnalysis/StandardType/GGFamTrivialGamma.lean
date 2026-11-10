@@ -2,16 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGFamTrivialRoots
 import CFSG.HardMathSupport.Dickson.Sec6.Up34OddAux.SsTwAux.RatLayer
-public import CFSG.LocalAnalysis.StandardType.GGExcCompSLDefs
 public import CFSG.LocalAnalysis.StandardType.GGLangAlgebraicRestriction
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreSmallSetup
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddExc
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofEvenE6
-public import CFSG.LocalAnalysis.ComponentClassification.Quasisimple
-public import CFSG.Blueprint.LieModelAPI
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.RigidCriterion
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.RigidTwE6
-public import CFSG.LieType.Simplicity.Exceptional
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP5FrameD
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP5RhoTw
 public import CFSG.Goldschmidt.Steps.G37Core
@@ -24,7 +16,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeExcAdjDefs
 public import CFSG.LocalAnalysis.GLTheoremA.S10.Lemma106107
 public import CFSG.LocalAnalysis.GLTheoremA.Sec5Setup
 import CFSG.HardMathSupport.Dickson.Sec6.Up34OddAux.SsTwAux.ExcD4Layer
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UOuter
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP5FrameO
 
 public section

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldDefs
-public import CFSG.LocalAnalysis.StandardType.MarkingChevalley
 public import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOtherCore
 public import CFSG.RankThree.PartOne.KE.SuzukiFinal
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSpWedge

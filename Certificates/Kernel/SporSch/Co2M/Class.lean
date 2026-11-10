@@ -4,7 +4,6 @@ module
 public import Certificates.Kernel.SporSch.Co2M.Local
 public import CFSG.Certificates.Kernel.SporSch.PosTable
 public import CFSG.Sporadic.Co2Schreier.ClassCheckInputs
-public import CFSG.Monster.B.Co2.PermArr
 public meta import CFSG.Sporadic.Co2Schreier.ClassCheckInputs
 meta import Certificates.Kernel.Misc.Perm.HexCmd
 meta import Certificates.Kernel.SporSch.HN.GenNTree

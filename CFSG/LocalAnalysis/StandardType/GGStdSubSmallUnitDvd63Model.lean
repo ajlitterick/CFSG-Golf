@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63Two
 public import CFSG.LocalAnalysis.StandardType.GGBstarLIDUnit63Frame
-public import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOtherUnitary
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUCoverTwo
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitDvdAct
 
 public section

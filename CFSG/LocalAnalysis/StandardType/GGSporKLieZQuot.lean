@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSporKLieZDefs
-public import CFSG.Open.StatedDefs
-import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
-import CFSG.LocalAnalysis.ComponentClassification.Quasisimple
 import CFSG.LocalAnalysis.ComponentInitial.CentralQuotientComponentLift
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBAlternatingTransport
 

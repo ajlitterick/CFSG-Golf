@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherExcPlusLarge
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherExcTwE6
-import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylFieldComp
 
 public section
 

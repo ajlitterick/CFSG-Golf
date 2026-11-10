@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.Ch12Sec5L8
-public import CFSG.Quasithin.Vol2.Ch12Sec9Lemma3K1
 
 public section
 

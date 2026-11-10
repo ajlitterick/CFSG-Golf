@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.OmegaT11
-import Certificates.Certificate2012
 import Certificates.Kernel.A45Cls.CheckT11
 
 public section

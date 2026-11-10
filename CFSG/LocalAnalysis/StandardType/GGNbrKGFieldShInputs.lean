@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusFieldTransferSh
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylCompDefs
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldCyclic
 import CFSG.LocalAnalysis.StandardType.GGNbrKGF4ThreeAddHolds
 import CFSG.LocalAnalysis.StandardType.GGUSixThreeKGMain
 

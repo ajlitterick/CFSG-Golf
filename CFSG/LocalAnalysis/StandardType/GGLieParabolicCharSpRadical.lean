@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentInitial.SymplecticHigherParabolicData
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagExtension
 public import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagOrder
 
 public section

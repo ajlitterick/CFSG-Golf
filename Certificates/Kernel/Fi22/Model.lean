@@ -2,9 +2,7 @@ module
 
 public import Certificates.Kernel.Fi22.Chain
 public import Certificates.Kernel.Fi22.Pair
-public import CFSG.Certificates.Kernel.Fi22KillSound
 import CFSG.Certificates.Kernel.Fi22.Bound2.Checks.M
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

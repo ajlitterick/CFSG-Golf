@@ -1,13 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08Ce6Adapt
-public import CFSG.LocalAnalysis.StandardType.GGDepED4Align
-public import CFSG.LocalAnalysis.StandardType.GGPZCartanRank
-public import CFSG.LocalAnalysis.StandardType.GGRCWeylCard
-public import CFSG.LocalAnalysis.StandardType.GGPZWeylB
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoAux
 public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3Bridge
-public import CFSG.GH74.GLS.SP.DatumBN
 
 public section
 

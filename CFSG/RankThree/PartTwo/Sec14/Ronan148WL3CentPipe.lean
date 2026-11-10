@@ -4,15 +4,8 @@ public import CFSG.RankThree.PartTwo.Sec14.Ronan148WL3Cent
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148WL3CentConfig
 import CFSG.RankThree.PartTwo.Sec14.Ronan148WL3CentTransport
 import CFSG.RankThree.PartTwo.Sec14.Ronan148WL3TwoLocal
-import CFSG.RankThree.PartTwo.Sec4.LThreePiProj
 import CFSG.RankThree.PartTwo.Sec4.LThreePiProjInner
-import CFSG.RankThree.PartTwo.Sec4.LThreePiMain
-import CFSG.RankThree.PartTwo.Sec4.LThreePiTypes
-import CFSG.RankThree.PartTwo.Sec4.LThreePiCaseA
 import CFSG.RankThree.PartTwo.Sec8.Item8KFacts2ProofD4
-import CFSG.RankThree.PartTwo.Sec13.Item13Models
-import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
-import CFSG.Foundations.QuasisimpleMulEquiv
 import CFSG.RankThree.PartTwo.Sec21.LangTwisted2ProofD4
 
 public section

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Background.D2Coprime
-public import CFSG.Quasithin.Background.D2Basic
 public import CFSG.Quasithin.Background.HSp4A
 
 public section

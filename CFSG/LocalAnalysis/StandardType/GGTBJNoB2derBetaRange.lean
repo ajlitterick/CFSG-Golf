@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJNoB2derModelDefs
 public import CFSG.LocalAnalysis.StandardType.GGTBJNoB2derPerfAut
-import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticBstar
 import CFSG.LocalAnalysis.StandardType.GGTBJNoB2derCardB
 import CFSG.LocalAnalysis.StandardType.GGTBJNoB2derCentB
 import CFSG.LocalAnalysis.StandardType.GGTriD4NoneRank

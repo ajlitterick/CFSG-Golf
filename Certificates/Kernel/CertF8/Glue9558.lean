@@ -19,7 +19,6 @@ public import CFSG.RankThree.PartTwo.Sec5.Tools
 public import Certificates.Data.CFSGNative.MonsterB.Rep4371Model
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 public import Certificates.Kernel.J4Count.Prim
 
 public section

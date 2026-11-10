@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GTriFix
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GTriRed
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangTriD4Conj
-public import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOtherCore
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GU64Glue
 
 public section
 

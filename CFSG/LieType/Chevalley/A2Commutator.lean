@@ -3,7 +3,6 @@ module
 public import CFSG.LieType.Chevalley.A2CommutatorInfinitesimal
 public import CFSG.GroupActions.NilpotentExpCommutator
 public import CFSG.LieType.Steinberg.Adjoint.BaseChange
-public import Mathlib.Algebra.MvPolynomial.Eval
 
 public noncomputable section
 

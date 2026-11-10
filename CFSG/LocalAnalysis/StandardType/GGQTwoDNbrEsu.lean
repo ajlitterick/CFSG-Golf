@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDNbrU6
 public import CFSG.LocalAnalysis.StandardType.GGQTwoNbrLabelAuxFour
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrEnnola
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrOfEnnola
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSLieEsuAux
 
 public section

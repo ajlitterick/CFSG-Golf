@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Sporadic.J4.QTRankWitNative
 public import Certificates.Kernel.J4Q.QTBase
 public import Certificates.Kernel.J4Q.RankData
 public import CFSG.Certificates.Kernel.J4Q.RepRank

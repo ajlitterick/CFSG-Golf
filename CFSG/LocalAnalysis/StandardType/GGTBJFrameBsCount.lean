@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJFrameBs
-public import Mathlib.FieldTheory.Finite.GaloisField
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 
 public section
 

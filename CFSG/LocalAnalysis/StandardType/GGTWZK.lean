@@ -1,11 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTWCoreDefs
-public import CFSG.LocalAnalysis.StandardType.GGPZWeylType
 public import CFSG.LocalAnalysis.StandardType.KGCenterCoprime
-public import CFSG.LocalAnalysis.StandardType.GGOddCenterPrimeLabel
 public import CFSG.LocalAnalysis.StandardType.GGRootGenSmallRankQFour
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 public import CFSG.LocalAnalysis.StandardType.GGTWZKPrimeJ
 public import CFSG.LocalAnalysis.StandardType.GGTWZKLinear
 

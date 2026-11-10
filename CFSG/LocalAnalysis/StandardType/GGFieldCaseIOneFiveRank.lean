@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseIOneRankXAbs
-public import CFSG.LocalAnalysis.StandardType.GGPropFourOneThompson
-public import Mathlib.Tactic.Module
-public import Mathlib.Data.Nat.Prime.Int
 
 public section
 

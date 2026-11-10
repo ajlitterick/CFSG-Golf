@@ -6,8 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTwE6LocalRankHolds
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRankHolds
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeDatum
 import CFSG.LocalAnalysis.StandardType.GGD4OddCentLSide
-import CFSG.LocalAnalysis.StandardType.GGTableBTransport
-import CFSG.GroupTheory.ElemAbelianClosure
 
 public section
 

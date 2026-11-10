@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.D4YEEven
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.D4XFIso
-public import CFSG.RankThree.PartOne.KC.OrthogonalSubfieldD4
 public import CFSG.RankThree.PartOne.KC.OrthogonalSubfieldForms
 public import CFSG.Blueprint.LieModelAPI
 public import CFSG.HardMathSupport.Solomon.Coordinator.C25Borel

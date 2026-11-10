@@ -1,11 +1,9 @@
 module
 
 public import Certificates.Kernel.Sporadic.Fi22.WordKit
-public import CFSG.Certificates.Kernel.Misc.HexFlatSound
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.TMemFi22Check
 public meta import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.TMemFi22Check
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import Certificates.Kernel.Sporadic.Fi22.C2068
 public import Certificates.Kernel.Sporadic.Fi22.C3151
 

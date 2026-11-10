@@ -2,7 +2,6 @@ module
 
 public import CFSG.Fischer.F4
 public import CFSG.Quasithin.Background.HMathieuBits
-public import Mathlib.Algebra.Order.Ring.Star
 
 public section
 

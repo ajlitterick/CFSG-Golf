@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestOddAdm
-public import CFSG.RankThree.PartOne.KC.OrthogonalCommutatorBridge
 
 public section
 

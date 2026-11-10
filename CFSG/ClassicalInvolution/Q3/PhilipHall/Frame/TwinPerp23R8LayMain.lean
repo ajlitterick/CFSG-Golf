@@ -2,13 +2,7 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerp23R8LayOdd
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerp23R8Gen
-import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerp23R56Zstar
-import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerp23R56Sigma
 import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6dLayer
-import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinDiscStar
-import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinDiscPf5Path
-import CFSG.ClassicalInvolution.Asc77.AscT7AEnd
-import CFSG.ClassicalInvolution.Asc77.WP3Layer
 public import CFSG.ClassicalInvolution.Asc77.AscC22G6
 public import CFSG.ClassicalInvolution.Asc77.AscC22G8
 public import CFSG.ClassicalInvolution.Asc77.AscC22P5

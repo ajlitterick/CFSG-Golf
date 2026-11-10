@@ -1,17 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
 public import CFSG.LocalAnalysis.StandardType.GGSignedCoordBlocks
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63Q2ProofRed
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniBlocks
 import CFSG.LocalAnalysis.StandardType.GGAutomizerJoinInduced
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBIrred
-import CFSG.Quasithin.Background.F918V5GComp
 import CFSG.GroupTheory.IsComponentOfMap
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniQTwoExcStd
-import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63Descent
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineL2Remainder
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineUCoverOdd
 
 public section

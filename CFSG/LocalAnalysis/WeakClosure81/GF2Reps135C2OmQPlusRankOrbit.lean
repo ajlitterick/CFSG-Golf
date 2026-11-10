@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmPlusCurtis
 public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmPlusWeyl
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylBRealize
 import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmPlusInvol
 import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmPlusMono
 import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2SpCurtisOrbit

@@ -1,12 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangChev
 import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownChevModel
-import CFSG.LocalAnalysis.StandardType.GGTableBExcBasic
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldExcOrd
-import CFSG.LocalAnalysis.ComponentClassification.ExcSelectorComponents
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldExcCore
 import CFSG.LocalAnalysis.GLTheoremA.S10.Inputs
 import CFSG.LocalAnalysis.GLTheoremA.S10.Inputs105

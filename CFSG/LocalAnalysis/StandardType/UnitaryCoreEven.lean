@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.A8LiftBlocks
 public import CFSG.LocalAnalysis.StandardType.CommutingOrderThreeDiag
-public import CFSG.LocalAnalysis.StandardType.UnitaryWeightGram
 public import CFSG.LocalAnalysis.StandardType.UnitaryWeightCount
 public import CFSG.LocalAnalysis.StandardType.UnitaryCoreFibres
 

@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.SporSch.Ly.SylChk
-public import Certificates.Kernel.Sporadic.RawGen
 public import CFSG.Certificates.Kernel.Spor.PackWord
 meta import Certificates.Kernel.SporSch.Ly.GenLy
 meta import CFSG.Sporadic.Schreier.LyCheckSylow

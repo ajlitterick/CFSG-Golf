@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLCx
-public import CFSG.LocalAnalysis.StandardType.GGTableBLinUnitLMod
 public import CFSG.LocalAnalysis.StandardType.GGTableBLinIrredDef
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnit63Nbr
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitDvdMod

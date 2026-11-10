@@ -5,10 +5,7 @@ public import CFSG.LocalAnalysis.StandardType.GGKGForkSignedPow
 public import CFSG.LocalAnalysis.StandardType.GGKGForkUSplitC
 public import CFSG.LocalAnalysis.StandardType.GGKGForkUSplitQ
 public import CFSG.LocalAnalysis.StandardType.GGKGForkUSplitL
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
 public import CFSG.LocalAnalysis.StandardType.GGNbrFrameOneUnitaryLabel
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMoreU
-public import CFSG.ClassicalGroups.UnitaryFlag.ModelTransport
 
 public section
 

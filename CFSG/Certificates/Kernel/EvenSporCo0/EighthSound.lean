@@ -7,11 +7,7 @@ import CFSG.Certificates.Kernel.MonsterB.BfsReplaySound
 import CFSG.Certificates.Kernel.MonsterB.PermBfsSound
 import CFSG.Certificates.Kernel.BfsPinAlg
 import CFSG.Certificates.Kernel.BfsPinBaseSound
-import CFSG.Certificates.Kernel.Spor.PackWord
 import all CFSG.Certificates.Kernel.Spor.PEnumSound
-import CFSG.Certificates.Kernel.Spor.PcompFacts
-import CFSG.Certificates.Kernel.Spor.Loops
-public import Certificates.Data.CFSGNative.Co3Schreier.Basic
 import CFSG.Certificates.Kernel.BfsPinSound
 
 public section

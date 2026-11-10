@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeE6ToralDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeBoundBase
 import CFSG.LocalAnalysis.GLTheoremA.S11.Lemma119
-import CFSG.GroupTheory.ElemAbelianClosure
 import CFSG.Holt.Fixed
 import CFSG.LocalAnalysis.GL83PartI.I_22_5.Setup
 import CFSG.LocalAnalysis.GLTheoremA.S10.Lemma106107

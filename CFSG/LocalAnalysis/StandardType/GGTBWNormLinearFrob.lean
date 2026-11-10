@@ -6,9 +6,7 @@ public import CFSG.LocalAnalysis.StandardType.GGTBWNormCartanScalar
 public import CFSG.LocalAnalysis.StandardType.GGTBWNorm
 public import CFSG.GroupTheory.Frattini.PSubgroupLift
 public import CFSG.LocalAnalysis.StandardType.GGK1ACenterNoglue
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMoreCl
 public import CFSG.LocalAnalysis.StandardType.GGK1ScLin
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
 
 public section
 

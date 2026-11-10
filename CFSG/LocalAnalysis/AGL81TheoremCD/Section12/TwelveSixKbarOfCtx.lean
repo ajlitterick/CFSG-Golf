@@ -1,25 +1,16 @@
 module
 
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveSixKbarOfInputs
-public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TenFifteenBridge
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.BlockRankCount
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.BlockTypeLThree
-public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.BlockRankUpper
-public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.BlockRankLower
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveTenSpine
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveFourKerDecomp
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveSixKbarListHolds
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section8.O812sixFi22
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section8.KFactFi22SPEHolds
-public import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.NineNineOneHolds
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section14.NineTwelveThirteenKerHolds
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.NineTenInputsHolds
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.NineTwelveKerHolds
 public import CFSG.LocalAnalysis.AGL81I.Section4.FourNineteenHolds
-public import CFSG.HardMathSupport.Foote.Coordinator.Downstream
-public import CFSG.CGT.PushingUpLit.TwoKHolds
-public import CFSG.LocalAnalysis.RankThreeTheoremC.D2LocalCGT3
-public import CFSG.LocalAnalysis.AGLEmbedding.AscEightFour
 public import CFSG.CGT.Foote82.T66.Proof511Two
 public import CFSG.ClassicalGroups.Orthogonal.RootGroupFixedCard
 public import CFSG.HardMathSupport.Dickson.Sec6.I1431Fam.LiftShell
@@ -44,7 +35,6 @@ public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanParabPrime
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanSmallAutFix
 public import CFSG.LocalAnalysis.AGLEmbedding.OneLieZZK0ShapeFacts
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.MonsterRows
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog7L4EUFour
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitLemma415Inputs
 public import CFSG.LocalAnalysis.ComponentClassification.Sp4RecLinearHigh
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.Main

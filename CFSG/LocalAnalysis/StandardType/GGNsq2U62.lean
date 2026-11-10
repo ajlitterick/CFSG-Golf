@@ -1,13 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNsq2Cited
-public import CFSG.Blueprint.Catalog
 import CFSG.LocalAnalysis.StandardType.GGNsq2U62Lift
 import CFSG.LocalAnalysis.StandardType.GGQ2PrimeL81Cover
 import CFSG.LocalAnalysis.StandardType.GGNsq2QuotActs
-import CFSG.LocalAnalysis.StandardType.MarkingClassical
-import CFSG.LieType.Universal.Unitary.Clause0
-import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
 import CFSG.LieType.Multipliers.U62Sylow
 
 public section

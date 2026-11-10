@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Sporadic.OddCore.PEnumCmd
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public import CFSG.Certificates.Kernel.L34V1Sound
-public import Certificates.Data.CFSGNative.PSL3Four.Certificate
 meta import Certificates.Data.CFSGNative.PSL3Four.L34Syl
 public meta import Certificates.Data.CFSGNative.YGroups.ExactCheck
 

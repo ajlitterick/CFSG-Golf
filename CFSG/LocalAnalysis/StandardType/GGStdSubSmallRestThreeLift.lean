@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestThreeNorm
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestLift
 public import CFSG.LocalAnalysis.StandardType.GGLinearFusionSURepairBlock
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeLift
 
 public section
 

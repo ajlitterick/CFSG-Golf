@@ -3,9 +3,6 @@ module
 public import CFSG.Certificates.Kernel.LyOmega.Sound
 public import Certificates.Data.Kernel.LyOmega.Words
 public import CFSG.Sporadic.Fi23.SlpSpec
-public import Mathlib.RingTheory.WittVector.IsPoly
-public import Mathlib.Tactic.Polynomial.Basic
-public import Mathlib.Tactic.ReduceModChar
 public import Std.Tactic.BVDecide.Normalize.BitVec
 
 public section

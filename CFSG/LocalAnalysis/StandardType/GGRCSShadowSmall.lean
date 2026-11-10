@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRCSShadowBasic
-public import CFSG.LocalAnalysis.StandardType.GGKGroupFusionFlatSeitzExc
 public import CFSG.HardMathSupport.Dickson.Bal207.LocalBalInner
 public import CFSG.Holt.SmallGroups
-public import CFSG.GroupTheory.OrderBelowSixtySolvable
-public import CFSG.Timmesfeld.Orders.Classical
 public import CFSG.HardMathSupport.Solomon.Coordinator.I22_4Glue
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.I294KDOutTwE6
 

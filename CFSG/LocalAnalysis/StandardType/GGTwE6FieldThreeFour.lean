@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6FieldCoreDefs
 public import CFSG.LocalAnalysis.StandardType.GGTwE6TwoLocalToral
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeToralityTw
 
 public section
 

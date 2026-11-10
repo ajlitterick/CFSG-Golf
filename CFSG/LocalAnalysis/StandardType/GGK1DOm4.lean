@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGK1DDefs
-public import CFSG.RankThree.PartOne.S11d.OrthDicksonOmega
-public import CFSG.RankThree.PartOne.KC.OrthogonalFixedDickson
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestTailBlock
-public import CFSG.GroupTheory.WeirSylow.OrthogonalOrders
-public import CFSG.CharacterTheory.Wreathed.CentralSL2.Basic
 
 public section
 

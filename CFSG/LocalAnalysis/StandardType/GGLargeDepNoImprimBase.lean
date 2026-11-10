@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGLargeFixDefs
 public import CFSG.LocalAnalysis.StandardType.GGNineDepDefs
-public import CFSG.LocalAnalysis.StandardType.GGResKnownGroup
 import CFSG.LocalAnalysis.StandardType.GGRCMonomial
 import CFSG.LocalAnalysis.StandardType.GGRCMonomialHom
 import CFSG.LocalAnalysis.StandardType.GGTypeANbrWeylA

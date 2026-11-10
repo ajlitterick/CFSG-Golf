@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.Chevalley.StandardParabolicCells
 public import CFSG.LieType.Chevalley.ParabolicRootFactorData
-public import CFSG.LieType.Chevalley.WeylExchange
 
 public noncomputable section
 

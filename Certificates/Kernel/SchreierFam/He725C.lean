@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.SchreierFam.He725S
-public import Certificates.Kernel.SchreierFam.He725W
 public import Certificates.Kernel.SchreierFam.He725D
 public import Certificates.Kernel.LocalComp.HeFix
 import Certificates.Kernel.Sporadic.ON.Gen

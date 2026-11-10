@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.ZS.DimThree.Basic
-public import CFSG.Open.StatedDefs
 import CFSG.RankThree.PartOne.N1322.CaseBasic
 import CFSG.RankThree.PartOne.N1322.CoreHyp
 

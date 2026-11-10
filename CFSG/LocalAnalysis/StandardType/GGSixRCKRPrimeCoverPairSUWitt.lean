@@ -1,8 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUStd
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSL
-public import CFSG.LieType.Universal.Unitary.Basic
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.Families
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUAut
 public import CFSG.HardMathSupport.Timmesfeld.Proving.ExistsOrderPCentralizer

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoChartDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSLieCover
-public import CFSG.ClassicalGroups.Unitary.Finite
 public import CFSG.CGT.PushingUpLit.CGT6X.End4Cover
 
 public section

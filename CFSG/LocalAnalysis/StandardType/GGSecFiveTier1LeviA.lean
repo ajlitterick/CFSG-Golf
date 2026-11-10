@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveCompatLeviDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1System
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1Weyl
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1PresALevi
 
 public section

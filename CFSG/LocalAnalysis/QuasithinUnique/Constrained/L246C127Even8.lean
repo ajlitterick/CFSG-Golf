@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L246C127EvenBundle
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListPermIso
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L246C127EvenBundle
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L246C127Even8Inputs
 public import Certificates.Certificate4071
 public import CFSG.Foundations
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
@@ -36,10 +35,8 @@ public import CFSG.Quasithin.Background.A3Structure36BAction
 public meta import CFSG.Quasithin.Background.A3Structure36BBase
 public import CFSG.Quasithin.Background.A3Structure36BBase
 public meta import CFSG.Quasithin.Background.A3Structure36BCase3Base
-public import CFSG.Quasithin.Background.A3Structure36BCase3Base
 public import CFSG.Quasithin.Background.A3Structure36BCasesBase
 public meta import CFSG.Quasithin.Background.A3Structure36BCasesBase
-public import CFSG.Quasithin.Background.A3Structure36BCommonBase
 public meta import CFSG.Quasithin.Background.A3Structure36BCommonBase
 public import CFSG.Quasithin.Background.A3Structure36BFrattini
 public meta import CFSG.Quasithin.Background.A3Structure36BFrattini
@@ -63,22 +60,15 @@ public meta import CFSG.Quasithin.Background.C2Basic
 public import CFSG.Quasithin.Background.C2Basic
 public import CFSG.Quasithin.Background.E1
 public meta import CFSG.Quasithin.Background.E1
-public import CFSG.Quasithin.Background.E1Sec4
 public meta import CFSG.Quasithin.Background.E1Sec4
-public import CFSG.Quasithin.Background.E1Sec5
 public meta import CFSG.Quasithin.Background.E1Sec5
-public import CFSG.Quasithin.Background.E1Sec8
 public meta import CFSG.Quasithin.Background.E1Sec8
-public import CFSG.Quasithin.Background.E1Solv
 public meta import CFSG.Quasithin.Background.E1Solv
-public import CFSG.Quasithin.Background.E1Twelve
 public meta import CFSG.Quasithin.Background.E1Twelve
 public import CFSG.Quasithin.Background.E3Cent
 public meta import CFSG.Quasithin.Background.E3Cent
 public import CFSG.Quasithin.Vol2.Ch1Local
 public import CFSG.Sporadic.J4Base
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import Certificates.Certificate8026Base
 
 public section

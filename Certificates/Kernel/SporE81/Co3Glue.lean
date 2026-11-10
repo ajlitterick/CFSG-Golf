@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.SporE81.Co3Checks
 public import CFSG.Certificates.Kernel.E81KSound
 import CFSG.Certificates.Kernel.Common.Harness
-import CFSG.Certificates.Kernel.Spor.Loops
 
 public section
 

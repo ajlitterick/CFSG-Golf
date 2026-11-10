@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Monster.Existence.EbCheck
 public meta import CFSG.Monster.Existence.EbCheck
 public meta import CFSG.Monster.Existence.ELevelBits
 public meta import CFSG.Monster.Existence.ELevelConv
@@ -30,7 +29,6 @@ public meta import CFSG.Open.MonsterY443Defs
 public import CFSG.Open.MonsterY443Defs
 public import CFSG.Sporadic.Co1Base
 public meta import CFSG.Sporadic.Co1Base
-public import CFSG.Sporadic.Th.F2Spec
 public meta import CFSG.Sporadic.Th.F2Spec
 
 public section

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Monster.B.TwoA.Fischer.CertData
-public import Certificates.Data.CFSGNative.MonsterB.Co2Matrix
 public meta import CFSG.Monster.B.TwoA.Fischer.CertData
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Matrix
 public meta import Certificates.Data.CFSGNative.HS.SmallF2

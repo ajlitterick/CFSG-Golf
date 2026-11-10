@@ -8,10 +8,6 @@ public import Certificates.Kernel.BabyMonster.ForallLt
 public import Certificates.Kernel.BabyMonster.Chain
 public import CFSG.Certificates.Kernel.BabyMonster.NativePair24.Check0
 public import CFSG.Certificates.Kernel.BabyMonster.NativePair24.Check24
-public import CFSG.Certificates.Kernel.BabyMonster.TBind24.Check0
-public import CFSG.Certificates.Kernel.BabyMonster.TBind24.Check1
-public import CFSG.Certificates.Kernel.BabyMonster.TBind24.Check2
-public import CFSG.Certificates.Kernel.BabyMonster.TBind24.Check3
 
 public section
 

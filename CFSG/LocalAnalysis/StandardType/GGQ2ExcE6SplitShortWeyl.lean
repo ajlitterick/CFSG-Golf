@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcE6SplitWeyl
 import CFSG.LocalAnalysis.StandardType.GGLangRootSL2Rational
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.OuterFieldG2
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwRigid
 
 public section
 

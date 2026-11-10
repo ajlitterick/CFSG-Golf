@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.SeitzReduction.RankOneUnitaryEndingProduct
-public import Mathlib.GroupTheory.Commutator.Basic
 
 public section
 

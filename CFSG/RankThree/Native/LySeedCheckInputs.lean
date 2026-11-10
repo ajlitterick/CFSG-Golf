@@ -8,15 +8,10 @@ public import CFSG.Sporadic.HN.LevelChainSpec
 public import CFSG.Sporadic.Ly.ActionBase
 public import CFSG.Sporadic.Ly.CertificateBase
 public import CFSG.Sporadic.Ly.FaithSpec
-public import CFSG.Sporadic.Ly.FiveFacts
 public import CFSG.Sporadic.Ly.OrbitSpec
-public import CFSG.Sporadic.Ly.PrimitiveBase
-public import CFSG.Sporadic.Ly.WordFacts
 public import CFSG.Sporadic.LyBase
 public import CFSG.Sporadic.Schreier.LyChain11
-public import CFSG.Sporadic.Th.F2Spec
 public import CFSG.Sporadic.Th.OrbitSpec
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 
 public section
 

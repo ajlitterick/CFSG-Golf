@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Co1B.Tri2045
 public import CFSG.Certificates.Kernel.LocalCompCo1EndSound
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicCo1EndTests
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicCo1EndData
 public meta import Certificates.Kernel.SporSch.Co1.GenDag
 public meta import Certificates.Kernel.LocalComp.Co1EndIn

@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.SporSch.PairHS.Chain
 public import Certificates.Kernel.SporSch.Pair.HSCert
-public import Certificates.Data.Kernel.SporSch.PairK
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

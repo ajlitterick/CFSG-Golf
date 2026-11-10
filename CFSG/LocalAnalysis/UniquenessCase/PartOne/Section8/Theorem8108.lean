@@ -2,10 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Setup
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.SL3FourRank
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.PartOne
 public import CFSG.LocalAnalysis.StronglyEmbedded.OfCentralizers
 public import CFSG.LocalAnalysis.StronglyEmbedded.GammaOne
-public import CFSG.LocalAnalysis.RankThreeCoreUniqueness.Helpers
 public import CFSG.LocalAnalysis.UniquenessCase.UC6S846d
 public import CFSG.LocalAnalysis.UniquenessCase.UCR638
 

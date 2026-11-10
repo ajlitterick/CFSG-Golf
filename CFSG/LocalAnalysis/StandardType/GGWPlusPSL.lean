@@ -1,12 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGWPlusDefs
 public import CFSG.LocalAnalysis.StandardType.GGWPlusAutomizer
 public import CFSG.LocalAnalysis.StandardType.GGWPlusPosition
 public import CFSG.LocalAnalysis.StandardType.GGWPlusModel
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATorus
-public import CFSG.LocalAnalysis.StandardType.GGPGLTorality
-public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoAutK
 
 public section
 

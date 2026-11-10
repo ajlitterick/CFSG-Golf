@@ -1,12 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ThreeFourSolvThreeDefs
-import CFSG.LocalAnalysis.PreuniquenessRankFour.Helpers
-import CFSG.LocalAnalysis.QuasithinUnique.CompNormSylow
 import CFSG.LocalAnalysis.QuasithinUnique.RankOneRecognitionDatum
 import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.P64FreeCenter
-import CFSG.LocalAnalysis.SectionRank.AmbientRank
-import CFSG.LocalAnalysis.SectionRank.PRank
 public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.CGT.PushingUpLit.BHS.NaturalDefs
 public import CFSG.CGT.PushingUpLit.BHS.SymNatDefs

@@ -5,10 +5,7 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoTBCF4Core
 import CFSG.LocalAnalysis.StandardType.GGQTwoTBCGraphD
 import CFSG.LocalAnalysis.StandardType.GGQTwoTBCLift
 import CFSG.LocalAnalysis.StandardType.GGQTwoTBCTransfer
-import CFSG.LocalAnalysis.StandardType.GGQTwoGammaXGraphLin
 import CFSG.LocalAnalysis.StandardType.GGE6DepFrameCentral
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyDichotomy
-import CFSG.LocalAnalysis.StandardType.GGTableBF4Basic
 
 public section
 

@@ -1,17 +1,11 @@
 module
 
-public import CFSG.Quasithin.Recognition.Stroth.Weiss80Route
-public import CFSG.Quasithin.Background.GoldschmidtRankOneUnitary
 public import CFSG.GH74.Uniqueness.Bender.Out
 public import CFSG.GH74.Uniqueness.Bender.CoreCentralizesCenter
 public import CFSG.GH74.GLS.IVK.Proofs2.Lemma41dU3Mat
 public import CFSG.Quasithin.Vol2.GoldschmidtF134OddOut
 public import CFSG.Timmesfeld.Orders.ClassicalUnitaryThree
-public import CFSG.Goldschmidt.Setup
-public import CFSG.Goldschmidt.OddCore
 public import CFSG.Quasithin.Recognition.Stroth.SubconstNatural
-public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.RootCenterAutomorphismUnitaryTransport
-public import CFSG.Permutation.UnitaryThreeRecognition.ModelTransport
 public import CFSG.Quasithin.Background.B5Statement
 public import CFSG.Quasithin.H13.NQCoreP134Inputs
 public import CFSG.Quasithin.Vol2.Ch1Sec3E9Inputs

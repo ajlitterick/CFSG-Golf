@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.UCTenSeven.OddReeTICount
 public import CFSG.GroupTheory.ABGLocalTools.Basic
-import Mathlib.GroupTheory.IndexNormal
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.UCTenSeven.OddReeSevenTools
 import CFSG.Monster.B.GSide.HInnerFusion
 import CFSG.Walter.ReeOrder.JT.Defs

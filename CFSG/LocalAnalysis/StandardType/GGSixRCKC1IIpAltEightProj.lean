@@ -1,15 +1,11 @@
 module
 
 public import CFSG.Open.StatedDefs
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
-import CFSG.Open.StatedAPI
 import CFSG.LocalAnalysis.StandardType.AlternatingEightCoverOrder
 import CFSG.RankThree.GF2n.Stroth80.Sec7ArtinOrders
 import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIpAltEightTwo
 import CFSG.LieType.SemisimpleCentralizers.HeldLangU64Ord
-import CFSG.LocalAnalysis.SectionRank.OddCover.DegreeThree
 import CFSG.HardMathSupport.Solomon.Coordinator.L3C143AltFin
-import CFSG.LocalAnalysis.ComponentInitial.LinearFlagElation
 import CFSG.ClassicalGroups.Orthogonal.RootGroupSwap
 import CFSG.Quasithin.Background.GoldschmidtRankOneFacts
 import CFSG.RankThree.GF2n.Stroth80.Sec5NatStmt

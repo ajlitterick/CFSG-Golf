@@ -2,11 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7DDefs
 import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowF8D4Rank
-import CFSG.HardMathSupport.Timmesfeld.Proving.OmegaMinusEightOrderThree
-import CFSG.HardMathSupport.Timmesfeld.Proving.OmegaCentreZMod2
-import CFSG.LocalAnalysis.StandardType.MarkingClassical
 import CFSG.Assembly.GL83StatedBridge
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaModel
 
 public section
 

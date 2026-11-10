@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcTwRootJ
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeAd
 public import CFSG.LocalAnalysis.StandardType.GGExcSplitRootGenDefs
 public import CFSG.HardMathSupport.Lang.E6Descent.RankTwistedE6
 public import CFSG.LieType.Chevalley.E6EvenRootTorus

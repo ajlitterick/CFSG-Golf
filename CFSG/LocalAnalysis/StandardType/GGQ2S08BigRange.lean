@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigShapeD
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigShapeB
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigShapeC
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigShapeAInput
-public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigShapeLabel
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08InnDiagBig
 
 public section

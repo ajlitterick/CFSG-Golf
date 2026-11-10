@@ -3,10 +3,8 @@ module
 public import CFSG.OddTranspositions.PartThree.Ten.Steps
 import CFSG.OddTranspositions.PartThree.Ten.WreathRigidity
 import CFSG.GroupTheory.PCore.SolvableRadical
-import CFSG.LocalAnalysis.ShultStronglyClosedTI.LinearCentralCover
 import CFSG.Holt.H78.Sec4LemmaD
 import CFSG.CGT.PushingUpLit.CGT6.EmbModule.SL2Alt5
-import Mathlib.GroupTheory.NoncommPiCoprod
 import CFSG.Dihedral.DisconnectedInvolutionGraph.RankOneQuaternionRecognition
 import CFSG.Holt.H78.Schur
 import CFSG.Holt.H78.Sec4AltSylow

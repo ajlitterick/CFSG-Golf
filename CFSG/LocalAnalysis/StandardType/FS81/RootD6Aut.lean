@@ -2,12 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.RootD6ModelDefs
 public import CFSG.LocalAnalysis.StandardType.GGTBTorE7
-public import CFSG.LocalAnalysis.StandardType.GGTBTorItems
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoAux
 public import CFSG.LocalAnalysis.StandardType.GGR4AutInn
-public import CFSG.LocalAnalysis.StandardType.GGAutomizerMap
 public import CFSG.GroupTheory.MulAutCongr
-public import CFSG.GroupTheory.ElemAbelianClosure
 
 public section
 

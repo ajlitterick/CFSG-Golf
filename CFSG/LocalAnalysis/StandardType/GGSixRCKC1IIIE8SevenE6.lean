@@ -9,9 +9,6 @@ import CFSG.LocalAnalysis.StandardType.GGSixRCKC1CentralCover
 import CFSG.LocalAnalysis.StandardType.GGE6TwoSevenComp
 import CFSG.LocalAnalysis.StandardType.GGCompListMarked
 import CFSG.LocalAnalysis.StandardType.GGK0MarkedArithmetic
-import CFSG.LocalAnalysis.StandardType.GGReverseMarking
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldE6
-import CFSG.LocalAnalysis.StandardType.GGD4OddCentVocab
 import CFSG.LocalAnalysis.StandardType.GGHalfCentGroup
 
 public section

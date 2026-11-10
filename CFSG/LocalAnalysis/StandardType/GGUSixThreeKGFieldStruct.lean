@@ -1,12 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGUSixThreeKGDefs
-public import CFSG.LocalAnalysis.StandardType.GGUSixThreeKGField1
 public import CFSG.LocalAnalysis.StandardType.GGUSixThreeKGField1c
 public import CFSG.LocalAnalysis.StandardType.GGUSixThreeKGFieldNorm
 public import CFSG.LocalAnalysis.StandardType.GGUSixThreeKGFieldHom
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitarySixThreeCases
-public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 
 public section
 

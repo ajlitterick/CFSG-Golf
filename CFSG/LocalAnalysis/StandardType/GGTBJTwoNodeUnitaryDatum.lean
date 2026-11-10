@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitaryAutomizer
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodePermutationDatum
 public import CFSG.LocalAnalysis.StandardType.GGTBJTypeAPermutationDatumLE3
 public import CFSG.LocalAnalysis.StandardType.GGTDModelU
-public import CFSG.LocalAnalysis.StandardType.GGResXDatumAHL
-public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeParabolic
 public import CFSG.LocalAnalysis.StandardType.GGTBJTypeAParabolicLE3
 
 public noncomputable section

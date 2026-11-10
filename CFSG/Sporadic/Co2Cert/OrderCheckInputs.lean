@@ -2,7 +2,6 @@ module
 
 public import CFSG.Sporadic.Co2Cert.Check
 public import CFSG.Monster.B.Mathieu.SylowCore
-public import Certificates.Data.CFSGNative.Schreier.Check
 public meta import CFSG.Sporadic.Co2Cert.Check
 public meta import CFSG.Monster.B.Mathieu.SylowCore
 public meta import Certificates.Data.CFSGNative.Schreier.Check

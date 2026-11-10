@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.S63K.HData
 public import Certificates.Data.Kernel.S63K.Low
-public import CFSG.Certificates.Kernel.Enum.Defs
 public import Certificates.Data.Kernel.Spor.Chain
 import CFSG.Certificates.Kernel.Common.Harness
 

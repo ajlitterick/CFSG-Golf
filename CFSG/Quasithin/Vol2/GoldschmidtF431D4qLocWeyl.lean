@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.GoldschmidtF431D4qLocBase
-public import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8D4LeviZ
 
 public section
 

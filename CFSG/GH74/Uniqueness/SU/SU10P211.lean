@@ -1,13 +1,8 @@
 module
 
-public import CFSG.GH74.Uniqueness.SU.SU10Stmts
-public import CFSG.GH74.Uniqueness.SU.SU10Setup
-public import CFSG.GH74.Uniqueness.SU.SU10Lift
-public import CFSG.GH74.Uniqueness.SU.SU10Hyp
 public import CFSG.GH74.Uniqueness.SU.SU10Sz
 public import CFSG.GH74.Uniqueness.SU.SU10SL25Cfg
 public import CFSG.GH74.Uniqueness.SU.SU10Alt
-public import CFSG.GH74.Uniqueness.SU.SU10Fusion
 public import CFSG.LocalAnalysis.ComponentInitial.SmallLinearIsomorphisms
 
 public section

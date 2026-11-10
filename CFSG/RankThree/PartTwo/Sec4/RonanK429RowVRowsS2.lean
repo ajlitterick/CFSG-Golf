@@ -5,7 +5,6 @@ public import CFSG.RankThree.PartTwo.Sec4.RonanK429RowVL44
 public import CFSG.RankThree.PartTwo.Sec4.RonanK429RowVSp64
 public import CFSG.Mathlib.LinearAlgebra.BilinForm.Determinant
 public import CFSG.RankThree.PartTwo.Sec4.Item41NarrowGriess
-public import CFSG.Walter.J1Props
 
 public section
 

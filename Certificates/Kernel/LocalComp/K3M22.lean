@@ -5,8 +5,6 @@ public import Certificates.Kernel.LocalComp.BlockGen
 public import CFSG.Certificates.Kernel.K3Sound
 public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Child3SelK3MathieuData
 meta import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Child3SelK3MathieuData
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.Spor.RawOrbGrp
 
 public section

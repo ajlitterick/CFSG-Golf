@@ -3,13 +3,7 @@ module
 public import CFSG.RankThree.PartTwo.Sec21.Item211Lie2Proof
 public import CFSG.RankThree.PartTwo.Sec21.Item211Lie3ProofU3Inn
 import CFSG.RankThree.PartTwo.Sec21.Item211Lie3ProofSpFree
-import CFSG.RankThree.PartTwo.Sec21.Item211Lie3ProofSpMinus
-import CFSG.RankThree.PartTwo.Sec21.Item211Res4ProofPlusL4
-import CFSG.RankThree.PartTwo.Sec21.Item211Res4ProofPlusU4
-import CFSG.RankThree.PartTwo.Sec21.Item211Res4ProofMinusL4
 import CFSG.RankThree.PartTwo.Sec21.Item211Res4ProofMinusU4
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Foundations
 public import CFSG.GroupTheory.ABGLocalTools.Constraint
 public import CFSG.GroupTheory.BaerSuzuki
@@ -41,7 +35,6 @@ public import CFSG.RankThree.PartTwo.Late.GammaZero
 public import CFSG.RankThree.PartTwo.NotationBlocks
 public import CFSG.RankThree.PartTwo.Sec11.Theorem1134
 public import CFSG.RankThree.PartTwo.Sec18.Notation
-public import CFSG.RankThree.PartTwo.Sec18.Tools
 public import CFSG.RankThree.PartTwo.Sec21.Item229Diagram
 public import CFSG.RankThree.PartTwo.Sec21.Item23Tools
 public import CFSG.RankThree.PartTwo.Sec21.Membership
@@ -50,7 +43,6 @@ public import CFSG.RankThree.PartTwo.Sec4.LThreePiSLOn
 public import CFSG.RankThree.PartTwo.Sec4.StatementsGraphField
 public import CFSG.RankThree.PartTwo.Sec8.Pairs
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

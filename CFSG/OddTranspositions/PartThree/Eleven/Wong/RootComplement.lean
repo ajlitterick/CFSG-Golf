@@ -1,15 +1,10 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Eleven.Wong.RootLocal
-public import CFSG.OddTranspositions.PartThree.Eleven.Wong.CentFusion
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.theorem_1_18
 public import CFSG.GroupTheory.ABGLocalTools.OddInvolution
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PPrimeCore
 public import CFSG.GroupTheory.SwappedFactorsOffenders
 public import CFSG.GH74.GLS.SP.GenOrder
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.XI.NormalComplement
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.Remaining
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.theorem_3_6
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoFi22.DS81.Fi24Branch.Basic
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoFi22.DS81.Facts
-public import CFSG.Open.StatedDefs
 public import CFSG.Quasithin.H13.J4Core
 public import Certificates.Kernel.SporCovBase.Fi22Glue
 public import CFSG.ClassicalInvolution.ModelFacts.FundPerfectMain
@@ -16,10 +15,8 @@ public import CFSG.ClassicalInvolution.Q3.ModelCenter
 public import CFSG.ClassicalInvolution.RouteD.LocalLift
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.QuasiAssembly
 public import CFSG.GH74.GLS.Defs
-public import CFSG.GH74.GLS.Pattern
 public import CFSG.Goldschmidt.StatementsG4
 public import CFSG.Goldschmidt.StatementsH
-public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LieType.Multipliers.ProductKernel
 public import CFSG.LieType.Multipliers.U42Bridge
 public import CFSG.LieType.Multipliers.U43Action
@@ -61,7 +58,6 @@ public import CFSG.Monster.B.TwoA.Sp8.Par1
 public import CFSG.Monster.B.TwoA.Unitary.LinThree
 public import CFSG.Permutation.AlternatingAutomorphism
 public import CFSG.RankThree.PartOne.S10.PlaneContract
-public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.RankThree.PartTwo.Sec4.Census.Item44TwoCoverList
 public import CFSG.Sporadic.Bridge.LyData
 public import CFSG.Sporadic.Bridge.SuzSurj

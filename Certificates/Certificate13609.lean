@@ -1,15 +1,6 @@
 module
 
-public import CFSG.Sporadic.HNSchreier.FALocal
 public import Certificates.Kernel.SporSch.HN.C13609
-public import Certificates.Certificate2096
-public import Certificates.Certificate2097
-public import Certificates.Certificate2100
-public import Certificates.Certificate2102
-public import Certificates.Certificate2104
-public import Certificates.Certificate2107
-public import Certificates.Certificate2109
-public import Certificates.Certificate16041
 
 public section
 

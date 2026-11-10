@@ -3,7 +3,6 @@ module
 public import CFSG.ThirdParty.BrauerInduction.Span
 public import CFSG.ThirdParty.BrauerInduction.Background.ClassFun.Character.Span
 public import CFSG.ThirdParty.BrauerInduction.Background.LinearChar.Clifford
-public import CFSG.ThirdParty.BrauerInduction.Background.LinearChar.InducedCharacter
 
 public section
 

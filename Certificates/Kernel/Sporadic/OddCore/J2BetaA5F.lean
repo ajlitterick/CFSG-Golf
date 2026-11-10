@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Sporadic.OddCore.J2BetaA5
 public import Certificates.Kernel.Sporadic.OddCore.J3BetaA5F
 public import Certificates.Kernel.Sporadic.OddCore.J2CnF
-public import CFSG.Certificates.Kernel.Misc.HexFlatSound
 public import CFSG.Certificates.Kernel.Misc.RuInvHash
 
 public section

@@ -1,15 +1,9 @@
 
 module
 
-public import CFSG.Sporadic.Bridge.BTcData
-public import CFSG.Monster.B.Pinned.Primes.FiveWords
 public import Certificates.Kernel.BabyMonster.TcFive.Mem
 public import Certificates.Kernel.BabyMonster.TcFive.Facts
 public import Certificates.Kernel.BabyMonster.FiveA.CoverB
-public import Certificates.Kernel.BabyMonster.FiveA.Facts13625
-public import Certificates.Kernel.BabyMonster.PcFive.Census
-public import Certificates.Kernel.BabyMonster.Seeds
-public import CFSG.Monster.B.TwoA.Unitary.LinThree
 
 public section
 

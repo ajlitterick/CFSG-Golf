@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Certificate16042
-public import Mathlib.Algebra.Order.Ring.Star
 
 public section
 

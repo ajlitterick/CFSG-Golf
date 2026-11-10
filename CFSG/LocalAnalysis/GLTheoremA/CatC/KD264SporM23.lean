@@ -2,11 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264SporAssembly
 public import CFSG.LocalAnalysis.OddStandard.MathieuInvolutionSpec
-public import CFSG.Sporadic.Schreier.MathieuOddCoreM23
-public import CFSG.Sporadic.Schreier.ClassSpec
-public import CFSG.Sporadic.Mathieu.M23
-public import CFSG.Sporadic.SchreierLemmas.MoorePresentation
-public import CFSG.HardMathSupport.Timmesfeld.Tables.Census.Sporadic
 public import Certificates.Certificate10138
 
 public section

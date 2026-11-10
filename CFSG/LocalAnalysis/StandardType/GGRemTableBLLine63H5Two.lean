@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63H5Lift
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63H5Torus
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63H5StepOne
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63H5Inner
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeThree
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryDvdCodimOne
 
 public section
 

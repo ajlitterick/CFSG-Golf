@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45FinalTorus
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45RestAssembly
-public import CFSG.LocalAnalysis.StandardType.GGFieldNbrTableB
 
 public section
 

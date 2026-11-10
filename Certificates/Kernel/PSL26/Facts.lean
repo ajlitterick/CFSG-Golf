@@ -1,19 +1,8 @@
 module
 
 public import Certificates.Kernel.PSL26.Checks
-public import CFSG.Certificates.Kernel.Spor.RawSound
 public import CFSG.Certificates.Kernel.Spor.LevelTrSound
 public import CFSG.Certificates.Kernel.Item434.PkSound
-public import CFSG.Certificates.Kernel.BfsPinUnpack
-public import CFSG.Certificates.Kernel.LocalCompUnpack
-public import CFSG.Quasithin.Recognition.RuRank3PSLInputs
-public import Mathlib.LinearAlgebra.Projectivization.Action
-public import Mathlib.LinearAlgebra.Projectivization.Cardinality
-public import Mathlib.Algebra.QuadraticAlgebra.Basic
-public import CFSG.Dihedral.GorensteinWalter.FieldTransport
-public import CFSG.Dihedral.Glauberman.DicksonMaxUp
-public import CFSG.Sporadic.Schreier.RuChainSpec
-public import CFSG.Certificates.NativeSchreierEnum
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.BfsPinSound

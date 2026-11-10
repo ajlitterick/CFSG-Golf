@@ -4,7 +4,6 @@ public import CFSG.Certificates.Kernel.LceSP.Loops
 public import Certificates.Data.Kernel.LceSHeRu
 import CFSG.Certificates.Kernel.LceSP.Main
 import Mathlib.Tactic.Group
-public import Mathlib.Algebra.Divisibility.Basic
 import Mathlib.Data.Rat.Cast.Order
 import Mathlib.Tactic.NormNum.Abs
 import Mathlib.Tactic.NormNum.DivMod

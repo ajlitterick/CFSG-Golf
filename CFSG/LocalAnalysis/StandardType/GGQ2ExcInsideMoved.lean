@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcRaw
 public import CFSG.LocalAnalysis.StandardType.GGQ2CensusFrameReal
-import TauCeti.LinearAlgebra.Reflection
 
 public section
 

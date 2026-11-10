@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentAut
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentCited
-public import CFSG.LocalAnalysis.AGLEmbedding.CaseTwoDefs
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentFrattiniTriv
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentStepFiveFour
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentSylow

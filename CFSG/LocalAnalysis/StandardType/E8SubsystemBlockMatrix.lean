@@ -2,7 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Foote.Coordinator.LangTorus.Monomial
 public import CFSG.RankThree.PartOne.KE6.E8T3E6
-public import CFSG.RankThree.PartOne.KE.D4TranspositionInterface
 public import CFSG.LieType.Ree.LargeReeSylowOpposition
 public import CFSG.LinearAlgebra.LinearGroups.LinearTwo
 public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismData

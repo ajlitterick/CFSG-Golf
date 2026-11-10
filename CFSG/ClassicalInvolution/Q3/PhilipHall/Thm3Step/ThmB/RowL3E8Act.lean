@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Thm3Step.ThmB.RowL3E8E
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.FrameAEmptyPf12L3E8
 public import CFSG.ClassicalInvolution.Q3.TL3T25
 
 public section

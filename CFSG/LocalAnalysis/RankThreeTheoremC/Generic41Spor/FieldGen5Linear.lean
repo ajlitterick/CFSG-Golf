@@ -1,13 +1,9 @@
 module
 
-public import CFSG.Open.StatedDefs
-public import CFSG.Open.LocalVocabulary
 public import CFSG.RankThree.PartOne.CTP.SeitzField
 import CFSG.LieType.SeitzGeneration.OuterLinearTwo
 import CFSG.LieType.SeitzGeneration.HyperCoverLinear
 import CFSG.HardMathSupport.Curtis.Coordinator.SeitzOuter.PSLnFieldAut
-import CFSG.LocalAnalysis.ComponentInitial.LinearCoverModel
-import CFSG.LocalAnalysis.ComponentInitial.BasicFacts
 import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.FieldGen5Sylow
 import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.Assembly.QuasithinDefs
@@ -24,7 +20,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
 public import CFSG.LocalAnalysis.ComponentInitial.LayerComponentOrbit
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.Quasithin.Background.Basic
 public import CFSG.RankThree.GroupTheory.SteinbergBYSectionNineResidual
 public import CFSG.RankThree.LocalRank.SelectorCases
@@ -67,8 +62,6 @@ import CFSG.RankThree.PartOne.S11d.OutLinear
 import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 import CFSG.RankThree.Theta.ThreeComponentOrbitCover
 import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
-import CFSG.Sporadic.Th.F2Spec
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 import CFSG.Walter.Defs
 
 public section

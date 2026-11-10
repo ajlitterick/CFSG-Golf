@@ -1,18 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Nine92Layer
-public import CFSG.LocalAnalysis.StandardType.FS81.TwD5NineCore
-public import CFSG.HardMathSupport.Solomon.Coordinator.I18_3VMain
-public import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma512
-public import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma27
-public import CFSG.LocalAnalysis.SectionRank.EvenCover.Orthogonal
-public import CFSG.RankThree.Classical2.OrthogonalIsotropicUnipotent
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Nine92JFacts
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Nine92Syl
 public import CFSG.Mathlib.GroupTheory.PComponentProductCard
-public import CFSG.Timmesfeld.Orders.Classical
 public import CFSG.HardMathSupport.Solomon.Coordinator.I19_10FiCover
-public import CFSG.LocalAnalysis.ComponentClassification.LBalancePrimeCore
 
 public section
 

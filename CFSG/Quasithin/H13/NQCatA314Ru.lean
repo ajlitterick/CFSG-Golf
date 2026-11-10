@@ -2,10 +2,8 @@ module
 
 public import CFSG.Quasithin.H13.NQCatA314Lat
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtE68SporRu
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatRu
 import all CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatRu
 public import CFSG.Quasithin.Background.A3Structure314Excl
-public import CFSG.Sporadic.Ru
 
 public section
 

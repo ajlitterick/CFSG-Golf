@@ -2,17 +2,11 @@ module
 
 public import CFSG.Quasithin.Recognition.WBN.Weyl
 public import CFSG.Quasithin.Vol2.GoldschmidtF431D4qStructNorm
-public import CFSG.Quasithin.EmptyFaithful.S1421F112
 
 import CFSG.Quasithin.Recognition.St84.Gen.D4qAmalModel
 import CFSG.LocalAnalysis.EvenBN.TrialityD4.Native
 import CFSG.LocalAnalysis.EvenBN.TrialityD4.Levi
-import CFSG.LieType.Chevalley.TrialityExactFiniteOrder
-import CFSG.LieType.Chevalley.GraphFixedSimpleComplement
-import CFSG.LieType.Chevalley.GraphFixedParabolicCells
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.NormalizerSubgroupCyclic
-import CFSG.Quasithin.Vol2.GoldschmidtF431D4qNFqCard
-import CFSG.LocalAnalysis.ComponentInitial.BasicFacts
 
 public section
 

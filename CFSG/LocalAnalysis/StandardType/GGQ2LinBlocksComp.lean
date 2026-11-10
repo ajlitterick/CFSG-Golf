@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQ2LinStatements
 import CFSG.LocalAnalysis.StandardType.ClassicalPosition.CompGL
 import CFSG.LocalAnalysis.StandardType.GGHalfCentGroup
-import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
 
 public section
 

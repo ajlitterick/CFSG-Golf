@@ -3,7 +3,6 @@ module
 
 public import CFSG.Sporadic.ThSchreier.NoTransvectionInputs
 public meta import CFSG.Sporadic.ThSchreier.RigidityBase
-import CFSG.Sporadic.ThSchreier.AutCoreBase
 meta import CFSG.Sporadic.ThSchreier.NoTransvectionInputs
 
 @[expose] public section

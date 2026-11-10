@@ -5,7 +5,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ElementaryAbelian
 public import Mathlib.GroupTheory.IsPerfect
 public import Mathlib.LinearAlgebra.Span.Defs
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHeldSmallCoreCharacteristic
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.theorem_3_4
 
 public section
 

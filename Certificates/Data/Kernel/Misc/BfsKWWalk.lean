@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.Misc.BfsKW
-public import CFSG.Certificates.Kernel.Common.Loop
 
 public section
 

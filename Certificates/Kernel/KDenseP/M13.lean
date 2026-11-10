@@ -2,8 +2,6 @@ module
 
 public import Certificates.Kernel.KDenseP.AgreeB
 public import Certificates.Kernel.KDenseP.ReplayN
-public import Certificates.Kernel.KDenseP.Axis.Base
-public import CFSG.Certificates.Kernel.KDense.Data.Checks
 public import CFSG.Certificates.Kernel.KDenseP.M13.MonoAll
 public import CFSG.Certificates.Kernel.KDenseP.M13.C16958
 public import CFSG.Certificates.Kernel.KDenseP.M13.C16959
@@ -12,8 +10,6 @@ public import CFSG.LocalAnalysis.AGLEmbedding.Norton.MON11_13.ThirteenFusion
 public import CFSG.LocalAnalysis.AGLEmbedding.Norton.MON11_13.HeisModel
 import Certificates.Kernel.KDenseP.MonoTabL
 public import CFSG.Assembly.QuasithinDefs
-public import CFSG.Certificates.Kernel.KDenseP.M13.MonoEChk0
-public import CFSG.Certificates.Kernel.KDenseP.M13.MonoEChk1
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LocalAnalysis.AGLEmbedding.Norton.Gen13.Gen
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
@@ -26,7 +22,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
 public import CFSG.LocalAnalysis.ComponentInitial.LayerComponentOrbit
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.Quasithin.Background.Basic
 public import CFSG.RankThree.GroupTheory.SteinbergBYSectionNineResidual
 public import CFSG.RankThree.LocalRank.SelectorCases
@@ -35,8 +30,6 @@ public import CFSG.RankThree.PartOne.CTP.FusionSound
 public import CFSG.RankThree.PartOne.CTP.StrongPSylow
 public import CFSG.RankThree.PartOne.S10.ThetaContract
 public import CFSG.RankThree.PartOne.S12.InputsBase
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.theorem_3_4
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.Defs
 
 public section
 

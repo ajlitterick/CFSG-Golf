@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGHalfWeylReindex
 public import CFSG.LocalAnalysis.StandardType.GGHalfWeylReindexLast
 public import CFSG.LocalAnalysis.StandardType.GGHalfWeylLevi
 public import CFSG.LocalAnalysis.StandardType.GGHalfWeylLeviPerf
-public import CFSG.LocalAnalysis.StandardType.GGHalfBlockEmbed
 
 public section
 

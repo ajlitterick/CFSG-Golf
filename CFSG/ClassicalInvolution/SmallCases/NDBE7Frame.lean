@@ -2,10 +2,7 @@ module
 
 public import CFSG.ClassicalInvolution.SmallCases.NDBE6Side
 public import CFSG.ClassicalInvolution.SmallCases.NDBE5ZT
-import CFSG.ClassicalInvolution.Asc77.WP3FrameData
 import CFSG.ClassicalInvolution.Asc77.WP3FramePSCNine
-import CFSG.ClassicalInvolution.Asc77.WP3L52Main
-import CFSG.ClassicalInvolution.Balance.BootstrapAlphaDelta
 import CFSG.ClassicalInvolution.MilestoneAssemblyCore
 import CFSG.Sporadic.Bridge.M11CheckInputs
 

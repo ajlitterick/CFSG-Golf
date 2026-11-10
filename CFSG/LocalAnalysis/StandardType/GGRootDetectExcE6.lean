@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootDetectExcDiag
-public import CFSG.LieType.Chevalley.OrdinaryEFieldGraphQuotient
 public import CFSG.LieType.Chevalley.C2E6RootOperators
 public import CFSG.ClassicalInvolution.ModelFacts.ChevAutLift
 public import CFSG.LieType.Chevalley.C2E6StandardFixedData

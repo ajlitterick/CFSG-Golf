@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixRCKOpen
 public import CFSG.LocalAnalysis.StandardType.GGK1Lift
 public import CFSG.LocalAnalysis.StandardType.GGSixPositionDefs
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2HighestRootNormalizer
-public import CFSG.LieType.Universal.Catalog
-public import CFSG.LieType.Universal.Spin.Action
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKSmallDefs
 

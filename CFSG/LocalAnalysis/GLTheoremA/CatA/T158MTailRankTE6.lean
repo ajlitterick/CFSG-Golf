@@ -4,11 +4,9 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.T158MTailNorm
 import CFSG.HardMathSupport.Solomon.LocalBalance.I1433.ExcRankMain
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeLowerBase
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeSetup
-import CFSG.LocalAnalysis.GLTheoremA.CatB.Bridges
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.LieType
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.GraphTwisted
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Unimodular
-public import CFSG.RankThree.PartTwo.Census.Exceptional.TwistedE6
 
 public section
 

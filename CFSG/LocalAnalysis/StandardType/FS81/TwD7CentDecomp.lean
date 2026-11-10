@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD7CentGen
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowX1OmCSub
-public import CFSG.RankThree.OrthogonalInvolutions.Dickson
-import CFSG.RankThree.Literature.FSmithOrthogonal
-import CFSG.RankThree.PartOne.KC.OrthogonalFixedDerived
 import CFSG.LieType.SeitzGeneration.OrthNonsplitTools
 import CFSG.GroupTheory.CommutingProductFixedSubgroup
 import CFSG.LieType.SeitzGeneration.HyperLinear

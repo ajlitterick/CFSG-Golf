@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigDefs
-public import CFSG.LocalAnalysis.StandardType.GGQ2S08CoreSwaps
 
 public section
 

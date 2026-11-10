@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Open.StatedDefs
-public import Mathlib.LinearAlgebra.Matrix.Notation
 
 public section
 

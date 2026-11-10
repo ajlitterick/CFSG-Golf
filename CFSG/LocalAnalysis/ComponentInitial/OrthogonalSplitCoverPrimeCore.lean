@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalSplitCoverLift
-public import CFSG.LocalAnalysis.ComponentInitial.MatrixExtensionAlternating
 public import CFSG.LocalAnalysis.ComponentInitial.LinearCoverHigher
 public import CFSG.LocalAnalysis.ComponentInitial.BinarySymplecticSixCover
-public import CFSG.LinearAlgebra.LinearGroups.Perfect
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.LocalAnalysis.ComponentInitial.CentralCoverAbelian
 

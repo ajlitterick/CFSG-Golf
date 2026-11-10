@@ -1,7 +1,6 @@
 
 module
 
-public import Mathlib
 public import CFSG.GH74.GLS.Stage4.Q9.ModelBaseInputs
 import CFSG.Certificates.Kernel.Q9LgSound
 import Certificates.Kernel.Q9Lg.Checks

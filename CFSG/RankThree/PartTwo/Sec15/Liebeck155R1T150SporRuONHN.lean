@@ -2,18 +2,7 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec15.Liebeck155R1T150SporCore
 import CFSG.GroupTheory.CentralizerSup
-import CFSG.LocalAnalysis.EvenSporadicStandard.RuStd.S2.RuThreeCent
-import CFSG.RankThree.Native.ONThreeCentralizer
-import CFSG.RankThree.Native.ONThreeFusion
 import CFSG.RankThree.PartTwo.Sec4.RonanK429RowHComp
-import CFSG.Sporadic.Bridge.HNSurj
-import CFSG.Sporadic.Bridge.ONSurj
-import CFSG.Sporadic.Bridge.RuSurj
-import CFSG.Sporadic.HNSchreier.Faithful
-import CFSG.Sporadic.HNSchreier.FullAut
-import CFSG.Sporadic.HNSchreier.Intrinsic
-import CFSG.Sporadic.Schreier.RuAutInner
-import CFSG.Sporadic.Schreier.SteinbergBIONOuterTwo
 public import CFSG.ClassicalGroups.Symplectic.Simple
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LieType.Chevalley.LangRootArithmetic
@@ -42,7 +31,6 @@ public import CFSG.RankThree.PartTwo.Sec8.Statements
 public import CFSG.Sporadic.Schreier.RuLOdd
 public import CFSG.Sporadic.Schreier.RuZClass
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import CFSG.GH74.GLS.Balance.SolvAPIDefs
 import CFSG.Mathlib.LinearAlgebra.BilinForm.Determinant
 import CFSG.Open.SplitBNPair
@@ -59,7 +47,6 @@ import CFSG.RankThree.PartTwo.Sec14.Item142ResProofPGL
 import CFSG.RankThree.PartTwo.Sec20.OneSteps
 import CFSG.RankThree.PartTwo.Sec21.Item211ProofListOf
 import CFSG.RankThree.PartTwo.Sec4.Item41NarrowGriess
-import CFSG.Walter.J1Props
 
 public section
 

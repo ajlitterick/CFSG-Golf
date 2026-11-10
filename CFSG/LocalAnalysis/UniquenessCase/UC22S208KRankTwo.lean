@@ -1,25 +1,13 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S208KCount
-public import CFSG.GroupTheory.TitsSystem.Basic
-public import CFSG.Open.SplitBNPair
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X6Residual
-import CFSG.Milestones.ASVolI.I2
 import CFSG.LocalAnalysis.UniquenessCase.UC22P20k
 import CFSG.LocalAnalysis.UniquenessCase.UC22P20l
-import CFSG.LocalAnalysis.QuasithinUnique.Setting
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.FrattiniBasic
 import CFSG.Quasithin.Vol2.Ch10SecQ9H63
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X6ResidualTriality
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X6Triality
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X6ResidualRee
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X6LargeRee
-import CFSG.LieType.Chevalley.GraphFixedSylowOpposition
-import CFSG.LieType.Ree.LargeReeSylowOpposition
 import CFSG.Quasithin.H13.U4ParRecog
-import CFSG.Quasithin.H13.U4ParModel
-import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherSylow
-import CFSG.ClassicalGroups.UnitaryFlag.OrderSylow
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X6Containment
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S208K
 import CFSG.LinearAlgebra.LinearGroups.LinearTwoOddFourGroups
@@ -36,12 +24,10 @@ import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 import CFSG.Quasithin.Background.A3Structure319
 import CFSG.Quasithin.Background.B216Quotient
 import CFSG.Quasithin.Background.B6
-import CFSG.Quasithin.Background.B6Example
 import CFSG.Quasithin.Background.C1GNA7
 import CFSG.Quasithin.Background.C1GNC124
 import CFSG.Quasithin.Background.C1PackSolvBasic
 import CFSG.Quasithin.Background.D2
-import CFSG.Quasithin.Background.D2Dihedral
 import CFSG.Quasithin.Background.E2Statements
 import CFSG.Quasithin.Background.E3OffenderB
 import CFSG.Quasithin.Background.F2Equiv

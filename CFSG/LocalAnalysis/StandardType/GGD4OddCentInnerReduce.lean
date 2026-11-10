@@ -3,18 +3,10 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentInnerDefs
 import CFSG.LocalAnalysis.StandardType.GGD4OddCentA2NotInnDiag
 import CFSG.LocalAnalysis.StandardType.GGD4OddCentFieldSchur
-import CFSG.LocalAnalysis.StandardType.GGD4OddCentFieldMark
 import CFSG.LocalAnalysis.StandardType.GGD4OddCentFieldFixed
-import CFSG.LocalAnalysis.StandardType.GGHypSixD4RankTransfer
-import CFSG.LocalAnalysis.StandardType.GGNbrGraphD4ProofKG
-import CFSG.LocalAnalysis.StandardType.GGNbrGraphD4ProofOut
 import CFSG.LocalAnalysis.StandardType.GGSixTrialityL613KGClass
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaModel
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaGroup
 import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassical222ExcO8
-import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
 import CFSG.LocalAnalysis.GLTheoremA.CatA.I142NBase
-import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotTorusLayer
 import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4UnCount
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.NativeCheckBase
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.NativeModel

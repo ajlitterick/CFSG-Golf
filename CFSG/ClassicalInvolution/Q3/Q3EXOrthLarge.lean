@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Q3EXCentral
-public import CFSG.ClassicalInvolution.RouteD.ExoticSingleFacts
-public import CFSG.ClassicalInvolution.RouteD.ExoticSingleWitt
 
 public section
 

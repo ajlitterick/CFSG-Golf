@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGKGForkRows
 public import CFSG.LocalAnalysis.StandardType.GGKGForkURow
 public import CFSG.LocalAnalysis.StandardType.GGKGForkUnitaryDvdRoot
 

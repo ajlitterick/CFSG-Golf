@@ -5,10 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGInnerD4DGenRepsHolds
 public import CFSG.LocalAnalysis.StandardType.GGInnerD4DGenSupportedHolds
 public import CFSG.LocalAnalysis.StandardType.GGInnerD4DGenComponentHolds
 public import CFSG.LocalAnalysis.StandardType.GGInnerD4DGenCompositionHolds
-public import CFSG.LocalAnalysis.StandardType.GGInnerD4DGenFixed
-public import CFSG.LocalAnalysis.StandardType.GGInnerD4RAContracts
-public import CFSG.LocalAnalysis.StandardType.GGInnerD4RegimeDefs
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 
 public section
 

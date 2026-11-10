@@ -2,12 +2,8 @@ module
 
 public import Certificates.Data.Kernel.Sp6Insp443.Cent
 public import CFSG.Certificates.Kernel.SporSch.ChainKEnum
-public import CFSG.Certificates.Kernel.SporSch.MOCChain
 public import CFSG.Certificates.Kernel.SporSch.J1PtSound
-public import CFSG.Sporadic.Schreier.Enumeration
-public import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
 public import CFSG.LocalAnalysis.SectionRank.QTK.Insp443.PermKit
-public import Certificates.Data.CFSGNative.Insp443.PermTests
 public import CFSG.Certificates.Kernel.Spor.PrimSound
 public import CFSG.Certificates.Kernel.Spor.RawCard
 public import CFSG.Foundations
@@ -29,19 +25,14 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.A3Structure38Facts
 public import CFSG.Quasithin.Background.B2Thompson
 public import CFSG.Quasithin.Vol2.Ch4Sec1Lem415
 public import CFSG.Quasithin.Vol2.Ch4Sec4Lem445
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
 public import CFSG.Sporadic.Schreier.J1CountCheckInputs
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import Certificates.Certificate43
 
 public section

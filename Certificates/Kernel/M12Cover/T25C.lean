@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.M12Cover.T25Bind
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

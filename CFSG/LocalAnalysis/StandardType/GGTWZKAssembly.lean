@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTWZK
 public import CFSG.LocalAnalysis.StandardType.GGTWZKUnitary
 public import CFSG.LocalAnalysis.StandardType.GGTWZKE6
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.RankThree.PartOne.TCB.SchreierFinal
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Timmesfeld.RankTwo.Positive
-public import CFSG.LieType.Steinberg.PartB
 
 public section
 

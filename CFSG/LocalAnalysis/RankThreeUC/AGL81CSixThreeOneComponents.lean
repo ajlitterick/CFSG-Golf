@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Foundations.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Core
 public import CFSG.Open.StatedDefs
 import CFSG.ClassicalInvolution.Basic
 import CFSG.GroupTheory.Fitting.CharacteristicP

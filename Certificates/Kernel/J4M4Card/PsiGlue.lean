@@ -7,10 +7,6 @@ public import CFSG.Quasithin.Recognition.CertChain
 import CFSG.Certificates.Kernel.Misc.ConjTree
 import CFSG.Certificates.Kernel.Spor.RawOrbHead
 public import CFSG.Certificates.Kernel.Spor.RawSound
-public import Mathlib.Algebra.Order.Ring.Star
-public import Mathlib.RingTheory.WittVector.IsPoly
-public import Mathlib.Tactic.Polynomial.Basic
-public import Mathlib.Tactic.ReduceModChar
 
 public section
 

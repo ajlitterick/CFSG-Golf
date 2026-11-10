@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LargeExtraspecial.SMod20AutCent
-public import CFSG.LargeExtraspecial.S14Defs
-public import CFSG.LargeExtraspecial.OutSixUnitary
-public import CFSG.Adapters.GeneralizedFitting
 
 public section
 

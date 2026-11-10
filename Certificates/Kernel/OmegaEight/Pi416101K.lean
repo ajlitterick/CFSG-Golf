@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.OmegaEight.Arr3009K
 public import Certificates.Kernel.OmegaEight.Pi416101Chain
 public import Certificates.Data.Kernel.J2Cover
-public import Certificates.Data.O8PiQ8
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

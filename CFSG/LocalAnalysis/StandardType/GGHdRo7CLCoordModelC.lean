@@ -2,16 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7CLCoordAux
 public import CFSG.LocalAnalysis.StandardType.GGSpLiftReflGen
-public import CFSG.LocalAnalysis.StandardType.GGSpJoinPlaneTorusLift
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameTorus
 public import CFSG.LocalAnalysis.StandardType.GGRoundFourSmallASpLift
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUSigned
-public import CFSG.LocalAnalysis.StandardType.GGTableBTransport
 public import CFSG.LocalAnalysis.StandardType.GGTwAutBasic
 public import CFSG.LocalAnalysis.StandardType.GGTwSUFacts
 public import CFSG.LocalAnalysis.StandardType.GGTwSUSigned
-public import CFSG.LocalAnalysis.StandardType.GGTwSURank
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7SULCoordModelA
 public import CFSG.LocalAnalysis.AGLEmbedding.SporadicBeta
 

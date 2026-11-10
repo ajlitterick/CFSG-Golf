@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutTrialityLayerDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutTrialityLayerElt
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutTrialityEightRest
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutOmPlusFourField
-public import CFSG.LocalAnalysis.StandardType.GGSixTrialityL613KGField
 
 public section
 

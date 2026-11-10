@@ -2,13 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusE6RelativeLang
 public import CFSG.LocalAnalysis.StandardType.GGTorusE6RelativeWeyl
-public import CFSG.LocalAnalysis.StandardType.GGTorusE6Relative
-public import CFSG.LocalAnalysis.StandardType.GGKGForkExcNorm
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesE6QPlusThreeLang
 public import CFSG.LocalAnalysis.StandardType.GGTwE6EnnolaSplitTorus
 public import CFSG.LocalAnalysis.StandardType.GGTwE6SplitRootGenRoot
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitTwE6SplitFrame
-public import CFSG.RankThree.PartOne.KE.CTLang
 
 public noncomputable section
 

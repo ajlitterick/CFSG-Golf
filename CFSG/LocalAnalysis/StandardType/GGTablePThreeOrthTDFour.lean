@@ -2,25 +2,15 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeLinDefs
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeUniModel
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeSplitR
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeKnownSix
 public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import CFSG.GroupTheory.WeirSylow.OrthogonalModels
-public import CFSG.RankThree.Classical2.OrthogonalIsotropicUnipotent
 import CFSG.LocalAnalysis.GLTheoremA.CatA.K1419ClsOrthBlock
-import CFSG.RankThree.PartOne.KC.OrthogonalMatrixModelTransport
-import CFSG.RankThree.PartOne.KC.OrthogonalD4WitnessBridge
-import CFSG.RankThree.PartOne.KC.OrthogonalFixedDerived
-import CFSG.RankThree.PartOne.K159.RowFourType
-import CFSG.RankThree.PartOne.K159.RowFourFixed
 import CFSG.HardMathSupport.Dickson.Bal207.OrthFixedType
 import CFSG.LocalAnalysis.StandardType.GGD4OddCentInnerModel
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeOrthTLift
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeOrthTBlock
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeOrthTFix
 import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestOddLayer
-import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeLinear
 import CFSG.RankThree.PartOne.S15K.FixedWitt
 import CFSG.RankThree.PartOne.S15K.LayerModel
 

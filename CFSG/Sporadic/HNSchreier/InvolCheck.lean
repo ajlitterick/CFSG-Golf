@@ -1,13 +1,10 @@
 
 module
 
-public import CFSG.Sporadic.HNSchreier.InvolCheckBase
 
-public import CFSG.Sporadic.HNSchreier.SeedsCheck
 public import CFSG.Sporadic.HNSchreier.LocalCheck
 public meta import CFSG.Sporadic.HNSchreier.SeedsCheck
 public meta import CFSG.Sporadic.HNSchreier.LocalCheck
-public import CFSG.Sporadic.HNSchreier.InvolCheckInputs
 public import Certificates.Certificate2099
 
 public section

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Lemma113d
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Lemma113f
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Lemma113g
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Lemma113ClaimsL2

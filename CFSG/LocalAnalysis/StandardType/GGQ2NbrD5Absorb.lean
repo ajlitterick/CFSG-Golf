@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGD5Absorb
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNormalClosure
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNormalClosureRefl
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNormalClosureNbr
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalancePumpup
-public import CFSG.LocalAnalysis.StandardType.GGPumpupBalance
 
 public section
 

@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGE0ModelFrameOn
-public import CFSG.LocalAnalysis.StandardType.GGE0ShapeConj
 public import CFSG.LocalAnalysis.StandardType.GGE0ShapeContextModel
 public import CFSG.LocalAnalysis.StandardType.GGE0ShapeModelG
-public import CFSG.LocalAnalysis.StandardType.GGSteinbergCorrection
 
 public section
 

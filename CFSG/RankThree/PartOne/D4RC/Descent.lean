@@ -1,8 +1,6 @@
 module
 
 public import CFSG.RankThree.PartOne.D4RC.ParaLang
-public import Mathlib.FieldTheory.Finite.Basic
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 
 set_option linter.unusedSectionVars false
 

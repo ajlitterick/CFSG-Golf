@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGIndepFixLineStep2
 public import CFSG.LocalAnalysis.StandardType.GGIndepFixLinePerm
 public import CFSG.LocalAnalysis.StandardType.GGRCMonomialHom
 

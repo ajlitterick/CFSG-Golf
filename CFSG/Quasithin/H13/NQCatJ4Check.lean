@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Quasithin.H13.NQCatJ4Native
 public meta import CFSG.Quasithin.H13.NQCatJ4Native
 public import Certificates.Certificate7020
 

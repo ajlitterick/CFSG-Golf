@@ -1,7 +1,6 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Nine.FinalSuzuki
-public import CFSG.Quasithin.Background.A1cTransferVariants
 
 public section
 

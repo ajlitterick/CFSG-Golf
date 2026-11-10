@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTbKlJ
-public import CFSG.LocalAnalysis.StandardType.GGF4QTwoInputs
 public import CFSG.LocalAnalysis.StandardType.GGTPNNarrow
 import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 

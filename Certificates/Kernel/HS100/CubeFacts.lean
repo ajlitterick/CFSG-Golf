@@ -4,11 +4,8 @@ public import Certificates.Kernel.HS100.CubeData
 public import Certificates.Kernel.HS100.Chain
 public import Certificates.Kernel.HS100.Five
 public import CFSG.Certificates.Kernel.WordArrSound
-public import CFSG.Certificates.Kernel.BfsPinAlg
-public import CFSG.Certificates.Kernel.BfsPinBaseSound
 public import CFSG.Certificates.Kernel.Misc.ArrBind
 public import CFSG.Certificates.Kernel.Misc.ArrEnumUnpack
-public import CFSG.Certificates.Kernel.BfsPinSetSound
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

@@ -1,6 +1,5 @@
 module
 
-public import Mathlib
 public import CFSG.LocalAnalysis.EvenBN.Tits.N.P4Elem
 
 public section

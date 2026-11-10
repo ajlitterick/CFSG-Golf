@@ -5,7 +5,6 @@ public import Certificates.Data.GMS78RuCzGammaData
 public import Certificates.Data.GMS78RuAsmData
 public import Certificates.Data.GMS78RuPi7RuData
 public import Certificates.Data.CFSGNative.Schreier.Check
-public import CFSG.Certificates.CosetTablePresented
 
 public section
 

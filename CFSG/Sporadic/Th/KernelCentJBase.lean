@@ -5,9 +5,7 @@ public import CFSG.Sporadic.Th.KernelCent
 public import CFSG.Sporadic.Th.KernelOrderBase
 public import CFSG.Certificates.Kernel.ThCent.WitSoundBase
 public import CFSG.Certificates.Kernel.Th.Spec.FwdExtBase
-public import CFSG.Certificates.Kernel.Th.SoundnessGenBase
 import CFSG.Certificates.Kernel.Th.Spec.Dce
-import CFSG.Certificates.Kernel.Th.Spec.DceHsw
 public import CFSG.Certificates.Kernel.Th.SoundnessGen
 public import CFSG.Sporadic.Th.LocalBase
 public import CFSG.Sporadic.ThSchreier.AutAssembly

@@ -1,41 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.ABGTheoremB.TotallyInverted.OmnibusQuotient
-public import CFSG.GroupTheory.ABGDGroups.LinearEmbedding
 public import CFSG.GroupTheory.ABGDGroups.LinearCentralizers
-public import CFSG.GroupTheory.ABGDGroups.LinearASeven
-public import CFSG.GroupTheory.ABGDGroups.LinearQuotient
-public import CFSG.GroupTheory.ABGDGroups.LinearOddCyclic
 public import CFSG.Dihedral.PerfectDihedralFourgroupAction
-public import CFSG.GroupTheory.OddInversion
 public import CFSG.CharacterTheory.Semidihedral.Local.CoprimeCentralizerQuotient
-public import CFSG.CharacterTheory.Semidihedral.Local.FourSubgroupCentralizers
-public import CFSG.LocalAnalysis.LyonsUnitaryFour.OrderThreeComplement
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Classification
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2PerfectOfCard
-public import CFSG.CharacterTheory.Wreathed.Coordinates
-public import CFSG.CharacterTheory.Wreathed.Involutions
-public import CFSG.CharacterTheory.Wreathed.MaximalOrder
-public import CFSG.CharacterTheory.Semidihedral.NormalForm
-public import CFSG.CharacterTheory.Semidihedral.KleinFourOddKernel
-public import CFSG.CharacterTheory.Semidihedral.CenterAndOrders
-public import CFSG.GroupTheory.QuasiDihedralFusion.SemidihedralModel
-public import Certificates.Certificate1
-public import Certificates.Certificate2
-public import Certificates.Certificate7
-public import Certificates.Certificate3
-public import Certificates.Certificate4
-public import Certificates.Certificate5
-public import Certificates.Certificate6
-public import Certificates.Certificate8
-public import Certificates.Certificate9
-public import Certificates.Certificate10
-public import Certificates.Certificate11
-public import Certificates.Certificate12
-public import Certificates.Certificate42
-public import Certificates.Certificate43
-public import Certificates.Certificate44
-public import CFSG.Adapters.QiuzhenLegacy.Compat.G7.ASeven
 
 public noncomputable section
 

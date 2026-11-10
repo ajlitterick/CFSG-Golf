@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.GF2n.Parrott.Section4Theorem4ClassesV
-public import CFSG.RankThree.GF2n.Parrott.Section4HPrimeIndex
 public import CFSG.RankThree.GF2n.Parrott.ActionQAIdentificationOutsideEquality
 
 public section

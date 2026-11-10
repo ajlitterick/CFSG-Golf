@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec16.Item16Tail13Defs
-public import CFSG.RankThree.PartTwo.Sec4.LThreePiOn
 import CFSG.RankThree.PartTwo.Sec16.Item1613StepsProofEFMat
 import CFSG.RankThree.PartTwo.Sec16.Item1613StepsProofFixMat
 import CFSG.RankThree.PartTwo.Sec16.Item1613StepsProofInv
@@ -9,17 +8,7 @@ import CFSG.RankThree.PartTwo.Sec12.KS128NotHJPGL
 import CFSG.RankThree.PartTwo.Sec13.Item137Tools
 import CFSG.RankThree.PartTwo.Sec13.Item136Lift
 import CFSG.RankThree.PartTwo.Sec13.Item138ProofPGL
-import CFSG.RankThree.PartTwo.Sec4.LThreePiMain
-import CFSG.RankThree.PartTwo.Sec4.LThreePiCaseA
-import CFSG.RankThree.PartTwo.Sec4.LThreePiCaseI
-import CFSG.RankThree.PartTwo.Sec4.LThreePiProj
 import CFSG.RankThree.PartTwo.Sec4.LThreePiProjInner
-import CFSG.RankThree.PartTwo.Sec4.LThreePiRank
-import CFSG.RankThree.PartTwo.Sec4.LThreePiSinger
-import CFSG.RankThree.PartTwo.Sec4.LThreePiHessian
-import CFSG.RankThree.PartTwo.Sec6.Item612Local
-import CFSG.RankThree.GroupTheory.ThetaQuotientTransport
-import CFSG.ClassicalGroups.UnitaryFlag.GroupData
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.NativeSylow
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC

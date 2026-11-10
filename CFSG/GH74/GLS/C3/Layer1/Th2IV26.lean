@@ -2,14 +2,11 @@ module
 
 public import CFSG.GH74.GLS.C3.Layer1.Th2IV26Abs
 public import CFSG.GH74.GLS.C3.Layer1.Th2P86
-public import CFSG.GH74.GLS.C3.Layer1.Th2HYPump
 public import CFSG.GH74.GLS.C3.Layer1.BkB2G4Def
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GH74.GLS.Bg.TwoGroups.Lemma21i
 public import CFSG.GH74.GLS.C3.Layer1.EvenAltConfig
 public import CFSG.GH74.GLS.C3.Layer1.EvenStd
 public import CFSG.GH74.GLS.C3.Layer1.Th2L83Gen
-public import CFSG.GH74.GLS.C3.Layer1.Th2L83GenCore
 public import CFSG.GH74.GLS.C3.Layer1.Th2L84
 public import CFSG.GH74.GLS.C3.Layer1.Th2P73
 public import CFSG.GH74.GLS.C3.Layer1.Th2P812

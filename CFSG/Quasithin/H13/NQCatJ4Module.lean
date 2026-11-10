@@ -3,10 +3,7 @@ module
 public import CFSG.Quasithin.H13.NQCatJ4Sylow
 public import CFSG.LinearAlgebra.ExtraspecialCyclotomicModule
 public import CFSG.LieType.BorelTits.Flag
-public import CFSG.LocalAnalysis.SectionRank.Ccomm.ElementaryAut
 public import CFSG.RankThree.GroupTheory.SteinbergBKFrattiniOuterPrimeBound
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.GroupActions.SelfCentralizingCoreOuterPrimeBound
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.SectionRank.Ccomm.Supercritical

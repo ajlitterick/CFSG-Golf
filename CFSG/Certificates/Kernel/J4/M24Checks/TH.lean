@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Certificates.Kernel.Common.LceS
 public import CFSG.Certificates.Kernel.Common.Bind
 public import CFSG.Certificates.Kernel.J4.M24Data.M24B_Sel
 import CFSG.Certificates.Kernel.Common.Harness

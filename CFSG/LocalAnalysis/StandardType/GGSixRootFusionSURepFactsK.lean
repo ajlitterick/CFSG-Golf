@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionSURepFactsRad
 public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionSURepFactsBasic
-public import CFSG.LieType.Steinberg.CentralExt.UnitaryField
 
 public section
 

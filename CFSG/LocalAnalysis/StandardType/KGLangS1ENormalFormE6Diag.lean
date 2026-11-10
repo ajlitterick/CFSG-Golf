@@ -5,9 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGL45NtExcBridgeDefs
 import CFSG.LocalAnalysis.StandardType.GGL45NtExcBridgeE6
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGCentE6TwistBruhat
 import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangInj
-import CFSG.HardMathSupport.Lang.AnisoE6.E6InF4
-import CFSG.LieType.Chevalley.OrdinaryEFieldGraphQuotient
-import CFSG.RankThree.Classical2.TwistedE6RationalOrder
 
 public section
 

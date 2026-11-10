@@ -27,10 +27,6 @@ public import CFSG.Sporadic.Recognition.McLASThreeCount
 public import CFSG.Sporadic.Recognition.McLMultiplierMatrix
 public import CFSG.Sporadic.Schreier.J4SSylow
 public import CFSG.StronglyEmbedded.TheoremSE.BenderLowRank
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_1_12
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 
 public section

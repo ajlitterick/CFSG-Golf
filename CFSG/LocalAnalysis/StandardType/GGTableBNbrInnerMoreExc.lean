@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMoreCl
-public import CFSG.LocalAnalysis.StandardType.GGAssemblyThreeHypSix
-public import CFSG.LocalAnalysis.SeitzReduction.E8PilotCatTypeDet
 
 public section
 

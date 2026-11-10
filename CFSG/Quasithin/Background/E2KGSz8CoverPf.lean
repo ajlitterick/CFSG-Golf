@@ -39,11 +39,9 @@ public import CFSG.LocalAnalysis.ShultStronglyClosedTI.MinimalLocalFailureTwoCor
 public import CFSG.Permutation.UnitaryThreeRecognition.Model
 public import CFSG.Quasithin.Background.A1bGroups
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.Basic
 public import CFSG.Quasithin.Background.E2TenKG
 public import CFSG.Quasithin.Background.F7TwoDefs
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24

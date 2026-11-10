@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LieType.Chevalley.KernelComponentRoots
 public import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourWeylCheck
 
 public section

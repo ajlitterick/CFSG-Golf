@@ -17,7 +17,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherSubspaceIndex
 public import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
 public import CFSG.LocalAnalysis.GLTheoremB.Lemma99Inputs
 public import CFSG.LocalAnalysis.GLTheoremB.Prop98Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 @[expose] public section
 

@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerMinus
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeFPOmegaMinusLow
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGCoKleinMinus
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeFPSU
 
 public section

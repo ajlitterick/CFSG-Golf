@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLevTwoRoots
 
-import CFSG.LocalAnalysis.StandardType.GGLevTwoS2bAux
 import CFSG.LocalAnalysis.StandardType.GGLevTwoS2bClass
-import CFSG.LocalAnalysis.StandardType.GGLevTwoS2bCover
-import CFSG.LocalAnalysis.StandardType.GGLevTwoS2bCase2
 import CFSG.LocalAnalysis.StandardType.GGLevTwoS2bCase3b
 
 public section

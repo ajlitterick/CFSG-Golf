@@ -2,7 +2,6 @@ module
 
 public import CFSG.Open.StatedDefs
 public import CFSG.Open.StandardComponentRecognitionMilestoneDefs
-public import CFSG.Open.LocalVocabulary
 
 public section
 

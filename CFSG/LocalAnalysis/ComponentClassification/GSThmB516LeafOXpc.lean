@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog81X10OrthPc
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB516LeafOddJ
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneOEvenOrth2
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneOSliceNF
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneOSplitCases
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneDXKlPc

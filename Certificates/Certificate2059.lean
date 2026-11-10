@@ -3,10 +3,8 @@ module
 
 public import Certificates.Certificate2059Base
 
-public import CFSG.Sporadic.Co2Schreier.SylowCheckInputs
 public meta import CFSG.Sporadic.Co2Schreier.ChainCheckBase
 public meta import CFSG.Sporadic.Schreier.RuEnum
-public import Certificates.Kernel.SporSch.Co2M.FratPG
 import Certificates.Kernel.SporSch.Co2M.Neg2059
 import CFSG.Certificates.Kernel.Common.Harness
 

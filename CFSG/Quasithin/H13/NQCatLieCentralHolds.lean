@@ -8,28 +8,9 @@ public import CFSG.Quasithin.H13.NQCatLieCentralG2
 public import CFSG.Quasithin.H13.NQCatLieCentralD4
 public import CFSG.Quasithin.H13.NQCatLieCentralF4
 public import CFSG.LocalAnalysis.ComponentClassification.GMS78Basic
-public import CFSG.LieType.Ree.LargeReeModelSchreier
-public import CFSG.CharacterTheory.BrauerThirdMainTheorem.CentralResidueMaps
-public import CFSG.CharacterTheory.BrauerThirdMainTheorem.NormalizerClassLifting
-public import CFSG.CharacterTheory.BrauerThirdMainTheorem.PrincipalClassDefects
-public import CFSG.CharacterTheory.Semidihedral.Principal.DegreeZeroGram
-public import CFSG.CharacterTheory.TwoRankLowerBound.BrauerCharacterCriterion
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwo
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogLargeReeNormalForm
-public import CFSG.LocalAnalysis.LargeEvenClassification.C8FourSubgroupExhaustion
-public import CFSG.LocalAnalysis.LargeEvenClassification.C8FourSubgroupRanks
-public import CFSG.LocalAnalysis.LargeEvenClassification.CyclicFourLarge
-public import CFSG.LocalAnalysis.LargeEvenClassification.CyclicTwoFourGenerators
-public import CFSG.LocalAnalysis.LargeEvenClassification.MacWilliamsReduction
-public import CFSG.LocalAnalysis.LargeEvenClassification.SmallCfourFullObstruction
-public import CFSG.LocalAnalysis.LargeEvenClassification.SmallCfourProperSubgroups
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsLieFrame
 public import CFSG.Quasithin.Background.B5Statement
-public import CFSG.Walter.J1
-public import CFSG.Walter.J1Props
-public import CFSG.Walter.J1Recog
-public import CFSG.Walter.PSL2Facts
-public import CFSG.Walter.W67.Statements
 
 public section
 

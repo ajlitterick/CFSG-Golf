@@ -2,11 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Classification
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.LinearULift
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PPrimeCore
-public import Mathlib.GroupTheory.SpecificGroups.Alternating.Simple
-public import Mathlib.GroupTheory.SpecificGroups.Dihedral
-public import Mathlib.LinearAlgebra.Matrix.ProjectiveSpecialLinearGroup
-public import Mathlib.Data.ZMod.Basic
 public import Mathlib.Algebra.Field.ZMod
 
 namespace CFSG

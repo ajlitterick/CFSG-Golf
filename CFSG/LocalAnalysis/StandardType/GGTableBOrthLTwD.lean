@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthLSp
 public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOpenVacMore
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestUnitaryCenter
 
 public section
 

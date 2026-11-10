@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTBJE8LeviWeyl
 public import CFSG.LocalAnalysis.StandardType.GGTBTorDatum
 public import CFSG.LocalAnalysis.StandardType.GGTBTorTransport
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRestDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcThreeAct
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesCore
 
 public section

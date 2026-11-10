@@ -29,8 +29,6 @@ import CFSG.GroupTheory.PCore.Transport
 import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeFamilies
 import CFSG.LocalAnalysis.AGLEmbedding.OneSmallGEVL34FFDefs
 import CFSG.LocalAnalysis.AGLEmbedding.ResidualTools
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

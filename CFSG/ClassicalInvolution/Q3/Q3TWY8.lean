@@ -2,8 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.Q3TWY7
 public import CFSG.ClassicalInvolution.Q3.Q3TWY6
-public import CFSG.ClassicalInvolution.RouteD.LocalTwinBLocal
-public import CFSG.ClassicalInvolution.RouteD.LocalTwinBWeakNodes
 
 public section
 

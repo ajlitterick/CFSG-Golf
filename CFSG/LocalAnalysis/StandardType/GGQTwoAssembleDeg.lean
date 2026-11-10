@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoBridgeWeyl
-public import CFSG.LocalAnalysis.StandardType.GGQTwoBridgeRefl
 public import CFSG.LocalAnalysis.StandardType.GGQTwoBridgeOrbit
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDegenerate
 

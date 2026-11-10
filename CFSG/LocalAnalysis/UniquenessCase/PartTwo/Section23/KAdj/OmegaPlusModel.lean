@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KTab23d.Defs
 public import CFSG.LocalAnalysis.AGLEmbedding.LeviBlockOrthPlusBlocks
 public import CFSG.ClassicalGroups.Orthogonal.StatedOmegaElementary
-public import CFSG.Open.StatedDefs
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.ClassicalGroups.Orthogonal.RootGroupFixedCard
 public import CFSG.GroupTheory.LocalCores.Fitting
@@ -17,9 +16,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasSix
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalReflectionSplitting
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalSplitCoverLevi
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherEvenOrthogonalModel
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 
 public section

@@ -7,7 +7,6 @@ import CFSG.OddTranspositions.PartThree.EightEight.StarConj
 import CFSG.OddTranspositions.PartThree.EightEight.StarOrbit
 import CFSG.OddTranspositions.PartThree.EightEight.StarSigma
 import CFSG.OddTranspositions.PartThree.EightFive.Transitive
-import CFSG.Timmesfeld.Basic
 
 public section
 

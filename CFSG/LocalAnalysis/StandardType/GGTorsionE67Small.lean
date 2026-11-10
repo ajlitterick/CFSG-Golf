@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorsionE67Basic
 public import CFSG.LocalAnalysis.StandardType.GGTorsionTwF4
-public import CFSG.LocalAnalysis.StandardType.GGTorsionSmallOrd
 import CFSG.LocalAnalysis.StandardType.GGTorsionE67ExcOrders
-import CFSG.LocalAnalysis.StandardType.GGExclNoIso
-import CFSG.LocalAnalysis.StandardType.GGTwistedF4Diag
 import CFSG.LocalAnalysis.GLTheoremA.CatA.MILabel
 
 public section

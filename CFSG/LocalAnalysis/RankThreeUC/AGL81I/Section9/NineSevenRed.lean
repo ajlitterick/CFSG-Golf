@@ -1,25 +1,19 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineSevenOne
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81CSevenOne
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenInputs
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section15.O98ThreeEleven
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenFieldAut
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenOrbit
 import CFSG.LocalAnalysis.RankThreeTheoremC.RelPair2T_Two
 import CFSG.LocalAnalysis.StronglyEmbedded.GammaOne
-import CFSG.GroupTheory.LocalCores.Components
 import CFSG.GroupTheory.ElementaryAbelianTransport
 import CFSG.GH74.GLS.AssemblyComponents
-import CFSG.LocalAnalysis.SectionRank.PRank
 import CFSG.LocalAnalysis.SectionRank.AmbientRank
-import CFSG.LocalAnalysis.SectionRank.DerivedQuotient
-import CFSG.Quasithin.Background.A1cRank
 import CFSG.HardMathSupport.Solomon.Proving.GLBCoreNormalizer
 import TauCeti.Algebra.Group.Coprime
 public import CFSG.Sporadic.Schreier.J4SProfileNode
 import CFSG.GH74.GLS.Defs
-import CFSG.GH74.GLS.Pattern
 import CFSG.LocalAnalysis.RankThreeTheoremC.RelativePairInputs
 import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenComp
 

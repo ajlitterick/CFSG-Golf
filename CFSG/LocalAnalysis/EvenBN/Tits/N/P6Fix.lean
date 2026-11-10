@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Open.LocalVocabulary
 public import CFSG.LocalAnalysis.EvenBN.Tits.N.P6Comm
 
 public section

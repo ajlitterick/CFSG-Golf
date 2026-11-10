@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGKG82Defs
 public import CFSG.LocalAnalysis.StandardType.GGTwE6FieldTransport
 public import CFSG.LocalAnalysis.StandardType.GGE6DepZLScBase
-public import CFSG.LieType.Simplicity.Exceptional
-public import CFSG.LieType.Steinberg.CentralExt.TwistedE6Center
 
 public section
 

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordInnerLift
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordInnerRigid
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordInnerTor
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 
 public section
 

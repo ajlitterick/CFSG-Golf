@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.GammaU.Orb16963Data
-public import CFSG.GF2Type.Smith1979.GammaU.StepAInputs
 public import CFSG.GF2Type.Smith1979.GammaU.SigmaInputs
 public import Certificates.Data.Kernel.GammaUSigmaK
 public import Certificates.Data.Kernel.IdxFourSiftK

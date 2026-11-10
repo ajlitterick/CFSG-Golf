@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.HeLoc.FiveLDefs
-public import Certificates.Kernel.SporSch.Ru.RowsGen
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

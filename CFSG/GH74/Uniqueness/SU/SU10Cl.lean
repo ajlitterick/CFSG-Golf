@@ -1,8 +1,6 @@
 module
 
 public import CFSG.GH74.Uniqueness.SU.SU10Bar
-public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionOddQuotientLifting
-public import CFSG.GH74.Uniqueness.Bender.Lemma32
 
 public section
 

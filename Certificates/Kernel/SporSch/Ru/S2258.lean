@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.SporSch.Ru.RFacts
 public import Certificates.Kernel.SporSch.Ru.F1920
-public import Certificates.Kernel.SporSch.Ru.RowsGen
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

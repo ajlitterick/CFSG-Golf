@@ -2,14 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.GoldLayerSetup
 import CFSG.Goldschmidt.Steps.G3b34
-import CFSG.Goldschmidt.Steps.G37Wrappers
 import CFSG.Goldschmidt.Steps.G37CoreTypeII
-import Mathlib.GroupTheory.Transfer
 import CFSG.Goldschmidt.StatementsG2
 import CFSG.Goldschmidt.StatementsG3
 import CFSG.GroupTheory.LocalCores.Fitting
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Borel
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Lemma83
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.SubnormalPSubgroupLeQCore
 import CFSG.Walter.Bender1970.S2
 import CFSG.Walter.Bender1970.S3.Basic

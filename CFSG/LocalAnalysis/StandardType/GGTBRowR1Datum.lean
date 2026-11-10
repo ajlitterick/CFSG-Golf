@@ -1,21 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGExcReflTBWeylDatumOfWeyl
 public import CFSG.LocalAnalysis.StandardType.GGKGPosTagWeyl
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosDefs
 public import CFSG.LocalAnalysis.StandardType.GGTBRowSpan
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwenty
-import CFSG.LocalAnalysis.StandardType.GGWeylSimpleSystemsConj
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLFaithful
-import CFSG.LocalAnalysis.StandardType.GGSecFiveRootRefl
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelAut
-import CFSG.LocalAnalysis.StandardType.GGTableBBstar
-import CFSG.LocalAnalysis.StandardType.GGRootInvolutionRank
 import CFSG.LocalAnalysis.StandardType.GGResE6DepRank
-import CFSG.LieType.Chevalley.WeylRoots
-import TauCeti.LinearAlgebra.Matrix.Cartan.Classical
-import Mathlib.LinearAlgebra.Matrix.Cartan.Basic
 
 public section
 

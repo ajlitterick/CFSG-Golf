@@ -1,17 +1,8 @@
 module
 
-public import Mathlib.Algebra.Group.Defs
-public import Mathlib.Data.Finite.Defs
-public import Mathlib.Algebra.Group.Subgroup.Defs
-public import Mathlib.Data.Nat.Prime.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.Defs
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970API
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section1
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Core
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PPrimeCore
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ChiefFactors.Proposition12
 
 namespace CFSG
 end CFSG

@@ -3,7 +3,6 @@ module
 public import CFSG.Certificates.Kernel.Bounds.Hdr
 public import Certificates.Kernel.M23Mult.P1Data
 public import Certificates.Kernel.M23Mult.Words
-import CFSG.Certificates.Kernel.Bounds.Load
 
 open CFSG.Certificates
 

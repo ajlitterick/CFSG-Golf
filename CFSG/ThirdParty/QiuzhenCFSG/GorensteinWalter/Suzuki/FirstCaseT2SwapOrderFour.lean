@@ -3,7 +3,6 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.SylowThreeJoin
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.SwappedLinesInvertedLine
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinCardThreeTransferNormalizer
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

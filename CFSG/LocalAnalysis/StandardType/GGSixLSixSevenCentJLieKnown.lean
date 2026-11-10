@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSixLSixSevenCentJLie
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixSevenRootNormCtx
 public import CFSG.LocalAnalysis.StandardType.GGSixStepOneOutdiagCases
 public import CFSG.LocalAnalysis.StandardType.GGSixLSixSevenA3BstarCentralizer
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.CoprimeHall
 import CFSG.LocalAnalysis.StandardType.GGSixCtxKnownSupply
 
 public section

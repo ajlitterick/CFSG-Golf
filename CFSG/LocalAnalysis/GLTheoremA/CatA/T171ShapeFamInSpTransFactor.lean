@@ -1,21 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeFamInSpTransMark
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeFamInBCDSplit
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeFamInBCD
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticHigherAutomorphismData
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagData
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeFamInOmGen
-import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeFamClInner
 import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Claims1110d
-import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
-import CFSG.LocalAnalysis.GLTheoremA.Basic
-import CFSG.LocalAnalysis.GLTheoremA.Sec5BTools
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeInnAutLinear
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeInnAutUnitary
-public import CFSG.HardMathSupport.Solomon.Coordinator.LayerCentralFix
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Prop126b
-public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherEvenSymplecticNormalForm
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S171Basic
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherComponentInvolutionFitting
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherComponentInvolutionMoved
@@ -76,8 +65,6 @@ import CFSG.Quasithin.Background.C2PushThree
 import CFSG.Quasithin.Background.D2
 import CFSG.Quasithin.Background.D2Cyclic
 import CFSG.Quasithin.Background.E3
-import CFSG.Quasithin.Background.E3Nprime
-import CFSG.Quasithin.Background.E3Uniq
 import CFSG.Quasithin.Background.F918H5
 import CFSG.Quasithin.Background.FFC4Tr2
 import CFSG.Quasithin.Background.GoldschmidtS146RBend1

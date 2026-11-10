@@ -4,12 +4,7 @@ public import CFSG.LocalAnalysis.StandardType.GGFieldOuterModel
 public import CFSG.LocalAnalysis.StandardType.GGFieldOuterNormalForm
 public import CFSG.LocalAnalysis.StandardType.GGFieldOuterInvLangDatum
 public import CFSG.LocalAnalysis.StandardType.GGFieldOuterInvLangSetup
-public import CFSG.LocalAnalysis.StandardType.GGExcMaxToral
-public import CFSG.LocalAnalysis.StandardType.GGExcFiveFour
-public import CFSG.LocalAnalysis.StandardType.GGExcPRankBound
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.OuterFieldCore
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwRigidSplit
-public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyBruhat
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Subnormal
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.RigidCriterion
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.RigidNorm

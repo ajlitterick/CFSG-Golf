@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.ONPair.NQOvergroups
-public import CFSG.LocalAnalysis.RankThreeTheoremC.ONPair.NQFacts
-public import CFSG.LocalAnalysis.RankThreeTheoremC.ONPair.NQRelab
-import Mathlib.Tactic.FinCases
 
 public section
 

@@ -5,9 +5,7 @@ import CFSG.LocalAnalysis.StandardType.GGLtBstarOfInner
 import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortGlueTwo
 import CFSG.LocalAnalysis.StandardType.GGMemberE7TwoRankOne
 import CFSG.LocalAnalysis.SeitzReduction.E7PilotOuter
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerF4Toral
 import CFSG.GroupTheory.ConjTransport
-import CFSG.GroupTheory.ElementaryAbelianTransport
 
 public noncomputable section
 

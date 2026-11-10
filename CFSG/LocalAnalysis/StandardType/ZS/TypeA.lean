@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.ZS.RootMatrix
 import CFSG.LocalAnalysis.StandardType.GGCartanATypeArith
 import CFSG.LocalAnalysis.StandardType.ZS.Basic
-import Mathlib.Algebra.Field.ZMod
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveZSInputs
 
 public section

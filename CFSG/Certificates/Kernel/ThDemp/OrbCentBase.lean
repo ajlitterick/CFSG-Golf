@@ -3,9 +3,6 @@ module
 
 public import CFSG.Certificates.Kernel.ThDemp.OrbU
 public import CFSG.Certificates.Kernel.ThDemp.OrbitCount
-public import CFSG.Certificates.Kernel.ThDemp.Sound
-public import CFSG.Certificates.Kernel.Th.Spec.FwdRelBase
-import Mathlib.Tactic.IntervalCases
 
 @[expose] public section
 

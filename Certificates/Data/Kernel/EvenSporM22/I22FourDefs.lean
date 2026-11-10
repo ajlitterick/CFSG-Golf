@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Certificates.Kernel.Enum.Defs
 public import Certificates.Data.Kernel.DecText
 public import Certificates.Data.Kernel.EvenSporM22.M22StdDefs
 

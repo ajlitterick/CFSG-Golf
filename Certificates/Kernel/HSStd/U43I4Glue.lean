@@ -4,7 +4,6 @@ public import Certificates.Kernel.HSStd.U43I4Slices
 public import Certificates.Kernel.HSStd.U43I4Grp
 public import Certificates.Kernel.CU43Aut.CentGlue
 public import Certificates.Kernel.CU43Aut.ModelFacts
-import CFSG.Certificates.Kernel.Spor.PackWord
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.GroupTheory.Fitting.CharacteristicP
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
@@ -22,7 +21,6 @@ public import CFSG.LocalAnalysis.EvenSporadicStandard.RuStd.Contra
 public import CFSG.LocalAnalysis.EvenSporadicStandard.RuStd.FactsB2Inputs
 public import CFSG.LocalAnalysis.EvenSporadicStandard.RuStd.S2.OutU43Main
 public import CFSG.LocalAnalysis.EvenSporadicStandard.RuStd.Stages
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.LocalAnalysis.SectionRank.SQT
 
 public section

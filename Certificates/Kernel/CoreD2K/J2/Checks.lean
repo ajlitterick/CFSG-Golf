@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.CoreD2K.J2.Data
 public import Certificates.Data.Kernel.CoreD2K.Check
-public import Certificates.Data.Kernel.Spor.PEnum
 public import Certificates.Data.CoreD2J2
 import CFSG.Certificates.Kernel.Common.Harness
 

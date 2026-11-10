@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowY1KerB3OModel
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowY1KerC3B3
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowY1KerA4
-public import CFSG.RankThree.PartTwo.Census.Carrier.SpinBOdd
-public import CFSG.Quasithin.Background.A3Structure36BPrime
 
 public section
 

@@ -3,17 +3,9 @@ module
 public import CFSG.LieType.SeitzGeneration.ExcHigh.E8Cube
 public import CFSG.HardMathSupport.Lang.TwE6Step3.Assembly
 public import CFSG.HardMathSupport.Lang.TwE6Step3.SixFinal
-public import CFSG.HardMathSupport.Foote.Coordinator.AnisoCube.OrderSix
-public import CFSG.HardMathSupport.Lang.SeitzPlane.TwistedE6Six
-public import CFSG.LieType.SeitzGeneration.HyperExParabolicTw
-public import CFSG.HardMathSupport.Foote.Coordinator.AnisoCube.Skeleton
 public import CFSG.LieType.SeitzGeneration.ExcHighThree.TwE6InF4Order
 public import CFSG.HardMathSupport.Seitz.TrialityOdd.Inner.PhiRows.RouteWJPlacement
-public import CFSG.HardMathSupport.Seitz.TrialityOdd.Coordinator.Phi6RouteWStarProved
 public import CFSG.HardMathSupport.Malle.SeitzCube.E6ThreeProved
-public import CFSG.HardMathSupport.Malle.SeitzCube.E6ThreeSL3Sign
-public import CFSG.HardMathSupport.Foote.Coordinator.AnisoCube.Radicals
-public import CFSG.LieType.SeitzGeneration.ExcPlaneModel
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Basic
 public import CFSG.HardMathSupport.Lang.Coordinator.OuterFixedOrderTwistedE6Fixed
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerSplit

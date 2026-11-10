@@ -1,14 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBOmDefs
-public import CFSG.LocalAnalysis.StandardType.GGAssemblyTwoHypSix
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermLinOmKFrameMp
-import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermLinOmKTorus
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermOmFrame
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpLFrameMp
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBSpCoordFrameFacts
 import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
-import CFSG.LocalAnalysis.StandardType.GGOneFiveNbr
 
 public section
 

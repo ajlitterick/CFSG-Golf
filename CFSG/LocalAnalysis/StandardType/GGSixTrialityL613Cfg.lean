@@ -1,12 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTrialityL613CfgSplit
-public import CFSG.LocalAnalysis.StandardType.GGSixTrialityL613KG
-public import CFSG.LocalAnalysis.StandardType.GGSixStepOneNine
 public import CFSG.LocalAnalysis.StandardType.GGHypSixD4BstarRankInner
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBIrred
 public import CFSG.LocalAnalysis.StandardType.GGSixTrialityL613KGConj
-public import CFSG.Assembly.Subnormal
 
 public section
 

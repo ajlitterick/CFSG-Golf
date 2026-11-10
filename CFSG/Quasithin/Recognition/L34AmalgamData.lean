@@ -3,11 +3,8 @@ module
 
 public import CFSG.Quasithin.Recognition.L34AmalgamDataBase
 
-public import CFSG.Quasithin.Recognition.M22WittData
-public import CFSG.Certificates.CosetTablePresented
 public meta import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22Count
 public meta import CFSG.Quasithin.Recognition.M22UniqueData
-public import CFSG.Quasithin.Recognition.L34AmalgamDataInputs
 public import Certificates.Certificate7036
 
 public section

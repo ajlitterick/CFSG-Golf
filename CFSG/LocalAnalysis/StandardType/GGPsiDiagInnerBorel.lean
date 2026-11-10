@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInner
-public import CFSG.LieType.Steinberg.Bruhat
 
 public section
 

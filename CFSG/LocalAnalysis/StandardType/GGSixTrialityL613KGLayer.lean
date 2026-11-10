@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTrialityL613KGField
-public import CFSG.Timmesfeld.Orders.Bang
 public import CFSG.LinearAlgebra.SL2MinimalFaithfulZsigmondy
 
 public section

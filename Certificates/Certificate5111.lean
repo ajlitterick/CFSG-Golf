@@ -4,7 +4,6 @@ public import CFSG.GH74.KGroups.CoverJ3Inputs
 import Certificates.Kernel.CovJ3.Check
 import CFSG.Certificates.Kernel.CovJ3Sound
 import CFSG.Certificates.Kernel.OpsKSound
-public import CFSG.Blueprint.NativeSporadic
 import all CFSG.Blueprint.NativeSporadic
 
 public section

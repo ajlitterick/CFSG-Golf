@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTWLowOutE6Aux
-public import CFSG.LocalAnalysis.StandardType.GGTWLowEnum
-public import CFSG.LocalAnalysis.StandardType.GGTWLowStmt
 
 public section
 

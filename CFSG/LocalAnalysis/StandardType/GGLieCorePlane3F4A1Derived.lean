@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieCorePlane3F4Defs
 public import CFSG.LocalAnalysis.StandardType.GGFamLabelAssembly
-public import CFSG.Adapters.SpecialLinearPerfect
-public import CFSG.Adapters.ProjectiveSpecialLinear
-public import CFSG.Blueprint.LieModelAPI
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.RationalA1Part1
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.OddKernelOrbit
 public import CFSG.LocalAnalysis.StandardType.GGFamAssembly

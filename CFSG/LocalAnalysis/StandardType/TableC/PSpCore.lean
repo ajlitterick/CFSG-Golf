@@ -1,16 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.TableC.Extract
-public import CFSG.LocalAnalysis.StandardType.TableC.PSpLeafDefs
 public import CFSG.LocalAnalysis.StandardType.TableC.PSpLift
 public import CFSG.LocalAnalysis.StandardType.TableC.PSpBlockDegreeHolds
 public import CFSG.LocalAnalysis.StandardType.TableC.PSpBlockDegree
-public import CFSG.LocalAnalysis.StandardType.TableC.PSpBlockRank
 public import CFSG.LocalAnalysis.StandardType.TableC.PSpTrivialBlock
-public import CFSG.LocalAnalysis.StandardType.TableC.PSpNoFieldExt
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.StepA2
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitKGClMark
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.CompPSp
 
 public section

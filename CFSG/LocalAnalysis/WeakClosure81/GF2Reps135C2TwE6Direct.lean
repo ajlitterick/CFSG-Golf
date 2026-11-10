@@ -4,13 +4,9 @@ public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2ExcRank
 import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2TwE6Frames
 import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2TwE6Outer
 import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2TwE6Steinberg
-import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2TwE6Pairs
 import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135Ctx
-import CFSG.LocalAnalysis.ComponentClassification.PerfectAutomorphisms
 import CFSG.RankThree.PartTwo.Sec4.T444.Item434CoverKit
-import CFSG.HardMathSupport.Cooperstein.Coordinator.TwE6.Cover
 import CFSG.HardMathSupport.Cooperstein.Coordinator.TwE6.Reduction
-import CFSG.HardMathSupport.Cooperstein.Coordinator.TwE6.Periodic
 import CFSG.HardMathSupport.Cooperstein.Coordinator.TwE6.AdjDisp
 import CFSG.HardMathSupport.Meierfrankenfeld.PSUScalar.TopRank
 public import CFSG.CGT.Timmesfeld75.L2Pair

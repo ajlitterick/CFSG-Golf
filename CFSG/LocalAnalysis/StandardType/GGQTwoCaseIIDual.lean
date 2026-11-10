@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoLin
 public import CFSG.LocalAnalysis.StandardType.GGQTwoInnerDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoTransport
 

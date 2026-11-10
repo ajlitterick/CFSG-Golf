@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGActualFrobReversal
-public import CFSG.LocalAnalysis.StandardType.GGFinModelExists
 public import CFSG.LocalAnalysis.StandardType.GGLangFixedFamilies
-public import CFSG.LocalAnalysis.StandardType.GGFinModelRootCompatDefs
 public import CFSG.RankThree.PartTwo.Sec11.Item1118Res3ProofPairingU3Rot
-public import CFSG.ClassicalInvolution.Phan.Defs
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreSmallUnitary
 public import CFSG.RankThree.PartOne.D4RC.RxIso
 

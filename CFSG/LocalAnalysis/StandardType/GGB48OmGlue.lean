@@ -7,7 +7,6 @@ import CFSG.LocalAnalysis.StandardType.GGB48OmReduce
 import CFSG.LocalAnalysis.StandardType.GGB48OmLift
 import CFSG.LocalAnalysis.StandardType.GGB48OmWeyl
 import CFSG.LocalAnalysis.StandardType.GGHalfRowData
-import CFSG.LocalAnalysis.StandardType.GGOneFiveNbr
 import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpStdAssembly
 import CFSG.LocalAnalysis.StandardType.GGSpinInnerAction
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.TitsGen

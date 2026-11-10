@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.UC22DataExt
-public import CFSG.LocalAnalysis.UniquenessCase.UCFront08
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs13
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.PartOne
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.UCFourteenEight
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenSixtyEight

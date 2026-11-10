@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Sporadic.Fi22.C9554
-public import Certificates.Kernel.Misc.Perm.HexCmd
 public meta import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.Fi22FiveCoreData
 import CFSG.Certificates.Kernel.Common.Harness
 

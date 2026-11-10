@@ -1,16 +1,11 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Eleven.Wong.Hyp
-public import Mathlib.GroupTheory.Commutator.Basic
 import CFSG.OddTranspositions.PartThree.Eleven.Wong.Central
-import CFSG.LocalAnalysis.ComponentClassification.OddCore
 import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionGeometryZStarFactorization
-import Mathlib.GroupTheory.FixedPointFree
 import TauCeti.Algebra.Group.Subgroup.ZPowers
 import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 
 public section
 

@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusMaxSemiTransfer
 public import CFSG.LocalAnalysis.StandardType.GGTorusMaxWeylE7
-public import CFSG.LieType.Chevalley.WeylRoots
-public import CFSG.Open.StatedDefs
 
 public section
 

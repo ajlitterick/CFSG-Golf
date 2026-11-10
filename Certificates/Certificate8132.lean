@@ -3,8 +3,6 @@ module
 
 public import Certificates.Certificate8132Base
 
-public import CFSG.RankThree.Native.LyOperatorData
-public import CFSG.RankThree.Native.LySeedCheckInputs
 import Certificates.Kernel.SporSch.Ly.Seed8132
 
 public section

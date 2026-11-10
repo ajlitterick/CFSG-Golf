@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.RankThreeUC.Section5.PrimeNotDvdCardActorOfIrreducibleCounterexample
 public import CFSG.LocalAnalysis.RankThreeUC.Section5.Local.LocalVocabulary
 public import CFSG.LocalAnalysis.RankThreeUC.Section5.BstarFaithful.BstarFaithful
-public import CFSG.LocalAnalysis.RankThreeUC.Section5.Context
 import all CFSG.LocalAnalysis.RankThreeUC.Section5.Context
-public import CFSG.LocalAnalysis.RankThreeUC.Section5.ActionVocabulary
 import all CFSG.LocalAnalysis.RankThreeUC.Section5.ActionVocabulary
 
 public section

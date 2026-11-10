@@ -2,13 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD7CentDecomp
 public import CFSG.LocalAnalysis.StandardType.FS81.D6NormAux
-public import CFSG.ClassicalGroups.Orthogonal.IsometryConj
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172CCentType
 public import CFSG.RankThree.PartOne.S15K.FamilyForms
 public import CFSG.LieType.SeitzGeneration.OrthNonsplitTools
-public import CFSG.HardMathSupport.Solomon.LocalBalance.Sec5Statements
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6DInputs
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec7Interface
 public import CFSG.Holt.Fixed
 public import CFSG.LieType.SeitzGeneration.HyperLinear
 public import CFSG.LieType.SeitzGeneration.OrthCubeBlocks

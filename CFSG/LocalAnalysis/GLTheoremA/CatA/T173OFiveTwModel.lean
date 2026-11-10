@@ -2,11 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OFiveDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173Facts
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeDiagTwisted
 public import CFSG.LocalAnalysis.StandardType.GGTwE6RecipeTransport
-public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRankFiveAmbient
 public import CFSG.LocalAnalysis.StandardType.GGTwE6EndNodeThreeMat
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Inn
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Split
 public import CFSG.Holt.Fixed
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8ExcAction

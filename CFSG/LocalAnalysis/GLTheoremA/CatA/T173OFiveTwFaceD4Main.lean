@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OFiveTwFaceD4Rank
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OFiveTwFaceD4X
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173OFiveTwFaceD4X2
 
 public section

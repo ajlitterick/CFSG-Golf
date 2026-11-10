@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4HDNClosed
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4HDCaseTwo
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4HDType
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeSingle
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitSol25
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitLemma45c
 
 public section

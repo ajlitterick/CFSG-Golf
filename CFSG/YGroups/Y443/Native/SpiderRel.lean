@@ -3,7 +3,6 @@ module
 
 public import CFSG.YGroups.Y443.Native.SpiderRelBase
 
-public import CFSG.YGroups.Y443.Native.Words
 public import Certificates.Certificate10123
 public meta import CFSG.YGroups.Y443.Native.Words
 public meta import Certificates.Data.CFSGNative.MonsterAxis.Dense

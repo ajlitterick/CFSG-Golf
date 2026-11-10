@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.SectionRank.Ccomm.NonabelianCube
 public import CFSG.LocalAnalysis.SteinbergCERankTwoActionIndex
 public import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.LieType.BorelTits.Basic
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

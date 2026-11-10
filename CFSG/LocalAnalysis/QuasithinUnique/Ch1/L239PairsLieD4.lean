@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsLieD4Facts
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsLieFrame
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X6Triality
 
 public section
 

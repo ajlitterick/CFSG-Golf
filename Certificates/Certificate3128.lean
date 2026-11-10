@@ -5,9 +5,6 @@ public import CFSG.Monster.B.CTIB.HOuter
 public import CFSG.Monster.B.GSide.HInnerFusion
 public import CFSG.LocalAnalysis.EvenSmallLie.FoursGroup
 import Certificates.Kernel.TwoE6.FourGroup
-import Certificates.Data.Kernel.CTIBqBind
-import Certificates.Kernel.TwoE6.CTIBqData
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

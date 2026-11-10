@@ -5,9 +5,6 @@ import CFSG.LocalAnalysis.StandardType.GGRootCentKGStructSpLong
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGStructSpShort
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGSpCent
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGPiece
-import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerSp
-import CFSG.LocalAnalysis.StandardType.GGSixAutStructurePSpRank
-import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsSp
 
 public section
 

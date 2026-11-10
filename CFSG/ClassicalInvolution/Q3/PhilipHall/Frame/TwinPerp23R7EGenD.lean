@@ -1,17 +1,8 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerp23R7EGen
-import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerp23R7Cover
 import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerp23R7LL2
-import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerp23Mem
-import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinDimToolE1
 import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6jB
-import CFSG.ClassicalInvolution.Q3.Sec13L94Tight
-import CFSG.ClassicalInvolution.Q3.Q3CLSeven1
-import CFSG.ClassicalInvolution.Q3.Q3CLSeven2
-import CFSG.ClassicalInvolution.Q3.Q3CLBasic
-import CFSG.ClassicalInvolution.Asc77.AscT7DMu
-import CFSG.ClassicalInvolution.Asc77.AscP1ThompsonBasic
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLargeFixDefs
 public import CFSG.LocalAnalysis.StandardType.GGResSevenNbr
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 import CFSG.LocalAnalysis.StandardType.GGTwoNodeDepAssembly
 
 public section

@@ -1,11 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGFamTameLang
-public import CFSG.LocalAnalysis.StandardType.GGFamTameOrbit
-public import CFSG.LocalAnalysis.StandardType.GGFamTameTransfer
-public import CFSG.LocalAnalysis.StandardType.GGFamIsolation
 public import CFSG.LocalAnalysis.StandardType.GGFamTameTwoDHighAux
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTamePrime
 
 public section
 

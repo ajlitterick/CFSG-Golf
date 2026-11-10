@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinData
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Basic
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

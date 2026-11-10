@@ -1,14 +1,8 @@
 
 module
 
-public import Certificates.Kernel.J2Cover.AutChains
-public import Certificates.Kernel.J2Cover.Orb
 public import Certificates.Kernel.J2Cover.K20A
 public import Certificates.Kernel.J2Cover.ModelsBind
-public import CFSG.Monster.B.Co2.PermArr
-import CFSG.Certificates.Kernel.Common.Harness
-import CFSG.Certificates.Kernel.J2CoverSound
-import Mathlib.Tactic.IntervalCases
 
 public section
 

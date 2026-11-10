@@ -1,7 +1,6 @@
 module
 
 public import Mathlib.Combinatorics.SimpleGraph.Metric
-public import Mathlib.Algebra.Group.Action.Pretransitive
 public import Mathlib.Algebra.Group.Action.Prod
 public import Mathlib.Algebra.Group.Subgroup.Lattice
 public import Mathlib.GroupTheory.GroupAction.Defs

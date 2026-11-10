@@ -2,7 +2,6 @@
 module
 
 public import CFSG.Certificates.Kernel.Th.Gen.Ts
-public import CFSG.Sporadic.ThSchreier.LocalOrbitInputs
 public meta import CFSG.Sporadic.ThSchreier.WordsBase
 public meta import CFSG.Sporadic.ThSchreier.LocalDataBase
 public import CFSG.Sporadic.ThSchreier.TwoCentralizerInputs

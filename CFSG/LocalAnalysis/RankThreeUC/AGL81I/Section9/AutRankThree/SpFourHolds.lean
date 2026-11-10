@@ -5,7 +5,6 @@ import CFSG.LocalAnalysis.RankThreeUC.AGL81I.Section9.AutRankThree.SpFourOf
 import CFSG.RankThree.SubgroupLists.MitchellQuasisimple
 import CFSG.RankThree.SubgroupLists.MitchellPartThreeProof
 import CFSG.RankThree.SubgroupLists.SymplecticFischerSp
-import CFSG.RankThree.SubgroupLists.SymplecticFischerOrth
 import CFSG.RankThree.SubgroupLists.SymplecticFischerUnitary
 import CFSG.RankThree.SubgroupLists.SymplecticFischerRefl
 public import CFSG.Certificates.Kernel.Th.Gen.Dce

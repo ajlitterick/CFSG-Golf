@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.EvenSmallLie.GTwoFour.CoverRoots
-public import CFSG.LieType.Chevalley.CoordinateFieldFixedSubgroup
 
 public noncomputable section
 

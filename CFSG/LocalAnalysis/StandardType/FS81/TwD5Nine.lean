@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Pieces
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5NineOdd
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5NineInvol
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5NineHyp

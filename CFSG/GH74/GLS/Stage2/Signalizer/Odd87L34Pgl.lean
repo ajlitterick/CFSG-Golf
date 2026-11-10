@@ -2,12 +2,8 @@ module
 
 public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87L34Out
 public import CFSG.GH74.GLS.Stage2.Signalizer.Defs
-public import CFSG.GH74.GLS.IVK.Defs
-public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourAutomorphisms
-public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
 import CFSG.LocalAnalysis.ComponentInitial.LinearHigherFieldInvolution
 import CFSG.LocalAnalysis.QuasithinUnique.CatalogBridgeLinear
-import CFSG.Adapters.LinearSmallCatalog
 import all CFSG.LocalAnalysis.ComponentClassification.PSL3FourActionData
 public import CFSG.CharacterTheory.Blocks.Defs
 public import CFSG.GH74.GLS.Defs

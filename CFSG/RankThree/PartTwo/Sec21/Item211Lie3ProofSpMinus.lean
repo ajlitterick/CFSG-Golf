@@ -4,11 +4,8 @@ public import CFSG.RankThree.PartTwo.Sec21.Item211Lie3ProofQuat
 public import CFSG.RankThree.PartTwo.Sec21.Item211Lie2ProofExcRed
 import CFSG.ClassicalGroups.Symplectic.Simple
 import CFSG.ClassicalGroups.Symplectic.ProjectivePerfect
-import CFSG.RankThree.GroupTheory.SteinbergBYRelativeCores
 import CFSG.RankThree.PartTwo.Sec4.Item47Bridges
 import CFSG.RankThree.PartTwo.Sec21.Item211Lie2ProofU42Char
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Foundations
 public import CFSG.GroupTheory.ABGLocalTools.Constraint
 public import CFSG.GroupTheory.BaerSuzuki
@@ -39,7 +36,6 @@ public import CFSG.RankThree.PartTwo.Late.GammaZero
 public import CFSG.RankThree.PartTwo.NotationBlocks
 public import CFSG.RankThree.PartTwo.Sec11.Theorem1134
 public import CFSG.RankThree.PartTwo.Sec18.Notation
-public import CFSG.RankThree.PartTwo.Sec18.Tools
 public import CFSG.RankThree.PartTwo.Sec21.Item229Diagram
 public import CFSG.RankThree.PartTwo.Sec21.Item23Tools
 public import CFSG.RankThree.PartTwo.Sec21.Membership
@@ -48,7 +44,6 @@ public import CFSG.RankThree.PartTwo.Sec4.LThreePiSLOn
 public import CFSG.RankThree.PartTwo.Sec4.StatementsGraphField
 public import CFSG.RankThree.PartTwo.Sec8.Pairs
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import CFSG.LinearAlgebra.LinearGroups.ProjectiveSimple
 import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
 import CFSG.RankThree.PartTwo.KFacts.AutKindsUnique

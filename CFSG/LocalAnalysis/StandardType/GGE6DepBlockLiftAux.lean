@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGE6KGLayerDefs
-import CFSG.Assembly.Subnormal
-import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
-import CFSG.LocalAnalysis.ComponentClassification.Quasisimple
 
 public section
 

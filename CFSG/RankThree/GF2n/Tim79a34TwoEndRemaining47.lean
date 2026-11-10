@@ -1,10 +1,6 @@
 module
 
 public import CFSG.RankThree.GF2n.Tim79a34QPR
-public import CFSG.RankThree.GF2n.Tim79a34QEBranches
-public import CFSG.RankThree.GF2n.Tim79a34QEIn
-public import CFSG.RankThree.GF2n.Tim79a34CaseVIIIHolds
-public import CFSG.RankThree.GF2n.Tim79a34GammaSteps
 public import CFSG.RankThree.GF2n.Tim79a34TwoHolds
 public import CFSG.GH74.Generic.Certificates
 public import CFSG.GH74.Statements

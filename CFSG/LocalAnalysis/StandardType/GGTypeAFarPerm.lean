@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTypeACompatFarCore
-public import CFSG.LocalAnalysis.StandardType.GGPresentationWeyl
 
 public section
 

@@ -6,16 +6,9 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.KInputsIdent
 public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallBOneKFacts
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.Bridge
 import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.GroupSz32
-import CFSG.RankThree.PartOne.CTP.OutEmbed
 import CFSG.RankThree.PartOne.CTP.SeitzExcModels
 import CFSG.LocalAnalysis.UniquenessCase.UC6K35Red2
-import CFSG.LocalAnalysis.GLTheoremB.ComponentTools
-import CFSG.LocalAnalysis.GLTheoremB.SchreierTools
-import CFSG.Foundations.KCoreOpen
-import CFSG.LocalAnalysis.SectionRank.Framework.SylowRank
 import CFSG.LocalAnalysis.SectionRank.TwoGenerators
-import CFSG.LocalAnalysis.SectionRank.SQT
-import CFSG.LocalAnalysis.SectionRank.SubgroupRank
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.J3InvolveCore
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic

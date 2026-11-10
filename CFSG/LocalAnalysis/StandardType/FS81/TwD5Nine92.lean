@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Nine92Cent
 public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Nine92Norm
-public import CFSG.LocalAnalysis.StandardType.FS81.TwD5Nine92Weak
 
 public section
 

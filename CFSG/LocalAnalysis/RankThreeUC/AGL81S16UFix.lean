@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.RankThreeUC.AGL81S16UTorus
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S16Lift
 public import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S16Data
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.Vol2.Asc94.TSCaseII
 public import CFSG.CGT.M24S.Main
-public import CFSG.Quasithin.Vol2.Asc94.Defs
 public import CFSG.Quasithin.Vol2.Asc94.HeNoE16
 public import CFSG.Quasithin.Vol2.Ch12Sec2SettingK
 public import CFSG.CGT.T75E.Nondegenerate

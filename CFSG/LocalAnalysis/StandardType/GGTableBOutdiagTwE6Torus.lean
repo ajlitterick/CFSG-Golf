@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6Coker
-public import CFSG.LieType.Chevalley.GraphFixedFinitePerfect
 
 public section
 

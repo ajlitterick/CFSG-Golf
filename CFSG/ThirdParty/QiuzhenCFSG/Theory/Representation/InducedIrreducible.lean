@@ -2,9 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.BrauerPermutation
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.SolvableDimension
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.Induction
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.ConjugateRep
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.RepEquiv
 
 namespace CFSG
 end CFSG

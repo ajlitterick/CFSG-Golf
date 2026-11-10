@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGWPlusPSU
-public import CFSG.LocalAnalysis.StandardType.GGWPlusUnitAutModel
 public import CFSG.LocalAnalysis.StandardType.GGCoverRkSemilin
 public import CFSG.LocalAnalysis.StandardType.GGCoverRkDiag
-public import CFSG.LocalAnalysis.StandardType.GGWPlusNarrow8Defs
 
 public section
 

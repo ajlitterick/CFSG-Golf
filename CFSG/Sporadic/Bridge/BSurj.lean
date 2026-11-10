@@ -1,43 +1,12 @@
 module
 
-public import CFSG.Sporadic.Bridge.Common
-public import CFSG.Sporadic.Bridge.BData
 public meta import CFSG.Sporadic.Bridge.BData
 public import CFSG.Sporadic.Bridge.BOrder
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
-public import CFSG.Sporadic.Bridge.BSurjInputs
 public import CFSG.Sporadic.Bridge.BGlue9201
 public import Certificates.Certificate9201
-public import Certificates.Certificate3014
-public import Certificates.Certificate3017
-public import Certificates.Certificate3019
-public import Certificates.Certificate3025
-public import Certificates.Certificate3026
-public import Certificates.Certificate3028
-public import Certificates.Certificate3045
-public import Certificates.Certificate3048
-public import Certificates.Certificate3049
-public import Certificates.Certificate3050
-public import Certificates.Certificate3051
-public import Certificates.Certificate3101
-public import Certificates.Certificate3102
-public import Certificates.Certificate3103
-public import Certificates.Certificate3106
-public import Certificates.Certificate3107
-public import Certificates.Certificate3108
-public import Certificates.Certificate3109
-public import Certificates.Certificate6001
-public import Certificates.Certificate6002
-public import Certificates.Certificate6003
-public import Certificates.Certificate6004
-public import Certificates.Certificate6005
-public import Certificates.Certificate6007
-public import Certificates.Certificate16026
-public import Certificates.Certificate3027
 public meta import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 public import CFSG.Monster.B.TwoA.Unitary.Orbit1408Points
-public import CFSG.Monster.B.TwoA.Unitary.Semilinear
 
 public section
 

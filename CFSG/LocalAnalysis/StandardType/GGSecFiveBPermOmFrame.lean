@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermOmFrameDefs
-public import CFSG.LocalAnalysis.StandardType.GGAssemblyTwoHypSix
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermOmKFrame
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpFrame
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpEquiv
@@ -10,7 +9,6 @@ import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpLFrameMp
 import CFSG.HardMathSupport.Cooperstein.Coordinator.LieInput.SpinMinusComm
 import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
 import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaBase
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBIrred
 import CFSG.HardMathSupport.Cooperstein.Coordinator.LieInput.SpinPlusBlocks
 import CFSG.LieType.Universal.Spin
 

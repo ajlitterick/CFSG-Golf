@@ -2,11 +2,6 @@ module
 
 public import CFSG.LieType.BorelTits.AllModels
 public import CFSG.RankThree.PartOne.S11c.Sec66D4Tri
-public import CFSG.LieType.Chevalley.GraphFixedSylowOpposition
-public import CFSG.LieType.Chevalley.GraphFixedBorelOvergroups
-public import CFSG.LieType.Chevalley.GraphFixedBorelSelfNormalizer
-public import CFSG.LieType.Chevalley.GraphFixedRootBruhat
-public import CFSG.LieType.Chevalley.SylowOpposition
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X6Triality
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.TD4LeGrp
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.TD4LeField

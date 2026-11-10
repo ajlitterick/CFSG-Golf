@@ -1,20 +1,11 @@
 module
 
-public import CFSG.Blueprint.Chevalley
-public import CFSG.Foundations.Basic
-public import CFSG.Blueprint.ChevalleyPinned
 public import CFSG.LieType.Chevalley.E6CanonicalFieldGraphFixed
 import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenCanonicalField
 import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2LongRoot
-import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenCalculus
-import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogEvenCore
 import CFSG.LieType.Chevalley.RootLocalComponentFree
-import CFSG.LieType.Chevalley.EvenRootCommutatorG2
 import CFSG.LieType.Chevalley.NoncentralNormalSolvable
-import CFSG.LieType.Chevalley.AdjointCenter
-import CFSG.LocalAnalysis.ComponentInitial.FieldFiniteAutomorphism
 import CFSG.LocalAnalysis.ComponentInitial.SuzukiTwoAAutomorphisms
-import CFSG.LocalAnalysis.ComponentInitial.BasicFacts
 import CFSG.LocalAnalysis.SteinbergCDEvenClassicalOrderFour
 import CFSG.GroupTheory.LocalCores.Fitting
 import CFSG.LieType.Chevalley.SignKernelComponentPerfect

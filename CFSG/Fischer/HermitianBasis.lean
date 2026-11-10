@@ -2,8 +2,6 @@ module
 
 public import CFSG.Fischer.Unitary
 import all CFSG.Fischer.F4
-public import Mathlib.RingTheory.Coalgebra.IsFrobenius
-public import Mathlib.RingTheory.HopfAlgebra.Basic
 
 public section
 

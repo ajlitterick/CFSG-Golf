@@ -1,7 +1,5 @@
 module
 
-public import CFSG.Quasithin.EmptyFaithful.S146zNCount
-public import CFSG.Quasithin.EmptyFaithful.S146F22
 public import CFSG.Quasithin.EmptyFaithful.S146yB
 public import CFSG.Quasithin.EmptyFaithful.S146zDNum
 

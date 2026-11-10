@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.GF2n.Tim79a34TwoCfg
-public import CFSG.Sporadic.ThSchreier.Row
 
 public section
 

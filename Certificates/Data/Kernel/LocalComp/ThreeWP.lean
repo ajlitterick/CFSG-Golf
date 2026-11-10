@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.Kernel.Spor.Chain
 public import Certificates.Data.Kernel.Spor.Prim
 
 public noncomputable section

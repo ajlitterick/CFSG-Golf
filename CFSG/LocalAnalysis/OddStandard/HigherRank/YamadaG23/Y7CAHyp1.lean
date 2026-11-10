@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.YamadaG23.Y7CAJ
 public import CFSG.Milestones.ASVolI.I3
-public import CFSG.Foundations.QuasisimpleMulEquiv
 
 public section
 

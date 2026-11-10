@@ -3,7 +3,6 @@ module
 public import CFSG.LieType.Steinberg.CurtisDatum
 public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionSp
 public import CFSG.LieType.Universal.SymplecticExtras.TorusWeyl
-public import CFSG.LieType.Universal.SymplecticExtras.Torus
 import all CFSG.LieType.Universal.SymplecticRoots
 import CFSG.HardMathSupport.Cooperstein.Coordinator.CurtisTw.CoverType
 

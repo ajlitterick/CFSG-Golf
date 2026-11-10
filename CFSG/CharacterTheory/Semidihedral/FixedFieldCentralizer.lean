@@ -1,6 +1,5 @@
 module
 
-public import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 public import CFSG.ThirdParty.BrauerInduction.Background.Group.InternalDirectProduct
 public import CFSG.CharacterTheory.Semidihedral.FixedFieldCentralizerGamma
 

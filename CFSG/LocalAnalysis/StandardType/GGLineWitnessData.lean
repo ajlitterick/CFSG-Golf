@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGP3LineGlue
-public import CFSG.LocalAnalysis.StandardType.GGLatticeWitness
 
 public section
 

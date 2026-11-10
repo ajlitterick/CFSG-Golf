@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.ForceLieTools
-public import CFSG.Open.StatedDefs
-public import CFSG.GH74.Exceptional.UnitaryFourTwo
-public import CFSG.LocalAnalysis.ComponentInitial.BinarySymplecticSixCoverModel
 public import CFSG.LieType.Multipliers.U42
 
 public section

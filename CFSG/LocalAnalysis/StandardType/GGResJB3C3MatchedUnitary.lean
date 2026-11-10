@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGResJA2UnitaryRecognition
 import CFSG.LocalAnalysis.StandardType.GGA2UnitaryIThreeRank
-import CFSG.LocalAnalysis.StandardType.GGResJLineBCGamma
 
 public section
 

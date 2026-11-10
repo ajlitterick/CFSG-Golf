@@ -1,6 +1,5 @@
 module
 
-public import Mathlib
 public import CFSG.RankThree.PartOne.KC.LinearPlaneDecomp
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 

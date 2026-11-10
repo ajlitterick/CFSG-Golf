@@ -1,20 +1,13 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.OutPRankBound
-public import CFSG.LocalAnalysis.UniquenessCase.UCR638
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SylowCentralOuter
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Fourteen5QuotBasic
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Fourteen3a
-public import CFSG.LocalAnalysis.UniquenessCase.UC6S846e
-public import CFSG.LocalAnalysis.UniquenessCase.UC6S846f
-public import CFSG.LocalAnalysis.UniquenessCase.UC6R
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.ThreeD4TwoAutHolds
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.ThreeD4TwoOrderFacts
-public import CFSG.LocalAnalysis.UniquenessCase.UC22P22l
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P21c
 public import CFSG.GroupTheory.CoprimeCentralizerTransport
 public import CFSG.HardMathSupport.Malle.OvergroupTransport.Transport
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.RankThree.PartTwo.Sec10.Sec10XProofTen
 public import CFSG.LocalAnalysis.ComponentInitial.GL3TwoFixedModelSelector
 public import CFSG.RankThree.PartTwo.KFacts.K72OutL2

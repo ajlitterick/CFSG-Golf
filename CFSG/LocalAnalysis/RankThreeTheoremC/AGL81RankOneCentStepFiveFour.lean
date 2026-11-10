@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentAut
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.Defs
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentFrattiniTriv
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentKpIrred
 

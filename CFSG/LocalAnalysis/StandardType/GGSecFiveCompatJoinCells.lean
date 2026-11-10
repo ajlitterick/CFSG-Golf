@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinHCRows
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinHC
 public import CFSG.LocalAnalysis.StandardType.GGSelectedRootMatch
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanRankOneSix
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1Weyl
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoRowE
 public import CFSG.Sporadic.ThSchreier.GlobalData
 public import CFSG.Sporadic.ThSchreier.LocalOrbitBase1

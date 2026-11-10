@@ -1,12 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTBJSympMinusUnitaryVec
 public import CFSG.LocalAnalysis.StandardType.GGTBJSympMinusUnitaryPoly
 public import CFSG.LocalAnalysis.StandardType.GGTBJSpBlockAux
 public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitSU
-public import CFSG.RankThree.PartOne.S11d.LieCentralizerBlock
-public import CFSG.RankThree.PartOne.S11d.LieCentralizerGL
-public import CFSG.RankThree.PartOne.KC.SymplecticIsotypicBlocks
 public import CFSG.Goldschmidt.Steps.G37Basic
 public import CFSG.ClassicalInvolution.Q3.Q3TLTLayer
 public import CFSG.Adapters.GeneralizedFitting

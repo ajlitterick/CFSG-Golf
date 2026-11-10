@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.Sporadic.OddCore.MulHCmd
 public import Certificates.Kernel.Sporadic.McLC.SylData
 public meta import Certificates.Kernel.Sporadic.McLC.SylData
 public meta import CFSG.LocalAnalysis.WeakClosure81.GF2RepsAsch54SporMcLInputs

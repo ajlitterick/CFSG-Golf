@@ -5,7 +5,6 @@ public import CFSG.Certificates.Kernel.Bounds.M23.Binding
 public import CFSG.Certificates.Kernel.Bounds.M24Alt.Binding
 public import CFSG.Sporadic.Bridge.M23SurjInputs
 public import CFSG.Sporadic.Bridge.M24SurjInputs
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Sporadic.Bridge.TwoGen
 public import CFSG.Sporadic.M23.M23Group
 public import CFSG.Sporadic.Presentation.M23

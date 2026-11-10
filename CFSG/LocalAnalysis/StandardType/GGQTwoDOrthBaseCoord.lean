@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthBase
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDRMStabDefs
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitRMCoord
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 
 public section
 

@@ -5,9 +5,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1P58bOLieFi
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1P58bOLieMap
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1P58bOProps
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1P51eOrthFam
-public import CFSG.LinearAlgebra.LinearGroups.Perfect
-public import CFSG.LinearAlgebra.LinearGroups.ProjectiveSimple
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneBL2Reduction
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1P58bLift
 public import CFSG.LocalAnalysis.ComponentClassification.Sol78Seven

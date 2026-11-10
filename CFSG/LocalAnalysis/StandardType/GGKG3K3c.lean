@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGKG3K3cA
 public import CFSG.LocalAnalysis.StandardType.GGKG3K3cB
 public import CFSG.LocalAnalysis.StandardType.GGKG3K3cC
 public import CFSG.LocalAnalysis.StandardType.GGKG3ZE
-public import CFSG.LocalAnalysis.StandardType.GGKG3K3dWeyl
 
 public section
 

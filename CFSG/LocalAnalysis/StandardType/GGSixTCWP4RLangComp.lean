@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4Orbit
-public import CFSG.LargeExtraspecial.S5Comp
-public import CFSG.LocalAnalysis.ComponentClassification.Helpers
 
 public section
 

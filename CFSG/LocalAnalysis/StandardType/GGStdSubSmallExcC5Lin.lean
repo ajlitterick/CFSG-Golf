@@ -1,11 +1,8 @@
 module
 
 public import Mathlib.Algebra.Field.ZMod
-public import Mathlib.Data.Nat.Prime.Defs
-public import Mathlib.Data.ZMod.QuotientGroup
 public import Mathlib.FieldTheory.Finiteness
 public import Mathlib.LinearAlgebra.BilinearForm.Orthogonal
-public import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
 public import Mathlib.LinearAlgebra.Matrix.BilinearForm
 
 public section

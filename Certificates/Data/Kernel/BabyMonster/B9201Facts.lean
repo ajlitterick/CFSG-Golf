@@ -2,7 +2,6 @@ module
 
 public import Mathlib.Algebra.Group.Basic
 public import Mathlib.Algebra.Group.Pi.Basic
-public import Mathlib.Logic.Function.Basic
 public import CFSG.Sporadic.Bridge.BData
 
 public section

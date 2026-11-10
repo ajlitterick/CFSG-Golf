@@ -1,11 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTorusGenRDefs
-public import CFSG.LocalAnalysis.StandardType.GGTwE6TorusFrameDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6TBWeyl
 public import CFSG.LocalAnalysis.StandardType.GGTwE6TorusFrame
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenHomocyclic
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6Delta
 
 public section
 

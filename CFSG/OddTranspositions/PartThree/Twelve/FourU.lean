@@ -2,14 +2,8 @@ module
 
 public import CFSG.OddTranspositions.PartThree.Twelve.Four
 public import CFSG.OddTranspositions.PartFour.Fourteen.RootBlockUnitary
-import CFSG.ClassicalGroups.Unitary.Generation
-import CFSG.ClassicalGroups.Unitary.Transitivity
-import CFSG.LocalAnalysis.WeakClosure81.W16Gt2KFactsI
 import CFSG.OddTranspositions.WidthSylow
-import CFSG.LieType.Steinberg.CentralExt.PSUMultiplier
 import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
-import CFSG.RankThree.PerfectCover.HopfCentralCoversSetup
-import CFSG.RankThree.PerfectCover.HopfFormula
 public import CFSG.CGT.Timmesfeld75.Cfg214Gen
 public import CFSG.CGT.Timmesfeld75.Derivations
 public import CFSG.CGT.Timmesfeld75.Form2

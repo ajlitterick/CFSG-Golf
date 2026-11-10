@@ -1,17 +1,9 @@
 module
 
 public import CFSG.LieType.Universal.Spin.Datum
-public import CFSG.LieType.CurtisTits.Reduction
-import CFSG.LieType.CurtisTits.Spin
-import CFSG.LieType.CurtisTits.Conclusion
-import CFSG.LieType.Universal.Spin.PlusCT.Weyl
-import CFSG.LieType.Universal.Spin.Generation.Datum
-import CFSG.LieType.Steinberg.Presentation
 import CFSG.LocalAnalysis.SeitzReduction.F4PilotTwistLevi
 import CFSG.ClassicalInvolution.RouteD.TypeDModel
 public import CFSG.LieType.Universal.Spin.Roots
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 import CFSG.ClassicalInvolution.Models.LinearFrames
 import CFSG.ClassicalInvolution.Models.LinearPairs
@@ -35,9 +27,6 @@ import CFSG.LocalAnalysis.SeitzReduction.F4PilotToralCentralizer
 import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 import CFSG.Open.QuasithinDefs
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 import CFSG.Walter.JRFacts
 
 public section

@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGK1CCoDefs
 public import CFSG.LocalAnalysis.StandardType.GGK1CCoBlocks
-public import CFSG.LocalAnalysis.StandardType.GGK1CCoArith
 public import CFSG.LocalAnalysis.StandardType.GGK1CCoLabel
 public import CFSG.LocalAnalysis.StandardType.GGK1CCoComp
 

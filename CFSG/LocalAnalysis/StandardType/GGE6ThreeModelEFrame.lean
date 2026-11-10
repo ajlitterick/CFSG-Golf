@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelFrame
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarE6ThreeDiag
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeHat
 
 public section
 

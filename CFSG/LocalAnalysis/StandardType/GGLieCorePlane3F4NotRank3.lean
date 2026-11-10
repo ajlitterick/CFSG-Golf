@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieCorePlane3F4Defs
-import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.JointShapesPart2
 import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.SelectedLiteralPart2
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcPin
 
 public section
 

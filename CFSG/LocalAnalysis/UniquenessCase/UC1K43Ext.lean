@@ -1,10 +1,6 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Extraspecial
 public import CFSG.LocalAnalysis.SectionRank.Ccomm.Critical
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Frattini.CoprimeAction
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConj
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConjAction
 public import CFSG.ClassicalInvolution.SubnormalCommutator
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 

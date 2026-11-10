@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotThreeOmegaUniqueRows
-public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotHR14BlModelTorus
-public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotHR14BlSiegel
-import CFSG.LocalAnalysis.SeitzReduction.LinearPilotSetup
 public import CFSG.LocalAnalysis.ComponentClassification.ExcSelectorEvenTriality
 public import CFSG.LocalAnalysis.ComponentInitial.CLSFourGroupLinearThreeFour
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19IdentLieAlt
@@ -34,11 +31,6 @@ public import CFSG.Quasithin.Background.B4ModelsAction
 public import CFSG.Quasithin.Background.B4ModelsIso
 public import CFSG.Quasithin.Background.C2Basic
 public import CFSG.Quasithin.Background.E1
-public import CFSG.Quasithin.Background.E1Sec4
-public import CFSG.Quasithin.Background.E1Sec5
-public import CFSG.Quasithin.Background.E1Sec8
-public import CFSG.Quasithin.Background.E1Solv
-public import CFSG.Quasithin.Background.E1Twelve
 public import CFSG.Quasithin.Background.E3Cent
 public import CFSG.Quasithin.EmptyFaithfulMultiple.InputB19Proof
 public import CFSG.RankThree.Chevalley.SteinbergCEF4EvenQPlusWeyl

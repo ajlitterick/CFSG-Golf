@@ -1,25 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeTableZDefs
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6RatLabel
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeScLift
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUStd
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcInnerLang.TwE6
 import CFSG.LocalAnalysis.StandardType.KGCoverLift
-import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestUnitaryCenter
-import CFSG.LocalAnalysis.StandardType.Marking
 import CFSG.LieType.Chevalley.TwistedE6RootGroupPerfect
-import CFSG.LieType.Chevalley.GraphFixedRootNormal
-import CFSG.LieType.Steinberg.TwistedE6.Clause0
-import CFSG.LieType.Steinberg.CentralExt.TwistedE6Center
-import CFSG.LieType.Steinberg.CentralExt.TwistedE6Coprime
-import CFSG.LieType.Simplicity.Exceptional
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUAut
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.PlanesSetup
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.RigidCriterion
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.RigidNorm
-public import CFSG.RankThree.PartOne.KE.E7FiveBlock
 
 public section
 

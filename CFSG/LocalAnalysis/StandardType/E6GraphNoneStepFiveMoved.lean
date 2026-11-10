@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.E6GraphNoneStepFour
 public import CFSG.LocalAnalysis.StandardType.E6GraphNoneBraid
 public import CFSG.LocalAnalysis.StandardType.E6GraphNoneMovedKill
-public import CFSG.RankThree.Chevalley.SteinbergCEF4EvenQPlusWeyl
-public import CFSG.LieType.Chevalley.CLSEvenCoordinateFieldsFourGroup
 
 public section
 

@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRCSShadowSeitzComp
-public import CFSG.LocalAnalysis.StandardType.SpTwoThreeFixedPoints
-public import CFSG.LargeExtraspecial.A2ModOrdCard
-public import CFSG.HardMathSupport.Solomon.Coordinator.I18_10Basic
 
 public section
 

@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinberg
 public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerOmegaSpin
 public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerMinus
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointDataReindexGroups
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointDataCoordinates
 
 public section
 

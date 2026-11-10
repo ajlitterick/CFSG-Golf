@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.KGC31M12.Defs
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Quasithin.Vol2.KGFactC31ActCheck
 
 public section

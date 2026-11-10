@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSporKRestPermCheckKey
 public import CFSG.LocalAnalysis.StandardType.GGSporKRestClasses
 public import CFSG.LocalAnalysis.StandardType.GGSporKRestPermCover
 public import CFSG.LocalAnalysis.StandardType.GGSporKRestPermCheckClDefs

@@ -4,11 +4,7 @@ public import CFSG.Quasithin.Vol2.Ch10SecQ3CBc
 public import CFSG.Quasithin.Vol2.Ch10SecKHBCa
 public import CFSG.Quasithin.Vol2.Ch10SecKHBCb
 public import CFSG.Quasithin.Vol2.Ch10SecKHBCc
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
 public import CFSG.Adapters.LinearFieldTransport
-public import CFSG.LieType.BorelTits.Suzuki
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X7aResidual
-public import CFSG.LocalAnalysis.ComponentInitial.BasicFacts
 public import CFSG.Foundations
 public import CFSG.Goldschmidt.Statements
 public import CFSG.Goldschmidt.StatementsH
@@ -40,17 +36,10 @@ public import CFSG.Quasithin.Background.A1cModuleCoprime
 public import CFSG.Quasithin.Background.A3Components
 public import CFSG.Quasithin.Background.A3Structure312
 public import CFSG.Quasithin.Background.B6
-public import CFSG.Quasithin.Background.B6Example
-public import CFSG.Quasithin.Background.B6Offenders
 public import CFSG.Quasithin.Background.E2Hyp
 public import CFSG.Quasithin.Background.E2SolvTwo
 public import CFSG.Quasithin.Vol2.Ch1Local
 public import CFSG.Sporadic.J4Base
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ProjectiveSemilinear
 public import CFSG.Walter.Bender1970.S3.Setup
 public import CFSG.Walter.JRFacts
 

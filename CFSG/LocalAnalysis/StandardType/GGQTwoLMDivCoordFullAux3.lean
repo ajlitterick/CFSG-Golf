@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordFullAux
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordFullTorus2
-public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordInnerRigid
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordInnerTclNorm
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordInnerTidRange
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLMDivCoordInnerTker

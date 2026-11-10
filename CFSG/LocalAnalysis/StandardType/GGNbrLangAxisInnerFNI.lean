@@ -3,11 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangAxisCases
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangTorJInputs
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangTypeASixNonSplit
-public import CFSG.LocalAnalysis.StandardType.GGFieldNbr
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoTableB
-import CFSG.LocalAnalysis.StandardType.GGKGroupFusionBridge
-import CFSG.LocalAnalysis.ComponentClassification.PerfectCentralQuotient
-import CFSG.LocalAnalysis.StandardType.GGTriD4NoneMarking
 import CFSG.LocalAnalysis.StandardType.GGTriD4NoneTransport
 import CFSG.LocalAnalysis.StandardType.GGUSixTwoLayer
 

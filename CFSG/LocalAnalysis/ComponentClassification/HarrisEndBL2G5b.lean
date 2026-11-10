@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisEndBL2G5a
-public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitMacWilliams
 
 public noncomputable section
 

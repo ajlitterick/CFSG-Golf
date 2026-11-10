@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKFlagSU
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2GeoSUShort
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortSUDefs
-public import CFSG.LieType.Universal.Catalog
 
 public section
 

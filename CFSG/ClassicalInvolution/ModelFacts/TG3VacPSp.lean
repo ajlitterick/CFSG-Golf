@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.ModelFacts.TG3Common
-public import CFSG.ClassicalInvolution.ModelFacts.CommutingFundamentalSymplectic
-public import CFSG.ClassicalInvolution.Asc77.AscE189Sp4
 public import CFSG.ClassicalInvolution.Uniform.U5Model
 public import CFSG.ClassicalInvolution.ModelFacts.CF3All
 public import CFSG.ClassicalInvolution.Q3.OddCoreCentral

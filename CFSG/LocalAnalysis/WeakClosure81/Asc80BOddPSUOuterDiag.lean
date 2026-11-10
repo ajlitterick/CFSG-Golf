@@ -1,14 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherPrimeFormRealization
 public import CFSG.HardMathSupport.Timmesfeld.LinearRank.UnitaryDiagonal
 import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherIsotropicRadical
 import CFSG.LocalAnalysis.WeakClosure81.Asc80BOddPSUAniso
-import CFSG.RankThree.PartOne.KC.UnitaryPrimaryDet
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.CGT.Timmesfeld75.Cfg214Gen
 import CFSG.CGT.Timmesfeld75.L2Real
 import CFSG.CGT.Timmesfeld75.Statements

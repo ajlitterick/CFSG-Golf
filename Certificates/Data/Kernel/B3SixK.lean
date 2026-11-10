@@ -3,7 +3,6 @@ module
 public import CFSG.Quasithin.Background.B3FourData
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Quasithin.Background.B1
-public import CFSG.Quasithin.Background.B1Solvable
 public import CFSG.Quasithin.Background.B3Q
 public import CFSG.Quasithin.Background.B3VMod
 

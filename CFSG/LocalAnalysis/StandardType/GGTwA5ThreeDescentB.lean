@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnit63Desc
-public import CFSG.LocalAnalysis.StandardType.GGTBTorDefs
 public import CFSG.LocalAnalysis.StandardType.GGTDModelLiftTwo
 
 public section

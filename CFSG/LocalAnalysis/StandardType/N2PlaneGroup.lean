@@ -3,12 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.N2PlaneFinite
 public import CFSG.RepresentationTheory.GF2.FiveSquaredGroup
 import CFSG.GroupTheory.PrimeOrderSubgroups
-import Mathlib.Algebra.Module.ZMod
-import Mathlib.Algebra.Module.Pi
-import Mathlib.LinearAlgebra.Matrix.ToLin
-import Mathlib.LinearAlgebra.Pi
-import Mathlib.Algebra.Group.Equiv.TypeTags
-import Mathlib.Tactic.Group
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.CharacterTheory.Semidihedral.ElementStructure
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
@@ -29,14 +23,11 @@ public import CFSG.Sporadic.Ly.ActionBase
 public import CFSG.Sporadic.Ly.CertificateBase
 public import CFSG.Sporadic.Ly.FaithSpec
 public import CFSG.Sporadic.Ly.OrbitSpec
-public import CFSG.Sporadic.Ly.PrimitiveBase
 public import CFSG.Sporadic.LyBase
 public import CFSG.Sporadic.Presentation.Ly
 public import CFSG.Sporadic.Schreier.LyChain11
 public import CFSG.Sporadic.ThSchreier.GlobalIndexBase
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

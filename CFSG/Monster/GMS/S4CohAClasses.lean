@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Monster.GMS.S4CohABasic
-public import CFSG.Monster.GMS.S35
 
 public section
 

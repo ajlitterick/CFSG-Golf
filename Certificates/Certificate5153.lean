@@ -3,11 +3,7 @@ module
 public import Certificates.Data.GH74J2CentCheck
 public meta import Certificates.Data.GH74J2CentCheck
 import Certificates.Kernel.GH74.J2CentJ
-import Certificates.Kernel.GH74.J2CentE
-import CFSG.Certificates.Kernel.Lie.CT.Core
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.GH74.Generic.S45.LEvSporGen
-import CFSG.LocalAnalysis.SectionRank.PRank
 import Certificates.Kernel.GH74.Derived
 import Certificates.Kernel.GH74.J2Cent5
 

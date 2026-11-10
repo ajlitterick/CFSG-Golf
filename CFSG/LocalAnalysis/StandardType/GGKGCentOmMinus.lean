@@ -1,14 +1,9 @@
 module
 
-public import CFSG.LieType.Universal.Spin.Twisted.Generation
-public import CFSG.LieType.Universal.Spin.Twisted.ShortAction
-public import CFSG.ClassicalGroups.Orthogonal.Eichler
 public import CFSG.ClassicalInvolution.ModelFacts.OrthAutMain
 public import CFSG.RankThree.PartOne.CTP.SpinCenterEven
 public import CFSG.LocalAnalysis.StandardType.GGSixOddIndexF4Facts
 public import CFSG.LargeExtraspecial.A2ModFrBLevi
-public import Mathlib.FieldTheory.Finite.Basic
-public import Mathlib.Algebra.CharP.Two
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointActionModels
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointPlusBorelModel

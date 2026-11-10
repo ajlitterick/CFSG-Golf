@@ -1,9 +1,6 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.claim_1
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.claim_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section2.proposition_1_b
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section2.proposition_2
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Wielandt
 
 namespace CFSG

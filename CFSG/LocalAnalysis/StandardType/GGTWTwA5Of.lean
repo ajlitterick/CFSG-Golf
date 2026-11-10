@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwA5ThreeFrame
-public import CFSG.LocalAnalysis.StandardType.GGTWTwA5Defs
 public import CFSG.LocalAnalysis.StandardType.GGTWHLTorRow
 public import CFSG.LocalAnalysis.StandardType.GGHL58NbrSmall
 

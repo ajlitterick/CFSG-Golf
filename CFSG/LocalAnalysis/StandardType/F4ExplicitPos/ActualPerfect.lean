@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.PerfectC3
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.B2SmallJ
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.LiteralSetup
 

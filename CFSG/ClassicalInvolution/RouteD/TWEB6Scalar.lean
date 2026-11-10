@@ -2,9 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.RouteD.TWEB6Rec
 public import CFSG.ClassicalInvolution.RouteD.TWEB6Twin
-public import CFSG.ClassicalInvolution.RouteD.TWEB6Sign
-public import CFSG.ClassicalInvolution.RouteD.ExoticTwinProofExcLayerBasic
-public import CFSG.ClassicalInvolution.RouteD.TwinYSetup
 
 public section
 

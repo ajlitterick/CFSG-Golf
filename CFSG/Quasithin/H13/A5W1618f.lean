@@ -3,8 +3,6 @@ module
 public import CFSG.Quasithin.H13.A5W1618e
 public import CFSG.Quasithin.H13.A5S1328Blk1
 public import CFSG.Quasithin.Background.C118NoOuter
-public import CFSG.Quasithin.Background.C2Basic
-public import CFSG.Quasithin.Vol2.Ch3Sec1Thm311
 public import CFSG.Quasithin.Background.C1CampbellConnect
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasFive
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasSix

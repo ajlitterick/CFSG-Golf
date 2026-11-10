@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBRkDefs
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBRkTwE6
 
 public section

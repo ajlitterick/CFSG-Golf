@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestDefs
-public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestFrame
 public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestBasic
 
 open scoped commutatorElement

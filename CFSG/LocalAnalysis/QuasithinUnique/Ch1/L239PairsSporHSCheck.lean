@@ -1,15 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHS
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporLatWit
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHS
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporLatWit
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporHSCheckInputs
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporLatWitLit
 public import Certificates.Certificate4089
-public import Certificates.Certificate4102
-public import Certificates.Certificate4140
-public import Certificates.Certificate3167
 
 public section
 

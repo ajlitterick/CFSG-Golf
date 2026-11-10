@@ -6,7 +6,6 @@ public import CFSG.ClassicalInvolution.Generic.Frame
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.ClassicalInvolution.RouteD.Leaf
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBLinearDescentFixedBasis
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 
 public section

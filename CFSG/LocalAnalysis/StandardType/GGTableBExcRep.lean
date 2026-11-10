@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTableBRepAbstract
 public import CFSG.LocalAnalysis.StandardType.GGTableBMarkedTransfer
 public import CFSG.LocalAnalysis.StandardType.GGTableBTorusFix
 public import CFSG.LocalAnalysis.StandardType.GGTableBPositionToralExc
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangModel
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExc
 
 public section
 

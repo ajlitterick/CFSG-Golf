@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSporKOrd7Defs
 public import CFSG.LocalAnalysis.StandardType.GGSporKLamOrders
-public import CFSG.LocalAnalysis.EvenSmallLie.CatalogOrdersLie
 
 public section
 

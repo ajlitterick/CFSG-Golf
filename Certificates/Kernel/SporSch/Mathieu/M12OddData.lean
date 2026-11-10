@@ -6,7 +6,6 @@ public import Certificates.Kernel.LocalComp.Child3Gen
 public import Certificates.Kernel.Sporadic.OddCore.MulHCmd
 public import Certificates.Data.GH74.BTFinCkM12
 public meta import Certificates.Data.GH74.BTFinCkM12
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

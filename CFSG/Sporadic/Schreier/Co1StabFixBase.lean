@@ -5,25 +5,18 @@ public import CFSG.Sporadic.Schreier.Co1StabCheckBase
 public import CFSG.Sporadic.Schreier.Co1FullOrbitsBase
 public import CFSG.Sporadic.Schreier.Co1Propagate
 public import CFSG.Sporadic.Schreier.Co1SplitMono
-public import CFSG.Sporadic.Schreier.Co1FullOrbCheckInputs
-public import CFSG.Sporadic.Schreier.Co1OrbEnum
-public import CFSG.Sporadic.Schreier.Co1ThreeLocal
-public import CFSG.Sporadic.Schreier.Co1XSet
-public import CFSG.Sporadic.Schreier.Co1SplitCheckInputs
 public meta import CFSG.Sporadic.Schreier.Co1ElemThreeCheck
 public meta import CFSG.Sporadic.Schreier.Co1ElemData
 public meta import CFSG.Sporadic.Schreier.Co1ElemThreeData
 public meta import CFSG.Sporadic.Schreier.Co1ThreeLocal
 public meta import Certificates.Data.CFSGNative.Co1Schreier.Base
 public meta import Certificates.Data.CFSGNative.Co1.Data
-public import CFSG.Sporadic.Schreier.Co1StabCheckInputs
 public meta import CFSG.Sporadic.Schreier.Co1OrbEnumCheck
 public meta import CFSG.Sporadic.Schreier.Co1StabData
 public meta import CFSG.Sporadic.Schreier.Co1FullOrbCheckBase
 public meta import Certificates.Data.CFSGNative.HS.SmallF2
 public meta import Certificates.Data.CFSGNative.Th.Tables
 public meta import Certificates.Data.CFSGNative.Th.Orbit
-public import Certificates.Data.CFSGNative.Co1.Data
 public import CFSG.Sporadic.Schreier.Co1TernaryM12Cover
 
 @[expose] public section

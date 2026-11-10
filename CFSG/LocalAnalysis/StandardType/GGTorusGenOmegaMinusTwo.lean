@@ -4,9 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTorusGenSC
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenEvenSC
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenOrthTwoCent
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenOrthTwoComp
-public import CFSG.LocalAnalysis.StandardType.GGTorusGenOmegaMinusTwoDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorus
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthExc
 
 public section
 

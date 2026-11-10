@@ -4,9 +4,6 @@ public import CFSG.Certificates.Kernel.J4RunSound
 public import CFSG.Certificates.Kernel.CosetBounds
 public import Certificates.Kernel.J4.Data
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Janko.Four
-import CFSG.Certificates.Kernel.Common.Harness
-public import CFSG.Certificates.Kernel.LceSP.Base
-public import Certificates.Data.Kernel.LceSTab
 public import Mathlib
 
 public section

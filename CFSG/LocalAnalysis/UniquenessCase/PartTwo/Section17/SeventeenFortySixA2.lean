@@ -1,14 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.StatementsC
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenFortyFourTorus
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.CharTwoTorusOn
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.Section17KFacts
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.OutPRankBound
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section7.CentralizingRank
-public import CFSG.LocalAnalysis.UniquenessCase.UC6S846e
-public import CFSG.GroupTheory.CoprimeCentralizerCover
-public import CFSG.GroupTheory.ConjClosureCentralProduct
 public import CFSG.ClassicalGroups.Orthogonal.RootGroupFixedCard
 public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Inputs
 public import CFSG.HardMathSupport.Timmesfeld.Tables.T1b.TorusBound

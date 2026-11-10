@@ -1,16 +1,10 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonTwoTransvections
-public import Mathlib.LinearAlgebra.Matrix.Charpoly.Coeff
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
-public import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
 public import Mathlib.LinearAlgebra.Matrix.CharP
 public import Mathlib.Algebra.CharP.CharAndCard
-public import Mathlib.Algebra.Algebra.ZMod
 public import Mathlib.GroupTheory.PGroup
 import Mathlib.Tactic.NoncommRing
-public import Mathlib.FieldTheory.Finiteness
-public import Mathlib.RingTheory.LocalRing.Basic
 
 public section
 

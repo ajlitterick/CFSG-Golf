@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGIndepFixLineFamilyDefs
 public import CFSG.LocalAnalysis.StandardType.GGIndepFixLineSl
 public import CFSG.LocalAnalysis.StandardType.GGIndepFixLineMon
 public import CFSG.LocalAnalysis.StandardType.GGIndepFixLineExc
-public import CFSG.LocalAnalysis.StandardType.GGIndepFixLineStep3
 
 public section
 

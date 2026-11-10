@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoHS.HNFactsProof
-public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoHS.HSData
 public import Certificates.Certificate27600
 
 public noncomputable section

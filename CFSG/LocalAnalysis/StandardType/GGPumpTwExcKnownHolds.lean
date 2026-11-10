@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGPumpTwExcFactsE6
 public import CFSG.LocalAnalysis.StandardType.GGPumpTwExcFactsTwE6
 public import CFSG.LocalAnalysis.StandardType.GGKGAF4AutCard
-public import CFSG.LocalAnalysis.StandardType.GGR4PumpTwKnownDefs
 
 public section
 

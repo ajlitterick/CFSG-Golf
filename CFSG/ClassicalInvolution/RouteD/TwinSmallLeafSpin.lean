@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.TwinSmallLeafGeom
-public import CFSG.ClassicalInvolution.RouteD.GapsFrBRel
 
 public section
 

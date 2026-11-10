@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2ActualFrame
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinPlaneConj
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticBstar
-public import CFSG.LocalAnalysis.StandardType.GGTableBTransport
 
 public section
 

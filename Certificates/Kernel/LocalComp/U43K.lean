@@ -2,10 +2,6 @@ module
 
 public import Certificates.Kernel.LocalComp.U43Data
 public import Certificates.Kernel.LocalComp.L39K
-public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Child3SelU43Data
-public import CFSG.Certificates.Kernel.Spor.SiftRSound
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

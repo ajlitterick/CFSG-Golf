@@ -3,25 +3,13 @@ module
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TenFifteenKFacts
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TenFifteenBridge
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.WeakBlockThree
-public import CFSG.LocalAnalysis.AGLEmbedding.TwoLocalPair
-public import CFSG.LocalAnalysis.AGLEmbeddingD2.NoXBlock
-public import CFSG.GroupTheory.ABGLocalTools.Basic
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TenFifteenBlockNormal
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TenFifteenCentralizer
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TenFifteenBlockStep
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TenFifteenSylowChoice
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.BarBlocks
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.BlockOrderThree
-import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.JSubNormalizer
-import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.NoXBlockGen
-import CFSG.LocalAnalysis.AGLEmbedding.AscEightSix
-import CFSG.LocalAnalysis.AGLEmbedding.AscTenThree
 import CFSG.LocalAnalysis.AGLEmbedding.CaseTwoNFBar
-import CFSG.LocalAnalysis.AGLEmbedding.WeakBlockStructure
-import CFSG.LocalAnalysis.GLTheoremB.ComponentTools
-import CFSG.LocalAnalysis.RankThreeCoreUniqueness.Helpers
-import CFSG.LocalAnalysis.RankThreeCoreUniqueness.LocalCore
-import CFSG.LocalAnalysis.RankThreeTheoremC.D2LocalCGT3
 import CFSG.LocalAnalysis.RankThreeTheoremC.KFacts.BlockB.NineThree
 import CFSG.GroupTheory.PCore.NormalPCoreOf
 import CFSG.HardMathSupport.Cooperstein.AlternatingGeometry.TwoGroupExtension

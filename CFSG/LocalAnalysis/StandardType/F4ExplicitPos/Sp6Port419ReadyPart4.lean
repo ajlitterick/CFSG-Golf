@@ -1,18 +1,12 @@
 module
 
 public import CFSG.HardMathSupport.Timmesfeld.ComponentBalance.I_11_3_TablesA
-public import CFSG.LieType.Chevalley.SignKernelSimpleWeyl
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ParabCommGTwoSL2
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.StepAPSp
 public import CFSG.LocalAnalysis.StandardType.GGSixStepOneCompNormal
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Detect.Heis.Defs
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.PlanesToralWeyl
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Defs
-public import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
-public import CFSG.LieType.AlgebraicGroups.TangentSpace
-public import CFSG.LocalAnalysis.SeitzReduction.LongRootPairsRoots
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.Defs
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwReduction
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwTorus
@@ -39,7 +33,6 @@ public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerExcBruhat
 public import CFSG.Monster.B.Geometry.CoxeterWords
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.A3Structure36BAction
 public import CFSG.Quasithin.Background.A3Structure36BBasic
 public import CFSG.Quasithin.Background.A3Structure36BPrime
@@ -52,7 +45,6 @@ public import CFSG.RankThree.PartOne.KE.SigmaUntwisted
 public import CFSG.RankThree.PartOne.KLR.Master
 public import CFSG.RankThree.PartOne.KLR.SectorAssembly
 public import CFSG.RankThree.PartOne.S8.Statements
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24

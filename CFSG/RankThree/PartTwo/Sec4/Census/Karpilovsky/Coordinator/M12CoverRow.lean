@@ -7,7 +7,6 @@ import all CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Coordinator.M12CoverRo
 public import CFSG.RankThree.PartTwo.Sec4.Census.Item44TwoCoverList
 public import CFSG.Alternating.Multipliers.Small
 public import Certificates.Certificate291350
-public import CFSG.Sporadic.Bridge.M12
 import all CFSG.Sporadic.Bridge.M12
 
 public section

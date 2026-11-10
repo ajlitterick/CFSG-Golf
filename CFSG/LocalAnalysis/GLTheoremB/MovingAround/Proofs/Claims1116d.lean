@@ -7,29 +7,7 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.I1416SporFi24Seven
 public import CFSG.HardMathSupport.Dickson.I271.SporGenAux.Co1Seven
 public import CFSG.HardMathSupport.Dickson.I271.SporGenAux.Fi7Gen
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I1416QSporRu3
-public import CFSG.HardMathSupport.Timmesfeld.Tables.Census.SporadicOne
-public import CFSG.HardMathSupport.Solomon.Coordinator.B3SporFiveKit
 public import CFSG.Quasithin.H13.GoldschmidtC137S168Main
-public import CFSG.Sporadic.Recognition.JankoWongLemma17d
-public import CFSG.LocalAnalysis.ComponentClassification.PerfectAutomorphisms
-public import CFSG.GH74.KGroups.A5
-public import CFSG.LargeExtraspecial.S12TriG2
-public import CFSG.GroupTheory.LocalCores.Components
-public import CFSG.GroupTheory.Fitting.CharacteristicP
-public import CFSG.LocalAnalysis.GLTheoremB.BarXTools
-public import CFSG.Adapters.ProjectiveSpecialLinear
-import CFSG.Sporadic.Suz.Simple
-import CFSG.Walter.PSL2Facts.Even
-import CFSG.LocalAnalysis.GLTheoremA.S4S.Common
-import CFSG.RankThree.PerfectCover.CentralQuotientPrimeSupport
-import Mathlib.Tactic.Simproc.Factors
-public import Certificates.Certificate6001
-public import Certificates.Certificate6002
-public import Certificates.Certificate6003
-public import Certificates.Certificate6004
-public import Certificates.Certificate6005
-public import Certificates.Certificate6007
-public import Certificates.Certificate16026
 public import CFSG.GH74.KGroups.L34Aut
 public import CFSG.HardMathSupport.Dickson.I271.SporGenBM
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabMFiveHN

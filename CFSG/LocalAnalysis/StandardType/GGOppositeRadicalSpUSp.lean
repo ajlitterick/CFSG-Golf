@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGOppositeRadicalSpUBasis
 public import CFSG.LocalAnalysis.StandardType.GGOppositeRadicalSpUGen
 public import CFSG.LocalAnalysis.StandardType.GGOppositeRadicalTransfer
-public import CFSG.GroupTheory.OppositeRadicals
 
 public section
 

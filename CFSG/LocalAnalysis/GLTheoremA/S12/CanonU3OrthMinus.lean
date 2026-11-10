@@ -1,16 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonU3Order
-import CFSG.LocalAnalysis.GLTheoremA.S12.CanonSubcompIdx
 public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonU3OrthMinusBlock
 import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestTailFinal
-import CFSG.HardMathSupport.Dickson.SuzukiReeB.Helpers
-import CFSG.SignalizerFunctorTheorem.Inheritance.TransportA.Fitting
-import CFSG.Walter.Bender1970.S2.Basic
-import CFSG.ClassicalGroups.Orthogonal.Simple
-import CFSG.GroupTheory.WeirSylow.OrthogonalOrders
-import CFSG.LocalAnalysis.StandardType.MarkingClassical
-import CFSG.RankThree.PartOne.S11d.LieCentralizerPOmega
 import CFSG.RankThree.PartTwo.Sec8.Item82OneProofCases
 
 public section

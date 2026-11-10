@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.ModelFacts.E7ModelSignK
-public import CFSG.ClassicalInvolution.RouteD.LocalTwinPartner
-public import CFSG.ClassicalInvolution.RouteD.TypeE8Model
 
 public section
 

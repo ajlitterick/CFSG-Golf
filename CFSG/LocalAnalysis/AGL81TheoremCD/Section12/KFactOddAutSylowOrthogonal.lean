@@ -1,14 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.KFactOddAutParabolicReduce
-public import CFSG.Open.StatedDefs
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointDataModelWitness
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanParabAutIrrOrth
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanParabAutIrrR2PlusSyl
-import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotEndFieldAut
 import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotEightTriality
 import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaOrder
-import CFSG.RankThree.PartOne.AUTSL.OmegaOut
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanParabAutIrrR2MinusA
 import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaConjLabels
 public import CFSG.LocalAnalysis.AGLEmbedding.D1GlobalU
@@ -50,7 +46,6 @@ import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotPlusFourF6
 import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotPlusFourGlobal
 import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotUniqueTypeGraph
 import CFSG.Quasithin.Background.A3Components
-import CFSG.Quasithin.Background.A3ComponentsAmbient
 import CFSG.Quasithin.Background.G11Stmts
 import CFSG.RankThree.Chevalley.SteinbergCEF4EvenQPlusWeyl
 import CFSG.RankThree.Chevalley.SteinbergCFEvenF4PointwiseInner

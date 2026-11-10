@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6SplitRootGenModel
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6Split
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylExcPlusFrameFusion
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6RankOuter
 
 public section

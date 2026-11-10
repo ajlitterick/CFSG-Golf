@@ -4,8 +4,6 @@ public import CFSG.Timmesfeld.Exceptional.DeepQData
 public import CFSG.Certificates.Kernel.Misc.Coset.PG
 public import CFSG.Certificates.Kernel.Misc.Coset.MemSound
 public import Certificates.Kernel.Misc.Coset.XQW
-import CFSG.Certificates.Kernel.Common.Harness
-import CFSG.Certificates.CosetTablePresented
 public import CFSG.Certificates.WordPresentation
 public import Mathlib
 

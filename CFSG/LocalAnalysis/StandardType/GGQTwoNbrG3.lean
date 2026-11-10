@@ -2,24 +2,11 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoNbrDefs
 public import CFSG.LocalAnalysis.StandardType.GGQTwoJoinDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEsu
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSExcl
-public import CFSG.LocalAnalysis.StandardType.GGQTwoFrameLDefs
 import Lean
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSLieEsuAux
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrEnnola
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrEnnolaLabel
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-public import CFSG.LocalAnalysis.StandardType.GGQTwoNativeGen
-public import CFSG.LocalAnalysis.StandardType.GGNbrU63
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSLieEsu
 public import CFSG.LocalAnalysis.StandardType.GGQTwoNbrRecAuxModel
-public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitaryDatum
 public import CFSG.LocalAnalysis.StandardType.GGQTwoNbrG3Aux
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
-public import CFSG.LocalAnalysis.StandardType.GGQTwoNbrRecAuxKb
 public import CFSG.LocalAnalysis.UniquenessCase.UC22FunSplitUnitaryGeometry
 public import CFSG.ClassicalInvolution.Q3.Q3T6FaField
 public import CFSG.GH74.GLS.Stage1.Thm3.Sec6.R1Prop46d

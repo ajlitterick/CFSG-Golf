@@ -7,7 +7,6 @@ import CFSG.LocalAnalysis.UniquenessCase.UCKPOut
 import CFSG.LocalAnalysis.UniquenessCase.UCKPRank1
 public import CFSG.LocalAnalysis.RankThreeTheoremC.GenericLayerReductionDefs
 public import CFSG.LocalAnalysis.UniquenessCase.UC22InE229ZB
-public import CFSG.LocalAnalysis.UniquenessCase.UCFront10
 
 public section
 

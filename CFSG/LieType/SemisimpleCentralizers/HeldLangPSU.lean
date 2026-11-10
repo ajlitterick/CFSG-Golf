@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.SemisimpleCentralizers.HeldLangSU
-public import CFSG.Open.StatedDefs
 public import CFSG.LieType.BorelTits.CompleteFlag
 
 public section

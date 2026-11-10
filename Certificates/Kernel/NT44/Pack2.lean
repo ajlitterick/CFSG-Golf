@@ -1,7 +1,5 @@
 module
 
-public import Certificates.Data.NT44Model.Inputs
-public import Certificates.Kernel.Misc.Perm.HexCmd
 public import Certificates.Kernel.NT44.Pack
 public import Certificates.Data.Kernel.Misc.ConjTab
 public meta import Certificates.Data.NT44Model.Inputs

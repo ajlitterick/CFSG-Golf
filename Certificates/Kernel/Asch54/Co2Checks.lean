@@ -5,7 +5,6 @@ public import Certificates.Kernel.Asch54.Co2Chains
 public import Certificates.Kernel.Sporadic.Co2.ChainA
 public import Certificates.Kernel.SporSch.Co2M.ChainS
 public import CFSG.Certificates.Kernel.Spor.SiftBKSound
-public import Certificates.Data.Kernel.Spor.Prim
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

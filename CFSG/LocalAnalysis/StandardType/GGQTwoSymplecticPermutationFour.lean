@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoSymplecticTorusActions
 public import CFSG.LocalAnalysis.StandardType.GGQTwoSymplecticMovingBlock
-public import CFSG.LocalAnalysis.StandardType.GGQTwoRationalWeyl
-public import CFSG.Sporadic.Suz.Setup
 
 public section
 

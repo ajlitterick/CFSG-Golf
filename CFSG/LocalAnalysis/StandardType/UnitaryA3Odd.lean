@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.UnitaryMatrixBridge
 public import CFSG.LocalAnalysis.StandardType.UnitaryRepOdd
 public import CFSG.LocalAnalysis.StandardType.UnitaryCubeRoots
-public import CFSG.LocalAnalysis.StandardType.UnitaryPairs
-public import CFSG.LocalAnalysis.StandardType.A8LiftBlocks
 
 public section
 

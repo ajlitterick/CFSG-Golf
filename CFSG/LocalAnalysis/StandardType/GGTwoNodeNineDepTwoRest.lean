@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeNineDepTwoRestDefs
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeNineConsumer
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeNineConsumerK
 
 public section

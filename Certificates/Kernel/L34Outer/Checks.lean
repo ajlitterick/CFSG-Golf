@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.L34Outer.Data
 public import Certificates.Kernel.L34Outer.Words
-public import Certificates.Data.Kernel.Spor.Prim
 public import Certificates.Data.Kernel.Spor.PEnum
 public import Certificates.Data.L34OuterData
 import CFSG.Certificates.Kernel.Common.Harness

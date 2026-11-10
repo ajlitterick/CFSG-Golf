@@ -4,7 +4,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSyl
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2RootSylowUnique
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseLinearMinimalInvariantPuncturedCount
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseLinearTwoRootDisjointFamilyCount
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

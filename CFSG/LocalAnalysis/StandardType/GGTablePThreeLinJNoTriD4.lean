@@ -8,7 +8,6 @@ import CFSG.Assembly.GL83StatedBridge
 import CFSG.LocalAnalysis.StandardType.GGFrameRouteE7Models
 import CFSG.LieType.Simplicity.LieModelFinite
 import CFSG.RankThree.PerfectCover.HopfCentralCoversUnrestricted
-import CFSG.LocalAnalysis.StandardType.GGSixAutKFinerTagsBasic
 
 public section
 

@@ -3,7 +3,6 @@ module
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwCompReg
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwCompTypes
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwCompUnitary
-public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 
 public noncomputable section
 

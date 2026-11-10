@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGWitOrthCrAux
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveZSInputs
 
 public section
 

@@ -1,20 +1,8 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.CyclicTwoCoreASevenNormalizerControl
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.CyclicTwoCoreBInterM
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.CyclicTwoCoreMaximal
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseCyclicTwoCoreInfra
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.ComponentLayerCentralizesSolvableNormalized
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970_18
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma27Infra
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.QuasisimpleNotTwoGroupQuotient
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2Cardinality
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Center
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2Center
-import Mathlib.GroupTheory.Coset.Card
-import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonClassification
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

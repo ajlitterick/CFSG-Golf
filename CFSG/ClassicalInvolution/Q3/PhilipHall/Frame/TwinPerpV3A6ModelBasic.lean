@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6S
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Thm3Step.S7.TwinFactsQ8Spec
 public import Certificates.Certificate517501
 public import CFSG.Certificates.Kernel.HeModelKSound
 public import CFSG.Certificates.Kernel.HexaKSound

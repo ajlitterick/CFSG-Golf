@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LieType.AlgebraicGroups.SupportedNativeLang
-public import CFSG.LieType.Chevalley.LangAdjointDiagonalLift
-public import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
-public import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 
 public section
 

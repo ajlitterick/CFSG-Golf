@@ -1,12 +1,9 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec18.Item185Ctx
-import CFSG.RankThree.PartTwo.Sec18.Components
-import CFSG.RankThree.PartTwo.Sec19.Step1910Proof
 import CFSG.RankThree.PartTwo.Sec18.Item183OneProofRem
 import CFSG.RankThree.PartTwo.Sec13.Item133Mono
 import CFSG.LocalAnalysis.ComponentInitial.TwoPrimeSolvable
-import CFSG.LocalAnalysis.RankThreeCoreUniqueness.CoprimeQuotientRank
 import CFSG.GroupTheory.ElementaryAbelianTransport
 import CFSG.GroupTheory.PCore.OpenTransport
 import CFSG.CharacterTheory.Semidihedral.OddFieldLift
@@ -59,8 +56,6 @@ import CFSG.RankThree.PartTwo.Sec18.Item183OneProofRemRank
 import CFSG.RankThree.PartTwo.Sec19.Item194Used
 import CFSG.RankThree.PartTwo.Sec19.Steps195
 import CFSG.RankThree.PartTwo.Sec6.Item612
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalGroup.LowRank

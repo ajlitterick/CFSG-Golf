@@ -1,11 +1,6 @@
 module
 
 public import CFSG.Milestones.ASVolI.I2
-public import CFSG.GroupTheory.TitsSystem.Parabolic
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
-public import CFSG.Open.LocalVocabulary
-public import CFSG.Foundations.Basic
-public import TauCeti.GroupTheory.Coxeter.StrongExchange
 
 public section
 

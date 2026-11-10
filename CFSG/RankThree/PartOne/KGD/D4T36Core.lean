@@ -3,8 +3,6 @@ module
 public import CFSG.RankThree.PartOne.KGD.D4T36PerX
 public import CFSG.RankThree.PartOne.KGD.D4T36Gen
 public import CFSG.RankThree.PartOne.KGD.D4QPlane
-public import CFSG.RankThree.Chevalley.SteinbergBTCanonicalFieldCommon
-public import CFSG.LieType.Chevalley.OrdinaryEFieldGraphQuotient
 public import CFSG.LieType.Chevalley.C2E6RootOperators
 public import CFSG.LieType.Chevalley.C2E6StandardFixedData
 public import CFSG.LieType.Chevalley.C2E6UnitaryFourImages

@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1M24
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1M24TData
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1M24TChain
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1M24TUniq
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1PermCheck
@@ -11,7 +9,6 @@ public meta import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1M24Che
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1M24Data
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1M24TData
 public meta import CFSG.Sporadic.Schreier.M24
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1M24TCheckInputs
 public import Certificates.Certificate4137
 public import CFSG.LieType.CurtisTits.Recognition
 

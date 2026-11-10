@@ -1,13 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJUnitaryRankThreeCover
-public import CFSG.LocalAnalysis.StandardType.GGTBJUnitaryDvd
 public import CFSG.LocalAnalysis.StandardType.GGTBJUnitarySix
-public import CFSG.LocalAnalysis.StandardType.GGTBJLE3Transport
-public import CFSG.LocalAnalysis.StandardType.GGTBJTwoNodeUnitarySixReduced
-public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitSU
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallUnitDvdSmall
-public import CFSG.LocalAnalysis.StandardType.GGTBJFamilyInputs
 
 public section
 

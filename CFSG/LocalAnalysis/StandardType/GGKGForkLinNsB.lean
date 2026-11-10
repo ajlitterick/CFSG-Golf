@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGForkLinNsA
 public import CFSG.LocalAnalysis.StandardType.GGNbrFrameOneLinearLabel
-public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameTorus
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerLinearNonsplit
 
 public section
 

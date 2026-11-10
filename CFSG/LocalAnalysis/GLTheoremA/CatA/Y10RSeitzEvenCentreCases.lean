@@ -2,12 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FSeitzB1
 public import CFSG.Foundations.SteinbergCADefinitionNodes
-public import CFSG.LocalAnalysis.StandardType.Marking
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Arith
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Arith2
 public import CFSG.RankThree.PartOne.S11d.OddCenterGriess
 public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87MultMilestone
-public import CFSG.Milestones.CL_LIT_Griess_Schur_multipliers_Lie_type
 public import CFSG.GH74.GLS.IVK.Proofs2.OddTools
 public import CFSG.GH74.GLS.Stage2.Local.P34Main
 public import CFSG.GH74.GLS.Stage2.Local.P34S5A

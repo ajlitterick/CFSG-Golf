@@ -3,14 +3,11 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutModel
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporBFS
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporHash
-public import CFSG.Sporadic.Schreier.Enumeration
-public import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 public meta import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutData
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporHash
 public meta import CFSG.Sporadic.Schreier.Enumeration
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 public import CFSG.Sporadic.J2
-public import CFSG.Sporadic.Th.F2Spec
 public meta import Mathlib.Data.Nat.Digits.Lemmas
 public meta import Mathlib.GroupTheory.Schreier
 

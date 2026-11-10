@@ -1,7 +1,6 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Eleven.Wong.CentData
-public import CFSG.GroupTheory.PCore.Defs
 public import Mathlib.GroupTheory.SpecificGroups.Dihedral
 
 public section

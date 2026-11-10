@@ -4,14 +4,11 @@ public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
 public import CFSG.LocalAnalysis.StandardType.GGTableBRank
 public import CFSG.Open.GLADefs
 import CFSG.LocalAnalysis.StandardType.GGNbrLangTorARankBound
-import CFSG.LocalAnalysis.StandardType.GGTableBOrthRest
 import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestTailFinal
-import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticOmega
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLTorusOrthPlus
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLTorusSymplectic
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLTorusTypeAPlus
 import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeNbrKnownLemmas
-import CFSG.LocalAnalysis.StandardType.Marking
 
 public section
 

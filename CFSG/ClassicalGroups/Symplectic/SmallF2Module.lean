@@ -2,14 +2,9 @@ module
 
 public import CFSG.GroupTheory.SimpleTrivialOnSmallF2Module
 public import CFSG.Open.StatedDefs
-public import Mathlib.Algebra.Field.ZMod
-public import Mathlib.Algebra.Module.ZMod
-public import Mathlib.LinearAlgebra.Dimension.Finrank
 
-import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagOrder
 import CFSG.RankThree.GF2n.Tim79a34SpFacts
 import CFSG.RankThree.GF2n.Stroth80.Sec3Zsig
-import Mathlib.GroupTheory.OrderOfElement
 import CFSG.CGT.Timmesfeld75.Forms
 import CFSG.RankThree.GF2n.Stroth80.Anisotropic
 import CFSG.RankThree.GF2n.Stroth80.FrobClause

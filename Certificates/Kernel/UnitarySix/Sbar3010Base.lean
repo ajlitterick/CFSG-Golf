@@ -2,7 +2,6 @@
 module
 
 public import Certificates.Kernel.UnitarySix.Fix3010Base
-import CFSG.Certificates.Kernel.Common.Harness
 
 @[expose] public section
 

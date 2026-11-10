@@ -9,7 +9,6 @@ import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_6_14
 import Mathlib.LinearAlgebra.Eigenspace.Basic
 import Mathlib.Algebra.Polynomial.SpecificDegree
 import Mathlib.Algebra.BigOperators.Ring.Nat
-import Mathlib.GroupTheory.GroupAction.ConjAct
 
 namespace CFSG
 end CFSG

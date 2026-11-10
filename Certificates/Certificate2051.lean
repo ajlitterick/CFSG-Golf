@@ -3,7 +3,6 @@ module
 
 public import Certificates.Certificate2051Base
 
-public import CFSG.Sporadic.Co2Schreier.CoreCheckInputs
 public meta import CFSG.Sporadic.Co2Schreier.ChainCheckBase
 public meta import Std.Data.HashMap
 import Certificates.Kernel.SporSch.Co2M.EnumR

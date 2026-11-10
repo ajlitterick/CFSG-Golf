@@ -1,11 +1,7 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseLinearPostNineData
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2UniformReflectionFixed
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseLinearEquationElevenData
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralCore
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.KleinFourCentralizerTransport
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

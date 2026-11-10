@@ -4,7 +4,6 @@ module
 public import Certificates.Data.Kernel.GammaUStepA.Defs
 public import CFSG.Certificates.Kernel.GammaUNormSound
 public import CFSG.Certificates.Kernel.GammaUSigmaSoundBase
-public import CFSG.GF2Type.Smith1979.GammaU.StepABase
 
 public section
 

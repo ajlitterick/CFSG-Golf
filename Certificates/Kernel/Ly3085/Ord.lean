@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Ly3085.Seed
-public import CFSG.Certificates.Kernel.Orders.Ly.Data.Sel
 public import CFSG.Certificates.Kernel.Orders.Ly.Checks.D
 public import CFSG.Certificates.Kernel.Orders.Ly.Checks.K
 public import CFSG.Certificates.Kernel.Orders.Ly.Checks.O

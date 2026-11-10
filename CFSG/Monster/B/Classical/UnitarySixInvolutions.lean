@@ -2,16 +2,6 @@ module
 
 public import CFSG.Monster.B.Classical.UnitarySixForm
 import all CFSG.Fischer.F4
-public import Mathlib.LinearAlgebra.Matrix.Rank
-public import Mathlib.RingTheory.Coalgebra.IsFrobenius
-public import Mathlib.RingTheory.Etale.Weakly
-public import Mathlib.RingTheory.HopfAlgebra.Basic
-public import Mathlib.RingTheory.PiTensorProduct
-public import Mathlib.RingTheory.TotallySplit
-public import Mathlib.RingTheory.WittVector.IsPoly
-public import Mathlib.Tactic.Basify
-public import Mathlib.Tactic.Polynomial.Basic
-public import Mathlib.Tactic.ReduceModChar
 public import Std.Tactic.BVDecide.Normalize.Prop
 
 public section

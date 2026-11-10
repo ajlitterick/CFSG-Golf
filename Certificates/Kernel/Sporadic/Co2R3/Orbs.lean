@@ -4,8 +4,6 @@ public import Certificates.Kernel.Sporadic.Co2R3.Data
 public import Certificates.Data.Kernel.Co2R3K
 public import Certificates.Data.CFSGNative.Co2Rank3.Data
 public import Certificates.Data.Kernel.Misc.ArrEnum
-public import Certificates.Data.Kernel.Spor.Raw
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

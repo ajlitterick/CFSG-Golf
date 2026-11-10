@@ -4,8 +4,6 @@ public import Certificates.Kernel.Sporadic.OddCore.SuzMGSD
 public import Certificates.Kernel.Sporadic.RawGenSplitP
 public import Certificates.Kernel.Sporadic.RawGenSchOJ
 public import Certificates.Kernel.Sporadic.OddCore.SuzMGCG
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

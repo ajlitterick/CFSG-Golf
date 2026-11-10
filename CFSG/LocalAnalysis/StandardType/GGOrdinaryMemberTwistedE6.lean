@@ -2,14 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinEMarked
 public import CFSG.LocalAnalysis.StandardType.PhanEStdRootNodes
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRankOneConj
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
-public import CFSG.LocalAnalysis.StandardType.GGTwE6BadWeyl
 public import CFSG.LocalAnalysis.StandardType.GGTBRowTwE6Weyl
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveFieldTwoCommon
 public import CFSG.LocalAnalysis.StandardType.GGSpFrameConfig
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaBase
-public import CFSG.LocalAnalysis.SeitzReduction.E8PilotLeviHom
 public import CFSG.LocalAnalysis.ComponentClassification.BurgoyneE2E7Core
 public import CFSG.LocalAnalysis.StandardType.StarFour.Dictionary
 public import CFSG.LocalAnalysis.StandardType.StarFour.CentralizerSL

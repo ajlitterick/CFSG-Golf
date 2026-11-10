@@ -2,12 +2,9 @@ module
 
 public import Certificates.Kernel.Co2Census.TInvChecks
 public import Certificates.Kernel.Co2Census.TInvLook
-public import Certificates.Kernel.Co2J.Facts
 public import Certificates.Kernel.Co2Cls.Final
-public import Certificates.Kernel.Co2Cls.Checks
 public import CFSG.Certificates.Kernel.Co2Census.Glue
 public import CFSG.RankThree.Co2.TInvFacts
-import Mathlib.Tactic.IntervalCases
 
 public section
 

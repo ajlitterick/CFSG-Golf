@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinPlaneTorusLift
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySpModel
 public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameTorus
 public import CFSG.CGT.PushingUpLit.BHS6.FaithfulSL
 public import CFSG.CGT.PushingUpLit.BHS.TwoSixteenSL

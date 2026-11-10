@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.InputsMisc8
-public import CFSG.HardMathSupport.Timmesfeld.Coordinator.LocalThreeSporadicRank
-public import CFSG.HardMathSupport.Timmesfeld.Tables.Census.Sporadic
 public import CFSG.HardMathSupport.Solomon.Coordinator.GFR2FamSpor
 import CFSG.LocalAnalysis.AGLEmbeddingD2.McLaughlin.TightPairAndPureRank.CoverOneSimple
 public import CFSG.HardMathSupport.Solomon.Coordinator.GFR1Basic

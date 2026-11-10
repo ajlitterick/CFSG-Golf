@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.HSFLitA7Sec8CPair
-public import CFSG.LocalAnalysis.ComponentClassification.HSFLitA7Sec8Elem
 
 public section
 

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.UC22Main2
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22a
 public import CFSG.LocalAnalysis.UniquenessCase.UC22DataExt
-public import CFSG.LocalAnalysis.UniquenessCase.UC22P20b
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P20c
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S22c
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P20d
@@ -61,8 +60,6 @@ public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.MsideParabolicEscape.TwoLoc
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.S3AmalgamBound.F5PairDerive
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherTheorem3WeakClosure
 public import CFSG.LocalAnalysis.GLTheoremB.QuotientTools
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Basic245BaumannSetting
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.LiftBaumannDelOrigData
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.LiftDelBlockTools
@@ -74,7 +71,6 @@ public import CFSG.LocalAnalysis.RankThreeTheoremC.D1CaseTwo3ThreeA6Sylow
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D1KlingenIdent
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2KFactLeavesCoreF
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3AutImage
-public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3Cover
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3Impure
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3InvTwo
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3Kmax
@@ -84,7 +80,6 @@ public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3NoncycFactor
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3TwoEscA
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3TwoEscB
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Msd3TwoLocalI811
-public import CFSG.LocalAnalysis.RankThreeTheoremC.D2L34Port3CoreFree
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D2SporDatum3
 public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83Generic4_1P3A6Residues
 public import CFSG.LocalAnalysis.RankThreeTheoremC.GL83Generic4_1P3L28PartsS
@@ -110,8 +105,6 @@ public import CFSG.Quasithin.Background.B1MoreEleven
 public import CFSG.Quasithin.Background.B5CompA
 public import CFSG.Quasithin.Background.B5CompB
 public import CFSG.Quasithin.Background.B69Core
-public import CFSG.Quasithin.Background.C2Inputs
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import CFSG.RankThree.PartOne.KC.OrthogonalHighWittFixedSpace
 public import CFSG.RankThree.PartOne.KC.OrthogonalSubfieldFixed
 public import CFSG.RankThree.PartTwo.Sec19.Item194Used
@@ -123,7 +116,6 @@ public import CFSG.Yardstones.M9cbf837c48cf.Definitions
 public import CFSG.Yardstones.Me2c15c2c995a.Definitions
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

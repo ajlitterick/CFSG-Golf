@@ -2,7 +2,6 @@ module
 
 public import CFSG.CharacterTheory.Semidihedral.Principal.CoprimeFixedPointLifting
 public import CFSG.LocalAnalysis.SectionRank.SQT
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.RankThree.GroupTheory.SteinbergBYMinimalCoprimeAction
 
 public section

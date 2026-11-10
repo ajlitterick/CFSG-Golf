@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderExcWeyl
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Basic
-public import CFSG.LieType.Chevalley.IntrinsicDiagramPermutation
 
 public section
 

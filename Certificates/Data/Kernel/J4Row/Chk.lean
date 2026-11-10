@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.Kernel.J4Q.Mat
 public import Certificates.Data.Kernel.J4Q.QT
 
 public section

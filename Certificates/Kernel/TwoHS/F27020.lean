@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.TwoHS.Har
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.HSFixData
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

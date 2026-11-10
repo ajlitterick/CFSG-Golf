@@ -4,14 +4,12 @@ public import CFSG.RankThree.PartTwo.Sec14.Item1413Res3ProofOne
 public import CFSG.RankThree.PartTwo.Sec14.Item1413Res3ProofInv
 public import CFSG.RankThree.PartTwo.Sec14.Item1413Res3Proof1419
 import CFSG.RankThree.PartTwo.Sec14.Item1413Res2ProofM12Q
-import CFSG.RankThree.PartTwo.Sec13.Item131Facts
 import CFSG.RankThree.PartTwo.Sec13.Item133
 import CFSG.RankThree.PartTwo.Sec13.Item13Sporadic
 import CFSG.RankThree.PartTwo.Sec13.Item13SLTwo
 import CFSG.RankThree.PartTwo.Sec13.Item136PGL
 import CFSG.RankThree.PartTwo.KFacts.KS14Orders
 import CFSG.RankThree.PartTwo.Sec14.Concl142NHJInner
-import CFSG.Sporadic.Mathieu.M12
 public import CFSG.RankThree.GroupTheory.SteinbergBYAlphaTransport
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHermitianIsometry
 import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField

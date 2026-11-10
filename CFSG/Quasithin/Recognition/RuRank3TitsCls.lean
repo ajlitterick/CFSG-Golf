@@ -10,7 +10,6 @@ public meta import CFSG.Sporadic.Schreier.TitsInvCheck
 public meta import CFSG.Sporadic.Schreier.RuCheckChains
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 public meta import Certificates.Data.CFSGNative.Schreier.Check
-public import CFSG.Sporadic.Schreier.TitsAbelCheckInputs
 public meta import CFSG.Sporadic.Schreier.TitsData
 public meta import CFSG.Sporadic.Schreier.TitsArrays
 public meta import CFSG.Sporadic.Schreier.TitsBasic
@@ -19,24 +18,10 @@ public meta import CFSG.Sporadic.Schreier.TitsLocalCheck
 public meta import CFSG.Sporadic.Schreier.TitsEnum
 public meta import CFSG.Sporadic.Schreier.TitsCentralCheck
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Data
-public import CFSG.Sporadic.Schreier.TitsActionCheckInputs
-public import CFSG.Sporadic.Schreier.TitsCentralCheckInputs
-public import CFSG.Sporadic.Schreier.TitsCertCheckInputs
-public import CFSG.Sporadic.Schreier.TitsInvCheckInputs
 public meta import CFSG.Sporadic.Schreier.TitsAbelCheck
-public import CFSG.Sporadic.Schreier.TitsLocalCheckInputs
-public import CFSG.Sporadic.Schreier.TitsStabCheckInputs
 public meta import CFSG.Sporadic.Schreier.TitsActionCheck
 public meta import CFSG.Sporadic.Schreier.TitsOrbit
-public import CFSG.Quasithin.Recognition.RuRank3TitsClsInputs
 public import Certificates.Certificate7050
-public import CFSG.Quasithin.Recognition.RuRank3Tits13Inputs
-public import CFSG.Quasithin.Recognition.RuRank3TitsSyl
-public import CFSG.Quasithin.Recognition.RuRank3PSL
-public import CFSG.Sporadic.Schreier.TitsAction
-public import CFSG.Sporadic.Schreier.TitsChain
-public import CFSG.Sporadic.Schreier.RuChainSpec
-public import CFSG.Sporadic.Schreier.RuConj
 
 public section
 

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165ExcE8Four5
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTorus
-public import CFSG.RankThree.PartOne.KE.CTLang
 public import CFSG.RankThree.PartOne.KE.SigmaUntwisted2
 public import CFSG.LocalAnalysis.SeitzReduction.E8PilotAlignTori
 

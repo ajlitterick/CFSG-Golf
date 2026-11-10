@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T156GLinSub
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownLinearDescent
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownLinearGeom
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownLinearFaithful
 

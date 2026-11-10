@@ -5,8 +5,6 @@ public import CFSG.Certificates.Kernel.Spor.PresCard
 public import CFSG.Certificates.Kernel.Orders.He.RelsBind
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.BfsPinSound
-public import CFSG.Certificates.Kernel.BfsPinUnpack
-public import Mathlib
 
 public section
 

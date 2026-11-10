@@ -2,13 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJLinearMinusFrame
 public import CFSG.LocalAnalysis.StandardType.GGTBJLinearMinusWeyl
-import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylNoLine
 import CFSG.LocalAnalysis.StandardType.GGF4QGeFourPlusForcing
 import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyQFourTBSmall
-import CFSG.LocalAnalysis.StandardType.GGRCSignedCoxeterB
-import CFSG.LocalAnalysis.StandardType.GGPZWeylB
-import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameTorusField
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 
 public section
 

@@ -1,13 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2LongTwE6Datum
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2LongTwE6Iso
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2LongLift
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TwE6Rad
 public import CFSG.LocalAnalysis.StandardType.GGRootDetectTwE6
-public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
-public import CFSG.LieType.Steinberg.TwistedE6.Clause0
-public import CFSG.LieType.Steinberg.TwistedE6.Generation
 
 public section
 

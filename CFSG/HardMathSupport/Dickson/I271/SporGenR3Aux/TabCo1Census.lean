@@ -2,7 +2,6 @@ module
 
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co1FiveBase
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabCo1Dag
-public import Certificates.Data.TabCo1Census
 public import Certificates.Certificate17327
 public import Certificates.Kernel.Co1B.Tri2045
 

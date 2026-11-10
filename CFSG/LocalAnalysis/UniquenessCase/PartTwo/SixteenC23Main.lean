@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC23Gen
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC23Gap64
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC2363a
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC23Odd
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenFiveTen
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22qm
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.EvenClassicalFamily
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.EvenClassicalLinearStrong

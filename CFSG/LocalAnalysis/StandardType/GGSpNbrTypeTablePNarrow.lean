@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinReflOfLabel
-public import CFSG.LocalAnalysis.StandardType.GGHalfFiveInputs
 public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 public import CFSG.LocalAnalysis.StandardType.GGTPNNarrow
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotFieldNormalizeSp

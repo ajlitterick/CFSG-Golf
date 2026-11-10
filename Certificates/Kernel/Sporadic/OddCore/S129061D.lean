@@ -1,7 +1,5 @@
 module
 
-public import Certificates.Kernel.Sporadic.RawGen
-public import Certificates.Kernel.Misc.Perm.HexCmd
 public import Certificates.Kernel.Sporadic.OddCore.Suz2302
 public import Certificates.Data.Kernel.Spor.PSlp
 public meta import CFSG.HardMathSupport.Cooperstein.Coordinator.FFSporadic.SuzCheck

@@ -1,23 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.UC22R8100R
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.StatementsC
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenFortyFiveNotStrongly
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.BarSubNotNormal
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SylowCentralOuter
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section17.SeventeenFortySixA2
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.OutPRankBound
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.Section17KFacts
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.Section17KFactsSmallRank
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.L2SzFieldKFacts
-public import CFSG.LocalAnalysis.UniquenessCase.UCFront08
-public import CFSG.LocalAnalysis.UniquenessCase.UC22Defs
-public import CFSG.GroupTheory.ABGLocalTools.Basic
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.TwelveNineteenPerm
-public import CFSG.GroupTheory.CoprimeCentralizerCover
-public import CFSG.GroupTheory.PGroup.ElemAbelianSq
-public import CFSG.GroupTheory.CoprimeActionSupport.NormalSubgroupSylowJoin
-public import CFSG.GroupTheory.ABGLocalTools.OddInvolution
 public import CFSG.GroupTheory.PrimeOrderSylowNormalizer
 public import CFSG.GroupTheory.ABGLocalTools.PStabilityQOuter
 public import CFSG.GroupTheory.PCore.SolvableRadical

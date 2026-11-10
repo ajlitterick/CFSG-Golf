@@ -8,7 +8,6 @@ public import Certificates.Kernel.Sporadic.OddCore.SuzFbK0
 public import Certificates.Kernel.Sporadic.OddCore.SuzFbK1
 public import Certificates.Kernel.Sporadic.OddCore.SuzFbK2
 public import Certificates.Kernel.Sporadic.OddCore.SuzFbK3
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

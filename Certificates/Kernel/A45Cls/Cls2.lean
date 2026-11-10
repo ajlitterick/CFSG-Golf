@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.Misc.Perm.ConjOrbCmd
 public import Certificates.Kernel.Misc.Perm.LeftOrbCmd
 public import Certificates.Kernel.A45Cls.Data2
 meta import Certificates.Kernel.A45Cls.Data2

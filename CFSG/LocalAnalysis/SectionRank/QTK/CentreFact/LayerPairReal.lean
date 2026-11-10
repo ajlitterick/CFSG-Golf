@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.SectionRank.QTK.CoverBA134Basic
 public import CFSG.LocalAnalysis.SectionRank.OddCover.DegreeThree
-public import CFSG.Blueprint.NativeSporadic
-public import CFSG.Open.StatedDefs
 import CFSG.LocalAnalysis.SectionRank.QTK.Witness3
 import CFSG.LocalAnalysis.SectionRank.QTK.A134ListMat
 public import CFSG.LocalAnalysis.SectionRank.QTK.CoverBA134Defs

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.HSFLitKD8abAS2
-public import CFSG.LocalAnalysis.ComponentClassification.HSFLitA7Sec8Elem
 public import CFSG.LieType.Ree.SuzukiSimple
 public import CFSG.LocalAnalysis.ComponentClassification.AutL2FactsSquareProd
 public import CFSG.LocalAnalysis.ComponentClassification.BlockCentralSylowEquality
@@ -31,9 +30,6 @@ public import CFSG.Sporadic.Suz.W64Spec
 public import CFSG.Sporadic.Th.Chain
 public import CFSG.Sporadic.ThSchreier.AutCore
 public import CFSG.StronglyEmbedded.MatrixGroups.PSL2
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.Walter.Defs
 public import TauCeti.LinearAlgebra.QuadraticForm.Prod
 

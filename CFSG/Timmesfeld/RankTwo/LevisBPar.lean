@@ -2,7 +2,6 @@ module
 
 public import CFSG.Timmesfeld.RankTwo.LevisBCone
 public import CFSG.Timmesfeld.RankTwo.ModelG2
-public import CFSG.LieType.Steinberg.PartB
 
 public section
 

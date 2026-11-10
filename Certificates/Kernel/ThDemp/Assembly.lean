@@ -4,8 +4,6 @@ module
 public import Certificates.Kernel.ThDemp.AssemblyBase
 
 public import CFSG.Certificates.Kernel.ThDemp.Sound
-public import CFSG.Sporadic.Th.Setup
-public import Certificates.Kernel.ThDemp.Data
 import Certificates.Kernel.ThDemp.Slp
 import Certificates.Kernel.ThDemp.Shape
 import Certificates.Kernel.ThDemp.Lev

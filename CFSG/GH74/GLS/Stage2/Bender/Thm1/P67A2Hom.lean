@@ -4,10 +4,6 @@ public import CFSG.LieType.Steinberg.RankTwo.Statement
 public import CFSG.LieType.Steinberg.RankTwo.G2Comm
 public import CFSG.LieType.Steinberg.RankTwo.G2CommCheck
 public import CFSG.Timmesfeld.RankTwo.ModelG2Comm
-public import CFSG.LieType.Steinberg.Classical.SpecialLinear
-public import CFSG.LieType.Steinberg.Adjoint.Group
-public import CFSG.LieType.Chevalley.NativeMonomial
-public import CFSG.LieType.CurtisTits.Recognition
 public import CFSG.LinearAlgebra.LinearGroups.Elementary
 public import CFSG.Assembly.Subnormal
 public import CFSG.LieType.Steinberg.Classical.SpinFrame

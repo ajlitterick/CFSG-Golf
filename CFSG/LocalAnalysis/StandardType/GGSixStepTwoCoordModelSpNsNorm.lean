@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelSpNsTorus
-public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameTorusForm
 
 public section
 

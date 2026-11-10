@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCornerDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCornerRowOneLevi
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCornerHyp
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCornerJ
-import CFSG.LocalAnalysis.StandardType.GGD4OddCentVocab
 
 public section
 

@@ -1,12 +1,8 @@
 module
 
 public import CFSG.LieType.SeitzGeneration.UnitaryNonabNonPthMixing
-public import CFSG.LieType.SeitzGeneration.UnitaryNonCubeAlgebra
 public import CFSG.LieType.SeitzGeneration.UnitaryNonCubeMixing
-public import CFSG.LieType.SeitzGeneration.UnitaryNonsplit
-public import CFSG.LieType.SeitzGeneration.UnitaryCenters
 public import CFSG.LieType.SeitzGeneration.UnitaryHeisTensorCenters
-public import CFSG.LieType.SeitzGeneration.HeisTorusIdent
 public import CFSG.Foundations
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LieType.SeitzGeneration.UnitaryTwoStep

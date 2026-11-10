@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2LongE6
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2PosGlue
-public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortTransport
 
 public section
 

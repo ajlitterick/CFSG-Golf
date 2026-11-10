@@ -1,13 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixA6RedCoreShapeDefs
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsCoresComm
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsCoresProd
-public import Mathlib.GroupTheory.Nilpotent
-public import Mathlib.FieldTheory.Finite.Basic
-public import Mathlib.Algebra.CharP.Algebra
-public import Mathlib.LinearAlgebra.Matrix.ToLin
-public import Mathlib.Data.Matrix.Basis
 
 public section
 

@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockDecomp
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.CompCore
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.GeoAdj
 public import CFSG.LieType.Universal.Spin.Datum

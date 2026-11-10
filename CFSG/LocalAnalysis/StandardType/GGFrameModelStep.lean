@@ -1,12 +1,5 @@
 module
 
-public import Mathlib.Algebra.BigOperators.Fin
-public import Mathlib.Algebra.Module.Pi
-public import Mathlib.Data.Fin.VecNotation
-public import Mathlib.Data.Fintype.Basic
-public import Mathlib.LinearAlgebra.Dimension.Constructions
-public import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
-public import Mathlib.LinearAlgebra.Matrix.ToLin
 public import CFSG.LocalAnalysis.StandardType.GGFrameCartanData
 public import CFSG.LocalAnalysis.StandardType.GGFrameE78Facts
 public import CFSG.LocalAnalysis.StandardType.GGFrameRouteJoin

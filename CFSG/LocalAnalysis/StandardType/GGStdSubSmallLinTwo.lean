@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallLinTwoEnd
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestThreeLabels
 
 public section
 

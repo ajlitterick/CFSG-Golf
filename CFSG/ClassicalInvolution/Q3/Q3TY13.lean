@@ -2,13 +2,8 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.Q3TY5
 public import CFSG.ClassicalInvolution.Q3.Q3EPFrame
-public import CFSG.ClassicalInvolution.Asc77.AscR10E23
 public import CFSG.ClassicalInvolution.RouteD.GapsFrBLast
-public import CFSG.ClassicalInvolution.RouteD.GapsFrBRel
-public import CFSG.ClassicalInvolution.ModelFacts.OrthAutMinus
-public import CFSG.ClassicalInvolution.RouteD.ExoticSingleFacts
 public import CFSG.ClassicalInvolution.Q3.Q3EXOrthLarge
-public import CFSG.ClassicalInvolution.RouteD.GapsFrPair
 public import CFSG.ClassicalInvolution.Q3.Q3TCPartner
 public import CFSG.ClassicalInvolution.RouteD.TypeEPatternTorLie
 

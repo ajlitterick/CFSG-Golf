@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
 import CFSG.GroupTheory.ElemAbelianClosure
 import CFSG.RankThree.PartTwo.Sec4.RonanK429RowTools
 import CFSG.RankThree.PartTwo.Sec4.Item413AutGen

@@ -3,18 +3,10 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.PartI.LevelLieU4E1
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.U48LayerY
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.U48SL2
-public import CFSG.LocalAnalysis.GLTheoremA.CatB.Bridges
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.U48Field
-public import CFSG.LocalAnalysis.GLTheoremA.PartI.LevelLieU1
 public import CFSG.LocalAnalysis.GLTheoremA.PartI.LevelLieU3
-public import CFSG.LocalAnalysis.GLTheoremA.S4.FullCover.MultLie
 public import CFSG.LocalAnalysis.GLTheoremA.PartI.KDClub.L2Type
-public import CFSG.LocalAnalysis.GLTheoremA.CatB.U48Blocks
-public import CFSG.LocalAnalysis.GLTheoremA.PartI.ExcBridge
-public import CFSG.RankThree.SubgroupLists.UnitaryThreeFamily
 import CFSG.LocalAnalysis.GLTheoremA.S4.Lemma49i
-public import CFSG.Sporadic.Schreier.J4SOrder
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.ClassicalInvolution.Balance.LocalBalance.Faithful
 public import CFSG.Goldschmidt.Basic
 public import CFSG.HardMathSupport.Solomon.Coordinator.I14_20Alt
@@ -55,18 +47,12 @@ public import CFSG.Quasithin.Background.B4Dual
 public import CFSG.Quasithin.Background.B5CompB
 public import CFSG.Quasithin.Background.B6
 public import CFSG.Quasithin.Background.B69Core
-public import CFSG.Quasithin.Background.B6Example
 public import CFSG.Quasithin.Background.C1PackNat
 public import CFSG.Quasithin.Background.C1PackSolvBasic
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.Quasithin.Background.E2Hyp
 public import CFSG.Quasithin.Background.E2SolvTwo
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3OffenderB
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.E4Solv
 public import CFSG.Quasithin.Background.F918C6
 public import CFSG.Quasithin.Background.F9Sixteen
 public import CFSG.Quasithin.Background.FFC7G

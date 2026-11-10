@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTPNI1
 public import CFSG.LocalAnalysis.StandardType.GGTPNSL6Bridge
 public import CFSG.LocalAnalysis.StandardType.GGHalfKnownGroups
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrLabels
 public import CFSG.LocalAnalysis.StandardType.GGAssemblyThreeHypSix
 public import CFSG.RankThree.PartTwo.KFacts.KS12SLCenter
 public import CFSG.LocalAnalysis.StandardType.GGSixAutKFinerTagsExcBasic

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldPrimeOrderFixedSubfield
-import Mathlib.FieldTheory.Galois.Basic
-import Mathlib.RingTheory.AdjoinRoot
 import Mathlib.Tactic
 
 namespace CFSG

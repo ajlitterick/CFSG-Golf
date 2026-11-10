@@ -2,11 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLineL2Frame
 public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOpenUnitary
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoTableBTypeALabel
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeACover
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestBstar
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticBstar
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangNorm
 
 public section
 

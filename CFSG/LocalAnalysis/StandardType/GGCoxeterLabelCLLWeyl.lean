@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLFaithful
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLDType
-import TauCeti.LinearAlgebra.RootSystem.FiniteType.Classical
-import TauCeti.LinearAlgebra.RootSystem.FiniteType.Dynkin
 
 public section
 

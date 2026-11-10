@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.SmithD6Model
 public import Certificates.Data.SmithD6Stab
 
 public noncomputable section

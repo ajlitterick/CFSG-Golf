@@ -3,8 +3,6 @@ module
 public import CFSG.ClassicalInvolution.Q3.Q3YComp
 public import CFSG.ClassicalInvolution.Q3.Q3YModel
 public import CFSG.ClassicalInvolution.ModelFacts.TG3Common
-public import CFSG.ClassicalInvolution.ModelFacts.FundNoncentralMain
-public import CFSG.ClassicalInvolution.ModelFacts.FundamentalSL2Main
 public import CFSG.ClassicalInvolution.ModelFacts.CF3A
 public import CFSG.LieType.HighestRoot.ModelCenter
 public import CFSG.ClassicalInvolution.Q3.Q3TEdge

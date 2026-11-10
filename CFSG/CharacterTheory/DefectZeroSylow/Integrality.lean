@@ -2,7 +2,6 @@ module
 
 public import CFSG.CharacterTheory.DefectZeroSylow.Spherical
 public import CFSG.ThirdParty.BrauerInduction.Background.Group.DoubleCoset
-public import CFSG.ThirdParty.BrauerInduction.Background.Group.Coset
 public import Mathlib.Analysis.CStarAlgebra.Classes
 public import Mathlib.RingTheory.Etale.Weakly
 public import Mathlib.RingTheory.Finiteness.ModuleFinitePresentation

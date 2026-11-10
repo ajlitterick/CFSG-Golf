@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.MsideParabolicEscape.MinParEngine
-public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.MsideParabolicEscape.ChevGenYLevel
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.MsideParabolicEscape.MinParS
 public import CFSG.CGT.PushingUpLit.BHS.NaturalDefs
 public import CFSG.CGT.PushingUpLit.BHS.SymNatDefs
@@ -50,10 +48,7 @@ public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSpWedg
 public import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedField
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherEvenOrthogonalModel
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.CentralInvolutionStructure
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.FamilyBasic
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X7bPairs
 public import CFSG.LocalAnalysis.RankThreeTheoremC.GenericLayerReductionComponent
 public import CFSG.LocalAnalysis.RankThreeTheoremC.TransitivityKFacts
@@ -63,13 +58,9 @@ public import CFSG.Permutation.AlternatingAutomorphism
 public import CFSG.Quasithin.Background.B1More13A
 public import CFSG.Quasithin.Background.B1More13Defs
 public import CFSG.Quasithin.Background.B1MoreEleven
-public import CFSG.Quasithin.Background.B4ModelsAction
-public import CFSG.Quasithin.Background.B4ModelsIso
 public import CFSG.Quasithin.Background.B5CompA
 public import CFSG.Quasithin.Background.B5CompB
 public import CFSG.Quasithin.Background.B69Core
-public import CFSG.Quasithin.Background.C2Inputs
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import CFSG.RankThree.PartOne.CTP.StrongPClassification
 public import CFSG.RankThree.PartOne.KC.OrthogonalHighWittFixedSpace
 public import CFSG.RankThree.PartOne.KC.OrthogonalSubfieldFixed
@@ -82,7 +73,6 @@ public import CFSG.StronglyEmbedded.BenderNormalSeries
 public import Certificates.Data.CFSGNative.MonsterB.Rep4371Model
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

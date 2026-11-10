@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22Transitive
-public import CFSG.Sporadic.Mathieu.M22
 public meta import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22Count
 public meta import CFSG.Sporadic.Mathieu.M22
 

@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.Kernel.ExcExt.InLNbrTwin
 public import Certificates.Kernel.ExcExt.Data
 public import Certificates.Kernel.ExcExt.InLNbrData
 import CFSG.Certificates.Kernel.Common.Harness

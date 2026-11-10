@@ -4,9 +4,6 @@ public import CFSG.RankThree.GF2n.Parrott.A1Section2J0Normal
 public import CFSG.RankThree.GF2n.Parrott.Parrott77Prop7
 public import CFSG.GroupTheory.CentralizerSylowFusion
 import CFSG.RankThree.GF2n.Parrott.A1Section2CJ
-import CFSG.GroupTheory.SupCommute
-import CFSG.GroupTheory.QuasisimpleCommutingProductBound
-import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabCo2U42
 import TauCeti.Algebra.Group.Subgroup.ZPowers
 public import CFSG.GroupTheory.ExtraspecialElementaryAbelianBound
 

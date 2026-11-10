@@ -2,12 +2,9 @@ module
 
 public import Certificates.Kernel.SlpRelC.Fi23
 public import CFSG.Certificates.Kernel.SlpRelSound
-public import Certificates.Kernel.Fi23M.Facts
 public import CFSG.HardMathSupport.Meierfrankenfeld.FFToolkit.HeisLift
 public import CFSG.Sporadic.Fi23.Setup
 public import Certificates.Kernel.Fi23M.Keys
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeFamilies
 public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallGEVL34FFDefs
 public import CFSG.LocalAnalysis.AGLEmbedding.ResidualTools
@@ -17,8 +14,6 @@ public import CFSG.LocalAnalysis.SectionRank.Framework.SylowRank
 public import CFSG.Quasithin.Background.B15P4LayerDict
 public import CFSG.Quasithin.Background.B1MoreNineG
 public import CFSG.Sporadic.M23.M23Group
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

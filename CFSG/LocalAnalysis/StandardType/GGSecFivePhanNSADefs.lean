@@ -2,7 +2,6 @@ module
 
 import Lean
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanPrimDefs
-public import CFSG.ClassicalInvolution.Phan.Blocks
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoModule
-public import Mathlib.LinearAlgebra.Matrix.ProjectiveSpecialLinearGroup
 
 public section
 

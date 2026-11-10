@@ -4,7 +4,6 @@ module
 public import Certificates.Certificate3109Base
 import all Certificates.Certificate3109Base
 
-public import CFSG.Blueprint.NativeSporadic
 import Certificates.Kernel.BabyMonster.Seeds
 
 public section

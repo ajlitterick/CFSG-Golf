@@ -1,15 +1,7 @@
 module
 
-public import CFSG.Fischer.Polar.Basic
-public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.NativeData
 public meta import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.NativeData
-public import CFSG.LocalAnalysis.EvenSmallLie.UnitarySix.HuntClassBraidInputs
-public import Certificates.Certificate3180
 public import Certificates.Certificate3181
-public import Certificates.Certificate1001
-public import Certificates.Certificate1002
-public import Certificates.Certificate1003
-public import Certificates.Certificate1009
 
 public section
 

@@ -7,8 +7,6 @@ import CFSG.LocalAnalysis.StandardType.GGQTwoDRMFiveType
 import CFSG.LocalAnalysis.StandardType.GGQTwoDRMSel
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitSelModule
 import CFSG.LocalAnalysis.StandardType.GGRCTransfer
-import CFSG.LocalAnalysis.StandardType.GGSecFiveMaxJoin
-import CFSG.LocalAnalysis.StandardType.GGSecFiveOrthWeylOrdD
 
 public section
 

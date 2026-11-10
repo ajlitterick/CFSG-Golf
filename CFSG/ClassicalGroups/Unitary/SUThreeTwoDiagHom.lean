@@ -2,12 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.SUThreeTwoShape
 public import CFSG.LocalAnalysis.AGLEmbedding.SUThreeTwoQData
-public import CFSG.LieType.Steinberg.CentralExt.SUThree
-public import CFSG.LieType.Universal.Unitary.Comparison
 public import CFSG.ClassicalInvolution.Phan.AutSU2
 import all CFSG.GH74.QTGen4.Leaves.F112.PSU32Model
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LocalAnalysis.AGLEmbedding.CZeroDefs
 public import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeFamilies
@@ -23,11 +19,6 @@ public import CFSG.RankThree.PartOne.CTP.StrongPClassification
 public import CFSG.RankThree.PartOne.S10.ThetaContract
 public import CFSG.RankThree.PartOne.S12.InputsBase
 public import CFSG.StronglyEmbedded
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ProjectiveSemilinear
 
 public section
 

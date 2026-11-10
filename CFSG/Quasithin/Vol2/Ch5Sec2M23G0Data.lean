@@ -1,8 +1,6 @@
 module
 
-public import CFSG.Quasithin.Recognition.M22UniqueData
 public meta import CFSG.Quasithin.Recognition.M22UniqueData
-public import CFSG.Quasithin.Vol2.Ch5Sec2M23G0DataInputs
 public import Certificates.Certificate7056
 
 public section

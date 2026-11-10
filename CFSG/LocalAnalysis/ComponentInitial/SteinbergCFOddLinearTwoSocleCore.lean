@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ComponentClassification.SymmetricLocalLinearTwoSocle
-public import CFSG.CharacterTheory.Semidihedral.ProjectiveNonsquareInvolutions
-public import CFSG.Blueprint.Catalog
-public import CFSG.Adapters.ProjectiveSpecialLinear
 public import CFSG.LocalAnalysis.ComponentInitial.BinarySymplecticSixFusionOrbits
 public import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 public import CFSG.GroupTheory.LocalCores.Fitting
@@ -13,8 +10,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.NormalizedProductSylow
 public import CFSG.LocalAnalysis.ComponentClassification.TwoActionFixedInvolution
 public import CFSG.LocalAnalysis.ComponentClassification.TwoActionInvariantSylow
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.CentralInvolutionStructure
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 
 public section
 

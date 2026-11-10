@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTCPSUNotDvd
-public import CFSG.LocalAnalysis.ComponentClassification.LocalComponents
-public import CFSG.LocalAnalysis.ComponentClassification.Quasisimple
 
 public section
 

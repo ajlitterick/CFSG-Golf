@@ -1,11 +1,7 @@
 module
 
 public import CFSG.HardMathSupport.Seitz.TrialityOdd.Inner.PhiRows.RouteWJInv
-public import CFSG.HardMathSupport.Seitz.TrialityOdd.Inner.PhiRows.RouteWJTorus
 public import CFSG.HardMathSupport.Seitz.TrialityOdd.Inner.PhiRows.RouteWJTorsion
-public import CFSG.HardMathSupport.Seitz.TrialityOdd.Inner.PhiRows.RouteWInvolution
-public import CFSG.HardMathSupport.Seitz.TrialityOdd.Inner.PhiRows.RouteWUnitaryFrame
-public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4MnFrame
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4MnTorus
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67D4TorusFrame
 public import CFSG.HardMathSupport.Seitz.TrialityOdd.Inner.PhiRows.RouteWJFrameOf

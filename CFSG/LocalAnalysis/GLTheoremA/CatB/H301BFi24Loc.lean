@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.H301BFi24Planes
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoFi22.DS81.Fi24ShapeC
-import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoFi22.DS81.GlueO23
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoFi22.DS81.S44ReifartTransport
 

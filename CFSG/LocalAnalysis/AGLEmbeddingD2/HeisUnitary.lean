@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.HeisUnitaryTorus
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.HeisUnitaryPart
-public import CFSG.LocalAnalysis.AGLEmbeddingD2.HeisUnitaryArith
-public import CFSG.LocalAnalysis.AGLEmbeddingD2.SquareUnitary
-public import CFSG.LocalAnalysis.AGLEmbeddingD2.HeisEngine
 
 public section
 

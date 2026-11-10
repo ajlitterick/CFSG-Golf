@@ -1,16 +1,12 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGLHyp111SizeMax
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGLHyp111B3
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ICitedHyp111K
-import CFSG.LocalAnalysis.RankThreeTheoremC.AGLHyp111E16
 import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneSylow
-import CFSG.LocalAnalysis.RankThreeTheoremC.D2Ambient3
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.CaseTwoNoTwo
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.CaseTwoSylow
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.JStarElimGeneric
 import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.Zassenhaus.PartA.S7Swap
-import CFSG.HardMathSupport.Solomon.Coordinator.B0TSylow
 public import CFSG.CGT.PushingUpLit.BHS.NaturalDefs
 public import CFSG.CGT.PushingUpLit.BHS.SymNatDefs
 public import CFSG.CGT.Timmesfeld75.Statements

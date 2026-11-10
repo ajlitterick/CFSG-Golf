@@ -2,19 +2,11 @@ module
 
 public import CFSG.Open.StatedDefs
 import CFSG.HardMathSupport.Dickson.Bal207.LocalBalClassicalSpEight
-import CFSG.HardMathSupport.Dickson.Bal207.LocalBalClassicalNoNormal
 import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.OrthOuterThreeAux.SympPrimeSubfieldOdd
-import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSpExterior
-import CFSG.LocalAnalysis.ComponentInitial.FieldFiniteAutomorphism
-import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherEvenSymplecticNormalForm
-import CFSG.RankThree.PartOne.KC.SymplecticFullCentralizerLift
 import CFSG.RankThree.PartOne.S10.EmbeddingTransport
 import CFSG.RankThree.PartTwo.KFacts.K71Sp48Index
 import CFSG.SignalizerFunctorTheorem.CatalogBridge.MinimalSz
-import CFSG.SignalizerFunctorTheorem.CatalogBridge.NearPSL2
 import CFSG.Adapters.Certificate43Check
-import CFSG.Adapters.RankTwoModelTransports
-import CFSG.Walter.PSL2Facts.Even
 import CFSG.CGT.PushingUpLit.CGT6.SixFour
 import CFSG.CGT.PushingUpLit.CGT6.SixSixteen
 import CFSG.CGT.PushingUpLit.Glue.ClassXBasic
@@ -79,8 +71,6 @@ import CFSG.Quasithin.Background.C1PackS1531Top
 import CFSG.Quasithin.Background.C2PushThree
 import CFSG.Quasithin.Background.D2
 import CFSG.Quasithin.Background.E3
-import CFSG.Quasithin.Background.E3Nprime
-import CFSG.Quasithin.Background.E3Uniq
 import CFSG.Quasithin.Background.F918H5
 import CFSG.Quasithin.Background.FFC4Tr2
 import CFSG.Quasithin.Background.GoldschmidtS146RBend1
@@ -137,9 +127,6 @@ import CFSG.Sporadic.Presentation.Co2Fusion
 import CFSG.Sporadic.Presentation.Co2FusionInputs
 import CFSG.Sporadic.Presentation.McLExactData
 import CFSG.Sporadic.Presentation.McLExactInputs
-import CFSG.Walter.J1Props
-import CFSG.Walter.J1Recog
-import CFSG.Walter.PSL2Facts
 import Certificates.Certificate9530
 
 public section

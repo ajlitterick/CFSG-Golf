@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUModel
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySp
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestUnitaryCenter
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Ivk8NormP.M23
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

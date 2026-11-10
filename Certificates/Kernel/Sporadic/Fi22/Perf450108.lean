@@ -2,11 +2,8 @@ module
 
 public import Certificates.Kernel.Sporadic.Fi22.WordKit
 public import Certificates.Kernel.Sporadic.Fi22.N2070Final
-public import Certificates.Kernel.Misc.Perm.HexCmd
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoFi22.DS81.Fi24Branch.Fi22TwoBLatticeCheck
 public meta import CFSG.LocalAnalysis.EvenSporadicStandard.TwoFi22.DS81.Fi24Branch.Fi22TwoBLatticeCheck
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

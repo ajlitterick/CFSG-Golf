@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownSp
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalRk2Rows
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalRk2Sp4
 

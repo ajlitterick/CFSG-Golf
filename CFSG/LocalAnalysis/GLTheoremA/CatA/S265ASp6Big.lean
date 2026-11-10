@@ -6,8 +6,6 @@ import CFSG.LocalAnalysis.GLTheoremA.CatA.S265ASp6Lay
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S265ASpAct
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Om
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Sp6
-import CFSG.LocalAnalysis.GLTheoremA.CatB.Bridges
-import TauCeti.LinearAlgebra.BilinearForm.SymplecticBasis
 public import CFSG.LieType.Multipliers.U62Sylow
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanChevOuterD42Spec
 public import CFSG.LocalAnalysis.ComponentClassification.Foote5CoreEven

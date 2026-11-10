@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Misc.Perm.J2EnumData
-public import Certificates.Data.Kernel.Misc.SetCodes
 import Certificates.Kernel.Misc.Perm.HexCmd
 meta import CFSG.RankThree.PartTwo.Sec4.Sporadic.J2Check45Inputs
 

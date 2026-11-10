@@ -2,11 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutInnerExcCore
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcRank
-public import CFSG.LocalAnalysis.StandardType.GGTableBF4Rank
 public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerAdj
 public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerE7
 public import CFSG.LocalAnalysis.SeitzReduction.E8PilotLevi
-public import CFSG.LieType.Chevalley.AdjointCenter
 
 public section
 

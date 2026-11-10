@@ -4,9 +4,6 @@ module
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.HNElevenInputs
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.PrimeCommute
 public import CFSG.Sporadic.HNOddCore.InvDefs
-public import CFSG.Sporadic.HNSchreier.ThreeSpec
-public import CFSG.Sporadic.HNSchreier.Order
-public import Mathlib.GroupTheory.Perm.Centralizer
 public import CFSG.RankThree.Classical.SteinbergBJUnitaryThreeInvolutions
 
 @[expose] public noncomputable section

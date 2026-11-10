@@ -2,16 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6E4bFrame
 public import CFSG.LocalAnalysis.StandardType.GGTwE6E4bFlag
-public import Mathlib.LinearAlgebra.Matrix.Notation
-public import Mathlib.Data.ZMod.Basic
-public import Mathlib.GroupTheory.OrderOfElement
-import Mathlib.Tactic.NormNum
-public import CFSG.LocalAnalysis.StandardType.GGTwE6E4bTorus
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeModel
 public import CFSG.LieType.Chevalley.CharTwoWeylLifts
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.TwE6InnerTwoA2Holonomy
-public import CFSG.RankThree.Chevalley.G2SplitPrimeToralCentralizers
-public import CFSG.GroupTheory.CommutingProductFixedSubgroup
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X6LargeRee
 
 public section

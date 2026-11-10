@@ -3,7 +3,6 @@ module
 public import CFSG.Certificates.Kernel.KDenseP.MonSeven.Run
 public import Certificates.Data.Kernel.KDenseP.Look
 public import Certificates.Data.Kernel.KDenseP.Replay
-public import CFSG.Certificates.Kernel.Common.Chain
 public import CFSG.YGroups.Y443.Native.EdgeNoncomm
 
 public section

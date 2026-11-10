@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Certificates.Kernel.Bounds.Hdr
-public import CFSG.Certificates.Kernel.Bounds.Checks
-public import CFSG.Certificates.Kernel.Bounds.Core3
 public import CFSG.Certificates.Kernel.Bounds.SchurC.Rels
 import CFSG.Certificates.Kernel.Bounds.LoadRoot
 import CFSG.Certificates.Kernel.Common.Repo

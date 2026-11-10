@@ -2,11 +2,7 @@ module
 
 public import CFSG.GF2Type.Smith1980Orth.S3Types
 public import CFSG.GF2Type.Smith1980Orth.Transport
-public import CFSG.LargeExtraspecial.S14SMKDeltaRank
 public import CFSG.LargeExtraspecial.S14SMKTransOuter
-public import CFSG.LargeExtraspecial.S14SMKTransLift
-public import CFSG.LargeExtraspecial.S14SMKDelta32
-import Mathlib.GroupTheory.GroupAction.Quotient
 public import CFSG.CGT.Timmesfeld75.Derivations
 public import CFSG.CGT.Timmesfeld75.Main
 public import CFSG.LargeExtraspecial.PSL10Fix

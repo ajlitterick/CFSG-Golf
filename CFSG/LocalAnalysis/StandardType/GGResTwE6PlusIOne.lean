@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGResReflFixRootTwo
 public import CFSG.LocalAnalysis.StandardType.GGResReflFixLift
 public import CFSG.LocalAnalysis.StandardType.GGTorusReflFixTransfer
 public import CFSG.LocalAnalysis.StandardType.GGTwE6PlusReflFix
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
 import CFSG.LocalAnalysis.StandardType.GGTwE6RecipeTransport
 import CFSG.LocalAnalysis.StandardType.GGBstarLemmaC
 

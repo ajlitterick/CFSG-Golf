@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGFinModelPkg
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.TorusAtExact
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.FiniteCentralizerRegular
-import CFSG.LieType.Chevalley.SingleEdgePerfect
 
 public section
 

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.Asc94.He42Spec2
-public import CFSG.Quasithin.Vol2.Asc94.HeJ13
-public import CFSG.LocalAnalysis.ComponentClassification.AschbacherTightEmbeddingData
 
 public section
 

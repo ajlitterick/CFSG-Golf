@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.FF81.FrameSys
 import CFSG.LocalAnalysis.StandardType.GGFFModelBasis
 import CFSG.LocalAnalysis.StandardType.GGFFModelSL
-import CFSG.LocalAnalysis.StandardType.GGFFSLSylow
 
 public section
 

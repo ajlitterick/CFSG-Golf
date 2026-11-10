@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.Basic
-import Mathlib.GroupTheory.SchurZassenhaus
 
 namespace CFSG
 end CFSG

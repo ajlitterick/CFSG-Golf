@@ -6,8 +6,6 @@ public meta import CFSG.Sporadic.FischerOddCore.Fi22ExtSylowCheck
 public meta import CFSG.Monster.B.Fischer.Fi22GraphBoundCheck
 public meta import Certificates.Data.CFSGNative.FischerOddCore.Checks
 import Certificates.Kernel.Sporadic.Fi22.N2070Final
-import Certificates.Certificate3039
-import Certificates.Certificate3147
 
 public section
 

@@ -1,38 +1,19 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDNbrField
-public import CFSG.LocalAnalysis.StandardType.GGNsq2QuotHyp
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitSixType
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDNbr6Main
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDL1
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDL1Odd
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDNbrSixFrame
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDL1Edge
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDNbrSixEdge
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDSelCore
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDGenAbsorb
 import CFSG.LocalAnalysis.StandardType.GGNsq2QuotCover
 import CFSG.LocalAnalysis.StandardType.GGNsq2Main
 import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthChart
 import CFSG.LocalAnalysis.StandardType.GGQTwoDFrameMain
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 import CFSG.LocalAnalysis.StandardType.GGQTwoDL1InvFixQuot
-import CFSG.LocalAnalysis.StandardType.GGQTwoDL1InvFixU
-import CFSG.LocalAnalysis.StandardType.GGQTwoDL1InvFixO
 import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthModel
-import CFSG.LocalAnalysis.StandardType.GGQTwoLMFrameCBase
 import CFSG.LocalAnalysis.StandardType.GGQTwoDL1Final
-import CFSG.LocalAnalysis.StandardType.GGQTwoDSevenPrelim
-import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
-import CFSG.LocalAnalysis.StandardType.GGOneFiveNormalizer
-import CFSG.LocalAnalysis.StandardType.GGQTwoDL1LocalU
-import CFSG.LocalAnalysis.StandardType.GGQTwoDL1LocalO
 import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthPair
-import CFSG.LocalAnalysis.StandardType.GGNsq2QuotNorm
-import CFSG.LocalAnalysis.StandardType.GGNsq2RankOne
-import CFSG.LocalAnalysis.StandardType.GGQTwoDSelUnit
-import CFSG.LocalAnalysis.StandardType.GGQTwoDSelOrth
 import CFSG.LocalAnalysis.StandardType.GGQTwoDSelModuleOfB2
 import CFSG.LocalAnalysis.StandardType.GGQTwoDL1PrimeToThree
 import CFSG.LocalAnalysis.StandardType.GGQTwoDSelBases

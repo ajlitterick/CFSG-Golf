@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGKGroupFusionSeitzExcBasic
 public import CFSG.CharacterTheory.Burnside
 public import CFSG.Adapters.LinearCatalog
-public import CFSG.Timmesfeld.Orders.ClassicalLinear
-public import Mathlib.GroupTheory.IndexNormal
 
 public section
 

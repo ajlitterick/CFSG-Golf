@@ -4,13 +4,11 @@ public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoModel
 import CFSG.LocalAnalysis.StandardType.GGSixE6TwoNum
 import CFSG.LocalAnalysis.StandardType.GGSixE6TwoLevi
 import CFSG.LargeExtraspecial.A2ModOrdCard
-import CFSG.LieType.Chevalley.AdjointCenter
 import CFSG.Adapters.TauCetiExceptional.BridgeTransport
 import CFSG.LocalAnalysis.SectionRank.ClassicalOdd
 import CFSG.LocalAnalysis.SectionRank.EvenCover.LinearStep
 import CFSG.LocalAnalysis.SectionRank.SporadicCover
 import CFSG.Sporadic.M23.M23Group
-import CFSG.Sporadic.Th.F2Spec
 
 public section
 

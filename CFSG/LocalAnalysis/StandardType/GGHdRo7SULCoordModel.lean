@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGHdRo7SULCoordTorus
-public import CFSG.LocalAnalysis.StandardType.GGHdRo7SULCoordModelA
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7SULCoordModelB
 
 public section

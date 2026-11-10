@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10Q2mModel
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10FactPockets
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10PocketsSup
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10PkFrame
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10TypeDict2
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10S109BInputs
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10Inputs

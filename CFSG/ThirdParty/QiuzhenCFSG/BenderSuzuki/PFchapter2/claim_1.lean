@@ -1,11 +1,8 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section2.proposition_3
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.proposition_1_b
-import Mathlib.Algebra.Algebra.ZMod
 import Mathlib.Algebra.CharP.CharAndCard
-import Mathlib.FieldTheory.Finite.GaloisField
 
 namespace CFSG
 end CFSG

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.D6HostsAux
-public import CFSG.LocalAnalysis.StandardType.FS81.D6ModelOm
 public import CFSG.LocalAnalysis.StandardType.FS81.D6ModelRoot
 public import CFSG.LocalAnalysis.StandardType.FS81.D6ModelPerp
 

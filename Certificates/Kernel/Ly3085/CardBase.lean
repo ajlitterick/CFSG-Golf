@@ -1,7 +1,6 @@
 
 module
 
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 public import Certificates.Kernel.Ly3085.Seed
 

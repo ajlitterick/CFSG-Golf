@@ -4,9 +4,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.StrongEmbeddingConjuga
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection6.Defs
 public import Mathlib.GroupTheory.SpecificGroups.Quaternion
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection9.corollary_9_2
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Burnside.NormalComplement
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Frattini.Core
-import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.TwoDimensionalOddOrder
 
 namespace CFSG
 end CFSG

@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.UnitaryA3Odd
 public import CFSG.LocalAnalysis.StandardType.UnitaryA3Even
 public import CFSG.LocalAnalysis.StandardType.A8LiftFromHom
 public import CFSG.LocalAnalysis.StandardType.ElemAbelianSquareBasis
-public import CFSG.LocalAnalysis.StandardType.UnitaryCenterOrders
-public import CFSG.Open.LocalVocabulary
 
 public section
 

@@ -1,12 +1,8 @@
 module
 
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.OuterPlane
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismGeneration
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherOuterQuotients
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherLinearOuterOrder
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSLInnerInvolution
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoAllFields
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoSemilinear
 import CFSG.Dihedral.GorensteinWalter.PGL2SquareRange
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.Families

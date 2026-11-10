@@ -4,9 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTBJE6ThreeCoord
 public import CFSG.LocalAnalysis.StandardType.GGTBJE6ThreeWeyl
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6Class
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRootGenFrame
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUDefs
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangTwE6Conj
-public import CFSG.LieType.Chevalley.GraphFixedCenterTrivial
 
 public section
 

@@ -3,12 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7CDefs
 
 import CFSG.LocalAnalysis.StandardType.GGHdRo7CLCoordAux
-import CFSG.LocalAnalysis.StandardType.GGTableBTransport
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-import CFSG.LocalAnalysis.StandardType.GGAssemblyThreeHypSix
-import CFSG.LocalAnalysis.StandardType.GGTableBOutdiag
-import CFSG.LocalAnalysis.StandardType.Marking
-import CFSG.Blueprint.Catalog
 import CFSG.GroupTheory.CenterlessInnerCentralizer
 import CFSG.RankThree.PartOne.F106.F4Three
 import CFSG.GroupTheory.PCore.SubgroupCore

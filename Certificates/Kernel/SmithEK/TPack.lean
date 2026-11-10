@@ -3,7 +3,6 @@ module
 public import Certificates.Data.Kernel.SmithEKT
 public import Certificates.Kernel.SmithEK.Pts
 public import Certificates.Kernel.SmithEK.Tab
-public import CFSG.Certificates.Kernel.Common.Eval
 meta import Certificates.Kernel.SmithEK.GenTP
 
 #kc_eval CertificateChecks.KernelSmithEK tp CertificateChecks.KernelSmithEK.packStep

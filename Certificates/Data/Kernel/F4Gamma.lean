@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.F4Rank
-public import Certificates.Data.Kernel.F4Salt
 public import Certificates.Data.Kernel.F4Syl3PhiInv
 
 public section

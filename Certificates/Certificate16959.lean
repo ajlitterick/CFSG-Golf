@@ -1,19 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.MonsterThirteenAInputs
-import Certificates.Certificate6007
-import Certificates.Certificate10127
-import Certificates.Certificate125500
-import Certificates.Certificate125501
-import Certificates.Certificate125552
-import Certificates.Certificate125553
-import Certificates.Certificate125554
-import Certificates.Certificate125555
-import Certificates.Certificate125556
-import Certificates.Certificate125557
-import Certificates.Certificate125558
-import Certificates.Certificate125559
-import Certificates.Certificate125561
 import Certificates.Kernel.KDenseP.M13
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.MonsterThirteenInputs
 public import CFSG.YGroups.DCE.MaximalB

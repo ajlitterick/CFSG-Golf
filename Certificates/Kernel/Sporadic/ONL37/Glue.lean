@@ -2,20 +2,15 @@ module
 
 public import Certificates.Kernel.Sporadic.ONL37.Defs
 public import Certificates.Kernel.Sporadic.ONC.Chain
-public import Certificates.Kernel.Sporadic.ON2.Assemble
 public import CFSG.Certificates.Kernel.Spor.ONCSOpSound
 public import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Coordinator.L37.ModelToJ
 public import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.ComponentPrimary.L3SevenNamed
-public import CFSG.Sporadic.ON.Action
-public import CFSG.RankThree.Native.ONTripleSigBase
 import Certificates.Kernel.Sporadic.ONL37.W0
 import Certificates.Kernel.Sporadic.ONL37.W1
 import Certificates.Kernel.Sporadic.ONL37.W2
 import Certificates.Kernel.Sporadic.ONL37.Prog
 import Certificates.Kernel.Sporadic.ONL37.Fix
 import all CFSG.Sporadic.Bridge.Common
-import Mathlib.Tactic.IntervalCases
-import Mathlib.Tactic.FinCases
 public import CFSG.ClassicalGroups.Symplectic.Simple
 public import CFSG.LinearAlgebra.LinearGroups.ProjectiveSimple
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper

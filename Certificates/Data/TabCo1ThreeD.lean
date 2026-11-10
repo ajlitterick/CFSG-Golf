@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.TabCo1Kit
 public import CFSG.Sporadic.Co1.Module.OddProg
-public import Certificates.Data.CFSGNative.Co1.Odd
 public meta import Certificates.Data.TabCo1Kit
 public meta import CFSG.Sporadic.Co1.Module.OddProg
 public meta import Certificates.Data.CFSGNative.Co1.Odd

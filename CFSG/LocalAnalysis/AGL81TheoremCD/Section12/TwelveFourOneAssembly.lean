@@ -1,23 +1,15 @@
 module
 
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveFourSteps
-public import CFSG.GroupTheory.ABGLocalTools.Basic
-public import CFSG.CGT.PushingUpLit.Statements
-public import CFSG.LocalAnalysis.AGLEmbedding.WeakBlockInputs
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenInputs
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTwelveKer
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section15.OraclesGen
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.KFactParabolicWCent
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.KFactOddAutParabolic
-public import CFSG.LocalAnalysis.RankThreeTheoremC.GenericLayerReductionDefs
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15RankTable
 public import CFSG.LocalAnalysis.AGL81I.Section4.FourNineteen
-public import CFSG.LocalAnalysis.ComponentInitial.KProperPumpUpStatement
-public import CFSG.Assembly.InCatalog
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveFourYCentJ
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveFourYCentL
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveFourBlockRank
-import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.WeakBlockExists
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveFourJLeX
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveFourASevenLeX
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveFourJLeXSpor

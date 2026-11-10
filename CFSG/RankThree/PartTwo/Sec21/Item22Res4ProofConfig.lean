@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec21.Item22Res4ProofCensus
-public import CFSG.RankThree.PartTwo.Sec21.Item223CensusProofInner
 public import CFSG.RankThree.PartTwo.Sec21.Item228ResProofZRoot
 public import CFSG.Monster.B.TwoA.Base.ElemAut
 

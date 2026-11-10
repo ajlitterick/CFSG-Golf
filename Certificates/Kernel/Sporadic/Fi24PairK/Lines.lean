@@ -5,7 +5,6 @@ public import Certificates.Kernel.Sporadic.Fi24PairK.Checks.W1
 public import Certificates.Kernel.Sporadic.Fi24PairK.Checks.W2
 public import Certificates.Kernel.Sporadic.Fi24PairK.Checks.W3
 public import Certificates.Kernel.Sporadic.Fi24OrbL.Facts
-public import Certificates.Kernel.Sporadic.Fi24Net.Letters
 public import CFSG.Certificates.Kernel.Spor.Fi24PairKSound
 public import CFSG.LocalAnalysis.WeakClosure81.GF2RepsAsch54SporFi24Facts
 import CFSG.Certificates.Kernel.Common.ForallTree

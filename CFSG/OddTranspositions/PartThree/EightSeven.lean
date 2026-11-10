@@ -2,13 +2,7 @@ module
 
 public import CFSG.OddTranspositions.PartThree.Statements
 import CFSG.OddTranspositions.SevenOne
-import CFSG.OddTranspositions.BlockGraph
 import CFSG.Timmesfeld.Bridge.OddLocalCommonBasic
-import CFSG.Timmesfeld.Bridge.OddTranspSecondKind
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
 import CFSG.Walter.Defs
 
 public section

@@ -1,12 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResHdRoNarrowDefs
 public import CFSG.LocalAnalysis.StandardType.GGTDModelA
 public import CFSG.LocalAnalysis.StandardType.GGTDModelU
-public import CFSG.LocalAnalysis.StandardType.GGResXDatumARank
-public import CFSG.LocalAnalysis.StandardType.GGResXDatumARankFrom
 public import CFSG.LocalAnalysis.StandardType.GGTBTorLiftADepHolds
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenTwE6Three
 
 public section
 

@@ -2,16 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinRealized
 public import CFSG.LocalAnalysis.StandardType.GGMemberRowsDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanPrimDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyQSplit
-import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
-import CFSG.LocalAnalysis.StandardType.GGSecFiveRankOneCard
-import CFSG.LocalAnalysis.StandardType.GGSecFiveNbrGenKNOfInputs
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-import CFSG.Adapters.SpecialLinearPerfect
 import CFSG.Quasithin.Vol2.Ch10SecHeLMain
-import Mathlib.LinearAlgebra.Projectivization.PSL.PSL2
 import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Reduce
 import CFSG.Quasithin.Background.A3Structure312Facts
 import CFSG.Quasithin.Background.A3Structure36A
@@ -24,7 +15,6 @@ import CFSG.Quasithin.Background.B5CompA
 import CFSG.Quasithin.Background.B5CompB
 import CFSG.Quasithin.Background.B5FinOut
 import CFSG.Quasithin.Background.B6
-import CFSG.Quasithin.Background.B6Example
 import CFSG.Quasithin.Background.E2Hyp
 import CFSG.Quasithin.Background.E2SolvTwo
 import CFSG.Quasithin.Background.F9FiveStruct

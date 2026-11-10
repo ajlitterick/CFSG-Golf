@@ -8,8 +8,6 @@ public import Certificates.Kernel.KGC31M23.Inv0
 public import Certificates.Kernel.KGC31M23.Inv1
 public import CFSG.Certificates.Kernel.KGC31PPow
 public import CFSG.Certificates.Kernel.Common.ForallChunks
-public import CFSG.Quasithin.Vol2.KGFactC31M23Data
-public import Certificates.Kernel.J4Count.FixCE
 
 public section
 

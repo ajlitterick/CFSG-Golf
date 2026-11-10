@@ -5,7 +5,6 @@ public import Certificates.Kernel.HS100.Five
 public import CFSG.Certificates.Kernel.Misc.ArrEnumSound
 public import CFSG.Certificates.Kernel.Misc.ArrEnumUnpack
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.Misc.ArrBind
 
 public section

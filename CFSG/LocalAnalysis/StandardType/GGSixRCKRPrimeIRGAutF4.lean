@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGDefs
-public import CFSG.LieType.Chevalley.AdjointCenter
-public import CFSG.LieType.Chevalley.EvenF4AutomorphismNormalForm
-public import CFSG.LieType.Chevalley.ExactNormalFormE
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2ShortF4Iso
-public import CFSG.LieType.Steinberg.Adjoint.Datum
 
 public section
 

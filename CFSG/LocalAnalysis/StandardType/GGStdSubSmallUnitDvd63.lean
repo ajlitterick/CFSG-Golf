@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallUnitDvd63Norm
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallUnitDvd63Delta
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRule
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6
-public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitaryOutdiag
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
 
 public section
 

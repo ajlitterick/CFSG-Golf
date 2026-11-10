@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGExcToralSylowLayer
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerPDivExcRound
 
 public section

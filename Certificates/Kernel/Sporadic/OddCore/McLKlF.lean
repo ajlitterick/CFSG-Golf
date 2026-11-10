@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Sporadic.OddCore.McLKl
 public import Certificates.Kernel.Sporadic.OddCore.McLTwoF
-import CFSG.Certificates.Kernel.Spor.PackWord
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutCheckBase
 public import Certificates.Kernel.Sporadic.OddCore.PEnumGlue3
 

@@ -2,11 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniLFrame
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpPlaneFrameDefs
-public import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotGenTwoWindows
 import CFSG.LocalAnalysis.StandardType.GGSuNsRootGenComp
-import CFSG.LocalAnalysis.StandardType.GGLinearFusionSURepairBlock
-import CFSG.GroupTheory.LocalCores.Components
-import CFSG.LocalAnalysis.SeitzReduction.F4PilotBLift
 import CFSG.LocalAnalysis.StandardType.GGTBRowSignedFrameAux
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBNbrCompare
 

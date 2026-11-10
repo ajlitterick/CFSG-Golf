@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Sporadic.Fi22.P2064
 public import Certificates.Kernel.Sporadic.Fi22.E2065
-public import Certificates.Kernel.Sporadic.ON.Gen
 public import Certificates.Data.Kernel.Spor.MulTree
 import CFSG.Certificates.Kernel.Common.Harness
 

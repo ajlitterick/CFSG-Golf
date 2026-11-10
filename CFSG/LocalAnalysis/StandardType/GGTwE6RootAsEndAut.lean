@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTwE6RootAsEndMat
 public import CFSG.LocalAnalysis.StandardType.GGTwE6RecipeTransport
 public import CFSG.LocalAnalysis.StandardType.GGTwE6RootAsSelf
-import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangTwE6Conj
 
 public section
 

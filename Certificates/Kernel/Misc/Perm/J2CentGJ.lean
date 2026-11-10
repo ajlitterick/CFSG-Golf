@@ -3,8 +3,6 @@ module
 public import Certificates.Kernel.Misc.Perm.J2Cent
 public import Certificates.Kernel.Misc.Perm.J2Enum
 public import Certificates.Kernel.Misc.Perm.J2Rel
-public import CFSG.RankThree.PartTwo.Sec4.Sporadic.J2Gen
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

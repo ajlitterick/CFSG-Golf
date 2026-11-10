@@ -2,10 +2,6 @@ module
 
 public import Certificates.Kernel.Bounds.HS.Rels
 public import Certificates.Kernel.Bounds.HS.Facts
-public import CFSG.Certificates.Kernel.LceSTabSound
-public import CFSG.Certificates.Kernel.Bounds.HSAlt.Data.M
-public import CFSG.Certificates.Kernel.Bounds.HSAlt.Data.X1_Sel
-public import CFSG.Certificates.Kernel.Bounds.HSAlt.Data.X3_Sel
 public import CFSG.Certificates.Kernel.Bounds.HSAlt.Checks.T_H_0
 public import CFSG.Certificates.Kernel.Bounds.HSAlt.Checks.X1_H_0
 public import CFSG.Certificates.Kernel.Bounds.HSAlt.Checks.X1_W_0
@@ -15,7 +11,6 @@ public import CFSG.Certificates.Kernel.Bounds.HSAlt.Checks.X2_C_0
 public import CFSG.Certificates.Kernel.Bounds.HSAlt.Checks.X3_H_0
 public import CFSG.Certificates.Kernel.Bounds.HSAlt.Checks.X3_W_0
 public import CFSG.Certificates.Kernel.Bounds.HSAlt.Checks.X3_C_0
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

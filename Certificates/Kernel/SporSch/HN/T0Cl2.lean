@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.SporSch.HN.T0Data
 public import Certificates.Data.Kernel.SporSch.HNT0
 import CFSG.Certificates.Kernel.Common.EachTrue
-import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 400000
 

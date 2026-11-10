@@ -1,7 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.MonsterFiveBWitData
-import Certificates.Certificate6007
 import Certificates.Kernel.KDenseP.MonFiveB
 public import CFSG.LocalAnalysis.AGLEmbedding.Norton.AgreeTasks
 public import CFSG.YGroups.DCE.MaximalB

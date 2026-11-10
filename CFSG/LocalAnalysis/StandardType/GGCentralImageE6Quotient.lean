@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4QGeFourInputs
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGTyLabelAux
-public import CFSG.LocalAnalysis.StandardType.GGReverseMarking
-public import CFSG.LocalAnalysis.GLTheoremA.S11.Defs
-public import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
 
 public noncomputable section
 

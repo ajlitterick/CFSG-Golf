@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIRows
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIRestr
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangFNIReeCore
 public import CFSG.CGT.Timmesfeld75.ListWCLin
 

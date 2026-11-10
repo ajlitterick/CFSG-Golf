@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSporKOrdBMLiftRows
-public import CFSG.LocalAnalysis.StandardType.GGSporKOrdBMOut
 public import CFSG.LocalAnalysis.StandardType.GGSporKOrdBMExc
 public import CFSG.LocalAnalysis.StandardType.GGSporKOrdBMSearch
 

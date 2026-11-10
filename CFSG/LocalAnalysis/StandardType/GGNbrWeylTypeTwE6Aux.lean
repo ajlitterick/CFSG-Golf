@@ -1,24 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeDefs
-public import CFSG.Assembly.GL83LieDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeExcPlusAux
 public import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeExcPlusAux2
-public import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeF4ThreeAux
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitTwE6Plus
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitTwE6Three
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitTwE6SplitHolds
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitTwE6SplitFrame
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6Delta
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6RankOuter
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaOutdiag
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaCenter
-public import CFSG.LieType.Steinberg.Exceptional.Fields
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTwE6ThreeTorus
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTwE6ThreeSC
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTwE6ThreeNormalizer
 public import CFSG.LocalAnalysis.StandardType.GGIrred937TwE6
-public import CFSG.LocalAnalysis.StandardType.GGIrred937TwE6Transport
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInner937TwE6Inn
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInner937TwE6Center
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6SplitLift

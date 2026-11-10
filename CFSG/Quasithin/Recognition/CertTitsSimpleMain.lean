@@ -1,7 +1,6 @@
 
 module
 
-public import CFSG.Quasithin.Recognition.CertTitsSimpleMainBase
 import all CFSG.Quasithin.Recognition.CertTitsSimpleMainBase
 
 public import CFSG.Quasithin.Recognition.CertTitsSimple

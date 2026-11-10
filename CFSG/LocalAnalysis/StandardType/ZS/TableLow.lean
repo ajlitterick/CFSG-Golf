@@ -7,8 +7,6 @@ import CFSG.ClassicalGroups.SpecialLinear.TvModLinAlg
 import CFSG.LocalAnalysis.StandardType.ZS.Basic
 import TauCeti.LinearAlgebra.Matrix.Trace.FinTwo
 import CFSG.LocalAnalysis.SteinbergCCDegreeTwoNormalizerSolvable
-import Mathlib.Algebra.CharP.LinearMaps
-import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
 import CFSG.LargeExtraspecial.A2ModLines
 import CFSG.LinearAlgebra.LinearGroups.Elations
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwo

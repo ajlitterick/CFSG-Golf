@@ -1,12 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.MIInnDiag
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.MIAut3
-public import CFSG.LocalAnalysis.StandardType.GGRawAutRest
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangTwisted
-public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergTrialityHolds
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmega
-public import CFSG.LocalAnalysis.StandardType.GGRecipeField
 
 public section
 

@@ -3,12 +3,9 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGOmegaNsRootGenAsm
 public import CFSG.LocalAnalysis.StandardType.GGRootGenSpOrthSplitAvoid
 import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthTorus
-import CFSG.LocalAnalysis.StandardType.GGOmegaPlusCentrallyClosed
 import CFSG.LocalAnalysis.StandardType.GGOmegaMinusCentrallyClosed
 import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixNsLiftOmega
 import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestTailFinal
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaPlus
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaMinus
 
 public section
 

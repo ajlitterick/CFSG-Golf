@@ -3,25 +3,13 @@ module
 
 public import CFSG.Certificates.Kernel.Th.SoundnessMax3GenBase
 
-public import CFSG.Certificates.Kernel.Th.Gen.Max3
 public import CFSG.Sporadic.Th.Max3.OddCaseInputs
-public import Mathlib
-public import CFSG.Blueprint.NativeSporadic
-public import CFSG.Blueprint.MatrixSeedIdentification
-public import CFSG.Sporadic.Th.F2Spec
-public import CFSG.Certificates.SchreierStabilizerGenerators
-public import Certificates.Data.CFSGNative.Th.Certificate
 public import CFSG.Sporadic.Th.Max3.InvolutionsBase1
 public import CFSG.Sporadic.Th.Max3.AllConjInputs
 public import CFSG.Sporadic.Th.Max3.QuotientBase1
 public import CFSG.Sporadic.Th.Max3.InvolutionsInputs
 public import CFSG.Sporadic.Th.Max3.CoreBase1
-public import CFSG.Sporadic.Th.Max3.PacketInputs
-public import CFSG.Sporadic.Th.Max3.AltNine
-public import CFSG.LocalAnalysis.ComponentClassification.PresentationLocalCarmichael
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
 public import CFSG.Sporadic.Th.Max3.QuotientInputs
-public import CFSG.Sporadic.Th.Max3.Data
 import CFSG.Certificates.Kernel.Common.Generalize
 import CFSG.Certificates.Kernel.Th.Max3S.R9014
 import CFSG.Certificates.Kernel.Th.Max3S.R10088
@@ -29,15 +17,11 @@ import CFSG.Certificates.Kernel.Th.Max3S.R10089
 import CFSG.Certificates.Kernel.Th.Max3S.R10090
 import CFSG.Certificates.Kernel.Th.Max3S.R10091
 import CFSG.Certificates.Kernel.Th.Max3S.R10092
-import CFSG.Certificates.Kernel.Th.Max3S.Regs
-import CFSG.Certificates.Kernel.Th.Max3S.RegsExtra
-import CFSG.Certificates.Kernel.Th.Max3S.DefsExtraBase
 import CFSG.Certificates.Kernel.Th.Max3S.R10088Base
 import CFSG.Certificates.Kernel.Th.Max3S.R10089Base
 import CFSG.Certificates.Kernel.Th.Max3S.R10090Base
 import CFSG.Certificates.Kernel.Th.Max3S.R10091Base
 import CFSG.Certificates.Kernel.Th.Max3S.R9014Base
-import CFSG.Certificates.Kernel.Th.Spec.Mirror
 
 public section
 

@@ -2,9 +2,6 @@ module
 
 public import Certificates.Kernel.SchreierFam.C23330O
 public import Certificates.Kernel.LocalComp.HeFixBind
-public import CFSG.Certificates.Kernel.BfsPinUnpack
-public import CFSG.Certificates.Kernel.Spor.PackWord
-public import CFSG.Certificates.Kernel.Spor.Loops
 public import CFSG.Certificates.Kernel.Spor.RawOrbEval
 
 public section

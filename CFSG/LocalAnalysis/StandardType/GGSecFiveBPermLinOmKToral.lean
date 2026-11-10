@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermLinOmKTorus
 public import CFSG.LocalAnalysis.StandardType.GGAssemblyTwoHypSix
-public import CFSG.LieType.Universal.Catalog
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpKToral
 import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerMinus
 import CFSG.LocalAnalysis.StandardType.GGSpinInnerAction

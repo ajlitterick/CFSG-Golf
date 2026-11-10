@@ -1,9 +1,7 @@
 module
 
-public import CFSG.Sporadic.Schreier.Co3First
 public meta import CFSG.Sporadic.Schreier.Co3CentralizerCheck
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
-public import CFSG.LocalAnalysis.EvenSmallLie.SympSix.Co3IdentDataInputs
 public import Certificates.Certificate3089
 
 public section

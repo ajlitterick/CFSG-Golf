@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKFlagOmGen
-public import CFSG.LieType.HighestRoot.ModelCenter
 public import CFSG.HardMathSupport.Dickson.Bal207.OrthEightFixed
-public import CFSG.LieType.Universal.SpinOmega.Products
-public import CFSG.RankThree.OrthogonalInvolutions.Dickson
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2OddCenter
 
 public section

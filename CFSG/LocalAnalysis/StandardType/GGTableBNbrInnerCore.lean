@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBTransport
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveNbr
 
 public section
 

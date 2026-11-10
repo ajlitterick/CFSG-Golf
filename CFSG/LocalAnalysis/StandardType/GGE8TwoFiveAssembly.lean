@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGE8TwoFiveFinite
-public import CFSG.LocalAnalysis.StandardType.GGE8TwoFiveKernel
 public import CFSG.LocalAnalysis.StandardType.GGE8TwoFiveFiveB
 public import CFSG.LocalAnalysis.StandardType.GGE8TwoFiveFiveA
 public import CFSG.LocalAnalysis.StandardType.GGExcLangPairAt

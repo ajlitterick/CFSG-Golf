@@ -1,16 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResExactTwoOrthSmallDefs
-import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProper
 import CFSG.LocalAnalysis.StandardType.GGResExactTwoOrthSmall
-import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperMoreOrthEnd
 import CFSG.LocalAnalysis.StandardType.GGIOneOrthEndMain
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBIrred
-import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
 import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrOfEnnola
-import CFSG.LocalAnalysis.StandardType.Marking
 
 public section
 

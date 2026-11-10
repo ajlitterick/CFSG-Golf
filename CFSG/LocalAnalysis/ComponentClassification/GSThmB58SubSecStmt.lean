@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB58ReChoice
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB58NFb
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB58NFl
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB58NFr
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB58SubData

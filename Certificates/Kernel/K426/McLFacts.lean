@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.K426.McLChecks
 public import Certificates.Kernel.K426.McLOrb
 public import CFSG.Certificates.Kernel.Misc.ChainTailOrbSound
 public import CFSG.Certificates.Kernel.K426KSound

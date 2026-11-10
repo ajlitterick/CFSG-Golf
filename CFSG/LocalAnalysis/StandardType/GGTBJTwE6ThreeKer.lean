@@ -2,10 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBTorTwE6ThreeHolds
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelQ8Kernel
-public import CFSG.LocalAnalysis.StandardType.GGTwE6RecipeTransport
 public import CFSG.LocalAnalysis.StandardType.GGTBTorDatum
 public import CFSG.LocalAnalysis.StandardType.GGTBE6IndTwistCover
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 
 public section
 

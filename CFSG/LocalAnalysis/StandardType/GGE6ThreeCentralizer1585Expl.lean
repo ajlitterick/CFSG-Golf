@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeCentralizer1585
 public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyConjNormalizer
-public import CFSG.LocalAnalysis.StandardType.GGJ4eComm
 public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyCover
 public import CFSG.LieType.Chevalley.C2E6StandardFixedData
 public import CFSG.LieType.Chevalley.C2E6UnitaryFourImages

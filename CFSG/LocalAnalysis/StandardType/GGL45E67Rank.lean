@@ -4,9 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGL45E67RankLift
 public import CFSG.LocalAnalysis.StandardType.GGL45E67RankChev
 public import CFSG.LocalAnalysis.StandardType.GGL45E67RankTwE6
 public import CFSG.LocalAnalysis.StandardType.GGL45NtDefs
-public import CFSG.LocalAnalysis.StandardType.GGL45FamCover
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExc
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiag
 
 public section
 

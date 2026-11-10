@@ -1,12 +1,7 @@
 module
 
-public import CFSG.RankThree.PartTwo.Toolkit.Statements
-public import CFSG.RankThree.PartTwo.Toolkit.RawGL
-public import CFSG.RankThree.SubgroupLists.DicksonGL2
-public import CFSG.RankThree.Asc83Table.Reduction
 public meta import CFSG.RankThree.PartTwo.Toolkit.Raw
 public meta import CFSG.RankThree.PartTwo.Toolkit.RawGL
-public import CFSG.RankThree.PartTwo.Toolkit.Bloom13Inputs
 public import Certificates.Certificate8171
 
 public section

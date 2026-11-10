@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.CFSGNative.Th.Tables
 public import Certificates.Data.CFSGNative.HS.Cert
 public import Certificates.Data.CFSGNative.McL.Certificate
 public import Certificates.Data.CFSGNative.He.Certificate

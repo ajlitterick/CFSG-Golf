@@ -3,11 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDL1Lift
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDL1BaseOOdd
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDL1OCent
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDShared
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDL1InvFixO
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveL1PhanTransfer
 import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthNormIso
-import CFSG.LieType.ChevTwo.OrthogonalAutLarge
 import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP9OrthAmbient
 import CFSG.LocalAnalysis.StandardType.GGOrthFramePairs
 

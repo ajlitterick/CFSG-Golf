@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicCo1Cen2B
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicCo1Cen2BData
 import Certificates.Kernel.LocalComp.Co1Cen2B
 import CFSG.Certificates.Kernel.Common.Harness
-import Certificates.Certificate2045
 
 public section
 

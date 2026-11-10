@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesWeyl
-public import CFSG.LieType.Chevalley.EvenE7E8AutomorphismNormalForm
-public import CFSG.LieType.Chevalley.EvenF4AutomorphismNormalForm
-public import CFSG.LieType.Ree.LargeReeExceptionalFullCentralizer
 
 public section
 

@@ -4,9 +4,7 @@ public import CFSG.LocalAnalysis.StandardType.GGOmegaMinusRootGenDefs
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotKindOmegaMinusPieces
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySpCoord
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8ExcResCent
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBGeneralLinearNative
 public import CFSG.HardMathSupport.Curtis.NaturalModuleCensus.AltIb.OmegaMinusSmall
-public import CFSG.Assembly.Subnormal
 public import CFSG.ClassicalInvolution.ModelFacts.PairFrameExcLevi
 public import CFSG.ClassicalInvolution.WeakCT.Main
 public import CFSG.GroupTheory.HallHigmanPiCore
@@ -46,11 +44,6 @@ public import CFSG.Quasithin.Background.B4ModelsAction
 public import CFSG.Quasithin.Background.B4ModelsIso
 public import CFSG.Quasithin.Background.C2Basic
 public import CFSG.Quasithin.Background.E1
-public import CFSG.Quasithin.Background.E1Sec4
-public import CFSG.Quasithin.Background.E1Sec5
-public import CFSG.Quasithin.Background.E1Sec8
-public import CFSG.Quasithin.Background.E1Solv
-public import CFSG.Quasithin.Background.E1Twelve
 public import CFSG.Quasithin.Background.E3Cent
 public import CFSG.Quasithin.EmptyFaithfulMultiple.InputB19Proof
 public import CFSG.RankThree.PartOne.AUTSL.OmegaFamily

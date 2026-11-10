@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJE6LeviCell
 public import CFSG.LocalAnalysis.StandardType.GGTBJE6LeviStabThree
-public import CFSG.LocalAnalysis.StandardType.GGTBJE6Three
 public import CFSG.LocalAnalysis.StandardType.GGTBJE6ThreeCount
-public import CFSG.LocalAnalysis.StandardType.GGTBJE6ThreeData
 public import CFSG.LocalAnalysis.StandardType.GGTBJE6ThreeRootPts
 
 public section

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3BridgeA
 public import CFSG.LocalAnalysis.StandardType.GGResExact2KReverse
 public import CFSG.LocalAnalysis.StandardType.GGResNonsingularBase
 public import CFSG.LocalAnalysis.StandardType.GGNbrU63Setup

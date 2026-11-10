@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.AutZCartan.LineTorus
-public import CFSG.Open.StatedDefs
-import CFSG.RankThree.PartTwo.Sec19.Census194.RonanC194OmegaTorus
 import CFSG.ClassicalGroups.Orthogonal.MinusSplitTorus
 import CFSG.RankThree.GF2n.Stroth80.Sec715OrthTorus
 public import CFSG.Assembly.QuasithinDefs
@@ -15,15 +13,10 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.Module
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 import CFSG.ClassicalGroups.Orthogonal.DiagonalTorusRankOddMinus
 import CFSG.ClassicalGroups.Orthogonal.RootGroupFixedCard
 import CFSG.ClassicalGroups.Orthogonal.RootGroupSwap

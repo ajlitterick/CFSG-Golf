@@ -7,7 +7,6 @@ import CFSG.Holt.PointHullTwoGroupBasic
 import CFSG.Adapters.LieModelSimple
 import CFSG.LocalAnalysis.UniquenessCase.Lie.BorelSU
 import CFSG.LocalAnalysis.GL83PartI.I713.UnitaryDiag
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

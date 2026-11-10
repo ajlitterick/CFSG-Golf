@@ -1,10 +1,8 @@
 module
 
 public import CFSG.Monster.B.Fischer.PinnedChain
-public import Certificates.Data.CFSGNative.Schreier.Check
 public meta import CFSG.Monster.B.Fischer.PinnedChain
 public meta import Certificates.Data.CFSGNative.Schreier.Check
-public import CFSG.Monster.B.Fischer.Fi22OrderCheckInputs
 public import Certificates.Certificate3147
 
 public section

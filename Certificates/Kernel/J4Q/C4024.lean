@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Sporadic.J4.QTRankNative
 public import Certificates.Kernel.J4Q.MaskBlk
 import Certificates.Kernel.J4Q.AllN
 import CFSG.Certificates.Kernel.Common.Harness

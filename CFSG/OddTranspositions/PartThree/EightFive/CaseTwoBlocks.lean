@@ -1,14 +1,12 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.EightFive.CaseTwoStatement
-public import CFSG.OddTranspositions.HypothesisC
 
 import CFSG.OddTranspositions.PartThree.EightFive.QNotCentralBlocks
 import CFSG.OddTranspositions.PartThree.EightFive.QNotCentralCore
 import CFSG.OddTranspositions.PartThree.EightFive.Transitive
 import CFSG.OddTranspositions.SixNineUnconditional
 import CFSG.OddTranspositions.SixFiveInputs
-import CFSG.OddTranspositions.BlockTransitive
 import CFSG.GroupTheory.CardSupInf
 import CFSG.GroupTheory.QuasisimpleCommutingProductBound
 import CFSG.LinearAlgebra.LinearGroups.CoordinateData

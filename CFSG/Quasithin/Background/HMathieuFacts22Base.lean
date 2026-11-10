@@ -1,25 +1,13 @@
 
 module
 
-public import CFSG.Quasithin.Background.FixVZPowersMem
 public import CFSG.Quasithin.Background.HMathieuSyl22GreedyBase
 public import CFSG.Quasithin.Background.HMathieuSyl22Odd
 public import CFSG.Quasithin.Background.HMathieuNorm
 public import CFSG.Quasithin.Background.HMathieuTransfer
 public import CFSG.Quasithin.Background.HMathieuStdO
-public import CFSG.Sporadic.Schreier.M22Data
 public meta import CFSG.Sporadic.Schreier.M22Data
-public import CFSG.Sporadic.Schreier.MathieuOddCoreM22Data
 public meta import CFSG.Sporadic.Schreier.MathieuOddCoreM22Data
-public import Certificates.Data.CFSGNative.Mathieu.M24
-public import Certificates.Data.CFSGNative.Mathieu.M22
-public import CFSG.Monster.B.Mathieu.M22CheckInputs
-public import CFSG.Quasithin.Background.HMathieuCentInputs
-public import CFSG.Quasithin.Background.HMathieuMask
-public import CFSG.Quasithin.Background.HMathieuSyl22Inputs
-public import CFSG.Quasithin.Background.HMathieuPT24
-public import CFSG.Quasithin.Background.HMathieuPred
-public import CFSG.Quasithin.Background.HMathieuSyl22
 
 @[expose] public section
 

@@ -1,7 +1,5 @@
 module
 
-public import Mathlib.GroupTheory.SpecificGroups.Quaternion
-public import Mathlib.GroupTheory.GroupAction.ConjAct
 public meta import Mathlib
 public import Certificates.Certificate5017
 public import Mathlib.Algebra.Order.Floor.Extended

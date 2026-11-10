@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeLift
 public import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotHR4
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ToralInner
-public import CFSG.LieType.Chevalley.TwistedE6NormalForm
-public import CFSG.LieType.Chevalley.TwistedE6NormalFormActors
 
 public section
 

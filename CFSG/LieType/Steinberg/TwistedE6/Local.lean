@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LieType.Steinberg.TwistedE6.Roots
-public import CFSG.LieType.Steinberg.Minuscule.RankOne
-public import CFSG.LieType.Steinberg.Minuscule.Unipotent
 
 public noncomputable section
 

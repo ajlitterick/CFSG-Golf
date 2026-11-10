@@ -1,25 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKG87BTransDefs
-public import CFSG.LieType.Chevalley.TwistedE6NormalForm
-public import CFSG.LieType.Chevalley.TwistedE6NormalFormActors
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.TwE6Order3Defs
-public import CFSG.LieType.Chevalley.CoordinateFieldBaseChange
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeDiagTwisted
 import CFSG.LocalAnalysis.GLTheoremA.CatC.YS04E6FTw
-import CFSG.LocalAnalysis.GLTheoremA.CatC.YS04E6FBruhat
-import CFSG.LocalAnalysis.GLTheoremA.CatC.YS04E6FGen
-import CFSG.HardMathSupport.Timmesfeld.Tables.T1b.E6JBoundTw
-import CFSG.LieType.Chevalley.GraphFixedParameterFields
-import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotUniqueFieldTorus
 import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRankFiveAmbient
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangTwE6Lang
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangTwE6Datum
-import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
-import CFSG.LieType.Chevalley.OddF4CosetDescent
-import CFSG.LieType.Chevalley.GraphFixedF4GroupRestriction
-import CFSG.LieType.Chevalley.RootDiagonalWeylTransporter
-import CFSG.LieType.AlgebraicGroups.ToralTwistSemilinearDatum
 import CFSG.LocalAnalysis.GLTheoremA.CatA.FPCyc
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangTwE6Conj
 import CFSG.Adapters.GeneralizedFitting
@@ -57,13 +41,10 @@ import CFSG.LocalAnalysis.SeitzReduction.E6PilotHR4
 import CFSG.LocalAnalysis.SeitzReduction.E6PilotUniqueField
 import CFSG.Quasithin.Background.B216Quotient
 import CFSG.Quasithin.Background.D2
-import CFSG.Quasithin.Background.D2Dihedral
 import CFSG.Quasithin.Background.E3OffenderB
 import CFSG.Quasithin.Background.F2Equiv
 import CFSG.Quasithin.Background.G2Relaxed
 import CFSG.Quasithin.EmptyFaithful.S14117
-import CFSG.Quasithin.EmptyFaithful.S14117Coprime
-import CFSG.Quasithin.EmptyFaithful.S14117Rank
 import CFSG.Quasithin.EmptyFaithful.S152N11
 import CFSG.Quasithin.Vol2.Ch12Sec8NonabHatTen
 import CFSG.RankThree.PartOne.S11d.OddOutPSL2

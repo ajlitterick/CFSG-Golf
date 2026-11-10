@@ -2,10 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2UnitPlacement
 public import CFSG.LocalAnalysis.StandardType.GGQ2FrameAmbient
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 import CFSG.LocalAnalysis.StandardType.GGQ2UnitInnerDiagData
 import CFSG.LocalAnalysis.StandardType.GGQ2UnitFrameExists
-import CFSG.LocalAnalysis.StandardType.GGQ2UnitFrameRange
 import CFSG.LocalAnalysis.StandardType.GGQ2CoverComponentsAut
 import CFSG.LocalAnalysis.StandardType.GGQ2UnitDiagFixComponents
 import CFSG.LocalAnalysis.StandardType.GGQ2UnitBlockDiag

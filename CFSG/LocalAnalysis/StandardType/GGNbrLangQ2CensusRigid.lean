@@ -1,13 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusDefs
-import CFSG.LocalAnalysis.ComponentInitial.LinearFlagOrder
-import CFSG.LocalAnalysis.StandardType.KGLangS1ALinTypeDet
 import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMoreCl
-import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticEndNode
 import CFSG.LocalAnalysis.AGLEmbedding.ToralCensusLinearCenter
 import CFSG.LocalAnalysis.ComponentClassification.Foote5GH74
-import CFSG.LocalAnalysis.SeitzReduction.CrossCharCert
 import CFSG.Adapters.StatedClassicalSmallOrders
 import CFSG.Adapters.StatedClassicalUnitaryOrders
 import CFSG.LocalAnalysis.ComponentClassification.Foote5Uniq

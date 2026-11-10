@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowX1OmCShape
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowX1OmParts
-public import CFSG.ClassicalInvolution.SmallCases.UpgradeCoverClassical
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalAS76aProofOMinusFacts
 public import CFSG.Open.StatedZModTwo
 public import CFSG.Holt.Centralizer
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.ONanParabThree

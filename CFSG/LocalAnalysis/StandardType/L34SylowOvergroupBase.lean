@@ -5,11 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.PermStabilizerAlternatingSix
 public import CFSG.LocalAnalysis.StandardType.SylowOvergroupReduction
 public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
 public import CFSG.LocalAnalysis.StandardType.L34SylowTabs
-public import Mathlib.GroupTheory.Solvable
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
-public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourActionData
-public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourGroupSpec
-public import Certificates.Data.CFSGNative.PSL3Four.Certificate
 
 @[expose] public section
 

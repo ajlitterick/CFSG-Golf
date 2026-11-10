@@ -4,17 +4,13 @@ public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6RatQS
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6RatDistinct
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TableT
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6FrobData
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6FrobAdd
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6RatTransfer
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TwoDefs
 public import Certificates.Certificate707002
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6RatLabelA
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TwoRatLabelD
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6OppCoset
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6OppNegA5
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeExcActOuterCartan
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeExcActOuterPerfTwoDFourStable
-public import CFSG.LieType.Chevalley.CLSOddToralOrdinaryComponentRootFactor
 import CFSG.Quasithin.H13.NQTermLinearThreeTools
 public import CFSG.Blueprint.LieModelAPI
 public import CFSG.HardMathSupport.Dickson.Sec6.I923Fam.PsuGoodAux.Descent

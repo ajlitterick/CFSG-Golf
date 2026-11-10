@@ -1,32 +1,14 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec8.Item89Res2ProofJComp
-import CFSG.RankThree.PartTwo.Sec8.Item87Proof
-import CFSG.RankThree.PartTwo.Sec8.Item87ProofGamma
-import CFSG.RankThree.PartTwo.Sec8.Item87Res2ProofUnitary
 import CFSG.RankThree.PartTwo.Sec8.Item8KFactsProofOuterPair
 import CFSG.RankThree.PartTwo.Sec8.Item812Res6ProofG2Two
-import CFSG.RankThree.PartTwo.KFacts.K71Sp4
 import CFSG.RankThree.PartTwo.KFacts.K71Item89
-import CFSG.RankThree.PartTwo.Sec4.Item47Bridges
-import CFSG.RankThree.PartTwo.Sec19.Step1911Proof
 import CFSG.RankThree.PartTwo.Sec11.KS11Lie3ProofEight
-import CFSG.RankThree.PartOne.KC.SymplecticSubfieldRadical
 import CFSG.Quasithin.H13.L32NSp4S6
-import CFSG.Quasithin.Background.FFC2G2
-import CFSG.Quasithin.Background.B5FinOutAlt
-import CFSG.Quasithin.Background.B5FinG2U33
-import CFSG.Quasithin.Background.JonesParshallG2Field
-import CFSG.Quasithin.Background.JonesParshallG2Two
-import CFSG.Quasithin.Recognition.CertU33Perm
 import CFSG.Quasithin.Background.S1549DL3N
 import CFSG.RankThree.PartTwo.Sec19.Step1914Tri
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L238BridgeAlt57G2Eq
 import CFSG.HardMathSupport.Meierfrankenfeld.AGL81.I542.AutFactsU33
-import CFSG.LieType.Steinberg.G2.Perfect
-import CFSG.LieType.Chevalley.AdjointCenter
-import CFSG.LieType.Chevalley.ExactG2FiniteOrder
-import CFSG.ClassicalGroups.Symplectic.ProjectivePerfect
 public import CFSG.Milestones.CL_LIT_Gorenstein_Walter_L_balance
 public import CFSG.RankThree.PartTwo.Sec4.Item4Res3Proof419
 public import CFSG.RankThree.PartTwo.Sec6.Item612

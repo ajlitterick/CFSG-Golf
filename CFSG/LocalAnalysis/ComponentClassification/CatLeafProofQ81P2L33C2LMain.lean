@@ -3,11 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofQ81P2L33C2LInner3
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofQ81P2L33C2LField2
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofQ81P2L33C2LGF
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismGeneration
-public import CFSG.LocalAnalysis.ComponentInitial.LinearCoverModel
-public import CFSG.LocalAnalysis.ComponentInitial.SmallLinearIsomorphisms
-public import CFSG.GH74.Exceptional.LinearFourTwo
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.ClassicalInvolution.Models.LinearPairs
 public import CFSG.ClassicalInvolution.SubnormalClosure
 public import CFSG.ClassicalInvolution.WeakCT.Main

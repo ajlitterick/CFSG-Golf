@@ -3,7 +3,6 @@ module
 public import CFSG.Quasithin.Recognition.St84.Gen.NatSecDefs
 public import CFSG.Quasithin.Background.TwoReduced
 public import CFSG.CGT.Timmesfeld75.L2Defs
-public import CFSG.LieType.BorelTits.Basic
 
 import CFSG.CGT.PushingUpLit.Glue.NaturalIrred
 

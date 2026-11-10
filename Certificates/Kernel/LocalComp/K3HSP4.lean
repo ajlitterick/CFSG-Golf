@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.LocalComp.K3HSData
 public import Certificates.Kernel.LocalComp.BlockGen
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

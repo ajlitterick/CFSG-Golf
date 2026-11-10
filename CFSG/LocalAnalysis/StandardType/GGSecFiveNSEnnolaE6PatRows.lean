@@ -3,15 +3,10 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaE6Pat
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitExcPlusHolds
 public import CFSG.LocalAnalysis.StandardType.GGTwE6WeylTorusHolds
-public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelHoldsBoth
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaTwE6ThreeAux
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaExcPlusAux
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaExcPlusAux2
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaTwE6
-import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylExcPlusLift
-import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6Lift
-import CFSG.LocalAnalysis.StandardType.GGTableBTwE6Delta
 
 public section
 

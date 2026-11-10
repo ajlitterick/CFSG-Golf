@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.KGFactC31J4M4Native
-public import CFSG.Sporadic.J4.QTNative
 public import Certificates.Data.CFSGNative.Schreier.Check
 
 public section

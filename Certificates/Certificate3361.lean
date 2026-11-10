@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentInitial.ChevSp6EpsOneOqDataSylow
 import Certificates.Kernel.Misc.Sp6Bridge
-import Certificates.Data.Kernel.Misc.Sp6
-import Certificates.Kernel.Misc.Sp6Data
 import CFSG.Certificates.Kernel.Common.Harness
 public import Mathlib.Data.Nat.Bitwise
 

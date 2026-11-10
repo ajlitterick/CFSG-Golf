@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ParabIrrGeneric
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81ParabIrrOrthMinusRep
-public import CFSG.Open.GriessAllModelsStatement
 
 public section
 

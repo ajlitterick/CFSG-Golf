@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGForkLinNsA
 public import CFSG.Adapters.StatedSLTwoField
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 
 public section
 

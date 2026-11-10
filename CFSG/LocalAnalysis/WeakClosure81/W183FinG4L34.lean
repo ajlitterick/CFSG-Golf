@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.WeakClosure81.W183FinG4L34Perm
-public import CFSG.LocalAnalysis.WeakClosure81.W183FinG4L34Map
 public import CFSG.LocalAnalysis.WeakClosure81.W183B2Fin
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk73G4L34
-public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallL34Out
-public import CFSG.Sporadic.SmallOddCore.Assembly
 public import CFSG.Adapters.LieModelSimple
 public import CFSG.CGT.Timmesfeld75.Cfg214Gen
 public import CFSG.GH74.KGroups.L3EpsNoNormalThree
@@ -55,9 +52,7 @@ public import CFSG.Mathlib.LinearAlgebra.BilinForm.Determinant
 public import CFSG.Quasithin.Background.A3Structure312
 public import CFSG.Quasithin.Background.B216Quotient
 public import CFSG.Quasithin.Background.B6
-public import CFSG.Quasithin.Background.B6Example
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.Quasithin.Background.E2Hyp
 public import CFSG.Quasithin.Background.E2SolvTwo
 public import CFSG.Quasithin.Background.E2TwoProofDefs
@@ -68,8 +63,6 @@ public import CFSG.Quasithin.Background.F9G2
 public import CFSG.Quasithin.Background.F9Geometry
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtF112ListC
 public import CFSG.Quasithin.EmptyFaithful.S14117
-public import CFSG.Quasithin.EmptyFaithful.S14117Coprime
-public import CFSG.Quasithin.EmptyFaithful.S14117Rank
 public import CFSG.Quasithin.EmptyFaithful.S142Statements
 public import CFSG.Quasithin.EmptyFaithful.S152N11
 public import CFSG.Quasithin.H13.A5S1326

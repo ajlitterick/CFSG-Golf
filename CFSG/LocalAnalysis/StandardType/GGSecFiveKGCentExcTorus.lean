@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.Chevalley.BorelSelfNormalizer
 import CFSG.LieType.Chevalley.IntrinsicSimplePairs
-import CFSG.LieType.Chevalley.OppositeBorel
 
 public section
 

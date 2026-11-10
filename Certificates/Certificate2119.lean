@@ -5,9 +5,6 @@ public meta import CFSG.Sporadic.Schreier.ONCheckAux
 public meta import CFSG.Sporadic.Schreier.ONCheckSmallAux
 import Certificates.Kernel.Sporadic.OddCore.ON2119AF
 import Certificates.Kernel.Sporadic.OddCore.ON2119B
-import Certificates.Certificate2212
-import Certificates.Certificate2217
-import Certificates.Certificate3171
 
 public section
 

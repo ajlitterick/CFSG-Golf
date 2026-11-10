@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.AEOrbit
-public import Mathlib.Data.List.Sublists
 
 public section
 

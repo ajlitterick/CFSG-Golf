@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GH74.Uniqueness.SU.KI6BCent
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Hall.Basic
 
 public section
 

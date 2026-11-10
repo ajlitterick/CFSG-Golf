@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.GoldschmidtF431TitsDLocFusion
-public import Certificates.Kernel.J4Count.FixC
 
 public section
 

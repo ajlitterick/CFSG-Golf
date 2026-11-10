@@ -9,8 +9,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.L2_4_19
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.L2_4_18
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.L2_4_17
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.L2_4_16
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Inputs
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Basic245Easy
 
 public section
 

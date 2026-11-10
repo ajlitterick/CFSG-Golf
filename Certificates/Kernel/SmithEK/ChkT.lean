@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.SmithEK.ChkW
 public import Certificates.Kernel.SmithEK.TRowsA
 public import Certificates.Kernel.SmithEK.TRowsB
 public import Certificates.Kernel.SmithEK.TvEq

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Perm.SiftComplete
-public import Mathlib.RingTheory.WittVector.IsPoly
-public import Mathlib.Tactic.ReduceModChar
 
 public section
 

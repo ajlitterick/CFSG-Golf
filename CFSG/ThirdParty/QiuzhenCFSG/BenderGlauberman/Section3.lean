@@ -1,10 +1,5 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section3.Remark31
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section3.Theorem32
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section3.Lemma33
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section3.Lemma34
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section3.Remark35
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Section3.Lemma36
 

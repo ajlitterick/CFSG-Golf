@@ -1,13 +1,10 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.NormalPSL2ToPGammaL2Apply
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2WeakFittingFieldProjection
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseLinearFittingExtraction
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2FittingCentralizes
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.PGammaL2InnerReflectedTorusPComplementFixed
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.PSL2ReflectedTorusCard
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.FStarCommute
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

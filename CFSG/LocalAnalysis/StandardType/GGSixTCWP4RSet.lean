@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4RDict
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4Inputs2
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4Flag
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4Orbit
 public import CFSG.HardMathSupport.Timmesfeld.RootAut.Main

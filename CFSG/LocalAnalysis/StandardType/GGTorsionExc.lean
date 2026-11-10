@@ -1,11 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTorsionExcDefs
 public import CFSG.LocalAnalysis.StandardType.GGTorsionExcField
 import CFSG.LocalAnalysis.StandardType.GGTorsionExcE8
 import CFSG.LocalAnalysis.StandardType.GGTorsionExcF4Low
-import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitMarking
-import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 
 public section
 

@@ -2,8 +2,6 @@ module
 
 public import CFSG.Monster.B.CTIB.HOuterCert
 public import CFSG.Monster.B.CTIB.HInner
-public import CFSG.Monster.B.CTIB.Rank2158
-public import CFSG.Monster.B.CTIB.DistThreeProductCore
 public import CFSG.Monster.B.TwoA.Amalgam.DistThreeCentFinal
 
 public section

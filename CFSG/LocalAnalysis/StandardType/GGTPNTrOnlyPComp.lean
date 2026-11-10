@@ -1,16 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTPNPCompDefs
-public import CFSG.LocalAnalysis.StandardType.GGTPNDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
-public import CFSG.GroupTheory.HallHigmanPiCore
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyDichotomyBasic
-public import CFSG.LocalAnalysis.StandardType.GGSixAutKFlatIVPComp
 public import CFSG.LocalAnalysis.StandardType.GGTPNTrOnlyAmbB
 public import CFSG.LocalAnalysis.StandardType.GGTPNTrOnlyTrans
-public import CFSG.LocalAnalysis.StandardType.GGTableBTransport
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentJLevel
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCorrSourceChange
 
 public section
 

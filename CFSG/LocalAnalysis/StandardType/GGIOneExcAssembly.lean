@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGIOneExcE6
 public import CFSG.LocalAnalysis.StandardType.GGIOneExcTwE6
 public import CFSG.LocalAnalysis.StandardType.GGIOneExcSmall
-public import CFSG.LocalAnalysis.StandardType.GGIOneRestFiveMain
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoMain
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallOrthUnAll
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallOrthUnTwDMain
 public import CFSG.LocalAnalysis.StandardType.GGOPlusEightTwoMain
 public import CFSG.LocalAnalysis.StandardType.GGOPlusEightTwoCommute

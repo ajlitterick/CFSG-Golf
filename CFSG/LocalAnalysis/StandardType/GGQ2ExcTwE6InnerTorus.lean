@@ -2,13 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcTwE6Datum
 import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UG3
-import CFSG.LocalAnalysis.StandardType.GGSixBstarE8FiveFrameCentralizer
-import CFSG.LocalAnalysis.StandardType.GGSixBstarE6ThreeDiag
 import CFSG.LocalAnalysis.StandardType.GGQTwoE6HeartAutomizer
 import CFSG.LocalAnalysis.StandardType.GGE0ShapeContextRankAux
 import CFSG.LocalAnalysis.StandardType.GGTwE6TorusMeetGamma
-import CFSG.LocalAnalysis.StandardType.GGLangCoroot
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcRoots
 
 public section
 

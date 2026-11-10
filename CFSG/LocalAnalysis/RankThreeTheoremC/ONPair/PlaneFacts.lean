@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.ONPair.ModelFacts
-public import CFSG.RankThree.Native.ONSevenDefs
 
 public section
 

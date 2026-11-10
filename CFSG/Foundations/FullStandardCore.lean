@@ -1,9 +1,7 @@
 module
 
 public import Mathlib.GroupTheory.Commutator.Basic
-public import Mathlib.GroupTheory.Subgroup.Centralizer
 public import Mathlib.SetTheory.Cardinal.Finite
-public import Mathlib.Algebra.Group.Nat.Even
 public meta import Lean.Elab.Term
 public meta import Lean.Meta.Tactic.Delta
 

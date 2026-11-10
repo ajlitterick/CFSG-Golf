@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermLinDefs
 public import CFSG.LocalAnalysis.StandardType.GGKGPosSUTableB
-import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpStdAssembly
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpKCent
 
 public section

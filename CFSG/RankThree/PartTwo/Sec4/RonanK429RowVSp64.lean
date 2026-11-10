@@ -3,9 +3,7 @@ module
 public import CFSG.RankThree.PartTwo.Sec4.RonanK429RowVSp64Blk
 public import CFSG.RankThree.PartTwo.Sec4.RonanK429RowVSp64Lin
 public import CFSG.RankThree.PartTwo.Sec4.RonanK432RowSp64
-public import CFSG.RankThree.PartTwo.Sec4.Item47Kinds
 public import CFSG.RankThree.PartTwo.Sec5.Tools
-public import CFSG.RankThree.PartTwo.Sec4.Item423Res2ProofHelpers
 public import CFSG.Open.SplitBNPair
 public import CFSG.Quasithin.Vol2.Ch10StatementsE
 public import CFSG.Quasithin.Vol2.Ch10StatementsInputs

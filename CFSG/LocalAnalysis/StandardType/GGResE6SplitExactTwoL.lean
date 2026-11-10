@@ -1,19 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLBstarE6
 public import CFSG.LocalAnalysis.StandardType.GGResTwoCells
 import CFSG.LocalAnalysis.StandardType.GGResExcSplitExactTwoL
-import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperMoreE6
-import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1CenterE6
-import CFSG.LocalAnalysis.StandardType.GGResJOpenLabel
-import CFSG.LocalAnalysis.StandardType.GGTCJHolds
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-import CFSG.LocalAnalysis.StandardType.GGTBE6
-import CFSG.LocalAnalysis.StandardType.GGTBTorLiftRowsHolds
-import CFSG.LocalAnalysis.StandardType.GGTBTorLiftRowsCls
-import CFSG.LocalAnalysis.StandardType.GGIOneFieldCFHolds
-import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperMoreTypeA
-import CFSG.LocalAnalysis.StandardType.GGResHigherFieldI1
 
 public section
 

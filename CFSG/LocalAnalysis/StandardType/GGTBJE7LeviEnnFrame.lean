@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJE8LeviEnnFrame
-public import CFSG.LocalAnalysis.StandardType.GGTorusLangCoordinates
 public import CFSG.LocalAnalysis.StandardType.GGTBTorE7
 public import CFSG.RankThree.PartOne.KE.EvenE7E8QPlusTorus
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUE7
 
 public section
 

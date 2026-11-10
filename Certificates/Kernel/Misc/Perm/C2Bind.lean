@@ -11,7 +11,6 @@ meta import CFSG.RankThree.Native.Co2FiveMats
 meta import CFSG.RankThree.Native.Co2FiveData
 meta import CFSG.Sporadic.Co2Cert.Data
 public import Certificates.Data.Kernel.Misc.HexFlat
-public import Mathlib.GroupTheory.Schreier
 meta import Mathlib.GroupTheory.Schreier
 
 set_option maxRecDepth 400000

@@ -1,14 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRootCentNotExcFlatDefs
-public import CFSG.LocalAnalysis.StandardType.GGFusionExceptionFull
-public import CFSG.LocalAnalysis.StandardType.GGHypThreeSixteenFlatMarking
-public import CFSG.LocalAnalysis.StandardType.GGSixAutKFlatRootCent
-public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummand
-public import CFSG.LocalAnalysis.StandardType.GGSixRootCentNotExcRows
 public import CFSG.LocalAnalysis.StandardType.GGStructSOnePrimeRootCountAll
-public import CFSG.LocalAnalysis.StandardType.GGSixStepOneSchreier
-public import CFSG.RankThree.PartOne.TCB.SchreierFinal
 public import CFSG.LocalAnalysis.StandardType.GGSixRootCentNotExcOrthAll
 
 public section

@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.Asc83Table.MatCert
 public import CFSG.RankThree.Asc83Table.Reduction
-public import CFSG.Open.Defs
 
 public section
 

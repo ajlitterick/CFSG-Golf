@@ -1,13 +1,10 @@
 module
 
-public import CFSG.GH74.QTGen4.DSGen4.Defs
 public import CFSG.GH74.QTGen4.DSGen4.Leaf.SylowS
 public import CFSG.GH74.QTGen4.DSGen4.Leaf.UAmalCoordsPlain
 public import CFSG.GH74.QTGen4.U42.AmalgamGen
 public import CFSG.GH74.QTGen4.U42.StubA4h
-public import CFSG.Quasithin.Background.Harris.F112S3Big.Defs
 public import CFSG.Quasithin.Background.GoldschmidtRankOneFacts
-public import CFSG.Quasithin.EmptyFaithful.S1421F112
 public import CFSG.Quasithin.Recognition.GoldschmidtF112RY9
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic

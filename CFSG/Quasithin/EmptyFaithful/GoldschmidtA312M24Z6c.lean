@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312M24Z6b
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312M24Idx2
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312M24L3
 
 public section
 

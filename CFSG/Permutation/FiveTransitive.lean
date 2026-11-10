@@ -1,16 +1,6 @@
 module
 
-public import CFSG.Permutation.FiveTransitive.Reduction
-public import CFSG.Permutation.FiveTransitive.LowDegreeClassification
-public import CFSG.Permutation.FiveTransitive.SmallDegreeClassification
-public import CFSG.Permutation.FiveTransitive.Degree28Classification
-public import CFSG.Permutation.FiveTransitive.Degree29Classification
-public import CFSG.Permutation.FiveTransitive.Degree31Classification
-public import CFSG.Permutation.FiveTransitive.TwoPrimeCycleClassification
-public import CFSG.Permutation.FiveTransitive.PrimePredFour
 public import CFSG.Permutation.FiveTransitive.ThreePrimeFourClassification
-public import CFSG.Permutation.FiveTransitive.Degree36Classification
-public import CFSG.Permutation.FiveTransitive.Degree39Classification
 public import CFSG.Permutation.FiveTransitive.Degree43Classification
 public import CFSG.Permutation.FiveTransitive.Degree48Classification
 public import CFSG.Permutation.FiveTransitive.Degree52Classification

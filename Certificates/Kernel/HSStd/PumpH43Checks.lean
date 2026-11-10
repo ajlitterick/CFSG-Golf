@@ -1,8 +1,6 @@
 module
 
 public import Certificates.Kernel.HSStd.PumpH43Data
-public import Certificates.Data.Kernel.BfsPinBase
-public import Certificates.Data.Kernel.ConjOrb
 public import Certificates.Data.Kernel.Spor.HNAOrb
 import CFSG.Certificates.Kernel.Common.Harness
 

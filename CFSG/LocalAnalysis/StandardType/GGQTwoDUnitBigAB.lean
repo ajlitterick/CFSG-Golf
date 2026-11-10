@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoDRMStabDefs
 public import CFSG.LinearAlgebra.SteinbergBQKernelBlocks
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S172CCentTypeSum
 public import CFSG.LinearAlgebra.RestrictEquiv
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ElementaryAbelian
-public import TauCeti.LinearAlgebra.BilinearForm.SymplecticBasis
 
 public section
 

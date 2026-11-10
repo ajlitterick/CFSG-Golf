@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGF4NbrAutReflKGReduce
 public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoTableBTypeALabel
 import CFSG.GroupTheory.ElemAbelianClosure
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 import CFSG.LocalAnalysis.SeitzReduction.RankOneLemmaS
 
 public section

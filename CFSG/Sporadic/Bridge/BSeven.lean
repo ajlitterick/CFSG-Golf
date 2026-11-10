@@ -5,7 +5,6 @@ public import CFSG.Sporadic.Bridge.BData
 public meta import CFSG.Sporadic.Bridge.BData
 public import CFSG.Certificates.Kernel.BabyMonster.Sound
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.OpsF2Fast
-public import CFSG.Monster.B.Cbar.SimpleBase
 public import CFSG.Monster.B.Max2.Pinned
 public import CFSG.Monster.B.Pinned.Primes.SeedGL
 public import Certificates.Data.CFSGNative.MonsterB.DyadicFile

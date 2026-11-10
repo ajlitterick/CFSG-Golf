@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoVACSplit
 public import CFSG.LocalAnalysis.StandardType.GGQTwoCavImage
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalSpSC
 public import CFSG.LocalAnalysis.StandardType.GGKGARank
 
 public section

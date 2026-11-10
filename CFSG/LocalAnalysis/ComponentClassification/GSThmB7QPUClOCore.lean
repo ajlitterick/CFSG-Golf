@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB7QPUClOModel
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmB7QPUClOSec
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.ClassicalGroups

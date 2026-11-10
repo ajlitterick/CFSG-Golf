@@ -2,16 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoExceptionalDefs
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicOddCore
-public import CFSG.Assembly.Subnormal
-public import CFSG.Foundations.QuasisimpleMulEquiv
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.GroupTheory.LocalCores.MinimalNormal
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bHypII
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Borel
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Lemma83
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Cardinalities
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ProjectiveSemilinear
 public import CFSG.Walter.Defs
 
 public section

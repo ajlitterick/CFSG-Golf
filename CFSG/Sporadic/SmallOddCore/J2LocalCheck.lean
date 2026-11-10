@@ -1,10 +1,8 @@
 module
 
 public import CFSG.Sporadic.SmallOddCore.J2Check
-public import CFSG.Sporadic.SmallOddCore.LocalCheck
 public meta import CFSG.Sporadic.SmallOddCore.J2Check
 public meta import CFSG.Sporadic.SmallOddCore.LocalCheck
-public import CFSG.Sporadic.SmallOddCore.J2LocalCheckInputs
 public import Certificates.Certificate2280
 
 public section

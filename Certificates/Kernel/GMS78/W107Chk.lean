@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.GMS78RuCzm
 public import Certificates.Kernel.GMS78.NM
-public import Certificates.Kernel.GMS78.S
 public import Certificates.Data.GMS78RuCzMatchCheck
 import CFSG.Certificates.Kernel.Common.Harness
 

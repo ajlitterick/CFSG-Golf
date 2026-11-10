@@ -2,10 +2,7 @@ module
 
 public import CFSG.LieType.Ree.LargeReeA1Pair
 public import CFSG.LieType.Ree.LargeReeB2FixedCoordinates
-public import CFSG.LieType.Ree.RootBruhatEquivariance
-public import CFSG.LieType.Chevalley.RootCharacterConjugation
 public import CFSG.LieType.Chevalley.EvenCartanRootDiagonals
-public import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
 public import CFSG.LieType.Chevalley.LangRootArithmetic
 public import CFSG.LieType.Chevalley.RootDiagonalTorusWords
 

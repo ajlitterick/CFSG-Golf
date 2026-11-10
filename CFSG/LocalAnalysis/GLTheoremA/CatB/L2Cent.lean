@@ -2,13 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.L2CentRed
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.L2CentField
-public import CFSG.HardMathSupport.Solomon.Coordinator.L2FldAut3
-public import CFSG.HardMathSupport.Solomon.Coordinator.L2FldFixed
 public import CFSG.HardMathSupport.Solomon.Coordinator.L2FldHolds
-public import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma510
-public import CFSG.HardMathSupport.Solomon.Coordinator.L3ALayer
-public import CFSG.HardMathSupport.Solomon.Coordinator.L3AFix
-public import CFSG.LocalAnalysis.GLTheoremA.S10.InputsAlpha
 public import CFSG.HardMathSupport.Solomon.Coordinator.L3NoSLInner
 public import CFSG.HardMathSupport.Solomon.Coordinator.LBIInput6_1Main
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1Engine

@@ -2,7 +2,6 @@ module
 
 public import CFSG.Sporadic.HNSchreier.PointStab
 public import CFSG.Sporadic.HNSchreier.InvolCheck
-public import CFSG.Sporadic.HNSchreier.Seeds
 
 public noncomputable section
 

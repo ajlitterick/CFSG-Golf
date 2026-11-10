@@ -1,35 +1,25 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRemStdSubResidualsULCOUS9
-public import CFSG.LocalAnalysis.StandardType.GGTwE6RootAsCoreDefs
 public import CFSG.LocalAnalysis.StandardType.GGTwE6EndNodeThreeDefs
 public import CFSG.LocalAnalysis.StandardType.GGTwE6CubeNodeDefs
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallExcC5
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallExcC5E6Nodes
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallExcC5F4Defs
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallExcC6Defs
-import CFSG.LocalAnalysis.StandardType.GGE6InnerDiagBoundThreeProof
 import CFSG.LocalAnalysis.StandardType.GGE7TwoRootAsProof
 import CFSG.LocalAnalysis.StandardType.GGE8TwoRootAsProof
-import CFSG.LocalAnalysis.StandardType.GGF4TwoRootAsProof
 import CFSG.LocalAnalysis.StandardType.GGTwE6FieldInnerDiag
 import CFSG.LocalAnalysis.StandardType.GGTwE6FieldCentInv
 import CFSG.LocalAnalysis.StandardType.GGTwE6FieldThree
 import CFSG.LocalAnalysis.StandardType.GGTwE6FieldLangThree
-import CFSG.LocalAnalysis.StandardType.GGTwE6RootAsToral
-import CFSG.LocalAnalysis.StandardType.GGTwE6LeviSplit
-import CFSG.LocalAnalysis.StandardType.GGTwE6EnnolaSplit
-import CFSG.LocalAnalysis.StandardType.GGTwE6RootKillWeyl
 import CFSG.LocalAnalysis.StandardType.GGTwE6RootKernelThree
 import CFSG.LocalAnalysis.StandardType.GGTwE6DD2Holds
 import CFSG.LocalAnalysis.StandardType.GGTwE6EndNodeInner
-import CFSG.LocalAnalysis.StandardType.GGTwE6DD2Recipe
 import CFSG.LocalAnalysis.StandardType.GGTwE6DeltaThreeNine
-import CFSG.LocalAnalysis.StandardType.GGTwE6DeltaThreeSix
 import CFSG.LocalAnalysis.StandardType.GGTwE6DeltaThreeEnd
 import CFSG.LocalAnalysis.StandardType.GGTwE6DeltaThreeAssembly
 import CFSG.LocalAnalysis.StandardType.GGTwE6RootAsInn
-import CFSG.LocalAnalysis.StandardType.GGStdSubSmallExcC12
 import CFSG.LocalAnalysis.StandardType.GGStdSubSmallExcC3
 import CFSG.LocalAnalysis.StandardType.GGStdSubSmallExcC4
 import CFSG.LocalAnalysis.StandardType.GGStdSubSmallExcC5E6

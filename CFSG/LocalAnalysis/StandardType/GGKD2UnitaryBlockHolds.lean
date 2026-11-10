@@ -1,12 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKD2UnitaryPieces1615
-public import CFSG.LocalAnalysis.StandardType.GGUSixTwoLayer
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenRkClass
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryDvdNode
-public import CFSG.RankThree.PartOne.S11d.LieComponentTransfer
 public import CFSG.LocalAnalysis.StandardType.GGInnerD4RALabels
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 public import CFSG.LocalAnalysis.StandardType.GGLinearTorusCompSUTwo
 public import CFSG.LocalAnalysis.GLTheoremA.S11.Lemma117
 public import CFSG.Assembly.GL83StatedBridge
@@ -14,7 +10,6 @@ public import CFSG.Holt.Fixed
 public import CFSG.LocalAnalysis.GLTheoremA.S10.Lemma106107
 public import CFSG.LocalAnalysis.GLTheoremA.S3.Lemma35
 public import CFSG.LocalAnalysis.GLTheoremA.Sec5Setup
-public import CFSG.LocalAnalysis.SignalizerFunctor
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
 
 public section

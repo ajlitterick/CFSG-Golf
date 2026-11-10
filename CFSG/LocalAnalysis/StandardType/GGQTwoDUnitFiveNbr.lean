@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitFiveComp
 public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNormalClosureNbr
-import CFSG.LocalAnalysis.StandardType.GGSecFiveNormalClosurePComp
 
 public section
 

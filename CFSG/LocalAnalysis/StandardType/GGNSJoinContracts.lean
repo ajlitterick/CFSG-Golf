@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNSJoinJNormGen
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanADefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinPhanA5Defs
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinPrimed
 
 public section
 

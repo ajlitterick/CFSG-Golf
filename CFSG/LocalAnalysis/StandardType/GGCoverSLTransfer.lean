@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenSLPSL
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangTypeALift
 
 public section
 

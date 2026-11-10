@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265BSClQuad
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S265BSClBlk
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S265BSClEl
 import CFSG.GroupTheory.PLayer.CenterQuotientAction
-import CFSG.RankThree.PartOne.S11d.OrthCaseH
 
 public section
 

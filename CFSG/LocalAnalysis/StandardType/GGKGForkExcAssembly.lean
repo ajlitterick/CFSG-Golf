@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGKGForkExcCent
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcLat
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcRoot
 

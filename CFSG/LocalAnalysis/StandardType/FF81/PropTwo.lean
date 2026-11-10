@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.FF81.Defs
 import CFSG.LocalAnalysis.StandardType.FF81.LocalSetup
 import CFSG.LocalAnalysis.StandardType.FF81.ModelN
-import CFSG.LocalAnalysis.StandardType.FF81.PropTwoDict
 import CFSG.LocalAnalysis.StandardType.FF81.PropTwoMon
 import CFSG.LocalAnalysis.StandardType.FF81.PropTwoLines
 import CFSG.LocalAnalysis.StandardType.FF81.PropTwoOdd

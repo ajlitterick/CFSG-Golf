@@ -1,11 +1,9 @@
 module
 
-public import CFSG.Quasithin.EmptyFaithful.S152He4Count
 public import CFSG.Quasithin.EmptyFaithful.S152He4Layer
 public import CFSG.LieType.SteinbergBROddLinearThreeInvolution
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.DoubleA3.TabBigM11
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19IdentAlt
-public import CFSG.GH74.Exceptional.LinearFourTwo
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.EvenClassicalLinear
 public import CFSG.Assembly.OrderReductions.CharacterInflation
 public import CFSG.GroupTheory.PerfectResidualNodes
@@ -16,7 +14,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_6A312Rank2
 public import CFSG.Quasithin.Background.A3Structure312
 public import CFSG.Sporadic.Schreier.M23
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
 
 public section
 

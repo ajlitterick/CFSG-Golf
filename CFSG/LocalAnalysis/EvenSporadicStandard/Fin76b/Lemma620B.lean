@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.Lemma620A
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.Lemma611E
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.Lemma616
 
 public section

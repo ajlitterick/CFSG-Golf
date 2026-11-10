@@ -15,11 +15,8 @@ public import Certificates.Kernel.Sporadic.ONLine.Pi2
 public import Certificates.Kernel.Sporadic.ONLine.Pi3
 public import Certificates.Kernel.Sporadic.ONLine.Pre
 public import Certificates.Kernel.Sporadic.ON.Minus2124
-public import Certificates.Kernel.Sporadic.ON.Final
 public import CFSG.Certificates.Kernel.Spor.ONLineSound
 public import CFSG.Certificates.Kernel.Spor.ONDiscSound
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.NormNum
 public import CFSG.Certificates.Kernel.Spor.ONMvSound
 
 public section

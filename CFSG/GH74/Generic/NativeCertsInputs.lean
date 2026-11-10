@@ -7,10 +7,6 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.OpsFp
 public meta import Certificates.Data.CFSGNative.Filter.Sec2
 public meta import Certificates.Data.CFSGNative.SectionRank.F3
 public meta import Certificates.Data.CFSGNative.SectionRank.Fp
-import CFSG.Blueprint.NativeSporadic
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.Defs
 
 public section
 

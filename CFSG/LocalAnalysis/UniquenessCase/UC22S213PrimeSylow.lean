@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S20
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
-public import CFSG.GroupTheory.ABGLocalTools.Basic
-import CFSG.LocalAnalysis.UniquenessCase.UC22P21k
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SylowCentralOuter
 import TauCeti.GroupTheory.PGroup
 public import CFSG.CGT.Timmesfeld75.Statements

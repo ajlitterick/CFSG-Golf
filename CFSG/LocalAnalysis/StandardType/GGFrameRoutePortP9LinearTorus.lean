@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTableBLinTwoTBMain
 public import CFSG.LocalAnalysis.StandardType.GGOrthKStructNormalizerAux
 public import CFSG.LocalAnalysis.StandardType.GGSignedPermCount
-public import CFSG.LocalAnalysis.StandardType.GGSpJoinSignedPermBase
-public import CFSG.LocalAnalysis.StandardType.GGSixAutKFinerChoiceTwoMoves
 import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP9N3
 import CFSG.Mathlib.GroupTheory.Automorphism.ConjCommute
 

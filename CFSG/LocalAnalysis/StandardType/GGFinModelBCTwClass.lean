@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGFinModelRootCompatDefs
 
-import CFSG.LieType.Steinberg.TwistedE6.Roots
 
 public section
 

@@ -1,12 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.SmallCases.NDBG5Weak
-public import CFSG.ClassicalInvolution.Asc77.WP3FrameBootTwinMain
-import CFSG.ClassicalInvolution.Asc77.AscT7AHyp51
-import CFSG.ClassicalInvolution.Asc77.AscE187Img
-import CFSG.ClassicalInvolution.Asc77.ModOApi
-import CFSG.ClassicalInvolution.ModelFacts.ClauseZero
-import CFSG.ClassicalInvolution.Balance.PassTwoModelFacts
 
 public section
 

@@ -3,14 +3,7 @@ module
 public import CFSG.GH74.Uniqueness.SU.KI1r4F61J2Inputs
 public import Certificates.Data.Kernel.J2PairK
 import Certificates.Kernel.J2Cover.K21
-import Certificates.Kernel.J2Cover.AutChains
 import Certificates.Kernel.J2Cover.ModelsBind
-import Certificates.Kernel.LocalComp.Child3Lemmas
-import CFSG.Certificates.Kernel.Child3Sound
-import CFSG.Certificates.Kernel.Spor.PrimSound
-import CFSG.Certificates.Kernel.Spor.RawSound
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 set_option maxRecDepth 400000
 

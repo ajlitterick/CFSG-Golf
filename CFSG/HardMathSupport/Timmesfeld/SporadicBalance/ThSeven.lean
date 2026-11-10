@@ -1,10 +1,8 @@
 module
 
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThSlp
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.PairConj
 public import CFSG.HardMathSupport.Dickson.I271.SporGenAux.PairConj
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThThree
-public import CFSG.Sporadic.Th.Max3.AllConjFinal
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThSevenInputs
 public import Certificates.Certificate16948
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThCentSound

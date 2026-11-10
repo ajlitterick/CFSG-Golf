@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.TwelveShort
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenUniqueMax
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22n
 public import CFSG.LocalAnalysis.WeakClosure81.SixThirteen
-public import CFSG.GroupTheory.ABGLocalTools.CoreLemmas
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLangRatRouteCCore
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeExcActOuterPerfTwoDRank
-public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerSpin
 public import CFSG.Blueprint.LieModelAPI
 public import CFSG.HardMathSupport.Dickson.Sec6.I923Fam.PsuGoodAux.Descent
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34OddAux.Defs

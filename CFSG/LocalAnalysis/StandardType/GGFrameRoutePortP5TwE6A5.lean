@@ -3,16 +3,10 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortDefs
 public import CFSG.LocalAnalysis.StandardType.GGNTPlaneTableData
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentInnerMark
-public import CFSG.LocalAnalysis.StandardType.GGReverseMarkingRaw
 public import CFSG.LocalAnalysis.StandardType.GGTPLayerTwE6
-public import CFSG.LocalAnalysis.StandardType.GGTwE6EndNodeThreeCoroot
-public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRankFiveAmbient
 public import CFSG.Mathlib.GroupTheory.CyclicPrimeExponent
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeCenOACheck
 public import CFSG.GroupTheory.DiagonalTwentySeven
-public import CFSG.LieType.Chevalley.RootCharacterConjugation
-public import CFSG.HardMathSupport.Lang.E6Descent.OuterFixed27DiagTorus
-public import TauCeti.GroupTheory.FixedSubgroup
 
 public section
 

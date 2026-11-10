@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2UnitRaw
-import CFSG.LocalAnalysis.StandardType.GGQ2UnitCutThree
 import CFSG.LocalAnalysis.StandardType.GGQ2UnitHeartCutThree
 
 public section

@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixA6InsideSpFix
 import CFSG.LocalAnalysis.StandardType.GGSixA6InsideSpFrame
-public import CFSG.Assembly.LargeEvenDefs
-import CFSG.LocalAnalysis.StandardType.GGSixA6InsideSpComp
 import CFSG.LocalAnalysis.StandardType.GGSixA6InsideSpTorus
-import CFSG.LocalAnalysis.StandardType.GGSixA6InsideSpPull
 import CFSG.GroupTheory.ElemAbelianClosure
 
 public section

@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGPGLToralityMain
-public import CFSG.LocalAnalysis.StandardType.GGLinearTorusCompSUBasic
-public import CFSG.LocalAnalysis.StandardType.GGLinearTorusCompSUFrame
 public import CFSG.LocalAnalysis.StandardType.GGLinearFusionSURepairPair
 public import CFSG.LocalAnalysis.StandardType.GGBstarLIDUnit63Perp
 

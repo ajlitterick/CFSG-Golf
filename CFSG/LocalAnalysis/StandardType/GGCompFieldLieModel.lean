@@ -2,13 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonSubcompIdx
 public import CFSG.LocalAnalysis.StandardType.GGExcCompFieldInput
-public import CFSG.LocalAnalysis.StandardType.GGReverseMarkingRaw
-public import CFSG.HardMathSupport.Timmesfeld.SporadicRank.CoverLower
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieInputs
 public import CFSG.Quasithin.Vol2.Ch3Sec3Obs3324
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15KFactsLie
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.EightFive.Base8Ctx
-public import CFSG.Quasithin.H13.L1332Inputs
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.EightFive.ModuleFF
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.FFInputs
 public import CFSG.Open.SplitBNPair

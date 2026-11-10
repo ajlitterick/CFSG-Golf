@@ -3,18 +3,13 @@ module
 
 public import Certificates.Certificate2049Base
 
-public import CFSG.Sporadic.Co2Schreier.ChainCheckInputs
 public meta import CFSG.Sporadic.Co2Schreier.Arrays
 public meta import Certificates.Data.CFSGNative.Schreier.Check
 public import Certificates.Kernel.SporSch.Co2M.Chains2049Base
 import Certificates.Kernel.SporSch.Co2M.Chains2049
 import Certificates.Kernel.SporSch.Co2M.Neg2049
-public import CFSG.Sporadic.Co2Schreier.OrbitCheck
 public meta import CFSG.Sporadic.Co2Schreier.OrbitCheck
-public import CFSG.Sporadic.Co2Schreier.TextCheckInputs
 public meta import CFSG.Sporadic.Co2Schreier.Text
-public import CFSG.Sporadic.Co2Cert.CheckInputs
-public import CFSG.Sporadic.Co2Cert.OrderCheckInputs
 
 public section
 

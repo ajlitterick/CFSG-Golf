@@ -4,9 +4,7 @@ module
 public import Certificates.Certificate2313Base
 public meta import CFSG.Sporadic.ThSchreier.WordsBase
 public meta import CFSG.Sporadic.ThSchreier.LocalDataBase
-public import CFSG.Certificates.Kernel.Th.SoundnessTsBase
 
-public import CFSG.Sporadic.ThSchreier.LocalOrbitInputs
 public meta import CFSG.Sporadic.ThSchreier.WordsBase1
 public meta import CFSG.Sporadic.ThSchreier.LocalData
 public import CFSG.Certificates.Kernel.Th.SoundnessTs

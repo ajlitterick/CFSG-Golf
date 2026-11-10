@@ -1,19 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.FRField
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.FRResSmall
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FRResCore
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.MIAut
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.CentQChar2Index
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.YS1011CentTD4
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TriD4Outer
-public import CFSG.RankThree.PartOne.KGD.D4T36Core
-public import CFSG.RankThree.PartTwo.Sec13.Item136PGL
-public import CFSG.RankThree.PartTwo.Sec13.Item138NMod9
-public import CFSG.RankThree.PartTwo.Sec13.Item13Models
-public import CFSG.RankThree.PartTwo.Sec16.KSL3TwoProofTypeC
 public import CFSG.Adapters.RankThreeOutcomesReverse
-public import CFSG.Adapters.RankTwoModelTransports
 
 public section
 

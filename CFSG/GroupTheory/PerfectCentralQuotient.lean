@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.GroupTheory.Transfer
 public import Mathlib.GroupTheory.Schreier
 public import Mathlib.GroupTheory.SpecificGroups.Alternating
 

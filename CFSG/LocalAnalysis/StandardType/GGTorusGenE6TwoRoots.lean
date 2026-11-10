@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenE6TwoLang
-import CFSG.LieType.Chevalley.KernelComponentRoots
 
 public section
 

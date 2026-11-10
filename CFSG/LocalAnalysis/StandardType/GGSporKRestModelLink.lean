@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSporKRestPermCoverMat
 public import CFSG.LocalAnalysis.StandardType.GGSporKRestTablePerm
-public import CFSG.Sporadic.Th.TableSpec
 
 public section
 

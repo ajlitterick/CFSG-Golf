@@ -4,7 +4,6 @@ public import Certificates.Data.Kernel.CentGenRK
 public import Certificates.Kernel.Sporadic.Suz.Text2306
 import CFSG.Certificates.Kernel.Common.Repo
 import CFSG.Certificates.Kernel.Common.JsonGz
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

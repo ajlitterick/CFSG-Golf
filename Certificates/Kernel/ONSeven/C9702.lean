@@ -2,8 +2,6 @@ module
 
 public import Certificates.Kernel.ONSeven.Lin
 public import CFSG.RankThree.Native.ONThreeInputs
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

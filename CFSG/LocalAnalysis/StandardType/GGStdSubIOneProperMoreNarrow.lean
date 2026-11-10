@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubIOneProperMoreUnitary
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwoThreeSp
-public import CFSG.LocalAnalysis.StandardType.GGInnerDiagBridgeInner
 
 public section
 

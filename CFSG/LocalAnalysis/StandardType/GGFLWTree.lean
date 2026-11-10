@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGWeylSimpleSystemsConj
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRootRefl
-public import TauCeti.GroupTheory.Coxeter.Geometric
 
 public section
 

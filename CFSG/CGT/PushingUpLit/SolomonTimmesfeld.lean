@@ -3,9 +3,6 @@ module
 public import CFSG.CGT.PushingUpLit.T2K.Inputs
 public import CFSG.CGT.PushingUpLit.SolK.Tight
 public import CFSG.CGT.PushingUpLit.SolK.GenFour
-public import CFSG.CGT.PushingUpLit.STT.NatAlt
-public import CFSG.CGT.PushingUpLit.STT.SzU3
-public import CFSG.CGT.PushingUpLit.BHS.Replacement
 public import CFSG.CGT.PushingUp.BenderBridge
 public import CFSG.CGT.PushingUp.BlockOrder
 public import CFSG.CGT.PushingUpLit.BHS7.BlockComm
@@ -28,10 +25,8 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Monster.Code.Weights
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.RankThree.PartOne.S12.Sec15Final
 public import CFSG.RankThree.PartTwo.Sec6.Statements
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24

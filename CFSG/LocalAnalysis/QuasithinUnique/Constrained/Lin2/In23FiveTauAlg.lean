@@ -2,7 +2,6 @@ module
 
 public import Mathlib.LinearAlgebra.Matrix.Block
 public import Mathlib.Tactic.LinearCombination
-public import Mathlib.Tactic.FinCases
 
 public section
 

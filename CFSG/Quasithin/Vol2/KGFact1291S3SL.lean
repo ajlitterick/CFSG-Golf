@@ -1,9 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.KGFact1291S3Red
-public import CFSG.Quasithin.Vol2.KGFact1297SL
-public import CFSG.LocalAnalysis.ComponentInitial.SteinbergBXBinaryIndexThreeParabolics
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherSylowNormalizer
 
 public section
 

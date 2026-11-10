@@ -3,10 +3,6 @@ module
 
 public import Certificates.Kernel.J4Count.PrimData
 public import Certificates.Kernel.J4Count.FixCEEltBase
-public import Certificates.Kernel.J4Count.HOrderBase
-public import Certificates.Kernel.J4Hub.Card
-public import CFSG.Sporadic.J4.Simple
-import CFSG.Certificates.Kernel.Common.Harness
 public import Certificates.Kernel.J4Count.Suborb
 public import CFSG.Certificates.Kernel.J4FixCESound
 public import CFSG.LocalAnalysis.ComponentInitial.PGroupRankOneClassification
@@ -19,9 +15,7 @@ public import CFSG.Quasithin.Background.A3Structure318Red
 public import CFSG.Quasithin.Background.A3Structure36A
 public import CFSG.Quasithin.Background.A3Structure36BAction
 public import CFSG.Quasithin.Background.A3Structure36BBase
-public import CFSG.Quasithin.Background.A3Structure36BCase3Base
 public import CFSG.Quasithin.Background.A3Structure36BCasesBase
-public import CFSG.Quasithin.Background.A3Structure36BCommonBase
 public import CFSG.Quasithin.Background.A3Structure36BFrattini
 public import CFSG.Quasithin.Background.A3Structure36BHeisBase
 public import CFSG.Quasithin.Background.A3Structure36BHomocyclic
@@ -41,11 +35,6 @@ public import CFSG.Quasithin.Background.B4ModelsIso
 public import CFSG.Quasithin.Background.C2Basic
 public import CFSG.Quasithin.Background.C2Inputs
 public import CFSG.Quasithin.Background.E1
-public import CFSG.Quasithin.Background.E1Sec4
-public import CFSG.Quasithin.Background.E1Sec5
-public import CFSG.Quasithin.Background.E1Sec8
-public import CFSG.Quasithin.Background.E1Solv
-public import CFSG.Quasithin.Background.E1Twelve
 public import CFSG.Quasithin.Background.E3Cent
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import CFSG.Quasithin.Vol2.Ch1Local

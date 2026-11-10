@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormE6Split
-public import CFSG.LocalAnalysis.StandardType.GGLieCoreToralInd
 public import CFSG.LocalAnalysis.StandardType.GGExcElemToralFrobeniusFixed
 public import CFSG.LocalAnalysis.StandardType.GGExcElemToralLangStep
 

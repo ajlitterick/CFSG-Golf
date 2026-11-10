@@ -3,7 +3,6 @@ module
 public import Certificates.Data.Kernel.Co2I301.SixCent
 public import Certificates.Kernel.Co2I301.SixData
 public import Certificates.Kernel.SporSch.Co2M.SixChain
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

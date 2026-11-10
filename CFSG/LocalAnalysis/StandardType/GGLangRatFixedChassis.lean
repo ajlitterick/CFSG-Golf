@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGLangRatLift
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.BigAnyTorus
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.BigAnyStep
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.InnerQuasisimple
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcRoots
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.BigAnyDefs
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.CentralizerTrivialPoly
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.RigidField

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixDefs
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldSymplectic
-public import CFSG.RankThree.PartOne.KC.SymplecticSubfieldRadical
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylFieldVacOther
 
 public section

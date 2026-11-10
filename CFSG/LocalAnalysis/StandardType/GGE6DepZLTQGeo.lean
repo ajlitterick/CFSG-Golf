@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpStdTwE6
 public import CFSG.LocalAnalysis.StandardType.GGTwE6DD2Recipe
 
 public section

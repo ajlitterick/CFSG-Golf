@@ -12,14 +12,6 @@ public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.Certificates.CosetTableShort
 public import CFSG.LieType.Multipliers.U43Action
 public import CFSG.Open.Defs
-public import Mathlib.Algebra.Field.Defs
-public import Mathlib.Algebra.Group.MinimalAxioms
-public import Mathlib.Data.ZMod.Basic
-public import Mathlib.GroupTheory.FreeGroup.Basic
-public import Mathlib.LinearAlgebra.Projectivization.Action
-public import Mathlib.LinearAlgebra.Projectivization.Cardinality
-public import Mathlib.RepresentationTheory.Homological.GroupHomology.LowDegree
-public import Mathlib.Tactic.Ring
 
 public section
 

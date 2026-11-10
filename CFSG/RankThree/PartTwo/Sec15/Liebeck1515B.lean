@@ -1,8 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec15.Liebeck1515BJ
-public import CFSG.RankThree.PartTwo.Sec19.Item194Inputs
-public import CFSG.RankThree.PartTwo.Sec17.RouteProvers142
 import CFSG.RankThree.PartTwo.Sec15.Liebeck1515BAct
 import CFSG.RankThree.PartTwo.Sec15.Liebeck1515BInn
 import CFSG.RankThree.PartTwo.Sec15.Liebeck1515BK
@@ -13,13 +11,10 @@ import CFSG.RankThree.PartTwo.Sec15.LiebeckA4Block
 import CFSG.RankThree.PartTwo.Sec15.LiebeckA6Inv
 import CFSG.RankThree.PartTwo.Sec15.Liebeck143AtDelta
 import CFSG.RankThree.PartTwo.Sec15.Item15Res11ProofTools
-import CFSG.RankThree.PartTwo.Sec15.Item15Res4ProofPassage
 import CFSG.RankThree.PartTwo.Sec17.Item17Q0ProofTools
 import CFSG.Quasithin.H13.A5S1327x
 import CFSG.RankThree.PartTwo.Sec14.Item148HJProofLB
 import CFSG.RankThree.PartTwo.Sec14.Item14Tools
-import CFSG.RankThree.PartTwo.Sec15.Item155wProof
-import CFSG.RankThree.PartTwo.Sec15.Item15Res10ProofEnd
 public import CFSG.LocalAnalysis.AGLEmbedding.D1GlobalU
 public import CFSG.LocalAnalysis.AGLEmbedding.Extremal
 public import CFSG.LocalAnalysis.AGLEmbedding.TwoCoreObstruction
@@ -67,7 +62,6 @@ import CFSG.Quasithin.Background.B5CompB
 import CFSG.Quasithin.Background.B5FinOut
 import CFSG.Quasithin.Background.B6
 import CFSG.Quasithin.Background.B69Core
-import CFSG.Quasithin.Background.B6Example
 import CFSG.Quasithin.Background.E2Hyp
 import CFSG.Quasithin.Background.E3OffenderB
 import CFSG.Quasithin.Background.F6Amalgams

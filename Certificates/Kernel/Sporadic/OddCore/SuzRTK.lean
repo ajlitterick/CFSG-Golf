@@ -3,10 +3,8 @@ module
 public import Certificates.Kernel.Sporadic.OddCore.SuzRT
 public import Certificates.Kernel.Sporadic.OddCore.SuzRK
 public import Certificates.Kernel.Sporadic.OddCore.SuzMGF
-public import Certificates.Kernel.Sporadic.L2.Defs
 public import Certificates.Kernel.Sporadic.L2.Defs2
 public import Certificates.Data.Kernel.Spor.CEnum
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

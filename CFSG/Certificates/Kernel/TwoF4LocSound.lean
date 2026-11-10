@@ -2,10 +2,7 @@ module
 
 public import Certificates.Data.Kernel.TwoF4LocK
 public import Certificates.Data.TwoF4LocCheck
-public import CFSG.Certificates.Kernel.Spor.PrimSound
 public import CFSG.Certificates.Kernel.BfsPinUnpack
-public import CFSG.Certificates.Kernel.Spor.PackWord
-public import CFSG.Certificates.Kernel.Spor.Loops
 public import Std.Tactic.BVDecide.Normalize.BitVec
 
 public section

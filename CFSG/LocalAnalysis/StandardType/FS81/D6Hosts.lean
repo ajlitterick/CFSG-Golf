@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.FS81.StdLoc
 public import CFSG.LocalAnalysis.StandardType.FS81.D6HostsAux
 public import CFSG.LocalAnalysis.StandardType.FS81.D6Unique
 

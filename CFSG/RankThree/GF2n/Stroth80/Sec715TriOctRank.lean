@@ -1,8 +1,6 @@
 module
 
 public import CFSG.RankThree.GF2n.Stroth80.Sec715TriOctId
-public import Mathlib.LinearAlgebra.BilinearForm.Orthogonal
-public import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
 
 public section
 

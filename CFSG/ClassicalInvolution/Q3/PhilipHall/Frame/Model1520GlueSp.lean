@@ -3,7 +3,6 @@ module
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.Model1520GlueCover
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.Model1520Sp4
 public import CFSG.ClassicalInvolution.ModelFacts.TG3SmallSp
-public import CFSG.ClassicalInvolution.ModelFacts.Orth15RSpStd
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPair
 public import CFSG.ClassicalInvolution.Q3.Q3CPOmega
 public import CFSG.ClassicalInvolution.Q3.Q3CPSix67

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Fi.Variant3Lemma33
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Fi.Variant3Core
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Chain.LastProof
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.F23LDefs
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Solomon78.F23LInputs
 

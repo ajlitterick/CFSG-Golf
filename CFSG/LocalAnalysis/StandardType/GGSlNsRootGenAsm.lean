@@ -6,7 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSlNsRootGenWeyl
 public import CFSG.LocalAnalysis.StandardType.GGSlNsRootGenComp
 public import CFSG.LocalAnalysis.StandardType.GGSlNsRootGenGen
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRootGenAvoidKG
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerLinearNsFrame
 
 public section

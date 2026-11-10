@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2Toral
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1TransferData
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CoverData
 
 public section

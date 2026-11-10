@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.D4TwoRank
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434D42Outer
 public import CFSG.LocalAnalysis.AGLEmbedding.SporCaseThreeDataAux
 public import CFSG.LocalAnalysis.RankThreeTheoremC.ChevTwoOuterParts
-public import Certificates.Certificate9415
 import CFSG.LocalAnalysis.SectionRank.TrialityEvenCover
 public import CFSG.LieType.Chevalley.GraphTwistedOuterTwoPart
 public import CFSG.LocalAnalysis.AGLEmbedding.J3MSideDefs

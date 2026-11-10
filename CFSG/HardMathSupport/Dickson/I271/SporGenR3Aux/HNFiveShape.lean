@@ -1,13 +1,11 @@
 module
 
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.HNThreeShape
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.HNFiveSolv
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.HNFiveNoComp
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.HNFiveKer
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.ShapeWeak
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.HNFiveOrders
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.FactorSU
-public import CFSG.LieType.Universal.Unitary.Clause0
 public import CFSG.Adapters.StatedSmallProjOrders
 
 public section

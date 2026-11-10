@@ -6,7 +6,6 @@ import CFSG.LocalAnalysis.StandardType.ExcPos.PacketBasic
 import CFSG.LocalAnalysis.StandardType.ExcPos.NeighbourComponentSelect
 import CFSG.LocalAnalysis.StandardType.ExcPos.NeighbourComponentOrbit
 import CFSG.LocalAnalysis.StandardType.ExcPos.NeighbourComponentPacket
-import CFSG.LieType.Chevalley.GraphFixedOrbitParametrization
 
 public section
 

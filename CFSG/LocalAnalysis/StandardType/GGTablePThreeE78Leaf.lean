@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeKnownSix
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE78Comp
 import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6NotG2
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 
 public section
 

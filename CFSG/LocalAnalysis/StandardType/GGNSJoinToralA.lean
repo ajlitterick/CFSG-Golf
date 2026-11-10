@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosPerm
 import CFSG.LocalAnalysis.StandardType.GGNSJoinToralAAux
 

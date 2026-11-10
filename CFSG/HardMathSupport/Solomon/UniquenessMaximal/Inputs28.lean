@@ -1,8 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Vocab
-public import CFSG.Open.StatedDefs
-public import CFSG.Open.GLADefs
 public import CFSG.HardMathSupport.Solomon.Coordinator.Defs
 public import CFSG.LocalAnalysis.GLTheoremB.UniqInputs
 

@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergE6Good
 public import CFSG.LocalAnalysis.StandardType.GGSixAutSteinbergE6TwistedRoot
-public import CFSG.LieType.Chevalley.TwistedE6NormalForm
-public import CFSG.LieType.Chevalley.GraphFixedF4Canonical
 public import CFSG.RankThree.Chevalley.SteinbergBTTwistedE6ModelCover
 
 public section

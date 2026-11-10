@@ -1,14 +1,11 @@
 module
 
-public import CFSG.Monster.GMS.Griess13.Data
-public import CFSG.Monster.GMS.Griess13.ChecksOrbitTab
 public import Certificates.Certificate10034
 public meta import CFSG.Monster.GMS.Griess13.Data
 public meta import Mathlib
 public meta import CFSG.Sporadic.Co1Base
 public import CFSG.Sporadic.Co1Base
 public meta import CFSG.Sporadic.Th.F2Spec
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

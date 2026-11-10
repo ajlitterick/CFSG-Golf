@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBF4TwoInputsSylow
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotLeviSp6B3
-public import CFSG.LieType.Chevalley.EvenF4ExceptionalRootLayers
 
 public section
 

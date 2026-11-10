@@ -1,11 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDRMStabDefs
 public import CFSG.LinearAlgebra.SteinbergBQKernelBlocks
-public import CFSG.GroupTheory.WeirSylow.OrthogonalModels
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBigAD
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBigAA
-import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBigAB
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBigAF
 
 public section

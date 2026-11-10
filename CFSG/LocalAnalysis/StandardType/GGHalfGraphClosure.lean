@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGHalfGraphAgree
-public import CFSG.LocalAnalysis.StandardType.GGHalfGraphTheta
-public import CFSG.LieType.Universal.SpecialLinearRoots.SignedPerm
 
 public section
 

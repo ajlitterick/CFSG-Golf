@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Classification
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralCore
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PPrimeCore
 
 namespace CFSG
 end CFSG

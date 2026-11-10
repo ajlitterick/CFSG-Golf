@@ -3,7 +3,6 @@ module
 public import CFSG.ClassicalInvolution.Q3.TL4SecIdLie
 public import CFSG.ClassicalInvolution.Q3.TL4Conn26Ex
 public import CFSG.ClassicalInvolution.Q3.Q3T8E4NRB
-public import CFSG.ClassicalInvolution.Q3.Q3T6AutInn
 public import CFSG.ClassicalInvolution.AschTight.S1916F2a
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.FStarBasic
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinThmA

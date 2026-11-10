@@ -4,7 +4,6 @@ public import Certificates.Kernel.Fi24.Chain
 import Certificates.Kernel.Co2.Intro
 import Certificates.Kernel.Fi24.FactsF3
 import Certificates.Kernel.Fi24.FactsF4
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Fi24.Slices.Bind
 import CFSG.Certificates.Kernel.Fi24.Slices.Head
 

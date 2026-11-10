@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieOddCoverDefs
-public import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotSwapLiftBasic
 public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotSwapLiftSplit
 public import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotSwapLiftSplit
 public import CFSG.LocalAnalysis.SeitzReduction.SeitzQ2OddSplitClassical
@@ -10,7 +9,6 @@ public import CFSG.LieType.Steinberg.CentralExt.F4TwoMultiplier
 public import CFSG.LieType.Steinberg.CentralExt.E8TwoOddSplit
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.BorelTorusAbelianE6
 public import CFSG.LocalAnalysis.StandardType.GGTwE6DD2Cover
-public import CFSG.LieType.Universal.Unitary.Comparison
 public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalAdjoint
 
 public section

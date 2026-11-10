@@ -1,13 +1,7 @@
 module
 
-public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveCentral
 public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveLift
-public import CFSG.OddTranspositions.PartThree.Twelve.SixPivot
-public import CFSG.OddTranspositions.PartThree.Twelve.FiveDefs
-public import CFSG.OddTranspositions.PartFour.LinePolar
-public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveChart
 public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveCenter
-public import CFSG.OddTranspositions.PartThree.Twelve.Four
 public import CFSG.OddTranspositions.PartThree.Nine.ThreeSplit
 public import CFSG.OddTranspositions.SevenFourEight.SevenSix
 public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveStab

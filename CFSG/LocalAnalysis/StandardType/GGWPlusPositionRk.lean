@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGWPlusPosition
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBBridge
 
 public section
 

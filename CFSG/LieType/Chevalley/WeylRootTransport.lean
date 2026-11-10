@@ -3,7 +3,6 @@ module
 public import CFSG.LieType.Chevalley.PinnedBridge
 public import CFSG.LieType.Chevalley.Canonical
 public import CFSG.LieType.Chevalley.BorelStructure
-public import CFSG.LieType.Chevalley.RootOps.All
 
 public noncomputable section
 

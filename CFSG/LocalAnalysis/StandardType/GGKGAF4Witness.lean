@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGASp
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalSpSC
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixPerfect
 
 public section

@@ -2,13 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGFrameRouteJoinDefs
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.McLaughlin.WeakBlockModuleData.OutCover
-public import CFSG.LocalAnalysis.SectionRank.OddCover.DegreeThree
 import CFSG.LocalAnalysis.StandardType.GGFrameFSxEndsCardJoin
 import CFSG.LocalAnalysis.StandardType.GGFrameRouteEndNormal
 import CFSG.LocalAnalysis.StandardType.GGFrameRouteLower
 import CFSG.LocalAnalysis.StandardType.GGHdRo7LNC
 import CFSG.LocalAnalysis.StandardType.GGQTwoLMMult
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 import CFSG.LocalAnalysis.RankFourTheoremC.InvariantTwo.KFacts.Lemma212InputsProofAutSU
 import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutClassicalUInner
 import CFSG.RankThree.PartOne.KF.R9Plane

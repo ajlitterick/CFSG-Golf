@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.SmithB45ExcRuData
 import Certificates.Kernel.B45.C260393H
 import Certificates.Kernel.B45.C260393W0
 import Certificates.Kernel.B45.C260393W1

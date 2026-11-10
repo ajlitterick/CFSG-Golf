@@ -1,14 +1,12 @@
 module
 
 public import CFSG.ClassicalInvolution.WeakCT.Blocks
-public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherAutomorphismData
 public import CFSG.LocalAnalysis.ComponentInitial.LinearInvolutionFixedInner
 public import CFSG.RankThree.PartOne.LIT.CongruenceFive
 public import CFSG.ClassicalInvolution.ModelFacts.MF15Sq
 public import CFSG.LieType.CurtisTits.SpecialLinear
 public import CFSG.LocalAnalysis.ComponentInitial.LinearFlagOrder
 public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherSubspaceIndex
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

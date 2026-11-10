@@ -2,11 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJRowOmPlusTwoAux1
 public import CFSG.LocalAnalysis.StandardType.GGQ2OrthBlocks
-public import CFSG.LocalAnalysis.StandardType.GGQ2PlaneRaw
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 import CFSG.LocalAnalysis.StandardType.GGQ2OrthTorusAutBasic
 import CFSG.LocalAnalysis.StandardType.GGQ2PlaneShapes
-import CFSG.LocalAnalysis.StandardType.GGQ2SpBlocksSU
 import CFSG.ClassicalInvolution.Phan.PhanDn.QTwo.SUFour
 
 public section

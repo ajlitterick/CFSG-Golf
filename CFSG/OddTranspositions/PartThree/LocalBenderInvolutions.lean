@@ -2,13 +2,10 @@ module
 
 public import CFSG.OddTranspositions.PartThree.LocalBenderBasic
 public import CFSG.GroupTheory.PCore.SolvableRadical
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Comparator.Defs
 public import CFSG.Timmesfeld.Bridge.OddTranspDefs
 
 import CFSG.GroupTheory.OddCoreQuotient
 import CFSG.Timmesfeld.Bridge.Asc72Bender
-import CFSG.Timmesfeld.RootSubgroupBasic
-public import CFSG.Adapters.QiuzhenLegacy.BenderSuzuki.Models
 import CFSG.OddTranspositions.O4PairTenWidth
 import CFSG.OddTranspositions.Width
 import CFSG.Walter.Defs

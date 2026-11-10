@@ -2,13 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265CC1
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S265SF0
-import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowX2E6TNA
-import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowX2E6Weyl
-import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieLiftGood
-import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoTorus
-import CFSG.LieType.SeitzGeneration.ExcPlaneModel
-import CFSG.HardMathSupport.Solomon.Proving.KZeroLe
-import CFSG.Timmesfeld.Orders.Classical
 public import CFSG.ClassicalGroups.Orthogonal.RootGroupPair
 public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.W2.E6SixAux.Plane
 public import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.W2.E8TenTwelveAux.Twelve

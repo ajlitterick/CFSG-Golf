@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGL45TALinCent
 public import CFSG.LocalAnalysis.StandardType.GGL45NtDefs
-public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 
 public section
 

@@ -1,14 +1,6 @@
 module
 
-public import CFSG.Sporadic.HNSchreier.Involution
-public import CFSG.Sporadic.HNSchreier.FALocalCheck
 public import Certificates.Certificate16041
-public import Certificates.Certificate2096
-public import Certificates.Certificate2097
-public import Certificates.Certificate2100
-public import Certificates.Certificate2102
-public import Certificates.Certificate2104
-public import Certificates.Certificate2107
 
 public noncomputable section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.Steinberg.CentralExt.SUOddFieldThreeRadical
-public import CFSG.ClassicalGroups.Unitary.Form
 public import CFSG.LieType.Steinberg.CentralExt.UnitaryRankOneLast
 
 public section

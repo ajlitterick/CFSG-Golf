@@ -3,11 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGKD2Connected1619Contracts
 public import CFSG.RankThree.PartOne.KFOUT3.L12Levi
 public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87FU3Card
-public import CFSG.LocalAnalysis.GLTheoremA.PComp
-public import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
-public import CFSG.LinearAlgebra.SL2MinimalFaithfulMatrix
 public import CFSG.Assembly.GL83StatedBridge
-public import CFSG.Adapters.ProjectiveSpecialLinear
 
 public section
 

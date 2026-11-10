@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1Defs
 public import CFSG.LieType.Universal.Spin.SpinCommRankTwo
-public import CFSG.LieType.Universal.Catalog
 
 public section
 

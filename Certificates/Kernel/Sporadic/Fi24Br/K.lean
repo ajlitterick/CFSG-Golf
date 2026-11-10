@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Certificates.Kernel.Orders.Cert3
 public import Certificates.Kernel.Sporadic.Fi24Br.Prog
 import CFSG.Certificates.Kernel.Common.Each
 import CFSG.Certificates.Kernel.Common.Harness

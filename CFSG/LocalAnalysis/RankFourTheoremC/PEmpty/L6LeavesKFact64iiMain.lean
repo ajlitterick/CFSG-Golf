@@ -2,11 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.L6LeavesKFact64iiCover
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.L6LeavesNSSimple
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.CentralizerLemmas
 import CFSG.RankThree.Coprime.ThompsonElementaryComplement
-import CFSG.RankThree.PartOne.S9.Planes.Basic
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.ClassicalGroups.Symplectic.Simple
 public import CFSG.Foundations
 public import CFSG.GroupTheory.HallHigmanPiCore
@@ -64,7 +60,6 @@ public import CFSG.RankThree.PartTwo.Sec4.T444.Basic
 public import CFSG.RankThree.PartTwo.Sec4.T444.Statement
 public import CFSG.RankThree.PartTwo.Sec8.Statements
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 
 public section
 

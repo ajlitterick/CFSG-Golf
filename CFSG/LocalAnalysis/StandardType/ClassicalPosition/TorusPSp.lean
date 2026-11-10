@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
-public import CFSG.LieType.Universal.SymplecticExtras
-public import CFSG.Open.StatedDefs
 public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerSp
 
 public section

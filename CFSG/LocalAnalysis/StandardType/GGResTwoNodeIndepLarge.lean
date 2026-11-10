@@ -1,16 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeIndepDefs
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeDepAssembly
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndep
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepAtLK
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepMove
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepDepTwin
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepPm1
-public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepFrameK
-public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepPos
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepAtThree
-public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepNine
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeKFixLineDefs
 
 public section

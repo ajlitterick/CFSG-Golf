@@ -4,7 +4,6 @@ public import Certificates.Data.Kernel.ThLocal.E81Defs
 public import Certificates.Kernel.ThLocal.E81Data
 public import Certificates.Kernel.ThCensus.Data
 public import Certificates.Kernel.ThCensus.PermData
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.Each
 
 public section

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UFrameD
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeToralityProof
-public import CFSG.LieType.Steinberg.CentralExt.FieldFourMultiplier
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4Flag
 
 public section

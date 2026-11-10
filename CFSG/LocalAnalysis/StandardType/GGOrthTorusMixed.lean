@@ -4,20 +4,11 @@ public import CFSG.LocalAnalysis.StandardType.GGTBJOmBlockZ
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmTauOm
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmPlaneIsometries
 public import CFSG.LocalAnalysis.StandardType.GGOrthRk1Centralizer
-public import CFSG.LocalAnalysis.StandardType.GGOrthRk1GenSupp
 public import CFSG.LocalAnalysis.StandardType.GGOrthRk1GenConj
 public import CFSG.LocalAnalysis.StandardType.GGTBJOmClass
 public import CFSG.LocalAnalysis.StandardType.GGTableBOrthRestBstarOddBT
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173MixedShape
-import CFSG.RankThree.PartOne.S15K.FamilyForms
-public import CFSG.HardMathSupport.Solomon.LocalBalance.PartIInputs
 public import CFSG.HardMathSupport.Solomon.LocalBalance.ScpQuot
-public import CFSG.HardMathSupport.Solomon.LocalBalance.Sec5Statements
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6DInputs
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6FInputs
-public import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec7Interface
-public import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeFamilies
-public import CFSG.LocalAnalysis.AGLEmbedding.ResidualTools
 public import CFSG.LocalAnalysis.GL83PartI.I_22_5.Setup
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173Facts
 public import CFSG.LocalAnalysis.GLTheoremA.S10.Inputs105

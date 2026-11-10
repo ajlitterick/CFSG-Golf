@@ -1,17 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeNineAllDefs
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeIndepDefs
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeDepFrame
-public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepFrame
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepMove
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepPos
-public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepRefl
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepTransfer
-public import CFSG.LocalAnalysis.StandardType.GGRCTransfer
-public import CFSG.LocalAnalysis.StandardType.GGRCLinRefl
-public import CFSG.LocalAnalysis.StandardType.GGRCCaseIIBasic
-public import CFSG.LocalAnalysis.StandardType.GGRCWeylCard
 public import CFSG.LocalAnalysis.StandardType.GGFLWTree
 public import CFSG.LocalAnalysis.StandardType.GGResCentBoundNbr
 

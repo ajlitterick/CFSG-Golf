@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGRealKGThree
 public import CFSG.LocalAnalysis.StandardType.GGKGForkUnitaryOne
 public import CFSG.LocalAnalysis.StandardType.GGKGForkLinearDvdOne
 public import CFSG.LocalAnalysis.StandardType.GGKGForkSmallRow
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerNinePGL
 
 public section
 

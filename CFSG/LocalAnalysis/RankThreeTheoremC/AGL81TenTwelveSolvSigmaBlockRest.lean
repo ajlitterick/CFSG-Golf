@@ -1,15 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TenTwelveSolvSigmaDefs
-public import CFSG.LocalAnalysis.AGLEmbedding.ChevTwoSurvivorBlocks
 public import CFSG.LocalAnalysis.AGLEmbedding.BlockFoundationsPLType
-public import CFSG.Assembly.Subnormal
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TwelveNotLeSymThreePerm
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81TwelveNotLeSymThreeSp
-public import CFSG.Monster.B.TwoA.Triality.TwoCore
 public import CFSG.GroupTheory.PCore.OpenTransport
 public import CFSG.GroupTheory.CoprimeCentralizerTransport
-public import CFSG.RankThree.PartTwo.Sec19.Item19Res3ProofCensus194
 public import CFSG.Certificates.Kernel.ThDemp.OrbCent
 public import CFSG.CGT.PushingUpLit.BHS.NaturalDefs
 public import CFSG.CGT.PushingUpLit.BHS.SymNatDefs

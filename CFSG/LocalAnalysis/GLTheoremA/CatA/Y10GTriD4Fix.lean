@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GTriD4Lab
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GTriFix
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.D4Outer
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.D4Graph.Duality
-public import CFSG.HardMathSupport.Lang.E6Descent.OuterFixed27D4AmbientForm
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieOuterIdxD4Three
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.OrthAut
 public import CFSG.Holt.Fixed

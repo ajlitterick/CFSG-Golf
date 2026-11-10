@@ -1,13 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec3L34GTS8Lift
-public import Mathlib.GroupTheory.OrderOfElement
-public import Mathlib.Algebra.Group.Subgroup.Finite
-public import Mathlib.Algebra.Group.Subgroup.ZPowers.Basic
-public import Mathlib.Algebra.Group.Subgroup.Lattice
-public import Mathlib.Algebra.Group.Subgroup.Map
-public import Mathlib.Algebra.Group.Commute.Defs
-public import Mathlib.Algebra.Group.End
 
 public section
 

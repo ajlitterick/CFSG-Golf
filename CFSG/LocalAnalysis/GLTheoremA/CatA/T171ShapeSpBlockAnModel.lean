@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeSpBlockAnCatalogue
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeSpBlockInnAut
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeUBlockInnAut
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeFamInSpTransFactor
 public import CFSG.HardMathSupport.Dickson.BMRows.CensusShape
 public import CFSG.GH74.GLS.IVK.Proofs2.Lemma12hb
 public import CFSG.GH74.GLS.IVK.Proofs2.Lemma13d

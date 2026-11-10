@@ -1,13 +1,9 @@
 module
 
-public import CFSG.LieType.Multipliers.U62BridgeInputs
 public import CFSG.Certificates.Kernel.Misc.Coset.T46WordsSound
 public import Certificates.Kernel.Misc.T46
 public import Certificates.Kernel.Misc.Coset.C10015B
 public import Certificates.Kernel.Misc.Coset.XT46W.All
-import CFSG.Certificates.Kernel.Common.Harness
-import CFSG.LieType.Multipliers.U62Data
-import CFSG.LieType.Multipliers.CoverWords
 public import CFSG.Assembly.Subnormal
 public import CFSG.Certificates.CosetTableCompactColumns
 public import CFSG.Fischer.T46Simple

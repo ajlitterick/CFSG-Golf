@@ -1,12 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGA11CohDefs
-public import CFSG.RankThree.SteinbergR3ECALinearSplitBlocks
 public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionSLRestNonsplit
-public import CFSG.RankThree.Classical2.SLnRootPermutingFixedGroups
-public import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
-public import CFSG.GroupTheory.LocalCores.Components
-public import CFSG.LocalAnalysis.StandardType.GGSixRootFusionSLRepCases
 
 public section
 

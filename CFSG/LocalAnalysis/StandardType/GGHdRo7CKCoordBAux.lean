@@ -1,14 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGHdRo7CLCoordModelC
-public import CFSG.LocalAnalysis.StandardType.GGHdRo7CLCoordAux
-public import CFSG.LocalAnalysis.StandardType.GGTriD4NoneTransport
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySpCoord
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7CKCoordBAux2
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7CKCoordBAux5
-public import CFSG.LocalAnalysis.StandardType.GGHdRo7CKCoordAAux2
 import CFSG.Quasithin.EmptyFaithful.S146zMListCl
-import CFSG.Assembly.GL83StatedBridge
 
 public section
 

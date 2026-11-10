@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section7.KFact76G2Coords
-import CFSG.LieType.Chevalley.WeylRootTransport
-import CFSG.LieType.Chevalley.Braid
 
 public section
 

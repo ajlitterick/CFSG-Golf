@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Toolkit.Statements
-public import CFSG.RankThree.PartTwo.Toolkit.RawGL
 public import CFSG.RankThree.SubgroupLists.DicksonGL2
 public import CFSG.RankThree.Asc83Table.Reduction
 public import CFSG.RankThree.PartTwo.Toolkit.Bloom13Trees

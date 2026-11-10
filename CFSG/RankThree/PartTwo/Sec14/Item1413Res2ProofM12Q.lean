@@ -3,11 +3,9 @@ module
 public import CFSG.RankThree.PartTwo.Sec14.Item1413Res2ProofM12R
 public import CFSG.RankThree.PartTwo.Sec14.Item1413Res2ProofSimple
 public import CFSG.RankThree.PartTwo.Sec4.Sporadic.M12Sig
-public import CFSG.RankThree.PartTwo.Toolkit.M12Facts
 import CFSG.RankThree.PartTwo.Sec14.Concl142NHJM12
 import CFSG.RankThree.PartTwo.Sec13.Item13Plane
 import CFSG.RankThree.PartTwo.Sec13.Item133
-import CFSG.RankThree.Asc83Table.Automizer
 import CFSG.RankThree.PartTwo.Sec4.Census.Lift46
 public import CFSG.RankThree.GroupTheory.SteinbergBYAlphaTransport
 import CFSG.RankThree.PartTwo.Sec4.Census.Interface

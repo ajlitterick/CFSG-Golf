@@ -11,7 +11,6 @@ public import CFSG.LocalAnalysis.StandardType.GGNbrLSideRSExcU1TriD4
 public import CFSG.LocalAnalysis.StandardType.GGNbrLSideRSExcU4
 public import CFSG.LocalAnalysis.StandardType.GGNbrLSideRSExcU2
 public import CFSG.LocalAnalysis.StandardType.GGNbrLSideRSExcU3
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofLieOrder
 
 public section
 

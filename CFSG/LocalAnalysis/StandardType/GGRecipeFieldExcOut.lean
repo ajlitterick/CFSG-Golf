@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExc
-public import CFSG.LocalAnalysis.StandardType.MarkingChevalley
-public import CFSG.LieType.Chevalley.EvenE7E8AutomorphismNormalForm
-public import CFSG.LieType.Chevalley.EvenF4AutomorphismNormalForm
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenAutomorphisms
 
 public section
 

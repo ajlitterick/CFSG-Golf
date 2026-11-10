@@ -1,12 +1,9 @@
 module
 
-public import CFSG.GH74.GLS.Stage4.Q9.ModelBase
 public meta import CFSG.GH74.GLS.Stage4.Q9.ModelBase
 public meta import Mathlib
-public import CFSG.GH74.GLS.Stage4.Q9.DFactsInputs
 public meta import CFSG.GH74.GLS.Stage4.Q9.DFactsInputs
 public import Certificates.Certificate5099
-public import Certificates.Certificate5100
 
 public section
 

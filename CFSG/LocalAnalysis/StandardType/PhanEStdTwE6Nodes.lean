@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSelectedTwistedE6
 public import CFSG.LocalAnalysis.StandardType.PhanEStdRootNodes
 public import CFSG.LocalAnalysis.StandardType.GGTBE6IndTwistWeyl
-public import CFSG.LocalAnalysis.StandardType.GGRootDetectTwE6Torus
-public import CFSG.LocalAnalysis.StandardType.GGTwInndiagRootBridge
-public import CFSG.LocalAnalysis.SeitzReduction.LinearPilotOrth
 
 public noncomputable section
 

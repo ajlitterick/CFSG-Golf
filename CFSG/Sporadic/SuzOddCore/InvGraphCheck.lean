@@ -3,13 +3,9 @@ module
 
 public import CFSG.Sporadic.SuzOddCore.InvGraphCheckBase
 
-public import CFSG.Sporadic.SuzOddCore.InvArraysCheck
-public import Certificates.Data.CFSGNative.Schreier.Refine
-public import Mathlib.Data.Fintype.Card
 public meta import CFSG.Sporadic.SuzOddCore.InvArraysCheck
 public meta import Certificates.Data.CFSGNative.Schreier.Refine
 public meta import Mathlib.Data.Fintype.Card
-public import CFSG.Sporadic.SuzOddCore.InvGraphCheckInputs
 public import Certificates.Certificate2301
 
 public section

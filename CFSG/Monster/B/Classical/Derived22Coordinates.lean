@@ -3,9 +3,6 @@ module
 public import CFSG.Monster.B.Classical.Derived22Data
 public import CFSG.Monster.B.Classical.Hyperoval
 import all CFSG.Fischer.F4
-public import Mathlib.Tactic.ENatToNat
-public import Mathlib.Tactic.Monotonicity.Lemmas
-public import Mathlib.Topology.Sheaves.Presheaf
 
 public section
 

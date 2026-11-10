@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2CentInner
 import CFSG.LocalAnalysis.StandardType.GGTorusGenSpTwoCent
-import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticBstar
-import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameCenter
 
 public section
 

@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGKGForkUnitaryDvdModel
 public import CFSG.LocalAnalysis.StandardType.GGKGForkUnitaryDvdRoot
 public import CFSG.LocalAnalysis.StandardType.GGTBRowFrame
-public import CFSG.LocalAnalysis.StandardType.GGTDAutomizer
 
 public section
 

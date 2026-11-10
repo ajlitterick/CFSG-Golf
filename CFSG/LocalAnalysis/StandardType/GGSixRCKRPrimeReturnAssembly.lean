@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeFirstPass
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcRelOneAt
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUAll
-public import CFSG.Foundations.SteinbergCADefinitionNodes
 
 public section
 

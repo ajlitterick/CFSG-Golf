@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGStructSOnePrimeCent
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.I142TInd
 public import CFSG.LocalAnalysis.StandardType.GGStructSOneHolds
 
 public section

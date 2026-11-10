@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGL45NtDefs
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldSymplectic
 public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameCenter
 
 public section

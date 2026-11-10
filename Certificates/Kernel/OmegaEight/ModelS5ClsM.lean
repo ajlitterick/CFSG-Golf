@@ -4,7 +4,6 @@ public import Certificates.Data.Kernel.O8.ModelW
 public import Certificates.Kernel.OmegaEight.CPChains
 public import Certificates.Kernel.OmegaEight.ModelData
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

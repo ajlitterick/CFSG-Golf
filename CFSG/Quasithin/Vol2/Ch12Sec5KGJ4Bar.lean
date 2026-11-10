@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.Vol2.Ch12Sec5KGJ4Lat
 public import CFSG.Quasithin.Vol2.Ch4Sec2Thm4213J4Out
-public import CFSG.LieType.SteinbergBRMulEquivCores
 public import CFSG.GH74.SmallRanks.AltM11
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.In23ExamKCover
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.In23ExamKDefs

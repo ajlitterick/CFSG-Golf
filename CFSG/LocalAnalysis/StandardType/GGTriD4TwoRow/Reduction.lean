@@ -1,12 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeTriD4Rank
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylCompDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyReflInner
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeAEndModel
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63Q2ProofLift
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixPerfect
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherExcTriD4Weyl
 public import CFSG.LocalAnalysis.StandardType.GGTriD4SchurHolds
 public import CFSG.LocalAnalysis.StandardType.GGTorusFieldTransferSh

@@ -5,7 +5,6 @@ public import Certificates.Kernel.CoPair.U62Bind
 public import CFSG.Certificates.Kernel.CoPairEqSound
 public import Certificates.Data.CFSGNative.MonsterAxis.CoPairData
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

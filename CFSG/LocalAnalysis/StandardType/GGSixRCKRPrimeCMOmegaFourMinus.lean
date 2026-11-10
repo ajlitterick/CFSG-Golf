@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCMBlockCore
-public import CFSG.GroupTheory.WeirSylow.OrthogonalModels
 public import CFSG.RankThree.GF2n.Stroth80.GriessOrthSmall
-public import CFSG.RankThree.PartOne.S11d.OrthModels
-public import CFSG.Adapters.ProjectiveSpecialLinear
-public import CFSG.Dihedral.GorensteinWalter.FieldTransport
 
 public section
 

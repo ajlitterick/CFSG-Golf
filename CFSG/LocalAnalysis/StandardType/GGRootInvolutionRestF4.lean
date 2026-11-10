@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionExceptional
-public import CFSG.Blueprint.ChevalleyRoots
 
 public section
 

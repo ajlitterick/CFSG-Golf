@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LieType.Chevalley.GraphFixedBruhatEquivariance
 public import CFSG.RankThree.Chevalley.SteinbergCEF4EvenQPlusWeyl
 public import CFSG.LieType.Chevalley.C2E6SubsystemBruhat
 public import CFSG.LieType.Chevalley.SignKernelComponentBruhat

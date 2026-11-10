@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLayerChevAdjoint
-public import CFSG.LocalAnalysis.StandardType.GGTwE6LayerCentConverse
-public import CFSG.LocalAnalysis.StandardType.GGExcToralSylowLayer
-public import CFSG.LocalAnalysis.StandardType.GGWeylFamQuotSolvAll
 
 public section
 

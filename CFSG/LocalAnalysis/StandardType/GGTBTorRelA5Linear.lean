@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBTorRelA5LinWeyl
 public import CFSG.LocalAnalysis.StandardType.GGSlNsRootGenModel
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerLinearNonsplit
-public import CFSG.Adapters.SpecialLinearPerfect
 
 @[expose] public section
 

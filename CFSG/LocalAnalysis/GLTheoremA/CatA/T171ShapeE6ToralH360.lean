@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeE6ToralH360Comp
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeE6ToralH360CompTw
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265CDynE
 public import CFSG.LocalAnalysis.ComponentClassification.CatFC.CentA6SqLieEven
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofLieOrder
 public import CFSG.LocalAnalysis.ComponentClassification.CatFC.AltSevenNotLie
 public import CFSG.LocalAnalysis.ComponentClassification.CatFC.CentA6SqMain
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.Main

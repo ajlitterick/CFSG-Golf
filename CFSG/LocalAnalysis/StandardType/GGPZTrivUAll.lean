@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUModel
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyU
 public import CFSG.LocalAnalysis.StandardType.GGSixA6InsideSpFrame
 
 public section

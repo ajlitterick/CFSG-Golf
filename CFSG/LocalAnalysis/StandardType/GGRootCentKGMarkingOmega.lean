@@ -2,18 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRootCentKGTagsDefs
 public import CFSG.RankThree.Classical2.OrthogonalIsotropicUnipotent
-import CFSG.Foundations.QuasisimpleMulEquiv
-import CFSG.Assembly.Subnormal
-import CFSG.RankThree.OrthogonalInvolutions.Basic
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGMarking
-import CFSG.LocalAnalysis.StandardType.MarkingDict
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.FactorOmega
 import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.InnOrthFix
-import CFSG.LieType.Universal.SpecialLinear
-import CFSG.LieType.Universal.Unitary.Clause0
-import CFSG.LieType.Universal.Symplectic
-import CFSG.Adapters.ProjectiveSpecialLinear
-import CFSG.RankThree.PartOne.S11c.Sec66ClassCommon
 import CFSG.Certificates.CentralKernel
 import CFSG.Certificates.CosetTableWalkC
 import CFSG.Certificates.FusionF2
@@ -65,7 +56,6 @@ import CFSG.LieType.Multipliers.U62Bridge
 import CFSG.LieType.Multipliers.U62Kernel
 import CFSG.LieType.SteinbergBROddSylowCore
 import CFSG.LocalAnalysis.AGLEmbedding.SporadicBetaSmall
-import CFSG.LocalAnalysis.ComponentClassification.AschbacherWalterSchurEight
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearFieldDeterminant
 import CFSG.LocalAnalysis.ComponentClassification.ExcSelectorEvenE6
 import CFSG.LocalAnalysis.ComponentClassification.ExcSelectorOddE6
@@ -117,13 +107,8 @@ import CFSG.Quasithin.Background.B69Core
 import CFSG.Quasithin.Background.C1GNSolvConnect
 import CFSG.Quasithin.Background.C1PackS1531Top
 import CFSG.Quasithin.Background.D2
-import CFSG.Quasithin.Background.D2Dihedral
 import CFSG.Quasithin.Background.E2Statements
 import CFSG.Quasithin.Background.E3
-import CFSG.Quasithin.Background.E3Nprime
-import CFSG.Quasithin.Background.E3Uniq
-import CFSG.Quasithin.Background.F6CatRecogL2
-import CFSG.Quasithin.Background.F6CatRecogTools2
 import CFSG.Quasithin.Background.F918C6
 import CFSG.Quasithin.Background.FFC7G
 import CFSG.Quasithin.Background.FFC8A
@@ -203,10 +188,6 @@ import CFSG.Sporadic.SuzOddCore.GraphData
 import CFSG.Sporadic.SuzOddCore.SmallActionData
 import CFSG.Timmesfeld.RankOne
 import CFSG.Timmesfeld.Transvection.Statement
-import CFSG.Walter.J1Props
-import CFSG.Walter.J1Recog
-import CFSG.Walter.PSL2Facts
-import CFSG.Walter.W67.Statements
 import CFSG.YGroups.DCE.B433Check
 import Certificates.Kernel.J4Count.Prim
 

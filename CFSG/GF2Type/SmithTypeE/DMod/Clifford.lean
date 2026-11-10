@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GF2Type.SmithTypeE.DMod.Siegel
-public import Mathlib.LinearAlgebra.BilinearForm.Orthogonal
 
 public section
 

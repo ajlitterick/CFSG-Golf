@@ -3,7 +3,6 @@ module
 public import CFSG.Quasithin.H13.L32AC37a
 public import CFSG.Quasithin.H13.L32ASk4
 public import CFSG.Quasithin.EmptyFaithful.S146zUETransv
-public import CFSG.Quasithin.Vol2.Ch12Sec8OneLemma6
 public import CFSG.CharacterTheory.CyclicBlocks.Family
 public import CFSG.CharacterTheory.PSL2Table.BlocksProduct
 public import CFSG.CharacterTheory.Semidihedral.Principal.LargePrimeTorusSylowCentralizers
@@ -36,8 +35,6 @@ public import CFSG.Quasithin.Background.C126Defs
 public import CFSG.Quasithin.Background.C1GNC124
 public import CFSG.Quasithin.Background.E2Statements
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.E4Solv
 public import CFSG.Quasithin.Background.FFC5Final
 public import CFSG.Quasithin.Background.FFC6U
 public import CFSG.Quasithin.EmptyFaithful.S14110
@@ -55,9 +52,6 @@ public import CFSG.Quasithin.Vol2.Ch11StatementsF
 public import CFSG.Quasithin.Vol2.Ch11StatementsInputsAS
 public import CFSG.Quasithin.Vol2.Ch11StatementsInputsAS2
 public import CFSG.Quasithin.Vol2.Ch11StatementsInputsAS3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2NormalizedRootSylowCount
 public import CFSG.Timmesfeld.RankOne
 public import CFSG.Timmesfeld.Transvection.Statement

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.ExcPay.SquareGen
-public import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
 
 import CFSG.LocalAnalysis.StandardType.ExcPay.WeylTwE6
 

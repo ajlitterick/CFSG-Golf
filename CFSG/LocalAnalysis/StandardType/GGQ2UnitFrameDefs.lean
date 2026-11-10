@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQ2UnitRaw
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeBlock
 public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagProj
-public import CFSG.LocalAnalysis.SectionRank.OddCover.DegreeThree
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
 
 public section

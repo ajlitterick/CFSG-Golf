@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.SporSch.Ru.LB2255
-public import CFSG.Certificates.Kernel.Lie.CT.Core
 import CFSG.Certificates.Kernel.Common.Harness
 public import Certificates.Kernel.SporSch.Ru.CChain
 public import Certificates.Kernel.SporSch.Ru.LChain

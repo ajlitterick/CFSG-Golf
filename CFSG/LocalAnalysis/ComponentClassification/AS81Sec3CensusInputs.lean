@@ -5,7 +5,6 @@ public import Certificates.Data.CFSGNative.PSL3Four.Basic
 public meta import CFSG.Fischer.F4
 public meta import Certificates.Data.CFSGNative.PSL3Four.Basic
 public meta import Mathlib
-public import Mathlib
 
 public section
 

@@ -1,10 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGKGAF4Defs
-public import CFSG.LocalAnalysis.StandardType.GGKGAF4Self
-public import CFSG.LocalAnalysis.StandardType.GGKGAF4Witness
 public import CFSG.LocalAnalysis.StandardType.GGKGAF4Rank
-public import CFSG.LocalAnalysis.StandardType.GGKGAF4AutCard
 public import CFSG.LocalAnalysis.StandardType.GGKGAF4Aut
 
 public section

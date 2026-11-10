@@ -1,18 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixD4Defs
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixNsDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalOrth
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalRk2Rows
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalResidualDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalRk2Sp4Rows
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalSCRows
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalUnitCop
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalUnitDvd
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalUnitFiveMinus
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylFieldVacOther
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylOpenLabels
 
 public section
 

@@ -17,9 +17,7 @@ public import CFSG.Quasithin.Background.A3Structure36BPrimeDataBase
 public import CFSG.Quasithin.Background.A3Structure36BStar
 public import CFSG.Quasithin.Background.B216Quotient
 public import CFSG.Quasithin.Background.B6
-public import CFSG.Quasithin.Background.B6Example
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.Quasithin.Background.E2Hyp
 public import CFSG.Quasithin.Background.E2SolvTwo
 public import CFSG.Quasithin.Background.FFC5Dich
@@ -30,7 +28,6 @@ public import CFSG.Quasithin.EmptyFaithful.S1417Sylow
 public import CFSG.Quasithin.EmptyFaithful.T1515Der
 public import CFSG.Quasithin.Vol2.Ch11StatementsB
 public import CFSG.Quasithin.Vol2.Ch11StatementsC
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 
 public section
 

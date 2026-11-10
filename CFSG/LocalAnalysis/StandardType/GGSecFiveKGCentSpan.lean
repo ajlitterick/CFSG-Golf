@@ -7,12 +7,7 @@ import CFSG.LocalAnalysis.StandardType.GGStdPosTrans
 import CFSG.LocalAnalysis.StandardType.GGStdPosTagData
 import CFSG.LocalAnalysis.StandardType.GGStdPosTorusNorm
 import CFSG.LocalAnalysis.StandardType.GGStdPosRankCard
-import CFSG.LocalAnalysis.StandardType.GGNbrBalanceBasic
-import CFSG.LocalAnalysis.ComponentClassification.Quasisimple
-import CFSG.Walter.Bender1970.S2.Basic
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X6Residual
-import CFSG.LieType.TitsSimplicity.Unipotent
-import Mathlib.Tactic.Group
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X6Containment
 
 public section

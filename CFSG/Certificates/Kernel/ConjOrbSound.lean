@@ -3,7 +3,6 @@ module
 public import Certificates.Data.Kernel.ConjOrb
 public import CFSG.Certificates.Kernel.BfsPinBaseSound
 public import CFSG.Certificates.Kernel.BfsPinSetSound
-import CFSG.Certificates.Kernel.Spor.PackWord
 public import CFSG.Certificates.Kernel.BfsPinSound
 
 public section

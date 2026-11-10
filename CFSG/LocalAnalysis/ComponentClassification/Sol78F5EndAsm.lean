@@ -8,19 +8,13 @@ public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofEndOddLieOM
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofEndOddLieSp
 public import CFSG.LocalAnalysis.ComponentClassification.Foote5L513D
 public import CFSG.LocalAnalysis.ComponentClassification.Foote5L511AA
-public import CFSG.LocalAnalysis.ComponentClassification.Foote5Setting
 public import CFSG.LocalAnalysis.ComponentClassification.FooteLitRankBound
 public import CFSG.LocalAnalysis.ComponentClassification.FooteLitAut5L2Data
-public import CFSG.LocalAnalysis.ComponentClassification.FooteLitL24V
-public import CFSG.LocalAnalysis.ComponentClassification.Sol78FooteFC
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoFoundationFinal
 public import CFSG.LocalAnalysis.ComponentClassification.FooteLitSmallCent
-public import CFSG.LocalAnalysis.ComponentClassification.Foote5Uniq
 public import CFSG.LocalAnalysis.ComponentClassification.FooteLitKGFinal
 public import CFSG.LocalAnalysis.ComponentClassification.UFrontierCoreBranches
 import CFSG.LocalAnalysis.ComponentClassification.FooteLitLBalance
-import CFSG.LocalAnalysis.ComponentClassification.AutL2FactsFooteLit
-import CFSG.LocalAnalysis.LargeEvenClassification.MacWilliamsFull
 import CFSG.Alternating.Multipliers.Main
 import CFSG.RankThree.PartTwo.Sec4.Census.WiringInputs
 public import CFSG.GH74.Generic.S45.LEvSporGen
@@ -65,7 +59,6 @@ public import CFSG.YGroups.Y443.Native.Parabolic2CheckW
 import CFSG.LocalAnalysis.QuasithinUnique.SQTK.TypeB2
 import CFSG.LocalAnalysis.QuasithinUnique.SQTK.Unitary
 import CFSG.RankThree.PartTwo.Census.Spin.Main
-import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 
 public noncomputable section

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.CaseTwoXhat
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.KInputK11
-public import CFSG.GroupTheory.HallHigmanPiCore
 import all CFSG.GroupTheory.HallHigmanPiCore
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.CaseTwoShapeB
 import CFSG.LocalAnalysis.UniquenessCase.PartOne.Theorem82.CaseTwoKyNormal

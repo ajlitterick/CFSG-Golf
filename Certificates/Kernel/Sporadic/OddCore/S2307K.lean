@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Sporadic.OddCore.S2307D
 public import Certificates.Kernel.LocalQT.Tc.Gen
-public import Certificates.Data.Kernel.Spor.EnumBase
 public import Certificates.Data.Kernel.Spor.EnumBaseLex
 public import Certificates.Data.Kernel.BfsPinBase
 public import Certificates.Data.Kernel.Spor.HNAOrb

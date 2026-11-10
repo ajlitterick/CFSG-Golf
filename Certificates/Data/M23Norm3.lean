@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.M23Heptad
 public import CFSG.Quasithin.Vol2.Ch5Sec2M23L34DataInputs
-public import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22Count
 
 public section
 

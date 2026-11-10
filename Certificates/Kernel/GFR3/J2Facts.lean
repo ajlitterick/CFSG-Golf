@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.GFR3.J2
 public import Certificates.Kernel.GFR3.J2Orb
 public import CFSG.Certificates.Kernel.Misc.ChainTailOrbSound
 public import Certificates.Kernel.GFR3.J2Cls0
@@ -9,13 +8,10 @@ public import Certificates.Kernel.GFR3.J2Cls2
 public import Certificates.Kernel.GFR3.J2Cls3
 public import Certificates.Kernel.GFR3.J2Cls4
 public import Certificates.Kernel.GFR3.J2Cls5
-public import CFSG.Certificates.Kernel.B3S3KSound
 public import CFSG.Certificates.Kernel.GFR3KSound
 public import CFSG.Certificates.Kernel.Misc.ArrBind
 public import CFSG.Certificates.Kernel.Misc.HexFlatSound
 public import CFSG.Certificates.Kernel.Common.ForallChunks
-import CFSG.Certificates.Kernel.Spor.Loops
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.BfsPinSound
 
 public section

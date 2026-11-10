@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Sporadic.Co1.Module.Pairs
-public import CFSG.Monster.GMS.Facts.Co1Local
-public import CFSG.Monster.GMS.S365NativeInputs
 public import Certificates.Certificate10043
 public meta import CFSG.Sporadic.Co1.Module.PairsCheck
 public import CFSG.Sporadic.Co1.Module.OddFacts

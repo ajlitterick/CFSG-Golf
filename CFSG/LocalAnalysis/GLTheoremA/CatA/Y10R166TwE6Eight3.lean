@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.SeitzReduction.EPilotCentralizerHigh
-public import CFSG.RankThree.Chevalley.EvenPinnedRootSL2
 public import CFSG.HardMathSupport.Lang.E6Descent.OuterFixed27TwistedE6Torus
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeAd
 public import CFSG.Sporadic.Schreier.J4SSylowBase

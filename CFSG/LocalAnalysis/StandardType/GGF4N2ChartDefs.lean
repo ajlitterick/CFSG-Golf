@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
 public import Mathlib.FieldTheory.Finite.GaloisField
 
 public section

@@ -9,8 +9,6 @@ public import Certificates.Kernel.Sporadic.OddCore.S8147Rnd3
 public import Certificates.Kernel.Sporadic.OddCore.S8147Rnd4
 public import Certificates.Kernel.Sporadic.OddCore.S8147Rnd5
 public import Certificates.Kernel.Sporadic.OddCore.S2301Final
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

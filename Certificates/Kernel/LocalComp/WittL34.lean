@@ -5,7 +5,6 @@ public import CFSG.Certificates.Kernel.WittConjSound
 public import Certificates.Kernel.LocalComp.WittDataL34
 public import Certificates.Kernel.Sporadic.M22Syl.Facts
 public import CFSG.Quasithin.Recognition.L34AmalgamCasesInputs
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

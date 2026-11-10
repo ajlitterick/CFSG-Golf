@@ -4,7 +4,6 @@ public import CFSG.Quasithin.Vol2.Ch12Sec5Frame
 public import CFSG.Quasithin.Vol2.Ch12Sec4Statements
 public import CFSG.Quasithin.Vol2.Ch12Sec9List
 public import CFSG.Quasithin.Vol2.Ch11StatementsInputs
-public import CFSG.Quasithin.Background.B4ModelsLie
 public import CFSG.Quasithin.Background.A3Structure312Defs
 public import CFSG.Quasithin.Background.B2FactorizationResidual
 public import CFSG.Quasithin.Background.F9Basic

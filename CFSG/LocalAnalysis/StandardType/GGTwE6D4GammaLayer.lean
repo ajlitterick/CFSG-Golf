@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTwE6EltSmallFrame
 public import CFSG.LocalAnalysis.StandardType.GGKGOrthPairs
 public import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotRoots
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24D4T2Comp
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.KS.TwE6UniqKac
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTamePrime
 public import CFSG.Goldschmidt.Steps.G37Core
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.Basic
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.InnExcLang
@@ -43,10 +41,6 @@ public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.D2Cyclic
 public import CFSG.Quasithin.Background.E2Statements
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.F6CatRecogL2
-public import CFSG.Quasithin.Background.F6CatRecogTools2
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.FFC7G
 public import CFSG.Quasithin.Background.FFC8A
@@ -92,7 +86,6 @@ public import CFSG.Quasithin.Vol2.Ch3Sec3Lem3330
 public import CFSG.Quasithin.Vol2.Ch9KGFFQR
 public import CFSG.Quasithin.Vol2.Ch9KGFFQRCase
 public import CFSG.RankThree.Chevalley.SteinbergCFEvenF4PointwiseInner
-public import CFSG.Walter.J1Props
 public import Certificates.Kernel.J4Count.Prim
 
 public section

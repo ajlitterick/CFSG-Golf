@@ -2,8 +2,6 @@ module
 
 public import Certificates.Kernel.Sporadic.OddCore.HL
 public import Certificates.Kernel.LocalComp.HeFixData
-public import Certificates.Kernel.Misc.Perm.HexCmd
-public import CFSG.Certificates.Kernel.LocalCompUnpack
 public import CFSG.Sporadic.SmallOddCore.HeldTwoAInputs
 meta import CFSG.Sporadic.SmallOddCore.HeldTwoAInputs
 import CFSG.Certificates.Kernel.Common.Harness

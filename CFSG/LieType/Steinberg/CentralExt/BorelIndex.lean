@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.Steinberg.Bruhat
 public import CFSG.LieType.Steinberg.CentralExt.Unipotent
-public import CFSG.LieType.RootSystem.Form
 
 public section
 

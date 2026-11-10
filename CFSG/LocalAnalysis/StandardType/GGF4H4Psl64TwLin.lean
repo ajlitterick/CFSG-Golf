@@ -1,11 +1,9 @@
 module
 
-public import CFSG.Assembly.GL83LieDefs
 public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
 import CFSG.LocalAnalysis.StandardType.GGF4H4Psl64Fix
 import CFSG.RankThree.PartOne.KC.IrreducibleCentralizer
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBProjectiveCoordinatesBasis
-import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
 
 public section
 

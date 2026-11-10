@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.Q3EXOrth
 public import CFSG.ClassicalInvolution.Uniform.U8Shape
-public import CFSG.ClassicalInvolution.RouteD.ExoticD4Model
 
 public section
 

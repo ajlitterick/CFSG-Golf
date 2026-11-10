@@ -6,7 +6,6 @@ public import Certificates.Kernel.M24Dc.C1
 public import Certificates.Kernel.M24Dc.C2
 public import Certificates.Kernel.M24Dc.C3
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatM24DcInputs
-import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 100000
 

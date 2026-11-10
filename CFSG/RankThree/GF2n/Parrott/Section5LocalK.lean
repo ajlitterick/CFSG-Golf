@@ -1,8 +1,6 @@
 module
 
 public import CFSG.RankThree.GF2n.Parrott.Section4SpinGlue
-public import CFSG.RankThree.GF2n.Parrott.SylowH
-public import CFSG.RankThree.GF2n.Parrott.ActionZSimplicity
 public import CFSG.RankThree.GF2n.Parrott.SpinTraceData
 public import CFSG.RankThree.GF2n.Parrott.Section5LocalKLower
 public import CFSG.RankThree.GF2n.Parrott.Section5LocalKUpper

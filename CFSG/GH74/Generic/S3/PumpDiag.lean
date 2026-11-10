@@ -1,12 +1,8 @@
 module
 
-public import CFSG.GH74.Generic.Certificates
-public import CFSG.GH74.Generic.GKFCover
 public import CFSG.GH74.Generic.S3.Front
 public import CFSG.GH74.KGroups.L3EpsFour
 public import CFSG.GH74.Generic.S3.L3Cover
-public import CFSG.LocalAnalysis.ComponentInitial.SwappedQuasisimple
-public import CFSG.LocalAnalysis.RankThreeCoreUniqueness.PerfectResiduals
 public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic

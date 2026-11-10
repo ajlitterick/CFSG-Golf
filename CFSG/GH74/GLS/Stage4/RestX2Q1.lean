@@ -1,7 +1,5 @@
 module
 
-public import CFSG.GH74.GLS.Stage4.T2Defs
-public import CFSG.GH74.GLS.Stage4.RestDodecA
 public import CFSG.GH74.GLS.Stage4.T2Coord
 public import CFSG.CharacterTheory.Semidihedral.ElementStructure
 public import CFSG.GH74.GLS.IVK.L2.Torus

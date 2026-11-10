@@ -1,11 +1,6 @@
 module
 
-public import CFSG.Assembly.GL83LieDefs
-public import CFSG.GroupTheory.FixedPointFreeOutsideCentral
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoExtraspecial
-public import Mathlib.FieldTheory.Finite.Basic
-public import Mathlib.Tactic.LinearCombination
-public import Mathlib.Tactic.FinCases
 
 public section
 

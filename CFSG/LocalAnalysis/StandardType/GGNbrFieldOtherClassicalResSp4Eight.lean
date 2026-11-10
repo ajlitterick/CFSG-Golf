@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalResSp4EightAlt
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownSp
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalRk2Sp4
-public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameCenter
 
 public section
 

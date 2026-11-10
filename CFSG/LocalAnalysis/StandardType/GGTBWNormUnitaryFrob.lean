@@ -3,10 +3,7 @@ module
 public import CFSG.LinearAlgebra.FrobeniusIsometryUnitary
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormFormFrob
 public import CFSG.LocalAnalysis.StandardType.GGL45TGSU
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeInner
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMoreU
 public import CFSG.LocalAnalysis.StandardType.GGK1ScUni
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
 
 public section
 

@@ -1,11 +1,9 @@
 module
 
-public import CFSG.Sporadic.Schreier.Co1ElemThreeData
 public meta import CFSG.Sporadic.Schreier.Co1ElemData
 public meta import CFSG.Sporadic.Schreier.Co1ElemThreeData
 public meta import CFSG.Sporadic.Schreier.Co1ThreeLocal
 public meta import Certificates.Data.CFSGNative.Co1Schreier.Base
-public import CFSG.Sporadic.Schreier.Co1ElemThreeCheckInputs
 public import Certificates.Certificate2133
 
 public section

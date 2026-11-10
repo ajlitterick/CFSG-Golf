@@ -2,8 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148WL3CentConfig
 public import CFSG.RankThree.PartTwo.Sec14.Ronan148WL3CentQ8Frame
-import CFSG.CharacterTheory.Semidihedral.QuaternionAutomorphismLifting
-import CFSG.RankThree.PartTwo.Sec4.LThreePiTypes
 import CFSG.RankThree.PartTwo.Sec12.ONanKS128Diag
 
 public section

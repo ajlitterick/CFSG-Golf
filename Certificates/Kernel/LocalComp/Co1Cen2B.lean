@@ -4,10 +4,8 @@ public import Certificates.Kernel.LocalComp.Co1Cen2BW
 public import Certificates.Kernel.Co1B.Prim2045
 public import CFSG.Certificates.Kernel.LocalCompCo1PWSound
 public import CFSG.Sporadic.Co1Block.TwoBD
-public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicCo1Cen2BTests
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicCo1Cen2BData
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.LocalAnalysis.ComponentClassification.RankTwoSporadicCo1EndData
 
 public section

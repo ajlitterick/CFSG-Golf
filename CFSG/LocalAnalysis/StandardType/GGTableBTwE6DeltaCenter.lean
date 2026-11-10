@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaOutdiag
 public import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpStdTwE6
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestUnitaryCenter
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeRestCover
-public import CFSG.LocalAnalysis.StandardType.GGInnLocal
-public import CFSG.LieType.Steinberg.CentralExt.TwistedE6Coprime
 public import CFSG.LieType.Steinberg.CentralExt.TwistedE6Center
 
 public section

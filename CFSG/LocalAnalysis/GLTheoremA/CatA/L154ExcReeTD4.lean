@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154ExcReeData
 public import CFSG.RankThree.PartTwo.Sec19.SimsC198Ree
 public import CFSG.RankThree.PartTwo.Sec8.Item8KFacts2ProofReeConj
-public import CFSG.RankThree.PartTwo.KFacts.KSListsProofCard
 public import CFSG.RankThree.PartTwo.Sec8.Item82Res2ProofSLThree
-public import CFSG.RankThree.PartTwo.Sec8.Item87ProofGamma
 public import CFSG.ClassicalInvolution.RouteD.TWRExoticArith
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog81E6PXS
 public import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog81E6

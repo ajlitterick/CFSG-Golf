@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNsq2Cited
-public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosPermAux5
 import CFSG.RankThree.PartOne.KF.BloomAut
-import CFSG.LieType.Steinberg.CentralExt.SUThree
 
 public section
 

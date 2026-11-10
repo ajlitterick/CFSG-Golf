@@ -7,16 +7,7 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatOfFacts
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHeCertificateBase
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicHe
 import all CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicHe
-public import CFSG.Blueprint.NativeSporadic
 import all CFSG.Blueprint.NativeSporadic
-public import Certificates.Data.CFSGNative.He.Certificate
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHeKInputs
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatCore
-public import CFSG.Quasithin.EmptyFaithful.S151S9TThreeDFact
-public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicBase
-public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicRep
-public import CFSG.Sporadic.He
-public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicHeInputs
 
 public section
 

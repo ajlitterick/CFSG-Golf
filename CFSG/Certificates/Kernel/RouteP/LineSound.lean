@@ -3,7 +3,6 @@ module
 public import CFSG.Certificates.Kernel.RouteP.MonoPerm
 public import CFSG.Certificates.Kernel.RouteP.Slp
 public import Certificates.Data.Kernel.RouteP.Lines
-public import Mathlib.Data.Int.Star
 
 public section
 

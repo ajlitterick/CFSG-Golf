@@ -3,18 +3,10 @@ module
 
 public import CFSG.GH74.KGroups.L34AutBase
 
-public import Mathlib
-public import CFSG.GH74.KGroups.Generic
-public import CFSG.GH74.KGroups.PermCheck
-public import CFSG.GH74.KGroups.Checks
 public import CFSG.GH74.KGroups.L34
 public meta import CFSG.GH74.KGroups.Checks
 public meta import CFSG.GH74.KGroups.L34
-public import CFSG.GH74.KGroups.L34AutInputs
 public meta import CFSG.GH74.KGroups.L34AutInputs
-public import CFSG.GH74.KGroups.PSLN
-public import CFSG.GH74.KGroups.FieldGF
-public import CFSG.GH74.KGroups.L34Inputs
 public import Certificates.Certificate5123
 
 public section

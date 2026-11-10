@@ -1,10 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporM24Data
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporBFS
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporHash
-public import CFSG.Sporadic.Mathieu.M24
-public import CFSG.Sporadic.Schreier.Enumeration
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporM24CheckInputs
 import Certificates.Kernel.LocalQT.Pairs.C4094c
 import Certificates.Kernel.LocalQT.Pairs.C4094o

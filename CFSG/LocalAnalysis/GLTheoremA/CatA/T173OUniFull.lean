@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173AUniIvDiag
-public import CFSG.LinearAlgebra.LinearGroups.UnitaryScalarKernel
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173ADefs
 
 public section

@@ -1,9 +1,7 @@
 module
 
 public import CFSG.RankThree.GF2n.Parrott.Section5Lemma53
-public import CFSG.RankThree.GF2n.Parrott.Section2CJ
 public import CFSG.RankThree.GF2n.Parrott.QA45SigmaCentralizers
-public import CFSG.RankThree.GF2n.Parrott.CentralizerOrders
 public import CFSG.RankThree.GF2n.Parrott.FixDimIII
 public import CFSG.GroupTheory.ConjOrderThree
 public import CFSG.RankThree.PartTwo.Sec10.Item103

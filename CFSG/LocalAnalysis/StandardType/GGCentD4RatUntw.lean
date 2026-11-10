@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNTPlaneInput
-public import CFSG.HardMathSupport.Lang.D4Three.NormalForm
-public import CFSG.LieType.Chevalley.CoordinateFieldBaseChange
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutTrialityBridgeClass
 
 public section

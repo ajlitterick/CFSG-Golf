@@ -2,11 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGKD2Connected1619Contracts
 public import CFSG.LocalAnalysis.StandardType.GGTwF4FixOrderThree
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiag
 import CFSG.LocalAnalysis.StandardType.GGKD2Connected1619SU3Holds
 import CFSG.LocalAnalysis.StandardType.GGKD2Connected1619CoverDescentHolds
-import CFSG.LocalAnalysis.ComponentInitial.LocalComponents
-import CFSG.GroupTheory.LocalCores.Components
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
 
 public section

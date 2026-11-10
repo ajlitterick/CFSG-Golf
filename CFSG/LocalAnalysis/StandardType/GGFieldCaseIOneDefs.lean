@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45RestRank
-public import CFSG.LocalAnalysis.StandardType.GGFieldNbr
 
 public section
 

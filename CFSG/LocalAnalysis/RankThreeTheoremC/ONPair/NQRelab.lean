@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.ONPair.NQFacts
-import Mathlib.Tactic.FinCases
-import Mathlib.Tactic.IntervalCases
 
 public section
 

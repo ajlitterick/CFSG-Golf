@@ -1,15 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIISUCover
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIFixedUnitaryBlock
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1IIIUnitaryRecognition
 import CFSG.LocalAnalysis.StandardType.GGSixUnitaryTwoInnerDiag
-import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpRest
-import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotCatTypeDet
-import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIISUCore
 import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourCoverMark
-import CFSG.LocalAnalysis.StandardType.GGSixOrderPAut
-import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
 
 public section
 

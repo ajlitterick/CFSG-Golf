@@ -3,14 +3,9 @@ module
 public import CFSG.Quasithin.H13.GoldschmidtCTKFamTwoPar
 public import CFSG.Quasithin.H13.GoldschmidtCTKFamTwoGlue
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsLieD4Facts
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListD4
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X6ResidualTriality
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X6Triality
-public import CFSG.LieType.BorelTits.Twisted
 public import CFSG.Certificates.Kernel.LocalCompTits.Span
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListAlt7Base
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListBender
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Block
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Delta5Fin
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.G3Rank2
@@ -24,12 +19,10 @@ public import CFSG.Quasithin.Background.A3Structure36BCases
 public import CFSG.Quasithin.Background.A3Structure36BCommon
 public import CFSG.Quasithin.Background.A3Structure36BStar
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.Quasithin.Background.F6Amalgams
 public import CFSG.Quasithin.Background.F6SolvableQuotient
 public import CFSG.Quasithin.Background.F9FiveStruct
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtF112ListC
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import CFSG.Quasithin.EmptyFaithful.S1417Sylow
 public import CFSG.Quasithin.EmptyFaithful.S1421L246
 public import CFSG.Quasithin.EmptyFaithful.S143Pre
@@ -48,12 +41,9 @@ public import CFSG.Quasithin.H13.GoldschmidtCTKFamTwoClass
 public import CFSG.Quasithin.H13.GoldschmidtI51Trans
 public import CFSG.Quasithin.H13.Sp62Over
 public import CFSG.Quasithin.H13.Sp62Transport
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CPrime
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralAut
 public import Certificates.Data.CFSGNative.MonsterB.Rep4371Model
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

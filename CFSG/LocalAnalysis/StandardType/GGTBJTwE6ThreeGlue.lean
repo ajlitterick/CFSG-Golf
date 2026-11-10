@@ -3,16 +3,8 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTBJE6ThreeCore
 public import CFSG.LocalAnalysis.StandardType.GGTBJE6ThreeTransfer
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6ThreeInstance
-public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6ThreeKer
 public import CFSG.LocalAnalysis.StandardType.GGTBJE6LeviIso
-public import CFSG.LocalAnalysis.StandardType.GGTBJETypeCells
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenTwE6Three
-public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpLattice
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6Delta
 public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6Holds
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylKnownDefs
-public import CFSG.LocalAnalysis.StandardType.GGTBJConfigFacts
-import CFSG.LocalAnalysis.StandardType.GGRootGenExcLabels
 
 public section
 

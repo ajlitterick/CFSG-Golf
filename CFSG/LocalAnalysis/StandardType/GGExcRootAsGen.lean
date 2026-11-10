@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGIOneExcRootAsElt
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcTwoEndNode
-public import CFSG.GroupTheory.HyperplaneGeneration
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConjAction
-public import CFSG.Timmesfeld.Orders.Classical
 
 public section
 

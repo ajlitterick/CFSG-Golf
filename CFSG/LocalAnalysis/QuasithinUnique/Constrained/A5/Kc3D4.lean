@@ -2,12 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3G2Model
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3Odd
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3Inv
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X6ResidualTriality
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsLieD4Facts
 public import CFSG.LieType.BorelTits.AllModels
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasFive
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalFamilyLemmasSix
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalReflectionSplitting

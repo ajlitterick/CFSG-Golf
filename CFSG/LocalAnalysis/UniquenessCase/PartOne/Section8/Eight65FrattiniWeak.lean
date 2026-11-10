@@ -1,15 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.FrattiniSylow
-public import CFSG.LocalAnalysis.UniquenessCase.UC22Defs
-public import Mathlib.GroupTheory.Subgroup.Centralizer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Hall.Basic
-public import CFSG.GroupTheory.ABGLocalTools.CoreLemmas
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConj
 public import CFSG.ClassicalGroups.PCoreSection
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section9.R920OddChain
 public import CFSG.LocalAnalysis.UniquenessCase.UCKInputs
-public import CFSG.GroupTheory.PGroup.LtInfNormalizer
 public import CFSG.Adapters.Certificate43Check
 public import CFSG.Adapters.StatedClassicalSmallOrders
 public import CFSG.Blueprint.LieModelAPI
@@ -79,7 +73,6 @@ public import CFSG.Quasithin.Background.B5Basic
 public import CFSG.Quasithin.Background.B5CompA
 public import CFSG.Quasithin.Background.B5CompB
 public import CFSG.Quasithin.Background.B6
-public import CFSG.Quasithin.Background.B6Example
 public import CFSG.Quasithin.Background.C1GNInputs
 public import CFSG.Quasithin.Background.C1GNNotation
 public import CFSG.Quasithin.Background.InternalSecAutOn

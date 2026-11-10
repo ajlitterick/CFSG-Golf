@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGStructSOnePrimeRootBasic
 public import CFSG.LieType.ChevTwo.LayeredOps
-public import CFSG.FeitThompson.OddOrderTheorem
 
 public section
 

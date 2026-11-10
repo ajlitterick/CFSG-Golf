@@ -2,10 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBTorDefs
 public import CFSG.LocalAnalysis.StandardType.GGTableBF4Rank
-public import CFSG.LieType.Chevalley.RootDiagonalTorusWords
-public import CFSG.LieType.Chevalley.E6ToralGraphInvolution
-public import CFSG.LieType.Chevalley.RankOneCentralImage
-public import Mathlib.LinearAlgebra.Matrix.Cartan.Basic
 
 public noncomputable section
 

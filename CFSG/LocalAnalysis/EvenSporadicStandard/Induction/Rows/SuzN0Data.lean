@@ -1,10 +1,8 @@
 module
 
 public import CFSG.Sporadic.SuzOddCore.InvTCheckInputs
-public import CFSG.Sporadic.SuzOddCore.InvArrays
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.SuzN0Tbl
 public import Certificates.Data.CFSGNative.PSL3Four.Basic
-public import Certificates.Data.CFSGNative.Schreier.Check
 public meta import CFSG.Sporadic.SuzOddCore.InvTCheckInputs
 public meta import CFSG.Sporadic.SuzOddCore.InvArrays
 public meta import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.SuzN0Tbl

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBTorCentral
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeIndepDefs
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeIndepTwA5RowDefs
 public import CFSG.LocalAnalysis.StandardType.GGE6D4TwoNodeLocalInput
 public import CFSG.LocalAnalysis.StandardType.GGTBJConfigFacts

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1P51QOPcF
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1P51QF
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1P51eOrthFam
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1F3Props
 
 public noncomputable section

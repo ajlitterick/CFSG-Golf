@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGL45NtExcGeo
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreDefs
-public import CFSG.LocalAnalysis.StandardType.GGL45NtLattice
-public import CFSG.LocalAnalysis.StandardType.GGL45NtExcFrameLemmas
-public import CFSG.LocalAnalysis.StandardType.GGL45NtExcFrameStab
 public import CFSG.LocalAnalysis.StandardType.GGL45NtExcCentral
 public import CFSG.LocalAnalysis.StandardType.GGL45NtExcCoroot
 

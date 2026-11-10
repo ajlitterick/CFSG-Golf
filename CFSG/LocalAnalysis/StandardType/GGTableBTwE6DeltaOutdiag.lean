@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Aut
-public import CFSG.LocalAnalysis.StandardType.GGInnLocalDefs
 public import CFSG.LocalAnalysis.StandardType.GGInnerDiagMarkingE6Tw
 
 public section

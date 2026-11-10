@@ -4,28 +4,12 @@ module
 public import CFSG.Sporadic.Schreier.RuOddCoreBase
 
 public import CFSG.Sporadic.Schreier.RuAutInner
-public import CFSG.Sporadic.Schreier.RuPair
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PPrimeCore
-public import CFSG.GroupTheory.LocalCores.PrimeSetCore
-public import CFSG.Sporadic.Schreier.RuCheckBasicInputs
-public import CFSG.Sporadic.Schreier.RuCheckCentersInputs
 public meta import CFSG.Sporadic.Schreier.RuCheckSylow
-public import CFSG.Sporadic.Schreier.RuCheckChainsInputs
-public import CFSG.Sporadic.Schreier.RuCheckInvInputs
 public meta import CFSG.Sporadic.Schreier.RuTreeEltA
 public meta import CFSG.Sporadic.Schreier.RuWitArrays
 public meta import CFSG.Sporadic.Schreier.RuCheckChains
 public meta import CFSG.Sporadic.Schreier.RuEnum
-public import CFSG.Sporadic.Schreier.RuCheckIsoInputs
-public import CFSG.Sporadic.Schreier.RuCheckLInputs
-public import CFSG.Sporadic.Schreier.RuArrays
-public import CFSG.Certificates.NativeSetOrbit
-public import CFSG.Sporadic.Schreier.RuOrbLFacts
-public import CFSG.Sporadic.Schreier.RuCheckOrbLBInputs
 public meta import CFSG.Sporadic.Schreier.RuOrbLDefs
-public import CFSG.Sporadic.Schreier.RuCheckTreeInputs
-public import CFSG.Sporadic.Schreier.RuWitArrays
-public import Certificates.Data.CFSGNative.Ru.Data
 
 public noncomputable section
 

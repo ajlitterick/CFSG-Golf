@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallExcC3Conj
 public import CFSG.LocalAnalysis.StandardType.GGTwE6ThreeRankFiveSylow
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeToral
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticBstar
-public import CFSG.GroupTheory.ElementaryAbelianTransport
 
 public section
 

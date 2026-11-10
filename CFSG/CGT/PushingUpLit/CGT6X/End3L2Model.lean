@@ -3,12 +3,10 @@ module
 public import CFSG.CGT.PushingUpLit.CGT6X.End3L2Fix
 public import CFSG.LocalAnalysis.SteinbergBNLinearTwoOuterInvolutionRigidity
 public import CFSG.LinearAlgebra.LinearGroups.LinearTwo
-public import CFSG.Open.StatedDefs
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 public import CFSG.LocalAnalysis.ComponentInitial.LinearFlagOrder
 public import CFSG.LocalAnalysis.ComponentInitial.LinearHigherSubspaceIndex
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

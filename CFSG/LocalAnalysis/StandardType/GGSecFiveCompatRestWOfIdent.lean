@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveMaxJoin
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveCompatRestDefs
 
 public section
 

@@ -1,12 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps139Defs
-public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps139Basic
-public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps139B
-public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps139CTensor
-public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps139CMov
 public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps139CTrans
-public import CFSG.LocalAnalysis.WeakClosure81.SixFourteenN3MovedContradictionFinal
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.OmegaPlusFourSquare
 
 public section

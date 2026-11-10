@@ -8,7 +8,6 @@ public import CFSG.RankThree.PartOne.D4RC.Hyp
 public import CFSG.RankThree.PartOne.D4RC.Dichotomy
 public import CFSG.RankThree.PartOne.D4RC.Output
 public import CFSG.RankThree.PartOne.D4RC.OutputARS
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ElementaryAbelian
 public import CFSG.Combinatorics.AperiodicCentralInvolution
 public import CFSG.Combinatorics.AperiodicFiveOfSix
 public import CFSG.Combinatorics.AperiodicOppositeComponents

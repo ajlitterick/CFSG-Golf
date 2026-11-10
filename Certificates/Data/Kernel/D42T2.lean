@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Certificates.Kernel.Enum.Defs
 public import Certificates.Data.Kernel.Spor.CommBase
 public import CFSG.Mathlib.Decide.Nodup
 

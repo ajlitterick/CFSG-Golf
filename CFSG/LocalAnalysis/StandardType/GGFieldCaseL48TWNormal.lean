@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TWChain
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TWCentAux
-public import CFSG.GroupTheory.LocalCores.Components
-public import CFSG.LocalAnalysis.ComponentInitial.LocalComponents
 
 public section
 

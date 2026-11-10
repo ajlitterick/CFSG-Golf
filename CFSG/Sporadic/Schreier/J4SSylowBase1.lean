@@ -3,16 +3,10 @@ module
 
 public import CFSG.Sporadic.Schreier.J4SSylowBase
 
-import Mathlib.Tactic.IrreducibleDef
 public import CFSG.Sporadic.Schreier.J4SSylowCheck
 public import CFSG.Sporadic.Schreier.J4SLocalNodesBase1
-public import CFSG.Sporadic.Schreier.J4SNative
-public import CFSG.Sporadic.Schreier.J4SCols
-public import CFSG.Sporadic.Schreier.J4SOrbits
 public meta import CFSG.Sporadic.Schreier.J4SOrbits
-public import CFSG.Sporadic.Schreier.J4SSylowData
 public meta import CFSG.Sporadic.Schreier.J4SSylowData
-public import CFSG.Sporadic.J4.Local
 
 @[expose] public noncomputable section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSAPairAux
 public import CFSG.ClassicalInvolution.Balance.StrongPowSuBlocks
-import CFSG.ClassicalInvolution.Phan.Center
 import CFSG.LocalAnalysis.StandardType.GGQTwoSU34Aux5
 import CFSG.LocalAnalysis.StandardType.GGQTwoBlockAsmPair
 public import CFSG.ClassicalInvolution.Balance.PassTwoFinal

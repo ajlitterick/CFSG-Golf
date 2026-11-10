@@ -2,13 +2,9 @@
 module
 
 public import Certificates.Kernel.Misc.Tits.Cls7050D
-public import Certificates.Kernel.Sporadic.RawGenSch
-public import Certificates.Kernel.SporSch.Tits.Common
 public import Certificates.Kernel.SporSch.Tits.Action2262
 public import Certificates.Data.Kernel.Misc.ClosK
-public import CFSG.Quasithin.Recognition.RuRank3Tits13Inputs
 public meta import CFSG.Quasithin.Recognition.RuRank3Tits13Inputs
-import Certificates.Kernel.Misc.Perm.HexCmd
 import CFSG.Certificates.Kernel.Common.Harness
 
 set_option maxRecDepth 400000

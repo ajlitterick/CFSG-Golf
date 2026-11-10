@@ -1,8 +1,6 @@
 module
 
-public import CFSG.RankThree.PartTwo.Sec4.LThreePiDiag
 public import CFSG.RankThree.PartTwo.Sec4.LThreePiFrob
-import CFSG.RankThree.PartTwo.Sec4.LThreePiTypes
 import CFSG.RankThree.PartTwo.Sec4.RonanK432L3HardMat
 import CFSG.RankThree.PartTwo.Sec12.ONanKS128Diag
 public import CFSG.LieType.BorelTits.CompleteFlag

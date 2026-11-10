@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.LocalQT.Core.D4119i1
-public import Certificates.Data.Kernel.LocalQT.Perm
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo
 

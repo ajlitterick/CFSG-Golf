@@ -1,17 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResNonsingularBase
 public import CFSG.LocalAnalysis.StandardType.GGResUnitaryQPlusKProducers
-public import CFSG.LocalAnalysis.StandardType.GGResJOpenLabel
-public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1DSmall
-public import CFSG.LocalAnalysis.StandardType.GGResTwoCells
 public import CFSG.LocalAnalysis.StandardType.GGResF4SplitExactTwoL
 public import CFSG.LocalAnalysis.StandardType.GGResJOneReflCell
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitDvdLabel
-import CFSG.LocalAnalysis.StandardType.GGTCJHolds
-import CFSG.LocalAnalysis.StandardType.GGLabelRigid
-import CFSG.LocalAnalysis.StandardType.GGTBTorLiftRowsHolds
-import CFSG.LocalAnalysis.StandardType.GGTBE6
 
 public section
 namespace CFSG.StandardType

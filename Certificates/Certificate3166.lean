@@ -2,18 +2,7 @@
 module
 
 public import Certificates.Certificate3166Base
-import Certificates.Kernel.HN3166.SimpleBase
 
-public import CFSG.Sporadic.HN.F5Group
-public import CFSG.Sporadic.Recognition.HNMultiplierInputs
-public import CFSG.Sporadic.Bridge.TableSurj
-public import CFSG.Perm.ChainSpec
-public import CFSG.Sporadic.HN.F5Chain
-import CFSG.Sporadic.Presentation.HNInputs
-import CFSG.Sporadic.HNBase
-import CFSG.Sporadic.Presentation.HN
-import Certificates.Data.CFSGNative.Bridge.HNGPL
-import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 import Certificates.Kernel.HN3166.Simple
 import Certificates.Kernel.HNMult.Facts
 public import CFSG.Certificates.CosetTableShort
@@ -21,7 +10,6 @@ public import CFSG.Certificates.NativeSchreierCard
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.Open.Defs
 public import CFSG.Sporadic.Recognition.CoverChainSub
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

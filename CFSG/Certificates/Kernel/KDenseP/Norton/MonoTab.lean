@@ -5,7 +5,6 @@ public import CFSG.Certificates.Kernel.KDenseP.Norton.Mono1
 public import CFSG.Certificates.Kernel.KDenseP.Norton.Mono2
 public import CFSG.Certificates.Kernel.KDenseP.Norton.Mono3
 public import CFSG.Certificates.Kernel.KDenseP.Norton.Mono4
-public import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Certificates.Kernel.Common.ListOf
 
 public section

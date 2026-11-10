@@ -3,7 +3,6 @@ module
 public import Certificates.Data.Kernel.Misc.RuScan
 public import Certificates.Kernel.Misc.RuScan.Data
 public import Certificates.Kernel.SporSch.Ru.LChain
-public import Certificates.Kernel.SporSch.Ru.Text4060
 import CFSG.Certificates.Kernel.Common.Each
 
 public section

@@ -1,20 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTWSmallADefs
 public import CFSG.LocalAnalysis.StandardType.GGTWSmallARow
-public import CFSG.LocalAnalysis.StandardType.GGTWSmallAClose
-public import CFSG.LocalAnalysis.StandardType.GGTWSmallAKClose
-public import CFSG.LocalAnalysis.StandardType.GGTWSmallCarried
-public import CFSG.LocalAnalysis.StandardType.GGTWSmallRowdata
-public import CFSG.LocalAnalysis.StandardType.GGTWSmallRowdataK
-public import CFSG.LocalAnalysis.StandardType.GGTWSmallRowdataLrow
-public import CFSG.LocalAnalysis.StandardType.GGTWTwA5Defs
-public import CFSG.LocalAnalysis.StandardType.GGPZMultA
-public import CFSG.LocalAnalysis.StandardType.GGPZMultTwA
-public import CFSG.LocalAnalysis.StandardType.GGPZMultD4
-public import CFSG.LocalAnalysis.StandardType.GGTWAlignOne
-public import CFSG.LocalAnalysis.StandardType.GGTWAlignTwo
-public import CFSG.LocalAnalysis.StandardType.GGResLeaves
 public import CFSG.LocalAnalysis.StandardType.GGResTwoNodeIndepLarge
 import CFSG.LocalAnalysis.StandardType.GGTWHLNormalizer
 

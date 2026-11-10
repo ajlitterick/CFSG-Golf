@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.SteinbergSFSingleCommRootStandardClosure
 public import CFSG.LocalAnalysis.SteinbergSFSingleCommTorusLayerAut
 public import CFSG.LocalAnalysis.QuasithinUnique.QTKECore
 public import CFSG.LocalAnalysis.QuasithinUnique.Setting

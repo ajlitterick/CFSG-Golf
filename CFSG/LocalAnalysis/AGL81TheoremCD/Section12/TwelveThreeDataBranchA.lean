@@ -1,21 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.ThreeNineSocle
-public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.ThreeNineStatements
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveThreeBranchNotLe
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveThreeCaseSporOf
-public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveThreeData
-public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveThreeOrders
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTen
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenInputs
-public import CFSG.RankThree.PartOne.S8.Statements
 import CFSG.LocalAnalysis.AGL81I.Section3.ThreeNineMemberDefLocal
-import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.ThreeNineApply
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveThreeYTransport
-import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.LThreeParabolic
 import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.TwelveFourOneProof
-import CFSG.LocalAnalysis.SectionRank.SubgroupRank
-import CFSG.LocalAnalysis.AGLEmbedding.SporadicBeta
 public import CFSG.LocalAnalysis.AGL81I.Section3.ThreeTenBasics
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.ThreeTenConstrained
 public import CFSG.LocalAnalysis.AGL81TheoremCD.Section12.ThreeTenDvdP1

@@ -32,7 +32,6 @@ public import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.LocalAnalysis.SectionRank.SignLines
 public import CFSG.RankThree.PartOne.S11d.OrthSubfieldDickson
 public import CFSG.RankThree.SteinbergR3EOrthogonalCoprimeCyclic
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis

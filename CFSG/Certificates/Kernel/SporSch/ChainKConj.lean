@@ -1,11 +1,7 @@
 module
 
 public import CFSG.Certificates.Kernel.SporSch.ChainKPack
-public import CFSG.Certificates.Kernel.SporSch.MOCChain
-public import CFSG.Certificates.Kernel.Spor.RawOrbHead
 public import CFSG.Certificates.Kernel.Spor.PK.PermOf
-public import CFSG.Sporadic.Schreier.MathieuOddCoreClasses
-public import CFSG.Sporadic.Schreier.Enumeration
 public import CFSG.Certificates.Kernel.Spor.PK.Perm.Inv
 
 public section

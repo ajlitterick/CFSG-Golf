@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGUSixThreeKGDefs
 public import CFSG.LocalAnalysis.StandardType.GGUSixThreeKGLift
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63Descent
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerPDivSpTag
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticFlagOrder
 
 public section
 

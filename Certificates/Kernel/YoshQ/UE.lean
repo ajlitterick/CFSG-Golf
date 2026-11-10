@@ -2,10 +2,7 @@ module
 
 public import Certificates.Kernel.YoshQ.DataN
 public import Certificates.Kernel.YoshQ.DataW
-public import Certificates.Data.Kernel.YoshQ.Twin
 public import CFSG.Certificates.Kernel.YoshQ.UEFSound
-import CFSG.Certificates.Kernel.Common.Harness
-public import CFSG.Certificates.Kernel.Common.Eval
 public import Certificates.Kernel.Sporadic.OrbRecGen
 meta import Certificates.Kernel.YoshQ.UEGen
 import all Init.Data.Nat.Fold

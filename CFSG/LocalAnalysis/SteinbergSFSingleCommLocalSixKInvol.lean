@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.SteinbergSFSingleCommLocalSixKDefs
-public import CFSG.LocalAnalysis.SteinbergSFSingleCommRootStandardClosure
-public import CFSG.LocalAnalysis.SteinbergSFFullCenterWeylOvergroupsBase
 
 public section
 

@@ -1,16 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveF4SmallDefs
-public import CFSG.LocalAnalysis.StandardType.GGTBFixDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrLang
 import CFSG.LocalAnalysis.StandardType.GGF4TypeCards
-import CFSG.LocalAnalysis.StandardType.GGRCWeylCard
 import CFSG.LocalAnalysis.StandardType.GGFrameRouteJoin
-import CFSG.LocalAnalysis.StandardType.GGSpJoinReflAlgebra
-import CFSG.LocalAnalysis.StandardType.GGForkA8NotRefl
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelTypeAAssembly
-import CFSG.LocalAnalysis.StandardType.GGStdSubExist
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBMaxToPair
 
 public section

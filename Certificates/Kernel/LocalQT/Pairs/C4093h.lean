@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.LocalQT.Pairs
-public import Certificates.Data.Kernel.LocalQT.Outer
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporM12Data
 public import Certificates.Kernel.LocalQT.Pairs.D4093
 import CFSG.Certificates.Kernel.Common.Harness

@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIISplit
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIISUModel
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIISUKb
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIISUCoordRoot
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IIpIso
-public import CFSG.LieType.Universal.Unitary.Clause0
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.Chevalley.EvenE7E8AutomorphismNormalForm
 public import CFSG.LieType.Chevalley.EvenF4AutomorphismNormalForm
-public import CFSG.LieType.Chevalley.E6CanonicalFieldGraphFixed
 public import CFSG.LieType.Chevalley.EvenRootCommutatorF4
 
 public section

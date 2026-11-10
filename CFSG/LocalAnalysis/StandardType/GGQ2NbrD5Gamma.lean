@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQ2NbrD5Frame
 public import CFSG.LocalAnalysis.StandardType.GGQ2NbrD5Forced
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDFourLeafNorm
-public import CFSG.LocalAnalysis.StandardType.GGQTwoFinishGen
 
 public section
 

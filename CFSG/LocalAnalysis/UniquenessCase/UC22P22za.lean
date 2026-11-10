@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22qz
-public import CFSG.LocalAnalysis.UniquenessCase.UC22P22qg
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22qo
-public import CFSG.LocalAnalysis.UniquenessCase.UC22P22qs
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.PartOneThree
 
 public section

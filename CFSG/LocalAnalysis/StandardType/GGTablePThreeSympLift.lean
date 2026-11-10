@@ -1,11 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeSplitR
-public import CFSG.LocalAnalysis.ComponentInitial.SymplecticHigherAutomorphismData
 import CFSG.LocalAnalysis.StandardType.GGL45NtClRecipes
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldSympMark
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnSympRed
-import CFSG.GroupTheory.ElementaryAbelianTransport
 import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
 import CFSG.CharacterTheory.Wreathed.WreathCentralSquare
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FBase2

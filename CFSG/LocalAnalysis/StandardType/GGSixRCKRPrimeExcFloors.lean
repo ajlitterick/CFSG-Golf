@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCompCore
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcCaseV
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcFloorsE
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcFloorsE6

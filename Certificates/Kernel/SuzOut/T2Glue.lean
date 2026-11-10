@@ -1,33 +1,21 @@
 module
 
-public import Certificates.Data.SuzOutComp
 public import Certificates.Kernel.SuzOut.T2Check
 public import Certificates.Kernel.Sporadic.SuzInv.Inner2
 public import Certificates.Kernel.Sporadic.OddCore.ChainCheckGlue
-public import CFSG.Sporadic.SuzOddCore.InvArrays
-public import CFSG.Sporadic.SuzOddCore.ArraysCheck
-public import Certificates.Data.CFSGNative.Schreier.Refine
 public meta import CFSG.Sporadic.SuzOddCore.InvArrays
 public meta import CFSG.Sporadic.SuzOddCore.ArraysCheck
 public meta import Certificates.Data.CFSGNative.Schreier.Refine
-public import CFSG.Sporadic.SuzOddCore.InvArraysCheck
-public import Certificates.Data.CFSGNative.Schreier.Check
 public meta import CFSG.Sporadic.SuzOddCore.InvArraysCheck
 public meta import Certificates.Data.CFSGNative.Schreier.Check
 public import CFSG.Certificates.Kernel.Misc.SuzOutSound
 public import CFSG.Certificates.Kernel.Misc.TitsPrimSound
-public import CFSG.Certificates.Kernel.Spor.RawOrbSound
-public import CFSG.Certificates.Kernel.Spor.StrongOfSound
-public import CFSG.Certificates.Kernel.Spor.PackWord
 public import CFSG.Certificates.Kernel.LocalQTCovTPrim
-public import CFSG.Certificates.Kernel.BfsPinUnpack
 public import CFSG.LocalAnalysis.ComponentClassification.SuzOutCompBlock
 public import CFSG.LocalAnalysis.ComponentClassification.SuzOutCompTools
 public import CFSG.Sporadic.SuzOddCore.CTIBase
-public import CFSG.Sporadic.SuzOddCore.InvCentralizers
 import CFSG.Certificates.Kernel.Spor.Co2ChainSound
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LocalAnalysis.ComponentClassification.SuzOutCompSimple
 public import CFSG.Sporadic.SuzOddCore.InvCentralizerBounds

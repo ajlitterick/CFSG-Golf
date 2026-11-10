@@ -1,15 +1,11 @@
 module
 
-import CFSG.Certificates.Kernel.Common.Harness
-import CFSG.Certificates.Kernel.Common.HarnessGz
 import CFSG.Certificates.Kernel.Common.HarnessGzTree
 import CFSG.Certificates.Kernel.Common.JsonFamilyGz
 import CFSG.Certificates.Kernel.Common.Repo
-public import Certificates.Kernel.Sporadic.Fi24Br.Data
 public import Certificates.Kernel.Sporadic.Fi23Br.Data
 public import Certificates.Kernel.Sporadic.Fi24Fix.Data
 public import Certificates.Data.Kernel.Spor.Fi24Ext
-public import Certificates.Data.Kernel.Spor.Fi24Fix
 
 #kc_repo #kc_ktree_gz CFSG.KD.Fi24Ext MX "Certificates/Kernel/Sporadic/Fi24Ext/data/mats.bin.gz" 152491 4 14334154 16922523253043304296
 #kc_repo #kc_ktree_gz CFSG.KD.Fi24Ext M3 "Certificates/Kernel/Sporadic/Fi24Ext/data/s253.bin.gz" 16003 4 32006 7033818493439680831

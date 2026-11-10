@@ -2,20 +2,13 @@ module
 
 public import CFSG.LocalAnalysis.WeakClosure81.SixNine
 public import CFSG.LocalAnalysis.WeakClosure81.SevenOne
-public import CFSG.Quasithin.Background.E3Gen
-public import CFSG.Quasithin.Background.E3Weak
-public import CFSG.Quasithin.Background.E3Basic
 public import CFSG.Quasithin.Background.E3OffenderB
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.DefsWeakClosure
-public import CFSG.LieType.BorelTits.Basic
 public import CFSG.CGT.Timmesfeld75.Cfg214Gen
 public import CFSG.CGT.Timmesfeld75.L2Real
 public import CFSG.LargeExtraspecial.S9TIXC
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.InvolutionCountingOrderFormula
 public import CFSG.LocalAnalysis.WeakClosure81.SixSix
 public import CFSG.Quasithin.Background.B6
-public import CFSG.Quasithin.Background.B6Example
-public import CFSG.Quasithin.Background.B6Offenders
 public import CFSG.Quasithin.Background.E3Cent
 
 public section

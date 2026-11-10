@@ -1,6 +1,5 @@
 module
 
-public import Mathlib
 public import CFSG.Open.Catalog
 public import CFSG.Foundations.KCore
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.Classification

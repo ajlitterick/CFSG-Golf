@@ -2,7 +2,6 @@ module
 
 public import CFSG.Monster.B.TwoA.Unitary.WStab
 public import CFSG.Monster.B.Rep4371.Bits
-public import CFSG.Monster.VisCert.Basis
 public meta import CFSG.Monster.B.Rep4371.Model
 public meta import CFSG.Monster.B.TwoA.Unitary.NData
 public meta import CFSG.Monster.B.TwoA.Unitary.WStab

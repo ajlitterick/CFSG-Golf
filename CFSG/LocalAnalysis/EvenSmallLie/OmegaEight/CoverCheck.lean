@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.CoverData
 public import CFSG.Certificates.CosetTableCompactColumns
 public meta import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.CoverData
 public meta import CFSG.Certificates.CosetTableCompactColumns

@@ -7,7 +7,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatM24
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHS
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatHe
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatRu
-public import CFSG.Blueprint.NativeSporadic
 import all CFSG.Blueprint.NativeSporadic
 
 public section

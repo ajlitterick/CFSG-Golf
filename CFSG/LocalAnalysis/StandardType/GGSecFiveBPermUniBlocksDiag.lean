@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniLFrame
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpPlaneFrameDefs
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeBlock
 public import CFSG.ClassicalGroups.SpecialLinear.DiagonalTorusRank
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniLFrameClass
 

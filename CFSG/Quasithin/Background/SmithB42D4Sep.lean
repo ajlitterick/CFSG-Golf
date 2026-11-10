@@ -1,8 +1,6 @@
 module
 
 public import CFSG.Quasithin.Background.SmithB42D4Pure
-public import CFSG.LieType.Steinberg.Adjoint.RankOne
-public import CFSG.Sporadic.Schreier.J4SSylow
 
 public section
 

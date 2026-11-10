@@ -4,8 +4,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseA7
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.InvolutionCosetConjugationCard
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseEvenNormalizedInvolution
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.InvolutionNormalizerInfConjugate
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseFactorization
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

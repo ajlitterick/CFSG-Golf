@@ -2,11 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.Zassenhaus.OuterPumpLift
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.Zassenhaus.OuterPumpExcludeE
-public import CFSG.LieType.Simplicity.Classical
 public import CFSG.GH74.Orders.LieType
 import CFSG.Adapters.StatedClassicalSmallOrders
 import CFSG.Adapters.LieModelSimple
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LieType.Chevalley.RootCommutator
 public import CFSG.LocalAnalysis.ComponentInitial.SylowPointRecovery
 public import CFSG.Open.StandardDefs

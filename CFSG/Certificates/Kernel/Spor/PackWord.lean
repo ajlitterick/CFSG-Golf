@@ -3,15 +3,12 @@ module
 public import Certificates.Data.Kernel.Spor.Prim
 public import CFSG.Certificates.Kernel.Spor.RawDefs
 public import CFSG.Certificates.Kernel.Spor.Loops
-public import Certificates.Data.Kernel.Spor.Mathieu
-public import Certificates.Data.CFSGNative.MonsterB.Co2Chain
 public import Certificates.Data.CFSGNative.PSL3Four.Basic
 public meta import CFSG.Certificates.Kernel.Common.Tab
 public meta import Lean
 import CFSG.Certificates.Kernel.Spor.PrimSound
 import CFSG.Certificates.Kernel.Spor.PackFld
 public import CFSG.Certificates.Kernel.Common.Tab
-public import Certificates.Data.CFSGNative.Co3Schreier.Basic
 public import Std.Tactic.BVDecide.Normalize.Prop
 
 open Lean Elab Command

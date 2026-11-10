@@ -4,10 +4,7 @@ public import CFSG.RankThree.PartTwo.Sec14.Ronan148WFieldE27Amb
 import CFSG.RankThree.PartTwo.Sec14.Ronan148WFieldE27Cube
 import CFSG.RankThree.PartTwo.Sec14.Ronan148WL3CentConfig
 import CFSG.RankThree.PartTwo.Sec11.KS11LieProofAut
-import CFSG.RankThree.PartTwo.Sec4.LThreePiFieldB
-import CFSG.RankThree.PartTwo.Sec4.LThreePiFrob
 import CFSG.RankThree.PartTwo.Sec13.Item13Models
-import CFSG.GroupTheory.QuasisimpleCommutingProductBound
 import CFSG.GroupTheory.ElementaryAbelianTransport
 
 public section

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryTorus
-public import CFSG.LieType.Universal.Unitary.Clause0
 
 public section
 

@@ -4,7 +4,6 @@ public import Certificates.Kernel.LocalComp.Fi24TwoB.Kd15027
 public import Certificates.Kernel.LocalComp.Fi24TwoB.Kdd15027
 public import Certificates.Kernel.Sporadic.Fi24K.C2077
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.NormNum
 
 public section
 

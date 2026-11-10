@@ -3,11 +3,6 @@ module
 public import CFSG.Quasithin.Vol2.Ch12Sec6KGCompDescend
 public import CFSG.Quasithin.Vol2.Ch12Sec6KGCompLie2BigL3
 public import CFSG.Quasithin.Vol2.Ch12Sec6KGCompLie2BigU3
-public import CFSG.LieType.Universal.Unitary.Clause0
-public import CFSG.LieType.Universal.SpecialLinear
-public import CFSG.Adapters.SpecialLinearPerfect
-public import CFSG.Adapters.ProjectiveSpecialLinear
-public import CFSG.Open.StatedAPI
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.LayerFinal
 
 public section

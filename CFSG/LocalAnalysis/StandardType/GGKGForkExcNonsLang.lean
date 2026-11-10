@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcFrame
 public import CFSG.LocalAnalysis.StandardType.GGIrred937ExcLang
 import CFSG.HardMathSupport.Curtis.NaturalModuleCensus.ExcCross.ExcLangNSylow
-import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfMaxMinkowski
 import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcWeylReflectionOfFixedPoints
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.TorusAtDatum
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.TorusAtCore

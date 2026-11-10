@@ -1,12 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171SmallTypeOmMinusSiegel
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Blocks5
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Om
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Om4
-public import CFSG.LargeExtraspecial.S4Basic
-public import CFSG.LargeExtraspecial.OrthoF2Fixed
-public import CFSG.LargeExtraspecial.OrthoF2Basic
 
 public section
 

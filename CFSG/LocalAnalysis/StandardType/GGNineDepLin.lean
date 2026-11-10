@@ -5,7 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGNineDepRowImprim
 public import CFSG.LocalAnalysis.StandardType.GGNineDepRowSym
 public import CFSG.LocalAnalysis.StandardType.GGNineDepRowExc
 public import CFSG.LocalAnalysis.StandardType.GGNineDepRowOrth
-public import CFSG.LocalAnalysis.StandardType.GGIndepFixLineStep1
 
 public section
 

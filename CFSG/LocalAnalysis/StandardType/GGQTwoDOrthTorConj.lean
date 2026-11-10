@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthTorDefs
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthRealize
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthTorConjAux
 import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthPathsMoves
 import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown

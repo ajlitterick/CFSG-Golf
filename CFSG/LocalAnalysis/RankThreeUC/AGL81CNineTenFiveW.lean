@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTenDefs
 import CFSG.GroupTheory.ElemAbelianClosure
 import CFSG.GH74.GLS.Stage1.Thm3.Sec7.GrpA
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.OrdinaryProofs.PCoreQuotient
-public import CFSG.LocalAnalysis.SectionRank.PRank
 
 public section
 

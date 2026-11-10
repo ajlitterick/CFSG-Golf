@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1P58bOLieWit
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1P58bOLieBlock
 public import CFSG.LieType.Steinberg.CentralExt.GriessNativeModels
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.Certificates.Kernel.Spor.ONKSound
 public import CFSG.Foundations
 public import CFSG.LieType.Multipliers.U62Sylow

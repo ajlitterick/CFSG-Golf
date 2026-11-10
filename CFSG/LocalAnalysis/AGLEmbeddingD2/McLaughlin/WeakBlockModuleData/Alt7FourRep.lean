@@ -1,16 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.McLaughlin.WeakBlockModuleData.Alt7FourLocal
-public import CFSG.HardMathSupport.Meierfrankenfeld.GeneralFF.Bridge
-public import CFSG.HardMathSupport.Meierfrankenfeld.GeneralFF.CommLemmas
-public import CFSG.HardMathSupport.Meierfrankenfeld.AGL81.I542.SecModel
-public import CFSG.HardMathSupport.Meierfrankenfeld.AGL81.I542.MS24
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.McLaughlin.WeakBlockModuleData.Alt7FourBud
 public import CFSG.LocalAnalysis.QuasithinUnique.RankOneRecognitionCover
-public import CFSG.LocalAnalysis.QuasithinUnique.GammaFamiliesBasic
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.GN.AltSevenA1Orbit
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeFamilies
 public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallGEVL34FFDefs
 public import CFSG.LocalAnalysis.AGLEmbedding.ResidualTools
@@ -20,10 +13,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.GammaFamiliesExtraComponents
 public import CFSG.LocalAnalysis.SectionRank.Framework.SylowRank
 public import CFSG.Quasithin.Background.B15P4LayerDict
 public import CFSG.Quasithin.Background.B1MoreNineG
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.DicksonSplitTorus
 
 public section
 

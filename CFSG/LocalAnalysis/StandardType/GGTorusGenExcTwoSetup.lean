@@ -1,13 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenExcTwoBase
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Defs
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.TorusAtCore
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.TorusAtUntw
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.TwistedE6Base
-import CFSG.LieType.Chevalley.SingleEdgePerfect
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwE7Model
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwE8Model
 public import CFSG.HardMathSupport.Timmesfeld.LocalTwo.CrossLin
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.FrobeniusOnRoots
 

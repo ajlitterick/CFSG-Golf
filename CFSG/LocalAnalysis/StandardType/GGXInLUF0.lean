@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGXInLUDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T156GUniMat
-public import CFSG.Monster.B.TwoA.Sp8.GenActionHom
 
 public section
 

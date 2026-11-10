@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoLemmaC
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoTransvectionNormalizer
 public import CFSG.GroupTheory.PCore.PCoreOfMulEquiv
-public import CFSG.Certificates.Kernel.ThDemp.OrbCent
 
 public section
 

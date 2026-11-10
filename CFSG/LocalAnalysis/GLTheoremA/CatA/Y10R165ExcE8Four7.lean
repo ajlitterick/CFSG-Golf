@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165ExcE8Four6
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165ExcE8Spin6
-public import CFSG.LieType.Chevalley.ToralCentralizerBruhat
-public import CFSG.LieType.Chevalley.RootCharacterKernelProduct
-public import CFSG.LieType.AlgebraicGroups.KernelRootGroup
 public import CFSG.LieType.AlgebraicGroups.KernelRootDescent
 public import CFSG.ClassicalInvolution.RouteD.GapsOrthChain
 public import CFSG.HardMathSupport.Lang.TwE6Step3.TwoA2Split

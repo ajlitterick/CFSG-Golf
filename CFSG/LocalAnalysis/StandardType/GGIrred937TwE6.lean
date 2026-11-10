@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTwE6ThreeSC
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTwE6ThreeNormalizer
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6RankOuter
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInner937Defs
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMonomialIrred

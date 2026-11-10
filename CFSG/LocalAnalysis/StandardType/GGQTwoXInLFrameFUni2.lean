@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoXInLFrameFTorus5
-public import CFSG.LocalAnalysis.StandardType.GGLinearTorusCompSUComp
 public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUDvdBound
 public import CFSG.LieType.SemisimpleCentralizers.HeldCompTrivSU
 public import CFSG.GroupTheory.HallHigmanPiCore

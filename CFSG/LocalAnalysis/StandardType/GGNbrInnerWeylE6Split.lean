@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylOpenLabels
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Three
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylClauseFive
 
 public section

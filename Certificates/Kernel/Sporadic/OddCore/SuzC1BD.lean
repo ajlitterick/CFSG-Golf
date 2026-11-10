@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Perm.HexCmd
 meta import CFSG.Sporadic.SuzRecog.C1ModelTests
 import CFSG.Open.LocalVocabulary

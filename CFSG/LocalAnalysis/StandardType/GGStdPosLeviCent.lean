@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGStdPosLeviTorus
 public import CFSG.LocalAnalysis.StandardType.GGStdPosRootKerLift
 public import CFSG.LocalAnalysis.StandardType.GGStdPosLocalDefs
-public import CFSG.LocalAnalysis.StandardType.GGInnerDiagBridgeSUExc
-import Mathlib.Tactic.Group
 
 public section
 

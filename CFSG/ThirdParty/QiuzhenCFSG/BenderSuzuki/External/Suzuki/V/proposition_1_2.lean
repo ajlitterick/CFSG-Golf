@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFAppendixIII.Basic
-public import Mathlib.GroupTheory.OrderOfElement
 
 namespace CFSG
 end CFSG

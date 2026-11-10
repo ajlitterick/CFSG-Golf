@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.Ivk8Norm
 public import CFSG.Sporadic.Schreier.MathieuOddCoreM22Data
-public import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Sporadic.Schreier.M22
 public import CFSG.Sporadic.Schreier.MathieuOddCoreCentral
 public import CFSG.Sporadic.Schreier.MathieuOddCoreWords

@@ -7,7 +7,6 @@ public import Certificates.Kernel.Misc.Perm.HexCmd
 public meta import CFSG.Quasithin.Vol2.Ch4Sec2Thm4213HatMInputs
 public meta import Certificates.Data.Kernel.HatChkK
 public meta import Certificates.Kernel.B3S3.Gen
-import CFSG.Certificates.Kernel.Common.Harness
 public meta import CFSG.Sporadic.Schreier.MathieuOddCoreModel
 public import CFSG.Sporadic.Schreier.MathieuOddCoreModel
 

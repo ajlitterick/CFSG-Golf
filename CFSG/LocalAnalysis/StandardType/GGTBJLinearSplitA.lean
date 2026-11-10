@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJLinearCorank
-public import CFSG.LocalAnalysis.StandardType.GGTBJLabelSides
 public import CFSG.LocalAnalysis.StandardType.GGTBJFamilyInputs
-public import CFSG.LocalAnalysis.StandardType.GGFieldNbr
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrLabels
 
 public section
 

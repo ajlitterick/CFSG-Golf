@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGReverseMarking
 import CFSG.Adapters.TauCetiExceptional.EvenB1
-import CFSG.Adapters.TauCetiExceptional.EvenD4
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHermitianIsometry
 import CFSG.LocalAnalysis.ComponentInitial.SylowPointRecovery
 import CFSG.LocalAnalysis.QuasithinUnique.SQTK.TypeB2

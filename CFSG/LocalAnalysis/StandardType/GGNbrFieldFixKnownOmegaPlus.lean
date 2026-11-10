@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownChevGeom
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownOmegaPlusSub
-public import CFSG.RankThree.PartOne.KC.SymplecticSubfieldCentralizer
 
 public section
 

@@ -1,17 +1,12 @@
 module
 
-public import CFSG.LinearAlgebra.FixedPointFreeOrderThreeField
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalSemilinearCoordinates
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenH154E3Z3F4Facts1
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenH154E3Z3F4Facts3
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenH154E3Z3F4Facts4
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenH154E3Z3F4Facts5
 public import CFSG.GroupTheory.SteinbergBKSemilinearFixedBasis
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenH154E3Z3NormalFive
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
 public import CFSG.GroupTheory.ElementaryAbelianTransport
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.lemma_4_5_a
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionDenominatorLinear
 
 public section

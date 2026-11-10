@@ -2,11 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeInnAutCore
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T263DXQuasi
-public import CFSG.LocalAnalysis.EvenBN.GMSK.TypeDetBender
-public import CFSG.LocalAnalysis.ComponentClassification.CentralCoverLemmasAFaithful
-public import CFSG.LocalAnalysis.ComponentClassification.InnAutDerived
-public import CFSG.GroupActions.SubgroupStabilizerOuterBound
-public import CFSG.SignalizerFunctorTheorem.Inheritance.TransportA.Fitting
 public import CFSG.LocalAnalysis.EvenBN.Common.CommutatorFixed
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S267Amb
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T263GCase

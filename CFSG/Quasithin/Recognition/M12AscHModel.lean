@@ -1,11 +1,6 @@
 module
 
-public import CFSG.Quasithin.Recognition.M12AscHPres
-public import CFSG.Certificates.CosetTablePresented
 public meta import CFSG.Certificates.CosetTablePresented
-public import CFSG.Certificates.SubgroupEnumeration
-public import Mathlib.GroupTheory.Perm.Cycle.Concrete
-public import CFSG.Quasithin.Recognition.M12AscHModelInputs
 public import Certificates.Certificate8084
 
 public section

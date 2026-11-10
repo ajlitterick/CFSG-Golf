@@ -4,15 +4,9 @@ import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.V.theorem_8_15
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.XI.example_1_3
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.XI.theorem_11_16
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.XI.theorem_3_6
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_1_d
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_1_e
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.lemma_2
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.HallSubgroups.Conjugacy
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.HallSubgroups.Existence
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PGroup.Omega
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection3.PFsection3_7
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection5.PFsection5_9
-import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFAppendixIV.theorem
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_6_c
@@ -22,7 +16,6 @@ public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.propos
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.proposition_2
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter3section1.Basic
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.FinalTheorem
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection6.Basic
 
 namespace CFSG
 end CFSG

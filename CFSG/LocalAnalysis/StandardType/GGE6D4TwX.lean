@@ -2,16 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGE6D4TwoNodeLocalInput
 public import CFSG.LocalAnalysis.StandardType.GGTBTorTwE6ThreeDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangTorJInputs
 import CFSG.LocalAnalysis.StandardType.GGE6D4TwRank
 import CFSG.LocalAnalysis.StandardType.GGE6D4LocalDatum
 import CFSG.LocalAnalysis.StandardType.GGForkJrPumpLattice
 import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoAux
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
-import CFSG.LocalAnalysis.StandardType.GGTBTorCentral
-import CFSG.LocalAnalysis.StandardType.GGTBTorCartan
-import CFSG.LocalAnalysis.StandardType.GGTBJConfigFacts
 
 public section
 

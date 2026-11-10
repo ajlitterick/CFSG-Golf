@@ -1,11 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherExcCover
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixD4
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixLabel
-import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6Split
-import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6
-import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylRest13Known
 
 public section
 

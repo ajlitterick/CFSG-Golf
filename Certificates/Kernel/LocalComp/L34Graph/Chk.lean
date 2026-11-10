@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.LocalComp.L34SData
 public import Certificates.Kernel.LocalComp.L34RDefs
 public import Certificates.Data.Kernel.L34Graph
 import CFSG.Certificates.Kernel.Common.Harness

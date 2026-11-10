@@ -5,7 +5,6 @@ public import CFSG.Certificates.Kernel.LocalQTSmallSound
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19TabA8BasicInputs
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115CoverAltInputs
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListA7LatticeInputs
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L246C123Alt7Inputs
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L246C123SylowA7Inputs
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.GH74.Exceptional.LinearFourTwo

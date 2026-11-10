@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartOne.KE.SuzukiLangSp4Comorphism
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 
 public noncomputable section
 

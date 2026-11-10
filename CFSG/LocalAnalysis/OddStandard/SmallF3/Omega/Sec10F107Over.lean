@@ -2,7 +2,6 @@
 module
 
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10F107Chk
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec10FrameSylow
 
 public section
 

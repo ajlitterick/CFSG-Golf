@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreAmbientCent
 public import CFSG.LocalAnalysis.StandardType.GGQ2ExcCoreOccursDict
-import CFSG.LieType.Chevalley.SignKernelComponentBruhat
 import CFSG.LocalAnalysis.StandardType.GGLinImageSubspace
 
 public section

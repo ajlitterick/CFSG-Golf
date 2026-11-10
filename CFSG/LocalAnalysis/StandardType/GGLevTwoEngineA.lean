@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGLevTwoRoots
 
-import CFSG.LocalAnalysis.StandardType.GGLevTwoS2aAux
 import CFSG.LocalAnalysis.StandardType.GGLevTwoS2aCases
 
 public section

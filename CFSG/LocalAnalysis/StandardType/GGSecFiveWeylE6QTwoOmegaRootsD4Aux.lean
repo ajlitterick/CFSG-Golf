@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoOmegaFrameCoord
-public import CFSG.Mathlib.Decide.Bounded
 
 public section
 

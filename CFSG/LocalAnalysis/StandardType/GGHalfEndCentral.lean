@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGHalfZpowers
 public import CFSG.LocalAnalysis.StandardType.GGHalfAutLevi
 public import CFSG.LocalAnalysis.StandardType.GGHalfAux
-public import CFSG.LocalAnalysis.StandardType.GGHalfKnownGroups
-public import CFSG.LocalAnalysis.StandardType.GGHalfSlOnLevi
 public import CFSG.LocalAnalysis.StandardType.GGTypeAFarPComp
 
 public section

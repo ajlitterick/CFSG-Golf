@@ -3,7 +3,6 @@ module
 public import CFSG.ClassicalInvolution.Phan.PhanDn.FlagResidue
 public import CFSG.ClassicalInvolution.Phan.PhanDn.QTwo.Defs
 public import CFSG.Mathlib.Combinatorics.SimpleGraph.JoinTriangulable
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
 
 public section
 

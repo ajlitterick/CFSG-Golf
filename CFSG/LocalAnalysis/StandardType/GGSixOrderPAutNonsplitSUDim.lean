@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutNonsplitSUCount
 public import CFSG.LocalAnalysis.StandardType.GGSUNonsplitTwoBlockPair
-public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutPSLNonsplitRank
 public import CFSG.RankThree.PartOne.KC.UnitaryPlaneDimension
 
 public section

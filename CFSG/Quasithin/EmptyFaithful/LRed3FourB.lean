@@ -3,11 +3,7 @@ module
 public import CFSG.Quasithin.EmptyFaithful.LRed3FourA
 public import CFSG.Quasithin.Vol2.Ch10SecQ1M2x
 public import CFSG.Quasithin.Vol2.Ch3Sec2Lem328Cases
-public import CFSG.Quasithin.Background.B5FinG2U33
-public import CFSG.Quasithin.Recognition.CertU33Psu
 public import CFSG.Timmesfeld.Final.PSU33
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.ClassicalGroups
@@ -44,8 +40,6 @@ public import CFSG.Quasithin.Vol2.Ch3Sec1Thm311
 public import CFSG.RankThree.Asc83Table.PermTables
 public import CFSG.Sporadic.Schreier.M11
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import CFSG.Timmesfeld.RankOne
 public import CFSG.Timmesfeld.Transvection.Statement
 public import CFSG.Walter.J1

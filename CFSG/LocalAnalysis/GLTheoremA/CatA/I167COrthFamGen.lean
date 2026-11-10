@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I167COrthFixed
-import CFSG.LocalAnalysis.GLTheoremA.CatA.S172CCentComp
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S172CCentFix
-import CFSG.LocalAnalysis.GLTheoremA.ExcClubList
 import CFSG.HardMathSupport.Dickson.Bal207.OrthD4Loc
 import CFSG.RankThree.PartOne.KC.OrthogonalSubfieldCentralizer
 import CFSG.RankThree.PartOne.S15K.FixedWitt

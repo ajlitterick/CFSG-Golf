@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaFork
-import CFSG.LocalAnalysis.StandardType.GGNbrReflGenOver
-import CFSG.LocalAnalysis.StandardType.GGTypeANbrTableBLift
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
 
 public section
 

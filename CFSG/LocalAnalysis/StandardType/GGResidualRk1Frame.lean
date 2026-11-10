@@ -1,20 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResidualWeakNbr
 public import CFSG.LocalAnalysis.StandardType.GGResidualGenFrame
-public import CFSG.LocalAnalysis.StandardType.GGNSJoinOutWeakPosDefs
 public import CFSG.LocalAnalysis.StandardType.GGOrthModelInputs
-public import CFSG.LocalAnalysis.StandardType.GGNSJoinByType
-public import CFSG.LocalAnalysis.StandardType.GGNSJoinRMDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanUnitaryAnyA
 import CFSG.LocalAnalysis.StandardType.GGOrthFrameConcl
 import CFSG.LocalAnalysis.StandardType.GGOrthModelInputsHold
-import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosBridge
 import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrCoxOrder
-import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
-import CFSG.LocalAnalysis.StandardType.GGSimplyLacedWeyl
-import CFSG.LocalAnalysis.StandardType.GGReflectionBasic
-import CFSG.LocalAnalysis.StandardType.GGSecFiveRankOneConj
 
 public section
 

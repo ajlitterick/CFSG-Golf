@@ -4,9 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGPhiTwoRootGenE8D8
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoRootGenE8Weyl
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoRootGenStepOne
 public import CFSG.LocalAnalysis.StandardType.GGPhiTwoRootGenCover
-public import CFSG.LocalAnalysis.StandardType.GGPhiTwoGenInput
-public import CFSG.LocalAnalysis.StandardType.GGOmegaNsRootGenAsm
-public import CFSG.HardMathSupport.Malle.SeitzCube.Landing
 
 public section
 

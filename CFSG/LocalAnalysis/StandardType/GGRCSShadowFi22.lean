@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGRCSShadowVacuity
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.Fi22FiveMain
-public import CFSG.LargeExtraspecial.A2ModOrdCard
 
 public section
 

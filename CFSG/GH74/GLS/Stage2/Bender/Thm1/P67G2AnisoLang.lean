@@ -1,6 +1,5 @@
 module
 
-public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67A2Hom
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67A2Sylow
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67A2Diag
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67A2Torus

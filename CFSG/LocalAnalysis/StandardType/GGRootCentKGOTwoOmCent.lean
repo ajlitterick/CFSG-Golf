@@ -1,11 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsOmHyp
 public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsOmMinus
-import CFSG.GroupTheory.LocalCores.Components
-import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphisms
-import CFSG.LocalAnalysis.SeitzReduction.LinearPilotTorus
-import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandStructPSL
 
 public section
 

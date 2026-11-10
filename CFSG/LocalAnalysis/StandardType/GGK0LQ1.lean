@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGK0LQDictKinds
 public import CFSG.LocalAnalysis.StandardType.GGK0LQInner
 public import CFSG.LocalAnalysis.StandardType.GGK0LQSuN
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTamePrime
 public import CFSG.HardMathSupport.Timmesfeld.RootAut.Main
-public import CFSG.Sporadic.ThSchreier.GlobalData
 
 public section
 

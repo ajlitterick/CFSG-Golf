@@ -3,7 +3,6 @@ module
 public import Certificates.Data.GH74IvkL34
 public meta import Certificates.Data.GH74IvkL34
 import Certificates.Kernel.LocalComp.L34RC.Glue
-import CFSG.Certificates.Kernel.Spor.BfsReplay
 
 namespace CertificateChecks.Batch5158
 

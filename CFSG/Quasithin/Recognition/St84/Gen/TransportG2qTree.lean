@@ -11,7 +11,6 @@ import CFSG.Quasithin.Recognition.St84.Gen.TransferEdgeHyp
 import CFSG.Quasithin.Recognition.St84.Gen.G2qAmalVertexTwo
 import CFSG.Quasithin.Recognition.St84.Gen.G2qAmalVertexOneTransport
 import CFSG.Quasithin.Recognition.St84.Gen.TransportG2qSwap
-import CFSG.Quasithin.Recognition.St84.TransferNormality
 public import CFSG.CGT.PushingUpLit.BHS.OffenderInternal
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionSquareFieldNaturalAction
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.LiftBaumannDelOrigData

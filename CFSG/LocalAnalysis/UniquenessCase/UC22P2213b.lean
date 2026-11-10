@@ -1,12 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S22a
-import CFSG.LocalAnalysis.UniquenessCase.UC22P21c
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22ua
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22qs
 import CFSG.LocalAnalysis.SectionRank.TwoGenerators
-import CFSG.GroupTheory.LocalCores.Components
-import CFSG.GroupTheory.ABGLocalTools.Basic
 import CFSG.GroupTheory.PCore.Transport
 import CFSG.LocalAnalysis.UniquenessCase.UC22DataExt
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22u

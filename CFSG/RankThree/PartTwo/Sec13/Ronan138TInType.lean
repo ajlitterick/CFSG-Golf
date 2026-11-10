@@ -1,23 +1,12 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec13.Ronan138SBase
-public import CFSG.RankThree.PartTwo.Sec4.LThreePiTypes
 import CFSG.RankThree.PartTwo.Sec13.Ronan138SKTwoType
 import CFSG.RankThree.PartTwo.Sec13.Item134SylowBarSetup
-import CFSG.RankThree.PartTwo.Sec4.LThreePiRank
-import CFSG.RankThree.PartTwo.Sec4.LThreePiCaseI
-import CFSG.RankThree.PartTwo.Sec4.LThreePiCaseA
-import CFSG.RankThree.PartTwo.Sec4.LThreePiEigen
-import CFSG.RankThree.PartTwo.Sec4.LThreePiHessian
 import CFSG.RankThree.PartTwo.Sec4.Item423Res4ProofHeis
 import CFSG.RankThree.PartTwo.Sec13.Item138ProofExists
-import CFSG.RankThree.PartTwo.Sec13.Item13Models
-import CFSG.RankThree.PartTwo.Sec13.Item13SetupAt
-import CFSG.RankThree.PartTwo.Sec13.Item137Tools
 import CFSG.RankThree.PartTwo.Sec13.Item136Pair
 import CFSG.RankThree.PartTwo.Sec4.Item424ProofInner
-import CFSG.RankThree.PartTwo.KFacts.K71Lift
-import CFSG.RankThree.PartTwo.Sec4.LThreePiProj
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.NativeSylow
 public import CFSG.LieType.Steinberg.Classical.SpinFrame
 public import CFSG.LieType.Steinberg.Families
@@ -40,7 +29,6 @@ public import CFSG.RankThree.PartTwo.Sec13.Ronan138SKIn
 public import CFSG.RankThree.PartTwo.Sec4.Statements417
 public import CFSG.Sporadic.M23.M23Group
 public import CFSG.Sporadic.SmallOddCore.CheckSpec
-public import CFSG.Sporadic.Th.F2Spec
 public import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 import CFSG.Milestones.CL_LIT_Gorenstein_Walter_L_balance
 import CFSG.RankThree.PartTwo.Sec11.Item118

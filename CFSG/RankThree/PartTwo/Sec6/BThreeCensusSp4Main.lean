@@ -3,8 +3,6 @@ module
 public import CFSG.RankThree.PartTwo.Sec6.BThreeCensusSp4
 public import CFSG.RankThree.PartTwo.KFacts.K71Sp4
 import CFSG.ClassicalGroups.Symplectic.Simple
-import CFSG.LieType.Universal.Symplectic
-import CFSG.Timmesfeld.Orders.ClassicalLinear
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LieType.Chevalley.LangRootArithmetic
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
@@ -13,10 +11,6 @@ public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 public import CFSG.RankThree.PartTwo.Sec12.Notation
 public import CFSG.RankThree.PartTwo.Sec8.Pairs
 public import CFSG.RankThree.PartTwo.Sec8.Statements
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

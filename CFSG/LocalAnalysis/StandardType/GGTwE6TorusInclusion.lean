@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6TorusLift
 public import CFSG.LocalAnalysis.StandardType.GGTwE6TorusDescent
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeToralityProof
 
 public section
 

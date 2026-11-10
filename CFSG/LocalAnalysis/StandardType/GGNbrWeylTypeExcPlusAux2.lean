@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeExcPlusAux
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitExcPlusE7
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitExcPlusFrame
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplitExcPlusLarge
-public import CFSG.LocalAnalysis.StandardType.GGFrameRouteA4Thm
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutInnerExcF4TwoTorus
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcSplitLLine
 

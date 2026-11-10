@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTwE6DeltaThreeDefs
 public import CFSG.LocalAnalysis.StandardType.GGTwE6DeltaThreeSplit
 public import CFSG.LocalAnalysis.StandardType.GGTwE6DeltaThreeTorality
 import CFSG.LocalAnalysis.StandardType.GGTwE6DeltaThreeCases

@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront12
-public import CFSG.Quasithin.Background.B2FactorizationBridge
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.TwelveTwentyFiveA
 import CFSG.LocalAnalysis.ComponentClassification.CatFC.KGHS3Lift
-import CFSG.LocalAnalysis.ComponentClassification.Quasisimple
-import CFSG.Assembly.Subnormal
 
 public section
 

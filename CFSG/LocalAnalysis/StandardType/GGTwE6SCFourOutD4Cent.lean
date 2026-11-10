@@ -1,13 +1,9 @@
 module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24LineLang
-import CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.W2.E6HeisenbergAux.Reg
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24D4T2Inner
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeSc
 import CFSG.HardMathSupport.Timmesfeld.Steinberg.ThreeKernelSizes
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.CentralizerTrivialQ2
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.CentralizerTrivialOuter
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExcD4
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.Defs
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwCoreAssembly
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24Plane
@@ -46,8 +42,6 @@ public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.C2PushThree
 public import CFSG.Quasithin.Background.D2Cyclic
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.FFC4Tr2
 public import CFSG.Quasithin.Background.GoldschmidtRankOneFacts
@@ -95,8 +89,6 @@ import CFSG.Quasithin.Background.A3Structure314
 import CFSG.Quasithin.Background.B15P4LayerDict
 import CFSG.Quasithin.Background.C1GNSolvConnect
 import CFSG.Quasithin.Background.E2Statements
-import CFSG.Quasithin.Background.F6CatRecogL2
-import CFSG.Quasithin.Background.F6CatRecogTools2
 import CFSG.Quasithin.Background.FFC7G
 import CFSG.Quasithin.Background.FFC8A
 import CFSG.Quasithin.Background.InternalSecB56B
@@ -118,7 +110,6 @@ import CFSG.Quasithin.Vol2.Ch11SecAFacts12b
 import CFSG.Quasithin.Vol2.Ch11SecQ9bKGC
 import CFSG.Quasithin.Vol2.Ch9KGFFQR
 import CFSG.Quasithin.Vol2.Ch9KGFFQRCase
-import CFSG.Walter.J1Props
 import Certificates.Kernel.J4Count.Prim
 
 public section

@@ -4,7 +4,6 @@ public import CFSG.Sporadic.HN.LocalK
 public import CFSG.LocalAnalysis.WeakClosure81.GF2RepsAsch54SporZTwo
 import Certificates.Kernel.HNLocal.ZFacts
 public import CFSG.Certificates.Kernel.HNLocalSound
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

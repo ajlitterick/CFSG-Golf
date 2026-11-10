@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Sporadic.Schreier.Enumeration
-public import Mathlib.GroupTheory.Schreier
 
 public section
 

@@ -2,18 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1TorUniMark
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2UniLift
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniComp
-import CFSG.LieType.SemisimpleCentralizers.HeldUCDMain
-import CFSG.LieType.SemisimpleCentralizers.HeldCompTrivSU
-import CFSG.LieType.SemisimpleCentralizers.HeldCompTrivSL
-import CFSG.Timmesfeld.Orders.ClassicalLinear
-import CFSG.Timmesfeld.Orders.Distinct
-import CFSG.LieType.Universal.Unitary.Clause0
 import CFSG.LieType.SemisimpleCentralizers.OrderThree.CenterQuot
-import CFSG.RankThree.PartOne.KF.UnitaryModel
 import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalAS76aProofUTypes
-import CFSG.LieType.SemisimpleCentralizers.HeldUCDForm
-import Mathlib.LinearAlgebra.Projection
 import CFSG.LocalAnalysis.ComponentClassification.RankTwoClassicalAS76aProofUnitary
 
 public section

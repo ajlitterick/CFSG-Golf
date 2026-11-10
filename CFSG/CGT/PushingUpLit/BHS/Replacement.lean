@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Quasithin.Background.FixVLattice
 public import CFSG.Quasithin.Background.B1Basic
 public import CFSG.Quasithin.Background.G6PGroup
 public import Mathlib

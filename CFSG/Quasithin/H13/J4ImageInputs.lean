@@ -4,7 +4,6 @@ public import CFSG.Quasithin.H13.J4Quot
 public import CFSG.Quasithin.H13.J4Chain12Spec
 public meta import Certificates.Data.CFSGNative.H13.J4Chain12
 public meta import Certificates.Data.CFSGNative.H13.J4Data
-import Certificates.Data.CFSGNative.H13.J4Data
 
 public noncomputable section
 

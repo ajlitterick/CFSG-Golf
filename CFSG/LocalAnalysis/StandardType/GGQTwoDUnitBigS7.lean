@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitTableP
-public import CFSG.LocalAnalysis.StandardType.GGOrthFrameCore
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBigB
-import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBigS1
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBigS4
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBigS5
 import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitBigS6

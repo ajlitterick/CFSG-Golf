@@ -3,9 +3,7 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinInvertedInfVU
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinCosetInvolution
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseJNCoset
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseCountData
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.InvertedSetCardSmall
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

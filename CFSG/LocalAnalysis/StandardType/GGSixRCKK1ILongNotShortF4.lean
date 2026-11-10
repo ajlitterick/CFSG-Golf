@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKK1IDefs
-public import CFSG.LocalAnalysis.SeitzReduction.F4PilotLeviRootSL2
-public import CFSG.LocalAnalysis.SeitzReduction.F4PilotAutD
-public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerExcBruhat
 
 public section
 

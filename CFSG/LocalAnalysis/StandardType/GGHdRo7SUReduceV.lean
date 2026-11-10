@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7SULinDefs
-import CFSG.LocalAnalysis.StandardType.GGHdRo7SUReduceVIrrB
 import CFSG.LocalAnalysis.StandardType.GGHdRo7SUReduceVCard
 
 public section

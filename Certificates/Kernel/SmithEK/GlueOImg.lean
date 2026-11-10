@@ -5,9 +5,7 @@ public import Certificates.Kernel.SmithEK.ChecksO
 public import Certificates.Kernel.Misc.TvTabs
 public import Certificates.Kernel.Misc.Lines
 public import Certificates.Kernel.Misc.T46
-public import Certificates.Certificate21263
 public import CFSG.Certificates.Kernel.Misc.XiTab
-public import CFSG.Certificates.Kernel.SmithL6KSound
 public import CFSG.LargeExtraspecial.SMod20UaCert
 import CFSG.Certificates.Kernel.Common.ForallTree
 public import CFSG.Certificates.Kernel.Misc.XiBits

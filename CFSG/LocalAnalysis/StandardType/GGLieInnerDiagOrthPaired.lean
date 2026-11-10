@@ -3,12 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGLieInnerDiagDefs
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompAlgOrthogonal
 import CFSG.LocalAnalysis.StandardType.GGLieInnerDiagSLPack
-import CFSG.RankThree.PartOne.KC.OrthogonalBlockQuasisimple
-import CFSG.RankThree.PartOne.KC.OrthogonalBlockScalar
-import Mathlib.LinearAlgebra.SpecialLinearGroup
-import Mathlib.LinearAlgebra.Dimension.Free
-import Mathlib.LinearAlgebra.Matrix.ToLinearEquiv
-import Mathlib.Algebra.Group.Units.Equiv
 public import CFSG.Goldschmidt.Steps.G37Core
 public import CFSG.HardMathSupport.Dickson.Sec6.I923Fam.PsuGoodAux.Descent
 public import CFSG.HardMathSupport.Solomon.Coordinator.L3C143AltMain
@@ -42,8 +36,6 @@ public import CFSG.Quasithin.Background.C1GNSolvConnect
 public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.E2Statements
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918C6
 public import CFSG.Quasithin.Background.FFC7G
 public import CFSG.Quasithin.Background.FFC8A
@@ -90,7 +82,6 @@ public import CFSG.Quasithin.Vol2.Ch11SecSI3
 public import CFSG.Quasithin.Vol2.Ch11SecSObl
 public import CFSG.Quasithin.Vol2.Ch9KGFFQR
 public import CFSG.Quasithin.Vol2.Ch9KGFFQRCase
-public import CFSG.Walter.J1Props
 public import Certificates.Kernel.J4Count.Prim
 
 public section

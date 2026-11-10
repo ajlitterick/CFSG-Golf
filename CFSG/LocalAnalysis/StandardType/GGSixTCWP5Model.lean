@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.TableC.HypDefs
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6Delta
-public import CFSG.LieType.Chevalley.TwistedE6NormalForm
 
 import CFSG.HardMathSupport.Dickson.Sec6.I923Fam.TwE6Aux.Field
 import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6SplitEmbed
@@ -23,7 +22,6 @@ import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma55
 import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma58
 import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Inputs
 import CFSG.LocalAnalysis.AGLEmbedding.SporadicBetaSmall
-import CFSG.LocalAnalysis.ComponentClassification.AschbacherWalterSchurEight
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Block
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Basic245C61
 import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1Engine
@@ -40,13 +38,8 @@ import CFSG.Quasithin.Background.B69Core
 import CFSG.Quasithin.Background.C1GNSolvConnect
 import CFSG.Quasithin.Background.C1PackS1531Top
 import CFSG.Quasithin.Background.D2
-import CFSG.Quasithin.Background.D2Dihedral
 import CFSG.Quasithin.Background.E2Statements
 import CFSG.Quasithin.Background.E3
-import CFSG.Quasithin.Background.E3Nprime
-import CFSG.Quasithin.Background.E3Uniq
-import CFSG.Quasithin.Background.F6CatRecogL2
-import CFSG.Quasithin.Background.F6CatRecogTools2
 import CFSG.Quasithin.Background.F918C6
 import CFSG.Quasithin.Background.FFC7G
 import CFSG.Quasithin.Background.FFC8A
@@ -103,10 +96,6 @@ import CFSG.Sporadic.Presentation.Co2Fusion
 import CFSG.Sporadic.Presentation.Co2FusionInputs
 import CFSG.Sporadic.Presentation.McLExactData
 import CFSG.Sporadic.Presentation.McLExactInputs
-import CFSG.Walter.J1Props
-import CFSG.Walter.J1Recog
-import CFSG.Walter.PSL2Facts
-import CFSG.Walter.W67.Statements
 import Certificates.Kernel.J4Count.Prim
 
 public section

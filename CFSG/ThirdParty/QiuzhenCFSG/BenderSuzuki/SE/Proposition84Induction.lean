@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Interfaces
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Induction
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition84Base
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition84Proper

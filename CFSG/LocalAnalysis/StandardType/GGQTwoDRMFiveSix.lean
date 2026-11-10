@@ -3,11 +3,9 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDOrthBaseType
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDRMFive
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDUnitSixType
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveZSInputs
 import CFSG.LocalAnalysis.StandardType.GGQTwoDRMMain
 import CFSG.LocalAnalysis.StandardType.GGQTwoDRMStabSix
 import CFSG.LocalAnalysis.StandardType.GGQTwoDSelModuleOfB2
-import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6
 import CFSG.LocalAnalysis.StandardType.GGQTwoDSelBases
 
 public section

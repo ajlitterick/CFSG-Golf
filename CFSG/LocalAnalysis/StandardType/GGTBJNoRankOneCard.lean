@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
 public import CFSG.LocalAnalysis.StandardType.GGTBJNoRankOneBook
 public import CFSG.LocalAnalysis.StandardType.GGTBJNoRankOneAut
 import CFSG.LocalAnalysis.StandardType.GGTriD4NoneRank

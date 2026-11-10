@@ -2,12 +2,6 @@ module
 
 public import CFSG.RankThree.GF2n.Parrott.HeisenbergModel
 public import Certificates.Data.ParrottSpin
-public import Mathlib.Data.Fin.Tuple.Basic
-public import Mathlib.Data.Fin.VecNotation
-public import Mathlib.Tactic.Order
-public import Mathlib.Tactic.FinCases
-public import Mathlib.LinearAlgebra.QuadraticForm.Basic
-public import Mathlib.LinearAlgebra.Matrix.ToLin
 public import CFSG.CGT.Timmesfeld75.Statements
 public import CFSG.Foundations
 public import CFSG.GroupTheory.LocalCores.Fitting

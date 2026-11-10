@@ -5,10 +5,7 @@ public import CFSG.LocalAnalysis.StandardType.GGInnerD4RALinearBranch
 public import CFSG.LocalAnalysis.StandardType.GGInnerD4RAUnitaryBranch
 public import CFSG.LocalAnalysis.StandardType.GGInnerD4RASelfMarking
 public import CFSG.LocalAnalysis.StandardType.GGTCJDatum
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownLinearProj
-public import CFSG.Assembly.GL83StatedBridge
-public import CFSG.Models.PGLSimple
 
 public section
 

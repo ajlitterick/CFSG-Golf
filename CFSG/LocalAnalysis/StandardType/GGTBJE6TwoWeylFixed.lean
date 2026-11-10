@@ -1,13 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJE6TwoBase
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSL
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompChain
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwRigid
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.SplitLineFix
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.PlanesToralChain
-public import CFSG.LieType.Chevalley.EvenOddCentralizerRadicalRoots
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcToralityFive
 
 public section
 

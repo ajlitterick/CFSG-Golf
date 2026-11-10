@@ -2,8 +2,6 @@ module
 
 public import CFSG.GH74.GLS.Stage2.Signalizer.Ivk8P4S55D4ThreeFix
 public import CFSG.HardMathSupport.Seitz.TrialityOdd.Coordinator.Phi6RouteW
-public import CFSG.ClassicalInvolution.ModelFacts.G2D4TD4Struct
-public import CFSG.RankThree.PartOne.KGD.D4T36Core
 public import CFSG.HardMathSupport.Seitz.TrialityOdd.Proving.SubfieldMaximalSL2
 public import CFSG.GH74.GLS.SP.Local.SPLRestrict
 public import CFSG.HardMathSupport.Seitz.G2Anisotropic.Coordinator.Cover

@@ -1,9 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcVacuous
-public import CFSG.LieType.Chevalley.OddTrialityAutomorphismNormalForm
-public import CFSG.LieType.Chevalley.EvenTrialityAutomorphismNormalForm
-public import CFSG.LieType.Chevalley.GraphFixedCenterTrivial
 public import CFSG.RankThree.PartOne.K128.D4Syl
 public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.Foundations
@@ -27,7 +24,6 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.J4LocalBase
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.A3Structure36BAction
 public import CFSG.Quasithin.Background.A3Structure36BBasic
 public import CFSG.Quasithin.Background.A3Structure36BPrime
@@ -36,7 +32,6 @@ public import CFSG.RankThree.PartOne.KE.A2Family
 public import CFSG.RankThree.PartOne.KE.A2Shape
 public import CFSG.RankThree.PartOne.KLR.Master
 public import CFSG.RankThree.PartOne.KLR.SectorAssembly
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 
 public section

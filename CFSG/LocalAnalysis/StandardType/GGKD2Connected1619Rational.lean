@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKD2Connected1619Contracts
-public import CFSG.LocalAnalysis.StandardType.GGK0MarkedKacIface1587
 public import CFSG.LocalAnalysis.StandardType.GGK0RationalProducerHolds
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeCentralizer1585
 import CFSG.LocalAnalysis.StandardType.GGK0MarkedComponents

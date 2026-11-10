@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormQuotTransvection
 public import CFSG.LocalAnalysis.StandardType.GGTWHLNormalizer
-public import Mathlib.LinearAlgebra.Matrix.Charpoly.Basic
-public import Mathlib.Algebra.Polynomial.Roots
 
 public section
 

@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Lemma113d
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Lemma113b
-public import CFSG.LocalAnalysis.RankTwoShapes.AlperinFusion
-public import Mathlib.GroupTheory.Focal
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
 public import CFSG.Certificates.FusionF2

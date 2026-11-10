@@ -6,7 +6,6 @@ public import CFSG.Certificates.Kernel.SporSch.ChainKCover
 public import CFSG.Certificates.Kernel.SporSch.MathieuOC2Sound
 public import Certificates.Data.Seitz77Sec27SmallU42
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.SporSch.ChainKOdd
 
 public section

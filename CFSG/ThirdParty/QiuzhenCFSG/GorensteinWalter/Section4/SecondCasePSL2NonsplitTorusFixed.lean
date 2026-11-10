@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2InnerNonsplitTorusFieldFixed
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2ConcreteNonsplitTorusCentralizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldPrimeOrderFixedSubfield
 import Mathlib.Tactic
 
 namespace CFSG

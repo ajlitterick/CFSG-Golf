@@ -4,7 +4,6 @@ module
 public import Certificates.Certificate3074Base
 import all Certificates.Certificate3074Base
 
-public import CFSG.Monster.B.TwoA.Sp8.GenActionConjInputs
 meta import CFSG.Monster.B.TwoA.Sp8.GenActionConjInputs
 meta import CFSG.Monster.B.TwoA.Sp8.GenActionDiffBase
 

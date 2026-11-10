@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeExcActOuterPerfTwoDFourGraph
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CompsPTwoDLabel
 public import CFSG.Blueprint.LieModelAPI
 public import CFSG.HardMathSupport.Dickson.Sec6.I923Fam.PsuGoodAux.Descent
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34OddAux.Defs

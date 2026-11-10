@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.Misc.PermA6Aut
-public import Certificates.Data.Kernel.Misc.PermClos
 public import Certificates.Kernel.SporSch.Th.GenV4
 public import Certificates.Kernel.Co1B.GenTri2045
 public meta import Certificates.Kernel.Misc.Perm.A6AutGen

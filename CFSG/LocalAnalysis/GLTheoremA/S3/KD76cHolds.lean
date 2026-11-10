@@ -4,17 +4,12 @@ public import CFSG.LocalAnalysis.GLTheoremA.S3.KData
 public import CFSG.HardMathSupport.Timmesfeld.DefChar.LieOuterA
 public import CFSG.HardMathSupport.Timmesfeld.DefChar.LieOuterE
 public import CFSG.HardMathSupport.Timmesfeld.DefChar.LieOuterTwisted
-public import CFSG.HardMathSupport.Timmesfeld.DefChar.OuterF4G2
-public import CFSG.HardMathSupport.Timmesfeld.DefChar.OuterTwisted
-public import CFSG.HardMathSupport.Timmesfeld.DefChar.OuterReeG2
-public import CFSG.Adapters.LinearCatalog
 public import CFSG.RankThree.PartOne.KA.AlternatingPlaneInner
 public import CFSG.Quasithin.SteinbergOuterPrimeControl
 public import CFSG.HardMathSupport.Timmesfeld.DefChar.LieOuterTwistedAC
 public import CFSG.RankThree.PartTwo.Sec19.Step1919EndProof
 public import CFSG.RankThree.PartOne.S12.ModelTransport
 public import CFSG.Quasithin.Background.A3Structure36BPrime
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
 public import CFSG.CharacterTheory.Wreathed.WreathCentralSquare
 public import CFSG.Dihedral.DihedralFusionPrefixes
@@ -58,13 +53,11 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Permutation.AlternatingAutomorphism
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.A3Structure36BAction
 public import CFSG.Quasithin.Background.A3Structure36BBasic
 public import CFSG.RankThree.PartTwo.Sec19.Item194Used
 public import CFSG.RankThree.PartTwo.Sec19.Step1914E
 public import CFSG.RankThree.PartTwo.Sec19.Steps195
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 

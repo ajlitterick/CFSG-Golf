@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.ExcPos.UnitDefs
 public import CFSG.LocalAnalysis.StandardType.ExcPos.TwistedE6Factors
 public import CFSG.LocalAnalysis.StandardType.GGLieCoreA3DictPhi
 public import CFSG.LocalAnalysis.StandardType.ExcPos.PacketBasic

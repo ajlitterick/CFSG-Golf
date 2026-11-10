@@ -1,13 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.TwE6LeviSharp
-public import CFSG.LieType.Chevalley.E6EvenRootTorusLevi
-public import CFSG.LieType.Chevalley.E6GraphRadicalCoords
-public import CFSG.LieType.Chevalley.E6GraphLeviIntersections
-public import CFSG.LieType.Chevalley.E6SecondGraphFixedSubgroup
-public import CFSG.LieType.Chevalley.ToralCentralizerBruhat
 public import CFSG.LieType.SeitzGeneration.ExcWideThree.DiagParabolicTw
-public import CFSG.RankThree.OddKernel.CentralCoverComponentModels
 public import CFSG.CGT.Timmesfeld75.Derivations
 public import CFSG.CGT.Timmesfeld75.JLemmaQuot
 public import CFSG.CGT.Timmesfeld75.Sec3Basic
@@ -76,8 +70,6 @@ public import CFSG.Quasithin.Background.A3Structure319
 public import CFSG.Quasithin.Background.C1GNSolvConnect
 public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918D5
 public import CFSG.Quasithin.Background.F9FiveStruct
 public import CFSG.Quasithin.Background.InternalSecFF

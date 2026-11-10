@@ -2,10 +2,6 @@ module
 
 public import CFSG.Quasithin.EmptyFaithful.LRed7Abs
 public import CFSG.Quasithin.EmptyFaithful.LRed6G2
-public import CFSG.Quasithin.Background.JonesParshallG2Two
-public import CFSG.Quasithin.Background.JonesParshallG2Derived
-public import CFSG.Quasithin.Background.B5FinG2U33
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L238BridgeAlt57G2Eq
 public import CFSG.Quasithin.Background.B5FinOut
 public import CFSG.Quasithin.Background.FFC4Tr2
 

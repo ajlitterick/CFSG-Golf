@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotBlocks
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.StepA2
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.GeoAdj
 public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticTorus
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Quadruple
 public import CFSG.LieType.CurtisTits.SpecialLinear

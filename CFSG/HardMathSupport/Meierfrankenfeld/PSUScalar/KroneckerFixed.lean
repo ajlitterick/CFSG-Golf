@@ -1,8 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.GuralnickMalle.ElemAbelianTwoHom
-public import Mathlib.LinearAlgebra.TensorProduct.Matrix
-public import Mathlib.RingTheory.Flat.Equalizer
 
 public section
 

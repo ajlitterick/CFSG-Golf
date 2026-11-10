@@ -1,12 +1,8 @@
 module
 
 public import Mathlib.GroupTheory.Sylow
-public import Mathlib.GroupTheory.Commutator.Basic
-public import Mathlib.GroupTheory.Index
-public import Mathlib.GroupTheory.QuotientGroup.Basic
 
 import CFSG.Quasithin.Recognition.M12AscTrans
-import Mathlib.Tactic.Group
 
 public section
 

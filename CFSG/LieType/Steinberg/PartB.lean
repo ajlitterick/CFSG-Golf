@@ -3,7 +3,6 @@ module
 public import CFSG.LieType.Steinberg.Extras
 public import CFSG.LieType.Steinberg.OfCartan
 public import CFSG.LieType.Steinberg.Statement
-public import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
 
 public section
 

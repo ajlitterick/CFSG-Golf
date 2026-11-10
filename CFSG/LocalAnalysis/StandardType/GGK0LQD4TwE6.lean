@@ -1,18 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154NonCfgRank4C
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154ExcTD4D4
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6RatLabelOuterD
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcTwD4Layer
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcD4Action
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExcD4
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExcE6
-public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24D4T2Outer
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.OuterE6
-public import CFSG.RankThree.PartOne.KD4L.TriStd
-public import CFSG.LieType.Chevalley.E7SupportedBruhat
 public import CFSG.ClassicalInvolution.Q3.Q3TWWMinus
-public import CFSG.HardMathSupport.Dickson.Sec6.I1431Lie
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CompsPD4Rank4
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CompsPD4Rank4All
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.TriD4

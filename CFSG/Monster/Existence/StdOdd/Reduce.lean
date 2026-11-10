@@ -3,7 +3,6 @@ module
 public import CFSG.Monster.Existence.StdOdd.Defs
 public import CFSG.Monster.Existence.BabyTableIVOf
 public import CFSG.Monster.Existence.BabyW3Classes
-public import CFSG.Monster.B.TwoA.Amalgam.DerivedCoverMain
 
 public section
 

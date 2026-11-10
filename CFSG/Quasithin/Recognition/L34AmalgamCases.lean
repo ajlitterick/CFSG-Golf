@@ -4,11 +4,7 @@ public import CFSG.Quasithin.Recognition.L34AmalgamGen
 public meta import CFSG.Quasithin.Recognition.L34AmalgamGen
 public meta import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22Count
 public meta import CFSG.Quasithin.Recognition.M22UniqueData
-public import CFSG.Quasithin.Recognition.L34AmalgamCasesInputs
 public import Certificates.Certificate7035
-public import Certificates.Certificate7036
-public import Certificates.Certificate7037
-public import Certificates.Certificate2195
 
 public section
 

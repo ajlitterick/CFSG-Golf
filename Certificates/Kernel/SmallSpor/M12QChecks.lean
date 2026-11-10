@@ -3,10 +3,8 @@ module
 public import Certificates.Kernel.SmallSpor.M12QData
 public import Certificates.Kernel.SporSch.Mathieu.M12Data
 public import Certificates.Data.Kernel.ListBridge
-public import Certificates.Data.Kernel.SporSch.MathieuOC
 public import CFSG.Certificates.Kernel.Spor.BindList
 public import Certificates.Data.ExitTwoM12
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

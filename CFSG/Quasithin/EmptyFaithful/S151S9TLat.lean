@@ -3,7 +3,6 @@ module
 public import CFSG.Quasithin.EmptyFaithful.S151S9TModel
 public import CFSG.Quasithin.EmptyFaithful.S151S9TData
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatIncl
-public import CFSG.Quasithin.Background.E2TwoProofSporGen
 public import CFSG.CharacterTheory.Blocks.BrauerInduction
 public import CFSG.CharacterTheory.Semidihedral.Principal.PrimeOrderSylowColumn
 public import CFSG.CharacterTheory.TwoRankLowerBound.BrauerCharacterCriterion
@@ -31,10 +30,6 @@ public import CFSG.Quasithin.Background.B69Core
 public import CFSG.Quasithin.Background.C1GNSolvConnect
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3OffenderB
-public import CFSG.Quasithin.Background.E3Uniq
-public import CFSG.Quasithin.Background.E4Solv
 public import CFSG.Quasithin.Background.F9G2
 public import CFSG.Quasithin.Background.F9Sixteen
 public import CFSG.Quasithin.Background.FFC7G

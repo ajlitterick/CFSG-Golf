@@ -2,7 +2,6 @@ module
 
 public import CFSG.LieType.Steinberg.CentralExt.UnitaryRankOne
 public import CFSG.LieType.Steinberg.CentralExt.UnitaryRankOneLast
-public import CFSG.LieType.Steinberg.CentralExt.UnitaryLift
 public import CFSG.LieType.Steinberg.CentralExt.UnitaryThreeLift
 
 public section

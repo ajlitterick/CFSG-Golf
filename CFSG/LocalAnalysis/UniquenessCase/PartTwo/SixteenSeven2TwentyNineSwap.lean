@@ -1,12 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenResults2
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven2TwentySwap
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven2TwentyNineFrame
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven2TwentyNineNorm
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven2TwentyNineOdd
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven2TwentyNineFix
-public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.AlmostSimpleBInnerPClosure
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.CFSGNative.J1.Certificate
-public import Certificates.Data.CFSGNative.Th.Tables
 public import Certificates.Data.CFSGNative.SporLat.Build
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicBaseNative
 

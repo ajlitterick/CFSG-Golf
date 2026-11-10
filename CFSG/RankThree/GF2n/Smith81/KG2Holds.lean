@@ -2,11 +2,8 @@ module
 
 public import CFSG.RankThree.GF2n.Smith81.KG2Transport
 public import CFSG.RankThree.GF2n.Smith81.LinSmallInspect
-import CFSG.Fischer.Pairs
 import CFSG.LieType.Chevalley.ExceptionalG2F4ModelSchreier
-import CFSG.LocalAnalysis.ComponentInitial.BasicFacts
 import CFSG.RankThree.GF2n.Smith81.KG2Model
-import CFSG.Timmesfeld.Basic
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.CGT.Timmesfeld75.Forms
 public import CFSG.ClassicalGroups.SpecialLinear.InvariantForms
@@ -41,7 +38,6 @@ public import CFSG.LocalAnalysis.ShultStronglyClosedTI.UnitaryRootAutomorphism
 public import CFSG.Monster.Code.Weights
 public import CFSG.Permutation.BurnsideSchur
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.Module
 public import CFSG.RankThree.GF2n.Smith81.LinOddBasic
 public import CFSG.RankThree.GF2n.Smith81.LinRank
@@ -60,7 +56,6 @@ public import CFSG.RankThree.GF2n.Tim79Mod
 public import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec2.Defs
 public import CFSG.SignalizerFunctorTheorem.McBride.Prelim.Generation
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24

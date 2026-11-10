@@ -2,8 +2,6 @@ module
 
 public import CFSG.Quasithin.Background.C35InspLeviRes
 public import CFSG.Quasithin.Background.C35InspD4
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsLieD4Facts
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListD4
 
 public section
 

@@ -2,9 +2,6 @@ module
 
 public import CFSG.Sporadic.J4.StabSpec
 public import CFSG.Sporadic.J4.LocalOrder
-import Certificates.Data.CFSGNative.J4.Orbit
-import Certificates.Data.CFSGNative.J4.Suborbits
-import Certificates.Data.CFSGNative.J4.Cert
 
 public section
 

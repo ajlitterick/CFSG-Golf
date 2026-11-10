@@ -1,15 +1,6 @@
 module
 
 public import CFSG.Fischer.F4
-public import Mathlib.Algebra.Group.MinimalAxioms
-public import Mathlib.Algebra.Module.StablyFree.Basic
-public import Mathlib.Algebra.Order.Ring.Star
-public import Mathlib.GroupTheory.Nilpotent
-public import Mathlib.RingTheory.WittVector.IsPoly
-public import Mathlib.Tactic.Basify
-public import Mathlib.Tactic.ENatToNat
-public import Mathlib.Tactic.Polynomial.Basic
-public import Mathlib.Tactic.ReduceModChar
 public import Std.Tactic.BVDecide.Normalize.Prop
 
 public section

@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGQ2HypRestrict
 public import CFSG.LocalAnalysis.StandardType.GGQ2MixedCentre
 public import CFSG.LocalAnalysis.StandardType.GGQ2A4Pm
-import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
 import CFSG.LocalAnalysis.StandardType.GGQ2LDatumDims
-import CFSG.LocalAnalysis.StandardType.GGQ2LabelCartan
 import CFSG.LocalAnalysis.StandardType.GGQ2LDatumLongest
 import CFSG.LocalAnalysis.StandardType.GGQ2SubRestrict
 

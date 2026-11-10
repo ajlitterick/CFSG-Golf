@@ -1,17 +1,13 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGCentDefs
-public import CFSG.LieType.Steinberg.Isogeny.E6
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcSixEReduce
 public import CFSG.RankThree.PartOne.KE8F.FamBruhat
-public import CFSG.LieType.Chevalley.RootCharacterConjugation
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGCentRank
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGCentCorank
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGCentE6FamKernel
 import CFSG.LocalAnalysis.StandardType.GGSecFiveKGCentE6TorusChar
 import CFSG.LocalAnalysis.StandardType.GGSecFiveJRootCoreE6Char
-import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcSixEMain
-import CFSG.LieType.Steinberg.CentralExt.MinusculeCenter
 public import CFSG.Monster.B.Geometry.CoxeterWords
 public import CFSG.RankThree.PartOne.KE.A1SL2
 public import CFSG.RankThree.PartOne.KE.A1Torus

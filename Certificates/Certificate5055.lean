@@ -1,6 +1,5 @@
 module
 
-public import CFSG.GH74.GLS.C3.Layer2.L5C0Inputs
 public import CFSG.GH74.GLS.C3.Layer2.L5C14
 public import CFSG.GH74.GLS.C3.Layer2.L5C6
 public import CFSG.GH74.GLS.C3.Layer2.L5C7

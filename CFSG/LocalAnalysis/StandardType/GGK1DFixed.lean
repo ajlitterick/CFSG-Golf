@@ -1,12 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGK1DDefs
-public import CFSG.RankThree.PartOne.S11d.OrthDicksonOmega
-public import CFSG.RankThree.PartOne.KC.OrthogonalFixedDickson
-public import CFSG.RankThree.PartOne.KC.OrthogonalEvenMinusFourExtract
-public import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotAnisoEightBasic
-public import CFSG.GroupTheory.WeirSylow.OrthogonalModels
-public import CFSG.ClassicalGroups.Orthogonal.Simple
 
 public section
 

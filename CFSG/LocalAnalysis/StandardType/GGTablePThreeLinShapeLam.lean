@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeLinDefs
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeRLeaf
-import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
-import CFSG.LocalAnalysis.StandardType.GGTableBTypeALift
 import CFSG.LocalAnalysis.AGLEmbedding.ToralCensusLinearCenter
-import CFSG.GroupTheory.ElemAbelianClosure
 
 public section
 

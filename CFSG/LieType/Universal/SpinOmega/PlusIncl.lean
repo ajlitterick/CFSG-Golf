@@ -3,21 +3,16 @@ module
 public import CFSG.LieType.Universal.SpinOmega.CommutatorEquiv
 public import CFSG.ClassicalInvolution.Q3.Q3TWLMap
 public import CFSG.LieType.Universal.Spin.Datum
-public import CFSG.LieType.CurtisTits.Reduction
 public import CFSG.RankThree.PartOne.KC.OrthogonalSupportedScalarDefs
 import CFSG.LieType.Universal.Spin.PlusCT.Weyl
 import CFSG.LieType.Universal.Spin.Generation.Datum
 import CFSG.ClassicalInvolution.WeakCT.TwistedRankOne
-import CFSG.LieType.Universal.Spin.Generation.Eichler
-import CFSG.LieType.Universal.SpinOmega.Range
 public import CFSG.ClassicalGroups.Orthogonal.ProjectiveSimple
 public import CFSG.LieType.Universal.Spin.Roots
 public import CFSG.LocalAnalysis.SectionRank.SignLines
 import CFSG.ClassicalInvolution.WeakCT.Main
 import CFSG.LieType.TitsSimplicity
 import CFSG.LieType.Universal.SpinOmega
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ProjectiveSemilinear
 import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 
 public section

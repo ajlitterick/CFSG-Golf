@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGRealKGThreeE6NonsplitFrame
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.TorusAtUntw
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.FrobeniusOnRoots
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcRoots
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwRigidSplit
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwLangConsumers

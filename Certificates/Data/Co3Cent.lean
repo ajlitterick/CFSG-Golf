@@ -1,6 +1,5 @@
 module
 
-public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co3ThreeInputs
 public import Certificates.Data.K426Checks
 public import Certificates.Data.Co3Pump
 public import CFSG.RankThree.PartOne.KS.PKitLeaf

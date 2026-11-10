@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.E6DiagRegular
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeCharData
 meta import Certificates.Data.E6DiagRegular
 meta import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeCharData
 

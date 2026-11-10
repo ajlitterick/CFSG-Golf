@@ -1,6 +1,5 @@
 module
 
-public import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
 public import Mathlib.LinearAlgebra.BilinearForm.Orthogonal
 public import Mathlib.Algebra.CharP.Two
 public import Mathlib.Tactic.NoncommRing

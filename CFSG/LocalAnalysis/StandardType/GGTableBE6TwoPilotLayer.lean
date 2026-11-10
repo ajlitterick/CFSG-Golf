@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBE6ThreeEndTwo
-public import CFSG.LocalAnalysis.StandardType.GGTableBSymplecticEndNode
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotNonsplit
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotClasses
-public import CFSG.LocalAnalysis.SeitzReduction.E6PilotLeviModel
-public import CFSG.GroupTheory.LocalCores.Components
 
 public section
 

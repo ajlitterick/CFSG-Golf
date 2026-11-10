@@ -1,19 +1,11 @@
 module
 
-public import CFSG.Yardstones.M0a200c08cf60.Definitions
 public import CFSG.HardMathSupport.Cooperstein.AlternatingGeometry.E0Sub.Corner
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.TwE6.TBFinal
 public import CFSG.HardMathSupport.Cooperstein.StructureLie.OrthMinusCent
 import CFSG.LieType.SeitzGeneration.OmegaF2.Plus
 import CFSG.LieType.SeitzGeneration.OmegaF2.Minus
-import CFSG.LieType.SeitzGeneration.ExcOuterLeOne.Maximal
-public import CFSG.HardMathSupport.Seitz.TrialityOdd.Inner.PhiRows.RouteWJPlacement
 public import CFSG.HardMathSupport.Curtis.Coordinator.SeitzTower.Rest
-public import CFSG.LocalAnalysis.SubfieldPairReeG2.Assembly
-public import CFSG.HardMathSupport.Seitz.TrialityOdd.Coordinator.TrialityThreeAssembly
-public import CFSG.HardMathSupport.Seitz.TrialityEven.Assembly
-public import CFSG.HardMathSupport.Seitz.TrialityEven.TwoThree
-public import CFSG.LieType.SeitzGeneration.ExcAnisotropicReeF4ThreeProved
 import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.F4Phi3
 import CFSG.HardMathSupport.Foote.Coordinator.SplitFrame.E8Phi5
 import CFSG.HardMathSupport.Foote.Coordinator.TwistedFrame.Final
@@ -68,7 +60,6 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly

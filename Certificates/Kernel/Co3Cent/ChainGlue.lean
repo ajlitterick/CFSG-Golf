@@ -1,16 +1,13 @@
 module
 
 public import Certificates.Kernel.Co3Cent.Trees
-public import CFSG.Certificates.Kernel.OrbRow.Tight
 public import CFSG.Certificates.Kernel.OrbRow.ReachPerm
 public import CFSG.Certificates.Kernel.OrbRow.LevelSound
 public import CFSG.Certificates.Kernel.OrbRow.CentLGrp
 public import CFSG.Certificates.Kernel.OrbRow.CentBSound
 public import CFSG.Certificates.Kernel.OrbRow.PRepFacts
 public import CFSG.Certificates.Kernel.Misc.PermWitSound
-public import CFSG.Certificates.Kernel.BfsPinSetSound
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co3Three
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC

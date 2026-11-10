@@ -3,12 +3,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsCenterBase
 
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsTransfer
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsParabolic
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4Inputs46
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4Inputs47
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4Basic
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsCover
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsCoverAut
 
 public section

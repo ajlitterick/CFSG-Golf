@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCarrierTwoDCover
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePairFix
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePairPinE6
-public import CFSG.RankThree.Chevalley.EvenPinnedRootSL2
 
 public section
 

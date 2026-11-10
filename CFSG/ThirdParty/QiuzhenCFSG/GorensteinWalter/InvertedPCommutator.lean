@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderGlauberman.Defs
-public import Mathlib.GroupTheory.Commutator.Basic
 import Mathlib.Tactic
 
 namespace CFSG

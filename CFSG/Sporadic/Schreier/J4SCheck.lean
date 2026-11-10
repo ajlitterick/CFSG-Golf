@@ -3,10 +3,8 @@ module
 
 public import CFSG.Sporadic.Schreier.J4SCheckBase
 
-public import CFSG.Sporadic.Schreier.J4SNative
 public meta import CFSG.Sporadic.Schreier.J4SNative
 public meta import Certificates.Data.CFSGNative.J4.Cert
-public import CFSG.Sporadic.Schreier.J4SCols
 public meta import CFSG.Sporadic.Schreier.J4SCols
 public import Certificates.Certificate2168
 public import CFSG.Quasithin.H13.J4Words

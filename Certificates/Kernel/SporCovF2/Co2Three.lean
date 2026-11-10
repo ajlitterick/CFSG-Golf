@@ -2,7 +2,6 @@ module
 
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo
-import CFSG.Certificates.Kernel.Common.Harness
 public import Certificates.Data.Kernel.SporCov.F2Reg
 public import Certificates.Kernel.VecCert.Co2
 

@@ -1,17 +1,13 @@
 module
 
-public import CFSG.Sporadic.Schreier.M11Data
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1M11CheckInputs
 import Certificates.Kernel.LocalQT.M11.C4135M
 import Certificates.Kernel.LocalQT.M11.C4135N
 import Certificates.Kernel.LocalQT.M11.C4135T
 import Certificates.Kernel.LocalQT.M11.C4135P
 import Certificates.Kernel.LocalQT.M11.C4154
-import Certificates.Kernel.LocalQT.M11.C4135
 import Certificates.Kernel.LocalQT.M11.C4054
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.LocalQTM11CntProved
-import Certificates.Certificate2191
 import CFSG.Sporadic.Schreier.M11
 
 public section

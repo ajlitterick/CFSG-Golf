@@ -1,10 +1,7 @@
 module
 
-public import CFSG.Sporadic.HeldB.AutData
-public import Certificates.Data.CFSGNative.Schreier.Check
 public meta import CFSG.Sporadic.HeldB.AutData
 public meta import Certificates.Data.CFSGNative.Schreier.Check
-public import CFSG.Sporadic.HeldB.OuterArithCheckInputs
 public import Certificates.Certificate2116
 
 public section

@@ -5,7 +5,6 @@ import CFSG.RankThree.PartTwo.Sec16.Item16Tail
 import CFSG.RankThree.PartTwo.Sec3.TwoGroupPrimeFiveAction
 import CFSG.RankThree.Classical2.TwoLocalRankCoprimeQuotient
 import CFSG.GroupTheory.ABGLocalTools.OddOrderLocal
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Centralizer
 
 public section
 

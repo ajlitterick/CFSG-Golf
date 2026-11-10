@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalCoreLine
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylUnitaryDvd
 public import CFSG.LocalAnalysis.StandardType.GGNbrFrameOneUnitaryLabel
-public import CFSG.LinearAlgebra.LinearGroups.UnitaryScalarKernel
 
 public section
 

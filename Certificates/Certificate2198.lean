@@ -2,13 +2,10 @@
 module
 
 public import Certificates.Certificate2198Base
-public import Certificates.Data.CFSGNative.SporadicSchreier.Count
 
-public import CFSG.Sporadic.Schreier.M24Data
 public meta import CFSG.Sporadic.Schreier.M24Data
 import Certificates.Kernel.SporSch.Mathieu.M24Facts
 import Lean.Data.Json
-import Mathlib.Data.ZMod.Basic
 
 public section
 

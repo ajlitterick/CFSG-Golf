@@ -9,11 +9,6 @@ public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.CoreByList
 public import CFSG.Perm.CentralizerOrbit
 public import CFSG.Sporadic.Ly.ThreeBCount
 public import CFSG.Sporadic.Th.CertificateBase
-public import CFSG.Sporadic.Th.KernelContractBase
-public import CFSG.Sporadic.Th.KernelPlanesBase
-public import CFSG.Sporadic.Th.KernelSimpleBase
-public import CFSG.Sporadic.ThSchreier.FullAutCoreBase
-public import CFSG.Sporadic.ThSchreier.KernelAutBase
 
 @[expose] public section
 

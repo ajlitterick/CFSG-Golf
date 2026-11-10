@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec21.Item233Res3ProofSp44
-public import CFSG.LinearAlgebra.LinearGroups.Generation
 import CFSG.RankThree.PartTwo.Sec5.Tools
 public import CFSG.GroupTheory.ABGLocalTools.Constraint
 public import CFSG.GroupTheory.BaerSuzuki
@@ -22,7 +21,6 @@ public import CFSG.LocalAnalysis.SectionRank.Sporadic.MathieuLocalBase
 public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Permutation.AlternatingAutomorphism
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.RankThree.LocalRank.SelectorCases
 public import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeSetting
 public import CFSG.RankThree.PartOne.KC.UnitaryLiftBlocks
@@ -39,7 +37,6 @@ public import CFSG.RankThree.PartTwo.Sec13.Item135
 public import CFSG.RankThree.PartTwo.Sec13.Item135Simple
 public import CFSG.RankThree.PartTwo.Sec13.Item135SimpleReduce
 public import CFSG.RankThree.PartTwo.Sec18.Notation
-public import CFSG.RankThree.PartTwo.Sec18.Tools
 public import CFSG.RankThree.PartTwo.Sec21.Commute33
 public import CFSG.RankThree.PartTwo.Sec21.Item223Gaps
 public import CFSG.RankThree.PartTwo.Sec21.Item223PrintProofFour

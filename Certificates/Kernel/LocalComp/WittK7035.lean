@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.LocalComp.WittLev
 public import Certificates.Kernel.LocalComp.WittDataL34
 public import Certificates.Data.Kernel.WittConj
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

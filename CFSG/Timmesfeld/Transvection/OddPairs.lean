@@ -4,8 +4,6 @@ public import CFSG.Timmesfeld.Transvection.OddModelPairs
 public import CFSG.Timmesfeld.Transvection.OddModelBlock
 public import CFSG.Timmesfeld.Transvection.PresSUHalf
 import CFSG.Timmesfeld.Transvection.OddPairsModel
-import CFSG.Timmesfeld.Transvection.OddModelWeyl
-import CFSG.Timmesfeld.Transvection.OddModelHeis
 import CFSG.Timmesfeld.Transvection.OddModelBC2Struct
 import CFSG.Timmesfeld.Transvection.PresSU
 import CFSG.Assembly.Subnormal

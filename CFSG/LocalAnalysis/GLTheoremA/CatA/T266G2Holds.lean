@@ -2,18 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T266G2Facts
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.HDesc2G2
-public import CFSG.Adapters.TauCetiExceptional.EvenBridgeG2
-public import CFSG.LieType.Chevalley.AdjointCenter
 public import CFSG.RankThree.PartTwo.Sec11.KS11Lie4ProofSplit
-public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67A2Sylow
-public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67A2Diag
-public import CFSG.GH74.GLS.Stage2.Bender.Thm1.P67A2Torus
-public import CFSG.LocalAnalysis.GLTheoremB.PCompLift
-public import CFSG.LocalAnalysis.GL83PartI.I_27_9_3.Component
-public import CFSG.HardMathSupport.Solomon.Coordinator.B2FamAlt
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.L2CentBridge
 public import CFSG.LieType.ChevTwo.OppCl.SLAutTwo
-public import CFSG.Timmesfeld.RankOne.SL2
 public import CFSG.GroupTheory.CenterlessInnerCentralizer
 public import CFSG.GroupTheory.PLayer.PIndex
 public import CFSG.HardMathSupport.Seitz.G2Anisotropic.Coordinator.Cover

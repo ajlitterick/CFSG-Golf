@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoAmbDual
-public import CFSG.LocalAnalysis.StandardType.GGQTwoDefs
 
 public section
 

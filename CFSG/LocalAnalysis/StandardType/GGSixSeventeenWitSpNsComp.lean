@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitComp
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitKGClFactors
-public import CFSG.RankThree.PartOne.KC.SymplecticIsotypicBlocks
-public import CFSG.LinearAlgebra.LinearGroups.UnitaryOrder
-public import CFSG.LocalAnalysis.ComponentInitial.TwoPrimeSolvable
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelSLCompParts
 
 public section

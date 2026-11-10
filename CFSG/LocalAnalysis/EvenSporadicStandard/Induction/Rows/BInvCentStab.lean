@@ -1,11 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.BInvCentGeneric
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Induction.Rows.BInvCentData
 public import Certificates.Certificate27200
 public import CFSG.Monster.B.CTIB.FourClasses
-public import CFSG.Monster.B.CTIB.Census
-public import CFSG.Monster.B.Cbar.LocalAux
 
 public section
 

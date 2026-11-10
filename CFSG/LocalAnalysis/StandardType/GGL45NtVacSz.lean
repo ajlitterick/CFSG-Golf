@@ -1,11 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGL45NtDefs
-public import CFSG.LocalAnalysis.StandardType.MarkingChevalley
-public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionDenominatorCyclic
-public import CFSG.LieType.BorelTits.Suzuki
-public import CFSG.LieType.Ree.SuzukiSimple
-public import CFSG.GroupTheory.ElemAbelianClosure
 
 public section
 

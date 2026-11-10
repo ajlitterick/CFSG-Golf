@@ -4,8 +4,6 @@ public import Certificates.Kernel.GMS78.NM
 public import Certificates.Kernel.GMS78.W
 public import Certificates.Data.GMS78RuAsmNA
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
-import Batteries.Tactic.Init
 
 public section
 

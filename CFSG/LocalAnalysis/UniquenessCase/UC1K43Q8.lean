@@ -1,14 +1,9 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Extraspecial
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.SubgroupConjAction
 public import CFSG.LocalAnalysis.UniquenessCase.UC1K43Ext
 public import CFSG.Quasithin.EmptyFaithful.S143VQ8
 public import CFSG.Quasithin.EmptyFaithful.S143UA
 public import CFSG.LocalAnalysis.GorensteinLyons.SteinbergCCIndexTwoDichotomy
-public import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Foundations
 public import CFSG.Quasithin.Background.A3ComponentsCore

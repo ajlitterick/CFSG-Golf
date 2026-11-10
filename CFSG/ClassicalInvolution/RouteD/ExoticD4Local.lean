@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ClassicalInvolution.RouteD.ExoticD4Graph
 public import CFSG.ClassicalInvolution.RouteD.ExoticD4Model
 public import CFSG.ClassicalInvolution.RouteD.ExoticShapes
 public import CFSG.ClassicalInvolution.RouteD.MultiStarComp

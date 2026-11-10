@@ -1,15 +1,11 @@
 module
 
-public import CFSG.Sporadic.Schreier.J4SFormData
 public meta import CFSG.Sporadic.Schreier.J4SFormData
 public import Certificates.Certificate2171
-public import CFSG.LocalAnalysis.SectionRank.Sporadic.LocalWitness
 public meta import CFSG.LocalAnalysis.SectionRank.Sporadic.LocalWitness
 public meta import CFSG.Open.Defs
-public import CFSG.Open.Defs
 public meta import CFSG.Sporadic.Schreier.J4SNative
 public meta import CFSG.Sporadic.Th.F2Spec
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

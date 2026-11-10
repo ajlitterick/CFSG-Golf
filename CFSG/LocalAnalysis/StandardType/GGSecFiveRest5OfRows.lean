@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveResDispatch
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRegionDefs
 
 public section
 

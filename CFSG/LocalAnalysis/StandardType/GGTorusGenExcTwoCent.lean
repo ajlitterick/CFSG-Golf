@@ -2,22 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenExcTwoBase
 
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwE7Model
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwE8Model
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwTorus
-import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyBruhat
-import CFSG.LieType.Chevalley.Canonical
-import CFSG.LieType.Chevalley.CoordinateFieldBaseChange
-import CFSG.LieType.Chevalley.GraphFixedF4GroupRestriction
-import CFSG.LieType.Steinberg.Adjoint.Datum
-import CFSG.LieType.Steinberg.Adjoint.Pairs
 import CFSG.LocalAnalysis.StandardType.GGSixBstarE8FiveFrameCentralizer
-import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesCore
-import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderExcWeyl
-import CFSG.LocalAnalysis.StandardType.GGTableBExcThreeAct
-import CFSG.RankThree.CentralCover.SteinbergBNLinearTorus
-import CFSG.RankThree.PartOne.KE.CTLang
-public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 
 public section
 

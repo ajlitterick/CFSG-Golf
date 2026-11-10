@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LargeExtraspecial.AS35WQP45Data
-import Certificates.Certificate2012
 import Certificates.Kernel.QP45W.Glue
 
 public section

@@ -1,10 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestDefs
-public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestFrame
 public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestBasic
-public import CFSG.LieType.Chevalley.ParabolicRadicalNormalizer
-public import CFSG.LocalAnalysis.SeitzReduction.E6PilotCentralizerYRoots
 
 public section
 

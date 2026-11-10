@@ -5,21 +5,16 @@ public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Data.CFSGNative.Ru.Data
 public import CFSG.Certificates.Kernel.Orders.Ru.RelsBind
 public import CFSG.Certificates.Kernel.Orders.Ru.GensBind
-public import CFSG.Certificates.Kernel.Orders.Ru.Checks.R
-public import CFSG.Certificates.Kernel.Orders.Ru.Checks.H
 public import CFSG.Certificates.Kernel.Orders.Ru.Checks.D
 public import CFSG.Certificates.Kernel.Orders.Ru.Checks.K
-public import CFSG.Certificates.Kernel.Orders.Ru.Data.Pay
 public import CFSG.Sporadic.Presentation.RuExact
 import all CFSG.Blueprint.NativeSporadic
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.SeededRelations
 public import CFSG.Certificates.WordSubgroupRel
 public import CFSG.Perm.ChainSpec
 public import CFSG.Sporadic.Presentation.Common
-public import CFSG.Sporadic.Th.F2Spec
 
 public section
 

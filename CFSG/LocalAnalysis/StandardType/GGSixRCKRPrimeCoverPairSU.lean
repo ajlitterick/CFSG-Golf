@@ -6,20 +6,7 @@ import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCarrierSUCover
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCoverPairSUTop
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeCoverPairSUWitt
 import CFSG.LocalAnalysis.StandardType.GGK0LQSuN
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUAll
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.G2LongFrame
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUStd
-import CFSG.LocalAnalysis.StandardType.GGSixRootFusionSURepWitt
-import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutNonsplitFieldSUDelta
-import CFSG.LocalAnalysis.StandardType.GGSixBstarRestSU
-import CFSG.LieType.Universal.Unitary.Comparison
-import CFSG.ClassicalGroups.Unitary.Finite
-import CFSG.Open.StatedSUFieldChange
-import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24CentreSU
-import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotSwapLiftSplit
 import CFSG.RankThree.Classical2.SLnConjLemmas
-import CFSG.LocalAnalysis.GLTheoremA.CatA.KD147cMat
-import CFSG.LocalAnalysis.ComponentInitial.QuasisimpleRankOne
 
 public section
 

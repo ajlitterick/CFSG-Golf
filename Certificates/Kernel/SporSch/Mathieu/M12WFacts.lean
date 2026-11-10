@@ -5,8 +5,6 @@ public import Certificates.Kernel.SporSch.Mathieu.M12Facts
 public import CFSG.Certificates.Kernel.SporSch.MathieuOddGlue
 public import CFSG.Certificates.Kernel.SporSch.CF67GenSound
 public import CFSG.Certificates.Kernel.SporSch.ChainKClassEq
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.GH74.GLS.IVK.Proofs2.OddTools
 public import CFSG.GH74.GLS.Stage2.Local.P34Main
 public import CFSG.GH74.GLS.Stage2.Local.P34S5A

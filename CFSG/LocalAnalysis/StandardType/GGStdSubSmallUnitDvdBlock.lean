@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallUnitDvdDiag
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestUnitary
-public import CFSG.LocalAnalysis.StandardType.GGLinearTorusCompSUModel
-public import CFSG.LocalAnalysis.ComponentInitial.BlockOvergroupDichotomy
 
 public section
 

@@ -2,12 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1RLevel
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ1TorLinDefs
-public import CFSG.LocalAnalysis.StandardType.GGPGLTorality
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeATorus
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeACover
-public import CFSG.LocalAnalysis.StandardType.GGTableBRank
-import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
-import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
 
 public section
 

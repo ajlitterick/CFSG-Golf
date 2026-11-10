@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCornerDefs
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinPlaneTorusDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJNativeDefs
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBCommonJRowSpTwoAux3
 import CFSG.LocalAnalysis.StandardType.GGTBJSympMinusLocalize
 import CFSG.LocalAnalysis.StandardType.GGTBJSympMinusBlockZ

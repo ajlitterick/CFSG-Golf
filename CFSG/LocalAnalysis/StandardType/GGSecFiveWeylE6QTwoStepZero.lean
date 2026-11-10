@@ -1,10 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGUSixTwoTorus
-public import CFSG.Open.LocalVocabulary
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoStepZeroAux
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoStepZeroAux2
-public import CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.Stroth.AlmostSimpleBInnerPClosure
 
 public section
 

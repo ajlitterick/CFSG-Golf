@@ -3,9 +3,6 @@ module
 public import CFSG.ClassicalInvolution.Q3.Q3TY44
 public import CFSG.ClassicalInvolution.Q3.Q3TY43
 public import CFSG.ClassicalInvolution.Q3.Q3TY42
-public import CFSG.ClassicalInvolution.Q3.Q3TY39
-public import CFSG.ClassicalInvolution.RouteD.TwinSmallLift
-public import CFSG.ClassicalInvolution.RouteD.TwinSmallSeven
 
 public section
 

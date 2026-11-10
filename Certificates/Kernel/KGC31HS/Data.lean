@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.LocalComp.Child3Gen
 public import Certificates.Kernel.SporSch.Mathieu.Gen
 public import CFSG.Quasithin.Vol2.KGFactC31HSData

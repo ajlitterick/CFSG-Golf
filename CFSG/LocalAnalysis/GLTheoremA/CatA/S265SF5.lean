@@ -1,15 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S265SF3
-import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.UnitaryInner
-import CFSG.HardMathSupport.Timmesfeld.CrossChar.UnitaryBalPlane
-import CFSG.LocalAnalysis.ComponentInitial.FieldUnitaryHermitian
 import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieInnGoodUnitaryDiag
-import CFSG.LocalAnalysis.StandardType.GGPGLToralityMatrix
 import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryDvdTorality
-import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeModel
-import CFSG.RankThree.PartOne.KC.UnitaryGoodModel
-import CFSG.RankThree.PartOne.KC.UnitaryRigidityFrame
 public import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
 public import CFSG.CharacterTheory.Wreathed.WreathCentralSquare
 public import CFSG.Dihedral.DihedralFusionPrefixes
@@ -53,14 +46,7 @@ public import CFSG.SignalizerFunctorTheorem.McBride.Near.Sec2.Thm210Aux
 public import CFSG.SignalizerFunctorTheorem.McBride.Prelim.Projection
 public import CFSG.SignalizerFunctorTheorem.McBride.Prelim.SemisimpleFactors
 public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.IG1114
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremB
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.TheoremC
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.ZJTheorem
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.GW1965RemarkDGroup
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29Helpers
 import CFSG.HardMathSupport.Timmesfeld.LocalTwo.CrossLinHeisCore
 
 public section

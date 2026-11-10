@@ -1,12 +1,8 @@
 module
 
-public import CFSG.Sporadic.SuzOddCore.GraphArrays
-public import CFSG.Sporadic.SuzOddCore.ArraysCheck
-public import Certificates.Data.CFSGNative.Schreier.Refine
 public meta import CFSG.Sporadic.SuzOddCore.GraphArrays
 public meta import CFSG.Sporadic.SuzOddCore.ArraysCheck
 public meta import Certificates.Data.CFSGNative.Schreier.Refine
-public import CFSG.Sporadic.SuzOddCore.GraphArraysCheckInputs
 public import Certificates.Certificate2295
 
 public section

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.NbrPOmegaMinusLeafJOmega
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.NbrPOmegaMinusLeafJSu
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.NbrPOmegaMinusLeafJSl
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.NbrPOmegaMinusLeafNeighbourBlockData
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.FEPOmegaMinus
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.NbrPOmegaMinusLeafKOmega
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.NbrPOmegaMinusLeafKSu

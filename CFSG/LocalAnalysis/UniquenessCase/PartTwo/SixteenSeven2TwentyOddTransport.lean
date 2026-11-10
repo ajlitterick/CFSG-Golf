@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.SmallCases.UpgradeCoverClassical
-public import CFSG.Adapters.RankTwoModelTransports
-public import CFSG.Open.StatedDefs
 
 public section
 

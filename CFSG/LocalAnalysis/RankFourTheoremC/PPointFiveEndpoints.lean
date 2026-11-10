@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.RankFourTheoremC.PPointFiveReduction
 public import CFSG.HardMathSupport.Timmesfeld.ComponentBalance.PGroupNormalE4
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.Ree
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Assembly.QuasithinDefs
 public import CFSG.Foundations
 public import CFSG.GroupTheory.LocalCores.Fitting

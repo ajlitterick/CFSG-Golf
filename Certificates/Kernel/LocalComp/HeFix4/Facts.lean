@@ -4,9 +4,7 @@ public import Certificates.Kernel.LocalComp.HeFix4.Checks
 public import Certificates.Kernel.Sporadic.He.Bind2112
 public import CFSG.Certificates.Kernel.HfPointBfsSound
 public import CFSG.Certificates.Kernel.BfsPinSetSound
-public import CFSG.Certificates.Kernel.Spor.RawOrbHead
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

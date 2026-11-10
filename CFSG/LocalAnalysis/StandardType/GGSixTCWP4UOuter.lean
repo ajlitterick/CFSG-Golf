@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UStd
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UFrameO
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UE6
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcSixEMain
 
 public section
 

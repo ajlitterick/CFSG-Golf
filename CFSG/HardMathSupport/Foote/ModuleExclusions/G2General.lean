@@ -1,7 +1,6 @@
 module
 
 public import CFSG.CGT.PushingUpLit.CGT6M.FiveInspG2
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

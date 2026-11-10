@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LieType.Chevalley.Braid
 public import CFSG.LieType.Chevalley.GraphFixedRankOneScalar
 public import CFSG.LieType.Chevalley.RootCharacterConjugation
 

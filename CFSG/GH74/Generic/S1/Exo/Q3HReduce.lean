@@ -3,9 +3,6 @@ module
 public import CFSG.GH74.Generic.S1.Exo.Nb3Defs
 public import CFSG.GH74.Generic.S1.Exo.NbQ8
 public import CFSG.GH74.Generic.S1.Exo.NbLoc
-public import CFSG.GH74.Generic.S1.CompIdent
-public import CFSG.GH74.Generic.S1.SL2Facts
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

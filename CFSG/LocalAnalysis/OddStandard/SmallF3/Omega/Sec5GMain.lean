@@ -6,8 +6,6 @@ public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec5GQ
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec5ZGold
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec5ZNorm
 public import CFSG.Assembly.OddCoreSpan
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Foundations
 public import CFSG.Goldschmidt.Steps.GoldType
 public import CFSG.GroupTheory.QuasisimpleCommutingProductBound
@@ -35,10 +33,6 @@ public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionThreePoint
 public import CFSG.LocalAnalysis.RankTwoShapes.AlperinFusion
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure
 public import CFSG.StronglyEmbedded
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2S0LeQuotientTorus
 
 public section
 

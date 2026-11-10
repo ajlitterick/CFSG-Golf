@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinFrameTgtSylow
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinUActsPfCore
-public import CFSG.ClassicalInvolution.Asc77.AscFusionS4
 
 public section
 

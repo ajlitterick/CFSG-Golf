@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcE6ThreeAd
 public import CFSG.LocalAnalysis.StandardType.GGFrameE78Facts
-import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderExcWeyl
 import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderExcRestProofE6Ad
 public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
 

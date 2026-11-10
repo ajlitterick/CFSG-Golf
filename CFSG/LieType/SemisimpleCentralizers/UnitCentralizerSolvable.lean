@@ -1,11 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerPDivSUTag
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsCoresFinal
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsSU
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.PLengthLemmas
 public import CFSG.GroupTheory.QuasisimplePSolvable
-public import CFSG.Quasithin.Background.A3ComponentsBasic
 
 public section
 

@@ -1,12 +1,9 @@
 module
 
-public import Certificates.Data.RuF45Geom
 public import Certificates.Data.TitsF46Words
-public import CFSG.Monster.B.Co2.PermArr
 public import CFSG.Quasithin.Vol2.GoldschmidtF431TitsGeoDAct
 public import CFSG.Quasithin.Vol2.GoldschmidtF431TitsGeoElt
 public import CFSG.Quasithin.Vol2.GoldschmidtF431TitsGeoPtLoc
-public import CFSG.Quasithin.Vol2.GoldschmidtF45RuPoly
 
 public noncomputable section
 

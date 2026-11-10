@@ -1,19 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockDefs
 public import CFSG.LocalAnalysis.StandardType.GGClassicalBlockOmegaDict
-public import CFSG.Blueprint.SourceClassicalTransportOrthogonal
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T123CBlockOrthA
-public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs256q
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockDecomp
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
-public import CFSG.LocalAnalysis.StandardType.GGE0Frame
-public import CFSG.LocalAnalysis.StandardType.GGOuterInvFieldTags
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section18.OmegaPlusFourShape
-public import CFSG.RankThree.PartOne.KC.OrthogonalCommutatorBridge
-public import CFSG.RankThree.PartOne.S11d.OrthCaseN
-public import CFSG.RankThree.PartOne.S11d.OrthModels
-public import CFSG.RankThree.PartOne.S11d.OrthSplitAbs
 public import CFSG.HardMathSupport.Dickson.Bal207.OrthD4Semilin
 public import CFSG.HardMathSupport.Dickson.Bal207.OrthD4Loc
 public import CFSG.HardMathSupport.Dickson.Bal207.Restate

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.SmallCases.NDBTA2
-public import CFSG.ClassicalInvolution.Asc77.AscL62Main
 public import CFSG.ClassicalInvolution.Asc77.AscAETCyc
 public import CFSG.ClassicalInvolution.Asc77.AscT7CExit25
 public import CFSG.ClassicalInvolution.Asc77.AscT7CWz

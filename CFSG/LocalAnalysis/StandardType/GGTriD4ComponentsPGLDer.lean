@@ -7,8 +7,6 @@ public import CFSG.RankThree.PartTwo.Sec4.LThreePiDefs
 import CFSG.RankThree.PartTwo.Sec13.Item136PGL
 import CFSG.RankThree.PartTwo.Sec13.Item13Models
 public import CFSG.LieType.BorelTits.CompleteFlag
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.Foundations
 import CFSG.GroupTheory.HallHigmanPiCore
 import CFSG.GroupTheory.LocalCores.Fitting
@@ -25,7 +23,6 @@ import CFSG.RankThree.PartTwo.Sec11.Data
 import CFSG.RankThree.PartTwo.Sec6.Statements
 import CFSG.RankThree.PartTwo.Sec8.Pairs
 import CFSG.StronglyEmbedded.ParityCriterion
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 
 public section

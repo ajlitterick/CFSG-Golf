@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitTwE6Tag
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerCXNonsplitCyclicCore
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMoreSix
-public import CFSG.LieType.Simplicity.Exceptional
-public import CFSG.LieType.CurtisTits.TwistedE6
 
 public section
 

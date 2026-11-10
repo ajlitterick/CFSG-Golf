@@ -2,19 +2,10 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2OrthNormalizerStatements
 public import CFSG.LocalAnalysis.StandardType.GGQ2OrthPlaneForm
-public import CFSG.RankThree.OrthogonalInvolutions.Dickson
-public import CFSG.RankThree.PartOne.KC.OrthogonalRegularCoverage
-public import CFSG.ClassicalGroups.Orthogonal.Matrix
-public import CFSG.Assembly.GL83LieDefs
 import CFSG.LocalAnalysis.StandardType.GGQ2OrthTorusAut
 import CFSG.LocalAnalysis.StandardType.GGQ2OrthBlocksExt
-import CFSG.LocalAnalysis.StandardType.GGQ2OrthBlocksGroup
 import CFSG.LocalAnalysis.StandardType.GGQ2OrthBlocksZero2
-import CFSG.LocalAnalysis.StandardType.GGQ2OrthType
-import CFSG.RankThree.PartOne.S11d.OrthDicksonOmega
 import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Inputs141d2
-import CFSG.GroupTheory.WeirSylow.OrthogonalOrders
-import CFSG.HardMathSupport.Timmesfeld.OrthogonalGeneration.F2
 import CFSG.GH74.GLS.IVK.Proofs2.Lemma12hb
 import CFSG.GH74.GLS.IVK.Proofs2.Lemma13d
 import CFSG.GH74.GLS.IVK.Proofs2.Lemma13e

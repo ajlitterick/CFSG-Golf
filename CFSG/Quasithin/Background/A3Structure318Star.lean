@@ -5,7 +5,6 @@ import CFSG.Quasithin.Background.A3Structure312Iso
 import CFSG.Quasithin.Background.A3Structure36AList
 import CFSG.GroupTheory.Fitting.LayerTopBot
 public import CFSG.Quasithin.Background.A3Structure318Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection1.CentralizerLemmas
 
 public section
 

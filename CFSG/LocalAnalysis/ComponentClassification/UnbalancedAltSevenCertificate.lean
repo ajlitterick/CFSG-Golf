@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedAltSevenCheck
 public meta import CFSG.LocalAnalysis.ComponentClassification.UnbalancedAltSevenCheck
 public import Certificates.Certificate2027
 

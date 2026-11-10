@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4Q81Step7a
 public import CFSG.LocalAnalysis.ComponentClassification.HarrisLitL219D
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitTypeStep
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.ClassicalInvolution.Models.LinearPairs
 public import CFSG.ClassicalInvolution.SmallCases.Hat2A7Cover
 public import CFSG.ClassicalInvolution.SubnormalClosure

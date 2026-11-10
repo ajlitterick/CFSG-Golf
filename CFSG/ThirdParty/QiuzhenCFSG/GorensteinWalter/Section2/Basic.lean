@@ -1,19 +1,12 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.MinimalCounterexample -- minimalCounterexample_isSimple and the centralizer setup witness
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Reflection -- reflection elements in the dihedral Sylow are involutions
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma23IIHelpers -- inversion endpoint for Lemma 2.3(ii)
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma28Helpers -- elementary normalizer and inverted-subgroup endpoints
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29Helpers -- elementary intersection endpoint for Lemma 2.9
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma21
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma22
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma23II
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma24
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma25
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.HhatConjugateTI
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Theorem26
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma27
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma28
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma29
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Theorem210

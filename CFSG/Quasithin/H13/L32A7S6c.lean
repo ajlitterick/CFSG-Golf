@@ -24,8 +24,6 @@ public import CFSG.Quasithin.H13.KG14726LTits
 public import CFSG.Quasithin.H13.KGFact115L33
 public import CFSG.Quasithin.H13.KG14726LPSL2p
 public import CFSG.Quasithin.H13.KG14726LJ4
-public import CFSG.Quasithin.H13.KG14726C27C
-public import CFSG.Quasithin.H13.L32ASk1
 public import CFSG.GH74.SmallRanks.AltM11
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSpExclusion
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSpWedge

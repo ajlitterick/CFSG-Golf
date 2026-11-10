@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.SporSch.Ru.SChain
 public import Certificates.Kernel.SporSch.Ru.Gens
-public import CFSG.Certificates.Kernel.Spor.RawSound
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

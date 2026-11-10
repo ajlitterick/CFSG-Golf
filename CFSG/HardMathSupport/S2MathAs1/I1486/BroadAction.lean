@@ -4,14 +4,10 @@ public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeExcKernelSmall
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeExcKernelCubeTransfer
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeExcHighFixAll
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeExcActOuterPerfTwoDFourE8Main
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeExcKernelHighCube
 public import CFSG.LocalAnalysis.StandardType.GGKGOrd
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 public import CFSG.LocalAnalysis.ComponentClassification.OuterAutomorphismsCongr
 public import CFSG.Assembly.GL83StatedBridge
 public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowF8SpDesc
-public import CFSG.RankThree.PartOne.S11d.LieCentralizerPSL
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTame
 public import CFSG.Blueprint.OddStandardExact
 public import CFSG.ClassicalInvolution.Asc77.AscT3TypedG2GenMax
 public import CFSG.ClassicalInvolution.Q3.Q3TWWMinus

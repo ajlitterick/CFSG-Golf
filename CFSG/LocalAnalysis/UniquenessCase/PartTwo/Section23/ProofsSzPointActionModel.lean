@@ -3,17 +3,11 @@ module
 public import CFSG.GroupTheory.SuzukiPointTorus.Transport
 public import CFSG.Holt.Fixed
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionDenominatorSuzukiOvoid
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiCoverCentralizer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Borel
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherToolkitBenderAutSuzukiModel
 public import CFSG.GroupTheory.CoprimeActionSupport.NormalSubgroupSylowJoin
-public import CFSG.Adapters.QiuzhenLegacy.BenderSuzuki.BenderSuzukiBorel
 public import CFSG.GroupTheory.ABGLocalTools.Basic
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherToolkitBenderAutOmega
 public import CFSG.LocalAnalysis.ComponentClassification.AschbacherToolkitBenderSuzuki
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_5_4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82Orbit
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma115Torus
 
 public noncomputable section
 

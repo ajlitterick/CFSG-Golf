@@ -4,11 +4,6 @@ public import CFSG.RankThree.GF2n.Parrott.SpinXChecks
 public import CFSG.RankThree.GF2n.Parrott.SpinTFacts
 public import CFSG.RankThree.GF2n.Parrott.QA45SigmaCentralizers
 public import CFSG.RankThree.GF2n.Parrott.Section2Products
-public import CFSG.RankThree.GF2n.Parrott.QA45InvolutionClasses
-public import CFSG.GroupTheory.ConjTransport
-public import CFSG.GroupTheory.ConjClassCover
-public import CFSG.Monster.B.TwoA.Unitary.Orbit1408Points
-public import CFSG.Monster.B.TwoA.Unitary.Semilinear
 public import CFSG.Monster.B.Classical.PlaneAut
 public import CFSG.Monster.B.TwoA.Unitary.LinThree
 public import CFSG.RankThree.GF2n.Parrott.CentralizerOrders

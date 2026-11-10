@@ -1,8 +1,6 @@
 module
 
 public import Certificates.Certificate687001
-public import CFSG.Sporadic.Recognition.PresentedWordsClosure
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Sporadic.Presentation
 
 public section
 

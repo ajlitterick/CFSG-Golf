@@ -2,8 +2,6 @@ module
 
 public import CFSG.LieType.Chevalley.RootDiagonalTorusWords
 public import CFSG.LieType.Chevalley.LangRootArithmeticDet
-public import Mathlib.FieldTheory.IsAlgClosed.Basic
-public import Mathlib.LinearAlgebra.Matrix.Adjugate
 
 public noncomputable section
 

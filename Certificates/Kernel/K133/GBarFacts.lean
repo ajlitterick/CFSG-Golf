@@ -4,7 +4,6 @@ public import Certificates.Kernel.K133.GBarChecks
 public import Certificates.Kernel.Sporadic.OddCore.HN2089
 public import CFSG.Certificates.Kernel.BfsPinBaseSound
 public import CFSG.Certificates.Kernel.BfsPinAlg
-import CFSG.Certificates.Kernel.Spor.PcompFacts
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

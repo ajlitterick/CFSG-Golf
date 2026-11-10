@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGDefs
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGTyLabelC
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGTyLabelE
-public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeIRGLabelDef
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 
 public section
 

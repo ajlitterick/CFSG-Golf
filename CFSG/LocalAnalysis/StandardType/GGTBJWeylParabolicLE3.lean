@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3Defs
-public import CFSG.Monster.B.Geometry.InitialIsometryParabolic
 public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3BridgeA
 
 public section

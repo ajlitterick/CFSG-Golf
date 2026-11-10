@@ -1,10 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTPNNarrow
 public import CFSG.LocalAnalysis.StandardType.GGResNonsingF4Three
-public import CFSG.LocalAnalysis.StandardType.GGSignedCoordBlocks
-import CFSG.LocalAnalysis.StandardType.GGKGTag
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBLabelCore
 
 public section

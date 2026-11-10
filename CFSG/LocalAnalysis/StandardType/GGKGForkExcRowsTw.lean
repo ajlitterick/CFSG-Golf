@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcRows
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcTwE6
 public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6
-public import CFSG.LieType.Chevalley.TwistedE6NormalForm
-public import CFSG.LocalAnalysis.StandardType.MarkingChevalley
 
 public section
 

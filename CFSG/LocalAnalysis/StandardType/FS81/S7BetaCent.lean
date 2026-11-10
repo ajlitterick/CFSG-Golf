@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.FS81.E7RecogDefs
 public import CFSG.LocalAnalysis.StandardType.FS81.RootE8Defs
 public import CFSG.LocalAnalysis.StandardType.FS81.S7BetaCentGrp
-public import CFSG.LocalAnalysis.StandardType.FS81.S7CentDefs
 public import CFSG.LocalAnalysis.StandardType.FS81.S7E7Incl
 import CFSG.LocalAnalysis.StandardType.FS81.RootE8A
 import CFSG.LocalAnalysis.StandardType.FS81.S7AutAt

@@ -10,7 +10,6 @@ import CFSG.RankThree.PartTwo.KFacts.KS14Orders
 import CFSG.RankThree.PartTwo.KFacts.L34Sections
 import CFSG.RankThree.Coprime.InvolutionFixedRankBound
 import CFSG.GroupTheory.SteinbergBSQuotientLifting
-import CFSG.Sporadic.Schreier.J4SSylowBase
 
 public section
 

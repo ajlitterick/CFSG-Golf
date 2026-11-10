@@ -6,7 +6,6 @@ import CFSG.RankThree.PartTwo.KFacts.KS14Orders
 import CFSG.RankThree.PartTwo.Sec19.Step1914Tri
 public import CFSG.RankThree.PartTwo.Late.Transitivity
 public import CFSG.RankThree.PartTwo.Sec13.Item13Basic
-import CFSG.Sporadic.Schreier.J4SSylowBase
 
 public section
 

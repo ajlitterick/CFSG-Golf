@@ -4,7 +4,6 @@ public import CFSG.ClassicalInvolution.Q3.ONanTA3SmallCheckV
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallPSp43ModelData
 public import CFSG.GH74.KGroups.PermCheck
 import CFSG.Certificates.Kernel.ONanSmall.MapSound
-import CFSG.Certificates.Kernel.ONanSmall.CoverSound
 import CFSG.Certificates.Kernel.ONanSmall.CVGlue
 import Certificates.Kernel.ONanSmall.P43P
 

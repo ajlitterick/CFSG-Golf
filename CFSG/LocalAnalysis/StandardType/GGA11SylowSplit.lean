@@ -3,14 +3,8 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGA11NbrDefs
 public import CFSG.LocalAnalysis.StandardType.GGL45NtRecHolds
 public import CFSG.LocalAnalysis.StandardType.GGL45NtLift
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrKappaBase
-public import CFSG.LocalAnalysis.StandardType.MarkingClassical
 public import CFSG.LocalAnalysis.EvenSmallLie.CatalogOrdersLie
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 public import CFSG.LocalAnalysis.StandardType.GGA8NbrCoordLift
-public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-public import CFSG.LocalAnalysis.StandardType.GGD4OddCentVocab
 
 public section
 

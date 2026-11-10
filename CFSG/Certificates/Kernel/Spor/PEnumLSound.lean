@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.Spor.PEnumL
 public import CFSG.Certificates.Kernel.Spor.PEnumRSound
-import CFSG.Certificates.Kernel.Spor.PackWord
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
 import CFSG.Certificates.Kernel.BfsPinAlg
 

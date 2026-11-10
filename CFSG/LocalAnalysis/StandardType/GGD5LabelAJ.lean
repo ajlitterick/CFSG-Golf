@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGD5Defs
 import CFSG.LocalAnalysis.StandardType.GGD5AbsCoord
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBIrred
 
 public section
 

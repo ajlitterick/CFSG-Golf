@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameInd
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Quadruple
 public import CFSG.ClassicalInvolution.WeakCT.StandardPair
 public import CFSG.LieType.CurtisTits.SpecialLinear
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Contragredient
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ProjectiveSemilinear
 
 public section
 

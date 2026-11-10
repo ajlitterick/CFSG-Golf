@@ -64,9 +64,7 @@ public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.NativeModel
 public import CFSG.LocalAnalysis.EvenSmallLie.Sp6JCondition
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.CentralInvolutionStructure
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporJ4Quot
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.L246C123Alt7
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X7bPairs
 public import CFSG.LocalAnalysis.RankThreeTheoremC.GenericLayerReductionComponent
 public import CFSG.LocalAnalysis.RankThreeTheoremC.TransitivityKFacts
@@ -82,10 +80,8 @@ public import CFSG.Quasithin.Background.C124BlkTransfer
 public import CFSG.Quasithin.Background.C124InterfaceDefs
 public import CFSG.Quasithin.Background.C126Split2
 public import CFSG.Quasithin.Background.C1GNC124
-public import CFSG.Quasithin.Background.C2Inputs
 public import CFSG.Quasithin.Background.E2Statements
 public import CFSG.Quasithin.Background.HPairBridge
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import CFSG.RankThree.PartOne.CTP.StrongPClassification
 public import CFSG.RankThree.PartOne.KC.OrthogonalHighWittFixedSpace
 public import CFSG.RankThree.PartOne.KC.OrthogonalSubfieldFixed
@@ -99,7 +95,6 @@ public import CFSG.Sporadic.SmallOddCore.CheckSpec
 public import CFSG.YGroups.Y322Central
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 import YardstoneContract
 
 public section

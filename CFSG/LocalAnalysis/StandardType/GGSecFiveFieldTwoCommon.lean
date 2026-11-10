@@ -1,15 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveOrderSixAD
-public import CFSG.LocalAnalysis.StandardType.GGExclNoIso
-public import CFSG.LocalAnalysis.StandardType.GGSixStepOneOutdiagLinear
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL48TBVac
 import all CFSG.LocalAnalysis.GLTheoremA.CatA.YS1011LabUniq
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.YS1011LabUniq
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.MILabel
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.I141FDynOrders
-public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.Defs
-import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestVac
 import CFSG.LocalAnalysis.StandardType.GGSixTCLiftGroup
 
 public section

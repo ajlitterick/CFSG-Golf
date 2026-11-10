@@ -3,14 +3,9 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGE6OppCentre
 public import CFSG.LocalAnalysis.StandardType.GGTPNPCompQuasi
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentInnerModel
-public import CFSG.LocalAnalysis.StandardType.GGReverseMarking
 public import CFSG.LocalAnalysis.StandardType.GGLayerCycMInput
-public import CFSG.LocalAnalysis.StandardType.GGInndiagCommRestE6
 public import CFSG.LocalAnalysis.StandardType.GGResE6DepOrders
-public import CFSG.Timmesfeld.Final.Simple
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TwoLeafComponent
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TwoLeafModel
-public import CFSG.LocalAnalysis.StandardType.GGTablePThreeE6TwoDefs
 public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRuleSpFinAbs
 
 public section

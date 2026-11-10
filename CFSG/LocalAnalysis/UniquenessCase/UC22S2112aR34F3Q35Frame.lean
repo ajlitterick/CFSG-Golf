@@ -1,19 +1,12 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S2112aR34Defs
-public import CFSG.LocalAnalysis.UniquenessCase.UCFront14
 public import CFSG.LocalAnalysis.UniquenessCase.FundamentalLie
-import CFSG.LocalAnalysis.UniquenessCase.UC22FunSplitLinearGeometry
-import CFSG.ClassicalInvolution.SmallCases.UpgradeCover
 import CFSG.LocalAnalysis.UniquenessCase.UC22FunSplitUnitaryGeometry
-import TauCeti.LinearAlgebra.Matrix.Diagonal
 import CFSG.LieType.HighestRoot.CentTrialitySL2
 import CFSG.GH74.Generic.BProg.B2.GenLocU3Good
 import CFSG.LocalAnalysis.UniquenessCase.UC22FunSplitOrthogonalGeometry
-import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1Spin412
 import CFSG.LocalAnalysis.ComponentClassification.HarrisLit82T1S74F1Core
-import CFSG.ClassicalInvolution.SmallOrth.Orth3Block
-import CFSG.GroupTheory.WeirSylow.OrthogonalOrders
 public import CFSG.ClassicalInvolution.ModelFacts.OddCover
 public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomy
 public import CFSG.ClassicalInvolution.Models.LinearFrames

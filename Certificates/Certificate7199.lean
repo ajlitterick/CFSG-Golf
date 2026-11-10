@@ -3,8 +3,6 @@ module
 public import CFSG.Quasithin.Vol2.KGFactC31J2Data
 public import CFSG.Sporadic.Schreier.ImagePairs
 import Certificates.Kernel.KGC31J2.Facts
-import Certificates.Kernel.KGC31J2.Defs
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.Quasithin.Vol2.KGFactC31ActCheck
 public import CFSG.Sporadic.Schreier.PairJ2Cert
 public import Certificates.Data.CFSGNative.SporadicSchreier.MathieuOddCore

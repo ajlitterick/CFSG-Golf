@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I2015NLCore
-import CFSG.LocalAnalysis.GLTheoremA.CatA.FQSz
-import CFSG.LocalAnalysis.GLTheoremA.CatA.MIInn2
-import CFSG.RankThree.PartOne.KE.SuzukiFinal
 import CFSG.SignalizerFunctorTheorem.CatalogBridge.NonLocalSuzukiMain
 import CFSG.SignalizerFunctorTheorem.CatalogBridge.FixedFieldCard
 

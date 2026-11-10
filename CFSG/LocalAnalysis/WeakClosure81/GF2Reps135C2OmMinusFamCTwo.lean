@@ -3,14 +3,11 @@ module
 public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmQMinusNFWeyl
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm14_5.SmallO8mCurtis
 public import CFSG.RankThree.OrthogonalInvolutions.Conjugacy
-public import CFSG.LieType.Universal.Spin.Twisted.Short
 import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmQMinusNFClass
 import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmQMinusNFNW
 import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmQMinusNFRank
 import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmQMinusNFVanish
 import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2OmQMinusNFWeylEx
-import CFSG.LieType.Universal.Spin.Twisted.ShortAction
-import CFSG.LieType.Universal.Spin.Twisted.Generation
 import CFSG.ClassicalGroups.Orthogonal.RootGroupStabilizerFour
 import CFSG.LocalAnalysis.StandardType.GGRootCentralizerOmegaSpin
 import CFSG.ClassicalGroups.Orthogonal.RootGroupNormalizer

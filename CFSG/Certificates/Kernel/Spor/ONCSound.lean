@@ -8,7 +8,6 @@ public import CFSG.F3.Spec
 import CFSG.Certificates.Kernel.Spor.Mat3Sound
 import CFSG.Certificates.Kernel.Spor.RawOrbEval
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.Ring
 
 public section
 

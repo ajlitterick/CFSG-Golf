@@ -4,10 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGDepAConfig
 public import CFSG.LocalAnalysis.StandardType.GGDepAYFixed
 public import CFSG.LocalAnalysis.StandardType.GGDepAKSide
 public import CFSG.LocalAnalysis.StandardType.GGDepAPattern
-public import CFSG.LocalAnalysis.StandardType.GGDepACaseI
-public import CFSG.LocalAnalysis.StandardType.GGDepACaseII
-public import CFSG.LocalAnalysis.StandardType.GGDepASmall
-public import CFSG.LocalAnalysis.StandardType.GGResLeaves
 
 public section
 

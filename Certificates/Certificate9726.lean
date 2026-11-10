@@ -3,8 +3,6 @@ module
 
 public import Certificates.Certificate9726Base
 
-public import CFSG.Sporadic.Bridge.BTcData
-public import CFSG.Monster.B.Pinned.Primes.FiveWords
 import Certificates.Kernel.BabyMonster.TcFive.Glue
 
 public section

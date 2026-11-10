@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.SpinGeom.AtE0
-public import CFSG.Sporadic.Schreier.J4SProfileNode
 
 public section
 

@@ -3,15 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowNInvol
 public import CFSG.LocalAnalysis.StandardType.GGTableBF4TwoTorus
 import CFSG.LocalAnalysis.StandardType.GGNbrFrameOneCoord
-import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylFrameGen
-import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylPlusLiftSL2
-import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylExcPlusLargeF4
-import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylExcPlusFrameFusion
 import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6Split
-import CFSG.LocalAnalysis.StandardType.GGTableBF4
-import CFSG.LocalAnalysis.StandardType.GGTableBF4Three
-import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutInnerExcF4TwoTorus
-import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfSylow
 
 public section
 

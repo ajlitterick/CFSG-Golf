@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LieType.Multipliers.U43Data
 public import CFSG.Certificates.NativeSchreierCard
-public import CFSG.Sporadic.Bridge.TwoGen
 public import CFSG.Timmesfeld.Orders.ClassicalLinear
 public import CFSG.LieType.Multipliers.U43BridgeInputs
 public import Certificates.Certificate10012

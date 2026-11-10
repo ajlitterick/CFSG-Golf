@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoAssemble
 public import CFSG.LocalAnalysis.StandardType.GGQTwoGammaNbrAt
-public import CFSG.LocalAnalysis.StandardType.GGQTwoK1OfI1
 public import CFSG.LocalAnalysis.StandardType.GGQTwoSwapAB
 public import CFSG.LocalAnalysis.StandardType.GGQTwoS5Dispatch
 public import CFSG.LocalAnalysis.StandardType.GGQTwoLemmaA
@@ -10,7 +9,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoScalarStable
 public import CFSG.LocalAnalysis.StandardType.GGQTwoFinishK
 public import CFSG.LocalAnalysis.StandardType.GGQTwoSpanOfDet
 public import CFSG.LocalAnalysis.StandardType.GGQTwoNoF4
-public import CFSG.LocalAnalysis.StandardType.GGQTwoBridgeWeyl
 import CFSG.LocalAnalysis.StandardType.GGQTwoTBWNormModelA
 
 public section

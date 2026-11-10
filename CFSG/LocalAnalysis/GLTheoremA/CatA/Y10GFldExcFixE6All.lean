@@ -1,15 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldExcGap
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GFldExcOrd
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownChevModel
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45FieldFixAut
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseL45FieldFixData
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangModel
-public import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOtherCore
-public import CFSG.LieType.Chevalley.CoordinateFieldFixedSubgroup
-public import CFSG.LieType.Chevalley.EvenCanonicalFieldCentralizer
-public import CFSG.LieType.Simplicity.Exceptional
 
 public section
 

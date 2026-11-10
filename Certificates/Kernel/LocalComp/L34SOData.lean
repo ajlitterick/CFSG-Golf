@@ -2,8 +2,6 @@ module
 
 public import Certificates.Kernel.LocalComp.L34SOGen
 public import Certificates.Kernel.LocalComp.L34SData
-public import Certificates.Kernel.Misc.Perm.HexCmd
-public import Certificates.Kernel.LocalComp.BfsGen
 meta import Certificates.Kernel.LocalComp.L34SOGen
 meta import Certificates.Data.S1277Kt
 

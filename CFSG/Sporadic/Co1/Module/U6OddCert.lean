@@ -1,9 +1,5 @@
 module
 
-public import CFSG.Monster.GMS.U6OddSylow
-public import CFSG.Sporadic.Co1.Module.U6OddProg
-public import CFSG.Sporadic.Co1.Module.U6OddForest
-public import CFSG.Sporadic.Co1.Module.Pairs
 public import CFSG.Sporadic.Co1.Module.U6OddLitFacts
 public import Certificates.Certificate10078
 public meta import CFSG.Sporadic.Co1.Module.Orbits

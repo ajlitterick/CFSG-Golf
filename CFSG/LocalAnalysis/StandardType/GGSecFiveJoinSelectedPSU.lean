@@ -8,7 +8,6 @@ public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.FEPSU
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockModelSelfDualPSU
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.BlockModelDualPairPSU
 public import CFSG.LocalAnalysis.StandardType.GGSixRootCentSummandTagsSU
-public import CFSG.LocalAnalysis.StandardType.GGSelectedRootMatch
 
 public noncomputable section
 

@@ -3,18 +3,12 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangS1KGInputs
 
 import CFSG.LocalAnalysis.StandardType.KGLangTorAGeneric
-import CFSG.LocalAnalysis.StandardType.KGLangTorALinLift
-import CFSG.LocalAnalysis.StandardType.KGLangTorAFields
 import CFSG.LocalAnalysis.StandardType.KGLangS1ALinCore
 import CFSG.LocalAnalysis.StandardType.KGLangS1ALinTypeDet
 import CFSG.LocalAnalysis.StandardType.KGLangS1ALinTransfer
 import CFSG.LocalAnalysis.StandardType.KGLangS1ALinComp
 import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownLinearProj
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldLinear
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldCyclicLabels
-import CFSG.LocalAnalysis.StandardType.GGRecipeFieldLinearLang
 import CFSG.Walter.Bender1970.S2.Inner
-import CFSG.LocalAnalysis.StandardType.GGD4OddCentVocab
 
 public section
 

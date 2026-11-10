@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ClassicalGroups.Unitary.Simple
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortOmegaTransfer
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP5StdSub
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP5UnitaryBlock

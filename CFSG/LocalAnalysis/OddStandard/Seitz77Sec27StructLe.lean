@@ -2,13 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.OddStandard.Seitz77Sec27Orders
 public import CFSG.LocalAnalysis.OddStandard.Seitz77Sec27StructBase
-public import CFSG.LocalAnalysis.OddStandard.Seitz77Sec27StructAux
-public import CFSG.ThirdParty.QiuzhenCFSG.Theory.AutAlternating
 public import CFSG.GH74.GLS.IVK.L2.Lemma12
 public import CFSG.RankThree.PartOne.S12.Sec1511AutL2
-public import CFSG.GH74.KGroups.L28
 public import CFSG.GH74.Uniqueness.SU.KI1r4F61L216
-public import CFSG.GH74.KGroups.L34
 public import CFSG.GH74.KGroups.L34Aut
 public import CFSG.GH74.KGroups.U33
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsSmallPSp43Model

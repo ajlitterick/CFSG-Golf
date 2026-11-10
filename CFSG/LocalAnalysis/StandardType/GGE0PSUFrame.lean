@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGE0LiftGeneric
 public import CFSG.LocalAnalysis.StandardType.GGSixTCLiftGroup
-public import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagLinear
 public import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagUnitary
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnUniComp
-public import CFSG.LieType.Universal.Unitary.Basic
 
 public section
 

@@ -2,11 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoDNbrDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRowMember
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaE6Pat
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaE6PatCox
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEnnolaE6PatRows
 public import CFSG.LocalAnalysis.StandardType.GGF4ThreeNbrRank
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyQFourTBSmall
 
 public section

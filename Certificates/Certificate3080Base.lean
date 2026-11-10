@@ -1,7 +1,6 @@
 
 module
 
-public import CFSG.Monster.B.TwoA.Unitary.Orbit1408PointsInputs
 public import Certificates.Kernel.MonsterB.Orb14Glue
 import CFSG.Certificates.Kernel.Common.Harness
 import all CFSG.Fischer.F4

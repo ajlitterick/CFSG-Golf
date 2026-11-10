@@ -6,8 +6,6 @@ public import Certificates.Kernel.KDenseP.Axis.Base
 import Std.Data.String.ToNat
 import all Init.Data.String.Slice
 import all Init.Data.String.Search
-public import CFSG.Monster.B.TwoA.Unitary.Orbit1408Points
-public import CFSG.Monster.B.TwoA.Unitary.Semilinear
 
 public section
 

@@ -3,9 +3,6 @@ module
 
 public import Certificates.Certificate4160Base
 
-public import CFSG.Quasithin.Vol2.GoldschmidtF45RuLocal
-public import CFSG.Quasithin.Vol2.GoldschmidtF45RuLayers
-public import CFSG.Quasithin.Vol2.GoldschmidtF45RuModel
 import Certificates.Kernel.TitsOct.Glue
 
 public section

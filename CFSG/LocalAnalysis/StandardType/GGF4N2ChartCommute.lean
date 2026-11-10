@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGF4N2ChartBlock
 public import CFSG.LocalAnalysis.StandardType.GGF4N2ChartComponent
 public import CFSG.LocalAnalysis.StandardType.GGF4N2ChartSupport
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveNormalizer
-public import CFSG.LieType.Universal.SpecialLinear
 public import CFSG.LocalAnalysis.StandardType.GGF4N2ChartType
 import CFSG.LocalAnalysis.StandardType.GGF4N2FourSpaceSlice
 import CFSG.LocalAnalysis.StandardType.GGF4N2LineAlignment

@@ -2,7 +2,6 @@ module
 
 import CFSG.LocalAnalysis.RankThreeUC.TheoremDReductions
 public import CFSG.GroupTheory.ABGLocalTools.Basic
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.RankThree.PartOne.S12.InputsSec15
 
 public section

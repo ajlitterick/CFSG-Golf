@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelConcl
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelE6Kernel
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelQ8Kernel
-public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBE6
-public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6
-public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6Q8
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6TwoThreeAct
 
 public section

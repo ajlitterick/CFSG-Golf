@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.FF6PSNorm
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.Blueprint.OddStandardExact
 public import CFSG.Blueprint.RecognitionDefs
 public import CFSG.ClassicalInvolution.QuaternionStructure

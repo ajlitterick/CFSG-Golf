@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerUnitaryDvdAct
-public import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBTypeAIrred
 
 public section
 

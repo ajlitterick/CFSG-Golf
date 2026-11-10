@@ -1,12 +1,8 @@
 
 module
 
-public import CFSG.Monster.B.TwoA.Base.SevenPairB
 public meta import CFSG.Monster.B.TwoA.Census.NatCert
 public import CFSG.Monster.B.TwoA.Base.SevenPairCInputs
-public import CFSG.Monster.B.TwoA.Base.SevenPairAInputs
-public import Certificates.Data.CFSGNative.Mathieu.M24
-public import Certificates.Data.CFSGNative.Mathieu.M22
 
 @[expose] public section
 

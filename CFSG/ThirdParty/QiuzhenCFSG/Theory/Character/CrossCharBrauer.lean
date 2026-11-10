@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.Completeness
 public import CFSG.ThirdParty.QiuzhenCFSG.Theory.Representation.PermutationBasisOrbits
-public import Mathlib.GroupTheory.GroupAction.Quotient
 
 namespace CFSG
 end CFSG

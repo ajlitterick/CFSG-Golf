@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotMainGraphOmegaMinusPiecesBlocks
 public import CFSG.LocalAnalysis.SeitzReduction.F4PilotMainGraphOmegaMinusPiecesPlane
 public import CFSG.LocalAnalysis.SeitzReduction.OmegaPilotLeviFactLevel
-public import CFSG.LocalAnalysis.ComponentInitial.LinearFlagOrder
 public import CFSG.LieType.Universal.SpinOmega.Kernel
 public import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 

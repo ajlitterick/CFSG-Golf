@@ -2,8 +2,6 @@ module
 
 public import CFSG.LieType.BorelTits.RadicalLinear.Levi
 public import CFSG.LieType.BorelTits.RadicalLinear.Centre
-public import CFSG.LocalAnalysis.StandardType.GGOppositeRadicalBasis
-public import CFSG.LocalAnalysis.StandardType.GGOppositeRadicalTransfer
 public import CFSG.LocalAnalysis.StandardType.GGOppositeRadicalSL
 
 public section

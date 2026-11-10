@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.RouteD.TWZSpinA
-public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalOrthMain
 public import CFSG.ClassicalInvolution.Asc77.AscT7HS1
 public import CFSG.ClassicalInvolution.ModelFacts.Orth15D4Ord
 

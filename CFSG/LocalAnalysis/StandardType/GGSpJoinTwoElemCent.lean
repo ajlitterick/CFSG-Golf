@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinCentralizerLam
-public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Embed
-import CFSG.LieType.Universal.SymplecticExtras.Matrices
 
 public section
 

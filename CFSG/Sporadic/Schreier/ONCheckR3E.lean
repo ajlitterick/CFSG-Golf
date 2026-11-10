@@ -1,10 +1,7 @@
 module
 
-public import CFSG.Sporadic.Schreier.ONCheckAux
-public import CFSG.Sporadic.Schreier.ONCheckSmallAux
 public meta import CFSG.Sporadic.Schreier.ONCheckAux
 public meta import CFSG.Sporadic.Schreier.ONCheckSmallAux
-public import CFSG.Sporadic.Schreier.ONCheckR3EInputs
 public import Certificates.Certificate2214
 
 public section

@@ -2,9 +2,6 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec4.Ronan148RH1L3
 public import CFSG.RankThree.PartTwo.Sec4.RonanKChevTwoUThree
-public import CFSG.RankThree.PartTwo.KFacts.K71SU3
-public import CFSG.LocalAnalysis.SectionRank.EvenCover.UnitaryThree
-public import CFSG.GH74.GLS.Stage2.Final.ModelOrd
 public import CFSG.GH74.GLS.Balance.SolvAPIDefs
 public import CFSG.HardMathSupport.Solomon.Coordinator.I271HoldsBase
 public import CFSG.HardMathSupport.Solomon.Coordinator.YS08.LieQ.Derivation
@@ -18,8 +15,6 @@ public import CFSG.Quasithin.Background.A3Structure314Defs
 public import CFSG.Quasithin.Background.C1PackS15212C
 public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.FFC4Tr2
 public import CFSG.Quasithin.Background.GoldschmidtS146RBend1
@@ -61,7 +56,6 @@ public import CFSG.RankThree.PartTwo.Sec4.Ronan148RH1Move
 public import CFSG.RankThree.PartTwo.Sec4.Ronan148RH1Sp
 public import CFSG.RankThree.PartTwo.Sec4.RonanK429RowA9
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item4443SLUsed
-public import CFSG.Walter.J1Props
 
 public section
 

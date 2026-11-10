@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeExcShapeFourCount
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcKacCount
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExc
 
 public section
 

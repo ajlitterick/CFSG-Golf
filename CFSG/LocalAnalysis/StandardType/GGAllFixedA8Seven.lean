@@ -2,14 +2,7 @@ module
 
 public import CFSG.GroupTheory.MinimalBinaryCentralizer
 public import CFSG.GroupTheory.CenterlessInnerCentralizer
-public import CFSG.GroupTheory.ElementaryAbelianTransport
-public import CFSG.GroupTheory.ElemAbelianClosure
-public import CFSG.GroupTheory.FixedCentralQuotientFamily
-public import CFSG.ThirdParty.QiuzhenCFSG.Glauberman.pStability
 public import CFSG.LocalAnalysis.StandardType.GGSL9TwoProj
-public import CFSG.LocalAnalysis.StandardType.GGKGroupFusionSeitzExcTransport
-public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
-public import CFSG.LocalAnalysis.StandardType.GGQTwoCentralizerLift
 public import CFSG.LocalAnalysis.StandardType.GGQTwoCavQuotient
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBFixedCentralQuotientSolvable
 public import CFSG.LocalAnalysis.StandardType.GGAllFixedSC

@@ -2,11 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBTorDefs
 public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitaryDesc
-public import CFSG.LieType.Steinberg.Isogeny.E6
-public import CFSG.LieType.Steinberg.CentralExt.MinusculeCenter
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.E6ThreeScLift
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelClassify
-public import CFSG.LieType.Steinberg.CentralExt.FieldFourMultiplier
 
 public noncomputable section
 

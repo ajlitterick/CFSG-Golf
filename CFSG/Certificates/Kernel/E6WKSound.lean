@@ -2,9 +2,6 @@ module
 
 public import Certificates.Data.Kernel.E6WK
 public import Certificates.Data.TwE6WKMatrix
-public import CFSG.Blueprint.ChevalleyRoots
-public import CFSG.LieType.Chevalley.SignCharacterCertificates
-public import CFSG.LieType.Chevalley.WeylExchange
 
 public section
 

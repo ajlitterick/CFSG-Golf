@@ -6,22 +6,13 @@ public import CFSG.Sporadic.FischerOddCore.Fi22ExtSylowCheckBase
 public import CFSG.Sporadic.FischerOddCore.EmbAction
 public import CFSG.Monster.B.Fischer.Fi22ModelBase
 public import CFSG.Monster.B.Fischer.Fi22CoverBase
-public import Mathlib.GroupTheory.Sylow
-public import CFSG.Sporadic.FischerOddCore.Fi22ExtCheckInputs
 public meta import CFSG.Sporadic.FischerOddCore.Fi22ExtData
 public meta import CFSG.Monster.B.Fischer.Fi22OuterCheckBase
 public meta import Certificates.Data.CFSGNative.MonsterB.Co2Chain
-public import CFSG.Sporadic.FischerOddCore.Fi22ExtSylowCheckInputs
 public meta import CFSG.Sporadic.FischerOddCore.Fi22ExtCheckBase
 public meta import CFSG.Monster.B.Fischer.Fi22CoverCheckBase
 public meta import CFSG.Monster.B.Fischer.Fi22OrderCheck
 public meta import CFSG.Monster.B.Fischer.Fi22GraphCheckBase
-public import CFSG.Monster.B.Fischer.Fi22GraphCheckInputs
-public import CFSG.Monster.B.Fischer.PinnedChainInputs
-public import CFSG.Monster.B.Fischer.Fi22OrderCheckInputs
-public import CFSG.Monster.B.Fischer.Fi22OuterArrays
-public import CFSG.Monster.B.Fischer.Fi22OrderCheck
-public import CFSG.Monster.B.Fischer.Fi22GraphCheckBase
 public import CFSG.Certificates.NativeSchreierEnum
 public import CFSG.Monster.B.Fischer.Fi22CentralizerCheckBase
 public import CFSG.Monster.B.Fischer.Fi22GraphAutBase
@@ -29,7 +20,6 @@ public import CFSG.Monster.B.Fischer.Fi22GraphBoundCheckBase
 public import CFSG.Monster.B.Fischer.Fi22LocalBase
 public import CFSG.Monster.B.Fischer.Fi22ModelCheckBase
 public import CFSG.Sporadic.FischerOddCore.RefineSpec
-public import CFSG.Sporadic.Th.F2Spec
 
 @[expose] public noncomputable section
 

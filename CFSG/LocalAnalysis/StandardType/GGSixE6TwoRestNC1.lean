@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoRestBasic
-public import CFSG.LocalAnalysis.StandardType.GGRootNormInner
 public import CFSG.LocalAnalysis.StandardType.GGSixE6TwoJEq
 public import CFSG.LinearAlgebra.RootGroupSL.NoOuter
 public import CFSG.LinearAlgebra.RootGroupSL.FpfNoCentral

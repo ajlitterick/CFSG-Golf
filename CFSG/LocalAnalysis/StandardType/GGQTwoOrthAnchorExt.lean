@@ -1,17 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermOmKFrameDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentySpCoord
 public import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.Blocks
-public import CFSG.Open.Defs
-public import Mathlib.GroupTheory.Perm.ViaEmbedding
 import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.Extension
-import CFSG.ClassicalGroups.Orthogonal.UnitaryOmega.BlockCast
 import CFSG.LocalAnalysis.StandardType.GGQTwoOrthogonalBlocks
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniOmFrames
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniBlocks
-import CFSG.Permutation.Embedding
 public import CFSG.ClassicalGroups.Orthogonal.RootGroupNormalizer
 public import CFSG.HardMathSupport.Dickson.Bal207.OrthD4Loc
 public import CFSG.Holt.Fixed

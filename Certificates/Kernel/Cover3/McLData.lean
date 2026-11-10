@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.McLCover3
-public import Certificates.Kernel.Sporadic.RawGen
 public import Certificates.Kernel.Misc.Perm.HexCmd
 public meta import Certificates.Data.McLCover3
 import CFSG.Certificates.Kernel.Common.Harness

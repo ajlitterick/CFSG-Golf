@@ -2,7 +2,6 @@ module
 
 public import CFSG.YGroups.Y443.Native.Parabolic2Transfer
 public import CFSG.YGroups.Y443.Native.Swap13A
-public import CFSG.YGroups.Y443.Native.Swap13Word
 import Certificates.Kernel.KDense.Y443
 public meta import CFSG.YGroups.Y443.Native.Align
 public meta import CFSG.YGroups.Y443.Native.Parabolic2Words

@@ -17,8 +17,6 @@ public import CFSG.LocalAnalysis.SectionRank.QTK.CoverBA134Defs
 import CFSG.LieType.BorelTits.CompleteFlag
 import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 import CFSG.LocalAnalysis.SectionRank.ClassicalEven.Linear
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.theorem_3_4
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.Defs
 
 public section
 

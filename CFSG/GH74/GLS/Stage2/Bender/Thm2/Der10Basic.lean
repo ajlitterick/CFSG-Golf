@@ -2,13 +2,8 @@ module
 
 public import CFSG.GH74.GLS.Stage2.Bender.Thm2.Zstar
 public import CFSG.GH74.GLS.Stage2.Bender.Thm1.Der75Main
-public import CFSG.GH74.GLS.Stage2.Final.Thm4.Final19A
 public import CFSG.GroupTheory.QuasisimpleCommutingProductBound
 public import CFSG.RankThree.Transfer.Yoshida
-public import CFSG.GroupTheory.LocalCores.Layer
-public import CFSG.GroupTheory.LocalCores.Components
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CharacterTheory.Blocks.Defs
 public import CFSG.GH74.GLS.Defs
 public import CFSG.GH74.GLS.Stage1.Thm2.Recip.Gen4
@@ -46,9 +41,6 @@ public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.CentralInvolutionStructu
 public import CFSG.LocalAnalysis.SectionRank.Ccomm.Critical
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.theorem_3_6
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.Nilpotent
 
 public section

@@ -1,31 +1,16 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBQTwoLinDense
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
-import CFSG.Assembly.Subnormal
-import CFSG.GroupTheory.LocalCores.Layer.CentralExtension
-import CFSG.LieType.Universal.SpecialLinear
-import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotThreeCoverOddModel
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRootGenTypeABlock
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBIrred
-import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBTypeAIrred
 import CFSG.LocalAnalysis.StandardType.GGInnerDiagMpStdAssembly
-import CFSG.LocalAnalysis.StandardType.GGLinearFusionSLCent
-import CFSG.LocalAnalysis.StandardType.GGLinearSemisimple
-import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermLFrameSwap
-import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermQTwoCrossing
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermQTwoCrossingFour
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermQTwoKReflect
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermQTwoRecFive
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermQTwoSingleton
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpKCent
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpLFrameMp
-import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermUniBlocks
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBSpCoordFrameFacts
 import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrEnnola
-import CFSG.LocalAnalysis.StandardType.GGSpJoinNbrModel
 import CFSG.LocalAnalysis.StandardType.GGTypeANbrGate
-import CFSG.LocalAnalysis.StandardType.GGTypeAFarRealize
 
 public section
 

@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralCore
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Classification
-import Mathlib.GroupTheory.IndexNormal
 import Mathlib.Tactic
 
 namespace CFSG

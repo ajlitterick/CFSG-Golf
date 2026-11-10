@@ -1,11 +1,7 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec21.LangTwistedProofD4SecWeyl
-public import CFSG.RankThree.PartTwo.Sec21.LangTwistedProofD4Geom
 public import CFSG.RankThree.PartTwo.Sec21.LangTwistedProofD4Second
-public import CFSG.LieType.AlgebraicGroups.ToralRootCoverWords
-import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
-public import CFSG.Quasithin.Vol2.KGFactC31RuRef
 
 public noncomputable section
 

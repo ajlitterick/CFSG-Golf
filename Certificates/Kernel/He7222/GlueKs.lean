@@ -3,10 +3,7 @@ module
 public import Certificates.Kernel.He7222.GlueK
 public import Certificates.Kernel.He7222.KeysK
 public import Certificates.Kernel.He7222.FibK
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.OrbRow.LevelSound
-import CFSG.Certificates.Kernel.Spor.PcompFacts
-import CFSG.Certificates.Kernel.Spor.Loops
 
 public section
 

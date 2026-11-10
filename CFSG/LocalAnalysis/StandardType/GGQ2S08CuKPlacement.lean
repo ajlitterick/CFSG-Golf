@@ -1,14 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08CuKPlane
-public import CFSG.LocalAnalysis.StandardType.GGQ2FrameSplit
-public import CFSG.LocalAnalysis.StandardType.GGQ2ClassicalCatalogueU
 public import CFSG.LocalAnalysis.StandardType.GGQ2NoTwoNodeExc
-public import CFSG.LocalAnalysis.StandardType.GGTypeANbrLabels
-public import CFSG.LocalAnalysis.StandardType.GGQ2AmbModelSplit
-public import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-public import CFSG.LocalAnalysis.StandardType.GGOneFiveNbr
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoSixAux
 
 public section
 

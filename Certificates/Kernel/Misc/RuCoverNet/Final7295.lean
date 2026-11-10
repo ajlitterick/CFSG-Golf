@@ -4,7 +4,6 @@ public import Certificates.Kernel.Misc.RuCoverNet.Checks7295
 public import CFSG.Certificates.Kernel.Misc.RuCoverNetSound
 public import Certificates.Kernel.Misc.RuCover.Final
 public import CFSG.LocalAnalysis.EvenSporadicStandard.TwoRu.SzCoverNative
-import Mathlib.Tactic.IntervalCases
 import all CFSG.Sporadic.Recognition.RuMultiplierInputs
 import all CFSG.Sporadic.Presentation.RuExactInputs
 import all CFSG.LieType.Multipliers.CoverWords

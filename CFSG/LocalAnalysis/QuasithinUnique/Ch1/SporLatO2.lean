@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatLat
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.SporLatExport
-public import CFSG.LieType.BorelTits.Basic
 
 public section
 

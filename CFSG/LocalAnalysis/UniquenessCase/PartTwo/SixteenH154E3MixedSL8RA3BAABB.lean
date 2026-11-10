@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalGroups.SL2Sp4SylowNormalizer
-public import CFSG.GroupTheory.ElemAbelianClosure
 public import CFSG.Blueprint.SourceClassicalTransport
 public import CFSG.CGT.PushingUpLit.Transport
 public import CFSG.ClassicalInvolution.SmallCases.UpgradeCoverClassical

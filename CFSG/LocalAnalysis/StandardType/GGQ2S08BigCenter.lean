@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2S08BigInputs
-public import CFSG.LocalAnalysis.StandardType.MarkingClassical
-public import CFSG.LieType.Steinberg.CentralExt.GriessClassical
 public import CFSG.LieType.Steinberg.CentralExt.GriessUnitaryOdd
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.CenterHopf
 public import CFSG.Adapters.LieModelSimple

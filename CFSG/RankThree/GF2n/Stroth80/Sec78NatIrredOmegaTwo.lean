@@ -2,11 +2,6 @@ module
 
 public import CFSG.RankThree.GF2n.Stroth80.Sec310Stmt
 public import CFSG.ClassicalGroups.Orthogonal.StatedOmegaTransport
-public import CFSG.ClassicalGroups.Orthogonal.Models
-public import CFSG.ClassicalGroups.Orthogonal.Eichler
-public import CFSG.ClassicalGroups.Orthogonal.Basic
-public import CFSG.LieType.Universal.Spin.Forms
-public import CFSG.Open.StatedDefs
 public import CFSG.CGT.Timmesfeld75.Forms
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.ClassicalGroups.Orthogonal.RootGroupSwap
@@ -28,9 +23,6 @@ public import CFSG.RankThree.GF2n.SupIndepDecomp
 public import CFSG.RankThree.GF2n.Tim79CentC
 public import CFSG.RankThree.GF2n.Tim79CentL
 public import CFSG.RankThree.GF2n.Tim79Mod
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 
 public section

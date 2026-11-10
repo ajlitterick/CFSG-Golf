@@ -1,6 +1,5 @@
 module
 
-public import CFSG.RankThree.PartOne.S11c.G2Torus
 public import CFSG.HardMathSupport.Dickson.Sec6.Up34Chev2Aux.InnExcRDDefs
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcToralityFive
 public import CFSG.HardMathSupport.Timmesfeld.RootAut.Linear

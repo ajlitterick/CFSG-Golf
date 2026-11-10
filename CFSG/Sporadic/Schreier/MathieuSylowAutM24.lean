@@ -1,19 +1,11 @@
 module
 
-public import CFSG.Sporadic.Schreier.MathieuSylowAutMain
-public import CFSG.Sporadic.Schreier.MathieuSylowAutCent
 public import CFSG.Sporadic.Schreier.MathieuOddCoreM24
-public import CFSG.Sporadic.Schreier.M24
-public import CFSG.Monster.B.Mathieu.M24Check
-public import Certificates.Data.CFSGNative.SporadicSchreier.MathieuOddCore
 public meta import CFSG.Sporadic.Schreier.MathieuSylowAutMain
 public meta import CFSG.Sporadic.Schreier.M24
 public meta import CFSG.Monster.B.Mathieu.M24Check
 public meta import Certificates.Data.CFSGNative.SporadicSchreier.MathieuOddCore
-public import CFSG.Sporadic.Schreier.MathieuSylowAutM24Inputs
 public import Certificates.Certificate2210
-public import Certificates.Certificate2198
-public import Certificates.Certificate3046
 
 public section
 

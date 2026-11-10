@@ -1,16 +1,11 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcEndNode
-public import CFSG.LocalAnalysis.SeitzReduction.E7PilotNeighbourLevi
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166Label
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166Mult
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R166LayerData
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.TablesHolds
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.KRank
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2EUp
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.LowerExcTorus
 public import CFSG.SignalizerFunctorTheorem.CatalogBridge.FieldChevalleyOdd
-public import CFSG.LieType.Simplicity.Exceptional
 public import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8ExcAction
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15ACoreArith
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81S15ACorePerm

@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGOmegaPlusRootGenDefs
-public import CFSG.Assembly.Subnormal
 import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8ExcResCent
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBGeneralLinearNative
 import CFSG.LinearAlgebra.SL2MinimalFaithfulMatrix
 import CFSG.ClassicalInvolution.QuaternionStructure
 import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8Perfect
@@ -11,18 +9,6 @@ import CFSG.LocalAnalysis.ComponentClassification.AS76bSec8TwoLift
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearFieldDeterminant
 import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSUFieldOddCore
 import CFSG.RankThree.PartOne.S11d.OutLinear
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldPrimeOrderFixedSubfield
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OrderThreeNormalizer
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2PSLRangeCentralizer
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinInvolutionCount
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinRestrictionSixCount
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinUDecomposition
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationEleven
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTen
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTenStructuralIdentities
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2FieldProjectionArithmetic
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2OrderPSubgroupCount
-import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphReconstruction
 
 public section
 

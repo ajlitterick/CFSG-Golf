@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.NormalPSL2ToPGammaL2Apply
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2DihedralSylowParameter
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2DihedralSylow
 public import CFSG.LocalAnalysis.ComponentInitial.FieldFiniteAutomorphism
 public import CFSG.LocalAnalysis.QuasithinUnique.Defs
 

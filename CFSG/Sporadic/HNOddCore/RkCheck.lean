@@ -1,12 +1,8 @@
 module
 
-public import CFSG.Sporadic.HNSchreier.RankCheck
-public import CFSG.Sporadic.HNOddCore.RankData
-public import CFSG.Sporadic.HNOddCore.InvData
 public meta import CFSG.Sporadic.HNSchreier.RankCheck
 public meta import CFSG.Sporadic.HNOddCore.RankData
 public meta import CFSG.Sporadic.HNOddCore.InvData
-public import CFSG.Sporadic.HNOddCore.RkCheckInputs
 public import Certificates.Certificate2090
 
 public section

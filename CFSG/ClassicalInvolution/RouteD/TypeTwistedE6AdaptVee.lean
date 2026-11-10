@@ -2,7 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.RouteD.TypeTwistedE6AdaptChart
 public import CFSG.ClassicalInvolution.RouteD.TypeUPatternPartner
-public import CFSG.ClassicalInvolution.ModelFacts.UnitaryAutAmbient
 public import CFSG.ClassicalInvolution.LBalance.Main
 public import CFSG.ClassicalInvolution.ModelFacts.OddCover
 public import CFSG.ClassicalInvolution.Models.LinearFrames
@@ -23,7 +22,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.GeneralizedFittingProduct
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 
 public section
 

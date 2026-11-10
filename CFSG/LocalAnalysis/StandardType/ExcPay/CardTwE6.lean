@@ -3,19 +3,9 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6DeltaOutdiag
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveSplitNbrRowDefs
-public import CFSG.Open.LocalVocabulary
 
-import CFSG.GroupTheory.ElemAbelianClosure
-import CFSG.LieType.Chevalley.GraphFixedParameterFields
-import CFSG.LocalAnalysis.SeitzReduction.F4PilotCTGraphTwisted
-import CFSG.LocalAnalysis.SeitzReduction.LinearPilotOrth
 import CFSG.LocalAnalysis.StandardType.ExcPay.CoverTwE6
 import CFSG.LocalAnalysis.StandardType.GGTBE6IndTwistAlign
-import CFSG.LocalAnalysis.StandardType.GGTBE6IndTwistTorus
-import CFSG.LocalAnalysis.StandardType.GGTableBTwE6Delta
-import CFSG.LocalAnalysis.StandardType.Marking
-import CFSG.LocalAnalysis.StandardType.MarkingDict
-import CFSG.RankThree.CentralCover.SteinbergBNLinearTorus
 
 public section
 

@@ -5,7 +5,6 @@ public import Certificates.Kernel.OmegaEight.N3MCand1
 public import Certificates.Kernel.OmegaEight.N3MCand2
 public import Certificates.Kernel.OmegaEight.N3MCand3
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

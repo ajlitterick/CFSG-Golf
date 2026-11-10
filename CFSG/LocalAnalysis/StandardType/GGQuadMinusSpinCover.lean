@@ -1,11 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoSpinEndpoint
-public import CFSG.RankThree.Classical2.OrthogonalIsotropicUnipotent
 import CFSG.ClassicalGroups.Orthogonal.RingEquivDerived
 import CFSG.GroupTheory.WeirSylow.OrthogonalOrders
 import CFSG.LieType.Universal.SpinOmega.CommutatorEquiv
-import CFSG.Adapters.LinearFieldTransport
 import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherEvenOrthogonalModel
 
 public section

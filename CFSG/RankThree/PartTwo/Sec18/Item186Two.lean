@@ -1,16 +1,13 @@
 module
 
-public import CFSG.RankThree.PartTwo.Sec18.Statements
 public import CFSG.RankThree.PartTwo.Sec18.Item183OneProofRemTools
 import CFSG.RankThree.PartTwo.KFacts.L34Sections
 import CFSG.RankThree.PartTwo.KFacts.KS14SL34
 import CFSG.RankThree.PartTwo.Sec18.SylowPlane
-import CFSG.RankThree.PartTwo.Sec18.Item186a
 import CFSG.RankThree.PartTwo.Sec18.Item186Act
 import CFSG.RankThree.PartTwo.Sec18.Item186Three
 import CFSG.RankThree.PartTwo.Sec5.Items52
 import CFSG.RankThree.PartTwo.Sec6.Item612Basic
-import CFSG.LieType.BorelTits.Basic
 import CFSG.CharacterTheory.Semidihedral.OddFieldLift
 import CFSG.LinearAlgebra.LinearGroups.CoordinateData
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBDerivedNormalSectionBound

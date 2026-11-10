@@ -2,7 +2,6 @@ module
 
 public import CFSG.Quasithin.MS93.S38G2Ker
 public import CFSG.Quasithin.MS93.S33Base
-public import CFSG.Quasithin.Background.SmithB42U33Gen
 public import CFSG.CharacterTheory.Blocks.BrauerInduction
 public import CFSG.CharacterTheory.Semidihedral.Principal.PrimeOrderSylowColumn
 public import CFSG.CharacterTheory.TwoRankLowerBound.BrauerCharacterCriterion
@@ -23,10 +22,7 @@ public import CFSG.Quasithin.Background.B216Quotient
 public import CFSG.Quasithin.Background.B69Core
 public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F6Amalgams
 public import CFSG.Quasithin.Background.F9G2
 public import CFSG.Quasithin.Background.FFC7G

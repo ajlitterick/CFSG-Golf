@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.Stage2BridgeData
 import CFSG.Certificates.Kernel.O8BridgeSound
-import CFSG.Certificates.Kernel.O8EnumSound
 import Certificates.Kernel.OmegaEight.EnumCP
 import Certificates.Kernel.OmegaEight.EnumCM
 import Certificates.Kernel.OmegaEight.EnumT

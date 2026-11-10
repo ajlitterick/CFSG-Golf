@@ -1,15 +1,8 @@
 module
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.Defs
 
 import Mathlib.Data.Nat.Choose.Dvd
-import Mathlib.GroupTheory.IndexNormal
 import Mathlib.GroupTheory.Schreier
 import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PGroup.NormalSubgroups
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Frattini.Core
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Commutator.Core
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Centralizer
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.CentralizerControl
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GeneratorRank
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Utils
 

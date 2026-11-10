@@ -1,8 +1,6 @@
 module
 
 public import Mathlib.Data.Nat.Bitwise
-public import Mathlib.Data.Nat.Find
-public import Mathlib.Algebra.Group.Subgroup.Basic
 public import Mathlib.GroupTheory.Commutator.Basic
 public import Mathlib.SetTheory.Cardinal.Finite
 public import Mathlib.Algebra.Group.Subgroup.Pointwise

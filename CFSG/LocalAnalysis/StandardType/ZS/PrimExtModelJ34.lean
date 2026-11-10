@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.ZS.PrimExtModelJ34Data
-import CFSG.LocalAnalysis.StandardType.ZS.Basic
 
 attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent
 

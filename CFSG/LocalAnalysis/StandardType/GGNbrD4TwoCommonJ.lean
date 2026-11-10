@@ -1,15 +1,11 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrD4TwoCenter
-public import CFSG.LocalAnalysis.StandardType.GGNbrBalance
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
 public import CFSG.RankThree.PartOne.TCB.SchreierFinal
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 import CFSG.LocalAnalysis.StandardType.GGBstarDeltaEq
 import CFSG.LocalAnalysis.StandardType.GGSecFiveL1PhanMemberOut
 import CFSG.LocalAnalysis.GLTheoremA.S8.Lemma85
-import CFSG.LocalAnalysis.ComponentInitial.CommutingBlock
-import CFSG.GroupTheory.PerfectResidualNodes
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
 public import CFSG.Certificates.FusionF2

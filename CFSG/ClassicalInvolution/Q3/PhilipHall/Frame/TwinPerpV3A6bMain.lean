@@ -1,10 +1,7 @@
 module
 
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6S
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6bGen
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6bCover
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3A6bOdd
-public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinPerpV3Pf25Bridge
 public import CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinThinPf20Cross6Ee
 
 public section

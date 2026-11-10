@@ -1,16 +1,6 @@
 module
 
-public import CFSG.Quasithin.Background.JonesParshallG2Two
-public import CFSG.Quasithin.Background.B5FinOutAlt
-public import CFSG.Quasithin.Recognition.CertU33AutBound
-public import CFSG.Quasithin.Recognition.CertU33Simple
-public import CFSG.Quasithin.Recognition.CertU33Perm
-public import Certificates.Certificate8080
-public import Certificates.Certificate8081
 public import CFSG.Quasithin.Background.B5FinG2U33Inputs
-import Certificates.Certificate17028
-import Certificates.Certificate8952
-import Certificates.Certificate8953
 
 public section
 

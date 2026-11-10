@@ -1,13 +1,10 @@
 module
 
 public import CFSG.Quasithin.Vol2.Ch11SecGTBar
-public import CFSG.Quasithin.Vol2.Ch11SecDO22
 public import CFSG.Quasithin.Vol2.Ch11SecGTSL2
-public import CFSG.Quasithin.Vol2.Ch11SecO5F
 public import CFSG.Quasithin.Vol2.Ch11SecO5G
 public import CFSG.Quasithin.Background.A3Structure312Quotient
 public import CFSG.GroupTheory.ABGLocalTools.PStabilityQDickson
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2Cardinality
 public import CFSG.Dihedral.FourgroupCycleControl
 public import CFSG.Dihedral.OriginalCentralizerOddCore
 public import CFSG.LocalAnalysis.ComponentClassification.BlockTwoProductAction
@@ -24,8 +21,6 @@ public import CFSG.Open.SplitBNPair
 public import CFSG.Permutation.AlternatingAutomorphism
 public import CFSG.Quasithin.Background.A3Structure312Defs
 public import CFSG.Quasithin.Background.B6
-public import CFSG.Quasithin.Background.B6Example
-public import CFSG.Quasithin.Background.B6Offenders
 public import CFSG.Quasithin.Background.C2Nine
 public import CFSG.Quasithin.Background.E3OffenderB
 public import CFSG.Quasithin.Vol2.Ch10StatementsE
@@ -42,8 +37,6 @@ public import CFSG.Quasithin.Vol2.Ch11StatementsInputs
 public import CFSG.Quasithin.Vol2.Ch11StatementsInputsAS2
 public import CFSG.Quasithin.Vol2.Ch11StatementsInputsAS3
 public import CFSG.Quasithin.Vol2.Ch1Faithful
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import Certificates.Kernel.SporSch.J4S.NoCP
 
 public section

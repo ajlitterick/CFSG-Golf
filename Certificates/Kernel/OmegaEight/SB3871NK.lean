@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.OmegaEight.SB3871N
-import Mathlib.Tactic.IntervalCases
 
 public section
 

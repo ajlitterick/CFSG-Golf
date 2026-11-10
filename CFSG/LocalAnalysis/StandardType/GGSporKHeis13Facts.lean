@@ -1,10 +1,8 @@
 module
 
 public import Mathlib.GroupTheory.PGroup
-import Mathlib.GroupTheory.Commutator.Basic
 import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.HeisThirteen
 import CFSG.LocalAnalysis.AGLEmbedding.Norton.MON11_13.Heisenberg
-import CFSG.LocalAnalysis.SectionRank.Sporadic.LocalWitness
 import CFSG.Assembly.QuasithinDefs
 import CFSG.GroupTheory.LocalCores.Fitting
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProper
@@ -17,7 +15,6 @@ import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
 import CFSG.LocalAnalysis.ComponentInitial.LayerComponentOrbit
 import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
-import CFSG.LocalAnalysis.SectionRank.PRank
 import CFSG.Quasithin.Background.Basic
 import CFSG.RankThree.GroupTheory.SteinbergBYSectionNineResidual
 import CFSG.RankThree.LocalRank.SelectorCases

@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.CFSGNative.MonsterB.Co2Data
 public import CFSG.RankThree.Native.PermEnumeration
 public import Std.Data.HashMap
 

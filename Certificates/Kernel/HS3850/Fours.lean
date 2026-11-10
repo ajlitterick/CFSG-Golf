@@ -5,11 +5,7 @@ public import Certificates.Kernel.LocalQT.HSAut.K4146R
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.FoursInputs
 meta import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.FoursInputs
 meta import Certificates.Kernel.Misc.Perm.HexCmd
-import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.LocalAnalysis.EvenSporadicStandard.HypOne.Rows
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section3.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter2.Basic
 public import CFSG.Walter.JRFacts
 meta import CFSG.LocalAnalysis.EvenSporadicStandard.HypOne.Rows
 meta import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3

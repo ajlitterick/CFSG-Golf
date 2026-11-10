@@ -1,7 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Sixteen4FNtRow
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Sixteen4FNtCover
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Sixteen4FNtThinSL
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Sixteen4FNtThinOm
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Sixteen4FNtThinSU

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKC1LemmaHDefs
-public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerExcBruhat
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2HighestRootNormalizer
 
 public section

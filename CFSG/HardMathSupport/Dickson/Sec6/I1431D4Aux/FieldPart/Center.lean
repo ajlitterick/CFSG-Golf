@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LieType.Chevalley.HeightSeries
 public import CFSG.HardMathSupport.Dickson.DefCharOuter.TrialityChar3.D4Comm
 public import CFSG.Blueprint.ChevalleyRootArtifact
 public import CFSG.HardMathSupport.Dickson.DefCharOuter.TrialityChar3.LayerRoots

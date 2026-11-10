@@ -1,7 +1,5 @@
 module
 
-public import CFSG.HardMathSupport.Timmesfeld.Torality.FamilyBruhat
-public import CFSG.LieType.Chevalley.KernelComponentRoots
 public import CFSG.LocalAnalysis.StandardType.GGKGForkExcRootsB
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarNoOffenderExcWeylTypes
 

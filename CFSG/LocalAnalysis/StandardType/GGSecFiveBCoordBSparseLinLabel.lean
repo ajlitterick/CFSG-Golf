@@ -1,12 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTPNNarrow
-public import CFSG.LocalAnalysis.StandardType.GGNbrCenterPCyclic
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBRes
-public import CFSG.LocalAnalysis.StandardType.GGSignedCoordBlocks
 import CFSG.LocalAnalysis.StandardType.GGHalfJoinAutNarrow
 import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylNoLine
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBLabelCore
 
 public section

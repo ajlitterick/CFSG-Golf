@@ -1,6 +1,5 @@
 module
 
-public import CFSG.RankThree.PartTwo.Sec11.FieldCentRigid82
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.RationalC3Part1
 
 @[expose] public section

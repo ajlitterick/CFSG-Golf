@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.EvenBN.K27586D
-public import Certificates.Kernel.SporSch.Tits.GenAll5
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

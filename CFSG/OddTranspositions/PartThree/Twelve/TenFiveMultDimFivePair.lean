@@ -3,7 +3,6 @@ module
 public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveMultDimFiveSpin
 public import CFSG.ClassicalInvolution.Asc77.AscSPN11
 import CFSG.ClassicalGroups.Orthogonal.Represents
-public import CFSG.LocalAnalysis.ComponentClassification.OddClassSelectorOrthWitness
 
 public section
 

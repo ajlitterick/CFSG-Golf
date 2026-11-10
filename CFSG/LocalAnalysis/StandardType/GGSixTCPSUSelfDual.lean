@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixTCPSUNbr
-public import CFSG.LocalAnalysis.StandardType.GGSixTCPSUDvd
 public import CFSG.Quasithin.Background.GoldschmidtListedSolv
 public import CFSG.GH74.GLS.Classes
 public import CFSG.GH74.Statements

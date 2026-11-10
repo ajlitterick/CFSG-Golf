@@ -3,22 +3,15 @@ module
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.J2Inputs
 import Certificates.Kernel.SchreierFam.J2UN
 import CFSG.Certificates.Kernel.SchreierFam.All3Sound
-import CFSG.Certificates.Kernel.Spor.RawSound
-import CFSG.Certificates.Kernel.Spor.SiftRSound
 import CFSG.Certificates.Kernel.Spor.SiftEq
-import CFSG.Certificates.Kernel.Spor.PrimSound
-import CFSG.Certificates.Kernel.Spor.PackWord
 import CFSG.Certificates.Kernel.Spor.PackFld
 import CFSG.Certificates.Kernel.Spor.PcompFacts
-import CFSG.Certificates.Kernel.Misc.ArrBind
-import Mathlib.Tactic.IntervalCases
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.Basic
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.ChainTools
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.Normalizer
 public import CFSG.LocalAnalysis.ComponentClassification.J2CoverAutOddCore
 public import CFSG.LocalAnalysis.ComponentClassification.PSL3FourInvolutions
 public import CFSG.Sporadic.J2
-public import CFSG.Sporadic.Th.F2Spec
 
 set_option maxRecDepth 400000
 

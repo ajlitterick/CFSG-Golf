@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporWitCheck
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporHeWitInputs
 import Certificates.Kernel.LocalQT.He4090.G
-import Certificates.Kernel.LocalQT.He4090.L
-import Certificates.Kernel.He4049.T
-import Certificates.Data.Kernel.Spor.PEnum
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.TL4LinkZ2G4OA
-public import CFSG.ClassicalInvolution.RouteD.ExoticSingleWitt
-public import CFSG.ClassicalInvolution.RouteD.ExoticTwinProofOrthGeom
 public import CFSG.ClassicalInvolution.Asc77.AscT8X4
 public import CFSG.ClassicalInvolution.Asc77.AscT8YA3
 public import CFSG.ClassicalInvolution.AschTight.S1916F2a

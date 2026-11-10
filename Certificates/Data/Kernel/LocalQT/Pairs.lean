@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.Kernel.LocalQT.SylE
 public import Certificates.Data.Kernel.LocalQT.Core
 
 public section

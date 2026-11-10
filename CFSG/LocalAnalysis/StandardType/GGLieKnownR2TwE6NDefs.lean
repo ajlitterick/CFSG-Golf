@@ -1,12 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2TwE6Rad
-public import CFSG.LieType.Steinberg.Bruhat
-public import CFSG.LieType.Steinberg.BruhatWeyl
 public import CFSG.LieType.Steinberg.CentralExt.BorelIndex
-public import CFSG.LieType.Steinberg.TwistedE6.Clause0
-public import CFSG.LieType.Steinberg.TwistedE6.Datum
-public import CFSG.LieType.Steinberg.TwistedE6.Generation
 
 public section
 

@@ -1,12 +1,8 @@
 module
 
-public import CFSG.Open.StatedDefs
-public import CFSG.Open.LocalVocabulary
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylE6QTwoOmegaTorusPairs
 public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.OmegaMinusCentModel
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.OmegaMinusCentThree
-import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.OmegaMinusCentPlanes
-import CFSG.LocalAnalysis.ComponentInitial.NonsplitOrthogonalCoverFiveModel
 
 public section
 

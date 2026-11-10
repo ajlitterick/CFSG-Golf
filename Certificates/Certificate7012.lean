@@ -3,7 +3,6 @@ module
 
 public import Certificates.Certificate7012Base
 
-public import CFSG.Quasithin.H13.J4CoreInputs
 import Certificates.Kernel.J4F2.H13
 
 public section

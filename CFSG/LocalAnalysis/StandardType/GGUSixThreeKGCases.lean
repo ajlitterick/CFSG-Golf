@@ -1,12 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGUSixThreeKGDefs
 public import CFSG.LocalAnalysis.StandardType.GGUSixThreeKGFrameCase
 public import CFSG.LocalAnalysis.StandardType.GGUSixThreeKGHeisCase
 public import CFSG.LocalAnalysis.StandardType.GGUSixThreeKGFieldType
-public import CFSG.LocalAnalysis.StandardType.GGUSixThreeKGFieldNorm
-public import CFSG.LocalAnalysis.StandardType.GGTableBUnitarySixThreeCases
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63Two
 
 public section
 

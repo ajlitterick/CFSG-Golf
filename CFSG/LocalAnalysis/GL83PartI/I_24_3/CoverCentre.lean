@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Open.Defs
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PPrimeCore
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.Nilpotent
 import CFSG.LocalAnalysis.ComponentClassification.Quasisimple
 

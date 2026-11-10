@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralOuterInvolutionConjugacy
-public import Mathlib.GroupTheory.Sylow
 import Mathlib.Tactic
 
 namespace CFSG

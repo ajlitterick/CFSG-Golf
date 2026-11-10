@@ -6,9 +6,6 @@ public import Certificates.Kernel.KGC31HS.Cos16B
 public import Certificates.Kernel.KGC31HS.Cos16C
 public import Certificates.Kernel.KGC31HS.Cos8A
 public import Certificates.Kernel.KGC31HS.Cos8B
-public import CFSG.Quasithin.Vol2.KGFactC31HSData
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGAssemblyTwelveDefs
-public import CFSG.LocalAnalysis.StandardType.GGTwE6ToralMax
-public import CFSG.LocalAnalysis.StandardType.GGTwE6ToralInner
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutTrialityBridgeHolds
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutOutdiagExcPpd
 public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutInnerExcHardF4

@@ -3,7 +3,6 @@ module
 public import CFSG.OddTranspositions.PartThree.Twelve.ElevenFiveAdjoin
 public import CFSG.OddTranspositions.PartThree.Twelve.ElevenFiveChart
 public import CFSG.OddTranspositions.PartThree.Twelve.ElevenFiveForm
-public import CFSG.OddTranspositions.PartThree.Twelve.TenFiveModelBridge
 
 public section
 

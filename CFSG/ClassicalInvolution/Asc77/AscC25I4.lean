@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Asc77.AscC25V34
-public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Intrinsic
 
 public section
 

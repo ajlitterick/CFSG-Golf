@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinSelected
 public import CFSG.LocalAnalysis.StandardType.GGSelectedModelOfChevalley
-public import CFSG.LocalAnalysis.StandardType.GGRankOneModel
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePresOfPsiFacts
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosDefs
 

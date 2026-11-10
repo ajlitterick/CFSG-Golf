@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.BrauerSuzukiWallCardH
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGroupExtension
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

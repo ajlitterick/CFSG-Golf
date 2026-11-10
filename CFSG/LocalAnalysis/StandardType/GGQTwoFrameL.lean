@@ -6,10 +6,6 @@ public import CFSG.LocalAnalysis.StandardType.GGQTwoFrameLRank
 
 import CFSG.LocalAnalysis.StandardType.GGQTwoFrameLAux
 import CFSG.LocalAnalysis.StandardType.GGQTwoFrameLCover
-import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryDvdCodimOne
-import CFSG.RankThree.PartOne.KF.UnitaryDiag
-import CFSG.LieType.Universal.Unitary.Comparison
-import CFSG.ClassicalGroups.Unitary.Simple
 
 public section
 

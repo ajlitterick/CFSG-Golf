@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Quasithin.Vol2.Asc94.TSModel1
-public import CFSG.Open.LocalVocabulary
 
 public section
 

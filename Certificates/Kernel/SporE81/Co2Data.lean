@@ -6,7 +6,6 @@ public import Certificates.Data.Kernel.BfsPinBase
 public import CFSG.RankThree.PartTwo.Sec4.T444.Item434SporCo2E81Data
 meta import CFSG.RankThree.PartTwo.Sec4.T444.Item434SporCo2E81Data
 meta import Certificates.Kernel.Sporadic.RawGen
-public import Mathlib.GroupTheory.Schreier
 public import Std.Data.HashMap
 meta import Mathlib.GroupTheory.Schreier
 

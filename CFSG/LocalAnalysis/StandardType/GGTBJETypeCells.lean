@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJLabelJ
 public import CFSG.LocalAnalysis.StandardType.GGTBJFamilyStages
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyQSplit
 
 public section
 

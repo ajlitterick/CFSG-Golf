@@ -3,9 +3,7 @@ module
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section9Lemma97
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.II1Theorem26
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.problem_7_1
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.lemma_b
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_2_a
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection3.lemma_3_1
 
 namespace CFSG
 end CFSG

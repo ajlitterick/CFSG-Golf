@@ -8,7 +8,6 @@ import CFSG.RankThree.PartTwo.Sec21.Item223CensusProofA9
 import CFSG.RankThree.PartTwo.Sec19.Step1914Tri
 import CFSG.RankThree.PartTwo.KFacts.KSListsProofCard
 import CFSG.Models.PGLSimple
-import CFSG.Sporadic.Schreier.J4SSylowBase
 
 public section
 

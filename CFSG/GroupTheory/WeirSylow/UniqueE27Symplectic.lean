@@ -3,10 +3,8 @@ module
 public import CFSG.GroupTheory.UniqueElemSylow
 public import CFSG.Open.StatedDefs
 import CFSG.GroupTheory.UniqueElemSylowProj
-import CFSG.GroupTheory.WeirSylow.Arith
 import CFSG.GroupTheory.WeirSylow.SigmaThree
 import CFSG.GroupTheory.WeirSylow.Symplectic
-import CFSG.Open.StatedAPI
 
 public section
 

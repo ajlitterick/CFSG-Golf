@@ -5,12 +5,8 @@ public import CFSG.Certificates.Kernel.Ru.BoundAlt.Data.B_Sel
 public import CFSG.Certificates.Kernel.Ru.Bound.Data.P_Sel
 public import CFSG.Certificates.Kernel.Ru.Bound.Data.C_Sel
 public import CFSG.Certificates.Kernel.Ru.Bound.Data.A
-public import CFSG.Certificates.Kernel.Ru.Bound.Rels
-public import CFSG.Certificates.Kernel.Ru.Bound.Lab
-public import CFSG.Certificates.Kernel.Common.LabF
 public import CFSG.Certificates.Kernel.McL.Perm
 import CFSG.Certificates.Kernel.Common.Harness
-public import CFSG.Certificates.Kernel.Common.Lce
 public import CFSG.Certificates.Kernel.Common.RelNorm
 import CFSG.Certificates.Kernel.Ru.Bound.Checks.C_H_0
 import CFSG.Certificates.Kernel.Ru.BoundAlt.Checks.M_H_0

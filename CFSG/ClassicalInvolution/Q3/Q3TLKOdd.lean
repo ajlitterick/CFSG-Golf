@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Q3TLKSq
-public import CFSG.ClassicalInvolution.Q3.Q3WALoc
 public import CFSG.ClassicalInvolution.Q3.Q3TWY1
 public import CFSG.ClassicalInvolution.RouteD.TWZSpinModel
 public import CFSG.ClassicalInvolution.Q3.Q3VF4Row

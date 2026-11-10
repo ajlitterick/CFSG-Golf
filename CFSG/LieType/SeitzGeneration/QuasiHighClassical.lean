@@ -1,10 +1,6 @@
 module
 
 public import CFSG.LieType.SeitzGeneration.QuasiHighLift
-public import CFSG.LieType.SeitzGeneration.HyperCoverLinear
-public import CFSG.LieType.SeitzGeneration.UnitaryHyperScope
-public import CFSG.LieType.SeitzGeneration.SpHyperScope
-public import CFSG.LieType.SeitzGeneration.OrthHyperScope
 public import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.SeitzCubeInner
 import CFSG.RankThree.SubgroupLists.UnitaryThreeFamily
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.SeitzCubeUnitary

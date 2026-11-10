@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGF4N2E6NativeSetup
 public import CFSG.Assembly.E6FourCentFineD
 public import CFSG.Assembly.E6FourCentFineA
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.RationalComponentEq
-public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcTamePrime
 public import CFSG.Adapters.LieModelSimple
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
@@ -39,7 +38,6 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly

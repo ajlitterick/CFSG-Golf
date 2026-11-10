@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.OddStandard.ONanIdJ
 public import CFSG.LocalAnalysis.OddStandard.ONanIdCert
 public import CFSG.LocalAnalysis.OddStandard.ChengHeldChartStd
 public import Certificates.Certificate6136
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34FactsRealModelBase
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4InputsReal
 public import CFSG.LocalAnalysis.OddStandard.SmallAltFiveRho
 public import CFSG.LocalAnalysis.OddStandard.SmallAltFiveSector

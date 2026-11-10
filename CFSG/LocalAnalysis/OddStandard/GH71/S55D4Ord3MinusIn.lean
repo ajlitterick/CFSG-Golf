@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.OddStandard.GH71.S55D4Ord3FrMv
 public import CFSG.LocalAnalysis.OddStandard.GH71.S55D4Ord3Tri
 public import CFSG.LocalAnalysis.OddStandard.GH71.S55D4Ord3Plus
-public import CFSG.RankThree.PartOne.KGD.D4QFrame
 
 public section
 

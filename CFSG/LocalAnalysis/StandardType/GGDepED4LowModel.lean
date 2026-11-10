@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGDepED4LowDefs
-public import CFSG.LocalAnalysis.StandardType.GGDepEModel
 
 public section
 

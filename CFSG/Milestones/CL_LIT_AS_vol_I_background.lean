@@ -1,12 +1,6 @@
 module
 
-public import Mathlib
-public import CFSG.Open.Catalog
-public import CFSG.Open.Defs
-public import CFSG.Open.QuasithinDefs
-public import CFSG.Open.QuasithinH1NaturalModulesMilestoneDefs
 public import CFSG.Milestones.ASVolI.Bundle
-public import CFSG.Quasithin.Background.ASVolIRegistered
 
 public section
 

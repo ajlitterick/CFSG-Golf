@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Ly3085.Omega.Base
-public import Certificates.Kernel.SporSch.Ly.BSData
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

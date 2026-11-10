@@ -1,10 +1,7 @@
 module
 
 public import CFSG.ClassicalInvolution.Asc77.AscE189OrthV
-public import CFSG.ClassicalInvolution.Asc77.AscE189Model
 public import CFSG.ClassicalInvolution.Asc77.AscE189Comp
-public import CFSG.ClassicalInvolution.Models.Transfer.Orthogonal
-public import CFSG.ClassicalInvolution.RouteD.ExoticTwinProofOrthBridge
 public import CFSG.ClassicalInvolution.Asc77.AscE189Basic
 public import CFSG.ClassicalInvolution.Asc77.AscIHThm2
 public import CFSG.ClassicalInvolution.Asc77.AscIHWitness
@@ -16,18 +13,6 @@ public import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerImageComp
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerPreimages
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.SignalizerRestrictionCompletion
 public import CFSG.LocalAnalysis.SignalizerFunctor
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldPrimeOrderFixedSubfield
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OrderThreeNormalizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2PSLRangeCentralizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinInvolutionCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinRestrictionSixCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinUDecomposition
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationEleven
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTen
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTenStructuralIdentities
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2FieldProjectionArithmetic
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2OrderPSubgroupCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphReconstruction
 
 public section
 

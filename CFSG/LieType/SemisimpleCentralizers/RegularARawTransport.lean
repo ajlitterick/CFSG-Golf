@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.SemisimpleCentralizers.LinearCentralizerSolvable
-public import CFSG.LocalAnalysis.StandardType.GGTableBNoncyclic
 public import CFSG.LocalAnalysis.StandardType.GGKGroupFusionSeitzExcTransport
 
 public section

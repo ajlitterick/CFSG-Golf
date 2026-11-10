@@ -11,12 +11,7 @@ import CFSG.LocalAnalysis.GLTheoremA.CatA.T173UniOmega
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T173UniNorm
 import CFSG.CharacterTheory.Wreathed.BrauerWongTypes
 import CFSG.CharacterTheory.Wreathed.WreathCentralSquare
-import CFSG.HardMathSupport.Solomon.LocalBalance.Sec5Statements
-import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6DInputs
-import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec7Interface
 import CFSG.Holt.Fixed
-import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeFamilies
-import CFSG.LocalAnalysis.AGLEmbedding.ResidualTools
 import CFSG.LocalAnalysis.ComponentClassification.BurgoynePSLInner
 import CFSG.LocalAnalysis.ComponentClassification.BurgoyneProjSlice
 import CFSG.LocalAnalysis.GL83PartI.I_22_5.Setup
@@ -31,7 +26,6 @@ import CFSG.LocalAnalysis.GLTheoremA.S11.InputsCE
 import CFSG.LocalAnalysis.GLTheoremA.S11.InputsElim
 import CFSG.LocalAnalysis.GLTheoremA.S3.Lemma35
 import CFSG.LocalAnalysis.GLTheoremA.Sec5Setup
-import CFSG.LocalAnalysis.SignalizerFunctor
 import CFSG.RankThree.PartOne.FOC.CompCommutator
 import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
 

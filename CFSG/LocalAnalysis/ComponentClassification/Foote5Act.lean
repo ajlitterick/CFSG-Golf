@@ -2,10 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.Foote5Basic
 public import CFSG.LocalAnalysis.ComponentClassification.Foote5Inputs
-public import CFSG.LocalAnalysis.ComponentClassification.GSThmB5bAction
 public import CFSG.GH74.GLS.Stage2.Signalizer.L46EAutB
 public import CFSG.Quasithin.Recognition.St84.WeissB
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.GH74.GLS.Defs
 public import CFSG.GH74.GLS.Stage2.Local.Statements
 public import CFSG.GroupTheory.PCore.OpenTransport

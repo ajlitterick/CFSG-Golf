@@ -4,9 +4,7 @@ public import CFSG.LocalAnalysis.StandardType.GGTriD4KnownInputs
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldUnitary
 public import CFSG.RankThree.PartTwo.KFacts.K71PSU3
 public import CFSG.RankThree.PartTwo.KFacts.AutKindsCentral
-public import CFSG.RankThree.PartTwo.Sec4.LThreePiDefs
 public import CFSG.RankThree.PartTwo.KFacts.K71Item89
-public import CFSG.ClassicalGroups.Unitary.Simple
 public import CFSG.LocalAnalysis.StandardType.GGKGroupFusionSeitzExcComp
 public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LocalAnalysis.ComponentInitial.SuzukiModelSchreier

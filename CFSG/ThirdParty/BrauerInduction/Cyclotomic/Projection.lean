@@ -2,7 +2,6 @@ module
 
 public import CFSG.ThirdParty.BrauerInduction.Cyclotomic.IntegralCharacterRing
 public import CFSG.ThirdParty.BrauerInduction.Background.ClassFun.Character.Ring
-public import CFSG.ThirdParty.BrauerInduction.Background.Fintype.Basic
 
 public section
 

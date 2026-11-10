@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Sporadic.OddCore.SuzGlF
 public import Certificates.Kernel.Sporadic.ON.Gen
-import Mathlib.Tactic.IntervalCases
 
 public section
 

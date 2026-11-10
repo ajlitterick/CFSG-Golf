@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGLevTwoRoots
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRMPrimeInputs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRootRefl
-import CFSG.LocalAnalysis.StandardType.GGLevTwoS4bAux1
-import CFSG.LocalAnalysis.StandardType.GGLevTwoS4bAux2
 import CFSG.LocalAnalysis.StandardType.GGLevTwoS4bAux3
 import CFSG.LocalAnalysis.StandardType.GGLevTwoS4bIndep
 

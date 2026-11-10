@@ -1,6 +1,5 @@
 module
 
-public import CFSG.GH74.Generic.S3.Nbhd
 public import CFSG.GH74.Generic.S3.L3Sylow
 public import CFSG.GH74.KGroups.L3EpsNoNormalMinus
 

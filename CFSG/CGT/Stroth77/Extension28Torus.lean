@@ -1,7 +1,6 @@
 module
 
 public import CFSG.CGT.Stroth77.Extension24Torus
-public import CFSG.CGT.Stroth77.TypesMore
 
 local notation "𝔤" s:max j:max => CFSG.CGT.Stroth77.gen (CFSG.CGT.Stroth77.Type100.k (s + 1)) j
 

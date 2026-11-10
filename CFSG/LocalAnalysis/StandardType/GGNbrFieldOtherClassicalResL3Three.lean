@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldOtherClassicalResL3ThreeFix
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerRestVac
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylScIrred
-public import CFSG.LieType.Steinberg.CentralExt.LinearPerfect
 
 public section
 

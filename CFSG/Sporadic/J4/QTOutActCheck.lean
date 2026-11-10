@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Sporadic.J4.QTOutActNative
 public meta import CFSG.Sporadic.J4.QTOutActNative
 public import CFSG.Sporadic.J4.QTCheck
 public import CFSG.Sporadic.J4.QTRankCheck

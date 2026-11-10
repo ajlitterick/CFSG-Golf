@@ -2,12 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGKD2Leaves1615
 public import CFSG.Goldschmidt.Steps.G37Quot
-public import CFSG.LocalAnalysis.ComponentClassification.AssemblyBPredicates
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
 public import CFSG.LocalAnalysis.StandardType.GGUSixTwoLayer
-public import CFSG.LocalAnalysis.StandardType.GGBstarDeltaUnitaryOutdiag
 public import CFSG.LocalAnalysis.StandardType.GGTableBUnitaryEndNodeThree
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagProj
 public import CFSG.LocalAnalysis.StandardType.GGLinearFusionSURepairBlock
 public import CFSG.LocalAnalysis.StandardType.GGSixLinearModelRestSURank
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeBoundNonCommUniBase

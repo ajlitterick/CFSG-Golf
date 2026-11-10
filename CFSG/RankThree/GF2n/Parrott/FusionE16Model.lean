@@ -5,7 +5,6 @@ public import CFSG.RankThree.GF2n.Parrott.QA45ElementaryAbelian
 public import CFSG.Sporadic.Co2Smith.GlC0JankoA
 public import CFSG.Literature.Janko67ModelSub
 public import CFSG.GroupTheory.CommuteOfSqEqOne
-public import CFSG.LocalAnalysis.ComponentInitial.QuaternionMatrices
 public import CFSG.GroupTheory.CardSupInf
 public import CFSG.LargeExtraspecial.Types
 public import CFSG.RankThree.GF2n.Parrott.FusionE16ModelPack

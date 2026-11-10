@@ -4,10 +4,7 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSUKToral
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpKAlign
 import CFSG.LocalAnalysis.StandardType.GGRealKGUSplitRoot
 import CFSG.LocalAnalysis.StandardType.GGTBJFrameBs
-import CFSG.LocalAnalysis.StandardType.GGKGPosSUTorus
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpKCent
-import CFSG.ClassicalInvolution.ModelFacts.UnitaryAutLift
-import CFSG.LieType.Universal.Unitary.Clause0
 
 public section
 

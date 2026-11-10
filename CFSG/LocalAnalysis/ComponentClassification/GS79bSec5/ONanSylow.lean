@@ -2,19 +2,12 @@ module
 
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4InputsEnd
 
-public import CFSG.Sporadic.Schreier.LyCheckSep
-public import CFSG.Sporadic.Ly.KeySpec
-public import CFSG.Sporadic.He.FpSpec
 import Certificates.Kernel.SporSch.Ly.SepGlue
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.Kc3J4D4Data
-public import CFSG.Sporadic.J4.QT2LocX0Native
 public import Certificates.Data.CFSGNative.J4.PentScan
-import Certificates.Kernel.J4Q.QTBase
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtA312HsKInputs
 import Certificates.Kernel.HSA312.Struct
 import Certificates.Kernel.HSQuot.Final
 public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87F3Abs
-public import CFSG.Sporadic.Ly.Setup
 import CFSG.Sporadic.Ly.GenSpecBase
 public import CFSG.GroupTheory.TwoWeightData
 import CFSG.Sporadic.Ly.TwoWeightsSpecBase
@@ -27,13 +20,10 @@ import Certificates.Kernel.Misc.E6StdSlp
 public import CFSG.YGroups.Y443.Native.CoverFactsWords
 import Certificates.Kernel.KDense.Y443
 public import CFSG.YGroups.Y443.Native.Swap13Word
-public import CFSG.Sporadic.Ly.FiveFacts
-import CFSG.Sporadic.Ly.Certificate
 
 import CFSG.LocalAnalysis.OddStandard.RouteWStdONanB2
 import CFSG.LocalAnalysis.ComponentClassification.GrSLitONanBalStageU
 import CFSG.LocalAnalysis.ComponentClassification.Foote1978.GH74Models
-import CFSG.Goldschmidt.Final
 public import CFSG.CGT.A8S.N0EnumInputs
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.J3CheckInputs
 public import CFSG.ClassicalInvolution.SmallCases.Sporadic.QuasiAssembly
@@ -185,7 +175,6 @@ public import CFSG.Sporadic.ON.ActionBase
 public import CFSG.Sporadic.ON.CertificateBase
 public import CFSG.Sporadic.ON.ChainBase
 public import CFSG.Sporadic.ON.LinesBase
-public import CFSG.Sporadic.ON.PrimitiveBase
 public import CFSG.Sporadic.ON.SimpleBase
 public import CFSG.Sporadic.Presentation.M24Exact
 public import CFSG.Sporadic.Presentation.ONan
@@ -202,10 +191,6 @@ public import CFSG.Sporadic.Schreier.TitsAutD
 public import CFSG.Sporadic.Schreier.TitsQTModel
 public import CFSG.Sporadic.Th
 public import CFSG.Sporadic.Th.CertificateBase
-public import CFSG.Sporadic.Th.KernelPlanesBase
-public import CFSG.Sporadic.Th.KernelSimpleBase
-public import CFSG.Sporadic.ThSchreier.FullAutCoreBase
-public import CFSG.Sporadic.ThSchreier.KernelAutBase
 public import CFSG.Timmesfeld.Moufang.A6
 public import CFSG.Timmesfeld.Moufang.Cases
 public import CFSG.Timmesfeld.Moufang.J2Check

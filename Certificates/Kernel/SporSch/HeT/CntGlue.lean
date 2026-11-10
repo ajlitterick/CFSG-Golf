@@ -5,9 +5,7 @@ public import Certificates.Kernel.SporSch.HeT.CntData
 public import CFSG.Certificates.Kernel.SporSch.HeSrchSound
 public import CFSG.Certificates.Kernel.HeFixKSound
 public import CFSG.Sporadic.HeldB.InnerClassBase
-public import CFSG.Sporadic.HeldB.OuterClassBase
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.HeAutKSound
 public import CFSG.Certificates.Kernel.HeFixKFix
 public import CFSG.Certificates.Kernel.PermToolSound

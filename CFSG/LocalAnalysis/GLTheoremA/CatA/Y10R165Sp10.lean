@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Sp7
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Blocks7
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165ExcEngine
-public import CFSG.RankThree.PartOne.KC.SymplecticFullCentralizerLines
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10R165Sp11
 public import CFSG.HardMathSupport.Solomon.Coordinator.L5Conj
 public import CFSG.LocalAnalysis.GL83PartI.I_22_6

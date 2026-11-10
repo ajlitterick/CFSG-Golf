@@ -1,15 +1,8 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2Subgroups
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2DihedralProjection
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.NormalPComplementCard
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FieldAutomorphismTorusPrimeFreePart
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Core
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PCore
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PCore.PPrimeCore
-import Mathlib.GroupTheory.Nilpotent
-import Mathlib.GroupTheory.Commutator.Basic
-import Mathlib.GroupTheory.PGroup
 import Mathlib.Tactic
 
 namespace CFSG

@@ -6,12 +6,8 @@ public import CFSG.Certificates.Kernel.Spor.RawTreeSound
 public import CFSG.Certificates.Kernel.Spor.ConjTreeSound
 public import CFSG.Certificates.Kernel.Spor.SiftEq
 public import CFSG.Certificates.Kernel.Spor.RawBaseEq
-public import CFSG.Sporadic.FischerOddCore.Fi24R2KCheckInputs
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.NormNum
-import Mathlib.Tactic.IntervalCases
 public import CFSG.Certificates.Kernel.BfsPinSound
-public import CFSG.Certificates.Kernel.BfsPinUnpack
 
 public section
 

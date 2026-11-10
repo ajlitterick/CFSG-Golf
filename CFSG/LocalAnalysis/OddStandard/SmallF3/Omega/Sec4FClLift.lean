@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec4FDSetting
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec4FDLift
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec2TrComp
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec2TrInner
 public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.Blueprint.OddStandardExact

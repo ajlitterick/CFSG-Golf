@@ -1,30 +1,18 @@
 module
 
-public import CFSG.Open.Catalog
-public import CFSG.Open.Defs
-public import CFSG.Open.QuasithinDefs
 public import CFSG.Open.QuasithinH1NaturalModulesMilestoneDefs
-public import CFSG.Milestones.CL_LIT_Griess_Schur_multipliers_Lie_type
 public import CFSG.Quasithin.Background.F6CatDickson
 public import CFSG.Quasithin.Background.JonesParshallSector
-public import CFSG.Adapters.ProjectiveSpecialLinear
 public import CFSG.Quasithin.H13.ModelsUnitary
 public import CFSG.Quasithin.H13.ModelsLinear
 public import CFSG.Quasithin.H13.ModelsSymplectic
 public import CFSG.Quasithin.H13.ModelsG2
 public import CFSG.Quasithin.H13.ModelsSporadic
-public import CFSG.Quasithin.Background.P3G2Zorn
 public import CFSG.Quasithin.Background.SmithB42G2Id
-public import CFSG.Quasithin.Background.SmithB45HM22Cover
 public import CFSG.Quasithin.Recognition.ModelBridges
-public import CFSG.Quasithin.Recognition.ModelBridgesJ3
 public import CFSG.GH74.Bender.Suzuki
 public import CFSG.LieType.Steinberg.CentralExt.PSpMultiplier
-public import CFSG.LieType.Steinberg.CentralExt.MultiplierCongr
-public import CFSG.LieType.CurtisTits.Conclusion
-public import CFSG.LieType.Universal.Symplectic
 public import CFSG.Alternating.Multipliers.Main
-public import CFSG.RankThree.PerfectCover.HopfFormula
 public import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Coordinator.ProvedRows
 public import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Coordinator.M12CoverRow
 public import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Coordinator.J2CoverRow
@@ -36,8 +24,6 @@ public import CFSG.Certificates.FusionF2
 public import CFSG.Certificates.WordSubgroupHom
 public import CFSG.GH74.GLS.Classes
 public import CFSG.GH74.Statements
-public import CFSG.GroupTheory.HallHigmanPiCore
-public import CFSG.LieType.Chevalley.LangRootArithmetic
 public import CFSG.LieType.Multipliers.ProductKernel
 public import CFSG.LieType.Multipliers.U42Bridge
 public import CFSG.LieType.Multipliers.U43Action
@@ -47,7 +33,6 @@ public import CFSG.LieType.Multipliers.U62Bridge
 public import CFSG.LieType.Multipliers.U62Kernel
 public import CFSG.LieType.Steinberg.CentralExt.PSL2Multiplier
 public import CFSG.LocalAnalysis.AGLEmbedding.SporadicData
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHermitianIsometry
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoProjectiveFormulas
 public import CFSG.LocalAnalysis.ComponentClassification.GSLitInputs
 public import CFSG.LocalAnalysis.ComponentClassification.StandardRecognitionQuaternion
@@ -55,7 +40,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.TBLitCover
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCorrCentralSylowMaximality
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedGSAContainedSource
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedLayerOddCoreUnbalancingTriple
-public import CFSG.LocalAnalysis.ComponentInitial.SuzukiModelSchreier
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.NativeCheckBase
 public import CFSG.LocalAnalysis.EvenSmallLie.OmegaEight.NativeModel
 public import CFSG.LocalAnalysis.EvenSmallLie.Sp6JCondition
@@ -74,7 +58,6 @@ public import CFSG.RankThree.PartOne.Assembly
 public import CFSG.RankThree.PartOne.CTP.StrongPSylow
 public import CFSG.RankThree.PartOne.S10.ThetaContract
 public import CFSG.RankThree.PartOne.S12.InputsBase
-public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Coordinator.SporadicTable
 public import CFSG.Sporadic.Presentation.Co2Base
 public import CFSG.Sporadic.Presentation.Co2Cover
@@ -85,7 +68,6 @@ public import CFSG.Sporadic.Presentation.McLExactInputs
 public import CFSG.Sporadic.Recognition.McLMultiplierMatrix
 public import CFSG.Sporadic.Schreier.TitsOther
 public import CFSG.Sporadic.SmallOddCore.CheckSpec
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
 public import CFSG.YGroups.DCE.B433Check
 public import Certificates.Certificate10005
 public import Certificates.Certificate10006

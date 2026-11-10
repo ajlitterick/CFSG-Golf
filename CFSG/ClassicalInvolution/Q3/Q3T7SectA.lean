@@ -1,6 +1,5 @@
 module
 
-public import CFSG.ClassicalInvolution.Uniform.U3Datum
 public import CFSG.Assembly.RankThreeEvenDefs
 public import CFSG.ClassicalInvolution.Q3.Q3DStand
 

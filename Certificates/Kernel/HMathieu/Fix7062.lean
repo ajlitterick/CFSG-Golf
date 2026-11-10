@@ -6,8 +6,6 @@ public import Certificates.Kernel.HMathieu.T23
 public import Certificates.Kernel.HMathieu.T24
 public import Certificates.Data.Kernel.HMathieu.FixCert
 public import CFSG.Quasithin.Background.HMathieuCodeInvInputs
-public import CFSG.Quasithin.Background.HMathieuFacts24Inputs
-public import CFSG.Quasithin.Background.HMathieuCentInputs
 public meta import CFSG.Certificates.Kernel.Common.JsonGz
 public meta import CFSG.Certificates.Kernel.Common.Repo
 

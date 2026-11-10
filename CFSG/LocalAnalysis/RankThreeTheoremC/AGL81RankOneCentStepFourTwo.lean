@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentStepFour
-public import CFSG.LocalAnalysis.RankThreeTheoremC.AGL81RankOneCentCited
 
 public section
 

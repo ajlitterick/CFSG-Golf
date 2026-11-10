@@ -1,12 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.UC22S21d
-public import CFSG.LocalAnalysis.UniquenessCase.UCFront12
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.TwelveShort
 import CFSG.LocalAnalysis.UniquenessCase.UC22Main1
-import CFSG.LocalAnalysis.UniquenessCase.UC22P22e
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22qv
-import CFSG.Quasithin.Background.E3Gen
 
 public section
 

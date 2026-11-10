@@ -11,7 +11,6 @@ public meta import Certificates.Data.CFSGNative.MonsterB.Co2Data
 public meta import CFSG.Certificates.NativeSchreierCard
 public import CFSG.Certificates.NativeSchreierCard
 public meta import Mathlib.GroupTheory.Schreier
-public import Mathlib.GroupTheory.Schreier
 
 public section
 

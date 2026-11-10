@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.SporSch.Co1MatW
-public import Certificates.Data.Kernel.Spor.Mathieu
 
 public section
 

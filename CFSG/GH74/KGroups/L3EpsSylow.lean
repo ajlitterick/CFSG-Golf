@@ -1,10 +1,6 @@
 module
 
-public import CFSG.GH74.KGroups.L3EpsLin
-public import CFSG.GH74.KGroups.L3EpsUni
 public import CFSG.GH74.KGroups.L3EpsCenter
-public import CFSG.Adapters.ProjectiveSpecialLinear
-public import CFSG.Assembly.LowTwoRankDefs
 
 public section
 

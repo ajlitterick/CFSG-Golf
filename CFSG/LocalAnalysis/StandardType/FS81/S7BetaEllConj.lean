@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.RootE8Defs
-public import CFSG.LocalAnalysis.StandardType.FS81.S7Model
-public import CFSG.LocalAnalysis.SeitzReduction.E8PilotMainLift
 public import CFSG.LocalAnalysis.StandardType.FS81.S7E7Incl
 import CFSG.LocalAnalysis.StandardType.FS81.S7E7InclRange
 import CFSG.LocalAnalysis.StandardType.FS81.S7ModelCent

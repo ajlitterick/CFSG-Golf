@@ -19,12 +19,8 @@ public import Certificates.Kernel.SporSch.Ru.B1SCs7
 public import Certificates.Kernel.SporSch.Ru.B1PR
 public import Certificates.Kernel.SporSch.Ru.Rows2
 public import CFSG.Certificates.Kernel.SporSch.RuDistIdx
-public import Certificates.Data.GMS78RuB1Check
-public import Certificates.Data.GMS78RuB1SCCheck
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Spor.PackFld
-import CFSG.Certificates.Kernel.Spor.PcompFacts
-import Mathlib.Tactic.IntervalCases
 
 public section
 

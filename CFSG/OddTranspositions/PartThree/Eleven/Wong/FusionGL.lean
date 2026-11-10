@@ -2,7 +2,6 @@ module
 
 public import CFSG.OddTranspositions.PartThree.Eleven.Wong.FusionMat
 public import Mathlib.GroupTheory.Sylow
-public import Mathlib.GroupTheory.Perm.Sign
 
 public section
 

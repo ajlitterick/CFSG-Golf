@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Certificates.CosetTablePresented
 public import Certificates.Data.G23RecogGluePresentationInputs
 
 public section

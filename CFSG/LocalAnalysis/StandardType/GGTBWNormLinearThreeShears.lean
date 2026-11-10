@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormLinearTwicePrime
 public import CFSG.LocalAnalysis.StandardType.GGTBWNormQuotTwoShears
 public import CFSG.LocalAnalysis.StandardType.GGPGLBlockFrobenius
-public import CFSG.LocalAnalysis.StandardType.GGTBWNormMpCellLabels
 
 public section
 

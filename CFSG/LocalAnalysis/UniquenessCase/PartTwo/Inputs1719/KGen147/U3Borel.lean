@@ -1,7 +1,6 @@
 module
 
 public import CFSG.Permutation.UnitaryThreeRecognition.Model
-public import CFSG.Open.StatedDefs
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.UnitaryModel
 import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.UnitaryInvolution
 public import CFSG.LieType.BorelTits.CompleteFlag
@@ -11,12 +10,7 @@ public import CFSG.LocalAnalysis.ComponentClassification.MinimalBCenter
 public import CFSG.LocalAnalysis.ComponentClassification.OrdinaryComponentJoins
 public import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 public import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
-public import CFSG.Permutation.UnitaryThreeRecognition.ModelTransport
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.II.theorem_1_12
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldFixedSubfieldCard
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.Assembly.QuasithinDefs
 import CFSG.Foundations
 import CFSG.GroupTheory.LocalCores.Fitting

@@ -1,20 +1,12 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4Inputs
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UG3
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UGroup
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4ULang
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcInnerLang.Untw
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcMonomial
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.ExcToralityFive
-public import CFSG.LieType.Chevalley.SingleEdgePerfect
-public import CFSG.LieType.Chevalley.AdjointCenter
-public import CFSG.LieType.Chevalley.GraphFixedF4GroupRestriction
-public import CFSG.LieType.Chevalley.SignKernelSimpleWeyl
-public import CFSG.GroupTheory.ElementaryAbelianTransport
-public import CFSG.LocalAnalysis.StandardType.GGLabelRigid
 public import CFSG.LocalAnalysis.StandardType.GGLabelIsoField
-public import CFSG.LocalAnalysis.StandardType.GGReverseMarkingRaw
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNonWeylOfKnown
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.PlanesSetup
 public import CFSG.RankThree.Chevalley.SteinbergBID4CentralKernel

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInner
 public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoOpenUnitaryIrred
 
 public section

@@ -2,7 +2,6 @@ module
 
 public import CFSG.Assembly.Defs
 import CFSG.LocalAnalysis.ComponentInitial.CommutingBlock
-import CFSG.GH74.GLS.Balance.Bender.Ambient
 import CFSG.GH74.GLS.Balance.Bender.T59
 import CFSG.GroupTheory.CardSupInf
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CardSupOfDisjointNormalizer
@@ -17,7 +16,6 @@ import CFSG.LocalAnalysis.ComponentClassification.MinimalBCenter
 import CFSG.LocalAnalysis.ComponentClassification.OrdinaryComponentJoins
 import CFSG.LocalAnalysis.ComponentClassification.TwoLayer
 import CFSG.LocalAnalysis.ComponentClassification.UniversalOrbitBlock
-import CFSG.LocalAnalysis.SectionRank.PRank
 import CFSG.LocalAnalysis.SectionRank.SQT
 
 public section

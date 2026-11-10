@@ -2,11 +2,7 @@ module
 
 public import CFSG.Sporadic.SmallOddCore.HSLocal
 import Certificates.Kernel.SporSch.PairHS.HS7208Facts
-import Certificates.Kernel.SporSch.PairHS.HS7208Fns
 import CFSG.Certificates.Kernel.Common.Harness
-import Certificates.Certificate2218
-import Certificates.Certificate2219
-import Certificates.Certificate2272
 public import CFSG.GroupTheory.LocalCores.Fitting
 public import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 public import CFSG.LocalAnalysis.ComponentClassification.LBalanceComponentLifts

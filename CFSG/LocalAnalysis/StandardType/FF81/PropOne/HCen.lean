@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.FF81.PropOne.RExists
-public import CFSG.RankThree.PartTwo.Sec21.FF79Vocab
 
 @[expose] public section
 

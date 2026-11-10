@@ -1,21 +1,10 @@
 module
 
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Defs
-public import CFSG.LieType.Chevalley.ToralCentralizerQuotient
 import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieCompAlgE6Res2
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T158MShE6D4T2
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T158MShE6D4T2Tab
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24A2CubeClass
-import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24CentreStab
-import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24CentreKac
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcRoots
-import CFSG.HardMathSupport.Timmesfeld.LangTorus.ComponentsExc
-import CFSG.RankThree.Chevalley.SteinbergBID4A2CharStab
-import CFSG.RankThree.PartOne.KE.CTLang
-import CFSG.LieType.Chevalley.CLSOddE7RationalDerivedIndex
-import CFSG.LieType.Chevalley.NativeRoots
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Foundations
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwReduction
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerTwTorus
@@ -37,7 +26,6 @@ public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Monster.B.Geometry.CoxeterWords
 public import CFSG.Quasithin.Background.A3Components
-public import CFSG.Quasithin.Background.A3ComponentsAmbient
 public import CFSG.Quasithin.Background.A3Structure36BAction
 public import CFSG.Quasithin.Background.A3Structure36BBasic
 public import CFSG.Quasithin.Background.A3Structure36BPrime
@@ -50,12 +38,9 @@ public import CFSG.RankThree.PartOne.KE.SigmaUntwisted
 public import CFSG.RankThree.PartOne.KLR.Master
 public import CFSG.RankThree.PartOne.KLR.SectorAssembly
 public import CFSG.RankThree.PartOne.S8.Statements
-public import CFSG.Sporadic.J4.Simple
 public import CFSG.Sporadic.J4Base
 public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M24
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
-import CFSG.HardMathSupport.Dickson.Sec6.I1431Lie
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.E6ThreeTwNotAll24ConnGenAsm
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CompsPD4Class
 import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.CompsPD4TwClass

@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.HNLocal.Data
-public import Certificates.Data.Kernel.HNMultK
 public import CFSG.Certificates.Kernel.Orders.HN.Data.Sel
 import CFSG.Certificates.Kernel.Common.Harness
 

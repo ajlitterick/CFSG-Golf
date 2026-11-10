@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGFieldCaseTableBTypeAIrred
-public import CFSG.LocalAnalysis.StandardType.GGTableBTypeAEndDvd
 public import CFSG.LocalAnalysis.StandardType.GGPGLTorality
 
 public section

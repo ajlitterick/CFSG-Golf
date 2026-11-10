@@ -1,9 +1,7 @@
 module
 
 public import Mathlib.LinearAlgebra.Eigenspace.Basic
-public import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
 public import Mathlib.RingTheory.RootsOfUnity.PrimitiveRoots
-import Mathlib.Tactic.Module
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.UCFront10SporCo3CheckInputs
 public import Certificates.Certificate1264303
 public meta import CFSG.LocalAnalysis.UniquenessCase.UCFront10SporCo3CheckInputs
 

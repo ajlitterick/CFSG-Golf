@@ -1,56 +1,14 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeLinUniDefs
-public import Certificates.Certificate45
-public import Certificates.Certificate46
-public import Certificates.Certificate47
-public import Certificates.Certificate48
-public import Certificates.Certificate49
-public import Certificates.Certificate50
-public import Certificates.Certificate51
-public import Certificates.Certificate52
-public import Certificates.Certificate53
-public import Certificates.Certificate54
-public import Certificates.Certificate55
-public import Certificates.Certificate56
-public import Certificates.Certificate57
-public import Certificates.Certificate58
-public import Certificates.Certificate59
-public import Certificates.Certificate60
-public import Certificates.Certificate61
-public import Certificates.Certificate62
-public import Certificates.Certificate63
-public import Certificates.Certificate64
-public import Certificates.Certificate65
-public import Certificates.Certificate66
-public import Certificates.Certificate67
-public import Certificates.Certificate68
-public import Certificates.Certificate69
-public import Certificates.Certificate70
-public import Certificates.Certificate71
-public import Certificates.Certificate72
-public import Certificates.Certificate73
-public import Certificates.Certificate74
-public import Certificates.Certificate75
-public import Certificates.Certificate113
-public import Certificates.Certificate114
-public import Certificates.Certificate117
-public import Certificates.Certificate2264
 public import Certificates.Certificate2267
-public import Certificates.Certificate8033
-public import Certificates.Certificate8064
 
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S172AGrp
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T123CLayer
 import CFSG.LocalAnalysis.GLTheoremA.CatB.Bridges
-import CFSG.LocalAnalysis.StandardType.Marking
-import CFSG.LocalAnalysis.SeitzReduction.LinearPilotCatTypeDet
-import CFSG.LocalAnalysis.SeitzReduction.RankOneCatSL2TypeDet
-import CFSG.LocalAnalysis.SeitzReduction.UnitaryPilotCatTypeDet
 import CFSG.LocalAnalysis.EvenBN.GMSK.TypeDetBender
 import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMoreCl
 import CFSG.ClassicalGroups.UnitaryFlag.StatedBridge
-import CFSG.GH74.Orders.LieType
 import CFSG.LargeExtraspecial.A2ModOrdCard
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
@@ -103,26 +61,13 @@ public import CFSG.LocalAnalysis.GLTheoremA.S10.Lemma106107
 public import CFSG.LocalAnalysis.GLTheoremA.S3.Lemma35
 public import CFSG.LocalAnalysis.GLTheoremA.S6.Lemma62Aux
 public import CFSG.LocalAnalysis.GLTheoremA.Sec5Setup
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115Reduce
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Equivariance
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
-public import CFSG.LocalAnalysis.SignalizerFunctor
 public import CFSG.Quasithin.Background.A3Structure319
-public import CFSG.Quasithin.Background.A3Structure36Base
-public import CFSG.Quasithin.Background.A3Structure38Part3
-public import CFSG.Quasithin.Background.B1MoreElevenE
-public import CFSG.Quasithin.Background.B1MoreNineG
-public import CFSG.Quasithin.Background.B4ModelsAction
-public import CFSG.Quasithin.Background.B4ModelsIso
-public import CFSG.Quasithin.Background.E3Cent
 public import CFSG.Quasithin.Background.F9FiveStruct
 public import CFSG.Quasithin.Background.F9G2
 public import CFSG.Quasithin.Background.F9Geometry
 public import CFSG.Quasithin.Background.GoldschmidtRankOneFacts
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtF112ListC
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import CFSG.Quasithin.EmptyFaithful.S1421Defs
 public import CFSG.Quasithin.EmptyFaithful.S142Statements
 public import CFSG.Quasithin.H13.A5S1326
@@ -136,7 +81,6 @@ public import CFSG.SignalizerFunctorTheorem.Nonsolvable.SolComponent
 public import Certificates.Data.CFSGNative.MonsterB.Rep4371Model
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 import CFSG.Blueprint.LieModelAPI
 import CFSG.ClassicalGroups.UnitaryFlag.PointSylow
 import CFSG.GH74.GLS.IVK.Proofs2.OddTools

@@ -1,12 +1,9 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec15.Item155w3ProofHJ
-public import CFSG.RankThree.PartTwo.Sec15.Item155wProofCorrDefs
 public import CFSG.RankThree.PartTwo.Sec15.Item154PiProofPoint
-import CFSG.RankThree.PartTwo.Sec15.Item155RProofUp
 import CFSG.RankThree.PartTwo.Sec15.Item155wProof
 import CFSG.RankThree.PartTwo.Sec15.Item155Proof
-import CFSG.RankThree.PartTwo.Sec16.Item161Proof
 import CFSG.RankThree.PartTwo.Sec14.Item14Tools
 import CFSG.RankThree.PartTwo.Sec14.Item147
 import CFSG.GroupTheory.PCore.OpenTransport

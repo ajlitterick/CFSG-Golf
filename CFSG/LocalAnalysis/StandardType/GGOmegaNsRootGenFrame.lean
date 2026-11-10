@@ -1,14 +1,10 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGOmegaNsRootGenDefs
-import CFSG.LocalAnalysis.GLTheoremA.CatA.S172CCentRot
-import CFSG.LocalAnalysis.GLTheoremA.CatA.S172CCentComp
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T173MixedPair
 import CFSG.ClassicalGroups.Orthogonal.MinusPlaneFrames
 import CFSG.LocalAnalysis.GLTheoremA.CatA.S172CRankRot
-import CFSG.ClassicalGroups.Orthogonal.Hyperbolic
 import CFSG.LinearAlgebra.QuadraticPieceDihedral
-import CFSG.LocalAnalysis.ComponentInitial.OrthogonalAnisotropicPlaneRegular
 import CFSG.CharacterTheory.BrauerThirdMainTheorem.CentralResidueMaps
 import CFSG.CharacterTheory.BrauerThirdMainTheorem.NormalizerClassLifting
 import CFSG.CharacterTheory.BrauerThirdMainTheorem.PrincipalClassDefects
@@ -18,14 +14,7 @@ import CFSG.ClassicalInvolution.Q3.ClassicalFundamentalModels
 import CFSG.ClassicalInvolution.Q3.Q3PlanParams
 import CFSG.Dihedral.DihedralFusionPrefixes
 import CFSG.HardMathSupport.Dickson.Bal207.OrthD4Loc
-import CFSG.HardMathSupport.Solomon.LocalBalance.PartIInputs
 import CFSG.HardMathSupport.Solomon.LocalBalance.ScpQuot
-import CFSG.HardMathSupport.Solomon.LocalBalance.Sec5Statements
-import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6DInputs
-import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec6FInputs
-import CFSG.HardMathSupport.Solomon.UniquenessMaximal.Sec7Interface
-import CFSG.LocalAnalysis.AGLEmbedding.CaseThreeFamilies
-import CFSG.LocalAnalysis.AGLEmbedding.ResidualTools
 import CFSG.LocalAnalysis.ComponentClassification.BlockCentralSylowEquality
 import CFSG.LocalAnalysis.ComponentClassification.BlockFourFactorSupport
 import CFSG.LocalAnalysis.ComponentClassification.BlockLargeProductInvolutions

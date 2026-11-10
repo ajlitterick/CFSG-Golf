@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRestDefs
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRootGenKGDefs
 public import CFSG.GroupTheory.SubnormalOddInversion
 public import CFSG.LocalAnalysis.StandardType.GGReflectionBasic

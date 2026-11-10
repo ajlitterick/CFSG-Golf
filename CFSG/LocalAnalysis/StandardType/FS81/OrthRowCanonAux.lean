@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.FS81.Defs
 public import CFSG.LocalAnalysis.StandardType.FS81.OrthMaxTorus
 public import CFSG.LocalAnalysis.StandardType.FS81.RowFacts
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowX1OmCBasic
-public import CFSG.LocalAnalysis.GLTheoremA.CatC.KD264LieRowX1OmCSub
 
 public section
 

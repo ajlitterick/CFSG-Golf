@@ -2,7 +2,6 @@ module
 
 import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.Repo
-import CFSG.Certificates.Kernel.Common.LabF
 import CFSG.Certificates.Kernel.Bounds.J3Alt.Data.T_Sel
 import CFSG.Certificates.Kernel.Bounds.J3Alt.Data.B_Sel
 import CFSG.Certificates.Kernel.Bounds.J3Alt.Checks.T_W_0

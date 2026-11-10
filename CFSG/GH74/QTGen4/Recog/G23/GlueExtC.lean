@@ -4,7 +4,6 @@ module
 public import CFSG.GH74.QTGen4.Recog.G23.GlueExtCBase
 
 public import CFSG.GH74.QTGen4.Recog.G23.GlueExt
-public import CFSG.GH74.QTGen4.Recog.G23.GlueExtB
 public meta import CFSG.Certificates.CosetTablePresented
 public meta import CFSG.GH74.QTGen4.Recog.G23.Words
 public meta import CFSG.GH74.QTGen4.Recog.G23.GlueExt

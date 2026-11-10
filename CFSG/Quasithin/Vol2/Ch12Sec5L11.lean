@@ -1,13 +1,9 @@
 module
 
 public import CFSG.Quasithin.Vol2.Ch12Sec5Lemmas
-public import CFSG.Quasithin.Background.BlueprintB2Reduced
 public import CFSG.Quasithin.Background.E3Prop
-public import CFSG.Quasithin.Background.E1Twelve
 public import CFSG.Quasithin.Vol2.Ch12Sec2StatementsPrime
 public import CFSG.Quasithin.Background.B6
-public import CFSG.Quasithin.Background.B6Example
-public import CFSG.Quasithin.Background.B6Offenders
 public import CFSG.Quasithin.Background.E3OffenderB
 
 public section

@@ -6,8 +6,6 @@ import Certificates.Kernel.HNChain.FormFacts
 import Certificates.Kernel.HNChain.Level
 import Certificates.Kernel.HNChain.Neg
 import Certificates.Kernel.HN3166.Card
-import Certificates.Certificate9114
-import Certificates.Certificate9208
 
 public section
 

@@ -5,8 +5,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven2TwentyOddPr
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven2TwentyOddThree
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven2TwentyOddFam
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenSeven2TwentyOddOMinus
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
 public import CFSG.ClassicalGroups

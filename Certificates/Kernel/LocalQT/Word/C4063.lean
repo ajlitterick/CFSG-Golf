@@ -4,7 +4,6 @@ public import CFSG.Certificates.Kernel.LocalQTWordSound
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.A5.G3M23BaseInputs
 import CFSG.Certificates.Kernel.Common.Harness
 public import CFSG.LocalAnalysis.SectionRank.Sporadic.LocalWitness
-public import CFSG.Open.Defs
 
 set_option maxRecDepth 100000
 

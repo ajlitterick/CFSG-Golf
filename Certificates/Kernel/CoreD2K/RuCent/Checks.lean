@@ -3,8 +3,6 @@ module
 public import Certificates.Kernel.CoreD2K.RuCent.Data
 public import Certificates.Kernel.CoreD2K.RuCent.Datum
 public import Certificates.Kernel.CoreD2K.RuFive.Data
-public import Certificates.Data.Kernel.CoreD2K.Steps
-public import Certificates.Data.Kernel.Spor.PEnum
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

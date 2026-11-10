@@ -1,11 +1,6 @@
 module
 
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.RecogE
-public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
-import CFSG.ClassicalInvolution.ModelFacts.WeylTransitive
-import CFSG.ClassicalInvolution.WeakCT.SpAut
-import CFSG.Timmesfeld.RankTwo.LevisExtras
-import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePairPinAux
 import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimePairPinE6
 import CFSG.LocalAnalysis.StandardType.GGSecFiveJReflOfCore
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerE8FourFiveQ2Char
@@ -29,18 +24,6 @@ public import CFSG.RankThree.Chevalley.SteinbergBID4CentralKernel
 public import CFSG.RankThree.PartOne.KE.E7FiveBlock
 public import CFSG.RankThree.PartOne.KE.SLnShape
 public import CFSG.RankThree.PartOne.KE.ThreeA1Group
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.FiniteFieldPrimeOrderFixedSubfield
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.OrderThreeNormalizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGammaL2PSLRangeCentralizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinInvolutionCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinRestrictionSixCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section3.FirstCaseKleinUDecomposition
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationEleven
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTen
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseEquationTenStructuralIdentities
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2FieldProjectionArithmetic
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCasePSL2OrderPSubgroupCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.OddGraphReconstruction
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerFivePairRigid
 import CFSG.HardMathSupport.Timmesfeld.CrossChar.ExcInnerFiveTwRigidLang
 import CFSG.HardMathSupport.Timmesfeld.LangTorus.CentralizerTrivialQ3T

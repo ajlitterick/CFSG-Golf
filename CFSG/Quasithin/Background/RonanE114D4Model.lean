@@ -1,9 +1,7 @@
 module
 
 public import CFSG.Quasithin.Background.RonanE114D4Gen
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListD4
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsLieD4
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X6ResidualTriality
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_20Aux
 public import CFSG.CGT.Timmesfeld75.L2Pair
 public import CFSG.CGT.Timmesfeld75.ListWCBasic
@@ -28,9 +26,7 @@ public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 public import CFSG.Open.SplitBNPair
 public import CFSG.Quasithin.Background.B216Quotient
 public import CFSG.Quasithin.Background.B6
-public import CFSG.Quasithin.Background.B6Example
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.Quasithin.Background.E2Hyp
 public import CFSG.Quasithin.Background.E2SolvTwo
 public import CFSG.Quasithin.Background.E2TwoProofDefs
@@ -41,8 +37,6 @@ public import CFSG.Quasithin.Background.F9G2
 public import CFSG.Quasithin.Background.F9Geometry
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtF112ListC
 public import CFSG.Quasithin.EmptyFaithful.S14117
-public import CFSG.Quasithin.EmptyFaithful.S14117Coprime
-public import CFSG.Quasithin.EmptyFaithful.S14117Rank
 public import CFSG.Quasithin.EmptyFaithful.S142Statements
 public import CFSG.Quasithin.EmptyFaithful.S152N11
 public import CFSG.Quasithin.H13.A5S1326

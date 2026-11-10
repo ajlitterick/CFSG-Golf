@@ -2,7 +2,6 @@ module
 
 public import CFSG.GH74.GLS.Stage1.Thm6.Glue.A7Sylow
 public import CFSG.GH74.GLS.Stage1.Thm6.Glue.A7Lift
-public import CFSG.GH74.GLS.Stage1.Thm6.Glue.KFacts
 
 public section
 

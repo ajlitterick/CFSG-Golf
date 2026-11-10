@@ -5,11 +5,9 @@ public import CFSG.GH74.Generic.BProg.B2.TwoA7Syl
 public import CFSG.GH74.Generic.BProg.B2.Thm2AssemblyBasic
 import CFSG.GH74.Generic.BProg.B2.Thm2AssemblyRank1
 import CFSG.GH74.Generic.BProg.B2.Thm2Comp
-import CFSG.GH74.Generic.BProg.B2.T1Basic
 import CFSG.GH74.Generic.BProg.B2.Prop31
 import CFSG.GH74.Generic.BProg.B2.Lemma83Bar
 import CFSG.GH74.Generic.BProg.B2.TwoA7
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.ClassicalInvolution.Models.OrthogonalPairs
 public import CFSG.ClassicalInvolution.Models.Transfer
 public import CFSG.ClassicalInvolution.Models.UnitaryPairs
@@ -25,45 +23,6 @@ import CFSG.GH74.GLS.IVK.Proofs2.Ivk94G4Defs
 import CFSG.GH74.GLS.Stage4.RestP93
 import CFSG.GH74.GLS.Stage4.RestSetup
 import CFSG.GH74.Generic.BProg.B2.TwoA7Comp
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeThree
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.Equivariance
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
-import CFSG.Quasithin.Background.A3Structure318Red
-import CFSG.Quasithin.Background.A3Structure36A
-import CFSG.Quasithin.Background.A3Structure36BAction
-import CFSG.Quasithin.Background.A3Structure36BBase
-import CFSG.Quasithin.Background.A3Structure36BCase3Base
-import CFSG.Quasithin.Background.A3Structure36BCasesBase
-import CFSG.Quasithin.Background.A3Structure36BCommonBase
-import CFSG.Quasithin.Background.A3Structure36BFrattini
-import CFSG.Quasithin.Background.A3Structure36BHeisBase
-import CFSG.Quasithin.Background.A3Structure36BHomocyclic
-import CFSG.Quasithin.Background.A3Structure36BPrimeDataBase
-import CFSG.Quasithin.Background.A3Structure36BStarBase
-import CFSG.Quasithin.Background.A3Structure36Base
-import CFSG.Quasithin.Background.A3Structure37Base
-import CFSG.Quasithin.Background.A3Structure37Comm
-import CFSG.Quasithin.Background.A3Structure37Frattini
-import CFSG.Quasithin.Background.A3Structure37KeyBase
-import CFSG.Quasithin.Background.A3Structure37Schur
-import CFSG.Quasithin.Background.A3Structure38Part3
-import CFSG.Quasithin.Background.B1MoreElevenE
-import CFSG.Quasithin.Background.B1MoreNineG
-import CFSG.Quasithin.Background.B4ModelsAction
-import CFSG.Quasithin.Background.B4ModelsIso
-import CFSG.Quasithin.Background.C2Basic
-import CFSG.Quasithin.Background.C2Inputs
-import CFSG.Quasithin.Background.E1
-import CFSG.Quasithin.Background.E1Sec4
-import CFSG.Quasithin.Background.E1Sec5
-import CFSG.Quasithin.Background.E1Sec8
-import CFSG.Quasithin.Background.E1Solv
-import CFSG.Quasithin.Background.E1Twelve
-import CFSG.Quasithin.Background.E3Cent
-import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
-import CFSG.Quasithin.Vol2.Ch1Local
 import CFSG.Sporadic.Schreier.LyFixedSet
 import Certificates.Kernel.J4Count.FixCE
 

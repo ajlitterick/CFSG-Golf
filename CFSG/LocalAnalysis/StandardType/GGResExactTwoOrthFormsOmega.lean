@@ -1,15 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGResExactTwoOrthSmallDefs
-import CFSG.LocalAnalysis.StandardType.GGTBJOmBlockZ
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T173UniGen
-import CFSG.LocalAnalysis.GLTheoremA.CatA.S172CCentFrame
-import CFSG.LocalAnalysis.GLTheoremA.CatA.S172CCentTypeSum
-import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogQuadraticNormalForms
 import CFSG.HardMathSupport.Dickson.Bal207.LocalBalClassicalOrthTwoBasic
-import CFSG.RankThree.PartOne.KC.OrthogonalFixedDerived
-import CFSG.LocalAnalysis.ComponentInitial.EscapingNotAlternating
-import CFSG.LocalAnalysis.ComponentInitial.LocalComponents
 import CFSG.HardMathSupport.Dickson.Bal207.OrthInnerFixed
 import CFSG.LocalAnalysis.StandardType.GGResExactTwoOrthFixOmega
 import CFSG.LocalAnalysis.StandardType.GGResExactTwoOrthU42

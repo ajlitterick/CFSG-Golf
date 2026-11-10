@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGFrameRouteDefs
 public import CFSG.LocalAnalysis.StandardType.GGFrameRoutePsiTargets
 public import CFSG.LocalAnalysis.StandardType.GGFrameRouteQTwo
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRegionDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePresTags
 
 public section
 

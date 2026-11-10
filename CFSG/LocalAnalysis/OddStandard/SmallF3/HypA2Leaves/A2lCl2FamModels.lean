@@ -2,15 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.HypA2Leaves.A2lCl2FamCore
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddInnerModels
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddInnerComp
-public import CFSG.LocalAnalysis.ComponentClassification.OutcomeLocalCTIUnitarySocleForms
-public import CFSG.LocalAnalysis.ComponentClassification.OddClassSelectorSU
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBUnitaryAllDimensionsTwo
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBUnitaryTwoSpaces
-public import CFSG.ClassicalInvolution.Models.SymplecticPairs.RootSp2
-public import CFSG.LieType.HighestRoot.CentChevalleySLThree
-public import CFSG.LieType.Universal.Symplectic
-public import CFSG.LieType.Universal.SpecialLinear
 
 public noncomputable section
 

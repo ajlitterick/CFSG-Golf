@@ -1,17 +1,10 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970API
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.ControlCore
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma28Helpers
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.PreambleHSU
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Reflection
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma27
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma21
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Lemma22
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Theorem26
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.MinimalCounterexample
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section1
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Hall.Basic
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.FinalTheorem
 

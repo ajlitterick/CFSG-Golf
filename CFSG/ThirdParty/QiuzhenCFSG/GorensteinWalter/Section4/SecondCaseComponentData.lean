@@ -1,17 +1,12 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.MinimalCounterexample
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Theorem26Core
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.Bender1970_18
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PGL2PerfectSubnormal
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.PSL2PerfectSubnormal
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.QuasisimpleNotTwoGroupQuotient
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.NormalSubgroupInvolutionOfOddQuotientImage
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.ComponentNormalOfInvariantPerfectImage
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.NormalOfLinearDerivedModel
 import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.FinalTheorem
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

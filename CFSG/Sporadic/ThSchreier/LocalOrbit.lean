@@ -3,19 +3,10 @@ module
 
 public import CFSG.Sporadic.ThSchreier.LocalOrbitBase1
 
-public import CFSG.Sporadic.ThSchreier.LocalData
 public import CFSG.Sporadic.ThSchreier.Words
 public meta import CFSG.Sporadic.ThSchreier.Words
 public meta import CFSG.Sporadic.ThSchreier.LocalData
-public import CFSG.Sporadic.ThSchreier.LocalOrbitInputs
 public import Certificates.Certificate2313
-public import Mathlib
-public import CFSG.Blueprint.NativeSporadic
-public import CFSG.Blueprint.MatrixSeedIdentification
-public import CFSG.Sporadic.Th.F2Spec
-public import CFSG.Certificates.SchreierStabilizerGenerators
-public import Certificates.Data.CFSGNative.Th.Certificate
-public import CFSG.Sporadic.Th.Max3.Data
 public meta import CFSG.Sporadic.Th.Chain
 public import CFSG.Sporadic.Th.Chain
 public meta import CFSG.Sporadic.ThSchreier.AutCore

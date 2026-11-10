@@ -3,11 +3,8 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSpNsRootGenDefs
 public import CFSG.LocalAnalysis.StandardType.GGOmegaNsRootGenDefs
 public import CFSG.LocalAnalysis.StandardType.GGOmegaPlusRootGenDefs
-import CFSG.Assembly.Subnormal
-import CFSG.ClassicalGroups.Orthogonal.Basic
 import CFSG.LocalAnalysis.ComponentClassification.OddClassSelectorOrthLift
 import CFSG.LocalAnalysis.ComponentInitial.BlockCentralQuotient
-import CFSG.RankThree.PartOne.KC.OrthogonalComponentFacts
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearFieldDeterminant
 import CFSG.LocalAnalysis.ComponentClassification.CatalogueUStatement
 import CFSG.LocalAnalysis.ComponentClassification.GSLitInputs

@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.TcGen.HN
 public import CFSG.Certificates.Kernel.OpsMcertNSound
 public import CFSG.Certificates.Kernel.OpsFpKSound
-public import CFSG.Blueprint.NativeSporadic
 import all CFSG.Blueprint.NativeSporadic
 
 public section

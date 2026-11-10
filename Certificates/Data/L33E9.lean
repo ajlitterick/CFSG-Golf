@@ -1,7 +1,5 @@
 module
 
-public import Mathlib
-public import CFSG.GH74.KGroups.L33
 public import CFSG.GH74.KGroups.L33TablesInputs
 
 public section

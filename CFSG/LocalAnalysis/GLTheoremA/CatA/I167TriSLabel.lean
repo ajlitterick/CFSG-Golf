@@ -3,13 +3,10 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.I167TriJ
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.K144Comp
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.K144InnOne
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10FSeitzB1
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnExcLabel
 import CFSG.LocalAnalysis.GLTheoremA.S12.CanonInnBridge
 import CFSG.LocalAnalysis.GLTheoremA.CatA.YS10I1416RBridge
 import CFSG.LocalAnalysis.GLTheoremA.S12.CanonSubcompIdx
-import CFSG.GroupTheory.OrderBelowSixtySolvable
-import CFSG.LocalAnalysis.GLTheoremA.PComp
 public import CFSG.ClassicalInvolution.Balance.LocalBalance.Faithful
 public import CFSG.HardMathSupport.Solomon.Coordinator.B3FamPC
 public import CFSG.HardMathSupport.Solomon.LocalBalance.Lemma28

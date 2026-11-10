@@ -3,10 +3,7 @@ module
 
 public import Certificates.Kernel.UnitarySix.KQFactsBase
 
-public import Certificates.Kernel.UnitarySix.KQ
 public import Certificates.Kernel.UnitarySix.Struct3010
-public import CFSG.Certificates.Kernel.U6Chain
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

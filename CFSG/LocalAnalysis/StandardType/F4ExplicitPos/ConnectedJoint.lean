@@ -4,7 +4,6 @@ public import CFSG.LieType.AlgebraicGroups.SupportedNativeLang
 public import CFSG.Monster.B.Fischer.Fi22Order
 public import CFSG.RankThree.PartOne.KE6.Phi3Kernel
 public import CFSG.RankThree.PartTwo.Sec21.LangTwistedProofD4SecIrred
-public import CFSG.LieType.AlgebraicGroups.ConvolutionPoints
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBPrimeJoinInteraction
 public import CFSG.RankThree.Chevalley.SteinbergBID4CentralKernel
 public import CFSG.RankThree.Chevalley.SteinbergBIE6FiniteLayers

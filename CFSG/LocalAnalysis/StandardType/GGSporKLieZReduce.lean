@@ -5,7 +5,6 @@ public import CFSG.Open.GLADefs
 import CFSG.LocalAnalysis.GLTheoremA.CatA.I142NTrans
 import CFSG.LocalAnalysis.AGLEmbedding.CZeroSubnormalCommute
 import CFSG.LocalAnalysis.AGLEmbedding.CZeroDefs
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section2.PCoreFreeFixedPointsCentralize
 import CFSG.Walter.Bender1970.S2.TwoSubgroup
 import CFSG.Walter.PSL2Facts

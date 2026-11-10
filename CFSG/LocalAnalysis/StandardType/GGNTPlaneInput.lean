@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNTPlaneNormalForm
-public import CFSG.LocalAnalysis.StandardType.MarkingDict
 
 public section
 

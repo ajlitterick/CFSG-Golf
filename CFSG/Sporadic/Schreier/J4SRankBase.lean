@@ -3,18 +3,10 @@ module
 
 public import CFSG.Sporadic.Schreier.J4SRankCheckBase
 public import CFSG.Sporadic.Schreier.J4SThreeBase
-public import CFSG.Sporadic.Schreier.J4SNative
-public import CFSG.Sporadic.Schreier.J4SCols
-public import CFSG.Sporadic.Schreier.J4SInvData
-public import CFSG.Sporadic.Schreier.J4SOrbitsBase
 public meta import CFSG.Sporadic.Schreier.J4SOrbitsBase
-public import CFSG.Sporadic.Schreier.J4SRankData
 public meta import CFSG.Sporadic.Schreier.J4SRankData
-public import CFSG.Sporadic.Schreier.J4SSylowData
 public meta import CFSG.Sporadic.Schreier.J4SSylowData
-public import CFSG.Sporadic.Schreier.J4SThreeDataInputs
 public meta import CFSG.Sporadic.Schreier.J4SKCentBase
-public import CFSG.Sporadic.J4.Local
 
 @[expose] public noncomputable section
 

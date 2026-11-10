@@ -2,14 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4QTwoEndsL
 public import CFSG.LocalAnalysis.StandardType.GGResIPumpLineTransfer
-public import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOther
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallSpTwoDelta
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
-public import CFSG.LocalAnalysis.StandardType.GGTableBExcSmallRestTwF4
-public import CFSG.LocalAnalysis.StandardType.GGTBJConfigFacts
-public import CFSG.GroupTheory.ConjKerCenter
-public import CFSG.Sporadic.Schreier.TitsOuter
-public import CFSG.Sporadic.Schreier.TitsCert
 
 public section
 

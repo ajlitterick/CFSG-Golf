@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Quasithin.MS93.S4A432N
 public import CFSG.Quasithin.MS93.S4A432M
 public import CFSG.Quasithin.MS93.S4AInputs
 

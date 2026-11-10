@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.OutBOm6
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec5CBSwapProof
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec5CNCtx
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec6Outside
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.FF6PSCent
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec5B517Ctx
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.Omega.Sec5B517Pair

@@ -3,8 +3,6 @@ module
 public import CFSG.ClassicalInvolution.Balance.LayerGenerationPairSpinPlus
 public import CFSG.ClassicalInvolution.ModelFacts.FundamentalSL2Main
 import CFSG.ClassicalInvolution.ModelFacts.FundPerfectMain
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.ClassicalInvolution.Balance.PassTwoFinal
 public import CFSG.ClassicalInvolution.LBalance.Main
 public import CFSG.ClassicalInvolution.ModelFacts.FundPerfectPSU
@@ -45,7 +43,6 @@ public import CFSG.LocalAnalysis.ComponentInitial.SylowPointRecovery
 public import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalGroup.LowRank

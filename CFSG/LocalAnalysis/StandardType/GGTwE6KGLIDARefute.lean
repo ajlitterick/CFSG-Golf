@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGTwE6KGLIDADefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrOutsideInndiag
 import CFSG.LocalAnalysis.StandardType.GGRootCentKGMarkingSU
 import CFSG.LocalAnalysis.StandardType.GGHalfFiveInnAll
-import CFSG.LocalAnalysis.StandardType.GGOneFiveDefs
-import CFSG.LocalAnalysis.StandardType.Marking
 import CFSG.GroupTheory.CenterlessInnerCentralizer
 import CFSG.GroupTheory.PCore.SubgroupCore
 

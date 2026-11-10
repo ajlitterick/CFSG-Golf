@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2SpBlocksCent
-public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Embed
-public import CFSG.ClassicalInvolution.Models.SymplecticPairs.ShortRoot
 import CFSG.LocalAnalysis.StandardType.GGQ2SpBlocksCentExt
-import CFSG.LocalAnalysis.SeitzReduction.F4PilotQ2Sp4TwoRootSix
 
 public section
 

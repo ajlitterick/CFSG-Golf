@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGKG82TwoLocal
 public import CFSG.LocalAnalysis.StandardType.GGKG82Inndiag
 public import CFSG.LocalAnalysis.StandardType.GGKG82FieldRankFive
-public import CFSG.LocalAnalysis.StandardType.GGNbrKGTwE6ThreeAtDefs
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangTwisted
 
 public section
 

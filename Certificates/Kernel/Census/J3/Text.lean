@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Sporadic.Schreier.PairJ3CertInputs
 public import CFSG.Sporadic.SmallOddCore.J3DataInputs
 public meta import CFSG.Sporadic.Schreier.PairJ3CertInputs
 public meta import CFSG.Sporadic.SmallOddCore.J3DataInputs

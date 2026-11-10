@@ -1,13 +1,8 @@
 module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFAppendixI.Basic
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.lemma_4_5_a
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.V.theorem_8_15
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Core
-public import Mathlib.GroupTheory.SpecificGroups.ZGroup
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.FinalTheorem
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Centralizer
-public import Mathlib.Algebra.Group.Subgroup.Order
 
 namespace CFSG
 end CFSG

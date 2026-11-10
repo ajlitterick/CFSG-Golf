@@ -2,15 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrU63Setup
 public import CFSG.LocalAnalysis.StandardType.GGNbrU63Local
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLLine63Q2ProofTwo
 public import CFSG.LocalAnalysis.StandardType.GGUSixThreeKGHeisCase
-public import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylComp
 public import CFSG.LocalAnalysis.StandardType.GGNbrTwE6Prop87
-public import CFSG.LocalAnalysis.StandardType.GGBstarLIDUnit63Holds
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLExc3
-public import CFSG.LocalAnalysis.StandardType.GGRemTableBLExcReduction
-public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBE6
-public import CFSG.LocalAnalysis.StandardType.GGTableBThreeTBTwE6
 
 public section
 

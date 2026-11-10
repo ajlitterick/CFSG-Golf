@@ -1,17 +1,9 @@
 module
 
 public import CFSG.Quasithin.Background.Harris.IrreducibleModulesAndBounds.ExcThreeD4Generic
-public import CFSG.Quasithin.Background.SmithB45TorTits
 public import CFSG.Quasithin.Background.SmithB45Tits
-public import CFSG.LocalAnalysis.SectionRank.TitsCover
 public import CFSG.Quasithin.EmptyFaithful.F112SMain
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtCert4193
-public import CFSG.Quasithin.EmptyFaithful.F112RE
-public import CFSG.Quasithin.Recognition.CertTitsBridge
-public import CFSG.Sporadic.Schreier.TitsOuter
-public import CFSG.CharacterTheory.BrauerThirdMainTheorem.CentralResidueMaps
-public import CFSG.CharacterTheory.BrauerThirdMainTheorem.NormalizerClassLifting
-public import CFSG.CharacterTheory.BrauerThirdMainTheorem.PrincipalClassDefects
 public import CFSG.CharacterTheory.Semidihedral.Local.LocalNormalizerQuotients
 public import CFSG.CharacterTheory.Wreathed.BrauerWongSylowCentralizer
 public import CFSG.GH74.SmallRanks.AltM11
@@ -135,9 +127,6 @@ public import CFSG.Quasithin.Vol2.Ch3Sec3StatementsB
 public import CFSG.Quasithin.Vol2.Ch4Sec2Lem424N
 public import CFSG.RankThree.PerfectCover.HopfCentralCoversFinite
 public import CFSG.StronglyEmbedded.MatrixGroups.PSL2
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ASevenInvolutionCount
-public import CFSG.Walter.J1Props
-public import CFSG.Walter.J1Recog
 public import CFSG.Walter.W67.W2Lemma26A
 public import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis

@@ -4,7 +4,6 @@ public import CFSG.Quasithin.Background.SimsE214Eleven
 public import CFSG.Quasithin.Background.SimsE215Two
 public import CFSG.Quasithin.Background.SimsE215KF1Defs
 import CFSG.GroupTheory.PCore.InfPCoreOf
-import CFSG.GroupTheory.ElementaryAbelianTransport
 import CFSG.GroupTheory.DedekindNormalizer
 public import CFSG.Assembly.OrderReductions.CharacterInflation
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogSpWedge

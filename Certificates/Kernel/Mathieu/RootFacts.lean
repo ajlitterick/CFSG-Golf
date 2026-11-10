@@ -7,7 +7,6 @@ public import CFSG.Sporadic.Mathieu.M12
 public import CFSG.Sporadic.Mathieu.M22
 public import CFSG.Sporadic.Mathieu.M24
 public import CFSG.Sporadic.Schreier.M23Gens
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

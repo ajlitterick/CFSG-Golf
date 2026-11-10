@@ -3,13 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordDExclWeyl
 public import CFSG.LocalAnalysis.StandardType.GGNbrWeylTypeE6TwoAux
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenTwE6Three
-public import CFSG.LocalAnalysis.StandardType.GGTBRowCoordFrame
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRefl
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveIdentDefs
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordDExclCensus
-import CFSG.LocalAnalysis.StandardType.GGNbrReflGenCore
-import CFSG.LocalAnalysis.StandardType.GGNbrMarkingLabel
-import CFSG.LocalAnalysis.StandardType.Marking
 
 public section
 

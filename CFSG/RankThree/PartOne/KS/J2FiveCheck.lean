@@ -1,13 +1,7 @@
 module
 
-public import CFSG.RankThree.PartOne.KS.J2FiveData
 public import CFSG.RankThree.PartOne.KS.OrbitCert
-public import CFSG.RankThree.Native.PermEnumeration
-public import CFSG.RankThree.Native.ChainCentralizer
-public import CFSG.Sporadic.SmallOddCore.J2Data
 public import CFSG.Sporadic.Schreier.PairJ2Check
-public import CFSG.Monster.B.Mathieu.SylowCore
-public import CFSG.RankThree.PartOne.KS.J2FiveCheckInputs
 public import Certificates.Certificate10056
 public meta import CFSG.RankThree.PartOne.KS.J2FiveData
 public meta import CFSG.RankThree.Native.PermEnumeration

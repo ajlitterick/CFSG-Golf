@@ -1,9 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTwE6BadModel
 public import CFSG.LocalAnalysis.StandardType.GGTwE6BadWeyl
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyExcReflLinear
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyHypG0
 import CFSG.LocalAnalysis.StandardType.GGE6ThreeAdInvariant
 import CFSG.LocalAnalysis.StandardType.GGTBJWeyl
 

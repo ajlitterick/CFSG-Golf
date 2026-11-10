@@ -4,10 +4,8 @@ public import CFSG.LocalAnalysis.StandardType.GGTBTorRelDAssembly
 public import CFSG.LocalAnalysis.StandardType.GGTBTorInnModel
 public import CFSG.LocalAnalysis.StandardType.GGTBTorRelDMinusWeyl
 public import CFSG.LocalAnalysis.StandardType.GGTBTorRelDMinusCent
-public import CFSG.LocalAnalysis.StandardType.GGTableBOrthogonalEndNode
 public import CFSG.LocalAnalysis.StandardType.GGOmegaMinusCentrallyClosed
 public import CFSG.LocalAnalysis.StandardType.GGTBTorRel
-public import CFSG.LocalAnalysis.StandardType.Marking
 import CFSG.LocalAnalysis.StandardType.GGTriD4NoneMarking
 
 public section

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixAutKFlatIVStruct
 public import CFSG.LocalAnalysis.StandardType.GGSixAutKFlatIVPComp
 public import CFSG.LocalAnalysis.StandardType.GGSixAutKFlatIVQuot
 public import CFSG.LocalAnalysis.StandardType.GGStructSOnePrimeRootDefs

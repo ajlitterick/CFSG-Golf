@@ -1,9 +1,7 @@
 module
 
-public import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
 public import CFSG.LieType.Chevalley.E6ToralGraphInvolution
 public import CFSG.LieType.Chevalley.EvenTrialityParameterData
-public import CFSG.LieType.Chevalley.GraphFixedOrbitParametrization
 
 public noncomputable section
 

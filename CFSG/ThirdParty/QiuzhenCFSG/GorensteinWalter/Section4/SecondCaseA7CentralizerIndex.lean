@@ -1,10 +1,6 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseA7BaseCount
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Section4.SecondCaseFactorization
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.InvolutionCountOfFusion
-import Mathlib.Tactic
 
 namespace CFSG
 end CFSG

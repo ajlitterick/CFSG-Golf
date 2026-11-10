@@ -2,14 +2,10 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Interfaces
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.PermutationQuotient
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection1.PFsection1_5
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection3.PFsection3_7
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection6.PFsection6_8
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.PFsection6.PFsection6_6
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.I.theorem_18_3
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.theorem_7_15
 import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.XI.theorem_6_1
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Suzuki.VI.proposition_2_9
 import CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.BrauerPermutation
 
 namespace CFSG

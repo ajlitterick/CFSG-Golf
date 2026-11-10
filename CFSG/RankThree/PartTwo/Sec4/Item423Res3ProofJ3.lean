@@ -1,12 +1,7 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec4.Item423Res2ProofSporAll
-public import CFSG.LocalAnalysis.AGLEmbedding.KFactProofs.J3Sylow
-public import CFSG.RankThree.Asc83Table.J3
-import CFSG.RankThree.PartTwo.Sec4.T444.Item434AltPerm
 import CFSG.RankThree.PartTwo.Sec5.Tools
-import CFSG.LocalAnalysis.SectionRank.PRank
-import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.RankThree.Asc83Table.PermTables
 
 public section

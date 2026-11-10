@@ -2,19 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.F151DiagDefs
 import CFSG.LocalAnalysis.GLTheoremA.CatA.F151PReeDiagCore
-import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeFamClInner
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T158FgExc
-import CFSG.LocalAnalysis.GLTheoremA.CatB.Bridges
-import CFSG.LocalAnalysis.GLTheoremA.PartI.LevelSporMathieu
-import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeFamInBCD
-import CFSG.HardMathSupport.Timmesfeld.Proving.OmegaPiGroup
-import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.Exc.Basic
 import CFSG.Holt.PointHullTwoGroupBasic
 import CFSG.SignalizerFunctorTheorem.CatalogBridge.NonLocalLargeReeMain
-import CFSG.LieType.ChevTwo.OppositeFixedExcReeModel
-import CFSG.LieType.SeitzGeneration.ExcPlaneModel
-import CFSG.LieType.Ree.ReeGenericPerfect
-import CFSG.LieType.Ree.LargeReeInvolutionCentralizersRankOne
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T171ShapeSpAsmAnalysis
 import CFSG.HardMathSupport.Lang.E6Descent.OuterFixed27D4Field
 import CFSG.HardMathSupport.Timmesfeld.LocalTwo.CrossSp

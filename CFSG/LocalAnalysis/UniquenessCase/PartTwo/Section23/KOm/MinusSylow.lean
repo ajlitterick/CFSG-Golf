@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KOm.MinusVectors
 public import CFSG.ClassicalGroups.Orthogonal.StatedOmegaElementary
-public import CFSG.LieType.Universal.Spin.Forms
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KOm.RootGroupGL
 import CFSG.ClassicalGroups.Orthogonal.RootGroupGLEichler
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.KOrdNatural.Pow3OmegaMinus
@@ -17,9 +16,6 @@ public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPoi
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalSemilinearDataCompatibility
 public import CFSG.LocalAnalysis.ComponentInitial.OrthogonalReflectionSplitting
 public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherEvenOrthogonalModel
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.ComplementTransfer
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.PFchapter1section1.proposition_4_c
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Proposition82
 public import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 
 public section

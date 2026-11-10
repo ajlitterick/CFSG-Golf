@@ -1,9 +1,6 @@
 module
 
-public import CFSG.Quasithin.Background.Harris.KFact2d.Lin2
-public import CFSG.Quasithin.Background.Harris.KFact2d.ModelU3
 public import CFSG.Quasithin.Background.Harris.KFact2d.F1U3
-public import CFSG.ClassicalInvolution.ModelFacts.UnitaryAutMain
 public import CFSG.ClassicalInvolution.AschTight.S19KUniIn
 public import CFSG.Quasithin.Vol2.Ch3E213MOLA5
 public import CFSG.ClassicalInvolution.Asc77.Lemma310

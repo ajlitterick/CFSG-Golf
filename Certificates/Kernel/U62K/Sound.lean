@@ -7,9 +7,6 @@ import Certificates.Kernel.U62K.Sl1
 import Certificates.Kernel.U62K.Sl2
 import Certificates.Kernel.U62K.Sl3
 import Certificates.Kernel.U62K.Misc
-import Certificates.Kernel.Sporadic.ON.Gen
-import CFSG.Certificates.Kernel.Spor.RawOrbEval
-import Mathlib
 
 public section
 

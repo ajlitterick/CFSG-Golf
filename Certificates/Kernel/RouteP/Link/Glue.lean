@@ -3,10 +3,8 @@ module
 public import Certificates.Kernel.RouteP.Link.Checks
 public import Certificates.Kernel.RouteP.Text.CoverGens
 public import Certificates.Kernel.RouteP.Pres.Rep
-public import Certificates.Kernel.RouteP.Cocode.Glue
 public import Certificates.Kernel.RouteP.Y332.Glue
 public import CFSG.Certificates.Kernel.RouteP.MTabs
-public import CFSG.Certificates.Kernel.Common.ForallTree
 
 public section
 

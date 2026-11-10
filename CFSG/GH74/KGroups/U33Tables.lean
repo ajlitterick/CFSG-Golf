@@ -1,17 +1,8 @@
 module
 
-public import Mathlib
-public import CFSG.GH74.KGroups.Generic
-public import CFSG.GH74.KGroups.Generic2
-public import CFSG.GH74.KGroups.PermCheck
-public import CFSG.GH74.KGroups.Checks
-public import CFSG.GH74.KGroups.Checks2
-public import CFSG.GH74.KGroups.U33
 public meta import CFSG.GH74.KGroups.Checks2
 public meta import CFSG.GH74.KGroups.U33
-public import CFSG.GH74.KGroups.U33TablesInputs
 public meta import CFSG.GH74.KGroups.U33TablesInputs
-public import Certificates.Certificate5133
 public import Certificates.Certificate5134
 
 public section

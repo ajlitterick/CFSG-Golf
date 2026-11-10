@@ -2,8 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.Q3.Q3EXD4FInv
 public import CFSG.ClassicalInvolution.Q3.Q3NGCount
-public import CFSG.ClassicalInvolution.Q3.Q3WAM11Comp
-public import CFSG.ClassicalInvolution.Balance.Theorem5Untouched
 public import CFSG.ClassicalInvolution.RouteD.ExoticD4FourMain
 
 public section

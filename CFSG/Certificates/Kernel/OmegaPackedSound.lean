@@ -1,8 +1,6 @@
 module
 
 public import Certificates.Data.Kernel.OmegaPacked
-public import Mathlib.RingTheory.AdjoinRoot
-public import Mathlib.Tactic.ComputeDegree
 
 public section
 

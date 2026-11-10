@@ -2,13 +2,8 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UC22P22tc
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.TwelveEighteenGen
-import CFSG.LocalAnalysis.WeakClosure81.EightTwelveBridge
 import CFSG.LocalAnalysis.UniquenessCase.UC22Main1
-import CFSG.LocalAnalysis.UniquenessCase.UC22P22e
 import CFSG.LocalAnalysis.UniquenessCase.UC22P22qv
-import CFSG.LocalAnalysis.UniquenessCase.UC22Bridge4
-import CFSG.Quasithin.Background.E3Gen
-import CFSG.Quasithin.Background.RonanE111MemE1
 import CFSG.Quasithin.Background.C126NatDMin
 import CFSG.LocalAnalysis.UniquenessCase.UC22S21rHpEqMul
 public import CFSG.Holt.General.Basic
@@ -32,8 +27,6 @@ public import CFSG.Quasithin.Background.F9G2
 public import CFSG.Quasithin.Background.F9Geometry
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtF112ListC
 public import CFSG.Quasithin.EmptyFaithful.S14117
-public import CFSG.Quasithin.EmptyFaithful.S14117Coprime
-public import CFSG.Quasithin.EmptyFaithful.S14117Rank
 public import CFSG.Quasithin.EmptyFaithful.S142Statements
 public import CFSG.Quasithin.EmptyFaithful.S152N11
 public import CFSG.Quasithin.H13.A5S1326

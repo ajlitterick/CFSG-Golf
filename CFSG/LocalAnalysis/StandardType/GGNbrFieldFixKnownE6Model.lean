@@ -1,13 +1,9 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixDefs
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownE6Arith
-public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownE6Fixed
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownE6Geom
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownE6Kernel
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixKnownE6Restrict
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangModel
-public import CFSG.LieType.Simplicity.Exceptional
 
 public section
 

@@ -2,8 +2,6 @@ module
 
 public import CFSG.Quasithin.EmptyFaithful.Insp7NumM
 
-import CFSG.ThirdParty.QiuzhenCFSG.Theory.AutAlternating
-import CFSG.LocalAnalysis.ComponentClassification.SymmetricLocalLinearFourTwo
 
 public section
 

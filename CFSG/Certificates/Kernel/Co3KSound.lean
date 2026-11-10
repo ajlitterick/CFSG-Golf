@@ -4,7 +4,6 @@ public import Certificates.Data.Kernel.Co3K
 public import CFSG.Certificates.Kernel.Spor.RawSiftK
 public import CFSG.Certificates.Kernel.Spor.PrimSound
 public import CFSG.Certificates.Kernel.Spor.PackWord
-public import CFSG.Monster.B.Co2.PermArr
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront10SporCo3CheckInputs
 
 public section

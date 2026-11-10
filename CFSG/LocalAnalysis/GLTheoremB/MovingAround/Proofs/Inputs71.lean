@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Sec13a
 import all CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.Sec13a
 public import CFSG.LocalAnalysis.GLTheoremB.MovingAround.Proofs.OmegaFacts
 public import CFSG.HardMathSupport.Timmesfeld.OrthogonalGeneration.AutOrthInner

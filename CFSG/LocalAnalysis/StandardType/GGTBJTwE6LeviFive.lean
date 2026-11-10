@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTBJE6LeviIso
-public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6LeviFrame
 public import CFSG.LocalAnalysis.StandardType.GGTBJTwE6EnnModel
-public import CFSG.LocalAnalysis.StandardType.GGTBJETypeCells
 
 public section
 

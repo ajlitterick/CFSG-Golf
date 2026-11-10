@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.EvenBN.G2.ProductK2
 public import CFSG.LocalAnalysis.EvenBN.TrialityD4.ProductDecomp
-public import CFSG.LocalAnalysis.EvenBN.TrialityD4.ProductN1Sylow
 public import CFSG.LocalAnalysis.EvenBN.G2.LocalN60
 public import CFSG.GH74.Generic.S45.LEvSporGen
 

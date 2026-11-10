@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.RankThreeUC.AGL81CNineTwelveIrred
 import CFSG.LocalAnalysis.SectionRank.AmbientRank
 import CFSG.RankThree.PartTwo.Sec13.Item135CritProof
-public import CFSG.LocalAnalysis.SectionRank.PRank
 public import CFSG.RankThree.PartTwo.ExponentPrimeSmallRank
 public import CFSG.Walter.Cited.HuppertBasic
 

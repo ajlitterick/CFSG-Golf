@@ -3,11 +3,7 @@ module
 public import Certificates.Kernel.Multipliers.U43BChain
 public import Certificates.Kernel.Multipliers.BindListSound
 public import CFSG.Certificates.Kernel.Misc.Coset.ActPermRep
-public import CFSG.LieType.Multipliers.U43Data
-public import CFSG.Sporadic.Bridge.TwoGen
 public import CFSG.Monster.B.Co2.PermArr
-import CFSG.Certificates.Kernel.Common.Harness
-import CFSG.Certificates.PresentationLetters
 public import CFSG.Certificates.Kernel.Misc.Coset.PG
 public import CFSG.Certificates.Kernel.Spor.RawSound
 

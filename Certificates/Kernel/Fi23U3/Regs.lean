@@ -1,11 +1,7 @@
 module
 
-public import Certificates.Data.Kernel.OpsRenL
 public import Certificates.Kernel.Fi23U3.Snaps
 public import Certificates.Kernel.LocalComp.LaySnapsFrom
-public import CFSG.Certificates.Kernel.Common.Each
-public import CFSG.Certificates.Kernel.Common.ForallTree
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo
 

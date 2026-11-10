@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveCoxProd
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveJoinPrimed
 public import CFSG.LocalAnalysis.StandardType.GGForkJrPumpDichotomy
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNarrowInputs
 

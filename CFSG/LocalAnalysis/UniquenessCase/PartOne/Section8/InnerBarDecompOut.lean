@@ -1,19 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight67Subnormal
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection4.lemma_4_5_a
-public import CFSG.RankThree.PartOne.S9.Defs
-public import CFSG.LocalAnalysis.SectionRank.PRank
-public import CFSG.LocalAnalysis.SectionRank.TwoGenerators
 public import CFSG.LocalAnalysis.UniquenessCase.UC611d
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.StrongQuotient
-public import CFSG.LocalAnalysis.RankThreeUC.SmallClassTwoGroups.IsExtraspecialExpP
-public import Mathlib.GroupTheory.Exponent
-import CFSG.GroupTheory.ElementaryAbelianTransport
-import Mathlib.GroupTheory.SpecificGroups.Cyclic
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.Eight68NotLe
-public import CFSG.LocalAnalysis.UniquenessCase.UC22P22qs
-public import CFSG.LocalAnalysis.RankThreeUC.StronglyEmbedded
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.CoverCentralizerNoncyclic
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.InnerActionOut
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.InnerBarDecomp
@@ -43,9 +33,6 @@ public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.MsideParabolicEscape.ExcTwi
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.MsideParabolicEscape.KFactE9U33
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.MsideParabolicEscape.ThreeRankExc
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.S3AmalgamBound.RankTwoCoverBig
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 public import CFSG.LocalAnalysis.RankThreeUC.Notation
 public import CFSG.LocalAnalysis.RankThreeUC.Section3.CoprimeSpecialGroups.CommPowPow
 public import CFSG.LocalAnalysis.RankThreeUC.Section5.ExtraspecialOrder
@@ -56,8 +43,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.CentralizerBarK
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.OmegaOneNormalCyclic
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.R69CenterApps
 public import CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8.UpperCentralTwo
-public import CFSG.Quasithin.Background.C2Inputs
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import CFSG.Quasithin.Vol2.Ch10StatementsE
 public import CFSG.Quasithin.Vol2.Ch10StatementsInputs
 public import CFSG.Quasithin.Vol2.Ch10StatementsInputsAS
@@ -97,7 +82,6 @@ public import CFSG.Sporadic.Schreier.RuLOdd
 public import CFSG.Sporadic.Schreier.RuZClass
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

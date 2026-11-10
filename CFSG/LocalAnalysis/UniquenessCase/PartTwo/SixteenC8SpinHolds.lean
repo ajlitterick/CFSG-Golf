@@ -12,9 +12,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC8SpinUniq
 public import CFSG.Certificates.Kernel.LocalCompTits.Span
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.A312ListAlt7
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L122AProved
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.L239PairsSporSimpleTop
-public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Vol2NativeListed
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.SL2ModulesBorel
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_19Defs
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.L2_5_2
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.SixteenC8SpinPtCent
@@ -32,7 +29,6 @@ public import CFSG.Quasithin.Background.G9Stmts
 public import CFSG.Quasithin.Background.InternalSecB51
 public import CFSG.Quasithin.Background.InternalSecFF
 public import CFSG.Quasithin.EmptyFaithful.A38c8Defs
-public import CFSG.Quasithin.EmptyFaithful.GoldschmidtJ4LocCheck
 public import CFSG.Quasithin.EmptyFaithful.S14110
 public import CFSG.Quasithin.EmptyFaithful.S143EB
 public import CFSG.Quasithin.EmptyFaithful.S143VG94
@@ -65,7 +61,6 @@ public import CFSG.Sporadic.Schreier.M11
 public import CFSG.Sporadic.Schreier.M22
 public import Certificates.Kernel.J4Count.FixCE
 public import Certificates.Kernel.J4Count.FixCPairBase1
-public import Certificates.Kernel.J4Count.KFactsBase
 
 public section
 

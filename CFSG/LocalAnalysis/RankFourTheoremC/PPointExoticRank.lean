@@ -1,27 +1,15 @@
 module
 
 public import CFSG.LocalAnalysis.RankFourTheoremC.PPointExoticDefs
-public import CFSG.LocalAnalysis.GL83PartI.I713.Basic
-public import CFSG.LocalAnalysis.GL83PartI.I713.Extension
 public import CFSG.LocalAnalysis.RankFourTheoremC.PPointP.ExcRankProofs
-public import CFSG.RankThree.PartOne.KP.SporadicDefs
-public import CFSG.RankThree.PartOne.KA.AlternatingPlaneInner
 public import CFSG.LocalAnalysis.RankThreeTheoremC.D1BetaRank3K1Spor
-public import CFSG.RankThree.PartOne.CTP.SporadicNoncomm
-public import CFSG.Sporadic.McL.Simple
 public import CFSG.Sporadic.Presentation.McLExact
 public import CFSG.Sporadic.Bridge.J4Surj
 public import CFSG.Sporadic.Schreier.J4SSimple
-public import CFSG.Sporadic.J4
 public import CFSG.LocalAnalysis.AGLEmbedding.SporadicBetaSmall2
 public import CFSG.HardMathSupport.Timmesfeld.DefChar.LieOuterTwisted
-public import CFSG.Sporadic.Schreier.TitsCert
-public import CFSG.Sporadic.Schreier.TitsOuter
-public import CFSG.Sporadic.Schreier.TitsIso
-public import CFSG.RankThree.PartTwo.Sec4.Census.BridgeSuzuki
 public import CFSG.CGT.Timmesfeld75.NodeAux
 public import CFSG.StronglyEmbedded.Catalog.Suzuki
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma114Models
 public import CFSG.SignalizerFunctorTheorem.CatalogBridge.FieldSuzuki
 public import CFSG.LocalAnalysis.GL83PartI.I713.SuzukiRee
 public import CFSG.LinearAlgebra.LinearGroups.CoordinateData
@@ -55,7 +43,6 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly

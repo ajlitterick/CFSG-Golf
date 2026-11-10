@@ -2,7 +2,6 @@ module
 
 public import CFSG.Sporadic.HeldB.CertPChainCheck
 public import CFSG.Certificates.NativeSchreierCard
-public import Mathlib.Tactic.IntervalCases
 
 public noncomputable section
 

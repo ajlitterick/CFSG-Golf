@@ -1,7 +1,6 @@
 module
 
 public import CFSG.OddTranspositions.PartThree.Ten.WreathEndgame
-public import CFSG.OddTranspositions.WreathBase
 import CFSG.OddTranspositions.PartThree.EightEight.WreathThreeAut
 import CFSG.GroupTheory.CentralizerSwapMulEquiv
 import CFSG.GroupTheory.MulAutCongr

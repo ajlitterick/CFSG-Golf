@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.UniquenessCase.UCFront10SporFi24TCent
-import CFSG.LocalAnalysis.UniquenessCase.UCFront10SporFi24ECard
 import CFSG.LocalAnalysis.UniquenessCase.UCFront10SporOdd
 import CFSG.GroupTheory.ElementaryAbelianTransport
-import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Card
 import CFSG.CGT.Timmesfeld75.Statements
 import CFSG.LocalAnalysis.ComponentInitial.LayerComponentOrbit
 import CFSG.LocalAnalysis.RankThreeUC.Asc1930

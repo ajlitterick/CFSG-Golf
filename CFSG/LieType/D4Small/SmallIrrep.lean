@@ -3,18 +3,8 @@ module
 public import CFSG.LieType.D4Small.Dichotomy
 public import CFSG.LieType.D4Small.NormalForm
 public import CFSG.LieType.D4Small.OneOrbit
-public import CFSG.LieType.D4Small.Orbits
-public import CFSG.LieType.D4Small.RootRelations
 public import CFSG.LieType.D4Small.SmallClasses
 public import CFSG.LieType.D4Small.Strings
-public import CFSG.LieType.D4Small.Transport
-public import CFSG.LieType.D4Small.WeightClass
-public import CFSG.LieType.D4Small.Weights
-import Mathlib.Algebra.Group.Units.Defs
-import Mathlib.Algebra.Ring.Commute
-import Mathlib.Data.Nat.Cast.Basic
-import Mathlib.FieldTheory.Finite.Basic
-import Mathlib.Tactic.NormNum
 
 public section
 

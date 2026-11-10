@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBSpFourCommonDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveBSpCoordFrameDefs
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBSpFour
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBSpFourOpposite
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBPermSpKFrame

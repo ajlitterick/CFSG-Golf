@@ -2,12 +2,8 @@ module
 
 public import CFSG.LieType.Steinberg.Isogeny.TwistedE6
 public import CFSG.LieType.Chevalley.GraphFixedData
-import CFSG.LieType.Simplicity.Exceptional
 import CFSG.LieType.Steinberg.CentralExt.TwistedE6Center
 import CFSG.LieType.Steinberg.CentralExt.TwistedE6PosLift
-import CFSG.LieType.Chevalley.GraphFixedFinitePerfect
-import CFSG.HardMathSupport.Cooperstein.Coordinator.CurtisE6.Lift
-import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelKernelCore
 import CFSG.LocalAnalysis.StandardType.GGTBE6Cover
 public import CFSG.LieType.Chevalley.RootCommutatorData
 

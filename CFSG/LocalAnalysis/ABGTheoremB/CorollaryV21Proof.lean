@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.ABGTheoremB.V3Defs
 public import CFSG.LocalAnalysis.ABGTheoremB.IV4
 import CFSG.LocalAnalysis.ABGTheoremB.IV1
 import CFSG.GroupTheory.ABGLocalTools.OddOrderLocal
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Centralizer
 import CFSG.FeitThompson.OddOrderTheorem
 public import CFSG.LocalAnalysis.ABGTheoremB.IV7Data
 

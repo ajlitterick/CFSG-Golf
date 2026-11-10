@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.Kernel.PCentExt
 public import Certificates.Kernel.G24Th799103.InvData
-import CFSG.Certificates.Kernel.Common.Harness
 import CFSG.Certificates.Kernel.Common.JsonGz
 import CFSG.Certificates.Kernel.Common.Repo
 

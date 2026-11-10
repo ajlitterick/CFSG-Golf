@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.TabCo1Census
 public meta import Certificates.Data.TabCo1Census
 public import Certificates.Kernel.Co1ThreeK.CensusK
 public import Certificates.Kernel.Co1ThreeK.GlueMoore

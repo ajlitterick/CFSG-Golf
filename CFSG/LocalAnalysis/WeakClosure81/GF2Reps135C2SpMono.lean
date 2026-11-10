@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps135C2SpWeylOrbit
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.W4Thm14_5.SmallSp6Curtis
 import CFSG.LieType.Universal.SymplecticExtras.RankOne
-public import Mathlib.LinearAlgebra.Matrix.Permutation
 
 public section
 

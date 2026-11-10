@@ -6,7 +6,6 @@ public import Certificates.Kernel.SporSch.PairJ3.C66Out0
 public import Certificates.Kernel.SporSch.PairJ3.C66Out1
 public import Certificates.Kernel.SporSch.PairJ3.C81Facts
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic
 
 public section
 

@@ -4,7 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFiveL2SplitDefs
 public import CFSG.LocalAnalysis.StandardType.GGInterfaceDefs
 import CFSG.LocalAnalysis.StandardType.GGSecFiveL2SplitDkRootsPairs
 import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
-import CFSG.LieType.Chevalley.WeylRoots
 
 public section
 

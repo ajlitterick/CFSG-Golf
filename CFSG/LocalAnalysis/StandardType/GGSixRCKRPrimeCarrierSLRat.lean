@@ -1,12 +1,6 @@
 module
 
-public import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
-public import Mathlib.LinearAlgebra.Matrix.Transvection
 public import Mathlib.FieldTheory.IsAlgClosed.Basic
-public import Mathlib.Algebra.CharP.Lemmas
-public import Mathlib.Algebra.CharP.Two
-public import Mathlib.Algebra.Field.Subfield.Basic
 
 public section
 

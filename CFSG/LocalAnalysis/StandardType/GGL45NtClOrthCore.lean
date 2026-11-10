@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGL45NtClOrthModel
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldOmegaConjLabels
 
 public section
 

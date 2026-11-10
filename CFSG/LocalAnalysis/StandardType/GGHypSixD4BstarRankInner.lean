@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGHypSixD4BstarRankTri
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRestDefs
-public import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerSpin
 
 public section
 

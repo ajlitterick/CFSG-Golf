@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2CensusDefs
-import CFSG.LocalAnalysis.StandardType.GGCentInnerDiagModel
-import CFSG.LocalAnalysis.StandardType.GGClassicalBlockSpDecomp
 import CFSG.LocalAnalysis.StandardType.GGNbrLangQ2SpBlock
 import CFSG.ClassicalGroups.Symplectic.ComponentCartanRank
 import CFSG.GroupTheory.IsComponentOfMap

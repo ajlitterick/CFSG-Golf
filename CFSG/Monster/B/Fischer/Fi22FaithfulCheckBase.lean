@@ -1,9 +1,6 @@
 
 module
 
-public import CFSG.Monster.B.Fischer.Fi22CertBase
-public import CFSG.Monster.B.Fischer.Fi22SepData
-public import Certificates.Data.CFSGNative.Fi22.Certificate
 public meta import CFSG.Monster.B.Fischer.Fi22CertBase
 public meta import CFSG.Monster.B.Fischer.Fi22SepData
 public meta import Certificates.Data.CFSGNative.Fi22.Certificate

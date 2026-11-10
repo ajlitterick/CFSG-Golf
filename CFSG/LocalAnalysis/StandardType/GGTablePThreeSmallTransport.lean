@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeSmallDefs
-import CFSG.LocalAnalysis.StandardType.GGD4OddCentVocab
-import CFSG.LocalAnalysis.StandardType.GGTriD4NoneMarking
-import CFSG.GroupTheory.ElementaryAbelianTransport
 
 public section
 

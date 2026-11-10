@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyOrthExcEven
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyUSigned
 
 public section
 

@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTypeACompatDiagRank
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRestBlocks
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarUniqueToralA
 public import CFSG.LocalAnalysis.StandardType.GGTypeAFarConfig
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelTypeAAssembly
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Asc77.AscBSCModel
-public import CFSG.ClassicalInvolution.Asc77.WP3FrameBootCtx
 public import CFSG.ClassicalInvolution.SmallCases.NDBC2
 import CFSG.ClassicalInvolution.Asc77.WP3SCSModel
 

@@ -2,15 +2,9 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T173Facts
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Tab.InnRank
-import CFSG.LocalAnalysis.GLTheoremA.CatA.Rk2Inn
 import CFSG.LocalAnalysis.GLTheoremA.CatA.T173InnDiagImage
-import CFSG.HardMathSupport.Timmesfeld.Tables.T1b.LinAut
 import CFSG.HardMathSupport.Timmesfeld.Tables.T1b.UniAut
-import CFSG.LocalAnalysis.StandardType.GGTableBExcE6Three
 import CFSG.LocalAnalysis.StandardType.GGNbrInnerWeylTwE6Lift
-import CFSG.LocalAnalysis.StandardType.GGTableBRank
-import CFSG.LocalAnalysis.StandardType.GGSixAutSteinberg
-import CFSG.GroupTheory.ElementaryAbelianTransport
 public import CFSG.HardMathSupport.Solomon.LocalBalance.ScpQuot
 public import CFSG.LocalAnalysis.GL83PartI.I_22_5.Setup
 public import CFSG.LocalAnalysis.GLTheoremA.S10.Inputs105

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTriD4LineWeylData
-import CFSG.LocalAnalysis.StandardType.GGTableBStdSub
 
 public section
 

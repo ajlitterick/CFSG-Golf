@@ -1,11 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenCore
-public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenOver
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrTableBLift
 public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyQFourDom
-public import CFSG.LocalAnalysis.StandardType.GGTBWInputDefs
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinNbrModel
 public import CFSG.LocalAnalysis.StandardType.GGNbrReflGenNonSplit
 

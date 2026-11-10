@@ -1,21 +1,5 @@
 module
 
-public import CFSG.RankThree.PartTwo.Sec8.Item812ProofFinal
-public import CFSG.RankThree.PartTwo.Sec8.Item812Proof89G2
-public import CFSG.RankThree.PartTwo.Sec8.Item812Proof810
-public import CFSG.RankThree.PartTwo.Sec8.Item812Proof811
-public import CFSG.RankThree.PartTwo.Sec8.Item812Res2ProofXNormal
-public import CFSG.RankThree.PartTwo.Sec8.Item812Res2ProofCenter
-public import CFSG.RankThree.PartTwo.Sec8.Item812Res2ProofRee
-public import CFSG.RankThree.PartTwo.Sec8.Item812Res2ProofD4
-public import CFSG.RankThree.PartTwo.Sec8.Item812Res2ProofGen
-public import CFSG.RankThree.PartTwo.Sec8.Item812Res3ProofOmega
-public import CFSG.RankThree.PartTwo.Sec8.Item812Res3ProofSU
-public import CFSG.RankThree.PartTwo.Sec8.Item812Proof89
-public import CFSG.RankThree.PartTwo.Sec13.Item138N
-public import CFSG.RankThree.PartTwo.Sec4.Statements417
-public import CFSG.RankThree.PartTwo.Sec8.Item812Res3ProofFrattini
-public import CFSG.RankThree.PartTwo.Sec8.Item812Res3ProofSylow
 public import CFSG.RankThree.PartTwo.Sec8.Item812Res3ProofSUInner
 public import CFSG.RankThree.PartTwo.Sec8.Item812Res3ProofSpReal
 public import CFSG.RankThree.PartTwo.Sec8.Item83ProofChoice
@@ -25,8 +9,6 @@ public import CFSG.RankThree.PartTwo.Sec8.Item812Res4ProofApply
 public import CFSG.RankThree.PartTwo.Sec8.Item812Res4ProofConfig
 import CFSG.RankThree.PartTwo.KFacts.KSListsProofCard
 import CFSG.RankThree.PartTwo.KFacts.K71Item89
-import CFSG.RankThree.PartTwo.KFacts.K71Sp4
-import CFSG.RankThree.PartTwo.KFacts.AutKindsUnique
 
 public section
 

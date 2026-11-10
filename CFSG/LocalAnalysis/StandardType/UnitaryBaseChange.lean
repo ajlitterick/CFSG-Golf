@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.UnitaryAlgClosure
-public import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
 
 public section
 

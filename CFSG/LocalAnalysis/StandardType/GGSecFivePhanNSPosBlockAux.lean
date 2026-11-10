@@ -1,11 +1,7 @@
 module
 
 import Lean
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosDefs
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosTorus
-public import CFSG.ClassicalInvolution.Phan.Center
-import CFSG.ClassicalGroups.Unitary.Base
-import CFSG.ClassicalGroups.Unitary.Finite
 public import CFSG.ClassicalInvolution.Balance.StrongPowSuBlocks
 public import CFSG.ClassicalInvolution.Balance.PassTwoFinal
 public import CFSG.ClassicalInvolution.Models.LinearFrames

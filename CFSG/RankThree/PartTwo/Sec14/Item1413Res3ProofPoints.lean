@@ -2,19 +2,14 @@ module
 
 public import CFSG.RankThree.PartTwo.Sec14.Item1413Res3ProofTools
 public import CFSG.RankThree.PartTwo.Sec14.Item1413Res3ProofDefs
-import CFSG.RankThree.PartTwo.Sec13.Item131Facts
 import CFSG.RankThree.PartTwo.Sec13.Item136Pair
 import CFSG.RankThree.PartTwo.Sec13.Item13Plane
-import CFSG.RankThree.PartTwo.Sec13.Item13Models
 import CFSG.RankThree.PartTwo.Sec14.Item143StepsProofLThree
-import CFSG.RankThree.GroupTheory.SubnormalCores
 import CFSG.RankThree.PartTwo.Sec13.Item133
 import CFSG.RankThree.PartTwo.Sec13.Item13Sporadic
 import CFSG.RankThree.PartTwo.Sec13.Item13SLTwo
 import CFSG.RankThree.PartTwo.Sec13.Item136PGL
 import CFSG.RankThree.PartTwo.KFacts.KS14Orders
-import CFSG.Sporadic.Mathieu.M12
-import CFSG.Sporadic.Mathieu.M22
 public import CFSG.RankThree.PartTwo.Sec14.Item1411StepsProof
 public import CFSG.RankThree.PartTwo.Sec14.Item1413Proof1417
 public import CFSG.RankThree.PartTwo.Sec14.Item1413ProofFrame

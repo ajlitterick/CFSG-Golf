@@ -2,10 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.ParrottLeviExcBorelQuot
 public import CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.ParrottLeviExcTwE6Facts
-public import CFSG.LieType.Chevalley.TwistedE6NormalForm
 public import CFSG.RankThree.PartOne.KLC.EigTwE6
-public import CFSG.LocalAnalysis.SectionRank.SQT
-public import CFSG.Blueprint.Catalog
 public import CFSG.RankThree.PartOne.KD4T.Certs
 
 public section

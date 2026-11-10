@@ -1,7 +1,6 @@
 module
 
 public import CFSG.GF2Type.Smith1980Orth.S3ThmAEnd
-public import CFSG.GF2Type.Smith1980Orth.S3ThmACaseI
 public import CFSG.GF2Type.Smith1980Orth.S3ThmACaseII
 public import CFSG.GF2Type.Smith1980Orth.SixCore
 public import CFSG.GF2Type.Smith1980Orth.S3Good

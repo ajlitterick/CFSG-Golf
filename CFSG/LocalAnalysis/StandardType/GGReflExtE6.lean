@@ -3,11 +3,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGReflExtE6Base
 
-public import CFSG.LocalAnalysis.StandardType.GGReflExtFinal
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeE6AllDefs
 public import Certificates.Certificate708604
-public import Certificates.Data.CFSGNative.ReflExt.E6
-public import Mathlib.LinearAlgebra.Matrix.Notation
 
 public section
 

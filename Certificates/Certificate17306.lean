@@ -2,16 +2,12 @@ module
 
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabThCentUInputs
 public import CFSG.HardMathSupport.Timmesfeld.SporadicBalance.ThSlp
-public import Certificates.Certificate1022
 import Certificates.Kernel.ThCent.Leaf3C
 import Certificates.Certificate1021
 public import CFSG.Perm.CentralizerOrbit
 public import CFSG.Sporadic.Ly.ThreeBCount
 public import CFSG.Sporadic.Th.CertificateBase
 public import CFSG.Sporadic.Th.CertificateBase1
-public import CFSG.Sporadic.Th.KernelContractBase
-public import CFSG.Sporadic.ThSchreier.FullAutCoreBase
-public import CFSG.Sporadic.ThSchreier.KernelAutBase
 public import CFSG.Sporadic.ThSchreier.KernelAutBase1
 
 public section

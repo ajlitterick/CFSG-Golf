@@ -1,14 +1,10 @@
 module
 
 import Lean
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosDefs
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosTransport
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosAdapter
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosFinal
-public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSExcl
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNSEsu
 public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSLieEsu
-public import CFSG.LocalAnalysis.StandardType.GGNbrTableForms
 
 public section
 

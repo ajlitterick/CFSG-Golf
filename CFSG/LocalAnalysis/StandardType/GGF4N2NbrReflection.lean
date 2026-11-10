@@ -1,9 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGF4N2JPositions
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveRestGen
-import CFSG.RankThree.PartOne.AUTSL.Interface
-import CFSG.RankThree.PartTwo.KFacts.K71L28TwoFree
 
 public section
 

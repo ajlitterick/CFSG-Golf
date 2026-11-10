@@ -3,8 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGKG87BRadDefs
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelQ8Kernel
 public import CFSG.LocalAnalysis.StandardType.GGKG87BThreeA2
-public import CFSG.LocalAnalysis.StandardType.GGTableBTwE6PerBstar
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiag
 public import CFSG.LocalAnalysis.StandardType.GGNbrFieldFixPerfect
 
 public section

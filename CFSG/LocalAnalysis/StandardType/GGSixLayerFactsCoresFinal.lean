@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsCoresSp
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsCoresSU
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsCoresAlt
 public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsCoresHerm
 
 public section

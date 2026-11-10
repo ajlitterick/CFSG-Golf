@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Q3.Q3TIVLayer
-public import CFSG.ClassicalInvolution.Q3.Q3WAComp
 public import CFSG.ClassicalInvolution.RouteD.TwinYR2XO
 public import CFSG.ClassicalInvolution.Q3.Q3NGInv
 public import CFSG.ClassicalInvolution.Q3.Q3TCCtx

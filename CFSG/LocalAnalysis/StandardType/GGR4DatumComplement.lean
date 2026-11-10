@@ -1,8 +1,6 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGR4JMeetKGDefs
 public import CFSG.LocalAnalysis.StandardType.GGR4DatumComplementAux
-public import CFSG.GroupTheory.ElemAbelianClosure
 
 public section
 

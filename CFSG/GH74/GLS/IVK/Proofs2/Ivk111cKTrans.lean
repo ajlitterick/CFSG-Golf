@@ -1,6 +1,5 @@
 module
 
-public import CFSG.GH74.GLS.IVK.Proofs2.Ivk111cIface
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk111cKInfl
 public import CFSG.GH74.GLS.IVK.Proofs2.Ivk111cNGlue
 

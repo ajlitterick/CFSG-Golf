@@ -3,7 +3,6 @@ module
 public import CFSG.Blueprint.MatrixSeedIdentification
 public import CFSG.Certificates.SchreierStabilizerGenerators
 public import CFSG.Sporadic.Schreier.LyCheckOrbit
-public import CFSG.Blueprint.NativeSporadic
 import all CFSG.Blueprint.NativeSporadic
 public import CFSG.Sporadic.Ly.KeySpec
 

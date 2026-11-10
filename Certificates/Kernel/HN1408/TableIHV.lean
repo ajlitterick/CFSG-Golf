@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.HN1408.TableIData
-public import Certificates.Kernel.Misc.Perm.HexCmd
 meta import Certificates.Kernel.HN1408.TableIData
 meta import Certificates.Data.CFSGNative.SmallOddCore.Check
 

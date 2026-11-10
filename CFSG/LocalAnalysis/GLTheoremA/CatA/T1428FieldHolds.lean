@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.T1428Facts
 public import CFSG.LocalAnalysis.GLTheoremA.S12.CanonSubcomp
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.AssemblyAll
-import CFSG.LocalAnalysis.GLTheoremA.S3.ChevTools
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GInnExcLabel
 
 public section

@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGPosOmegaMinusFix
 public import CFSG.LocalAnalysis.StandardType.GGKGPosOmegaMinusRoot
-public import CFSG.LocalAnalysis.StandardType.GGStdPosTorusNorm
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveKGPosDefs
 
 public section
 

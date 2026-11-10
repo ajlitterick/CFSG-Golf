@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosDefs
 import CFSG.LocalAnalysis.StandardType.GGFrameRoutePortP9U8Semilin
 import CFSG.LocalAnalysis.StandardType.GGSecFivePhanNSPosCommAux
 import CFSG.LocalAnalysis.StandardType.GGQTwoSUOrder
-import CFSG.LieType.Steinberg.CentralExt.SUThree
-import CFSG.RankThree.PartOne.SEITZ2.SU3Pair
 
 public section
 

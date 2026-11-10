@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGPZNbrResRestDefs
 public import CFSG.LocalAnalysis.StandardType.GGTwA5ThreeFrame
-public import CFSG.LocalAnalysis.StandardType.GGTBXDatumOfTor
-public import CFSG.LocalAnalysis.StandardType.GGCoxeterLabelCLLWeyl
 
 public section
 

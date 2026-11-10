@@ -12,7 +12,6 @@ public import Certificates.Kernel.HN1408.FixRYIChk
 public import Certificates.Kernel.HN1408.FctChk
 public import Certificates.Kernel.HN1408.Tr2Facts
 public import Certificates.Kernel.HN1408.TransFacts
-public import CFSG.LocalAnalysis.EvenSporadicStandard.HNRecog.TwoHSData.FixClass
 import CFSG.Certificates.Kernel.Common.ForallChunks
 import CFSG.Certificates.Kernel.BfsPinBaseSound
 

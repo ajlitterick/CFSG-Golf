@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.Co2Jc.NoZ4K
 public import Certificates.Kernel.Co2Jc.Gen
-public import CFSG.Certificates.Kernel.Co1BMulSound
 public import CFSG.Certificates.Kernel.OpsKSound
 import CFSG.Certificates.Kernel.Common.Harness
 

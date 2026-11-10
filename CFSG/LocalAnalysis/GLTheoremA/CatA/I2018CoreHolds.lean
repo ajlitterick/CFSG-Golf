@@ -6,11 +6,7 @@ import CFSG.LocalAnalysis.GLTheoremA.CatA.I137Core3G2
 import CFSG.LocalAnalysis.GLTheoremA.CatA.I137Core3Bender
 import CFSG.LocalAnalysis.GLTheoremA.CatA.TD4LeParab
 import CFSG.GH74.GLS.Stage2.Signalizer.Odd87FD4SParity
-import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofLieOrder
-import CFSG.HardMathSupport.Solomon.Coordinator.LieOrderBridgeHolds
 import CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.Center
-import CFSG.HardMathSupport.Timmesfeld.Tables.T1b.Bridge
-import CFSG.LocalAnalysis.SeitzReduction.CrossChar
 import CFSG.LocalAnalysis.GLTheoremA.S10.CatDistinct
 import CFSG.LocalAnalysis.GLTheoremA.CatB.Bridges
 import CFSG.LocalAnalysis.StandardType.ChevTwoLieModel

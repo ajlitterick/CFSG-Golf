@@ -2,12 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section18.Table137Opp
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section18.OmegaSixMinusFixTwo
-public import CFSG.LocalAnalysis.RankThreeUC.AGL81S16OFixW
-public import CFSG.RankThree.PartOne.KC.OrthogonalEvenMinusExtraction
-public import CFSG.HardMathSupport.Curtis.NaturalModuleCensus.AltIb.OmegaMinusSmall
-public import CFSG.ClassicalGroups.Orthogonal.Matrix
 public import CFSG.LocalAnalysis.SeitzReduction.SymplecticPilotKindOmegaMinusPiecesLevi
-public import CFSG.GroupTheory.ABGLocalTools.PStabilityQSL2
 public import CFSG.GroupTheory.PElementSubgroup
 public import CFSG.LieType.Ree.LargeReeInvolutionTwoCentralizers
 public import CFSG.LocalAnalysis.AGLEmbedding.CaseTwoConfig

@@ -1,17 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.MinimalLocalFailureLocalThetaNormalization
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Corollary85
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.II1Section4
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Interfaces
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section10Lemma101
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section10Lemma106
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section10Proposition102Core
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section10Proposition102ExponentData
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section10Proposition102Final
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma114
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Section11Lemma114Models
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.SE.Theorem4
 public import CFSG.Assembly.OrderReductions.CharacterInflation
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.CentralInvolutionStructure
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionDenominatorAction

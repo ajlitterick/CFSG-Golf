@@ -1,10 +1,8 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSignedCoordBlocks
-public import Mathlib.GroupTheory.Coxeter.Matrix
 import CFSG.LocalAnalysis.StandardType.GGSignedCoordFix
 import CFSG.LocalAnalysis.StandardType.GGSignedCoordRefl
-import CFSG.LocalAnalysis.StandardType.GGSpJoinCoxeterCard
 import CFSG.LocalAnalysis.StandardType.GGTBRowSignedFrameAux
 import CFSG.LocalAnalysis.StandardType.GGRCWeylCard
 import CFSG.LocalAnalysis.StandardType.GGSpFrameCoxeterCard

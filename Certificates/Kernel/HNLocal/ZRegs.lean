@@ -7,11 +7,8 @@ import Certificates.Kernel.HNLocal.Checks.ZR
 import Certificates.Kernel.HNLocal.Checks.ZW0
 import Certificates.Kernel.HNLocal.Checks.ZW1
 import Certificates.Kernel.HN3166.Ord
-import Certificates.Kernel.HN3166.Seed
 import Certificates.Kernel.VecCert.WordProg
-import CFSG.Certificates.Kernel.Orders.HN.Data.Sel
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 set_option maxRecDepth 400000
 

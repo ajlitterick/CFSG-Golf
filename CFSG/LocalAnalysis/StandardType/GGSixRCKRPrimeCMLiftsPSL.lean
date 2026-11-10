@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixRCKRPrimeDefs
 public import CFSG.LocalAnalysis.StandardType.ClassicalPosition.IDCommute
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarUniqueToralA
 
 public section
 

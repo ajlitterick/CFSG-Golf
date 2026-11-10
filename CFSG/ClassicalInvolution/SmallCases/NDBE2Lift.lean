@@ -3,8 +3,6 @@ module
 public import CFSG.ClassicalInvolution.SmallCases.NDBE0Stmt
 public import CFSG.ClassicalInvolution.SmallCases.NDBE1
 import CFSG.ClassicalInvolution.SmallCases.NDBC7
-import CFSG.ClassicalInvolution.Asc77.WP3FrameLieB
-import CFSG.ClassicalInvolution.RouteD.NoG2D4Model
 
 public section
 

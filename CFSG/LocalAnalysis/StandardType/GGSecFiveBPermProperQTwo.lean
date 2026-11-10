@@ -7,9 +7,7 @@ import CFSG.LocalAnalysis.StandardType.GGSecFiveBProperNbr
 import CFSG.LocalAnalysis.StandardType.GGSecFiveBCoordBSpSp
 import CFSG.LocalAnalysis.StandardType.GGSecFivePresTagClassical
 import CFSG.LocalAnalysis.StandardType.GGQTwoSpinEndpoint
-import CFSG.LocalAnalysis.StandardType.GGSignedCoordFix
 import CFSG.LocalAnalysis.StandardType.GGTBRowSignedFrameAux
-import CFSG.LocalAnalysis.StandardType.GGSecFivePumpBstar
 
 public section
 

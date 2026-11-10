@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.WeakClosure81.GF2Reps136Defs
-public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs12d
 public import CFSG.LocalAnalysis.WeakClosure81.SixFourteenOmega4UniqueAbstract
 import CFSG.Quasithin.Background.B5Models
 import CFSG.Quasithin.Vol2.Ch4Sec2Thm4213J4KXQS

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGK0LQRows
-public import CFSG.LocalAnalysis.StandardType.GGK0LQ2Adapt
 
 public section
 

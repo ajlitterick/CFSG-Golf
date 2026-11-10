@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelOmMvFrame
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelOmMoves
 public import CFSG.LocalAnalysis.StandardType.GGSixStepTwoCoordModelSpNsBlock
-public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameBlock
 
 public section
 

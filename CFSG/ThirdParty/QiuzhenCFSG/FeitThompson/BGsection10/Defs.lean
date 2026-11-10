@@ -1,7 +1,5 @@
 module
 
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection6.Defs
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection9.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.BGsection9.theorem_9_6_in_particular
 import Mathlib.GroupTheory.Schreier
 import Mathlib.LinearAlgebra.Projectivization.Cardinality

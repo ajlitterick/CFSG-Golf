@@ -2,8 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.WeakCT.TwistedE6AdjointA2Algebraic
 public import CFSG.LocalAnalysis.StandardType.GGActualQuadraticField
-public import CFSG.LocalAnalysis.StandardType.GGUnitaryTwoResidual
-public import CFSG.LocalAnalysis.StandardType.GGFinModelIndex
 public import CFSG.ClassicalInvolution.Balance.BootstrapDischarge
 public import CFSG.ClassicalInvolution.Balance.LayerGenerationInner
 public import CFSG.ClassicalInvolution.Balance.LayerGenerationTriple

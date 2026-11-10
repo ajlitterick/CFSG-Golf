@@ -5,10 +5,7 @@ public import CFSG.LocalAnalysis.StandardType.GGRootNormInner
 public import CFSG.LocalAnalysis.StandardType.GGRootInvolutionExceptional
 public import CFSG.LocalAnalysis.StandardType.GGRootCentralizerExcRoots
 public import CFSG.LocalAnalysis.StandardType.GGRootDetectExcCore
-public import CFSG.LieType.Chevalley.EvenE7E8AutomorphismNormalForm
-public import CFSG.LieType.Chevalley.RootCharacterConjugation
 public import CFSG.LieType.Chevalley.E7SupportedBruhatTorus
-public import CFSG.LieType.Chevalley.ParabolicRadicalLevi
 public import CFSG.LieType.Chevalley.C2E6SubsystemBruhat
 
 public section

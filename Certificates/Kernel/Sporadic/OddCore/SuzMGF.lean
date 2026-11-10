@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.Sporadic.OddCore.SuzMG
 public import Certificates.Kernel.Sporadic.OddCore.SuzTwCF
 public import Certificates.Kernel.LocalComp.B0SuzData
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

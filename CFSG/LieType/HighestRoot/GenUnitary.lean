@@ -2,10 +2,7 @@ module
 
 public import CFSG.LieType.HighestRoot.GenBasic
 public import CFSG.LieType.Universal.Unitary.Extras
-public import CFSG.LieType.Universal.Unitary.Extras.Basic
-public import CFSG.LieType.Universal.Unitary.Extras.Unipotent
 public import CFSG.LieType.Universal.Unitary.Extras.RankOneLast
-import Mathlib.Tactic.NoncommRing
 
 public section
 

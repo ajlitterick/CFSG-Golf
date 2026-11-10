@@ -2,7 +2,6 @@ module
 
 public import CFSG.RankThree.GF2n.Parrott.Section2Theorem1EqualityBranch
 import CFSG.RankThree.GF2n.Parrott.ZFusionControlHyp
-import CFSG.RankThree.GF2n.Parrott.DerivedInterJEqBranch
 import CFSG.RankThree.GF2n.Parrott.Section2Lemma11aEqualityBranch
 import CFSG.RankThree.GF2n.Parrott.Section2Lemma11bEqualityBranch
 import CFSG.RankThree.GF2n.Parrott.SigmaStarEquality
@@ -11,7 +10,6 @@ import CFSG.RankThree.GF2n.Parrott.Lemma14K
 import CFSG.RankThree.GF2n.Parrott.ConjZPH
 import CFSG.RankThree.GF2n.Parrott.Lemma15EqualityE
 import CFSG.RankThree.GF2n.Parrott.Lemma16EqualityClasses
-import CFSG.RankThree.GF2n.Parrott.Lemma16EqualityFusion
 
 public section
 

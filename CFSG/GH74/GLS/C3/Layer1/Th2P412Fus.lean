@@ -1,9 +1,7 @@
 module
 
 public import CFSG.GH74.GLS.C3.Layer1.Th2P412Cls
-public import CFSG.GH74.GLS.Stage1.Thm3.Sec5.IG1516
 public import CFSG.GH74.GLS.C3.Layer1.Th2P615Fus
-public import Certificates.Kernel.ThCent.Leaves
 
 public section
 

@@ -1,12 +1,7 @@
 module
 
-public import Mathlib.GroupTheory.SpecificGroups.KleinFour
-public import Mathlib.GroupTheory.Perm.Centralizer
-public import Mathlib.GroupTheory.Perm.Cycle.Type
-public import Mathlib.GroupTheory.SpecificGroups.Alternating
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ASevenInvolutionCount
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.A7SylowCentralizer
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.ASevenInvariantOddPSubgroupCertificateDefs
 public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.ChiefFactors.Core
 import Mathlib.Tactic

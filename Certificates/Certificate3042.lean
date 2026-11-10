@@ -3,11 +3,7 @@ module
 
 public import Certificates.Certificate3042Base
 
-public import CFSG.Monster.B.TwoA.Unitary.WStabInputs
-public import Certificates.Kernel.MonsterB.Chain3042
-public import CFSG.Certificates.Kernel.MonsterB.PermGroupBfs
 import CFSG.Certificates.Kernel.Common.Harness
-import CFSG.Certificates.Kernel.Spor.RawSound
 
 public section
 

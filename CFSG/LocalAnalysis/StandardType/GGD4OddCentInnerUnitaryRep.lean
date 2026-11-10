@@ -3,9 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentInnerComp
 public import CFSG.LocalAnalysis.StandardType.GGD4OddCentInnerPlane
 public import CFSG.HardMathSupport.Dickson.Bal207.OrthSU38Torus
-public import CFSG.HardMathSupport.Dickson.Bal207.OrthFixedType
-public import CFSG.RankThree.PartTwo.KFacts.AutPSU
-public import CFSG.RankThree.PartOne.S11d.OrthDicksonOmega
 public import CFSG.Adapters.ClassicalCatalogLinearUnitary
 public import CFSG.CharacterTheory.CyclicBlocks.Family
 public import CFSG.CharacterTheory.Semidihedral.Principal.LargePrimeTorusSylowCentralizers
@@ -55,8 +52,6 @@ public import CFSG.Quasithin.Background.C2PushThree
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.D2Cyclic
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.FFC4Tr2
 public import CFSG.Quasithin.Background.GoldschmidtS146RBend1

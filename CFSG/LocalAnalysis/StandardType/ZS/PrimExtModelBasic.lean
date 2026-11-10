@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.ZS.PrimExtTable
-public import Mathlib.LinearAlgebra.Matrix.BilinearForm
 import CFSG.LocalAnalysis.StandardType.GGTableBUnitTvLinAlg
-import CFSG.LocalAnalysis.StandardType.ZS.Basic
 import CFSG.LocalAnalysis.StandardType.ZS.ReflQuotient
 
 attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent

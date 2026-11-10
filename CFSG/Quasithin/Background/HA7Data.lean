@@ -1,13 +1,11 @@
 module
 
-public import CFSG.Quasithin.Background.B4Models
 public meta import Mathlib.Algebra.Field.ZMod
 public meta import Mathlib.GroupTheory.Perm.Sign
 public meta import Mathlib.GroupTheory.SpecificGroups.Alternating
 public meta import Mathlib.Data.Fintype.Perm
 public meta import Mathlib.Data.Matrix.Mul
 public meta import Mathlib.Data.Fin.VecNotation
-public import CFSG.Quasithin.Background.HA7DataInputs
 public import Certificates.Certificate7022
 
 public section

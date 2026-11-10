@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTablePThreeSmallDefs
-import CFSG.LocalAnalysis.StandardType.GGTableBTransport
 
 public section
 

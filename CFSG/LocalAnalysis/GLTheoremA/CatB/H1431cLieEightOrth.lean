@@ -1,13 +1,9 @@
 module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatB.H1431cLieEightLin
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.I1431ChevTwoClWit
 public import CFSG.HardMathSupport.Dickson.Bal207.OrthInnerShape
 public import CFSG.HardMathSupport.Dickson.Bal207.OrthFam
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointDataCoordinateRegular
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBOrthogonalPointDataModelWitness
 import CFSG.LocalAnalysis.ComponentClassification.CatFC.CentA6ClOmegaPlus
-import CFSG.RankThree.PartTwo.Census.Spin.WitnessTDFive
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.LieType
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.GraphTwisted
 public import CFSG.RankThree.PartOne.S15K.FixedWitt
@@ -19,8 +15,6 @@ import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddInnerOmega
 import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddOrthAll
 import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofSLForm
 import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofToralReps
-import CFSG.LocalAnalysis.ComponentClassification.GSThmBCatalog81X10RecChar
-import CFSG.LocalAnalysis.ComponentInitial.ProjectiveOrthogonalLocalComponentSplit
 import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.Main
 import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.Zassenhaus.DiagonalLink
 import CFSG.LocalAnalysis.EvenSporadicStandard.HSStd.Zassenhaus.OuterPumpChainBasic

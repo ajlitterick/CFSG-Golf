@@ -3,16 +3,11 @@ module
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.ThreeCore.M24Check
 public import CFSG.Sporadic.Schreier.M24
 import Certificates.Kernel.M24Three.Checks
-import Certificates.Kernel.M24Three.Checks2
 import Certificates.Kernel.M24Three.Checks3
 import CFSG.Certificates.Kernel.M24ThreeSound
 import CFSG.Certificates.Kernel.M24ThreeWord
-import CFSG.Certificates.Kernel.Spor.MulHSound
 import CFSG.Certificates.Kernel.Spor.RecGroup
 import CFSG.Certificates.Kernel.Spor.BaseMaskGlue
-import CFSG.Certificates.Kernel.Spor.PackWord
-import CFSG.Certificates.Kernel.Spor.Loops
-import CFSG.Certificates.Kernel.Spor.RawOrbEval
 import CFSG.Certificates.Kernel.BfsPinAlg
 import CFSG.Certificates.Kernel.Enum.ZCHSound
 import CFSG.Certificates.Kernel.SporSch.ChainKPack
@@ -20,7 +15,6 @@ import CFSG.Certificates.Kernel.Common.ForallTree
 import CFSG.Sporadic.SmallOddCore.CheckSpec
 import CFSG.LocalAnalysis.AGLEmbeddingD2.Wilson.ThreeCore.Facts
 import CFSG.RankThree.PartTwo.Sec4.T444.Item434AltPerm
-import Mathlib.Tactic.IntervalCases
 import CFSG.Certificates.Kernel.Enum.ZChkISound
 import CFSG.Certificates.Kernel.Spor.BaseMaskSound
 import CFSG.LocalAnalysis.RankThreeEvenClassification.ComponentCore

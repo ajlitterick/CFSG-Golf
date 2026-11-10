@@ -1,6 +1,5 @@
 module
 
-public import Mathlib
 public import CFSG.SignalizerFunctorTheorem.NonLocal.UData
 public import CFSG.SignalizerFunctorTheorem.NonLocal.LinearMain
 public import CFSG.LocalAnalysis.ComponentClassification.UnbalancedCatalogG2EvenCanonicalField

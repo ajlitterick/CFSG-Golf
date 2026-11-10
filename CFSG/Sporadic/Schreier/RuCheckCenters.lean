@@ -1,8 +1,6 @@
 module
 
-public import CFSG.Sporadic.Schreier.RuCheckSylow
 public meta import CFSG.Sporadic.Schreier.RuCheckSylow
-public import CFSG.Sporadic.Schreier.RuCheckCentersInputs
 public import Certificates.Certificate2248
 
 public section

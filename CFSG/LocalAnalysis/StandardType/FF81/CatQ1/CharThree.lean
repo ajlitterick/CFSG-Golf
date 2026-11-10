@@ -2,8 +2,6 @@ module
 
 public import CFSG.Open.StatedDefs
 import CFSG.LocalAnalysis.EvenSmallLie.CatalogOrdersLie
-import CFSG.Assembly.OrderReductions.InvertedSubgroup
-import CFSG.Assembly.OrderReductions.OddInversion
 import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 import CFSG.GroupTheory.LocalCores.Fitting
 import CFSG.LieType.Chevalley.RootCommutator
@@ -25,7 +23,6 @@ import CFSG.LocalAnalysis.SectionRank.ClassicalOdd
 import CFSG.LocalAnalysis.SectionRank.EvenCover.LinearStep
 import CFSG.LocalAnalysis.SectionRank.SporadicCover
 import CFSG.Sporadic.M23.M23Group
-import CFSG.Sporadic.Th.F2Spec
 import TauCeti.LinearAlgebra.CliffordAlgebra.Monomials
 
 public section

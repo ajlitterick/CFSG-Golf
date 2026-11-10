@@ -2,10 +2,7 @@ module
 
 public import Certificates.Kernel.Sporadic.OddCore.S16J3K27810
 public import Certificates.Kernel.Sporadic.OddCore.J3BetaA5
-public import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.TS16RYData
-public import Certificates.Data.Kernel.Spor.MulHF
 meta import CFSG.LocalAnalysis.EvenSporadicStandard.Fin76b.TS16RYData
-import CFSG.Certificates.Kernel.Common.Harness
 meta import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 meta import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
 meta import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3

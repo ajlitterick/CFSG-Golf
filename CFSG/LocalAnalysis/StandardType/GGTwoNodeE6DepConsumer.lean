@@ -1,11 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeE6DepAllDefs
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeE6Consumer
-public import CFSG.LocalAnalysis.StandardType.GGTwoNodeE6Frame
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeA5DepExclusion
 public import CFSG.LocalAnalysis.StandardType.GGTWSmallLE3E6Datum
-public import CFSG.LocalAnalysis.StandardType.GGResCentBoundNbr
 public import CFSG.LocalAnalysis.StandardType.GGTwoNodeNineConsumer
 
 public section

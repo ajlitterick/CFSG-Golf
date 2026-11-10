@@ -1,11 +1,6 @@
 module
 
 public import Mathlib.GroupTheory.SpecificGroups.Dihedral
-public import Mathlib.GroupTheory.SpecificGroups.KleinFour
-public import Mathlib.GroupTheory.Subgroup.Centralizer
-public import Mathlib.Algebra.Group.Subgroup.ZPowers.Basic
-public import Mathlib.Algebra.Ring.Parity
-public import Mathlib.Data.ZMod.Basic
 public import Mathlib.Tactic
 
 namespace CFSG

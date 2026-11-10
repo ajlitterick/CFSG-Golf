@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartOne.SRC.ModelRee
-public import TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.LieType
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.LieType
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Assembly.AmbientGroup
 import all TauCeti.GroupTheory.SpecificGroups.CFSG.Classification

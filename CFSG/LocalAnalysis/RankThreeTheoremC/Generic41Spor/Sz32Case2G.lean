@@ -3,12 +3,10 @@ module
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.Sz32Defs
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.Sz32SharedProp31
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.Sz32SharedFocal
-public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.GroupSz32
 import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.Sz32Case2GSeries
 import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.Sz32Case2GData
 import CFSG.LocalAnalysis.RankThreeTheoremC.Generic41Spor.Sz32Pgroup
 import CFSG.LocalAnalysis.RankThreeTheoremC.Generic49U3.Case2Burnside
-import CFSG.LocalAnalysis.RankThreeTheoremC.SmallRankSetup
 public import CFSG.LocalAnalysis.RankThreeTheoremC.FusionControl
 public import CFSG.LocalAnalysis.RankThreeTheoremC.Generic49U3.PSU3.Aut
 import CFSG.LocalAnalysis.RankThreeTheoremC.Generic49U3.Case2Decomp

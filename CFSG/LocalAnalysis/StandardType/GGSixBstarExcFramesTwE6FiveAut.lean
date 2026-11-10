@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTwE6FiveLang
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTwE6InnerForm
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarE6ThreeWeylDiagGen
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesTorus
-public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutPSLRestField
 public import CFSG.RankThree.Chevalley.SteinbergBNG2QPlusLocalCore
 
 public section

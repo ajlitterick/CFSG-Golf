@@ -1,8 +1,6 @@
 module
 
 public import Certificates.Kernel.Fi22Omega.Orbit
-public import CFSG.Monster.B.Fischer.Fi22Faithful
-public import CFSG.Certificates.Kernel.Spor.RawTreeDefs
 import CFSG.Certificates.Kernel.Common.Harness
 
 public section

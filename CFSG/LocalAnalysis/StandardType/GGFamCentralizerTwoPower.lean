@@ -1,12 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixLayerFactsExcSixEToral
 public import CFSG.LocalAnalysis.StandardType.GGWeylFamQuotSolvAll
 public import CFSG.LocalAnalysis.StandardType.GGUnitaryTwoResidual
-import CFSG.LieType.Chevalley.E6GraphInvolutionFiniteReduction
-import CFSG.LieType.Chevalley.LangFrobeniusFixedDerived
-import CFSG.RankThree.Classical2.TwistedE6RationalOrder
-import CFSG.RankThree.PartOne.KE.CTLang
 
 public section
 

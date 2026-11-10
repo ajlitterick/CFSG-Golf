@@ -1,15 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.SeitzReduction.E6PilotCTFieldTwist
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearAction
-public import Mathlib.LinearAlgebra.Basis.Prod
-public import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
-public import CFSG.RankThree.PartOne.KC.OrthogonalPrimarySummands
 
-public import CFSG.Assembly.OrderReductions.LinearOrders
-public import CFSG.Assembly.Subnormal
-public import CFSG.RankThree.SteinbergR3ECALinearPrimaryBlocks
-public import CFSG.RankThree.PartOne.KC.LinearPlaneBlocks
 public import CFSG.LieType.SeitzGeneration.OrthManyPieces
 public import CFSG.LocalAnalysis.StandardType.GGF4N2RootCharts
 public import CFSG.RankThree.PartOne.FOC.PSLDecomp
@@ -17,9 +9,7 @@ public import CFSG.RankThree.PartOne.KF.R6LeviA
 public import CFSG.LocalAnalysis.StandardType.GGTBJUnitaryMinusBlockAuxComp
 public import CFSG.LocalAnalysis.StandardType.GGSixTCWP4UGroup
 public import CFSG.HardMathSupport.Timmesfeld.CrossChar.LinearGen
-public import CFSG.LieType.Steinberg.CentralExt.SUThreeOrder
 
-public import CFSG.LocalAnalysis.ComponentInitial.CommutingBlock
 
 public import CFSG.RankThree.PartOne.KC.LinearCAAdapter
 public import CFSG.CharacterTheory.BrauerThirdMainTheorem.CentralResidueMaps

@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1HSData
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1CharNative
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1PipeNative
 public import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicHS
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1HSData
 public meta import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1CharNative
@@ -10,7 +7,6 @@ public meta import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1PipeNa
 public meta import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicHS
 public meta import CFSG.LocalAnalysis.QuasithinUnique.K1.SporadicBaseNative
 public meta import Certificates.Data.CFSGNative.HS.Data
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X1HSCheckInputs
 public import Certificates.Certificate4133
 
 public section

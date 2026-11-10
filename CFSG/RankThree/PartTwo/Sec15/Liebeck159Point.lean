@@ -1,14 +1,8 @@
 module
 
 public import CFSG.RankThree.PartTwo.Sec15.Item158StepsProof159
-public import CFSG.RankThree.PartTwo.Sec15.HypR
-public import CFSG.RankThree.PartTwo.Sec4.Statements
-public import CFSG.RankThree.PartTwo.Sec4.Notation
-public import CFSG.RankThree.PartTwo.Sec14.Item14ListStatements
-import CFSG.RankThree.PartTwo.Sec13.Item13Basic
 import CFSG.RankThree.PartTwo.Sec13.Item13SetupAt
 import CFSG.RankThree.PartTwo.Sec13.Item133
-import CFSG.RankThree.PartTwo.Sec15.Item1511ProofTools
 import CFSG.RankThree.PartTwo.Sec15.Item154PiProofPoint
 import CFSG.RankThree.PartTwo.Sec12.Item123Inputs
 import CFSG.RankThree.PartTwo.Sec14.Item148RankProofTen

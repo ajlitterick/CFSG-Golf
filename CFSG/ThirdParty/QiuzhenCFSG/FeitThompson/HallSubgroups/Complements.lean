@@ -1,23 +1,8 @@
 module
 
-public import Mathlib.Algebra.Group.Defs
-public import Mathlib.Algebra.Group.Subgroup.Defs
-public import Mathlib.Data.Bracket
-public import Mathlib.Data.Finite.Defs
-public import Mathlib.GroupTheory.SchurZassenhaus
 public import Mathlib.GroupTheory.SemidirectProduct
 
-import Mathlib.Algebra.Group.Action.Faithful
-import Mathlib.Algebra.Group.Subgroup.Lattice
-import Mathlib.Algebra.Group.Subgroup.Pointwise
-import Mathlib.GroupTheory.GroupAction.FixingSubgroup
-import Mathlib.GroupTheory.GroupAction.Quotient
-import Mathlib.GroupTheory.QuotientGroup.Basic
-import Mathlib.Order.SetNotation
-import Mathlib.Tactic.Basic
-import Mathlib.Tactic.TypeStar
 
-public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Invariant
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.GroupAction.Quotient
 public import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.HallSubgroups.Core
 

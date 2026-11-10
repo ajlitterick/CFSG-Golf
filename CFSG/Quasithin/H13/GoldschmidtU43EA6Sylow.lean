@@ -1,7 +1,6 @@
 module
 
 public import Mathlib.GroupTheory.Perm.Cycle.Concrete
-public import Mathlib.GroupTheory.Perm.Sign
 public import Mathlib.Data.Finite.Perm
 public import Mathlib.GroupTheory.Sylow
 import CFSG.Mathlib.Decide.Bounded

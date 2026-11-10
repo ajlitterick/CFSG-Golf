@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.OddStandard.HigherRank.F3.HardDefs
-public import CFSG.LocalAnalysis.OddStandard.HigherRank.F3.HardCentral
-public import CFSG.LocalAnalysis.OddStandard.HigherRank.F3.HardComp
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.F3.HardLayer
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.F3.HardMType
 public import CFSG.LocalAnalysis.OddStandard.HigherRank.F3.HardCaseII

@@ -2,15 +2,12 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwE6KGLParityCases
 import CFSG.LocalAnalysis.StandardType.GGTwE6A5LOfKnown
-import CFSG.LocalAnalysis.StandardType.GGTwE6SCFourCoverSetting
 import CFSG.LocalAnalysis.StandardType.GGLayerTitsCent
 import CFSG.LocalAnalysis.StandardType.GGKnownInputsNoA5
 import CFSG.LocalAnalysis.StandardType.GGKnownInputsNoU6Classical
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLTorusTypeAPlus
-import CFSG.LocalAnalysis.StandardType.GGTwE6KGLTorusBridge
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLTwAOrder
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLPlainOrder
-import CFSG.LocalAnalysis.StandardType.GGTableB
 
 public section
 

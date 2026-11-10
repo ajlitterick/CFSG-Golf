@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Monster.Existence.ELevelCheck
 public meta import CFSG.Monster.Existence.ELevelBits
 public meta import CFSG.Monster.Existence.ELevelConv
 public meta import CFSG.Monster.Existence.ELevelCheck
@@ -12,17 +11,8 @@ public meta import CFSG.Monster.B.Rep4371.GlueDefs
 public meta import Certificates.Data.CFSGNative.MonsterB.CosetEnum
 public meta import Certificates.Data.CFSGNative.MonsterB.Short
 public meta import Certificates.Data.CFSGNative.MonsterVis.Frame
-public import CFSG.Monster.Existence.ELevelNativeInputs
 public import Certificates.Certificate6025
 public import Certificates.Certificate1020
-public import Certificates.Certificate1022
-public import Certificates.Certificate3014
-public import Certificates.Certificate3015
-public import Certificates.Certificate3016
-public import Certificates.Certificate3017
-public import Certificates.Certificate3018
-public import Certificates.Certificate3019
-public import Certificates.Certificate3020
 public import CFSG.Monster.B.TwoA.Base.Flags
 public meta import CFSG.Monster.B.TwoA.Base.Flags
 public import CFSG.Monster.B.TwoA.Base.Par45A

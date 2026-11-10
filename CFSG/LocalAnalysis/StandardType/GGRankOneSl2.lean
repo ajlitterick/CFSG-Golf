@@ -1,11 +1,7 @@
 module
 
-public import CFSG.LieType.Steinberg.PartB
 public import CFSG.LocalAnalysis.StandardType.GGInnerDiagBridgeSUExc
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveRankOneCard
-public import Mathlib.GroupTheory.Sylow
-import TauCeti.LinearAlgebra.Matrix.SpecialLinearGroup.Transvection
-import Mathlib.Tactic.Group
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7SULCoordSplit
-public import CFSG.LocalAnalysis.StandardType.GGStdSubSmallRestUnitaryCenter
 public import CFSG.LocalAnalysis.StandardType.GGHdRo7CoprimeSplit
 
 public section

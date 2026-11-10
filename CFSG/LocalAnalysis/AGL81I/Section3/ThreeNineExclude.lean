@@ -1,10 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.AGL81I.Section3.ThreeNineSetup
-public import CFSG.Open.StatedDefs
-public import CFSG.RankThree.PartTwo.Sec4.Vocabulary
 public import CFSG.GroupTheory.SupCommute
-public import Mathlib.Algebra.Group.Subgroup.Pointwise
 
 public section
 

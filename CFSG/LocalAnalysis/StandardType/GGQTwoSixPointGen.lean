@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQTwoSixPointSu
 public import CFSG.LocalAnalysis.StandardType.GGQTwoSixPointInputs
-public import CFSG.LocalAnalysis.StandardType.GGQTwoNativeGen
 public import CFSG.LocalAnalysis.StandardType.GGQTwoSU34
-import CFSG.LocalAnalysis.StandardType.GGQTwoSixPointGenAux
 import CFSG.LocalAnalysis.StandardType.GGQTwoSixPointGenAux2
 
 public section

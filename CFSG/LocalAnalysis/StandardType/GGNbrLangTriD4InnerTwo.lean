@@ -3,16 +3,9 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangAxisCases
 public import CFSG.LocalAnalysis.StandardType.GGNbrLangTorJInputs
 public import CFSG.LocalAnalysis.StandardType.GGTriD4InnerCompDefs
-public import CFSG.LocalAnalysis.StandardType.GGFieldNbr
-public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoTableB
-import CFSG.LocalAnalysis.SeitzReduction.RankOneCatSL2TypeDet
 import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerMoreCl
-import CFSG.LocalAnalysis.StandardType.GGTableBTypeATransport
 import CFSG.LocalAnalysis.StandardType.GGTriD4NoneProof
-import CFSG.LocalAnalysis.StandardType.GGTriD4NoneMarking
-import CFSG.LocalAnalysis.StandardType.GGNbrLangRestRank
 import CFSG.LocalAnalysis.StandardType.GGSecFiveWeylRest5
-import CFSG.LocalAnalysis.StandardType.MarkingClassical
 
 public section
 

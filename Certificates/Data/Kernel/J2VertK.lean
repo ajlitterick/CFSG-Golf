@@ -1,8 +1,6 @@
 module
 
-public import CFSG.Certificates.Kernel.Enum.Defs
 public import Certificates.Data.Kernel.MonsterB.Co2Perm
-public import Certificates.Data.Kernel.Spor.Chain
 
 public section
 

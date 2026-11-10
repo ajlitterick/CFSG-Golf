@@ -1,10 +1,7 @@
 module
 
-public import CFSG.Assembly.Defs
-public import CFSG.Blueprint.Catalog
 public import CFSG.LocalAnalysis.StandardType.GGHalfFiveF4
 import CFSG.Quasithin.Background.SL3SmallNat
-import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.X7Basic
 import CFSG.LocalAnalysis.StandardType.GGSixE6TwoSL3Section
 import CFSG.LocalAnalysis.StandardType.GGSixE6TwoSchur
 public import CFSG.Certificates.CosetTableShort
@@ -46,7 +43,6 @@ import CFSG.Quasithin.Background.SmithB42L2Nat
 import CFSG.Quasithin.Background.SmithB42SL3Aut
 import CFSG.Quasithin.Background.SmithB42SL3Base
 import CFSG.Quasithin.Background.SmithB51LnRealB
-import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
 import TauCeti.LinearAlgebra.Dimension.IsQuadraticExtension
 import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalBasis
 import TauCeti.LinearAlgebra.QuadraticForm.OrthogonalGroup.LowRank

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKG3ExData
-public import CFSG.LocalAnalysis.ComponentInitial.RootDiagonalConjugation
 
 public section
 

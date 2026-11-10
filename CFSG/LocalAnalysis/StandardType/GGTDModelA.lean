@@ -3,9 +3,7 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGTDModelAssemble
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrTableBAutCard
 public import CFSG.LocalAnalysis.StandardType.GGTypeANbrTableBPSL
-import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerTypeADvdCent
 import CFSG.LocalAnalysis.StandardType.GGTDCentFour
-import CFSG.LocalAnalysis.StandardType.GGTableBTypeALift
 
 public section
 

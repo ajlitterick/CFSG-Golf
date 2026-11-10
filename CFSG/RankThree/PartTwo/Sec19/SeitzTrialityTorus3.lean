@@ -4,8 +4,6 @@ public import CFSG.RankThree.PartTwo.Sec19.SeitzTrialityTorus1
 public import CFSG.RankThree.PartTwo.Sec19.SeitzTrialityTorus2
 public import CFSG.RankThree.PartTwo.Sec19.SeitzTrialityTorusFibreA
 public import CFSG.RankThree.PartTwo.Sec19.SeitzTrialityTorusFibreB
-public import CFSG.RankThree.PartOne.D4RC.Lines
-import CFSG.RankThree.PartOne.D4RC.RxFrame
 
 public section
 

@@ -1,22 +1,17 @@
 module
 
-public import CFSG.Quasithin.EmptyFaithful.Gap6R2Push
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtN204Elem
 public import CFSG.Quasithin.EmptyFaithful.GoldschmidtRes2D11
-public import CFSG.Quasithin.Background.Ordering
 public import CFSG.LocalAnalysis.ComponentClassification.CatalogueKProperGroups
 public import CFSG.Quasithin.Background.A3Structure312Defs
 public import CFSG.Quasithin.Background.B216Quotient
 public import CFSG.Quasithin.Background.D2
-public import CFSG.Quasithin.Background.D2Dihedral
 public import CFSG.Quasithin.Background.F6Solvable
 public import CFSG.Quasithin.Background.F9G2
 public import CFSG.Quasithin.Background.F9Geometry
 public import CFSG.Quasithin.Background.F9Tilde
 public import CFSG.Quasithin.Background.ThreePrimeGroup
 public import CFSG.Quasithin.EmptyFaithful.S14117
-public import CFSG.Quasithin.EmptyFaithful.S14117Coprime
-public import CFSG.Quasithin.EmptyFaithful.S14117Rank
 public import CFSG.Quasithin.EmptyFaithful.S1414Defs
 public import CFSG.Quasithin.EmptyFaithful.S1417Sylow
 public import CFSG.Quasithin.EmptyFaithful.S143Pre

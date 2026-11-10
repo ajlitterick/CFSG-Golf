@@ -1,40 +1,17 @@
 module
 
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.FFSporadic.Split
-public import CFSG.HardMathSupport.Cooperstein.Coordinator.FFSporadic.HNCheck
 public import CFSG.HardMathSupport.Cooperstein.Coordinator.FFSporadic.RouteBGlue
 public import CFSG.HardMathSupport.Meierfrankenfeld.FFToolkit.NoIrrEngines
-public import CFSG.Sporadic.HNSchreier.Seeds
 public import CFSG.Sporadic.HNSchreier.FullAut
 public import CFSG.Sporadic.Bridge.HNSurj
 public import CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Coordinator.TrivialRows
-public import CFSG.GH74.Generic.GKFCover
-public import Certificates.Certificate2081
-public import Certificates.Certificate2096
-public import Certificates.Certificate2097
-public import Certificates.Certificate2098
-public import Certificates.Certificate2099
-public import Certificates.Certificate2100
-public import Certificates.Certificate2102
-public import Certificates.Certificate2103
-public import Certificates.Certificate2104
-public import Certificates.Certificate2107
-public import Certificates.Certificate2108
-public import Certificates.Certificate2109
-public import Certificates.Certificate3166
-public import Certificates.Certificate9114
-public import Certificates.Certificate9208
-public import Certificates.Certificate14985
-public import Certificates.Certificate16041
-public import Certificates.Certificate24321
-public import Certificates.Certificate26963
 public import Certificates.Certificate129008
 public import CFSG.GH74.GLS.IVK.Proofs2.OddTools
 public import CFSG.GH74.GLS.Stage2.Local.P34Main
 public import CFSG.GH74.GLS.Stage2.Local.P34S5A
 public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87CoatomAbs
 public import CFSG.GH74.GLS.Stage2.Signalizer.Odd87GenCell
-public import CFSG.GroupTheory.HallHigmanPiCore
 public import CFSG.LocalAnalysis.AGLEmbedding.OneSmallGEVL34FFDefs
 public import CFSG.LocalAnalysis.AGLEmbedding.ResidualTools
 public import CFSG.LocalAnalysis.AGLEmbedding.SporadicData
@@ -51,16 +28,13 @@ public import CFSG.Quasithin.Background.SmithB42L2L32
 public import CFSG.Quasithin.Background.SmithB42L2Nat
 public import CFSG.Quasithin.Background.SmithB51LnRealB
 public import CFSG.RankThree.PartOne.CTP.StrongPSylow
-public import CFSG.RankThree.PartTwo.Sec4.Census.Interface
 public import CFSG.Sporadic.Fi24.Faithful
 public import CFSG.Sporadic.Fi24.SepSpec
 public import CFSG.Sporadic.Recognition.HNMultiplier
 public import CFSG.Sporadic.Th.CertificateBase
 public import CFSG.Sporadic.Th.CertificateBase1
 public import CFSG.Sporadic.ThSchreier.KernelAut
-public import CFSG.Sporadic.ThSchreier.KernelAutBase
 public import CFSG.Sporadic.ThSchreier.KernelAutBase1
-public import Certificates.Certificate1016Base
 public import Certificates.Certificate8171
 public import TauCeti.GroupTheory.SpecificGroups.CFSG.TypeC.Agreement
 

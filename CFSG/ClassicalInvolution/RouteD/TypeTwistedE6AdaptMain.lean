@@ -5,8 +5,6 @@ public import CFSG.ClassicalInvolution.RouteD.TypeTwistedE6PartnerMain
 public import CFSG.ClassicalInvolution.RouteD.LocalTwinChain
 public import CFSG.ClassicalInvolution.RouteD.GapsEnd4Final
 public import CFSG.ClassicalInvolution.RouteD.GapsOrthTransfer
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalSplitProd
 public import CFSG.ClassicalInvolution.Models.SymplecticPairs.Quadruple
 public import CFSG.ClassicalInvolution.RouteD.TypeEModel

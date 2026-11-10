@@ -3,12 +3,7 @@ module
 
 public import Certificates.Kernel.Co1B.Tri2045Base
 
-public import Certificates.Kernel.Co1B.TriG2045
 public import CFSG.Sporadic.Co1Block.TwoBCentBase2
-public import Certificates.Kernel.Co1B.OrbK2045
-public import CFSG.Certificates.Kernel.Spor.RawOrbSound
-public import CFSG.Sporadic.Schreier.TitsChain
-public import CFSG.Sporadic.Co1Block.TwoBCheckInputs
 public meta import CFSG.Sporadic.Co1Block.TwoBData
 public meta import CFSG.Sporadic.Co1Block.TwoBCheckDefs
 public meta import CFSG.Sporadic.Co1Block.CentCheck
@@ -26,8 +21,6 @@ public meta import Certificates.Data.CFSGNative.Schreier.Check
 public meta import Certificates.Data.CFSGNative.Schreier.Merge
 public meta import Certificates.Data.CFSGNative.ONSchreier.Compact
 import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
-import Mathlib.Tactic.FinCases
 
 public noncomputable section
 

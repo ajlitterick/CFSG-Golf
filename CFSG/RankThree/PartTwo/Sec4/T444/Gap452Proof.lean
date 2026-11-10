@@ -11,7 +11,6 @@ public import CFSG.RankThree.PartTwo.KFacts.L34Sections
 public import CFSG.LocalAnalysis.ComponentInitial.FieldFourCoverMatrices
 public import CFSG.Dihedral.DisconnectedInvolutionGraph.RankOneQuaternionRecognition
 public import CFSG.LinearAlgebra.LinearGroups.ProjectiveSimple
-import CFSG.ThirdParty.QiuzhenCFSG.FeitThompson.Fitting.Centralizer
 
 public section
 

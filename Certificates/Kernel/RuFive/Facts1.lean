@@ -3,8 +3,6 @@ module
 public import Certificates.Kernel.RuFive.FactsQ
 public import Certificates.Kernel.RuFive.K1
 public import CFSG.Certificates.Kernel.HeLoc.GroupConjSound
-import CFSG.Certificates.Kernel.Common.Harness
-import Mathlib.Tactic.IntervalCases
 
 public section
 

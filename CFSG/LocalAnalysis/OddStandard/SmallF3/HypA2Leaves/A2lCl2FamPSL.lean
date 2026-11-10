@@ -1,20 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.HypA2Leaves.A2lCl2FamCore
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.HypA2Leaves.A2lCl2FamGL
 public import CFSG.LocalAnalysis.OddStandard.SmallF3.HypA2Leaves.A2lCl2FamLGraph
-public import CFSG.LocalAnalysis.OddStandard.SmallF3.HypA2Leaves.A2lCl2FamOrth
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddPSL
-public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddExc
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBLinearHigherBFixed
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBHigherLinearFieldComponents
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBGraphFieldComponents
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueBUnitaryComponents
-public import CFSG.Adapters.ProjectiveSpecialLinear
-public import CFSG.LieType.Simplicity.Classical
-public import CFSG.ClassicalGroups.Unitary.Simple
-public import CFSG.Milestones.OO_odd_order_solvable
-public import CFSG.LocalAnalysis.ComponentClassification.CatalogueSchreierLinearTwoAllFields
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddInnerLGraph
 public import CFSG.LocalAnalysis.ComponentClassification.CatLeafProofOddOrthAll
 

@@ -5,12 +5,9 @@ import CFSG.RankThree.PartTwo.Sec6.Item612Local
 import CFSG.RankThree.PartTwo.Sec4.Item413Setup
 import CFSG.RankThree.PartTwo.Sec4.Census.Item44TwoCoverRanks
 import CFSG.RankThree.PartTwo.Sec5.Tools
-import CFSG.RankThree.GroupTheory.ThetaQuotientTransport
 import CFSG.RankThree.Coprime.ThompsonElementaryComplement
 import CFSG.RankThree.PartOne.S11c.CentralWitness
 import CFSG.LocalAnalysis.RankThreeEvenClassification.InvariantSylow
-public import CFSG.Assembly.OrderReductions.InvertedSubgroup
-public import CFSG.Assembly.OrderReductions.OddInversion
 public import CFSG.Foundations
 public import CFSG.GroupTheory.BaerSuzuki
 public import CFSG.GroupTheory.HallHigmanPiCore
@@ -29,7 +26,6 @@ public import CFSG.RankThree.PartTwo.Sec7.ThreeTranspositions
 public import CFSG.RankThree.PartTwo.Sec8.Pairs
 public import CFSG.RankThree.PartTwo.Sec8.Statements
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 import CFSG.LocalAnalysis.ComponentClassification.DisjointSolvableKernels
 import CFSG.LocalAnalysis.ComponentClassification.LBalanceComponentLifts
 import CFSG.LocalAnalysis.ComponentClassification.LayerMultiplication

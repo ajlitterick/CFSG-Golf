@@ -1,15 +1,12 @@
 
 module
 
-public import CFSG.Sporadic.HNSchreier.SylowCheckBase
 
 public import CFSG.Sporadic.HNSchreier.ThreeCheck
 public import CFSG.Sporadic.HNSchreier.FALocalCheck
-public import CFSG.Sporadic.HNSchreier.SylowData
 public meta import CFSG.Sporadic.HNSchreier.ThreeCheck
 public meta import CFSG.Sporadic.HNSchreier.FALocalCheck
 public meta import CFSG.Sporadic.HNSchreier.SylowData
-public import CFSG.Sporadic.HNSchreier.SylowCheckInputs
 public import Certificates.Certificate2108
 
 public section

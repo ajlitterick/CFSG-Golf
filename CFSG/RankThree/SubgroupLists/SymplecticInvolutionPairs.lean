@@ -3,10 +3,8 @@ module
 public import CFSG.RankThree.SubgroupLists.SymplecticInvolutions
 public import CFSG.LocalAnalysis.ZStar
 public import CFSG.LocalAnalysis.ComponentInitial.SymplecticTorusWeylMatrices
-public import CFSG.Foundations.Basic
 public import CFSG.LocalAnalysis.ZStar.BrauerSylowFusion
 public import CFSG.LocalAnalysis.ZStar.PrincipalBlockTraceApplication
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Isaacs.VII.lemma_7_7
 
 public section
 

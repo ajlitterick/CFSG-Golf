@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinPlaneTorusDefs
 public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameMatrix
-public import CFSG.LocalAnalysis.StandardType.GGSpNonsplitFrameBlock
-public import CFSG.LocalAnalysis.StandardType.GGSixOrderPAutPSLNonsplitLinear
 
 public section
 

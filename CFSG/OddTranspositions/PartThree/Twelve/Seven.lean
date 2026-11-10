@@ -5,7 +5,6 @@ public import CFSG.OddTranspositions.PartFour.LinePolar
 public import CFSG.OddTranspositions.PartFour.Fourteen.OrthLines
 import CFSG.OddTranspositions.WidthSylow
 import CFSG.SignalizerFunctorTheorem.McBride.Nonsolv.SolQuot.Hom
-import CFSG.OddTranspositions.PartFour.Fourteen.RootBlockSp
 import CFSG.OddTranspositions.PartThree.Twelve.Five
 import CFSG.OddTranspositions.PartThree.Nine.Setup
 import CFSG.OddTranspositions.O4PairTenWidth

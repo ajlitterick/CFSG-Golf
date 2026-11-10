@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGTwistedF4DiagCore
-public import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagTwE6
-public import CFSG.LocalAnalysis.StandardType.GGInndiagNormalOther
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangReeF4
 
 public section

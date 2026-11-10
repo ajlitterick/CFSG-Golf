@@ -1,10 +1,7 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGSixSeventeenWitOmFix
 public import CFSG.LieType.SeitzGeneration.OrthThree
-public import CFSG.LieType.SeitzGeneration.OrthBlocks
 public import CFSG.ClassicalGroups.SpecialLinear.TvModLinAlg
-public import CFSG.RankThree.OrthogonalInvolutions.Conjugacy
 public import CFSG.LocalAnalysis.StandardType.GGTorusGenOrthPieces
 public import CFSG.LargeExtraspecial.A2ModLines
 public import CFSG.LieType.SeitzGeneration.OrthLift

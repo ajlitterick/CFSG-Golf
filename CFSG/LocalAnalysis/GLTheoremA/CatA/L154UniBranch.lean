@@ -2,8 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154UniMark
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154UniPsu
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.L154Fld
-public import CFSG.GH74.L5U5.Models
 public import CFSG.HardMathSupport.Dickson.Bal207.Glue
 public import CFSG.HardMathSupport.Solomon.Coordinator.LieComp.UnitaryInnerExport
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.S2019UniBlocks

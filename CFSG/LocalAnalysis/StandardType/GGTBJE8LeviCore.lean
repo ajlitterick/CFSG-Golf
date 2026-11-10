@@ -1,16 +1,7 @@
 module
 
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.Defs
-public import CFSG.LieType.Chevalley.KernelComponentRoots
-public import CFSG.LieType.Chevalley.ParabolicRootFactorData
-public import CFSG.LieType.Chevalley.ParabolicWeylStabilizer
-public import CFSG.HardMathSupport.Timmesfeld.CrossChar.TwCompSUE8
-public import CFSG.HardMathSupport.Timmesfeld.LangTorus.ExcPin
-public import CFSG.HardMathSupport.Curtis.UnitaryLevi.ExcWeylWords
 public import CFSG.Mathlib.Decide.Bounded
-public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3Defs
 public import CFSG.LocalAnalysis.StandardType.GGResLeviLE3Bridge
-public import CFSG.LocalAnalysis.StandardType.GGReflClosedOfWeyl
 public import CFSG.LocalAnalysis.StandardType.GGTBJTypeAParabolicLE3
 
 public section

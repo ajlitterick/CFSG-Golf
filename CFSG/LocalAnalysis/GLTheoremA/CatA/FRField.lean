@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FRCore
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FRMarked
-public import CFSG.LocalAnalysis.GLTheoremA.S10.InputsSetup
-public import CFSG.LocalAnalysis.GLTheoremA.S10.Inputs105
-public import CFSG.LocalAnalysis.GLTheoremA.CatA.FQ
 public import CFSG.LocalAnalysis.GLTheoremA.CatA.FRLift
 
 public section

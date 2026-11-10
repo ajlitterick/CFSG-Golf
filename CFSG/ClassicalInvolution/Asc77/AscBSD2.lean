@@ -1,7 +1,6 @@
 module
 
 public import CFSG.ClassicalInvolution.Asc77.AscBSD1
-public import CFSG.ClassicalInvolution.RouteD.MultiModelSL
 
 public section
 

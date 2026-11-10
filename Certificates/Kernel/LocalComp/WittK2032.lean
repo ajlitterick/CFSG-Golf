@@ -3,7 +3,6 @@ module
 public import Certificates.Kernel.LocalComp.WittLev
 public import Certificates.Kernel.LocalComp.WittData
 public import CFSG.LocalAnalysis.ComponentClassification.WittDesignM22InvolutionsInputs
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

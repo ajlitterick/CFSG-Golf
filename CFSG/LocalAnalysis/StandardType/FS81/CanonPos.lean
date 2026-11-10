@@ -2,9 +2,7 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.FS81.Pieces
 public import CFSG.LocalAnalysis.StandardType.FS81.SplitE
-public import CFSG.LocalAnalysis.StandardType.FS81.RowFacts
 public import CFSG.LocalAnalysis.StandardType.FS81.OrthRowCanon
-public import CFSG.LocalAnalysis.StandardType.GGFrameRouteE7Models
 public import CFSG.GroupTheory.CoprimeActionSupport.NormalSubgroupSylowJoin
 
 public section

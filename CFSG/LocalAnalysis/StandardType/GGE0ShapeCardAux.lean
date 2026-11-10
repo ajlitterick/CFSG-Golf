@@ -1,12 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGE0ShapeDefs
-public import Mathlib.Algebra.Field.ZMod
-public import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
-public import CFSG.LocalAnalysis.ComponentInitial.RootDiagonalConjugation
-public import CFSG.Blueprint.ChevalleyPinnedLemmas
-public import CFSG.LieType.Chevalley.ToralCentralizerBruhat
-public import CFSG.LieType.Chevalley.AllRootWeylSignsDefs
 
 public section
 

@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Kernel.Co2Smith.Root
 public import Certificates.Kernel.Co2Smith.F0
 public import Certificates.Kernel.Co2Smith.Cent
 public import Certificates.Kernel.Co2Smith.U62K

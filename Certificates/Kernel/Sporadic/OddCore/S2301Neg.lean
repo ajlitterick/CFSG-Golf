@@ -1,12 +1,8 @@
 
 module
 
-public import Certificates.Kernel.Sporadic.OddCore.S2301Data
-public import Certificates.Kernel.Sporadic.OddCore.S2301Gens
 public import Certificates.Kernel.Sporadic.OddCore.S2301Rnd
 public import Certificates.Kernel.Sporadic.OddCore.Suz2302
-public import Certificates.Data.Kernel.Suz2301
-import CFSG.Certificates.Kernel.Common.Harness
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LargeExtraspecial.SMod20AutMbar
-import CFSG.Fischer.F4
 
 public section
 

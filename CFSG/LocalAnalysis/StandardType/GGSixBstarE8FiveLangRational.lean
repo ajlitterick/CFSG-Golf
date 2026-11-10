@@ -1,9 +1,7 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGSixBstarE8FiveFrameDiag
-public import CFSG.LocalAnalysis.SeitzReduction.E8PilotAlignTori
 public import CFSG.RankThree.PartOne.KE.SigmaUntwisted2
-public import CFSG.RankThree.PartOne.KE.CTLang
 public import CFSG.RankThree.PartOne.KE.A1SL2
 public import CFSG.RankThree.PartOne.KE.A1Torus
 public import CFSG.RankThree.PartOne.KE.SigmaUntwisted

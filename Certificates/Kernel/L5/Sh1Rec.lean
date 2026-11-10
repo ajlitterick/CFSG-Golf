@@ -1,6 +1,5 @@
 module
 
-public import Certificates.Data.Kernel.L5.EngRec
 public import Certificates.Data.Kernel.L5.Sh1EngD
 public import Certificates.Data.Kernel.L5.GrpOf
 public import CFSG.Certificates.Kernel.Common.DecideFV

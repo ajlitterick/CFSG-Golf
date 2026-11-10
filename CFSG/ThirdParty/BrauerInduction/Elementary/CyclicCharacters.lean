@@ -1,9 +1,7 @@
 module
 
 public import CFSG.ThirdParty.BrauerInduction.Cyclotomic.CharacterSystem
-public import Mathlib.RingTheory.RootsOfUnity.AlgebraicallyClosed
 public import CFSG.ThirdParty.BrauerInduction.Background.LinearChar.Basic
-public import CFSG.ThirdParty.BrauerInduction.Background.RingTheory.RootsOfUnity
 public import CFSG.ThirdParty.BrauerInduction.Elementary.Associated
 
 public section

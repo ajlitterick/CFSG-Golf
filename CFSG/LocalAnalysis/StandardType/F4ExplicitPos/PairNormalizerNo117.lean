@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Monster.B.Fischer.Fi22Order
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.BruhatNo117Part2
 
 @[expose] public section

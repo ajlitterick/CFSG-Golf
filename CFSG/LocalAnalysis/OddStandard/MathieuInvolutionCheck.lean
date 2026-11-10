@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.OddStandard.MathieuInvolutionData
 public meta import CFSG.LocalAnalysis.OddStandard.MathieuInvolutionData
 public import Certificates.Certificate6000
 public import CFSG.Sporadic.M23.M23Group

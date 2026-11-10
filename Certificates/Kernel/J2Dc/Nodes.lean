@@ -2,7 +2,6 @@ module
 
 public import Certificates.Kernel.J2Dc.Defs
 public import Certificates.Kernel.LocalQT.Base.C4142
-public import CFSG.Certificates.Kernel.LocalQTBaseWProved
 public import CFSG.Certificates.Kernel.E64FSound
 import CFSG.Certificates.Kernel.Common.Harness
 

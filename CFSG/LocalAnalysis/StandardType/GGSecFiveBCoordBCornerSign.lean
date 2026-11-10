@@ -2,7 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGQ2ClassicalCatalogue
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveNativeImageNormB
-import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyAut
 import CFSG.LocalAnalysis.StandardType.GGNsq2QuotNorm
 import CFSG.LocalAnalysis.StandardType.GGFrameRouteEndLabel
 import CFSG.LocalAnalysis.StandardType.GGQ2PlaneSignedPerm

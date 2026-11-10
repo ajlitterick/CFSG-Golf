@@ -6,8 +6,6 @@ public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.TenSix.FunCom
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.TenSix.FundSL2
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.TenSix.SLTwoCand
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.GF2RepsSevenSevenHolds
-import CFSG.GroupTheory.ABGLocalTools.PStabilityQDickson
-import CFSG.ClassicalInvolution.ModelFacts.LinearAutBlock
 public import CFSG.Blueprint.OddStandardExact
 public import CFSG.ClassicalInvolution.Asc77.AscIHSectG
 public import CFSG.ClassicalInvolution.Asc77.AscT3TypedExactMain

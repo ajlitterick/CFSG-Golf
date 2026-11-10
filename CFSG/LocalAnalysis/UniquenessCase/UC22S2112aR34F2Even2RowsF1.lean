@@ -1,10 +1,8 @@
 module
 
-public import CFSG.LocalAnalysis.UniquenessCase.UC22S2112aR34Defs
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S2112aR34F3Defs
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S215KF7Use
 public import CFSG.LocalAnalysis.UniquenessCase.UC22S214U
-public import CFSG.Open.GriessAllModelsStatement
 import CFSG.LocalAnalysis.UniquenessCase.UC22S2112aR34F2Even2Swap
 import CFSG.LocalAnalysis.UniquenessCase.UC22S2112aR34F2Even2SwapRows
 import CFSG.LocalAnalysis.UniquenessCase.UC22S2112aR34F2Even2F1
@@ -18,8 +16,6 @@ import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Section23.ProofsTwentyEight
 import CFSG.LocalAnalysis.UniquenessCase.UC22FunCountHolds
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.OddLieFunCommute
 import CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.FunHypOmegaHolds
-import CFSG.LocalAnalysis.UniquenessCase.UC22P20c
-import CFSG.LocalAnalysis.UniquenessCase.UC22P20e
 import CFSG.Adapters.TauCetiExceptional.ReeCatalog
 public import CFSG.ClassicalInvolution.ModelFacts.OddCover
 public import CFSG.ClassicalInvolution.ModelFacts.StandardPairDichotomy
@@ -74,7 +70,6 @@ import CFSG.Quasithin.Background.B1MoreEleven
 import CFSG.Quasithin.Background.B5CompA
 import CFSG.Quasithin.Background.B5CompB
 import CFSG.Quasithin.Background.B6
-import CFSG.Quasithin.Background.B6Example
 import CFSG.Quasithin.Background.C124B51Hyp
 import CFSG.Quasithin.Background.C124Core
 import CFSG.Quasithin.Background.C124L2PClass

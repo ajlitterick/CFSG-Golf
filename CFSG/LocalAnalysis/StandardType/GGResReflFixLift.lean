@@ -1,8 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGKGForkOneDone
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRootGenLift
-public import CFSG.LocalAnalysis.StandardType.GGCorFiveTwentyRootGen
 
 public section
 

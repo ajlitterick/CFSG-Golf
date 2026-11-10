@@ -1,13 +1,10 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGAllFixedExceptionalToral
-public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangCore
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeModelRecipeID
 public import CFSG.LocalAnalysis.StandardType.GGE6InnerDiagBoundThreeProof3
 public import CFSG.LocalAnalysis.StandardType.GGAllFixedExceptionalRegular
 public import CFSG.LocalAnalysis.StandardType.GGRecipeFieldExcLangInj
 public import CFSG.LocalAnalysis.StandardType.GGE6ThreeNonToralCentHolds
-public import CFSG.LocalAnalysis.StandardType.GGSixBstarExcFramesHalfE6Toral
 public import CFSG.LieType.Chevalley.E6Three.PositionCentralizer
 public import CFSG.LieType.SpecialLinear.NormalizerLift.FieldGraph
 public import CFSG.LocalAnalysis.QuasithinUnique.Unconstrained.A6FactsModel2

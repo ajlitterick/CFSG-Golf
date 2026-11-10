@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.EvenSporadicStandard.RuStd.S2.RuThreeInputs
-public import Certificates.Data.Kernel.B3S3K
 public import Certificates.Data.Kernel.FiveLocK
 public import Certificates.Kernel.B3S3.Gen
 public meta import CFSG.LocalAnalysis.EvenSporadicStandard.RuStd.S2.RuThreeInputs

@@ -1,8 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGNTPlaneInput
-public import CFSG.LocalAnalysis.StandardType.GGCentD4Alpha
-public import CFSG.LocalAnalysis.StandardType.GGCentD4Fix
 public import CFSG.LocalAnalysis.StandardType.GGCentD4RIdent
 public import CFSG.LocalAnalysis.StandardType.GGCentD4RatTw
 

@@ -1,6 +1,5 @@
 module
 
-public import CFSG.LocalAnalysis.StandardType.GGUSixThreeKGDefs
 public import CFSG.LocalAnalysis.StandardType.GGUSixThreeKGShapeDiag
 public import CFSG.LocalAnalysis.StandardType.GGUSixThreeKGShapes
 

@@ -2,9 +2,6 @@ module
 
 public import CFSG.LocalAnalysis.QuasithinUnique.Ch1.Lemma115EvenLie
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.UnitaryAutomorphismHyperbolic
-public import CFSG.LocalAnalysis.ShultStronglyClosedTI.RankOneModelTransport
-public import CFSG.LocalAnalysis.ComponentInitial.UnitaryHigherRankOneRoot
-public import CFSG.ClassicalGroups.UnitaryFlag.OrderSylow
 public import CFSG.SignalizerFunctorTheorem.NearModels.Unitary.Bridge
 public import CFSG.CharacterTheory.Semidihedral.DihedralQuaternion
 public import CFSG.GroupTheory.LocalCores.Fitting
@@ -16,7 +13,6 @@ public import CFSG.LocalAnalysis.QuasithinUnique.K1.ExceptionalCat
 public import CFSG.LocalAnalysis.SectionRank.SQT
 public import CFSG.LocalAnalysis.ShultStronglyClosedTI.SuzukiModelPointStructure
 public import CFSG.StronglyEmbedded.ParityCriterion
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Defs
 
 public section
 

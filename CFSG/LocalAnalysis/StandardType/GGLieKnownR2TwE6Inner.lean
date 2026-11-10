@@ -1,11 +1,6 @@
 module
 
 public import CFSG.LocalAnalysis.StandardType.GGLieKnownR2LongTwE6Iso
-public import CFSG.LocalAnalysis.StandardType.GGRootNormInner
-public import CFSG.LieType.Chevalley.TwistedE6NormalForm
-public import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotBLiftBasic
-public import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotQ2BLift
-public import CFSG.LocalAnalysis.SeitzReduction.TwistedE6PilotQ2Rigid
 public import CFSG.LocalAnalysis.StandardType.GGRootCentKGOTwoTwE6Step
 public import CFSG.GH74.Generic.BProg.B2.PuG2OddAux
 public import CFSG.HardMathSupport.Timmesfeld.LangTorus.OuterFieldCore

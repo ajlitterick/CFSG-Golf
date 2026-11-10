@@ -1,7 +1,6 @@
 module
 
 public import CFSG.LieType.Chevalley.RootOps.Poly
-public import CFSG.LieType.Chevalley.RootOps.CertTools
 
 public section
 

@@ -1,7 +1,6 @@
 module
 
 public import CFSG.RankThree.PartOne.SEITZ8.D4Omega
-public import CFSG.RankThree.PartOne.SEITZ8.D4Entry
 public import CFSG.RankThree.PartOne.SEITZ7.D4BrN
 public import CFSG.Timmesfeld.RankTwo.ModelD43Weyl
 public import CFSG.RankThree.PartOne.SEITZ8.D4Z

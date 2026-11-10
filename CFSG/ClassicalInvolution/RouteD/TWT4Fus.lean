@@ -2,9 +2,6 @@ module
 
 public import CFSG.ClassicalInvolution.RouteD.TWT4Rank
 public import CFSG.ClassicalInvolution.RouteD.TWT4Link
-public import CFSG.ClassicalInvolution.RouteD.TwinYR2XO
-public import CFSG.ClassicalInvolution.RouteD.TwinYP1Main
-public import CFSG.ClassicalInvolution.Asc77.WP3FrameTwinCover
 
 public section
 

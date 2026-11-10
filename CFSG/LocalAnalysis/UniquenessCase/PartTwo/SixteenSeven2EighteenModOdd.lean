@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.DefsBridge
 public import CFSG.LocalAnalysis.UniquenessCase.PartTwo.FifteenLin
 public import CFSG.Quasithin.Background.D2Coprime
-public import CFSG.Quasithin.Background.E3Basic
 
 public section
 

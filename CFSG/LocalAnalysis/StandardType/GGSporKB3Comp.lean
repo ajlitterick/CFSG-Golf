@@ -1,9 +1,7 @@
 module
 
 public import CFSG.Assembly.LargeEvenDefs
-public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabBThreeA
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabBThreeAGlue
-import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.Primitive
 import CFSG.Assembly.LargeEvenGLABridge
 import CFSG.Fischer.Classification.Recognition.Basic
 public import CFSG.HardMathSupport.Dickson.I271.SporGenR3Aux.TabBThreeALocalBase

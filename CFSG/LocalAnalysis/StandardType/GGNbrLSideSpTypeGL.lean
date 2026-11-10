@@ -2,12 +2,8 @@ module
 
 public import CFSG.Blueprint.Catalog
 public import CFSG.Foundations.Basic
-public import CFSG.Open.StatedDefs
-import CFSG.Open.StatedAPI
 import CFSG.LocalAnalysis.StandardType.GGNbrLSideKitComm
 import CFSG.LocalAnalysis.GLTheoremA.CatA.Y10GCenterQuot
-import CFSG.RankThree.PartOne.KC.UnitaryCrossPrimeLinear
-import CFSG.LocalAnalysis.ComponentClassification.CatalogueBGeneralLinearSmall
 
 public section
 

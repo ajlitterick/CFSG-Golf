@@ -1,7 +1,6 @@
 module
 
 public import Certificates.Kernel.Co2.Join
-public import Certificates.Data.Kernel.Multipliers.LabZ
 public import CFSG.Certificates.Kernel.Bounds.U43Alt.Data.C_Sel
 public import CFSG.Certificates.Kernel.Bounds.U43Alt.Checks.C_H
 public import CFSG.Certificates.Kernel.Bounds.U43Alt.Checks.C_W

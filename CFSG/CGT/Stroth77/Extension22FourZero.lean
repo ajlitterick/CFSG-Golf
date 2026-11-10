@@ -4,7 +4,6 @@ public import CFSG.CGT.Stroth77.Extension22FourAssembly
 import all CFSG.CGT.Stroth77.Extension22FourAssembly
 import all CFSG.CGT.Stroth77.Extension22FourBasis
 import all CFSG.CGT.Stroth77.AmbientSplit
-public import CFSG.CGT.Stroth77.Extension22FourBasis
 
 public section
 

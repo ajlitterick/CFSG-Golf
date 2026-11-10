@@ -6,7 +6,6 @@ import CFSG.LocalAnalysis.StandardType.GGKnownInputsNoU6Classical
 import CFSG.LocalAnalysis.StandardType.GGTableB
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLPlainOrderCard
 import CFSG.LocalAnalysis.StandardType.GGTwE6KGLPlainOrderPSU
-import CFSG.LocalAnalysis.StandardType.Marking
 public import CFSG.Timmesfeld.Orders.ExceptionalUntwisted
 
 public section

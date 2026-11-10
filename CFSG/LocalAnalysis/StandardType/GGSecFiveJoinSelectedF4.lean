@@ -5,17 +5,12 @@ public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.ComponentRootSpan
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.RankThreeSources
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.GuardedComponentRank
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.SelectedLiteralPart2
-public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.RankThreeFrobeniusError
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.RootSL2LangConjugator
 public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.Sp3SelectedImage
 public import CFSG.LocalAnalysis.StandardType.GGSelectedF4
 public import CFSG.LocalAnalysis.StandardType.GGSecFiveFieldTwoCommon
 public import CFSG.LocalAnalysis.StandardType.GGOuterInvLangDatumThrough
-public import CFSG.LocalAnalysis.StandardType.F4ExplicitPos.CenterProofFastPart2
-public import CFSG.LocalAnalysis.StandardType.GGTBJConfigFacts
 public import CFSG.LocalAnalysis.StandardType.GGSpJoinLeviCount
-public import CFSG.LocalAnalysis.StandardType.GGTriD4NoneMarking
-public import CFSG.LocalAnalysis.StandardType.GGSecFiveTier1OfPrim
 
 public noncomputable section
 

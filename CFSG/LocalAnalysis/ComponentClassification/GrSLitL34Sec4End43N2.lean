@@ -3,11 +3,6 @@ module
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4End43N
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4End43H2
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitHeldFixHeFacts
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4Single
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec5Rank
-public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec5Normal
-public import CFSG.LocalAnalysis.ComponentClassification.Sol78PSp4
-public import Certificates.Kernel.ThCent.Leaves
 public import CFSG.LocalAnalysis.ComponentClassification.GrSLitL34Sec4InputsEnd43N
 
 public section

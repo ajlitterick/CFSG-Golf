@@ -2,7 +2,6 @@ module
 
 public import Certificates.Data.S1277Cand
 public import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
-public import Mathlib.Data.ZMod.Basic
 
 public section
 

@@ -2,15 +2,11 @@ module
 
 public import CFSG.LocalAnalysis.StandardType.GGStdPosLocalDefs
 public import CFSG.LocalAnalysis.StandardType.GGTableBExcRank
-public import CFSG.LieType.Steinberg.Minuscule.Datum
 import CFSG.LocalAnalysis.StandardType.GGStdPosIsogCore
-import CFSG.LieType.Steinberg.Isogeny.E6
-import CFSG.LieType.Chevalley.AdjointCenter
 import CFSG.ClassicalInvolution.ModelFacts.ChevAutLift
 import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalIsogeny
 import CFSG.LocalAnalysis.StandardType.GGInnerDiagBridgeSUExc
 import CFSG.LocalAnalysis.StandardType.GGPsiDiagInnerCube
-import CFSG.LocalAnalysis.StandardType.GGTableBOutdiagCartan
 import CFSG.ClassicalInvolution.ModelFacts.ClassicalIsFundamentalAdjoint
 import CFSG.LocalAnalysis.ComponentClassification.BadTwoComponentSubgroup
 

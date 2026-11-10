@@ -3,10 +3,6 @@ module
 public import CFSG.LocalAnalysis.StandardType.GGLayerCenterCyclicExcAdj
 public import CFSG.LocalAnalysis.StandardType.GGTableBNbrInnerRestExc
 public import CFSG.LieType.Steinberg.CentralExt.FieldTwoMultiplier
-public import CFSG.LieType.Steinberg.CentralExt.FieldFourMultiplier
-public import CFSG.LieType.Steinberg.CentralExt.MinusculeCentrallyClosed
-public import CFSG.LieType.Steinberg.CentralExt.MinusculeCenter
-public import CFSG.LieType.Steinberg.Isogeny.E6
 
 public section
 

@@ -3,7 +3,6 @@ module
 public import CFSG.LocalAnalysis.OddStandard.ONanIdStd
 public import CFSG.LocalAnalysis.OddStandard.ONanIdCM
 public import CFSG.LocalAnalysis.OddStandard.ONanCMCard
-public import CFSG.LocalAnalysis.OddStandard.ONanFusFinal
 public import Certificates.Data.ONanCMChain
 
 public section

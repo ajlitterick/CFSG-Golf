@@ -1,6 +1,5 @@
 module
 
-public import CFSG.Certificates.Kernel.Common.DceS
 public import CFSG.Certificates.Kernel.Co1.Model
 
 public section

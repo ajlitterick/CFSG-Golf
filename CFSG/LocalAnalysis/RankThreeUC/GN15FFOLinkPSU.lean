@@ -4,8 +4,6 @@ public import CFSG.LocalAnalysis.RankThreeUC.GN15FFOLink
 public import CFSG.LocalAnalysis.RankThreeUC.GN15FFOLinkPSUGrp
 public import CFSG.LocalAnalysis.RankThreeUC.GN15FFOLinkPSUDiag
 public import CFSG.LocalAnalysis.RankThreeUC.GN15FFOLinkPSUCover
-public import CFSG.LieType.Steinberg.CentralExt.SUOddClosed
-public import CFSG.LieType.Steinberg.CentralExt.UnitaryPerfect
 public import CFSG.Certificates.CentralKernel
 public import CFSG.Certificates.CosetTableWalkC
 public import CFSG.Certificates.FusionF2
@@ -56,10 +54,7 @@ public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.MsidePrelim.Kmax
 public import CFSG.LocalAnalysis.AGLEmbeddingD2.Tits.MsidePrelim.ThompsonFactor
 public import CFSG.LocalAnalysis.ComponentClassification.CatFactsL4U4Cover
 public import CFSG.LocalAnalysis.ComponentClassification.OddClassSelectorU
-public import CFSG.LocalAnalysis.ComponentClassification.OddSelector
-public import CFSG.LocalAnalysis.ComponentClassification.OutcomeLocalCTILinearSocle
 public import CFSG.LocalAnalysis.ComponentClassification.Sp4RecPair
-public import CFSG.LocalAnalysis.ComponentInitial.ProjectiveEigenspaceComponent
 public import CFSG.LocalAnalysis.ProperTwoGeneratedCore.LocalCriterionSquareFieldNaturalAction
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.LiftSaturate
 public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Setup.WreathA3Sub3
@@ -86,7 +81,6 @@ public import CFSG.Monster.GMS.Fi23Gen
 public import CFSG.Monster.GMS.Fi23GenIso
 public import CFSG.Monster.GMS.Fi23GenSix
 public import CFSG.Monster.GMS.LeechCoh
-public import CFSG.Monster.GMS.LeechCohGroup
 public import CFSG.Monster.GMS.S365Center
 public import CFSG.Monster.GMS.S37
 public import CFSG.Monster.GMS.S4Assembly

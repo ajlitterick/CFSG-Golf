@@ -6,10 +6,7 @@ public import CFSG.Quasithin.Vol2.Ch12Sec2Lem8Cases
 public import CFSG.Quasithin.Vol2.Ch12Sec2OrbitStmts
 public import CFSG.Quasithin.Vol2.Ch12Sec2Action
 public import CFSG.Quasithin.Vol2.Ch1Nine
-public import CFSG.Quasithin.Vol2.Ch1Eight
 public import CFSG.Quasithin.Vol2.Ch1Chief
-public import CFSG.Quasithin.Vol2.Ch1Faithful
-public import CFSG.Quasithin.Vol2.Ch1Prop121
 public import CFSG.Quasithin.H13.VolIA36
 public import CFSG.Quasithin.H13.VolIAltCoverSeven
 public import CFSG.Quasithin.H13.L1332Inputs
@@ -25,8 +22,6 @@ public import CFSG.Quasithin.Background.A3Structure36BPrimeDataBase
 public import CFSG.Quasithin.Background.B4Statement
 public import CFSG.Quasithin.Background.B5Statement
 public import CFSG.Quasithin.Background.B6
-public import CFSG.Quasithin.Background.B6Example
-public import CFSG.Quasithin.Background.B6Offenders
 public import CFSG.Quasithin.Background.E2Hyp
 public import CFSG.Quasithin.Background.E2SolvTwo
 public import CFSG.Quasithin.Background.F2Equiv
@@ -36,9 +31,6 @@ public import CFSG.Quasithin.Vol2.Ch1Unique
 public import CFSG.RankThree.Asc83Table.PermTables
 public import CFSG.Sporadic.Schreier.M11
 public import CFSG.Sporadic.Schreier.M22
-public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_3_3
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.CPrime
-public import CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.DihedralAut
 
 public section
 

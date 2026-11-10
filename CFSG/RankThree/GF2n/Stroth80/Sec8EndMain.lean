@@ -1,20 +1,11 @@
 module
 
-public import CFSG.RankThree.GF2n.Stroth80.Sec7EndDefs
-public import CFSG.RankThree.GF2n.Stroth80.Sec7EndModel
 public import CFSG.RankThree.GF2n.Stroth80.Sec7EndBridge
 public import CFSG.RankThree.GF2n.Stroth80.Sec7EndClassical
-public import CFSG.RankThree.GF2n.Stroth80.Sec7EndLinear
 public import CFSG.RankThree.GF2n.Stroth80.Sec7EndCore
 public import CFSG.RankThree.GF2n.Stroth80.Sec7EndArith
-public import CFSG.RankThree.GF2n.Stroth80.Sec8Stmt
-public import CFSG.RankThree.GF2n.Stroth80.Sec84Basic
 public import CFSG.RankThree.GF2n.Stroth80.Sec84Conj
-public import CFSG.RankThree.GF2n.Stroth80.Sec84Stmt
 public import CFSG.RankThree.GF2n.Stroth80.Sec8Assembly
-public import CFSG.RankThree.GF2n.Stroth80.Sec5NatScalars
-public import CFSG.RankThree.GF2n.Stroth80.Sec4Stmt
-public import CFSG.RankThree.GF2n.Stroth80.Sec311Stmt
 public import CFSG.LargeExtraspecial.S8CBF3D4Sect
 public import CFSG.CGT.PushingUpLit.CGT6.SixFour
 public import CFSG.CGT.PushingUpLit.CGT6.SixSixteen
@@ -112,8 +103,6 @@ public import CFSG.Quasithin.Background.C1PackS1531Top
 public import CFSG.Quasithin.Background.C2PushThree
 public import CFSG.Quasithin.Background.D2
 public import CFSG.Quasithin.Background.E3
-public import CFSG.Quasithin.Background.E3Nprime
-public import CFSG.Quasithin.Background.E3Uniq
 public import CFSG.Quasithin.Background.F918H5
 public import CFSG.Quasithin.Background.FFC4Tr2
 public import CFSG.Quasithin.Background.GoldschmidtS146RBend1
@@ -188,8 +177,6 @@ public import CFSG.Sporadic.Presentation.Co2FusionInputs
 public import CFSG.Sporadic.Presentation.McLExactData
 public import CFSG.Sporadic.Presentation.McLExactInputs
 public import CFSG.StronglyEmbedded.UniqueCoset
-public import CFSG.Walter.J1Props
-public import CFSG.Walter.J1Recog
 public import CFSG.Walter.Ree.Thompson2.BaseFin
 public import CFSG.Walter.ReeOrder.WardLocal
 public import CFSG.Walter.W67.Section8.Prop83

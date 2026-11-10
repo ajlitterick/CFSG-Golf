@@ -1,9 +1,6 @@
 module
 
 public import CFSG.Quasithin.Background.HSp4A6DataInputs
-public import CFSG.Quasithin.Background.HSp4Model
-public import CFSG.Quasithin.Background.G6Natural
-public import CFSG.LocalAnalysis.QuasithinUnique.Constrained.Lin2.In23FiveTauAlg
 
 public section
 

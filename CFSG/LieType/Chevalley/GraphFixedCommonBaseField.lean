@@ -2,8 +2,6 @@ module
 
 public import CFSG.LieType.Chevalley.GraphFixedSchreier
 public import CFSG.LieType.Chevalley.GraphFixedD4TorusWords
-public import CFSG.LieType.Chevalley.GraphFixedE6DiagonalCubes
-public import CFSG.LieType.Chevalley.GraphFixedParameterFields
 public import CFSG.LieType.Chevalley.RootPairCommonField
 
 public noncomputable section
