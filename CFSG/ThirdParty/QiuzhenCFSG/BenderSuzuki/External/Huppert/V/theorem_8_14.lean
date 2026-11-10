@@ -2,6 +2,7 @@ module
 
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.IV.theorem_6_2
 public import CFSG.ThirdParty.QiuzhenCFSG.BenderSuzuki.External.Huppert.V.ComplementTransfer
+import CFSG.StronglyEmbedded.SteinbergBSPrimeFixedPointFreeNilpotent
 
 namespace CFSG
 end CFSG
@@ -620,8 +621,8 @@ public theorem thompson_prime_order_fixedPointFree_automorphism_nilpotent
     {Q : Type u} [Group Q] [Finite Q] (φ : MulAut Q)
     (hprime : Nat.Prime (orderOf φ))
     (hfixed : ∀ q : Q, φ q = q → q = 1) :
-    Group.IsNilpotent Q := by
-  exact thompson_prime_order_fixedPointFree_hkt_reduction φ hprime hfixed
+    Group.IsNilpotent Q :=
+  CFSG.StronglyEmbedded.prime_order_fixed_point_free_automorphism_nilpotent φ hprime rfl hfixed
 
 /--
 The subgroup-of-automorphisms version used after extracting a prime-order
