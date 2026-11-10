@@ -54,7 +54,8 @@ PREFIX_LINE_RE = re.compile(r"^(?:set_option|open|omit|include|variable)\b[^\n]*
 PREFIX_RE = re.compile(r"\A(?:(?:set_option|open|omit|include|variable)\b[^\n]*\bin\s*\n)+")
 INERT_RE = re.compile(r"\A(?:(?:public\s+)?(?:meta\s+)?import\b|module\b|prelude\b|namespace\b|end\b|"
                       r"(?:public\s+|noncomputable\s+|private\s+)*section\b|universe\b|"
-                      r"open\b(?![^\n]*\bin\s*$))")
+                      r"open\b(?![^\n]*\bin\s*$)(?![^\n]*(?:\(|\bhiding\b|\brenaming\b)))")
+NAME_OK = re.compile(r"[\w.'!?«»]+")
 KIND_DECL, KIND_OTHER, KIND_EXAMPLE = 0, 1, 2
 
 
@@ -101,7 +102,8 @@ def chunks_of(text: str):
         kw, name = m.group(3), m.group(4)
         if kw == "example":
             out.append((s, e, KIND_EXAMPLE, kw, "", body))
-        elif kw in ("instance", "axiom") or not name or (attrs - HARMLESS_ATTR):
+        elif (kw in ("instance", "axiom") or not name or (attrs - HARMLESS_ATTR)
+              or NAME_OK.fullmatch(name) is None):
             out.append((s, e, KIND_OTHER, kw, name.split(".")[-1], body))
         else:
             out.append((s, e, KIND_DECL, kw, name.split(".")[-1], body))
@@ -142,7 +144,8 @@ def pass2(path: str):
         if kind == KIND_DECL:
             ids.discard(nid)
         nbytes = sum(len(l.encode("utf-8")) + 1 for l in raw_lines[s:e])
-        res.append((s, e, kind, kw, nid, nbytes, np.fromiter(ids, dtype=np.uint32, count=len(ids))))
+        fw = body.split(None, 1)[0] if body.strip() else ""
+        res.append((s, e, kind, kw, nid, nbytes, np.fromiter(ids, dtype=np.uint32, count=len(ids)), fw))
     return res
 
 
@@ -152,13 +155,24 @@ def main() -> None:
     ap.add_argument("--root", default="Comparator.Solution")
     ap.add_argument("--root-files", nargs="*", default=["Comparator/Solution.lean"])
     ap.add_argument("--root-names", nargs="*", default=[])
+    ap.add_argument("--extra-roots", nargs="*", default=[],
+                    help="further root modules; files only they reach are root files")
     ap.add_argument("--out", default="text_reach.tsv")
     ap.add_argument("--jobs", type=int, default=3)
     ap.add_argument("--tmp", default=None)
+    ap.add_argument("--save", default=None, help="directory for the mention graph (binary arrays)")
     ap.add_argument("--limit", type=int, default=0, help="only the first N live files (testing)")
     a = ap.parse_args()
     g = Graph.load(a.repo)
-    live = sorted(g.reachable(a.root))
+    primary = g.reachable(a.root)
+    extra: set[str] = set()
+    for r in a.extra_roots:
+        extra |= g.reachable(r)
+    extra -= primary
+    live = sorted(primary | extra)
+    a.root_files = list(a.root_files) + [g.mods[m].path for m in sorted(extra)]
+    if extra:
+        print(f"extra root files: {len(extra)}", flush=True)
     if a.limit:
         live = live[:a.limit]
     paths = [g.mods[m].path for m in live]
@@ -181,9 +195,11 @@ def main() -> None:
     # chunk table
     c_file, c_s, c_e, c_kind, c_kw, c_name, c_bytes = [], [], [], [], [], [], []
     tok_parts, tok_len = [], []
+    c_first: list[str] = []
     with Pool(a.jobs, initializer=_init, initargs=(names_path,)) as pool:
         for fi, res in enumerate(pool.imap(pass2, full, chunksize=200)):
-            for (s, e, kind, kw, nid, nbytes, ids) in res:
+            for (s, e, kind, kw, nid, nbytes, ids, fw) in res:
+                c_first.append(fw)
                 c_file.append(fi); c_s.append(s); c_e.append(e); c_kind.append(kind)
                 c_kw.append(kw); c_name.append(nid); c_bytes.append(nbytes)
                 tok_parts.append(ids); tok_len.append(len(ids))
@@ -201,6 +217,38 @@ def main() -> None:
     print(f"chunks: {n}  (declarations {int((c_kind_a == KIND_DECL).sum())}, always-live "
           f"{int((c_kind_a == KIND_OTHER).sum())}, examples {int((c_kind_a == KIND_EXAMPLE).sum())}); "
           f"mention edges: {len(toks)}", flush=True)
+
+    if a.save:
+        os.makedirs(a.save, exist_ok=True)
+        root0 = c_kind_a == KIND_OTHER
+        rf = {i for i, p in enumerate(paths) if p in set(a.root_files)}
+        if rf:
+            root0 = root0 | np.isin(c_file_a, np.array(sorted(rf)))
+        for nm, arr in (("indptr.i64", indptr), ("toks.u32", toks),
+                        ("kind.i8", c_kind_a), ("name.i64", c_name_a),
+                        ("bytes.i64", c_bytes_a), ("file.i64", c_file_a),
+                        ("sline.i64", np.array(c_s, dtype=np.int64)),
+                        ("eline.i64", np.array(c_e, dtype=np.int64)),
+                        ("root.u8", root0.astype(np.uint8))):
+            arr.tofile(os.path.join(a.save, nm))
+        with open(os.path.join(a.save, "paths.txt"), "w", encoding="utf-8") as f:
+            f.write("\n".join(paths))
+        with open(os.path.join(a.save, "names.txt"), "w", encoding="utf-8") as f:
+            f.write("\n".join(names_list))
+        with open(os.path.join(a.save, "kw.txt"), "w", encoding="utf-8") as f:
+            f.write("\n".join(c_kw))
+        with open(os.path.join(a.save, "first.txt"), "w", encoding="utf-8") as f:
+            f.write("\n".join(w.replace("\n", " ") for w in c_first))
+        # file-level import graph over the live modules (indices into paths)
+        midx = {m: i for i, m in enumerate(live)}
+        fptr = np.zeros(len(live) + 1, dtype=np.int64)
+        fimp: list[int] = []
+        for i, m in enumerate(live):
+            fimp.extend(sorted({midx[x] for _k, x in g.mods[m].imports if x in midx}))
+            fptr[i + 1] = len(fimp)
+        fptr.tofile(os.path.join(a.save, "fimp_ptr.i64"))
+        np.array(fimp, dtype=np.uint32).tofile(os.path.join(a.save, "fimp.u32"))
+        print(f"saved graph to {a.save}", flush=True)
 
     # name id -> declaration chunks carrying it
     decl_idx = np.nonzero(c_kind_a == KIND_DECL)[0]
