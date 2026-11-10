@@ -42,12 +42,38 @@ class Module:
 
 
 def parse_imports(path: str) -> list[tuple[str, str]]:
-    """Return (kind, module) pairs for the import header of a Lean file."""
+    """Return (kind, module) pairs for the import header of a Lean file.
+
+    Comments are ignored wherever they occur in the header: whole-line and trailing `--`
+    comments (e.g. `module  -- shake: keep-all`) and `/- ... -/` blocks spanning lines.
+    """
     out = []
+    in_block = False
     with open(path, encoding="utf-8", errors="replace") as f:
         for line in f:
-            s = line.strip()
-            if not s or s == "module" or s.startswith("--") or s.startswith("/-") or s.startswith("-/"):
+            s = line
+            if in_block:
+                j = s.find("-/")
+                if j < 0:
+                    continue
+                s = s[j + 2:]
+                in_block = False
+            # remove complete and opening block comments, then a trailing line comment
+            while True:
+                i = s.find("/-")
+                if i < 0:
+                    break
+                j = s.find("-/", i + 2)
+                if j < 0:
+                    s = s[:i]
+                    in_block = True
+                    break
+                s = s[:i] + " " + s[j + 2:]
+            i = s.find("--")
+            if i >= 0:
+                s = s[:i]
+            s = s.strip()
+            if not s or s == "module" or s == "prelude":
                 continue
             m = IMPORT_RE.match(s)
             if m:
@@ -56,7 +82,7 @@ def parse_imports(path: str) -> list[tuple[str, str]]:
                     "meta" if m.group(2) else "",
                     "all" if m.group(3) else "") if k) or "private"
                 out.append((kind, m.group(4)))
-            elif s.startswith(("prelude", "set_option", "#")):
+            elif s.startswith(("set_option", "#")):
                 continue
             else:
                 break  # first non-import token ends the header

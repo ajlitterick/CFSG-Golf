@@ -1,11 +1,11 @@
 {
  "root": "Comparator.Solution",
- "git_rev": "69cb972f5",
+ "git_rev": "8dee08a6d",
  "depth": 1,
  "totals": {
-  "modules": 226885,
-  "bytes": 2147418390,
-  "lines": 42779111
+  "modules": 226887,
+  "bytes": 2147433714,
+  "lines": 42779430
  },
  "dirs": {
   "CFSG/LocalAnalysis": {
@@ -49,9 +49,9 @@
    "lines": 1275616
   },
   "CFSG/ThirdParty": {
-   "modules": 1916,
-   "bytes": 58897495,
-   "lines": 1350885
+   "modules": 1918,
+   "bytes": 58912819,
+   "lines": 1351204
   },
   "CFSG/Sporadic": {
    "modules": 3341,
@@ -300,12 +300,12 @@
   }
  },
  "external": {
-  "TauCeti": 512,
-  "Mathlib": 1240,
+  "Mathlib": 1242,
+  "TauCeti": 519,
   "Lean": 20,
-  "Init": 25,
-  "Batteries": 9,
   "Std": 13,
+  "Batteries": 9,
+  "Init": 25,
   "Aesop": 1
  },
  "dead": [
@@ -2401,8 +2401,6 @@
   "CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.SubgroupImageBotCore",
   "CFSG.ThirdParty.QiuzhenCFSG.GorensteinWalter.Suzuki.SylowThreeDisjointDoubleCoset",
   "CFSG.ThirdParty.QiuzhenCFSG.Theory",
-  "CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.BrauerSuzuki",
-  "CFSG.ThirdParty.QiuzhenCFSG.Theory.Character.Induction",
   "CFSG.ThirdParty.QiuzhenCFSG.Theory.ElementaryAbelian.Basic",
   "CFSG.ThirdParty.QiuzhenCFSG.Theory.ElementaryAbelian.Join",
   "CFSG.ThirdParty.QiuzhenCFSG.Theory.ElementaryAbelian.VectorSpace",
