@@ -144,7 +144,10 @@ def pass2(path: str):
         if kind == KIND_DECL:
             ids.discard(nid)
         nbytes = sum(len(l.encode("utf-8")) + 1 for l in raw_lines[s:e])
-        fw = body.split(None, 1)[0] if body.strip() else ""
+        # first word after any `open ... in` / `set_option ... in` prefix lines, so that
+        # `open Lean in elab ...` is seen as an `elab` command, not as an `open`
+        rest = PREFIX_RE.sub("", body)
+        fw = rest.split(None, 1)[0] if rest.strip() else (body.split(None, 1)[0] if body.strip() else "")
         res.append((s, e, kind, kw, nid, nbytes, np.fromiter(ids, dtype=np.uint32, count=len(ids)), fw))
     return res
 

@@ -60,7 +60,10 @@ def scanData (st : St) (modIdx : Nat) (md : ModuleData) : St := Id.run do
     if let .thmInfo v := ci then
       if v.value.isConstOf ``sorryAx then st := { st with noValue := st.noValue + 1 }
     st := { st with deps := st.deps.insert k dk, modOf := st.modOf.insert k modIdx }
-    arr := arr.push (k, toString n)
+    -- `toString` of a one-component name can return the string stored in the compacted
+    -- region; `push` forces a fresh copy that survives freeing the region (the trailing
+    -- space is stripped by the readers)
+    arr := arr.push (k, (toString n).push ' ')
   return { st with names := st.names.set! modIdx arr }
 
 /-- Load the parts, scan them, and return only scalar data (the regions) so that every
@@ -142,7 +145,7 @@ def main (args : List String) : IO UInt32 := do
     if used > 0 then usedMods := usedMods + 1
     h.putStrLn s!"M\t{m}\t{used}\t{arr.size}"
     for (k, n) in arr do
-      h.putStrLn s!"D\t{m}\t{if seen.contains k then "U" else "N"}\t{n}"
+      h.putStrLn s!"D\t{m}\t{if seen.contains k then "U" else "N"}\t{n.trimAsciiEnd}"
   h.flush
   IO.println s!"modules with a used constant: {usedMods}/{st.mods.size}; wrote {out}"
   return (if rootFound then 0 else 1)
